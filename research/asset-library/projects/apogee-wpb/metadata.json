@@ -1,0 +1,53 @@
+{
+  "projectId": "apogee-wpb",
+  "slug": "apogee-west-palm-beach",
+  "name": "Apogee West Palm Beach",
+  "address": "4906 N Flagler Dr, West Palm Beach, FL 33407",
+  "corridor": "Northwood / North Flagler",
+  "officialWebsite": "",
+  "status": "Planning",
+  "completion": "2029 target in seed model; planning-stage timing should be verified.",
+  "developer": "Related Group and BH Group",
+  "architect": "Kohn Pedersen Fox",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "39",
+  "stories": "21",
+  "unitMix": "",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Not publicly confirmed",
+  "amenities": [],
+  "salesContact": "Not publicly confirmed",
+  "confidence": "High",
+  "notes": "Low-confidence seed entry; no official project website was confirmed during this build.",
+  "sourceUrls": [
+    "https://therealdeal.com/miami/2025/11/18/related-group-bh-group-plan-apogee-condo-in-west-palm-beach/"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://therealdeal.com/miami/2025/11/18/related-group-bh-group-plan-apogee-condo-in-west-palm-beach/"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "North Flagler Pipeline",
+  "generatedPlaceholderCopies": [
+    "projects/apogee-wpb/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [],
+  "crawlFindings": {
+    "pages": [],
+    "discoveredLinks": [],
+    "imageCandidates": [],
+    "pdfCandidates": [],
+    "errors": [
+      {
+        "url": "https://therealdeal.com/miami/2025/11/18/related-group-bh-group-plan-apogee-condo-in-west-palm-beach/",
+        "status": 404,
+        "error": "Not Found"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

@@ -1,0 +1,326 @@
+{
+  "projectId": "south-flagler-house-south",
+  "slug": "south-flagler-house-south",
+  "name": "South Flagler House South Tower",
+  "address": "1355 S Flagler Dr, West Palm Beach, FL 33401",
+  "corridor": "South Flagler waterfront",
+  "officialWebsite": "https://www.southflaglerhouse.com/",
+  "status": "Under construction",
+  "completion": "Expected 2027",
+  "developer": "Related Ross",
+  "architect": "Robert A.M. Stern Architects",
+  "interiorDesigner": "Pembrooke & Ives",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "108",
+  "stories": "28",
+  "unitMix": "Two- to five-bedroom homes; Penthouses; Guest suites",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Request current pricing",
+  "amenities": [
+    "50,000 square feet of private club amenities",
+    "Lakefront pool and cabanas",
+    "Spa",
+    "Fitness center",
+    "Pickleball court",
+    "Sports simulator lounge",
+    "Pilates and yoga studio",
+    "Executive conference rooms",
+    "On-site dining"
+  ],
+  "salesContact": "Not publicly confirmed",
+  "confidence": "High",
+  "notes": "Residence count applies to the full South Flagler House project, not this single modeled tower.",
+  "sourceUrls": [
+    "https://www.southflaglerhouse.com/",
+    "https://www.southflaglerhouse.com/architecture-design",
+    "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
+    "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://www.southflaglerhouse.com/",
+    "https://www.southflaglerhouse.com/architecture-design",
+    "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
+    "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "South Flagler Waterfront",
+  "generatedPlaceholderCopies": [
+    "projects/south-flagler-house-south/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
+        "title": "Related Companies to launch sales for South Flagler House in West Palm Beach | Related Ross",
+        "description": "Related Companies today announced it will launch sales for South Flagler House in early November. Located along the Gold Coast in West Palm Beach, Florida, South Flagler House offers an unparalleled luxury residential experience in the Palm Beaches featuring exquisite design and spectacular waterfront views. The first luxury residential high-rise in Florida designed by world-renowned architecture firm Robert A.M.",
+        "ogImage": ""
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/related-favicon-128_0.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_ygYVVZxBoxSicVY88N3maZiKGaHncZkqRASwx-li9zY.css?delta=0&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_ar5TLmU-t0SXYlPN5Vlbm9m71lDnSHWevb7KR7J7unA.css?delta=1&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_klMz1Y5jQbWQT0cCDJj-qJhKYZ9gMYjZI_dKTCTs7Ns.css?delta=2&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js_91aqBNnXbL0lGxUiZnDRJmqUuXPri8_ZLYkVHwK94wA.js?scope=header&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI6KhYUha9faW6o8Pxp9N9jE7CcyaA6uD57RHbsVMoEBwx-YCnmDN3MQk5kToFZJLG3xyC2e4vYvFtBhd7zrsZTtNxAHICEKLJw81e1iUI5dKqOgGupHcF1-5LtUH4ngR90MzVwz9A_eaFgkLzmojL7NuJ4z8CRUyiRVY8W9IOW1fDmMFRSCNfdmWqF92hwe8LZsf",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/google_tag/js/gtag.js?tenomk",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/google_tag/js/gtm.js?tenomk",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/css/seckit.no_body.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/js/seckit.document_write.js?",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/css/seckit.noscript_tag.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-PSLNMLF",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/themes/custom/rcc/images/REL_RossLogo-KO.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedrentals.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedbeal.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedcalifornia.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedmidwest.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/vision-impacts",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/properties",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/leadership",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/awards",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.jobs/careers-home/jobs?stretchUnits=MILES&stretch=50&location=West%20Palm%20Beach&lat=26.71534&lng=-80.05337&woe=7",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/foundation",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/city-centers",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/office",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/residential",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/",
+        "label": ""
+      },
+      {
+        "url": "https://southflaglerhouse.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedrentals.com/apartment-rentals/west-palm-beach/cityplace/the-laurel",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/hospitality",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/retail",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/arts-culture",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/blog",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/brand-partnerships",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/news-articles",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/contact-us",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/themes/custom/rcc/images/Search.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/email.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.facebook.com/share.php?u=https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach&title=Related%20Companies%20to%20launch%20sales%20for%20South%20Flagler%20House%20in%20West%20Palm%20Beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/facebook_share.svg",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/intent/tweet?url=https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach&status=Related%20Companies%20to%20launch%20sales%20for%20South%20Flagler%20House%20in%20West%20Palm%20Beach+https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/twitter.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.linkedin.com/shareArticle?mini=true&url=https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach&title=Related%20Companies%20to%20launch%20sales%20for%20South%20Flagler%20House%20in%20West%20Palm%20Beach&source=https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/linkedin.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.pinterest.com/pin/create/button/?url=https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach&description=Related%20Companies%20to%20launch%20sales%20for%20South%20Flagler%20House%20in%20West%20Palm%20Beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/pinterest.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.ramsa.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/terms-use",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://privacyportal-cdn.onetrust.com/dsarwebform/679d7477-7e03-4d1d-8596-4ba05c7a40f9/33af1b77-041a-4265-a598-6d30835f164d.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.essentialaccessibility.com/related",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/privacy-notice",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js__7B45lLcf6kj722yYHwF8coHs2Sz6xmux01b0bKieb8.js?scope=footer&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI6KhYUha9faW6o8Pxp9N9jE7CcyaA6uD57RHbsVMoEBwx-YCnmDN3MQk5kToFZJLG3xyC2e4vYvFtBhd7zrsZTtNxAHICEKLJw81e1iUI5dKqOgGupHcF1-5LtUH4ngR90MzVwz9A_eaFgkLzmojL7NuJ4z8CRUyiRVY8W9IOW1fDmMFRSCNfdmWqF92hwe8LZsf",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [],
+    "pdfCandidates": [],
+    "errors": [
+      {
+        "url": "https://www.southflaglerhouse.com/",
+        "status": 429,
+        "error": "Too many requests"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/architecture-design",
+        "status": 429,
+        "error": "Too many requests"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

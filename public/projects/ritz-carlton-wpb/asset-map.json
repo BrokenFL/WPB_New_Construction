@@ -1,0 +1,132 @@
+{
+  "project": "The Ritz-Carlton Residences, West Palm Beach",
+  "slug": "ritz-carlton-wpb",
+  "updated": "2026-05-11",
+  "sourceFolder": "/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/West Palm Beach Construction /RitzCarlton",
+  "publicBase": "/projects/ritz-carlton-wpb/",
+  "media": {
+    "heroDesktop": {
+      "file": "media/ritz-hero-waterfront-building-2880x1800.png",
+      "source": "waterfront_building_sun_reflections_2880x1800.png",
+      "size": "2880x1800",
+      "usage": "Desktop hero / lead exterior image"
+    },
+    "heroMobile": {
+      "file": "media/ritz-mobile-hero-tower-sunset-1080x1350.png",
+      "source": "tower_sunset_backlit_1080x1350.png",
+      "size": "1080x1350",
+      "usage": "Mobile hero"
+    },
+    "galleryCard": {
+      "file": "media/ritz-gallery-card-waterfront-tower-1600x2000.png",
+      "source": "waterfront_tower_boats_reflection_1600x2000.png",
+      "size": "1600x2000",
+      "usage": "Vertical gallery card / project directory card"
+    },
+    "arrival": [
+      {
+        "file": "media/ritz-arrival-porte-cochere-evening-2400x1600.png",
+        "source": "port_cochere_evening_couple_doorman_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Primary arrival section"
+      },
+      {
+        "file": "media/ritz-arrival-porte-cochere-two-cars-2400x1600.png",
+        "source": "porte_cochere_two_cars_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Secondary arrival / valet service"
+      }
+    ],
+    "lobby": [
+      {
+        "file": "media/ritz-lobby-lounge-waterfront-2400x1600.png",
+        "source": "lobby_lounge_couple_conversation_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Lobby lounge"
+      },
+      {
+        "file": "media/ritz-lobby-service-2400x1600.png",
+        "source": "lobby_doorperson_woman_dog_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Service / lobby support card"
+      }
+    ],
+    "residences": [
+      {
+        "file": "media/ritz-residence-living-room-sunrise-2400x1600.png",
+        "source": "residence_living_room_sunrise_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Primary residence living image"
+      },
+      {
+        "file": "media/ritz-residence-kitchen-entertaining-2400x1600.png",
+        "source": "kitchen_couple_cooking_martini_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Kitchen / entertaining"
+      },
+      {
+        "file": "media/ritz-residence-primary-bath-2400x1600.png",
+        "source": "bathroom_orchids_tub_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Primary bath"
+      }
+    ],
+    "views": [
+      {
+        "file": "media/ritz-view-intracoastal-day-2400x1600.png",
+        "source": "clean_coastal_view_million_bucks_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Day view"
+      },
+      {
+        "file": "media/ritz-view-balcony-night-2400x1600.png",
+        "source": "night_balcony_million_bucks_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Night balcony / downtown view"
+      },
+      {
+        "file": "media/ritz-evening-aerial-road-motion-2400x1600.png",
+        "source": "/Users/brookesnader/Downloads/night_aerial_road_motion_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Aerial status / market context"
+      }
+    ],
+    "amenities": [
+      {
+        "file": "media/ritz-amenity-fitness-center-2400x1600.png",
+        "source": "fitness_center_active_not_crowded_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Fitness and wellness center"
+      },
+      {
+        "file": "media/ritz-amenity-pool-cabanas-2400x1600.png",
+        "source": "pool_cabanas_refined_color_2400x1600.png",
+        "size": "2400x1600",
+        "usage": "Pool deck and private cabanas"
+      }
+    ],
+    "logo": {
+      "file": "media/ritz-logo.svg",
+      "source": "RitzWPB logo .svg",
+      "usage": "Project logo / brand mark"
+    }
+  },
+  "docs": {
+    "brochure": "https://www.flipsnack.com/relatedgroup/ritzwpb-brochure/full-view.html",
+    "floorplans": [
+      "docs/floorplans/ritz-residence-01.pdf",
+      "docs/floorplans/ritz-residence-02.pdf",
+      "docs/floorplans/ritz-residence-03.pdf",
+      "docs/floorplans/ritz-residence-04.pdf",
+      "docs/floorplans/ritz-residence-05.pdf",
+      "docs/floorplans/ritz-residence-06.pdf",
+      "docs/floorplans/ritz-lake-home-07.pdf",
+      "docs/floorplans/ritz-lake-home-08.pdf",
+      "docs/floorplans/ritz-lake-home-09.pdf",
+      "docs/floorplans/ritz-lake-home-10.pdf",
+      "docs/floorplans/ritz-lake-home-11.pdf",
+      "docs/floorplans/ritz-lake-home-12.pdf",
+      "docs/floorplans/ritz-lake-home-12-1.pdf"
+    ]
+  }
+}

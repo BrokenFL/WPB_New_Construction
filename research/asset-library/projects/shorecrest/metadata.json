@@ -1,0 +1,856 @@
+{
+  "projectId": "shorecrest",
+  "slug": "shorecrest",
+  "name": "Shorecrest",
+  "address": "1865 N Flagler Dr, West Palm Beach, FL 33407",
+  "corridor": "North Flagler waterfront",
+  "officialWebsite": "https://www.shorecrestwpb.com/",
+  "status": "Under construction",
+  "completion": "Expected 2027",
+  "developer": "Related Ross",
+  "architect": "Roger Ferris + Partners",
+  "interiorDesigner": "Rottet Studio",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "98",
+  "stories": "28",
+  "unitMix": "Two-bedroom residences; Three-bedroom residences",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Current availability reported from $3M by Related Ross; verify current pricing.",
+  "amenities": [
+    "18,355 square feet of amenities",
+    "Equinox-curated wellness partnership",
+    "Golf simulator",
+    "Executive meeting spaces",
+    "Game lounge",
+    "Private dining room",
+    "Rooftop pool deck",
+    "75-foot lap pool",
+    "Hot tub",
+    "Cold plunge",
+    "Sauna and steam rooms"
+  ],
+  "salesContact": "460 S. Rosemary Ave, Suite 180, West Palm Beach; +1 561-220-6011; info@shorecrestwpb.com.",
+  "confidence": "High",
+  "notes": "Some pages show 1865 N Flagler while other Shorecrest pages mention 1901 N Flagler. Address should be confirmed against condominium offering documents.",
+  "sourceUrls": [
+    "https://www.shorecrestwpb.com/",
+    "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+    "https://www.shorecrestwpb.com/residences",
+    "https://www.shorecrestwpb.com/inquire"
+  ],
+  "assetLinks": [
+    {
+      "label": "1153 0704 floorplan",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+      "type": "Floor plan",
+      "source": "github-master"
+    },
+    {
+      "label": "1153 0303 floorplan",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+      "type": "Floor plan",
+      "source": "github-master"
+    },
+    {
+      "label": "Official Floor Plans Index",
+      "url": "https://www.shorecrestwpb.com/floorplans",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 301 Floor Plan",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 1602 Floor Plan",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Official Brochure",
+      "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2025-06/SHC_Rack%20Brochure_0625.pdf",
+      "type": "Brochure",
+      "source": "current-app"
+    },
+    {
+      "label": "Fact Sheet",
+      "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
+      "type": "Fact sheet",
+      "source": "current-app"
+    }
+  ],
+  "crawlSeeds": [
+    "https://www.shorecrestwpb.com/",
+    "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+    "https://www.shorecrestwpb.com/residences",
+    "https://www.shorecrestwpb.com/inquire",
+    {
+      "name": "Residence 704",
+      "beds": "Not publicly confirmed",
+      "baths": "Not publicly confirmed",
+      "interior_sq_ft": null,
+      "exterior_sq_ft": null,
+      "total_sq_ft": null,
+      "price": "Request current pricing",
+      "image_url": "",
+      "pdf_url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+      "notes": "PDF listed in project seed assets."
+    },
+    {
+      "name": "Residence 303",
+      "beds": "Not publicly confirmed",
+      "baths": "Not publicly confirmed",
+      "interior_sq_ft": null,
+      "exterior_sq_ft": null,
+      "total_sq_ft": null,
+      "price": "Request current pricing",
+      "image_url": "",
+      "pdf_url": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+      "notes": "PDF listed in project seed assets."
+    },
+    "https://www.shorecrestwpb.com/floorplans"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "/models/shorecrest.glb",
+  "localScenario": "North Flagler Pipeline",
+  "generatedPlaceholderCopies": [
+    "projects/shorecrest/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "1153 0704 floorplan",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+      "path": "projects/shorecrest/floorplans/1153-0704-floorplan--f2969c6b.pdf",
+      "bytes": 720498,
+      "source": "github-master"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "1153 0303 floorplan",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+      "path": "projects/shorecrest/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
+      "bytes": 748163,
+      "source": "github-master"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 301 Floor Plan",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
+      "path": "projects/shorecrest/floorplans/residence-301-floor-plan--927fc847.pdf",
+      "bytes": 871757,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 1602 Floor Plan",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+      "path": "projects/shorecrest/floorplans/residence-1602-floor-plan--4891242d.pdf",
+      "bytes": 679220,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "failed",
+      "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2025-06/SHC_Rack%20Brochure_0625.pdf",
+      "type": "Brochure",
+      "label": "Official Brochure",
+      "error": "Not Found",
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "failed",
+      "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
+      "type": "Fact sheet",
+      "label": "Fact Sheet",
+      "error": "Not Found",
+      "source": "current-app"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2024-04/RogerFerris_Portrait_DSC5898_Grayscale.png",
+      "path": "projects/shorecrest/images/candidates/01--official-candidate--shorecrestwpb.com--26140aef.png",
+      "bytes": 905847,
+      "contentType": "image/png",
+      "sourcePage": "https://www.shorecrestwpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2024-05/marcus-four-season-atelier-zebulon-perron-interiors-restaurant-bar-montreal-canada_dezeen_2364_col_8-1704x1137.png",
+      "path": "projects/shorecrest/images/candidates/02--official-candidate--shorecrestwpb.com--5ac3a6fb.png",
+      "bytes": 1493872,
+      "contentType": "image/png",
+      "sourcePage": "https://www.shorecrestwpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2024-05/HJ-Roger-Ferris-8%20copy%201%20%281%29.png",
+      "path": "projects/shorecrest/images/candidates/03--official-candidate--shorecrestwpb.com--7be725ea.png",
+      "bytes": 212788,
+      "contentType": "image/png",
+      "sourcePage": "https://www.shorecrestwpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.shorecrestwpb.com/sites/default/files/2024-04/844a3dd74e27b7f16fb001433a0d6732.jpg",
+      "path": "projects/shorecrest/images/candidates/04--official-candidate--shorecrestwpb.com--29553731.jpg",
+      "bytes": 207662,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.shorecrestwpb.com/residences"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://www.shorecrestwpb.com/",
+        "title": "Luxury Condos in West Palm Beach | Shorecrest Flagler Drive",
+        "description": "Discover Shorecrest by Related Ross. Luxury waterfront condos in West Palm Beach featuring two & three-bedroom residences, club-level amenities and water views.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+        "title": "Related Ross Secures $157 Million Construction Loan for Shorecrest in West Palm Beach | Related Ross",
+        "description": "West Palm Beach, FL – February 18, 2026 – Related Ross today announced the closing of a $157 million construction loan for Shorecrest, a modern collection of distinctive waterfront condominium residences in West Palm Beach and a key component of the ﬁrm’s expansive vision for the future of the South Florida city.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/residences",
+        "title": "Luxury Waterfront Residences in West Palm Beach | Shorecrest",
+        "description": "Luxury waterfront residences in West Palm Beach featuring refined interiors, thoughtfully planned layouts, premium finishes, and stunning water views.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/inquire",
+        "title": "Inquire About Shorecrest | Luxury Condos in West Palm Beach",
+        "description": "Contact our sales team at Shorecrest to learn more about new luxury waterfront residences, current availability, pricing, amenities, services, and more.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/floorplans",
+        "title": "Gracious Two- and Three Bedroom Luxury Condo Floor Plans",
+        "description": "View Shorecrest floor plans featuring two- and three-bedroom residences in West Palm Beach with elegant layouts, stunning water views and luxurious finishes.",
+        "ogImage": ""
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://www.shorecrestwpb.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2023-12/EXT01_Hummingbird_Stage%20B6_cropped.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/themes/custom/shorecrest/favicon.ico",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/css/css_YLNNkU0yLa0BsvJH3dUi9Dv05peq8FPFbWbvzHAGtZQ.css?delta=0&language=en&theme=shorecrest&include=eJyNkdEOwyAIRX9I26d9ECpRFxUjmLX7-nVruvbNvsG9B3IDhkhYGtTHbIBRmbP3iQwkzbKmWPzVycgMHvmqFXKoLDWcXesV0gRPWHahUMuQ4htVhQZ-wwMf1KlMvdRuUuSATnHYBm1DliOGBMzfGBfnP6v1WWZ0EYYUo5VIZcwJSLQ6YKMhKwhZx7wd5h4quMhN8kXaUup5HHhfurJg_j30A2a6uV0",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/css/css_3vKVR09V6MNAsKwDj7Ce-ICfj8SGkbVsSJz3v2Uf-Nc.css?delta=1&language=en&theme=shorecrest&include=eJyNkdEOwyAIRX9I26d9ECpRFxUjmLX7-nVruvbNvsG9B3IDhkhYGtTHbIBRmbP3iQwkzbKmWPzVycgMHvmqFXKoLDWcXesV0gRPWHahUMuQ4htVhQZ-wwMf1KlMvdRuUuSATnHYBm1DliOGBMzfGBfnP6v1WWZ0EYYUo5VIZcwJSLQ6YKMhKwhZx7wd5h4quMhN8kXaUup5HHhfurJg_j30A2a6uV0",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/js/js_7hHPhnLCmILwu0BfcGkWT0vxAod2V5116Yk3o5tl0F8.js?scope=header&delta=0&language=en&theme=shorecrest&include=eJx1jVEKgDAMQy-0uS_PMzopnWOzpevA4zt_BAV_QvJCSGK2bgqyhvRYX7qvYNjNETNVjAYUaMo3L1DgfMPmembFTec8UOUE1VvGth_khrUooNDQUKMoCsu4n8JvcwG9Nz9h",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/modules/contrib/google_tag/js/gtag.js?te77dp",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/modules/contrib/google_tag/js/gtm.js?te77dp",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/modules/contrib/seckit/css/seckit.no_body.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/modules/contrib/seckit/js/seckit.document_write.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/modules/contrib/seckit/css/seckit.noscript_tag.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-WMVF4DJ6",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/themes/custom/shorecrest/img/logos/shorecrest-branding.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/themes/custom/shorecrest/img/logos/shorecrest-logo.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/location",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/team",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/floorplans",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/inquire",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/vision",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/residences",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/amenities",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-01/EXT01_Hummingbird_B5_1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-04/RogerFerris_Portrait_DSC5898_Grayscale.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-02/EXT02_Hero_B6%20%281%29.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-01/INT14_Living%20Room_B2.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-05/marcus-four-season-atelier-zebulon-perron-interiors-restaurant-bar-montreal-canada_dezeen_2364_col_8-1704x1137.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-05/HJ-Roger-Ferris-8%20copy%201%20%281%29.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/themes/custom/shorecrest/img/logos/shorecrest-logo-with-text.svg",
+        "label": ""
+      },
+      {
+        "url": "https://maps.app.goo.gl/P76zQCv42R4YvrDf9",
+        "label": ""
+      },
+      {
+        "url": "https://maps.app.goo.gl/wR9ww5gPDBAQsyvG8",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/shorecrestwpb",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/ShorecrestWPB",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2025-06/SHC_Rack%20Brochure_0625.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/artisan-home",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/terms-use",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/accessibility-statement",
+        "label": ""
+      },
+      {
+        "url": "https://privacyportal-cdn.onetrust.com/dsarwebform/679d7477-7e03-4d1d-8596-4ba05c7a40f9/33af1b77-041a-4265-a598-6d30835f164d.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/legal",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-07/RelatedRoss.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.levelaccess.com/a/related/",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2023-12/accessibility-light%201_0.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/js/js_IwI-jU4PabumFv0uJHWkOaO_HvemX34y9_nzsXT5X7c.js?scope=footer&delta=0&language=en&theme=shorecrest&include=eJx1jVEKgDAMQy-0uS_PMzopnWOzpevA4zt_BAV_QvJCSGK2bgqyhvRYX7qvYNjNETNVjAYUaMo3L1DgfMPmembFTec8UOUE1VvGth_khrUooNDQUKMoCsu4n8JvcwG9Nz9h",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/related-favicon-128_0.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_ygYVVZxBoxSicVY88N3maZiKGaHncZkqRASwx-li9zY.css?delta=0&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_ar5TLmU-t0SXYlPN5Vlbm9m71lDnSHWevb7KR7J7unA.css?delta=1&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_klMz1Y5jQbWQT0cCDJj-qJhKYZ9gMYjZI_dKTCTs7Ns.css?delta=2&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js_91aqBNnXbL0lGxUiZnDRJmqUuXPri8_ZLYkVHwK94wA.js?scope=header&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI6KhYUha9faW6o8Pxp9N9jE7CcyaA6uD57RHbsVMoEBwx-YCnmDN3MQk5kToFZJLG3xyC2e4vYvFtBhd7zrsZTtNxAHICEKLJw81e1iUI5dKqOgGupHcF1-5LtUH4ngR90MzVwz9A_eaFgkLzmojL7NuJ4z8CRUyiRVY8W9IOW1fDmMFRSCNfdmWqF92hwe8LZsf",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/google_tag/js/gtag.js?tenomk",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/google_tag/js/gtm.js?tenomk",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/css/seckit.no_body.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/js/seckit.document_write.js?",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/css/seckit.noscript_tag.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-PSLNMLF",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/themes/custom/rcc/images/REL_RossLogo-KO.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedrentals.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedbeal.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedcalifornia.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedmidwest.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/vision-impacts",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/properties",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/leadership",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/awards",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.jobs/careers-home/jobs?stretchUnits=MILES&stretch=50&location=West%20Palm%20Beach&lat=26.71534&lng=-80.05337&woe=7",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/foundation",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/city-centers",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/office",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/residential",
+        "label": ""
+      },
+      {
+        "url": "https://southflaglerhouse.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedrentals.com/apartment-rentals/west-palm-beach/cityplace/the-laurel",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/hospitality",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/retail",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/arts-culture",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/blog",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/brand-partnerships",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/news-articles",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/contact-us",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/themes/custom/rcc/images/Search.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/email.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.facebook.com/share.php?u=https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm&title=Related%20Ross%20Secures%20$157%20Million%20Construction%20Loan%20for%20Shorecrest%20in%20West%20Palm%20Beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/facebook_share.svg",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/intent/tweet?url=https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm&status=Related%20Ross%20Secures%20$157%20Million%20Construction%20Loan%20for%20Shorecrest%20in%20West%20Palm%20Beach%20+https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/twitter.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.linkedin.com/shareArticle?mini=true&url=https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm&title=Related%20Ross%20Secures%20$157%20Million%20Construction%20Loan%20for%20Shorecrest%20in%20West%20Palm%20Beach%20&source=https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/linkedin.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.pinterest.com/pin/create/button/?url=https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm&description=Related%20Ross%20Secures%20$157%20Million%20Construction%20Loan%20for%20Shorecrest%20in%20West%20Palm%20Beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/pinterest.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.goldentree.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.essentialaccessibility.com/related",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/privacy-notice",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js__7B45lLcf6kj722yYHwF8coHs2Sz6xmux01b0bKieb8.js?scope=footer&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI6KhYUha9faW6o8Pxp9N9jE7CcyaA6uD57RHbsVMoEBwx-YCnmDN3MQk5kToFZJLG3xyC2e4vYvFtBhd7zrsZTtNxAHICEKLJw81e1iUI5dKqOgGupHcF1-5LtUH4ngR90MzVwz9A_eaFgkLzmojL7NuJ4z8CRUyiRVY8W9IOW1fDmMFRSCNfdmWqF92hwe8LZsf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/css/css_YLNNkU0yLa0BsvJH3dUi9Dv05peq8FPFbWbvzHAGtZQ.css?delta=0&language=en&theme=shorecrest&include=eJyNkksOwyAMRC8EzaoHMmABFWCEjZr09E0_-ezIzp55tkaWDZGwNKj3yQCjMkfvExlImmVJsfizk5EZPPJZK-RQWWo4udYrpBs8YP4JhVqGFF-oKjTwKx54ow7l1kvtJkUO6BSHddA2ZNliSMD8iXFy9lmtjzKjizCkGK1EKmNOQKLVARsNWUHIOub1MNdQwVkukk_SllLP48DXlu77_vzCgvn7AG_w-8v0",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/css/css_jbG_cfxPZW1IwoD-JxNxnW5GICyJI5_csQalK-jBe9E.css?delta=1&language=en&theme=shorecrest&include=eJyNkksOwyAMRC8EzaoHMmABFWCEjZr09E0_-ezIzp55tkaWDZGwNKj3yQCjMkfvExlImmVJsfizk5EZPPJZK-RQWWo4udYrpBs8YP4JhVqGFF-oKjTwKx54ow7l1kvtJkUO6BSHddA2ZNliSMD8iXFy9lmtjzKjizCkGK1EKmNOQKLVARsNWUHIOub1MNdQwVkukk_SllLP48DXlu77_vzCgvn7AG_w-8v0",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-01/INT14_Living%20Room_B2_0.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-01/INT04_L9_Master%20Bedroom_B8.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-12/INT12_Kitchen_B1_6k.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/styles/full_screen_768x432_mobile_x1/public/2024-12/INT13_Primary%20Bathroom_B1_6k.jpg.webp?itok=9wjKhKal",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-01/INT11_Great%20Room_B4_OP02.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-04/844a3dd74e27b7f16fb001433a0d6732.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/css/css_BnKd9u3qUyeiSqbB84fcv7FD5zkJVuRWsWHcfbcAZxY.css?delta=0&language=en&theme=shorecrest&include=eJyFkWuOwyAMhC-UEGmlHsgQL7ACjPBEfZy-tEm3kaqof7CZb2wMUEG0gonWaH6l5cGKQNGoniZLyvu9T2IpjYprisXvSWZV8qx7rcjMg6MKF2ht5aTxNLelUjL0R5dVKP1USvHGQ6VGvtcGfbneillKXWyKGngeNPRC11jxmgmB82OmHfmvHcd3quwQpXz1gS_4ajqzfT6ZXhWc1ztu2rRF4yRX0YhPwokzF3THUsDtkM8MikkNxPt03Gb7gkOuPXH4-eCP5Q6jo8ne",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/css/css_bjZMVlkBl-JkxufZWLZv1VqCNtepJBaqPQCxJiaDGLY.css?delta=1&language=en&theme=shorecrest&include=eJyFkWuOwyAMhC-UEGmlHsgQL7ACjPBEfZy-tEm3kaqof7CZb2wMUEG0gonWaH6l5cGKQNGoniZLyvu9T2IpjYprisXvSWZV8qx7rcjMg6MKF2ht5aTxNLelUjL0R5dVKP1USvHGQ6VGvtcGfbneillKXWyKGngeNPRC11jxmgmB82OmHfmvHcd3quwQpXz1gS_4ajqzfT6ZXhWc1ztu2rRF4yRX0YhPwokzF3THUsDtkM8MikkNxPt03Gb7gkOuPXH4-eCP5Q6jo8ne",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/js/js_7hHPhnLCmILwu0BfcGkWT0vxAod2V5116Yk3o5tl0F8.js?scope=header&delta=0&language=en&theme=shorecrest&include=eJyFkFlOxDAMhi-URQJxnsoNxm2VxMF2B7g9KTNoFhTx4u2z49-BauvMFuHswxtLcTOzqQm0l3gN_aY-g6GaSywY12ooFXLY3neUr_MkMVPGyYAidfOYB9jg875YnGCCZmmB6fQcbxOnS1-UpK-MlHmG7G3Bsla6JQ0EqAtcvL-GHzj_6NmtTEe1YBc7NcHGbT-uiEPiLrPx4gNmLFgtJN6Pk4f8FQ3WrEHhNH7kt8mY-h8M2wqqAo259iDZP_jpDz_MN2NEwYM",
+        "label": ""
+      },
+      {
+        "url": "https://www.google.com/recaptcha/api.js?render=6LfH5hgsAAAAACn46I6bJ4lg3UwZs0IJWk2JLWQN",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/js/js_7yRsXDLu_pYoKsF-kaW08d-GgnuMadM8ujW4r7cbtFY.js?scope=footer&delta=1&language=en&theme=shorecrest&include=eJyFkFlOxDAMhi-URQJxnsoNxm2VxMF2B7g9KTNoFhTx4u2z49-BauvMFuHswxtLcTOzqQm0l3gN_aY-g6GaSywY12ooFXLY3neUr_MkMVPGyYAidfOYB9jg875YnGCCZmmB6fQcbxOnS1-UpK-MlHmG7G3Bsla6JQ0EqAtcvL-GHzj_6NmtTEe1YBc7NcHGbT-uiEPiLrPx4gNmLFgtJN6Pk4f8FQ3WrEHhNH7kt8mY-h8M2wqqAo259iDZP_jpDz_MN2NEwYM",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/css/css_YLNNkU0yLa0BsvJH3dUi9Dv05peq8FPFbWbvzHAGtZQ.css?delta=0&language=en&theme=shorecrest&include=eJxNj1ESwiAMRC8E7ZcHCjQCTiBMkqr19FadWv6S3bczu4HZ1AT6ZQ6g6ML5J-IA5NU2Ki2NTkVVSKij1nhBF1lwXmTtQBPc4PkTGksFKi90HQTSjmc9qFOZ1tbXQEUzLk7zHoyCakcNy1g_NQbnn_X-PBWjFW4jdy_48P5KzNIJmjrd1LB-B78Byapjbg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/css/css_nTKjKc5ZZs_ZP49cfUvmQQQFYO6EKT1jj8urpJO8QIU.css?delta=1&language=en&theme=shorecrest&include=eJxNj1ESwiAMRC8E7ZcHCjQCTiBMkqr19FadWv6S3bczu4HZ1AT6ZQ6g6ML5J-IA5NU2Ki2NTkVVSKij1nhBF1lwXmTtQBPc4PkTGksFKi90HQTSjmc9qFOZ1tbXQEUzLk7zHoyCakcNy1g_NQbnn_X-PBWjFW4jdy_48P5KzNIJmjrd1LB-B78Byapjbg",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/js/js_7hHPhnLCmILwu0BfcGkWT0vxAod2V5116Yk3o5tl0F8.js?scope=header&delta=0&language=en&theme=shorecrest&include=eJx1jUsKwzAMRC9kR6uex8hFKAl2JSQl6fHzWQQa6OYxH4apIuFhqC-ot8yz54ZBHolFuFEJZOADTz_gjN_fsCcfxehtxxy4ScWWY6Q-fTgt0YuiYacgK2qkosv5BH-btE60OVy83nYsqkXq",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/js/js_-Adut0R8cfVUsSq034u8jOI7Y31eoyWaPTApH5Fxdbw.js?scope=footer&delta=0&language=en&theme=shorecrest&include=eJx1jUsKwzAMRC9kR6uex8hFKAl2JSQl6fHzWQQa6OYxH4apIuFhqC-ot8yz54ZBHolFuFEJZOADTz_gjN_fsCcfxehtxxy4ScWWY6Q-fTgt0YuiYacgK2qkosv5BH-btE60OVy83nYsqkXq",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2023-12/EXT01_Hummingbird_Stage%20B6_cropped.jpg",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-01/EXT01_Hummingbird_B5_1.jpg",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-04/RogerFerris_Portrait_DSC5898_Grayscale.png",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-02/EXT02_Hero_B6%20%281%29.jpg",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-01/INT14_Living%20Room_B2.jpg",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-05/marcus-four-season-atelier-zebulon-perron-interiors-restaurant-bar-montreal-canada_dezeen_2364_col_8-1704x1137.png",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-05/HJ-Roger-Ferris-8%20copy%201%20%281%29.png",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-01/INT14_Living%20Room_B2_0.jpg",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/residences"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-01/INT04_L9_Master%20Bedroom_B8.jpg",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/residences"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-12/INT12_Kitchen_B1_6k.jpg",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/residences"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/styles/full_screen_768x432_mobile_x1/public/2024-12/INT13_Primary%20Bathroom_B1_6k.jpg.webp?itok=9wjKhKal",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/residences"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-01/INT11_Great%20Room_B4_OP02.jpg",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/residences"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2024-04/844a3dd74e27b7f16fb001433a0d6732.jpg",
+        "label": "",
+        "sourcePage": "https://www.shorecrestwpb.com/residences"
+      }
+    ],
+    "pdfCandidates": [
+      {
+        "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2025-06/SHC_Rack%20Brochure_0625.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+        "label": ""
+      }
+    ],
+    "errors": [
+      {
+        "url": {
+          "name": "Residence 704",
+          "beds": "Not publicly confirmed",
+          "baths": "Not publicly confirmed",
+          "interior_sq_ft": null,
+          "exterior_sq_ft": null,
+          "total_sq_ft": null,
+          "price": "Request current pricing",
+          "image_url": "",
+          "pdf_url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+          "notes": "PDF listed in project seed assets."
+        },
+        "status": 0,
+        "error": "Failed to parse URL from [object Object]"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

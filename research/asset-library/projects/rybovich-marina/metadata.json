@@ -1,0 +1,819 @@
+{
+  "projectId": "rybovich-marina",
+  "slug": "rybovich-marina-redevelopment",
+  "name": "Rybovich Marina Redevelopment",
+  "address": "4000-4300 N Flagler Dr, West Palm Beach, FL 33407",
+  "corridor": "Northwood / Rybovich Marina",
+  "officialWebsite": "",
+  "status": "Planning / initial approval",
+  "completion": "Planning / approvals timeline not publicly confirmed.",
+  "developer": "Huizenga Holdings and Integra Investments",
+  "architect": "Kohn Pedersen Fox",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "660",
+  "stories": "",
+  "unitMix": "Residential homes / condominium towers per KPF description",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Not publicly confirmed",
+  "amenities": [
+    "Waterfront promenade",
+    "Retail",
+    "Dining",
+    "Private club",
+    "Tennis courts",
+    "Swimming pools",
+    "Marine and crew amenities"
+  ],
+  "salesContact": "Not publicly confirmed",
+  "confidence": "High",
+  "notes": "KPF describes four condominium towers and 660 homes; city/reporting language can also frame the broader entitlement as residential units. Track separately from on-sale condo inventory.",
+  "sourceUrls": [
+    "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+    "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+    "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+    "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+    "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "",
+  "generatedPlaceholderCopies": [
+    "projects/rybovich-marina/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
+      "path": "projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
+      "bytes": 228788,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR.webp",
+      "path": "projects/rybovich-marina/images/candidates/02--official-candidate--e1.nmcdn.io--ef0589ba.webp",
+      "bytes": 361518,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.kpf.com/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_VT.webp",
+      "path": "projects/rybovich-marina/images/candidates/03--official-candidate--kpf.com--7e3d9a88.webp",
+      "bytes": 380374,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x2400-540x540.webp",
+      "path": "projects/rybovich-marina/images/candidates/04--official-candidate--e1.nmcdn.io--7e6b919a.webp",
+      "bytes": 95468,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+        "title": "KPF’s Rybovich Marina Project Is Unveiled in Palm Beach Post | KPF",
+        "description": "Composed of four residential towers woven together by a waterfront promenade lined with shops and restaurants, KPF&#039;s Rybovich Marina project will form a new lifestyle destination along the Intracoastal Waterway.",
+        "ogImage": "https://www.kpf.com/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_VT.webp"
+      },
+      {
+        "url": "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+        "title": "Rybovich Marina Redevelopment Receives Initial Approval in Florida",
+        "description": "The West Palm Beach Planning Board has granted initial approval for the updated plans of the Rybovich Marina redevelopment, a transformative waterfront project designed by KPF for Huizenga Holdings and Integra Investments.",
+        "ogImage": "https://www.kpf.com/wp-content/uploads/2025/09/3585_1_000_N146_cropped_1200x630.webp"
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/",
+        "title": "Huizenga, Integra’s New Rybovich Marina Plans Approved",
+        "description": "The Huizenga family and Integra Investments scored initial approval for changes to their long-planned $2 billion mixed-use development in West Palm Beach.",
+        "ogImage": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved.jpg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://e1.nmcdn.io/",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+        "label": ""
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/themes/nmc_kpf2024/css/fonts/SuisseIntl-400.woff2",
+        "label": ""
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/themes/nmc_kpf2024/css/fonts/SuisseIntl-500.woff2",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/wp-content/themes/nmc_kpf2024/favicon.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/kpf50",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/people",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/news",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/careers",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/contact",
+        "label": ""
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/news/kpf-marks-50-years-of-design-excellence-with-global-expansion-of-environmental-services",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/",
+        "label": ""
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR.webp",
+        "label": ""
+      },
+      {
+        "url": "https://www.palmbeachpost.com/story/news/local/westpb/2025/02/27/marina-residential-complex-planned-for-west-palm-beach-waterfront/79216453007/?tbref=hp",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/news?filterCategory=29__Press",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/sharer/sharer.php?u=%23https%3A%2F%2Fwww.kpf.com%2Fnews%2Fkpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+        "label": ""
+      },
+      {
+        "url": "https://x.com/intent/tweet?text=KPF%E2%80%99s%20Rybovich%20Marina%20Project%20Is%20Unveiled%20in%20Palm%20Beach%20Post%20-%20https%3A%2F%2Fwww.kpf.com%2Fnews%2Fkpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/shareArticle?mini=true&url=https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+        "label": ""
+      },
+      {
+        "url": "https://pinterest.com/pin/create/button/?url=https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/adaptive-reuse",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/applied-technology",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/civic-cultural",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/education",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/environmental-modeling",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/headquarters",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/hospitality",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/interiors",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/mixed-use",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/office",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/planning-urban-design",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/public-realm",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/research-healthcare",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/residential",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/retail",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/supertall",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/projects/transportation",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/kohnpedersenfox",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/kpf",
+        "label": ""
+      },
+      {
+        "url": "https://youtube.com/@KohnPedersenFox",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/accessibility",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/cookie-notice",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/privacy-notice",
+        "label": ""
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/themes/nmc_kpf2024/scripts/all.min.js?v=1777554763",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_VT.webp",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x2400-540x540.webp",
+        "label": "2124 1 000 N160 cropped 2400x2400 540x540"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x2400-900x900.webp",
+        "label": "2124 1 000 N160 cropped 2400x2400 900x900"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR-540x304.webp",
+        "label": "KPF SOUTH FLORIDA MARINA RGB CAM4 FINAL RGB LR 540x304"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR-900x507.webp",
+        "label": "KPF SOUTH FLORIDA MARINA RGB CAM4 FINAL RGB LR 900x507"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR-1440x810.webp",
+        "label": "KPF SOUTH FLORIDA MARINA RGB CAM4 FINAL RGB LR 1440x810"
+      },
+      {
+        "url": "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+        "label": ""
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2025/09/3585_1_000_N146_cropped_2400x1350.webp",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/sharer/sharer.php?u=%23https%3A%2F%2Fwww.kpf.com%2Fnews%2Frybovich-marina-redevelopment-receives-initial-approval-in-florida",
+        "label": ""
+      },
+      {
+        "url": "https://x.com/intent/tweet?text=Rybovich%20Marina%20Redevelopment%20Receives%20Initial%20Approval%20in%20Florida%20-%20https%3A%2F%2Fwww.kpf.com%2Fnews%2Frybovich-marina-redevelopment-receives-initial-approval-in-florida",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/shareArticle?mini=true&url=https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+        "label": ""
+      },
+      {
+        "url": "https://pinterest.com/pin/create/button/?url=https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/about/news",
+        "label": ""
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_SQ-540x540.webp",
+        "label": ""
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/3207_1_000_N55_cropped_1352x1352.webp",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/news/10-city-place-breaks-ground-in-west-palm-beach-florida",
+        "label": ""
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2024/03/The-Residences-at-Mandarin-Oriental-Miami_TERRACE_1x1.webp",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/news/preview-one-island-drives-the-residences-at-mandarin-oriental-miami",
+        "label": ""
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2024/05/3401_Family_Church_Development_Hero-scaled.webp",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/news/related-proposes-kpf-designed-mixed-use-development-in-west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/wp-content/uploads/2025/09/3585_1_000_N146_cropped_1200x630.webp",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://ak.sail-horizon.com/spm/spm.v1.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.gstatic.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/7f8e9afc27468d99.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/cd98db01403429de.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/557728f8ce4959be.css",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/ProximaNovaFontFamily/ProximaNova/proxima-nova-all.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/common.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/style.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/theme.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/webpack-815c4d841b630f3d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/framework-03eff6fd791dd86e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/main-467a80d1c1f169f3.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/_app-641a2c8a219770b8.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7938-2f511c1b5c00cdb7.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/9933-789056f08ec2524d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7041-54f4e5d13087571a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/8814-3eb6ae91ed02af7e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/1396-1c7e58bb3b6ae138.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/5528-317c55c515620e0f.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/%5BfirstLevel%5D/%5BsecondLevel%5D/%5BthirdLevel%5D/%5BfourthLevel%5D/%5BfifthLevel%5D-9770b3cc0f677a51.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_buildManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_ssgManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-K694XL6&gtm_auth=2Dc6nz6-xSl7lnGU4UY2OA&gtm_preview=env-2",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/logos/trd-news-logo-light.svg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/search/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/subscription/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-50x33.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/author/kate-hinsche/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2021/03/16/related-scores-95m-loan-for-two-tower-luxury-rental-project-in-west-palm/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2022/12/27/luxury-housing-boom-leads-to-waitlists-at-palm-beachs-private-clubs/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/hudson-yards/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/09/04/here-is-west-palm-beachs-condo-pipeline/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/integra-investments/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/kohn-pedersen-fox/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/related-group/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/development-approval/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/luxury-condominiums/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/redevelopment/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/waterfront-development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/about/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/contact-us/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/careers/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/new-york/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/la/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/chicago/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/latest/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/commercial/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/video/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/newsletters/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/advertising/",
+        "label": ""
+      },
+      {
+        "url": "https://help.therealdeal.com/knowledge/kb-tickets/new",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/corporate/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/data/",
+        "label": ""
+      },
+      {
+        "url": "https://www.parsintl.com/publications/the-real-deal/",
+        "label": ""
+      },
+      {
+        "url": "https://shop.therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/trademark-use/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/terms-and-conditions-for-data-use/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/privacy-policy/",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/trdny",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/therealdealmedia/",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/therealdeal/",
+        "label": ""
+      },
+      {
+        "url": "https://www.youtube.com/channel/UCKXsx1tuopwO91QSgjrmA1g",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/therealdeal",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved.jpg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-700x467.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 700x467"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-300x200.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 300x200"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-200x133.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 200x133"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-768x512.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 768x512"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-1024x683.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 1024x683"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-1400x933.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 1400x933"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2017/10/LOGO-VECTOR-TRDsolo.png",
+        "label": "LOGO VECTOR TRDsolo"
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
+        "label": "",
+        "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR.webp",
+        "label": "",
+        "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+      },
+      {
+        "url": "https://www.kpf.com/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_VT.webp",
+        "label": "Open Graph image",
+        "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x2400-540x540.webp",
+        "label": "2124 1 000 N160 cropped 2400x2400 540x540",
+        "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x2400-900x900.webp",
+        "label": "2124 1 000 N160 cropped 2400x2400 900x900",
+        "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR-540x304.webp",
+        "label": "KPF SOUTH FLORIDA MARINA RGB CAM4 FINAL RGB LR 540x304",
+        "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR-900x507.webp",
+        "label": "KPF SOUTH FLORIDA MARINA RGB CAM4 FINAL RGB LR 900x507",
+        "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR-1440x810.webp",
+        "label": "KPF SOUTH FLORIDA MARINA RGB CAM4 FINAL RGB LR 1440x810",
+        "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2025/09/3585_1_000_N146_cropped_2400x1350.webp",
+        "label": "",
+        "sourcePage": "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_SQ-540x540.webp",
+        "label": "",
+        "sourcePage": "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/3207_1_000_N55_cropped_1352x1352.webp",
+        "label": "",
+        "sourcePage": "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2024/03/The-Residences-at-Mandarin-Oriental-Miami_TERRACE_1x1.webp",
+        "label": "",
+        "sourcePage": "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
+      },
+      {
+        "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2024/05/3401_Family_Church_Development_Hero-scaled.webp",
+        "label": "",
+        "sourcePage": "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
+      },
+      {
+        "url": "https://www.kpf.com/wp-content/uploads/2025/09/3585_1_000_N146_cropped_1200x630.webp",
+        "label": "Open Graph image",
+        "sourcePage": "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-50x33.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-700x467.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 700x467",
+        "sourcePage": "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-300x200.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 300x200",
+        "sourcePage": "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-200x133.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 200x133",
+        "sourcePage": "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-768x512.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 768x512",
+        "sourcePage": "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-1024x683.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 1024x683",
+        "sourcePage": "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/09/Huizenga-Integras-New-Rybovich-Marina-Plans-Approved-1400x933.jpg",
+        "label": "Huizenga Integras New Rybovich Marina Plans Approved 1400x933",
+        "sourcePage": "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": []
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

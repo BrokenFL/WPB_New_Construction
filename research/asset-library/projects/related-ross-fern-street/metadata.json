@@ -1,0 +1,521 @@
+{
+  "projectId": "related-ross-fern-street",
+  "slug": "related-ross-fern-street-condo",
+  "name": "Related Ross Fern Street / South Dixie Condo",
+  "address": "430-464 Fern St, 419-435 Gardenia St, and 415-421 S Dixie Hwy, West Palm Beach, FL 33401",
+  "corridor": "Downtown West Palm Beach / South Dixie",
+  "officialWebsite": "",
+  "status": "Planning / not yet named",
+  "completion": "Planning-stage timing not publicly confirmed.",
+  "developer": "Related Ross with Wexford Real Estate Investors, 13th Floor Investments, and L&L Holding Company partnership context",
+  "architect": "Not publicly confirmed",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "130",
+  "stories": "",
+  "unitMix": "Condominium residences",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Not publicly confirmed",
+  "amenities": [],
+  "salesContact": "Not publicly confirmed",
+  "confidence": "Medium",
+  "notes": "Reporting says 100 to 130 condo units; data record uses the high end so the comparison table does not understate potential scale. Treat as a watch-list site until named and filed.",
+  "sourceUrls": [
+    "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "",
+  "generatedPlaceholderCopies": [
+    "projects/related-ross-fern-street/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
+      "path": "projects/related-ross-fern-street/images/candidates/01--official-candidate--static.therealdeal.com--c00cedb5.jpg",
+      "bytes": 308586,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-700x467.jpg",
+      "path": "projects/related-ross-fern-street/images/candidates/02--official-candidate--static.therealdeal.com--98648d22.jpg",
+      "bytes": 65213,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-768x512.jpg",
+      "path": "projects/related-ross-fern-street/images/candidates/03--official-candidate--static.therealdeal.com--4ba16752.jpg",
+      "bytes": 76312,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-1024x683.jpg",
+      "path": "projects/related-ross-fern-street/images/candidates/04--official-candidate--static.therealdeal.com--ec1a496a.jpg",
+      "bytes": 125169,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/",
+        "title": "Steve Ross Plans Fourth West Palm Beach Condo Project",
+        "description": "A Wexford Real Estate Investors, 13th Floor Investments and L&L Holding Co. partnership bought the land for $26 million five years ago.",
+        "ogImage": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://ak.sail-horizon.com/spm/spm.v1.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.gstatic.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/7f8e9afc27468d99.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/cd98db01403429de.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/557728f8ce4959be.css",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/ProximaNovaFontFamily/ProximaNova/proxima-nova-all.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/common.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/style.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/theme.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/webpack-815c4d841b630f3d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/framework-03eff6fd791dd86e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/main-467a80d1c1f169f3.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/_app-641a2c8a219770b8.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7938-2f511c1b5c00cdb7.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/9933-789056f08ec2524d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7041-54f4e5d13087571a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/8814-3eb6ae91ed02af7e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/1396-1c7e58bb3b6ae138.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/5528-317c55c515620e0f.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/%5BfirstLevel%5D/%5BsecondLevel%5D/%5BthirdLevel%5D/%5BfourthLevel%5D/%5BfifthLevel%5D-9770b3cc0f677a51.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_buildManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_ssgManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-K694XL6&gtm_auth=2Dc6nz6-xSl7lnGU4UY2OA&gtm_preview=env-2",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/logos/trd-news-logo-light.svg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/search/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/subscription/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-50x33.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/author/trd-staff/",
+        "label": ""
+      },
+      {
+        "url": "https://www.palmbeachpost.com/story/business/real-estate/2026/04/08/former-russos-sub-shop-stephen-ross-west-palm-beach-condo/89482210007/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/06/10/steve-ross-lands-600m-loan-for-west-palm-beach-condos/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/02/19/related-ross-lands-157-million-loan-for-shorecrest-condos/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2024/03/05/steve-ross-related-pre-leasing-downtown-west-palm-rentals/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/09/04/here-is-west-palm-beachs-condo-pipeline/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/13th-floor-investments/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/mast-capital/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/related-group/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/related-ross/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/terra/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/camilo-miguel-jr/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/david-martin/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/jorge-perez-2/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/steve-ross/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/apartment/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/condo/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/condos/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/construction/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/development-projects/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/investment/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/luxury/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/luxury-real-estate/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/real-estate/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/sales/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/about/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/contact-us/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/careers/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/new-york/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/la/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/chicago/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/latest/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/commercial/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/video/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/newsletters/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/advertising/",
+        "label": ""
+      },
+      {
+        "url": "https://help.therealdeal.com/knowledge/kb-tickets/new",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/corporate/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/data/",
+        "label": ""
+      },
+      {
+        "url": "https://www.parsintl.com/publications/the-real-deal/",
+        "label": ""
+      },
+      {
+        "url": "https://shop.therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/trademark-use/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/terms-and-conditions-for-data-use/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/privacy-policy/",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/trdny",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/therealdealmedia/",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/therealdeal/",
+        "label": ""
+      },
+      {
+        "url": "https://www.youtube.com/channel/UCKXsx1tuopwO91QSgjrmA1g",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/therealdeal",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-700x467.jpg",
+        "label": "MIA Related Ross Blurb 700x467"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-300x200.jpg",
+        "label": "MIA Related Ross Blurb 300x200"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-200x133.jpg",
+        "label": "MIA Related Ross Blurb 200x133"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-768x512.jpg",
+        "label": "MIA Related Ross Blurb 768x512"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-1024x683.jpg",
+        "label": "MIA Related Ross Blurb 1024x683"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-1400x933.jpg",
+        "label": "MIA Related Ross Blurb 1400x933"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2017/10/LOGO-VECTOR-TRDsolo.png",
+        "label": "LOGO VECTOR TRDsolo"
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-50x33.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-700x467.jpg",
+        "label": "MIA Related Ross Blurb 700x467",
+        "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-300x200.jpg",
+        "label": "MIA Related Ross Blurb 300x200",
+        "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-200x133.jpg",
+        "label": "MIA Related Ross Blurb 200x133",
+        "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-768x512.jpg",
+        "label": "MIA Related Ross Blurb 768x512",
+        "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-1024x683.jpg",
+        "label": "MIA Related Ross Blurb 1024x683",
+        "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-1400x933.jpg",
+        "label": "MIA Related Ross Blurb 1400x933",
+        "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": []
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

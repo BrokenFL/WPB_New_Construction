@@ -1,0 +1,449 @@
+{
+  "projectId": "alba-reserve",
+  "slug": "alba-reserve",
+  "name": "Alba Reserve",
+  "address": "4720, 4802 and 4804 N Flagler Dr, West Palm Beach, FL 33407",
+  "corridor": "Northwood / North Flagler",
+  "officialWebsite": "",
+  "status": "Planning / approvals process",
+  "completion": "Planning-stage timing not publicly confirmed.",
+  "developer": "BGI Capital",
+  "architect": "Carlos Ott and Spina O'Rourke + Partners",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "87",
+  "stories": "31",
+  "unitMix": "Large-format condominium residences",
+  "squareFootage": "Developer told The Real Deal units would start at 3,000 square feet; verify as filings mature.",
+  "pricing": "Not publicly confirmed; developer described a higher-budget target than Alba.",
+  "amenities": [],
+  "salesContact": "Not publicly confirmed",
+  "confidence": "Medium",
+  "notes": "Project name is tentative per reporting. Keep as pipeline watch until an official sales site, city approval packet, or offering documents are available.",
+  "sourceUrls": [
+    "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "",
+  "generatedPlaceholderCopies": [
+    "projects/alba-reserve/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
+      "path": "projects/alba-reserve/images/candidates/01--official-candidate--static.therealdeal.com--ad0ee3bd.jpg",
+      "bytes": 342507,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-700x467.jpg",
+      "path": "projects/alba-reserve/images/candidates/02--official-candidate--static.therealdeal.com--1839ae2d.jpg",
+      "bytes": 80230,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-768x512.jpg",
+      "path": "projects/alba-reserve/images/candidates/03--official-candidate--static.therealdeal.com--0682cfbf.jpg",
+      "bytes": 93597,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-1024x683.jpg",
+      "path": "projects/alba-reserve/images/candidates/04--official-candidate--static.therealdeal.com--6823e964.jpg",
+      "bytes": 155150,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/",
+        "title": "BGI Capital Completes $41 Million West Palm Beach Acquisition",
+        "description": "BGI Capital completed a $40.9 million acquisition of a dev site adjacent to its nearly completed waterfront West Palm Beach condo tower Alba Palm Beach.",
+        "ogImage": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://ak.sail-horizon.com/spm/spm.v1.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.gstatic.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/7f8e9afc27468d99.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/cd98db01403429de.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/557728f8ce4959be.css",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/ProximaNovaFontFamily/ProximaNova/proxima-nova-all.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/common.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/style.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/theme.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/webpack-815c4d841b630f3d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/framework-03eff6fd791dd86e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/main-467a80d1c1f169f3.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/_app-641a2c8a219770b8.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7938-2f511c1b5c00cdb7.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/9933-789056f08ec2524d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7041-54f4e5d13087571a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/8814-3eb6ae91ed02af7e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/1396-1c7e58bb3b6ae138.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/5528-317c55c515620e0f.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/%5BfirstLevel%5D/%5BsecondLevel%5D/%5BthirdLevel%5D/%5BfourthLevel%5D/%5BfifthLevel%5D-9770b3cc0f677a51.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_buildManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_ssgManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-K694XL6&gtm_auth=2Dc6nz6-xSl7lnGU4UY2OA&gtm_preview=env-2",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/logos/trd-news-logo-light.svg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/search/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/subscription/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-50x33.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/author/kate-hinsche/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2023/11/10/bgi-capital-wexcor-land-95m-loan-for-alba-palm-beach/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/magazine/may-2024/the-branding-of-west-palm-beach/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/09/04/here-is-west-palm-beachs-condo-pipeline/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2024/02/26/great-gulf-pays-28-5m-for-west-palm-beach-dev-site/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/integra-investments/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/alba-palm-beach/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/luxury-real-estate/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/waterfront-property/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/about/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/contact-us/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/careers/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/new-york/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/la/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/chicago/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/latest/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/commercial/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/video/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/newsletters/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/advertising/",
+        "label": ""
+      },
+      {
+        "url": "https://help.therealdeal.com/knowledge/kb-tickets/new",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/corporate/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/data/",
+        "label": ""
+      },
+      {
+        "url": "https://www.parsintl.com/publications/the-real-deal/",
+        "label": ""
+      },
+      {
+        "url": "https://shop.therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/trademark-use/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/terms-and-conditions-for-data-use/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/privacy-policy/",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/trdny",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/therealdealmedia/",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/therealdeal/",
+        "label": ""
+      },
+      {
+        "url": "https://www.youtube.com/channel/UCKXsx1tuopwO91QSgjrmA1g",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/therealdeal",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-700x467.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 700x467"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-300x200.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 300x200"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-200x133.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 200x133"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-768x512.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 768x512"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-1024x683.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 1024x683"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-1400x933.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 1400x933"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2017/10/LOGO-VECTOR-TRDsolo.png",
+        "label": "LOGO VECTOR TRDsolo"
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-50x33.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-700x467.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 700x467",
+        "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-300x200.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 300x200",
+        "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-200x133.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 200x133",
+        "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-768x512.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 768x512",
+        "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-1024x683.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 1024x683",
+        "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-1400x933.jpg",
+        "label": "BGI Capital completes 41M West Palm Beach dev site acquisition 1400x933",
+        "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": []
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

@@ -1,0 +1,1431 @@
+{
+  "projectId": "15-cityplace",
+  "slug": "15-cityplace",
+  "name": "15 CityPlace",
+  "address": "15 CityPlace, West Palm Beach, FL 33401",
+  "corridor": "CityPlace / Downtown office core",
+  "officialWebsite": "https://www.relatedross.com/office/15-cityplace",
+  "status": "Under construction / office leasing",
+  "completion": "Expected 2027 in Related Ross release; leasing page may vary.",
+  "developer": "Related Ross",
+  "architect": "Arquitectonica",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Kohn Pedersen Fox referenced for sky garden design context",
+  "residences": "",
+  "stories": "25",
+  "unitMix": "",
+  "squareFootage": "Office tower; not residential condominium inventory.",
+  "pricing": "Not applicable",
+  "amenities": [
+    "Ground-floor retail and restaurant space",
+    "Private terraces",
+    "25th-floor sky garden",
+    "Targeting LEED Gold certification"
+  ],
+  "salesContact": "Office leasing contact through Related Ross.",
+  "confidence": "Medium",
+  "notes": "Kept because it appears in the seed file, but the UI labels it as office context rather than buyer condo inventory.",
+  "sourceUrls": [
+    "https://www.relatedross.com/office/15-cityplace",
+    "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+    "https://www.lifestyleoffice.com/15-cityplace"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://www.relatedross.com/office/15-cityplace",
+    "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+    "https://www.lifestyleoffice.com/15-cityplace"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "Downtown Office Core",
+  "generatedPlaceholderCopies": [
+    "projects/15-cityplace/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.relatedross.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2025-05/acquiadam-assets/10-and-15-CityPlace-Hero-spiral.jpg?itok=V49z6pxJ",
+      "path": "projects/15-cityplace/images/candidates/01--official-candidate--relatedross.com--f0cd3d83.jpg",
+      "bytes": 373998,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.relatedross.com/sites/default/files/styles/16x9_horizontal_rectangle_w/public/2025-05/acquiadam-assets/related-ross-15-cityplace-terrace-redleaf_2_easttower_terrace_completion_spiral.jpg?itok=8enFkXRF",
+      "path": "projects/15-cityplace/images/candidates/02--official-candidate--relatedross.com--07ea9ff2.jpg",
+      "bytes": 307079,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.relatedross.com/sites/default/files/styles/1x1_square_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-square-smr-kh_photo%20cred_bdb_mike%20price.jpg?itok=6ID3QViF",
+      "path": "projects/15-cityplace/images/candidates/03--official-candidate--relatedross.com--537496e3.jpg",
+      "bytes": 498470,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.relatedross.com/sites/default/files/styles/1x1_square_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-square-_v8a7403%20cropped.jpg?itok=_RoBnzN4",
+      "path": "projects/15-cityplace/images/candidates/04--official-candidate--relatedross.com--959d6de5.jpg",
+      "bytes": 444496,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://www.relatedross.com/office/15-cityplace",
+        "title": "15 CityPlace | Related Ross",
+        "description": "",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+        "title": "Related Ross Breaks Ground on 10 and 15 CityPlace in West Palm Beach | Related Ross",
+        "description": "West Palm Beach, Fla. – March 12, 2025 - Related Ross held a groundbreaking ceremony today for 10 and 15 CityPlace. These two category-defying Class AA commercial office towers mark a significant milestone in transforming Downtown West Palm Beach into a premier business and cultural hub. These towers will contribute nearly one million square feet of premier office space, strategically located within Related Ross&#039;s existing 1.7-million-square-foot downtown portfolio.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/15-cityplace",
+        "title": "Office | Related",
+        "description": "We understand the power Class AA offices have to transform the entire workplace experience, while boosting worker productivity, happiness and satisfaction.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases",
+        "title": "Press Releases | Related Ross",
+        "description": "",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases/2026-03-03/point72-and-related-ross-pro-am-raises-400000-related-ross-foundation",
+        "title": "Point72 and Related Ross Pro-Am Raises $400,000 for Related Ross Foundation | Related Ross",
+        "description": "",
+        "ogImage": ""
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://www.relatedross.com/office/15-cityplace",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/related-favicon-128_0.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_1z8YrnKxXy_mLbDYYpnB_hfiP74UZevfu0YvFBWWS0Q.css?delta=0&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k5EgGlc6YohjBNr39rtMmbbI76R_4eI8AAZuVKAb4zP4io7qLNMM7qVSCD_Z3iqvUrw1e91Jdx4HbwL4r5DE7sn8rfrY-IxfdKbuREmwsEflA5ZKui8LHhDeGdWOgXOzouZVMAp3xQcMNYjTKQZFJA_YCT5qtWIio5JRwpH1ZAadJktqZjOBEd1oWhC599hBZ0lXhH83pQ40qHDuON4wKr-yJqVIzn2Q2-73yzM9kWFi9ybbx-ZhKqrj99Vf4AaELtxU",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_ar5TLmU-t0SXYlPN5Vlbm9m71lDnSHWevb7KR7J7unA.css?delta=1&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k5EgGlc6YohjBNr39rtMmbbI76R_4eI8AAZuVKAb4zP4io7qLNMM7qVSCD_Z3iqvUrw1e91Jdx4HbwL4r5DE7sn8rfrY-IxfdKbuREmwsEflA5ZKui8LHhDeGdWOgXOzouZVMAp3xQcMNYjTKQZFJA_YCT5qtWIio5JRwpH1ZAadJktqZjOBEd1oWhC599hBZ0lXhH83pQ40qHDuON4wKr-yJqVIzn2Q2-73yzM9kWFi9ybbx-ZhKqrj99Vf4AaELtxU",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_klMz1Y5jQbWQT0cCDJj-qJhKYZ9gMYjZI_dKTCTs7Ns.css?delta=2&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k5EgGlc6YohjBNr39rtMmbbI76R_4eI8AAZuVKAb4zP4io7qLNMM7qVSCD_Z3iqvUrw1e91Jdx4HbwL4r5DE7sn8rfrY-IxfdKbuREmwsEflA5ZKui8LHhDeGdWOgXOzouZVMAp3xQcMNYjTKQZFJA_YCT5qtWIio5JRwpH1ZAadJktqZjOBEd1oWhC599hBZ0lXhH83pQ40qHDuON4wKr-yJqVIzn2Q2-73yzM9kWFi9ybbx-ZhKqrj99Vf4AaELtxU",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_sriN6uqnpndaU3-plohNeLHNNx8EBlh8Porm_2xPNRc.css?delta=3&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k5EgGlc6YohjBNr39rtMmbbI76R_4eI8AAZuVKAb4zP4io7qLNMM7qVSCD_Z3iqvUrw1e91Jdx4HbwL4r5DE7sn8rfrY-IxfdKbuREmwsEflA5ZKui8LHhDeGdWOgXOzouZVMAp3xQcMNYjTKQZFJA_YCT5qtWIio5JRwpH1ZAadJktqZjOBEd1oWhC599hBZ0lXhH83pQ40qHDuON4wKr-yJqVIzn2Q2-73yzM9kWFi9ybbx-ZhKqrj99Vf4AaELtxU",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/core/assets/vendor/modernizr/modernizr.min.js?v=3.11.7",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js_91aqBNnXbL0lGxUiZnDRJmqUuXPri8_ZLYkVHwK94wA.js?scope=header&delta=1&language=en&theme=rcc&include=eJyFUElyxCAM_BCBX8w3qAYrDDPCopDsJL-Pl1yyuHKRetFSEmarSSzgzP5VRnMTDIwPGiHRHWuVoa6IFKZoKKFs4Sf3eOD9u9jcyDnss16OYQctLAl8QEkPynardgNzQn4eqnI9UVzrRBL62auEke8RvUYsJllaZzIKF7rTuoPYpS89Jpb81PCH5t4o7SeHr-yJqdFsPssy27b3yp_IUFm9YqV_i0zK9pbLskaqKNe-biDbL3sPn1arrZs",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/google_tag/js/gtag.js?tenomk",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/google_tag/js/gtm.js?tenomk",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/css/seckit.no_body.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/js/seckit.document_write.js?",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/css/seckit.noscript_tag.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-PSLNMLF",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/themes/custom/rcc/images/REL_RossLogo-KO.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedrentals.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedbeal.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedcalifornia.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedmidwest.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/vision-impacts",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/properties",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/leadership",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/awards",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.jobs/careers-home/jobs?stretchUnits=MILES&stretch=50&location=West%20Palm%20Beach&lat=26.71534&lng=-80.05337&woe=7",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/foundation",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/city-centers",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/office",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/residential",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/",
+        "label": ""
+      },
+      {
+        "url": "https://southflaglerhouse.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedrentals.com/apartment-rentals/west-palm-beach/cityplace/the-laurel",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/hospitality",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/retail",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/arts-culture",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/blog",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/brand-partnerships",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/news-articles",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/contact-us",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/themes/custom/rcc/images/Search.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2025-05/acquiadam-assets/10-and-15-CityPlace-Hero-spiral.jpg?itok=V49z6pxJ",
+        "label": ""
+      },
+      {
+        "url": "https://player.vimeo.com/video/1086096839?",
+        "label": ""
+      },
+      {
+        "url": "https://player.vimeo.com/video/1075795882?",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/16x9_horizontal_rectangle_w/public/2025-05/acquiadam-assets/related-ross-15-cityplace-terrace-redleaf_2_easttower_terrace_completion_spiral.jpg?itok=8enFkXRF",
+        "label": ""
+      },
+      {
+        "url": "https://player.vimeo.com/video/1095092898?",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/spotlight_content_m/public/2025-05/acquiadam-assets/related-ross-15-cityplace-landscape-spiral.jpg?h=c74750f6&itok=j-pCKXB9",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/spotlight_content_m/public/2025-06/acquiadam-assets/_related-ross-15-cityplace-landscape-redleaf_1_easttower_entry_completion_peoplerevise_230517.jpg?h=042dbf4a&itok=rbLwGhMr",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/spotlight_content_m/public/2025-06/acquiadam-assets/_10-CityPlace-Ground-Floor-Retail.jpg?h=4ebabbaa&itok=1QqfNW6K",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/spotlight_content_m/public/2025-04/acquiadam-assets/related-ross-15-cityplace-landscape-Related360Life_image.jpg?h=b39c5fef&itok=JlomNg9X",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/1x1_square_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-square-smr-kh_photo%20cred_bdb_mike%20price.jpg?itok=6ID3QViF",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/1x1_square_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-square-_v8a7403%20cropped.jpg?itok=_RoBnzN4",
+        "label": ""
+      },
+      {
+        "url": "https://www.palmbeachpost.com/story/news/local/westpb/2025/03/19/downtown-west-palm-beach-cityplace-publix-eataly-restaurants/82523784007/#:~:text=15%20CityPlace%20and%2010%20CityPlace%20towers&text=The%2015%20CityPlace%20tower%2C%20and,Himmel%2C%20president%20of%20Related%20Ross.",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/news_card_w/public/2024-11/acquiadam-assets/related-ross-news-landscape-cityplace-ext-rendering-nov24.jpg?itok=BCS1F6hJ",
+        "label": ""
+      },
+      {
+        "url": "https://newsroom.clevelandclinic.org/2025/02/24/cleveland-clinic-announces-fundraising-campaign-for-new-hospital-in-west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/news_card_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-landscape-palm-beach-hospital-and-expansion.jpg?itok=On3pIAM9",
+        "label": ""
+      },
+      {
+        "url": "https://related.widen.net/s/l8kn72nbrx/canthisdevelopermakewestpalmbeachintothehottestcityinamerica_wsj-compressed_1",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/news_card_w/public/2025-02/acquiadam-assets/Flagler%20Drive%20Skyline.png?itok=1YSUUapE",
+        "label": ""
+      },
+      {
+        "url": "https://www.palmbeachpost.com/story/entertainment/dining/2024/11/05/eataly-italian-market-with-stores-from-nyc-to-la-plans-florida-debut/76041647007/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/news_card_w/public/2024-11/acquiadam-assets/related-ross-news-landscape-eataly_restaurantfest_wpb.jpg?itok=BmdLyJrJ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/news-articles/2024/11/08/internationally-renowned-italian-market-coming-historic-west-palm-beach-venue/Related%20Ross_Palm%20Beach%20Post_Eataly.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/terms-use",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://privacyportal-cdn.onetrust.com/dsarwebform/679d7477-7e03-4d1d-8596-4ba05c7a40f9/33af1b77-041a-4265-a598-6d30835f164d.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.essentialaccessibility.com/related",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/privacy-notice",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js_BP779FpUaytQxAIV9PxqhBgEdb_Ewll62QYO_cJuCj8.js?scope=footer&delta=0&language=en&theme=rcc&include=eJyFUElyxCAM_BCBX8w3qAYrDDPCopDsJL-Pl1yyuHKRetFSEmarSSzgzP5VRnMTDIwPGiHRHWuVoa6IFKZoKKFs4Sf3eOD9u9jcyDnss16OYQctLAl8QEkPynardgNzQn4eqnI9UVzrRBL62auEke8RvUYsJllaZzIKF7rTuoPYpS89Jpb81PCH5t4o7SeHr-yJqdFsPssy27b3yp_IUFm9YqV_i0zK9pbLskaqKNe-biDbL3sPn1arrZs",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_ygYVVZxBoxSicVY88N3maZiKGaHncZkqRASwx-li9zY.css?delta=0&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_ar5TLmU-t0SXYlPN5Vlbm9m71lDnSHWevb7KR7J7unA.css?delta=1&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_klMz1Y5jQbWQT0cCDJj-qJhKYZ9gMYjZI_dKTCTs7Ns.css?delta=2&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js_91aqBNnXbL0lGxUiZnDRJmqUuXPri8_ZLYkVHwK94wA.js?scope=header&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI6KhYUha9faW6o8Pxp9N9jE7CcyaA6uD57RHbsVMoEBwx-YCnmDN3MQk5kToFZJLG3xyC2e4vYvFtBhd7zrsZTtNxAHICEKLJw81e1iUI5dKqOgGupHcF1-5LtUH4ngR90MzVwz9A_eaFgkLzmojL7NuJ4z8CRUyiRVY8W9IOW1fDmMFRSCNfdmWqF92hwe8LZsf",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/email.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.facebook.com/share.php?u=https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach&title=Related%20Ross%20Breaks%20Ground%20on%2010%20and%2015%20CityPlace%20in%20West%20Palm%20Beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/facebook_share.svg",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/intent/tweet?url=https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach&status=Related%20Ross%20Breaks%20Ground%20on%2010%20and%2015%20CityPlace%20in%20West%20Palm%20Beach+https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/twitter.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.linkedin.com/shareArticle?mini=true&url=https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach&title=Related%20Ross%20Breaks%20Ground%20on%2010%20and%2015%20CityPlace%20in%20West%20Palm%20Beach&source=https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/linkedin.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.pinterest.com/pin/create/button/?url=https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach&description=Related%20Ross%20Breaks%20Ground%20on%2010%20and%2015%20CityPlace%20in%20West%20Palm%20Beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/pinterest.svg",
+        "label": ""
+      },
+      {
+        "url": "https://clevelandclinic.org/",
+        "label": ""
+      },
+      {
+        "url": "https://www.kpf.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js__7B45lLcf6kj722yYHwF8coHs2Sz6xmux01b0bKieb8.js?scope=footer&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI6KhYUha9faW6o8Pxp9N9jE7CcyaA6uD57RHbsVMoEBwx-YCnmDN3MQk5kToFZJLG3xyC2e4vYvFtBhd7zrsZTtNxAHICEKLJw81e1iUI5dKqOgGupHcF1-5LtUH4ngR90MzVwz9A_eaFgkLzmojL7NuJ4z8CRUyiRVY8W9IOW1fDmMFRSCNfdmWqF92hwe8LZsf",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/office",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/related-favicon-128_0.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/css/css_dS1moGmVIXy73uXjJAMAcFgnO7k7dCvVPZVqmtagXdE.css?delta=0&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k5EgGlc6YohjBNr39rtMmbbI76R_4eI8AAZuVKAb4zP4io7qLNMM7qVSCD_Z3iqvUrw1e91Jdx4HbwL4r5DE7sn8rfrY-IxfdKbuREmwsEflA5ZKui8LHhDeGdWOgXOzouZVMAp3xQcMNYjTKQZFJA_YCT5qtWIio5JRwpH1ZAadJktqZjOBEd1oWhC599hBZ0lXhH83pQ40qHDuON4wKr-yJqVIzn2Q2-73yzM9kWFi9ybbx-ZhKqrj99Vf4AaELtxU",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/css/css_rzorjm9axGkSCtWkAvaTiWADmQlVAtCoNfy0mDhbI7c.css?delta=1&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k5EgGlc6YohjBNr39rtMmbbI76R_4eI8AAZuVKAb4zP4io7qLNMM7qVSCD_Z3iqvUrw1e91Jdx4HbwL4r5DE7sn8rfrY-IxfdKbuREmwsEflA5ZKui8LHhDeGdWOgXOzouZVMAp3xQcMNYjTKQZFJA_YCT5qtWIio5JRwpH1ZAadJktqZjOBEd1oWhC599hBZ0lXhH83pQ40qHDuON4wKr-yJqVIzn2Q2-73yzM9kWFi9ybbx-ZhKqrj99Vf4AaELtxU",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/css/css_ln8doAZEeAH0Ajz2pROECzazwgVgu9tBCTL4hBVn4Xg.css?delta=2&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k5EgGlc6YohjBNr39rtMmbbI76R_4eI8AAZuVKAb4zP4io7qLNMM7qVSCD_Z3iqvUrw1e91Jdx4HbwL4r5DE7sn8rfrY-IxfdKbuREmwsEflA5ZKui8LHhDeGdWOgXOzouZVMAp3xQcMNYjTKQZFJA_YCT5qtWIio5JRwpH1ZAadJktqZjOBEd1oWhC599hBZ0lXhH83pQ40qHDuON4wKr-yJqVIzn2Q2-73yzM9kWFi9ybbx-ZhKqrj99Vf4AaELtxU",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/css/css_JEQJTd5eQuTy4pVF6-ZnvbTYldpa1k6aa9ixh8DA_BI.css?delta=3&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k5EgGlc6YohjBNr39rtMmbbI76R_4eI8AAZuVKAb4zP4io7qLNMM7qVSCD_Z3iqvUrw1e91Jdx4HbwL4r5DE7sn8rfrY-IxfdKbuREmwsEflA5ZKui8LHhDeGdWOgXOzouZVMAp3xQcMNYjTKQZFJA_YCT5qtWIio5JRwpH1ZAadJktqZjOBEd1oWhC599hBZ0lXhH83pQ40qHDuON4wKr-yJqVIzn2Q2-73yzM9kWFi9ybbx-ZhKqrj99Vf4AaELtxU",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/core/assets/vendor/modernizr/modernizr.min.js?v=3.11.7",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/js/js_Vw7UKAlYpGBBTTYyB83KSg78aNxQsEvez4WUU8ati3U.js?scope=header&delta=1&language=en&theme=rcc&include=eJyFUFtyxCAMuxANt9hrMIK4LLsmZrCTtrcvSfrTR6Y_tiX5MRYWK1HM48zTq_TqZhgYH9R9pDu2Il1dFslMwZB9HuEnnvDA-3eyup6ST-iyKvEB9sUvx-YDZpaIU5H4oGS3YjcwR6TnwSqXswpbmUl8O2eV0NM9oJWA1SRJbUxG_oJ3WvYiNGlrC5ElPdX_wbk3ivv__itPxFRpsSnJuti4e6XPZCisk2Kjf5tM8vDosq2SKvK1PqwcRv2S9_AJH1KyjA",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/modules/contrib/google_tag/js/gtag.js?tenof0",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/modules/contrib/google_tag/js/gtm.js?tenof0",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/modules/contrib/seckit/css/seckit.no_body.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/modules/contrib/seckit/js/seckit.document_write.js?",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/modules/contrib/seckit/css/seckit.noscript_tag.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/15-cityplace#main",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-PLW9VP5",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/themes/custom/rcc/logo.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedrentals.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedbeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedmidwest.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedcalifornia.com/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedargent.co.uk/",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/residential",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/residential/luxury-condominiums",
+        "label": ""
+      },
+      {
+        "url": "http://relatedrentals.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/residential/luxury-senior-living",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/residential/related-life",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedrentals.com/apartment-rentals/new-york-city/hudson-yards/the-set",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/affordable-housing",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/retail",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/office",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/related-360-life",
+        "label": ""
+      },
+      {
+        "url": "https://www.related-digital.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/hospitality",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/city-centers",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/our-company",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/our-company/vision-and-impact",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/our-company/leadership",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sustainability",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/our-company/businesses",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/apg-core-values",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/our-company/properties",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/our-company/related-gardens",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/awards",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/our-company/history",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/blog",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/regional-offices",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/news-articles",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/press-releases",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/careers",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/themes/custom/rcc/images/Search.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2026-03/acquiadam-assets/related-companies-office-hero-high%20res%20725%20rendering-sundeck.jpg?itok=uzEuZY-I",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2025-12/acquiadam-assets/related-corporate-office-hero-50hy-2023fd20_409_rt_hr.jpg?itok=U5VEPVL2",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2023-06/acquiadam-assets/related-corporate-office-hero-20-035595_rb_channelside_nologo%20terrace_cloudsa_r.jpg?itok=lwdStFsm",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2023-06/acquiadam-assets/related-corporate-office-hero-columbia%20street%20view%202.jpg?itok=HI_ZMCJ_",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2022-01/acquiadam-assets/related-corporate-office-hero-rotator.jpg?itok=XnnJY6Vd",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2023-06/acquiadam-assets/related-corporate-office-hero-2022-0105%20-%20soco%20related%20-%20marketing%20package_updated_page_26.jpg?itok=8XW4TZn8",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2022-07/acquiadam-assets/related-beal-office-hero-Congress%20Square%20roof%20deck-v2%20%281%29.jpg?itok=FMKbw9wW",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2025-12/acquiadam-assets/related-corporate-office-hero-s038_podium%20-%20vh230814.jpg?itok=8voIVuR7",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/pillar_330x585/public/2022-07/acquiadam-assets/related-corporate-office-pillar-30-hudson-yards-schenck%20related%20hy%202019_03_15%20dsc_1424.jpg?itok=bkI16mgB",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/pillar_330x585/public/2023-07/acquiadam-assets/related-corporate-office-pillar-230322_lowry-dnco-34st-subway_231.jpg?itok=HH6g8Fol",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/pillar_330x585/public/2023-07/acquiadam-assets/related-corporate-office-pillar-230322_lowry-dnco35hy-equinox-gym_108.jpg?itok=iiflhs9K",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/pillar_330x585/public/2021-03/acquiadam-assets/related-corporate-office-pillar-55hy_milbank%20terrace%202_sfrances_courtesy%20of%20hy.jpg?itok=46i27mvb",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/story_pillar_w/public/2024-07/acquiadam-assets/Related-corporate-RMW-Psi-quantum-1x1.jpg?itok=tpvWHYKL",
+        "label": ""
+      },
+      {
+        "url": "https://www.bloomberg.com/news/articles/2026-04-29/ibm-to-add-750-jobs-in-ai-quantum-computing-at-chicago-tech-hub?embedded-checkout=true",
+        "label": ""
+      },
+      {
+        "url": "https://quantumshore.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/story_pillar_w/public/2025-05/acquiadam-assets/related-corporate-office-square-_dsc5705.jpg?itok=s7yY6YRm",
+        "label": ""
+      },
+      {
+        "url": "https://www.hudsonyardsnewyork.com/related360life",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/story_pillar_w/public/2026-04/acquiadam-assets/related-corporate-office-square-rb_city_photography_2025-01.jpg?itok=sa_y7Nhq",
+        "label": ""
+      },
+      {
+        "url": "https://bostonrealestatetimes.com/strong-pilates-to-open-new-studio-at-one-kenmore-square-in-boston",
+        "label": ""
+      },
+      {
+        "url": "https://www.onekenmoresq.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/story_pillar_w/public/2026-05/acquiadam-assets/related-corporate-office-square-hy-flora-event.jpg?itok=4Rvx7yD1",
+        "label": ""
+      },
+      {
+        "url": "https://player.vimeo.com/video/1183040515?",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedmidwest.com/our-company/properties/cubes-roosevelt-kostner",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/1x1_square_w/public/2024-04/acquiadam-assets/related-corporate-office-square-springfest-2024-dsc5845.jpg?itok=fB5k71Pg",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/related-360-life",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/spotlight_content_m/public/2025-12/acquiadam-assets/related-corporate-office-landscape-related-360-life-app-landing.jpg?h=c74750f6&itok=BCYtqZaN",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-arosa.png?itok=0uaIK0Ou",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-banking-circle-group.png?itok=arOZlcxb",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/bcg-digital.png?itok=gENmu4qv",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/bsf.png?itok=L7wmk71X",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/bcg-office.png?itok=fJh3Z2rk",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-blackrock-2024.png?itok=RJjIU45K",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-chatham.png?itok=71ZatDAr",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-cinctive.png?itok=qePPThCW",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/acquiadam-assets/cognizant-office_0.png?itok=xIkWDgfD",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-convene.png?itok=7pXumWL2",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/converse_logo-v2.png?itok=CXrZQjAc",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/Cooley_2.png?itok=kZWMVaMw",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-covington.png?itok=UEDlnxws",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2023-02/acquiadam-assets/related-corporate-office-deutschebank-logo.png?itok=wXul4qiz",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-diameter.png?itok=Bkj-3JnY",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-dnb.png?itok=dUQWupH5",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2023-01/acquiadam-assets/related-corporate-office-equinox-2020-logo.png?itok=pa708c-R",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-global-atlantic-financial-group.png?itok=dDu9oj3f",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2021-03/acquiadam-assets/google-logo.png?itok=7WfYDT8T",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/related-office-guardian-logo.png?itok=LZW9mwEi",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-jf-lehman.png?itok=5DM7GQ_Y",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/kkr.png?itok=SQMuK9YE",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-liberty-mutual-investments.png?itok=P5qrBNIk",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-live-golf.png?itok=Ph0cCEll",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/loreal.png?itok=qt7HtjA4",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/market-axess.png?itok=_TvMIjGM",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-mccourt-2024-logo.png?itok=0Nynnsdt",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-meta-2024.png?itok=9NSoFr_3",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-milbank.png?itok=Rva_nljw",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2023-01/acquiadam-assets/related-office-nut-tree-capital-mgmt-logo.png?itok=5CjM07sK",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-okx.png?itok=gUDR7U0i",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-passkey-2024-logo.png?itok=uZNdedKH",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/point-72.png?itok=ZfdlGi7_",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/sap.png?itok=TVb7aaZ3",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2023-02/acquiadam-assets/related-corporate-office-servicenow-logo.png?itok=eE65aTt_",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2023-02/acquiadam-assets/related-corporate-office-sig-susquehanna-logo.png?itok=S3AfzykB",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/silver-lake.png?itok=eGnKmQbp",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/related-office-stonepeak-logo.png?itok=8Y-D2DKz",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/tapestry.png?itok=hPxbBV8T",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2023-01/acquiadam-assets/related-corporate-office-third-point-new-logo.png?itok=hQlpv21u",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2023-02/acquiadam-assets/related-corporate-office-truist-logo.png?itok=y76B0nXH",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/related-office-v-logo.png?itok=iKUlz6EA",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-vaynermedia.png?itok=l_KY3WYz",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-viatris.png?itok=RRrxZYXQ",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-corporate-office-logo-warner-bros-discovery-2024.png?itok=DvMCC6Te",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/wells-fargo.png?itok=u60C5-N-",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2024-12/acquiadam-assets/related-office-square-westfield-logo.png?itok=HuotCatf",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2023-02/acquiadam-assets/related-corporate-office-xtc-markets-logo.png?itok=RhSxvod3",
+        "label": ""
+      },
+      {
+        "url": "https://www.hudsonyardsnewyork.com/work/10-hudson-yards",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2022-07/acquiadam-assets/SFreihon_160523_1101_2.jpg?itok=exTAbCz0",
+        "label": ""
+      },
+      {
+        "url": "http://www.hudsonyardsnewyork.com/work/30-hudson-yards/",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-07/acquiadam-assets/related-corporate-properties-square-2023fd35_462_rt_lr.jpg?itok=jDBTDpJw",
+        "label": ""
+      },
+      {
+        "url": "https://www.50hudsonyards.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2022-10/acquiadam-assets/related-corporateproperties-square-50%20hudson%20yards%20exterior_image%20courtesy%20of%20francis%20dzikowski%20for%20hudson%20yards.jpg?itok=u_vpB6dF",
+        "label": ""
+      },
+      {
+        "url": "https://www.hudsonyardsnewyork.com/work/55-hudson-yards",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2022-07/acquiadam-assets/related-corporate-office-square-55hudson.jpg?itok=MONtNR9d",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/our-company/properties/deutsche-bank-center",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2022-07/acquiadam-assets/related-corporate-properties-landscape-one-columbus-circle-gallery-3.jpg?itok=0bu2V6_k",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/2200-woodward",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-08/acquiadam-assets/related-corporate-properties-square-street%2Bday%2Bview_nw.jpg?itok=rRfkpN7E",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/tasman-office",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-08/acquiadam-assets/related-corporate-properties-square-wbc03.jpg?itok=urYNvRdx",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/our-company/properties/725-w-randolph",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-01/acquiadam-assets/725%20Randolph%20view%20down%20Randolph%20Row%2C%20Credit-%20Related%20Midwest%20%26%20KPF%20Cropped.jpg?itok=gkKPrybd",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/125-necco-channelside",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-09/acquiadam-assets/Related-Corporate-related-beal-channelside-hero.jpg?itok=ajPT9PwM",
+        "label": ""
+      },
+      {
+        "url": "http://www.congress-square.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-07/acquiadam-assets/related-corporate-properties-square-bldg%20front%20sideview%20zoom%20out%20dusk.jpg?itok=R9d4wmy0",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/our-company/properties/innovation-square-ii",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-06/acquiadam-assets/ISQ%20II%20exterior.jpg?itok=sHIF7oGY",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-06/acquiadam-assets/RogerFerris_Whoop_01%20RBweb.jpg?itok=NaSLqpqD",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/spotlight_content_m/public/2024-09/acquiadam-assets/related-corporate-office-landscape-vivvi-55-hy.jpg?h=c74750f6&itok=VenKj088",
+        "label": ""
+      },
+      {
+        "url": "https://vivvi.com/locations/hudson-yards",
+        "label": ""
+      },
+      {
+        "url": "https://newyorkyimby.com/2026/02/70-hudson-yards-prepares-for-vertical-construction-in-hudson-yards-manhattan.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/news_card_w/public/2025-06/acquiadam-assets/related-corporate-properties-landscape-s041_podium_frontal%20-%20vh230814.jpg?itok=YCNNz9sY",
+        "label": ""
+      },
+      {
+        "url": "https://www.chicagobusiness.com/technology/chicago-quantum-park-draws-israeli-software-firm",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/news_card_w/public/2026-02/acquiadam-assets/IQMP-SiteOverview1%20%281%29News.png?itok=xSIJwwSK",
+        "label": ""
+      },
+      {
+        "url": "https://www.bizjournals.com/boston/news/2026/02/04/ai-proteins-kenmore-hq.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/news_card_w/public/2026-02/acquiadam-assets/related-corporate-news-landscape-oks-beacon-ext.jpg?itok=CP9SIW_r",
+        "label": ""
+      },
+      {
+        "url": "https://www.architecturaldigest.com/gallery/what-makes-nycs-skyline-so-iconic",
+        "label": ""
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/news_card_w/public/2026-02/acquiadam-assets/related-corporate-news-landscape-city%20climb_courtesy%20of%20edge.jpg?itok=bzmhZ8_B",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/news-articles",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.jobs/",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2025-05/acquiadam-assets/10-and-15-CityPlace-Hero-spiral.jpg?itok=V49z6pxJ",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/16x9_horizontal_rectangle_w/public/2025-05/acquiadam-assets/related-ross-15-cityplace-terrace-redleaf_2_easttower_terrace_completion_spiral.jpg?itok=8enFkXRF",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/spotlight_content_m/public/2025-05/acquiadam-assets/related-ross-15-cityplace-landscape-spiral.jpg?h=c74750f6&itok=j-pCKXB9",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/spotlight_content_m/public/2025-06/acquiadam-assets/_related-ross-15-cityplace-landscape-redleaf_1_easttower_entry_completion_peoplerevise_230517.jpg?h=042dbf4a&itok=rbLwGhMr",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/spotlight_content_m/public/2025-06/acquiadam-assets/_10-CityPlace-Ground-Floor-Retail.jpg?h=4ebabbaa&itok=1QqfNW6K",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/spotlight_content_m/public/2025-04/acquiadam-assets/related-ross-15-cityplace-landscape-Related360Life_image.jpg?h=b39c5fef&itok=JlomNg9X",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/1x1_square_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-square-smr-kh_photo%20cred_bdb_mike%20price.jpg?itok=6ID3QViF",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/1x1_square_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-square-_v8a7403%20cropped.jpg?itok=_RoBnzN4",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/news_card_w/public/2024-11/acquiadam-assets/related-ross-news-landscape-cityplace-ext-rendering-nov24.jpg?itok=BCS1F6hJ",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/news_card_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-landscape-palm-beach-hospital-and-expansion.jpg?itok=On3pIAM9",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/news_card_w/public/2025-02/acquiadam-assets/Flagler%20Drive%20Skyline.png?itok=1YSUUapE",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/news_card_w/public/2024-11/acquiadam-assets/related-ross-news-landscape-eataly_restaurantfest_wpb.jpg?itok=BmdLyJrJ",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2026-03/acquiadam-assets/related-companies-office-hero-high%20res%20725%20rendering-sundeck.jpg?itok=uzEuZY-I",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2025-12/acquiadam-assets/related-corporate-office-hero-50hy-2023fd20_409_rt_hr.jpg?itok=U5VEPVL2",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2023-06/acquiadam-assets/related-corporate-office-hero-columbia%20street%20view%202.jpg?itok=HI_ZMCJ_",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2022-01/acquiadam-assets/related-corporate-office-hero-rotator.jpg?itok=XnnJY6Vd",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2023-06/acquiadam-assets/related-corporate-office-hero-2022-0105%20-%20soco%20related%20-%20marketing%20package_updated_page_26.jpg?itok=8XW4TZn8",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2022-07/acquiadam-assets/related-beal-office-hero-Congress%20Square%20roof%20deck-v2%20%281%29.jpg?itok=FMKbw9wW",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2025-12/acquiadam-assets/related-corporate-office-hero-s038_podium%20-%20vh230814.jpg?itok=8voIVuR7",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/pillar_330x585/public/2022-07/acquiadam-assets/related-corporate-office-pillar-30-hudson-yards-schenck%20related%20hy%202019_03_15%20dsc_1424.jpg?itok=bkI16mgB",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/pillar_330x585/public/2023-07/acquiadam-assets/related-corporate-office-pillar-230322_lowry-dnco-34st-subway_231.jpg?itok=HH6g8Fol",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/pillar_330x585/public/2023-07/acquiadam-assets/related-corporate-office-pillar-230322_lowry-dnco35hy-equinox-gym_108.jpg?itok=iiflhs9K",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/pillar_330x585/public/2021-03/acquiadam-assets/related-corporate-office-pillar-55hy_milbank%20terrace%202_sfrances_courtesy%20of%20hy.jpg?itok=46i27mvb",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/story_pillar_w/public/2024-07/acquiadam-assets/Related-corporate-RMW-Psi-quantum-1x1.jpg?itok=tpvWHYKL",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/story_pillar_w/public/2025-05/acquiadam-assets/related-corporate-office-square-_dsc5705.jpg?itok=s7yY6YRm",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/story_pillar_w/public/2026-04/acquiadam-assets/related-corporate-office-square-rb_city_photography_2025-01.jpg?itok=sa_y7Nhq",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/story_pillar_w/public/2026-05/acquiadam-assets/related-corporate-office-square-hy-flora-event.jpg?itok=4Rvx7yD1",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/1x1_square_w/public/2024-04/acquiadam-assets/related-corporate-office-square-springfest-2024-dsc5845.jpg?itok=fB5k71Pg",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/spotlight_content_m/public/2025-12/acquiadam-assets/related-corporate-office-landscape-related-360-life-app-landing.jpg?h=c74750f6&itok=BCYtqZaN",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/bcg-digital.png?itok=gENmu4qv",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/bsf.png?itok=L7wmk71X",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/bcg-office.png?itok=fJh3Z2rk",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/acquiadam-assets/cognizant-office_0.png?itok=xIkWDgfD",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/Cooley_2.png?itok=kZWMVaMw",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/kkr.png?itok=SQMuK9YE",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/loreal.png?itok=qt7HtjA4",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/market-axess.png?itok=_TvMIjGM",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/point-72.png?itok=ZfdlGi7_",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/sap.png?itok=TVb7aaZ3",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/silver-lake.png?itok=eGnKmQbp",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/tapestry.png?itok=hPxbBV8T",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/image_grid_col4_w/public/2022-07/acquiadam-assets/wells-fargo.png?itok=u60C5-N-",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2022-07/acquiadam-assets/SFreihon_160523_1101_2.jpg?itok=exTAbCz0",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-07/acquiadam-assets/related-corporate-properties-square-2023fd35_462_rt_lr.jpg?itok=jDBTDpJw",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2022-10/acquiadam-assets/related-corporateproperties-square-50%20hudson%20yards%20exterior_image%20courtesy%20of%20francis%20dzikowski%20for%20hudson%20yards.jpg?itok=u_vpB6dF",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2022-07/acquiadam-assets/related-corporate-office-square-55hudson.jpg?itok=MONtNR9d",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2022-07/acquiadam-assets/related-corporate-properties-landscape-one-columbus-circle-gallery-3.jpg?itok=0bu2V6_k",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-08/acquiadam-assets/related-corporate-properties-square-street%2Bday%2Bview_nw.jpg?itok=rRfkpN7E",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-08/acquiadam-assets/related-corporate-properties-square-wbc03.jpg?itok=urYNvRdx",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-01/acquiadam-assets/725%20Randolph%20view%20down%20Randolph%20Row%2C%20Credit-%20Related%20Midwest%20%26%20KPF%20Cropped.jpg?itok=gkKPrybd",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-09/acquiadam-assets/Related-Corporate-related-beal-channelside-hero.jpg?itok=ajPT9PwM",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-07/acquiadam-assets/related-corporate-properties-square-bldg%20front%20sideview%20zoom%20out%20dusk.jpg?itok=R9d4wmy0",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-06/acquiadam-assets/ISQ%20II%20exterior.jpg?itok=sHIF7oGY",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/location_cards_col4_w/public/2023-06/acquiadam-assets/RogerFerris_Whoop_01%20RBweb.jpg?itok=NaSLqpqD",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/spotlight_content_m/public/2024-09/acquiadam-assets/related-corporate-office-landscape-vivvi-55-hy.jpg?h=c74750f6&itok=VenKj088",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/news_card_w/public/2025-06/acquiadam-assets/related-corporate-properties-landscape-s041_podium_frontal%20-%20vh230814.jpg?itok=YCNNz9sY",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/news_card_w/public/2026-02/acquiadam-assets/IQMP-SiteOverview1%20%281%29News.png?itok=xSIJwwSK",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/news_card_w/public/2026-02/acquiadam-assets/related-corporate-news-landscape-oks-beacon-ext.jpg?itok=CP9SIW_r",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://www.lifestyleoffice.com/sites/default/files/styles/news_card_w/public/2026-02/acquiadam-assets/related-corporate-news-landscape-city%20climb_courtesy%20of%20edge.jpg?itok=bzmhZ8_B",
+        "label": "",
+        "sourcePage": "https://www.lifestyleoffice.com/15-cityplace"
+      },
+      {
+        "url": "https://media.assettype.com/resident%2F2026-03-03%2F3kf20hs5%2FPoint72_Related_Ross_Pro_Am_Apogee_3__1_.jpg?w=640&auto=format%2Ccompress",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/press-releases"
+      },
+      {
+        "url": "https://media.assettype.com/resident%2F2026-03-03%2F3kf20hs5%2FPoint72_Related_Ross_Pro_Am_Apogee_3__1_.jpg?w=640&amp;auto=format%2Ccompress",
+        "label": "resident/2026 03 03/3kf20hs5/Point72 Related Ross Pro Am Apogee 3 1",
+        "sourcePage": "https://www.relatedross.com/press-releases"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": []
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

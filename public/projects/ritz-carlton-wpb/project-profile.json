@@ -1,0 +1,57 @@
+{
+  "slug": "ritz-carlton-wpb",
+  "name": "The Ritz-Carlton Residences, West Palm Beach",
+  "updated": "2026-05-11",
+  "officialWebsite": "https://theresidenceswestpalmbeach.com/",
+  "address": "1717 N Flagler Drive, West Palm Beach, FL 33407",
+  "addressNote": "Related Group and reporting use 1717 N Flagler Drive; official website/footer materials also reference 1745 N Flagler Drive. Confirm final legal address with sales before publishing as contract language.",
+  "developer": "Related Group",
+  "coDeveloper": "BH Group",
+  "architect": "Arquitectonica",
+  "interiorDesigner": "Rockwell Group",
+  "landscapeArchitect": "Naturalficial",
+  "storyCount": "27",
+  "residenceCount": "138",
+  "deliveryDate": "Expected 2028",
+  "priceRange": "Reported from $2.5M; verify current availability and released pricing with sales.",
+  "unitMix": [
+    "Two-bedroom residences",
+    "Three-bedroom residences",
+    "Four-bedroom residences",
+    "Lake homes"
+  ],
+  "amenityList": [
+    "Ritz-Carlton branded residential services",
+    "Arrival lobby and 24-hour concierge",
+    "Bayfront pool deck",
+    "Private cabanas and daybeds",
+    "Poolside service",
+    "Fitness and wellness center",
+    "Spa treatment rooms",
+    "Steam and sauna facilities",
+    "Private conference and coworking areas",
+    "Children's room",
+    "Gaming lounge with golf simulator",
+    "Entertainment lounges",
+    "Two guest suites",
+    "Curated Jorge M. Perez art collection",
+    "Cove Club membership access"
+  ],
+  "salesGalleryContact": {
+    "address": "50 Cocoanut Row, S101, Palm Beach, FL 33480",
+    "phone": "561-402-8947",
+    "email": "info@theresidenceswestpalmbeach.com"
+  },
+  "statusNotes": [
+    "Groundbreaking reported in February 2026.",
+    "Current reporting states the project was more than 70% pre-sold at groundbreaking.",
+    "Site should label prices and availability as advisor-verified rather than static inventory."
+  ],
+  "sourceUrls": [
+    "https://theresidenceswestpalmbeach.com/",
+    "https://theresidenceswestpalmbeach.com/floorplans/",
+    "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+    "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
+    "https://www.rockwellgroup.com/index.php/projects/the-ritz-carlton-residences"
+  ]
+}

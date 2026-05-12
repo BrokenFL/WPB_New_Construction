@@ -1,0 +1,3272 @@
+{
+  "generatedAt": "2026-05-10T02:14:09.211Z",
+  "sourceRepo": "https://github.com/BrokenFL/WestPalmNewConstruction",
+  "sourceRepoCommit": "3753c0ef2370817338e55f959cb78224783fccbd",
+  "usageNote": "Raw public-source research library. Images, renderings, PDFs, logos, and brochures may be copyrighted or broker/developer-owned. Treat every downloaded third-party asset as rights-review-required before publishing.",
+  "projectCount": 24,
+  "projects": [
+    {
+      "projectId": "ritz-carlton-wpb",
+      "slug": "ritz-carlton-residences-west-palm-beach",
+      "name": "The Ritz-Carlton Residences, West Palm Beach",
+      "officialWebsite": "https://theresidenceswestpalmbeach.com/",
+      "address": "1717 N Flagler Dr, West Palm Beach, FL 33407",
+      "status": "Sales active / under construction; reported more than 70 percent pre-sold in February 2026.",
+      "completion": "Expected 2028",
+      "developer": "Related Group and BH Group",
+      "architect": "Arquitectonica",
+      "interiorDesigner": "Rockwell Group",
+      "residences": "138",
+      "stories": "27",
+      "pricing": "Residences reported from $2.5M; current availability should be verified.",
+      "sourceUrls": [
+        "https://theresidenceswestpalmbeach.com/",
+        "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+        "https://theresidenceswestpalmbeach.com/floorplans/",
+        "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html"
+      ],
+      "knownAssetLinks": [
+        {
+          "label": "Res02",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "Res03",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "Res12",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "Official Floor Plans Index",
+          "url": "https://theresidenceswestpalmbeach.com/floorplans/",
+          "type": "Floor plan",
+          "note": "Official page listing two-, three-, four-bedroom and lake-home plans.",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 01",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 04",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 05",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 06",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Lake Home 07",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Lake Home 08",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Lake Home 09",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Lake Home 10",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Lake Home 11",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        }
+      ],
+      "downloadedAssets": [
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Res02",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/res02--0dcf7b3f.pdf",
+          "bytes": 1892408,
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Res03",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/res03--a1fb57a0.pdf",
+          "bytes": 2497256,
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Res12",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/res12--cd99fe22.pdf",
+          "bytes": 2404845,
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 01",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/residence-01--5381e8b7.pdf",
+          "bytes": 2484576,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 04",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/residence-04--f1b379f4.pdf",
+          "bytes": 2125348,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 05",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/residence-05--d8f62502.pdf",
+          "bytes": 1940617,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 06",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/residence-06--0066a95c.pdf",
+          "bytes": 4703521,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Lake Home 07",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/lake-home-07--e6a73aac.pdf",
+          "bytes": 1742676,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Lake Home 08",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/lake-home-08--e5b3bab2.pdf",
+          "bytes": 2064964,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Lake Home 09",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/lake-home-09--d9798fd5.pdf",
+          "bytes": 2132506,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Lake Home 10",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/lake-home-10--c92b5f15.pdf",
+          "bytes": 1968734,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Lake Home 11",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
+          "path": "projects/ritz-carlton-wpb/floorplans/lake-home-11--568a1bb0.pdf",
+          "bytes": 2013375,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Download",
+          "label": "",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res06.pdf",
+          "path": "projects/ritz-carlton-wpb/downloads/res06--516f2802.pdf",
+          "bytes": 2558298,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Download",
+          "label": "",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.1.pdf",
+          "path": "projects/ritz-carlton-wpb/downloads/res12-1--52fa7cb9.pdf",
+          "bytes": 2395918,
+          "source": "crawl"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1.jpg",
+          "path": "projects/ritz-carlton-wpb/images/candidates/01--official-candidate--theresidenceswestpalmbeach.com--b05ef334.jpg",
+          "bytes": 745420,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://theresidenceswestpalmbeach.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen.jpg",
+          "path": "projects/ritz-carlton-wpb/images/candidates/02--official-candidate--theresidenceswestpalmbeach.com--36dd5172.jpg",
+          "bytes": 664651,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://theresidenceswestpalmbeach.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck.jpg",
+          "path": "projects/ritz-carlton-wpb/images/candidates/03--official-candidate--theresidenceswestpalmbeach.com--fcfe6cb5.jpg",
+          "bytes": 529413,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://theresidenceswestpalmbeach.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993.jpg",
+          "path": "projects/ritz-carlton-wpb/images/candidates/04--official-candidate--theresidenceswestpalmbeach.com--228a51e1.jpg",
+          "bytes": 1133563,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://theresidenceswestpalmbeach.com/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/ritz-carlton-wpb/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://theresidenceswestpalmbeach.com/",
+        "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+        "https://theresidenceswestpalmbeach.com/floorplans/",
+        "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
+        "https://theresidenceswestpalmbeach.com/residences/"
+      ],
+      "pdfCandidates": [
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res06.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.1.pdf",
+          "label": ""
+        }
+      ],
+      "imageCandidateCount": 80,
+      "errors": [
+        {
+          "url": {
+            "name": "Residence 02",
+            "beds": "2",
+            "baths": "2.5",
+            "interior_sq_ft": 1566,
+            "exterior_sq_ft": 302,
+            "total_sq_ft": 1868,
+            "price": "Request current pricing",
+            "image_url": "",
+            "pdf_url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+            "notes": "Published by official floor plan site."
+          },
+          "status": 0,
+          "error": "Failed to parse URL from [object Object]"
+        },
+        {
+          "url": "https://theresidenceswestpalmbeach.com/xmlrpc.php?rsd",
+          "status": 403,
+          "error": "Forbidden"
+        }
+      ]
+    },
+    {
+      "projectId": "shorecrest",
+      "slug": "shorecrest",
+      "name": "Shorecrest",
+      "officialWebsite": "https://www.shorecrestwpb.com/",
+      "address": "1865 N Flagler Dr, West Palm Beach, FL 33407",
+      "status": "Under construction",
+      "completion": "Expected 2027",
+      "developer": "Related Ross",
+      "architect": "Roger Ferris + Partners",
+      "interiorDesigner": "Rottet Studio",
+      "residences": "98",
+      "stories": "28",
+      "pricing": "Current availability reported from $3M by Related Ross; verify current pricing.",
+      "sourceUrls": [
+        "https://www.shorecrestwpb.com/",
+        "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+        "https://www.shorecrestwpb.com/residences",
+        "https://www.shorecrestwpb.com/inquire"
+      ],
+      "knownAssetLinks": [
+        {
+          "label": "1153 0704 floorplan",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "1153 0303 floorplan",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "Official Floor Plans Index",
+          "url": "https://www.shorecrestwpb.com/floorplans",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 301 Floor Plan",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 1602 Floor Plan",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Official Brochure",
+          "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2025-06/SHC_Rack%20Brochure_0625.pdf",
+          "type": "Brochure",
+          "source": "current-app"
+        },
+        {
+          "label": "Fact Sheet",
+          "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
+          "type": "Fact sheet",
+          "source": "current-app"
+        }
+      ],
+      "downloadedAssets": [
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "1153 0704 floorplan",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+          "path": "projects/shorecrest/floorplans/1153-0704-floorplan--f2969c6b.pdf",
+          "bytes": 720498,
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "1153 0303 floorplan",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+          "path": "projects/shorecrest/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
+          "bytes": 748163,
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 301 Floor Plan",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
+          "path": "projects/shorecrest/floorplans/residence-301-floor-plan--927fc847.pdf",
+          "bytes": 871757,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 1602 Floor Plan",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+          "path": "projects/shorecrest/floorplans/residence-1602-floor-plan--4891242d.pdf",
+          "bytes": 679220,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "failed",
+          "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2025-06/SHC_Rack%20Brochure_0625.pdf",
+          "type": "Brochure",
+          "label": "Official Brochure",
+          "error": "Not Found",
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "failed",
+          "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
+          "type": "Fact sheet",
+          "label": "Fact Sheet",
+          "error": "Not Found",
+          "source": "current-app"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2024-04/RogerFerris_Portrait_DSC5898_Grayscale.png",
+          "path": "projects/shorecrest/images/candidates/01--official-candidate--shorecrestwpb.com--26140aef.png",
+          "bytes": 905847,
+          "contentType": "image/png",
+          "sourcePage": "https://www.shorecrestwpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2024-05/marcus-four-season-atelier-zebulon-perron-interiors-restaurant-bar-montreal-canada_dezeen_2364_col_8-1704x1137.png",
+          "path": "projects/shorecrest/images/candidates/02--official-candidate--shorecrestwpb.com--5ac3a6fb.png",
+          "bytes": 1493872,
+          "contentType": "image/png",
+          "sourcePage": "https://www.shorecrestwpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2024-05/HJ-Roger-Ferris-8%20copy%201%20%281%29.png",
+          "path": "projects/shorecrest/images/candidates/03--official-candidate--shorecrestwpb.com--7be725ea.png",
+          "bytes": 212788,
+          "contentType": "image/png",
+          "sourcePage": "https://www.shorecrestwpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2024-04/844a3dd74e27b7f16fb001433a0d6732.jpg",
+          "path": "projects/shorecrest/images/candidates/04--official-candidate--shorecrestwpb.com--29553731.jpg",
+          "bytes": 207662,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.shorecrestwpb.com/residences"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/shorecrest/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.shorecrestwpb.com/",
+        "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+        "https://www.shorecrestwpb.com/residences",
+        "https://www.shorecrestwpb.com/inquire",
+        "https://www.shorecrestwpb.com/floorplans"
+      ],
+      "pdfCandidates": [
+        {
+          "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2025-06/SHC_Rack%20Brochure_0625.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+          "label": ""
+        }
+      ],
+      "imageCandidateCount": 13,
+      "errors": [
+        {
+          "url": {
+            "name": "Residence 704",
+            "beds": "Not publicly confirmed",
+            "baths": "Not publicly confirmed",
+            "interior_sq_ft": null,
+            "exterior_sq_ft": null,
+            "total_sq_ft": null,
+            "price": "Request current pricing",
+            "image_url": "",
+            "pdf_url": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+            "notes": "PDF listed in project seed assets."
+          },
+          "status": 0,
+          "error": "Failed to parse URL from [object Object]"
+        }
+      ]
+    },
+    {
+      "projectId": "olara",
+      "slug": "olara",
+      "name": "Olara",
+      "officialWebsite": "https://www.olarawestpalmbeach.com/",
+      "address": "1919 N Flagler Dr, West Palm Beach, FL 33407",
+      "status": "Under construction",
+      "completion": "Expected 2028",
+      "developer": "Savanna",
+      "architect": "Arquitectonica",
+      "interiorDesigner": "Gabellini Sheppard",
+      "residences": "275",
+      "stories": "26",
+      "pricing": "Request current pricing",
+      "sourceUrls": [
+        "https://www.olarawestpalmbeach.com/",
+        "https://www.olarawestpalmbeach.com/architecture/",
+        "https://www.olarawestpalmbeach.com/lifestyle/",
+        "https://www.olarawestpalmbeach.com/wellness/",
+        "https://www.olarawestpalmbeach.com/floor-plans",
+        "https://floridayimby.com/2025/12/olara-commences-vertical-construction-at-1919-north-flagler-drive-in-west-palm-beach.html"
+      ],
+      "knownAssetLinks": [
+        {
+          "label": "KP Olara Floorplans Digital A 092325",
+          "url": "https://d2ypru9zenl4y5.cloudfront.net/app/uploads/2023/03/KP_Olara_Floorplans_Digital_A_092325.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "KP Olara Floorplans Digital C 092325",
+          "url": "https://d2ypru9zenl4y5.cloudfront.net/app/uploads/2023/03/KP_Olara_Floorplans_Digital_C_092325.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "KP Olara Floorplans Digital F 092325",
+          "url": "https://d2ypru9zenl4y5.cloudfront.net/app/uploads/2023/03/KP_Olara_Floorplans_Digital_F_092325.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "KP Olara Floorplans Digital L 092325",
+          "url": "https://d2ypru9zenl4y5.cloudfront.net/app/uploads/2023/03/KP_Olara_Floorplans_Digital_L_092325.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "Official Floor Plans Index",
+          "url": "https://www.olarawestpalmbeach.com/floor-plans",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "All Floor Plans",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Floor-Plans-All-March-2026.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Brochure",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
+          "type": "Brochure",
+          "source": "current-app"
+        },
+        {
+          "label": "Amenities Brochure",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara_Amenities_DigitalBrochure_032026.pdf",
+          "type": "Brochure",
+          "source": "current-app"
+        },
+        {
+          "label": "Fact Sheet",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Fact-Sheet-March-2026-2.pdf",
+          "type": "Fact sheet",
+          "source": "current-app"
+        },
+        {
+          "label": "Download All Files",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Downloads-1.zip",
+          "type": "Download",
+          "source": "current-app"
+        }
+      ],
+      "downloadedAssets": [
+        {
+          "kind": "pdf",
+          "status": "failed",
+          "url": "https://d2ypru9zenl4y5.cloudfront.net/app/uploads/2023/03/KP_Olara_Floorplans_Digital_A_092325.pdf",
+          "type": "Floor plan",
+          "label": "KP Olara Floorplans Digital A 092325",
+          "error": "fetch failed",
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "failed",
+          "url": "https://d2ypru9zenl4y5.cloudfront.net/app/uploads/2023/03/KP_Olara_Floorplans_Digital_C_092325.pdf",
+          "type": "Floor plan",
+          "label": "KP Olara Floorplans Digital C 092325",
+          "error": "fetch failed",
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "failed",
+          "url": "https://d2ypru9zenl4y5.cloudfront.net/app/uploads/2023/03/KP_Olara_Floorplans_Digital_F_092325.pdf",
+          "type": "Floor plan",
+          "label": "KP Olara Floorplans Digital F 092325",
+          "error": "fetch failed",
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "failed",
+          "url": "https://d2ypru9zenl4y5.cloudfront.net/app/uploads/2023/03/KP_Olara_Floorplans_Digital_L_092325.pdf",
+          "type": "Floor plan",
+          "label": "KP Olara Floorplans Digital L 092325",
+          "error": "fetch failed",
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "All Floor Plans",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Floor-Plans-All-March-2026.pdf",
+          "path": "projects/olara/floorplans/all-floor-plans--fc168288.pdf",
+          "bytes": 26739448,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Brochure",
+          "label": "Brochure",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
+          "path": "projects/olara/brochures/brochure--14fd9532.pdf",
+          "bytes": 4662410,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Brochure",
+          "label": "Amenities Brochure",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara_Amenities_DigitalBrochure_032026.pdf",
+          "path": "projects/olara/brochures/amenities-brochure--df5932b1.pdf",
+          "bytes": 8905386,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Fact sheet",
+          "label": "Fact Sheet",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Fact-Sheet-March-2026-2.pdf",
+          "path": "projects/olara/factsheets/fact-sheet--96f242b5.pdf",
+          "bytes": 435467,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara+Floor+Plans+-+All+-+March+2026.pdf",
+          "path": "projects/olara/floorplans/olara-floor-plans-all-march-2026--9503a396.pdf",
+          "bytes": 26739448,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_A.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-a--b0a1bbcf.pdf",
+          "bytes": 1082330,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_B.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-b--bc8aa2ed.pdf",
+          "bytes": 1083339,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_C.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-c--d76d9771.pdf",
+          "bytes": 1084566,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-d--d39ae42e.pdf",
+          "bytes": 1083454,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_E.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-e--3319bd47.pdf",
+          "bytes": 1088311,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_F.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-f--0071691d.pdf",
+          "bytes": 1091150,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_G.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-g--a6fd1e03.pdf",
+          "bytes": 1017473,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_H.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-h--ea23e7e2.pdf",
+          "bytes": 1005337,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_I.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-i--e65c9f39.pdf",
+          "bytes": 1152656,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_J.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-j--e303990c.pdf",
+          "bytes": 1153774,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_K.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-k--9cd4c355.pdf",
+          "bytes": 1149224,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_L.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-l--16cc910d.pdf",
+          "bytes": 1148019,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_M.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-m--89683634.pdf",
+          "bytes": 1153134,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_N.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-31126-n--64b4d079.pdf",
+          "bytes": 838898,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_O.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-o--6591c59d.pdf",
+          "bytes": 1165460,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_P.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-p--45abf461.pdf",
+          "bytes": 1164988,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Q.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-q--5f29a5c5.pdf",
+          "bytes": 1163218,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_T.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-t--76f4785d.pdf",
+          "bytes": 844681,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_U.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-u--ae494a72.pdf",
+          "bytes": 845935,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_V_401_501.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-v-401-501--d265bf9d.pdf",
+          "bytes": 1089589,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_W_402_502.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-w-402-502--8c78971f.pdf",
+          "bytes": 1087059,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_X_207_307_403_503.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-x-207-307-403-503--64a29d80.pdf",
+          "bytes": 1020946,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_208.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-y-208--a8ee816d.pdf",
+          "bytes": 1015466,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_308_404_504.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-y-308-404-504--2716f666.pdf",
+          "bytes": 1015125,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_209.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-z-209--0d55a804.pdf",
+          "bytes": 1019825,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_309_405_505.pdf",
+          "path": "projects/olara/floorplans/olara-floorplans-digital-031126-z-309-405-505--bd7e2e1a.pdf",
+          "bytes": 1020511,
+          "source": "crawl"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/01_Homepage_BuildingImage_fromwater_Updated.jpg",
+          "path": "projects/olara/images/candidates/01--official-candidate--d3af2gfyi5943v.cloudfront.net--0da08560.jpg",
+          "bytes": 1813926,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.olarawestpalmbeach.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/BoatHomepage-scaled.jpg",
+          "path": "projects/olara/images/candidates/02--official-candidate--d3af2gfyi5943v.cloudfront.net--7ba74780.jpg",
+          "bytes": 844093,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.olarawestpalmbeach.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/03_Olara_Homepage_RoofPool-scaled.jpg",
+          "path": "projects/olara/images/candidates/03--official-candidate--d3af2gfyi5943v.cloudfront.net--94740545.jpg",
+          "bytes": 584510,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.olarawestpalmbeach.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/04_Homepage_Lobby_Entrance.jpg",
+          "path": "projects/olara/images/candidates/04--official-candidate--d3af2gfyi5943v.cloudfront.net--5b7f77f4.jpg",
+          "bytes": 3307486,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.olarawestpalmbeach.com/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/olara/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.olarawestpalmbeach.com/",
+        "https://www.olarawestpalmbeach.com/lifestyle/",
+        "https://www.olarawestpalmbeach.com/wellness/",
+        "https://www.olarawestpalmbeach.com/residences/",
+        "https://www.olarawestpalmbeach.com/floorplans"
+      ],
+      "pdfCandidates": [
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara+Floor+Plans+-+All+-+March+2026.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_A.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_B.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_C.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_E.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_F.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_G.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_H.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_I.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_J.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_K.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_L.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_M.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_N.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_O.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_P.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Q.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_T.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_U.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_V_401_501.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_W_402_502.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_X_207_307_403_503.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_208.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_308_404_504.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_209.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_309_405_505.pdf",
+          "label": ""
+        }
+      ],
+      "imageCandidateCount": 80,
+      "errors": [
+        {
+          "url": "https://www.olarawestpalmbeach.com/architecture/",
+          "status": 404,
+          "error": "Not Found"
+        },
+        {
+          "url": "https://www.olarawestpalmbeach.com/floor-plans",
+          "status": 404,
+          "error": "Not Found"
+        }
+      ]
+    },
+    {
+      "projectId": "mandarin-oriental",
+      "slug": "mandarin-oriental-residences-west-palm-beach",
+      "name": "Mandarin Oriental Residences, West Palm Beach",
+      "officialWebsite": "https://mandarinorientalwestpalmbeach.com/",
+      "address": "5400 N Flagler Dr, West Palm Beach, FL 33407",
+      "status": "Concept / priority interest",
+      "completion": "Anticipated opening 2031",
+      "developer": "Great Gulf",
+      "architect": "Safdie Architects",
+      "interiorDesigner": "Studio Munge",
+      "residences": "87",
+      "stories": "31",
+      "pricing": "Starting from $3.5M per official launch site; verify current pricing.",
+      "sourceUrls": [
+        "https://mandarinorientalwestpalmbeach.com/",
+        "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
+        "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+        "https://press.mandarinoriental.com/residences-west-palm/"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+          "path": "projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
+          "bytes": 69700,
+          "contentType": "image/webp",
+          "sourcePage": "https://mandarinorientalwestpalmbeach.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/hYMWjgRcN744BQoPJbE4.png",
+          "path": "projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
+          "bytes": 236278,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+          "path": "projects/mandarin-oriental/images/candidates/03--official-candidate--greatgulfstrapi.blob.core.windows.net--f999b056.jpg",
+          "bytes": 304295,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/medium_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+          "path": "projects/mandarin-oriental/images/candidates/04--official-candidate--greatgulfstrapi.blob.core.windows.net--20852886.jpg",
+          "bytes": 63035,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/mandarin-oriental/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://mandarinorientalwestpalmbeach.com/",
+        "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
+        "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+        "https://press.mandarinoriental.com/residences-west-palm/"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 18,
+      "errors": []
+    },
+    {
+      "projectId": "alba-palm-beach",
+      "slug": "alba-palm-beach",
+      "name": "Alba Palm Beach",
+      "officialWebsite": "https://www.albapalmbeach.com/",
+      "address": "4714 N Flagler Dr, West Palm Beach, FL 33407",
+      "status": "Under construction / topped out",
+      "completion": "Planned Spring 2026 delivery reported by Florida YIMBY; verify with sales team.",
+      "developer": "BGI Companies",
+      "architect": "Spina O'Rourke + Partners",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "55",
+      "stories": "22",
+      "pricing": "Lower penthouse collection reported from $6.95M; request current full availability.",
+      "sourceUrls": [
+        "https://www.albapalmbeach.com/",
+        "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html",
+        "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html",
+        "https://floridayimby.com/2025/04/alba-palm-beach-tops-out-at-4714-north-flagler-drive-in-west-palm-beach.html"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch.jpg",
+          "path": "projects/alba-palm-beach/images/candidates/01--official-candidate--albapalmbeach.com--11aa06d4.jpg",
+          "bytes": 135693,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.albapalmbeach.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.albapalmbeach.com/wp-content/uploads/clock-tower.jpg",
+          "path": "projects/alba-palm-beach/images/candidates/02--official-candidate--albapalmbeach.com--7ba18948.jpg",
+          "bytes": 94453,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.albapalmbeach.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.albapalmbeach.com/wp-content/uploads/AlbaDevelopers02-22_82_grayscale-1.png",
+          "path": "projects/alba-palm-beach/images/candidates/03--official-candidate--albapalmbeach.com--74f2d493.png",
+          "bytes": 443793,
+          "contentType": "image/png",
+          "sourcePage": "https://www.albapalmbeach.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.albapalmbeach.com/wp-content/uploads/CAM_08_aerial_sunset_FINAL_02.jpeg",
+          "path": "projects/alba-palm-beach/images/candidates/04--official-candidate--albapalmbeach.com--c0fe2ffd.jpg",
+          "bytes": 886860,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.albapalmbeach.com/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/alba-palm-beach/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.albapalmbeach.com/",
+        "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html",
+        "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html",
+        "https://www.albapalmbeach.com/amenities",
+        "https://www.albapalmbeach.com/residences"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 80,
+      "errors": [
+        {
+          "url": "https://floridayimby.com/2025/04/alba-palm-beach-tops-out-at-4714-north-flagler-drive-in-west-palm-beach.html",
+          "status": 404,
+          "error": "Not Found"
+        }
+      ]
+    },
+    {
+      "projectId": "apogee-wpb",
+      "slug": "apogee-west-palm-beach",
+      "name": "Apogee West Palm Beach",
+      "officialWebsite": "",
+      "address": "4906 N Flagler Dr, West Palm Beach, FL 33407",
+      "status": "Planning",
+      "completion": "2029 target in seed model; planning-stage timing should be verified.",
+      "developer": "Related Group and BH Group",
+      "architect": "Kohn Pedersen Fox",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "39",
+      "stories": "21",
+      "pricing": "Not publicly confirmed",
+      "sourceUrls": [
+        "https://therealdeal.com/miami/2025/11/18/related-group-bh-group-plan-apogee-condo-in-west-palm-beach/"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [],
+      "generatedPlaceholderCopies": [
+        "projects/apogee-wpb/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [],
+      "pdfCandidates": [],
+      "imageCandidateCount": 0,
+      "errors": [
+        {
+          "url": "https://therealdeal.com/miami/2025/11/18/related-group-bh-group-plan-apogee-condo-in-west-palm-beach/",
+          "status": 404,
+          "error": "Not Found"
+        }
+      ]
+    },
+    {
+      "projectId": "south-flagler-house-north",
+      "slug": "south-flagler-house-north",
+      "name": "South Flagler House North Tower",
+      "officialWebsite": "https://www.southflaglerhouse.com/",
+      "address": "1355 S Flagler Dr, West Palm Beach, FL 33401",
+      "status": "Under construction",
+      "completion": "Expected 2027",
+      "developer": "Related Ross",
+      "architect": "Robert A.M. Stern Architects",
+      "interiorDesigner": "Pembrooke & Ives",
+      "residences": "108",
+      "stories": "28",
+      "pricing": "Request current pricing",
+      "sourceUrls": [
+        "https://www.southflaglerhouse.com/",
+        "https://www.southflaglerhouse.com/architecture-design",
+        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
+        "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [],
+      "generatedPlaceholderCopies": [
+        "projects/south-flagler-house-north/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 0,
+      "errors": [
+        {
+          "url": "https://www.southflaglerhouse.com/",
+          "status": 429,
+          "error": "Too many requests"
+        },
+        {
+          "url": "https://www.southflaglerhouse.com/architecture-design",
+          "status": 429,
+          "error": "Too many requests"
+        }
+      ]
+    },
+    {
+      "projectId": "south-flagler-house-south",
+      "slug": "south-flagler-house-south",
+      "name": "South Flagler House South Tower",
+      "officialWebsite": "https://www.southflaglerhouse.com/",
+      "address": "1355 S Flagler Dr, West Palm Beach, FL 33401",
+      "status": "Under construction",
+      "completion": "Expected 2027",
+      "developer": "Related Ross",
+      "architect": "Robert A.M. Stern Architects",
+      "interiorDesigner": "Pembrooke & Ives",
+      "residences": "108",
+      "stories": "28",
+      "pricing": "Request current pricing",
+      "sourceUrls": [
+        "https://www.southflaglerhouse.com/",
+        "https://www.southflaglerhouse.com/architecture-design",
+        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
+        "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [],
+      "generatedPlaceholderCopies": [
+        "projects/south-flagler-house-south/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 0,
+      "errors": [
+        {
+          "url": "https://www.southflaglerhouse.com/",
+          "status": 429,
+          "error": "Too many requests"
+        },
+        {
+          "url": "https://www.southflaglerhouse.com/architecture-design",
+          "status": 429,
+          "error": "Too many requests"
+        }
+      ]
+    },
+    {
+      "projectId": "edgeworth-north",
+      "slug": "edgeworth-north",
+      "name": "Edgeworth North Tower",
+      "officialWebsite": "https://www.edgeworthwpb.com/",
+      "address": "1155 S Flagler Dr, West Palm Beach, FL 33401",
+      "status": "Planning / priority list",
+      "completion": "Around 2029 in seed/reporting; verify as project advances.",
+      "developer": "Related Ross",
+      "architect": "Kohn Pedersen Fox",
+      "interiorDesigner": "MAWD",
+      "residences": "168",
+      "stories": "28",
+      "pricing": "Reported range from $2.5M to $35.5M; verify current pricing.",
+      "sourceUrls": [
+        "https://www.edgeworthwpb.com/",
+        "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+        "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/",
+        "https://mawd.co/projects/residential/edgeworth"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+          "path": "projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "bytes": 447934,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.edgeworthwpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=750w",
+          "path": "projects/edgeworth-north/images/candidates/02--official-candidate--images.squarespace-cdn.com--95646ee5.webp",
+          "bytes": 61958,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.edgeworthwpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1000w",
+          "path": "projects/edgeworth-north/images/candidates/03--official-candidate--images.squarespace-cdn.com--977977f0.webp",
+          "bytes": 100746,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.edgeworthwpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1500w",
+          "path": "projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
+          "bytes": 190532,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.edgeworthwpb.com/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/edgeworth-north/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.edgeworthwpb.com/",
+        "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+        "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/",
+        "https://mawd.co/projects/residential/edgeworth"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 80,
+      "errors": []
+    },
+    {
+      "projectId": "edgeworth-south",
+      "slug": "edgeworth-south",
+      "name": "Edgeworth South Tower",
+      "officialWebsite": "https://www.edgeworthwpb.com/",
+      "address": "1155 S Flagler Dr, West Palm Beach, FL 33401",
+      "status": "Planning / priority list",
+      "completion": "Around 2029 in seed/reporting; verify as project advances.",
+      "developer": "Related Ross",
+      "architect": "Kohn Pedersen Fox",
+      "interiorDesigner": "MAWD",
+      "residences": "168",
+      "stories": "28",
+      "pricing": "Reported range from $2.5M to $35.5M; verify current pricing.",
+      "sourceUrls": [
+        "https://www.edgeworthwpb.com/",
+        "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+        "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/",
+        "https://mawd.co/projects/residential/edgeworth"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+          "path": "projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "bytes": 447934,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.edgeworthwpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=750w",
+          "path": "projects/edgeworth-south/images/candidates/02--official-candidate--images.squarespace-cdn.com--95646ee5.webp",
+          "bytes": 61958,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.edgeworthwpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1000w",
+          "path": "projects/edgeworth-south/images/candidates/03--official-candidate--images.squarespace-cdn.com--977977f0.webp",
+          "bytes": 100746,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.edgeworthwpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1500w",
+          "path": "projects/edgeworth-south/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
+          "bytes": 190532,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.edgeworthwpb.com/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/edgeworth-south/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.edgeworthwpb.com/",
+        "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+        "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/",
+        "https://mawd.co/projects/residential/edgeworth"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 80,
+      "errors": []
+    },
+    {
+      "projectId": "mr-c",
+      "slug": "mr-c-hotel-residences-west-palm-beach",
+      "name": "Mr. C Hotel & Residences West Palm Beach",
+      "officialWebsite": "https://www.mrcresidenceswpb.com/",
+      "address": "320 Lakeview Ave, West Palm Beach, FL 33401",
+      "status": "Under construction",
+      "completion": "2027 target in seed/reporting; verify with sales team.",
+      "developer": "Terra",
+      "architect": "Not publicly confirmed",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "146",
+      "stories": "27",
+      "pricing": "Request current pricing",
+      "sourceUrls": [
+        "https://www.mrcresidenceswpb.com/",
+        "https://www.mrcresidenceswpb.com/residences/",
+        "https://www.mrcresidenceswpb.com/amenities-services/",
+        "https://www.mrcresidenceswpb.com/downloads/",
+        "https://floridayimby.com/2025/08/terra-secures-285-million-construction-loan-and-breaks-ground-on-mr-c-hotel-residences-in-west-palm-beach.html",
+        "https://www.mrcwpalmbeach.com/"
+      ],
+      "knownAssetLinks": [
+        {
+          "label": "MrCWPB Res01 FloorPlan Illustrated 1",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "MrCWPB Res02 FloorPlan Illustrated 1",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        },
+        {
+          "label": "Official Downloads",
+          "url": "https://www.mrcresidenceswpb.com/downloads/",
+          "type": "Download",
+          "source": "current-app"
+        },
+        {
+          "label": "Fact Sheet",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+          "type": "Fact sheet",
+          "source": "current-app"
+        },
+        {
+          "label": "West Palm Beach Guide",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC-WPB-Guide-body-R13-Digital-Web.pdf",
+          "type": "Brochure",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 01A",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 02A",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 03",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 04",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 05",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 06",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 07",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 08",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 10",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 11",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        },
+        {
+          "label": "Residence 12",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+          "type": "Floor plan",
+          "source": "current-app"
+        }
+      ],
+      "downloadedAssets": [
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "MrCWPB Res01 FloorPlan Illustrated 1",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
+          "bytes": 1666749,
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "MrCWPB Res02 FloorPlan Illustrated 1",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
+          "bytes": 1150884,
+          "source": "github-master"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Fact sheet",
+          "label": "Fact Sheet",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+          "path": "projects/mr-c/factsheets/fact-sheet--7fac9094.pdf",
+          "bytes": 392190,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Brochure",
+          "label": "West Palm Beach Guide",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC-WPB-Guide-body-R13-Digital-Web.pdf",
+          "path": "projects/mr-c/brochures/west-palm-beach-guide--3f539116.pdf",
+          "bytes": 13189328,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 01A",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-01a--4c4e8025.pdf",
+          "bytes": 1584507,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 02A",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-02a--c0b62912.pdf",
+          "bytes": 1148716,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 03",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-03--809edf7a.pdf",
+          "bytes": 2049860,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 04",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-04--7e2f1920.pdf",
+          "bytes": 1188702,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 05",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-05--a9880839.pdf",
+          "bytes": 1503160,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 06",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-06--5677af6f.pdf",
+          "bytes": 1264694,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 07",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-07--438e91d4.pdf",
+          "bytes": 1737412,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 08",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-08--0717db7d.pdf",
+          "bytes": 1134801,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 10",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-10--c2ea2424.pdf",
+          "bytes": 1112106,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 11",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-11--d43deb20.pdf",
+          "bytes": 937498,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "Residence 12",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/residence-12--a53ea9bd.pdf",
+          "bytes": 4454224,
+          "source": "current-app"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
+          "bytes": 1593185,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
+          "bytes": 1927168,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
+          "bytes": 1492115,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
+          "bytes": 1608633,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
+          "bytes": 1347726,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
+          "bytes": 3571426,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
+          "bytes": 1576986,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
+          "bytes": 1280462,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
+          "bytes": 3916332,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
+          "bytes": 1462193,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
+          "bytes": 4285651,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
+          "bytes": 5052854,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
+          "bytes": 3666251,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
+          "bytes": 4246707,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
+          "bytes": 3826050,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
+          "bytes": 3636823,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
+          "bytes": 1340338,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
+          "bytes": 1507559,
+          "source": "crawl"
+        },
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
+          "path": "projects/mr-c/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
+          "bytes": 1339694,
+          "source": "crawl"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?fit=1677%2C879&quality=89&ssl=1",
+          "path": "projects/mr-c/images/candidates/01--official-candidate--i0.wp.com--83197a3b.webp",
+          "bytes": 193634,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.mrcresidenceswpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?fit=1677%2C1049&quality=89&ssl=1",
+          "path": "projects/mr-c/images/candidates/02--official-candidate--i0.wp.com--25ed96c3.webp",
+          "bytes": 200166,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.mrcresidenceswpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg?fit=1677%2C941&quality=89&ssl=1",
+          "path": "projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
+          "bytes": 203546,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.mrcresidenceswpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg",
+          "path": "projects/mr-c/images/candidates/04--official-candidate--mrcresidenceswpb.com--70dd69fb.jpg",
+          "bytes": 1173087,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.mrcresidenceswpb.com/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/mr-c/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.mrcresidenceswpb.com/",
+        "https://www.mrcresidenceswpb.com/residences/",
+        "https://www.mrcresidenceswpb.com/amenities-services/",
+        "https://www.mrcresidenceswpb.com/downloads/",
+        "https://floridayimby.com/2025/08/terra-secures-285-million-construction-loan-and-breaks-ground-on-mr-c-hotel-residences-in-west-palm-beach.html"
+      ],
+      "pdfCandidates": [
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC-WPB-Guide-body-R13-Digital-Web.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        },
+        {
+          "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
+          "label": ""
+        }
+      ],
+      "imageCandidateCount": 80,
+      "errors": []
+    },
+    {
+      "projectId": "banyan-tree",
+      "slug": "banyan-tree-residences-west-palm-beach",
+      "name": "Banyan Tree Residences West Palm Beach",
+      "officialWebsite": "https://www.banyantreeresidenceswpb.com/",
+      "address": "400 Hibiscus St, West Palm Beach, FL 33401",
+      "status": "Planning / sales gallery open",
+      "completion": "Planning-stage timing not publicly confirmed",
+      "developer": "Mast Capital and Curated JCZM Development",
+      "architect": "Not publicly confirmed",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "86",
+      "stories": "25",
+      "pricing": "Request current pricing",
+      "sourceUrls": [
+        "https://www.banyantreeresidenceswpb.com/",
+        "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/",
+        "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/",
+        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-march-12-2026.pdf"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/cropped-553770584-e8be1256-7b8f-4115-a131-96478a276e5a.png",
+          "path": "projects/banyan-tree/images/candidates/01--official-candidate--admin.banyantreeresidenceswpb.com--cc4fad1c.png",
+          "bytes": 62051,
+          "contentType": "image/png",
+          "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero.png",
+          "path": "projects/banyan-tree/images/candidates/02--official-candidate--admin.banyantreeresidenceswpb.com--639915ad.png",
+          "bytes": 470728,
+          "contentType": "image/png",
+          "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear.png",
+          "path": "projects/banyan-tree/images/candidates/03--official-candidate--admin.banyantreeresidenceswpb.com--188631da.png",
+          "bytes": 889999,
+          "contentType": "image/png",
+          "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Drawing_Transparent.png",
+          "path": "projects/banyan-tree/images/candidates/04--official-candidate--admin.banyantreeresidenceswpb.com--bb3767c4.png",
+          "bytes": 764068,
+          "contentType": "image/png",
+          "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/banyan-tree/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.banyantreeresidenceswpb.com/",
+        "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/",
+        "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/",
+        "https://www.banyantreeresidenceswpb.com/?view=privacy-policy",
+        "https://www.banyantreeresidenceswpb.com/#image0_10103_1154"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 35,
+      "errors": [
+        {
+          "url": "https://www.banyantreeresidenceswpb.com/banyan-tree-residences-luxury-condos-in-west-palm-beach/",
+          "status": 404,
+          "error": "Not Found"
+        },
+        {
+          "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#743d1a121b3436151a0d151a200611112611071d10111a1711072324365a171b19",
+          "status": 404,
+          "error": "Not Found"
+        }
+      ]
+    },
+    {
+      "projectId": "berkeley",
+      "slug": "the-berkeley-palm-beach",
+      "name": "The Berkeley Palm Beach",
+      "officialWebsite": "https://www.theberkeleypalmbeach.com/",
+      "address": "550 S Australian Ave, West Palm Beach, FL 33401",
+      "status": "Now selling / under construction",
+      "completion": "2028 target in seed/reporting; verify with sales team.",
+      "developer": "Al Adelson development team; verify legal development entity",
+      "architect": "Not publicly confirmed",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "193",
+      "stories": "25",
+      "pricing": "Official fact sheet lists pricing from under $2M to $10M+; verify current availability.",
+      "sourceUrls": [
+        "https://www.theberkeleypalmbeach.com/",
+        "https://static.millionluxury.com/spinfile/Spin/Data/Estate/File/The%20Berkeley%20Palm%20Beach%20-%20Fact%20Sheet.pdf?v=259",
+        "https://www.theberkeleypalmbeach.com/contact-information/",
+        "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html",
+        "https://www.theberkeleypalmbeach.com/residence/residence-f/"
+      ],
+      "knownAssetLinks": [
+        {
+          "label": "residence f",
+          "url": "https://www.theberkeleypalmbeach.com/residence/residence-f/",
+          "type": "Floor plan",
+          "source": "github-master"
+        }
+      ],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-777x824.jpeg",
+          "path": "projects/berkeley/images/candidates/01--official-candidate--floridayimby.com--24582688.jpg",
+          "bytes": 155853,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-scaled.jpeg",
+          "path": "projects/berkeley/images/candidates/02--official-candidate--floridayimby.com--85a3cd9f.jpg",
+          "bytes": 433859,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-scaled.jpeg",
+          "path": "projects/berkeley/images/candidates/03--official-candidate--floridayimby.com--6ea8b79a.jpg",
+          "bytes": 416968,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-scaled.jpeg",
+          "path": "projects/berkeley/images/candidates/04--official-candidate--floridayimby.com--d14ec29e.jpg",
+          "bytes": 552969,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/berkeley/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 74,
+      "errors": [
+        {
+          "url": "https://www.theberkeleypalmbeach.com/",
+          "status": 403,
+          "error": "Forbidden"
+        },
+        {
+          "url": "https://www.theberkeleypalmbeach.com/contact-information/",
+          "status": 403,
+          "error": "Forbidden"
+        },
+        {
+          "url": "https://www.theberkeleypalmbeach.com/residence/residence-f/",
+          "status": 403,
+          "error": "Forbidden"
+        }
+      ]
+    },
+    {
+      "projectId": "nora-house",
+      "slug": "nora-house",
+      "name": "NORA House",
+      "officialWebsite": "https://norahouse.com/",
+      "address": "NORA District; sales office at 955 N Railroad Avenue, Suite B, West Palm Beach, FL 33401",
+      "status": "Sales launched / early interest",
+      "completion": "Expected 2029 in March 2026 reporting; verify with sales team.",
+      "developer": "The Ronto Group",
+      "architect": "Swedroe Architecture",
+      "interiorDesigner": "Lillian Wu Studio",
+      "residences": "117",
+      "stories": "11",
+      "pricing": "Reported range from $2M to $6.5M; official site also references residences from the high $1M's. Verify current pricing.",
+      "sourceUrls": [
+        "https://norahouse.com/",
+        "https://norahouse.com/amenities/",
+        "https://norahouse.com/team/",
+        "https://norahouse.com/floorplan/residence-01/",
+        "https://norawpb.com/wp-content/uploads/2026/03/The-Real-Deal-Ronto-partners-launch-Nora-House-condos-in-West-Palm-Beach-3.23.26.pdf",
+        "https://norawpb.com/wp-content/uploads/2025/08/The-Real-Deal-Nora-developers-plan-122-condos-350-apartments-at-West-Palm-Beach-district-8.1.25.pdf",
+        "https://profilemiamire.com/miamirealestate/2026/3/26/the-ronto-group-launches-sales-for-nora-house-in-west-palm-beachs-nora-district"
+      ],
+      "knownAssetLinks": [
+        {
+          "label": "residence 01",
+          "url": "https://norahouse.com/floorplan/residence-01/",
+          "type": "Floor plan",
+          "source": "github-master"
+        }
+      ],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl.jpg",
+          "path": "projects/nora-house/images/candidates/01--official-candidate--norahouse.com--7f3c7c65.jpg",
+          "bytes": 351320,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://norahouse.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2.webp",
+          "path": "projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
+          "bytes": 549022,
+          "contentType": "image/webp",
+          "sourcePage": "https://norahouse.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl-1024x606.jpg",
+          "path": "projects/nora-house/images/candidates/03--official-candidate--norahouse.com--aaf83d65.jpg",
+          "bytes": 81721,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://norahouse.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl-1920x1136.jpg",
+          "path": "projects/nora-house/images/candidates/04--official-candidate--norahouse.com--3fa1f332.jpg",
+          "bytes": 251504,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://norahouse.com/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/nora-house/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://norahouse.com/",
+        "https://norahouse.com/amenities/",
+        "https://norahouse.com/team/",
+        "https://norahouse.com/floorplan/residence-01/",
+        "https://norahouse.com/press/"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 26,
+      "errors": []
+    },
+    {
+      "projectId": "15-cityplace",
+      "slug": "15-cityplace",
+      "name": "15 CityPlace",
+      "officialWebsite": "https://www.relatedross.com/office/15-cityplace",
+      "address": "15 CityPlace, West Palm Beach, FL 33401",
+      "status": "Under construction / office leasing",
+      "completion": "Expected 2027 in Related Ross release; leasing page may vary.",
+      "developer": "Related Ross",
+      "architect": "Arquitectonica",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "",
+      "stories": "25",
+      "pricing": "Not applicable",
+      "sourceUrls": [
+        "https://www.relatedross.com/office/15-cityplace",
+        "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+        "https://www.lifestyleoffice.com/15-cityplace"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.relatedross.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2025-05/acquiadam-assets/10-and-15-CityPlace-Hero-spiral.jpg?itok=V49z6pxJ",
+          "path": "projects/15-cityplace/images/candidates/01--official-candidate--relatedross.com--f0cd3d83.jpg",
+          "bytes": 373998,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.relatedross.com/sites/default/files/styles/16x9_horizontal_rectangle_w/public/2025-05/acquiadam-assets/related-ross-15-cityplace-terrace-redleaf_2_easttower_terrace_completion_spiral.jpg?itok=8enFkXRF",
+          "path": "projects/15-cityplace/images/candidates/02--official-candidate--relatedross.com--07ea9ff2.jpg",
+          "bytes": 307079,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.relatedross.com/sites/default/files/styles/1x1_square_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-square-smr-kh_photo%20cred_bdb_mike%20price.jpg?itok=6ID3QViF",
+          "path": "projects/15-cityplace/images/candidates/03--official-candidate--relatedross.com--537496e3.jpg",
+          "bytes": 498470,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.relatedross.com/sites/default/files/styles/1x1_square_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-square-_v8a7403%20cropped.jpg?itok=_RoBnzN4",
+          "path": "projects/15-cityplace/images/candidates/04--official-candidate--relatedross.com--959d6de5.jpg",
+          "bytes": 444496,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.relatedross.com/office/15-cityplace"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/15-cityplace/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.relatedross.com/office/15-cityplace",
+        "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+        "https://www.lifestyleoffice.com/15-cityplace",
+        "https://www.relatedross.com/press-releases",
+        "https://www.relatedross.com/press-releases/2026-03-03/point72-and-related-ross-pro-am-raises-400000-related-ross-foundation"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 61,
+      "errors": []
+    },
+    {
+      "projectId": "10-cityplace",
+      "slug": "10-cityplace",
+      "name": "10 CityPlace",
+      "officialWebsite": "https://www.relatedross.com/our-company/properties/10-cityplace",
+      "address": "10 CityPlace, West Palm Beach, FL 33401",
+      "status": "Under construction / office leasing",
+      "completion": "Expected 2027 in Related Ross release; precise phasing should be verified.",
+      "developer": "Related Ross",
+      "architect": "Kohn Pedersen Fox",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "",
+      "stories": "21",
+      "pricing": "Not applicable",
+      "sourceUrls": [
+        "https://www.relatedross.com/our-company/properties/10-cityplace",
+        "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [],
+      "generatedPlaceholderCopies": [
+        "projects/10-cityplace/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.relatedross.com/our-company/properties/10-cityplace"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 1,
+      "errors": [
+        {
+          "url": "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+          "status": 429,
+          "error": "Too many requests"
+        },
+        {
+          "url": "https://www.relatedross.com/press-releases",
+          "status": 429,
+          "error": "Too many requests"
+        },
+        {
+          "url": "https://www.relatedross.com/modules/contrib/social_media/icons/email.svg",
+          "status": 429,
+          "error": "Too many requests"
+        },
+        {
+          "url": "https://www.relatedross.com/modules/contrib/social_media/icons/facebook_share.svg",
+          "status": 429,
+          "error": "Too many requests"
+        },
+        {
+          "url": "https://www.relatedross.com/modules/contrib/social_media/icons/twitter.svg",
+          "status": 429,
+          "error": "Too many requests"
+        },
+        {
+          "url": "https://www.relatedross.com/modules/contrib/social_media/icons/linkedin.svg",
+          "status": 429,
+          "error": "Too many requests"
+        },
+        {
+          "url": "https://www.relatedross.com/modules/contrib/social_media/icons/pinterest.svg",
+          "status": 429,
+          "error": "Too many requests"
+        }
+      ]
+    },
+    {
+      "projectId": "maison-dor",
+      "slug": "maison-dor",
+      "name": "Maison d'Or",
+      "officialWebsite": "https://livemaisondor.com/",
+      "address": "3705 S Flagler Dr, West Palm Beach, FL 33405",
+      "status": "Sales launched / pre-construction",
+      "completion": "2028 timing reported in brokerage/market coverage; verify with sales team.",
+      "developer": "Kolter Urban and Perko Development Partners",
+      "architect": "10 Design",
+      "interiorDesigner": "Hirsch Bedner Associates",
+      "residences": "39",
+      "stories": "19",
+      "pricing": "Starting at $5.7M per official site and January 2026 launch coverage; verify current availability.",
+      "sourceUrls": [
+        "https://livemaisondor.com/",
+        "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+        "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach",
+        "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2025-agendas/2025-draft-city-commission-agendas/05_12_25_draft-city-commission-agenda.pdf"
+      ],
+      "knownAssetLinks": [
+        {
+          "label": "MaisondOr Fact Sheet",
+          "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+          "type": "Floor plan",
+          "source": "github-master"
+        }
+      ],
+      "downloadedAssets": [
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Floor plan",
+          "label": "MaisondOr Fact Sheet",
+          "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+          "path": "projects/maison-dor/floorplans/maisondor-fact-sheet--f983cc62.pdf",
+          "bytes": 1420264,
+          "source": "github-master"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617.jpg",
+          "path": "projects/maison-dor/images/candidates/01--official-candidate--livemaisondor.com--5af88e37.jpg",
+          "bytes": 237836,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://livemaisondor.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144.jpg",
+          "path": "projects/maison-dor/images/candidates/02--official-candidate--livemaisondor.com--24b9844b.jpg",
+          "bytes": 293769,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://livemaisondor.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1.png",
+          "path": "projects/maison-dor/images/candidates/03--official-candidate--livemaisondor.com--8b49905d.webp",
+          "bytes": 833806,
+          "contentType": "image/webp",
+          "sourcePage": "https://livemaisondor.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314.jpg",
+          "path": "projects/maison-dor/images/candidates/04--official-candidate--livemaisondor.com--e7e09b44.jpg",
+          "bytes": 497622,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://livemaisondor.com/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/maison-dor/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://livemaisondor.com/",
+        "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach",
+        "https://livemaisondor.com/the-residences/",
+        "https://livemaisondor.com/the-amenities/",
+        "https://livemaisondor.com/the-gallery/"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 80,
+      "errors": [
+        {
+          "url": {
+            "name": "Fact sheet plan range",
+            "beds": "2 + den to 4 + den",
+            "baths": "Varies",
+            "interior_sq_ft": null,
+            "exterior_sq_ft": null,
+            "total_sq_ft": null,
+            "price": "Starting at $5.7M; verify current pricing",
+            "image_url": "",
+            "pdf_url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+            "notes": "Official fact sheet confirms plan range and residence feature program, but individual floor-plan PDFs were not publicly located in this pass."
+          },
+          "status": 0,
+          "error": "Failed to parse URL from [object Object]"
+        }
+      ]
+    },
+    {
+      "projectId": "forte-on-flagler",
+      "slug": "forte-on-flagler",
+      "name": "Forté on Flagler",
+      "officialWebsite": "https://fortewpb.com/",
+      "address": "1309 S Flagler Dr, West Palm Beach, FL 33401",
+      "status": "Recently delivered / resale inventory",
+      "completion": "Completed / delivered around 2025 based on public brokerage and construction coverage.",
+      "developer": "Two Roads Development with Alpha Blue Ventures",
+      "architect": "Arquitectonica",
+      "interiorDesigner": "Jean-Louis Deniot",
+      "residences": "41",
+      "stories": "25",
+      "pricing": "Current resale/listing pricing varies; request current availability.",
+      "sourceUrls": [
+        "https://fortewpb.com/",
+        "https://es.arquitectonica.com/architecture/project/forte-on-flagler/",
+        "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html",
+        "https://www.vickierealestate.com/south-florida-pre-construction-condos/palm-beach-pre-construction/forte-on-flagler/"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "pdf",
+          "status": "downloaded",
+          "type": "Download",
+          "label": "",
+          "url": "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
+          "path": "projects/forte-on-flagler/downloads/north-open-kitchen-plan--570a05d0.pdf",
+          "bytes": 10034786,
+          "source": "crawl"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://fortewpb.com/wp-content/uploads/Forte-on-Flagler.png",
+          "path": "projects/forte-on-flagler/images/candidates/01--official-candidate--fortewpb.com--b5b863ab.png",
+          "bytes": 70434,
+          "contentType": "image/png",
+          "sourcePage": "https://fortewpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://fortewpb.com/wp-content/uploads/home-main-desktop.jpg",
+          "path": "projects/forte-on-flagler/images/candidates/02--official-candidate--fortewpb.com--9a29aed6.jpg",
+          "bytes": 477289,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://fortewpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://fortewpb.com/wp-content/uploads/home-main-mobile.jpg",
+          "path": "projects/forte-on-flagler/images/candidates/03--official-candidate--fortewpb.com--d4e726f5.jpg",
+          "bytes": 134758,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://fortewpb.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://fortewpb.com/wp-content/uploads/home-middle-2.jpg",
+          "path": "projects/forte-on-flagler/images/candidates/04--official-candidate--fortewpb.com--595c88a6.jpg",
+          "bytes": 99208,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://fortewpb.com/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/forte-on-flagler/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://fortewpb.com/",
+        "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html",
+        "https://www.vickierealestate.com/south-florida-pre-construction-condos/palm-beach-pre-construction/forte-on-flagler/",
+        "https://fortewpb.com/residences/",
+        "https://fortewpb.com/residences/north-open-kitchen-plan/"
+      ],
+      "pdfCandidates": [
+        {
+          "url": "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
+          "label": ""
+        }
+      ],
+      "imageCandidateCount": 80,
+      "errors": [
+        {
+          "url": "https://es.arquitectonica.com/architecture/project/forte-on-flagler/",
+          "status": 0,
+          "error": "fetch failed"
+        }
+      ]
+    },
+    {
+      "projectId": "la-clara",
+      "slug": "la-clara",
+      "name": "La Clara",
+      "officialWebsite": "",
+      "address": "200 Arkona Ct / 1515 S Flagler Dr, West Palm Beach, FL 33401",
+      "status": "Recently delivered / resale inventory",
+      "completion": "Opened / delivered in 2023.",
+      "developer": "Great Gulf and Terrace Mountain",
+      "architect": "Stantec architect of record; design by Hariri Pontarini Architects",
+      "interiorDesigner": "Stantec",
+      "residences": "83",
+      "stories": "25",
+      "pricing": "Current resale/listing pricing varies; request current availability.",
+      "sourceUrls": [
+        "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
+        "https://www.thorntontomasetti.com/project/la-clara",
+        "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.stantec.com/content/dam/stantec/images/service%20page%20images/climate-solutions-service-1800x1200.jpg",
+          "path": "projects/la-clara/images/candidates/01--official-candidate--stantec.com--2554e025.jpg",
+          "bytes": 229478,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.stantec.com/content/dam/stantec/images/homepage-hero/2025/digital-stantec-staff-234469.jpg",
+          "path": "projects/la-clara/images/candidates/02--official-candidate--stantec.com--282d9cb6.jpg",
+          "bytes": 178091,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.stantec.com/content/dam/stantec/images/projects/0079/prime-hook-158392.jpg",
+          "path": "projects/la-clara/images/candidates/03--official-candidate--stantec.com--bb94fda2.jpg",
+          "bytes": 230267,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.stantec.com/content/dam/stantec/images/projects/0010/blue-green-corridor-7.jpg",
+          "path": "projects/la-clara/images/candidates/04--official-candidate--stantec.com--81e36ca3.jpg",
+          "bytes": 264046,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/la-clara/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
+        "https://www.thorntontomasetti.com/project/la-clara",
+        "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 51,
+      "errors": []
+    },
+    {
+      "projectId": "alba-reserve",
+      "slug": "alba-reserve",
+      "name": "Alba Reserve",
+      "officialWebsite": "",
+      "address": "4720, 4802 and 4804 N Flagler Dr, West Palm Beach, FL 33407",
+      "status": "Planning / approvals process",
+      "completion": "Planning-stage timing not publicly confirmed.",
+      "developer": "BGI Capital",
+      "architect": "Carlos Ott and Spina O'Rourke + Partners",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "87",
+      "stories": "31",
+      "pricing": "Not publicly confirmed; developer described a higher-budget target than Alba.",
+      "sourceUrls": [
+        "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
+          "path": "projects/alba-reserve/images/candidates/01--official-candidate--static.therealdeal.com--ad0ee3bd.jpg",
+          "bytes": 342507,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-700x467.jpg",
+          "path": "projects/alba-reserve/images/candidates/02--official-candidate--static.therealdeal.com--1839ae2d.jpg",
+          "bytes": 80230,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-768x512.jpg",
+          "path": "projects/alba-reserve/images/candidates/03--official-candidate--static.therealdeal.com--0682cfbf.jpg",
+          "bytes": 93597,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-1024x683.jpg",
+          "path": "projects/alba-reserve/images/candidates/04--official-candidate--static.therealdeal.com--6823e964.jpg",
+          "bytes": 155150,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/alba-reserve/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 8,
+      "errors": []
+    },
+    {
+      "projectId": "related-ross-fern-street",
+      "slug": "related-ross-fern-street-condo",
+      "name": "Related Ross Fern Street / South Dixie Condo",
+      "officialWebsite": "",
+      "address": "430-464 Fern St, 419-435 Gardenia St, and 415-421 S Dixie Hwy, West Palm Beach, FL 33401",
+      "status": "Planning / not yet named",
+      "completion": "Planning-stage timing not publicly confirmed.",
+      "developer": "Related Ross with Wexford Real Estate Investors, 13th Floor Investments, and L&L Holding Company partnership context",
+      "architect": "Not publicly confirmed",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "130",
+      "stories": "",
+      "pricing": "Not publicly confirmed",
+      "sourceUrls": [
+        "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
+          "path": "projects/related-ross-fern-street/images/candidates/01--official-candidate--static.therealdeal.com--c00cedb5.jpg",
+          "bytes": 308586,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-700x467.jpg",
+          "path": "projects/related-ross-fern-street/images/candidates/02--official-candidate--static.therealdeal.com--98648d22.jpg",
+          "bytes": 65213,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-768x512.jpg",
+          "path": "projects/related-ross-fern-street/images/candidates/03--official-candidate--static.therealdeal.com--4ba16752.jpg",
+          "bytes": 76312,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-1024x683.jpg",
+          "path": "projects/related-ross-fern-street/images/candidates/04--official-candidate--static.therealdeal.com--ec1a496a.jpg",
+          "bytes": 125169,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/related-ross-fern-street/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 8,
+      "errors": []
+    },
+    {
+      "projectId": "rybovich-marina",
+      "slug": "rybovich-marina-redevelopment",
+      "name": "Rybovich Marina Redevelopment",
+      "officialWebsite": "",
+      "address": "4000-4300 N Flagler Dr, West Palm Beach, FL 33407",
+      "status": "Planning / initial approval",
+      "completion": "Planning / approvals timeline not publicly confirmed.",
+      "developer": "Huizenga Holdings and Integra Investments",
+      "architect": "Kohn Pedersen Fox",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "660",
+      "stories": "",
+      "pricing": "Not publicly confirmed",
+      "sourceUrls": [
+        "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+        "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+        "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
+          "path": "projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
+          "bytes": 228788,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR.webp",
+          "path": "projects/rybovich-marina/images/candidates/02--official-candidate--e1.nmcdn.io--ef0589ba.webp",
+          "bytes": 361518,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.kpf.com/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_VT.webp",
+          "path": "projects/rybovich-marina/images/candidates/03--official-candidate--kpf.com--7e3d9a88.webp",
+          "bytes": 380374,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x2400-540x540.webp",
+          "path": "projects/rybovich-marina/images/candidates/04--official-candidate--e1.nmcdn.io--7e6b919a.webp",
+          "bytes": 95468,
+          "contentType": "image/webp",
+          "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/rybovich-marina/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+        "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+        "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 22,
+      "errors": []
+    },
+    {
+      "projectId": "fort-partners-south-flagler",
+      "slug": "fort-partners-south-flagler-assemblage",
+      "name": "Fort Partners South Flagler Assemblage",
+      "officialWebsite": "",
+      "address": "3901 S Flagler Dr / 3907 S Flagler Dr / 3915 S Flagler Dr area, West Palm Beach, FL 33405",
+      "status": "Site assemblage / condo termination watch",
+      "completion": "Site-assemblage timing not publicly confirmed.",
+      "developer": "Fort Partners",
+      "architect": "Not publicly confirmed",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "",
+      "stories": "",
+      "pricing": "Not publicly confirmed",
+      "sourceUrls": [
+        "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/",
+        "https://traded.co/deals/florida/development-site/sale/3901-south-flagler-drive/"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit.jpg",
+          "path": "projects/fort-partners-south-flagler/images/candidates/01--official-candidate--static.therealdeal.com--a913c60e.jpg",
+          "bytes": 294916,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-700x467.jpg",
+          "path": "projects/fort-partners-south-flagler/images/candidates/02--official-candidate--static.therealdeal.com--eb161491.jpg",
+          "bytes": 72624,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-768x512.jpg",
+          "path": "projects/fort-partners-south-flagler/images/candidates/03--official-candidate--static.therealdeal.com--670e054d.jpg",
+          "bytes": 83518,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-1024x683.jpg",
+          "path": "projects/fort-partners-south-flagler/images/candidates/04--official-candidate--static.therealdeal.com--b733a111.jpg",
+          "bytes": 136761,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/fort-partners-south-flagler/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 8,
+      "errors": [
+        {
+          "url": "https://traded.co/deals/florida/development-site/sale/3901-south-flagler-drive/",
+          "status": 403,
+          "error": "Forbidden"
+        }
+      ]
+    },
+    {
+      "projectId": "portofino-flagler-yacht-club",
+      "slug": "portofino-flagler-yacht-club-buyout-watch",
+      "name": "Portofino South / Flagler Yacht Club Buyout Watch",
+      "officialWebsite": "",
+      "address": "3800 Washington Rd and 3701 S Flagler Dr area, West Palm Beach, FL 33405",
+      "status": "Condo buyout target / pipeline watch",
+      "completion": "No development timeline publicly confirmed.",
+      "developer": "BEKO Equities / Immocorp Capital and O.D. Kobo joint venture reported as buyout bidder",
+      "architect": "Not publicly confirmed",
+      "interiorDesigner": "Not publicly confirmed",
+      "residences": "",
+      "stories": "",
+      "pricing": "Not publicly confirmed",
+      "sourceUrls": [
+        "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"
+      ],
+      "knownAssetLinks": [],
+      "downloadedAssets": [
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer.jpg",
+          "path": "projects/portofino-flagler-yacht-club/images/candidates/01--official-candidate--static.therealdeal.com--9a39e6c8.jpg",
+          "bytes": 299369,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer-700x467.jpg",
+          "path": "projects/portofino-flagler-yacht-club/images/candidates/02--official-candidate--static.therealdeal.com--d96aee82.jpg",
+          "bytes": 61307,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer-768x512.jpg",
+          "path": "projects/portofino-flagler-yacht-club/images/candidates/03--official-candidate--static.therealdeal.com--c0a3acb5.jpg",
+          "bytes": 71594,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer-1024x683.jpg",
+          "path": "projects/portofino-flagler-yacht-club/images/candidates/04--official-candidate--static.therealdeal.com--ff76256e.jpg",
+          "bytes": 121535,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"
+        }
+      ],
+      "generatedPlaceholderCopies": [
+        "projects/portofino-flagler-yacht-club/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 8,
+      "errors": []
+    }
+  ]
+}

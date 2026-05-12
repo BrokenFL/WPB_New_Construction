@@ -1,0 +1,1373 @@
+{
+  "projectId": "la-clara",
+  "slug": "la-clara",
+  "name": "La Clara",
+  "address": "200 Arkona Ct / 1515 S Flagler Dr, West Palm Beach, FL 33401",
+  "corridor": "South Flagler waterfront",
+  "officialWebsite": "",
+  "status": "Recently delivered / resale inventory",
+  "completion": "Opened / delivered in 2023.",
+  "developer": "Great Gulf and Terrace Mountain",
+  "architect": "Stantec architect of record; design by Hariri Pontarini Architects",
+  "interiorDesigner": "Stantec",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "83",
+  "stories": "25",
+  "unitMix": "One-bedroom residences; Two-bedroom residences; Three-bedroom residences",
+  "squareFootage": "Public materials cite roughly 1,500 to over 3,000 square feet; verify per listing.",
+  "pricing": "Current resale/listing pricing varies; request current availability.",
+  "amenities": [
+    "Outdoor pool",
+    "Fitness room",
+    "Spa",
+    "Private dining",
+    "Bar and lounge",
+    "Cigar room",
+    "Theater",
+    "Guest suites"
+  ],
+  "salesContact": "Not publicly confirmed",
+  "confidence": "High",
+  "notes": "Included as delivered new-construction context. Address conventions vary between 200 Arkona Court and 1515 South Flagler Drive in public materials.",
+  "sourceUrls": [
+    "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
+    "https://www.thorntontomasetti.com/project/la-clara",
+    "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
+    "https://www.thorntontomasetti.com/project/la-clara",
+    "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "",
+  "generatedPlaceholderCopies": [
+    "projects/la-clara/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.stantec.com/content/dam/stantec/images/service%20page%20images/climate-solutions-service-1800x1200.jpg",
+      "path": "projects/la-clara/images/candidates/01--official-candidate--stantec.com--2554e025.jpg",
+      "bytes": 229478,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.stantec.com/content/dam/stantec/images/homepage-hero/2025/digital-stantec-staff-234469.jpg",
+      "path": "projects/la-clara/images/candidates/02--official-candidate--stantec.com--282d9cb6.jpg",
+      "bytes": 178091,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.stantec.com/content/dam/stantec/images/projects/0079/prime-hook-158392.jpg",
+      "path": "projects/la-clara/images/candidates/03--official-candidate--stantec.com--bb94fda2.jpg",
+      "bytes": 230267,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.stantec.com/content/dam/stantec/images/projects/0010/blue-green-corridor-7.jpg",
+      "path": "projects/la-clara/images/candidates/04--official-candidate--stantec.com--81e36ca3.jpg",
+      "bytes": 264046,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
+        "title": "Stantec-designed La Clara Condominiums open in West Palm Beach, Florida",
+        "description": "The 25-story condominium includes 83 luxury waterfront residences with views from sea to sky",
+        "ogImage": "/content/dam/stantec/images/projects/0065/la-clara-condominiums-1.jpg"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/project/la-clara",
+        "title": "La Clara | Thornton Tomasetti",
+        "description": "A luxury condominium development in West Palm Beach features massive balconies, a mushrooming terrace and a large floating arrival canopy.",
+        "ogImage": "https://www.thorntontomasetti.com/sites/default/files/la-clara-3.jpg"
+      },
+      {
+        "url": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/",
+        "title": "Units Return to Market After La Clara Condo Completed",
+        "description": "Just months after Toronto-based developer Great Gulf completed the 25-story, 83-unit waterfront tower, about 20% of the units are listed for resale.",
+        "ogImage": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-f.jpg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://fonts.gstatic.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/etc.clientlibs/conf/stantec-core/standardclientlibs/css/stantec_styles/standard.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/etc.clientlibs/clientlibs/granite/jquery/granite/csrf.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/etc.clientlibs/clientlibs/granite/jquery.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/etc.clientlibs/clientlibs/granite/utils.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/etc.clientlibs/clientlibs/granite/jquery/granite.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/etc.clientlibs/foundation/clientlibs/jquery.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/etc.clientlibs/conf/stantec-core/headerclientlibs.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/static/css/tooltipster.bundle.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/static/img/favicon/favicon.ico",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/static/img/favicon/apple-touch-icon.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/static/img/favicon/apple-touch-icon-72.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/static/img/favicon/apple-touch-icon-114.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/static/img/favicon/apple-touch-icon-144.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/it/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/cn/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/fr/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/nz/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/es/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/zh/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/ar/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/zh_tw/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/au/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/uk/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/nl/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/tr/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/us/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida.html",
+        "label": ""
+      },
+      {
+        "url": "about:blank",
+        "label": "!function(e){var n=\"https://s.go-mpulse.net/boomerang/\";if(\"False\"==\"True\")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams"
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-PJ3G8B",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content#content",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/logos/logo.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/buildings.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/services/community-development.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/energy.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/environment.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/federal-government.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/mining.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/transportation.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/water.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/services/program-construction-management.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/climate-solutions.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/service%20page%20images/climate-solutions-service-1800x1200.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/services/digital.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/homepage-hero/2025/digital-stantec-staff-234469.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/coastal-marine.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0079/prime-hook-158392.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/services/nature-based-solutions.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0010/blue-green-corridor-7.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/energy-transition.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0002/powershift-atlantic.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/smart-cities.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0071/chamblee-shared-autonomous-vehicle-study-1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/services/sustainability.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/homepage-hero/2022/sustainability-report-2021-hero-2800x1400.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/services/international-development.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/stock/other/0009/lesotho-waterfall-stock.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/services/advisory-services.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/stock/other/0011/data-science-machine-learning-adobestock-796846449.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/office-finder.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/au.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/belgium-locations-hub.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/canada-locations-hub.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/caribbean-locations-hub.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/cn.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/prague-czech-republic.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/stantec-germany.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/pune-india.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/stantec-ireland.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/italy-locations-hub.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/latin-america-locations-hub.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/middle-east-locations-hub.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/netherlands-locations-hub.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/nz.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/bratislava-slovakia.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/taiwan-locations-hub.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/turkey-locations-hub.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/uk.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices/united-states-locations-hub.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/ideas.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/corporate-leadership.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/corporate-governance/board-of-directors.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/corporate-governance.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/sustainability.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/hsse.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/indigenous-relations.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/careers/life-at-stantec.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/community-engagement.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/innovation.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/learning.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/supplier-information.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/about/contact-us.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/ideas/watch.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/careers.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/careers/students-graduates.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/careers/developing-professionals-group.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/careers/veteran-military.html",
+        "label": ""
+      },
+      {
+        "url": "https://stantec.jobs/",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/news-media.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/investors.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/investors/stantec-financial-information.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/investors/shareholder-information.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/investors/events-presentations.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/investors/news-investors.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/investors/stantec-investor-contacts.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/offices.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/Icons/Map.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/fr",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/cn",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/it",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/es",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/nl",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/zh_tw",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/tr",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/copyright.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/news.html",
+        "label": ""
+      },
+      {
+        "url": "https://platform-api.sharethis.com/js/sharethis.js#property=5939949c699595001138ab61&product=custom-share-buttons",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/projects/united-states-projects/s/solitair-brickell",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/projects/united-states-projects/b/bezel-miami-worldcenter",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/projects/united-states-projects/-/17-west",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/projects/united-states-projects/a/avalon-doral",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/projects/united-states-projects/a/adela-mimo-bay",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/projects/united-states-projects/s/strata-wynwood",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/markets/residential",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0065/la-clara-condominiums-1.jpg.transform/small/image.20230727.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0065/la-clara-condominiums-1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0065/la-clara-condominiums-1.jpg.transform/medium/image.20230727.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/landing-pages/news-blogs/2023/la-clara-condominiums-2.jpg.transform/small/image.20230727.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/landing-pages/news-blogs/2023/la-clara-condominiums-2.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/landing-pages/news-blogs/2023/la-clara-condominiums-2.jpg.transform/medium/image.20230727.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/services.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/services/ecosystem-restoration.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/ideas/careers.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/StantecInc",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/Icons/icon-facebook.svg",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/Stantec",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/Icons/icon-twitter.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/stantec/",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/Icons/instagram.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.linkedin.com/company/stantec",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/Icons/icon-linkedIn.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.youtube.com/user/StantecInc",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/Icons/icon-youtube.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/Icons/logo-light.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/portals.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/en/sitemap.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.stantec.com/etc.clientlibs/conf/stantec-core/standardclientlibs/js.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/project/la-clara",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/favicon.ico",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/apple-touch-icon.png?v=Gvbo8MeWaM",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/favicon-32x32.png?v=Gvbo8MeWaM",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/favicon-16x16.png?v=Gvbo8MeWaM",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/site.webmanifest?v=Gvbo8MeWaM",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/safari-pinned-tab.svg?v=Gvbo8MeWaM",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/favicon.ico?v=Gvbo8MeWaM",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/css/css_CIcK7wVRDhdFYydwV3hRD12hO4Ag8bSNW-dvPfo9I48.css?delta=0&language=en&theme=thorntontomasetti&include=eJxtzUEKwCAMBMAP2fqmWINaopEkQv19vZRehL3ssLAXC_ooowOdcMPjOggkgZ7141_O0foIVDRjdDrVsPoAis4ySzNeqauaFZ-IA9ChNqm0tBk0jqgb_99erD89_w",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/css/css_pHpGfVy-VG0P8ofTpFdq6lW7tzE8l8O-hSjDX6ckgGY.css?delta=1&language=en&theme=thorntontomasetti&include=eJxtzUEKwCAMBMAP2fqmWINaopEkQv19vZRehL3ssLAXC_ooowOdcMPjOggkgZ7141_O0foIVDRjdDrVsPoAis4ySzNeqauaFZ-IA9ChNqm0tBk0jqgb_99erD89_w",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/js/js_rhl93WMI6Buv6pa_WJ7y0m2UYN3y-MPvUN1SiAYiWDU.js?scope=header&delta=0&language=en&theme=thorntontomasetti&include=eJxLz89Pz0mNL0lM108HEjrpqHy9xKzEClTBXJ2SjPyivJJ8IMpNLE4tKcnUT8_JT0rM0S1OLsosKCkGAGcYIOU",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/modules/contrib/google_tag/js/gtag.js?teqdxd",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/modules/contrib/google_tag/js/gtm.js?teqdxd",
+        "label": ""
+      },
+      {
+        "url": "https://maps.googleapis.com/maps/api/js?key=REDACTED&loading=async",
+        "label": ""
+      },
+      {
+        "url": "https://extend.vimeocdn.com/ga/20800326.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-TJGQKL",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/logo.svg",
+        "label": ""
+      },
+      {
+        "url": "https://careers.thorntontomasetti.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/office-locations",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/contact-us",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/search",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/images/search.red.sm.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/images/hamburger.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/capabilities",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/acoustics-noise-vibration",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/aviation",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/commercial",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/construction-engineering",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/critical-facilities",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/cultural-community",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/decarbonization",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/defense",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/education",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/energy",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/facades",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/forensics-investigations",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/government",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/healthcare",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/hospitality-gaming",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/insurance",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/laboratory-research",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/megatall-supertall-tall-buildings",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/protective-design-security",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/residential",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/resilience",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/restoration-renewal",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/special-structures",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/sports-public-assembly",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/structural-design",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/sustainability",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/solution/transportation-infrastructure",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/our-people",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/thornton-tomasetti-leadership",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/our-people?bio=&education=&capability=&solution=91",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/projects",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/project/10-hudson-yards",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2020-01/10hy_list.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/project/australian-defence-capabilities",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2023-11/shocktest.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/project/battersea-power-station",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2022-08/battersea-rev-list_0.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/project/arena-diriyah",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2025-09/D23063_00_N2_feature.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/images/arrow.left.white.lg.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/images/arrow.right.white.lg.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/news",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/thornton-tomasetti-heres-how-mainstreaming-mass-timber",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/images/podcast.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/news/green-hydrogens-usa-today",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2026-04/green-hydrogen-energy-storage-infrastructure_0.webp",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/news/jeddah-tower-construction-update-100-floors-completed-1-kilometer-megatall",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2026-04/2026-thornton-tomasetti-jeddah-tower-structural-design-list.webp",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/news/structural-engineering-new-inova-hospitals-northern-virginia-reaches-topping-milestone",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2026-04/2026-thornton-tomasetti-inova-structural-completions-list.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/innovation-engine",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/innovation-output",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/our-firm",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2025-12/spectrum-employee%20network-group-party.webp",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/climate-action",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/corporate-responsibility",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/person/brad-malmsten",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2019-12/malmsten.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/images/email.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/images/phone.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/location/miami",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/themes/custom/thorntontomasetti/images/location.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-6.jpg?itok=DL-sGq1J",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-5.jpg?itok=sptkSzG2",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-3.jpg?itok=oxEfa54C",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-2.jpg?itok=GNxJgWGF",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-1.jpg?itok=TEQgdldr",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-4.jpg?itok=zMPSqhVh",
+        "label": ""
+      },
+      {
+        "url": "https://hariripontarini.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/core-studio",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/person/michelle-olender",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2020-05/olender.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/location/fort-lauderdale",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/service%20page%20images/climate-solutions-service-1800x1200.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/homepage-hero/2025/digital-stantec-staff-234469.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0079/prime-hook-158392.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0010/blue-green-corridor-7.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0002/powershift-atlantic.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0071/chamblee-shared-autonomous-vehicle-study-1.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/homepage-hero/2022/sustainability-report-2021-hero-2800x1400.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/stock/other/0009/lesotho-waterfall-stock.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/stock/other/0011/data-science-machine-learning-adobestock-796846449.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0065/la-clara-condominiums-1.jpg.transform/small/image.20230727.jpeg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0065/la-clara-condominiums-1.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/projects/0065/la-clara-condominiums-1.jpg.transform/medium/image.20230727.jpeg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/landing-pages/news-blogs/2023/la-clara-condominiums-2.jpg.transform/small/image.20230727.jpeg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/landing-pages/news-blogs/2023/la-clara-condominiums-2.jpg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.stantec.com/content/dam/stantec/images/landing-pages/news-blogs/2023/la-clara-condominiums-2.jpg.transform/medium/image.20230727.jpeg",
+        "label": "",
+        "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2020-01/10hy_list.jpg",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2023-11/shocktest.jpg",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2022-08/battersea-rev-list_0.jpg",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2025-09/D23063_00_N2_feature.jpg",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2026-04/green-hydrogen-energy-storage-infrastructure_0.webp",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2026-04/2026-thornton-tomasetti-jeddah-tower-structural-design-list.webp",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2026-04/2026-thornton-tomasetti-inova-structural-completions-list.jpg",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2025-12/spectrum-employee%20network-group-party.webp",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2019-12/malmsten.jpg",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-6.jpg?itok=DL-sGq1J",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-5.jpg?itok=sptkSzG2",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-3.jpg?itok=oxEfa54C",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-2.jpg?itok=GNxJgWGF",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-1.jpg?itok=TEQgdldr",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/styles/paragraph_slideshow/public/la-clara-4.jpg?itok=zMPSqhVh",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2020-05/olender.jpg",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2019-08/fusco.jpg",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2021-03/bruder.jpg",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/2025-03/CarolinaSimoesheadshot.jpg",
+        "label": "",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://www.thorntontomasetti.com/sites/default/files/la-clara-3.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://www.thorntontomasetti.com/project/la-clara"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-m-50x31.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/08/MIA-Great-Gulf-sells-out-La-Clara-in-West-Palm-Here-are-buyers-FEATUREIMG_v2-150x106.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/06/WEEKND-Motorola-heirs-list-Bristol-condo-in-West-Palm-Beach-for-29M-FEATUREIMG_v2.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/05/ft_MIA_Attorney-Bristol-Condo.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-f.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-f-50x35.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed f 50x35",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-f-700x496.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed f 700x496",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-f-300x213.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed f 300x213",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-f-150x106.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed f 150x106",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-f-768x544.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed f 768x544",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-f-1024x725.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed f 1024x725",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-m-1400x876.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed m 1400x876",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-m-300x188.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed m 300x188",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-m-700x438.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed m 700x438",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-m-768x480.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed m 768x480",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2023/11/Units-Return-to-Market-After-La-Clara-Condo-Completed-m-1024x641.jpg",
+        "label": "Units Return to Market After La Clara Condo Completed m 1024x641",
+        "sourcePage": "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": []
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

@@ -1,0 +1,1314 @@
+{
+  "projectId": "banyan-tree",
+  "slug": "banyan-tree-residences-west-palm-beach",
+  "name": "Banyan Tree Residences West Palm Beach",
+  "address": "400 Hibiscus St, West Palm Beach, FL 33401",
+  "corridor": "Downtown West Palm Beach",
+  "officialWebsite": "https://www.banyantreeresidenceswpb.com/",
+  "status": "Planning / sales gallery open",
+  "completion": "Planning-stage timing not publicly confirmed",
+  "developer": "Mast Capital and Curated JCZM Development",
+  "architect": "Not publicly confirmed",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "86",
+  "stories": "25",
+  "unitMix": "One-bedroom residences; Two-bedroom residences; Three-bedroom residences; Four-bedroom residences",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Request current pricing",
+  "amenities": [
+    "Multi-level amenities",
+    "Dedicated wellness sanctuary",
+    "5,700-square-foot private club proposed",
+    "6,400 square feet of ground-floor retail proposed"
+  ],
+  "salesContact": "400 Hibiscus Street, West Palm Beach; 561-570-2395; sales gallery now open.",
+  "confidence": "Medium",
+  "notes": "Sources conflict: official/sales-facing materials describe 88 residences, while March 2026 planning/reporting describes an 86-unit proposal with private club and retail. Current record uses the more conservative city/reporting count and flags the conflict for verification.",
+  "sourceUrls": [
+    "https://www.banyantreeresidenceswpb.com/",
+    "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/",
+    "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/",
+    "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-march-12-2026.pdf"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://www.banyantreeresidenceswpb.com/",
+    "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/",
+    "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/",
+    "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-march-12-2026.pdf"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "Downtown Residential Wave",
+  "generatedPlaceholderCopies": [
+    "projects/banyan-tree/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/cropped-553770584-e8be1256-7b8f-4115-a131-96478a276e5a.png",
+      "path": "projects/banyan-tree/images/candidates/01--official-candidate--admin.banyantreeresidenceswpb.com--cc4fad1c.png",
+      "bytes": 62051,
+      "contentType": "image/png",
+      "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero.png",
+      "path": "projects/banyan-tree/images/candidates/02--official-candidate--admin.banyantreeresidenceswpb.com--639915ad.png",
+      "bytes": 470728,
+      "contentType": "image/png",
+      "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear.png",
+      "path": "projects/banyan-tree/images/candidates/03--official-candidate--admin.banyantreeresidenceswpb.com--188631da.png",
+      "bytes": 889999,
+      "contentType": "image/png",
+      "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Drawing_Transparent.png",
+      "path": "projects/banyan-tree/images/candidates/04--official-candidate--admin.banyantreeresidenceswpb.com--bb3767c4.png",
+      "bytes": 764068,
+      "contentType": "image/png",
+      "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/",
+        "title": "Banyan Tree Residences | Luxury Condos in West Palm Beach",
+        "description": "A rare collaboration of four global design iconsdefines a new residential expression,guided by a singular design visionand a refined sense of retreat.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/",
+        "title": "Mast Capital Proposes West Palm Beach Condos, Private Club",
+        "description": "Camilo Miguel Jr.’s Mast Capital and a partner plan their first West Palm Beach condo project, a 25-story, 86-unit tower with a private club.",
+        "ogImage": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1.jpg"
+      },
+      {
+        "url": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/",
+        "title": "Mast Capital Plans West Palm Beach Condo Tower &#8211; Commercial Observer",
+        "description": "The Miami-based developer proposed a 25-story high-rise with 86 units.",
+        "ogImage": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/03/Camilo-Miguel-Jr-downtown-West-Palm-Beach-credit-Getty-Images.jpg?quality=80&crop=0px%2C0px%2C2000px%2C1051px&resize=1200%2C630&strip"
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/?view=privacy-policy",
+        "title": "Banyan Tree Residences | Luxury Condos in West Palm Beach",
+        "description": "A rare collaboration of four global design iconsdefines a new residential expression,guided by a singular design visionand a refined sense of retreat.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/#image0_10103_1154",
+        "title": "Banyan Tree Residences | Luxury Condos in West Palm Beach",
+        "description": "A rare collaboration of four global design iconsdefines a new residential expression,guided by a singular design visionand a refined sense of retreat.",
+        "ogImage": ""
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/_nuxt-banyantree/entry.CmG6uxbl.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/_payload.json?63c1fa88-500b-4047-9f57-00839ef1b665",
+        "label": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/_nuxt-banyantree/CQZY47YD.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/_nuxt-banyantree/DMXFro8w.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/_nuxt-banyantree/CpVGH8JH.js",
+        "label": ""
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/cropped-553770584-e8be1256-7b8f-4115-a131-96478a276e5a.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/banyan-tree-residences-luxury-condos-in-west-palm-beach/",
+        "label": ""
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero.png",
+        "label": ""
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/03/BanyanTreeLogo_Iso.mov",
+        "label": ""
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/03/BanyanTreeLogo_Iso_1.webm",
+        "label": ""
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/LogoFoil.png",
+        "label": ""
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear.png",
+        "label": ""
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Drawing_Transparent.png",
+        "label": ""
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/03/D_Teaser-Full-Tall-4.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear_Right.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/?view=privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#743d1a121b3436151a0d151a200611112611071d10111a1711072324365a171b19",
+        "label": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/#image0_10103_1154",
+        "label": ""
+      },
+      {
+        "url": "https://www.google.com/maps/place/400+Hibiscus+St,+West+Palm+Beach,+FL+33401/@26.7080241,-80.0570408,17z/data=!3m1!4b1!4m5!3m4!1s0x88d8d660317e352f:0x5b9a756220d3b05c!8m2!3d26.7080193!4d-80.0544605?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/banyan-tree-residences-west-palm-beach/?viewAsMember=true",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/banyantreeresidenceswpb/",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/share/1H8qmM4LC9/?mibextid=wwXIfr",
+        "label": ""
+      },
+      {
+        "url": "http://www.allaboutcookies.org/manage-cookies/",
+        "label": ""
+      },
+      {
+        "url": "https://www.google.com/policies/privacy/",
+        "label": ""
+      },
+      {
+        "url": "http://www.google.com/policies/privacy/partners/",
+        "label": ""
+      },
+      {
+        "url": "https://support.google.com/analytics/answer/6004245",
+        "label": ""
+      },
+      {
+        "url": "https://tools.google.com/dlpage/gaoptout/",
+        "label": ""
+      },
+      {
+        "url": "https://chrome.google.com/webstore/detail/google-analytics-opt-out/fllaojicojecljbmefodhfapmkghcbnh?hl=en",
+        "label": ""
+      },
+      {
+        "url": "http://www.allaboutdnt.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.aboutads.info/choices/",
+        "label": ""
+      },
+      {
+        "url": "https://youradchoices.ca/choices/",
+        "label": ""
+      },
+      {
+        "url": "http://www.networkadvertising.org/managing/opt_out.asp",
+        "label": ""
+      },
+      {
+        "url": "http://www.youronlinechoices.eu/",
+        "label": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+        "label": "(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML=\"window.__CF$cv$params={r:'9f956cc4"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Banyan-Tree-Residences-West-Palm-Beach.png",
+        "label": "Banyan Tree Residences West Palm Beach"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/03/D_Teaser-Full-Tall-3.jpg",
+        "label": "D Teaser Full Tall 3"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero-1010x1024.png",
+        "label": "TearHero 1010x1024"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero-768x779.png",
+        "label": "TearHero 768x779"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear-816x1024.png",
+        "label": "Tear 816x1024"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear-768x963.png",
+        "label": "Tear 768x963"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Drawing_Transparent_mob.png",
+        "label": "Drawing Transparent mob"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/03/M_Teaser-Full-Tall-4.jpg",
+        "label": "M Teaser Full Tall 4"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear_Right-816x1024.png",
+        "label": "Tear Right 816x1024"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear_Right-768x963.png",
+        "label": "Tear Right 768x963"
+      },
+      {
+        "url": "https://ak.sail-horizon.com/spm/spm.v1.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.gstatic.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/7f8e9afc27468d99.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/cd98db01403429de.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/557728f8ce4959be.css",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/ProximaNovaFontFamily/ProximaNova/proxima-nova-all.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/common.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/style.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/theme.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/webpack-815c4d841b630f3d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/framework-03eff6fd791dd86e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/main-467a80d1c1f169f3.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/_app-641a2c8a219770b8.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7938-2f511c1b5c00cdb7.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/9933-789056f08ec2524d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7041-54f4e5d13087571a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/8814-3eb6ae91ed02af7e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/1396-1c7e58bb3b6ae138.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/5528-317c55c515620e0f.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/%5BfirstLevel%5D/%5BsecondLevel%5D/%5BthirdLevel%5D/%5BfourthLevel%5D/%5BfifthLevel%5D-9770b3cc0f677a51.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_buildManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_ssgManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-K694XL6&gtm_auth=2Dc6nz6-xSl7lnGU4UY2OA&gtm_preview=env-2",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/logos/trd-news-logo-light.svg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/search/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/subscription/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-50x33.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/author/kate-hinsche/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/09/04/here-is-west-palm-beachs-condo-pipeline/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/03/04/related-group-bh-group-secure-financing-for-ritz-carlton/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/02/19/related-ross-lands-157-million-loan-for-shorecrest-condos/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/02/26/great-gulf-launches-mandarin-oriental-west-palm-beach-condos/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/03/09/mast-capital-bh-group-complete-coconut-grove-condo-buyout/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2024/02/06/mast-capital-scores-600m-loan-for-cipriani-residences-miami/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/bh-group/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/mandarin-oriental/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/mast-capital/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/related-group/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/related-ross/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/camilo-miguel-jr/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/isaac-toledano/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/jorge-perez-2/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/steve-ross/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/condominiums/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/construction-financing/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/development-pipeline/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/luxury-condos/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/luxury-real-estate/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/real-estate-development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/ritz-carlton-residences/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/shorecrest/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/urban-planning/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/about/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/contact-us/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/careers/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/new-york/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/la/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/chicago/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/latest/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/commercial/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/video/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/newsletters/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/advertising/",
+        "label": ""
+      },
+      {
+        "url": "https://help.therealdeal.com/knowledge/kb-tickets/new",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/corporate/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/data/",
+        "label": ""
+      },
+      {
+        "url": "https://www.parsintl.com/publications/the-real-deal/",
+        "label": ""
+      },
+      {
+        "url": "https://shop.therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/trademark-use/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/terms-and-conditions-for-data-use/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/privacy-policy/",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/trdny",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/therealdealmedia/",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/therealdeal/",
+        "label": ""
+      },
+      {
+        "url": "https://www.youtube.com/channel/UCKXsx1tuopwO91QSgjrmA1g",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/therealdeal",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1.jpg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-700x467.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 700x467"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-300x200.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 300x200"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-200x133.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 200x133"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-768x512.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 768x512"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-1024x683.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 1024x683"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-1400x933.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 1400x933"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2017/10/LOGO-VECTOR-TRDsolo.png",
+        "label": "LOGO VECTOR TRDsolo"
+      },
+      {
+        "url": "https://www.npttech.com/",
+        "label": ""
+      },
+      {
+        "url": "http://gmpg.org/xfn/11",
+        "label": ""
+      },
+      {
+        "url": "https://secure.gravatar.com/blavatar/d201a1df990833199d6472c26561fc73?s=32",
+        "label": ""
+      },
+      {
+        "url": "https://secure.gravatar.com/blavatar/d201a1df990833199d6472c26561fc73?s=114",
+        "label": ""
+      },
+      {
+        "url": "https://truculentrate.com/static/e297772d/732a7f83476493aedc29d7ff8caa.index.js",
+        "label": "!(function(o,_name){o[_name]=o[_name]||function n(){(n.q=n.q||[]).push(arguments)},o[_name].v=o[_name].v||2;!(function(o,t,n,f,e,i){function c(f,e){(f=(function"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/03/Camilo-Miguel-Jr-downtown-West-Palm-Beach-credit-Getty-Images.jpg?quality=80&#038;w=763&#038;h=489&#038;crop=1",
+        "label": ""
+      },
+      {
+        "url": "https://ak.sail-horizon.com/",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.parsely.com/",
+        "label": ""
+      },
+      {
+        "url": "https://s7.addthis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://widget.commercialobserver.com/",
+        "label": ""
+      },
+      {
+        "url": "https://s.ntv.io/",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jwplayer.com/",
+        "label": ""
+      },
+      {
+        "url": "https://htlbid.com/",
+        "label": ""
+      },
+      {
+        "url": "https://stats.wp.com/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/comments/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/_static/??-eJxVjl0OwiAQhC8kbNpE4cV4FEMXNCgsBJYabi9t1MTHmXzzA68sPGFo1lXAWsH6yrCEhE8R/FJM6VC5ByejJzmAA4wEJmJHDLGJHNrdU4WH42xGaDpK9RXX1ZFNBUzjFA2zxx92SyV+xrYyg7xb+4U/RgTTU+Nt+hLPk1J6Ps1a6Tc35EQa",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/_static/??-eJzTLy/QzcxLzilNSS3WzyrWz01NyUxMzUnNTc0rQeEU5CRWphbp5qSmJyZX6uVm5uklFxfr6OPTDpRD5sM02efaGpqbWxiZGVmYWwIARQMu9A==",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/mu-plugins/search/elasticpress/dist/css/related-posts-block-styles.min.css?m=1778005960g",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/_static/??/wp-content/plugins/media-credit/public/css/media-credit.min.css,/wp-content/themes/observer-unchained/style.min.css?m=1778093180",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/themes/observer-unchained/tailwind/dist/hc-tw.css?ver=20250115",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/themes/observer-unchained/inc/plugins/white-papers/css/select2.min.css?m=1765386586g",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/plugins/jw-player-7-for-wp-premium/jw-widget/css/jw-widget-min.css?m=1765386585g",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/_static/??-eJxtjUEKwjAQRS9kOtiFqQvxLDUZ7IRmEmcyFW9vhC5EXH14PN6HZ3XEYbWICknBOKJoKIJDJh6SHuDHSA9Dee3zLYXCDblBWzB3tdwUZUNxxmGZiTFCz0Bd7U78OdqpE9Tm5kp/UE9f8+Xo/TSexsmf0xu1a0B9",
+        "label": ""
+      },
+      {
+        "url": "https://s.ntv.io/serve/load.js?ver=20200731",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/_static/??-eJylzNENgzAMBcCFCBZFpPygzkLDo3FETBQbWL9VV2CAO7qKC7sYxMgiMpT2t6KeqO6QEGcWLMQSqGzHh0XpimxwZS6oSklJsSHYo80sbdKGbodr/fPlt73y1D390I9+GH36Ahm2P7c=",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jwplayer.com/libraries/JbLDKTXE.js?ver=6.8.5",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/plugins/jw-player-7-for-wp-premium/jw-widget/js/jw-widget-min.js?m=1765386585g",
+        "label": ""
+      },
+      {
+        "url": "https://htlbid.com/v3/commercialobserver.com/htlbid.js?ver=3.0",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/wp-json/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/wp-json/wp/v2/posts/563141",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/xmlrpc.php?rsd",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/?p=563141",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcommercialobserver.com%2F2026%2F03%2Fcamilo-miguel-mast-west-palm-beach%2F",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcommercialobserver.com%2F2026%2F03%2Fcamilo-miguel-mast-west-palm-beach%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-WCGJ5DK",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/themes/observer-unchained/images/co_logo_white.png",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/residential/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/office/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/retail/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/industrial/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/hospitality/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/land/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/healthcare/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/life-sciences/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/special-purpose/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/mixed-use/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/market/los-angeles/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/market/new-york-city/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/market/manhattan/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/market/queens/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/market/bronx/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/market/national/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/market/washington-dc/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/market/south-florida/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/leases/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/leases/office/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/leases/ground-lease/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/leases/sublease/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/leases/tenant-talk/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/leases/lease-deals-of-the-week/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/finance/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/finance/acquisition/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/finance/cmbs/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/finance/construction/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/finance/distress/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/finance/refinance/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/finance/finance-deals-of-the-week/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/sales/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/sales/development-site-sale/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/sales/portfolio-sale/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/sales/sale-leaseback/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/sales/value-add/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/sales/sales-deals-of-the-week/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/development/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/development/architecture/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/development/construction/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/development/conversion/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/development/redevelopment/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/development/sustainability/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/capital-markets/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/capital-markets/alternative-lending/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/capital-markets/earnings/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/capital-markets/economy/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/capital-markets/foreign-investments/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/capital-markets/private-credit/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/capital-markets/private-equity/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/capital-markets/public-markets/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/capital-markets/reits/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/technology/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/magazine/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/commercial-observer-events/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/commercial-observer-power-series/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/more/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/awards/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/more/players/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/legal/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/policy/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/more/features/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/more/research-analysis/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/more/columnists/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/partner-insights",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/partner-spotlight/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/policy/transportation/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/videos/commercial-observer-video/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/sign-in/",
+        "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/membership/",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/cropped-553770584-e8be1256-7b8f-4115-a131-96478a276e5a.png",
+        "label": "",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero.png",
+        "label": "",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear.png",
+        "label": "",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Drawing_Transparent.png",
+        "label": "",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/03/D_Teaser-Full-Tall-4.jpg",
+        "label": "",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear_Right.png",
+        "label": "",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Banyan-Tree-Residences-West-Palm-Beach.png",
+        "label": "Banyan Tree Residences West Palm Beach",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/03/D_Teaser-Full-Tall-3.jpg",
+        "label": "D Teaser Full Tall 3",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero-1010x1024.png",
+        "label": "TearHero 1010x1024",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero-768x779.png",
+        "label": "TearHero 768x779",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear-816x1024.png",
+        "label": "Tear 816x1024",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear-768x963.png",
+        "label": "Tear 768x963",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Drawing_Transparent_mob.png",
+        "label": "Drawing Transparent mob",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/03/M_Teaser-Full-Tall-4.jpg",
+        "label": "M Teaser Full Tall 4",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear_Right-816x1024.png",
+        "label": "Tear Right 816x1024",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear_Right-768x963.png",
+        "label": "Tear Right 768x963",
+        "sourcePage": "https://www.banyantreeresidenceswpb.com/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-50x33.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-700x467.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 700x467",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-300x200.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 300x200",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-200x133.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 200x133",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-768x512.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 768x512",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-1024x683.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 1024x683",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Camilo-Miguel-Jr-pitches-first-West-Palm-Beach-condo-project-MAIN-r1-1400x933.jpg",
+        "label": "MIA Camilo Miguel Jr pitches first West Palm Beach condo project MAIN r1 1400x933",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/03/Camilo-Miguel-Jr-downtown-West-Palm-Beach-credit-Getty-Images.jpg?quality=80&#038;w=763&#038;h=489&#038;crop=1",
+        "label": "",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/Kenneth-Baboun-horizontal-credit-CGI-Companies.jpg?quality=80&w=355&h=285&crop=1",
+        "label": "",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/Avdoo-NY-Development-Panel-SKP_0027-credit-Shelly-Kroeger-WEB.jpg?quality=80&w=355&h=285&crop=1",
+        "label": "",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/120-Court-St-BK-GettyImages-1454451398-WEB.jpg?quality=80&w=355&h=285&crop=1",
+        "label": "",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2020/08/CO-07-28-2020-footer.jpg?quality=80",
+        "label": "",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/client-mu-plugins//hc-paywall/assets/src/img/paywall-image.png",
+        "label": "",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/03/Camilo-Miguel-Jr-downtown-West-Palm-Beach-credit-Getty-Images.jpg?quality=80&crop=0px%2C0px%2C2000px%2C1051px&resize=1200%2C630&strip",
+        "label": "Open Graph image",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/03/Camilo-Miguel-Jr-downtown-West-Palm-Beach-credit-Getty-Images.jpg?quality=80&amp;crop=0px%2C0px%2C2000px%2C1051px&amp;resize=1200%2C630&amp;strip",
+        "label": "Camilo Miguel Jr downtown West Palm Beach credit Getty Images",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/Kenneth-Baboun-horizontal-credit-CGI-Companies.jpg?quality=80&amp;w=355&amp;h=285&amp;crop=1",
+        "label": "Kenneth Baboun horizontal credit CGI Companies",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/Avdoo-NY-Development-Panel-SKP_0027-credit-Shelly-Kroeger-WEB.jpg?quality=80&amp;w=355&amp;h=285&amp;crop=1",
+        "label": "Avdoo NY Development Panel SKP 0027 credit Shelly Kroeger WEB",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      },
+      {
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/120-Court-St-BK-GettyImages-1454451398-WEB.jpg?quality=80&amp;w=355&amp;h=285&amp;crop=1",
+        "label": "120 Court St BK GettyImages 1454451398 WEB",
+        "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": [
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/banyan-tree-residences-luxury-condos-in-west-palm-beach/",
+        "status": 404,
+        "error": "Not Found"
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#743d1a121b3436151a0d151a200611112611071d10111a1711072324365a171b19",
+        "status": 404,
+        "error": "Not Found"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

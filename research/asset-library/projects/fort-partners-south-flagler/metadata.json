@@ -1,0 +1,489 @@
+{
+  "projectId": "fort-partners-south-flagler",
+  "slug": "fort-partners-south-flagler-assemblage",
+  "name": "Fort Partners South Flagler Assemblage",
+  "address": "3901 S Flagler Dr / 3907 S Flagler Dr / 3915 S Flagler Dr area, West Palm Beach, FL 33405",
+  "corridor": "South Flagler waterfront",
+  "officialWebsite": "",
+  "status": "Site assemblage / condo termination watch",
+  "completion": "Site-assemblage timing not publicly confirmed.",
+  "developer": "Fort Partners",
+  "architect": "Not publicly confirmed",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "",
+  "stories": "",
+  "unitMix": "",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Not publicly confirmed",
+  "amenities": [],
+  "salesContact": "Not publicly confirmed",
+  "confidence": "Low",
+  "notes": "No named condo project, unit count, height, or sales launch is publicly confirmed. Included as a watch-list development site because it may become future luxury condo inventory.",
+  "sourceUrls": [
+    "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/",
+    "https://traded.co/deals/florida/development-site/sale/3901-south-flagler-drive/"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/",
+    "https://traded.co/deals/florida/development-site/sale/3901-south-flagler-drive/"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "",
+  "generatedPlaceholderCopies": [
+    "projects/fort-partners-south-flagler/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit.jpg",
+      "path": "projects/fort-partners-south-flagler/images/candidates/01--official-candidate--static.therealdeal.com--a913c60e.jpg",
+      "bytes": 294916,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-700x467.jpg",
+      "path": "projects/fort-partners-south-flagler/images/candidates/02--official-candidate--static.therealdeal.com--eb161491.jpg",
+      "bytes": 72624,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-768x512.jpg",
+      "path": "projects/fort-partners-south-flagler/images/candidates/03--official-candidate--static.therealdeal.com--670e054d.jpg",
+      "bytes": 83518,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-1024x683.jpg",
+      "path": "projects/fort-partners-south-flagler/images/candidates/04--official-candidate--static.therealdeal.com--b733a111.jpg",
+      "bytes": 136761,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/",
+        "title": "Fort Partners Will Finish Harbor Towers Buyout Related Settlement",
+        "description": "The firm will proceed with its buyout of a West Palm Beach condominium following a legal skirmish with Related Ross that ended in an Oct. 17 settlement.",
+        "ogImage": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit.jpg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://ak.sail-horizon.com/spm/spm.v1.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.gstatic.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/7f8e9afc27468d99.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/cd98db01403429de.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/557728f8ce4959be.css",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/ProximaNovaFontFamily/ProximaNova/proxima-nova-all.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/common.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/style.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/theme.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/webpack-815c4d841b630f3d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/framework-03eff6fd791dd86e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/main-467a80d1c1f169f3.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/_app-641a2c8a219770b8.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7938-2f511c1b5c00cdb7.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/9933-789056f08ec2524d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7041-54f4e5d13087571a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/8814-3eb6ae91ed02af7e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/1396-1c7e58bb3b6ae138.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/5528-317c55c515620e0f.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/%5BfirstLevel%5D/%5BsecondLevel%5D/%5BthirdLevel%5D/%5BfourthLevel%5D/%5BfifthLevel%5D-9770b3cc0f677a51.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_buildManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_ssgManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-K694XL6&gtm_auth=2Dc6nz6-xSl7lnGU4UY2OA&gtm_preview=env-2",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/logos/trd-news-logo-light.svg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/search/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/subscription/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-50x33.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/author/kate-hinsche/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/magazine/january-2025/inside-steve-ross-all-in-wager-on-west-palm-beach/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/01/06/fort-partners-lands-108m-loan-for-seaway-north-at-surf-club/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/10/16/fl-supreme-court-denies-two-roads-rehearing-in-buyout-case/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/fort-partners/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/related-companies/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/related-ross/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/two-roads-development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/donald-trump/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/nadim-ashi/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/steve-ross/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/condo-termination/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/legal-battle/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/property-valuation/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/real-estate-acquisition/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/settlement/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/waterfront-property/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/about/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/contact-us/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/careers/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/new-york/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/la/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/chicago/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/latest/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/commercial/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/video/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/newsletters/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/advertising/",
+        "label": ""
+      },
+      {
+        "url": "https://help.therealdeal.com/knowledge/kb-tickets/new",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/corporate/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/data/",
+        "label": ""
+      },
+      {
+        "url": "https://www.parsintl.com/publications/the-real-deal/",
+        "label": ""
+      },
+      {
+        "url": "https://shop.therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/trademark-use/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/terms-and-conditions-for-data-use/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/privacy-policy/",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/trdny",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/therealdealmedia/",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/therealdeal/",
+        "label": ""
+      },
+      {
+        "url": "https://www.youtube.com/channel/UCKXsx1tuopwO91QSgjrmA1g",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/therealdeal",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit.jpg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-700x467.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 700x467"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-300x200.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 300x200"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-200x133.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 200x133"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-768x512.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 768x512"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-1024x683.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 1024x683"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-1400x933.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 1400x933"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2017/10/LOGO-VECTOR-TRDsolo.png",
+        "label": "LOGO VECTOR TRDsolo"
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-50x33.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-700x467.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 700x467",
+        "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-300x200.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 300x200",
+        "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-200x133.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 200x133",
+        "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-768x512.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 768x512",
+        "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-1024x683.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 1024x683",
+        "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-1400x933.jpg",
+        "label": "MIA Fort Partners Related Ross Settle Lawsuit 1400x933",
+        "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": [
+      {
+        "url": "https://traded.co/deals/florida/development-site/sale/3901-south-flagler-drive/",
+        "status": 403,
+        "error": "Forbidden"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

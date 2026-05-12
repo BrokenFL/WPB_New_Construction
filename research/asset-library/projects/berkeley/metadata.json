@@ -1,0 +1,1529 @@
+{
+  "projectId": "berkeley",
+  "slug": "the-berkeley-palm-beach",
+  "name": "The Berkeley Palm Beach",
+  "address": "550 S Australian Ave, West Palm Beach, FL 33401",
+  "corridor": "Downtown West Palm Beach / The Square edge",
+  "officialWebsite": "https://www.theberkeleypalmbeach.com/",
+  "status": "Now selling / under construction",
+  "completion": "2028 target in seed/reporting; verify with sales team.",
+  "developer": "Al Adelson development team; verify legal development entity",
+  "architect": "Not publicly confirmed",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "193",
+  "stories": "25",
+  "unitMix": "Two-bedroom residences; Three-bedroom residences; Four-bedroom residences; Five-bedroom residences; Residences with flex rooms",
+  "squareFootage": "Official fact sheet lists two- to five-plus-bedroom residences from 1,700 to 4,800 square feet.",
+  "pricing": "Official fact sheet lists pricing from under $2M to $10M+; verify current availability.",
+  "amenities": [
+    "35,000-square-foot seventh-floor amenity level",
+    "15,000-square-foot adults-only rooftop level",
+    "Ground-level amenities",
+    "Rooftop pool",
+    "Sky Lounge",
+    "Outdoor kitchen and dining area",
+    "Family pool with private cabanas",
+    "6,500-square-foot fitness center with Technogym and Peloton equipment",
+    "Full-service spa",
+    "Treatment rooms",
+    "Steam room",
+    "Dry sauna",
+    "Cold plunge",
+    "Jacuzzi",
+    "Golf simulator",
+    "Entertainment lounge",
+    "Boardroom",
+    "Dog run",
+    "Complimentary on-demand car service",
+    "24/7 concierge and security",
+    "Full-building generator",
+    "UPLIN Health in-home concierge care referenced in fact sheet"
+  ],
+  "salesContact": "Sales gallery: 500 S. Australian Ave Suite 910, West Palm Beach; 561-220-0000; info@theberkeleypalmbeach.com.",
+  "confidence": "Medium",
+  "notes": "Official site credits Al Adelson's development legacy but the precise legal development entity should be verified. Fact-sheet contact placeholder text appears incomplete, so sales contact uses the official site footer.",
+  "sourceUrls": [
+    "https://www.theberkeleypalmbeach.com/",
+    "https://static.millionluxury.com/spinfile/Spin/Data/Estate/File/The%20Berkeley%20Palm%20Beach%20-%20Fact%20Sheet.pdf?v=259",
+    "https://www.theberkeleypalmbeach.com/contact-information/",
+    "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html",
+    "https://www.theberkeleypalmbeach.com/residence/residence-f/"
+  ],
+  "assetLinks": [
+    {
+      "label": "residence f",
+      "url": "https://www.theberkeleypalmbeach.com/residence/residence-f/",
+      "type": "Floor plan",
+      "source": "github-master"
+    }
+  ],
+  "crawlSeeds": [
+    "https://www.theberkeleypalmbeach.com/",
+    "https://static.millionluxury.com/spinfile/Spin/Data/Estate/File/The%20Berkeley%20Palm%20Beach%20-%20Fact%20Sheet.pdf?v=259",
+    "https://www.theberkeleypalmbeach.com/contact-information/",
+    "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html",
+    "https://www.theberkeleypalmbeach.com/residence/residence-f/",
+    {
+      "name": "Residence F",
+      "beds": "Not publicly confirmed",
+      "baths": "Not publicly confirmed",
+      "interior_sq_ft": null,
+      "exterior_sq_ft": null,
+      "total_sq_ft": null,
+      "price": "Request current pricing",
+      "image_url": "",
+      "pdf_url": "https://www.theberkeleypalmbeach.com/residence/residence-f/",
+      "notes": "Official residence page found; details should be verified from current sales materials."
+    }
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "Downtown Residential Wave",
+  "generatedPlaceholderCopies": [
+    "projects/berkeley/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-777x824.jpeg",
+      "path": "projects/berkeley/images/candidates/01--official-candidate--floridayimby.com--24582688.jpg",
+      "bytes": 155853,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-scaled.jpeg",
+      "path": "projects/berkeley/images/candidates/02--official-candidate--floridayimby.com--85a3cd9f.jpg",
+      "bytes": 433859,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-scaled.jpeg",
+      "path": "projects/berkeley/images/candidates/03--official-candidate--floridayimby.com--6ea8b79a.jpg",
+      "bytes": 416968,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-scaled.jpeg",
+      "path": "projects/berkeley/images/candidates/04--official-candidate--floridayimby.com--d14ec29e.jpg",
+      "bytes": 552969,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html",
+        "title": "The Berkeley Palm Beach Secures $62.5 Million Pre-Construction Loan From JVP Management In Downtown West Palm Beach - Florida YIMBY",
+        "description": "Florida YIMBY says \"Yes In My Backyard\" to positive new development in Florida.",
+        "ogImage": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-scaled.jpeg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://floridayimby.com/wp-content/cache/autoptimize/css/autoptimize_10c313abb0f79176e7b25d13d5881e9f.css",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/favicon.ico",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/xmlrpc.php",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=PT+Sans",
+        "label": ""
+      },
+      {
+        "url": "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/",
+        "label": ""
+      },
+      {
+        "url": "https://maxcdn.bootstrapcdn.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/feed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/comments/feed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html/feed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffloridayimby.com%2F2025%2F09%2Fthe-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffloridayimby.com%2F2025%2F09%2Fthe-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=PT+Serif:300,400,400italic,600,700,800,900|PT+Sans:300,400,400italic,600,700,800,900",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/clipboard.min.js?ver=2.0.11",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/plupload/moxie.min.js?ver=1.3.5.1",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/plupload/plupload.min.js?ver=2.1.9",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/underscore.min.js?ver=1.13.7",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/dist/a11y.min.js?ver=cb460b4676c94bd228ed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/plupload/handlers.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/wppas/public/assets/js/vbc/AjaxUpload.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/wppas/templates/js/advertising.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/themes/mh_newsdesk/js/scripts.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-json/",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-json/wp/v2/posts/35196",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/xmlrpc.php?rsd",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/?p=35196",
+        "label": ""
+      },
+      {
+        "url": "https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/tr?id=1232803156841682&ev=PageView&noscript=1",
+        "label": ""
+      },
+      {
+        "url": "https://pixel.quantserve.com/pixel/p-apSNtZC4hnJQR.gif",
+        "label": ""
+      },
+      {
+        "url": "https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=V2aWl1aQibl0/9",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagservices.com/tag/js/gpt.js",
+        "label": ""
+      },
+      {
+        "url": "https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-KG6LLW9",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2021/03/logo-mobile.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/themes/mh_newsdesk-child/logo.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://plus.floridayimby.com/",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/advertising",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/contact",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/copyright-and-sharing",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/YIMBY-research",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/subscribe-yimby-newsletter",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/about-new-york-yimby",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/affordable-housing",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/commercial",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/community-facility",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/hotel",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/infrastructure",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/manufacturing",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/mixeduse",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/office",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/other",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/residential",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/retail",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/supertall",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/brooklyn",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/boerum-hill",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/brooklyn-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/carroll-gardens",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/clinton-hill",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/cobble-hill",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/dobro-outsidemanhattan",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/dumbo",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/fort-greene",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/gowanus",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/greenwood-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/park-slope",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/prospect-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/red-hook",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/bedford-stuyvesant-outsidemanhattan",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/bushwick",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/greenpoint",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/williamsburg",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/crown-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/east-flatbush",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/flatbush",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/kensington",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/bay-ridge",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/bensonhurst",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/borough-park",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/dyker-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/sunset-park",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/brighton=beach",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/coney-island",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/homecrest",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/manhattan-beach",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/midwood",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/sheepshead-bay",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/brownsville",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/east-new-york",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/bronx",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/bedford-park",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/belmont",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/fordham",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/kingsbridge",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/norwood",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/riverdale",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/woodlawn",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/concourse",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/crotona-park-east",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/highbridge",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/morrisania",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/mott-haven",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/mount-eden",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/south-bronx",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/east-bronx",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/van-nest",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/clason-point",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/parkchester",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/pelham-bay",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/soundview",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/uptown",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/harlem",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/uppereastside",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/upperwestside",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/washington-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/57thstreet",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/midtowneast",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/midtownsouth",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/midtownwest",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/murrayhill",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/timessquare",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/chelsea",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/flatiron",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/gramercy",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/downtown",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/east-village",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/fidi-downtown",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/greenwichvillage",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/hudson-square",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/lowereastside",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/meatpacking-downtown",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/soho",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/tribeca",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/west-village",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/astoria",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/north-corona",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/elmhurst",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/forest-hills",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/glendale",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/jackson-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/long-island-city",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/rego-park",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/ridgewood",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/college-point",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/flushing",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/murray-hill",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/fresh-meadows",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/richmond-hill",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/jamaica",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/south-jamaica",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/edgemere",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/far-rockaway",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/jersey-city",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/newark",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/staten-island",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/harrison",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/mount-vernon",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/white-plains",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/yonkers",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/mount-hope",
+        "label": ""
+      },
+      {
+        "url": "https://forum.newyorkyimby.com/c/miami/17",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/YIMBYFB",
+        "label": ""
+      },
+      {
+        "url": "https://www.twitter.com/yimbytweets",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/yimbygram",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/category/uncategorized",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-777x824.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/author/oscar",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-scaled.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-scaled.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-scaled.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-scaled.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-scaled.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-scaled.jpeg",
+        "label": ""
+      },
+      {
+        "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7128.1771598855175!2d-80.06383679999999!3d26.709616999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d8d666332818dd%3A0x98dc3d3ef1afdb12!2s500%20S%20Australian%20Ave%2C%20West%20Palm%20Beach%2C%20FL%2033401!5e0!3m2!1sen!2sus!4v1757766206256!5m2!1sen!2sus",
+        "label": ""
+      },
+      {
+        "url": "http://eepurl.com/hud0UH",
+        "label": ""
+      },
+      {
+        "url": "https://google.com/preferences/source?q=https%3A%2F%2Ffloridayimby.com",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/themes/mh_newsdesk-child/img/google_preferred_source_badge.png",
+        "label": ""
+      },
+      {
+        "url": "https://instagram.com/yimbygram",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/yimbytweets",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/2025/09/30-story-anatomia-proposed-for-1469-nw-13th-terrace-miami-fl-33125.html",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/2025/09/mama-hatties-house-to-now-include-affordable-housing-at-430-nw-9th-st-miami-fl-33136.html",
+        "label": ""
+      },
+      {
+        "url": "https://nomadwynwood.com/?utm_source=YIMBY&#038;utm_medium=WebsiteBanners",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2026/05/NOMAD-Banner-336x280-04.gif",
+        "label": ""
+      },
+      {
+        "url": "https://delanomiamiresidences.com/?utm_source=website&utm_medium=digitalbanner&utm_campaign=Yimby&utm_id=banners",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2026/03/DELR_260313_YIMBY_336-x-280.gif",
+        "label": ""
+      },
+      {
+        "url": "https://fridakahloresidences.com/?utm_source=YIMBYFL&utm_medium=Banners&utm_campaign=2026",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2026/01/FRID_260126_YIMBY_336-x-280.gif",
+        "label": ""
+      },
+      {
+        "url": "https://wpompanobeach.com/?utm_source=yimbywebsitebanners&utm_medium=YimbyWebsite&utm_campaign=YimbyWebsite2026",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2026/01/Yimby_WPompanoBeach_BannerCampaign_1225.gif",
+        "label": ""
+      },
+      {
+        "url": "https://www.theguarantors.com/leaseup?utm_campaign=website_banner_florida_2026fullyear&utm_medium=sponsored&utm_source=yimby&utm_content=banner_static-",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2026/01/2025-YIMBY-FL-website-banner.jpg",
+        "label": ""
+      },
+      {
+        "url": "http://lbengineer.com/",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/06/desktop-banner-336x280-1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.pendryresidencestampa.com/#form?utm_source=yimby&utm_medium=banner&utm_campaign=october",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/10/PEN-012643_06-FloridaYIMBY-Digital-Package-336x280-1.gif",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/jquery/ui/effect.min.js?ver=1.13.3",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/jquery/ui/effect-shake.min.js?ver=1.13.3",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/wppas/public/assets/js/vbc/jquery-ui-effects.min.js?ver=5.3.0",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/wppas/public/assets/js/vbc/postscribe.min.js?ver=5.3.0",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/wppas/public/assets/js/dom-to-image.js?ver=5.3.0",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/wppas/public/assets/js/vbc/jquery.wppas.vbc.min.js?ver=5.3.0",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/themes/mh_newsdesk/js/widget-mobile.js?ver=1.0.0",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/themes/mh_newsdesk-child/main.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/comment-reply.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/ajax-load-more/core/libs/alm/legacy-callbacks.js?ver=7.8.3",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/ajax-load-more/build/frontend/ajax-load-more.min.js?ver=7.8.3",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/ajax-load-more-previous-post/dist/js/alm-single-posts.min.js?ver=1.8.1",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/ajax-load-more-seo/js/alm-seo.min.js?ver=1.9.7",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/wppas/templates/js/wppas.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://maps.googleapis.com/maps/api/js?key=REDACTED&callback=initMap",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-scaled.jpeg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-283x300.jpeg",
+        "label": "BERKELEY Hero V2 283x300"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-966x1024.jpeg",
+        "label": "BERKELEY Hero V2 966x1024"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-768x814.jpeg",
+        "label": "BERKELEY Hero V2 768x814"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-1449x1536.jpeg",
+        "label": "BERKELEY Hero V2 1449x1536"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-1932x2048.jpeg",
+        "label": "BERKELEY Hero V2 1932x2048"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-260x276.jpeg",
+        "label": "BERKELEY Hero V2 260x276"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-300x174.jpeg",
+        "label": "BERKELEY JBox 300x174"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-1024x594.jpeg",
+        "label": "BERKELEY JBox 1024x594"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-768x445.jpeg",
+        "label": "BERKELEY JBox 768x445"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-1536x891.jpeg",
+        "label": "BERKELEY JBox 1536x891"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-2048x1188.jpeg",
+        "label": "BERKELEY JBox 2048x1188"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-777x451.jpeg",
+        "label": "BERKELEY JBox 777x451"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-260x151.jpeg",
+        "label": "BERKELEY JBox 260x151"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-300x169.jpeg",
+        "label": "BERKELEY Lobby01 300x169"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-1024x576.jpeg",
+        "label": "BERKELEY Lobby01 1024x576"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-768x432.jpeg",
+        "label": "BERKELEY Lobby01 768x432"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-1536x864.jpeg",
+        "label": "BERKELEY Lobby01 1536x864"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-2048x1152.jpeg",
+        "label": "BERKELEY Lobby01 2048x1152"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-777x437.jpeg",
+        "label": "BERKELEY Lobby01 777x437"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-180x101.jpeg",
+        "label": "BERKELEY Lobby01 180x101"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-260x146.jpeg",
+        "label": "BERKELEY Lobby01 260x146"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-373x210.jpeg",
+        "label": "BERKELEY Lobby01 373x210"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-120x67.jpeg",
+        "label": "BERKELEY Lobby01 120x67"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-300x169.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 300x169"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-1024x576.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 1024x576"
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-777x824.jpeg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-scaled.jpeg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-scaled.jpeg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-scaled.jpeg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-scaled.jpeg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-scaled.jpeg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-scaled.jpeg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/themes/mh_newsdesk-child/img/google_preferred_source_badge.png",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2026/01/2025-YIMBY-FL-website-banner.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/06/desktop-banner-336x280-1.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-scaled.jpeg",
+        "label": "Open Graph image",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-283x300.jpeg",
+        "label": "BERKELEY Hero V2 283x300",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-966x1024.jpeg",
+        "label": "BERKELEY Hero V2 966x1024",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-768x814.jpeg",
+        "label": "BERKELEY Hero V2 768x814",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-1449x1536.jpeg",
+        "label": "BERKELEY Hero V2 1449x1536",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-1932x2048.jpeg",
+        "label": "BERKELEY Hero V2 1932x2048",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-260x276.jpeg",
+        "label": "BERKELEY Hero V2 260x276",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-300x174.jpeg",
+        "label": "BERKELEY JBox 300x174",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-1024x594.jpeg",
+        "label": "BERKELEY JBox 1024x594",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-768x445.jpeg",
+        "label": "BERKELEY JBox 768x445",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-1536x891.jpeg",
+        "label": "BERKELEY JBox 1536x891",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-2048x1188.jpeg",
+        "label": "BERKELEY JBox 2048x1188",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-777x451.jpeg",
+        "label": "BERKELEY JBox 777x451",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-260x151.jpeg",
+        "label": "BERKELEY JBox 260x151",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-300x169.jpeg",
+        "label": "BERKELEY Lobby01 300x169",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-1024x576.jpeg",
+        "label": "BERKELEY Lobby01 1024x576",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-768x432.jpeg",
+        "label": "BERKELEY Lobby01 768x432",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-1536x864.jpeg",
+        "label": "BERKELEY Lobby01 1536x864",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-2048x1152.jpeg",
+        "label": "BERKELEY Lobby01 2048x1152",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-777x437.jpeg",
+        "label": "BERKELEY Lobby01 777x437",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-180x101.jpeg",
+        "label": "BERKELEY Lobby01 180x101",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-260x146.jpeg",
+        "label": "BERKELEY Lobby01 260x146",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-373x210.jpeg",
+        "label": "BERKELEY Lobby01 373x210",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-120x67.jpeg",
+        "label": "BERKELEY Lobby01 120x67",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-300x169.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 300x169",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-1024x576.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 1024x576",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-768x432.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 768x432",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-1536x864.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 1536x864",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-2048x1153.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 2048x1153",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-777x437.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 777x437",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-180x101.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 180x101",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-260x146.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 260x146",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-373x210.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 373x210",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-120x67.jpeg",
+        "label": "BERKELEY PORTE COCHERE 01 120x67",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-300x169.jpeg",
+        "label": "BERKELEY ROOFTOP POOL 01 300x169",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-1024x576.jpeg",
+        "label": "BERKELEY ROOFTOP POOL 01 1024x576",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-768x432.jpeg",
+        "label": "BERKELEY ROOFTOP POOL 01 768x432",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-1536x864.jpeg",
+        "label": "BERKELEY ROOFTOP POOL 01 1536x864",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-2048x1152.jpeg",
+        "label": "BERKELEY ROOFTOP POOL 01 2048x1152",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-777x437.jpeg",
+        "label": "BERKELEY ROOFTOP POOL 01 777x437",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-180x101.jpeg",
+        "label": "BERKELEY ROOFTOP POOL 01 180x101",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-260x146.jpeg",
+        "label": "BERKELEY ROOFTOP POOL 01 260x146",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-373x210.jpeg",
+        "label": "BERKELEY ROOFTOP POOL 01 373x210",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_ROOFTOP_POOL_01-120x67.jpeg",
+        "label": "BERKELEY ROOFTOP POOL 01 120x67",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-300x169.jpeg",
+        "label": "BERKELEY Terrace 300x169",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-1024x576.jpeg",
+        "label": "BERKELEY Terrace 1024x576",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-768x432.jpeg",
+        "label": "BERKELEY Terrace 768x432",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-1536x864.jpeg",
+        "label": "BERKELEY Terrace 1536x864",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-2048x1152.jpeg",
+        "label": "BERKELEY Terrace 2048x1152",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-777x437.jpeg",
+        "label": "BERKELEY Terrace 777x437",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-180x101.jpeg",
+        "label": "BERKELEY Terrace 180x101",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-260x146.jpeg",
+        "label": "BERKELEY Terrace 260x146",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-373x210.jpeg",
+        "label": "BERKELEY Terrace 373x210",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Terrace-120x67.jpeg",
+        "label": "BERKELEY Terrace 120x67",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-300x169.jpeg",
+        "label": "BERKELEY LIVING 01 300x169",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-1024x576.jpeg",
+        "label": "BERKELEY LIVING 01 1024x576",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-768x432.jpeg",
+        "label": "BERKELEY LIVING 01 768x432",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-1536x864.jpeg",
+        "label": "BERKELEY LIVING 01 1536x864",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-2048x1152.jpeg",
+        "label": "BERKELEY LIVING 01 2048x1152",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-777x437.jpeg",
+        "label": "BERKELEY LIVING 01 777x437",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-180x101.jpeg",
+        "label": "BERKELEY LIVING 01 180x101",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-260x146.jpeg",
+        "label": "BERKELEY LIVING 01 260x146",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-373x210.jpeg",
+        "label": "BERKELEY LIVING 01 373x210",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_LIVING_01_-120x67.jpeg",
+        "label": "BERKELEY LIVING 01 120x67",
+        "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": [
+      {
+        "url": "https://www.theberkeleypalmbeach.com/",
+        "status": 403,
+        "error": "Forbidden"
+      },
+      {
+        "url": "https://www.theberkeleypalmbeach.com/contact-information/",
+        "status": 403,
+        "error": "Forbidden"
+      },
+      {
+        "url": "https://www.theberkeleypalmbeach.com/residence/residence-f/",
+        "status": 403,
+        "error": "Forbidden"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

@@ -1,0 +1,1524 @@
+{
+  "projectId": "edgeworth-north",
+  "slug": "edgeworth-north",
+  "name": "Edgeworth North Tower",
+  "address": "1155 S Flagler Dr, West Palm Beach, FL 33401",
+  "corridor": "South Flagler waterfront",
+  "officialWebsite": "https://www.edgeworthwpb.com/",
+  "status": "Planning / priority list",
+  "completion": "Around 2029 in seed/reporting; verify as project advances.",
+  "developer": "Related Ross",
+  "architect": "Kohn Pedersen Fox",
+  "interiorDesigner": "MAWD",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "168",
+  "stories": "28",
+  "unitMix": "One-bedroom residences; Two-bedroom residences; Three-bedroom residences; Four-bedroom residences; Five-bedroom residences; Penthouses",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Reported range from $2.5M to $35.5M; verify current pricing.",
+  "amenities": [
+    "More than 90,000 square feet of amenities",
+    "Pool deck",
+    "Comprehensive spa and fitness program",
+    "Curated social and lifestyle amenities",
+    "Private elevator residences",
+    "Generous private balconies"
+  ],
+  "salesContact": "Sales gallery: 615 S Rosemary Ave, West Palm Beach; info@edgeworthwpb.com. Related Ross and Corcoran Sunshine Marketing Group lead sales per reporting.",
+  "confidence": "Medium",
+  "notes": "Residence count, price range, amenity square footage, KPF architecture, MAWD interiors, and one-to-five-bedroom mix apply to the overall two-tower Edgeworth project, not this individual modeled tower.",
+  "sourceUrls": [
+    "https://www.edgeworthwpb.com/",
+    "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+    "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/",
+    "https://mawd.co/projects/residential/edgeworth"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://www.edgeworthwpb.com/",
+    "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+    "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/",
+    "https://mawd.co/projects/residential/edgeworth"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "South Flagler Waterfront",
+  "generatedPlaceholderCopies": [
+    "projects/edgeworth-north/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+      "path": "projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+      "bytes": 447934,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.edgeworthwpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=750w",
+      "path": "projects/edgeworth-north/images/candidates/02--official-candidate--images.squarespace-cdn.com--95646ee5.webp",
+      "bytes": 61958,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.edgeworthwpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1000w",
+      "path": "projects/edgeworth-north/images/candidates/03--official-candidate--images.squarespace-cdn.com--977977f0.webp",
+      "bytes": 100746,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.edgeworthwpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1500w",
+      "path": "projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
+      "bytes": 190532,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.edgeworthwpb.com/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://www.edgeworthwpb.com/",
+        "title": "Edgeworth | New Luxury Water View Condos in West Palm Beach",
+        "description": "Edgeworth by Related Ross introduces new luxury residences on South Flagler Drive in West Palm Beach. Enjoy panoramic water views from every home. Inquire now.",
+        "ogImage": "http://static1.squarespace.com/static/69aed843fb7aa030d49206fd/t/69aed848fb7aa030d49208c8/1765285383599/Group+4.png?format=1500w"
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+        "title": "Related Ross Debuts Edgeworth, a New Ultra-Luxury Condominium Along the Waterfront of West Palm Beach | Related Ross",
+        "description": "West Palm Beach, FL (March 16, 2026) — Related Ross today announced plans for Edgeworth, a new luxury waterfront residential development located along South Flagler Drive in West Palm Beach. With more than 90,000 square feet of amenities, the project will feature two gracefully curved 28-story towers designed by celebrated architect Kohn Pedersen Fox, delivering an elevated residential experience and sweeping ocean and Intracoastal views.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/",
+        "title": "Related Ross Launches Sales for Third West Palm Beach Condo",
+        "description": "Related Ross is launching sales for Edgeworth, its third planned condo tower in West Palm Beach, on the site of Family Church.",
+        "ogImage": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Related-Ross-launches-sales-for-third-condo-dev-in-West-Palm-Beach-MAIN.jpg"
+      },
+      {
+        "url": "https://mawd.co/projects/residential/edgeworth",
+        "title": "Edgeworth | MAWD",
+        "description": "We are MAWD, a global interior design firm based in London, New York & Los Angeles, creating interiors for how we live, move, work & play today.",
+        "ogImage": "https://mawd.co/og-image.png"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/c78fd099-38d9-42b4-9b92-8d334d966c77/favicon.ico",
+        "label": ""
+      },
+      {
+        "url": "https://www.edgeworthwpb.com/",
+        "label": ""
+      },
+      {
+        "url": "http://static1.squarespace.com/static/69aed843fb7aa030d49206fd/t/69aed848fb7aa030d49208c8/1765285383599/Group+4.png?format=1500w",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/",
+        "label": ""
+      },
+      {
+        "url": "https://use.typekit.net/",
+        "label": ""
+      },
+      {
+        "url": "https://p.typekit.net/",
+        "label": ""
+      },
+      {
+        "url": "https://use.typekit.net/ik/EhlXEmddKcKQ8fmr28Yu7CtSemwJ_Hxy9S8N1o8cw6wfe1bJXnX1IyvhF2jtFRZLFR8yZAbtF2FcjRiyjQMDwebX5QJ3FcZqe6MK2YgkdayTdAIldcNhjPG4fHvgIMMjgfMfH6GJCwbgIMMjgPMfH6qJK3IbMg6YJMJ7fbK3MsMMeMt6MKG4fJ3gIMMjIPMfqMeSCvzFg6.js",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.gstatic.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Acme:ital,wght@0,400",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/@sqs/polyfiller/1.6/legacy.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/@sqs/polyfiller/1.6/modern.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/visitor-site-error-reporter-a38266454b6c35f7-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-runtime-efd5f2134e4e70f4-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-moment-js-vendor-6f2a1f6ec9a41489-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/cldr-resource-pack-497d1337e70309e7-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-vendors-stable-b8d716935110c7b2-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-vendors-a5542c2814272dd7-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-6a459dad7444b31d-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/user-account-core-322f9d2d9aca764c-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/styles-compressed/user-account-core-b31fa72f1ac27a50-min.en-US.css",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/performance-c704c05d211c44da-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/eec49227-9151-4e51-894c-948249d3e78f_533/website.components.html.styles.css",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/404ed975-68f8-47a7-ac5c-a389a701daa8_705/website.components.form.styles.css",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/website.components.imageFluid.styles.css",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/website.components.imageFluid.shared.constants.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/image-effect-film-grain.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/image-effect-parallax.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/eec49227-9151-4e51-894c-948249d3e78f_533/website.components.html.visitor.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/image-effect-refracted-lines.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/image-effect-liquid.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/website.components.imageFluid.visitor.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/748.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/8018.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/9882.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/image-effect-refracted-circles.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/404ed975-68f8-47a7-ac5c-a389a701daa8_705/website.components.form.visitor.js",
+        "label": ""
+      },
+      {
+        "url": "https://static1.squarespace.com/static/versioned-site-css/69aed843fb7aa030d49206fd/32/5c5a519771c10ba3470d8101/69aed843fb7aa030d492071f/1780/site.css?nocustom=true",
+        "label": ""
+      },
+      {
+        "url": "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1778089882207-IV5GHHG20Y02RIG1FE1F/static.css",
+        "label": ""
+      },
+      {
+        "url": "https://static1.squarespace.com/static/custom-css/69aed843fb7aa030d49206fd/69aed843fb7aa030d492071f/10/custom.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.edgeworthwpb.com/cart",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/cf5d6bbd-a6f7-4305-9494-e4d59d250320/EDGEWORTH+-+WHITE+LOGO.png",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/23c296a7-804d-4b31-bfb0-9bcd8536eed4/EDGEWORTH+-+WHITE+LOGO+-+cropped.png",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedross.com/",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/320dacaa-c47f-4d88-8ee2-4f386713653a/Related+Ross_Logo_Stacked_Charcoal_RGB.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.edgeworthwpb.com/home",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/40fa90d2-7934-47cc-9ac1-c071de5203e8/EDGEWORTH+-+IVORY+LIGHT+LOGO.png",
+        "label": ""
+      },
+      {
+        "url": "https://maps.app.goo.gl/End8te4KjpBE2Txp8",
+        "label": ""
+      },
+      {
+        "url": "https://maps.app.goo.gl/d3Ahz3wKZLdsZDqm8",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/relatedross/",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/terms-use",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://privacyportal-cdn.onetrust.com/dsarwebform/679d7477-7e03-4d1d-8596-4ba05c7a40f9/33af1b77-041a-4265-a598-6d30835f164d.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/accessibility-statement",
+        "label": ""
+      },
+      {
+        "url": "https://www.edgeworthwpb.com/legal",
+        "label": ""
+      },
+      {
+        "url": "https://www.levelaccess.com/a/related/",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/6938189f7c1a6d065bd33d3f/730b3ecb-1c6e-4fc2-ba78-05a024258118/Accessibility-logo.png",
+        "label": ""
+      },
+      {
+        "url": "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/scripts/site-bundle.24618f321442829cf50ddb341e64781c.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-WTZZR63Q",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=100w",
+        "label": "4400 FamilyChurch Ext Hummingbird"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=300w",
+        "label": "4400 FamilyChurch Ext Hummingbird"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=500w",
+        "label": "4400 FamilyChurch Ext Hummingbird"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=750w",
+        "label": "4400 FamilyChurch Ext Hummingbird"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1000w",
+        "label": "4400 FamilyChurch Ext Hummingbird"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1500w",
+        "label": "4400 FamilyChurch Ext Hummingbird"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=2500w",
+        "label": "4400 FamilyChurch Ext Hummingbird"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/cf5d6bbd-a6f7-4305-9494-e4d59d250320/EDGEWORTH+-+WHITE+LOGO.png?format=100w",
+        "label": "EDGEWORTH+ +WHITE+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/cf5d6bbd-a6f7-4305-9494-e4d59d250320/EDGEWORTH+-+WHITE+LOGO.png?format=300w",
+        "label": "EDGEWORTH+ +WHITE+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/cf5d6bbd-a6f7-4305-9494-e4d59d250320/EDGEWORTH+-+WHITE+LOGO.png?format=500w",
+        "label": "EDGEWORTH+ +WHITE+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/cf5d6bbd-a6f7-4305-9494-e4d59d250320/EDGEWORTH+-+WHITE+LOGO.png?format=750w",
+        "label": "EDGEWORTH+ +WHITE+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/cf5d6bbd-a6f7-4305-9494-e4d59d250320/EDGEWORTH+-+WHITE+LOGO.png?format=1000w",
+        "label": "EDGEWORTH+ +WHITE+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/cf5d6bbd-a6f7-4305-9494-e4d59d250320/EDGEWORTH+-+WHITE+LOGO.png?format=1500w",
+        "label": "EDGEWORTH+ +WHITE+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/cf5d6bbd-a6f7-4305-9494-e4d59d250320/EDGEWORTH+-+WHITE+LOGO.png?format=2500w",
+        "label": "EDGEWORTH+ +WHITE+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/23c296a7-804d-4b31-bfb0-9bcd8536eed4/EDGEWORTH+-+WHITE+LOGO+-+cropped.png?format=100w",
+        "label": "EDGEWORTH+ +WHITE+LOGO+ +cropped"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/23c296a7-804d-4b31-bfb0-9bcd8536eed4/EDGEWORTH+-+WHITE+LOGO+-+cropped.png?format=300w",
+        "label": "EDGEWORTH+ +WHITE+LOGO+ +cropped"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/23c296a7-804d-4b31-bfb0-9bcd8536eed4/EDGEWORTH+-+WHITE+LOGO+-+cropped.png?format=500w",
+        "label": "EDGEWORTH+ +WHITE+LOGO+ +cropped"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/23c296a7-804d-4b31-bfb0-9bcd8536eed4/EDGEWORTH+-+WHITE+LOGO+-+cropped.png?format=750w",
+        "label": "EDGEWORTH+ +WHITE+LOGO+ +cropped"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/23c296a7-804d-4b31-bfb0-9bcd8536eed4/EDGEWORTH+-+WHITE+LOGO+-+cropped.png?format=1000w",
+        "label": "EDGEWORTH+ +WHITE+LOGO+ +cropped"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/23c296a7-804d-4b31-bfb0-9bcd8536eed4/EDGEWORTH+-+WHITE+LOGO+-+cropped.png?format=1500w",
+        "label": "EDGEWORTH+ +WHITE+LOGO+ +cropped"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/23c296a7-804d-4b31-bfb0-9bcd8536eed4/EDGEWORTH+-+WHITE+LOGO+-+cropped.png?format=2500w",
+        "label": "EDGEWORTH+ +WHITE+LOGO+ +cropped"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=100w",
+        "label": "Path+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=300w",
+        "label": "Path+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=500w",
+        "label": "Path+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=750w",
+        "label": "Path+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=1000w",
+        "label": "Path+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=1500w",
+        "label": "Path+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=2500w",
+        "label": "Path+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/320dacaa-c47f-4d88-8ee2-4f386713653a/Related+Ross_Logo_Stacked_Charcoal_RGB.png?format=100w",
+        "label": "Related+Ross Logo Stacked Charcoal RGB"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/320dacaa-c47f-4d88-8ee2-4f386713653a/Related+Ross_Logo_Stacked_Charcoal_RGB.png?format=300w",
+        "label": "Related+Ross Logo Stacked Charcoal RGB"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/320dacaa-c47f-4d88-8ee2-4f386713653a/Related+Ross_Logo_Stacked_Charcoal_RGB.png?format=500w",
+        "label": "Related+Ross Logo Stacked Charcoal RGB"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/320dacaa-c47f-4d88-8ee2-4f386713653a/Related+Ross_Logo_Stacked_Charcoal_RGB.png?format=750w",
+        "label": "Related+Ross Logo Stacked Charcoal RGB"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/320dacaa-c47f-4d88-8ee2-4f386713653a/Related+Ross_Logo_Stacked_Charcoal_RGB.png?format=1000w",
+        "label": "Related+Ross Logo Stacked Charcoal RGB"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/320dacaa-c47f-4d88-8ee2-4f386713653a/Related+Ross_Logo_Stacked_Charcoal_RGB.png?format=1500w",
+        "label": "Related+Ross Logo Stacked Charcoal RGB"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/320dacaa-c47f-4d88-8ee2-4f386713653a/Related+Ross_Logo_Stacked_Charcoal_RGB.png?format=2500w",
+        "label": "Related+Ross Logo Stacked Charcoal RGB"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/40fa90d2-7934-47cc-9ac1-c071de5203e8/EDGEWORTH+-+IVORY+LIGHT+LOGO.png?format=100w",
+        "label": "EDGEWORTH+ +IVORY+LIGHT+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/40fa90d2-7934-47cc-9ac1-c071de5203e8/EDGEWORTH+-+IVORY+LIGHT+LOGO.png?format=300w",
+        "label": "EDGEWORTH+ +IVORY+LIGHT+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/40fa90d2-7934-47cc-9ac1-c071de5203e8/EDGEWORTH+-+IVORY+LIGHT+LOGO.png?format=500w",
+        "label": "EDGEWORTH+ +IVORY+LIGHT+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/40fa90d2-7934-47cc-9ac1-c071de5203e8/EDGEWORTH+-+IVORY+LIGHT+LOGO.png?format=750w",
+        "label": "EDGEWORTH+ +IVORY+LIGHT+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/40fa90d2-7934-47cc-9ac1-c071de5203e8/EDGEWORTH+-+IVORY+LIGHT+LOGO.png?format=1000w",
+        "label": "EDGEWORTH+ +IVORY+LIGHT+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/40fa90d2-7934-47cc-9ac1-c071de5203e8/EDGEWORTH+-+IVORY+LIGHT+LOGO.png?format=1500w",
+        "label": "EDGEWORTH+ +IVORY+LIGHT+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/40fa90d2-7934-47cc-9ac1-c071de5203e8/EDGEWORTH+-+IVORY+LIGHT+LOGO.png?format=2500w",
+        "label": "EDGEWORTH+ +IVORY+LIGHT+LOGO"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/6938189f7c1a6d065bd33d3f/730b3ecb-1c6e-4fc2-ba78-05a024258118/Accessibility-logo.png?format=100w",
+        "label": "Accessibility logo"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/6938189f7c1a6d065bd33d3f/730b3ecb-1c6e-4fc2-ba78-05a024258118/Accessibility-logo.png?format=300w",
+        "label": "Accessibility logo"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/6938189f7c1a6d065bd33d3f/730b3ecb-1c6e-4fc2-ba78-05a024258118/Accessibility-logo.png?format=500w",
+        "label": "Accessibility logo"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/6938189f7c1a6d065bd33d3f/730b3ecb-1c6e-4fc2-ba78-05a024258118/Accessibility-logo.png?format=750w",
+        "label": "Accessibility logo"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/6938189f7c1a6d065bd33d3f/730b3ecb-1c6e-4fc2-ba78-05a024258118/Accessibility-logo.png?format=1000w",
+        "label": "Accessibility logo"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/6938189f7c1a6d065bd33d3f/730b3ecb-1c6e-4fc2-ba78-05a024258118/Accessibility-logo.png?format=1500w",
+        "label": "Accessibility logo"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/6938189f7c1a6d065bd33d3f/730b3ecb-1c6e-4fc2-ba78-05a024258118/Accessibility-logo.png?format=2500w",
+        "label": "Accessibility logo"
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/related-favicon-128_0.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_ygYVVZxBoxSicVY88N3maZiKGaHncZkqRASwx-li9zY.css?delta=0&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_ar5TLmU-t0SXYlPN5Vlbm9m71lDnSHWevb7KR7J7unA.css?delta=1&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_klMz1Y5jQbWQT0cCDJj-qJhKYZ9gMYjZI_dKTCTs7Ns.css?delta=2&language=en&theme=rcc&include=eJyFj2GKAzEIhS8U4pHEZGwm1MQQHcrefpu20EJ32D_66ROfUvea1IGeOV50tnDR7nRj08bwwfHGaZX270C0vbYwc4YimkgW4qBJZdLYDd6IyxB5qx4mCzlvaCRsSKPCk45eHRMZB2OaeV8S0uGatQ1hZzjpB6sLcOg4BibRfDX4oxdMcyXBdj-D4O5Uc7Afc27wsH18NRu8cmThxt1j1qM7z1N9Y6cqFl1LkfM1jc2ofOsr_AK2W6PZ",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js_91aqBNnXbL0lGxUiZnDRJmqUuXPri8_ZLYkVHwK94wA.js?scope=header&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI6KhYUha9faW6o8Pxp9N9jE7CcyaA6uD57RHbsVMoEBwx-YCnmDN3MQk5kToFZJLG3xyC2e4vYvFtBhd7zrsZTtNxAHICEKLJw81e1iUI5dKqOgGupHcF1-5LtUH4ngR90MzVwz9A_eaFgkLzmojL7NuJ4z8CRUyiRVY8W9IOW1fDmMFRSCNfdmWqF92hwe8LZsf",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/google_tag/js/gtag.js?tenomk",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/google_tag/js/gtm.js?tenomk",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/css/seckit.no_body.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/js/seckit.document_write.js?",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/css/seckit.noscript_tag.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-PSLNMLF",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/themes/custom/rcc/images/REL_RossLogo-KO.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedrentals.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedbeal.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedcalifornia.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedmidwest.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/vision-impacts",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/properties",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/leadership",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/awards",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.jobs/careers-home/jobs?stretchUnits=MILES&stretch=50&location=West%20Palm%20Beach&lat=26.71534&lng=-80.05337&woe=7",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/foundation",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/city-centers",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/office",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/residential",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/",
+        "label": ""
+      },
+      {
+        "url": "https://southflaglerhouse.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedrentals.com/apartment-rentals/west-palm-beach/cityplace/the-laurel",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/hospitality",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/retail",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/arts-culture",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/blog",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/brand-partnerships",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/news-articles",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/contact-us",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/themes/custom/rcc/images/Search.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/email.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.facebook.com/share.php?u=https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along&title=Related%20Ross%20Debuts%20Edgeworth,%20a%20New%20Ultra-Luxury%20Condominium%20Along%20the%20Waterfront%20of%20West%20Palm%20Beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/facebook_share.svg",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/intent/tweet?url=https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along&status=Related%20Ross%20Debuts%20Edgeworth,%20a%20New%20Ultra-Luxury%20Condominium%20Along%20the%20Waterfront%20of%20West%20Palm%20Beach+https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/twitter.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.linkedin.com/shareArticle?mini=true&url=https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along&title=Related%20Ross%20Debuts%20Edgeworth,%20a%20New%20Ultra-Luxury%20Condominium%20Along%20the%20Waterfront%20of%20West%20Palm%20Beach&source=https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/linkedin.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.pinterest.com/pin/create/button/?url=https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along&description=Related%20Ross%20Debuts%20Edgeworth,%20a%20New%20Ultra-Luxury%20Condominium%20Along%20the%20Waterfront%20of%20West%20Palm%20Beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/pinterest.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.essentialaccessibility.com/related",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/privacy-notice",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js__7B45lLcf6kj722yYHwF8coHs2Sz6xmux01b0bKieb8.js?scope=footer&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI6KhYUha9faW6o8Pxp9N9jE7CcyaA6uD57RHbsVMoEBwx-YCnmDN3MQk5kToFZJLG3xyC2e4vYvFtBhd7zrsZTtNxAHICEKLJw81e1iUI5dKqOgGupHcF1-5LtUH4ngR90MzVwz9A_eaFgkLzmojL7NuJ4z8CRUyiRVY8W9IOW1fDmMFRSCNfdmWqF92hwe8LZsf",
+        "label": ""
+      },
+      {
+        "url": "https://ak.sail-horizon.com/spm/spm.v1.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/7f8e9afc27468d99.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/cd98db01403429de.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/css/557728f8ce4959be.css",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/ProximaNovaFontFamily/ProximaNova/proxima-nova-all.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/common.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/style.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/wp-includes/css/dist/block-library/theme.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/webpack-815c4d841b630f3d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/framework-03eff6fd791dd86e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/main-467a80d1c1f169f3.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/_app-641a2c8a219770b8.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7938-2f511c1b5c00cdb7.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/9933-789056f08ec2524d.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/7041-54f4e5d13087571a.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/8814-3eb6ae91ed02af7e.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/1396-1c7e58bb3b6ae138.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/5528-317c55c515620e0f.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/chunks/pages/%5BfirstLevel%5D/%5BsecondLevel%5D/%5BthirdLevel%5D/%5BfourthLevel%5D/%5BfifthLevel%5D-9770b3cc0f677a51.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_buildManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/_next/static/trd-news-26.04.28%2B260.1/_ssgManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-K694XL6&gtm_auth=2Dc6nz6-xSl7lnGU4UY2OA&gtm_preview=env-2",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/logos/trd-news-logo-light.svg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/search/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/subscription/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/residential/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Related-Ross-launches-sales-for-third-condo-dev-in-West-Palm-Beach-MAIN-50x33.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/author/kate-hinsche/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/03/04/steve-ross-to-sell-1-of-miami-dolphins-to-chinese-investor/",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_AmenityDeck_Draft07_SG-1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_MotorCourt_Draft07_HD_SG-1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2_UNIT-2_HZ_BEDROOM_DRAFT-03_PB.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2-HZ_UNIT-03_OPEN-KITCHEN_HIBISCUS_VIEW01_DRAFT-04_JF.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_PRAMIRAY-BATHROOM_JASMINE-PALETTE_VIEW-01_DRAFT-05_JF.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_LIVING-MAIN_JASMINE-PALETTE_DRAFT-03_PB-1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FAMILY_CHURCH_T2_HZ_UNIT02_PRIMARY-BATHROOM_JASMINE-PALETTE_DRAFT-04_MS_JF.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_Wormseye_Draft05_SJ-1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_Hummingbird_Draft08_SJ-1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/03/16/live-local-act-citizens-insurance-fontainebleau-bills-pass/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2025/06/10/steve-ross-lands-600m-loan-for-west-palm-beach-condos/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/01/08/former-apple-ceo-buying-40-million-west-palm-beach-condo/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/02/19/related-ross-lands-157-million-loan-for-shorecrest-condos/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/miami/2026/02/26/great-gulf-launches-mandarin-oriental-west-palm-beach-condos/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/corcoran-sunshine-marketing-group/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/kohn-pedersen-fox/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/mast-capital/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/company/related-ross/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/john-sculley/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/people/steve-ross/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/condo-market/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/construction-loans/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/high-rise/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/luxury-condos/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/new-development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/penthouses/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/shorecrest/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/tag/south-flagler-house/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/about/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/contact-us/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/careers/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/new-york/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/la/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/chicago/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/latest/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/commercial/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/sector/development/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/video/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/newsletters/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/advertising/",
+        "label": ""
+      },
+      {
+        "url": "https://help.therealdeal.com/knowledge/kb-tickets/new",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/corporate/",
+        "label": ""
+      },
+      {
+        "url": "https://therealdeal.com/data/",
+        "label": ""
+      },
+      {
+        "url": "https://www.parsintl.com/publications/the-real-deal/",
+        "label": ""
+      },
+      {
+        "url": "https://shop.therealdeal.com/",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "http://static1.squarespace.com/static/69aed843fb7aa030d49206fd/t/69aed848fb7aa030d49208c8/1765285383599/Group+4.png?format=1500w",
+        "label": "",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+        "label": "",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png",
+        "label": "",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=100w",
+        "label": "4400 FamilyChurch Ext Hummingbird",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=300w",
+        "label": "4400 FamilyChurch Ext Hummingbird",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=500w",
+        "label": "4400 FamilyChurch Ext Hummingbird",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=750w",
+        "label": "4400 FamilyChurch Ext Hummingbird",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1000w",
+        "label": "4400 FamilyChurch Ext Hummingbird",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1500w",
+        "label": "4400 FamilyChurch Ext Hummingbird",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=2500w",
+        "label": "4400 FamilyChurch Ext Hummingbird",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=100w",
+        "label": "Path+2",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=300w",
+        "label": "Path+2",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=500w",
+        "label": "Path+2",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=750w",
+        "label": "Path+2",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=1000w",
+        "label": "Path+2",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=1500w",
+        "label": "Path+2",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/1773066311287-SDDDAZA3Z0ELWRA7RNOE/Path+2.png?format=2500w",
+        "label": "Path+2",
+        "sourcePage": "https://www.edgeworthwpb.com/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Related-Ross-launches-sales-for-third-condo-dev-in-West-Palm-Beach-MAIN-50x33.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_AmenityDeck_Draft07_SG-1.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_MotorCourt_Draft07_HD_SG-1.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2_UNIT-2_HZ_BEDROOM_DRAFT-03_PB.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2-HZ_UNIT-03_OPEN-KITCHEN_HIBISCUS_VIEW01_DRAFT-04_JF.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_PRAMIRAY-BATHROOM_JASMINE-PALETTE_VIEW-01_DRAFT-05_JF.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_LIVING-MAIN_JASMINE-PALETTE_DRAFT-03_PB-1.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FAMILY_CHURCH_T2_HZ_UNIT02_PRIMARY-BATHROOM_JASMINE-PALETTE_DRAFT-04_MS_JF.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_Wormseye_Draft05_SJ-1.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_Hummingbird_Draft08_SJ-1.jpg",
+        "label": "",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Related-Ross-launches-sales-for-third-condo-dev-in-West-Palm-Beach-MAIN.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Related-Ross-launches-sales-for-third-condo-dev-in-West-Palm-Beach-MAIN-700x467.jpg",
+        "label": "MIA Related Ross launches sales for third condo dev in West Palm Beach MAIN 700x467",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Related-Ross-launches-sales-for-third-condo-dev-in-West-Palm-Beach-MAIN-300x200.jpg",
+        "label": "MIA Related Ross launches sales for third condo dev in West Palm Beach MAIN 300x200",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Related-Ross-launches-sales-for-third-condo-dev-in-West-Palm-Beach-MAIN-200x133.jpg",
+        "label": "MIA Related Ross launches sales for third condo dev in West Palm Beach MAIN 200x133",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Related-Ross-launches-sales-for-third-condo-dev-in-West-Palm-Beach-MAIN-768x512.jpg",
+        "label": "MIA Related Ross launches sales for third condo dev in West Palm Beach MAIN 768x512",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Related-Ross-launches-sales-for-third-condo-dev-in-West-Palm-Beach-MAIN-1024x683.jpg",
+        "label": "MIA Related Ross launches sales for third condo dev in West Palm Beach MAIN 1024x683",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/MIA-Related-Ross-launches-sales-for-third-condo-dev-in-West-Palm-Beach-MAIN-1400x933.jpg",
+        "label": "MIA Related Ross launches sales for third condo dev in West Palm Beach MAIN 1400x933",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_AmenityDeck_Draft07_SG-1-300x211.jpg",
+        "label": "4400 FamilyChurch Ext AmenityDeck Draft07 SG 1 300x211",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_AmenityDeck_Draft07_SG-1-700x493.jpg",
+        "label": "4400 FamilyChurch Ext AmenityDeck Draft07 SG 1 700x493",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_AmenityDeck_Draft07_SG-1-200x141.jpg",
+        "label": "4400 FamilyChurch Ext AmenityDeck Draft07 SG 1 200x141",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_AmenityDeck_Draft07_SG-1-768x541.jpg",
+        "label": "4400 FamilyChurch Ext AmenityDeck Draft07 SG 1 768x541",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_AmenityDeck_Draft07_SG-1-1024x721.jpg",
+        "label": "4400 FamilyChurch Ext AmenityDeck Draft07 SG 1 1024x721",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_AmenityDeck_Draft07_SG-1-1400x986.jpg",
+        "label": "4400 FamilyChurch Ext AmenityDeck Draft07 SG 1 1400x986",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_AmenityDeck_Draft07_SG-1-50x35.jpg",
+        "label": "4400 FamilyChurch Ext AmenityDeck Draft07 SG 1 50x35",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_MotorCourt_Draft07_HD_SG-1-300x197.jpg",
+        "label": "4400 FamilyChurch Ext MotorCourt Draft07 HD SG 1 300x197",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_MotorCourt_Draft07_HD_SG-1-700x460.jpg",
+        "label": "4400 FamilyChurch Ext MotorCourt Draft07 HD SG 1 700x460",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_MotorCourt_Draft07_HD_SG-1-200x131.jpg",
+        "label": "4400 FamilyChurch Ext MotorCourt Draft07 HD SG 1 200x131",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_MotorCourt_Draft07_HD_SG-1-768x505.jpg",
+        "label": "4400 FamilyChurch Ext MotorCourt Draft07 HD SG 1 768x505",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_MotorCourt_Draft07_HD_SG-1-1024x673.jpg",
+        "label": "4400 FamilyChurch Ext MotorCourt Draft07 HD SG 1 1024x673",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_MotorCourt_Draft07_HD_SG-1-1400x920.jpg",
+        "label": "4400 FamilyChurch Ext MotorCourt Draft07 HD SG 1 1400x920",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FamilyChurch_Ext_MotorCourt_Draft07_HD_SG-1-50x33.jpg",
+        "label": "4400 FamilyChurch Ext MotorCourt Draft07 HD SG 1 50x33",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2_UNIT-2_HZ_BEDROOM_DRAFT-03_PB-300x240.jpg",
+        "label": "4400 T2 UNIT 2 HZ BEDROOM DRAFT 03 PB 300x240",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2_UNIT-2_HZ_BEDROOM_DRAFT-03_PB-700x560.jpg",
+        "label": "4400 T2 UNIT 2 HZ BEDROOM DRAFT 03 PB 700x560",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2_UNIT-2_HZ_BEDROOM_DRAFT-03_PB-200x160.jpg",
+        "label": "4400 T2 UNIT 2 HZ BEDROOM DRAFT 03 PB 200x160",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2_UNIT-2_HZ_BEDROOM_DRAFT-03_PB-768x614.jpg",
+        "label": "4400 T2 UNIT 2 HZ BEDROOM DRAFT 03 PB 768x614",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2_UNIT-2_HZ_BEDROOM_DRAFT-03_PB-1024x819.jpg",
+        "label": "4400 T2 UNIT 2 HZ BEDROOM DRAFT 03 PB 1024x819",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2_UNIT-2_HZ_BEDROOM_DRAFT-03_PB-1400x1120.jpg",
+        "label": "4400 T2 UNIT 2 HZ BEDROOM DRAFT 03 PB 1400x1120",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2_UNIT-2_HZ_BEDROOM_DRAFT-03_PB-50x40.jpg",
+        "label": "4400 T2 UNIT 2 HZ BEDROOM DRAFT 03 PB 50x40",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2-HZ_UNIT-03_OPEN-KITCHEN_HIBISCUS_VIEW01_DRAFT-04_JF-300x173.jpg",
+        "label": "4400 T2 HZ UNIT 03 OPEN KITCHEN HIBISCUS VIEW01 DRAFT 04 JF 300x173",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2-HZ_UNIT-03_OPEN-KITCHEN_HIBISCUS_VIEW01_DRAFT-04_JF-700x403.jpg",
+        "label": "4400 T2 HZ UNIT 03 OPEN KITCHEN HIBISCUS VIEW01 DRAFT 04 JF 700x403",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2-HZ_UNIT-03_OPEN-KITCHEN_HIBISCUS_VIEW01_DRAFT-04_JF-200x115.jpg",
+        "label": "4400 T2 HZ UNIT 03 OPEN KITCHEN HIBISCUS VIEW01 DRAFT 04 JF 200x115",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2-HZ_UNIT-03_OPEN-KITCHEN_HIBISCUS_VIEW01_DRAFT-04_JF-768x442.jpg",
+        "label": "4400 T2 HZ UNIT 03 OPEN KITCHEN HIBISCUS VIEW01 DRAFT 04 JF 768x442",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2-HZ_UNIT-03_OPEN-KITCHEN_HIBISCUS_VIEW01_DRAFT-04_JF-1024x589.jpg",
+        "label": "4400 T2 HZ UNIT 03 OPEN KITCHEN HIBISCUS VIEW01 DRAFT 04 JF 1024x589",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2-HZ_UNIT-03_OPEN-KITCHEN_HIBISCUS_VIEW01_DRAFT-04_JF-1400x805.jpg",
+        "label": "4400 T2 HZ UNIT 03 OPEN KITCHEN HIBISCUS VIEW01 DRAFT 04 JF 1400x805",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T2-HZ_UNIT-03_OPEN-KITCHEN_HIBISCUS_VIEW01_DRAFT-04_JF-50x29.jpg",
+        "label": "4400 T2 HZ UNIT 03 OPEN KITCHEN HIBISCUS VIEW01 DRAFT 04 JF 50x29",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_PRAMIRAY-BATHROOM_JASMINE-PALETTE_VIEW-01_DRAFT-05_JF-300x210.jpg",
+        "label": "4400 T1 UNIT 1 HZ PRAMIRAY BATHROOM JASMINE PALETTE VIEW 01 DRAFT 05 JF 300x210",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_PRAMIRAY-BATHROOM_JASMINE-PALETTE_VIEW-01_DRAFT-05_JF-700x491.jpg",
+        "label": "4400 T1 UNIT 1 HZ PRAMIRAY BATHROOM JASMINE PALETTE VIEW 01 DRAFT 05 JF 700x491",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_PRAMIRAY-BATHROOM_JASMINE-PALETTE_VIEW-01_DRAFT-05_JF-200x140.jpg",
+        "label": "4400 T1 UNIT 1 HZ PRAMIRAY BATHROOM JASMINE PALETTE VIEW 01 DRAFT 05 JF 200x140",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_PRAMIRAY-BATHROOM_JASMINE-PALETTE_VIEW-01_DRAFT-05_JF-768x539.jpg",
+        "label": "4400 T1 UNIT 1 HZ PRAMIRAY BATHROOM JASMINE PALETTE VIEW 01 DRAFT 05 JF 768x539",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_PRAMIRAY-BATHROOM_JASMINE-PALETTE_VIEW-01_DRAFT-05_JF-1024x718.jpg",
+        "label": "4400 T1 UNIT 1 HZ PRAMIRAY BATHROOM JASMINE PALETTE VIEW 01 DRAFT 05 JF 1024x718",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_PRAMIRAY-BATHROOM_JASMINE-PALETTE_VIEW-01_DRAFT-05_JF-1400x982.jpg",
+        "label": "4400 T1 UNIT 1 HZ PRAMIRAY BATHROOM JASMINE PALETTE VIEW 01 DRAFT 05 JF 1400x982",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_PRAMIRAY-BATHROOM_JASMINE-PALETTE_VIEW-01_DRAFT-05_JF-50x35.jpg",
+        "label": "4400 T1 UNIT 1 HZ PRAMIRAY BATHROOM JASMINE PALETTE VIEW 01 DRAFT 05 JF 50x35",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_LIVING-MAIN_JASMINE-PALETTE_DRAFT-03_PB-1-300x169.jpg",
+        "label": "4400 T1 UNIT 1 HZ LIVING MAIN JASMINE PALETTE DRAFT 03 PB 1 300x169",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_LIVING-MAIN_JASMINE-PALETTE_DRAFT-03_PB-1-700x394.jpg",
+        "label": "4400 T1 UNIT 1 HZ LIVING MAIN JASMINE PALETTE DRAFT 03 PB 1 700x394",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_LIVING-MAIN_JASMINE-PALETTE_DRAFT-03_PB-1-200x113.jpg",
+        "label": "4400 T1 UNIT 1 HZ LIVING MAIN JASMINE PALETTE DRAFT 03 PB 1 200x113",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_LIVING-MAIN_JASMINE-PALETTE_DRAFT-03_PB-1-768x432.jpg",
+        "label": "4400 T1 UNIT 1 HZ LIVING MAIN JASMINE PALETTE DRAFT 03 PB 1 768x432",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_LIVING-MAIN_JASMINE-PALETTE_DRAFT-03_PB-1-1024x576.jpg",
+        "label": "4400 T1 UNIT 1 HZ LIVING MAIN JASMINE PALETTE DRAFT 03 PB 1 1024x576",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_LIVING-MAIN_JASMINE-PALETTE_DRAFT-03_PB-1-1400x788.jpg",
+        "label": "4400 T1 UNIT 1 HZ LIVING MAIN JASMINE PALETTE DRAFT 03 PB 1 1400x788",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_T1_UNIT-1_HZ_LIVING-MAIN_JASMINE-PALETTE_DRAFT-03_PB-1-50x28.jpg",
+        "label": "4400 T1 UNIT 1 HZ LIVING MAIN JASMINE PALETTE DRAFT 03 PB 1 50x28",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FAMILY_CHURCH_T2_HZ_UNIT02_PRIMARY-BATHROOM_JASMINE-PALETTE_DRAFT-04_MS_JF-300x258.jpg",
+        "label": "4400 FAMILY CHURCH T2 HZ UNIT02 PRIMARY BATHROOM JASMINE PALETTE DRAFT 04 MS JF 300x258",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FAMILY_CHURCH_T2_HZ_UNIT02_PRIMARY-BATHROOM_JASMINE-PALETTE_DRAFT-04_MS_JF-700x603.jpg",
+        "label": "4400 FAMILY CHURCH T2 HZ UNIT02 PRIMARY BATHROOM JASMINE PALETTE DRAFT 04 MS JF 700x603",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FAMILY_CHURCH_T2_HZ_UNIT02_PRIMARY-BATHROOM_JASMINE-PALETTE_DRAFT-04_MS_JF-200x172.jpg",
+        "label": "4400 FAMILY CHURCH T2 HZ UNIT02 PRIMARY BATHROOM JASMINE PALETTE DRAFT 04 MS JF 200x172",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      },
+      {
+        "url": "https://static.therealdeal.com/wp-content/uploads/2026/03/4400_FAMILY_CHURCH_T2_HZ_UNIT02_PRIMARY-BATHROOM_JASMINE-PALETTE_DRAFT-04_MS_JF-768x661.jpg",
+        "label": "4400 FAMILY CHURCH T2 HZ UNIT02 PRIMARY BATHROOM JASMINE PALETTE DRAFT 04 MS JF 768x661",
+        "sourcePage": "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": []
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

@@ -1,0 +1,1552 @@
+{
+  "projectId": "forte-on-flagler",
+  "slug": "forte-on-flagler",
+  "name": "Forté on Flagler",
+  "address": "1309 S Flagler Dr, West Palm Beach, FL 33401",
+  "corridor": "South Flagler waterfront",
+  "officialWebsite": "https://fortewpb.com/",
+  "status": "Recently delivered / resale inventory",
+  "completion": "Completed / delivered around 2025 based on public brokerage and construction coverage.",
+  "developer": "Two Roads Development with Alpha Blue Ventures",
+  "architect": "Arquitectonica",
+  "interiorDesigner": "Jean-Louis Deniot",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "41",
+  "stories": "25",
+  "unitMix": "Four-bedroom residences; Five-bedroom residences; Full-floor penthouse",
+  "squareFootage": "Broker/public materials commonly cite approximately 4,200 to 9,000+ interior square feet; verify per current listing.",
+  "pricing": "Current resale/listing pricing varies; request current availability.",
+  "amenities": [
+    "75-foot lap pool",
+    "Spa",
+    "Fitness center",
+    "Private dining",
+    "Outdoor dining and lounge areas",
+    "Theater",
+    "House cars"
+  ],
+  "salesContact": "Not publicly confirmed",
+  "confidence": "High",
+  "notes": "Included as a recently delivered new-construction comparable because buyers tracking the current pipeline will compare active projects against delivered South Flagler inventory. Some sources cite 24 stories and others 25; current record uses Arquitectonica/brokerage 25-story language.",
+  "sourceUrls": [
+    "https://fortewpb.com/",
+    "https://es.arquitectonica.com/architecture/project/forte-on-flagler/",
+    "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html",
+    "https://www.vickierealestate.com/south-florida-pre-construction-condos/palm-beach-pre-construction/forte-on-flagler/"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://fortewpb.com/",
+    "https://es.arquitectonica.com/architecture/project/forte-on-flagler/",
+    "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html",
+    "https://www.vickierealestate.com/south-florida-pre-construction-condos/palm-beach-pre-construction/forte-on-flagler/"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "",
+  "generatedPlaceholderCopies": [
+    "projects/forte-on-flagler/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Download",
+      "label": "",
+      "url": "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
+      "path": "projects/forte-on-flagler/downloads/north-open-kitchen-plan--570a05d0.pdf",
+      "bytes": 10034786,
+      "source": "crawl"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://fortewpb.com/wp-content/uploads/Forte-on-Flagler.png",
+      "path": "projects/forte-on-flagler/images/candidates/01--official-candidate--fortewpb.com--b5b863ab.png",
+      "bytes": 70434,
+      "contentType": "image/png",
+      "sourcePage": "https://fortewpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://fortewpb.com/wp-content/uploads/home-main-desktop.jpg",
+      "path": "projects/forte-on-flagler/images/candidates/02--official-candidate--fortewpb.com--9a29aed6.jpg",
+      "bytes": 477289,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://fortewpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://fortewpb.com/wp-content/uploads/home-main-mobile.jpg",
+      "path": "projects/forte-on-flagler/images/candidates/03--official-candidate--fortewpb.com--d4e726f5.jpg",
+      "bytes": 134758,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://fortewpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://fortewpb.com/wp-content/uploads/home-middle-2.jpg",
+      "path": "projects/forte-on-flagler/images/candidates/04--official-candidate--fortewpb.com--595c88a6.jpg",
+      "bytes": 99208,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://fortewpb.com/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://fortewpb.com/",
+        "title": "A New View of Palm Beach Living | Fort&eacute; on Flagler",
+        "description": "Overlooking Palm Beach from a waterfront setting on South Flagler Drive, 41 residences enjoy views of Worth Ave, the Intracoastal Waterway & Atlantic Ocean.",
+        "ogImage": "https://fortewpb.com/wp-content/uploads/Forte-Featured.jpg"
+      },
+      {
+        "url": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html",
+        "title": "Forté on Flagler Tops Off At 1309 South Flagler Drive in West Palm Beach - Florida YIMBY",
+        "description": "Florida YIMBY says \"Yes In My Backyard\" to positive new development in Florida.",
+        "ogImage": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Front-View-scaled.jpg"
+      },
+      {
+        "url": "https://www.vickierealestate.com/south-florida-pre-construction-condos/palm-beach-pre-construction/forte-on-flagler/",
+        "title": "Forte on Flagler | West Palm Beach Intracoastal Condo",
+        "description": "Forte on Flagler: Intracoastal front Condo with luxury Amenities, only 41 Residences, two Residences per Floor, beautiful views & more",
+        "ogImage": "https://www.vickierealestate.com/wp-content/uploads/2020/12/forteonflaglertn.jpg"
+      },
+      {
+        "url": "https://fortewpb.com/residences/",
+        "title": "Residences | Fort&eacute; on Flagler",
+        "description": "Explore the two flow-through residences per floor with customizable kitchen floor plans appointed with the finest modern finishes, features and appliances.",
+        "ogImage": "https://fortewpb.com/wp-content/uploads/Forte-Featured.jpg"
+      },
+      {
+        "url": "https://fortewpb.com/residences/north-open-kitchen-plan/",
+        "title": "North Open Kitchen Plan | Fort&eacute; on Flagler",
+        "description": "Explore the two flow-through residences per floor with customizable kitchen floor plans appointed with the finest modern finishes, features and appliances.",
+        "ogImage": "https://fortewpb.com/wp-content/uploads/Forte-Featured.jpg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://gmpg.org/xfn/11",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/xmlrpc.php",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/css/dist/block-library/style.min.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/ht-contactform/blocks/src/assets/css/style-index.css?ver=1.1.9",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.7.7",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/foobox-image-lightbox/free/css/foobox.free.min.css?ver=2.7.27",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/wpcf7-redirect/build/css/wpcf7-redirect-frontend.min.css?ver=1.1",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/style.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/font-awesome/css/font-awesome.min.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/elegant-icons/style.min.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/linea-icons/style.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/dripicons/dripicons.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/kiko/kiko-all.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/font-awesome-5/css/font-awesome-5.min.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/stylesheet.min.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/print.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/style_dynamic.css?ver=1658238224",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/responsive.min.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/css/style_dynamic_responsive.css?ver=1658238224",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=6.7.0",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100italic%2C300italic%2C400italic%2C700italic%7CPlayfair+Display%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100italic%2C300italic%2C400italic%2C700italic%7CMontserrat%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100italic%2C300italic%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext&#038;ver=1.0.0",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/bridge-core/modules/core-dashboard/assets/css/core-dashboard.min.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/aurora-heatmap/style.css?ver=1.7.0",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge-child/style.css?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/cf7-conditional-fields/style.css?ver=2.4.10",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/handl-utm-grabber/js/js.cookie.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/handl-utm-grabber/js/handl-utm-grabber.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/aurora-heatmap/js/aurora-heatmap.min.js?ver=1.7.0",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/wp-image-zoooom/assets/js/jquery.image_zoom.min.js?ver=1.53",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/wp-image-zoooom/assets/js/image_zoom-init.js?ver=1.53",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/foobox-image-lightbox/free/js/foobox.free.min.js?ver=2.7.27",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-json/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-json/wp/v2/pages/2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/xmlrpc.php?rsd",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffortewpb.com%2F",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffortewpb.com%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/cropped-favicon-4-32x32.png",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/cropped-favicon-4-192x192.png",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/cropped-favicon-4-180x180.png",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/contact",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/fortepalmbeach/",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/fortepalmbeach/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/Forte-on-Flagler.png",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/logo-white-sm.png",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/logo.png",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/logo-white.png",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/residences/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/residences/north-open-kitchen-plan/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/amenities-services/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/penthouse-landing-page/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/team/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/gallery/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/live-feed/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/virtual-tour/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/news/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/contact/",
+        "label": ""
+      },
+      {
+        "url": "https://youtu.be/w7mrPyQspYE",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-main-desktop.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-main-mobile.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/residences",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-middle-2.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/pineapple-1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/weather.png",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/check-out-the-dazzling-sculptures-by-female-artists-to-be-on-display-at-the-norton-museum/",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/team",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/interior-2.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/Partners-REV-1.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.hud.gov/program_offices/fair_housing_equal_opp",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/EHO-rev.png",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/disclaimer",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://unitedlandmark.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-MP8D3VZ",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.14.0",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/url.min.js?ver=421139b01f33e5b327d8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/api-fetch.min.js?ver=4c185334c5ec26e149cc",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/vendor/react.min.js?ver=18.2.0",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/vendor/react-dom.min.js?ver=18.2.0",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/a11y.min.js?ver=d90eebea464f6c09bfd5",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/blob.min.js?ver=9113eed771d446f4a556",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/autop.min.js?ver=9fb50649848277dd318d",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/block-serialization-default-parser.min.js?ver=14d44daebf663d05d330",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/deprecated.min.js?ver=e1f84915c5e8ae38964c",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/dom.min.js?ver=4ecffbffba91b10c5c7a",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/escape-html.min.js?ver=6561a406d2d232a6fbd2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/element.min.js?ver=cb762d190aebbec25b27",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/is-shallow-equal.min.js?ver=e0f9f1d78d83f5196979",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/keycodes.min.js?ver=034ff647a54b018581d3",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/priority-queue.min.js?ver=9c21c957c7e50ffdbf48",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/compose.min.js?ver=1339d3318cd44440dccb",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/private-apis.min.js?ver=5e7fdf55d04b8c2aadef",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/redux-routine.min.js?ver=b14553dce2bee5c0f064",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/data.min.js?ver=e6595ba1a7cd34429f66",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/html-entities.min.js?ver=2cd3358363e0675638fb",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/rich-text.min.js?ver=dd125966cf6cc0394ae0",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/shortcode.min.js?ver=b7747eee0efafd2f0c3b",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/blocks.min.js?ver=6612d078dfaf28b875b8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/vendor/moment.min.js?ver=2.29.4",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/date.min.js?ver=aaca6387d1cf924acc51",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/primitives.min.js?ver=a41bfd5835f583ae838a",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/warning.min.js?ver=ed7c8b0940914f4fe44b",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/components.min.js?ver=c4b2ef1c62202e4e2d1e",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/keyboard-shortcuts.min.js?ver=4d239ebc17efd846a168",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/commands.min.js?ver=e4060e55811e7824feb9",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/notices.min.js?ver=673a68a7ac2f556ed50b",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/preferences-persistence.min.js?ver=3f5184d775ed9dfb154f",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/preferences.min.js?ver=e1544c6f06a9639c4c31",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/style-engine.min.js?ver=03f13c515060de24b556",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/token-list.min.js?ver=05f8a6df6258f0081718",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/wordcount.min.js?ver=55d8c2bf3dc99e7ea5ec",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/dist/block-editor.min.js?ver=868d782fcb169133c92b",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/ht-contactform/blocks/build/htcontactform-block.js?ver=0b270e0a8bc2a2995a06",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.7.7",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.7.7",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/extensions-for-cf7/assets/js/conditional-field.js?ver=3.0.1",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/extensions-for-cf7/assets/js/redirect.js?ver=3.0.1",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/wpcf7-redirect/build/js/wpcf7r-fe.js?ver=1.1",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/accordion.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/menu.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/controlgroup.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/checkboxradio.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/button.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/resizable.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/draggable.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/dialog.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/droppable.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/progressbar.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/selectable.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/sortable.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/slider.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/spinner.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/tooltip.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/tabs.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-blind.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-bounce.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-clip.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-drop.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-explode.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-fade.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-fold.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-highlight.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-pulsate.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-size.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-scale.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-shake.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-slide.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/ui/effect-transfer.min.js?ver=1.13.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/doubletaptogo.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/modernizr.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.appear.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/hoverIntent.min.js?ver=1.10.2",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/counter.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/easypiechart.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/mixitup.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.prettyPhoto.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.fitvids.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.flexslider-min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/infinitescroll.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.waitforimages.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-includes/js/jquery/jquery.form.min.js?ver=4.3.0",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/waypoints.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jplayer.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/bootstrap.carousel.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/skrollr.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/Chart.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.easing.1.3.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/abstractBaseClass.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.countdown.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.multiscroll.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.justifiedGallery.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/bigtext.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.sticky-kit.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/owl.carousel.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/typed.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.carouFredSel-6.2.1.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/lemmon-slider.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.fullPage.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.mousewheel.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.touchSwipe.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.isotope.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/packery-mode.pkgd.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.stretch.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/imagesloaded.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/rangeslider.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.event.move.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/jquery.twentytwenty.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/swiper.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/default_dynamic.js?ver=1658238224",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/default.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=6.7.0",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/themes/bridge/js/plugins/qode-like.min.js?ver=6.5.8",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/plugins/cf7-conditional-fields/js/scripts.js?ver=2.4.10",
+        "label": ""
+      },
+      {
+        "url": "https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516",
+        "label": ""
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/Forte-Featured.jpg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/cropped-favicon-4-270x270.png",
+        "label": "cropped favicon 4 270x270"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-middle-2-300x90.jpg",
+        "label": "home middle 2 300x90"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-middle-2-768x230.jpg",
+        "label": "home middle 2 768x230"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-middle-2-1536x461.jpg",
+        "label": "home middle 2 1536x461"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-middle-2-700x210.jpg",
+        "label": "home middle 2 700x210"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/pineapple-1-240x300.jpg",
+        "label": "pineapple 1 240x300"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/pineapple-1-614x768.jpg",
+        "label": "pineapple 1 614x768"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/pineapple-1-768x960.jpg",
+        "label": "pineapple 1 768x960"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/pineapple-1-700x875.jpg",
+        "label": "pineapple 1 700x875"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/weather-240x300.png",
+        "label": "weather 240x300"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/weather-614x768.png",
+        "label": "weather 614x768"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/weather-768x960.png",
+        "label": "weather 768x960"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/weather-700x875.png",
+        "label": "weather 700x875"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/interior-2-240x300.jpg",
+        "label": "interior 2 240x300"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/interior-2-614x768.jpg",
+        "label": "interior 2 614x768"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/interior-2-768x960.jpg",
+        "label": "interior 2 768x960"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/interior-2-700x875.jpg",
+        "label": "interior 2 700x875"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/cache/autoptimize/css/autoptimize_10c313abb0f79176e7b25d13d5881e9f.css",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/favicon.ico",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/xmlrpc.php",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=PT+Sans",
+        "label": ""
+      },
+      {
+        "url": "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/",
+        "label": ""
+      },
+      {
+        "url": "https://maxcdn.bootstrapcdn.com/",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/feed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/comments/feed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html/feed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffloridayimby.com%2F2024%2F04%2Fforte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffloridayimby.com%2F2024%2F04%2Fforte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=PT+Serif:300,400,400italic,600,700,800,900|PT+Sans:300,400,400italic,600,700,800,900",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/Forte-on-Flagler.png",
+        "label": "",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-main-desktop.jpg",
+        "label": "",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-main-mobile.jpg",
+        "label": "",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-middle-2.jpg",
+        "label": "",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/pineapple-1.jpg",
+        "label": "",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/weather.png",
+        "label": "",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/interior-2.jpg",
+        "label": "",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/Partners-REV-1.png",
+        "label": "",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/EHO-rev.png",
+        "label": "",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/Forte-Featured.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-middle-2-300x90.jpg",
+        "label": "home middle 2 300x90",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-middle-2-768x230.jpg",
+        "label": "home middle 2 768x230",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-middle-2-1536x461.jpg",
+        "label": "home middle 2 1536x461",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/home-middle-2-700x210.jpg",
+        "label": "home middle 2 700x210",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/pineapple-1-240x300.jpg",
+        "label": "pineapple 1 240x300",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/pineapple-1-614x768.jpg",
+        "label": "pineapple 1 614x768",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/pineapple-1-768x960.jpg",
+        "label": "pineapple 1 768x960",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/pineapple-1-700x875.jpg",
+        "label": "pineapple 1 700x875",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/weather-240x300.png",
+        "label": "weather 240x300",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/weather-614x768.png",
+        "label": "weather 614x768",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/weather-768x960.png",
+        "label": "weather 768x960",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/weather-700x875.png",
+        "label": "weather 700x875",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/interior-2-240x300.jpg",
+        "label": "interior 2 240x300",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/interior-2-614x768.jpg",
+        "label": "interior 2 614x768",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/interior-2-768x960.jpg",
+        "label": "interior 2 768x960",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/interior-2-700x875.jpg",
+        "label": "interior 2 700x875",
+        "sourcePage": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Front-View-741x1200.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/001_C6325.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/049_C6325.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/020_C6325.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/007_C6325.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Landscape.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-1-scaled.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/themes/mh_newsdesk-child/img/google_preferred_source_badge.png",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/05/Screenshot-2024-05-13-at-10.01.01%E2%80%AFPM-180x101.png",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2023/08/Alba-dock_view_cropped-1-180x101.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/ca3b83_6166277a1fe844f190dbae0cd48be2bcmv2-180x101.jpeg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/The-Piazza-as-seen-looking-north-from-Plaza-Real_Credit-RPBW-180x101.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2026/01/2025-YIMBY-FL-website-banner.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/06/desktop-banner-336x280-1.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Front-View-scaled.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Front-View-185x300.jpg",
+        "label": "Forte Front View 185x300",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Front-View-633x1024.jpg",
+        "label": "Forte Front View 633x1024",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Front-View-768x1243.jpg",
+        "label": "Forte Front View 768x1243",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Front-View-949x1536.jpg",
+        "label": "Forte Front View 949x1536",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Front-View-1265x2048.jpg",
+        "label": "Forte Front View 1265x2048",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Front-View-260x421.jpg",
+        "label": "Forte Front View 260x421",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/001_C6325-200x300.jpg",
+        "label": "001 C6325 200x300",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/001_C6325-683x1024.jpg",
+        "label": "001 C6325 683x1024",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/001_C6325-768x1151.jpg",
+        "label": "001 C6325 768x1151",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/001_C6325-1025x1536.jpg",
+        "label": "001 C6325 1025x1536",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/001_C6325-1366x2048.jpg",
+        "label": "001 C6325 1366x2048",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/001_C6325-777x1165.jpg",
+        "label": "001 C6325 777x1165",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/001_C6325-260x390.jpg",
+        "label": "001 C6325 260x390",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/049_C6325-300x200.jpg",
+        "label": "049 C6325 300x200",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/049_C6325-1024x683.jpg",
+        "label": "049 C6325 1024x683",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/049_C6325-768x512.jpg",
+        "label": "049 C6325 768x512",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/049_C6325-1536x1025.jpg",
+        "label": "049 C6325 1536x1025",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/049_C6325-2048x1366.jpg",
+        "label": "049 C6325 2048x1366",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/049_C6325-777x518.jpg",
+        "label": "049 C6325 777x518",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/049_C6325-260x173.jpg",
+        "label": "049 C6325 260x173",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/020_C6325-200x300.jpg",
+        "label": "020 C6325 200x300",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/020_C6325-683x1024.jpg",
+        "label": "020 C6325 683x1024",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/020_C6325-768x1151.jpg",
+        "label": "020 C6325 768x1151",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/020_C6325-1025x1536.jpg",
+        "label": "020 C6325 1025x1536",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/020_C6325-1366x2048.jpg",
+        "label": "020 C6325 1366x2048",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/020_C6325-777x1165.jpg",
+        "label": "020 C6325 777x1165",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/020_C6325-260x390.jpg",
+        "label": "020 C6325 260x390",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/007_C6325-300x200.jpg",
+        "label": "007 C6325 300x200",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/007_C6325-1024x683.jpg",
+        "label": "007 C6325 1024x683",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/007_C6325-768x512.jpg",
+        "label": "007 C6325 768x512",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/007_C6325-1536x1025.jpg",
+        "label": "007 C6325 1536x1025",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/007_C6325-2048x1366.jpg",
+        "label": "007 C6325 2048x1366",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/007_C6325-777x518.jpg",
+        "label": "007 C6325 777x518",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/007_C6325-260x173.jpg",
+        "label": "007 C6325 260x173",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Landscape-300x169.jpg",
+        "label": "Forte Landscape 300x169",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Landscape-1024x576.jpg",
+        "label": "Forte Landscape 1024x576",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Landscape-768x432.jpg",
+        "label": "Forte Landscape 768x432",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Landscape-1536x864.jpg",
+        "label": "Forte Landscape 1536x864",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2024/04/Forte-Landscape-2048x1153.jpg",
+        "label": "Forte Landscape 2048x1153",
+        "sourcePage": "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      }
+    ],
+    "pdfCandidates": [
+      {
+        "url": "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
+        "label": ""
+      }
+    ],
+    "errors": [
+      {
+        "url": "https://es.arquitectonica.com/architecture/project/forte-on-flagler/",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

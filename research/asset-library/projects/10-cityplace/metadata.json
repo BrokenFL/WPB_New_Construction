@@ -1,0 +1,351 @@
+{
+  "projectId": "10-cityplace",
+  "slug": "10-cityplace",
+  "name": "10 CityPlace",
+  "address": "10 CityPlace, West Palm Beach, FL 33401",
+  "corridor": "CityPlace / Downtown office core",
+  "officialWebsite": "https://www.relatedross.com/our-company/properties/10-cityplace",
+  "status": "Under construction / office leasing",
+  "completion": "Expected 2027 in Related Ross release; precise phasing should be verified.",
+  "developer": "Related Ross",
+  "architect": "Kohn Pedersen Fox",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "",
+  "stories": "21",
+  "unitMix": "",
+  "squareFootage": "Office tower; not residential condominium inventory.",
+  "pricing": "Not applicable",
+  "amenities": [
+    "Street-level activation",
+    "Landscaping and public-realm improvements",
+    "Retail and dining context"
+  ],
+  "salesContact": "Office leasing contact through Related Ross.",
+  "confidence": "Low",
+  "notes": "Seed/source conflict: seed references a 21-story assumption, while Related Ross release describes a 480,000-square-foot office tower without presenting it as condo inventory.",
+  "sourceUrls": [
+    "https://www.relatedross.com/our-company/properties/10-cityplace",
+    "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://www.relatedross.com/our-company/properties/10-cityplace",
+    "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "Downtown Office Core",
+  "generatedPlaceholderCopies": [
+    "projects/10-cityplace/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://www.relatedross.com/our-company/properties/10-cityplace",
+        "title": "10 CityPlace West Palm Beach | Class A Office & Retail Space",
+        "description": "10 CityPlace in West Palm Beach offers Class A office and retail space downtown, featuring modern workspaces, premium amenities, and a prime location.",
+        "ogImage": ""
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://www.relatedross.com/our-company/properties/10-cityplace",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/related-favicon-128_0.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_jWm6WRAh_bTYqqs8DgI14ss_0I4P3oq5furTgwKGxL4.css?delta=0&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k9EgGlTqkKEYwzd5-63STNtmd7B_4eI8AAbpREgvwyv4ms7mbdIMHqjQMH-wfmHap_zZ4Pai5ARPqhHFoKHMNYP9W_OpjJSY9sLiZc6gsCfhEZcr3TfFjwhvjvjFiIXMTGQxLVGDUCIPCi1YniwkUnSLMfGwrwjLJ0gajYbjQndKGOGSsERNLvmv4Q3MqmYBje54B4bmJstMvNWzhXHs-Yrbwkz0yNuzms6xuOC_9ggbE6k1q5esxDVWh_vZ3-AYceLe2",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_ar5TLmU-t0SXYlPN5Vlbm9m71lDnSHWevb7KR7J7unA.css?delta=1&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k9EgGlTqkKEYwzd5-63STNtmd7B_4eI8AAbpREgvwyv4ms7mbdIMHqjQMH-wfmHap_zZ4Pai5ARPqhHFoKHMNYP9W_OpjJSY9sLiZc6gsCfhEZcr3TfFjwhvjvjFiIXMTGQxLVGDUCIPCi1YniwkUnSLMfGwrwjLJ0gajYbjQndKGOGSsERNLvmv4Q3MqmYBje54B4bmJstMvNWzhXHs-Yrbwkz0yNuzms6xuOC_9ggbE6k1q5esxDVWh_vZ3-AYceLe2",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_klMz1Y5jQbWQT0cCDJj-qJhKYZ9gMYjZI_dKTCTs7Ns.css?delta=2&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k9EgGlTqkKEYwzd5-63STNtmd7B_4eI8AAbpREgvwyv4ms7mbdIMHqjQMH-wfmHap_zZ4Pai5ARPqhHFoKHMNYP9W_OpjJSY9sLiZc6gsCfhEZcr3TfFjwhvjvjFiIXMTGQxLVGDUCIPCi1YniwkUnSLMfGwrwjLJ0gajYbjQndKGOGSsERNLvmv4Q3MqmYBje54B4bmJstMvNWzhXHs-Yrbwkz0yNuzms6xuOC_9ggbE6k1q5esxDVWh_vZ3-AYceLe2",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/css/css_sriN6uqnpndaU3-plohNeLHNNx8EBlh8Porm_2xPNRc.css?delta=3&language=en&theme=rcc&include=eJyFkGGOAyEIhS9k9EgGlTqkKEYwzd5-63STNtmd7B_4eI8AAbpREgvwyv4ms7mbdIMHqjQMH-wfmHap_zZ4Pai5ARPqhHFoKHMNYP9W_OpjJSY9sLiZc6gsCfhEZcr3TfFjwhvjvjFiIXMTGQxLVGDUCIPCi1YniwkUnSLMfGwrwjLJ0gajYbjQndKGOGSsERNLvmv4Q3MqmYBje54B4bmJstMvNWzhXHs-Yrbwkz0yNuzms6xuOC_9ggbE6k1q5esxDVWh_vZ3-AYceLe2",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js_91aqBNnXbL0lGxUiZnDRJmqUuXPri8_ZLYkVHwK94wA.js?scope=header&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI8WGhiFp1dvbVn98MP5s9pHZSWDWHFgdPKc9cytmAAWCOzYXcIQ1cxOTmBOhV0gubfCpLVzg9m4W02J0e9fpKDtkIg5ABxXKcTKC0OLooWYPi3LkUgkVXcc3knfiK9el-kAcJ3E_PHPFsP_iXtMiYcFZbeRl1u2YXj6gQiaxAiv-XVJO27_dtYIikPq5bCTqV7zDA5I9nsg",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/google_tag/js/gtag.js?tenomk",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/google_tag/js/gtm.js?tenomk",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/css/seckit.no_body.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/js/seckit.document_write.js?",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/seckit/css/seckit.noscript_tag.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-PSLNMLF",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/themes/custom/rcc/images/REL_RossLogo-KO.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedrentals.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedbeal.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedcalifornia.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.relatedmidwest.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/vision-impacts",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/properties",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/leadership",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/awards",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.jobs/careers-home/jobs?stretchUnits=MILES&stretch=50&location=West%20Palm%20Beach&lat=26.71534&lng=-80.05337&woe=7",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/foundation",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/city-centers",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/office",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/residential",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/",
+        "label": ""
+      },
+      {
+        "url": "https://southflaglerhouse.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedrentals.com/apartment-rentals/west-palm-beach/cityplace/the-laurel",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/hospitality",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/retail",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/arts-culture",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/blog",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/brand-partnerships",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/news-articles",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/contact-us",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/themes/custom/rcc/images/Search.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/email.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.facebook.com/share.php?u=https://www.relatedross.com/our-company/properties/10-cityplace&title=10%20CityPlace",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/facebook_share.svg",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/intent/tweet?url=https://www.relatedross.com/our-company/properties/10-cityplace&status=10%20CityPlace+https://www.relatedross.com/our-company/properties/10-cityplace",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/twitter.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.linkedin.com/shareArticle?mini=true&url=https://www.relatedross.com/our-company/properties/10-cityplace&title=10%20CityPlace&source=https://www.relatedross.com/our-company/properties/10-cityplace",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/linkedin.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.pinterest.com/pin/create/button/?url=https://www.relatedross.com/our-company/properties/10-cityplace&description=10%20CityPlace",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/pinterest.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/1x1_property_square_w/public/2024-04/acquiadam-assets/related-corporate-properties-square-redleaf_23_tower%20a%20hero_240116%20%281%29.jpg?itok=0pGKlnG6",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/terms-use",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://privacyportal-cdn.onetrust.com/dsarwebform/679d7477-7e03-4d1d-8596-4ba05c7a40f9/33af1b77-041a-4265-a598-6d30835f164d.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.essentialaccessibility.com/related",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/relatedross",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/privacy-notice",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/sites/default/files/js/js_B8rj4Ikw2zckha5gAyqxbriA_hlmPmLOo3OGwfATNXE.js?scope=footer&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI8WGhiFp1dvbVn98MP5s9pHZSWDWHFgdPKc9cytmAAWCOzYXcIQ1cxOTmBOhV0gubfCpLVzg9m4W02J0e9fpKDtkIg5ABxXKcTKC0OLooWYPi3LkUgkVXcc3knfiK9el-kAcJ3E_PHPFsP_iXtMiYcFZbeRl1u2YXj6gQiaxAiv-XVJO27_dtYIikPq5bCTqV7zDA5I9nsg",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://www.relatedross.com/sites/default/files/styles/1x1_property_square_w/public/2024-04/acquiadam-assets/related-corporate-properties-square-redleaf_23_tower%20a%20hero_240116%20%281%29.jpg?itok=0pGKlnG6",
+        "label": "",
+        "sourcePage": "https://www.relatedross.com/our-company/properties/10-cityplace"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": [
+      {
+        "url": "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+        "status": 429,
+        "error": "Too many requests"
+      },
+      {
+        "url": "https://www.relatedross.com/press-releases",
+        "status": 429,
+        "error": "Too many requests"
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/email.svg",
+        "status": 429,
+        "error": "Too many requests"
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/facebook_share.svg",
+        "status": 429,
+        "error": "Too many requests"
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/twitter.svg",
+        "status": 429,
+        "error": "Too many requests"
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/linkedin.svg",
+        "status": 429,
+        "error": "Too many requests"
+      },
+      {
+        "url": "https://www.relatedross.com/modules/contrib/social_media/icons/pinterest.svg",
+        "status": 429,
+        "error": "Too many requests"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

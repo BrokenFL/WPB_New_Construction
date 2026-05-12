@@ -1,0 +1,1225 @@
+{
+  "projectId": "mandarin-oriental",
+  "slug": "mandarin-oriental-residences-west-palm-beach",
+  "name": "Mandarin Oriental Residences, West Palm Beach",
+  "address": "5400 N Flagler Dr, West Palm Beach, FL 33407",
+  "corridor": "North Flagler waterfront",
+  "officialWebsite": "https://mandarinorientalwestpalmbeach.com/",
+  "status": "Concept / priority interest",
+  "completion": "Anticipated opening 2031",
+  "developer": "Great Gulf",
+  "architect": "Safdie Architects",
+  "interiorDesigner": "Studio Munge",
+  "landscapeArchitect": "ENEA Landscape Architecture",
+  "residences": "87",
+  "stories": "31",
+  "unitMix": "Two-bedroom residences; Three-bedroom residences; Four-bedroom residences; Private villas; Full-floor penthouse",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Starting from $3.5M per official launch site; verify current pricing.",
+  "amenities": [
+    "Mandarin Oriental residential service program",
+    "Private marina access",
+    "State-of-the-art fitness center",
+    "Mandarin Oriental spa",
+    "Yoga and meditation pavilion",
+    "Residents' lounge and library",
+    "Private dining room",
+    "Children's activity center",
+    "Pet wellness salon",
+    "Business center",
+    "Wine cellar and tasting room",
+    "Summer kitchen and BBQ",
+    "EV charging stations",
+    "24/7 valet and security",
+    "Cold plunge and sauna",
+    "Sculpture garden",
+    "Private storage lockers"
+  ],
+  "salesContact": "Not publicly confirmed",
+  "confidence": "High",
+  "notes": "This is outside the downtown core but included because it is in the seed inventory and materially affects the North Flagler luxury pipeline. Corrected design-team data from earlier KPF seed assumption to Safdie/Studio Munge/ENEA based on Great Gulf and Mandarin Oriental announcements.",
+  "sourceUrls": [
+    "https://mandarinorientalwestpalmbeach.com/",
+    "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
+    "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+    "https://press.mandarinoriental.com/residences-west-palm/"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://mandarinorientalwestpalmbeach.com/",
+    "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
+    "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+    "https://press.mandarinoriental.com/residences-west-palm/"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "North Flagler Pipeline",
+  "generatedPlaceholderCopies": [
+    "projects/mandarin-oriental/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+      "path": "projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
+      "bytes": 69700,
+      "contentType": "image/webp",
+      "sourcePage": "https://mandarinorientalwestpalmbeach.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/hYMWjgRcN744BQoPJbE4.png",
+      "path": "projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
+      "bytes": 236278,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+      "path": "projects/mandarin-oriental/images/candidates/03--official-candidate--greatgulfstrapi.blob.core.windows.net--f999b056.jpg",
+      "bytes": 304295,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/medium_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+      "path": "projects/mandarin-oriental/images/candidates/04--official-candidate--greatgulfstrapi.blob.core.windows.net--20852886.jpg",
+      "bytes": 63035,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://mandarinorientalwestpalmbeach.com/",
+        "title": "Mandarin Oriental West Palm Beach | Refined Waterfront Living",
+        "description": "Find your perfect residence at Mandarin Oriental Residences, West Palm Beach.",
+        "ogImage": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp"
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
+        "title": "Luxury Serviced Apartments | West Palm Beach | Mandarin Oriental Hotel Residences",
+        "description": "Discover our upcoming luxury serviced apartments in West Palm Beach featuring legendary hotel service of Mandarin Oriental.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+        "title": "GREAT GULF Group of Companies | Great Gulf Announces New Luxury Residences by Mandarin Oriental in West Palm Beach, Florida",
+        "description": "WEST PALM BEACH, FLA., February 26, 2026 – Award-winning developer, Great Gulf, is pleased to announce the development of Mandarin Oriental Residences, West Pal",
+        "ogImage": "https://www.greatgulfgroup.com/img/gg-og.jpg"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/residences-west-palm/",
+        "title": "Mandarin Oriental Announces New Luxury Residences in West Palm Beach, Florida - Mandarin Oriental - Media Centre",
+        "description": "",
+        "ogImage": "https://press.mandarinoriental.com/wp-content/themes/mandarin-oriental-express/assets/img/thumbnail-logo.jpg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://mandarinorientalresidenceswpb.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.gstatic.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-K3WLJPTCVT",
+        "label": ""
+      },
+      {
+        "url": "https://mandarinorientalwestpalmbeach.com/assets/index-UPZ6gGlA.js",
+        "label": ""
+      },
+      {
+        "url": "https://mandarinorientalwestpalmbeach.com/assets/index-CtXFbNKs.css",
+        "label": ""
+      },
+      {
+        "url": "https://mandarinorientalwestpalmbeach.com/~flock.js",
+        "label": ""
+      },
+      {
+        "url": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/zh-cn/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/tr/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/pt-br/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/fr/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/es/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/cs/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/it/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/ar-ae/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/es-es/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/de/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/el-gr/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/ru/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/ko-kr/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/th/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/ja/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/ca-es/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/id/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/zh-hk/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/nl/residences/upcoming/west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/logo-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/favicon-16x16.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/favicon-32x32.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/favicon-48x48.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/favicon-64x64.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/favicon-128x128.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/favicon-256x256.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/android-36x36.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/android-48x48.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/android-72x72.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/android-96x96.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/android-144x144.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/android-192x192.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/apple-touch-icon-60x60.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/apple-touch-icon-76x76.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/apple-touch-icon-120x120.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/apple-touch-icon-152x152.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/apple-touch-icon-167x167.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/img/icons/apple-touch-icon-180x180.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/app.webmanifest",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/corporate/corporate.css?v=2.35.0-beta.1-20",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-FSQWZL83JH",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/oneTrust/cn/oneTrust_production/consent/0e0c3646-f295-4c43-b3d9-c35739f84d87/OtAutoBlock.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/oneTrust/cn/oneTrust_production/scripttemplates/otSDKStub.js",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.adobedtm.com/3eb63c9a5226/00630f5f8e12/launch-8f86470d1a8c.min.js",
+        "label": ""
+      },
+      {
+        "url": "about:blank",
+        "label": "!function(e){var n=\"https://s.go-mpulse.net/boomerang/\";if(\"False\"==\"True\")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams"
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/fans-of-mo/login",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/t6T519YtkLq28Nm4ExKA.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/stay",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/dine",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/wellness",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/explore",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/celebrate",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/meet",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/shop",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/offers",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/summer-season",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/PG36Wqh4VfAeL2jrp6rG.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/bangkok/chao-phraya-river",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/beijing/qianmen",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/beijing/wangfujing",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/desaru-coast/kota-tinggi",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/guangzhou/tianhe",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/hong-kong/victoria-harbour",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/hong-kong/the-landmark",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/jakarta/jalan-mh-thamrin",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/kuala-lumpur/petronas-towers",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/macau/one-central",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/manila/makati",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/sanya/dadonghai",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/shanghai/pudong",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/shenzhen/futian",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/singapore/marina-bay",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/taipei/songshan",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/tokyo/nihonbashi",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/amsterdam/conservatorium",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/barcelona/passeig-de-gracia",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/bodrum/paradise-bay",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/cortina/cristallo",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/costa-navarino/messenia",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/geneva/rhone-river",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/istanbul/bosphorus",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/lake-como/blevio",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/london/hyde-park",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/london/mayfair",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/luzern/palace",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/madrid/hotel-ritz",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/mallorca/punta-negra",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/milan/la-scala",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/munich/altstadt",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/paris/place-vendome",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/paris/lutetia",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/prague/mala-strana",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/vienna/inner-city",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/zurich/savoy",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/boston/back-bay",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/canouan/caribbean",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/miami/brickell-key",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/new-york/manhattan",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/santiago/las-condes",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/abu-dhabi/emirates-palace",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/aswan/old-cataract",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/doha/msheireb",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/dubai/downtown",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/dubai/jumeira-beach",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/marrakech/la-medina",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/muscat/shatti-al-qurum",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/riyadh/olaya",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/our-hotels-map",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/residences",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/exceptional-homes",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/omo-alliance",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/bangkok/chao-phraya-river/150-anniversary",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/vbRp21NfB32rkVpYaZqQ.svg",
+        "label": ""
+      },
+      {
+        "url": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJvYXV0aCI6eyJjbGllbnRfaWQiOiJzaXRlY29yZSJ9LCJwYXRoIjoibWFuZGFyaW4tb3JpZW50YWwtaG90ZWwtZ3JvdXBcL2ZpbGVcL0hNZUVHTGZ2S2tNRktWcDlWRmMzLnN2ZyJ9:mandarin-oriental-hotel-group:qGtRUpoYLG9vhqZ0XG2uGeNX2VOQIjjd-TspfWx_HWk",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/GHtmChdTrRroxsHPPPwY.svg",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/y6x5kBa6kJZFo9TBGSnH.svg",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/a3GHdhdhYuavjY6q2Pcz.svg",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/ti7K8teVWPCuC4MnCgx4.svg",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/nFs3nDqcR2DnSjTnPTwV.svg",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/fgvyrwf48EroqqgwUktg.svg",
+        "label": ""
+      },
+      {
+        "url": "https://giftcards.mandarinoriental.com/egift-card-031505?src=dsp.homepagegift.molonall.360",
+        "label": ""
+      },
+      {
+        "url": "https://shopmo.com/?src=dsp.shoppage.molonall.360",
+        "label": ""
+      },
+      {
+        "url": "https://giftcards.mandarinoriental.com/experiences?&src=dsp.experiencepage.molonall.360",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/hYMWjgRcN744BQoPJbE4.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/fans-of-mo/benefits-enrolment",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/our-company/sustainability",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/our-company",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/celebrity-fans",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/unfold-magazine",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/contact-information",
+        "label": ""
+      },
+      {
+        "url": "https://mo-residenceswestpalmbeach.com/",
+        "label": ""
+      },
+      {
+        "url": "https://photos.mandarinoriental.com/is/image/MandarinOriental/mohg-gold-fan",
+        "label": ""
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/s2dkLRpczUs6cRzp54nd.svg",
+        "label": ""
+      },
+      {
+        "url": "https://mandarinoriental.com/contact-information#regional-sales-offices",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/investors",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/careers",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/fan-club",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/mobile-app",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/offers/best-rate-promise",
+        "label": ""
+      },
+      {
+        "url": "https://na.shopmo.com/?utm_source=navigation&utm_medium=shop_mo&utm_campaign=mo_web",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/",
+        "label": ""
+      },
+      {
+        "url": "https://be.synxis.com/signin?chain=507",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/MandarinOriental",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/mo_hotels/",
+        "label": ""
+      },
+      {
+        "url": "http://weibo.com/mandarinoriental001",
+        "label": ""
+      },
+      {
+        "url": "https://www.youtube.com/MOHotels?feature=watch",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/cookie-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/en/legal-notices",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/js/lazysizes.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/corporate/main.js?v=2.35.0-beta.1-20",
+        "label": ""
+      },
+      {
+        "url": "https://use.typekit.net/ocy4jqe.css",
+        "label": ""
+      },
+      {
+        "url": "https://use.typekit.net/",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/apple-touch-icon.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/favicon-32x32.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/favicon-16x16.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/site.webmanifest",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/safari-pinned-tab.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/press/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/css/b515cc686f4daded6f2d.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/css/9ecdfabd214989a74268.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/chunks/webpack-1338134e6a781438bb5d.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/chunks/framework-6c6eb080c4d41d8fd79b.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/chunks/main-c5c678ba45d45bf9d8f5.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/chunks/pages/_app-eb5e7edc28d59ddb098b.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/chunks/225-fbd67577c1698d2b2c07.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/chunks/126-385c493d1a783e6a0989.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/chunks/792-39bd70020a0576863cd3.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/chunks/pages/press/release/%5Bslug%5D-f59361931b1f478c7e91.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/BhpOU6i86SpmOJXgcsNCx/_buildManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/_next/static/BhpOU6i86SpmOJXgcsNCx/_ssgManifest.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-5JFQK4T",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida#main",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/completed/projects",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/leadership",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/contact",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/sharer/sharer.php?u=www.greatgulfgroup.com/press/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/img/decorators/blog/facebook.svg",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.greatgulfgroup.com%2Fpress%2Fgreat-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/img/x-navy.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.linkedin.com/shareArticle?mini=true&url=www.greatgulfgroup.com/press/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/img/decorators/blog/linkedin.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/img/decorators/blog/mail.svg",
+        "label": ""
+      },
+      {
+        "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://cervera.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mandarinoriental.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.safdiearchitects.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.studiomunge.com/",
+        "label": ""
+      },
+      {
+        "url": "http://www.enea.ch/",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/companies#great-gulf",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/partner-with-us",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/values",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/careers",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/press",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/great-gulf-homes",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/greatgulf",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/greatgulf/",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/legal/terms-and-conditions",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/legal/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/legal/accessibility",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/legal/customer-service-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/about/diversity-at-greatgulf",
+        "label": ""
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/img/gg-og.jpg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/thumbnail_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+        "label": "thumbnail V2 Podium disclaimer w2 9128d5b0ff"
+      },
+      {
+        "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/small_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+        "label": "small V2 Podium disclaimer w2 9128d5b0ff"
+      },
+      {
+        "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/medium_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+        "label": "medium V2 Podium disclaimer w2 9128d5b0ff"
+      },
+      {
+        "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/large_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+        "label": "large V2 Podium disclaimer w2 9128d5b0ff"
+      },
+      {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-9F6WJ3VRSZ",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/xmlrpc.php",
+        "label": ""
+      },
+      {
+        "url": "https://use.fontawesome.com/releases/v5.1.0/css/all.css",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/themes/mandarin-oriental-express/favicon.png",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/residences-west-palm/",
+        "label": ""
+      },
+      {
+        "url": "https://static.epresspack.eu/",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/plugins/social-wall/css/social-wall.min.css?ver=2.0.1",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/plugins/custom-twitter-feeds-pro/css/ctf-styles.min.css?ver=2.2.2",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/themes/mandarin-oriental-express/assets/css/style.min.css?ver=1.2.4",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/themes/epp-root/lib/modules/flux_data/assets/js/fluxImg.js?ver=1.0",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/themes/epp-root/lib/modules/flux_data/assets/js/fluxPost.js?ver=1.0",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/themes/epp-root/lib/modules/flux_data/assets/js/fluxVid.js?ver=1.0",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/themes/epp-root/lib/modules/flux_data/assets/js/fluxAtt.js?ver=1.0",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/themes/epp-root/lib/modules/flux_data/assets/js/enqueue_functions.js?ver=1.0",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/xmlrpc.php?rsd",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/?p=19094",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpress.mandarinoriental.com%2Fresidences-west-palm%2F",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpress.mandarinoriental.com%2Fresidences-west-palm%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/themes/mandarin-oriental-express/assets/img/logo/new-mo-scaled.png",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/selection",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/section/press-releases/",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/section/our-hotels/",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/section/presskit/",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/section/awards/",
+        "label": ""
+      },
+      {
+        "url": "https://press.mandarinoriental.com/gallery/?lang=eng",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+        "label": "Open Graph image",
+        "sourcePage": "https://mandarinorientalwestpalmbeach.com/"
+      },
+      {
+        "url": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/hYMWjgRcN744BQoPJbE4.png",
+        "label": "",
+        "sourcePage": "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach"
+      },
+      {
+        "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+        "label": "",
+        "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+      },
+      {
+        "url": "https://www.greatgulfgroup.com/img/gg-og.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+      },
+      {
+        "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/thumbnail_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+        "label": "thumbnail V2 Podium disclaimer w2 9128d5b0ff",
+        "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+      },
+      {
+        "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/small_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+        "label": "small V2 Podium disclaimer w2 9128d5b0ff",
+        "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+      },
+      {
+        "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/medium_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+        "label": "medium V2 Podium disclaimer w2 9128d5b0ff",
+        "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+      },
+      {
+        "url": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/large_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+        "label": "large V2 Podium disclaimer w2 9128d5b0ff",
+        "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/uploads/2026/02/0c210e389cd2f2cd925e774008a30c9f-l.jpg",
+        "label": "",
+        "sourcePage": "https://press.mandarinoriental.com/residences-west-palm/"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/uploads/2026/02/c0b0ad0f018f27e683b14079267d34dd-l.jpg",
+        "label": "",
+        "sourcePage": "https://press.mandarinoriental.com/residences-west-palm/"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/uploads/2025/11/e06f42c63a2ff7396c0c4f00f2788f50-l.jpg",
+        "label": "",
+        "sourcePage": "https://press.mandarinoriental.com/residences-west-palm/"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/uploads/2025/09/4c686f2bf3c49dd0a8a3bbd2f5430534-l.jpg",
+        "label": "",
+        "sourcePage": "https://press.mandarinoriental.com/residences-west-palm/"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/uploads/2026/02/c0b0ad0f018f27e683b14079267d34dd-t.jpg",
+        "label": "c0b0ad0f018f27e683b14079267d34dd t",
+        "sourcePage": "https://press.mandarinoriental.com/residences-west-palm/"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/uploads/2026/02/c0b0ad0f018f27e683b14079267d34dd-m.jpg",
+        "label": "c0b0ad0f018f27e683b14079267d34dd m",
+        "sourcePage": "https://press.mandarinoriental.com/residences-west-palm/"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/uploads/2025/11/e06f42c63a2ff7396c0c4f00f2788f50-t.jpg",
+        "label": "e06f42c63a2ff7396c0c4f00f2788f50 t",
+        "sourcePage": "https://press.mandarinoriental.com/residences-west-palm/"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/uploads/2025/11/e06f42c63a2ff7396c0c4f00f2788f50-m.jpg",
+        "label": "e06f42c63a2ff7396c0c4f00f2788f50 m",
+        "sourcePage": "https://press.mandarinoriental.com/residences-west-palm/"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/uploads/2025/09/4c686f2bf3c49dd0a8a3bbd2f5430534-t.jpg",
+        "label": "4c686f2bf3c49dd0a8a3bbd2f5430534 t",
+        "sourcePage": "https://press.mandarinoriental.com/residences-west-palm/"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/wp-content/uploads/2025/09/4c686f2bf3c49dd0a8a3bbd2f5430534-m.jpg",
+        "label": "4c686f2bf3c49dd0a8a3bbd2f5430534 m",
+        "sourcePage": "https://press.mandarinoriental.com/residences-west-palm/"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": []
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

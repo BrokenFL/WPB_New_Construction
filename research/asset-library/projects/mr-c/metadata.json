@@ -1,0 +1,2139 @@
+{
+  "projectId": "mr-c",
+  "slug": "mr-c-hotel-residences-west-palm-beach",
+  "name": "Mr. C Hotel & Residences West Palm Beach",
+  "address": "320 Lakeview Ave, West Palm Beach, FL 33401",
+  "corridor": "Downtown West Palm Beach",
+  "officialWebsite": "https://www.mrcresidenceswpb.com/",
+  "status": "Under construction",
+  "completion": "2027 target in seed/reporting; verify with sales team.",
+  "developer": "Terra",
+  "architect": "Not publicly confirmed",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "146",
+  "stories": "27",
+  "unitMix": "Private residences; Hotel residences context",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Request current pricing",
+  "amenities": [
+    "Garden-level lap pool with cabanas",
+    "Pool bar and lounge",
+    "Outdoor cinema",
+    "Bocce court",
+    "Yoga center",
+    "Pilates and Peloton studios",
+    "Signature spa",
+    "Sauna and steam rooms",
+    "Library and business lounge",
+    "Billiards room",
+    "Bike storage",
+    "24-hour valet and security",
+    "Bellini dining concepts"
+  ],
+  "salesContact": "401 S. Olive Avenue, West Palm Beach; T (561) 431-9299; Info@MrCResidencesWPB.com.",
+  "confidence": "Medium",
+  "notes": "Seed notes mention some reporting conflicts between 25 and 27 stories; current data uses official residence page language for 27 stories.",
+  "sourceUrls": [
+    "https://www.mrcresidenceswpb.com/",
+    "https://www.mrcresidenceswpb.com/residences/",
+    "https://www.mrcresidenceswpb.com/amenities-services/",
+    "https://www.mrcresidenceswpb.com/downloads/",
+    "https://floridayimby.com/2025/08/terra-secures-285-million-construction-loan-and-breaks-ground-on-mr-c-hotel-residences-in-west-palm-beach.html",
+    "https://www.mrcwpalmbeach.com/"
+  ],
+  "assetLinks": [
+    {
+      "label": "MrCWPB Res01 FloorPlan Illustrated 1",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "github-master"
+    },
+    {
+      "label": "MrCWPB Res02 FloorPlan Illustrated 1",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "github-master"
+    },
+    {
+      "label": "Official Downloads",
+      "url": "https://www.mrcresidenceswpb.com/downloads/",
+      "type": "Download",
+      "source": "current-app"
+    },
+    {
+      "label": "Fact Sheet",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+      "type": "Fact sheet",
+      "source": "current-app"
+    },
+    {
+      "label": "West Palm Beach Guide",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC-WPB-Guide-body-R13-Digital-Web.pdf",
+      "type": "Brochure",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 01A",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 02A",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 03",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 04",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 05",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 06",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 07",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 08",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 10",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 11",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 12",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    }
+  ],
+  "crawlSeeds": [
+    "https://www.mrcresidenceswpb.com/",
+    "https://www.mrcresidenceswpb.com/residences/",
+    "https://www.mrcresidenceswpb.com/amenities-services/",
+    "https://www.mrcresidenceswpb.com/downloads/",
+    "https://floridayimby.com/2025/08/terra-secures-285-million-construction-loan-and-breaks-ground-on-mr-c-hotel-residences-in-west-palm-beach.html",
+    "https://www.mrcwpalmbeach.com/",
+    {
+      "name": "Residence 01",
+      "beds": "Not publicly confirmed",
+      "baths": "Not publicly confirmed",
+      "interior_sq_ft": null,
+      "exterior_sq_ft": null,
+      "total_sq_ft": null,
+      "price": "Request current pricing",
+      "image_url": "",
+      "pdf_url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+      "notes": "Official downloads page lists this illustrated floor plan."
+    },
+    {
+      "name": "Residence 02",
+      "beds": "Not publicly confirmed",
+      "baths": "Not publicly confirmed",
+      "interior_sq_ft": null,
+      "exterior_sq_ft": null,
+      "total_sq_ft": null,
+      "price": "Request current pricing",
+      "image_url": "",
+      "pdf_url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+      "notes": "Official downloads page lists this illustrated floor plan."
+    }
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "/models/mr-c.glb",
+  "localScenario": "Downtown Residential Wave",
+  "generatedPlaceholderCopies": [
+    "projects/mr-c/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "MrCWPB Res01 FloorPlan Illustrated 1",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
+      "bytes": 1666749,
+      "source": "github-master"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "MrCWPB Res02 FloorPlan Illustrated 1",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
+      "bytes": 1150884,
+      "source": "github-master"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Fact sheet",
+      "label": "Fact Sheet",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+      "path": "projects/mr-c/factsheets/fact-sheet--7fac9094.pdf",
+      "bytes": 392190,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Brochure",
+      "label": "West Palm Beach Guide",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC-WPB-Guide-body-R13-Digital-Web.pdf",
+      "path": "projects/mr-c/brochures/west-palm-beach-guide--3f539116.pdf",
+      "bytes": 13189328,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 01A",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-01a--4c4e8025.pdf",
+      "bytes": 1584507,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 02A",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-02a--c0b62912.pdf",
+      "bytes": 1148716,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 03",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-03--809edf7a.pdf",
+      "bytes": 2049860,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 04",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-04--7e2f1920.pdf",
+      "bytes": 1188702,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 05",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-05--a9880839.pdf",
+      "bytes": 1503160,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 06",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-06--5677af6f.pdf",
+      "bytes": 1264694,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 07",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-07--438e91d4.pdf",
+      "bytes": 1737412,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 08",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-08--0717db7d.pdf",
+      "bytes": 1134801,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 10",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-10--c2ea2424.pdf",
+      "bytes": 1112106,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 11",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-11--d43deb20.pdf",
+      "bytes": 937498,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 12",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/residence-12--a53ea9bd.pdf",
+      "bytes": 4454224,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
+      "bytes": 1593185,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
+      "bytes": 1927168,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
+      "bytes": 1492115,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
+      "bytes": 1608633,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
+      "bytes": 1347726,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
+      "bytes": 3571426,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
+      "bytes": 1576986,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
+      "bytes": 1280462,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
+      "bytes": 3916332,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
+      "bytes": 1462193,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
+      "bytes": 4285651,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
+      "bytes": 5052854,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
+      "bytes": 3666251,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
+      "bytes": 4246707,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
+      "bytes": 3826050,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
+      "bytes": 3636823,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
+      "bytes": 1340338,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
+      "bytes": 1507559,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
+      "path": "projects/mr-c/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
+      "bytes": 1339694,
+      "source": "crawl"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?fit=1677%2C879&quality=89&ssl=1",
+      "path": "projects/mr-c/images/candidates/01--official-candidate--i0.wp.com--83197a3b.webp",
+      "bytes": 193634,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.mrcresidenceswpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?fit=1677%2C1049&quality=89&ssl=1",
+      "path": "projects/mr-c/images/candidates/02--official-candidate--i0.wp.com--25ed96c3.webp",
+      "bytes": 200166,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.mrcresidenceswpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg?fit=1677%2C941&quality=89&ssl=1",
+      "path": "projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
+      "bytes": 203546,
+      "contentType": "image/webp",
+      "sourcePage": "https://www.mrcresidenceswpb.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg",
+      "path": "projects/mr-c/images/candidates/04--official-candidate--mrcresidenceswpb.com--70dd69fb.jpg",
+      "bytes": 1173087,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.mrcresidenceswpb.com/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://www.mrcresidenceswpb.com/",
+        "title": "Mr. C Residences West Palm Beach",
+        "description": "&nbsp; Come Home to Mr.C contact us Quintessential European charm in the sunlit luxury of West Palm Beach Mr. C Residences West Palm Beach is a contemporary take on classic European living. It is Old World sophistication and modern comfort infused with the international culture and vibrant arts scene of West Palm Beach, Florida, and&hellip;",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/residences/",
+        "title": "The Residences &#8211; Mr. C Residences West Palm Beach",
+        "description": "Mr. C Residences are set apart by an exquisite modern translation of classic European living. Interiors are serene, sculptural, and quietly elegant, in a palette of warm neutral tones that invite natural light, with imported finishes that refine and define every space, and accents that highlight Mr. C’s signature European charm and understated glamour. Building&hellip;",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/amenities-services/",
+        "title": "Amenities &#038; Services &#8211; Mr. C Residences West Palm Beach",
+        "description": "AMENITIES Urbane, sophisticated, and unfailingly welcoming, Mr. C Residences West Palm Beach is the meeting point and residence of like-minded people from around the world. Interior and exterior amenities invite you to relax and socialize, pursue health and wellness goals, and spend time with loved ones in the most refined atmosphere.Breezy, beautifully appointed spaces for&hellip;",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/downloads/",
+        "title": "Downloads &#8211; Mr. C Residences West Palm Beach",
+        "description": "Fact Sheet Download West Palm Beach Guide Download Floor Plans See Floor Plans Residence 01 Download Residence 01A Download Residence 02 Download Residence 02A Download Residence 03 Download Residence 03A Download Residence 04 Download Residence 04A Download Residence 05 Download Residence 06 Download Residence 06A Download Residence 07 Download Residence 07A Download Residence 08 Download&hellip;",
+        "ogImage": ""
+      },
+      {
+        "url": "https://floridayimby.com/2025/08/terra-secures-285-million-construction-loan-and-breaks-ground-on-mr-c-hotel-residences-in-west-palm-beach.html",
+        "title": "Terra Secures $285 Million Construction Loan And Breaks Ground On Mr. C Hotel & Residences In West Palm Beach - Florida YIMBY",
+        "description": "Florida YIMBY says \"Yes In My Backyard\" to positive new development in Florida.",
+        "ogImage": "https://floridayimby.com/wp-content/uploads/2025/08/IMG_4619.jpeg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://gmpg.org/xfn/11",
+        "label": ""
+      },
+      {
+        "url": "https://stats.wp.com/",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/",
+        "label": ""
+      },
+      {
+        "url": "https://c0.wp.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/comments/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mrcresidenceswpb.com%2F",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mrcresidenceswpb.com%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??fbbd6e43ec",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-forms/dist/contact-form/css/jetpack-forms-layout.css?ver=15.8",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/elementor-pro/assets/js/page-transitions.min.js?m=1776387950",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-includes/js/jquery/jquery-migrate.min.js?m=1686289764",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/wp/v2/pages/10",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/xmlrpc.php?rsd",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/",
+        "label": ""
+      },
+      {
+        "url": "https://234636.tctm.co/t.js",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/cropped-favicon-1.png?fit=32%2C32&#038;quality=80&#038;ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/cropped-favicon-1.png?fit=192%2C192&#038;quality=80&#038;ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/cropped-favicon-1.png?fit=180%2C180&#038;quality=80&#038;ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-MKGJX4L6",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/mrc-wpb-logo-white.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/the-mr-c-story/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/residences/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/amenities-services/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/neighborhood/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/gallery/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/team/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/downloads/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/contact-us/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/news/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/mrc-wpb-logo-dark-blue.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/mrc-wpb-logo-mark-color.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/2024/12/TEA2768_MrCWest_WebsiteRatio_21to9_v001_1.mp4",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?fit=1677%2C879&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?fit=1677%2C1049&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "about:blank",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/mrc-wpb-logo-full-dark-blue.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/mrcresidenceswestpalmbeach/",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/mrcresidenceswestpalmbeach/",
+        "label": ""
+      },
+      {
+        "url": "https://maps.app.goo.gl/smBFX7ryL9kDmb4M6",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/legal-disclaimer/",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/privacy-policy/",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/mrcresidences",
+        "label": ""
+      },
+      {
+        "url": "https://widget.intercom.io/widget/dxy66327",
+        "label": "// We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/dxy66327' (function(){var w=window;var ic=w.Intercom;if(typeof ic===\"function"
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??fae4e99504",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-includes/js/dist/hooks.min.js?m=1761030842",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-assets/build/i18n-loader.js?minify=true&ver=5ba5dddc04be2306aaf0",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??88396eb93e",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-search/build/instant-search/jp-search.js?minify=false&ver=52dbe7cc70e522fe47c0",
+        "label": ""
+      },
+      {
+        "url": "https://stats.wp.com/w.js?ver=202619",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??102f103562",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.0.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??4b970b8818",
+        "label": ""
+      },
+      {
+        "url": "https://stats.wp.com/e-202619.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??8dc30d7e7c",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-includes/js/dist/a11y.min.js?ver=cb460b4676c94bd228ed",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??6ec5a5eaf6",
+        "label": ""
+      },
+      {
+        "url": "https://www.google.com/recaptcha/api.js?hl=en&ver=6.9.4#038;render=explicit",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??4206ad7a47",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=4f8b3915c1c1e1a6800825abd64b03cb",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??eb1254b815",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.0.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.0.2",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg?fit=1677%2C941&quality=89&ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S050 EXT HummingbirdEast Final 2K 1"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/blue-background.png?fit=873%2C491&quality=80&ssl=1",
+        "label": "blue background"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/cropped-favicon-1.png?fit=270%2C270&#038;quality=80&#038;ssl=1",
+        "label": "cropped favicon 1"
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg",
+        "label": "BINYAN TEA2768 MrCWest S050 EXT HummingbirdEast Final 2K 1"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/mrc-video-thumbnail.jpg?fit=1536%2C653&amp;quality=89&amp;ssl=1",
+        "label": "mrc video thumbnail"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?fit=1677%2C879&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?w=1677&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?resize=300%2C157&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?resize=1024%2C537&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?resize=768%2C403&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?resize=1536%2C805&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?w=1600&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?fit=1677%2C1049&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?w=1677&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?resize=300%2C188&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?resize=1024%2C641&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?resize=768%2C480&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?resize=1536%2C961&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?w=1600&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K"
+      },
+      {
+        "url": "http://wiki.lexisnexis.com/academic/images/f/fb/Itunes_podcast_icon_300.jpg",
+        "label": "Itunes podcast icon 300"
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mrcresidenceswpb.com%2Fresidences%2F",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mrcresidenceswpb.com%2Fresidences%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??b4501ccc1f",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/wp/v2/pages/981",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/?p=981",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?fit=1404%2C745&quality=80&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/20191009_Summerhill_1491.jpg?fit=645%2C764&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?fit=1404%2C977&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills-S130_INT_Resi05Bedroom_Final3K.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S070_INT_Resi01Kitchen_Final2K.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?fit=1404%2C977&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?fit=1404%2C613&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?fit=1677%2C1048&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??99dfb95154",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??fb3dde0f33",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/the-residences-hero-bkg-1.jpg?fit=2229%2C1251&quality=89&ssl=1",
+        "label": "the residences hero bkg 1"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/the-residences-hero-bkg-1.jpg?fit=2229%2C1251&amp;quality=89&amp;ssl=1",
+        "label": "the residences hero bkg 1"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?fit=1404%2C745&amp;quality=80&amp;ssl=1",
+        "label": "residences drawing"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?w=1404&amp;quality=80&amp;ssl=1",
+        "label": "residences drawing"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?resize=300%2C159&amp;quality=80&amp;ssl=1",
+        "label": "residences drawing"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?resize=1024%2C543&amp;quality=80&amp;ssl=1",
+        "label": "residences drawing"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?resize=768%2C408&amp;quality=80&amp;ssl=1",
+        "label": "residences drawing"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/20191009_Summerhill_1491.jpg?fit=645%2C764&amp;quality=89&amp;ssl=1",
+        "label": "20191009 Summerhill 1491"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/20191009_Summerhill_1491.jpg?w=645&amp;quality=89&amp;ssl=1",
+        "label": "20191009 Summerhill 1491"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/20191009_Summerhill_1491.jpg?resize=253%2C300&amp;quality=89&amp;ssl=1",
+        "label": "20191009 Summerhill 1491"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?fit=1404%2C977&amp;quality=89&amp;ssl=1",
+        "label": "Group 356"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?w=1404&amp;quality=89&amp;ssl=1",
+        "label": "Group 356"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?resize=300%2C209&amp;quality=89&amp;ssl=1",
+        "label": "Group 356"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?resize=1024%2C713&amp;quality=89&amp;ssl=1",
+        "label": "Group 356"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?resize=768%2C534&amp;quality=89&amp;ssl=1",
+        "label": "Group 356"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills-S130_INT_Resi05Bedroom_Final3K.jpg?fit=690%2C423&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S130 INT Resi05Bedroom Final3K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills-S130_INT_Resi05Bedroom_Final3K.jpg?w=690&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S130 INT Resi05Bedroom Final3K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills-S130_INT_Resi05Bedroom_Final3K.jpg?resize=300%2C184&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S130 INT Resi05Bedroom Final3K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S070_INT_Resi01Kitchen_Final2K.jpg?fit=690%2C423&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S070 INT Resi01Kitchen Final2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S070_INT_Resi01Kitchen_Final2K.jpg?w=690&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S070 INT Resi01Kitchen Final2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S070_INT_Resi01Kitchen_Final2K.jpg?resize=300%2C184&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S070 INT Resi01Kitchen Final2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?fit=1404%2C977&amp;quality=89&amp;ssl=1",
+        "label": "Group 355"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?w=1404&amp;quality=89&amp;ssl=1",
+        "label": "Group 355"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?resize=300%2C209&amp;quality=89&amp;ssl=1",
+        "label": "Group 355"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?resize=1024%2C713&amp;quality=89&amp;ssl=1",
+        "label": "Group 355"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?resize=768%2C534&amp;quality=89&amp;ssl=1",
+        "label": "Group 355"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?fit=1404%2C613&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S100 INT Resi03Living FINAL3000"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?w=1404&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S100 INT Resi03Living FINAL3000"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?resize=300%2C131&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S100 INT Resi03Living FINAL3000"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?resize=1024%2C447&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S100 INT Resi03Living FINAL3000"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?resize=768%2C335&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S100 INT Resi03Living FINAL3000"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?fit=1677%2C1048&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?w=1677&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?resize=300%2C187&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?resize=1024%2C640&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?resize=768%2C480&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?resize=1536%2C960&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?w=1600&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K"
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mrcresidenceswpb.com%2Famenities-services%2F",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mrcresidenceswpb.com%2Famenities-services%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??d4b3924783",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/wp/v2/pages/985",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/?p=985",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S560_EXT_Vignette02_Final_2K.jpg?fit=571%2C737&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S370_EXT_Plaza_2K.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-477.jpg?fit=686%2C496&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S170_INT_ResiLounge_FINAL_2K.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-478.jpg?fit=689%2C423&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S180_INT_ResiCoWorking_FINAL_2K-1.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S470_EXT_L8_Pool_Aerial_5K-copy.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S480_INT_L8_MovieTerrace_2K.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-479.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S510_EXT_L8_PlayArea_Final_2K.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S200_INT_L8_PoolBar_2K.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/hammock.jpg?fit=1920%2C1389&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S220_INT_L8-Billiards_Final3500.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-482.jpg?fit=689%2C423&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S340_INT_ResiFitness_Final3.5K-1.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/AlbaPro-1478.jpg?fit=691%2C868&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-21.jpg?fit=691%2C868&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-13.jpg?fit=779%2C579&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-23.jpg?fit=692%2C868&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Bellini_Cafe_11_03_24_724.jpg?fit=692%2C868&quality=89&ssl=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??f61990bf28",
+        "label": ""
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/outdoor-lounging-couple.jpg?fit=1677%2C941&quality=89&ssl=1",
+        "label": "outdoor lounging couple"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/outdoor-lounging-couple.jpg?fit=1677%2C941&amp;quality=89&amp;ssl=1",
+        "label": "outdoor lounging couple"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S560_EXT_Vignette02_Final_2K.jpg?fit=571%2C737&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S560 EXT Vignette02 Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S560_EXT_Vignette02_Final_2K.jpg?w=571&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S560 EXT Vignette02 Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S560_EXT_Vignette02_Final_2K.jpg?resize=232%2C300&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S560 EXT Vignette02 Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S370_EXT_Plaza_2K.jpg?fit=1400%2C835&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S370 EXT Plaza 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S370_EXT_Plaza_2K.jpg?w=1400&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S370 EXT Plaza 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S370_EXT_Plaza_2K.jpg?resize=300%2C179&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S370 EXT Plaza 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S370_EXT_Plaza_2K.jpg?resize=1024%2C611&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S370 EXT Plaza 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S370_EXT_Plaza_2K.jpg?resize=768%2C458&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S370 EXT Plaza 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-477.jpg?fit=686%2C496&amp;quality=89&amp;ssl=1",
+        "label": "Group 477"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-477.jpg?w=686&amp;quality=89&amp;ssl=1",
+        "label": "Group 477"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-477.jpg?resize=300%2C217&amp;quality=89&amp;ssl=1",
+        "label": "Group 477"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S170_INT_ResiLounge_FINAL_2K.jpg?fit=1400%2C835&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S170 INT ResiLounge FINAL 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S170_INT_ResiLounge_FINAL_2K.jpg?w=1400&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S170 INT ResiLounge FINAL 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S170_INT_ResiLounge_FINAL_2K.jpg?resize=300%2C179&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S170 INT ResiLounge FINAL 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S170_INT_ResiLounge_FINAL_2K.jpg?resize=1024%2C611&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S170 INT ResiLounge FINAL 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S170_INT_ResiLounge_FINAL_2K.jpg?resize=768%2C458&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S170 INT ResiLounge FINAL 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-478.jpg?fit=689%2C423&amp;quality=89&amp;ssl=1",
+        "label": "Group 478"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-478.jpg?w=689&amp;quality=89&amp;ssl=1",
+        "label": "Group 478"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-478.jpg?resize=300%2C184&amp;quality=89&amp;ssl=1",
+        "label": "Group 478"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S180_INT_ResiCoWorking_FINAL_2K-1.jpg?fit=690%2C423&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S180 INT ResiCoWorking FINAL 2K 1"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S180_INT_ResiCoWorking_FINAL_2K-1.jpg?w=690&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S180 INT ResiCoWorking FINAL 2K 1"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S180_INT_ResiCoWorking_FINAL_2K-1.jpg?resize=300%2C184&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S180 INT ResiCoWorking FINAL 2K 1"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S470_EXT_L8_Pool_Aerial_5K-copy.jpg?fit=1400%2C835&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S470 EXT L8 Pool Aerial 5K copy"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S470_EXT_L8_Pool_Aerial_5K-copy.jpg?w=1400&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S470 EXT L8 Pool Aerial 5K copy"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S470_EXT_L8_Pool_Aerial_5K-copy.jpg?resize=300%2C179&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S470 EXT L8 Pool Aerial 5K copy"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S470_EXT_L8_Pool_Aerial_5K-copy.jpg?resize=1024%2C611&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S470 EXT L8 Pool Aerial 5K copy"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S470_EXT_L8_Pool_Aerial_5K-copy.jpg?resize=768%2C458&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S470 EXT L8 Pool Aerial 5K copy"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S480_INT_L8_MovieTerrace_2K.jpg?fit=690%2C423&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S480 INT L8 MovieTerrace 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S480_INT_L8_MovieTerrace_2K.jpg?w=690&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S480 INT L8 MovieTerrace 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S480_INT_L8_MovieTerrace_2K.jpg?resize=300%2C184&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S480 INT L8 MovieTerrace 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-479.jpg?fit=690%2C423&amp;quality=89&amp;ssl=1",
+        "label": "Group 479"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-479.jpg?w=690&amp;quality=89&amp;ssl=1",
+        "label": "Group 479"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-479.jpg?resize=300%2C184&amp;quality=89&amp;ssl=1",
+        "label": "Group 479"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S510_EXT_L8_PlayArea_Final_2K.jpg?fit=1400%2C835&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S510 EXT L8 PlayArea Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S510_EXT_L8_PlayArea_Final_2K.jpg?w=1400&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S510 EXT L8 PlayArea Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S510_EXT_L8_PlayArea_Final_2K.jpg?resize=300%2C179&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S510 EXT L8 PlayArea Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S510_EXT_L8_PlayArea_Final_2K.jpg?resize=1024%2C611&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S510 EXT L8 PlayArea Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S510_EXT_L8_PlayArea_Final_2K.jpg?resize=768%2C458&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S510 EXT L8 PlayArea Final 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S200_INT_L8_PoolBar_2K.jpg?fit=1400%2C835&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S200 INT L8 PoolBar 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S200_INT_L8_PoolBar_2K.jpg?w=1400&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S200 INT L8 PoolBar 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S200_INT_L8_PoolBar_2K.jpg?resize=300%2C179&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S200 INT L8 PoolBar 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S200_INT_L8_PoolBar_2K.jpg?resize=1024%2C611&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S200 INT L8 PoolBar 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S200_INT_L8_PoolBar_2K.jpg?resize=768%2C458&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S200 INT L8 PoolBar 2K"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/hammock.jpg?fit=1920%2C1389&amp;quality=89&amp;ssl=1",
+        "label": "hammock"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/hammock.jpg?w=1920&amp;quality=89&amp;ssl=1",
+        "label": "hammock"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/hammock.jpg?resize=300%2C217&amp;quality=89&amp;ssl=1",
+        "label": "hammock"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/hammock.jpg?resize=1024%2C741&amp;quality=89&amp;ssl=1",
+        "label": "hammock"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/hammock.jpg?resize=768%2C556&amp;quality=89&amp;ssl=1",
+        "label": "hammock"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/hammock.jpg?resize=1536%2C1111&amp;quality=89&amp;ssl=1",
+        "label": "hammock"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/hammock.jpg?w=1600&amp;quality=89&amp;ssl=1",
+        "label": "hammock"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S220_INT_L8-Billiards_Final3500.jpg?fit=1400%2C835&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S220 INT L8 Billiards Final3500"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S220_INT_L8-Billiards_Final3500.jpg?w=1400&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S220 INT L8 Billiards Final3500"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S220_INT_L8-Billiards_Final3500.jpg?resize=300%2C179&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S220 INT L8 Billiards Final3500"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S220_INT_L8-Billiards_Final3500.jpg?resize=1024%2C611&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S220 INT L8 Billiards Final3500"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S220_INT_L8-Billiards_Final3500.jpg?resize=768%2C458&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S220 INT L8 Billiards Final3500"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-482.jpg?fit=689%2C423&amp;quality=89&amp;ssl=1",
+        "label": "Group 482"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-482.jpg?w=689&amp;quality=89&amp;ssl=1",
+        "label": "Group 482"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-482.jpg?resize=300%2C184&amp;quality=89&amp;ssl=1",
+        "label": "Group 482"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S340_INT_ResiFitness_Final3.5K-1.jpg?fit=690%2C423&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S340 INT ResiFitness Final3.5K 1"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S340_INT_ResiFitness_Final3.5K-1.jpg?w=690&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S340 INT ResiFitness Final3.5K 1"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S340_INT_ResiFitness_Final3.5K-1.jpg?resize=300%2C184&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S340 INT ResiFitness Final3.5K 1"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/AlbaPro-1478.jpg?fit=691%2C868&amp;quality=89&amp;ssl=1",
+        "label": "AlbaPro 1478"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/AlbaPro-1478.jpg?w=691&amp;quality=89&amp;ssl=1",
+        "label": "AlbaPro 1478"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/AlbaPro-1478.jpg?resize=239%2C300&amp;quality=89&amp;ssl=1",
+        "label": "AlbaPro 1478"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-21.jpg?fit=691%2C868&amp;quality=89&amp;ssl=1",
+        "label": "231129 MOCHEE MR C 21"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-21.jpg?w=691&amp;quality=89&amp;ssl=1",
+        "label": "231129 MOCHEE MR C 21"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-21.jpg?resize=239%2C300&amp;quality=89&amp;ssl=1",
+        "label": "231129 MOCHEE MR C 21"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-13.jpg?fit=779%2C579&amp;quality=89&amp;ssl=1",
+        "label": "231129 MOCHEE MR C 13"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-13.jpg?w=779&amp;quality=89&amp;ssl=1",
+        "label": "231129 MOCHEE MR C 13"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-13.jpg?resize=300%2C223&amp;quality=89&amp;ssl=1",
+        "label": "231129 MOCHEE MR C 13"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-13.jpg?resize=768%2C571&amp;quality=89&amp;ssl=1",
+        "label": "231129 MOCHEE MR C 13"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-23.jpg?fit=692%2C868&amp;quality=89&amp;ssl=1",
+        "label": "231129 MOCHEE MR C 23"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-23.jpg?w=692&amp;quality=89&amp;ssl=1",
+        "label": "231129 MOCHEE MR C 23"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/231129-_-MOCHEE-_-MR-C-23.jpg?resize=239%2C300&amp;quality=89&amp;ssl=1",
+        "label": "231129 MOCHEE MR C 23"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Bellini_Cafe_11_03_24_724.jpg?fit=692%2C868&amp;quality=89&amp;ssl=1",
+        "label": "Bellini Cafe 11 03 24 724"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Bellini_Cafe_11_03_24_724.jpg?w=692&amp;quality=89&amp;ssl=1",
+        "label": "Bellini Cafe 11 03 24 724"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Bellini_Cafe_11_03_24_724.jpg?resize=239%2C300&amp;quality=89&amp;ssl=1",
+        "label": "Bellini Cafe 11 03 24 724"
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mrcresidenceswpb.com%2Fdownloads%2F",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mrcresidenceswpb.com%2Fdownloads%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/_jb_static/??4a5316337e",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-json/wp/v2/pages/1726",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/?p=1726",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?fit=1677%2C879&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?fit=1677%2C1049&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg?fit=1677%2C941&quality=89&ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S050 EXT HummingbirdEast Final 2K 1",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/blue-background.png?fit=873%2C491&quality=80&ssl=1",
+        "label": "blue background",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg",
+        "label": "BINYAN TEA2768 MrCWest S050 EXT HummingbirdEast Final 2K 1",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/mrc-video-thumbnail.jpg?fit=1536%2C653&amp;quality=89&amp;ssl=1",
+        "label": "mrc video thumbnail",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?fit=1677%2C879&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?w=1677&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?resize=300%2C157&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?resize=1024%2C537&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?resize=768%2C403&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?resize=1536%2C805&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?w=1600&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S060 EXT LookUp Final 2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?fit=1677%2C1049&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?w=1677&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?resize=300%2C188&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?resize=1024%2C641&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?resize=768%2C480&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?resize=1536%2C961&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?w=1600&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S160 INT ResiLobby FINAL 5K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?fit=1404%2C745&quality=80&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/20191009_Summerhill_1491.jpg?fit=645%2C764&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?fit=1404%2C977&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills-S130_INT_Resi05Bedroom_Final3K.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S070_INT_Resi01Kitchen_Final2K.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?fit=1404%2C977&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?fit=1404%2C613&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?fit=1677%2C1048&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/the-residences-hero-bkg-1.jpg?fit=2229%2C1251&quality=89&ssl=1",
+        "label": "the residences hero bkg 1",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/the-residences-hero-bkg-1.jpg?fit=2229%2C1251&amp;quality=89&amp;ssl=1",
+        "label": "the residences hero bkg 1",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?fit=1404%2C745&amp;quality=80&amp;ssl=1",
+        "label": "residences drawing",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?w=1404&amp;quality=80&amp;ssl=1",
+        "label": "residences drawing",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?resize=300%2C159&amp;quality=80&amp;ssl=1",
+        "label": "residences drawing",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?resize=1024%2C543&amp;quality=80&amp;ssl=1",
+        "label": "residences drawing",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/residences-drawing.png?resize=768%2C408&amp;quality=80&amp;ssl=1",
+        "label": "residences drawing",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/20191009_Summerhill_1491.jpg?fit=645%2C764&amp;quality=89&amp;ssl=1",
+        "label": "20191009 Summerhill 1491",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/20191009_Summerhill_1491.jpg?w=645&amp;quality=89&amp;ssl=1",
+        "label": "20191009 Summerhill 1491",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/20191009_Summerhill_1491.jpg?resize=253%2C300&amp;quality=89&amp;ssl=1",
+        "label": "20191009 Summerhill 1491",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?fit=1404%2C977&amp;quality=89&amp;ssl=1",
+        "label": "Group 356",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?w=1404&amp;quality=89&amp;ssl=1",
+        "label": "Group 356",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?resize=300%2C209&amp;quality=89&amp;ssl=1",
+        "label": "Group 356",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?resize=1024%2C713&amp;quality=89&amp;ssl=1",
+        "label": "Group 356",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-356.jpg?resize=768%2C534&amp;quality=89&amp;ssl=1",
+        "label": "Group 356",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills-S130_INT_Resi05Bedroom_Final3K.jpg?fit=690%2C423&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S130 INT Resi05Bedroom Final3K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills-S130_INT_Resi05Bedroom_Final3K.jpg?w=690&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S130 INT Resi05Bedroom Final3K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills-S130_INT_Resi05Bedroom_Final3K.jpg?resize=300%2C184&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S130 INT Resi05Bedroom Final3K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S070_INT_Resi01Kitchen_Final2K.jpg?fit=690%2C423&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S070 INT Resi01Kitchen Final2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S070_INT_Resi01Kitchen_Final2K.jpg?w=690&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S070 INT Resi01Kitchen Final2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S070_INT_Resi01Kitchen_Final2K.jpg?resize=300%2C184&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S070 INT Resi01Kitchen Final2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?fit=1404%2C977&amp;quality=89&amp;ssl=1",
+        "label": "Group 355",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?w=1404&amp;quality=89&amp;ssl=1",
+        "label": "Group 355",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?resize=300%2C209&amp;quality=89&amp;ssl=1",
+        "label": "Group 355",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?resize=1024%2C713&amp;quality=89&amp;ssl=1",
+        "label": "Group 355",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-355.jpg?resize=768%2C534&amp;quality=89&amp;ssl=1",
+        "label": "Group 355",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?fit=1404%2C613&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S100 INT Resi03Living FINAL3000",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?w=1404&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S100 INT Resi03Living FINAL3000",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?resize=300%2C131&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S100 INT Resi03Living FINAL3000",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?resize=1024%2C447&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S100 INT Resi03Living FINAL3000",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S100_INT_Resi03Living_FINAL3000.jpg?resize=768%2C335&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWest S100 INT Resi03Living FINAL3000",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?fit=1677%2C1048&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?w=1677&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?resize=300%2C187&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?resize=1024%2C640&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?resize=768%2C480&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?resize=1536%2C960&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWestStills_S430_INT_Resi10Living2_Final2K.jpg?w=1600&amp;quality=89&amp;ssl=1",
+        "label": "BINYAN TEA2768 MrCWestStills S430 INT Resi10Living2 Final2K",
+        "sourcePage": "https://www.mrcresidenceswpb.com/residences/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S560_EXT_Vignette02_Final_2K.jpg?fit=571%2C737&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S370_EXT_Plaza_2K.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-477.jpg?fit=686%2C496&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S170_INT_ResiLounge_FINAL_2K.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-478.jpg?fit=689%2C423&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S180_INT_ResiCoWorking_FINAL_2K-1.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S470_EXT_L8_Pool_Aerial_5K-copy.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S480_INT_L8_MovieTerrace_2K.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-479.jpg?fit=690%2C423&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S510_EXT_L8_PlayArea_Final_2K.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S200_INT_L8_PoolBar_2K.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/hammock.jpg?fit=1920%2C1389&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S220_INT_L8-Billiards_Final3500.jpg?fit=1400%2C835&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/Group-482.jpg?fit=689%2C423&quality=89&ssl=1",
+        "label": "",
+        "sourcePage": "https://www.mrcresidenceswpb.com/amenities-services/"
+      }
+    ],
+    "pdfCandidates": [
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC-WPB-Guide-body-R13-Digital-Web.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
+        "label": ""
+      }
+    ],
+    "errors": []
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

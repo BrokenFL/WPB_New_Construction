@@ -1,0 +1,1874 @@
+{
+  "projectId": "ritz-carlton-wpb",
+  "slug": "ritz-carlton-residences-west-palm-beach",
+  "name": "The Ritz-Carlton Residences, West Palm Beach",
+  "address": "1717 N Flagler Dr, West Palm Beach, FL 33407",
+  "corridor": "North Flagler waterfront",
+  "officialWebsite": "https://theresidenceswestpalmbeach.com/",
+  "status": "Sales active / under construction; reported more than 70 percent pre-sold in February 2026.",
+  "completion": "Expected 2028",
+  "developer": "Related Group and BH Group",
+  "architect": "Arquitectonica",
+  "interiorDesigner": "Rockwell Group",
+  "landscapeArchitect": "Naturalficial",
+  "residences": "138",
+  "stories": "27",
+  "unitMix": "Two-bedroom residences; Three-bedroom residences; Four-bedroom residences; Lake homes",
+  "squareFootage": "Official/reporting materials cite roughly 1,500 to more than 3,000 interior square feet; published plan PDFs reviewed range higher when exterior space is included.",
+  "pricing": "Residences reported from $2.5M; current availability should be verified.",
+  "amenities": [
+    "Ritz-Carlton branded residential services",
+    "Bayfront pool deck",
+    "Private cabanas",
+    "Summer kitchens",
+    "Fitness and wellness center",
+    "Spa treatment rooms",
+    "Steam and sauna facilities",
+    "Private conference and coworking areas",
+    "Children's room",
+    "Gaming lounge with golf simulator",
+    "Entertainment lounges",
+    "Two guest suites",
+    "Curated art program",
+    "Cove Club membership access referenced in reporting",
+    "Floor plan collection published"
+  ],
+  "salesContact": "Sales gallery listed by official floor plan page: 50 Cocoanut Row, S101, Palm Beach, FL 33480; phone 561-402-8947.",
+  "confidence": "Medium",
+  "notes": "Seed file used 1717 N Flagler; official floor-plan footer also references 1745 N Flagler. Keep address conservative until prospectus/sales team confirms final legal address. Earlier seed data listed KPF, but later construction coverage identifies Arquitectonica and Naturalficial.",
+  "sourceUrls": [
+    "https://theresidenceswestpalmbeach.com/",
+    "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+    "https://theresidenceswestpalmbeach.com/floorplans/",
+    "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html"
+  ],
+  "assetLinks": [
+    {
+      "label": "Res02",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+      "type": "Floor plan",
+      "source": "github-master"
+    },
+    {
+      "label": "Res03",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+      "type": "Floor plan",
+      "source": "github-master"
+    },
+    {
+      "label": "Res12",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+      "type": "Floor plan",
+      "source": "github-master"
+    },
+    {
+      "label": "Official Floor Plans Index",
+      "url": "https://theresidenceswestpalmbeach.com/floorplans/",
+      "type": "Floor plan",
+      "note": "Official page listing two-, three-, four-bedroom and lake-home plans.",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 01",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 04",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 05",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Residence 06",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Lake Home 07",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Lake Home 08",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Lake Home 09",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Lake Home 10",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    },
+    {
+      "label": "Lake Home 11",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
+      "type": "Floor plan",
+      "source": "current-app"
+    }
+  ],
+  "crawlSeeds": [
+    "https://theresidenceswestpalmbeach.com/",
+    "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+    "https://theresidenceswestpalmbeach.com/floorplans/",
+    "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
+    {
+      "name": "Residence 02",
+      "beds": "2",
+      "baths": "2.5",
+      "interior_sq_ft": 1566,
+      "exterior_sq_ft": 302,
+      "total_sq_ft": 1868,
+      "price": "Request current pricing",
+      "image_url": "",
+      "pdf_url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+      "notes": "Published by official floor plan site."
+    },
+    {
+      "name": "Residence 03",
+      "beds": "3",
+      "baths": "3.5",
+      "interior_sq_ft": 2449,
+      "exterior_sq_ft": 257,
+      "total_sq_ft": 2706,
+      "price": "Request current pricing",
+      "image_url": "",
+      "pdf_url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+      "notes": "Published by official floor plan site."
+    },
+    {
+      "name": "Lake Home 12",
+      "beds": "3",
+      "baths": "3.5",
+      "interior_sq_ft": 2777,
+      "exterior_sq_ft": 393,
+      "total_sq_ft": 3170,
+      "price": "Request current pricing",
+      "image_url": "",
+      "pdf_url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+      "notes": "Lake home floor plan from official download list."
+    }
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "/models/ritz-carlton.glb",
+  "localScenario": "North Flagler Pipeline",
+  "generatedPlaceholderCopies": [
+    "projects/ritz-carlton-wpb/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Res02",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/res02--0dcf7b3f.pdf",
+      "bytes": 1892408,
+      "source": "github-master"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Res03",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/res03--a1fb57a0.pdf",
+      "bytes": 2497256,
+      "source": "github-master"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Res12",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/res12--cd99fe22.pdf",
+      "bytes": 2404845,
+      "source": "github-master"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 01",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/residence-01--5381e8b7.pdf",
+      "bytes": 2484576,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 04",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/residence-04--f1b379f4.pdf",
+      "bytes": 2125348,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 05",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/residence-05--d8f62502.pdf",
+      "bytes": 1940617,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Residence 06",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/residence-06--0066a95c.pdf",
+      "bytes": 4703521,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Lake Home 07",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/lake-home-07--e6a73aac.pdf",
+      "bytes": 1742676,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Lake Home 08",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/lake-home-08--e5b3bab2.pdf",
+      "bytes": 2064964,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Lake Home 09",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/lake-home-09--d9798fd5.pdf",
+      "bytes": 2132506,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Lake Home 10",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/lake-home-10--c92b5f15.pdf",
+      "bytes": 1968734,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "Lake Home 11",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
+      "path": "projects/ritz-carlton-wpb/floorplans/lake-home-11--568a1bb0.pdf",
+      "bytes": 2013375,
+      "source": "current-app"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Download",
+      "label": "",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res06.pdf",
+      "path": "projects/ritz-carlton-wpb/downloads/res06--516f2802.pdf",
+      "bytes": 2558298,
+      "source": "crawl"
+    },
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Download",
+      "label": "",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.1.pdf",
+      "path": "projects/ritz-carlton-wpb/downloads/res12-1--52fa7cb9.pdf",
+      "bytes": 2395918,
+      "source": "crawl"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1.jpg",
+      "path": "projects/ritz-carlton-wpb/images/candidates/01--official-candidate--theresidenceswestpalmbeach.com--b05ef334.jpg",
+      "bytes": 745420,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://theresidenceswestpalmbeach.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen.jpg",
+      "path": "projects/ritz-carlton-wpb/images/candidates/02--official-candidate--theresidenceswestpalmbeach.com--36dd5172.jpg",
+      "bytes": 664651,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://theresidenceswestpalmbeach.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck.jpg",
+      "path": "projects/ritz-carlton-wpb/images/candidates/03--official-candidate--theresidenceswestpalmbeach.com--fcfe6cb5.jpg",
+      "bytes": 529413,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://theresidenceswestpalmbeach.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993.jpg",
+      "path": "projects/ritz-carlton-wpb/images/candidates/04--official-candidate--theresidenceswestpalmbeach.com--228a51e1.jpg",
+      "bytes": 1133563,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://theresidenceswestpalmbeach.com/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://theresidenceswestpalmbeach.com/",
+        "title": "The Ritz-Carlton Residences, West Palm Beach | Luxury Condos For Sale",
+        "description": "Experience unmatched luxury at The Ritz-Carlton Residences, West Palm Beach—breathtaking water views, exclusive amenities, and a prime location near top attractions. Contact today!",
+        "ogImage": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/EXT05-D2-Balcony_C2.jpg"
+      },
+      {
+        "url": "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+        "title": "The Ritz-Carlton Residences West Palm Beach - Related Group",
+        "description": "A New Standard of Waterfront Luxury. Flawlessly elevated residences that balance timeless design and legendary service. The Ritz-Carlton Residences, West Palm Beach—a limited collection of homes with breathtaking, crystal clear water views, defined by legendary service and exemplary design.",
+        "ogImage": "https://relatedgroup.com/wp-content/uploads/2025/01/Hero_C5_2.jpg"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/floorplans/",
+        "title": "Floor Plans &#8211; The Ritz-Carlton Residences, West Palm Beach",
+        "description": "",
+        "ogImage": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Hammock_Dunes-05-Kitchen-03.jpg"
+      },
+      {
+        "url": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
+        "title": "Related Group and BH Group Break Ground on The Ritz-Carlton Residences, West Palm Beach - Florida YIMBY",
+        "description": "Florida YIMBY says \"Yes In My Backyard\" to positive new development in Florida.",
+        "ogImage": "https://floridayimby.com/wp-content/uploads/2026/02/Copy-of-EXT01_Hero_C6_2.jpg"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/residences/",
+        "title": "Residences &#8211; The Ritz-Carlton Residences, West Palm Beach",
+        "description": "",
+        "ogImage": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/EXT05-D2-Balcony_C2.jpg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://gmpg.org/xfn/11",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/comments/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftheresidenceswestpalmbeach.com%2F",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftheresidenceswestpalmbeach.com%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.4.6",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.4.6",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.4.6",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-frontend.min.css?ver=1778267765",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-pro-widget-nav-menu.min.css?ver=1778267765",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-sink.min.css?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor-pro/assets/css/widget-form.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css?ver=1778267765",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/slideInUp.min.css?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-277.css?ver=1778267766",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/sticky-header-effects-for-elementor/assets/css/she-header-style.css?ver=2.1.8",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor-pro/assets/css/widget-nested-carousel.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-3318.css?ver=1778267766",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-5541.css?ver=1778267766",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-5484.css?ver=1778267766",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-7189.css?ver=1778267766",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/sticky-header-effects-for-elementor/assets/js/she-header.js?ver=2.1.8",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-json/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-json/wp/v2/pages/3318",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/xmlrpc.php?rsd",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.livechatinc.com/tracking.js",
+        "label": "window.__lc = window.__lc || {}; window.__lc.license = 19075456; window.__lc.integration_name = \"manual_channels\"; window.__lc.product_name = \"livechat\"; ;(func"
+      },
+      {
+        "url": "https://www.livechat.com/chat-with/19075456/",
+        "label": ""
+      },
+      {
+        "url": "https://www.livechat.com/?welcome",
+        "label": ""
+      },
+      {
+        "url": "https://cdn-cookieyes.com/client_data/de0143a8c271161ca977fb3b/script.js",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2020/07/cropped-fav-32x32.png",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2020/07/cropped-fav-192x192.png",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2020/07/cropped-fav-180x180.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-M52MQMCV",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/03/RitzWPB.svg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/residences/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/amenities/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/services/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/floorplans/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/location/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/gallery/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/team/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/inquire/",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/playbutton.svg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.flipsnack.com/relatedgroup/ritzwpb-floorplans/full-view.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.flipsnack.com/relatedgroup/ritzwpb-brochure/full-view.html",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/lounge.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/spa.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC09035.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/design.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/FineDining.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/PalmBeachIsland.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/paddleboard.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/boutique.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/03/partner.svg",
+        "label": ""
+      },
+      {
+        "url": "https://maps.app.goo.gl/1Jbd8wCkWB98FfFp8",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/privacy-policy/",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.userway.org/widget.js",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2021/04/eho-1.svg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-2718.css?ver=1778267766",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.0.7",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/EXT05-D2-Balcony_C2.jpg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2020/07/cropped-fav-270x270.png",
+        "label": "cropped fav 270x270"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1-300x169.jpg",
+        "label": "Fitness Center C1 300x169"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1-1024x576.jpg",
+        "label": "Fitness Center C1 1024x576"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1-768x432.jpg",
+        "label": "Fitness Center C1 768x432"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1-1536x864.jpg",
+        "label": "Fitness Center C1 1536x864"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen-300x200.jpg",
+        "label": "Unit Residence 01 Kitchen 300x200"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen-1024x683.jpg",
+        "label": "Unit Residence 01 Kitchen 1024x683"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen-768x512.jpg",
+        "label": "Unit Residence 01 Kitchen 768x512"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen-1536x1024.jpg",
+        "label": "Unit Residence 01 Kitchen 1536x1024"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck-300x200.jpg",
+        "label": "PoolDeck 300x200"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck-1024x683.jpg",
+        "label": "PoolDeck 1024x683"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck-768x512.jpg",
+        "label": "PoolDeck 768x512"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck-1536x1024.jpg",
+        "label": "PoolDeck 1536x1024"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993-300x206.jpg",
+        "label": "DSC07993 300x206"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993-1024x702.jpg",
+        "label": "DSC07993 1024x702"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993-768x527.jpg",
+        "label": "DSC07993 768x527"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993-1536x1054.jpg",
+        "label": "DSC07993 1536x1054"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/lounge-300x182.jpg",
+        "label": "lounge 300x182"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/lounge-1024x620.jpg",
+        "label": "lounge 1024x620"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/lounge-768x465.jpg",
+        "label": "lounge 768x465"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/lounge-1536x929.jpg",
+        "label": "lounge 1536x929"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/spa-300x219.jpg",
+        "label": "spa 300x219"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/spa-1024x746.jpg",
+        "label": "spa 1024x746"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/spa-768x559.jpg",
+        "label": "spa 768x559"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/spa-1536x1119.jpg",
+        "label": "spa 1536x1119"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC09035-200x300.jpg",
+        "label": "DSC09035 200x300"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC09035-683x1024.jpg",
+        "label": "DSC09035 683x1024"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC09035-768x1152.jpg",
+        "label": "DSC09035 768x1152"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/design-226x300.jpg",
+        "label": "design 226x300"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/design-770x1024.jpg",
+        "label": "design 770x1024"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/design-768x1022.jpg",
+        "label": "design 768x1022"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/FineDining-300x215.jpg",
+        "label": "FineDining 300x215"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/FineDining-1024x734.jpg",
+        "label": "FineDining 1024x734"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/FineDining-768x551.jpg",
+        "label": "FineDining 768x551"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/PalmBeachIsland-300x187.jpg",
+        "label": "PalmBeachIsland 300x187"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/PalmBeachIsland-1024x640.jpg",
+        "label": "PalmBeachIsland 1024x640"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/PalmBeachIsland-768x480.jpg",
+        "label": "PalmBeachIsland 768x480"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/PalmBeachIsland-1536x960.jpg",
+        "label": "PalmBeachIsland 1536x960"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/paddleboard-300x274.jpg",
+        "label": "paddleboard 300x274"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/paddleboard-1024x937.jpg",
+        "label": "paddleboard 1024x937"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/paddleboard-768x702.jpg",
+        "label": "paddleboard 768x702"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/boutique-289x300.jpg",
+        "label": "boutique 289x300"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/boutique-985x1024.jpg",
+        "label": "boutique 985x1024"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/boutique-768x798.jpg",
+        "label": "boutique 768x798"
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/themes/relatedTheme/public/css/app.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/themes/relatedTheme/public/images/favicon.ico?v=1.2",
+        "label": ""
+      },
+      {
+        "url": "https://cdn-cookieyes.com/client_data/cf3bdd8296ebcd48e686ca5b/script.js",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+        "label": ""
+      },
+      {
+        "url": "https://cdnjs.cloudflare.com/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Frelatedgroup.com%2Fproperties%2Fthe-ritz-carlton-residences-west-palm-beach%2F",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Frelatedgroup.com%2Fproperties%2Fthe-ritz-carlton-residences-west-palm-beach%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/plugins/constant-contact-forms/assets/css/style.css?ver=2.16.2",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/?display_custom_css=css&#038;ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/plugins/stop-user-enumeration/frontend/js/frontend.js?ver=1.7.7",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-json/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-json/wp/v2/properties/5932",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/?p=5932",
+        "label": ""
+      },
+      {
+        "url": "https://browsehappy.com/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/themes/relatedTheme/public/images/related-logo.svg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/about/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/luxury-condominium/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/luxury-rentals/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/affordable-workforce-housing/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/international/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/retail-office-hotel/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/news/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/art-collection/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/philanthropy/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/careers/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/contact-us",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/therelatedgroup/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2019/09/facebook-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/related_group/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2019/09/instagram-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://twitter.com/Related_Group",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2019/09/twitter-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.youtube.com/user/relatedgroup",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2019/09/youtube-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/search",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/themes/relatedTheme/public/images/icon-search.svg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/EXT05-D2-Balcony_C2.jpg",
+        "label": ""
+      },
+      {
+        "url": "http://www.facebook.com/sharer/sharer.php?u=https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/themes/relatedTheme/public/images/facebook-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "http://www.twitter.com/share?url=https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/themes/relatedTheme/public/images/twitter-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/sharing/share-offsite/?url=https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/themes/relatedTheme/public/images/linkedin-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/themes/relatedTheme/public/images/email-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/Hero_C5_2.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/Lobby_C4.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/Billiards.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/PlayRoom.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/EXT04_Pool_C1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/INT04_living.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/contact-us/",
+        "label": ""
+      },
+      {
+        "url": "https://google.com/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/terms-of-service/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/disclaimer/",
+        "label": ""
+      },
+      {
+        "url": "https://reawashere.com/",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/themes/relatedTheme/public/images/logo-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/plugins/constant-contact-forms/assets/js/ctct-plugin-frontend.min.js?ver=2.16.2",
+        "label": ""
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/themes/relatedTheme/public/js/app.min.js?v=1.20200520.1410&ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.0/utils/Draggable.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftheresidenceswestpalmbeach.com%2Ffloorplans%2F",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftheresidenceswestpalmbeach.com%2Ffloorplans%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-widget-nested-tabs.min.css?ver=1778267765",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-6515.css?ver=1778268578",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-json/wp/v2/pages/6515",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/?p=6515",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R02.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/03/05.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R03.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R04.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/03/Residence01-1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R06.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res06.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH07.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH08.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH09.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH10.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH11.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH12.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH12.1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.1.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Hammock_Dunes-05-Kitchen-03.jpg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R02-293x300.jpg",
+        "label": "R02 293x300"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R02-768x786.jpg",
+        "label": "R02 768x786"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/03/05-288x300.jpg",
+        "label": "05 288x300"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/03/05-768x801.jpg",
+        "label": "05 768x801"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R03-205x300.jpg",
+        "label": "R03 205x300"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R03-699x1024.jpg",
+        "label": "R03 699x1024"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R03-768x1124.jpg",
+        "label": "R03 768x1124"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R04-222x300.jpg",
+        "label": "R04 222x300"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R04-758x1024.jpg",
+        "label": "R04 758x1024"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R04-768x1037.jpg",
+        "label": "R04 768x1037"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06-300x300.jpg",
+        "label": "Residence06 300x300"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06-1024x1024.jpg",
+        "label": "Residence06 1024x1024"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06-150x150.jpg",
+        "label": "Residence06 150x150"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06-768x768.jpg",
+        "label": "Residence06 768x768"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/03/Residence01-1-300x294.jpg",
+        "label": "Residence01 1 300x294"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/03/Residence01-1-768x753.jpg",
+        "label": "Residence01 1 768x753"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R06-300x296.jpg",
+        "label": "R06 300x296"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R06-1024x1010.jpg",
+        "label": "R06 1024x1010"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R06-768x758.jpg",
+        "label": "R06 768x758"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH07-185x300.jpg",
+        "label": "LH07 185x300"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH07-632x1024.jpg",
+        "label": "LH07 632x1024"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH07-768x1245.jpg",
+        "label": "LH07 768x1245"
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2020/07/cropped-fav-32x32.png",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2020/07/cropped-fav-192x192.png",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2020/07/cropped-fav-180x180.png",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/lounge.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/spa.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC09035.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/design.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/FineDining.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/PalmBeachIsland.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/paddleboard.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/boutique.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/EXT05-D2-Balcony_C2.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2020/07/cropped-fav-270x270.png",
+        "label": "cropped fav 270x270",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1-300x169.jpg",
+        "label": "Fitness Center C1 300x169",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1-1024x576.jpg",
+        "label": "Fitness Center C1 1024x576",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1-768x432.jpg",
+        "label": "Fitness Center C1 768x432",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1-1536x864.jpg",
+        "label": "Fitness Center C1 1536x864",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen-300x200.jpg",
+        "label": "Unit Residence 01 Kitchen 300x200",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen-1024x683.jpg",
+        "label": "Unit Residence 01 Kitchen 1024x683",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen-768x512.jpg",
+        "label": "Unit Residence 01 Kitchen 768x512",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen-1536x1024.jpg",
+        "label": "Unit Residence 01 Kitchen 1536x1024",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck-300x200.jpg",
+        "label": "PoolDeck 300x200",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck-1024x683.jpg",
+        "label": "PoolDeck 1024x683",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck-768x512.jpg",
+        "label": "PoolDeck 768x512",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck-1536x1024.jpg",
+        "label": "PoolDeck 1536x1024",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993-300x206.jpg",
+        "label": "DSC07993 300x206",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993-1024x702.jpg",
+        "label": "DSC07993 1024x702",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993-768x527.jpg",
+        "label": "DSC07993 768x527",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993-1536x1054.jpg",
+        "label": "DSC07993 1536x1054",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/lounge-300x182.jpg",
+        "label": "lounge 300x182",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/lounge-1024x620.jpg",
+        "label": "lounge 1024x620",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/lounge-768x465.jpg",
+        "label": "lounge 768x465",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/lounge-1536x929.jpg",
+        "label": "lounge 1536x929",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/spa-300x219.jpg",
+        "label": "spa 300x219",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/spa-1024x746.jpg",
+        "label": "spa 1024x746",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/spa-768x559.jpg",
+        "label": "spa 768x559",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/spa-1536x1119.jpg",
+        "label": "spa 1536x1119",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC09035-200x300.jpg",
+        "label": "DSC09035 200x300",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC09035-683x1024.jpg",
+        "label": "DSC09035 683x1024",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC09035-768x1152.jpg",
+        "label": "DSC09035 768x1152",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/design-226x300.jpg",
+        "label": "design 226x300",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/design-770x1024.jpg",
+        "label": "design 770x1024",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/design-768x1022.jpg",
+        "label": "design 768x1022",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/FineDining-300x215.jpg",
+        "label": "FineDining 300x215",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/FineDining-1024x734.jpg",
+        "label": "FineDining 1024x734",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/FineDining-768x551.jpg",
+        "label": "FineDining 768x551",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/PalmBeachIsland-300x187.jpg",
+        "label": "PalmBeachIsland 300x187",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/PalmBeachIsland-1024x640.jpg",
+        "label": "PalmBeachIsland 1024x640",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/PalmBeachIsland-768x480.jpg",
+        "label": "PalmBeachIsland 768x480",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/PalmBeachIsland-1536x960.jpg",
+        "label": "PalmBeachIsland 1536x960",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/paddleboard-300x274.jpg",
+        "label": "paddleboard 300x274",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/paddleboard-1024x937.jpg",
+        "label": "paddleboard 1024x937",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/paddleboard-768x702.jpg",
+        "label": "paddleboard 768x702",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/boutique-289x300.jpg",
+        "label": "boutique 289x300",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/boutique-985x1024.jpg",
+        "label": "boutique 985x1024",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/11/boutique-768x798.jpg",
+        "label": "boutique 768x798",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/EXT05-D2-Balcony_C2.jpg",
+        "label": "",
+        "sourcePage": "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/"
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/Hero_C5_2.jpg",
+        "label": "",
+        "sourcePage": "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/"
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/Lobby_C4.jpg",
+        "label": "",
+        "sourcePage": "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/"
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/Billiards.jpg",
+        "label": "",
+        "sourcePage": "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/"
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/PlayRoom.jpg",
+        "label": "",
+        "sourcePage": "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/"
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/EXT04_Pool_C1.jpg",
+        "label": "",
+        "sourcePage": "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/"
+      },
+      {
+        "url": "https://relatedgroup.com/wp-content/uploads/2025/01/INT04_living.jpg",
+        "label": "",
+        "sourcePage": "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R02.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/03/05.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R03.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R04.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/03/Residence01-1.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/R06.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH07.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH08.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH09.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH10.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH11.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/LH12.jpg",
+        "label": "",
+        "sourcePage": "https://theresidenceswestpalmbeach.com/floorplans/"
+      }
+    ],
+    "pdfCandidates": [
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res06.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.1.pdf",
+        "label": ""
+      }
+    ],
+    "errors": [
+      {
+        "url": {
+          "name": "Residence 02",
+          "beds": "2",
+          "baths": "2.5",
+          "interior_sq_ft": 1566,
+          "exterior_sq_ft": 302,
+          "total_sq_ft": 1868,
+          "price": "Request current pricing",
+          "image_url": "",
+          "pdf_url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+          "notes": "Published by official floor plan site."
+        },
+        "status": 0,
+        "error": "Failed to parse URL from [object Object]"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/xmlrpc.php?rsd",
+        "status": 403,
+        "error": "Forbidden"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

@@ -1,0 +1,1588 @@
+{
+  "projectId": "maison-dor",
+  "slug": "maison-dor",
+  "name": "Maison d'Or",
+  "address": "3705 S Flagler Dr, West Palm Beach, FL 33405",
+  "corridor": "South Flagler waterfront",
+  "officialWebsite": "https://livemaisondor.com/",
+  "status": "Sales launched / pre-construction",
+  "completion": "2028 timing reported in brokerage/market coverage; verify with sales team.",
+  "developer": "Kolter Urban and Perko Development Partners",
+  "architect": "10 Design",
+  "interiorDesigner": "Hirsch Bedner Associates",
+  "landscapeArchitect": "EDSA",
+  "residences": "39",
+  "stories": "19",
+  "unitMix": "Two-bedroom-plus-den residences; Three-bedroom residences; Four-bedroom residences; Estate collection; Lower penthouses; Full-floor penthouse",
+  "squareFootage": "Official fact sheet cites flow-through plans ranging from approximately 3,000 to 10,000 square feet.",
+  "pricing": "Starting at $5.7M per official site and January 2026 launch coverage; verify current availability.",
+  "amenities": [
+    "Grand arrival with porte-cochere",
+    "Grand lobby",
+    "Club room with bar",
+    "Formal dining with catering kitchen",
+    "Waterfront fitness center",
+    "Movement studio",
+    "Private training room",
+    "Waterfront pool and spa",
+    "Wellness center",
+    "Treatment room",
+    "Cold plunge",
+    "Sauna and steam rooms",
+    "Sports simulator swing suite",
+    "Screening theater",
+    "On-site salon room",
+    "Private wine storage and tasting lounge",
+    "Pet grooming facility",
+    "Two furnished guest suites"
+  ],
+  "salesContact": "Sales gallery: 3014 S Dixie Highway, West Palm Beach, FL 33405; +1 (561) 273-7900; info@LiveMaisondOr.com.",
+  "confidence": "High",
+  "notes": "Official site and launch coverage describe a 19-story tower. Some brokerage pages cite 18 stories; current record uses official/launch-source language. Coordinate is tied to existing 3705 S Flagler public-location records.",
+  "sourceUrls": [
+    "https://livemaisondor.com/",
+    "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+    "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach",
+    "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2025-agendas/2025-draft-city-commission-agendas/05_12_25_draft-city-commission-agenda.pdf"
+  ],
+  "assetLinks": [
+    {
+      "label": "MaisondOr Fact Sheet",
+      "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+      "type": "Floor plan",
+      "source": "github-master"
+    }
+  ],
+  "crawlSeeds": [
+    "https://livemaisondor.com/",
+    "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+    "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach",
+    "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2025-agendas/2025-draft-city-commission-agendas/05_12_25_draft-city-commission-agenda.pdf",
+    {
+      "name": "Fact sheet plan range",
+      "beds": "2 + den to 4 + den",
+      "baths": "Varies",
+      "interior_sq_ft": null,
+      "exterior_sq_ft": null,
+      "total_sq_ft": null,
+      "price": "Starting at $5.7M; verify current pricing",
+      "image_url": "",
+      "pdf_url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+      "notes": "Official fact sheet confirms plan range and residence feature program, but individual floor-plan PDFs were not publicly located in this pass."
+    }
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "",
+  "generatedPlaceholderCopies": [
+    "projects/maison-dor/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "pdf",
+      "status": "downloaded",
+      "type": "Floor plan",
+      "label": "MaisondOr Fact Sheet",
+      "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+      "path": "projects/maison-dor/floorplans/maisondor-fact-sheet--f983cc62.pdf",
+      "bytes": 1420264,
+      "source": "github-master"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617.jpg",
+      "path": "projects/maison-dor/images/candidates/01--official-candidate--livemaisondor.com--5af88e37.jpg",
+      "bytes": 237836,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://livemaisondor.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144.jpg",
+      "path": "projects/maison-dor/images/candidates/02--official-candidate--livemaisondor.com--24b9844b.jpg",
+      "bytes": 293769,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://livemaisondor.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1.png",
+      "path": "projects/maison-dor/images/candidates/03--official-candidate--livemaisondor.com--8b49905d.webp",
+      "bytes": 833806,
+      "contentType": "image/webp",
+      "sourcePage": "https://livemaisondor.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314.jpg",
+      "path": "projects/maison-dor/images/candidates/04--official-candidate--livemaisondor.com--e7e09b44.jpg",
+      "bytes": 497622,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://livemaisondor.com/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://livemaisondor.com/",
+        "title": "Maison d&#039;Or &#8211; A Legacy on Flagler Has Arrived",
+        "description": "Luxury Residences a legacy on south flagler Maison d’Or is a House of Gold, designed to reflect the ethereal golden light that fills every residence and transforms into panoramic sunrise and sunset views. Set on the storied waterfront of South Flagler Drive, at the crossroads of West Palm Beach,",
+        "ogImage": "https://livemaisondor.com/wp-content/uploads/2025/10/MaisondOr-CreativePlatform-IconFoil-R1-1.png"
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach",
+        "title": "Kolter Urban and Perko Development Launch Sales For Maison d'Or in West Palm Beach &mdash; PROFILEmiami South Florida Real Estate and Lifestyle",
+        "description": "Kolter Urban, a Florida-based real estate development and investment firm, and Perko Development Partners have launched and lead the development of Maison d’Or, a 19-story ultra-luxury boutique condominium located at 3705 South Flagler in West Palm Beach. This select collection of 39 thoughtfully designed residences blends architectural excellence with a robust amenity offering.",
+        "ogImage": "http://static1.squarespace.com/static/57916842bebafb827652722c/t/6964fe8aed60856494784a50/1768226446702/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=1500w"
+      },
+      {
+        "url": "https://livemaisondor.com/the-residences/",
+        "title": "The Residences &#8211; Maison d&#039;Or",
+        "description": "The Residences Effortless Luxury Each of these breathtaking homes feature soaring interiors and sweeping terraces with abundant outdoor gathering space—all immersed in golden light. A Limited-Collection of Just 39 Boutique Residences From $5.7M EXPLORE The FloorPlans Download the Fact Sheet Residence Features Furniture-ready waterfront",
+        "ogImage": "https://livemaisondor.com/wp-content/uploads/2025/10/MaisondOr-CreativePlatform-IconFoil-R1-1.png"
+      },
+      {
+        "url": "https://livemaisondor.com/the-amenities/",
+        "title": "The Amenities &#8211; Maison d&#039;Or",
+        "description": "The Amenities The Gold Standard Maison d’Or is home to an extensive suite of amenities and services, thoughtfully crafted to give residents the highest caliber of discretion and personalized attention. ExpLORE the Amenities EXPLORE The Services Suite of Amenities Elegant drop-off and arrival with artful porte-cochère On-site salon room Grand lobby",
+        "ogImage": "https://livemaisondor.com/wp-content/uploads/2025/10/MaisondOr-CreativePlatform-IconFoil-R1-1.png"
+      },
+      {
+        "url": "https://livemaisondor.com/the-gallery/",
+        "title": "The Gallery &#8211; Maison d&#039;Or",
+        "description": "Gallery Discover the vision that defines extraordinary living. From stunning architectural details to breathtaking interior finishes, each image captures the essence of refined elegance. Explore the beauty and sophistication of your future home.",
+        "ogImage": "https://livemaisondor.com/wp-content/uploads/2025/10/MaisondOr-CreativePlatform-IconFoil-R1-1.png"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://use.typekit.net/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/comments/feed/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/11/MaisonDor-Icon-Ochre.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flivemaisondor.com%2F",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flivemaisondor.com%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/plugins/genesis-blocks/dist/style-blocks.build.css?ver=1765394282",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/plugins/revslider/public/css/sr7.css?ver=6.7.39",
+        "label": ""
+      },
+      {
+        "url": "https://use.typekit.net/wgb8kmh.css?timestamp=1772655351&#038;ver=7.15.2",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/fusion-styles/0299ab0d393b22eeac27e561e9077d53.min.css?ver=3.15.2",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/plugins/revslider/public/js/libs/tptools.js?ver=6.7.39",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/plugins/revslider/public/js/sr7.js?ver=6.7.39",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-json/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-json/wp/v2/pages/361",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/xmlrpc.php?rsd",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/themes/Avada/includes/lib/assets/fonts/icomoon/awb-icons.woff",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/webfonts/fa-brands-400.woff2",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/webfonts/fa-regular-400.woff2",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/webfonts/fa-solid-900.woff2",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.gstatic.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-KCXGWC59",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logo-White-scaled.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/11/MaisonDor-Logo-Black-scaled.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/the-building/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/the-residences/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/the-amenities/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/the-neighborhood/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/the-gallery/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/the-team/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/in-the-press/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/contact",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/menu.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/menublck.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/author/michael/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logomark-WithoutResidences-White-scaled.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-4.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-8.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-6.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-5.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-7.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-7-1.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/logo-kolter-white-top-min-2.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Vector.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/MaisonDor-Realty-RGB-KO-e1774375525166.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/maison.dor.southflagler/",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/profile.php?id=61578730448443",
+        "label": ""
+      },
+      {
+        "url": "https://www.linkedin.com/company/maison-dor/",
+        "label": ""
+      },
+      {
+        "url": "https://www.youtube.com/@MaisonDorSouthFlagler",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/broker-toolkit-login/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/close.png",
+        "label": ""
+      },
+      {
+        "url": "https://3300gulfshore.com/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/02/eho.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/plugins/genesis-blocks/dist/assets/js/dismiss.js?ver=1765394282",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/fusion-scripts/10a2febe4f69b7ccbb6b30d5eb59f812.min.js?ver=3.15.2",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.callrail.com/companies/419268905/758c66f2f858a00925bb/12/swap.js",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+        "label": "(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML=\"window.__CF$cv$params={r:'9f956d14"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/10/MaisondOr-CreativePlatform-IconFoil-R1-1.png",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logo-White-200x46.png",
+        "label": "MaisonDor Logo White 200x46"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logo-White-400x92.png",
+        "label": "MaisonDor Logo White 400x92"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logo-White-600x138.png",
+        "label": "MaisonDor Logo White 600x138"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logo-White-800x184.png",
+        "label": "MaisonDor Logo White 800x184"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logo-White-1200x276.png",
+        "label": "MaisonDor Logo White 1200x276"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/11/MaisonDor-Logo-Black-200x46.png",
+        "label": "MaisonDor Logo Black 200x46"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/11/MaisonDor-Logo-Black-400x92.png",
+        "label": "MaisonDor Logo Black 400x92"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/11/MaisonDor-Logo-Black-600x138.png",
+        "label": "MaisonDor Logo Black 600x138"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/11/MaisonDor-Logo-Black-800x184.png",
+        "label": "MaisonDor Logo Black 800x184"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/11/MaisonDor-Logo-Black-1200x276.png",
+        "label": "MaisonDor Logo Black 1200x276"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Hover-Vista.webp",
+        "label": "Hover Vista"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logomark-WithoutResidences-White-200x110.png",
+        "label": "MaisonDor Logomark WithoutResidences White 200x110"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logomark-WithoutResidences-White-400x221.png",
+        "label": "MaisonDor Logomark WithoutResidences White 400x221"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logomark-WithoutResidences-White-600x331.png",
+        "label": "MaisonDor Logomark WithoutResidences White 600x331"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logomark-WithoutResidences-White-800x441.png",
+        "label": "MaisonDor Logomark WithoutResidences White 800x441"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisonDor-Logomark-WithoutResidences-White-1200x662.png",
+        "label": "MaisonDor Logomark WithoutResidences White 1200x662"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2025/11/MaisonDor-Icon-Ochre-200x234.png",
+        "label": "MaisonDor Icon Ochre 200x234"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617-200x193.jpg",
+        "label": "Hero East Face scaled e1776714416617 200x193"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617-400x386.jpg",
+        "label": "Hero East Face scaled e1776714416617 400x386"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617-600x579.jpg",
+        "label": "Hero East Face scaled e1776714416617 600x579"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617-800x772.jpg",
+        "label": "Hero East Face scaled e1776714416617 800x772"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144-200x64.jpg",
+        "label": "Residence A Great Room scaled e1776454596144 200x64"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144-400x129.jpg",
+        "label": "Residence A Great Room scaled e1776454596144 400x129"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144-600x193.jpg",
+        "label": "Residence A Great Room scaled e1776454596144 600x193"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144-800x257.jpg",
+        "label": "Residence A Great Room scaled e1776454596144 800x257"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144-1200x386.jpg",
+        "label": "Residence A Great Room scaled e1776454596144 1200x386"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1-200x241.png",
+        "label": "Maison dOr Cocktail 1 200x241"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1-400x483.png",
+        "label": "Maison dOr Cocktail 1 400x483"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1-600x724.png",
+        "label": "Maison dOr Cocktail 1 600x724"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314-200x66.jpg",
+        "label": "East Pool Deck scaled e1776454801314 200x66"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314-400x133.jpg",
+        "label": "East Pool Deck scaled e1776454801314 400x133"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314-600x199.jpg",
+        "label": "East Pool Deck scaled e1776454801314 600x199"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314-800x266.jpg",
+        "label": "East Pool Deck scaled e1776454801314 800x266"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314-1200x398.jpg",
+        "label": "East Pool Deck scaled e1776454801314 1200x398"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-4-200x239.png",
+        "label": "Maison dOr Cocktail 4 200x239"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-4-400x479.png",
+        "label": "Maison dOr Cocktail 4 400x479"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-4-600x718.png",
+        "label": "Maison dOr Cocktail 4 600x718"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-8-88x300.png",
+        "label": "Maison dOr Cocktail 8 88x300"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-6-200x281.png",
+        "label": "Maison dOr Cocktail 6 200x281"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-5-200x281.png",
+        "label": "Maison dOr Cocktail 5 200x281"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-7-200x281.png",
+        "label": "Maison dOr Cocktail 7 200x281"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-7-1-82x300.png",
+        "label": "Maison dOr Cocktail 7 1 82x300"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/MaisonDor-Realty-RGB-KO-e1774375525166-200x42.png",
+        "label": "MaisonDor Realty RGB KO e1774375525166 200x42"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/MaisonDor-Realty-RGB-KO-e1774375525166-400x85.png",
+        "label": "MaisonDor Realty RGB KO e1774375525166 400x85"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/MaisonDor-Realty-RGB-KO-e1774375525166-600x127.png",
+        "label": "MaisonDor Realty RGB KO e1774375525166 600x127"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/MaisonDor-Realty-RGB-KO-e1774375525166-800x170.png",
+        "label": "MaisonDor Realty RGB KO e1774375525166 800x170"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/02/eho-200x200.png",
+        "label": "eho 200x200"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/1512706412525-BUZAERXF5J9NWUFERDQS/favicon.ico?format=100w",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach",
+        "label": ""
+      },
+      {
+        "url": "http://static1.squarespace.com/static/57916842bebafb827652722c/t/6964fe8aed60856494784a50/1768226446702/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=1500w",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/",
+        "label": ""
+      },
+      {
+        "url": "https://p.typekit.net/",
+        "label": ""
+      },
+      {
+        "url": "https://use.typekit.net/ik/JdOgUSATOZkjc2ATHDwVaOniUUZlMD_ZinAZGh8i7XjfeCSIfFHN4UJLFRbh52jhWD9a5QIh52bkjcmKjAZK52JaFR9kFDJkjU7eMkG0jAFu-WsoShFGZAsude80ZkoRdhXCHKoyjamTiY8Djhy8ZYmC-Ao1Oco8if37OcBDOcu8OfG0SY4zZc8CZAuTjAuTO1FUiABkZWF3jAF8OcFzdP37O1FUiABkZWF3jAF8ShFGZAsude80ZkoRdhXCjAFu-WsoShFGZAsude80ZkoRdhXCjAFu-WsoShFGZAsude80Zko0ZWbCjWw0dA9CdeNRjAUGdaFXOYgkdhZTdeml-ABl-PoDSWmyScmDSeBRZPoRdhXCSY4zZc8CZAuTjAuTSc90jhNlOYFUiABkZWF3jAF8ShFGZAsude80ZkoRdhXCiaiaOcBRiA8XpWFR-emqiAUTdcS0jhNlOYiaikoyjamTiY8Djhy8ZYmC-Ao1Oco8ifUaiaS0jWw0dA9CiaiaO1gkdhZTdeml-ABl-PoDSWmyScmDSeBRZPoRdhXCiaiaO1gkdhZTdeml-ABl-W48OcFzdPUaiaS0SaBujW48SagyjhmDjhy8ZYmC-Ao1OcFzdPJwSY4zpe8ljPu0daZyJ68ciWsuScIlSYb7fbKnMsMMeMI6MKG4f5J7IMMjMkMfH6qJn3IbMg6IJMJ7fbKOMsMMeMS6MKG4f5w7IMMj2PMfH6qJRMIbMg6sJMJ7fbKemsMgeMw6MKG4fJsmIMIjgfMfH6qJ6m9bMs6YJMJ7fbK2msMgeMX6MKG4fJ4mIMIjIPMfqMe0vTKsg6.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/@sqs/polyfiller/1.6/legacy.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/@sqs/polyfiller/1.6/modern.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/visitor-site-error-reporter-a38266454b6c35f7-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-runtime-efd5f2134e4e70f4-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-moment-js-vendor-6f2a1f6ec9a41489-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/cldr-resource-pack-497d1337e70309e7-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-vendors-stable-b8d716935110c7b2-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-vendors-a5542c2814272dd7-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-6a459dad7444b31d-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/commerce-cd17439efa931e38-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/styles-compressed/commerce-d50e5960dc9fd059-min.en-US.css",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/user-account-core-322f9d2d9aca764c-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/styles-compressed/user-account-core-b31fa72f1ac27a50-min.en-US.css",
+        "label": ""
+      },
+      {
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/performance-c704c05d211c44da-min.en-US.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.search/520b59dc-4751-457e-86c9-e4199194dc3f_242/website.components.search.styles.css",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/a5dffbea-1efe-41dc-906d-6fe484d3e1c8_703/website.components.button.styles.css",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/404ed975-68f8-47a7-ac5c-a389a701daa8_705/website.components.form.styles.css",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.search/520b59dc-4751-457e-86c9-e4199194dc3f_242/website.components.search.visitor.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/a5dffbea-1efe-41dc-906d-6fe484d3e1c8_703/website.components.button.visitor.js",
+        "label": ""
+      },
+      {
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/404ed975-68f8-47a7-ac5c-a389a701daa8_705/website.components.form.visitor.js",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate?format=rss",
+        "label": ""
+      },
+      {
+        "url": "https://static1.squarespace.com/static/sitecss/57916842bebafb827652722c/102/65cd2e865e03741930ef08b4/65cd2e875e03741930ef08c5/0/site.css?nocustom=true",
+        "label": ""
+      },
+      {
+        "url": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7753703282958563",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-P6NZSLMF3W",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/profilemiami-events",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/profilemiami-past-real-estate-events",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/profilemiami-event-sponsorship",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/collaborate-with-us",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/development",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/residential",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/commercial",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/lifestyle",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/south-florida-real-estate-development-directory",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/about",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/profiletv",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/advertising",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/instagram",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/subscribe",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/contact-us",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/get-featured",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/1512706190205-E4TXXLTAW58U2CLLTFXV/PROFILEmiami-logo.png?format=1000w",
+        "label": ""
+      },
+      {
+        "url": "https://nomadwynwood.com/?utm_medium=Banners&utm_source=PROFILEmiami",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/1777651563844-QZH8CTUQSVYXP16XDILI/NOMAD-Banner-1150x250-01.gif",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/1768226547466-LBA26VQ7DDW8PN0B6PP9/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+4.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/1768226539698-AZABAIKIJWHAMHZWOML0/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+5.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/1768226557335-DNQT8JHHLF8MHQ8ZAELB/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+6.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/category/Development",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/category/Development+News",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/category/Development+Sales",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/category/News",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/category/News+%26+Features",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/category/Residential",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/category/West+Palm+Beach",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/Maison+d%27Or",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/Kolter+Urban",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/Perko+Development+Partners",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/News+%26+Features",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/News",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/Development+News",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/Development",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/Development+Sales",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/Residential",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/West+Palm+Beach",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/Featured",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/Hirsch+Bedner+Associates",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/EDSA",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/Maison+d%27Or+Realty+Sales+LLC",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/tag/3705+South+Flagler+Drive",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/2026/1/12/check-out-this-newly-completed-spec-home-on-miamis-venetian-islands-asking-599-million",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/2026/1/9/bi-group-usa-names-one-sothebys-international-realty-as-exclusive-sales-brokerage-for-parkside-development-in-brickell",
+        "label": ""
+      },
+      {
+        "url": "https://nomadwynwood.com/?utm_source=PROFILEmiami&utm_medium=Banners",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/814d88f2-b653-4ea9-b680-4eb63dae72c9/NOMAD-Banner-250x500-01.gif",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/2026/5/6/related-group-tricap-and-sydell-group-complete-nomad-residences-wynwood-miamis-arts-district-first-hospitality-infused-condominium",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/2026/5/4/pmg-and-lndmrk-development-break-ground-on-twenty-sixth-amp-2nd-wynwood-residences-after-securing-126-million-construction-loan",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/2026/4/30/13th-floor-investments-and-key-international-reveal-nobu-residences-at-619-brickell",
+        "label": ""
+      },
+      {
+        "url": "https://fridakahloresidences.com/?utm_source=ProfileMiami&utm_medium=banner&utm_campaign=02_2026",
+        "label": ""
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/156cb318-3b59-4728-b374-f103e353b55f/Frida+Kahlo+Wynwood+Residences+PMG+2.gif",
+        "label": ""
+      },
+      {
+        "url": "http://profilemiamire.com/privacy",
+        "label": ""
+      },
+      {
+        "url": "http://instagram.com/profilemiami",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/profilemiamire",
+        "label": ""
+      },
+      {
+        "url": "https://www.youtube.com/channel/UCsmEs6CCndyzR9dq4fhQL5w",
+        "label": ""
+      },
+      {
+        "url": "https://static1.squarespace.com/static/ta/57916842bebafb827652722c/0/scripts/site-bundle.js",
+        "label": ""
+      },
+      {
+        "url": "https://resources.infolinks.com/js/infolinks_main.js",
+        "label": ""
+      },
+      {
+        "url": "https://scontent.cdninstagram.com/t51.2885-19/s150x150/13707082_611304589077924_1263971310_a.jpg",
+        "label": "13707082 611304589077924 1263971310 a"
+      },
+      {
+        "url": "https://yt3.ggpht.com/-drbGnobpBw8/AAAAAAAAAAI/AAAAAAAAAAA/40ziDPZ4JZs/s88-c-k-no-mo-rj-c0xffffff/photo.jpg",
+        "label": "photo"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=100w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=300w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=750w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=1000w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=1500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=2500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=100w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=300w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=750w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=1000w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=1500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=2500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=100w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=300w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=750w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=1000w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=1500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=2500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flivemaisondor.com%2Fthe-residences%2F",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flivemaisondor.com%2Fthe-residences%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-json/wp/v2/pages/385",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/?p=385",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/download/MaisondOrFactSheet",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Mask-group-3.png",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-4-1.webp",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-10-1.webp",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/download/MaisondOrFloorPlans",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/listing/penthouse-lph-a/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/listing/penthouse-lph-b/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/listing/penthouse/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/listing/estate-a/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/listing/estate-b/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/listing/residence-a1/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/listing/residence-a/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/listing/residence-b/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/listing/residence-c1/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/listing/residence-c/",
+        "label": ""
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Estate-A-LPH-A-Great-Room.jpg",
+        "label": "Estate A LPH A Great Room"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Mask-group-3-200x111.png",
+        "label": "Mask group 3 200x111"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Mask-group-3-400x223.png",
+        "label": "Mask group 3 400x223"
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/menu.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/menublck.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617.jpg",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144.jpg",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314.jpg",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-4.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-8.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-6.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-5.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-7.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-7-1.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Vector.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/MaisonDor-Realty-RGB-KO-e1774375525166.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/close.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/02/eho.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Hover-Vista.webp",
+        "label": "Hover Vista",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617-200x193.jpg",
+        "label": "Hero East Face scaled e1776714416617 200x193",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617-400x386.jpg",
+        "label": "Hero East Face scaled e1776714416617 400x386",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617-600x579.jpg",
+        "label": "Hero East Face scaled e1776714416617 600x579",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617-800x772.jpg",
+        "label": "Hero East Face scaled e1776714416617 800x772",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144-200x64.jpg",
+        "label": "Residence A Great Room scaled e1776454596144 200x64",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144-400x129.jpg",
+        "label": "Residence A Great Room scaled e1776454596144 400x129",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144-600x193.jpg",
+        "label": "Residence A Great Room scaled e1776454596144 600x193",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144-800x257.jpg",
+        "label": "Residence A Great Room scaled e1776454596144 800x257",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144-1200x386.jpg",
+        "label": "Residence A Great Room scaled e1776454596144 1200x386",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1-200x241.png",
+        "label": "Maison dOr Cocktail 1 200x241",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1-400x483.png",
+        "label": "Maison dOr Cocktail 1 400x483",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1-600x724.png",
+        "label": "Maison dOr Cocktail 1 600x724",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314-200x66.jpg",
+        "label": "East Pool Deck scaled e1776454801314 200x66",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314-400x133.jpg",
+        "label": "East Pool Deck scaled e1776454801314 400x133",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314-600x199.jpg",
+        "label": "East Pool Deck scaled e1776454801314 600x199",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314-800x266.jpg",
+        "label": "East Pool Deck scaled e1776454801314 800x266",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314-1200x398.jpg",
+        "label": "East Pool Deck scaled e1776454801314 1200x398",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-4-200x239.png",
+        "label": "Maison dOr Cocktail 4 200x239",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-4-400x479.png",
+        "label": "Maison dOr Cocktail 4 400x479",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-4-600x718.png",
+        "label": "Maison dOr Cocktail 4 600x718",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-8-88x300.png",
+        "label": "Maison dOr Cocktail 8 88x300",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-6-200x281.png",
+        "label": "Maison dOr Cocktail 6 200x281",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-5-200x281.png",
+        "label": "Maison dOr Cocktail 5 200x281",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-7-200x281.png",
+        "label": "Maison dOr Cocktail 7 200x281",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-7-1-82x300.png",
+        "label": "Maison dOr Cocktail 7 1 82x300",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/MaisonDor-Realty-RGB-KO-e1774375525166-200x42.png",
+        "label": "MaisonDor Realty RGB KO e1774375525166 200x42",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/MaisonDor-Realty-RGB-KO-e1774375525166-400x85.png",
+        "label": "MaisonDor Realty RGB KO e1774375525166 400x85",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/MaisonDor-Realty-RGB-KO-e1774375525166-600x127.png",
+        "label": "MaisonDor Realty RGB KO e1774375525166 600x127",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/MaisonDor-Realty-RGB-KO-e1774375525166-800x170.png",
+        "label": "MaisonDor Realty RGB KO e1774375525166 800x170",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/02/eho-200x200.png",
+        "label": "eho 200x200",
+        "sourcePage": "https://livemaisondor.com/"
+      },
+      {
+        "url": "http://static1.squarespace.com/static/57916842bebafb827652722c/t/6964fe8aed60856494784a50/1768226446702/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=1500w",
+        "label": "",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg",
+        "label": "",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg",
+        "label": "",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg",
+        "label": "",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/1768226547466-LBA26VQ7DDW8PN0B6PP9/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+4.jpg",
+        "label": "",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/1768226539698-AZABAIKIJWHAMHZWOML0/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+5.jpg",
+        "label": "",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/1768226557335-DNQT8JHHLF8MHQ8ZAELB/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+6.jpg",
+        "label": "",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://scontent.cdninstagram.com/t51.2885-19/s150x150/13707082_611304589077924_1263971310_a.jpg",
+        "label": "13707082 611304589077924 1263971310 a",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://yt3.ggpht.com/-drbGnobpBw8/AAAAAAAAAAI/AAAAAAAAAAA/40ziDPZ4JZs/s88-c-k-no-mo-rj-c0xffffff/photo.jpg",
+        "label": "photo",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=100w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=300w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=750w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=1000w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=1500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a2a8571c-d35c-4cc8-9622-8e2559539758/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+1.jpg?format=2500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+1",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=100w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=300w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=750w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=1000w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=1500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/125f8006-0784-40ba-85cd-358817f58e87/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+3.jpg?format=2500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+3",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=100w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=300w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=750w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=1000w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=1500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/57916842bebafb827652722c/a53a188f-3a16-43d0-8cb7-dd4148a86741/Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d%27Or+in+West+Palm+Beach+2.jpg?format=2500w",
+        "label": "Kolter+Urban+and+Perko+Development+Launch+Sales+For+Maison+d'Or+in+West+Palm+Beach+2",
+        "sourcePage": "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Mask-group-3.png",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/the-residences/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-4-1.webp",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/the-residences/"
+      },
+      {
+        "url": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-10-1.webp",
+        "label": "",
+        "sourcePage": "https://livemaisondor.com/the-residences/"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": [
+      {
+        "url": {
+          "name": "Fact sheet plan range",
+          "beds": "2 + den to 4 + den",
+          "baths": "Varies",
+          "interior_sq_ft": null,
+          "exterior_sq_ft": null,
+          "total_sq_ft": null,
+          "price": "Starting at $5.7M; verify current pricing",
+          "image_url": "",
+          "pdf_url": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+          "notes": "Official fact sheet confirms plan range and residence feature program, but individual floor-plan PDFs were not publicly located in this pass."
+        },
+        "status": 0,
+        "error": "Failed to parse URL from [object Object]"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

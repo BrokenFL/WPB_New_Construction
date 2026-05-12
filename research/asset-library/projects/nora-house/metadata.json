@@ -1,0 +1,945 @@
+{
+  "projectId": "nora-house",
+  "slug": "nora-house",
+  "name": "NORA House",
+  "address": "NORA District; sales office at 955 N Railroad Avenue, Suite B, West Palm Beach, FL 33401",
+  "corridor": "NORA District",
+  "officialWebsite": "https://norahouse.com/",
+  "status": "Sales launched / early interest",
+  "completion": "Expected 2029 in March 2026 reporting; verify with sales team.",
+  "developer": "The Ronto Group",
+  "architect": "Swedroe Architecture",
+  "interiorDesigner": "Lillian Wu Studio",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "117",
+  "stories": "11",
+  "unitMix": "Two-bedroom residences; Three-bedroom residences; Four-bedroom residences",
+  "squareFootage": "Official site lists 1,460 to 6,700 total square feet; March 2026 reporting cites typical units around 1,500 to 2,900 square feet.",
+  "pricing": "Reported range from $2M to $6.5M; official site also references residences from the high $1M's. Verify current pricing.",
+  "amenities": [
+    "Two rooftops",
+    "Resort-style pool",
+    "Wellness center",
+    "Two pickleball courts",
+    "Hot and cold plunge pools",
+    "Steam and sauna rooms",
+    "Private treatment room",
+    "Yoga lawn",
+    "Billiards and arcade games",
+    "Two-lane bowling alley",
+    "Golf simulator",
+    "Outdoor bar",
+    "Fourth-level lap pool and spa",
+    "Six guest suites",
+    "Boardroom",
+    "Co-working space",
+    "Bicycle storage",
+    "Pet grooming station"
+  ],
+  "salesContact": "955 N Railroad Avenue, Suite B, West Palm Beach; 561-513-6165.",
+  "confidence": "Low",
+  "notes": "Seed notes conflict between inquiry address and 1105 N Dixie Highway reporting. Early planning coverage referenced 122 proposed condos; March 2026 sales-launch reporting says 117 residences. Current record uses the newer sales-launch figure.",
+  "sourceUrls": [
+    "https://norahouse.com/",
+    "https://norahouse.com/amenities/",
+    "https://norahouse.com/team/",
+    "https://norahouse.com/floorplan/residence-01/",
+    "https://norawpb.com/wp-content/uploads/2026/03/The-Real-Deal-Ronto-partners-launch-Nora-House-condos-in-West-Palm-Beach-3.23.26.pdf",
+    "https://norawpb.com/wp-content/uploads/2025/08/The-Real-Deal-Nora-developers-plan-122-condos-350-apartments-at-West-Palm-Beach-district-8.1.25.pdf",
+    "https://profilemiamire.com/miamirealestate/2026/3/26/the-ronto-group-launches-sales-for-nora-house-in-west-palm-beachs-nora-district"
+  ],
+  "assetLinks": [
+    {
+      "label": "residence 01",
+      "url": "https://norahouse.com/floorplan/residence-01/",
+      "type": "Floor plan",
+      "source": "github-master"
+    }
+  ],
+  "crawlSeeds": [
+    "https://norahouse.com/",
+    "https://norahouse.com/amenities/",
+    "https://norahouse.com/team/",
+    "https://norahouse.com/floorplan/residence-01/",
+    "https://norawpb.com/wp-content/uploads/2026/03/The-Real-Deal-Ronto-partners-launch-Nora-House-condos-in-West-Palm-Beach-3.23.26.pdf",
+    "https://norawpb.com/wp-content/uploads/2025/08/The-Real-Deal-Nora-developers-plan-122-condos-350-apartments-at-West-Palm-Beach-district-8.1.25.pdf",
+    "https://profilemiamire.com/miamirealestate/2026/3/26/the-ronto-group-launches-sales-for-nora-house-in-west-palm-beachs-nora-district",
+    {
+      "name": "Residence 01",
+      "beds": "3",
+      "baths": "3.5",
+      "interior_sq_ft": 2400,
+      "exterior_sq_ft": 485,
+      "total_sq_ft": 2885,
+      "price": "Residences from the high $1M's; verify current pricing",
+      "image_url": "",
+      "pdf_url": "https://norahouse.com/floorplan/residence-01/",
+      "notes": "Official floor plan page; exterior described as nearly 485 square feet."
+    }
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "Downtown Residential Wave",
+  "generatedPlaceholderCopies": [
+    "projects/nora-house/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl.jpg",
+      "path": "projects/nora-house/images/candidates/01--official-candidate--norahouse.com--7f3c7c65.jpg",
+      "bytes": 351320,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://norahouse.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2.webp",
+      "path": "projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
+      "bytes": 549022,
+      "contentType": "image/webp",
+      "sourcePage": "https://norahouse.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl-1024x606.jpg",
+      "path": "projects/nora-house/images/candidates/03--official-candidate--norahouse.com--aaf83d65.jpg",
+      "bytes": 81721,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://norahouse.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl-1920x1136.jpg",
+      "path": "projects/nora-house/images/candidates/04--official-candidate--norahouse.com--3fa1f332.jpg",
+      "bytes": 251504,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://norahouse.com/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://norahouse.com/",
+        "title": "Nora House | Luxury Condos in West Palm Beach",
+        "description": "Discover Nora House, new luxury condos in the vibrant Nora District of West Palm Beach. Offering curated design, rooftop amenities, and a walkable lifestyle.",
+        "ogImage": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl.jpg"
+      },
+      {
+        "url": "https://norahouse.com/amenities/",
+        "title": "Rooftop Amenities | Nora House West Palm Beach",
+        "description": "Explore rooftop amenities at Nora House, including two pools, a wellness studio, yoga lawn, golf simulator, and private guest suites. Live above it all.",
+        "ogImage": "https://norahouse.com/wp-content/uploads/2026/02/Picklebal-1920x1344.jpg"
+      },
+      {
+        "url": "https://norahouse.com/team/",
+        "title": "Our Development Team | Nora House West Palm Beach",
+        "description": "Meet the visionary team behind Nora House, including developer The Ronto Group, Swedroe Architecture, and interior designer Lillian Wu Studio.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://norahouse.com/floorplan/residence-01/",
+        "title": "Residence 01 Floor Plan | Nora House West Palm Beach",
+        "description": "View the floor plan for Residence 01, a 3.0-bed, 3.5-bath luxury condo at Nora House with 2400 sq ft of interior space and a generous private terrace.",
+        "ogImage": "https://norahouse.com/wp-content/uploads/2026/02/residence_01-rev-2.webp"
+      },
+      {
+        "url": "https://norahouse.com/press/",
+        "title": "Latest Press and Media Coverage | Nora House West Palm Beach",
+        "description": "Explore the latest news and press highlights for Nora House, the premier luxury condominium in West Palm Beach’s Nora District. Discover a new standard of elevated, walkable urban living.",
+        "ogImage": ""
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://norahouse.com/wp-content/cache/perfmatters/norahouse.com/css/front.used.css?ver=1777573682",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/",
+        "label": ""
+      },
+      {
+        "url": "https://use.typekit.net/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/fluentform/assets/css/fluent-forms-elementor-widget.css?ver=6.2.2",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor/assets/css/starter-animations.css?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://use.typekit.net/syp1dtt.css?ver=2.1.1",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor/assets/css/wcf-addons.min.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/css/wcf-icon.min.css?ver=1.0.0",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/css/wcf-addons-ex.min.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=DM+Sans%3A300%2C400%3B500%2C600%2C700%2C800%2C900%7CSpace+Grotesk%3A400%3B500%2C600%2C700&#038;ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/themes/hello-animation/assets/css/master.min.css?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/themes/hello-animation/assets/css/custom-icons.min.css?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/3d-flipbook-dflip-lite/assets/css/dflip.min.css?ver=2.4.27",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/elementor/css/post-6.css?ver=1778129450",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor/assets/css/widgets/button-pro.min.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/css/widget-video.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInRight.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/fluentform/assets/css/fluent-forms-public.css?ver=6.2.2",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/fluentform/assets/css/fluentform-public-default.css?ver=6.2.2",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/elementor/css/post-253.css?ver=1778129447",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor/assets/js/wcf-addons.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/cropped-favicon-nora-1-32x32.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/cropped-favicon-nora-1-192x192.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/cropped-favicon-nora-1-180x180.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/Nora_House_Orange.svg",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/amenities/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/floorplan/residence-01/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/features-finishes/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/location/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/the-neighborhood/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/team/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/press/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/contact/",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-PHGK6DQX",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://player.vimeo.com/video/1171135104?color&autopause=0&loop=0&muted=0&title=0&portrait=0&byline=0#t=",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/around-town/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2.webp",
+        "label": ""
+      },
+      {
+        "url": "https://www.ronto.com/",
+        "label": ""
+      },
+      {
+        "url": "https://wheelockst.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.elliman.com/",
+        "label": ""
+      },
+      {
+        "url": "https://norawpb.com/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/privacy-policy/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/realtor-resources/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/disclaimer/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/elementor/css/post-80.css?ver=1778129449",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/css/widgets/animated-offcanvas.min.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor/assets/css/widgets/nav-menu.min.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/elementor/css/post-115.css?ver=1778129448",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/css/widget-icon-box.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js?ver=850",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/fluentform/assets/js/fluent-forms-elementor-widget.js?ver=6.2.2",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor/assets/js/starter-animations.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/themes/hello-animation/assets/js/skip-link-focus-fix.min.js?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/themes/hello-animation/assets/js/script.min.js?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/3d-flipbook-dflip-lite/assets/js/dflip.min.js?ver=2.4.27",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/lib/gsap.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/lib/ScrollSmoother.min.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor/assets/js/widgets/button-pro.min.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/lib/ScrollTrigger.min.js?ver=3.13",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/js/sticky-pin.min.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/lib/ScrollToPlugin.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/js/aae-scroll-to-ele.min.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/lib/SplitText.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/js/wcf-addons-ex.min.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/js/animations.min.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/js/one-page-scroll.min.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor-pro/assets/js/animated-offcanvas.min.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor/assets/js/widgets/nav-menu.min.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/fluentform/assets/libs/jquery.mask.min.js?ver=1.14.15",
+        "label": ""
+      },
+      {
+        "url": "https://moderate.cleantalk.org/ct-bot-detector-wrapper.js?ver=6.2.2",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/fluentform/assets/js/fluentform-advanced.js?ver=6.2.2",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/fluentform/assets/js/form-submission.js?ver=6.2.2",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/$%7Bdata.permalink%20||%20data.slug%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/$%7Bdata.featured_img.medium%20||%20data.featured_img.large%20||%20data.featured_img.full%20||",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/$%7Bimage.url%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/$%7Bimg.url%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+        "label": "(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML=\"window.__CF$cv$params={r:'9f956ceb"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/cropped-favicon-nora-1-270x270.jpg",
+        "label": "cropped favicon nora 1 270x270"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl-1024x606.jpg",
+        "label": "nora sunset fnl 1024x606"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl-1920x1136.jpg",
+        "label": "nora sunset fnl 1920x1136"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2-1024x606.webp",
+        "label": "2026.02.18 CG Pender front rev 2 1024x606"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2-1920x1136.webp",
+        "label": "2026.02.18 CG Pender front rev 2 1920x1136"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/cache/perfmatters/norahouse.com/css/page-132.used.css?ver=1777573793",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor/assets/css/widgets/image-gallery.min.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/elementor/css/post-132.css?ver=1778129448",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/Picklebal-1920x1344.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/Pool-Vignette-rev-2-vert-1280x1920.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/2026-02-10_RontoGroup_Rooftop_Terrace_cam01-2-1920x1200.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/front_02_fixed_contrast-1920x1345.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/nora-pool-gathering.webp",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/nora-house-palm-beach_Rev-2-1.webp",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/animation-addons-for-elementor/assets/js/widgets/image-gallery.js?ver=2.6.3",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/amenities/$%7Bdata.permalink%20||%20data.slug%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/amenities/$%7Bdata.featured_img.medium%20||%20data.featured_img.large%20||%20data.featured_img.full%20||",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/amenities/$%7Bimage.url%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/amenities/$%7Bimg.url%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/Picklebal-1024x717.jpg",
+        "label": "Picklebal 1024x717"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/Picklebal.jpg",
+        "label": "Picklebal"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/Pool-Vignette-rev-2-vert-683x1024.jpg",
+        "label": "Pool Vignette rev 2 vert 683x1024"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/Pool-Vignette-rev-2-vert.jpg",
+        "label": "Pool Vignette rev 2 vert"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/2026-02-10_RontoGroup_Rooftop_Terrace_cam01-2-1024x640.jpg",
+        "label": "2026 02 10 RontoGroup Rooftop Terrace cam01 2 1024x640"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/2026-02-10_RontoGroup_Rooftop_Terrace_cam01-2.jpg",
+        "label": "2026 02 10 RontoGroup Rooftop Terrace cam01 2"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/front_02_fixed_contrast-1024x717.jpg",
+        "label": "front 02 fixed contrast 1024x717"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/front_02_fixed_contrast.jpg",
+        "label": "front 02 fixed contrast"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/nora-pool-gathering-1024x711.webp",
+        "label": "nora pool gathering 1024x711"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/nora-pool-gathering-1920x1333.webp",
+        "label": "nora pool gathering 1920x1333"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/nora-house-palm-beach_Rev-2-1-1024x920.webp",
+        "label": "nora house palm beach Rev 2 1 1024x920"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/cache/perfmatters/norahouse.com/css/page-112.used.css?ver=1777577909",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/elementor/css/post-112.css?ver=1778129448",
+        "label": ""
+      },
+      {
+        "url": "https://swedroe.com/",
+        "label": ""
+      },
+      {
+        "url": "https://lwustudio.com/",
+        "label": ""
+      },
+      {
+        "url": "https://connorgaskins.com/",
+        "label": ""
+      },
+      {
+        "url": "https://dsboca.com/",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/team/$%7Bdata.permalink%20||%20data.slug%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/team/$%7Bdata.featured_img.medium%20||%20data.featured_img.large%20||%20data.featured_img.full%20||",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/team/$%7Bimage.url%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/team/$%7Bimg.url%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/cache/perfmatters/norahouse.com/css/floorplan.used.css?ver=1777573691",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/residence_01-rev-2.webp",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/inner-image-zoom@1.0.1/umd/index.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/elementor/css/post-473.css?ver=1778129447",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/floorplan/residence-01/$%7Bdata.permalink%20||%20data.slug%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/floorplan/residence-01/$%7Bdata.featured_img.medium%20||%20data.featured_img.large%20||%20data.featured_img.full%20||",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/floorplan/residence-01/$%7Bimage.url%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/floorplan/residence-01/$%7Bimg.url%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/residence_01-rev-2-1024x768.webp",
+        "label": "residence 01 rev 2 1024x768"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/residence_01-rev-2-1920x1440.webp",
+        "label": "residence 01 rev 2 1920x1440"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/cache/perfmatters/norahouse.com/css/page-660.used.css?ver=1777577579",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/plugins/elementor/assets/css/widget-image-box.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/elementor/css/post-660.css?ver=1778129446",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/the-rise-of-the-15-minute-luxury-neighborhood/",
+        "label": ""
+      },
+      {
+        "url": "https://www.forbes.com/sites/bradhunter/2026/04/28/place-making-in-the-north-end-of-west-palm-beach-a-case-study/",
+        "label": ""
+      },
+      {
+        "url": "https://www.wptv.com/news/region-c-palm-beach-county/west-palm-beach/empty-lots-to-luxury-living-multimillion-dollar-condos-coming-to-west-palm-beachs-growing-nora-district",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/Resident-Magazine-The-Ronto-Group-Launches-Sales-for-Nora-House-Marking-the-First-Residential-Launch-Within-the-Nora-District-3.28.26.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://profilemiamire.com/miamirealestate/2026/3/26/the-ronto-group-launches-sales-for-nora-house-in-west-palm-beachs-nora-district",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/Florida-of-Tomorrow-The-Nora-District-launches-its-first-residential-expansion-in-West-Palm-Beach-3.23.26.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/South-Florida-Business-and-Wealth-Nora-District-Adds-First-Residential-Tower-3.23.26.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/South-Florida-Business-Journal-Developer-launches-sales-for-first-condo-in-emerging-Nora-District-3.23.26.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/The-Real-Deal-Ronto-partners-launch-Nora-House-condos-in-West-Palm-Beach-3.23.26.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/World-Red-Eye-@norawestpalm-is-stepping-into-its-next-chapter-with-the-debut-of-its-first-residential-address.-3.24.26.pdf",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/press/$%7Bdata.permalink%20||%20data.slug%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/press/$%7Bdata.featured_img.medium%20||%20data.featured_img.large%20||%20data.featured_img.full%20||",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/press/$%7Bimage.url%7D",
+        "label": ""
+      },
+      {
+        "url": "https://norahouse.com/press/$%7Bimg.url%7D",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl.jpg",
+        "label": "",
+        "sourcePage": "https://norahouse.com/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2.webp",
+        "label": "",
+        "sourcePage": "https://norahouse.com/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl-1024x606.jpg",
+        "label": "nora sunset fnl 1024x606",
+        "sourcePage": "https://norahouse.com/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl-1920x1136.jpg",
+        "label": "nora sunset fnl 1920x1136",
+        "sourcePage": "https://norahouse.com/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2-1024x606.webp",
+        "label": "2026.02.18 CG Pender front rev 2 1024x606",
+        "sourcePage": "https://norahouse.com/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2-1920x1136.webp",
+        "label": "2026.02.18 CG Pender front rev 2 1920x1136",
+        "sourcePage": "https://norahouse.com/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/Picklebal-1920x1344.jpg",
+        "label": "",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/Pool-Vignette-rev-2-vert-1280x1920.jpg",
+        "label": "",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/2026-02-10_RontoGroup_Rooftop_Terrace_cam01-2-1920x1200.jpg",
+        "label": "",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/front_02_fixed_contrast-1920x1345.jpg",
+        "label": "",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/nora-pool-gathering.webp",
+        "label": "",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/nora-house-palm-beach_Rev-2-1.webp",
+        "label": "",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/Picklebal-1024x717.jpg",
+        "label": "Picklebal 1024x717",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/Picklebal.jpg",
+        "label": "Picklebal",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/Pool-Vignette-rev-2-vert-683x1024.jpg",
+        "label": "Pool Vignette rev 2 vert 683x1024",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/Pool-Vignette-rev-2-vert.jpg",
+        "label": "Pool Vignette rev 2 vert",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/2026-02-10_RontoGroup_Rooftop_Terrace_cam01-2-1024x640.jpg",
+        "label": "2026 02 10 RontoGroup Rooftop Terrace cam01 2 1024x640",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/2026-02-10_RontoGroup_Rooftop_Terrace_cam01-2.jpg",
+        "label": "2026 02 10 RontoGroup Rooftop Terrace cam01 2",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/front_02_fixed_contrast-1024x717.jpg",
+        "label": "front 02 fixed contrast 1024x717",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/front_02_fixed_contrast.jpg",
+        "label": "front 02 fixed contrast",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/nora-pool-gathering-1024x711.webp",
+        "label": "nora pool gathering 1024x711",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2025/12/nora-pool-gathering-1920x1333.webp",
+        "label": "nora pool gathering 1920x1333",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/03/nora-house-palm-beach_Rev-2-1-1024x920.webp",
+        "label": "nora house palm beach Rev 2 1 1024x920",
+        "sourcePage": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/residence_01-rev-2.webp",
+        "label": "",
+        "sourcePage": "https://norahouse.com/floorplan/residence-01/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/residence_01-rev-2-1024x768.webp",
+        "label": "residence 01 rev 2 1024x768",
+        "sourcePage": "https://norahouse.com/floorplan/residence-01/"
+      },
+      {
+        "url": "https://norahouse.com/wp-content/uploads/2026/02/residence_01-rev-2-1920x1440.webp",
+        "label": "residence 01 rev 2 1920x1440",
+        "sourcePage": "https://norahouse.com/floorplan/residence-01/"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": []
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}

@@ -1,0 +1,108 @@
+{
+  "project": "Olara",
+  "updated": "2026-05-10",
+  "mediaBase": "/projects/olara/media/",
+  "docsBase": "/projects/olara/docs/",
+  "placements": [
+    {
+      "role": "desktopHero",
+      "file": "media/olara-hero-exterior-1536x1024.png",
+      "usage": "Primary full-bleed exterior hero"
+    },
+    {
+      "role": "mobileHero",
+      "file": "media/olara-mobile-hero-exterior-1080x1350.png",
+      "usage": "Portrait hero source for mobile"
+    },
+    {
+      "role": "galleryCard",
+      "file": "media/olara-gallery-card-pool-1600x2000.png",
+      "usage": "Vertical pool lifestyle card"
+    },
+    {
+      "role": "arrivalLobby",
+      "file": "media/olara-arrival-valet-lobby-2400x1600.png",
+      "usage": "Valet, lobby, and arrival section"
+    },
+    {
+      "role": "residenceTerrace",
+      "file": "media/olara-residence-terrace-sunrise-2400x1600.png",
+      "usage": "Residence terrace feature image"
+    },
+    {
+      "role": "residenceLiving",
+      "file": "media/olara-residence-living-room-moonlight-2400x1600.png",
+      "usage": "Living room gallery card"
+    },
+    {
+      "role": "residenceKitchen",
+      "file": "media/olara-residence-kitchen-evening-2400x1600.png",
+      "usage": "Kitchen and entertaining gallery card"
+    },
+    {
+      "role": "residenceBath",
+      "file": "media/olara-residence-primary-bath-2400x1600.png",
+      "usage": "Primary bathroom gallery card"
+    },
+    {
+      "role": "viewBalcony",
+      "file": "media/olara-view-balcony-intracoastal-2400x1600.png",
+      "usage": "Balcony view panel"
+    },
+    {
+      "role": "viewTerrace",
+      "file": "media/olara-view-east-intracoastal-ocean-2400x1600.png",
+      "usage": "East view panel"
+    },
+    {
+      "role": "amenityGym",
+      "file": "media/olara-amenity-gym-2400x1600.png",
+      "usage": "Fitness amenity card"
+    },
+    {
+      "role": "amenityPoolDeck",
+      "file": "media/olara-amenity-rooftop-pool-reading-2400x1600.png",
+      "usage": "Pool deck amenity card"
+    },
+    {
+      "role": "amenitySpa",
+      "file": "media/olara-amenity-spa-relaxation-2400x1600.png",
+      "usage": "Spa amenity card"
+    },
+    {
+      "role": "amenityPlunge",
+      "file": "media/olara-amenity-hot-cold-plunge-2400x1600.png",
+      "usage": "Hot and cold plunge amenity card"
+    },
+    {
+      "role": "amenityVeranda",
+      "file": "media/olara-amenity-pool-veranda-refreshments-2400x1600.png",
+      "usage": "Pool veranda amenity card"
+    },
+    {
+      "role": "marina",
+      "file": "media/olara-marina-boat-dock-2400x1600.png",
+      "usage": "Marina lifestyle section"
+    },
+    {
+      "role": "logo",
+      "file": "media/olara-logo-monogram-2000x2000.png",
+      "usage": "Brand mark in navigation"
+    },
+    {
+      "role": "brochure",
+      "file": "docs/olara-rack-brochure-digital-032026.pdf",
+      "usage": "User-supplied brochure download"
+    },
+    {
+      "role": "floorplans",
+      "file": "docs/olara-floorplans-all-march-2026.pdf",
+      "usage": "Complete floorplan packet"
+    },
+    {
+      "role": "individualFloorplans",
+      "file": "docs/floorplans/",
+      "usage": "Residence A through Z individual plan PDFs where available"
+    }
+  ]
+}

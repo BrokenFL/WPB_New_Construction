@@ -1,0 +1,1533 @@
+{
+  "projectId": "alba-palm-beach",
+  "slug": "alba-palm-beach",
+  "name": "Alba Palm Beach",
+  "address": "4714 N Flagler Dr, West Palm Beach, FL 33407",
+  "corridor": "Northwood / North Flagler",
+  "officialWebsite": "https://www.albapalmbeach.com/",
+  "status": "Under construction / topped out",
+  "completion": "Planned Spring 2026 delivery reported by Florida YIMBY; verify with sales team.",
+  "developer": "BGI Companies",
+  "architect": "Spina O'Rourke + Partners",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "residences": "55",
+  "stories": "22",
+  "unitMix": "Condominium residences; Townhomes",
+  "squareFootage": "Not publicly confirmed",
+  "pricing": "Lower penthouse collection reported from $6.95M; request current full availability.",
+  "amenities": [
+    "Private elevator access in lower penthouse collection",
+    "Triple-exposure layouts in select lower penthouses",
+    "Two dedicated parking spaces for lower penthouse residences reported by Florida YIMBY"
+  ],
+  "salesContact": "Not publicly confirmed",
+  "confidence": "Medium",
+  "notes": "Most verified detail came from reporting and official web presence; floor plans were not located in a public official PDF set during this pass.",
+  "sourceUrls": [
+    "https://www.albapalmbeach.com/",
+    "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html",
+    "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html",
+    "https://floridayimby.com/2025/04/alba-palm-beach-tops-out-at-4714-north-flagler-drive-in-west-palm-beach.html"
+  ],
+  "assetLinks": [],
+  "crawlSeeds": [
+    "https://www.albapalmbeach.com/",
+    "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html",
+    "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html",
+    "https://floridayimby.com/2025/04/alba-palm-beach-tops-out-at-4714-north-flagler-drive-in-west-palm-beach.html"
+  ],
+  "generatedAssets": [
+    "/assets/downtown-wpb-hero-editorial.png"
+  ],
+  "localModelUri": "",
+  "localScenario": "North Flagler Pipeline",
+  "generatedPlaceholderCopies": [
+    "projects/alba-palm-beach/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+  ],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch.jpg",
+      "path": "projects/alba-palm-beach/images/candidates/01--official-candidate--albapalmbeach.com--11aa06d4.jpg",
+      "bytes": 135693,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.albapalmbeach.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.albapalmbeach.com/wp-content/uploads/clock-tower.jpg",
+      "path": "projects/alba-palm-beach/images/candidates/02--official-candidate--albapalmbeach.com--7ba18948.jpg",
+      "bytes": 94453,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.albapalmbeach.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.albapalmbeach.com/wp-content/uploads/AlbaDevelopers02-22_82_grayscale-1.png",
+      "path": "projects/alba-palm-beach/images/candidates/03--official-candidate--albapalmbeach.com--74f2d493.png",
+      "bytes": 443793,
+      "contentType": "image/png",
+      "sourcePage": "https://www.albapalmbeach.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.albapalmbeach.com/wp-content/uploads/CAM_08_aerial_sunset_FINAL_02.jpeg",
+      "path": "projects/alba-palm-beach/images/candidates/04--official-candidate--albapalmbeach.com--c0fe2ffd.jpg",
+      "bytes": 886860,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.albapalmbeach.com/"
+    }
+  ],
+  "crawlFindings": {
+    "pages": [
+      {
+        "url": "https://www.albapalmbeach.com/",
+        "title": "Waterfront Luxury Condos For Sale West Palm Beach | ALBA Palm Beach - New Condos",
+        "description": "At Alba Palm Beach, blissful days in the sun, chic evenings of world-class culture and entertainment, and an unmatched sense of serenity can be yours. To know more, call us at 561.933.5393.",
+        "ogImage": "https://www.albapalmbeach.com/wp-content/uploads/CAM_08_aerial_sunset_FINAL_02.jpeg"
+      },
+      {
+        "url": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html",
+        "title": "Construction Progresses on 22-Story Alba Palm Beach at 4714 North Flagler Drive in Northwood, West Palm Beach - Florida YIMBY",
+        "description": "Florida YIMBY says \"Yes In My Backyard\" to positive new development in Florida.",
+        "ogImage": "https://floridayimby.com/wp-content/uploads/2023/11/Alba-dock_view_cropped-1.jpg"
+      },
+      {
+        "url": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html",
+        "title": "Lower Penthouse Collection Debuts at Alba Palm Beach in West Palm Beach - Florida YIMBY",
+        "description": "Florida YIMBY says \"Yes In My Backyard\" to positive new development in Florida.",
+        "ogImage": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_E_VIEW_HERO_34_Daylight_HR.jpg"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/amenities",
+        "title": "Designed for Contemporary Delight - ALBA Palm Beach",
+        "description": "Alba is the ideal balance between high-end modern aesthetics, curated amenities and experiences, connected convenience, and boutique exclusivity. Visit our website for more details!",
+        "ogImage": "https://www.albapalmbeach.com/wp-content/uploads/Alba_lifestyle_39.jpg"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/residences",
+        "title": "Residences - ALBA Palm Beach",
+        "description": "Alba Palm Beach is an all-new residential community that celebrates what it truly means to live in paradise. We provide residences that have spacious layouts with water views. Learn more!",
+        "ogImage": "https://www.albapalmbeach.com/wp-content/uploads/877_Alba_Residences_CAM_03_entrance_FINAL_02-1.jpg"
+      }
+    ],
+    "discoveredLinks": [
+      {
+        "url": "https://gmpg.org/xfn/11",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/",
+        "label": ""
+      },
+      {
+        "url": "https://connect.livechatinc.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/feed",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/comments/feed",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.albapalmbeach.com%2F",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.albapalmbeach.com%2F&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wp-live-chat-software-for-wordpress/includes/css/widgets.css?ver=5.0.11",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wp-live-chat-software-for-wordpress/includes/css/text-icons.css?ver=5.0.11",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-includes/css/dist/block-library/style.min.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/jet-engine/assets/css/frontend.css?ver=3.8.8.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.4.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.4.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr/public/css/fontawesome/css/all.css?ver=8.5.69",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr/public/css/fontawesome/css/icons-fix.css?ver=8.5.69",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr/public/lib/pannellum/src/css/pannellum.css?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr/public/lib/pannellum/src/css/video-js.css?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr/public/lib/videojs-vr/videojs-vr.css?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr/public/css/owl.carousel.css?ver=8.5.69",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr/public/css/wpvr-public.css?ver=8.5.69",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.4.7",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/themes/hello-theme-child-master/style.css?ver=1694195132",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.4.7",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.4.7",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.48.0",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/jet-tabs/assets/css/jet-tabs-frontend.css?ver=2.3.0",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/sticky-header-effects-for-elementor/assets/css/she-header-style.css?ver=2.1.8",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/instagram-feed-pro/css/sbi-styles.min.css?ver=6.10.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/jet-elements/assets/css/jet-elements.css?ver=2.8.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/jet-elements/assets/css/addons/jet-video.css?ver=2.8.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/elementor/google-fonts/css/roboto.css?ver=1742998802",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/elementor/google-fonts/css/robotoslab.css?ver=1742998813",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/elementor/google-fonts/css/cardo.css?ver=1742998815",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.4.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr-pro/public/js/wpvr-pro-public.js?ver=6.6.20",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr-pro/public/lib/pannellum/src/js/pannellum.js?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr-pro/public/lib/pannellum/src/js/libpannellum.js?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr-pro/admin/lib/video.js?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr-pro/admin/lib/videojs-vr/videojs-vr.js?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr-pro/admin/lib/pannellum/src/js/videojs-pannellum-plugin.js?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr-pro/admin/js/owl.carousel.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr-pro/admin/js/jquery.cookie.js?ver=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wpvr-pro/admin/js/wpvr-public.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/wp-live-chat-software-for-wordpress/includes/js/textConnect.js?ver=5.0.11",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/sticky-header-effects-for-elementor/assets/js/she-header.js?ver=2.1.8",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-XF3H7D3R48",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-json/",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-json/wp/v2/pages/2506",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/xmlrpc.php?rsd",
+        "label": ""
+      },
+      {
+        "url": "https://spark.re/tracking/script.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/cropped-favicon-32x32.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/cropped-favicon-192x192.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/cropped-favicon-180x180.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-WKWTMB3",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/alba-logo-footer-white.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/construction-cam",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/vision",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/location",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/amenities",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/residences",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Foil-Outline@4x-8.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/gallery",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/press",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/team",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/downloads",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/inquire",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/clock-tower.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Map-Icons-Palm-Trees.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/AlbaDevelopers02-22_82_grayscale-1.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Gray-Outline@4x-8-1.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Map-Icons-Clock-Tower-1.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-includes/js/dist/a11y.min.js?ver=cb460b4676c94bd228ed",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.10.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.10.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/gravityforms/js/conditional_logic.min.js?ver=2.10.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/gravityforms/js/placeholders.jquery.min.js?ver=2.10.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/alba-logo-circle.svg",
+        "label": ""
+      },
+      {
+        "url": "https://goo.gl/maps/bts25tptUA3FxajH7",
+        "label": ""
+      },
+      {
+        "url": "https://goo.gl/maps/TRs4HERB3GhY6fX4A",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/neighbors",
+        "label": ""
+      },
+      {
+        "url": "https://bit.ly/3Gy5lsd",
+        "label": ""
+      },
+      {
+        "url": "https://bit.ly/3a4fVeo",
+        "label": ""
+      },
+      {
+        "url": "https://bit.ly/38yXXAo",
+        "label": ""
+      },
+      {
+        "url": "https://bit.ly/3wY7dqW",
+        "label": ""
+      },
+      {
+        "url": "https://bit.ly/3z5gDlY",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/KB-Logo_White.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/blue-road-logo.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.onesothebysrealty.com/our-developments",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/ONE_Horz_Wht.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/disclaimer",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/terms-of-use",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/realtors.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.orangedogcollective.com/",
+        "label": ""
+      },
+      {
+        "url": "https://indagodigital.us/",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/sitemap_index.xml",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/schedule-a-presentation",
+        "label": ""
+      },
+      {
+        "url": "https://collateral.orangedog.io/AlbaBrochure.html",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-table.css?ver=3.4.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/slideInRight.min.css?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/gravityforms/assets/css/dist/basic.min.css?ver=2.10.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/gravityforms/assets/css/dist/theme-components.min.css?ver=2.10.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/gravityforms/assets/css/dist/theme.min.css?ver=2.10.1",
+        "label": ""
+      },
+      {
+        "url": "https://connect.livechatinc.com/api/v1/script/6c0ebab6-0898-435a-9f6e-ed2eacf89918/widget.js?lcv=86b6de8b-b2f3-49e0-9eb1-d75130d668dd&ver=5.0.11",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/jet-elements/assets/js/lib/tweenjs/tweenjs.min.js?ver=2.0.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/jet-elements/assets/js/jet-elements.min.js?ver=2.8.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/jet-elements/assets/js/addons/jet-video.min.js?ver=2.8.2",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=3f278756f0a3032bed328ff6a9f6c01d",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=4f8b3915c1c1e1a6800825abd64b03cb",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=25ebbbc2c63c6c71b95c9eb867a9072b",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.0.4",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/plugins/jet-tabs/assets/js/jet-tabs-frontend.min.js?ver=2.3.0",
+        "label": ""
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/CAM_08_aerial_sunset_FINAL_02.jpeg",
+        "label": "Open Graph image"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/hero-background-image.jpg",
+        "label": "hero background image"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Intersection-1-1.png",
+        "label": "Intersection 1 1"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Logo-Full-Foil.png",
+        "label": "Alba Logo Full Foil"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/cropped-favicon-270x270.png",
+        "label": "cropped favicon 270x270"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Main-Image.png",
+        "label": "Main Image"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch-600x323.jpg",
+        "label": "exterior sketch 600x323"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch-768x414.jpg",
+        "label": "exterior sketch 768x414"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/clock-tower-400x600.jpg",
+        "label": "clock tower 400x600"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Map-Icons-Palm-Trees-300x300.png",
+        "label": "Alba Map Icons Palm Trees 300x300"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/AlbaDevelopers02-22_82_grayscale-1-515x600.png",
+        "label": "AlbaDevelopers02 22 82 grayscale 1 515x600"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Map-Icons-Clock-Tower-1-600x600.png",
+        "label": "Alba Map Icons Clock Tower 1 600x600"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Map-Icons-Clock-Tower-1-300x300.png",
+        "label": "Alba Map Icons Clock Tower 1 300x300"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/ONE_Horz_Wht-600x206.png",
+        "label": "ONE Horz Wht 600x206"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/ONE_Horz_Wht-768x264.png",
+        "label": "ONE Horz Wht 768x264"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/cache/autoptimize/css/autoptimize_10c313abb0f79176e7b25d13d5881e9f.css",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/favicon.ico",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/xmlrpc.php",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=PT+Sans",
+        "label": ""
+      },
+      {
+        "url": "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/",
+        "label": ""
+      },
+      {
+        "url": "https://maxcdn.bootstrapcdn.com/",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/feed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/comments/feed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html/feed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffloridayimby.com%2F2025%2F08%2Fconstruction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffloridayimby.com%2F2025%2F08%2Fconstruction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html&#038;format=xml",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css",
+        "label": ""
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=PT+Serif:300,400,400italic,600,700,800,900|PT+Sans:300,400,400italic,600,700,800,900",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/clipboard.min.js?ver=2.0.11",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/plupload/moxie.min.js?ver=1.3.5.1",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/plupload/plupload.min.js?ver=2.1.9",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/underscore.min.js?ver=1.13.7",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/dist/a11y.min.js?ver=cb460b4676c94bd228ed",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-includes/js/plupload/handlers.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/wppas/public/assets/js/vbc/AjaxUpload.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/plugins/wppas/templates/js/advertising.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/themes/mh_newsdesk/js/scripts.js?ver=6.9.4",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-json/",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-json/wp/v2/posts/34574",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/xmlrpc.php?rsd",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/?p=34574",
+        "label": ""
+      },
+      {
+        "url": "https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/tr?id=1232803156841682&ev=PageView&noscript=1",
+        "label": ""
+      },
+      {
+        "url": "https://pixel.quantserve.com/pixel/p-apSNtZC4hnJQR.gif",
+        "label": ""
+      },
+      {
+        "url": "https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=V2aWl1aQibl0/9",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagservices.com/tag/js/gpt.js",
+        "label": ""
+      },
+      {
+        "url": "https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-KG6LLW9",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2021/03/logo-mobile.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/themes/mh_newsdesk-child/logo.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://plus.floridayimby.com/",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/advertising",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/contact",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/copyright-and-sharing",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/YIMBY-research",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/subscribe-yimby-newsletter",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/about-new-york-yimby",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/affordable-housing",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/commercial",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/community-facility",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/hotel",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/infrastructure",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/manufacturing",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/mixeduse",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/office",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/other",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/residential",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/retail",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/type/supertall",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/brooklyn",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/boerum-hill",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/brooklyn-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/carroll-gardens",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/clinton-hill",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/cobble-hill",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/dobro-outsidemanhattan",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/dumbo",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/fort-greene",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/gowanus",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/greenwood-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/park-slope",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/prospect-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/red-hook",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/bedford-stuyvesant-outsidemanhattan",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/bushwick",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/greenpoint",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/williamsburg",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/crown-heights",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/east-flatbush",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/flatbush",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/kensington",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/bay-ridge",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/bensonhurst",
+        "label": ""
+      },
+      {
+        "url": "https://floridayimby.com/neighborhoods/borough-park",
+        "label": ""
+      }
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Foil-Outline@4x-8.png",
+        "label": "",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch.jpg",
+        "label": "",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/clock-tower.jpg",
+        "label": "",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/AlbaDevelopers02-22_82_grayscale-1.png",
+        "label": "",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Gray-Outline@4x-8-1.png",
+        "label": "",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/ONE_Horz_Wht.png",
+        "label": "",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/CAM_08_aerial_sunset_FINAL_02.jpeg",
+        "label": "Open Graph image",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/hero-background-image.jpg",
+        "label": "hero background image",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Intersection-1-1.png",
+        "label": "Intersection 1 1",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/Main-Image.png",
+        "label": "Main Image",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch-600x323.jpg",
+        "label": "exterior sketch 600x323",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch-768x414.jpg",
+        "label": "exterior sketch 768x414",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/clock-tower-400x600.jpg",
+        "label": "clock tower 400x600",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/AlbaDevelopers02-22_82_grayscale-1-515x600.png",
+        "label": "AlbaDevelopers02 22 82 grayscale 1 515x600",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/ONE_Horz_Wht-600x206.png",
+        "label": "ONE Horz Wht 600x206",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/wp-content/uploads/ONE_Horz_Wht-768x264.png",
+        "label": "ONE Horz Wht 768x264",
+        "sourcePage": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2023/11/Alba-dock_view_cropped-1-777x859.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/08/Alba-Top-Off-2.png",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/themes/mh_newsdesk-child/img/google_preferred_source_badge.png",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2026/01/2025-YIMBY-FL-website-banner.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/06/desktop-banner-336x280-1.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2023/11/Alba-dock_view_cropped-1.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2023/11/Alba-dock_view_cropped-1-271x300.jpg",
+        "label": "Alba dock view cropped 1 271x300",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2023/11/Alba-dock_view_cropped-1-926x1024.jpg",
+        "label": "Alba dock view cropped 1 926x1024",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2023/11/Alba-dock_view_cropped-1-768x849.jpg",
+        "label": "Alba dock view cropped 1 768x849",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2023/11/Alba-dock_view_cropped-1-1390x1536.jpg",
+        "label": "Alba dock view cropped 1 1390x1536",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2023/11/Alba-dock_view_cropped-1-1853x2048.jpg",
+        "label": "Alba dock view cropped 1 1853x2048",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2023/11/Alba-dock_view_cropped-1-260x287.jpg",
+        "label": "Alba dock view cropped 1 260x287",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/08/Alba-Top-Off-2-300x253.png",
+        "label": "Alba Top Off 2 300x253",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/08/Alba-Top-Off-2-260x220.png",
+        "label": "Alba Top Off 2 260x220",
+        "sourcePage": "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_E_VIEW_HERO_34_Daylight_HR-777x444.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_GREAT_ROOM_45_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_LIVING_ROOM_45_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BATHROOM_PALETTE1_05_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BEDROOM_05_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_GREAT_ROOM_Palette_1_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_LIVING_ROOM_PALETTE_1_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_PRIMARY_BATHROOM_PALETTE1_05_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_PRIMARY_BEDROOM_05_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_TERRACE_45_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_SE_VIEW_HERO_36_Daylight_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_SE_VIEW_HERO_37_Sunrise_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_S_VIEW_HERO_45_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_N_VIEW_HERO_34_Sunrise_HR.jpg",
+        "label": "",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_E_VIEW_HERO_34_Daylight_HR.jpg",
+        "label": "Open Graph image",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_E_VIEW_HERO_34_Daylight_HR-300x171.jpg",
+        "label": "ALBA LPHB E VIEW HERO 34 Daylight HR 300x171",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_E_VIEW_HERO_34_Daylight_HR-1024x585.jpg",
+        "label": "ALBA LPHB E VIEW HERO 34 Daylight HR 1024x585",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_E_VIEW_HERO_34_Daylight_HR-768x439.jpg",
+        "label": "ALBA LPHB E VIEW HERO 34 Daylight HR 768x439",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_E_VIEW_HERO_34_Daylight_HR-260x149.jpg",
+        "label": "ALBA LPHB E VIEW HERO 34 Daylight HR 260x149",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_GREAT_ROOM_45_HR-300x150.jpg",
+        "label": "ALBA LPHA GREAT ROOM 45 HR 300x150",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_GREAT_ROOM_45_HR-1024x513.jpg",
+        "label": "ALBA LPHA GREAT ROOM 45 HR 1024x513",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_GREAT_ROOM_45_HR-768x385.jpg",
+        "label": "ALBA LPHA GREAT ROOM 45 HR 768x385",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_GREAT_ROOM_45_HR-777x389.jpg",
+        "label": "ALBA LPHA GREAT ROOM 45 HR 777x389",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_GREAT_ROOM_45_HR-260x130.jpg",
+        "label": "ALBA LPHA GREAT ROOM 45 HR 260x130",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_LIVING_ROOM_45_HR-300x150.jpg",
+        "label": "ALBA LPHA LIVING ROOM 45 HR 300x150",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_LIVING_ROOM_45_HR-1024x513.jpg",
+        "label": "ALBA LPHA LIVING ROOM 45 HR 1024x513",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_LIVING_ROOM_45_HR-768x385.jpg",
+        "label": "ALBA LPHA LIVING ROOM 45 HR 768x385",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_LIVING_ROOM_45_HR-777x389.jpg",
+        "label": "ALBA LPHA LIVING ROOM 45 HR 777x389",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_LIVING_ROOM_45_HR-260x130.jpg",
+        "label": "ALBA LPHA LIVING ROOM 45 HR 260x130",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BATHROOM_PALETTE1_05_HR-300x188.jpg",
+        "label": "ALBA LPHA PRIMARY BATHROOM PALETTE1 05 HR 300x188",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BATHROOM_PALETTE1_05_HR-1024x640.jpg",
+        "label": "ALBA LPHA PRIMARY BATHROOM PALETTE1 05 HR 1024x640",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BATHROOM_PALETTE1_05_HR-768x480.jpg",
+        "label": "ALBA LPHA PRIMARY BATHROOM PALETTE1 05 HR 768x480",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BATHROOM_PALETTE1_05_HR-777x486.jpg",
+        "label": "ALBA LPHA PRIMARY BATHROOM PALETTE1 05 HR 777x486",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BATHROOM_PALETTE1_05_HR-260x163.jpg",
+        "label": "ALBA LPHA PRIMARY BATHROOM PALETTE1 05 HR 260x163",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BEDROOM_05_HR-300x176.jpg",
+        "label": "ALBA LPHA PRIMARY BEDROOM 05 HR 300x176",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BEDROOM_05_HR-1024x602.jpg",
+        "label": "ALBA LPHA PRIMARY BEDROOM 05 HR 1024x602",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BEDROOM_05_HR-768x452.jpg",
+        "label": "ALBA LPHA PRIMARY BEDROOM 05 HR 768x452",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BEDROOM_05_HR-777x457.jpg",
+        "label": "ALBA LPHA PRIMARY BEDROOM 05 HR 777x457",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHA_PRIMARY_BEDROOM_05_HR-260x153.jpg",
+        "label": "ALBA LPHA PRIMARY BEDROOM 05 HR 260x153",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_GREAT_ROOM_Palette_1_HR-300x222.jpg",
+        "label": "ALBA LPHB GREAT ROOM Palette 1 HR 300x222",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_GREAT_ROOM_Palette_1_HR-1024x759.jpg",
+        "label": "ALBA LPHB GREAT ROOM Palette 1 HR 1024x759",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_GREAT_ROOM_Palette_1_HR-768x569.jpg",
+        "label": "ALBA LPHB GREAT ROOM Palette 1 HR 768x569",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_GREAT_ROOM_Palette_1_HR-777x576.jpg",
+        "label": "ALBA LPHB GREAT ROOM Palette 1 HR 777x576",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_GREAT_ROOM_Palette_1_HR-260x193.jpg",
+        "label": "ALBA LPHB GREAT ROOM Palette 1 HR 260x193",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_LIVING_ROOM_PALETTE_1_HR-300x200.jpg",
+        "label": "ALBA LPHB LIVING ROOM PALETTE 1 HR 300x200",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_LIVING_ROOM_PALETTE_1_HR-1024x683.jpg",
+        "label": "ALBA LPHB LIVING ROOM PALETTE 1 HR 1024x683",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_LIVING_ROOM_PALETTE_1_HR-768x512.jpg",
+        "label": "ALBA LPHB LIVING ROOM PALETTE 1 HR 768x512",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_LIVING_ROOM_PALETTE_1_HR-777x518.jpg",
+        "label": "ALBA LPHB LIVING ROOM PALETTE 1 HR 777x518",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_LIVING_ROOM_PALETTE_1_HR-260x173.jpg",
+        "label": "ALBA LPHB LIVING ROOM PALETTE 1 HR 260x173",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridayimby.com/wp-content/uploads/2025/11/ALBA_LPHB_PRIMARY_BATHROOM_PALETTE1_05_HR-300x222.jpg",
+        "label": "ALBA LPHB PRIMARY BATHROOM PALETTE1 05 HR 300x222",
+        "sourcePage": "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": [
+      {
+        "url": "https://floridayimby.com/2025/04/alba-palm-beach-tops-out-at-4714-north-flagler-drive-in-west-palm-beach.html",
+        "status": 404,
+        "error": "Not Found"
+      }
+    ]
+  },
+  "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
+}
