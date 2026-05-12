@@ -19,24 +19,38 @@ type ProjectFact = {
   note?: string;
 };
 
+type CorridorKey = "north-flagler" | "downtown" | "south-flagler";
+
 type FeaturedProject = {
+  id: string;
   name: string;
   corridor: string;
+  corridorKey: CorridorKey;
   status: string;
   delivery: string;
+  deliveryYear: number;
   residences: string;
   price: string;
   href: string;
   image?: string;
   summary: string;
+  floorplans: boolean;
+  pageState: string;
+  rank: number;
+  longitude: number;
+  latitude: number;
+  address: string;
 };
 
-type MapPin = {
-  name: string;
-  meta: string;
-  href: string;
-  left: string;
-  top: string;
+type ProjectFilter = {
+  key: string;
+  label: string;
+};
+
+type CorridorSection = {
+  key: CorridorKey;
+  label: string;
+  detail: string;
 };
 
 type NewsItem = {
@@ -54,54 +68,167 @@ const ritzBrochureUrl = "https://www.flipsnack.com/relatedgroup/ritzwpb-brochure
 
 const featuredProjects: FeaturedProject[] = [
   {
+    id: "olara",
     name: "Olara",
-    corridor: "North Flagler Waterfront",
+    corridor: "North Flagler",
+    corridorKey: "north-flagler",
     status: "Under Construction",
     delivery: "2027 / 2028 range",
+    deliveryYear: 2027,
     residences: "275",
     price: "Advisor verified",
     href: "#olara",
     image: `${mediaBase}olara-hero-exterior-1536x1024.png`,
     summary: "Waterfront residences with marina lifestyle, wellness programming, and a deep released floorplan packet.",
+    floorplans: true,
+    pageState: "Page ready",
+    rank: 1,
+    longitude: -80.0501,
+    latitude: 26.7307,
+    address: "1919 N Flagler Dr",
   },
   {
-    name: "The Ritz-Carlton Residences",
-    corridor: "North Flagler Waterfront",
+    id: "ritz-carlton-wpb",
+    name: "Ritz-Carlton WPB",
+    corridor: "North Flagler",
+    corridorKey: "north-flagler",
     status: "Under Construction",
     delivery: "Expected 2028",
+    deliveryYear: 2028,
     residences: "138",
     price: "From $2.5M reported",
     href: "#ritz",
     image: `${ritzMediaBase}ritz-hero-waterfront-building-2880x1800.png`,
     summary: "Branded residences by Related Group and BH Group with Arquitectonica, Rockwell Group, and Naturalficial.",
+    floorplans: true,
+    pageState: "Page ready",
+    rank: 2,
+    longitude: -80.05057,
+    latitude: 26.72848,
+    address: "1717 N Flagler Dr",
   },
   {
+    id: "shorecrest",
     name: "Shorecrest",
-    corridor: "Downtown Waterfront",
-    status: "Asset Intake Next",
-    delivery: "To verify",
-    residences: "To verify",
-    price: "To verify",
+    corridor: "North Flagler",
+    corridorKey: "north-flagler",
+    status: "Under Construction",
+    delivery: "2027",
+    deliveryYear: 2027,
+    residences: "98",
+    price: "Advisor verify",
     href: "#inquire",
-    summary: "Next recommended buildout because it creates a strong downtown waterfront comparison against Olara and Ritz.",
+    summary: "Related Ross waterfront tower at 1865 N Flagler with published fact sheet and floorplan assets in the research library.",
+    floorplans: true,
+    pageState: "Next page",
+    rank: 3,
+    longitude: -80.05012,
+    latitude: 26.72985,
+    address: "1865 N Flagler Dr",
   },
   {
+    id: "mr-c",
+    name: "Mr. C",
+    corridor: "Downtown",
+    corridorKey: "downtown",
+    status: "Under Construction",
+    delivery: "2027",
+    deliveryYear: 2027,
+    residences: "146",
+    price: "Advisor verify",
+    href: "#inquire",
+    summary: "Downtown mixed hotel-and-residences tower with 146 residences, 110 hotel keys, and a deep floorplan download set.",
+    floorplans: true,
+    pageState: "Model ready",
+    rank: 4,
+    longitude: -80.0578,
+    latitude: 26.706,
+    address: "320 Lakeview Ave",
+  },
+  {
+    id: "alba-palm-beach",
+    name: "Alba Palm Beach",
+    corridor: "North Flagler",
+    corridorKey: "north-flagler",
+    status: "Under Construction",
+    delivery: "Spring 2026 reported",
+    deliveryYear: 2026,
+    residences: "55",
+    price: "Advisor verify",
+    href: "#inquire",
+    summary: "Boutique North Flagler waterfront tower at 4714 N Flagler with 22 stories and reported spring 2026 delivery.",
+    floorplans: false,
+    pageState: "Research ready",
+    rank: 5,
+    longitude: -80.051,
+    latitude: 26.7526,
+    address: "4714 N Flagler Dr",
+  },
+  {
+    id: "south-flagler-house",
     name: "South Flagler House",
     corridor: "South Flagler",
-    status: "Research Library",
-    delivery: "To verify",
-    residences: "To verify",
-    price: "To verify",
+    corridorKey: "south-flagler",
+    status: "Under Construction",
+    delivery: "2027",
+    deliveryYear: 2027,
+    residences: "108",
+    price: "Advisor verify",
     href: "#inquire",
-    summary: "Keep in the first-page comparison set as the established high-design benchmark for South Flagler luxury.",
+    summary: "Two 28-story waterfront towers at 1355 S Flagler Drive, positioned as the South Flagler luxury benchmark.",
+    floorplans: false,
+    pageState: "Research ready",
+    rank: 6,
+    longitude: -80.0511,
+    latitude: 26.7015,
+    address: "1355 S Flagler Dr",
+  },
+  {
+    id: "nora-house",
+    name: "NORA House",
+    corridor: "Downtown",
+    corridorKey: "downtown",
+    status: "Planning",
+    delivery: "2028 modeled",
+    deliveryYear: 2028,
+    residences: "To verify",
+    price: "Advisor verify",
+    href: "#inquire",
+    summary: "District-level marker for the planned NORA condominium while public address sources are still being reconciled.",
+    floorplans: false,
+    pageState: "Soft marker",
+    rank: 7,
+    longitude: -80.0581,
+    latitude: 26.7178,
+    address: "NORA district",
   },
 ];
 
-const mapPins: MapPin[] = [
-  { name: "Olara", meta: "North Flagler", href: "#olara", left: "39%", top: "29%" },
-  { name: "Ritz-Carlton", meta: "North Flagler", href: "#ritz", left: "45%", top: "36%" },
-  { name: "Shorecrest", meta: "Downtown", href: "#inquire", left: "55%", top: "52%" },
-  { name: "South Flagler House", meta: "South Flagler", href: "#inquire", left: "61%", top: "69%" },
+const projectFilters: ProjectFilter[] = [
+  { key: "all", label: "All" },
+  { key: "north-flagler", label: "North Flagler" },
+  { key: "downtown", label: "Downtown" },
+  { key: "south-flagler", label: "South Flagler" },
+  { key: "under-construction", label: "Under Construction" },
+  { key: "floorplans", label: "Floor Plans" },
+];
+
+const corridorSections: CorridorSection[] = [
+  {
+    key: "north-flagler",
+    label: "North Flagler",
+    detail: "Alba, Olara, Shorecrest, Ritz-Carlton",
+  },
+  {
+    key: "downtown",
+    label: "Downtown",
+    detail: "NORA House, Mr. C",
+  },
+  {
+    key: "south-flagler",
+    label: "South Flagler",
+    detail: "South Flagler House",
+  },
 ];
 
 const newsItems: NewsItem[] = [
@@ -441,73 +568,105 @@ app.innerHTML = `
 
     <main>
       <section class="home-hero" id="top">
-        <div class="home-hero-media">
-          <img src="${ritzMediaBase}ritz-evening-aerial-road-motion-2400x1600.png" alt="Night aerial view over West Palm Beach waterfront development" />
-        </div>
         <div class="home-hero-overlay"></div>
-        <div class="home-hero-content">
-          <p class="eyebrow">Private Development Advisory · West Palm Beach</p>
-          <h1>West Palm Beach New Construction</h1>
-          <p class="hero-copy">
-            A high-end command center for waterfront towers, floorplans, construction status,
-            developer teams, and buyer-ready intelligence across the West Palm Beach pipeline.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">Explore Projects</a>
-            <a class="button ghost" href="#inquire">Request Floorplans</a>
+        <div class="home-hero-grid">
+          <div class="home-hero-content">
+            <p class="eyebrow">Private Advisory · West Palm Beach</p>
+            <h1>West Palm Beach New Construction</h1>
+            <p class="hero-copy">
+              A map-backed project library for North Flagler, Downtown, and South Flagler:
+              live Olara and Ritz pages, accurate project cards, and buyer-ready comparison data.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#projects">Sort Projects</a>
+              <a class="button ghost" href="#olara">Open Olara</a>
+            </div>
+            <div class="home-hero-metrics" aria-label="Homepage summary">
+              <div>
+                <span>Live Pages</span>
+                <strong>Olara + Ritz</strong>
+              </div>
+              <div>
+                <span>Mapped Projects</span>
+                <strong>${featuredProjects.length}</strong>
+              </div>
+              <div>
+                <span>Next Build</span>
+                <strong>Shorecrest</strong>
+              </div>
+            </div>
           </div>
-        </div>
-        <aside class="home-market-strip" aria-label="Market summary">
-          <div>
-            <span>Live Project Pages</span>
-            <strong>2</strong>
-          </div>
-          <div>
-            <span>Floorplan PDFs</span>
-            <strong>39+</strong>
-          </div>
-          <div>
-            <span>Next Intake</span>
-            <strong>Shorecrest</strong>
-          </div>
-        </aside>
-      </section>
 
-      <section class="section command-section" id="map">
-        <div class="command-copy">
-          <p class="eyebrow">Gallery Command Center</p>
-          <h2>One front door for the whole market.</h2>
-          <p>
-            The front page uses a stylized map as context, then moves quickly into project cards,
-            comparison data, news, and lead capture. It gives the luxury feel without recreating
-            the old heavy 3D map as the primary experience.
-          </p>
+          <div class="home-map-stage" id="map">
+            <div class="map-panel landing-map-panel" aria-label="Stylized West Palm Beach project map">
+              <div class="map-label palm-beach">Palm Beach Island</div>
+              <div class="map-label north-flagler">North Flagler</div>
+              <div class="map-label downtown">Downtown WPB</div>
+              <div class="map-label south-flagler">South Flagler</div>
+              <div class="map-label intracoastal">Intracoastal</div>
+              <div class="map-section-layer" aria-label="Select a West Palm Beach corridor">
+                ${corridorSections.map(renderCorridorSection).join("")}
+              </div>
+              <svg class="stylized-map" viewBox="0 0 720 760" role="img" aria-label="Editorial SVG map of West Palm Beach, Palm Beach Island, and active project pins">
+                <defs>
+                  <linearGradient id="mapWater" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#a7c7bf" />
+                    <stop offset="100%" stop-color="#6e9f9c" />
+                  </linearGradient>
+                  <linearGradient id="mapLand" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#f2eadb" />
+                    <stop offset="100%" stop-color="#d6c5a6" />
+                  </linearGradient>
+                </defs>
+                <rect class="map-water" width="720" height="760" rx="0" />
+                <path class="map-mainland" d="M0 0H328C296 86 294 156 268 226C237 311 235 387 211 470C187 553 175 642 137 760H0Z" />
+                <path class="map-island" d="M548 0C510 102 514 182 481 270C448 359 446 456 414 548C390 617 380 684 352 760H720V0Z" />
+                <path class="map-waterway" d="M342 0C311 91 314 165 286 244C257 327 255 407 231 489C204 580 196 662 166 760H338C363 670 377 596 405 516C437 423 438 342 467 262C498 176 493 93 526 0Z" />
+                <path class="map-shoreline" d="M328 0C296 86 294 156 268 226C237 311 235 387 211 470C187 553 175 642 137 760" />
+                <path class="map-shoreline" d="M548 0C510 102 514 182 481 270C448 359 446 456 414 548C390 617 380 684 352 760" />
+                <path class="map-road" d="M292 42C269 128 266 198 241 278C218 352 213 439 189 522C169 591 157 666 129 728" />
+                <path class="map-road map-road-secondary" d="M218 92C203 191 192 287 171 379C150 471 130 578 103 704" />
+                <path class="map-road map-road-secondary" d="M452 18C432 114 429 205 402 292C373 391 372 505 340 626" />
+                <path class="map-bridge" d="M188 410H436" />
+                <path class="map-bridge" d="M160 574H376" />
+                <path class="map-grid-line" d="M38 184H270" />
+                <path class="map-grid-line" d="M28 330H236" />
+                <path class="map-grid-line" d="M18 512H190" />
+              </svg>
+              ${featuredProjects.map(renderMapPin).join("")}
+              <div class="map-legend" aria-label="Map legend">
+                <span>Accurate relative north/south placement from catalog coordinates</span>
+                <strong data-visible-count>${featuredProjects.length} projects visible</strong>
+              </div>
+              <div class="map-coordinate-drawer" data-coordinate-drawer aria-live="polite"></div>
+            </div>
+          </div>
         </div>
-        <div class="map-panel" aria-label="Stylized West Palm Beach project map">
-          <div class="map-label palm-beach">Palm Beach Island</div>
-          <div class="map-label downtown">Downtown WPB</div>
-          <div class="map-label intracoastal">Intracoastal</div>
-          <svg class="stylized-map" viewBox="0 0 620 680" role="img" aria-label="Editorial map of West Palm Beach and Palm Beach Island">
-            <path class="map-water" d="M0 0H620V680H0z" />
-            <path class="map-mainland" d="M0 0H306C264 80 275 162 242 235C208 309 222 403 188 474C154 546 164 610 132 680H0z" />
-            <path class="map-island" d="M466 0C438 72 451 154 421 228C391 303 402 399 371 482C348 542 344 610 319 680H620V0z" />
-            <path class="map-waterway" d="M314 0C286 76 304 152 274 230C245 307 260 410 224 493C196 558 203 619 177 680H304C326 613 333 552 359 489C392 410 379 306 407 232C435 159 423 74 449 0z" />
-            <path class="map-road" d="M250 40C230 130 228 211 205 297C185 374 178 485 151 637" />
-            <path class="map-road map-road-secondary" d="M412 24C394 117 392 203 368 292C342 389 339 510 314 656" />
-            <path class="map-bridge" d="M211 314H380" />
-            <path class="map-bridge" d="M185 448H350" />
-          </svg>
-          ${mapPins.map(renderMapPin).join("")}
-        </div>
-      </section>
 
-      <section class="section front-projects" id="projects">
-        <div class="section-heading">
-          <p class="eyebrow">Featured Projects</p>
-          <h2>Start with the assets buyers compare first.</h2>
-        </div>
-        <div class="front-project-grid">
-          ${featuredProjects.map(renderFeaturedProject).join("")}
+        <div class="project-sort-shell" id="projects">
+          <div class="project-sort-header">
+            <div>
+              <p class="eyebrow">Project Library</p>
+              <h2>Sort the market from the first screen.</h2>
+            </div>
+            <div class="project-controls" aria-label="Project sorting controls">
+              <div class="filter-chips" role="list" aria-label="Project filters">
+                ${projectFilters.map(renderProjectFilter).join("")}
+              </div>
+              <label class="sort-control">
+                <span>Sort</span>
+                <select data-project-sort aria-label="Sort projects">
+                  <option value="featured">Featured</option>
+                  <option value="delivery">Delivery</option>
+                  <option value="residences">Residences</option>
+                  <option value="corridor">Corridor</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="front-project-grid" data-project-grid>
+            ${featuredProjects.map(renderFeaturedProject).join("")}
+          </div>
         </div>
       </section>
 
@@ -907,6 +1066,34 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
   window.alert(`${name}, this inquiry is ready for CRM wiring: ${interest}.`);
 });
 
+initProjectBrowser();
+
+function renderProjectFilter(filter: ProjectFilter) {
+  const active = filter.key === "all" ? " is-active" : "";
+  return `
+    <button class="filter-chip${active}" type="button" data-project-filter="${filter.key}" aria-pressed="${filter.key === "all"}">
+      ${filter.label}
+    </button>
+  `;
+}
+
+function renderCorridorSection(section: CorridorSection) {
+  const count = featuredProjects.filter((project) => project.corridorKey === section.key).length;
+
+  return `
+    <button
+      class="map-zone map-zone-${section.key}"
+      type="button"
+      data-project-filter="${section.key}"
+      aria-pressed="false"
+    >
+      <span>${section.label}</span>
+      <strong>${count}</strong>
+      <small>${section.detail}</small>
+    </button>
+  `;
+}
+
 function renderGalleryCard(asset: MediaAsset) {
   return `
     <article class="gallery-card">
@@ -944,16 +1131,35 @@ function renderFeatureCard(asset: MediaAsset) {
 function renderFeaturedProject(project: FeaturedProject) {
   const media = project.image
     ? `<img src="${project.image}" alt="${project.name} project preview" />`
-    : `<div class="project-card-placeholder"><span>Asset Intake</span></div>`;
+    : `<div class="project-card-placeholder"><span>${project.pageState}</span></div>`;
+  const actionText = project.pageState === "Page ready" ? "Open Project" : "Queue Page";
 
   return `
-    <a class="front-project-card" href="${project.href}">
-      <figure>${media}</figure>
+    <article
+      class="front-project-card"
+      data-project-card
+      data-project-id="${project.id}"
+      data-filter-values="${getProjectFilterValues(project)}"
+      data-corridor="${project.corridorKey}"
+      data-status="${toFilterValue(project.status)}"
+      data-floorplans="${project.floorplans}"
+      data-delivery="${project.deliveryYear}"
+      data-residences="${getResidenceSortValue(project)}"
+      data-rank="${project.rank}"
+    >
+      <figure>
+        ${media}
+        <figcaption>${project.pageState}</figcaption>
+      </figure>
       <div class="front-project-card-body">
-        <span>${project.corridor}</span>
+        <span>${project.corridor} · ${project.status}</span>
         <strong>${project.name}</strong>
         <p>${project.summary}</p>
         <dl>
+          <div>
+            <dt>Address</dt>
+            <dd>${project.address}</dd>
+          </div>
           <div>
             <dt>Status</dt>
             <dd>${project.status}</dd>
@@ -971,18 +1177,33 @@ function renderFeaturedProject(project: FeaturedProject) {
             <dd>${project.price}</dd>
           </div>
         </dl>
+        <div class="project-card-actions">
+          <a href="${project.href}">${actionText}</a>
+          <a href="#map">Map Pin</a>
+        </div>
       </div>
-    </a>
+    </article>
   `;
 }
 
-function renderMapPin(pin: MapPin) {
+function renderMapPin(project: FeaturedProject, index: number) {
+  const position = getProjectMapPosition(project);
+
   return `
-    <a class="map-pin" href="${pin.href}" style="left: ${pin.left}; top: ${pin.top};">
-      <span class="pin-dot"></span>
+    <a
+      class="map-pin"
+      href="${project.href}"
+      data-map-pin
+      data-project-id="${project.id}"
+      data-corridor="${project.corridorKey}"
+      data-filter-values="${getProjectFilterValues(project)}"
+      style="--pin-x: ${position.left}%; --pin-y: ${position.top}%;"
+      aria-label="${project.name} at ${project.address}"
+    >
+      <span class="pin-dot">${String(index + 1).padStart(2, "0")}</span>
       <span class="pin-card">
-        <strong>${pin.name}</strong>
-        <small>${pin.meta}</small>
+        <strong>${project.name}</strong>
+        <small>${project.corridor} · ${project.delivery}</small>
       </span>
     </a>
   `;
@@ -1016,4 +1237,199 @@ function renderFloorplanLink(plan: { label: string; file: string; note?: string 
       <small>${plan.note ?? "Floorplan PDF"}</small>
     </a>
   `;
+}
+
+function initProjectBrowser() {
+  const grid = document.querySelector<HTMLElement>("[data-project-grid]");
+  const sortSelect = document.querySelector<HTMLSelectElement>("[data-project-sort]");
+  const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-project-filter]"));
+  const visibleCount = document.querySelector<HTMLElement>("[data-visible-count]");
+  const coordinateDrawer = document.querySelector<HTMLElement>("[data-coordinate-drawer]");
+  const mapPanel = document.querySelector<HTMLElement>(".landing-map-panel");
+
+  if (!grid || !sortSelect) {
+    return;
+  }
+
+  const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-project-card]"));
+  const pins = Array.from(document.querySelectorAll<HTMLElement>("[data-map-pin]"));
+  let activeFilter = "all";
+
+  const applyProjectState = () => {
+    const sortedCards = [...cards].sort((a, b) => compareProjectCards(a, b, sortSelect.value));
+    sortedCards.forEach((card) => grid.append(card));
+
+    let visibleProjects = 0;
+    mapPanel?.setAttribute("data-active-filter", activeFilter);
+
+    cards.forEach((card) => {
+      const matches = projectMatchesFilter(card, activeFilter);
+      card.hidden = !matches;
+      if (matches) {
+        visibleProjects += 1;
+      }
+    });
+
+    pins.forEach((pin) => {
+      const matches = projectMatchesFilter(pin, activeFilter);
+      pin.hidden = !matches;
+      pin.classList.toggle("is-muted", activeFilter !== "all" && !matches);
+    });
+
+    if (visibleCount) {
+      visibleCount.textContent = `${visibleProjects} project${visibleProjects === 1 ? "" : "s"} visible`;
+    }
+
+    if (coordinateDrawer) {
+      coordinateDrawer.innerHTML = renderCoordinateDrawer(activeFilter);
+    }
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeFilter = button.dataset.projectFilter ?? "all";
+      filterButtons.forEach((item) => {
+        const isActive = item.dataset.projectFilter === activeFilter;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
+      });
+      applyProjectState();
+    });
+  });
+
+  sortSelect.addEventListener("change", applyProjectState);
+  applyProjectState();
+}
+
+function compareProjectCards(a: HTMLElement, b: HTMLElement, sortValue: string) {
+  if (sortValue === "delivery") {
+    return getNumericDataset(a, "delivery") - getNumericDataset(b, "delivery");
+  }
+
+  if (sortValue === "residences") {
+    return getNumericDataset(b, "residences") - getNumericDataset(a, "residences");
+  }
+
+  if (sortValue === "corridor") {
+    return String(a.dataset.corridor ?? "").localeCompare(String(b.dataset.corridor ?? ""));
+  }
+
+  return getNumericDataset(a, "rank") - getNumericDataset(b, "rank");
+}
+
+function projectMatchesFilter(element: HTMLElement, filter: string) {
+  if (filter === "all") {
+    return true;
+  }
+
+  return (element.dataset.filterValues ?? "").split(" ").includes(filter);
+}
+
+function renderCoordinateDrawer(activeFilter: string) {
+  if (activeFilter === "all") {
+    return `
+      <span>Choose A Corridor</span>
+      <div>
+        <p>
+          <strong>North Flagler</strong>
+          <small>${featuredProjects.filter((project) => project.corridorKey === "north-flagler").length} mapped projects</small>
+        </p>
+        <p>
+          <strong>Downtown</strong>
+          <small>${featuredProjects.filter((project) => project.corridorKey === "downtown").length} mapped projects</small>
+        </p>
+        <p>
+          <strong>South Flagler</strong>
+          <small>${featuredProjects.filter((project) => project.corridorKey === "south-flagler").length} mapped projects</small>
+        </p>
+      </div>
+    `;
+  }
+
+  const visibleProjects = featuredProjects.filter((project) => projectDataMatchesFilter(project, activeFilter));
+  const heading =
+    `${getFilterLabel(activeFilter)} Coordinates`;
+
+  return `
+    <span>${heading}</span>
+    <div>
+      ${visibleProjects
+        .map(
+          (project) => `
+            <p>
+              <strong>${project.name}</strong>
+              <small>${project.latitude.toFixed(5)}, ${project.longitude.toFixed(5)}</small>
+            </p>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function projectDataMatchesFilter(project: FeaturedProject, filter: string) {
+  if (filter === "all") {
+    return true;
+  }
+
+  return getProjectFilterValues(project).split(" ").includes(filter);
+}
+
+function getFilterLabel(filter: string) {
+  return projectFilters.find((item) => item.key === filter)?.label ?? filter;
+}
+
+function getProjectFilterValues(project: FeaturedProject) {
+  return [
+    "all",
+    project.corridorKey,
+    project.corridorKey === "north-flagler" || project.corridorKey === "south-flagler" ? "waterfront" : "",
+    project.status === "Under Construction" ? "under-construction" : "",
+    project.deliveryYear >= 2027 ? "delivery-2027" : "",
+    project.floorplans ? "floorplans" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
+function getProjectMapPosition(project: FeaturedProject) {
+  const bounds = {
+    north: 26.755,
+    south: 26.699,
+    west: -80.0645,
+    east: -80.0495,
+  };
+
+  const rawX = ((project.longitude - bounds.west) / (bounds.east - bounds.west)) * 100;
+  const rawY = ((bounds.north - project.latitude) / (bounds.north - bounds.south)) * 100;
+  const left =
+    project.corridorKey === "downtown"
+      ? clamp(21 + rawX * 0.22, 18, 35)
+      : clamp(39 + rawX * 0.08, 38, 47);
+  const top = clamp(8 + rawY * 0.82, 8, 91);
+
+  return {
+    left: Number(left.toFixed(2)),
+    top: Number(top.toFixed(2)),
+  };
+}
+
+function getResidenceSortValue(project: FeaturedProject) {
+  const numeric = Number.parseInt(project.residences.replace(/\D/g, ""), 10);
+  return Number.isFinite(numeric) ? numeric : 0;
+}
+
+function getNumericDataset(element: HTMLElement, key: string) {
+  return Number.parseInt(element.dataset[key] ?? "0", 10) || 0;
+}
+
+function toFilterValue(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
 }
