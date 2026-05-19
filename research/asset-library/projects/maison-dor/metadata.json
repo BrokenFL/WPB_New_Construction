@@ -77,7 +77,7 @@
   "localModelUri": "",
   "localScenario": "",
   "generatedPlaceholderCopies": [
-    "projects/maison-dor/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -415,7 +415,7 @@
       },
       {
         "url": "https://livemaisondor.com/cdn-cgi/challenge-platform/scripts/jsd/main.js",
-        "label": "(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML=\"window.__CF$cv$params={r:'9f956d14"
+        "label": "(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML=\"window.__CF$cv$params={r:'9fb2a185"
       },
       {
         "url": "https://livemaisondor.com/wp-content/uploads/2025/10/MaisondOr-CreativePlatform-IconFoil-R1-1.png",
@@ -646,7 +646,7 @@
         "label": ""
       },
       {
-        "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-runtime-efd5f2134e4e70f4-min.en-US.js",
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-runtime-605d8d1b6ae65ced-min.en-US.js",
         "label": ""
       },
       {
@@ -662,15 +662,15 @@
         "label": ""
       },
       {
-        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-vendors-a5542c2814272dd7-min.en-US.js",
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-vendors-948a235e83c030eb-min.en-US.js",
         "label": ""
       },
       {
-        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-6a459dad7444b31d-min.en-US.js",
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-d90dc10a62ae6b23-min.en-US.js",
         "label": ""
       },
       {
-        "url": "https://assets.squarespace.com/universal/scripts-compressed/commerce-cd17439efa931e38-min.en-US.js",
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/commerce-75126cfecc7bf989-min.en-US.js",
         "label": ""
       },
       {
@@ -678,7 +678,7 @@
         "label": ""
       },
       {
-        "url": "https://assets.squarespace.com/universal/scripts-compressed/user-account-core-322f9d2d9aca764c-min.en-US.js",
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/user-account-core-9fc64ded26a1544d-min.en-US.js",
         "label": ""
       },
       {
@@ -686,31 +686,31 @@
         "label": ""
       },
       {
-        "url": "https://assets.squarespace.com/universal/scripts-compressed/performance-c704c05d211c44da-min.en-US.js",
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/performance-65ce597dc6ffcad8-min.en-US.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.search/520b59dc-4751-457e-86c9-e4199194dc3f_242/website.components.search.styles.css",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/abac3ee0-d539-432c-91f9-1147cb708669_721/website.components.button.styles.css",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/a5dffbea-1efe-41dc-906d-6fe484d3e1c8_703/website.components.button.styles.css",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.search/31fd6aea-8476-42a4-babf-478f20ab3544_260/website.components.search.styles.css",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/404ed975-68f8-47a7-ac5c-a389a701daa8_705/website.components.form.styles.css",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/71e01baf-d4e9-4856-9b4e-059cd98e8974_723/website.components.form.styles.css",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.search/520b59dc-4751-457e-86c9-e4199194dc3f_242/website.components.search.visitor.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.search/31fd6aea-8476-42a4-babf-478f20ab3544_260/website.components.search.visitor.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/a5dffbea-1efe-41dc-906d-6fe484d3e1c8_703/website.components.button.visitor.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/abac3ee0-d539-432c-91f9-1147cb708669_721/website.components.button.visitor.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/404ed975-68f8-47a7-ac5c-a389a701daa8_705/website.components.form.visitor.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/71e01baf-d4e9-4856-9b4e-059cd98e8974_723/website.components.form.visitor.js",
         "label": ""
       },
       {
@@ -938,15 +938,15 @@
         "label": ""
       },
       {
+        "url": "https://profilemiamire.com/miamirealestate/2026/5/11/meet-the-panelists-and-showcase-brands-participating-in-the-4th-annual-profile-state-of-the-market-presented-by-tower-capital-partners-at-artefacto-coral-gables",
+        "label": ""
+      },
+      {
         "url": "https://profilemiamire.com/miamirealestate/2026/5/6/related-group-tricap-and-sydell-group-complete-nomad-residences-wynwood-miamis-arts-district-first-hospitality-infused-condominium",
         "label": ""
       },
       {
-        "url": "https://profilemiamire.com/miamirealestate/2026/5/4/pmg-and-lndmrk-development-break-ground-on-twenty-sixth-amp-2nd-wynwood-residences-after-securing-126-million-construction-loan",
-        "label": ""
-      },
-      {
-        "url": "https://profilemiamire.com/miamirealestate/2026/4/30/13th-floor-investments-and-key-international-reveal-nobu-residences-at-619-brickell",
+        "url": "https://profilemiamire.com/miamirealestate/2026/3/20/event-may-12-4th-annual-profile-state-of-the-market-2026-presented-by-tower-capital-partners",
         "label": ""
       },
       {

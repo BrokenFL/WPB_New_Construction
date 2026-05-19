@@ -57,7 +57,7 @@
   "localModelUri": "",
   "localScenario": "North Flagler Pipeline",
   "generatedPlaceholderCopies": [
-    "projects/mandarin-oriental/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -858,11 +858,11 @@
         "label": ""
       },
       {
-        "url": "https://www.greatgulfgroup.com/_next/static/BhpOU6i86SpmOJXgcsNCx/_buildManifest.js",
+        "url": "https://www.greatgulfgroup.com/_next/static/PU0rhKmdwEtp03cUWjnhO/_buildManifest.js",
         "label": ""
       },
       {
-        "url": "https://www.greatgulfgroup.com/_next/static/BhpOU6i86SpmOJXgcsNCx/_ssgManifest.js",
+        "url": "https://www.greatgulfgroup.com/_next/static/PU0rhKmdwEtp03cUWjnhO/_ssgManifest.js",
         "label": ""
       },
       {

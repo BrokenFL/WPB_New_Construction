@@ -178,7 +178,7 @@
   "localModelUri": "/models/mr-c.glb",
   "localScenario": "Downtown Residential Wave",
   "generatedPlaceholderCopies": [
-    "projects/mr-c/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -629,19 +629,7 @@
         "label": ""
       },
       {
-        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-forms/dist/contact-form/css/jetpack-forms-layout.css?ver=15.8",
-        "label": ""
-      },
-      {
-        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/elementor-pro/assets/js/page-transitions.min.js?m=1776387950",
-        "label": ""
-      },
-      {
-        "url": "https://www.mrcresidenceswpb.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
-        "label": ""
-      },
-      {
-        "url": "https://www.mrcresidenceswpb.com/wp-includes/js/jquery/jquery-migrate.min.js?m=1686289764",
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-forms/dist/contact-form/css/jetpack-forms-layout.css?ver=15.9-a.1",
         "label": ""
       },
       {
@@ -658,10 +646,6 @@
       },
       {
         "url": "https://www.mrcresidenceswpb.com/",
-        "label": ""
-      },
-      {
-        "url": "https://234636.tctm.co/t.js",
         "label": ""
       },
       {
@@ -773,12 +757,28 @@
         "label": ""
       },
       {
-        "url": "https://widget.intercom.io/widget/dxy66327",
-        "label": "// We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/dxy66327' (function(){var w=window;var ic=w.Intercom;if(typeof ic===\"function"
-      },
-      {
         "url": "https://www.mrcresidenceswpb.com/_jb_static/??fae4e99504",
         "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/elementor-pro/assets/js/page-transitions.min.js?m=1776387950",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+        "label": ""
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-includes/js/jquery/jquery-migrate.min.js?m=1686289764",
+        "label": ""
+      },
+      {
+        "url": "https://234636.tctm.co/t.js",
+        "label": ""
+      },
+      {
+        "url": "https://widget.intercom.io/widget/dxy66327",
+        "label": "// We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/dxy66327' (function(){var w=window;var ic=w.Intercom;if(typeof ic===\"function"
       },
       {
         "url": "https://www.mrcresidenceswpb.com/wp-includes/js/dist/hooks.min.js?m=1761030842",
@@ -801,7 +801,7 @@
         "label": ""
       },
       {
-        "url": "https://stats.wp.com/w.js?ver=202619",
+        "url": "https://stats.wp.com/w.js?ver=202620",
         "label": ""
       },
       {
@@ -817,7 +817,7 @@
         "label": ""
       },
       {
-        "url": "https://stats.wp.com/e-202619.js",
+        "url": "https://stats.wp.com/e-202620.js",
         "label": ""
       },
       {
@@ -949,6 +949,10 @@
         "label": ""
       },
       {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-forms/dist/contact-form/css/jetpack-forms-layout.css?ver=15.8",
+        "label": ""
+      },
+      {
         "url": "https://www.mrcresidenceswpb.com/wp-json/wp/v2/pages/981",
         "label": ""
       },
@@ -994,6 +998,14 @@
       },
       {
         "url": "https://www.mrcresidenceswpb.com/_jb_static/??99dfb95154",
+        "label": ""
+      },
+      {
+        "url": "https://stats.wp.com/w.js?ver=202619",
+        "label": ""
+      },
+      {
+        "url": "https://stats.wp.com/e-202619.js",
         "label": ""
       },
       {
@@ -1578,18 +1590,6 @@
       },
       {
         "url": "https://www.mrcresidenceswpb.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.mrcresidenceswpb.com%2Fdownloads%2F&#038;format=xml",
-        "label": ""
-      },
-      {
-        "url": "https://www.mrcresidenceswpb.com/_jb_static/??4a5316337e",
-        "label": ""
-      },
-      {
-        "url": "https://www.mrcresidenceswpb.com/wp-json/wp/v2/pages/1726",
-        "label": ""
-      },
-      {
-        "url": "https://www.mrcresidenceswpb.com/?p=1726",
         "label": ""
       }
     ],

@@ -39,7 +39,7 @@
   "localModelUri": "",
   "localScenario": "Downtown Office Core",
   "generatedPlaceholderCopies": [
-    "projects/10-cityplace/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [],
   "crawlFindings": {

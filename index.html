@@ -2,12 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Olara West Palm Beach new construction gallery, floorplans, amenities, and private advisory inquiry." />
+    <meta name="description" content="West Palm Beach new-construction condo map with floorplans, source citations, AI-ready answers, and private advisory inquiry." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/projects/olara/media/olara-logo-monogram-2000x2000.png" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta property="og:title" content="WPB New Construction | Private Development Advisory" />
+    <meta property="og:description" content="A curated West Palm Beach new-construction condo map with floorplans, source citations, corridor explainers, and advisor-reviewed answers." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/maps/wpb-atlas-map.png" />
+    <link rel="canonical" href="https://wpbnewconstruction.com/" />
+    <link rel="alternate" type="application/feed+json" title="WPB New Construction Updates" href="/feed.json" />
+    <link rel="alternate" type="application/rss+xml" title="WPB New Construction Updates" href="/rss.xml" />
+    <link rel="icon" href="/favicon.svg" />
     <title>WPB New Construction | Private Development Advisory</title>
   </head>
   <body>
+    <form name="wpb-lead-intake" method="POST" data-netlify="true" netlify-honeypot="company" hidden>
+      <input type="hidden" name="form-name" value="wpb-lead-intake" />
+      <input type="text" name="company" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="project" />
+      <input type="text" name="interest" />
+      <textarea name="message"></textarea>
+      <input type="checkbox" name="consent" />
+    </form>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>

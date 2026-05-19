@@ -6,15 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "postbuild": "node research/scripts/prerender-static-routes.mjs",
+    "preview": "vite preview",
+    "qa:launch": "node research/scripts/qa-launch-readiness.mjs",
+    "research:site-intelligence": "node research/scripts/build-site-intelligence.mjs",
+    "maps:home": "node research/scripts/generate-home-coordinate-map.mjs",
+    "news:refresh": "node research/scripts/build-site-intelligence.mjs",
+    "assets:duplicates": "node research/scripts/report-duplicate-assets.mjs --write",
+    "assets:cleanup-approved": "node research/scripts/apply-approved-asset-cleanup.mjs --write",
+    "assets:plan-resize": "npm run research:site-intelligence && node research/scripts/prepare-image-captions-and-sizes.mjs && node research/scripts/plan-authorized-asset-resize.mjs --write",
+    "editor": "node research/scripts/local-content-editor.mjs",
+    "editor:sync": "node research/scripts/sync-editor-overrides.mjs"
   },
   "devDependencies": {
     "typescript": "~6.0.2",
-    "vite": "^8.0.9",
-    "vite-plugin-static-copy": "^3.4.0"
-  },
-  "dependencies": {
-    "@google/model-viewer": "^4.2.0",
-    "cesium": "^1.140.0"
+    "vite": "^8.0.9"
   }
 }

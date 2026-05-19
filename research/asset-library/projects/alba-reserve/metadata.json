@@ -33,7 +33,7 @@
   "localModelUri": "",
   "localScenario": "",
   "generatedPlaceholderCopies": [
-    "projects/alba-reserve/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -41,7 +41,7 @@
       "status": "downloaded",
       "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
       "path": "projects/alba-reserve/images/candidates/01--official-candidate--static.therealdeal.com--ad0ee3bd.jpg",
-      "bytes": 342507,
+      "bytes": 340747,
       "contentType": "image/jpeg",
       "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
     },
@@ -50,7 +50,7 @@
       "status": "downloaded",
       "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-700x467.jpg",
       "path": "projects/alba-reserve/images/candidates/02--official-candidate--static.therealdeal.com--1839ae2d.jpg",
-      "bytes": 80230,
+      "bytes": 80548,
       "contentType": "image/jpeg",
       "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
     },
@@ -68,7 +68,7 @@
       "status": "downloaded",
       "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-1024x683.jpg",
       "path": "projects/alba-reserve/images/candidates/04--official-candidate--static.therealdeal.com--6823e964.jpg",
-      "bytes": 155150,
+      "bytes": 154168,
       "contentType": "image/jpeg",
       "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
     }

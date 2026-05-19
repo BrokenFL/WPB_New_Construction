@@ -1,0 +1,2181 @@
+{
+  "generatedAt": "2026-05-18T18:38:39.975Z",
+  "usageNote": "Floorplan inventory from project sources and current packet references. Request the latest sales packet for pricing, availability, and line-by-line guidance.",
+  "projects": [
+    {
+      "projectId": "alba-palm-beach",
+      "name": "Alba Palm Beach",
+      "area": "North Flagler",
+      "pageStatus": "Primary condo page",
+      "updatedAt": "2026-05-18",
+      "count": 10,
+      "plans": [
+        {
+          "title": "Alba Floorplans 19lpha Unbranded",
+          "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf",
+          "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Alba Floorplans 19lphb Unbranded",
+          "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lphb-unbranded--f6e25856.pdf",
+          "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lphb-unbranded--f6e25856.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Alba Floorplans A Unbranded",
+          "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-a-unbranded--52561765.pdf",
+          "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-a-unbranded--52561765.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Alba Floorplans B Unbranded",
+          "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-b-unbranded--0904612c.pdf",
+          "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-b-unbranded--0904612c.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Alba Floorplans C Unbranded",
+          "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-c-unbranded--858d4e18.pdf",
+          "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-c-unbranded--858d4e18.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Alba Floorplans D Unbranded",
+          "href": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf",
+          "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "agent-findings"
+        },
+        {
+          "title": "Alba Floorplans D Unbranded",
+          "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-d-unbranded--b6510b3b.pdf",
+          "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-d-unbranded--b6510b3b.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Alba Floorplans Lpha Unbranded",
+          "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lpha-unbranded--cfde7c5e.pdf",
+          "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lpha-unbranded--cfde7c5e.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Alba Floorplans Lphb Unbranded",
+          "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lphb-unbranded--4dec1b6c.pdf",
+          "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lphb-unbranded--4dec1b6c.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Alba Floorplans Thc Unbranded",
+          "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-thc-unbranded--2f37dd97.pdf",
+          "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-thc-unbranded--2f37dd97.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "mandarin-oriental",
+      "name": "Mandarin Oriental Residences, West Palm Beach",
+      "area": "North Flagler",
+      "pageStatus": "Candidate project page",
+      "updatedAt": "2026-05-18",
+      "count": 0,
+      "plans": [],
+      "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
+    },
+    {
+      "projectId": "olara",
+      "name": "Olara",
+      "area": "North Flagler",
+      "pageStatus": "Primary condo page",
+      "updatedAt": "2026-05-18",
+      "count": 55,
+      "plans": [
+        {
+          "title": "Complete Floorplan Collection",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Floor-Plans-All-March-2026.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Floor-Plans-All-March-2026.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Official Floor Plans Index",
+          "href": "https://www.olarawestpalmbeach.com/floor-plans",
+          "sourceUrl": "https://www.olarawestpalmbeach.com/floor-plans",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "current-app"
+        },
+        {
+          "title": "Olara Floor Plans All March 2026",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara+Floor+Plans+-+All+-+March+2026.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara+Floor+Plans+-+All+-+March+2026.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence A",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_A.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_A.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence A",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-a.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-a.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence B",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_B.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_B.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence B",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-b.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-b.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence C",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_C.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_C.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence C",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-c.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-c.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence D",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence D",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-d.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-d.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence E",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_E.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_E.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence E",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-e.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-e.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence F",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_F.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_F.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence F",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-f.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-f.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence G",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_G.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_G.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence G",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-g.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-g.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence H",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_H.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_H.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence H",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-h.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-h.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence I",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_I.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_I.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence I",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-i.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-i.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence J",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_J.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_J.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence J",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-j.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-j.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence K",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_K.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_K.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence K",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-k.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-k.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence L",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_L.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_L.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence L",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-l.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-l.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence M",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_M.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_M.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence M",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-m.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-m.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence N",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_N.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_N.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence N",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-n.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-n.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence O",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_O.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_O.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence O",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-o.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-o.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence P",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_P.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_P.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence P",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-p.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-p.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence Q",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Q.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Q.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence Q",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-q.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-q.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence T",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_T.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_T.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence T",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-t.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-t.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence U",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_U.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_U.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence U",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-u.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-u.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence V 401 501",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_V_401_501.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_V_401_501.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence V 401 501",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-v-401-501.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-v-401-501.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence W 402 502",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_W_402_502.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_W_402_502.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence W 402 502",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-w-402-502.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-w-402-502.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence X 207 307 403 503",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_X_207_307_403_503.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_X_207_307_403_503.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence X 207 307 403 503",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-x-207-307-403-503.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-x-207-307-403-503.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence Y 208",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_208.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_208.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence Y 208",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-y-208.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-y-208.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence Y 308 404 504",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_308_404_504.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_308_404_504.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence Y 308 404 504",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-y-308-404-504.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-y-308-404-504.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence Z 209",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_209.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_209.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence Z 209",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-z-209.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-z-209.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence Z 309 405 505",
+          "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_309_405_505.pdf",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_309_405_505.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence Z 309 405 505",
+          "href": "/projects/olara/docs/floorplans/olara-residence-plan-z-309-405-505.pdf",
+          "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-z-309-405-505.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "shorecrest",
+      "name": "Shorecrest",
+      "area": "North Flagler",
+      "pageStatus": "Primary condo page",
+      "updatedAt": "2026-05-18",
+      "count": 9,
+      "plans": [
+        {
+          "title": "1153 0303 Floorplan",
+          "href": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "1153 0303 Floorplan",
+          "href": "/projects/shorecrest/docs/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
+          "sourceUrl": "/projects/shorecrest/docs/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "1153 0704 Floorplan",
+          "href": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "1153 0704 Floorplan",
+          "href": "/projects/shorecrest/docs/floorplans/1153-0704-floorplan--f2969c6b.pdf",
+          "sourceUrl": "/projects/shorecrest/docs/floorplans/1153-0704-floorplan--f2969c6b.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Official Floor Plans Index",
+          "href": "https://www.shorecrestwpb.com/floorplans",
+          "sourceUrl": "https://www.shorecrestwpb.com/floorplans",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "current-app"
+        },
+        {
+          "title": "Residence 301 Floor Plan",
+          "href": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 301 Floor Plan",
+          "href": "/projects/shorecrest/docs/floorplans/residence-301-floor-plan--927fc847.pdf",
+          "sourceUrl": "/projects/shorecrest/docs/floorplans/residence-301-floor-plan--927fc847.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 1602 Floor Plan",
+          "href": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 1602 Floor Plan",
+          "href": "/projects/shorecrest/docs/floorplans/residence-1602-floor-plan--4891242d.pdf",
+          "sourceUrl": "/projects/shorecrest/docs/floorplans/residence-1602-floor-plan--4891242d.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "ritz-carlton-wpb",
+      "name": "The Ritz-Carlton Residences, West Palm Beach",
+      "area": "North Flagler",
+      "pageStatus": "Primary condo page",
+      "updatedAt": "2026-05-18",
+      "count": 28,
+      "plans": [
+        {
+          "title": "Complete Floorplan Viewer",
+          "href": "https://www.flipsnack.com/relatedgroup/ritzwpb-floorplans/full-view.html",
+          "sourceUrl": "https://www.flipsnack.com/relatedgroup/ritzwpb-floorplans/full-view.html",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "agent-findings"
+        },
+        {
+          "title": "Lake Home 07",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Lake Home 07",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-07.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-07.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Lake Home 08",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Lake Home 08",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-08.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-08.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Lake Home 09",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Lake Home 09",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-09.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-09.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Lake Home 10",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Lake Home 10",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-10.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-10.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Lake Home 11",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Lake Home 11",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-11.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-11.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Official Floor Plans Index",
+          "href": "https://theresidenceswestpalmbeach.com/floorplans/",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/floorplans/",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "current-app"
+        },
+        {
+          "title": "Res02",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Res02",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-02.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-02.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Res03",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Res03",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-03.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-03.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Res06",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res06.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res06.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Res12",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Res12",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-12.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-12.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Res12 1",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.1.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 01",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 01",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-01.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-01.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 04",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 04",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-04.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-04.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 05",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 05",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-05.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-05.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 06",
+          "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 06",
+          "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-06.pdf",
+          "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-06.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "banyan-tree",
+      "name": "Banyan Tree Residences West Palm Beach",
+      "area": "Downtown",
+      "pageStatus": "High-priority emerging condo page",
+      "updatedAt": "2026-05-18",
+      "count": 0,
+      "plans": [],
+      "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
+    },
+    {
+      "projectId": "mr-c",
+      "name": "Mr. C Hotel & Residences West Palm Beach",
+      "area": "Downtown",
+      "pageStatus": "Primary mixed-use/hotel-residence page",
+      "updatedAt": "2026-05-18",
+      "count": 64,
+      "plans": [
+        {
+          "title": "Residence 01",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 01",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 01A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 01a",
+          "href": "/projects/mr-c/docs/floorplans/residence-01a--4c4e8025.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-01a--4c4e8025.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 02",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 02",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 02A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 02a",
+          "href": "/projects/mr-c/docs/floorplans/residence-02a--c0b62912.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-02a--c0b62912.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 03",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 03",
+          "href": "/projects/mr-c/docs/floorplans/residence-03--809edf7a.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-03--809edf7a.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 03A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 03A",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 04",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 04",
+          "href": "/projects/mr-c/docs/floorplans/residence-04--7e2f1920.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-04--7e2f1920.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 04A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 04A",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 05",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 05",
+          "href": "/projects/mr-c/docs/floorplans/residence-05--a9880839.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-05--a9880839.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 06",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 06",
+          "href": "/projects/mr-c/docs/floorplans/residence-06--5677af6f.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-06--5677af6f.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 06A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 06A",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 07",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 07",
+          "href": "/projects/mr-c/docs/floorplans/residence-07--438e91d4.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-07--438e91d4.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 07A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 07A",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 08",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 08",
+          "href": "/projects/mr-c/docs/floorplans/residence-08--0717db7d.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-08--0717db7d.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 08A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 08A",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 10",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 10",
+          "href": "/projects/mr-c/docs/floorplans/residence-10--c2ea2424.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-10--c2ea2424.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 11",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 11",
+          "href": "/projects/mr-c/docs/floorplans/residence-11--d43deb20.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-11--d43deb20.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 12",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 12",
+          "href": "/projects/mr-c/docs/floorplans/residence-12--a53ea9bd.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-12--a53ea9bd.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 13",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 13",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 14",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 14",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 15",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 15",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 16",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 16",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 17",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 17",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 18",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 18",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 19",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 19",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 211",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 211",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 215",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 215",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 216",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 216",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 217",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 217",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 813",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 813",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 814",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 814",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 815",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 815",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "berkeley",
+      "name": "The Berkeley Palm Beach",
+      "area": "Downtown",
+      "pageStatus": "Candidate project page",
+      "updatedAt": "2026-05-18",
+      "count": 9,
+      "plans": [
+        {
+          "title": "Penthouse Floorplan Template",
+          "href": "/projects/berkeley/docs/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
+          "sourceUrl": "/projects/berkeley/docs/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence A Floorplan Template",
+          "href": "/projects/berkeley/docs/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
+          "sourceUrl": "/projects/berkeley/docs/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence B Floorplan Template",
+          "href": "/projects/berkeley/docs/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
+          "sourceUrl": "/projects/berkeley/docs/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence C Floorplan Template",
+          "href": "/projects/berkeley/docs/floorplans/residence-c-floorplan-template--b089a348.jpg",
+          "sourceUrl": "/projects/berkeley/docs/floorplans/residence-c-floorplan-template--b089a348.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence D Floorplan Template",
+          "href": "/projects/berkeley/docs/floorplans/residence-d-floorplan-template--904ee317.jpg",
+          "sourceUrl": "/projects/berkeley/docs/floorplans/residence-d-floorplan-template--904ee317.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence E Floorplan Template",
+          "href": "/projects/berkeley/docs/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
+          "sourceUrl": "/projects/berkeley/docs/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence F",
+          "href": "https://www.theberkeleypalmbeach.com/residence/residence-f/",
+          "sourceUrl": "https://www.theberkeleypalmbeach.com/residence/residence-f/",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "github-master"
+        },
+        {
+          "title": "Residence F Floorplan Template",
+          "href": "/projects/berkeley/docs/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
+          "sourceUrl": "/projects/berkeley/docs/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence G Floorplan Template",
+          "href": "/projects/berkeley/docs/floorplans/residence-g-floorplan-template--95ec6883.jpg",
+          "sourceUrl": "/projects/berkeley/docs/floorplans/residence-g-floorplan-template--95ec6883.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "nora-house",
+      "name": "NORA House",
+      "area": "Downtown / NORA",
+      "pageStatus": "Primary condo page",
+      "updatedAt": "2026-05-18",
+      "count": 65,
+      "plans": [
+        {
+          "title": "Residence 01",
+          "href": "https://norahouse.com/floorplan/residence-01/",
+          "sourceUrl": "https://norahouse.com/floorplan/residence-01/",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "github-master"
+        },
+        {
+          "title": "Residence 01 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-01-floorplan--1f9ee4f9.webp",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-01-floorplan--1f9ee4f9.webp",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 01 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-01-page--14027293.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-01-page--14027293.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 02 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-02-floorplan--8eaf9a11.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-02-floorplan--8eaf9a11.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 02 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-02-page--fefc68d5.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-02-page--fefc68d5.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 03 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-03-floorplan--3f2cb001.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-03-floorplan--3f2cb001.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 03 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-03-page--f645f19b.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-03-page--f645f19b.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 04 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-04-floorplan--1a34d859.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-04-floorplan--1a34d859.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 04 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-04-page--9111aab9.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-04-page--9111aab9.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 05 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-05-floorplan--7b476826.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-05-floorplan--7b476826.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 05 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-05-page--b4d230c8.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-05-page--b4d230c8.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 06 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-06-floorplan--36e6d64f.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-06-floorplan--36e6d64f.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 06 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-06-page--c05f899d.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-06-page--c05f899d.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 07 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-07-floorplan--82bb861e.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-07-floorplan--82bb861e.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 07 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-07-page--b6de858e.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-07-page--b6de858e.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 08 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-08-floorplan--5a6dbe79.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-08-floorplan--5a6dbe79.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 08 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-08-page--44bed40a.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-08-page--44bed40a.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 09 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-09-floorplan--4d4f0e1c.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-09-floorplan--4d4f0e1c.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 09 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-09-page--e0180156.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-09-page--e0180156.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 10 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-10-floorplan--f630ef36.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-10-floorplan--f630ef36.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 10 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-10-page--1f5ebd05.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-10-page--1f5ebd05.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 11 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-11-floorplan--dc05c90e.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-11-floorplan--dc05c90e.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 11 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-11-page--eab0ee84.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-11-page--eab0ee84.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 12 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-12-floorplan--e5e100a6.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-12-floorplan--e5e100a6.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 12 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-12-page--23123758.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-12-page--23123758.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 13 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-13-floorplan--46f6c2f2.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-13-floorplan--46f6c2f2.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 13 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-13-page--24424705.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-13-page--24424705.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 14 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-14-floorplan--daae34c8.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-14-floorplan--daae34c8.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 14 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-14-page--d69e1283.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-14-page--d69e1283.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 15 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-15-floorplan--0717f2fa.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-15-floorplan--0717f2fa.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 15 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-15-page--477e093c.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-15-page--477e093c.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 16 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-16-floorplan--ca744524.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-16-floorplan--ca744524.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 16 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-16-page--074cb2dd.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-16-page--074cb2dd.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 17 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/residence-17-floorplan--8ef533db.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-17-floorplan--8ef533db.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 17 Page",
+          "href": "/projects/nora-house/docs/floorplans/residence-17-page--da6ad0d2.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/residence-17-page--da6ad0d2.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 401 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-401-floorplan--ac6acc9c.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-401-floorplan--ac6acc9c.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 401 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-401-page--ca322716.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-401-page--ca322716.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 402 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-402-floorplan--770a3c13.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-402-floorplan--770a3c13.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 402 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-402-page--2bdc8766.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-402-page--2bdc8766.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 403 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-403-floorplan--db1cd849.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-403-floorplan--db1cd849.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 403 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-403-page--cd81fd9e.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-403-page--cd81fd9e.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 404 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-404-floorplan--bf2691cd.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-404-floorplan--bf2691cd.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 404 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-404-page--f244d534.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-404-page--f244d534.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 405 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-405-floorplan--549f79c3.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-405-floorplan--549f79c3.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 405 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-405-page--97708df6.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-405-page--97708df6.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 406 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-406-floorplan--18b8b27f.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-406-floorplan--18b8b27f.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 406 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-406-page--58380ddc.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-406-page--58380ddc.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 407 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-407-floorplan--cd216b95.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-407-floorplan--cd216b95.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 407 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-407-page--94093f89.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-407-page--94093f89.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 409 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-409-floorplan--dfaf5596.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-409-floorplan--dfaf5596.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 409 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-409-page--fdf12b06.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-409-page--fdf12b06.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 410 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-410-floorplan--c9a0d4e8.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-410-floorplan--c9a0d4e8.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 410 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-410-page--7df78566.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-410-page--7df78566.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 412 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-412-floorplan--0d520fbd.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-412-floorplan--0d520fbd.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 412 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-412-page--a5fa19ee.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-412-page--a5fa19ee.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 413 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-413-floorplan--e8fddd07.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-413-floorplan--e8fddd07.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 413 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-413-page--07f712cd.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-413-page--07f712cd.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 414 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-414-floorplan--83c5f27b.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-414-floorplan--83c5f27b.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 414 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-414-page--578ac91f.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-414-page--578ac91f.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 415 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-415-floorplan--7b2cce5e.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-415-floorplan--7b2cce5e.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 415 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-415-page--6af09622.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-415-page--6af09622.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 416 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-416-floorplan--e8ea896d.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-416-floorplan--e8ea896d.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 416 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-416-page--2d7f4aa5.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-416-page--2d7f4aa5.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 417 Floorplan",
+          "href": "/projects/nora-house/docs/floorplans/terrace-417-floorplan--b4dd503f.jpg",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-417-floorplan--b4dd503f.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Terrace 417 Page",
+          "href": "/projects/nora-house/docs/floorplans/terrace-417-page--7edad466.html",
+          "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-417-page--7edad466.html",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "edgeworth-north",
+      "name": "Edgeworth North Tower",
+      "area": "South Flagler",
+      "pageStatus": "High-priority pipeline condo page",
+      "updatedAt": "2026-05-18",
+      "count": 0,
+      "plans": [],
+      "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
+    },
+    {
+      "projectId": "forte-on-flagler",
+      "name": "Forté on Flagler",
+      "area": "South Flagler",
+      "pageStatus": "Completed/recent-delivery condo page",
+      "updatedAt": "2026-05-18",
+      "count": 5,
+      "plans": [
+        {
+          "title": "North Open Kitchen Plan",
+          "href": "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
+          "sourceUrl": "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "North Open Kitchen Plan",
+          "href": "/projects/forte-on-flagler/docs/floorplans/north-open-kitchen-plan--e3976295.pdf",
+          "sourceUrl": "/projects/forte-on-flagler/docs/floorplans/north-open-kitchen-plan--e3976295.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Penthouse Floorplan Insert",
+          "href": "/projects/forte-on-flagler/docs/floorplans/penthouse-floorplan-insert--44c404b2.pdf",
+          "sourceUrl": "/projects/forte-on-flagler/docs/floorplans/penthouse-floorplan-insert--44c404b2.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "South Open Kitchen",
+          "href": "https://fortewpb.com/wp-content/uploads/South-Open-Kitchen.pdf",
+          "sourceUrl": "https://fortewpb.com/wp-content/uploads/South-Open-Kitchen.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "agent-findings"
+        },
+        {
+          "title": "South Open Kitchen",
+          "href": "/projects/forte-on-flagler/docs/floorplans/south-open-kitchen--530e51d2.pdf",
+          "sourceUrl": "/projects/forte-on-flagler/docs/floorplans/south-open-kitchen--530e51d2.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "maison-dor",
+      "name": "Maison d'Or",
+      "area": "South Flagler",
+      "pageStatus": "Candidate project page",
+      "updatedAt": "2026-05-18",
+      "count": 2,
+      "plans": [
+        {
+          "title": "MaisondOr Fact Sheet",
+          "href": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+          "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Maisondor Fact Sheet",
+          "href": "/projects/maison-dor/docs/floorplans/maisondor-fact-sheet--f983cc62.pdf",
+          "sourceUrl": "/projects/maison-dor/docs/floorplans/maisondor-fact-sheet--f983cc62.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "south-flagler-house-north",
+      "name": "South Flagler House North Tower",
+      "area": "South Flagler",
+      "pageStatus": "Primary condo page; pair with south tower in copy",
+      "updatedAt": "2026-05-18",
+      "count": 3,
+      "plans": [
+        {
+          "title": "Site Plan Floors 5 9",
+          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Site Plan Floors 10 18",
+          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Site Plan Floors 19 20",
+          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "south-flagler-house-south",
+      "name": "South Flagler House South Tower",
+      "area": "South Flagler",
+      "pageStatus": "Primary condo page; merge content with north tower unless separate inventory is required",
+      "updatedAt": "2026-05-18",
+      "count": 3,
+      "plans": [
+        {
+          "title": "Site Plan Floors 5 9",
+          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Site Plan Floors 10 18",
+          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Site Plan Floors 19 20",
+          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    }
+  ]
+}

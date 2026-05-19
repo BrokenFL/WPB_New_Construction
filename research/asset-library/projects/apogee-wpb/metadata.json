@@ -33,7 +33,7 @@
   "localModelUri": "",
   "localScenario": "North Flagler Pipeline",
   "generatedPlaceholderCopies": [
-    "projects/apogee-wpb/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [],
   "crawlFindings": {

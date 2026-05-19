@@ -1,49 +1,62 @@
-# Future Skyline Sandbox
+# WPB New Construction
 
-A Cesium + Vite prototype for testing proposed building massing against a real city context.
+A Vite site for West Palm Beach new-construction condo research, corridor comparison, floorplan indexing, buyer Q&A, and private advisory inquiries.
 
-## What it does
+## Current Site Areas
 
-- Renders a 3D city scene in the browser
-- Uses Google Photorealistic 3D Tiles when `VITE_GOOGLE_MAPS_API_KEY` is present
-- Falls back to Cesium OSM buildings when the Google key is missing
-- Loads sample proposed towers that you can toggle, select, and inspect
-- Includes saved camera views for skyline and street-level comparisons
+- `./` - stylized West Palm Beach corridor map with project cards for North Flagler, Downtown, and South Flagler.
+- `?view=floorplans` - public floorplan library grouped by project and source status.
+- `?view=answers` - buyer Q&A with structured FAQ data and source citations.
+- `?view=news` - research updates with RSS and JSON Feed exports.
+- `?view=methodology` - public source hierarchy and verification policy.
+- `?view=inquire` - advisory packet request flow.
 
-## Setup
+## Data Refresh
 
-1. Install dependencies:
+The generated site data is built from the source-material catalog and asset library:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm run research:site-intelligence
+```
 
-2. Copy the environment template:
+That refreshes:
 
-   ```bash
-   cp .env.example .env
-   ```
+- `src/generated/siteData.ts`
+- `public/data/*.json`
+- `public/feed.json`
+- `public/rss.xml`
+- `public/llms.txt`
+- `public/robots.txt`
+- `public/sitemap.xml`
+- `research/source-material-review/*.md`
 
-3. Add credentials:
+## Local Development
 
-   - `VITE_GOOGLE_MAPS_API_KEY`
-     Use this if you want Google's photorealistic 3D city tiles.
-   - `VITE_CESIUM_ION_TOKEN`
-     Optional, but recommended if you want Cesium World Terrain.
+```bash
+npm install
+npm run dev
+```
 
-4. Start the dev server:
+## Private Local Editor
 
-   ```bash
-   npm run dev
-   ```
+Run the no-code project editor on this Mac:
 
-## Replace the sample skyline studies
+```bash
+npm run editor
+```
 
-Edit [src/proposals.ts](/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/New Construction/src/proposals.ts) and change:
+Then open `http://127.0.0.1:4179`. The editor saves friendly project-card and project-page edits into `research/content-editor/site-overrides.json` and generates `src/generated/editorOverrides.ts` for the site build. It is intended for private local editing, not as a public admin login.
 
-- scenario metadata
-- camera viewpoints
-- tower coordinates
-- building width, depth, height, color, and phase
+Build before publishing:
 
-The current prototype uses rectangular massing volumes. The next upgrade path is to swap those boxes for real `.glb` building models or parcel footprints from GeoJSON.
+```bash
+npm run build
+```
+
+## Launch Checklist
+
+- Brokerage/contact/legal pages are scaffolded with Douglas Elliman Real Estate Palm Beach, Brooke Matthew Snader, The Scott Gordon Group, mobile, license, Fair Housing, Privacy, and Terms references.
+- Lead intake is scaffolded as static form `wpb-lead-intake`; connect the final CRM/spreadsheet/form provider before production lead volume.
+- Verify pricing, availability, residence counts, and delivery timing with current developer or sales-team material.
+- Keep project images and PDFs limited to official links or documented usage approvals.
+- `npm run build` prerenders route-specific HTML shells with canonical, title, description, and OG metadata.

@@ -1,0 +1,1162 @@
+{
+  "generatedAt": "2026-05-18T18:38:39.965Z",
+  "usageNote": "Research floorplans are copied to canonical public filenames only. Duplicate source aliases are recorded but not recopied under extra public names.",
+  "count": 165,
+  "records": [
+    {
+      "sourceProjectId": "alba-palm-beach",
+      "publicProjectId": "alba-palm-beach",
+      "sourcePath": "research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf",
+      "publicPath": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf",
+      "fileName": "alba-floorplans-19lpha-unbranded--553224c4.pdf"
+    },
+    {
+      "sourceProjectId": "alba-palm-beach",
+      "publicProjectId": "alba-palm-beach",
+      "sourcePath": "research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-19lphb-unbranded--f6e25856.pdf",
+      "publicPath": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lphb-unbranded--f6e25856.pdf",
+      "fileName": "alba-floorplans-19lphb-unbranded--f6e25856.pdf"
+    },
+    {
+      "sourceProjectId": "alba-palm-beach",
+      "publicProjectId": "alba-palm-beach",
+      "sourcePath": "research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-a-unbranded--52561765.pdf",
+      "publicPath": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-a-unbranded--52561765.pdf",
+      "fileName": "alba-floorplans-a-unbranded--52561765.pdf"
+    },
+    {
+      "sourceProjectId": "alba-palm-beach",
+      "publicProjectId": "alba-palm-beach",
+      "sourcePath": "research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-b-unbranded--0904612c.pdf",
+      "publicPath": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-b-unbranded--0904612c.pdf",
+      "fileName": "alba-floorplans-b-unbranded--0904612c.pdf"
+    },
+    {
+      "sourceProjectId": "alba-palm-beach",
+      "publicProjectId": "alba-palm-beach",
+      "sourcePath": "research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-c-unbranded--858d4e18.pdf",
+      "publicPath": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-c-unbranded--858d4e18.pdf",
+      "fileName": "alba-floorplans-c-unbranded--858d4e18.pdf"
+    },
+    {
+      "sourceProjectId": "alba-palm-beach",
+      "publicProjectId": "alba-palm-beach",
+      "sourcePath": "research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-d-unbranded--b6510b3b.pdf",
+      "publicPath": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-d-unbranded--b6510b3b.pdf",
+      "fileName": "alba-floorplans-d-unbranded--b6510b3b.pdf"
+    },
+    {
+      "sourceProjectId": "alba-palm-beach",
+      "publicProjectId": "alba-palm-beach",
+      "sourcePath": "research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-lpha-unbranded--cfde7c5e.pdf",
+      "publicPath": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lpha-unbranded--cfde7c5e.pdf",
+      "fileName": "alba-floorplans-lpha-unbranded--cfde7c5e.pdf"
+    },
+    {
+      "sourceProjectId": "alba-palm-beach",
+      "publicProjectId": "alba-palm-beach",
+      "sourcePath": "research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-lphb-unbranded--4dec1b6c.pdf",
+      "publicPath": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lphb-unbranded--4dec1b6c.pdf",
+      "fileName": "alba-floorplans-lphb-unbranded--4dec1b6c.pdf"
+    },
+    {
+      "sourceProjectId": "alba-palm-beach",
+      "publicProjectId": "alba-palm-beach",
+      "sourcePath": "research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-thc-unbranded--2f37dd97.pdf",
+      "publicPath": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-thc-unbranded--2f37dd97.pdf",
+      "fileName": "alba-floorplans-thc-unbranded--2f37dd97.pdf"
+    },
+    {
+      "sourceProjectId": "berkeley",
+      "publicProjectId": "berkeley",
+      "sourcePath": "research/asset-library/projects/berkeley/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
+      "publicPath": "/projects/berkeley/docs/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
+      "fileName": "penthouse-floorplan-template--a68d7efe.jpg"
+    },
+    {
+      "sourceProjectId": "berkeley",
+      "publicProjectId": "berkeley",
+      "sourcePath": "research/asset-library/projects/berkeley/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
+      "publicPath": "/projects/berkeley/docs/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
+      "fileName": "residence-a-floorplan-template--3f71b9ce.jpg"
+    },
+    {
+      "sourceProjectId": "berkeley",
+      "publicProjectId": "berkeley",
+      "sourcePath": "research/asset-library/projects/berkeley/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
+      "publicPath": "/projects/berkeley/docs/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
+      "fileName": "residence-b-floorplan-template--9d9ba081.jpg"
+    },
+    {
+      "sourceProjectId": "berkeley",
+      "publicProjectId": "berkeley",
+      "sourcePath": "research/asset-library/projects/berkeley/floorplans/residence-c-floorplan-template--b089a348.jpg",
+      "publicPath": "/projects/berkeley/docs/floorplans/residence-c-floorplan-template--b089a348.jpg",
+      "fileName": "residence-c-floorplan-template--b089a348.jpg"
+    },
+    {
+      "sourceProjectId": "berkeley",
+      "publicProjectId": "berkeley",
+      "sourcePath": "research/asset-library/projects/berkeley/floorplans/residence-d-floorplan-template--904ee317.jpg",
+      "publicPath": "/projects/berkeley/docs/floorplans/residence-d-floorplan-template--904ee317.jpg",
+      "fileName": "residence-d-floorplan-template--904ee317.jpg"
+    },
+    {
+      "sourceProjectId": "berkeley",
+      "publicProjectId": "berkeley",
+      "sourcePath": "research/asset-library/projects/berkeley/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
+      "publicPath": "/projects/berkeley/docs/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
+      "fileName": "residence-e-floorplan-template--c3bd0c2e.jpg"
+    },
+    {
+      "sourceProjectId": "berkeley",
+      "publicProjectId": "berkeley",
+      "sourcePath": "research/asset-library/projects/berkeley/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
+      "publicPath": "/projects/berkeley/docs/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
+      "fileName": "residence-f-floorplan-template--5c0f8efd.jpg"
+    },
+    {
+      "sourceProjectId": "berkeley",
+      "publicProjectId": "berkeley",
+      "sourcePath": "research/asset-library/projects/berkeley/floorplans/residence-g-floorplan-template--95ec6883.jpg",
+      "publicPath": "/projects/berkeley/docs/floorplans/residence-g-floorplan-template--95ec6883.jpg",
+      "fileName": "residence-g-floorplan-template--95ec6883.jpg"
+    },
+    {
+      "sourceProjectId": "forte-on-flagler",
+      "publicProjectId": "forte-on-flagler",
+      "sourcePath": "research/asset-library/projects/forte-on-flagler/floorplans/north-open-kitchen-plan--e3976295.pdf",
+      "publicPath": "/projects/forte-on-flagler/docs/floorplans/north-open-kitchen-plan--e3976295.pdf",
+      "fileName": "north-open-kitchen-plan--e3976295.pdf"
+    },
+    {
+      "sourceProjectId": "forte-on-flagler",
+      "publicProjectId": "forte-on-flagler",
+      "sourcePath": "research/asset-library/projects/forte-on-flagler/floorplans/penthouse-floorplan-insert--44c404b2.pdf",
+      "publicPath": "/projects/forte-on-flagler/docs/floorplans/penthouse-floorplan-insert--44c404b2.pdf",
+      "fileName": "penthouse-floorplan-insert--44c404b2.pdf"
+    },
+    {
+      "sourceProjectId": "forte-on-flagler",
+      "publicProjectId": "forte-on-flagler",
+      "sourcePath": "research/asset-library/projects/forte-on-flagler/floorplans/south-open-kitchen--530e51d2.pdf",
+      "publicPath": "/projects/forte-on-flagler/docs/floorplans/south-open-kitchen--530e51d2.pdf",
+      "fileName": "south-open-kitchen--530e51d2.pdf"
+    },
+    {
+      "sourceProjectId": "maison-dor",
+      "publicProjectId": "maison-dor",
+      "sourcePath": "research/asset-library/projects/maison-dor/floorplans/maisondor-fact-sheet--f983cc62.pdf",
+      "publicPath": "/projects/maison-dor/docs/floorplans/maisondor-fact-sheet--f983cc62.pdf",
+      "fileName": "maisondor-fact-sheet--f983cc62.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
+      "fileName": "mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
+      "fileName": "mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
+      "fileName": "mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
+      "fileName": "mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
+      "fileName": "mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
+      "fileName": "mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
+      "fileName": "mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
+      "fileName": "mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
+      "fileName": "mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
+      "fileName": "mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
+      "fileName": "mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
+      "fileName": "mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
+      "fileName": "mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
+      "fileName": "mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
+      "fileName": "mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
+      "fileName": "mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
+      "fileName": "mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
+      "fileName": "mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
+      "fileName": "mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
+      "fileName": "mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
+      "fileName": "mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-01a--4c4e8025.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-01a--4c4e8025.pdf",
+      "fileName": "residence-01a--4c4e8025.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-02a--c0b62912.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-02a--c0b62912.pdf",
+      "fileName": "residence-02a--c0b62912.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-03--809edf7a.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-03--809edf7a.pdf",
+      "fileName": "residence-03--809edf7a.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-04--7e2f1920.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-04--7e2f1920.pdf",
+      "fileName": "residence-04--7e2f1920.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-05--a9880839.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-05--a9880839.pdf",
+      "fileName": "residence-05--a9880839.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-06--5677af6f.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-06--5677af6f.pdf",
+      "fileName": "residence-06--5677af6f.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-07--438e91d4.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-07--438e91d4.pdf",
+      "fileName": "residence-07--438e91d4.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-08--0717db7d.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-08--0717db7d.pdf",
+      "fileName": "residence-08--0717db7d.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-10--c2ea2424.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-10--c2ea2424.pdf",
+      "fileName": "residence-10--c2ea2424.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-11--d43deb20.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-11--d43deb20.pdf",
+      "fileName": "residence-11--d43deb20.pdf"
+    },
+    {
+      "sourceProjectId": "mr-c",
+      "publicProjectId": "mr-c",
+      "sourcePath": "research/asset-library/projects/mr-c/floorplans/residence-12--a53ea9bd.pdf",
+      "publicPath": "/projects/mr-c/docs/floorplans/residence-12--a53ea9bd.pdf",
+      "fileName": "residence-12--a53ea9bd.pdf"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-01-floorplan--1f9ee4f9.webp",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-01-floorplan--1f9ee4f9.webp",
+      "fileName": "residence-01-floorplan--1f9ee4f9.webp"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-01-page--14027293.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-01-page--14027293.html",
+      "fileName": "residence-01-page--14027293.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-02-floorplan--8eaf9a11.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-02-floorplan--8eaf9a11.jpg",
+      "fileName": "residence-02-floorplan--8eaf9a11.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-02-page--fefc68d5.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-02-page--fefc68d5.html",
+      "fileName": "residence-02-page--fefc68d5.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-03-floorplan--3f2cb001.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-03-floorplan--3f2cb001.jpg",
+      "fileName": "residence-03-floorplan--3f2cb001.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-03-page--f645f19b.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-03-page--f645f19b.html",
+      "fileName": "residence-03-page--f645f19b.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-04-floorplan--1a34d859.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-04-floorplan--1a34d859.jpg",
+      "fileName": "residence-04-floorplan--1a34d859.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-04-page--9111aab9.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-04-page--9111aab9.html",
+      "fileName": "residence-04-page--9111aab9.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-05-floorplan--7b476826.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-05-floorplan--7b476826.jpg",
+      "fileName": "residence-05-floorplan--7b476826.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-05-page--b4d230c8.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-05-page--b4d230c8.html",
+      "fileName": "residence-05-page--b4d230c8.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-06-floorplan--36e6d64f.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-06-floorplan--36e6d64f.jpg",
+      "fileName": "residence-06-floorplan--36e6d64f.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-06-page--c05f899d.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-06-page--c05f899d.html",
+      "fileName": "residence-06-page--c05f899d.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-07-floorplan--82bb861e.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-07-floorplan--82bb861e.jpg",
+      "fileName": "residence-07-floorplan--82bb861e.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-07-page--b6de858e.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-07-page--b6de858e.html",
+      "fileName": "residence-07-page--b6de858e.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-08-floorplan--5a6dbe79.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-08-floorplan--5a6dbe79.jpg",
+      "fileName": "residence-08-floorplan--5a6dbe79.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-08-page--44bed40a.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-08-page--44bed40a.html",
+      "fileName": "residence-08-page--44bed40a.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-09-floorplan--4d4f0e1c.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-09-floorplan--4d4f0e1c.jpg",
+      "fileName": "residence-09-floorplan--4d4f0e1c.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-09-page--e0180156.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-09-page--e0180156.html",
+      "fileName": "residence-09-page--e0180156.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-10-floorplan--f630ef36.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-10-floorplan--f630ef36.jpg",
+      "fileName": "residence-10-floorplan--f630ef36.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-10-page--1f5ebd05.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-10-page--1f5ebd05.html",
+      "fileName": "residence-10-page--1f5ebd05.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-11-floorplan--dc05c90e.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-11-floorplan--dc05c90e.jpg",
+      "fileName": "residence-11-floorplan--dc05c90e.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-11-page--eab0ee84.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-11-page--eab0ee84.html",
+      "fileName": "residence-11-page--eab0ee84.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-12-floorplan--e5e100a6.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-12-floorplan--e5e100a6.jpg",
+      "fileName": "residence-12-floorplan--e5e100a6.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-12-page--23123758.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-12-page--23123758.html",
+      "fileName": "residence-12-page--23123758.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-13-floorplan--46f6c2f2.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-13-floorplan--46f6c2f2.jpg",
+      "fileName": "residence-13-floorplan--46f6c2f2.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-13-page--24424705.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-13-page--24424705.html",
+      "fileName": "residence-13-page--24424705.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-14-floorplan--daae34c8.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-14-floorplan--daae34c8.jpg",
+      "fileName": "residence-14-floorplan--daae34c8.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-14-page--d69e1283.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-14-page--d69e1283.html",
+      "fileName": "residence-14-page--d69e1283.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-15-floorplan--0717f2fa.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-15-floorplan--0717f2fa.jpg",
+      "fileName": "residence-15-floorplan--0717f2fa.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-15-page--477e093c.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-15-page--477e093c.html",
+      "fileName": "residence-15-page--477e093c.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-16-floorplan--ca744524.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-16-floorplan--ca744524.jpg",
+      "fileName": "residence-16-floorplan--ca744524.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-16-page--074cb2dd.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-16-page--074cb2dd.html",
+      "fileName": "residence-16-page--074cb2dd.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-17-floorplan--8ef533db.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-17-floorplan--8ef533db.jpg",
+      "fileName": "residence-17-floorplan--8ef533db.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/residence-17-page--da6ad0d2.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/residence-17-page--da6ad0d2.html",
+      "fileName": "residence-17-page--da6ad0d2.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-401-floorplan--ac6acc9c.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-401-floorplan--ac6acc9c.jpg",
+      "fileName": "terrace-401-floorplan--ac6acc9c.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-401-page--ca322716.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-401-page--ca322716.html",
+      "fileName": "terrace-401-page--ca322716.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-402-floorplan--770a3c13.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-402-floorplan--770a3c13.jpg",
+      "fileName": "terrace-402-floorplan--770a3c13.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-402-page--2bdc8766.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-402-page--2bdc8766.html",
+      "fileName": "terrace-402-page--2bdc8766.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-403-floorplan--db1cd849.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-403-floorplan--db1cd849.jpg",
+      "fileName": "terrace-403-floorplan--db1cd849.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-403-page--cd81fd9e.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-403-page--cd81fd9e.html",
+      "fileName": "terrace-403-page--cd81fd9e.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-404-floorplan--bf2691cd.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-404-floorplan--bf2691cd.jpg",
+      "fileName": "terrace-404-floorplan--bf2691cd.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-404-page--f244d534.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-404-page--f244d534.html",
+      "fileName": "terrace-404-page--f244d534.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-405-floorplan--549f79c3.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-405-floorplan--549f79c3.jpg",
+      "fileName": "terrace-405-floorplan--549f79c3.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-405-page--97708df6.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-405-page--97708df6.html",
+      "fileName": "terrace-405-page--97708df6.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-406-floorplan--18b8b27f.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-406-floorplan--18b8b27f.jpg",
+      "fileName": "terrace-406-floorplan--18b8b27f.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-406-page--58380ddc.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-406-page--58380ddc.html",
+      "fileName": "terrace-406-page--58380ddc.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-407-floorplan--cd216b95.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-407-floorplan--cd216b95.jpg",
+      "fileName": "terrace-407-floorplan--cd216b95.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-407-page--94093f89.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-407-page--94093f89.html",
+      "fileName": "terrace-407-page--94093f89.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-409-floorplan--dfaf5596.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-409-floorplan--dfaf5596.jpg",
+      "fileName": "terrace-409-floorplan--dfaf5596.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-409-page--fdf12b06.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-409-page--fdf12b06.html",
+      "fileName": "terrace-409-page--fdf12b06.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-410-floorplan--c9a0d4e8.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-410-floorplan--c9a0d4e8.jpg",
+      "fileName": "terrace-410-floorplan--c9a0d4e8.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-410-page--7df78566.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-410-page--7df78566.html",
+      "fileName": "terrace-410-page--7df78566.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-412-floorplan--0d520fbd.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-412-floorplan--0d520fbd.jpg",
+      "fileName": "terrace-412-floorplan--0d520fbd.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-412-page--a5fa19ee.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-412-page--a5fa19ee.html",
+      "fileName": "terrace-412-page--a5fa19ee.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-413-floorplan--e8fddd07.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-413-floorplan--e8fddd07.jpg",
+      "fileName": "terrace-413-floorplan--e8fddd07.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-413-page--07f712cd.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-413-page--07f712cd.html",
+      "fileName": "terrace-413-page--07f712cd.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-414-floorplan--83c5f27b.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-414-floorplan--83c5f27b.jpg",
+      "fileName": "terrace-414-floorplan--83c5f27b.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-414-page--578ac91f.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-414-page--578ac91f.html",
+      "fileName": "terrace-414-page--578ac91f.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-415-floorplan--7b2cce5e.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-415-floorplan--7b2cce5e.jpg",
+      "fileName": "terrace-415-floorplan--7b2cce5e.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-415-page--6af09622.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-415-page--6af09622.html",
+      "fileName": "terrace-415-page--6af09622.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-416-floorplan--e8ea896d.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-416-floorplan--e8ea896d.jpg",
+      "fileName": "terrace-416-floorplan--e8ea896d.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-416-page--2d7f4aa5.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-416-page--2d7f4aa5.html",
+      "fileName": "terrace-416-page--2d7f4aa5.html"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-417-floorplan--b4dd503f.jpg",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-417-floorplan--b4dd503f.jpg",
+      "fileName": "terrace-417-floorplan--b4dd503f.jpg"
+    },
+    {
+      "sourceProjectId": "nora-house",
+      "publicProjectId": "nora-house",
+      "sourcePath": "research/asset-library/projects/nora-house/floorplans/terrace-417-page--7edad466.html",
+      "publicPath": "/projects/nora-house/docs/floorplans/terrace-417-page--7edad466.html",
+      "fileName": "terrace-417-page--7edad466.html"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-a--b0a1bbcf.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-a.pdf",
+      "fileName": "olara-floorplans-digital-31126-a--b0a1bbcf.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-b--bc8aa2ed.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-b.pdf",
+      "fileName": "olara-floorplans-digital-31126-b--bc8aa2ed.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-c--d76d9771.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-c.pdf",
+      "fileName": "olara-floorplans-digital-31126-c--d76d9771.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-d--d39ae42e.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-d.pdf",
+      "fileName": "olara-floorplans-digital-31126-d--d39ae42e.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-e--3319bd47.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-e.pdf",
+      "fileName": "olara-floorplans-digital-31126-e--3319bd47.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-f--0071691d.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-f.pdf",
+      "fileName": "olara-floorplans-digital-31126-f--0071691d.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-g--a6fd1e03.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-g.pdf",
+      "fileName": "olara-floorplans-digital-31126-g--a6fd1e03.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-h--ea23e7e2.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-h.pdf",
+      "fileName": "olara-floorplans-digital-31126-h--ea23e7e2.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-i--e65c9f39.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-i.pdf",
+      "fileName": "olara-floorplans-digital-31126-i--e65c9f39.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-j--e303990c.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-j.pdf",
+      "fileName": "olara-floorplans-digital-31126-j--e303990c.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-k--9cd4c355.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-k.pdf",
+      "fileName": "olara-floorplans-digital-31126-k--9cd4c355.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-l--16cc910d.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-l.pdf",
+      "fileName": "olara-floorplans-digital-31126-l--16cc910d.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-m--89683634.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-m.pdf",
+      "fileName": "olara-floorplans-digital-31126-m--89683634.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-n--64b4d079.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-n.pdf",
+      "fileName": "olara-floorplans-digital-31126-n--64b4d079.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-o--6591c59d.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-o.pdf",
+      "fileName": "olara-floorplans-digital-031126-o--6591c59d.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-p--45abf461.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-p.pdf",
+      "fileName": "olara-floorplans-digital-031126-p--45abf461.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-q--5f29a5c5.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-q.pdf",
+      "fileName": "olara-floorplans-digital-031126-q--5f29a5c5.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-t--76f4785d.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-t.pdf",
+      "fileName": "olara-floorplans-digital-031126-t--76f4785d.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-u--ae494a72.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-u.pdf",
+      "fileName": "olara-floorplans-digital-031126-u--ae494a72.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-v-401-501--d265bf9d.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-v-401-501.pdf",
+      "fileName": "olara-floorplans-digital-031126-v-401-501--d265bf9d.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-w-402-502--8c78971f.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-w-402-502.pdf",
+      "fileName": "olara-floorplans-digital-031126-w-402-502--8c78971f.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-x-207-307-403-503--64a29d80.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-x-207-307-403-503.pdf",
+      "fileName": "olara-floorplans-digital-031126-x-207-307-403-503--64a29d80.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-y-208--a8ee816d.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-y-208.pdf",
+      "fileName": "olara-floorplans-digital-031126-y-208--a8ee816d.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-y-308-404-504--2716f666.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-y-308-404-504.pdf",
+      "fileName": "olara-floorplans-digital-031126-y-308-404-504--2716f666.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-z-209--0d55a804.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-z-209.pdf",
+      "fileName": "olara-floorplans-digital-031126-z-209--0d55a804.pdf"
+    },
+    {
+      "sourceProjectId": "olara",
+      "publicProjectId": "olara",
+      "sourcePath": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-031126-z-309-405-505--bd7e2e1a.pdf",
+      "publicPath": "/projects/olara/docs/floorplans/olara-residence-plan-z-309-405-505.pdf",
+      "fileName": "olara-floorplans-digital-031126-z-309-405-505--bd7e2e1a.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/lake-home-07--e6a73aac.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-07.pdf",
+      "fileName": "lake-home-07--e6a73aac.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/lake-home-08--e5b3bab2.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-08.pdf",
+      "fileName": "lake-home-08--e5b3bab2.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/lake-home-09--d9798fd5.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-09.pdf",
+      "fileName": "lake-home-09--d9798fd5.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/lake-home-10--c92b5f15.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-10.pdf",
+      "fileName": "lake-home-10--c92b5f15.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/lake-home-11--568a1bb0.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-11.pdf",
+      "fileName": "lake-home-11--568a1bb0.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/res02--0dcf7b3f.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-02.pdf",
+      "fileName": "res02--0dcf7b3f.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/res03--a1fb57a0.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-03.pdf",
+      "fileName": "res03--a1fb57a0.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/res12--cd99fe22.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-12.pdf",
+      "fileName": "res12--cd99fe22.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/residence-01--5381e8b7.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-01.pdf",
+      "fileName": "residence-01--5381e8b7.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/residence-04--f1b379f4.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-04.pdf",
+      "fileName": "residence-04--f1b379f4.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/residence-05--d8f62502.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-05.pdf",
+      "fileName": "residence-05--d8f62502.pdf"
+    },
+    {
+      "sourceProjectId": "ritz-carlton-wpb",
+      "publicProjectId": "ritz-carlton-wpb",
+      "sourcePath": "research/asset-library/projects/ritz-carlton-wpb/floorplans/residence-06--0066a95c.pdf",
+      "publicPath": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-06.pdf",
+      "fileName": "residence-06--0066a95c.pdf"
+    },
+    {
+      "sourceProjectId": "shorecrest",
+      "publicProjectId": "shorecrest",
+      "sourcePath": "research/asset-library/projects/shorecrest/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
+      "publicPath": "/projects/shorecrest/docs/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
+      "fileName": "1153-0303-floorplan--7aa02b9e.pdf"
+    },
+    {
+      "sourceProjectId": "shorecrest",
+      "publicProjectId": "shorecrest",
+      "sourcePath": "research/asset-library/projects/shorecrest/floorplans/1153-0704-floorplan--f2969c6b.pdf",
+      "publicPath": "/projects/shorecrest/docs/floorplans/1153-0704-floorplan--f2969c6b.pdf",
+      "fileName": "1153-0704-floorplan--f2969c6b.pdf"
+    },
+    {
+      "sourceProjectId": "shorecrest",
+      "publicProjectId": "shorecrest",
+      "sourcePath": "research/asset-library/projects/shorecrest/floorplans/residence-301-floor-plan--927fc847.pdf",
+      "publicPath": "/projects/shorecrest/docs/floorplans/residence-301-floor-plan--927fc847.pdf",
+      "fileName": "residence-301-floor-plan--927fc847.pdf"
+    },
+    {
+      "sourceProjectId": "shorecrest",
+      "publicProjectId": "shorecrest",
+      "sourcePath": "research/asset-library/projects/shorecrest/floorplans/residence-1602-floor-plan--4891242d.pdf",
+      "publicPath": "/projects/shorecrest/docs/floorplans/residence-1602-floor-plan--4891242d.pdf",
+      "fileName": "residence-1602-floor-plan--4891242d.pdf"
+    },
+    {
+      "sourceProjectId": "south-flagler-house-north",
+      "publicProjectId": "south-flagler-house",
+      "sourcePath": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-5-9--7e6bd746.jpg",
+      "publicPath": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+      "fileName": "site-plan-floors-5-9--7e6bd746.jpg"
+    },
+    {
+      "sourceProjectId": "south-flagler-house-south",
+      "publicProjectId": "south-flagler-house",
+      "sourcePath": "research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-5-9--7e6bd746.jpg",
+      "publicPath": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+      "fileName": "site-plan-floors-5-9--7e6bd746.jpg"
+    },
+    {
+      "sourceProjectId": "south-flagler-house-north",
+      "publicProjectId": "south-flagler-house",
+      "sourcePath": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-10-18--29f041ee.jpg",
+      "publicPath": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+      "fileName": "site-plan-floors-10-18--29f041ee.jpg"
+    },
+    {
+      "sourceProjectId": "south-flagler-house-south",
+      "publicProjectId": "south-flagler-house",
+      "sourcePath": "research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-10-18--29f041ee.jpg",
+      "publicPath": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+      "fileName": "site-plan-floors-10-18--29f041ee.jpg"
+    },
+    {
+      "sourceProjectId": "south-flagler-house-north",
+      "publicProjectId": "south-flagler-house",
+      "sourcePath": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-19-20--113324cb.jpg",
+      "publicPath": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+      "fileName": "site-plan-floors-19-20--113324cb.jpg"
+    },
+    {
+      "sourceProjectId": "south-flagler-house-south",
+      "publicProjectId": "south-flagler-house",
+      "sourcePath": "research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-19-20--113324cb.jpg",
+      "publicPath": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+      "fileName": "site-plan-floors-19-20--113324cb.jpg"
+    }
+  ]
+}

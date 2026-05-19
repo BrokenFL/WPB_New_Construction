@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-05-18T18:38:45.087Z",
+  "updatePolicy": "Buyer-facing development news feed refreshed from reviewed public material. Publish after human review of titles, facts, and source links.",
+  "items": [
+    {
+      "id": "shorecrest-construction-loan",
+      "title": "Shorecrest financing pushes the North Flagler cluster toward construction",
+      "summary": "Related Ross announced a $157 million construction loan for Shorecrest, adding momentum to the North Flagler waterfront cluster.",
+      "category": "North Flagler",
+      "datePublished": "2026-02-18",
+      "dateModified": "2026-05-18",
+      "projectIds": [
+        "shorecrest",
+        "olara",
+        "ritz-carlton-wpb"
+      ],
+      "sourceName": "Related Ross press release",
+      "sourceUrl": "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+      "sourceLinks": [
+        {
+          "label": "Related Ross Shorecrest financing announcement",
+          "href": "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+          "sourceType": "developer press release"
+        },
+        {
+          "label": "Related Ross Shorecrest property page",
+          "href": "https://www.relatedross.com/our-company/properties/shorecrest",
+          "sourceType": "developer property page"
+        },
+        {
+          "label": "Shorecrest",
+          "href": "https://www.shorecrestwpb.com/",
+          "sourceType": "official project site"
+        }
+      ],
+      "rewrittenSummary": "Shorecrest is no longer just a future North Flagler comparison point. The financing announcement gives buyers another reason to watch the Olara, Ritz-Carlton, Shorecrest, and Alba cluster as one linked waterfront decision set.",
+      "image": {
+        "path": "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg",
+        "sourceUrl": "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg",
+        "credit": "Source: user-provided Shorecrest project media"
+      },
+      "citations": [
+        "Related Ross announced a $157 million construction loan for Shorecrest on February 18, 2026.",
+        "The live Related Ross Shorecrest property page currently lists 100 units, while the February 18 financing release describes 98 residences."
+      ],
+      "status": "Reviewed"
+    },
+    {
+      "id": "banyan-tree-sales-launch",
+      "title": "Banyan Tree locks in 88 branded residences at 400 Hibiscus",
+      "summary": "Banyan Group announced the launch of Banyan Tree Residences West Palm Beach, adding another branded-residence option to the downtown buyer map.",
+      "category": "Downtown",
+      "datePublished": "2026-03-24",
+      "dateModified": "2026-05-16",
+      "projectIds": [
+        "banyan-tree",
+        "mr-c",
+        "nora-house"
+      ],
+      "sourceName": "PR Newswire and official Banyan Tree site",
+      "sourceUrl": "https://www.prnewswire.com/news-releases/banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach-302723150.html",
+      "sourceLinks": [
+        {
+          "label": "Banyan Group sales launch announcement",
+          "href": "https://www.prnewswire.com/news-releases/banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach-302723150.html",
+          "sourceType": "brand/developer announcement"
+        },
+        {
+          "label": "Banyan Tree Residences West Palm Beach",
+          "href": "https://www.banyantreeresidenceswpb.com/",
+          "sourceType": "official project site"
+        }
+      ],
+      "rewrittenSummary": "The downtown comparison set is getting more brand-driven. Banyan Tree joins Mr. C and NORA House as buyers weigh hotel-style service, walkability, and how much of the premium is tied to the downtown lifestyle story.",
+      "image": {
+        "path": "/projects/banyan-tree/media/user-provided-banyan-tree-hero.jpg",
+        "sourceUrl": "/projects/banyan-tree/media/user-provided-banyan-tree-hero.jpg",
+        "credit": "Source: user-provided Banyan Tree project media"
+      },
+      "citations": [
+        "Banyan Group announced its U.S. entry through Banyan Tree Residences West Palm Beach on March 24, 2026.",
+        "The official project site currently advertises 88 exclusive corner residences and a sales gallery now open at 400 Hibiscus Street."
+      ],
+      "status": "Reviewed"
+    },
+    {
+      "id": "nora-house-district-launch",
+      "title": "NORA House pairs its district launch with a deeper public plan stack",
+      "summary": "NORA House gives buyers a clearer ownership option inside the fast-changing NORA district rather than only nearby rental, hotel, retail, and restaurant activity.",
+      "category": "NORA District",
+      "datePublished": "2026-03-23",
+      "dateModified": "2026-04-07",
+      "projectIds": [
+        "nora-house",
+        "banyan-tree",
+        "mr-c"
+      ],
+      "sourceName": "World Red Eye and official NORA House site",
+      "sourceUrl": "https://worldredeye.com/2026/03/wre-news-nora-house-anchors-residential-expansion-in-west-palm-beachs-nora-district/",
+      "sourceLinks": [
+        {
+          "label": "World Red Eye NORA House district coverage",
+          "href": "https://worldredeye.com/2026/03/wre-news-nora-house-anchors-residential-expansion-in-west-palm-beachs-nora-district/",
+          "sourceType": "development news coverage"
+        },
+        {
+          "label": "NORA House rooftop amenities / roof plan",
+          "href": "https://norahouse.com/amenities/",
+          "sourceType": "official project site"
+        },
+        {
+          "label": "NORA House",
+          "href": "https://norahouse.com/",
+          "sourceType": "official project site"
+        }
+      ],
+      "rewrittenSummary": "For buyers who want walkability more than a direct waterfront address, NORA House is the important one to watch. It turns the district conversation into a residential ownership comparison, not just a restaurant and retail story.",
+      "image": {
+        "path": "/projects/nora-house/media/user-provided-nora-house-hero.jpg",
+        "sourceUrl": "/projects/nora-house/media/user-provided-nora-house-hero.jpg",
+        "credit": "Source: user-provided NORA House project media"
+      },
+      "citations": [
+        "World Red Eye reported on March 24, 2026 that NORA House will bring 117 residences and nearly 19,000 square feet of ground-floor commercial space to North Railroad Avenue.",
+        "The official NORA House site now exposes residence and terrace plan pages, while address signals still split between a 955 N Railroad sales gallery and a 1021 N Railroad schema address."
+      ],
+      "status": "Reviewed"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # WPB Raw Asset Library
 
-Generated: 2026-05-10T02:14:09.211Z
+Generated: 2026-05-13T15:18:28.296Z
 
 Source inventory: https://github.com/BrokenFL/WestPalmNewConstruction
 
@@ -30,7 +30,7 @@ Raw public-source research library. Images, renderings, PDFs, logos, and brochur
 - Mandarin Oriental Residences, West Palm Beach (mandarin-oriental) — PDFs: 0, image candidates: 4
 - Alba Palm Beach (alba-palm-beach) — PDFs: 0, image candidates: 4
 - Apogee West Palm Beach (apogee-wpb) — PDFs: 0, image candidates: 0
-- South Flagler House North Tower (south-flagler-house-north) — PDFs: 0, image candidates: 0
+- South Flagler House North Tower (south-flagler-house-north) — PDFs: 0, image candidates: 4
 - South Flagler House South Tower (south-flagler-house-south) — PDFs: 0, image candidates: 0
 - Edgeworth North Tower (edgeworth-north) — PDFs: 0, image candidates: 4
 - Edgeworth South Tower (edgeworth-south) — PDFs: 0, image candidates: 4

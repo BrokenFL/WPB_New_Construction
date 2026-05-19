@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T02:14:09.211Z",
+  "generatedAt": "2026-05-13T15:18:28.296Z",
   "sourceRepo": "https://github.com/BrokenFL/WestPalmNewConstruction",
   "sourceRepoCommit": "3753c0ef2370817338e55f959cb78224783fccbd",
   "usageNote": "Raw public-source research library. Images, renderings, PDFs, logos, and brochures may be copyrighted or broker/developer-owned. Treat every downloaded third-party asset as rights-review-required before publishing.",
@@ -285,7 +285,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/ritz-carlton-wpb/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://theresidenceswestpalmbeach.com/",
@@ -538,7 +538,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/shorecrest/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.shorecrestwpb.com/",
@@ -1062,7 +1062,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/olara/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.olarawestpalmbeach.com/",
@@ -1255,7 +1255,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/mandarin-oriental/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://mandarinorientalwestpalmbeach.com/",
@@ -1327,7 +1327,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/alba-palm-beach/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.albapalmbeach.com/",
@@ -1366,7 +1366,7 @@
       "knownAssetLinks": [],
       "downloadedAssets": [],
       "generatedPlaceholderCopies": [
-        "projects/apogee-wpb/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [],
       "pdfCandidates": [],
@@ -1400,27 +1400,57 @@
         "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf"
       ],
       "knownAssetLinks": [],
-      "downloadedAssets": [],
-      "generatedPlaceholderCopies": [
-        "projects/south-flagler-house-north/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
-      ],
-      "crawlPages": [
-        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach"
-      ],
-      "pdfCandidates": [],
-      "imageCandidateCount": 0,
-      "errors": [
+      "downloadedAssets": [
         {
-          "url": "https://www.southflaglerhouse.com/",
-          "status": 429,
-          "error": "Too many requests"
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/Spa.jpg",
+          "path": "projects/south-flagler-house-north/images/candidates/01--official-candidate--southflaglerhouse.com--5f3223c8.jpg",
+          "bytes": 1367698,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.southflaglerhouse.com/"
         },
         {
-          "url": "https://www.southflaglerhouse.com/architecture-design",
-          "status": 429,
-          "error": "Too many requests"
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/42532c47288179b7379b6153af3a3c5da2c91987%20%281%29.jpg",
+          "path": "projects/south-flagler-house-north/images/candidates/02--official-candidate--southflaglerhouse.com--4ad798de.jpg",
+          "bytes": 1129157,
+          "contentType": "image/jpeg",
+          "sourcePage": "https://www.southflaglerhouse.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/41c8d66adcf3afa189d6987272bd634f37dbff1d.png",
+          "path": "projects/south-flagler-house-north/images/candidates/03--official-candidate--southflaglerhouse.com--780c0404.png",
+          "bytes": 790782,
+          "contentType": "image/png",
+          "sourcePage": "https://www.southflaglerhouse.com/"
+        },
+        {
+          "kind": "image",
+          "status": "downloaded",
+          "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/3aed1ab1fc4cad0cc190554ea3d586b75deeadf8.png",
+          "path": "projects/south-flagler-house-north/images/candidates/04--official-candidate--southflaglerhouse.com--61e4fc9d.png",
+          "bytes": 963273,
+          "contentType": "image/png",
+          "sourcePage": "https://www.southflaglerhouse.com/"
         }
-      ]
+      ],
+      "generatedPlaceholderCopies": [
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
+      ],
+      "crawlPages": [
+        "https://www.southflaglerhouse.com/",
+        "https://www.southflaglerhouse.com/architecture-design",
+        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
+        "https://www.southflaglerhouse.com/residences",
+        "https://www.southflaglerhouse.com/amenities"
+      ],
+      "pdfCandidates": [],
+      "imageCandidateCount": 72,
+      "errors": []
     },
     {
       "projectId": "south-flagler-house-south",
@@ -1445,25 +1475,18 @@
       "knownAssetLinks": [],
       "downloadedAssets": [],
       "generatedPlaceholderCopies": [
-        "projects/south-flagler-house-south/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
-        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach"
+        "https://www.southflaglerhouse.com/",
+        "https://www.southflaglerhouse.com/architecture-design",
+        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
+        "https://www.southflaglerhouse.com/residences",
+        "https://www.southflaglerhouse.com/amenities"
       ],
       "pdfCandidates": [],
-      "imageCandidateCount": 0,
-      "errors": [
-        {
-          "url": "https://www.southflaglerhouse.com/",
-          "status": 429,
-          "error": "Too many requests"
-        },
-        {
-          "url": "https://www.southflaglerhouse.com/architecture-design",
-          "status": 429,
-          "error": "Too many requests"
-        }
-      ]
+      "imageCandidateCount": 72,
+      "errors": []
     },
     {
       "projectId": "edgeworth-north",
@@ -1525,7 +1548,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/edgeworth-north/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.edgeworthwpb.com/",
@@ -1597,7 +1620,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/edgeworth-south/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.edgeworthwpb.com/",
@@ -2108,7 +2131,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/mr-c/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.mrcresidenceswpb.com/",
@@ -2318,25 +2341,24 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/banyan-tree/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.banyantreeresidenceswpb.com/",
         "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/",
         "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/",
-        "https://www.banyantreeresidenceswpb.com/?view=privacy-policy",
-        "https://www.banyantreeresidenceswpb.com/#image0_10103_1154"
+        "https://www.banyantreeresidenceswpb.com/?view=privacy-policy"
       ],
       "pdfCandidates": [],
       "imageCandidateCount": 35,
       "errors": [
         {
-          "url": "https://www.banyantreeresidenceswpb.com/banyan-tree-residences-luxury-condos-in-west-palm-beach/",
+          "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#357c5b535a7577545b4c545b614750506750465c51505b5650466265771b565a58",
           "status": 404,
           "error": "Not Found"
         },
         {
-          "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#743d1a121b3436151a0d151a200611112611071d10111a1711072324365a171b19",
+          "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#b8f1d6ded7f8fad9d6c1d9d6eccaddddeaddcbd1dcddd6dbddcbefe8fa96dbd7d5",
           "status": 404,
           "error": "Not Found"
         }
@@ -2410,7 +2432,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/berkeley/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
@@ -2505,7 +2527,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/nora-house/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://norahouse.com/",
@@ -2577,7 +2599,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/15-cityplace/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.relatedross.com/office/15-cityplace",
@@ -2611,7 +2633,7 @@
       "knownAssetLinks": [],
       "downloadedAssets": [],
       "generatedPlaceholderCopies": [
-        "projects/10-cityplace/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.relatedross.com/our-company/properties/10-cityplace"
@@ -2733,7 +2755,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/maison-dor/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://livemaisondor.com/",
@@ -2833,7 +2855,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/forte-on-flagler/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://fortewpb.com/",
@@ -2916,7 +2938,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/la-clara/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
@@ -2951,7 +2973,7 @@
           "status": "downloaded",
           "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
           "path": "projects/alba-reserve/images/candidates/01--official-candidate--static.therealdeal.com--ad0ee3bd.jpg",
-          "bytes": 342507,
+          "bytes": 340747,
           "contentType": "image/jpeg",
           "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
         },
@@ -2960,7 +2982,7 @@
           "status": "downloaded",
           "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-700x467.jpg",
           "path": "projects/alba-reserve/images/candidates/02--official-candidate--static.therealdeal.com--1839ae2d.jpg",
-          "bytes": 80230,
+          "bytes": 80548,
           "contentType": "image/jpeg",
           "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
         },
@@ -2978,13 +3000,13 @@
           "status": "downloaded",
           "url": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-1024x683.jpg",
           "path": "projects/alba-reserve/images/candidates/04--official-candidate--static.therealdeal.com--6823e964.jpg",
-          "bytes": 155150,
+          "bytes": 154168,
           "contentType": "image/jpeg",
           "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/alba-reserve/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
@@ -3017,7 +3039,7 @@
           "status": "downloaded",
           "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
           "path": "projects/related-ross-fern-street/images/candidates/01--official-candidate--static.therealdeal.com--c00cedb5.jpg",
-          "bytes": 308586,
+          "bytes": 306386,
           "contentType": "image/jpeg",
           "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
         },
@@ -3035,7 +3057,7 @@
           "status": "downloaded",
           "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-768x512.jpg",
           "path": "projects/related-ross-fern-street/images/candidates/03--official-candidate--static.therealdeal.com--4ba16752.jpg",
-          "bytes": 76312,
+          "bytes": 75903,
           "contentType": "image/jpeg",
           "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
         },
@@ -3050,7 +3072,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/related-ross-fern-street/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
@@ -3118,7 +3140,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/rybovich-marina/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
@@ -3163,7 +3185,7 @@
           "status": "downloaded",
           "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-700x467.jpg",
           "path": "projects/fort-partners-south-flagler/images/candidates/02--official-candidate--static.therealdeal.com--eb161491.jpg",
-          "bytes": 72624,
+          "bytes": 72445,
           "contentType": "image/jpeg",
           "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
         },
@@ -3172,7 +3194,7 @@
           "status": "downloaded",
           "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-768x512.jpg",
           "path": "projects/fort-partners-south-flagler/images/candidates/03--official-candidate--static.therealdeal.com--670e054d.jpg",
-          "bytes": 83518,
+          "bytes": 83299,
           "contentType": "image/jpeg",
           "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
         },
@@ -3181,13 +3203,13 @@
           "status": "downloaded",
           "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-1024x683.jpg",
           "path": "projects/fort-partners-south-flagler/images/candidates/04--official-candidate--static.therealdeal.com--b733a111.jpg",
-          "bytes": 136761,
+          "bytes": 137216,
           "contentType": "image/jpeg",
           "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/fort-partners-south-flagler/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
@@ -3244,7 +3266,7 @@
           "status": "downloaded",
           "url": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer-768x512.jpg",
           "path": "projects/portofino-flagler-yacht-club/images/candidates/03--official-candidate--static.therealdeal.com--c0a3acb5.jpg",
-          "bytes": 71594,
+          "bytes": 71186,
           "contentType": "image/jpeg",
           "sourcePage": "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"
         },
@@ -3259,7 +3281,7 @@
         }
       ],
       "generatedPlaceholderCopies": [
-        "projects/portofino-flagler-yacht-club/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+        "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
       ],
       "crawlPages": [
         "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"

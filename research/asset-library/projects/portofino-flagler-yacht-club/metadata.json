@@ -33,7 +33,7 @@
   "localModelUri": "",
   "localScenario": "",
   "generatedPlaceholderCopies": [
-    "projects/portofino-flagler-yacht-club/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -59,7 +59,7 @@
       "status": "downloaded",
       "url": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer-768x512.jpg",
       "path": "projects/portofino-flagler-yacht-club/images/candidates/03--official-candidate--static.therealdeal.com--c0a3acb5.jpg",
-      "bytes": 71594,
+      "bytes": 71186,
       "contentType": "image/jpeg",
       "sourcePage": "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"
     },

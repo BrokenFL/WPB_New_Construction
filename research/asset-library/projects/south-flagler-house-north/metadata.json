@@ -49,19 +49,368 @@
   "localModelUri": "",
   "localScenario": "South Flagler Waterfront",
   "generatedPlaceholderCopies": [
-    "projects/south-flagler-house-north/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
-  "downloadedAssets": [],
+  "downloadedAssets": [
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/Spa.jpg",
+      "path": "projects/south-flagler-house-north/images/candidates/01--official-candidate--southflaglerhouse.com--5f3223c8.jpg",
+      "bytes": 1367698,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.southflaglerhouse.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/42532c47288179b7379b6153af3a3c5da2c91987%20%281%29.jpg",
+      "path": "projects/south-flagler-house-north/images/candidates/02--official-candidate--southflaglerhouse.com--4ad798de.jpg",
+      "bytes": 1129157,
+      "contentType": "image/jpeg",
+      "sourcePage": "https://www.southflaglerhouse.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/41c8d66adcf3afa189d6987272bd634f37dbff1d.png",
+      "path": "projects/south-flagler-house-north/images/candidates/03--official-candidate--southflaglerhouse.com--780c0404.png",
+      "bytes": 790782,
+      "contentType": "image/png",
+      "sourcePage": "https://www.southflaglerhouse.com/"
+    },
+    {
+      "kind": "image",
+      "status": "downloaded",
+      "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/3aed1ab1fc4cad0cc190554ea3d586b75deeadf8.png",
+      "path": "projects/south-flagler-house-north/images/candidates/04--official-candidate--southflaglerhouse.com--61e4fc9d.png",
+      "bytes": 963273,
+      "contentType": "image/png",
+      "sourcePage": "https://www.southflaglerhouse.com/"
+    }
+  ],
   "crawlFindings": {
     "pages": [
+      {
+        "url": "https://www.southflaglerhouse.com/",
+        "title": "Ultra-Luxury Waterfront Condos in WPB | South Flagler House",
+        "description": "South Flagler House offers luxury waterfront condos in West Palm Beach. Preview our new construction residences with stunning water views and premium amenities.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/architecture-design",
+        "title": "Modern Architecture & Luxury Design | South Flagler House",
+        "description": "Discover the architectural and design inspiration behind South Flagler House. Exceptional style, waterfront aesthetics, and thoughtful luxury in every detail.",
+        "ogImage": ""
+      },
       {
         "url": "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
         "title": "Related Companies to launch sales for South Flagler House in West Palm Beach | Related Ross",
         "description": "Related Companies today announced it will launch sales for South Flagler House in early November. Located along the Gold Coast in West Palm Beach, Florida, South Flagler House offers an unparalleled luxury residential experience in the Palm Beaches featuring exquisite design and spectacular waterfront views. The first luxury residential high-rise in Florida designed by world-renowned architecture firm Robert A.M.",
         "ogImage": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/residences",
+        "title": "New WPB Luxury Waterfront Residences | South Flagler House",
+        "description": "View South Flagler House residences. Enjoy modern design, panoramic water views, and sophisticated finishes. Find your luxury home in West Palm Beach today.",
+        "ogImage": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/amenities",
+        "title": "New Luxury Condos with Full Amenities | South Flagler House",
+        "description": "Experience South Flagler House luxury condos with world-class amenities, including a private marina, pool, and fitness center. Schedule a private tour today.",
+        "ogImage": ""
       }
     ],
     "discoveredLinks": [
+      {
+        "url": "https://www.southflaglerhouse.com/",
+        "label": ""
+      },
+      {
+        "url": "https://southflaglerhouse.com/SFHSocialImage.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/themes/custom/southflaglerhousenew/favicon.ico",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/css/css_vi_xqMYzpQqhDRurppqrLbxXqWHtQChmJ_AQxQ4RykE.css?delta=0&language=en&theme=southflaglerhousenew&include=eJylVEFywyAM_JCxT31PRtgyphGIIjFJ-vri2GkzE-fA9GKBdlfAGgFRvWUdYIv9zDl0lllFM6SPwYLg89wRWyAjeiMf3TMSUAQcynMu8oTdCEnHBbZSI2ccplwSUA-fcN0Ssa4K5L-xS5DBVe0iD9Zfpi8xFUteFpw68SERnhKnkk6WeDzLcJDrhIsuM4EjzAsXwYiX4Y4Zs4WRo2JUY46oxsev4jOuvtzrHhfcbdEFw2rLIWc1w5i5EBmTqlPHrN_jrqTHEKIPoDiZBTM36EbIK04tEgVjIUbMDSJCmKtqPLu6XpwalAEnDw18wXWs3LI7xas20qvjk6meN_0lvXC9TFRCNAS3KvuP1rjsW4y8oL33rtxEMWzNtueGPfYj1zssXl8RJAy1Byqj1GbIb_EJFTxJr-zqlt7S9rfgBV8_P_zwvjM",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/css/css_KU7p_W5tkHMKE5h_e2Mu2zSMsvJfI0ArR_nt1YByG58.css?delta=1&language=en&theme=southflaglerhousenew&include=eJylVEFywyAM_JCxT31PRtgyphGIIjFJ-vri2GkzE-fA9GKBdlfAGgFRvWUdYIv9zDl0lllFM6SPwYLg89wRWyAjeiMf3TMSUAQcynMu8oTdCEnHBbZSI2ccplwSUA-fcN0Ssa4K5L-xS5DBVe0iD9Zfpi8xFUteFpw68SERnhKnkk6WeDzLcJDrhIsuM4EjzAsXwYiX4Y4Zs4WRo2JUY46oxsev4jOuvtzrHhfcbdEFw2rLIWc1w5i5EBmTqlPHrN_jrqTHEKIPoDiZBTM36EbIK04tEgVjIUbMDSJCmKtqPLu6XpwalAEnDw18wXWs3LI7xas20qvjk6meN_0lvXC9TFRCNAS3KvuP1rjsW4y8oL33rtxEMWzNtueGPfYj1zssXl8RJAy1Byqj1GbIb_EJFTxJr-zqlt7S9rfgBV8_P_zwvjM",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_zQRJcoQgopRhIowgitMhPU8OdpI1l9k_IDQictn10_I.js?scope=header&delta=0&language=en&theme=southflaglerhousenew&include=eJyVUstywyAM_CHLHDr9Ho-MZYwLiIBImr8v2Mn0ZR9y0WtXGrQCg9iRReHu-5mT70ZmyZIwvqvvENYMDoWydJoTKRuEUkDXr5dC6b53GmbjaBA0ylTzN-9xxc_fRd8l0hhFLzhc39TPpMvWx0qMHEscRsf6I6uDWpe5yDI7rFPTwiVToJvaMIDdaa6vDQJwRAUbLsUmahtsc48HGscjOpCFvA3mmBN4IoC5OAcQ0dAxK2JCUzVdGukZYrC-yjvBQolf6NOYGu5eaLnRuF2riB9a1VM95RATte3bjdUp0j161cP35MhXZXvNpX2IU3wiQetyn_F6PuRJEjZ1i1Oap5ybuGd4VYO0_IOb-QJoCicU",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/modules/contrib/google_tag/js/gtag.js?te77o7",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/modules/contrib/google_tag/js/gtm.js?te77o7",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/modules/contrib/seckit/css/seckit.no_body.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/modules/contrib/seckit/js/seckit.document_write.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/modules/contrib/seckit/css/seckit.noscript_tag.css",
+        "label": ""
+      },
+      {
+        "url": "https://www.googletagmanager.com/ns.html?id=GTM-PP2NQLZP",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/contact",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/residences",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/amenities",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/architecture-design",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/neighborhood",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/team",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/themes/custom/southflaglerhousenew/img/logos/south-flagler-house-logo.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/accessibility-statement",
+        "label": ""
+      },
+      {
+        "url": "https://www.google.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.facebook.com/SouthFlaglerHouse/",
+        "label": ""
+      },
+      {
+        "url": "https://related.widen.net/s/gkvpdjvgbg/sfh_fact-sheet_0625",
+        "label": ""
+      },
+      {
+        "url": "https://www.instagram.com/southflaglerhouse/",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedross.com/",
+        "label": ""
+      },
+      {
+        "url": "https://player.vimeo.com/video/1027713356?background=1&autoplay=1&muted=1",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/themes/custom/southflaglerhousenew/img/banners/letterhead-banner.svg",
+        "label": ""
+      },
+      {
+        "url": "https://player.vimeo.com/video/1040134502",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-02/EXT05_Crown.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT04%20Her%20Maser%20Bath%2018th%20Floor_v05_8k.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/EXT04_Penthouse%20Deck_E2_8k_0.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT12%20East%20Tower%20PH%20Living%20Room%20Looking%20South_E4%208K.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT13%20LT%20Kitchen%2012th%20Floor_v9_0.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT20%20PT%20Primary%20Bedroom%20Duplex%2027th%20Floor_0.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/d65e8ae972d5948df12081aa6b1ecdd0e29852ca%20%281%29.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/STILL_Pool.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/Spa.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/3e635da353e7a28a50bf0d130c158fe3dbab2954.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/42532c47288179b7379b6153af3a3c5da2c91987%20%281%29.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/41c8d66adcf3afa189d6987272bd634f37dbff1d.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/3aed1ab1fc4cad0cc190554ea3d586b75deeadf8.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/4ad1903f4ea34ece5a0b279a0ea904b2431438e8.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/Homepage4shopping.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/998219df5fc11702061e0bd282f78a0aee36463e%20%281%29.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/image_promenade.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/148fd17038a8ab5923ecacb0bd70118ce58fd1d5.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-02/EXT03_Motor%20Court%20Entrance.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/terms-use",
+        "label": ""
+      },
+      {
+        "url": "https://www.related.com/privacy-policy",
+        "label": ""
+      },
+      {
+        "url": "https://privacyportal-cdn.onetrust.com/dsarwebform/679d7477-7e03-4d1d-8596-4ba05c7a40f9/33af1b77-041a-4265-a598-6d30835f164d.html",
+        "label": ""
+      },
+      {
+        "url": "https://goo.gl/maps/vjtPjLwUoXW9N6eC6",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/legal",
+        "label": ""
+      },
+      {
+        "url": "https://www.levelaccess.com/a/related/",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/accessibility-dark.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-02/V05_Amenity_01.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/V03%20Hummingbird.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-10/Adventure%20Awaits%20-%20Boat.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-10/Fullscreen%20Media%20-%20Related%20Companies.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.google.com/recaptcha/api.js?render=6LfJwWorAAAAADWE-n2NrL13jgjuAh3O2xMs-wPv",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_zODLRUrwnGSvfeqNSqY-bLh7PFj1Dkpw6dMWtGJL7kg.js?scope=footer&delta=1&language=en&theme=southflaglerhousenew&include=eJyVUstywyAM_CHLHDr9Ho-MZYwLiIBImr8v2Mn0ZR9y0WtXGrQCg9iRReHu-5mT70ZmyZIwvqvvENYMDoWydJoTKRuEUkDXr5dC6b53GmbjaBA0ylTzN-9xxc_fRd8l0hhFLzhc39TPpMvWx0qMHEscRsf6I6uDWpe5yDI7rFPTwiVToJvaMIDdaa6vDQJwRAUbLsUmahtsc48HGscjOpCFvA3mmBN4IoC5OAcQ0dAxK2JCUzVdGukZYrC-yjvBQolf6NOYGu5eaLnRuF2riB9a1VM95RATte3bjdUp0j161cP35MhXZXvNpX2IU3wiQetyn_F6PuRJEjZ1i1Oap5ybuGd4VYO0_IOb-QJoCicU",
+        "label": ""
+      },
+      {
+        "url": "https://player.vimeo.com/api/player.js",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_f3puQE7z8XlFDWfuJ8lN9_Mgjozcu_EpUA_Taw07tpQ.js?scope=footer&delta=3&language=en&theme=southflaglerhousenew&include=eJyVUstywyAM_CHLHDr9Ho-MZYwLiIBImr8v2Mn0ZR9y0WtXGrQCg9iRReHu-5mT70ZmyZIwvqvvENYMDoWydJoTKRuEUkDXr5dC6b53GmbjaBA0ylTzN-9xxc_fRd8l0hhFLzhc39TPpMvWx0qMHEscRsf6I6uDWpe5yDI7rFPTwiVToJvaMIDdaa6vDQJwRAUbLsUmahtsc48HGscjOpCFvA3mmBN4IoC5OAcQ0dAxK2JCUzVdGukZYrC-yjvBQolf6NOYGu5eaLnRuF2riB9a1VM95RATte3bjdUp0j161cP35MhXZXvNpX2IU3wiQetyn_F6PuRJEjZ1i1Oap5ybuGd4VYO0_IOb-QJoCicU",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/css/css_vi_xqMYzpQqhDRurppqrLbxXqWHtQChmJ_AQxQ4RykE.css?delta=0&language=en&theme=southflaglerhousenew&include=eJyVU9tugzAM_SEMT_ueyoCBrE6cxY7a7usXCmuRSrXxgpNzccKRg8FcK9bgUutBkq9aEVNLGD-aFpW2-5GlRQa1G7swbhlPqjiSbrEgPVUdRusmXFp1kqjpU47INX7idQFCORXZfVMVMeFYvJP-qp5InUPMLTudqK_U-ch0ihJzPLUs3VmbHaxSyTYNjCNTmiQrBbo0dw5gKZ0Eo2AAe1Jw4Su7RHMu9777DddYbCI_x7KrmcMAGDIzQCxJ7asevwswURJ47P-UP5edIbQYAqUDJiYciqs7j0ly6A84PfUOD-iV5rXJkdsZXe2gHDD04Px_kt4YL1IGgrMPwHgrNhiTOxLGhdr7G9KbGvll6FesWWvdSZkldfbKEJMvs1gUuQxlesv3ZOhYa5OxXOmtbH2TL_z8-QFLKY7t",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/css/css_1y56TmhikCJeVTdWN5KY266hInCPgNk6Uwb62ZslKts.css?delta=1&language=en&theme=southflaglerhousenew&include=eJyVU9tugzAM_SEMT_ueyoCBrE6cxY7a7usXCmuRSrXxgpNzccKRg8FcK9bgUutBkq9aEVNLGD-aFpW2-5GlRQa1G7swbhlPqjiSbrEgPVUdRusmXFp1kqjpU47INX7idQFCORXZfVMVMeFYvJP-qp5InUPMLTudqK_U-ch0ihJzPLUs3VmbHaxSyTYNjCNTmiQrBbo0dw5gKZ0Eo2AAe1Jw4Su7RHMu9777DddYbCI_x7KrmcMAGDIzQCxJ7asevwswURJ47P-UP5edIbQYAqUDJiYciqs7j0ly6A84PfUOD-iV5rXJkdsZXe2gHDD04Px_kt4YL1IGgrMPwHgrNhiTOxLGhdr7G9KbGvll6FesWWvdSZkldfbKEJMvs1gUuQxlesv3ZOhYa5OxXOmtbH2TL_z8-QFLKY7t",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_zQRJcoQgopRhIowgitMhPU8OdpI1l9k_IDQictn10_I.js?scope=header&delta=0&language=en&theme=southflaglerhousenew&include=eJyFkVtywyAMRTeEzEen6_HIRMa4gAiIpNl9wUmbPuzpD3rcg0ASRnETi8a7HWbOQU3MUiRjetVPF9YCHoWKKMOZtItCOaIf1nOlfLvftMzW0yhotW3H73jAFd9_JoPKZDCJWXC8vOjvgSoupAYmTjWNk2fzVvROThWussweW9W8cC0U6ao3DeBuDLffRgHYQ8HFc3WZegdb3f2CM6EslL2zi-wT1vOEHhoVXLT7TOQTAczVe4CElvaphBltm_oC0J5k-Ir_xZ_ulaZtJ1XC2LOB2sLGlKn32DepDxX1uKsfdiBPoc1vMFz72g_1Ewk6X4aCl-Min5CwbV0cYoFK6QM60ktzjPyR-_EBsl4dSg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/V05_Pool%20Elevation_C7.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/e441fe45f460baccade29afbb9a0a276abf3f5b4%20%282%29.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-10/Robert%20A.M.%20Stern%20Architects%20-%20Action%20Shot.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/image_pembrook.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT07_Pedestrian%20Entrance.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_WomIekJTFGRwcjC2kvHUa4k0L2buyMT90deJucdNZUE.js?scope=footer&delta=1&language=en&theme=southflaglerhousenew&include=eJyFkVtywyAMRTeEzEen6_HIRMa4gAiIpNl9wUmbPuzpD3rcg0ASRnETi8a7HWbOQU3MUiRjetVPF9YCHoWKKMOZtItCOaIf1nOlfLvftMzW0yhotW3H73jAFd9_JoPKZDCJWXC8vOjvgSoupAYmTjWNk2fzVvROThWussweW9W8cC0U6ao3DeBuDLffRgHYQ8HFc3WZegdb3f2CM6EslL2zi-wT1vOEHhoVXLT7TOQTAczVe4CElvaphBltm_oC0J5k-Ir_xZ_ulaZtJ1XC2LOB2sLGlKn32DepDxX1uKsfdiBPoc1vMFz72g_1Ewk6X4aCl-Min5CwbV0cYoFK6QM60ktzjPyR-_EBsl4dSg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_OisjEcQuJ0af2m5DWD6Kt4ZlfwGEhIOAoqp8vAGWbi0.js?scope=footer&delta=3&language=en&theme=southflaglerhousenew&include=eJyFkVtywyAMRTeEzEen6_HIRMa4gAiIpNl9wUmbPuzpD3rcg0ASRnETi8a7HWbOQU3MUiRjetVPF9YCHoWKKMOZtItCOaIf1nOlfLvftMzW0yhotW3H73jAFd9_JoPKZDCJWXC8vOjvgSoupAYmTjWNk2fzVvROThWussweW9W8cC0U6ao3DeBuDLffRgHYQ8HFc3WZegdb3f2CM6EslL2zi-wT1vOEHhoVXLT7TOQTAczVe4CElvaphBltm_oC0J5k-Ir_xZ_ulaZtJ1XC2LOB2sLGlKn32DepDxX1uKsfdiBPoc1vMFz72g_1Ewk6X4aCl-Min5CwbV0cYoFK6QM60ktzjPyR-_EBsl4dSg",
+        "label": ""
+      },
       {
         "url": "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
         "label": ""
@@ -108,10 +457,6 @@
       },
       {
         "url": "https://www.googletagmanager.com/ns.html?id=GTM-PSLNMLF",
-        "label": ""
-      },
-      {
-        "url": "https://www.relatedross.com/",
         "label": ""
       },
       {
@@ -267,18 +612,6 @@
         "label": ""
       },
       {
-        "url": "https://www.related.com/terms-use",
-        "label": ""
-      },
-      {
-        "url": "https://www.related.com/privacy-policy",
-        "label": ""
-      },
-      {
-        "url": "https://privacyportal-cdn.onetrust.com/dsarwebform/679d7477-7e03-4d1d-8596-4ba05c7a40f9/33af1b77-041a-4265-a598-6d30835f164d.html",
-        "label": ""
-      },
-      {
         "url": "https://www.essentialaccessibility.com/related",
         "label": ""
       },
@@ -305,22 +638,620 @@
       {
         "url": "https://www.relatedross.com/sites/default/files/js/js__7B45lLcf6kj722yYHwF8coHs2Sz6xmux01b0bKieb8.js?scope=footer&delta=0&language=en&theme=rcc&include=eJyFT1sSwiAMvBDCkZhAI6KhYUha9faW6o8Pxp9N9jE7CcyaA6uD57RHbsVMoEBwx-YCnmDN3MQk5kToFZJLG3xyC2e4vYvFtBhd7zrsZTtNxAHICEKLJw81e1iUI5dKqOgGupHcF1-5LtUH4ngR90MzVwz9A_eaFgkLzmojL7NuJ4z8CRUyiRVY8W9IOW1fDmMFRSCNfdmWqF92hwe8LZsf",
         "label": ""
-      }
-    ],
-    "imageCandidates": [],
-    "pdfCandidates": [],
-    "errors": [
-      {
-        "url": "https://www.southflaglerhouse.com/",
-        "status": 429,
-        "error": "Too many requests"
       },
       {
-        "url": "https://www.southflaglerhouse.com/architecture-design",
-        "status": 429,
-        "error": "Too many requests"
+        "url": "https://www.southflaglerhouse.com/sites/default/files/css/css_vi_xqMYzpQqhDRurppqrLbxXqWHtQChmJ_AQxQ4RykE.css?delta=0&language=en&theme=southflaglerhousenew&include=eJyVVNF2wyAI_aGQPO17ekhCE1cUJ7i2-_qZpmt71vRsvgTl3gsRRAzmerEOV9vuJfmmFzG1hPGt61HpcT-x9MigdmYXpkfEkypOpI--ICM1A0YbZlxDDZKoG1OOyC2-42l1hJIV2X1REzHhVLSz_rDunjaHmHt2OtPYqPORaRcl5rjrWYaDdhu-RiXbvGecmNIsWSnQsbtgAKsZJBgFA9iiggsf2SVa6nKJux3wWhabyS9l2eQsxQDYZ2aAWCq1zbodF2CmJHDb_0m_LwdMC841EkPoMQRKFSIm3BfVcJhKvjBWKD2NDiv4MUmkZGcY6ZNYoi8Nq5ArLWuTmsMZnWpSLHTAMILz_-ntL-HlJtaIjlLuLWcfgPFcZDAlV9OAI_WXUdezGvl1Nq--7mrbQcqVV2fPCDEtHSiMXGYnvcRHMnSsrclUfukl7fp0POHL5xudJdEB",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/css/css_CG56w3mlTKwcv_yZqIvZOKlvKwY3PaYNtcnh7jHXPWg.css?delta=1&language=en&theme=southflaglerhousenew&include=eJyVVNF2wyAI_aGQPO17ekhCE1cUJ7i2-_qZpmt71vRsvgTl3gsRRAzmerEOV9vuJfmmFzG1hPGt61HpcT-x9MigdmYXpkfEkypOpI--ICM1A0YbZlxDDZKoG1OOyC2-42l1hJIV2X1REzHhVLSz_rDunjaHmHt2OtPYqPORaRcl5rjrWYaDdhu-RiXbvGecmNIsWSnQsbtgAKsZJBgFA9iiggsf2SVa6nKJux3wWhabyS9l2eQsxQDYZ2aAWCq1zbodF2CmJHDb_0m_LwdMC841EkPoMQRKFSIm3BfVcJhKvjBWKD2NDiv4MUmkZGcY6ZNYoi8Nq5ArLWuTmsMZnWpSLHTAMILz_-ntL-HlJtaIjlLuLWcfgPFcZDAlV9OAI_WXUdezGvl1Nq--7mrbQcqVV2fPCDEtHSiMXGYnvcRHMnSsrclUfukl7fp0POHL5xudJdEB",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_zQRJcoQgopRhIowgitMhPU8OdpI1l9k_IDQictn10_I.js?scope=header&delta=0&language=en&theme=southflaglerhousenew&include=eJyVUllywyAMvZBlPjo9j0cmCiYFRIRImtsXkrTpYk8nP9rek0ALJvUzq8GbHvcscZiZtahgfjUPEw4FAioVHSwLGZ-UJGEYD8dKcrllOmYXaFJ0xjXx2x_xgO8_g3EQspjVLjidXsx3Zyg-5kbMnGue5sD2rZiV2FC46rIP2KrKwrVQorO5YgA3Zbn9NinAGhV8OlYv1Du41l0v6ALPGEAXij65dU7iHQHsawgAGR2tszIKujbTBWAhYfjy_6U_TIvS8fBEShbOJHqBHZ0ocI5tIk-kn2m-7rhqnHo0UjuAKQv1mfXLMJvIcM81dz1SoP76aLn2M9rEd6ToQxkLnraLfJKUXetikxaplL6SLbwNk6z-gbv4AIiSPMU",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT15_LT_Living_South_12th.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT30_PT%20Reception%2014th%20Floor.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT01_Living%20Room%2017th%20Floor.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/INT40_PT_Master%20Bathroom_B7.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT21_PT%20Existing%20Living%20Room%20North%2018th%20Floor.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT03_Master_Bedroom_v0.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT30_PT%20Reception%2014th%20Floor_0.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT06%20Kitchen%2017th%20Floor_Kitchen%20Look%2008_Updated.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/EXT04_Penthouse%20Deck_E2_8k_1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT02_Loggia%2018th%20Floor.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/SFH_Site_Plan_Illustration_V07%20t1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/SFH_Site_Plan_Illustration_V07%20t2.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/SFH_Site_Plan_Illustration_V07%20t3.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/a61a7bc54a839b73123b4abede680e377465b9b3.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/92dc86a4a1fa5f2877c204465ed0e74add776929.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_vlFB_7ZaEA5mtj6hfds8JwAGvOBJtR68Ory7YT7IETA.js?scope=footer&delta=1&language=en&theme=southflaglerhousenew&include=eJyVUllywyAMvZBlPjo9j0cmCiYFRIRImtsXkrTpYk8nP9rek0ALJvUzq8GbHvcscZiZtahgfjUPEw4FAioVHSwLGZ-UJGEYD8dKcrllOmYXaFJ0xjXx2x_xgO8_g3EQspjVLjidXsx3Zyg-5kbMnGue5sD2rZiV2FC46rIP2KrKwrVQorO5YgA3Zbn9NinAGhV8OlYv1Du41l0v6ALPGEAXij65dU7iHQHsawgAGR2tszIKujbTBWAhYfjy_6U_TIvS8fBEShbOJHqBHZ0ocI5tIk-kn2m-7rhqnHo0UjuAKQv1mfXLMJvIcM81dz1SoP76aLn2M9rEd6ToQxkLnraLfJKUXetikxaplL6SLbwNk6z-gbv4AIiSPMU",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_oFnZirZO2gCB_JFvH62hgSQy79jTnqid859_8d0wqO0.js?scope=footer&delta=3&language=en&theme=southflaglerhousenew&include=eJyVUllywyAMvZBlPjo9j0cmCiYFRIRImtsXkrTpYk8nP9rek0ALJvUzq8GbHvcscZiZtahgfjUPEw4FAioVHSwLGZ-UJGEYD8dKcrllOmYXaFJ0xjXx2x_xgO8_g3EQspjVLjidXsx3Zyg-5kbMnGue5sD2rZiV2FC46rIP2KrKwrVQorO5YgA3Zbn9NinAGhV8OlYv1Du41l0v6ALPGEAXij65dU7iHQHsawgAGR2tszIKujbTBWAhYfjy_6U_TIvS8fBEShbOJHqBHZ0ocI5tIk-kn2m-7rhqnHo0UjuAKQv1mfXLMJvIcM81dz1SoP76aLn2M9rEd6ToQxkLnraLfJKUXetikxaplL6SLbwNk6z-gbv4AIiSPMU",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/css/css_vi_xqMYzpQqhDRurppqrLbxXqWHtQChmJ_AQxQ4RykE.css?delta=0&language=en&theme=southflaglerhousenew&include=eJylVFtywyAMvJBlf_U8HQGyTQOIgpg0PX1lO00yU3dST394SLsCVkiYxBuWAbe5H7nEzjBLlYL5ZTBY6XE_BTYYoMol-DQ9eiLVihPVR1tiR53FLHbGLZTlQoMrLWPo8Q0_NkPSUzH4T-oyFpyUO9dv1N3St5SbCb7O5LrqYw70mjm3_GoC21Mddmxd5SbzGHAKVGZulRKdh9UHsE2Wk1ASgD0o-PTefKFFlzXufsCrLDJTXGTZxSxiAIwtBICsSu2jbs-F9WLoEzmI5Dw-xVM05JzC_VgwPo8_U2G47Z_C70u0mjXnOYEmQw4QLZbFH45QBMFgSlQOkALhqCx7mvS85A4w_6b0fVlpWQsfuZ3QxxHRFjhg0rTGv_yaB-KZ9Q-FFjVPeFHaf7gwFX9EyDOZtZc8Y9xetyq__BCnRXupQnHrGNdAw3XuLWshVi8_PRQoaiEromlFl1_9jrSsQu2FJ73Vr7BrQ_vhX4YvQY0LLQ",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/css/css_bFHZXbv08KXh30SIAD8gk_mkYQlW17ggTHr83bVohYo.css?delta=1&language=en&theme=southflaglerhousenew&include=eJylVFtywyAMvJBlf_U8HQGyTQOIgpg0PX1lO00yU3dST394SLsCVkiYxBuWAbe5H7nEzjBLlYL5ZTBY6XE_BTYYoMol-DQ9eiLVihPVR1tiR53FLHbGLZTlQoMrLWPo8Q0_NkPSUzH4T-oyFpyUO9dv1N3St5SbCb7O5LrqYw70mjm3_GoC21Mddmxd5SbzGHAKVGZulRKdh9UHsE2Wk1ASgD0o-PTefKFFlzXufsCrLDJTXGTZxSxiAIwtBICsSu2jbs-F9WLoEzmI5Dw-xVM05JzC_VgwPo8_U2G47Z_C70u0mjXnOYEmQw4QLZbFH45QBMFgSlQOkALhqCx7mvS85A4w_6b0fVlpWQsfuZ3QxxHRFjhg0rTGv_yaB-KZ9Q-FFjVPeFHaf7gwFX9EyDOZtZc8Y9xetyq__BCnRXupQnHrGNdAw3XuLWshVi8_PRQoaiEromlFl1_9jrSsQu2FJ73Vr7BrQ_vhX4YvQY0LLQ",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_zQRJcoQgopRhIowgitMhPU8OdpI1l9k_IDQictn10_I.js?scope=header&delta=0&language=en&theme=southflaglerhousenew&include=eJyVUltywyAMvBAyH52exyNjBZMCIiDyuH0hSZs-7En7IyF2JZBWGMVNLBpvfthxDmpiliIZ06t-HGFfwKNQEWU4k3ZRKEf0w_5QKV9umZbZehoFrbbN_IwH3OP5-2VQmQwmMQuOxxf9NVDFhdSIiVNN4-TZvBW9cqcKV1l2HlvVvHAtFOmkrxjAzRluv40CsEYFFw_VZeodXOuuF7SeJ_QgCwUX7Ton8kwAu-o9QEJL66yEGW2b6QKwUGb4jJ_SH0c0TYXZcQTvmiR_TzSYO-7_kXKi6aruswyhswDGGQLNDvtLc1FVwtg5gdq-jClTH3FfJL2JqPuD-u4H8hSafIPh2rduE59J0PkyFDxuF_kgCdvWyCYtUCldwS28jZCM_IK7eQeMEE6A",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-05/STILL_Pool%20%281%29%20%281%29_0.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://player.vimeo.com/video/1138309862",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/5df1c7d9e6779613fa6739953766b6c3fc37c56b.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://flagler-chi.vercel.app/",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/174788b3733b64544fee47bb8898a929b092cd9f.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/f797d600f97ceed0d5e529b7423c32efe491785b.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/0bee63b24b0dc7b416e2f9c63e8f7e108433f9a5.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/0decfd9a10b09be329ed3c77b6dea5122e15b588.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/bb1ec3fd1c9a0f6fbdde6bc1e68f889e50aa8274.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/83e6132209ea3af5de9f4350d00b69c464366fd7.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/77cb8d952054e20f1d7dbb35a4e21eeacb751016.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/7a5ac4a562ed09608e6555f728d0863066d7ae5e.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/adf8ee7344d39025159b51a58438848a1b99b151.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/71ac179bedf98d8065d8eeda26850122555fd90b.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/cf07a2e33aae680682f587f9fe35eff6647803e3%20%281%29.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/8ca4b5518fa887d393a5f478399d3a69eb3808e8.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/styles/square_1080_x_1080/public/2025-11/5ec1f1753af774503e541fb7b1af0a2fefd10143%20%281%29.jpg.webp?h=1a1d35e1&itok=qye6Gu7Z",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/417f6784847f36e11c8406142654ecaeaba641a2.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/d2d522f132b8207b96a1a957fd756d199eabdfd1.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/b167c32fbab12ade4ec90890d7e5bdb01e1686fd.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/fdd6bdc29fb4c2568ba55c2ed029ee445526fd37.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/7ac1939f6d254560b4c7c7f772c5218fcc3e12c0.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/87115c709a1916864cc4c03470c44b01c84cdc8f.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/styles/portrait_1050_x_776/public/2025-11/8bdcd8c720cbe7af8b2b22bb5e9e4f94736b0cc0%20%281%29.jpg.webp?h=41f55a5b&itok=Bcbq63uU",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/styles/portrait_1050_x_776/public/2025-08/INT13%20LT%20Kitchen%2012th%20Floor_v9_0.jpg.webp?h=3cf665d7&itok=y-1iS-T2",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/styles/portrait_1050_x_776/public/2025-03/south-flagler-house-artisan-home-vertical-linkedin-sales-solutions-ws73le0gnks-unsplash.jpg.webp?h=bcd5d3fb&itok=f5wmVKwx",
+        "label": ""
+      },
+      {
+        "url": "https://www.relatedartisanhome.com/",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/styles/contained_full_width_3220x1868_desktop_x2/public/2025-11/109c6960a1183072fb5ade371679f5d2215cb541%20%283%29.png.webp?itok=x-ERUDqM",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/109c6960a1183072fb5ade371679f5d2215cb541%20%283%29.png",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-12/swim-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-12/basketball-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/Dining.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-12/business-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-12/recreation-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-12/entertainment-icon.svg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/bd90435ed546d0ea0106df70a59337d2bbaa05da.jpg",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_vlFB_7ZaEA5mtj6hfds8JwAGvOBJtR68Ory7YT7IETA.js?scope=footer&delta=1&language=en&theme=southflaglerhousenew&include=eJyVUltywyAMvBAyH52exyNjBZMCIiDyuH0hSZs-7En7IyF2JZBWGMVNLBpvfthxDmpiliIZ06t-HGFfwKNQEWU4k3ZRKEf0w_5QKV9umZbZehoFrbbN_IwH3OP5-2VQmQwmMQuOxxf9NVDFhdSIiVNN4-TZvBW9cqcKV1l2HlvVvHAtFOmkrxjAzRluv40CsEYFFw_VZeodXOuuF7SeJ_QgCwUX7Ton8kwAu-o9QEJL66yEGW2b6QKwUGb4jJ_SH0c0TYXZcQTvmiR_TzSYO-7_kXKi6aruswyhswDGGQLNDvtLc1FVwtg5gdq-jClTH3FfJL2JqPuD-u4H8hSafIPh2rduE59J0PkyFDxuF_kgCdvWyCYtUCldwS28jZCM_IK7eQeMEE6A",
+        "label": ""
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/js/js_EbLLYHi_eRxpx_BpzJS3fzR1N7ZDu0CgiTFRhIeAtSc.js?scope=footer&delta=3&language=en&theme=southflaglerhousenew&include=eJyVUltywyAMvBAyH52exyNjBZMCIiDyuH0hSZs-7En7IyF2JZBWGMVNLBpvfthxDmpiliIZ06t-HGFfwKNQEWU4k3ZRKEf0w_5QKV9umZbZehoFrbbN_IwH3OP5-2VQmQwmMQuOxxf9NVDFhdSIiVNN4-TZvBW9cqcKV1l2HlvVvHAtFOmkrxjAzRluv40CsEYFFw_VZeodXOuuF7SeJ_QgCwUX7Ton8kwAu-o9QEJL66yEGW2b6QKwUGb4jJ_SH0c0TYXZcQTvmiR_TzSYO-7_kXKi6aruswyhswDGGQLNDvtLc1FVwtg5gdq-jClTH3FfJL2JqPuD-u4H8hSafIPh2rduE59J0PkyFDxuF_kgCdvWyCYtUCldwS28jZCM_IK7eQeMEE6A",
+        "label": ""
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2023-12/EXT01_Hummingbird_Stage%20B6_cropped.jpg",
+        "label": "EXT01 Hummingbird Stage B6 cropped"
       }
-    ]
+    ],
+    "imageCandidates": [
+      {
+        "url": "https://southflaglerhouse.com/SFHSocialImage.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-02/EXT05_Crown.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT04%20Her%20Maser%20Bath%2018th%20Floor_v05_8k.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/EXT04_Penthouse%20Deck_E2_8k_0.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT12%20East%20Tower%20PH%20Living%20Room%20Looking%20South_E4%208K.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT13%20LT%20Kitchen%2012th%20Floor_v9_0.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT20%20PT%20Primary%20Bedroom%20Duplex%2027th%20Floor_0.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/d65e8ae972d5948df12081aa6b1ecdd0e29852ca%20%281%29.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/STILL_Pool.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/Spa.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/3e635da353e7a28a50bf0d130c158fe3dbab2954.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/42532c47288179b7379b6153af3a3c5da2c91987%20%281%29.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/41c8d66adcf3afa189d6987272bd634f37dbff1d.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/3aed1ab1fc4cad0cc190554ea3d586b75deeadf8.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/4ad1903f4ea34ece5a0b279a0ea904b2431438e8.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/Homepage4shopping.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/998219df5fc11702061e0bd282f78a0aee36463e%20%281%29.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/image_promenade.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/148fd17038a8ab5923ecacb0bd70118ce58fd1d5.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-02/EXT03_Motor%20Court%20Entrance.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-02/V05_Amenity_01.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/V03%20Hummingbird.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-10/Adventure%20Awaits%20-%20Boat.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-10/Fullscreen%20Media%20-%20Related%20Companies.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/V05_Pool%20Elevation_C7.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/architecture-design"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/e441fe45f460baccade29afbb9a0a276abf3f5b4%20%282%29.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/architecture-design"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2024-10/Robert%20A.M.%20Stern%20Architects%20-%20Action%20Shot.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/architecture-design"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/image_pembrook.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/architecture-design"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT07_Pedestrian%20Entrance.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/architecture-design"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT15_LT_Living_South_12th.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT30_PT%20Reception%2014th%20Floor.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT01_Living%20Room%2017th%20Floor.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/INT40_PT_Master%20Bathroom_B7.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT21_PT%20Existing%20Living%20Room%20North%2018th%20Floor.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT03_Master_Bedroom_v0.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT30_PT%20Reception%2014th%20Floor_0.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT06%20Kitchen%2017th%20Floor_Kitchen%20Look%2008_Updated.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/EXT04_Penthouse%20Deck_E2_8k_1.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-08/INT02_Loggia%2018th%20Floor.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/SFH_Site_Plan_Illustration_V07%20t1.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/SFH_Site_Plan_Illustration_V07%20t2.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/SFH_Site_Plan_Illustration_V07%20t3.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/a61a7bc54a839b73123b4abede680e377465b9b3.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-10/92dc86a4a1fa5f2877c204465ed0e74add776929.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-05/STILL_Pool%20%281%29%20%281%29_0.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/5df1c7d9e6779613fa6739953766b6c3fc37c56b.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/174788b3733b64544fee47bb8898a929b092cd9f.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/f797d600f97ceed0d5e529b7423c32efe491785b.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/0bee63b24b0dc7b416e2f9c63e8f7e108433f9a5.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/0decfd9a10b09be329ed3c77b6dea5122e15b588.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/bb1ec3fd1c9a0f6fbdde6bc1e68f889e50aa8274.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/83e6132209ea3af5de9f4350d00b69c464366fd7.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/77cb8d952054e20f1d7dbb35a4e21eeacb751016.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/7a5ac4a562ed09608e6555f728d0863066d7ae5e.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/adf8ee7344d39025159b51a58438848a1b99b151.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/71ac179bedf98d8065d8eeda26850122555fd90b.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/cf07a2e33aae680682f587f9fe35eff6647803e3%20%281%29.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/8ca4b5518fa887d393a5f478399d3a69eb3808e8.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/styles/square_1080_x_1080/public/2025-11/5ec1f1753af774503e541fb7b1af0a2fefd10143%20%281%29.jpg.webp?h=1a1d35e1&itok=qye6Gu7Z",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/417f6784847f36e11c8406142654ecaeaba641a2.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/d2d522f132b8207b96a1a957fd756d199eabdfd1.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/b167c32fbab12ade4ec90890d7e5bdb01e1686fd.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/fdd6bdc29fb4c2568ba55c2ed029ee445526fd37.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/7ac1939f6d254560b4c7c7f772c5218fcc3e12c0.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/87115c709a1916864cc4c03470c44b01c84cdc8f.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/styles/portrait_1050_x_776/public/2025-11/8bdcd8c720cbe7af8b2b22bb5e9e4f94736b0cc0%20%281%29.jpg.webp?h=41f55a5b&itok=Bcbq63uU",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/styles/portrait_1050_x_776/public/2025-08/INT13%20LT%20Kitchen%2012th%20Floor_v9_0.jpg.webp?h=3cf665d7&itok=y-1iS-T2",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/styles/portrait_1050_x_776/public/2025-03/south-flagler-house-artisan-home-vertical-linkedin-sales-solutions-ws73le0gnks-unsplash.jpg.webp?h=bcd5d3fb&itok=f5wmVKwx",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/styles/contained_full_width_3220x1868_desktop_x2/public/2025-11/109c6960a1183072fb5ade371679f5d2215cb541%20%283%29.png.webp?itok=x-ERUDqM",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/109c6960a1183072fb5ade371679f5d2215cb541%20%283%29.png",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/sites/default/files/2025-11/bd90435ed546d0ea0106df70a59337d2bbaa05da.jpg",
+        "label": "",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2023-12/EXT01_Hummingbird_Stage%20B6_cropped.jpg",
+        "label": "EXT01 Hummingbird Stage B6 cropped",
+        "sourcePage": "https://www.southflaglerhouse.com/amenities"
+      }
+    ],
+    "pdfCandidates": [],
+    "errors": []
   },
   "rightsNote": "Every third-party image/PDF/rendering in this folder is research-only until the owner, broker, developer, or license terms permit site publication."
 }

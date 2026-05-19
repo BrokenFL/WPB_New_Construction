@@ -119,7 +119,7 @@
   "localModelUri": "/models/shorecrest.glb",
   "localScenario": "North Flagler Pipeline",
   "generatedPlaceholderCopies": [
-    "projects/shorecrest/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {

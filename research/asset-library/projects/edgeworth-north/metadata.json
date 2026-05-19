@@ -46,7 +46,7 @@
   "localModelUri": "",
   "localScenario": "South Flagler Waterfront",
   "generatedPlaceholderCopies": [
-    "projects/edgeworth-north/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -147,7 +147,7 @@
         "label": ""
       },
       {
-        "url": "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Acme:ital,wght@0,400",
+        "url": "https://fonts.googleapis.com/css2?family=Acme:ital,wght@0,400&family=Lora:ital,wght@0,400;0,700;1,400;1,700",
         "label": ""
       },
       {
@@ -163,7 +163,7 @@
         "label": ""
       },
       {
-        "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-runtime-efd5f2134e4e70f4-min.en-US.js",
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-runtime-2948c3cc00776962-min.en-US.js",
         "label": ""
       },
       {
@@ -183,7 +183,7 @@
         "label": ""
       },
       {
-        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-6a459dad7444b31d-min.en-US.js",
+        "url": "https://assets.squarespace.com/universal/scripts-compressed/common-5334e169c9772d6c-min.en-US.js",
         "label": ""
       },
       {
@@ -199,63 +199,63 @@
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/eec49227-9151-4e51-894c-948249d3e78f_533/website.components.html.styles.css",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/946e76e1-bf8a-4ee3-a975-8c1777231447_715/website.components.form.styles.css",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/404ed975-68f8-47a7-ac5c-a389a701daa8_705/website.components.form.styles.css",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/website.components.imageFluid.styles.css",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/website.components.imageFluid.styles.css",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/14844e32-143f-4266-9843-a07fe250b767_543/website.components.html.styles.css",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/website.components.imageFluid.shared.constants.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/748.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/image-effect-film-grain.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/image-effect-liquid.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/image-effect-parallax.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/website.components.imageFluid.visitor.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/eec49227-9151-4e51-894c-948249d3e78f_533/website.components.html.visitor.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/website.components.imageFluid.shared.constants.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/image-effect-refracted-lines.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/image-effect-refracted-circles.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/image-effect-liquid.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/946e76e1-bf8a-4ee3-a975-8c1777231447_715/website.components.form.visitor.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/website.components.imageFluid.visitor.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/image-effect-film-grain.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/748.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/image-effect-parallax.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/8018.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/9882.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/9882.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/image-effect-refracted-lines.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/ff18e480-0c5b-4c28-9a9b-b5cd2faf2628_520/image-effect-refracted-circles.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/14844e32-143f-4266-9843-a07fe250b767_543/website.components.html.visitor.js",
         "label": ""
       },
       {
-        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.form/404ed975-68f8-47a7-ac5c-a389a701daa8_705/website.components.form.visitor.js",
+        "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/43c7250e-3f3d-4bcd-9f68-df5909fc49f6_530/8018.js",
         "label": ""
       },
       {

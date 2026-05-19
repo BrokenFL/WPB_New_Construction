@@ -10,7 +10,7 @@ Use this as the practical collection list before rebuilding the classy Option A 
 | Mandarin Oriental Residences, West Palm Beach | 0 | 0 | 4 | floorplans, brochure/fact sheet, rights clearance |
 | Alba Palm Beach | 0 | 0 | 4 | floorplans, brochure/fact sheet, rights clearance |
 | Apogee West Palm Beach | 0 | 0 | 0 | floorplans, brochure/fact sheet, publishable hero/gallery images, official website, rights clearance |
-| South Flagler House North Tower | 0 | 0 | 0 | floorplans, brochure/fact sheet, publishable hero/gallery images, rights clearance |
+| South Flagler House North Tower | 0 | 0 | 4 | floorplans, brochure/fact sheet, rights clearance |
 | South Flagler House South Tower | 0 | 0 | 0 | floorplans, brochure/fact sheet, publishable hero/gallery images, rights clearance |
 | Edgeworth North Tower | 0 | 0 | 4 | floorplans, brochure/fact sheet, rights clearance |
 | Edgeworth South Tower | 0 | 0 | 4 | floorplans, brochure/fact sheet, rights clearance |

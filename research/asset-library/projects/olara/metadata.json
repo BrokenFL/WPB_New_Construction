@@ -176,7 +176,7 @@
   "localModelUri": "/models/olara.glb",
   "localScenario": "North Flagler Pipeline",
   "generatedPlaceholderCopies": [
-    "projects/olara/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {

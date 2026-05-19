@@ -33,7 +33,7 @@
   "localModelUri": "",
   "localScenario": "",
   "generatedPlaceholderCopies": [
-    "projects/related-ross-fern-street/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -41,7 +41,7 @@
       "status": "downloaded",
       "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
       "path": "projects/related-ross-fern-street/images/candidates/01--official-candidate--static.therealdeal.com--c00cedb5.jpg",
-      "bytes": 308586,
+      "bytes": 306386,
       "contentType": "image/jpeg",
       "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
     },
@@ -59,7 +59,7 @@
       "status": "downloaded",
       "url": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-768x512.jpg",
       "path": "projects/related-ross-fern-street/images/candidates/03--official-candidate--static.therealdeal.com--4ba16752.jpg",
-      "bytes": 76312,
+      "bytes": 75903,
       "contentType": "image/jpeg",
       "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
     },

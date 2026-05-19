@@ -44,7 +44,7 @@
   "localModelUri": "",
   "localScenario": "Downtown Residential Wave",
   "generatedPlaceholderCopies": [
-    "projects/banyan-tree/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -109,12 +109,6 @@
         "title": "Banyan Tree Residences | Luxury Condos in West Palm Beach",
         "description": "A rare collaboration of four global design iconsdefines a new residential expression,guided by a singular design visionand a refined sense of retreat.",
         "ogImage": ""
-      },
-      {
-        "url": "https://www.banyantreeresidenceswpb.com/#image0_10103_1154",
-        "title": "Banyan Tree Residences | Luxury Condos in West Palm Beach",
-        "description": "A rare collaboration of four global design iconsdefines a new residential expression,guided by a singular design visionand a refined sense of retreat.",
-        "ogImage": ""
       }
     ],
     "discoveredLinks": [
@@ -143,7 +137,7 @@
         "label": ""
       },
       {
-        "url": "https://www.banyantreeresidenceswpb.com/banyan-tree-residences-luxury-condos-in-west-palm-beach/",
+        "url": "https://www.banyantreeresidenceswpb.com/",
         "label": ""
       },
       {
@@ -183,11 +177,7 @@
         "label": ""
       },
       {
-        "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#743d1a121b3436151a0d151a200611112611071d10111a1711072324365a171b19",
-        "label": ""
-      },
-      {
-        "url": "https://www.banyantreeresidenceswpb.com/#image0_10103_1154",
+        "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#357c5b535a7577545b4c545b614750506750465c51505b5650466265771b565a58",
         "label": ""
       },
       {
@@ -256,7 +246,7 @@
       },
       {
         "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/challenge-platform/scripts/jsd/main.js",
-        "label": "(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML=\"window.__CF$cv$params={r:'9f956cc4"
+        "label": "(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML=\"window.__CF$cv$params={r:'9fb2a131"
       },
       {
         "url": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Banyan-Tree-Residences-West-Palm-Beach.png",
@@ -743,7 +733,7 @@
         "label": ""
       },
       {
-        "url": "https://commercialobserver.com/_static/??-eJxVjl0OwiAQhC8kbNpE4cV4FEMXNCgsBJYabi9t1MTHmXzzA68sPGFo1lXAWsH6yrCEhE8R/FJM6VC5ByejJzmAA4wEJmJHDLGJHNrdU4WH42xGaDpK9RXX1ZFNBUzjFA2zxx92SyV+xrYyg7xb+4U/RgTTU+Nt+hLPk1J6Ps1a6Tc35EQa",
+        "url": "https://commercialobserver.com/_static/??-eJxVjt0KAiEQhV8oHYQ2u4keJWZdC2scRcfCt89dKujyHL7zA6+sAjtqi6/gaoUlVIGZknsoCnPB0qFKJ69jYD2AHYyESyyeBWJTmdotcIW7l4wjZCZtv+Ly9LykAtgkRRQJ7oddU4mfsbUMnWzWduGPUYQ9NVmnz/FkrD0ejJ325g034UQR",
         "label": ""
       },
       {
@@ -755,7 +745,7 @@
         "label": ""
       },
       {
-        "url": "https://commercialobserver.com/_static/??/wp-content/plugins/media-credit/public/css/media-credit.min.css,/wp-content/themes/observer-unchained/style.min.css?m=1778093180",
+        "url": "https://commercialobserver.com/_static/??/wp-content/plugins/media-credit/public/css/media-credit.min.css,/wp-content/themes/observer-unchained/style.min.css?m=1778630726",
         "label": ""
       },
       {
@@ -763,11 +753,11 @@
         "label": ""
       },
       {
-        "url": "https://commercialobserver.com/wp-content/themes/observer-unchained/inc/plugins/white-papers/css/select2.min.css?m=1765386586g",
+        "url": "https://commercialobserver.com/wp-content/themes/observer-unchained/inc/plugins/white-papers/css/select2.min.css?m=1765471732g",
         "label": ""
       },
       {
-        "url": "https://commercialobserver.com/wp-content/plugins/jw-player-7-for-wp-premium/jw-widget/css/jw-widget-min.css?m=1765386585g",
+        "url": "https://commercialobserver.com/wp-content/plugins/jw-player-7-for-wp-premium/jw-widget/css/jw-widget-min.css?m=1765471730g",
         "label": ""
       },
       {
@@ -779,7 +769,7 @@
         "label": ""
       },
       {
-        "url": "https://commercialobserver.com/_static/??-eJylzNENgzAMBcCFCBZFpPygzkLDo3FETBQbWL9VV2CAO7qKC7sYxMgiMpT2t6KeqO6QEGcWLMQSqGzHh0XpimxwZS6oSklJsSHYo80sbdKGbodr/fPlt73y1D390I9+GH36Ahm2P7c=",
+        "url": "https://commercialobserver.com/_static/??-eJylzNENgzAMBcCFGiwobb5QZ6HhtXFETBQbWB/ECgxwR3txYRGDGFlEhtLyVdQN1a0S4siCiVgClXn9syjtkQ2ujAVVKSkpZgTrmszSJH3Q7fBXLz6d2ycPrX+/et/6Z5cOGY8/qw==",
         "label": ""
       },
       {
@@ -787,7 +777,7 @@
         "label": ""
       },
       {
-        "url": "https://commercialobserver.com/wp-content/plugins/jw-player-7-for-wp-premium/jw-widget/js/jw-widget-min.js?m=1765386585g",
+        "url": "https://commercialobserver.com/wp-content/plugins/jw-player-7-for-wp-premium/jw-widget/js/jw-widget-min.js?m=1765471730g",
         "label": ""
       },
       {
@@ -1117,6 +1107,10 @@
       {
         "url": "https://commercialobserver.com/membership/",
         "label": ""
+      },
+      {
+        "url": "https://commercialobserver.com/my-account/",
+        "label": ""
       }
     ],
     "imageCandidates": [
@@ -1246,17 +1240,17 @@
         "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
       },
       {
-        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/Kenneth-Baboun-horizontal-credit-CGI-Companies.jpg?quality=80&w=355&h=285&crop=1",
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/lede-511_5TH_COG_LOUNGE_A_rendering-credit-WeWork-WEB.jpg?quality=80&w=355&h=285&crop=1",
         "label": "",
         "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
       },
       {
-        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/Avdoo-NY-Development-Panel-SKP_0027-credit-Shelly-Kroeger-WEB.jpg?quality=80&w=355&h=285&crop=1",
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/04/1st-panel-Kris-Lowe-Adam-Simon-Michael-Hyun-R.-Davis-Powell-CO-Dallas-2026.2.18-47-2026-04-21T20_29_22_226-WEB.jpg?quality=80&crop=232px%2C0px%2C1661px%2C1332px&resize=355%2C285&strip",
         "label": "",
         "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
       },
       {
-        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/120-Court-St-BK-GettyImages-1454451398-WEB.jpg?quality=80&w=355&h=285&crop=1",
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/apt-construction-GettyImages-2273861359-WEB.jpg?quality=80&w=355&h=285&crop=1",
         "label": "",
         "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
       },
@@ -1281,30 +1275,30 @@
         "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
       },
       {
-        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/Kenneth-Baboun-horizontal-credit-CGI-Companies.jpg?quality=80&amp;w=355&amp;h=285&amp;crop=1",
-        "label": "Kenneth Baboun horizontal credit CGI Companies",
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/lede-511_5TH_COG_LOUNGE_A_rendering-credit-WeWork-WEB.jpg?quality=80&amp;w=355&amp;h=285&amp;crop=1",
+        "label": "lede 511 5TH COG LOUNGE A rendering credit WeWork WEB",
         "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
       },
       {
-        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/Avdoo-NY-Development-Panel-SKP_0027-credit-Shelly-Kroeger-WEB.jpg?quality=80&amp;w=355&amp;h=285&amp;crop=1",
-        "label": "Avdoo NY Development Panel SKP 0027 credit Shelly Kroeger WEB",
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/04/1st-panel-Kris-Lowe-Adam-Simon-Michael-Hyun-R.-Davis-Powell-CO-Dallas-2026.2.18-47-2026-04-21T20_29_22_226-WEB.jpg?quality=80&amp;crop=232px%2C0px%2C1661px%2C1332px&amp;resize=355%2C285&amp;strip",
+        "label": "1st panel Kris Lowe Adam Simon Michael Hyun R. Davis Powell CO Dallas 2026.2.18 47 2026 04 21T20 29 22 226 WEB",
         "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
       },
       {
-        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/120-Court-St-BK-GettyImages-1454451398-WEB.jpg?quality=80&amp;w=355&amp;h=285&amp;crop=1",
-        "label": "120 Court St BK GettyImages 1454451398 WEB",
+        "url": "https://commercialobserver.com/wp-content/uploads/sites/3/2026/05/apt-construction-GettyImages-2273861359-WEB.jpg?quality=80&amp;w=355&amp;h=285&amp;crop=1",
+        "label": "apt construction GettyImages 2273861359 WEB",
         "sourcePage": "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
       }
     ],
     "pdfCandidates": [],
     "errors": [
       {
-        "url": "https://www.banyantreeresidenceswpb.com/banyan-tree-residences-luxury-condos-in-west-palm-beach/",
+        "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#357c5b535a7577545b4c545b614750506750465c51505b5650466265771b565a58",
         "status": 404,
         "error": "Not Found"
       },
       {
-        "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#743d1a121b3436151a0d151a200611112611071d10111a1711072324365a171b19",
+        "url": "https://www.banyantreeresidenceswpb.com/cdn-cgi/l/email-protection#b8f1d6ded7f8fad9d6c1d9d6eccaddddeaddcbd1dcddd6dbddcbefe8fa96dbd7d5",
         "status": 404,
         "error": "Not Found"
       }

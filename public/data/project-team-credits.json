@@ -1,333 +1,401 @@
 {
-  "updated": "2026-05-10",
-  "usage": "Shared team-credit data for future project detail pages. Values marked not_publicly_confirmed should stay hidden or shown as pending verification.",
+  "generatedAt": "2026-05-18T18:38:45.087Z",
+  "usageNote": "Public project credits are derived from reviewed project records. Use these for project/team and original-source attribution blocks.",
   "projects": [
     {
-      "slug": "10-cityplace",
+      "projectId": "10-cityplace",
       "name": "10 CityPlace",
-      "developer": "Related Ross",
-      "architect": "Kohn Pedersen Fox",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "low",
-      "sourceUrls": [
-        "https://www.relatedross.com/our-company/properties/10-cityplace",
-        "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach"
+      "officialWebsite": "https://www.relatedross.com/our-company/properties/10-cityplace",
+      "sourceCredit": {
+        "label": "Source: 10 CityPlace original materials",
+        "sourceUrl": "https://www.relatedross.com/our-company/properties/10-cityplace",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Related Ross; Kohn Pedersen Fox; Not publicly confirmed; Not publicly confirmed",
+      "sourceLinks": [
+        {
+          "label": "10 CityPlace",
+          "href": "https://www.relatedross.com/our-company/properties/10-cityplace",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "15-cityplace",
+      "projectId": "15-cityplace",
       "name": "15 CityPlace",
-      "developer": "Related Ross",
-      "architect": "Arquitectonica",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "Kohn Pedersen Fox referenced for sky garden design context",
-      "confidence": "medium",
-      "sourceUrls": [
-        "https://www.relatedross.com/office/15-cityplace",
-        "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
-        "https://www.lifestyleoffice.com/15-cityplace"
+      "officialWebsite": "https://www.relatedross.com/office/15-cityplace",
+      "sourceCredit": {
+        "label": "Source: 15 CityPlace original materials",
+        "sourceUrl": "https://www.relatedross.com/office/15-cityplace",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Related Ross; Arquitectonica; Not publicly confirmed; Kohn Pedersen Fox referenced for sky garden design context",
+      "sourceLinks": [
+        {
+          "label": "15 CityPlace",
+          "href": "https://www.relatedross.com/office/15-cityplace",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "alba-palm-beach",
+      "projectId": "alba-palm-beach",
       "name": "Alba Palm Beach",
-      "developer": "BGI Companies",
-      "architect": "Spina O'Rourke + Partners",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "medium",
-      "sourceUrls": [
-        "https://www.albapalmbeach.com/",
-        "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html"
+      "officialWebsite": "https://www.albapalmbeach.com/",
+      "sourceCredit": {
+        "label": "Source: Alba Palm Beach original materials",
+        "sourceUrl": "https://www.albapalmbeach.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "BGI/Kenneth Baboun; Blue Road; Spina O'Rourke + Partners; Schmidt Nichols; Moss Construction; One Sotheby's",
+      "sourceLinks": [
+        {
+          "label": "Alba Palm Beach",
+          "href": "https://www.albapalmbeach.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "alba-reserve",
+      "projectId": "alba-reserve",
       "name": "Alba Reserve",
-      "developer": "BGI Capital",
-      "architect": "Carlos Ott and Spina O'Rourke + Partners",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "medium",
-      "sourceUrls": [
-        "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
-      ]
+      "officialWebsite": "",
+      "sourceCredit": {
+        "label": "Source: Alba Reserve original materials",
+        "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "BGI Capital; Carlos Ott and Spina O'Rourke + Partners; Not publicly confirmed; Not publicly confirmed",
+      "sourceLinks": []
     },
     {
-      "slug": "apogee-west-palm-beach",
+      "projectId": "apogee-wpb",
       "name": "Apogee West Palm Beach",
-      "developer": "Related Group and BH Group",
-      "architect": "Kohn Pedersen Fox",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://therealdeal.com/miami/2025/11/18/related-group-bh-group-plan-apogee-condo-in-west-palm-beach/"
-      ]
+      "officialWebsite": "",
+      "sourceCredit": {
+        "label": "Source: Apogee West Palm Beach original materials",
+        "sourceUrl": "",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Related Group and BH Group; Kohn Pedersen Fox; Not publicly confirmed; Not publicly confirmed",
+      "sourceLinks": []
     },
     {
-      "slug": "banyan-tree-residences-west-palm-beach",
+      "projectId": "banyan-tree",
       "name": "Banyan Tree Residences West Palm Beach",
-      "developer": "Mast Capital and Curated JCZM Development",
-      "architect": "not_publicly_confirmed",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "medium",
-      "sourceUrls": [
-        "https://www.banyantreeresidenceswpb.com/",
-        "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/"
+      "officialWebsite": "https://www.banyantreeresidenceswpb.com/",
+      "sourceCredit": {
+        "label": "Source: Banyan Tree Residences West Palm Beach original materials",
+        "sourceUrl": "https://www.banyantreeresidenceswpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Mast Capital; Curated JCZM; Banyan Group; OMA; Yabu Pushelberg; Enzo Enea",
+      "sourceLinks": [
+        {
+          "label": "Banyan Tree Residences West Palm Beach",
+          "href": "https://www.banyantreeresidenceswpb.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "the-berkeley-palm-beach",
-      "name": "The Berkeley Palm Beach",
-      "developer": "Al Adelson development team; verify legal development entity",
-      "architect": "not_publicly_confirmed",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "medium",
-      "sourceUrls": [
-        "https://www.theberkeleypalmbeach.com/",
-        "https://static.millionluxury.com/spinfile/Spin/Data/Estate/File/The%20Berkeley%20Palm%20Beach%20-%20Fact%20Sheet.pdf?v=259"
-      ]
-    },
-    {
-      "slug": "edgeworth-north",
+      "projectId": "edgeworth-north",
       "name": "Edgeworth North Tower",
-      "developer": "Related Ross",
-      "architect": "Kohn Pedersen Fox",
-      "interiorDesigner": "MAWD",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "medium",
-      "sourceUrls": [
-        "https://www.edgeworthwpb.com/",
-        "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
-        "https://mawd.co/projects/residential/edgeworth"
+      "officialWebsite": "https://www.edgeworthwpb.com/",
+      "sourceCredit": {
+        "label": "Source: Edgeworth North Tower original materials",
+        "sourceUrl": "https://www.edgeworthwpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Related Ross; KPF; MAWD/March and White",
+      "sourceLinks": [
+        {
+          "label": "Edgeworth North Tower",
+          "href": "https://www.edgeworthwpb.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "edgeworth-south",
+      "projectId": "edgeworth-south",
       "name": "Edgeworth South Tower",
-      "developer": "Related Ross",
-      "architect": "Kohn Pedersen Fox",
-      "interiorDesigner": "MAWD",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "medium",
-      "sourceUrls": [
-        "https://www.edgeworthwpb.com/",
-        "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
-        "https://mawd.co/projects/residential/edgeworth"
+      "officialWebsite": "https://www.edgeworthwpb.com/",
+      "sourceCredit": {
+        "label": "Source: Edgeworth South Tower original materials",
+        "sourceUrl": "https://www.edgeworthwpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Related Ross; KPF; MAWD/March and White",
+      "sourceLinks": [
+        {
+          "label": "Edgeworth South Tower",
+          "href": "https://www.edgeworthwpb.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "fort-partners-south-flagler-assemblage",
+      "projectId": "fort-partners-south-flagler",
       "name": "Fort Partners South Flagler Assemblage",
-      "developer": "Fort Partners",
-      "architect": "not_publicly_confirmed",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "low",
-      "sourceUrls": [
-        "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
+      "officialWebsite": "",
+      "sourceCredit": {
+        "label": "Source: Fort Partners South Flagler Assemblage original materials",
+        "sourceUrl": "https://therealdeal.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Fort Partners / Nadim Ashi",
+      "sourceLinks": [
+        {
+          "label": "Fort Partners South Flagler Assemblage",
+          "href": "https://therealdeal.com/",
+          "sourceType": "source material"
+        }
       ]
     },
     {
-      "slug": "forte-on-flagler",
-      "name": "Forte on Flagler",
-      "developer": "Two Roads Development with Alpha Blue Ventures",
-      "architect": "Arquitectonica",
-      "interiorDesigner": "Jean-Louis Deniot",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://fortewpb.com/",
-        "https://es.arquitectonica.com/architecture/project/forte-on-flagler/",
-        "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+      "projectId": "forte-on-flagler",
+      "name": "Forté on Flagler",
+      "officialWebsite": "https://fortewpb.com/",
+      "sourceCredit": {
+        "label": "Source: Forté on Flagler original materials",
+        "sourceUrl": "https://fortewpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Two Roads; Alpha Blue; Arquitectonica; Jean-Louis Deniot",
+      "sourceLinks": [
+        {
+          "label": "Forté on Flagler",
+          "href": "https://fortewpb.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "la-clara",
+      "projectId": "la-clara",
       "name": "La Clara",
-      "developer": "Great Gulf and Terrace Mountain",
-      "architect": "Stantec architect of record; design by Hariri Pontarini Architects",
-      "interiorDesigner": "Stantec",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
-        "https://www.thorntontomasetti.com/project/la-clara"
-      ]
+      "officialWebsite": "",
+      "sourceCredit": {
+        "label": "Source: La Clara original materials",
+        "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/service%20page%20images/climate-solutions-service-1800x1200.jpg",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Great Gulf and Terrace Mountain; Stantec architect of record; design by Hariri Pontarini Architects; Stantec; Not publicly confirmed",
+      "sourceLinks": []
     },
     {
-      "slug": "maison-dor",
+      "projectId": "maison-dor",
       "name": "Maison d'Or",
-      "developer": "Kolter Urban and Perko Development Partners",
-      "architect": "10 Design",
-      "interiorDesigner": "Hirsch Bedner Associates",
-      "landscapeArchitect": "EDSA",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://livemaisondor.com/",
-        "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
-        "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
+      "officialWebsite": "https://livemaisondor.com/",
+      "sourceCredit": {
+        "label": "Source: Maison d'Or original materials",
+        "sourceUrl": "https://livemaisondor.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Kolter Urban and Perko Development Partners; 10 Design; Hirsch Bedner Associates; EDSA",
+      "sourceLinks": [
+        {
+          "label": "Maison d'Or",
+          "href": "https://livemaisondor.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "mandarin-oriental-residences-west-palm-beach",
+      "projectId": "mandarin-oriental",
       "name": "Mandarin Oriental Residences, West Palm Beach",
-      "developer": "Great Gulf",
-      "architect": "Safdie Architects",
-      "interiorDesigner": "Studio Munge",
-      "landscapeArchitect": "ENEA Landscape Architecture",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://mandarinorientalwestpalmbeach.com/",
-        "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
-        "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida"
+      "officialWebsite": "https://mandarinorientalwestpalmbeach.com/",
+      "sourceCredit": {
+        "label": "Source: Mandarin Oriental Residences, West Palm Beach original materials",
+        "sourceUrl": "https://mandarinorientalwestpalmbeach.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Great Gulf; Safdie Architects; Studio Munge; ENEA Landscape Architecture",
+      "sourceLinks": [
+        {
+          "label": "Mandarin Oriental Residences, West Palm Beach",
+          "href": "https://mandarinorientalwestpalmbeach.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "mr-c-hotel-residences-west-palm-beach",
+      "projectId": "mr-c",
       "name": "Mr. C Hotel & Residences West Palm Beach",
-      "developer": "Terra",
-      "architect": "not_publicly_confirmed",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "medium",
-      "sourceUrls": [
-        "https://www.mrcresidenceswpb.com/",
-        "https://www.mrcresidenceswpb.com/residences/",
-        "https://www.mrcresidenceswpb.com/amenities-services/"
+      "officialWebsite": "https://www.mrcresidenceswpb.com/",
+      "sourceCredit": {
+        "label": "Source: Mr. C Hotel & Residences West Palm Beach original materials",
+        "sourceUrl": "https://www.mrcresidenceswpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Terra; Sympatico; Mr. C/Cipriani; Arquitectonica; Meyer Davis; Landscape Design Workshop; Douglas Elliman Development Marketing",
+      "sourceLinks": [
+        {
+          "label": "Mr. C Hotel & Residences West Palm Beach",
+          "href": "https://www.mrcresidenceswpb.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "nora-house",
+      "projectId": "nora-house",
       "name": "NORA House",
-      "developer": "The Ronto Group",
-      "architect": "Swedroe Architecture",
-      "interiorDesigner": "Lillian Wu Studio",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "low",
-      "sourceUrls": [
-        "https://norahouse.com/",
-        "https://norahouse.com/team/",
-        "https://profilemiamire.com/miamirealestate/2026/3/26/the-ronto-group-launches-sales-for-nora-house-in-west-palm-beachs-nora-district"
+      "officialWebsite": "https://norahouse.com/",
+      "sourceCredit": {
+        "label": "Source: NORA House original materials",
+        "sourceUrl": "https://norahouse.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "The Ronto Group; Wheelock Street Capital; Swedroe Architecture; Lillian Wu Studio; Conner & Gaskins; Design Studio Boca",
+      "sourceLinks": [
+        {
+          "label": "NORA House",
+          "href": "https://norahouse.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "olara",
+      "projectId": "olara",
       "name": "Olara",
-      "developer": "Savanna",
-      "architect": "Arquitectonica",
-      "interiorDesigner": "Gabellini Sheppard",
-      "landscapeArchitect": "EDSA",
-      "construction": "SavCon + Gilbane",
-      "restaurantPartner": "Jose Andres Group",
-      "salesAndMarketing": "Compass DMG",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://www.olarawestpalmbeach.com/",
-        "https://www.olarawestpalmbeach.com/architecture/",
-        "https://www.olarawestpalmbeach.com/team/",
-        "https://www.olarawestpalmbeach.com/lifestyle/",
-        "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf"
+      "officialWebsite": "https://www.olarawestpalmbeach.com/",
+      "sourceCredit": {
+        "label": "Source: Olara original materials",
+        "sourceUrl": "https://www.olarawestpalmbeach.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Savanna; Arquitectonica; Gabellini Sheppard; EDSA; SavCon/Gilbane; Compass Development Marketing Group",
+      "sourceLinks": [
+        {
+          "label": "Olara",
+          "href": "https://www.olarawestpalmbeach.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "portofino-flagler-yacht-club-buyout-watch",
+      "projectId": "portofino-flagler-yacht-club",
       "name": "Portofino South / Flagler Yacht Club Buyout Watch",
-      "developer": "BEKO Equities / Immocorp Capital and O.D. Kobo joint venture reported as buyout bidder",
-      "architect": "not_publicly_confirmed",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "low",
-      "sourceUrls": [
-        "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"
-      ]
+      "officialWebsite": "",
+      "sourceCredit": {
+        "label": "Source: Portofino South / Flagler Yacht Club Buyout Watch original materials",
+        "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer.jpg",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "BEKO Equities / Immocorp Capital and O.D. Kobo joint venture reported as buyout bidder; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed",
+      "sourceLinks": []
     },
     {
-      "slug": "related-ross-fern-street-condo",
+      "projectId": "related-ross-fern-street",
       "name": "Related Ross Fern Street / South Dixie Condo",
-      "developer": "Related Ross with Wexford Real Estate Investors, 13th Floor Investments, and L&L Holding Company partnership context",
-      "architect": "not_publicly_confirmed",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "medium",
-      "sourceUrls": [
-        "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
-      ]
+      "officialWebsite": "",
+      "sourceCredit": {
+        "label": "Source: Related Ross Fern Street / South Dixie Condo original materials",
+        "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Related Ross with Wexford Real Estate Investors, 13th Floor Investments, and L&L Holding Company partnership context; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed",
+      "sourceLinks": []
     },
     {
-      "slug": "ritz-carlton-residences-west-palm-beach",
-      "name": "The Ritz-Carlton Residences, West Palm Beach",
-      "developer": "Related Group and BH Group",
-      "architect": "Arquitectonica",
-      "interiorDesigner": "Rockwell Group",
-      "landscapeArchitect": "Naturalficial",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://theresidenceswestpalmbeach.com/",
-        "https://theresidenceswestpalmbeach.com/floorplans/",
-        "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
-        "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
-        "https://www.rockwellgroup.com/index.php/projects/the-ritz-carlton-residences"
-      ]
-    },
-    {
-      "slug": "rybovich-marina-redevelopment",
+      "projectId": "rybovich-marina",
       "name": "Rybovich Marina Redevelopment",
-      "developer": "Huizenga Holdings and Integra Investments",
-      "architect": "Kohn Pedersen Fox",
-      "interiorDesigner": "not_publicly_confirmed",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
-        "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
-        "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
-      ]
+      "officialWebsite": "",
+      "sourceCredit": {
+        "label": "Source: Rybovich Marina Redevelopment original materials",
+        "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Huizenga Holdings and Integra Investments; Kohn Pedersen Fox; Not publicly confirmed; Not publicly confirmed",
+      "sourceLinks": []
     },
     {
-      "slug": "shorecrest",
+      "projectId": "shorecrest",
       "name": "Shorecrest",
-      "developer": "Related Ross",
-      "architect": "Roger Ferris + Partners",
-      "interiorDesigner": "Rottet Studio",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://www.shorecrestwpb.com/",
-        "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
-        "https://www.shorecrestwpb.com/residences"
+      "officialWebsite": "https://www.shorecrestwpb.com/",
+      "sourceCredit": {
+        "label": "Source: Shorecrest original materials",
+        "sourceUrl": "https://www.shorecrestwpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Related Ross; Roger Ferris + Partners; Revuelta; Rottet Studio; DS Boca; Related Sales/Corcoran Sunshine",
+      "sourceLinks": [
+        {
+          "label": "Shorecrest",
+          "href": "https://www.shorecrestwpb.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "south-flagler-house-north",
+      "projectId": "south-flagler-house-north",
       "name": "South Flagler House North Tower",
-      "developer": "Related Ross",
-      "architect": "Robert A.M. Stern Architects",
-      "interiorDesigner": "Pembrooke & Ives",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://www.southflaglerhouse.com/",
-        "https://www.southflaglerhouse.com/architecture-design",
-        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach"
+      "officialWebsite": "https://www.southflaglerhouse.com/",
+      "sourceCredit": {
+        "label": "Source: South Flagler House North Tower original materials",
+        "sourceUrl": "https://www.southflaglerhouse.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture",
+      "sourceLinks": [
+        {
+          "label": "South Flagler House North Tower",
+          "href": "https://www.southflaglerhouse.com/",
+          "sourceType": "official project site"
+        }
       ]
     },
     {
-      "slug": "south-flagler-house-south",
+      "projectId": "south-flagler-house-south",
       "name": "South Flagler House South Tower",
-      "developer": "Related Ross",
-      "architect": "Robert A.M. Stern Architects",
-      "interiorDesigner": "Pembrooke & Ives",
-      "landscapeArchitect": "not_publicly_confirmed",
-      "confidence": "high",
-      "sourceUrls": [
-        "https://www.southflaglerhouse.com/",
-        "https://www.southflaglerhouse.com/architecture-design",
-        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach"
+      "officialWebsite": "https://www.southflaglerhouse.com/",
+      "sourceCredit": {
+        "label": "Source: South Flagler House South Tower original materials",
+        "sourceUrl": "https://www.southflaglerhouse.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture",
+      "sourceLinks": [
+        {
+          "label": "South Flagler House South Tower",
+          "href": "https://www.southflaglerhouse.com/",
+          "sourceType": "official project site"
+        }
+      ]
+    },
+    {
+      "projectId": "berkeley",
+      "name": "The Berkeley Palm Beach",
+      "officialWebsite": "https://www.theberkeleypalmbeach.com/",
+      "sourceCredit": {
+        "label": "Source: The Berkeley Palm Beach original materials",
+        "sourceUrl": "https://www.theberkeleypalmbeach.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Al Adelson development team; verify legal development entity; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed",
+      "sourceLinks": [
+        {
+          "label": "The Berkeley Palm Beach",
+          "href": "https://www.theberkeleypalmbeach.com/",
+          "sourceType": "official project site"
+        }
+      ]
+    },
+    {
+      "projectId": "ritz-carlton-wpb",
+      "name": "The Ritz-Carlton Residences, West Palm Beach",
+      "officialWebsite": "https://theresidenceswestpalmbeach.com/",
+      "sourceCredit": {
+        "label": "Source: The Ritz-Carlton Residences, West Palm Beach original materials",
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "teamCredit": "Related Group; BH Group; Arquitectonica; Rockwell Group; Naturalficial",
+      "sourceLinks": [
+        {
+          "label": "The Ritz-Carlton Residences, West Palm Beach",
+          "href": "https://theresidenceswestpalmbeach.com/",
+          "sourceType": "official project site"
+        }
       ]
     }
   ]

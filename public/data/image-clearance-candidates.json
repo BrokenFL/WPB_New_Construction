@@ -1,0 +1,619 @@
+{
+  "generatedAt": "2026-05-18T18:38:39.975Z",
+  "usageNote": "Project image candidates grouped by reviewed authorization state. Pending candidates stay internal until explicit clearance is recorded.",
+  "projects": [
+    {
+      "projectId": "10-cityplace",
+      "name": "10 CityPlace",
+      "officialWebsite": "https://www.relatedross.com/our-company/properties/10-cityplace",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: 10 CityPlace original materials",
+        "sourceUrl": "https://www.relatedross.com/our-company/properties/10-cityplace",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 0,
+      "preferred": []
+    },
+    {
+      "projectId": "15-cityplace",
+      "name": "15 CityPlace",
+      "officialWebsite": "https://www.relatedross.com/office/15-cityplace",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: 15 CityPlace original materials",
+        "sourceUrl": "https://www.relatedross.com/office/15-cityplace",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "15 CityPlace Exterior",
+          "researchPath": "research/asset-library/projects/15-cityplace/images/candidates/02--official-candidate--relatedross.com--07ea9ff2.jpg",
+          "sourceUrl": "https://www.relatedross.com/sites/default/files/styles/16x9_horizontal_rectangle_w/public/2025-05/acquiadam-assets/related-ross-15-cityplace-terrace-redleaf_2_easttower_terrace_completion_spiral.jpg?itok=8enFkXRF",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "alba-palm-beach",
+      "name": "Alba Palm Beach",
+      "officialWebsite": "https://www.albapalmbeach.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Alba Palm Beach original materials",
+        "sourceUrl": "https://www.albapalmbeach.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Alba Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/alba-palm-beach/images/candidates/04--official-candidate--albapalmbeach.com--c0fe2ffd.jpg",
+          "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/CAM_08_aerial_sunset_FINAL_02.jpeg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "Alba Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/alba-palm-beach/images/candidates/01--official-candidate--albapalmbeach.com--11aa06d4.jpg",
+          "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch.jpg",
+          "recommendedUse": "card/background only",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "alba-reserve",
+      "name": "Alba Reserve",
+      "officialWebsite": "",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Alba Reserve original materials",
+        "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Alba Reserve Exterior",
+          "researchPath": "research/asset-library/projects/alba-reserve/images/candidates/01--official-candidate--static.therealdeal.com--ad0ee3bd.jpg",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "apogee-wpb",
+      "name": "Apogee West Palm Beach",
+      "officialWebsite": "",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Apogee West Palm Beach original materials",
+        "sourceUrl": "",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 0,
+      "preferred": []
+    },
+    {
+      "projectId": "banyan-tree",
+      "name": "Banyan Tree Residences West Palm Beach",
+      "officialWebsite": "https://www.banyantreeresidenceswpb.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Banyan Tree Residences West Palm Beach original materials",
+        "sourceUrl": "https://www.banyantreeresidenceswpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Banyan Tree Residences West Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/banyan-tree/images/candidates/02--official-candidate--admin.banyantreeresidenceswpb.com--639915ad.png",
+          "sourceUrl": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero.png",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "Banyan Tree Residences West Palm Beach Residence",
+          "researchPath": "research/asset-library/projects/banyan-tree/images/candidates/03--official-candidate--admin.banyantreeresidenceswpb.com--188631da.png",
+          "sourceUrl": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear.png",
+          "recommendedUse": "residence gallery and project detail section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "edgeworth-north",
+      "name": "Edgeworth North Tower",
+      "officialWebsite": "https://www.edgeworthwpb.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Edgeworth North Tower original materials",
+        "sourceUrl": "https://www.edgeworthwpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Edgeworth North Tower Exterior",
+          "researchPath": "research/asset-library/projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "Edgeworth North Tower Exterior",
+          "researchPath": "research/asset-library/projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1500w",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "edgeworth-south",
+      "name": "Edgeworth South Tower",
+      "officialWebsite": "https://www.edgeworthwpb.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Edgeworth South Tower original materials",
+        "sourceUrl": "https://www.edgeworthwpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Edgeworth South Tower Exterior",
+          "researchPath": "research/asset-library/projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "fort-partners-south-flagler",
+      "name": "Fort Partners South Flagler Assemblage",
+      "officialWebsite": "",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Fort Partners South Flagler Assemblage original materials",
+        "sourceUrl": "https://therealdeal.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Fort Partners South Flagler Assemblage Exterior",
+          "researchPath": "research/asset-library/projects/fort-partners-south-flagler/images/candidates/01--official-candidate--static.therealdeal.com--a913c60e.jpg",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "forte-on-flagler",
+      "name": "Forté on Flagler",
+      "officialWebsite": "https://fortewpb.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Forté on Flagler original materials",
+        "sourceUrl": "https://fortewpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Forté on Flagler Exterior",
+          "researchPath": "research/asset-library/projects/forte-on-flagler/images/candidates/01--official-candidate--fortewpb.com--b5b863ab.png",
+          "sourceUrl": "https://fortewpb.com/wp-content/uploads/Forte-on-Flagler.png",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "Forté on Flagler Preview",
+          "researchPath": "research/asset-library/projects/forte-on-flagler/images/candidates/02--official-candidate--fortewpb.com--9a29aed6.jpg",
+          "sourceUrl": "https://fortewpb.com/wp-content/uploads/home-main-desktop.jpg",
+          "recommendedUse": "gallery/supporting image",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "la-clara",
+      "name": "La Clara",
+      "officialWebsite": "",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: La Clara original materials",
+        "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/service%20page%20images/climate-solutions-service-1800x1200.jpg",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "La Clara Exterior",
+          "researchPath": "research/asset-library/projects/la-clara/images/candidates/02--official-candidate--stantec.com--282d9cb6.jpg",
+          "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/homepage-hero/2025/digital-stantec-staff-234469.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "maison-dor",
+      "name": "Maison d'Or",
+      "officialWebsite": "https://livemaisondor.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Maison d'Or original materials",
+        "sourceUrl": "https://livemaisondor.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Maison d'Or Exterior",
+          "researchPath": "research/asset-library/projects/maison-dor/images/candidates/01--official-candidate--livemaisondor.com--5af88e37.jpg",
+          "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617.jpg",
+          "recommendedUse": "card/background only",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "mandarin-oriental",
+      "name": "Mandarin Oriental Residences, West Palm Beach",
+      "officialWebsite": "https://mandarinorientalwestpalmbeach.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Mandarin Oriental Residences, West Palm Beach original materials",
+        "sourceUrl": "https://mandarinorientalwestpalmbeach.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Mandarin Oriental Residences, West Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
+          "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+          "recommendedUse": "card/background only",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "Mandarin Oriental Residences, West Palm Beach Preview",
+          "researchPath": "research/asset-library/projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
+          "sourceUrl": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/hYMWjgRcN744BQoPJbE4.png",
+          "recommendedUse": "gallery/supporting image",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "mr-c",
+      "name": "Mr. C Hotel & Residences West Palm Beach",
+      "officialWebsite": "https://www.mrcresidenceswpb.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Mr. C Hotel & Residences West Palm Beach original materials",
+        "sourceUrl": "https://www.mrcresidenceswpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Mr. C Hotel & Residences West Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
+          "sourceUrl": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg?fit=1677%2C941&quality=89&ssl=1",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "Mr. C Hotel & Residences West Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/mr-c/images/candidates/04--official-candidate--mrcresidenceswpb.com--70dd69fb.jpg",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "nora-house",
+      "name": "NORA House",
+      "officialWebsite": "https://norahouse.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: NORA House original materials",
+        "sourceUrl": "https://norahouse.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "NORA House Exterior",
+          "researchPath": "research/asset-library/projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
+          "sourceUrl": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2.webp",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "NORA House Exterior",
+          "researchPath": "research/asset-library/projects/nora-house/images/candidates/01--official-candidate--norahouse.com--7f3c7c65.jpg",
+          "sourceUrl": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "olara",
+      "name": "Olara",
+      "officialWebsite": "https://www.olarawestpalmbeach.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Olara original materials",
+        "sourceUrl": "https://www.olarawestpalmbeach.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Olara Exterior",
+          "researchPath": "research/asset-library/projects/olara/images/candidates/02--official-candidate--d3af2gfyi5943v.cloudfront.net--7ba74780.jpg",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/BoatHomepage-scaled.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "Olara Exterior",
+          "researchPath": "research/asset-library/projects/olara/images/candidates/04--official-candidate--d3af2gfyi5943v.cloudfront.net--5b7f77f4.jpg",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/04_Homepage_Lobby_Entrance.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "portofino-flagler-yacht-club",
+      "name": "Portofino South / Flagler Yacht Club Buyout Watch",
+      "officialWebsite": "",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Portofino South / Flagler Yacht Club Buyout Watch original materials",
+        "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer.jpg",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "amenity",
+          "label": "Portofino South / Flagler Yacht Club Buyout Watch Amenity",
+          "researchPath": "research/asset-library/projects/portofino-flagler-yacht-club/images/candidates/01--official-candidate--static.therealdeal.com--9a39e6c8.jpg",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer.jpg",
+          "recommendedUse": "amenity gallery and lifestyle section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "related-ross-fern-street",
+      "name": "Related Ross Fern Street / South Dixie Condo",
+      "officialWebsite": "",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Related Ross Fern Street / South Dixie Condo original materials",
+        "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Related Ross Fern Street / South Dixie Condo Exterior",
+          "researchPath": "research/asset-library/projects/related-ross-fern-street/images/candidates/01--official-candidate--static.therealdeal.com--c00cedb5.jpg",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "rybovich-marina",
+      "name": "Rybovich Marina Redevelopment",
+      "officialWebsite": "",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Rybovich Marina Redevelopment original materials",
+        "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Rybovich Marina Redevelopment Exterior",
+          "researchPath": "research/asset-library/projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
+          "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "shorecrest",
+      "name": "Shorecrest",
+      "officialWebsite": "https://www.shorecrestwpb.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: Shorecrest original materials",
+        "sourceUrl": "https://www.shorecrestwpb.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Shorecrest Exterior",
+          "researchPath": "research/asset-library/projects/shorecrest/images/candidates/01--official-candidate--shorecrestwpb.com--26140aef.png",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2024-04/RogerFerris_Portrait_DSC5898_Grayscale.png",
+          "recommendedUse": "card/background only",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "Shorecrest Residence",
+          "researchPath": "research/asset-library/projects/shorecrest/images/candidates/02--official-candidate--shorecrestwpb.com--5ac3a6fb.png",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2024-05/marcus-four-season-atelier-zebulon-perron-interiors-restaurant-bar-montreal-canada_dezeen_2364_col_8-1704x1137.png",
+          "recommendedUse": "residence gallery and project detail section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "south-flagler-house-north",
+      "name": "South Flagler House North Tower",
+      "officialWebsite": "https://www.southflaglerhouse.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: South Flagler House North Tower original materials",
+        "sourceUrl": "https://www.southflaglerhouse.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "card",
+          "label": "South Flagler House North Tower Preview",
+          "researchPath": "research/asset-library/projects/south-flagler-house-north/images/candidates/02--official-candidate--southflaglerhouse.com--4ad798de.jpg",
+          "sourceUrl": "https://www.southflaglerhouse.com/sites/default/files/2025-11/42532c47288179b7379b6153af3a3c5da2c91987%20%281%29.jpg",
+          "recommendedUse": "gallery/supporting image",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "amenity",
+          "label": "South Flagler House North Tower Amenity",
+          "researchPath": "research/asset-library/projects/south-flagler-house-north/images/candidates/01--official-candidate--southflaglerhouse.com--5f3223c8.jpg",
+          "sourceUrl": "https://www.southflaglerhouse.com/sites/default/files/2025-08/Spa.jpg",
+          "recommendedUse": "amenity gallery and lifestyle section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "south-flagler-house-south",
+      "name": "South Flagler House South Tower",
+      "officialWebsite": "https://www.southflaglerhouse.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: South Flagler House South Tower original materials",
+        "sourceUrl": "https://www.southflaglerhouse.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 0,
+      "preferred": []
+    },
+    {
+      "projectId": "berkeley",
+      "name": "The Berkeley Palm Beach",
+      "officialWebsite": "https://www.theberkeleypalmbeach.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: The Berkeley Palm Beach original materials",
+        "sourceUrl": "https://www.theberkeleypalmbeach.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "The Berkeley Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/berkeley/images/candidates/01--official-candidate--floridayimby.com--24582688.jpg",
+          "sourceUrl": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-777x824.jpeg",
+          "recommendedUse": "card/background only",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "ritz-carlton-wpb",
+      "name": "The Ritz-Carlton Residences, West Palm Beach",
+      "officialWebsite": "https://theresidenceswestpalmbeach.com/",
+      "imageAuthorizationStatus": "authorized",
+      "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
+      "imageSourceCredit": {
+        "label": "Source: The Ritz-Carlton Residences, West Palm Beach original materials",
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/",
+        "note": "User sign-off recorded for site use; no developer or brand endorsement implied."
+      },
+      "candidateCount": 4,
+      "preferred": [
+        {
+          "role": "residence",
+          "label": "The Ritz-Carlton Residences, West Palm Beach Residence",
+          "researchPath": "research/asset-library/projects/ritz-carlton-wpb/images/candidates/04--official-candidate--theresidenceswestpalmbeach.com--228a51e1.jpg",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993.jpg",
+          "recommendedUse": "residence gallery and project detail section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "The Ritz-Carlton Residences, West Palm Beach Residence",
+          "researchPath": "research/asset-library/projects/ritz-carlton-wpb/images/candidates/02--official-candidate--theresidenceswestpalmbeach.com--36dd5172.jpg",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen.jpg",
+          "recommendedUse": "residence gallery and project detail section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    }
+  ]
+}

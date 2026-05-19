@@ -35,7 +35,7 @@
   "localModelUri": "",
   "localScenario": "",
   "generatedPlaceholderCopies": [
-    "projects/fort-partners-south-flagler/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -52,7 +52,7 @@
       "status": "downloaded",
       "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-700x467.jpg",
       "path": "projects/fort-partners-south-flagler/images/candidates/02--official-candidate--static.therealdeal.com--eb161491.jpg",
-      "bytes": 72624,
+      "bytes": 72445,
       "contentType": "image/jpeg",
       "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
     },
@@ -61,7 +61,7 @@
       "status": "downloaded",
       "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-768x512.jpg",
       "path": "projects/fort-partners-south-flagler/images/candidates/03--official-candidate--static.therealdeal.com--670e054d.jpg",
-      "bytes": 83518,
+      "bytes": 83299,
       "contentType": "image/jpeg",
       "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
     },
@@ -70,7 +70,7 @@
       "status": "downloaded",
       "url": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-1024x683.jpg",
       "path": "projects/fort-partners-south-flagler/images/candidates/04--official-candidate--static.therealdeal.com--b733a111.jpg",
-      "bytes": 136761,
+      "bytes": 137216,
       "contentType": "image/jpeg",
       "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/"
     }

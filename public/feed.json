@@ -1,0 +1,50 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "WPB New Construction Updates",
+  "home_page_url": "https://wpbnewconstruction.com",
+  "feed_url": "https://wpbnewconstruction.com/feed.json",
+  "items": [
+    {
+      "id": "shorecrest-construction-loan",
+      "url": "https://wpbnewconstruction.com/updates/#shorecrest-construction-loan",
+      "title": "Shorecrest financing pushes the North Flagler cluster toward construction",
+      "content_text": "Related Ross announced a $157 million construction loan for Shorecrest, adding momentum to the North Flagler waterfront cluster.",
+      "date_published": "2026-02-18",
+      "date_modified": "2026-05-18",
+      "tags": [
+        "North Flagler",
+        "shorecrest",
+        "olara",
+        "ritz-carlton-wpb"
+      ]
+    },
+    {
+      "id": "banyan-tree-sales-launch",
+      "url": "https://wpbnewconstruction.com/updates/#banyan-tree-sales-launch",
+      "title": "Banyan Tree locks in 88 branded residences at 400 Hibiscus",
+      "content_text": "Banyan Group announced the launch of Banyan Tree Residences West Palm Beach, adding another branded-residence option to the downtown buyer map.",
+      "date_published": "2026-03-24",
+      "date_modified": "2026-05-16",
+      "tags": [
+        "Downtown",
+        "banyan-tree",
+        "mr-c",
+        "nora-house"
+      ]
+    },
+    {
+      "id": "nora-house-district-launch",
+      "url": "https://wpbnewconstruction.com/updates/#nora-house-district-launch",
+      "title": "NORA House pairs its district launch with a deeper public plan stack",
+      "content_text": "NORA House gives buyers a clearer ownership option inside the fast-changing NORA district rather than only nearby rental, hotel, retail, and restaurant activity.",
+      "date_published": "2026-03-23",
+      "date_modified": "2026-04-07",
+      "tags": [
+        "NORA District",
+        "nora-house",
+        "banyan-tree",
+        "mr-c"
+      ]
+    }
+  ]
+}

@@ -83,7 +83,7 @@
   "localModelUri": "",
   "localScenario": "Downtown Residential Wave",
   "generatedPlaceholderCopies": [
-    "projects/berkeley/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -134,7 +134,7 @@
     ],
     "discoveredLinks": [
       {
-        "url": "https://floridayimby.com/wp-content/cache/autoptimize/css/autoptimize_10c313abb0f79176e7b25d13d5881e9f.css",
+        "url": "https://floridayimby.com/wp-content/cache/autoptimize/css/autoptimize_789ba2d842ba3ad66a04da773e69ea72.css",
         "label": ""
       },
       {
@@ -1006,6 +1006,10 @@
         "label": ""
       },
       {
+        "url": "https://floridayimby.com/wp-content/plugins/scroll-triggered-boxes/assets/js/script.min.js?ver=2.2.1",
+        "label": ""
+      },
+      {
         "url": "https://floridayimby.com/wp-content/plugins/ajax-load-more/core/libs/alm/legacy-callbacks.js?ver=7.8.3",
         "label": ""
       },
@@ -1128,10 +1132,6 @@
       {
         "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-300x169.jpeg",
         "label": "BERKELEY PORTE COCHERE 01 300x169"
-      },
-      {
-        "url": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-1024x576.jpeg",
-        "label": "BERKELEY PORTE COCHERE 01 1024x576"
       }
     ],
     "imageCandidates": [

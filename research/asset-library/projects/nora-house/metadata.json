@@ -83,7 +83,7 @@
   "localModelUri": "",
   "localScenario": "Downtown Residential Wave",
   "generatedPlaceholderCopies": [
-    "projects/nora-house/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -531,7 +531,7 @@
       },
       {
         "url": "https://norahouse.com/cdn-cgi/challenge-platform/scripts/jsd/main.js",
-        "label": "(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML=\"window.__CF$cv$params={r:'9f956ceb"
+        "label": "(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML=\"window.__CF$cv$params={r:'9fb2a15c"
       },
       {
         "url": "https://norahouse.com/wp-content/uploads/2025/12/cropped-favicon-nora-1-270x270.jpg",

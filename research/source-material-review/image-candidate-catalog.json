@@ -1,0 +1,2485 @@
+{
+  "generatedAt": "2026-05-18T18:38:39.975Z",
+  "usageNote": "Image candidates are organized for production use. Preferred exports are resized working files with concise project-source attribution.",
+  "projects": [
+    {
+      "projectId": "alba-palm-beach",
+      "name": "Alba Palm Beach",
+      "area": "North Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Alba Palm Beach Exterior",
+          "projectId": "alba-palm-beach",
+          "projectName": "Alba Palm Beach",
+          "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch.jpg",
+          "sourcePage": "https://www.albapalmbeach.com/",
+          "researchPath": "research/asset-library/projects/alba-palm-beach/images/candidates/01--official-candidate--albapalmbeach.com--11aa06d4.jpg",
+          "width": 985,
+          "height": 531,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "hero",
+          "label": "Alba Palm Beach Exterior",
+          "projectId": "alba-palm-beach",
+          "projectName": "Alba Palm Beach",
+          "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/clock-tower.jpg",
+          "sourcePage": "https://www.albapalmbeach.com/",
+          "researchPath": "research/asset-library/projects/alba-palm-beach/images/candidates/02--official-candidate--albapalmbeach.com--7ba18948.jpg",
+          "width": 574,
+          "height": 860,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "gallery",
+          "label": "Alba Palm Beach Gallery",
+          "projectId": "alba-palm-beach",
+          "projectName": "Alba Palm Beach",
+          "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/AlbaDevelopers02-22_82_grayscale-1.png",
+          "sourcePage": "https://www.albapalmbeach.com/",
+          "researchPath": "research/asset-library/projects/alba-palm-beach/images/candidates/03--official-candidate--albapalmbeach.com--74f2d493.png",
+          "width": 674,
+          "height": 786,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "hero",
+          "label": "Alba Palm Beach Exterior",
+          "projectId": "alba-palm-beach",
+          "projectName": "Alba Palm Beach",
+          "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/CAM_08_aerial_sunset_FINAL_02.jpeg",
+          "sourcePage": "https://www.albapalmbeach.com/",
+          "researchPath": "research/asset-library/projects/alba-palm-beach/images/candidates/04--official-candidate--albapalmbeach.com--c0fe2ffd.jpg",
+          "width": 1920,
+          "height": 1755,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Alba Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/alba-palm-beach/images/candidates/04--official-candidate--albapalmbeach.com--c0fe2ffd.jpg",
+          "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/CAM_08_aerial_sunset_FINAL_02.jpeg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "Alba Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/alba-palm-beach/images/candidates/01--official-candidate--albapalmbeach.com--11aa06d4.jpg",
+          "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch.jpg",
+          "recommendedUse": "card/background only",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "alba-reserve",
+      "name": "Alba Reserve",
+      "area": "North Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Alba Reserve Exterior",
+          "projectId": "alba-reserve",
+          "projectName": "Alba Reserve",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/",
+          "researchPath": "research/asset-library/projects/alba-reserve/images/candidates/01--official-candidate--static.therealdeal.com--ad0ee3bd.jpg",
+          "width": 1500,
+          "height": 1000,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "card",
+          "label": "Alba Reserve Preview",
+          "projectId": "alba-reserve",
+          "projectName": "Alba Reserve",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-700x467.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/",
+          "researchPath": "research/asset-library/projects/alba-reserve/images/candidates/02--official-candidate--static.therealdeal.com--1839ae2d.jpg",
+          "width": 700,
+          "height": 467,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Alba Reserve Gallery",
+          "projectId": "alba-reserve",
+          "projectName": "Alba Reserve",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-768x512.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/",
+          "researchPath": "research/asset-library/projects/alba-reserve/images/candidates/03--official-candidate--static.therealdeal.com--0682cfbf.jpg",
+          "width": 768,
+          "height": 512,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Alba Reserve Gallery",
+          "projectId": "alba-reserve",
+          "projectName": "Alba Reserve",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition-1024x683.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/",
+          "researchPath": "research/asset-library/projects/alba-reserve/images/candidates/04--official-candidate--static.therealdeal.com--6823e964.jpg",
+          "width": 1024,
+          "height": 683,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Alba Reserve Exterior",
+          "researchPath": "research/asset-library/projects/alba-reserve/images/candidates/01--official-candidate--static.therealdeal.com--ad0ee3bd.jpg",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/alba-reserve/hero-alba-reserve-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/alba-reserve/hero-alba-reserve-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/alba-reserve/hero-alba-reserve-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "apogee-wpb",
+      "name": "Apogee West Palm Beach",
+      "area": "North Flagler",
+      "candidateCount": 0,
+      "candidates": [],
+      "preferred": [],
+      "preferredExports": []
+    },
+    {
+      "projectId": "mandarin-oriental",
+      "name": "Mandarin Oriental Residences, West Palm Beach",
+      "area": "North Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Mandarin Oriental Residences, West Palm Beach Exterior",
+          "projectId": "mandarin-oriental",
+          "projectName": "Mandarin Oriental Residences, West Palm Beach",
+          "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+          "sourcePage": "https://mandarinorientalwestpalmbeach.com/",
+          "researchPath": "research/asset-library/projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
+          "width": 1200,
+          "height": 630,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "card",
+          "label": "Mandarin Oriental Residences, West Palm Beach Preview",
+          "projectId": "mandarin-oriental",
+          "projectName": "Mandarin Oriental Residences, West Palm Beach",
+          "sourceUrl": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/hYMWjgRcN744BQoPJbE4.png",
+          "sourcePage": "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
+          "researchPath": "research/asset-library/projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
+          "width": 4096,
+          "height": 2304,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Mandarin Oriental Residences, West Palm Beach Gallery",
+          "projectId": "mandarin-oriental",
+          "projectName": "Mandarin Oriental Residences, West Palm Beach",
+          "sourceUrl": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+          "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+          "researchPath": "research/asset-library/projects/mandarin-oriental/images/candidates/03--official-candidate--greatgulfstrapi.blob.core.windows.net--f999b056.jpg",
+          "width": 2000,
+          "height": 1200,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Mandarin Oriental Residences, West Palm Beach Gallery",
+          "projectId": "mandarin-oriental",
+          "projectName": "Mandarin Oriental Residences, West Palm Beach",
+          "sourceUrl": "https://greatgulfstrapi.blob.core.windows.net/greatgulf/lorabay/medium_V2_Podium_disclaimer_w2_9128d5b0ff.jpg",
+          "sourcePage": "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+          "researchPath": "research/asset-library/projects/mandarin-oriental/images/candidates/04--official-candidate--greatgulfstrapi.blob.core.windows.net--20852886.jpg",
+          "width": 750,
+          "height": 450,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Mandarin Oriental Residences, West Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
+          "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+          "recommendedUse": "card/background only",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "Mandarin Oriental Residences, West Palm Beach Preview",
+          "researchPath": "research/asset-library/projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
+          "sourceUrl": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/hYMWjgRcN744BQoPJbE4.png",
+          "recommendedUse": "gallery/supporting image",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "olara",
+      "name": "Olara",
+      "area": "North Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Olara Exterior",
+          "projectId": "olara",
+          "projectName": "Olara",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/01_Homepage_BuildingImage_fromwater_Updated.jpg",
+          "sourcePage": "https://www.olarawestpalmbeach.com/",
+          "researchPath": "research/asset-library/projects/olara/images/candidates/01--official-candidate--d3af2gfyi5943v.cloudfront.net--0da08560.jpg",
+          "width": 1202,
+          "height": 1424,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "hero",
+          "label": "Olara Exterior",
+          "projectId": "olara",
+          "projectName": "Olara",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/BoatHomepage-scaled.jpg",
+          "sourcePage": "https://www.olarawestpalmbeach.com/",
+          "researchPath": "research/asset-library/projects/olara/images/candidates/02--official-candidate--d3af2gfyi5943v.cloudfront.net--7ba74780.jpg",
+          "width": 2560,
+          "height": 1707,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "hero",
+          "label": "Olara Exterior",
+          "projectId": "olara",
+          "projectName": "Olara",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/03_Olara_Homepage_RoofPool-scaled.jpg",
+          "sourcePage": "https://www.olarawestpalmbeach.com/",
+          "researchPath": "research/asset-library/projects/olara/images/candidates/03--official-candidate--d3af2gfyi5943v.cloudfront.net--94740545.jpg",
+          "width": 2560,
+          "height": 1013,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "hero",
+          "label": "Olara Exterior",
+          "projectId": "olara",
+          "projectName": "Olara",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/04_Homepage_Lobby_Entrance.jpg",
+          "sourcePage": "https://www.olarawestpalmbeach.com/",
+          "researchPath": "research/asset-library/projects/olara/images/candidates/04--official-candidate--d3af2gfyi5943v.cloudfront.net--5b7f77f4.jpg",
+          "width": 1803,
+          "height": 2136,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Olara Exterior",
+          "researchPath": "research/asset-library/projects/olara/images/candidates/02--official-candidate--d3af2gfyi5943v.cloudfront.net--7ba74780.jpg",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/BoatHomepage-scaled.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "Olara Exterior",
+          "researchPath": "research/asset-library/projects/olara/images/candidates/04--official-candidate--d3af2gfyi5943v.cloudfront.net--5b7f77f4.jpg",
+          "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/04_Homepage_Lobby_Entrance.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "rybovich-marina",
+      "name": "Rybovich Marina Redevelopment",
+      "area": "North Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Rybovich Marina Redevelopment Exterior",
+          "projectId": "rybovich-marina",
+          "projectName": "Rybovich Marina Redevelopment",
+          "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
+          "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+          "researchPath": "research/asset-library/projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
+          "width": 1440,
+          "height": 720,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "arrival",
+          "label": "Rybovich Marina Redevelopment Arrival",
+          "projectId": "rybovich-marina",
+          "projectName": "Rybovich Marina Redevelopment",
+          "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_LR.webp",
+          "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+          "researchPath": "research/asset-library/projects/rybovich-marina/images/candidates/02--official-candidate--e1.nmcdn.io--ef0589ba.webp",
+          "width": 2000,
+          "height": 1125,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "arrival/service section"
+        },
+        {
+          "role": "arrival",
+          "label": "Rybovich Marina Redevelopment Arrival",
+          "projectId": "rybovich-marina",
+          "projectName": "Rybovich Marina Redevelopment",
+          "sourceUrl": "https://www.kpf.com/wp-content/uploads/imported-files/KPF_SOUTH_FLORIDA_MARINA_RGB_CAM4_FINAL_RGB_VT.webp",
+          "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+          "researchPath": "research/asset-library/projects/rybovich-marina/images/candidates/03--official-candidate--kpf.com--7e3d9a88.webp",
+          "width": 1333,
+          "height": 2000,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "arrival/service section"
+        },
+        {
+          "role": "gallery",
+          "label": "Rybovich Marina Redevelopment Gallery",
+          "projectId": "rybovich-marina",
+          "projectName": "Rybovich Marina Redevelopment",
+          "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x2400-540x540.webp",
+          "sourcePage": "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+          "researchPath": "research/asset-library/projects/rybovich-marina/images/candidates/04--official-candidate--e1.nmcdn.io--7e6b919a.webp",
+          "width": 540,
+          "height": 540,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Rybovich Marina Redevelopment Exterior",
+          "researchPath": "research/asset-library/projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
+          "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "shorecrest",
+      "name": "Shorecrest",
+      "area": "North Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Shorecrest Exterior",
+          "projectId": "shorecrest",
+          "projectName": "Shorecrest",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2024-04/RogerFerris_Portrait_DSC5898_Grayscale.png",
+          "sourcePage": "https://www.shorecrestwpb.com/",
+          "researchPath": "research/asset-library/projects/shorecrest/images/candidates/01--official-candidate--shorecrestwpb.com--26140aef.png",
+          "width": 960,
+          "height": 1258,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "residence",
+          "label": "Shorecrest Residence",
+          "projectId": "shorecrest",
+          "projectName": "Shorecrest",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2024-05/marcus-four-season-atelier-zebulon-perron-interiors-restaurant-bar-montreal-canada_dezeen_2364_col_8-1704x1137.png",
+          "sourcePage": "https://www.shorecrestwpb.com/",
+          "researchPath": "research/asset-library/projects/shorecrest/images/candidates/02--official-candidate--shorecrestwpb.com--5ac3a6fb.png",
+          "width": 1200,
+          "height": 688,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "residence gallery and project detail section"
+        },
+        {
+          "role": "gallery",
+          "label": "Shorecrest Gallery",
+          "projectId": "shorecrest",
+          "projectName": "Shorecrest",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2024-05/HJ-Roger-Ferris-8%20copy%201%20%281%29.png",
+          "sourcePage": "https://www.shorecrestwpb.com/",
+          "researchPath": "research/asset-library/projects/shorecrest/images/candidates/03--official-candidate--shorecrestwpb.com--7be725ea.png",
+          "width": 480,
+          "height": 630,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Shorecrest Gallery",
+          "projectId": "shorecrest",
+          "projectName": "Shorecrest",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2024-04/844a3dd74e27b7f16fb001433a0d6732.jpg",
+          "sourcePage": "https://www.shorecrestwpb.com/residences",
+          "researchPath": "research/asset-library/projects/shorecrest/images/candidates/04--official-candidate--shorecrestwpb.com--29553731.jpg",
+          "width": 612,
+          "height": 895,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Shorecrest Exterior",
+          "researchPath": "research/asset-library/projects/shorecrest/images/candidates/01--official-candidate--shorecrestwpb.com--26140aef.png",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2024-04/RogerFerris_Portrait_DSC5898_Grayscale.png",
+          "recommendedUse": "card/background only",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "Shorecrest Residence",
+          "researchPath": "research/asset-library/projects/shorecrest/images/candidates/02--official-candidate--shorecrestwpb.com--5ac3a6fb.png",
+          "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2024-05/marcus-four-season-atelier-zebulon-perron-interiors-restaurant-bar-montreal-canada_dezeen_2364_col_8-1704x1137.png",
+          "recommendedUse": "residence gallery and project detail section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/shorecrest/hero-shorecrest-exterior-hero-1600.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/shorecrest/hero-shorecrest-exterior-card-900.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/shorecrest/hero-shorecrest-exterior-thumb-480.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/shorecrest/residence-shorecrest-residence-hero-1600.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/shorecrest/residence-shorecrest-residence-card-900.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/shorecrest/residence-shorecrest-residence-thumb-480.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "ritz-carlton-wpb",
+      "name": "The Ritz-Carlton Residences, West Palm Beach",
+      "area": "North Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "amenity",
+          "label": "The Ritz-Carlton Residences, West Palm Beach Amenity",
+          "projectId": "ritz-carlton-wpb",
+          "projectName": "The Ritz-Carlton Residences, West Palm Beach",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2024/12/Fitness-Center_C1.jpg",
+          "sourcePage": "https://theresidenceswestpalmbeach.com/",
+          "researchPath": "research/asset-library/projects/ritz-carlton-wpb/images/candidates/01--official-candidate--theresidenceswestpalmbeach.com--b05ef334.jpg",
+          "width": 1800,
+          "height": 1013,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "amenity gallery and lifestyle section"
+        },
+        {
+          "role": "residence",
+          "label": "The Ritz-Carlton Residences, West Palm Beach Residence",
+          "projectId": "ritz-carlton-wpb",
+          "projectName": "The Ritz-Carlton Residences, West Palm Beach",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen.jpg",
+          "sourcePage": "https://theresidenceswestpalmbeach.com/",
+          "researchPath": "research/asset-library/projects/ritz-carlton-wpb/images/candidates/02--official-candidate--theresidenceswestpalmbeach.com--36dd5172.jpg",
+          "width": 1800,
+          "height": 1200,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "residence gallery and project detail section"
+        },
+        {
+          "role": "amenity",
+          "label": "The Ritz-Carlton Residences, West Palm Beach Amenity",
+          "projectId": "ritz-carlton-wpb",
+          "projectName": "The Ritz-Carlton Residences, West Palm Beach",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/PoolDeck.jpg",
+          "sourcePage": "https://theresidenceswestpalmbeach.com/",
+          "researchPath": "research/asset-library/projects/ritz-carlton-wpb/images/candidates/03--official-candidate--theresidenceswestpalmbeach.com--fcfe6cb5.jpg",
+          "width": 1800,
+          "height": 1200,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "amenity gallery and lifestyle section"
+        },
+        {
+          "role": "residence",
+          "label": "The Ritz-Carlton Residences, West Palm Beach Residence",
+          "projectId": "ritz-carlton-wpb",
+          "projectName": "The Ritz-Carlton Residences, West Palm Beach",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993.jpg",
+          "sourcePage": "https://theresidenceswestpalmbeach.com/",
+          "researchPath": "research/asset-library/projects/ritz-carlton-wpb/images/candidates/04--official-candidate--theresidenceswestpalmbeach.com--228a51e1.jpg",
+          "width": 1920,
+          "height": 1317,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "residence gallery and project detail section"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "residence",
+          "label": "The Ritz-Carlton Residences, West Palm Beach Residence",
+          "researchPath": "research/asset-library/projects/ritz-carlton-wpb/images/candidates/04--official-candidate--theresidenceswestpalmbeach.com--228a51e1.jpg",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993.jpg",
+          "recommendedUse": "residence gallery and project detail section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "The Ritz-Carlton Residences, West Palm Beach Residence",
+          "researchPath": "research/asset-library/projects/ritz-carlton-wpb/images/candidates/02--official-candidate--theresidenceswestpalmbeach.com--36dd5172.jpg",
+          "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen.jpg",
+          "recommendedUse": "residence gallery and project detail section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "residence",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "10-cityplace",
+      "name": "10 CityPlace",
+      "area": "Downtown",
+      "candidateCount": 0,
+      "candidates": [],
+      "preferred": [],
+      "preferredExports": []
+    },
+    {
+      "projectId": "15-cityplace",
+      "name": "15 CityPlace",
+      "area": "Downtown",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "15 CityPlace Exterior",
+          "projectId": "15-cityplace",
+          "projectName": "15 CityPlace",
+          "sourceUrl": "https://www.relatedross.com/sites/default/files/styles/2x1_horizontal_rectangle_w/public/2025-05/acquiadam-assets/10-and-15-CityPlace-Hero-spiral.jpg?itok=V49z6pxJ",
+          "sourcePage": "https://www.relatedross.com/office/15-cityplace",
+          "researchPath": "research/asset-library/projects/15-cityplace/images/candidates/01--official-candidate--relatedross.com--f0cd3d83.jpg",
+          "width": 1600,
+          "height": 800,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "hero",
+          "label": "15 CityPlace Exterior",
+          "projectId": "15-cityplace",
+          "projectName": "15 CityPlace",
+          "sourceUrl": "https://www.relatedross.com/sites/default/files/styles/16x9_horizontal_rectangle_w/public/2025-05/acquiadam-assets/related-ross-15-cityplace-terrace-redleaf_2_easttower_terrace_completion_spiral.jpg?itok=8enFkXRF",
+          "sourcePage": "https://www.relatedross.com/office/15-cityplace",
+          "researchPath": "research/asset-library/projects/15-cityplace/images/candidates/02--official-candidate--relatedross.com--07ea9ff2.jpg",
+          "width": 1600,
+          "height": 889,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "gallery",
+          "label": "15 CityPlace Gallery",
+          "projectId": "15-cityplace",
+          "projectName": "15 CityPlace",
+          "sourceUrl": "https://www.relatedross.com/sites/default/files/styles/1x1_square_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-square-smr-kh_photo%20cred_bdb_mike%20price.jpg?itok=6ID3QViF",
+          "sourcePage": "https://www.relatedross.com/office/15-cityplace",
+          "researchPath": "research/asset-library/projects/15-cityplace/images/candidates/03--official-candidate--relatedross.com--537496e3.jpg",
+          "width": 1600,
+          "height": 1600,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "15 CityPlace Gallery",
+          "projectId": "15-cityplace",
+          "projectName": "15 CityPlace",
+          "sourceUrl": "https://www.relatedross.com/sites/default/files/styles/1x1_square_w/public/2025-04/acquiadam-assets/related-ross-15-cityplace-square-_v8a7403%20cropped.jpg?itok=_RoBnzN4",
+          "sourcePage": "https://www.relatedross.com/office/15-cityplace",
+          "researchPath": "research/asset-library/projects/15-cityplace/images/candidates/04--official-candidate--relatedross.com--959d6de5.jpg",
+          "width": 1600,
+          "height": 1600,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "15 CityPlace Exterior",
+          "researchPath": "research/asset-library/projects/15-cityplace/images/candidates/02--official-candidate--relatedross.com--07ea9ff2.jpg",
+          "sourceUrl": "https://www.relatedross.com/sites/default/files/styles/16x9_horizontal_rectangle_w/public/2025-05/acquiadam-assets/related-ross-15-cityplace-terrace-redleaf_2_easttower_terrace_completion_spiral.jpg?itok=8enFkXRF",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/15-cityplace/hero-15-cityplace-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/15-cityplace/hero-15-cityplace-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/15-cityplace/hero-15-cityplace-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "banyan-tree",
+      "name": "Banyan Tree Residences West Palm Beach",
+      "area": "Downtown",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "residence",
+          "label": "Banyan Tree Residences West Palm Beach Residence",
+          "projectId": "banyan-tree",
+          "projectName": "Banyan Tree Residences West Palm Beach",
+          "sourceUrl": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/cropped-553770584-e8be1256-7b8f-4115-a131-96478a276e5a.png",
+          "sourcePage": "https://www.banyantreeresidenceswpb.com/",
+          "researchPath": "research/asset-library/projects/banyan-tree/images/candidates/01--official-candidate--admin.banyantreeresidenceswpb.com--cc4fad1c.png",
+          "width": 512,
+          "height": 512,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "residence gallery and project detail section"
+        },
+        {
+          "role": "hero",
+          "label": "Banyan Tree Residences West Palm Beach Exterior",
+          "projectId": "banyan-tree",
+          "projectName": "Banyan Tree Residences West Palm Beach",
+          "sourceUrl": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero.png",
+          "sourcePage": "https://www.banyantreeresidenceswpb.com/",
+          "researchPath": "research/asset-library/projects/banyan-tree/images/candidates/02--official-candidate--admin.banyantreeresidenceswpb.com--639915ad.png",
+          "width": 1412,
+          "height": 1432,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "residence",
+          "label": "Banyan Tree Residences West Palm Beach Residence",
+          "projectId": "banyan-tree",
+          "projectName": "Banyan Tree Residences West Palm Beach",
+          "sourceUrl": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear.png",
+          "sourcePage": "https://www.banyantreeresidenceswpb.com/",
+          "researchPath": "research/asset-library/projects/banyan-tree/images/candidates/03--official-candidate--admin.banyantreeresidenceswpb.com--188631da.png",
+          "width": 1466,
+          "height": 1839,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "residence gallery and project detail section"
+        },
+        {
+          "role": "amenity",
+          "label": "Banyan Tree Residences West Palm Beach Amenity",
+          "projectId": "banyan-tree",
+          "projectName": "Banyan Tree Residences West Palm Beach",
+          "sourceUrl": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Drawing_Transparent.png",
+          "sourcePage": "https://www.banyantreeresidenceswpb.com/",
+          "researchPath": "research/asset-library/projects/banyan-tree/images/candidates/04--official-candidate--admin.banyantreeresidenceswpb.com--bb3767c4.png",
+          "width": 1200,
+          "height": 1262,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "amenity gallery and lifestyle section"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Banyan Tree Residences West Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/banyan-tree/images/candidates/02--official-candidate--admin.banyantreeresidenceswpb.com--639915ad.png",
+          "sourceUrl": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero.png",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "Banyan Tree Residences West Palm Beach Residence",
+          "researchPath": "research/asset-library/projects/banyan-tree/images/candidates/03--official-candidate--admin.banyantreeresidenceswpb.com--188631da.png",
+          "sourceUrl": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear.png",
+          "recommendedUse": "residence gallery and project detail section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/banyan-tree/hero-banyan-tree-residences-west-palm-beach-exterior-hero-1600.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/banyan-tree/hero-banyan-tree-residences-west-palm-beach-exterior-card-900.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/banyan-tree/hero-banyan-tree-residences-west-palm-beach-exterior-thumb-480.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/banyan-tree/residence-banyan-tree-residences-west-palm-beach-residence-hero-1600.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/banyan-tree/residence-banyan-tree-residences-west-palm-beach-residence-card-900.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "residence",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/banyan-tree/residence-banyan-tree-residences-west-palm-beach-residence-thumb-480.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "mr-c",
+      "name": "Mr. C Hotel & Residences West Palm Beach",
+      "area": "Downtown",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "residence",
+          "label": "Mr. C Hotel & Residences West Palm Beach Residence",
+          "projectId": "mr-c",
+          "projectName": "Mr. C Hotel & Residences West Palm Beach",
+          "sourceUrl": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S060_EXT_LookUp_Final_2K.jpg?fit=1677%2C879&quality=89&ssl=1",
+          "sourcePage": "https://www.mrcresidenceswpb.com/",
+          "researchPath": "research/asset-library/projects/mr-c/images/candidates/01--official-candidate--i0.wp.com--83197a3b.webp",
+          "width": 1677,
+          "height": 879,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "residence gallery and project detail section"
+        },
+        {
+          "role": "residence",
+          "label": "Mr. C Hotel & Residences West Palm Beach Residence",
+          "projectId": "mr-c",
+          "projectName": "Mr. C Hotel & Residences West Palm Beach",
+          "sourceUrl": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S160_INT_ResiLobby_FINAL_5K.jpg?fit=1677%2C1049&quality=89&ssl=1",
+          "sourcePage": "https://www.mrcresidenceswpb.com/",
+          "researchPath": "research/asset-library/projects/mr-c/images/candidates/02--official-candidate--i0.wp.com--25ed96c3.webp",
+          "width": 1677,
+          "height": 1049,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "residence gallery and project detail section"
+        },
+        {
+          "role": "hero",
+          "label": "Mr. C Hotel & Residences West Palm Beach Exterior",
+          "projectId": "mr-c",
+          "projectName": "Mr. C Hotel & Residences West Palm Beach",
+          "sourceUrl": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg?fit=1677%2C941&quality=89&ssl=1",
+          "sourcePage": "https://www.mrcresidenceswpb.com/",
+          "researchPath": "research/asset-library/projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
+          "width": 1677,
+          "height": 941,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "hero",
+          "label": "Mr. C Hotel & Residences West Palm Beach Exterior",
+          "projectId": "mr-c",
+          "projectName": "Mr. C Hotel & Residences West Palm Beach",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg",
+          "sourcePage": "https://www.mrcresidenceswpb.com/",
+          "researchPath": "research/asset-library/projects/mr-c/images/candidates/04--official-candidate--mrcresidenceswpb.com--70dd69fb.jpg",
+          "width": 1677,
+          "height": 941,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Mr. C Hotel & Residences West Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
+          "sourceUrl": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg?fit=1677%2C941&quality=89&ssl=1",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "Mr. C Hotel & Residences West Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/mr-c/images/candidates/04--official-candidate--mrcresidenceswpb.com--70dd69fb.jpg",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/mr-c/hero-mr-c-hotel-residences-west-palm-beach-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/mr-c/hero-mr-c-hotel-residences-west-palm-beach-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/mr-c/hero-mr-c-hotel-residences-west-palm-beach-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "related-ross-fern-street",
+      "name": "Related Ross Fern Street / South Dixie Condo",
+      "area": "Downtown",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Related Ross Fern Street / South Dixie Condo Exterior",
+          "projectId": "related-ross-fern-street",
+          "projectName": "Related Ross Fern Street / South Dixie Condo",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/",
+          "researchPath": "research/asset-library/projects/related-ross-fern-street/images/candidates/01--official-candidate--static.therealdeal.com--c00cedb5.jpg",
+          "width": 1500,
+          "height": 1000,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "card",
+          "label": "Related Ross Fern Street / South Dixie Condo Preview",
+          "projectId": "related-ross-fern-street",
+          "projectName": "Related Ross Fern Street / South Dixie Condo",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-700x467.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/",
+          "researchPath": "research/asset-library/projects/related-ross-fern-street/images/candidates/02--official-candidate--static.therealdeal.com--98648d22.jpg",
+          "width": 700,
+          "height": 467,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Related Ross Fern Street / South Dixie Condo Gallery",
+          "projectId": "related-ross-fern-street",
+          "projectName": "Related Ross Fern Street / South Dixie Condo",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-768x512.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/",
+          "researchPath": "research/asset-library/projects/related-ross-fern-street/images/candidates/03--official-candidate--static.therealdeal.com--4ba16752.jpg",
+          "width": 768,
+          "height": 512,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Related Ross Fern Street / South Dixie Condo Gallery",
+          "projectId": "related-ross-fern-street",
+          "projectName": "Related Ross Fern Street / South Dixie Condo",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb-1024x683.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/",
+          "researchPath": "research/asset-library/projects/related-ross-fern-street/images/candidates/04--official-candidate--static.therealdeal.com--ec1a496a.jpg",
+          "width": 1024,
+          "height": 683,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Related Ross Fern Street / South Dixie Condo Exterior",
+          "researchPath": "research/asset-library/projects/related-ross-fern-street/images/candidates/01--official-candidate--static.therealdeal.com--c00cedb5.jpg",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/related-ross-fern-street/hero-related-ross-fern-street-south-dixie-condo-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/related-ross-fern-street/hero-related-ross-fern-street-south-dixie-condo-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/related-ross-fern-street/hero-related-ross-fern-street-south-dixie-condo-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "berkeley",
+      "name": "The Berkeley Palm Beach",
+      "area": "Downtown",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "The Berkeley Palm Beach Exterior",
+          "projectId": "berkeley",
+          "projectName": "The Berkeley Palm Beach",
+          "sourceUrl": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-777x824.jpeg",
+          "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html",
+          "researchPath": "research/asset-library/projects/berkeley/images/candidates/01--official-candidate--floridayimby.com--24582688.jpg",
+          "width": 777,
+          "height": 824,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "card",
+          "label": "The Berkeley Palm Beach Preview",
+          "projectId": "berkeley",
+          "projectName": "The Berkeley Palm Beach",
+          "sourceUrl": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_JBox-scaled.jpeg",
+          "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html",
+          "researchPath": "research/asset-library/projects/berkeley/images/candidates/02--official-candidate--floridayimby.com--85a3cd9f.jpg",
+          "width": 2560,
+          "height": 1485,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "arrival",
+          "label": "The Berkeley Palm Beach Arrival",
+          "projectId": "berkeley",
+          "projectName": "The Berkeley Palm Beach",
+          "sourceUrl": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Lobby01-scaled.jpeg",
+          "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html",
+          "researchPath": "research/asset-library/projects/berkeley/images/candidates/03--official-candidate--floridayimby.com--6ea8b79a.jpg",
+          "width": 2560,
+          "height": 1440,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "arrival/service section"
+        },
+        {
+          "role": "arrival",
+          "label": "The Berkeley Palm Beach Arrival",
+          "projectId": "berkeley",
+          "projectName": "The Berkeley Palm Beach",
+          "sourceUrl": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_PORTE_COCHERE_01-scaled.jpeg",
+          "sourcePage": "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html",
+          "researchPath": "research/asset-library/projects/berkeley/images/candidates/04--official-candidate--floridayimby.com--d14ec29e.jpg",
+          "width": 2560,
+          "height": 1441,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "arrival/service section"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "The Berkeley Palm Beach Exterior",
+          "researchPath": "research/asset-library/projects/berkeley/images/candidates/01--official-candidate--floridayimby.com--24582688.jpg",
+          "sourceUrl": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-777x824.jpeg",
+          "recommendedUse": "card/background only",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/berkeley/hero-the-berkeley-palm-beach-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/berkeley/hero-the-berkeley-palm-beach-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/berkeley/hero-the-berkeley-palm-beach-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "nora-house",
+      "name": "NORA House",
+      "area": "Downtown / NORA",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "NORA House Exterior",
+          "projectId": "nora-house",
+          "projectName": "NORA House",
+          "sourceUrl": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl.jpg",
+          "sourcePage": "https://norahouse.com/",
+          "researchPath": "research/asset-library/projects/nora-house/images/candidates/01--official-candidate--norahouse.com--7f3c7c65.jpg",
+          "width": 2200,
+          "height": 1302,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "hero",
+          "label": "NORA House Exterior",
+          "projectId": "nora-house",
+          "projectName": "NORA House",
+          "sourceUrl": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2.webp",
+          "sourcePage": "https://norahouse.com/",
+          "researchPath": "research/asset-library/projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
+          "width": 2560,
+          "height": 1515,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "hero",
+          "label": "NORA House Exterior",
+          "projectId": "nora-house",
+          "projectName": "NORA House",
+          "sourceUrl": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl-1024x606.jpg",
+          "sourcePage": "https://norahouse.com/",
+          "researchPath": "research/asset-library/projects/nora-house/images/candidates/03--official-candidate--norahouse.com--aaf83d65.jpg",
+          "width": 1024,
+          "height": 606,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "hero",
+          "label": "NORA House Exterior",
+          "projectId": "nora-house",
+          "projectName": "NORA House",
+          "sourceUrl": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl-1920x1136.jpg",
+          "sourcePage": "https://norahouse.com/",
+          "researchPath": "research/asset-library/projects/nora-house/images/candidates/04--official-candidate--norahouse.com--3fa1f332.jpg",
+          "width": 1920,
+          "height": 1136,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "NORA House Exterior",
+          "researchPath": "research/asset-library/projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
+          "sourceUrl": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2.webp",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "NORA House Exterior",
+          "researchPath": "research/asset-library/projects/nora-house/images/candidates/01--official-candidate--norahouse.com--7f3c7c65.jpg",
+          "sourceUrl": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/nora-house/hero-nora-house-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/nora-house/hero-nora-house-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/nora-house/hero-nora-house-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "edgeworth-north",
+      "name": "Edgeworth North Tower",
+      "area": "South Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Edgeworth North Tower Exterior",
+          "projectId": "edgeworth-north",
+          "projectName": "Edgeworth North Tower",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+          "sourcePage": "https://www.edgeworthwpb.com/",
+          "researchPath": "research/asset-library/projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "width": 2500,
+          "height": 1667,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "hero",
+          "label": "Edgeworth North Tower Exterior",
+          "projectId": "edgeworth-north",
+          "projectName": "Edgeworth North Tower",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=750w",
+          "sourcePage": "https://www.edgeworthwpb.com/",
+          "researchPath": "research/asset-library/projects/edgeworth-north/images/candidates/02--official-candidate--images.squarespace-cdn.com--95646ee5.webp",
+          "width": 750,
+          "height": 500,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "hero",
+          "label": "Edgeworth North Tower Exterior",
+          "projectId": "edgeworth-north",
+          "projectName": "Edgeworth North Tower",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1000w",
+          "sourcePage": "https://www.edgeworthwpb.com/",
+          "researchPath": "research/asset-library/projects/edgeworth-north/images/candidates/03--official-candidate--images.squarespace-cdn.com--977977f0.webp",
+          "width": 1000,
+          "height": 667,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "hero",
+          "label": "Edgeworth North Tower Exterior",
+          "projectId": "edgeworth-north",
+          "projectName": "Edgeworth North Tower",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1500w",
+          "sourcePage": "https://www.edgeworthwpb.com/",
+          "researchPath": "research/asset-library/projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
+          "width": 1500,
+          "height": 1000,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Edgeworth North Tower Exterior",
+          "researchPath": "research/asset-library/projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "Edgeworth North Tower Exterior",
+          "researchPath": "research/asset-library/projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1500w",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "edgeworth-south",
+      "name": "Edgeworth South Tower",
+      "area": "South Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Edgeworth South Tower Exterior",
+          "projectId": "edgeworth-south",
+          "projectName": "Edgeworth South Tower",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+          "sourcePage": "https://www.edgeworthwpb.com/",
+          "researchPath": "research/asset-library/projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "width": 2500,
+          "height": 1667,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "hero",
+          "label": "Edgeworth South Tower Exterior",
+          "projectId": "edgeworth-south",
+          "projectName": "Edgeworth South Tower",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=750w",
+          "sourcePage": "https://www.edgeworthwpb.com/",
+          "researchPath": "research/asset-library/projects/edgeworth-south/images/candidates/02--official-candidate--images.squarespace-cdn.com--95646ee5.webp",
+          "width": 750,
+          "height": 500,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "hero",
+          "label": "Edgeworth South Tower Exterior",
+          "projectId": "edgeworth-south",
+          "projectName": "Edgeworth South Tower",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1000w",
+          "sourcePage": "https://www.edgeworthwpb.com/",
+          "researchPath": "research/asset-library/projects/edgeworth-south/images/candidates/03--official-candidate--images.squarespace-cdn.com--977977f0.webp",
+          "width": 1000,
+          "height": 667,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "hero",
+          "label": "Edgeworth South Tower Exterior",
+          "projectId": "edgeworth-south",
+          "projectName": "Edgeworth South Tower",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1500w",
+          "sourcePage": "https://www.edgeworthwpb.com/",
+          "researchPath": "research/asset-library/projects/edgeworth-south/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
+          "width": 1500,
+          "height": 1000,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Edgeworth South Tower Exterior",
+          "researchPath": "research/asset-library/projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
+          "status": "resize skipped; use source",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "fort-partners-south-flagler",
+      "name": "Fort Partners South Flagler Assemblage",
+      "area": "South Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Fort Partners South Flagler Assemblage Exterior",
+          "projectId": "fort-partners-south-flagler",
+          "projectName": "Fort Partners South Flagler Assemblage",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/",
+          "researchPath": "research/asset-library/projects/fort-partners-south-flagler/images/candidates/01--official-candidate--static.therealdeal.com--a913c60e.jpg",
+          "width": 1500,
+          "height": 1000,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "card",
+          "label": "Fort Partners South Flagler Assemblage Preview",
+          "projectId": "fort-partners-south-flagler",
+          "projectName": "Fort Partners South Flagler Assemblage",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-700x467.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/",
+          "researchPath": "research/asset-library/projects/fort-partners-south-flagler/images/candidates/02--official-candidate--static.therealdeal.com--eb161491.jpg",
+          "width": 700,
+          "height": 467,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Fort Partners South Flagler Assemblage Gallery",
+          "projectId": "fort-partners-south-flagler",
+          "projectName": "Fort Partners South Flagler Assemblage",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-768x512.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/",
+          "researchPath": "research/asset-library/projects/fort-partners-south-flagler/images/candidates/03--official-candidate--static.therealdeal.com--670e054d.jpg",
+          "width": 768,
+          "height": 512,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Fort Partners South Flagler Assemblage Gallery",
+          "projectId": "fort-partners-south-flagler",
+          "projectName": "Fort Partners South Flagler Assemblage",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit-1024x683.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/",
+          "researchPath": "research/asset-library/projects/fort-partners-south-flagler/images/candidates/04--official-candidate--static.therealdeal.com--b733a111.jpg",
+          "width": 1024,
+          "height": 683,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Fort Partners South Flagler Assemblage Exterior",
+          "researchPath": "research/asset-library/projects/fort-partners-south-flagler/images/candidates/01--official-candidate--static.therealdeal.com--a913c60e.jpg",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/fort-partners-south-flagler/hero-fort-partners-south-flagler-assemblage-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/fort-partners-south-flagler/hero-fort-partners-south-flagler-assemblage-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/fort-partners-south-flagler/hero-fort-partners-south-flagler-assemblage-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "forte-on-flagler",
+      "name": "Forté on Flagler",
+      "area": "South Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Forté on Flagler Exterior",
+          "projectId": "forte-on-flagler",
+          "projectName": "Forté on Flagler",
+          "sourceUrl": "https://fortewpb.com/wp-content/uploads/Forte-on-Flagler.png",
+          "sourcePage": "https://fortewpb.com/",
+          "researchPath": "research/asset-library/projects/forte-on-flagler/images/candidates/01--official-candidate--fortewpb.com--b5b863ab.png",
+          "width": 3884,
+          "height": 1718,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "card",
+          "label": "Forté on Flagler Preview",
+          "projectId": "forte-on-flagler",
+          "projectName": "Forté on Flagler",
+          "sourceUrl": "https://fortewpb.com/wp-content/uploads/home-main-desktop.jpg",
+          "sourcePage": "https://fortewpb.com/",
+          "researchPath": "research/asset-library/projects/forte-on-flagler/images/candidates/02--official-candidate--fortewpb.com--9a29aed6.jpg",
+          "width": 2000,
+          "height": 1360,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Forté on Flagler Gallery",
+          "projectId": "forte-on-flagler",
+          "projectName": "Forté on Flagler",
+          "sourceUrl": "https://fortewpb.com/wp-content/uploads/home-main-mobile.jpg",
+          "sourcePage": "https://fortewpb.com/",
+          "researchPath": "research/asset-library/projects/forte-on-flagler/images/candidates/03--official-candidate--fortewpb.com--d4e726f5.jpg",
+          "width": 1000,
+          "height": 563,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "Forté on Flagler Gallery",
+          "projectId": "forte-on-flagler",
+          "projectName": "Forté on Flagler",
+          "sourceUrl": "https://fortewpb.com/wp-content/uploads/home-middle-2.jpg",
+          "sourcePage": "https://fortewpb.com/",
+          "researchPath": "research/asset-library/projects/forte-on-flagler/images/candidates/04--official-candidate--fortewpb.com--595c88a6.jpg",
+          "width": 2000,
+          "height": 600,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Forté on Flagler Exterior",
+          "researchPath": "research/asset-library/projects/forte-on-flagler/images/candidates/01--official-candidate--fortewpb.com--b5b863ab.png",
+          "sourceUrl": "https://fortewpb.com/wp-content/uploads/Forte-on-Flagler.png",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "Forté on Flagler Preview",
+          "researchPath": "research/asset-library/projects/forte-on-flagler/images/candidates/02--official-candidate--fortewpb.com--9a29aed6.jpg",
+          "sourceUrl": "https://fortewpb.com/wp-content/uploads/home-main-desktop.jpg",
+          "recommendedUse": "gallery/supporting image",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/forte-on-flagler/hero-fort-on-flagler-exterior-hero-1600.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/forte-on-flagler/hero-fort-on-flagler-exterior-card-900.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/forte-on-flagler/hero-fort-on-flagler-exterior-thumb-480.png",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/forte-on-flagler/card-fort-on-flagler-preview-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/forte-on-flagler/card-fort-on-flagler-preview-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/forte-on-flagler/card-fort-on-flagler-preview-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "la-clara",
+      "name": "La Clara",
+      "area": "South Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "La Clara Exterior",
+          "projectId": "la-clara",
+          "projectName": "La Clara",
+          "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/service%20page%20images/climate-solutions-service-1800x1200.jpg",
+          "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
+          "researchPath": "research/asset-library/projects/la-clara/images/candidates/01--official-candidate--stantec.com--2554e025.jpg",
+          "width": 1800,
+          "height": 1200,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "hero",
+          "label": "La Clara Exterior",
+          "projectId": "la-clara",
+          "projectName": "La Clara",
+          "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/homepage-hero/2025/digital-stantec-staff-234469.jpg",
+          "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
+          "researchPath": "research/asset-library/projects/la-clara/images/candidates/02--official-candidate--stantec.com--282d9cb6.jpg",
+          "width": 2800,
+          "height": 1640,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "hero or project-card lead"
+        },
+        {
+          "role": "gallery",
+          "label": "La Clara Gallery",
+          "projectId": "la-clara",
+          "projectName": "La Clara",
+          "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/projects/0079/prime-hook-158392.jpg",
+          "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
+          "researchPath": "research/asset-library/projects/la-clara/images/candidates/03--official-candidate--stantec.com--bb94fda2.jpg",
+          "width": 2800,
+          "height": 1640,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "La Clara Gallery",
+          "projectId": "la-clara",
+          "projectName": "La Clara",
+          "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/projects/0010/blue-green-corridor-7.jpg",
+          "sourcePage": "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
+          "researchPath": "research/asset-library/projects/la-clara/images/candidates/04--official-candidate--stantec.com--81e36ca3.jpg",
+          "width": 1400,
+          "height": 820,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "La Clara Exterior",
+          "researchPath": "research/asset-library/projects/la-clara/images/candidates/02--official-candidate--stantec.com--282d9cb6.jpg",
+          "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/homepage-hero/2025/digital-stantec-staff-234469.jpg",
+          "recommendedUse": "hero or project-card lead",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/la-clara/hero-la-clara-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/la-clara/hero-la-clara-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/la-clara/hero-la-clara-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "maison-dor",
+      "name": "Maison d'Or",
+      "area": "South Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "hero",
+          "label": "Maison d'Or Exterior",
+          "projectId": "maison-dor",
+          "projectName": "Maison d'Or",
+          "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617.jpg",
+          "sourcePage": "https://livemaisondor.com/",
+          "researchPath": "research/asset-library/projects/maison-dor/images/candidates/01--official-candidate--livemaisondor.com--5af88e37.jpg",
+          "width": 1097,
+          "height": 1058,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "card/background only"
+        },
+        {
+          "role": "residence",
+          "label": "Maison d'Or Residence",
+          "projectId": "maison-dor",
+          "projectName": "Maison d'Or",
+          "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2026/04/Residence-A-Great-Room-scaled-e1776454596144.jpg",
+          "sourcePage": "https://livemaisondor.com/",
+          "researchPath": "research/asset-library/projects/maison-dor/images/candidates/02--official-candidate--livemaisondor.com--24b9844b.jpg",
+          "width": 2560,
+          "height": 823,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "residence gallery and project detail section"
+        },
+        {
+          "role": "gallery",
+          "label": "Maison d'Or Gallery",
+          "projectId": "maison-dor",
+          "projectName": "Maison d'Or",
+          "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2026/03/Maison-dOr_Cocktail-1.png",
+          "sourcePage": "https://livemaisondor.com/",
+          "researchPath": "research/asset-library/projects/maison-dor/images/candidates/03--official-candidate--livemaisondor.com--8b49905d.webp",
+          "width": 653,
+          "height": 788,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "amenity",
+          "label": "Maison d'Or Amenity",
+          "projectId": "maison-dor",
+          "projectName": "Maison d'Or",
+          "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2026/04/East-Pool-Deck-scaled-e1776454801314.jpg",
+          "sourcePage": "https://livemaisondor.com/",
+          "researchPath": "research/asset-library/projects/maison-dor/images/candidates/04--official-candidate--livemaisondor.com--e7e09b44.jpg",
+          "width": 2560,
+          "height": 850,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "amenity gallery and lifestyle section"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "hero",
+          "label": "Maison d'Or Exterior",
+          "researchPath": "research/asset-library/projects/maison-dor/images/candidates/01--official-candidate--livemaisondor.com--5af88e37.jpg",
+          "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617.jpg",
+          "recommendedUse": "card/background only",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "hero",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/maison-dor/hero-maison-d-or-exterior-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/maison-dor/hero-maison-d-or-exterior-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "hero",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/maison-dor/hero-maison-d-or-exterior-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "portofino-flagler-yacht-club",
+      "name": "Portofino South / Flagler Yacht Club Buyout Watch",
+      "area": "South Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "amenity",
+          "label": "Portofino South / Flagler Yacht Club Buyout Watch Amenity",
+          "projectId": "portofino-flagler-yacht-club",
+          "projectName": "Portofino South / Flagler Yacht Club Buyout Watch",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/",
+          "researchPath": "research/asset-library/projects/portofino-flagler-yacht-club/images/candidates/01--official-candidate--static.therealdeal.com--9a39e6c8.jpg",
+          "width": 1500,
+          "height": 1000,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "amenity gallery and lifestyle section"
+        },
+        {
+          "role": "amenity",
+          "label": "Portofino South / Flagler Yacht Club Buyout Watch Amenity",
+          "projectId": "portofino-flagler-yacht-club",
+          "projectName": "Portofino South / Flagler Yacht Club Buyout Watch",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer-700x467.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/",
+          "researchPath": "research/asset-library/projects/portofino-flagler-yacht-club/images/candidates/02--official-candidate--static.therealdeal.com--d96aee82.jpg",
+          "width": 700,
+          "height": 467,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "amenity gallery and lifestyle section"
+        },
+        {
+          "role": "amenity",
+          "label": "Portofino South / Flagler Yacht Club Buyout Watch Amenity",
+          "projectId": "portofino-flagler-yacht-club",
+          "projectName": "Portofino South / Flagler Yacht Club Buyout Watch",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer-768x512.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/",
+          "researchPath": "research/asset-library/projects/portofino-flagler-yacht-club/images/candidates/03--official-candidate--static.therealdeal.com--c0a3acb5.jpg",
+          "width": 768,
+          "height": 512,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "amenity gallery and lifestyle section"
+        },
+        {
+          "role": "amenity",
+          "label": "Portofino South / Flagler Yacht Club Buyout Watch Amenity",
+          "projectId": "portofino-flagler-yacht-club",
+          "projectName": "Portofino South / Flagler Yacht Club Buyout Watch",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer-1024x683.jpg",
+          "sourcePage": "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/",
+          "researchPath": "research/asset-library/projects/portofino-flagler-yacht-club/images/candidates/04--official-candidate--static.therealdeal.com--ff76256e.jpg",
+          "width": 1024,
+          "height": 683,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "amenity gallery and lifestyle section"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "amenity",
+          "label": "Portofino South / Flagler Yacht Club Buyout Watch Amenity",
+          "researchPath": "research/asset-library/projects/portofino-flagler-yacht-club/images/candidates/01--official-candidate--static.therealdeal.com--9a39e6c8.jpg",
+          "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer.jpg",
+          "recommendedUse": "amenity gallery and lifestyle section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "amenity",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/portofino-flagler-yacht-club/amenity-portofino-south-flagler-yacht-club-buyout-watch-amenity-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "amenity",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/portofino-flagler-yacht-club/amenity-portofino-south-flagler-yacht-club-buyout-watch-amenity-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "amenity",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/portofino-flagler-yacht-club/amenity-portofino-south-flagler-yacht-club-buyout-watch-amenity-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "south-flagler-house-north",
+      "name": "South Flagler House North Tower",
+      "area": "South Flagler",
+      "candidateCount": 4,
+      "candidates": [
+        {
+          "role": "amenity",
+          "label": "South Flagler House North Tower Amenity",
+          "projectId": "south-flagler-house-north",
+          "projectName": "South Flagler House North Tower",
+          "sourceUrl": "https://www.southflaglerhouse.com/sites/default/files/2025-08/Spa.jpg",
+          "sourcePage": "https://www.southflaglerhouse.com/",
+          "researchPath": "research/asset-library/projects/south-flagler-house-north/images/candidates/01--official-candidate--southflaglerhouse.com--5f3223c8.jpg",
+          "width": 3840,
+          "height": 1636,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "amenity gallery and lifestyle section"
+        },
+        {
+          "role": "card",
+          "label": "South Flagler House North Tower Preview",
+          "projectId": "south-flagler-house-north",
+          "projectName": "South Flagler House North Tower",
+          "sourceUrl": "https://www.southflaglerhouse.com/sites/default/files/2025-11/42532c47288179b7379b6153af3a3c5da2c91987%20%281%29.jpg",
+          "sourcePage": "https://www.southflaglerhouse.com/",
+          "researchPath": "research/asset-library/projects/south-flagler-house-north/images/candidates/02--official-candidate--southflaglerhouse.com--4ad798de.jpg",
+          "width": 3840,
+          "height": 1636,
+          "orientation": "landscape",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "South Flagler House North Tower Gallery",
+          "projectId": "south-flagler-house-north",
+          "projectName": "South Flagler House North Tower",
+          "sourceUrl": "https://www.southflaglerhouse.com/sites/default/files/2025-10/41c8d66adcf3afa189d6987272bd634f37dbff1d.png",
+          "sourcePage": "https://www.southflaglerhouse.com/",
+          "researchPath": "research/asset-library/projects/south-flagler-house-north/images/candidates/03--official-candidate--southflaglerhouse.com--780c0404.png",
+          "width": 960,
+          "height": 1080,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        },
+        {
+          "role": "gallery",
+          "label": "South Flagler House North Tower Gallery",
+          "projectId": "south-flagler-house-north",
+          "projectName": "South Flagler House North Tower",
+          "sourceUrl": "https://www.southflaglerhouse.com/sites/default/files/2025-10/3aed1ab1fc4cad0cc190554ea3d586b75deeadf8.png",
+          "sourcePage": "https://www.southflaglerhouse.com/",
+          "researchPath": "research/asset-library/projects/south-flagler-house-north/images/candidates/04--official-candidate--southflaglerhouse.com--61e4fc9d.png",
+          "width": 960,
+          "height": 1080,
+          "orientation": "portrait",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "recommendedUse": "gallery/supporting image"
+        }
+      ],
+      "preferred": [
+        {
+          "role": "card",
+          "label": "South Flagler House North Tower Preview",
+          "researchPath": "research/asset-library/projects/south-flagler-house-north/images/candidates/02--official-candidate--southflaglerhouse.com--4ad798de.jpg",
+          "sourceUrl": "https://www.southflaglerhouse.com/sites/default/files/2025-11/42532c47288179b7379b6153af3a3c5da2c91987%20%281%29.jpg",
+          "recommendedUse": "gallery/supporting image",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "amenity",
+          "label": "South Flagler House North Tower Amenity",
+          "researchPath": "research/asset-library/projects/south-flagler-house-north/images/candidates/01--official-candidate--southflaglerhouse.com--5f3223c8.jpg",
+          "sourceUrl": "https://www.southflaglerhouse.com/sites/default/files/2025-08/Spa.jpg",
+          "recommendedUse": "amenity gallery and lifestyle section",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ],
+      "preferredExports": [
+        {
+          "role": "card",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/card-south-flagler-house-north-tower-preview-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/card-south-flagler-house-north-tower-preview-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "card",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/card-south-flagler-house-north-tower-preview-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "amenity",
+          "label": "hero",
+          "maxDimension": 1600,
+          "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/amenity-south-flagler-house-north-tower-amenity-hero-1600.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "amenity",
+          "label": "card",
+          "maxDimension": 900,
+          "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/amenity-south-flagler-house-north-tower-amenity-card-900.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        },
+        {
+          "role": "amenity",
+          "label": "thumb",
+          "maxDimension": 480,
+          "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/amenity-south-flagler-house-north-tower-amenity-thumb-480.jpg",
+          "status": "resized",
+          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+        }
+      ]
+    },
+    {
+      "projectId": "south-flagler-house-south",
+      "name": "South Flagler House South Tower",
+      "area": "South Flagler",
+      "candidateCount": 0,
+      "candidates": [],
+      "preferred": [],
+      "preferredExports": []
+    }
+  ]
+}

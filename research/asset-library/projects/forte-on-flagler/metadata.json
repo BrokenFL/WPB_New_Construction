@@ -47,7 +47,7 @@
   "localModelUri": "",
   "localScenario": "",
   "generatedPlaceholderCopies": [
-    "projects/forte-on-flagler/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -1056,7 +1056,7 @@
         "label": "interior 2 700x875"
       },
       {
-        "url": "https://floridayimby.com/wp-content/cache/autoptimize/css/autoptimize_10c313abb0f79176e7b25d13d5881e9f.css",
+        "url": "https://floridayimby.com/wp-content/cache/autoptimize/css/autoptimize_789ba2d842ba3ad66a04da773e69ea72.css",
         "label": ""
       },
       {

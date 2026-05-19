@@ -171,7 +171,7 @@
   "localModelUri": "/models/ritz-carlton.glb",
   "localScenario": "North Flagler Pipeline",
   "generatedPlaceholderCopies": [
-    "projects/ritz-carlton-wpb/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -422,27 +422,27 @@
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-frontend.min.css?ver=1778267765",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-frontend.min.css?ver=1778613374",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=4.0.8",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.0.8",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-pro-widget-nav-menu.min.css?ver=1778267765",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-pro-widget-nav-menu.min.css?ver=1778613374",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.0.8",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-sink.min.css?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-sink.min.css?ver=4.0.8",
         "label": ""
       },
       {
@@ -450,11 +450,11 @@
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css?ver=1778267765",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-widget-icon-list.min.css?ver=1778613374",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/slideInUp.min.css?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/slideInUp.min.css?ver=4.0.8",
         "label": ""
       },
       {
@@ -462,15 +462,15 @@
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-277.css?ver=1778267766",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-277.css?ver=1778613374",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=4.0.8",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=4.0.8",
         "label": ""
       },
       {
@@ -478,7 +478,7 @@
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=4.0.8",
         "label": ""
       },
       {
@@ -486,7 +486,7 @@
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=4.0.8",
         "label": ""
       },
       {
@@ -494,19 +494,19 @@
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-3318.css?ver=1778267766",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-3318.css?ver=1778613375",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-5541.css?ver=1778267766",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-5541.css?ver=1778613375",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-5484.css?ver=1778267766",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-5484.css?ver=1778613375",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-7189.css?ver=1778267766",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-7189.css?ver=1778613375",
         "label": ""
       },
       {
@@ -518,7 +518,7 @@
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=4.0.8",
         "label": ""
       },
       {
@@ -686,15 +686,15 @@
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-2718.css?ver=1778267766",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-2718.css?ver=1778613375",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.0.8",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.0.8",
         "label": ""
       },
       {
@@ -702,7 +702,7 @@
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.0.7",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.0.8",
         "label": ""
       },
       {
@@ -1166,11 +1166,11 @@
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-widget-nested-tabs.min.css?ver=1778267765",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/custom-widget-nested-tabs.min.css?ver=1778613374",
         "label": ""
       },
       {
-        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-6515.css?ver=1778268578",
+        "url": "https://theresidenceswestpalmbeach.com/wp-content/uploads/elementor/css/post-6515.css?ver=1778614658",
         "label": ""
       },
       {

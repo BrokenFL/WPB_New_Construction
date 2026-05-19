@@ -1,0 +1,26 @@
+{
+  "siteName": "WPB New Construction",
+  "baseUrl": "https://wpbnewconstruction.com",
+  "title": "West Palm Beach New Construction Condos | Buyer Guide",
+  "description": "Compare West Palm Beach new-construction condos across North Flagler, Downtown, and South Flagler with source-backed facts, released floorplans, and buyer advisory context.",
+  "publisher": {
+    "name": "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
+    "type": "RealEstateAgent",
+    "areaServed": "West Palm Beach, Florida",
+    "brokerageLicense": "CQ1020232"
+  },
+  "expertByline": {
+    "name": "Brooke Matthew Snader",
+    "title": "Licensed Real Estate Broker Associate",
+    "role": "West Palm Beach new-construction advisor",
+    "license": "BK3291335",
+    "group": "The Scott Gordon Group",
+    "phone": "(561) 891-0186",
+    "brokerage": "Douglas Elliman Florida, LLC d/b/a Douglas Elliman"
+  },
+  "reviewedBy": {
+    "name": "WPB New Construction Review Desk",
+    "role": "Project source review"
+  },
+  "defaultImage": "/maps/wpb-atlas-map-editorial.svg"
+}

@@ -46,7 +46,7 @@
   "localModelUri": "",
   "localScenario": "",
   "generatedPlaceholderCopies": [
-    "projects/la-clara/images/generated-placeholders/placeholder--downtown-wpb-hero-editorial.png"
+    "shared/generated-placeholders/downtown-wpb-hero-editorial.png"
   ],
   "downloadedAssets": [
     {
@@ -341,7 +341,7 @@
         "label": ""
       },
       {
-        "url": "https://www.stantec.com/en/services/international-development.html",
+        "url": "https://www.stantec.com/en/services/international-institutions.html",
         "label": ""
       },
       {
@@ -761,11 +761,11 @@
         "label": ""
       },
       {
-        "url": "https://www.thorntontomasetti.com/modules/contrib/google_tag/js/gtag.js?teqdxd",
+        "url": "https://www.thorntontomasetti.com/modules/contrib/google_tag/js/gtag.js?texkug",
         "label": ""
       },
       {
-        "url": "https://www.thorntontomasetti.com/modules/contrib/google_tag/js/gtm.js?teqdxd",
+        "url": "https://www.thorntontomasetti.com/modules/contrib/google_tag/js/gtm.js?texkug",
         "label": ""
       },
       {
