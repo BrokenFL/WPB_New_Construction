@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T18:38:45.087Z",
+  "generatedAt": "2026-05-21T12:05:07.262Z",
   "usageNote": "Project media and packet tracker for the public site. Image authorization follows the reviewed asset tracker; pending projects must not be treated as publishable without source evidence.",
   "projects": [
     {
@@ -7,7 +7,7 @@
       "publicProjectId": "10-cityplace",
       "name": "10 CityPlace",
       "area": "Downtown",
-      "projectPagePath": "",
+      "projectPagePath": "/projects/10-cityplace/",
       "imageAuthorizationStatus": "authorized",
       "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
       "imageSourceCredit": {
@@ -25,7 +25,7 @@
       "publicProjectId": "15-cityplace",
       "name": "15 CityPlace",
       "area": "Downtown",
-      "projectPagePath": "",
+      "projectPagePath": "/projects/15-cityplace/",
       "imageAuthorizationStatus": "authorized",
       "imageUseNote": "Full project image authorization confirmed by user on 2026-05-18; retain concise source credit and no developer/brand endorsement implication.",
       "imageSourceCredit": {

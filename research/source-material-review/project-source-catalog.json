@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-13T15:23:06.054Z",
+  "generatedAt": "2026-05-21T00:00:00.000Z",
   "basedOnAssetManifestGeneratedAt": "2026-05-13T15:18:28.296Z",
   "sourceRepo": "https://github.com/BrokenFL/WestPalmNewConstruction",
   "sourceRepoCommit": "3753c0ef2370817338e55f959cb78224783fccbd",
@@ -72,8 +72,8 @@
         "status": "Under construction / topped out",
         "residences": "55",
         "stories": "22",
-        "completion": "Closings commence June 2026 per official popup; press also says early/Spring 2026",
-        "pricing": "Starting just under $3M in official/current material; verify live inventory",
+        "completion": "Closings commence June 2026 per the official home page; other official and press items still say early/Spring 2026",
+        "pricing": "Starting just under $3M on the current official home page; verify live inventory",
         "team": "BGI/Kenneth Baboun; Blue Road; Spina O'Rourke + Partners; Schmidt Nichols; Moss Construction; One Sotheby's"
       },
       "sourceCounts": {
@@ -321,7 +321,7 @@
       "officialWebsite": "https://mandarinorientalwestpalmbeach.com/",
       "normalizedFacts": {
         "address": "5400 N Flagler Dr, West Palm Beach, FL 33407",
-        "status": "Concept / priority interest",
+        "status": "Sales launched / priority interest",
         "residences": "87",
         "stories": "31",
         "completion": "Anticipated opening 2031",
@@ -330,9 +330,9 @@
       },
       "sourceCounts": {
         "official": 1,
-        "reporting": 0,
+        "reporting": 2,
         "other": 3,
-        "sourcePages": 4
+        "sourcePages": 6
       },
       "assetCounts": {
         "floorplans": 0,
@@ -343,9 +343,14 @@
         "generatedPlaceholders": 1
       },
       "highValueSources": [
-        "https://mandarinorientalwestpalmbeach.com/"
+        "https://mandarinorientalwestpalmbeach.com/",
+        "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+        "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html"
       ],
-      "assetNotes": [],
+      "assetNotes": [
+        "May 2026 reporting revealed the first interior renderings while keeping the core launch facts at 31 stories, 87 residences, and pricing from about $3.5M.",
+        "No public floor-plan packet or brochure surfaced in this refresh."
+      ],
       "conflicts": [],
       "gaps": [
         "No verified floor-plan assets in catalog.",
@@ -355,7 +360,10 @@
         "official": [
           "https://mandarinorientalwestpalmbeach.com/"
         ],
-        "reporting": [],
+        "reporting": [
+          "https://therealdeal.com/miami/2026/02/26/great-gulf-launches-mandarin-oriental-west-palm-beach-condos/",
+          "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html"
+        ],
         "other": [
           "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
           "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
@@ -877,19 +885,19 @@
       "rightsStatus": "Rights review required before publishing images",
       "officialWebsite": "https://www.shorecrestwpb.com/",
       "normalizedFacts": {
-        "address": "1865 N Flagler Dr is the newer official fact-sheet address; keep 1901 N Flagler as a conflict note",
-        "status": "Under construction",
-        "residences": "Related Ross's current Shorecrest property page lists 100 units; the February 18, 2026 financing release still says 98 residences",
+        "address": "1865 N Flagler Dr is the current fact-sheet/property address; some live floorplans and inquiry surfaces still expose 1901 N Flagler Dr",
+        "status": "Sales launched / under construction",
+        "residences": "Current official fact-sheet/property material points to 100 residences; the February 18, 2026 financing release still says 98",
         "stories": "28",
         "completion": "Expected 2027",
-        "pricing": "From about $3M in Related Ross/current reporting; verify live inventory",
+        "pricing": "From about $3M in current reporting; live official floorplans currently show select residences from $3.05M",
         "team": "Related Ross; Roger Ferris + Partners; Revuelta; Rottet Studio; DS Boca; Related Sales/Corcoran Sunshine"
       },
       "sourceCounts": {
-        "official": 8,
+        "official": 9,
         "reporting": 0,
         "other": 0,
-        "sourcePages": 5
+        "sourcePages": 6
       },
       "assetCounts": {
         "floorplans": 9,
@@ -908,6 +916,7 @@
       ],
       "assetNotes": [
         "Official floor-plan PDFs, brochure, and fact sheet remain high-value.",
+        "Related Ross announced Shorecrest's groundbreaking on April 3, 2026, which supports the live under-construction status.",
         "The live Shorecrest site footer uses 1865 N Flagler while homepage meta/schema still expose 1901 North Flagler, so address citations need line-by-line review.",
         "There are old and newer official PDFs, so file dates matter."
       ],
@@ -924,6 +933,7 @@
           "https://www.shorecrestwpb.com/",
           "https://www.relatedross.com/our-company/properties/shorecrest",
           "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+          "https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm",
           "https://www.shorecrestwpb.com/residences",
           "https://www.shorecrestwpb.com/inquire",
           "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
@@ -1362,7 +1372,7 @@
       "area": "Downtown",
       "pageStatus": "Pipeline/watch-list",
       "dataConfidence": "Low",
-      "rightsStatus": "Needs publishable imagery",
+      "rightsStatus": "Authorized user-provided imagery",
       "officialWebsite": "https://www.relatedross.com/our-company/properties/10-cityplace",
       "normalizedFacts": {
         "address": "10 CityPlace, West Palm Beach, FL 33401",
@@ -1384,19 +1394,20 @@
         "brochures": 0,
         "factsheets": 0,
         "otherPdfs": 0,
-        "images": 0,
-        "generatedPlaceholders": 1
+        "images": 7,
+        "generatedPlaceholders": 0
       },
       "highValueSources": [
         "https://www.relatedross.com/our-company/properties/10-cityplace"
       ],
-      "assetNotes": [],
+      "assetNotes": [
+        "User-provided cleared hero images added on 2026-05-18: /projects/10-cityplace/media/10-cityplace-hero-1536x1024.jpg, /projects/10-cityplace/media/10-cityplace-card-1448x1086.jpg, and /projects/10-cityplace/media/10-cityplace-mobile-1122x1402.jpg.",
+        "Additional user-provided cleared CityPlace imagery added on 2026-05-18: 10 CityPlace entrance view plus shared 10/15 CityPlace skyline context images."
+      ],
       "conflicts": [
         "Seed/source conflict: seed references a 21-story assumption, while Related Ross release describes a 480,000-square-foot office tower without presenting it as condo inventory."
       ],
-      "gaps": [
-        "No downloaded image candidates."
-      ],
+      "gaps": [],
       "sourceBuckets": {
         "official": [
           "https://www.relatedross.com/our-company/properties/10-cityplace",
@@ -1410,7 +1421,57 @@
         "brochures": [],
         "factsheets": [],
         "otherPdfs": [],
-        "images": []
+        "images": [
+          {
+            "label": "10 CityPlace desktop hero",
+            "url": "/projects/10-cityplace/media/10-cityplace-hero-1536x1024.jpg",
+            "path": "projects/10-cityplace/media/10-cityplace-hero-1536x1024.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "10 CityPlace project card",
+            "url": "/projects/10-cityplace/media/10-cityplace-card-1448x1086.jpg",
+            "path": "projects/10-cityplace/media/10-cityplace-card-1448x1086.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "10 CityPlace mobile hero",
+            "url": "/projects/10-cityplace/media/10-cityplace-mobile-1122x1402.jpg",
+            "path": "projects/10-cityplace/media/10-cityplace-mobile-1122x1402.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "10 CityPlace entrance view",
+            "url": "/projects/10-cityplace/media/10-cityplace-entrance-1536x1024.jpg",
+            "path": "projects/10-cityplace/media/10-cityplace-entrance-1536x1024.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "10 and 15 CityPlace shared skyline hero",
+            "url": "/projects/10-cityplace/media/cityplace-shared-hero-1536x1024.jpg",
+            "path": "projects/10-cityplace/media/cityplace-shared-hero-1536x1024.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "10 and 15 CityPlace shared skyline card",
+            "url": "/projects/10-cityplace/media/cityplace-shared-card-1448x1086.jpg",
+            "path": "projects/10-cityplace/media/cityplace-shared-card-1448x1086.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "10 and 15 CityPlace shared mobile skyline",
+            "url": "/projects/10-cityplace/media/cityplace-shared-mobile-1122x1402.jpg",
+            "path": "projects/10-cityplace/media/cityplace-shared-mobile-1122x1402.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          }
+        ]
       }
     },
     {
@@ -1419,7 +1480,7 @@
       "area": "Downtown",
       "pageStatus": "Pipeline/watch-list",
       "dataConfidence": "Strong",
-      "rightsStatus": "Rights review required before publishing images",
+      "rightsStatus": "Authorized user-provided imagery",
       "officialWebsite": "https://www.relatedross.com/office/15-cityplace",
       "normalizedFacts": {
         "address": "15 CityPlace, West Palm Beach, FL 33401",
@@ -1441,13 +1502,15 @@
         "brochures": 0,
         "factsheets": 0,
         "otherPdfs": 0,
-        "images": 4,
-        "generatedPlaceholders": 1
+        "images": 10,
+        "generatedPlaceholders": 0
       },
       "highValueSources": [
         "https://www.relatedross.com/office/15-cityplace"
       ],
-      "assetNotes": [],
+      "assetNotes": [
+        "User-provided cleared 15 CityPlace exterior hero/card/mobile images and shared 10/15 CityPlace skyline context images added on 2026-05-18."
+      ],
       "conflicts": [],
       "gaps": [],
       "sourceBuckets": {
@@ -1493,6 +1556,48 @@
             "path": "projects/15-cityplace/images/candidates/04--official-candidate--relatedross.com--959d6de5.jpg",
             "source": "",
             "status": "downloaded"
+          },
+          {
+            "label": "15 CityPlace desktop hero",
+            "url": "/projects/15-cityplace/media/15-cityplace-hero-1536x1024.jpg",
+            "path": "projects/15-cityplace/media/15-cityplace-hero-1536x1024.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "15 CityPlace project card",
+            "url": "/projects/15-cityplace/media/15-cityplace-card-1448x1086.jpg",
+            "path": "projects/15-cityplace/media/15-cityplace-card-1448x1086.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "15 CityPlace mobile hero",
+            "url": "/projects/15-cityplace/media/15-cityplace-mobile-1122x1402.jpg",
+            "path": "projects/15-cityplace/media/15-cityplace-mobile-1122x1402.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "10 and 15 CityPlace shared skyline hero",
+            "url": "/projects/15-cityplace/media/cityplace-shared-hero-1536x1024.jpg",
+            "path": "projects/15-cityplace/media/cityplace-shared-hero-1536x1024.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "10 and 15 CityPlace shared skyline card",
+            "url": "/projects/15-cityplace/media/cityplace-shared-card-1448x1086.jpg",
+            "path": "projects/15-cityplace/media/cityplace-shared-card-1448x1086.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
+          },
+          {
+            "label": "10 and 15 CityPlace shared mobile skyline",
+            "url": "/projects/15-cityplace/media/cityplace-shared-mobile-1122x1402.jpg",
+            "path": "projects/15-cityplace/media/cityplace-shared-mobile-1122x1402.jpg",
+            "source": "user-provided cleared asset",
+            "status": "downloaded"
           }
         ]
       }
@@ -1507,11 +1612,11 @@
       "officialWebsite": "https://www.banyantreeresidenceswpb.com/",
       "normalizedFacts": {
         "address": "400 Hibiscus St",
-        "status": "Planning / sales gallery open",
+        "status": "Sales launched / sales gallery now open",
         "residences": "88 in project/sales language; city PPRC material has 86 dwelling units",
         "stories": "25",
         "completion": "Planning-stage timing not publicly confirmed",
-        "pricing": "From about $1.9M in reporting; verify official availability",
+        "pricing": "Sales-launch reporting starts at about $1.9M; official site says prices are subject to change and requests current pricing",
         "team": "Mast Capital; Curated JCZM; Banyan Group; OMA; Yabu Pushelberg; Enzo Enea"
       },
       "sourceCounts": {
@@ -1637,7 +1742,8 @@
       ],
       "assetNotes": [
         "Official gallery has many strong renderings.",
-        "Official floor-plan PDFs are available by residence number."
+        "Official floor-plan PDFs are available by residence number.",
+        "The live downloads page now exposes the fact sheet, West Palm Beach guide, and residence-by-residence plan links."
       ],
       "conflicts": [
         "Address conflict: 320 Lakeview Ave, 327 Okeechobee Blvd, and 401 S Olive sales gallery.",
@@ -1646,8 +1752,7 @@
       ],
       "gaps": [
         "Need a clean rule for showing both project address and sales gallery without confusing users.",
-        "Need verified current delivery date.",
-        "No brochure or fact-sheet assets in catalog."
+        "Need verified current delivery date."
       ],
       "sourceBuckets": {
         "official": [
@@ -2057,7 +2162,7 @@
       "normalizedFacts": {
         "address": "430-464 Fern St, 419-435 Gardenia St, and 415-421 S Dixie Hwy, West Palm Beach, FL 33401",
         "status": "Planning / not yet named",
-        "residences": "130",
+        "residences": "Reported at roughly 100 to 130 residences",
         "stories": "",
         "completion": "Planning-stage timing not publicly confirmed.",
         "pricing": "Not publicly confirmed",
@@ -2357,10 +2462,10 @@
       "officialWebsite": "https://www.edgeworthwpb.com/",
       "normalizedFacts": {
         "address": "1155 S Flagler Dr",
-        "status": "Planning / priority list",
+        "status": "Sales launched / priority list",
         "residences": "168 in Related Ross launch material; MAWD page says 187",
         "stories": "Two 28-story towers",
-        "completion": "2029 in design-team material",
+        "completion": "Current reporting points to construction starting in 2027 with an approximately two-year build; design-team material points to 2029",
         "pricing": "$2.5M to $35.5M in launch/reporting material",
         "team": "Related Ross; KPF; MAWD/March and White"
       },
@@ -2391,7 +2496,7 @@
         "Residence count conflict: Related Ross 168 vs MAWD 187."
       ],
       "gaps": [
-        "Need official brochure/fact sheet/floor plans."
+        "Need official brochure/fact sheet/floor plans; the live official site is still interest-list led."
       ],
       "sourceBuckets": {
         "official": [
@@ -2639,10 +2744,10 @@
       "officialWebsite": "https://fortewpb.com/",
       "normalizedFacts": {
         "address": "1309 S Flagler Dr for project context; listings may use 1333 S Flagler unit addresses",
-        "status": "Recently delivered / resale inventory",
+        "status": "Delivered / closings underway / resale benchmark",
         "residences": "41",
         "stories": "25 in newer construction/reporting; older material can say 24",
-        "completion": "Topped off April 2024; expected completion Q1 2025 in reporting, needs current building/listing confirmation",
+        "completion": "Topped off in April 2024 and closings were reported underway in July 2025; request current resale availability and building confirmation",
         "pricing": "Current resale/listing pricing varies; request current availability.",
         "team": "Two Roads; Alpha Blue; Arquitectonica; Jean-Louis Deniot"
       },
@@ -2673,9 +2778,7 @@
         "Project address vs listing/unit address differences.",
         "24 vs 25 stories across older/current material."
       ],
-      "gaps": [
-        "Need current completion/delivery confirmation from building records or active listings."
-      ],
+      "gaps": [],
       "sourceBuckets": {
         "official": [
           "https://fortewpb.com/",
@@ -2858,9 +2961,9 @@
         "status": "Sales launched / pre-construction",
         "residences": "39",
         "stories": "19",
-        "completion": "2028 timing reported in brokerage/market coverage; verify with sales team.",
+        "completion": "2028 timing remains reporting-led; verify with sales team.",
         "pricing": "Starting at $5.7M per official site and January 2026 launch coverage; verify current availability.",
-        "team": "Kolter Urban and Perko Development Partners; 10 Design; Hirsch Bedner Associates; EDSA"
+        "team": "Kolter Urban; Perko Development; 10 Design with SB Architects language also appearing on the official team page; HBA Residential; EDSA; Maison d'Or Realty"
       },
       "sourceCounts": {
         "official": 3,
@@ -2879,10 +2982,14 @@
       "highValueSources": [
         "https://livemaisondor.com/"
       ],
-      "assetNotes": [],
-      "conflicts": [],
+      "assetNotes": [
+        "The refreshed official site now exposes floorplan browsing, pricing language, amenities, and a dedicated team page."
+      ],
+      "conflicts": [
+        "The official team page labels architecture as 10 Design while the supporting body copy also references SB Architects."
+      ],
       "gaps": [
-        "No brochure or fact-sheet assets in catalog."
+        "No brochure asset is captured in the catalog even though the live site now exposes floorplans and team details."
       ],
       "sourceBuckets": {
         "official": [

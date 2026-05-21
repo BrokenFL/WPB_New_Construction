@@ -31,7 +31,7 @@ export const floorplanLibrary = [
     "name": "Alba Palm Beach",
     "area": "North Flagler",
     "pageStatus": "Primary condo page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 10,
     "plans": [
       {
@@ -122,7 +122,7 @@ export const floorplanLibrary = [
     "name": "Mandarin Oriental Residences, West Palm Beach",
     "area": "North Flagler",
     "pageStatus": "Candidate project page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 0,
     "plans": [],
     "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
@@ -132,7 +132,7 @@ export const floorplanLibrary = [
     "name": "Olara",
     "area": "North Flagler",
     "pageStatus": "Primary condo page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 55,
     "plans": [
       {
@@ -583,7 +583,7 @@ export const floorplanLibrary = [
     "name": "Shorecrest",
     "area": "North Flagler",
     "pageStatus": "Primary condo page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 9,
     "plans": [
       {
@@ -666,7 +666,7 @@ export const floorplanLibrary = [
     "name": "The Ritz-Carlton Residences, West Palm Beach",
     "area": "North Flagler",
     "pageStatus": "Primary condo page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 28,
     "plans": [
       {
@@ -901,7 +901,7 @@ export const floorplanLibrary = [
     "name": "Banyan Tree Residences West Palm Beach",
     "area": "Downtown",
     "pageStatus": "High-priority emerging condo page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 0,
     "plans": [],
     "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
@@ -911,7 +911,7 @@ export const floorplanLibrary = [
     "name": "Mr. C Hotel & Residences West Palm Beach",
     "area": "Downtown",
     "pageStatus": "Primary mixed-use/hotel-residence page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 64,
     "plans": [
       {
@@ -1434,7 +1434,7 @@ export const floorplanLibrary = [
     "name": "The Berkeley Palm Beach",
     "area": "Downtown",
     "pageStatus": "Candidate project page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 9,
     "plans": [
       {
@@ -1517,7 +1517,7 @@ export const floorplanLibrary = [
     "name": "NORA House",
     "area": "Downtown / NORA",
     "pageStatus": "Primary condo page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 65,
     "plans": [
       {
@@ -2048,7 +2048,7 @@ export const floorplanLibrary = [
     "name": "Edgeworth North Tower",
     "area": "South Flagler",
     "pageStatus": "High-priority pipeline condo page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 0,
     "plans": [],
     "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
@@ -2058,7 +2058,7 @@ export const floorplanLibrary = [
     "name": "Forté on Flagler",
     "area": "South Flagler",
     "pageStatus": "Completed/recent-delivery condo page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 5,
     "plans": [
       {
@@ -2109,7 +2109,7 @@ export const floorplanLibrary = [
     "name": "Maison d'Or",
     "area": "South Flagler",
     "pageStatus": "Candidate project page",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 2,
     "plans": [
       {
@@ -2136,7 +2136,7 @@ export const floorplanLibrary = [
     "name": "South Flagler House North Tower",
     "area": "South Flagler",
     "pageStatus": "Primary condo page; pair with south tower in copy",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 3,
     "plans": [
       {
@@ -2171,7 +2171,7 @@ export const floorplanLibrary = [
     "name": "South Flagler House South Tower",
     "area": "South Flagler",
     "pageStatus": "Primary condo page; merge content with north tower unless separate inventory is required",
-    "updatedAt": "2026-05-18",
+    "updatedAt": "2026-05-21",
     "count": 3,
     "plans": [
       {
@@ -2229,7 +2229,7 @@ export const answerEngineFaq = [
         "href": "https://www.albapalmbeach.com/",
         "note": "Official/current Alba source used for near-term closing timing.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Alba near-term delivery timing",
         "claimText": "Alba is the closest dated completion in the current catalog.",
         "confidence": "high"
@@ -2239,7 +2239,7 @@ export const answerEngineFaq = [
         "href": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
         "note": "Reports groundbreaking, 27 stories, 138 residences, and expected 2028 completion.",
         "sourceType": "reputable project reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Ritz-Carlton delivery timing",
         "claimText": "Ritz-Carlton WPB is expected in 2028.",
         "confidence": "medium"
@@ -2271,17 +2271,17 @@ export const answerEngineFaq = [
         "href": "https://therealdeal.com/miami/2026/02/19/related-ross-lands-157-million-loan-for-shorecrest-condos/",
         "note": "Reports Shorecrest pricing starting at $3M, plus stories, unit count, and expected completion.",
         "sourceType": "reputable project reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Shorecrest pricing guidance",
         "claimText": "Shorecrest reporting places pricing from about $3M.",
         "confidence": "medium"
       },
       {
         "label": "Maison d'Or official site",
-        "href": "https://www.livemaisondorwpb.com/",
+        "href": "https://livemaisondor.com/",
         "note": "Official source for boutique South Flagler pricing guidance and residence count.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Maison d'Or starting pricing",
         "claimText": "Maison d'Or official material lists pricing from $5.7M.",
         "confidence": "high"
@@ -2311,7 +2311,7 @@ export const answerEngineFaq = [
         "href": "https://www.olarawestpalmbeach.com/",
         "note": "Official source for Intracoastal, Palm Beach Island, Atlantic, marina, and waterfront positioning.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Olara water-view positioning",
         "claimText": "Olara belongs in the direct waterfront-view set.",
         "confidence": "high"
@@ -2321,7 +2321,7 @@ export const answerEngineFaq = [
         "href": "https://floridayimby.com/2026/03/the-mandarin-oriental-residences-west-palm-beach-planned-for-2031-completion-at-5400-n-flagler-dr-west-palm-beach-fl.html",
         "note": "Reports that Mandarin Oriental residences will feature Intracoastal views.",
         "sourceType": "reputable project reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Mandarin Oriental water views",
         "claimText": "Mandarin Oriental belongs in the future water-view set.",
         "confidence": "medium"
@@ -2354,7 +2354,7 @@ export const answerEngineFaq = [
         "href": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
         "note": "Reports 27 stories and 138 condominium residences.",
         "sourceType": "reputable project reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Ritz-Carlton stories and residence count",
         "claimText": "Ritz-Carlton WPB is a 27-story, 138-residence project.",
         "confidence": "medium"
@@ -2364,7 +2364,7 @@ export const answerEngineFaq = [
         "href": "https://worldredeye.com/2026/03/wre-news-nora-house-anchors-residential-expansion-in-west-palm-beachs-nora-district/",
         "note": "Reports 11 stories and 117 residences in the NORA District.",
         "sourceType": "project launch reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "NORA stories and residence count",
         "claimText": "NORA House is reported as 11 stories with 117 residences.",
         "confidence": "medium"
@@ -2397,7 +2397,7 @@ export const answerEngineFaq = [
         "href": "https://floridayimby.com/2025/12/olara-commences-vertical-construction-at-1919-north-flagler-drive-in-west-palm-beach.html",
         "note": "Reports that Olara commenced vertical construction at 1919 North Flagler Drive.",
         "sourceType": "reputable project reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Olara construction status",
         "claimText": "Olara is in active construction.",
         "confidence": "medium"
@@ -2407,7 +2407,7 @@ export const answerEngineFaq = [
         "href": "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html",
         "note": "Reports South Flagler House topping out at 28 stories.",
         "sourceType": "reputable project reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "South Flagler House construction status",
         "claimText": "South Flagler House has reached a major construction milestone.",
         "confidence": "medium"
@@ -2438,7 +2438,7 @@ export const answerEngineFaq = [
         "href": "https://www.olarawestpalmbeach.com/",
         "note": "North Flagler waterfront positioning, amenities, dining, marina, and location source.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "North Flagler waterfront comparison",
         "claimText": "Olara belongs in the first North Flagler comparison set.",
         "confidence": "high"
@@ -2448,7 +2448,7 @@ export const answerEngineFaq = [
         "href": "https://norahouse.com/",
         "note": "Downtown/NORA positioning source for walkability, rooftop amenities, and district lifestyle.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Downtown walkability and district positioning",
         "claimText": "NORA House belongs in the downtown lifestyle comparison set.",
         "confidence": "high"
@@ -2478,7 +2478,7 @@ export const answerEngineFaq = [
         "href": "https://www.shorecrestwpb.com/amenities",
         "note": "North Flagler amenity and service model source.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "North Flagler waterfront service comparison",
         "claimText": "Shorecrest adds another active waterfront option on North Flagler.",
         "confidence": "high"
@@ -2488,7 +2488,7 @@ export const answerEngineFaq = [
         "href": "https://www.southflaglerhouse.com/amenities/",
         "note": "South Flagler amenity, service, and waterfront lifestyle source.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "South Flagler lifestyle positioning",
         "claimText": "South Flagler House anchors the quieter South Flagler luxury comparison.",
         "confidence": "high"
@@ -2519,7 +2519,7 @@ export const answerEngineFaq = [
         "href": "https://www.olarawestpalmbeach.com/floor-plans",
         "note": "Official plan page used for current plan-depth review.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Olara floorplan availability",
         "claimText": "Olara has a deep official floorplan release.",
         "confidence": "high"
@@ -2529,7 +2529,7 @@ export const answerEngineFaq = [
         "href": "https://www.mrcresidenceswpb.com/downloads/",
         "note": "Official download page used for downtown floorplan review.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Mr. C floorplan availability",
         "claimText": "Mr. C has public download material for buyer plan review.",
         "confidence": "high"
@@ -2559,7 +2559,7 @@ export const answerEngineFaq = [
         "href": "https://www.banyantreeresidenceswpb.com/",
         "note": "Developer legal notice reminds buyers to rely on required condominium documents, not oral or promotional representations.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "buyer should verify offering documents",
         "claimText": "Buyer decisions should be based on formal documents and current sales materials.",
         "confidence": "high"
@@ -2569,7 +2569,7 @@ export const answerEngineFaq = [
         "href": "https://norahouse.com/",
         "note": "Official page includes Florida condominium-document disclaimer language.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "developer documents control",
         "claimText": "Formal condominium documents should be requested before relying on project claims.",
         "confidence": "high"
@@ -2599,7 +2599,7 @@ export const answerEngineFaq = [
         "href": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
         "note": "Reports Ritz-Carlton-staffed amenities and shared spaces for the West Palm Beach project.",
         "sourceType": "reputable project reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Ritz-Carlton service model",
         "claimText": "Ritz-Carlton WPB is positioned around a staffed branded-residence model.",
         "confidence": "medium"
@@ -2609,7 +2609,7 @@ export const answerEngineFaq = [
         "href": "https://www.southflaglerhouse.com/amenities/",
         "note": "Official source for Related Life, concierge, home care, and amenity programming.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Related Life service model",
         "claimText": "South Flagler House offers service programming beyond standard amenities.",
         "confidence": "high"
@@ -2641,7 +2641,7 @@ export const answerEngineFaq = [
         "href": "https://www.olarawestpalmbeach.com/",
         "note": "Official source for Olara's North Flagler waterfront lifestyle positioning.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Olara North Flagler positioning",
         "claimText": "Olara belongs in the North Flagler waterfront set.",
         "confidence": "high"
@@ -2651,7 +2651,7 @@ export const answerEngineFaq = [
         "href": "https://www.shorecrestwpb.com/amenities",
         "note": "Official source for Shorecrest amenities, address, and service program.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Shorecrest North Flagler positioning",
         "claimText": "Shorecrest belongs in the North Flagler waterfront set.",
         "confidence": "high"
@@ -2680,17 +2680,17 @@ export const answerEngineFaq = [
         "href": "https://www.southflaglerhouse.com/amenities/",
         "note": "Official source for South Flagler House's waterfront, wellness, dining, business, and recreation programming.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "South Flagler House luxury benchmark",
         "claimText": "South Flagler House is a major South Flagler benchmark.",
         "confidence": "high"
       },
       {
         "label": "Maison d'Or official site",
-        "href": "https://www.livemaisondorwpb.com/",
+        "href": "https://livemaisondor.com/",
         "note": "Official source for boutique South Flagler positioning, 39 residences, and waterfront amenities.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Maison d'Or boutique counterpoint",
         "claimText": "Maison d'Or is a boutique South Flagler comparison option.",
         "confidence": "high"
@@ -2720,7 +2720,7 @@ export const answerEngineFaq = [
         "href": "https://norahouse.com/",
         "note": "Official source for NORA district walkability and rooftop amenity positioning.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "NORA walkable district positioning",
         "claimText": "NORA House is a downtown/NORA walkability project.",
         "confidence": "high"
@@ -2730,7 +2730,7 @@ export const answerEngineFaq = [
         "href": "https://www.mrcresidenceswpb.com/residences/",
         "note": "Official source for Mr. C residence and downtown hospitality-residence positioning.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Mr. C downtown positioning",
         "claimText": "Mr. C belongs in the downtown hospitality-residence comparison.",
         "confidence": "high"
@@ -2760,7 +2760,7 @@ export const answerEngineFaq = [
         "href": "https://www.olarawestpalmbeach.com/",
         "note": "Official source for Flagler Drive waterfront positioning, marina, amenities, and Palm Beach proximity.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "waterfront lifestyle positioning",
         "claimText": "Olara is a waterfront lifestyle project.",
         "confidence": "high"
@@ -2770,7 +2770,7 @@ export const answerEngineFaq = [
         "href": "https://norahouse.com/",
         "note": "Official source for NORA district, walkability, and city lifestyle positioning.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "walkable lifestyle positioning",
         "claimText": "NORA House is framed around downtown district life.",
         "confidence": "high"
@@ -2798,17 +2798,17 @@ export const answerEngineFaq = [
         "href": "https://www.olarawestpalmbeach.com/",
         "note": "Official source for Olara's private marina positioning.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "private marina",
         "claimText": "Olara markets a private marina as part of its waterfront lifestyle.",
         "confidence": "high"
       },
       {
         "label": "Maison d'Or official site",
-        "href": "https://www.livemaisondorwpb.com/",
+        "href": "https://livemaisondor.com/",
         "note": "Official source references waterfront access, a private boat dock, and slips.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "boat dock and slips",
         "claimText": "Maison d'Or references direct water access and boat slips.",
         "confidence": "high"
@@ -2837,7 +2837,7 @@ export const answerEngineFaq = [
         "href": "https://www.shorecrestwpb.com/amenities",
         "note": "Official source for rooftop pool, spa, fitness, golf simulator, lounges, and services.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Shorecrest wellness program",
         "claimText": "Shorecrest has a robust wellness and lifestyle amenity program.",
         "confidence": "high"
@@ -2847,7 +2847,7 @@ export const answerEngineFaq = [
         "href": "https://www.southflaglerhouse.com/amenities/",
         "note": "Official source for swim, spa, sport, fitness, food and beverage, business, and social amenities.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "South Flagler House wellness program",
         "claimText": "South Flagler House has an expansive private-club amenity program.",
         "confidence": "high"
@@ -2877,7 +2877,7 @@ export const answerEngineFaq = [
         "href": "https://www.olarawestpalmbeach.com/",
         "note": "Official source for Chef Jose Andres dining and resort-style amenities.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Olara dining differentiation",
         "claimText": "Olara has a signature dining story tied to Chef Jose Andres.",
         "confidence": "high"
@@ -2887,7 +2887,7 @@ export const answerEngineFaq = [
         "href": "https://www.southflaglerhouse.com/amenities/",
         "note": "Official source for restaurant, private dining, wine tasting, lounges, and social amenities.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "South Flagler entertaining spaces",
         "claimText": "South Flagler House has extensive dining and entertaining amenities.",
         "confidence": "high"
@@ -2914,10 +2914,10 @@ export const answerEngineFaq = [
     "sourceCitations": [
       {
         "label": "Maison d'Or official site",
-        "href": "https://www.livemaisondorwpb.com/",
+        "href": "https://livemaisondor.com/",
         "note": "Official source for 39-residence boutique waterfront positioning.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Maison d'Or boutique scale",
         "claimText": "Maison d'Or is positioned as a boutique South Flagler project.",
         "confidence": "high"
@@ -2927,7 +2927,7 @@ export const answerEngineFaq = [
         "href": "https://www.olarawestpalmbeach.com/",
         "note": "Official source for Olara's 275-residence, resort-style amenity positioning.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Olara larger amenity program",
         "claimText": "Olara is a larger waterfront project with extensive amenities.",
         "confidence": "high"
@@ -2956,7 +2956,7 @@ export const answerEngineFaq = [
         "href": "https://www.banyantreeresidenceswpb.com/",
         "note": "Official source for brand licensing and developer legal notice context.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "brand licensing should be reviewed",
         "claimText": "Branded-residence buyers should review licensing and association documents.",
         "confidence": "high"
@@ -2966,7 +2966,7 @@ export const answerEngineFaq = [
         "href": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
         "note": "Reports Ritz-Carlton branded residential development details, staffing, amenities, and team.",
         "sourceType": "reputable project reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Ritz-Carlton branded positioning",
         "claimText": "Ritz-Carlton WPB is a branded residence project with staffed amenities.",
         "confidence": "medium"
@@ -2997,7 +2997,7 @@ export const answerEngineFaq = [
         "href": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
         "note": "Construction report with expected completion timing and development team details.",
         "sourceType": "reputable project reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "construction status and timeline context",
         "claimText": "Ritz-Carlton WPB is under construction with reported expected completion timing.",
         "confidence": "medium"
@@ -3007,7 +3007,7 @@ export const answerEngineFaq = [
         "href": "https://www.olarawestpalmbeach.com/",
         "note": "Official source currently states construction is rising at full scale.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Olara construction status context",
         "claimText": "Olara's official site reports active construction progress.",
         "confidence": "high"
@@ -3033,10 +3033,10 @@ export const answerEngineFaq = [
     "sourceCitations": [
       {
         "label": "Maison d'Or official pricing",
-        "href": "https://www.livemaisondorwpb.com/",
+        "href": "https://livemaisondor.com/",
         "note": "Official source lists current starting guidance while noting pricing, terms, and availability are subject to change.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "pricing can change",
         "claimText": "Public pricing should be confirmed before reliance.",
         "confidence": "high"
@@ -3046,7 +3046,7 @@ export const answerEngineFaq = [
         "href": "https://www.banyantreeresidenceswpb.com/",
         "note": "Official legal notice underscores the importance of formal offering documents.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "formal documents matter",
         "claimText": "Buyers should verify pricing and offering details through current documents.",
         "confidence": "high"
@@ -3076,17 +3076,17 @@ export const answerEngineFaq = [
         "href": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
         "note": "Reports eastward residence orientation, floor-to-ceiling glazing, and private terraces.",
         "sourceType": "reputable project reporting",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "view and exposure details",
         "claimText": "View orientation and glazing are material comparison factors.",
         "confidence": "medium"
       },
       {
         "label": "Maison d'Or official residences",
-        "href": "https://www.livemaisondorwpb.com/",
+        "href": "https://livemaisondor.com/",
         "note": "Official source references terraces, flow-through plans, and Intracoastal, ocean, Palm Beach, and skyline views.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "view and terrace comparison",
         "claimText": "Maison d'Or markets large terraces and multiple view corridors.",
         "confidence": "high"
@@ -3115,17 +3115,17 @@ export const answerEngineFaq = [
         "href": "https://www.mrcresidenceswpb.com/residences/",
         "note": "Official source for terrace, glass, ceiling, kitchen, appliance, and residence feature details.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "residence feature comparison",
         "claimText": "Interior features and plan quality matter beyond headline square footage.",
         "confidence": "high"
       },
       {
         "label": "Maison d'Or official residences",
-        "href": "https://www.livemaisondorwpb.com/",
+        "href": "https://livemaisondor.com/",
         "note": "Official source for flow-through plans, ceilings, terraces, private elevator access, and appliance packages.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "residence feature comparison",
         "claimText": "Maison d'Or lists detailed residence features relevant to plan comparison.",
         "confidence": "high"
@@ -3154,7 +3154,7 @@ export const answerEngineFaq = [
         "href": "https://www.southflaglerhouse.com/amenities/",
         "note": "Official source for children's recreation, guest suites, theater, lounges, pool, and broad amenity program.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "family and guest amenity depth",
         "claimText": "South Flagler House has extensive amenities for residents and guests.",
         "confidence": "high"
@@ -3164,7 +3164,7 @@ export const answerEngineFaq = [
         "href": "https://norahouse.com/",
         "note": "Official source references rooftop pools, lounges, game spaces, guest suites, and district lifestyle.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "guest and lifestyle amenities",
         "claimText": "NORA House offers rooftop and guest-oriented amenities.",
         "confidence": "high"
@@ -3193,17 +3193,17 @@ export const answerEngineFaq = [
         "href": "https://www.shorecrestwpb.com/amenities",
         "note": "Official source includes coworking lounge, executive meeting space, and business support services.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Shorecrest business amenities",
         "claimText": "Shorecrest includes business and coworking spaces.",
         "confidence": "high"
       },
       {
         "label": "Maison d'Or official amenities",
-        "href": "https://www.livemaisondorwpb.com/",
+        "href": "https://livemaisondor.com/",
         "note": "Official source references a private boardroom and secure Wi-Fi in common areas.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Maison d'Or business amenities",
         "claimText": "Maison d'Or includes business-oriented common spaces.",
         "confidence": "high"
@@ -3230,7 +3230,7 @@ export const answerEngineFaq = [
         "href": "https://www.shorecrestwpb.com/amenities",
         "note": "Official source lists concierge, resident services, home management, pet care, plant care, and provisioning-style services.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "seasonal ownership services",
         "claimText": "Shorecrest markets services relevant to seasonal ownership.",
         "confidence": "high"
@@ -3240,7 +3240,7 @@ export const answerEngineFaq = [
         "href": "https://www.southflaglerhouse.com/amenities/",
         "note": "Official source references concierge, home care, customization, and ongoing maintenance support.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "home management services",
         "claimText": "South Flagler House markets ongoing home-care support.",
         "confidence": "high"
@@ -3269,7 +3269,7 @@ export const answerEngineFaq = [
         "href": "https://www.banyantreeresidenceswpb.com/",
         "note": "Official notice references required documents under Florida condominium disclosure rules.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "formal documents should be requested",
         "claimText": "Buyers should request and review required condominium documents.",
         "confidence": "high"
@@ -3279,7 +3279,7 @@ export const answerEngineFaq = [
         "href": "https://norahouse.com/",
         "note": "Official page includes condominium representation and required-document language.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "formal documents should be requested",
         "claimText": "Buyers should rely on formal documents rather than broad marketing language.",
         "confidence": "high"
@@ -3308,7 +3308,7 @@ export const answerEngineFaq = [
         "href": "https://wpbnewconstruction.com/methodology/",
         "note": "Internal methodology page explains how project information is separated from items requiring current confirmation.",
         "sourceType": "site methodology",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "delivered inventory supports comparison",
         "claimText": "Delivered buildings help benchmark new-construction claims.",
         "confidence": "medium"
@@ -3318,7 +3318,7 @@ export const answerEngineFaq = [
         "href": "https://www.southflaglerhouse.com/",
         "note": "Current South Flagler new-construction benchmark used against delivered corridor inventory.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "South Flagler comparison context",
         "claimText": "South Flagler House should be compared against delivered South Flagler product.",
         "confidence": "high"
@@ -3348,7 +3348,7 @@ export const answerEngineFaq = [
         "href": "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
         "note": "Official brand page for the upcoming West Palm Beach residences.",
         "sourceType": "official brand site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "Mandarin Oriental pipeline status",
         "claimText": "Mandarin Oriental belongs on the future branded-residence watch list.",
         "confidence": "high"
@@ -3358,7 +3358,7 @@ export const answerEngineFaq = [
         "href": "https://wpbnewconstruction.com/methodology/",
         "note": "Explains why pipeline items are tracked separately from buyer-ready project pages.",
         "sourceType": "site methodology",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "pipeline caution",
         "claimText": "Pipeline projects need current official confirmation before buyer reliance.",
         "confidence": "medium"
@@ -3387,7 +3387,7 @@ export const answerEngineFaq = [
         "href": "https://www.southflaglerhouse.com/amenities/",
         "note": "Official page shows the breadth of swim, spa, sport, dining, business, children's, and social amenities.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "amenity categories",
         "claimText": "Amenities should be categorized by real use case.",
         "confidence": "high"
@@ -3397,7 +3397,7 @@ export const answerEngineFaq = [
         "href": "https://www.shorecrestwpb.com/amenities",
         "note": "Official page shows rooftop, club-level, spa, business, dining, and resident-service amenities.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "amenity categories",
         "claimText": "Amenity depth varies by project and service model.",
         "confidence": "high"
@@ -3427,7 +3427,7 @@ export const answerEngineFaq = [
         "href": "https://wpbnewconstruction.com/floorplans/",
         "note": "Organized plan library used to compare released floorplan depth by project.",
         "sourceType": "site floorplan library",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "shortlist comparison method",
         "claimText": "A disciplined shortlist should compare the same data points across projects.",
         "confidence": "medium"
@@ -3437,7 +3437,7 @@ export const answerEngineFaq = [
         "href": "https://wpbnewconstruction.com/methodology/",
         "note": "Explains source separation and confirmation discipline for buyer guidance.",
         "sourceType": "site methodology",
-        "dateAccessed": "2026-05-18",
+        "dateAccessed": "2026-05-21",
         "supportsClaim": "source-limited comparison method",
         "claimText": "Buyer guidance should separate official facts from items to confirm.",
         "confidence": "medium"
@@ -3586,8 +3586,8 @@ export const projectFacts = [
       "status": "Under construction / topped out",
       "residences": "55",
       "stories": "22",
-      "completion": "Closings commence June 2026 per official popup; press also says early/Spring 2026",
-      "pricing": "Starting just under $3M in official/current material; verify live inventory",
+      "completion": "Closings commence June 2026 per the official home page; other official and press items still say early/Spring 2026",
+      "pricing": "Starting just under $3M on the current official home page; verify live inventory",
       "team": "BGI/Kenneth Baboun; Blue Road; Spina O'Rourke + Partners; Schmidt Nichols; Moss Construction; One Sotheby's"
     },
     "conflicts": [
@@ -3707,7 +3707,7 @@ export const projectFacts = [
     "officialWebsite": "https://mandarinorientalwestpalmbeach.com/",
     "facts": {
       "address": "5400 N Flagler Dr, West Palm Beach, FL 33407",
-      "status": "Concept / priority interest",
+      "status": "Sales launched / priority interest",
       "residences": "87",
       "stories": "31",
       "completion": "Anticipated opening 2031",
@@ -3720,19 +3720,24 @@ export const projectFacts = [
       "No brochure or fact-sheet assets in catalog."
     ],
     "highValueSources": [
-      "https://mandarinorientalwestpalmbeach.com/"
+      "https://mandarinorientalwestpalmbeach.com/",
+      "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
+      "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html"
     ],
     "sourceCounts": {
       "official": 1,
-      "reporting": 0,
+      "reporting": 2,
       "other": 3,
-      "sourcePages": 4
+      "sourcePages": 6
     },
     "sourceBuckets": {
       "official": [
         "https://mandarinorientalwestpalmbeach.com/"
       ],
-      "reporting": [],
+      "reporting": [
+        "https://therealdeal.com/miami/2026/02/26/great-gulf-launches-mandarin-oriental-west-palm-beach-condos/",
+        "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html"
+      ],
       "other": [
         "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
         "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
@@ -3839,12 +3844,12 @@ export const projectFacts = [
     "dataConfidence": "Needs normalization",
     "officialWebsite": "https://www.shorecrestwpb.com/",
     "facts": {
-      "address": "1865 N Flagler Dr is the newer official fact-sheet address; keep 1901 N Flagler as a conflict note",
-      "status": "Under construction",
-      "residences": "Related Ross's current Shorecrest property page lists 100 units; the February 18, 2026 financing release still says 98 residences",
+      "address": "1865 N Flagler Dr is the current fact-sheet/property address; some live floorplans and inquiry surfaces still expose 1901 N Flagler Dr",
+      "status": "Sales launched / under construction",
+      "residences": "Current official fact-sheet/property material points to 100 residences; the February 18, 2026 financing release still says 98",
       "stories": "28",
       "completion": "Expected 2027",
-      "pricing": "From about $3M in Related Ross/current reporting; verify live inventory",
+      "pricing": "From about $3M in current reporting; live official floorplans currently show select residences from $3.05M",
       "team": "Related Ross; Roger Ferris + Partners; Revuelta; Rottet Studio; DS Boca; Related Sales/Corcoran Sunshine"
     },
     "conflicts": [
@@ -3863,16 +3868,17 @@ export const projectFacts = [
       "https://www.shorecrestwpb.com/floorplans"
     ],
     "sourceCounts": {
-      "official": 8,
+      "official": 9,
       "reporting": 0,
       "other": 0,
-      "sourcePages": 5
+      "sourcePages": 6
     },
     "sourceBuckets": {
       "official": [
         "https://www.shorecrestwpb.com/",
         "https://www.relatedross.com/our-company/properties/shorecrest",
         "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
+        "https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm",
         "https://www.shorecrestwpb.com/residences",
         "https://www.shorecrestwpb.com/inquire",
         "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
@@ -3954,9 +3960,7 @@ export const projectFacts = [
     "conflicts": [
       "Seed/source conflict: seed references a 21-story assumption, while Related Ross release describes a 480,000-square-foot office tower without presenting it as condo inventory."
     ],
-    "gaps": [
-      "No downloaded image candidates."
-    ],
+    "gaps": [],
     "highValueSources": [
       "https://www.relatedross.com/our-company/properties/10-cityplace"
     ],
@@ -4022,11 +4026,11 @@ export const projectFacts = [
     "officialWebsite": "https://www.banyantreeresidenceswpb.com/",
     "facts": {
       "address": "400 Hibiscus St",
-      "status": "Planning / sales gallery open",
+      "status": "Sales launched / sales gallery now open",
       "residences": "88 in project/sales language; city PPRC material has 86 dwelling units",
       "stories": "25",
       "completion": "Planning-stage timing not publicly confirmed",
-      "pricing": "From about $1.9M in reporting; verify official availability",
+      "pricing": "Sales-launch reporting starts at about $1.9M; official site says prices are subject to change and requests current pricing",
       "team": "Mast Capital; Curated JCZM; Banyan Group; OMA; Yabu Pushelberg; Enzo Enea"
     },
     "conflicts": [
@@ -4088,8 +4092,7 @@ export const projectFacts = [
     ],
     "gaps": [
       "Need a clean rule for showing both project address and sales gallery without confusing users.",
-      "Need verified current delivery date.",
-      "No brochure or fact-sheet assets in catalog."
+      "Need verified current delivery date."
     ],
     "highValueSources": [
       "https://www.mrcresidenceswpb.com/",
@@ -4130,7 +4133,7 @@ export const projectFacts = [
     "facts": {
       "address": "430-464 Fern St, 419-435 Gardenia St, and 415-421 S Dixie Hwy, West Palm Beach, FL 33401",
       "status": "Planning / not yet named",
-      "residences": "130",
+      "residences": "Reported at roughly 100 to 130 residences",
       "stories": "",
       "completion": "Planning-stage timing not publicly confirmed.",
       "pricing": "Not publicly confirmed",
@@ -4264,10 +4267,10 @@ export const projectFacts = [
     "officialWebsite": "https://www.edgeworthwpb.com/",
     "facts": {
       "address": "1155 S Flagler Dr",
-      "status": "Planning / priority list",
+      "status": "Sales launched / priority list",
       "residences": "168 in Related Ross launch material; MAWD page says 187",
       "stories": "Two 28-story towers",
-      "completion": "2029 in design-team material",
+      "completion": "Current reporting points to construction starting in 2027 with an approximately two-year build; design-team material points to 2029",
       "pricing": "$2.5M to $35.5M in launch/reporting material",
       "team": "Related Ross; KPF; MAWD/March and White"
     },
@@ -4275,7 +4278,7 @@ export const projectFacts = [
       "Residence count conflict: Related Ross 168 vs MAWD 187."
     ],
     "gaps": [
-      "Need official brochure/fact sheet/floor plans."
+      "Need official brochure/fact sheet/floor plans; the live official site is still interest-list led."
     ],
     "highValueSources": [
       "https://edgeworthwpb.com/",
@@ -4402,10 +4405,10 @@ export const projectFacts = [
     "officialWebsite": "https://fortewpb.com/",
     "facts": {
       "address": "1309 S Flagler Dr for project context; listings may use 1333 S Flagler unit addresses",
-      "status": "Recently delivered / resale inventory",
+      "status": "Delivered / closings underway / resale benchmark",
       "residences": "41",
       "stories": "25 in newer construction/reporting; older material can say 24",
-      "completion": "Topped off April 2024; expected completion Q1 2025 in reporting, needs current building/listing confirmation",
+      "completion": "Topped off in April 2024 and closings were reported underway in July 2025; request current resale availability and building confirmation",
       "pricing": "Current resale/listing pricing varies; request current availability.",
       "team": "Two Roads; Alpha Blue; Arquitectonica; Jean-Louis Deniot"
     },
@@ -4413,9 +4416,7 @@ export const projectFacts = [
       "Project address vs listing/unit address differences.",
       "24 vs 25 stories across older/current material."
     ],
-    "gaps": [
-      "Need current completion/delivery confirmation from building records or active listings."
-    ],
+    "gaps": [],
     "highValueSources": [
       "https://fortewpb.com/",
       "https://fortewpb.com/wp-content/uploads/Digital-Flipbook.pdf",
@@ -4496,13 +4497,15 @@ export const projectFacts = [
       "status": "Sales launched / pre-construction",
       "residences": "39",
       "stories": "19",
-      "completion": "2028 timing reported in brokerage/market coverage; verify with sales team.",
+      "completion": "2028 timing remains reporting-led; verify with sales team.",
       "pricing": "Starting at $5.7M per official site and January 2026 launch coverage; verify current availability.",
-      "team": "Kolter Urban and Perko Development Partners; 10 Design; Hirsch Bedner Associates; EDSA"
+      "team": "Kolter Urban; Perko Development; 10 Design with SB Architects language also appearing on the official team page; HBA Residential; EDSA; Maison d'Or Realty"
     },
-    "conflicts": [],
+    "conflicts": [
+      "The official team page labels architecture as 10 Design while the supporting body copy also references SB Architects."
+    ],
     "gaps": [
-      "No brochure or fact-sheet assets in catalog."
+      "No brochure asset is captured in the catalog even though the live site now exposes floorplans and team details."
     ],
     "highValueSources": [
       "https://livemaisondor.com/"
@@ -4742,6 +4745,18 @@ export const prerenderRoutes = [
   {
     "path": "/projects/mandarin-oriental/",
     "title": "Mandarin Oriental Residences | WPB New Construction",
+    "description": "West Palm Beach new-construction project profile with facts, floorplans, source links, and buyer guidance.",
+    "ogImage": "/maps/wpb-atlas-map-editorial.svg"
+  },
+  {
+    "path": "/projects/10-cityplace/",
+    "title": "10 CityPlace | WPB New Construction",
+    "description": "West Palm Beach new-construction project profile with facts, floorplans, source links, and buyer guidance.",
+    "ogImage": "/maps/wpb-atlas-map-editorial.svg"
+  },
+  {
+    "path": "/projects/15-cityplace/",
+    "title": "15 CityPlace | WPB New Construction",
     "description": "West Palm Beach new-construction project profile with facts, floorplans, source links, and buyer guidance.",
     "ogImage": "/maps/wpb-atlas-map-editorial.svg"
   },

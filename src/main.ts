@@ -11,6 +11,7 @@ import { escapeHtml, safeHref } from "./renderUtils";
 
 type MediaAsset = {
   src: string;
+  mobileSrc?: string;
   title: string;
   kicker: string;
   alt: string;
@@ -42,6 +43,9 @@ type FeaturedProject = {
   price: string;
   href: string;
   image?: string;
+  heroImage?: string;
+  mobileImage?: string;
+  galleryImages?: MediaAsset[];
   summary: string;
   floorplans: boolean;
   pageState: string;
@@ -160,6 +164,24 @@ const southFlaglerHouseUserCard = "/projects/south-flagler-house/media/user-prov
 const shorecrestUserHero = "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg";
 const shorecrestUserCard = "/projects/shorecrest/media/user-provided-shorecrest-card.jpg";
 const banyanTreeUserCard = "/projects/banyan-tree/media/user-provided-banyan-tree-card.jpg";
+const cityPlace10Hero = "/projects/10-cityplace/media/10-cityplace-hero-1536x1024.jpg";
+const cityPlace10Card = "/projects/10-cityplace/media/10-cityplace-card-1448x1086.jpg";
+const cityPlace10MobileHero = "/projects/10-cityplace/media/10-cityplace-mobile-1122x1402.jpg";
+const cityPlace10Entrance = "/projects/10-cityplace/media/10-cityplace-entrance-1536x1024.jpg";
+const cityPlace10SharedHero = "/projects/10-cityplace/media/cityplace-shared-hero-1536x1024.jpg";
+const cityPlace10SharedCard = "/projects/10-cityplace/media/cityplace-shared-card-1448x1086.jpg";
+const cityPlace10SharedMobile = "/projects/10-cityplace/media/cityplace-shared-mobile-1122x1402.jpg";
+const cityPlace15Hero = "/projects/15-cityplace/media/15-cityplace-hero-1536x1024.jpg";
+const cityPlace15Card = "/projects/15-cityplace/media/15-cityplace-card-1448x1086.jpg";
+const cityPlace15MobileHero = "/projects/15-cityplace/media/15-cityplace-mobile-1122x1402.jpg";
+const cityPlace15SharedHero = "/projects/15-cityplace/media/cityplace-shared-hero-1536x1024.jpg";
+const cityPlace15SharedCard = "/projects/15-cityplace/media/cityplace-shared-card-1448x1086.jpg";
+const cityPlace15SharedMobile = "/projects/15-cityplace/media/cityplace-shared-mobile-1122x1402.jpg";
+const laClaraHeroWide = "/projects/la-clara/media/la-clara-hero-3x2.jpg";
+const laClaraHeroStandard = "/projects/la-clara/media/la-clara-hero-4x3.jpg";
+const laClaraHeroPortrait = "/projects/la-clara/media/la-clara-hero-4x5.jpg";
+const relatedRossLogo = "/team-logos/related-ross-logo.webp";
+const arquitectonicaLogo = "/team-logos/arquitectonica-logo.webp";
 const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined;
 const googleMapsMapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID as string | undefined;
 const heroMapScriptId = "wpb-google-map-script";
@@ -219,7 +241,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     delivery: "Expected 2028",
     deliveryYear: 2028,
     residences: "138",
-    price: "From $2.5M reported",
+    price: "From about $3M",
     href: "?project=ritz-carlton-wpb",
     image: `${ritzMediaBase}ritz-hero-waterfront-building-2880x1800.png`,
     summary: "A Ritz-Carlton branded North Flagler address from Related Group and BH Group, pairing hospitality-level service with architecture by Arquitectonica, interiors by Rockwell Group, and landscape by Naturalficial.",
@@ -441,7 +463,23 @@ const baseFeaturedProjects: FeaturedProject[] = [
     residences: "83",
     price: "Resale inventory varies",
     href: "?project=la-clara",
-    image: "/projects/la-clara/media/card.jpg",
+    image: laClaraHeroStandard,
+    heroImage: laClaraHeroWide,
+    mobileImage: laClaraHeroPortrait,
+    galleryImages: [
+      {
+        src: laClaraHeroStandard,
+        kicker: "Waterfront",
+        title: "Intracoastal Arrival",
+        alt: "La Clara waterfront tower rendering from the Intracoastal",
+      },
+      {
+        src: laClaraHeroPortrait,
+        kicker: "Evening",
+        title: "South Flagler Tower",
+        alt: "La Clara tower evening rendering with water reflection",
+      },
+    ],
     summary: "Delivered South Flagler tower that helps buyers benchmark current pricing, waterfront views, and finished product quality.",
     floorplans: false,
     pageState: "Resale benchmark",
@@ -521,7 +559,24 @@ const baseFeaturedProjects: FeaturedProject[] = [
     residences: "Office tower",
     price: "Not condo inventory",
     href: "?project=15-cityplace",
-    image: "/projects/15-cityplace/media/card.jpg",
+    image: cityPlace15Card,
+    heroImage: cityPlace15Hero,
+    mobileImage: cityPlace15MobileHero,
+    galleryImages: [
+      {
+        src: cityPlace15SharedHero,
+        mobileSrc: cityPlace15SharedMobile,
+        kicker: "CityPlace Context",
+        title: "10 and 15 CityPlace skyline",
+        alt: "10 and 15 CityPlace in the West Palm Beach skyline",
+      },
+      {
+        src: cityPlace15SharedCard,
+        kicker: "Downtown Setting",
+        title: "CityPlace office district",
+        alt: "10 and 15 CityPlace downtown context",
+      },
+    ],
     summary: "Downtown office tower tracked as a demand catalyst for nearby condo inventory, restaurants, and walkable buyer lifestyle.",
     floorplans: false,
     pageState: "Market context",
@@ -529,6 +584,49 @@ const baseFeaturedProjects: FeaturedProject[] = [
     longitude: -80.0562,
     latitude: 26.7091,
     address: "15 CityPlace",
+  },
+  {
+    id: "10-cityplace",
+    name: "10 CityPlace",
+    corridor: "Downtown",
+    corridorKey: "downtown",
+    status: "Under Construction",
+    delivery: "Expected 2027",
+    deliveryYear: 2027,
+    residences: "Office tower",
+    price: "Not condo inventory",
+    href: "?project=10-cityplace",
+    image: cityPlace10Card,
+    heroImage: cityPlace10Hero,
+    mobileImage: cityPlace10MobileHero,
+    galleryImages: [
+      {
+        src: cityPlace10Entrance,
+        kicker: "Street Arrival",
+        title: "10 CityPlace entrance view",
+        alt: "10 CityPlace entrance and street-level arrival",
+      },
+      {
+        src: cityPlace10SharedHero,
+        mobileSrc: cityPlace10SharedMobile,
+        kicker: "CityPlace Context",
+        title: "10 and 15 CityPlace skyline",
+        alt: "10 and 15 CityPlace in the West Palm Beach skyline",
+      },
+      {
+        src: cityPlace10SharedCard,
+        kicker: "Downtown Setting",
+        title: "CityPlace office district",
+        alt: "10 and 15 CityPlace downtown context",
+      },
+    ],
+    summary: "Downtown Related Ross office tower tracked as a CityPlace catalyst, shaping the restaurant, retail, and walkable-lifestyle context buyers weigh around nearby condominium inventory.",
+    floorplans: false,
+    pageState: "Market context",
+    rank: 18,
+    longitude: -80.0571,
+    latitude: 26.7092,
+    address: "10 CityPlace",
   },
   {
     id: "related-ross-fern-street",
@@ -545,7 +643,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     summary: "South Dixie/Fern Street condo pipeline marker that could add more downtown ownership supply near the office and retail core.",
     floorplans: false,
     pageState: "Pipeline watch",
-    rank: 18,
+    rank: 19,
     longitude: -80.0555,
     latitude: 26.7112,
     address: "430-464 Fern St",
@@ -565,7 +663,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     summary: "Large Northwood/Rybovich marina redevelopment watch item with potential to reshape the northern waterfront inventory map.",
     floorplans: false,
     pageState: "Pipeline watch",
-    rank: 19,
+    rank: 20,
     longitude: -80.0506,
     latitude: 26.7461,
     address: "4000-4300 N Flagler Dr",
@@ -585,7 +683,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     summary: "South Flagler assemblage watch item for buyers monitoring whether another ultra-luxury waterfront project emerges south of downtown.",
     floorplans: false,
     pageState: "Pipeline watch",
-    rank: 20,
+    rank: 21,
     longitude: -80.0506,
     latitude: 26.6763,
     address: "3901-3915 S Flagler Dr area",
@@ -605,7 +703,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     summary: "Condo buyout and yacht-club corridor watch item that could affect future South Flagler waterfront redevelopment supply.",
     floorplans: false,
     pageState: "Pipeline watch",
-    rank: 21,
+    rank: 22,
     longitude: -80.0509,
     latitude: 26.6794,
     address: "3701-3800 Washington Rd area",
@@ -921,7 +1019,7 @@ const ritzFacts: ProjectFact[] = [
   { label: "Stories", value: "27" },
   { label: "Residences", value: "138" },
   { label: "Delivery", value: "Expected 2028" },
-      { label: "Pricing", value: "From $2.5M reported", note: "Request the current availability sheet before touring." },
+  { label: "Pricing", value: "From about $3M", note: "Request the current availability sheet before touring." },
   { label: "Unit Mix", value: "2-4 bedrooms + lake homes" },
   { label: "Status", value: "Under construction", note: "Groundbreaking reported February 2026; more than 70% pre-sold." },
   { label: "Sales Gallery", value: "50 Cocoanut Row, S101", note: "561-402-8947" },
@@ -1245,12 +1343,12 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     kicker: "North Flagler / Branded Residences",
     title: "Mandarin Oriental Residences, West Palm Beach",
     intro:
-      "Mandarin Oriental Residences is the long-view branded play on North Flagler: an 87-residence, 31-story waterfront concept for buyers prioritizing service, architecture, and a later delivery horizon.",
+      "Mandarin Oriental Residences is the long-view branded play on North Flagler: an 87-residence, 31-story waterfront launch for buyers prioritizing service, architecture, and a later delivery horizon.",
     image: "/projects/mandarin-oriental/media/mandarin-oriental-exterior-hero-source.jpg",
     imageAlt: "Mandarin Oriental Residences West Palm Beach rendering",
-    stage: "Concept / priority interest",
+    stage: "Sales launched / priority interest",
     locationCopy:
-      "At 5400 N Flagler Drive, Mandarin Oriental sits north of Alba and extends the North Flagler branded-residence pipeline beyond the current construction cluster. Treat it as a future-positioning option until release details become more complete.",
+      "At 5400 N Flagler Drive, Mandarin Oriental sits north of Alba and extends the North Flagler branded-residence pipeline beyond the current construction cluster. Sales are now launched, but it still reads as a future-positioning option until release depth and delivery details become more complete.",
     facts: [
       { label: "Address", value: "5400 N Flagler Dr" },
       { label: "Stories", value: "31" },
@@ -1657,15 +1755,15 @@ app.innerHTML = `
         </div>
       </section>
 
-      <section class="home-answer-section" aria-label="West Palm Beach new-construction buyer questions">
+      <section class="home-news-section" aria-label="Latest West Palm Beach new-construction updates">
         <div class="section-heading">
-          <p class="eyebrow">Buyer Q&A</p>
-          <h2>Questions worth answering before you tour.</h2>
+          <p class="eyebrow">Live Market Updates</p>
+          <h2>Signals worth watching before you tour.</h2>
         </div>
-        <div class="home-answer-grid">
-          ${answerEngineFaq.slice(0, 4).map(renderHomeAnswerCard).join("")}
+        <div class="home-news-grid">
+          ${researchNewsFeed.slice(0, 3).map(renderHomeNewsItem).join("")}
         </div>
-        <a class="home-answer-archive-link" href="/answers/">Read the full buyer Q&A library <span aria-hidden="true">→</span></a>
+        <a class="home-answer-archive-link" href="/updates/">Read all market updates <span aria-hidden="true">→</span></a>
       </section>
 
       <section class="project-sort-shell" id="projects">
@@ -1698,14 +1796,15 @@ app.innerHTML = `
           </div>
       </section>
 
-      <section class="home-news-section" aria-label="Latest West Palm Beach new-construction updates">
+      <section class="home-answer-section" aria-label="West Palm Beach new-construction buyer questions">
         <div class="section-heading">
-          <p class="eyebrow">Market Updates</p>
-          <h2>Signals worth watching before you tour.</h2>
+          <p class="eyebrow">Buyer Q&A</p>
+          <h2>Questions worth answering before you tour.</h2>
         </div>
-        <div class="home-news-grid">
-          ${researchNewsFeed.slice(0, 3).map(renderHomeNewsItem).join("")}
+        <div class="home-answer-grid">
+          ${answerEngineFaq.slice(0, 4).map(renderHomeAnswerCard).join("")}
         </div>
+        <a class="home-answer-archive-link" href="/answers/">Read the full buyer Q&A library <span aria-hidden="true">→</span></a>
       </section>
 
       <section class="home-conversion-band" aria-label="Request current West Palm Beach new-construction guidance">
@@ -1745,7 +1844,7 @@ app.innerHTML = `
           <h2>Market notes that separate signal from noise.</h2>
         </div>
         <div class="answer-meta-panel">
-          <span>Updated ${researchNewsFeed[0]?.dateModified ?? "2026-05-14"}</span>
+          <span>Updated ${floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified ?? "2026-05-14"}</span>
           <strong>Reviewed updates for the active buyer shortlist.</strong>
           <small>Each note is framed around what a buyer should confirm before relying on it.</small>
         </div>
@@ -1822,7 +1921,7 @@ app.innerHTML = `
           <aside class="answer-meta-panel">
             <span>Source Hierarchy</span>
             <strong>Official first, reported second, advisor confirmation before reliance.</strong>
-            <small>Last refreshed ${researchNewsFeed[0]?.dateModified ?? floorplanLibrary[0]?.updatedAt}</small>
+            <small>Last refreshed ${floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified}</small>
           </aside>
         </section>
         <section class="section methodology-section">
@@ -2682,7 +2781,7 @@ function buildFaqSchema() {
     name: "West Palm Beach New Construction Answers",
     author: { "@id": `${siteMeta.baseUrl}/#advisor` },
     reviewedBy: { name: siteMeta.reviewedBy.name },
-    dateModified: researchNewsFeed[0]?.dateModified ?? floorplanLibrary[0]?.updatedAt,
+    dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
     mainEntity: answerEngineFaq.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -2746,7 +2845,7 @@ function buildProjectSchema(project: FeaturedProject) {
     url: `${siteMeta.baseUrl}${projectPath(project)}`,
     image: project.image ? `${siteMeta.baseUrl}${project.image}` : undefined,
     numberOfAccommodationUnits: unitCount,
-    dateModified: researchNewsFeed[0]?.dateModified ?? floorplanLibrary[0]?.updatedAt,
+    dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
     status: project.status,
     subjectOf: [
       ...(draft?.documents ?? []).filter((document) => document.href).map((document) => ({
@@ -2780,7 +2879,7 @@ function buildLegalPageSchema(routeType: string) {
     url: `${siteMeta.baseUrl}/${path}/`,
     publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
     reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
-    dateModified: researchNewsFeed[0]?.dateModified ?? floorplanLibrary[0]?.updatedAt,
+    dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
   };
 }
 
@@ -2862,6 +2961,15 @@ function canShowImage(src: string) {
 
 function renderMediaAsset(asset: MediaAsset, variant = "standard") {
   if (canShowImage(asset.src)) {
+    if (asset.mobileSrc && canShowImage(asset.mobileSrc)) {
+      return `
+        <picture>
+          <source media="(max-width: 720px)" srcset="${asset.mobileSrc}" />
+          <img src="${asset.src}" alt="${asset.alt}" loading="lazy" />
+        </picture>
+      `;
+    }
+
     return `<img src="${asset.src}" alt="${asset.alt}" loading="lazy" />`;
   }
 
@@ -2875,6 +2983,8 @@ function renderMediaAsset(asset: MediaAsset, variant = "standard") {
 
 function imageSourceName(src: string) {
   if (src.includes("user-provided-")) return "Project gallery";
+  if (src.includes("/team-logos/related-ross")) return "Related Ross";
+  if (src.includes("/team-logos/arquitectonica")) return "Arquitectonica";
   if (src.includes("/olara/")) return "Olara";
   if (src.includes("/ritz-carlton-wpb/")) return "The Ritz-Carlton Residences WPB";
   if (src.includes("/mandarin-oriental/")) return "Mandarin Oriental Residences WPB";
@@ -2889,6 +2999,7 @@ function imageSourceName(src: string) {
   if (src.includes("/banyan-tree/")) return "Banyan Tree Residences WPB";
   if (src.includes("/edgeworth-north/")) return "Edgeworth North";
   if (src.includes("/edgeworth-south/")) return "Edgeworth South";
+  if (src.includes("/10-cityplace/")) return "Related Ross 10 CityPlace";
   if (src.includes("/15-cityplace/")) return "Related Ross CityPlace";
   if (src.includes("/alba-reserve/")) return "Alba Reserve";
   if (src.includes("/la-clara/")) return "La Clara";
@@ -2901,6 +3012,27 @@ function imageSourceName(src: string) {
 
 function imageCreditShort(src: string) {
   return imageSourceName(src);
+}
+
+function teamLogoForCredit(name: string): MediaAsset | undefined {
+  const normalizedName = name.toLowerCase();
+  if (normalizedName.includes("related ross")) {
+    return {
+      src: relatedRossLogo,
+      kicker: "Development",
+      title: "Related Ross",
+      alt: "Related Ross logo",
+    };
+  }
+  if (normalizedName.includes("arquitectonica")) {
+    return {
+      src: arquitectonicaLogo,
+      kicker: "Architecture",
+      title: "Arquitectonica",
+      alt: "Arquitectonica logo",
+    };
+  }
+  return undefined;
 }
 
 function renderFeaturedProject(project: FeaturedProject) {
@@ -3391,12 +3523,14 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const residenceTiles = gallery.slice(0, 3);
   const amenityTiles = projectBrochureAmenityTiles(project, draft);
   const teamTiles = projectBrochureTeamTiles(project, draft);
+  const heroImage = draft.image ?? project.heroImage ?? project.image;
+  const heroMobileImage = heroImage === project.heroImage ? project.mobileImage : undefined;
 
   return `
     <div class="route-view route-view-project route-view-draft-project route-view-brochure-project" data-route-view="project" data-project-id="${project.id}" hidden>
       <section class="brochure-hero" id="${project.id}">
         <figure>
-          ${draft.image ? renderMediaAsset({ src: draft.image, alt: draft.imageAlt, kicker: "Project Image", title: draft.title }, "hero") : ""}
+          ${heroImage ? renderMediaAsset({ src: heroImage, mobileSrc: heroMobileImage, alt: draft.imageAlt, kicker: "Project Image", title: draft.title }, "hero") : ""}
         </figure>
         <div class="brochure-hero-copy">
           <p class="eyebrow">${project.corridor} · West Palm Beach</p>
@@ -3521,6 +3655,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
   const residences = conciseResidences(project.id, source?.residences ?? "") || project.residences;
   const delivery = conciseDelivery(source?.completion ?? "") || project.delivery;
   const pricing = concisePricing(source?.pricing ?? "") || project.price;
+  const projectHeroImage = project.heroImage ?? project.image;
   const factFields = [
     { label: "Address", value: address },
     { label: "Stories", value: stories },
@@ -3536,7 +3671,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
     kicker: project.corridor,
     title: project.name,
     intro: `${project.summary} This profile is refreshed from current official, developer, and reporting sources where available.`,
-    image: project.image,
+    image: projectHeroImage,
     imageAlt: `${project.name} project image`,
     stage: status,
     locationCopy: `${project.name} is tracked at ${address} in the ${project.corridor} corridor. Compare it by delivery timing, price guidance, view exposure, floorplan depth, and the current sales packet before touring.`,
@@ -3551,11 +3686,12 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
       { label: "Pricing", value: pricing, note: "Request current availability, incentives, carrying costs, and contract terms before relying on any public figure." },
       { label: "Views", value: projectViewSummary(project), note: "Confirm exact stack, floor, exposure, and future view-corridor risk." },
     ],
-    gallery: project.image
+    gallery: projectHeroImage
       ? [
-          { src: project.image, kicker: "Project Image", title: project.name, alt: `${project.name} project image` },
-          { src: project.image, kicker: "Residence", title: "Project preview", alt: `${project.name} project preview` },
-          { src: project.image, kicker: "Design", title: "Material context", alt: `${project.name} design context` },
+          { src: projectHeroImage, mobileSrc: project.mobileImage, kicker: "Project Image", title: project.name, alt: `${project.name} project image` },
+          { src: project.image ?? projectHeroImage, kicker: "Street Context", title: "Downtown context", alt: `${project.name} project preview` },
+          { src: project.mobileImage ?? projectHeroImage, kicker: "Design", title: "Architectural detail", alt: `${project.name} design context` },
+          ...(project.galleryImages ?? []),
         ]
       : [],
     documents: documentsFromSource(project, sourceFact),
@@ -3688,9 +3824,10 @@ function projectBrochureTeamTiles(project: FeaturedProject, draft: ProjectPageDr
 }
 
 function renderBrochureTeamTile(item: { credit: TeamCredit; asset?: MediaAsset }) {
+  const logoAsset = teamLogoForCredit(item.credit.name);
   return `
     <article class="brochure-team-tile">
-      ${item.asset ? renderMediaAsset(item.asset, "feature") : ""}
+      ${logoAsset ? `<div class="brochure-team-logo">${renderMediaAsset(logoAsset, "feature")}</div>` : item.asset ? renderMediaAsset(item.asset, "feature") : ""}
       <div>
         <span>${item.credit.role}</span>
         <strong>${item.credit.name}</strong>

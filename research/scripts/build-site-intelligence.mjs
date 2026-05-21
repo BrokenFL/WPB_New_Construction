@@ -112,7 +112,7 @@ const answerBlocks = [
       },
       {
         label: "Maison d'Or official site",
-        href: "https://www.livemaisondorwpb.com/",
+        href: "https://livemaisondor.com/",
         note: "Official source for boutique South Flagler pricing guidance and residence count.",
         sourceType: "official project site",
         dateAccessed: generatedDate,
@@ -432,7 +432,7 @@ const answerBlocks = [
       },
       {
         label: "Maison d'Or official site",
-        href: "https://www.livemaisondorwpb.com/",
+        href: "https://livemaisondor.com/",
         note: "Official source for boutique South Flagler positioning, 39 residences, and waterfront amenities.",
         sourceType: "official project site",
         dateAccessed: generatedDate,
@@ -528,7 +528,7 @@ const answerBlocks = [
       },
       {
         label: "Maison d'Or official site",
-        href: "https://www.livemaisondorwpb.com/",
+        href: "https://livemaisondor.com/",
         note: "Official source references waterfront access, a private boat dock, and slips.",
         sourceType: "official project site",
         dateAccessed: generatedDate,
@@ -614,7 +614,7 @@ const answerBlocks = [
     sourceCitations: [
       {
         label: "Maison d'Or official site",
-        href: "https://www.livemaisondorwpb.com/",
+        href: "https://livemaisondor.com/",
         note: "Official source for 39-residence boutique waterfront positioning.",
         sourceType: "official project site",
         dateAccessed: generatedDate,
@@ -710,7 +710,7 @@ const answerBlocks = [
     sourceCitations: [
       {
         label: "Maison d'Or official pricing",
-        href: "https://www.livemaisondorwpb.com/",
+        href: "https://livemaisondor.com/",
         note: "Official source lists current starting guidance while noting pricing, terms, and availability are subject to change.",
         sourceType: "official project site",
         dateAccessed: generatedDate,
@@ -752,7 +752,7 @@ const answerBlocks = [
       },
       {
         label: "Maison d'Or official residences",
-        href: "https://www.livemaisondorwpb.com/",
+        href: "https://livemaisondor.com/",
         note: "Official source references terraces, flow-through plans, and Intracoastal, ocean, Palm Beach, and skyline views.",
         sourceType: "official project site",
         dateAccessed: generatedDate,
@@ -784,7 +784,7 @@ const answerBlocks = [
       },
       {
         label: "Maison d'Or official residences",
-        href: "https://www.livemaisondorwpb.com/",
+        href: "https://livemaisondor.com/",
         note: "Official source for flow-through plans, ceilings, terraces, private elevator access, and appliance packages.",
         sourceType: "official project site",
         dateAccessed: generatedDate,
@@ -848,7 +848,7 @@ const answerBlocks = [
       },
       {
         label: "Maison d'Or official amenities",
-        href: "https://www.livemaisondorwpb.com/",
+        href: "https://livemaisondor.com/",
         note: "Official source references a private boardroom and secure Wi-Fi in common areas.",
         sourceType: "official project site",
         dateAccessed: generatedDate,
@@ -1575,6 +1575,8 @@ function buildProjectAssetStatus(projects, floorplans, publishedFloorplans, asse
           "mr-c",
           "alba-palm-beach",
           "mandarin-oriental",
+          "10-cityplace",
+          "15-cityplace",
           "south-flagler-house-north",
           "south-flagler-house-south",
           "nora-house",
@@ -2083,7 +2085,7 @@ function buildPrerenderRoutes() {
       description: "Request current West Palm Beach new-construction availability, floorplans, pricing guidance, and private advisory context.",
       ogImage: siteMeta.defaultImage,
     },
-    ...["olara", "ritz-carlton-wpb", "shorecrest", "mr-c", "alba-palm-beach", "mandarin-oriental", "south-flagler-house", "nora-house"].map(
+    ...["olara", "ritz-carlton-wpb", "shorecrest", "mr-c", "alba-palm-beach", "mandarin-oriental", "10-cityplace", "15-cityplace", "south-flagler-house", "nora-house"].map(
       (projectId) => ({
         path: `/projects/${projectId}/`,
         title: `${projectTitle(projectId)} | WPB New Construction`,
@@ -2102,6 +2104,8 @@ function projectTitle(projectId) {
     "mr-c": "Mr. C",
     "alba-palm-beach": "Alba Palm Beach",
     "mandarin-oriental": "Mandarin Oriental Residences",
+    "10-cityplace": "10 CityPlace",
+    "15-cityplace": "15 CityPlace",
     "south-flagler-house": "South Flagler House",
     "nora-house": "NORA House",
   }[projectId] ?? projectId;
@@ -2116,6 +2120,8 @@ function renderSitemap(projects) {
     "mr-c",
     "alba-palm-beach",
     "mandarin-oriental",
+    "10-cityplace",
+    "15-cityplace",
     "south-flagler-house-north",
     "nora-house",
   ]);

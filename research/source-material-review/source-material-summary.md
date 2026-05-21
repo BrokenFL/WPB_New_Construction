@@ -2,7 +2,7 @@
 
 Generated: 2026-05-13T15:23:06.054Z
 
-Harvested and sorted 24 projects with 91 PDF/document assets, 84 image candidates, and 83 crawled page summaries.
+Harvested and sorted 24 projects with 91 PDF/document assets, 91 image candidates, and 83 crawled page summaries.
 
 Publishing rule: official developer/project/city sources can support facts, but images, renderings, PDFs, logos, and brochures still need rights review before use on the live site.
 
@@ -23,8 +23,8 @@ Publishing rule: official developer/project/city sources can support facts, but 
 
 | Project | Page status | Data | Docs | Images | Main issues |
 |---|---|---|---:|---:|---|
-| 10 CityPlace | Pipeline/watch-list | Low | 0 | 0 | Seed/source conflict: seed references a 21-story assumption, while Related Ross release describes a 480,000-square-foot office tower without presenting it as condo inventory.; No downloaded image candidates. |
-| 15 CityPlace | Pipeline/watch-list | Strong | 0 | 4 | No major issue flagged |
+| 10 CityPlace | Pipeline/watch-list | Low | 0 | 7 | Seed/source conflict: seed references a 21-story assumption, while Related Ross release describes a 480,000-square-foot office tower without presenting it as condo inventory.; user-provided cleared hero/card/mobile, entrance, and shared CityPlace context imagery added. |
+| 15 CityPlace | Pipeline/watch-list | Strong | 0 | 10 | User-provided cleared hero/card/mobile exterior imagery and shared CityPlace context imagery added. |
 | Banyan Tree Residences West Palm Beach | High-priority emerging condo page | Needs normalization | 0 | 4 | Official site now clearly states 88 exclusive corner residences and Sales Gallery Now Open at 400 Hibiscus Street.; City PPRC material still points to an 86-unit proposal, so the residence count remains a live normalization conflict. |
 | Mr. C Hotel & Residences West Palm Beach | Primary mixed-use/hotel-residence page | Needs normalization | 49 | 4 | Address conflict: 320 Lakeview Ave, 327 Okeechobee Blvd, and 401 S Olive sales gallery.; Older reporting says 25 stories; official/current residence material supports 27. |
 | Related Ross Fern Street / South Dixie Condo | Pipeline/watch-list | Working | 0 | 4 | No official website captured. |

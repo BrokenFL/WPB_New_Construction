@@ -53,6 +53,22 @@ Build before publishing:
 npm run build
 ```
 
+## Live Publishing
+
+Any site change should end with the live publish flow, not just a local build:
+
+```bash
+npm run ship:live
+```
+
+`npm run ship:live` runs the production build, launch QA, and publishes `dist/` to the Cloudflare Pages project `wpbnewconstruction`, which serves `wpbnewconstruction.com` and `www.wpbnewconstruction.com`.
+
+If the hosting target changes, override the deploy command without editing the script:
+
+```bash
+LIVE_DEPLOY_COMMAND="your production deploy command" npm run ship:live
+```
+
 ## Launch Checklist
 
 - Brokerage/contact/legal pages are scaffolded with Douglas Elliman Real Estate Palm Beach, Brooke Matthew Snader, The Scott Gordon Group, mobile, license, Fair Housing, Privacy, and Terms references.
@@ -60,3 +76,4 @@ npm run build
 - Verify pricing, availability, residence counts, and delivery timing with current developer or sales-team material.
 - Keep project images and PDFs limited to official links or documented usage approvals.
 - `npm run build` prerenders route-specific HTML shells with canonical, title, description, and OG metadata.
+- `npm run ship:live` is the default closeout command after approved code, content, image, or research-feed changes.

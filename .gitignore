@@ -24,6 +24,13 @@ output/
 # Imported reference repositories are not part of the app source.
 research/source-repos/
 
+# Generated asset-crawler bulk output stays local unless deliberately promoted.
+research/asset-library/projects/
+research/asset-library/shared/
+research/asset-library/*.xlsx
+research/asset-library/asset-expansion-report.*
+research/qa-screenshots/
+
 # This brochure is over GitHub's 100 MB file limit; the app links to the public brochure instead.
 public/projects/ritz-carlton-wpb/docs/ritz-carlton-wpb-brochure.pdf
 

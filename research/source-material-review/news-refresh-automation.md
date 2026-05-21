@@ -1,5 +1,7 @@
 # News Refresh Automation
 
+Agent owner brief: `research/source-material-review/live-news-agent-brief.md`.
+
 Run this command from the repository root for the recurring news-refresh agent:
 
 ```bash
