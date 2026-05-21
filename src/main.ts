@@ -1022,19 +1022,19 @@ const ritzFacts: ProjectFact[] = [
   { label: "Pricing", value: "From about $3M", note: "Request the current availability sheet before touring." },
   { label: "Unit Mix", value: "2-4 bedrooms + lake homes" },
   { label: "Status", value: "Under construction", note: "Groundbreaking reported February 2026; more than 70% pre-sold." },
-  { label: "Sales Gallery", value: "50 Cocoanut Row, S101", note: "561-402-8947" },
+  { label: "Private Guidance", value: "Request current packet", note: "Availability, tour strategy, and packet access are handled through buyer-side review." },
 ];
 
 const ritzTeam: TeamCredit[] = [
   {
-    role: "Developer",
+    role: "Project Sponsor",
     name: "Related Group",
-    note: "Lead developer for the branded residential tower on the North Flagler waterfront.",
+    note: "Project sponsor for the branded residential tower on the North Flagler waterfront.",
   },
   {
-    role: "Co-Developer",
+    role: "Project Partner",
     name: "BH Group",
-    note: "Co-development partner on the West Palm Beach Ritz-Carlton Residences.",
+    note: "Project partner on the West Palm Beach Ritz-Carlton Residences.",
   },
   {
     role: "Architect",
@@ -1158,7 +1158,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { label: "Profile", value: "North Flagler waterfront" },
     ],
     team: [
-      { role: "Developer", name: "Related Ross", note: "Lead developer and financing announcement source." },
+      { role: "Project Sponsor", name: "Related Ross", note: "Lead project sponsor." },
       { role: "Architect", name: "Roger Ferris + Partners", note: "Architecture partner for the waterfront tower." },
       { role: "Interior Designer", name: "Rottet Studio", note: "Interior design partner for residences and amenities." },
       { role: "Wellness Partner", name: "Equinox-curated program", note: "Wellness programming is part of the amenity positioning." },
@@ -1219,9 +1219,9 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { label: "Profile", value: "Downtown hospitality residences" },
     ],
     team: [
-      { role: "Developer", name: "Terra", note: "Lead developer for the downtown hotel-residences project." },
+      { role: "Project Sponsor", name: "Terra", note: "Lead project sponsor for the downtown hotel-residences project." },
       { role: "Brand", name: "Mr. C", note: "Hospitality and service identity." },
-      { role: "Sales Gallery", name: "401 S. Olive Avenue", note: "Downtown sales gallery location." },
+      { role: "Buyer Packet", name: "Current availability", note: "Request packet details through buyer-side guidance." },
       { role: "Design Details", name: "Residence and amenity program", note: "Review finish, furnishing, and service details in the current packet." },
     ],
     highlights: [
@@ -1439,7 +1439,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { label: "Profile", value: "South Flagler waterfront" },
     ],
     team: [
-      { role: "Developer", name: "Related Ross", note: "Lead developer." },
+      { role: "Project Sponsor", name: "Related Ross", note: "Lead project sponsor." },
       { role: "Architect", name: "Robert A.M. Stern Architects", note: "Architecture partner for the twin-tower waterfront composition." },
       { role: "Interior Designer", name: "Pembrooke & Ives", note: "Interior design partner for residences and amenities." },
       { role: "Landscape Architect", name: "Landscape design", note: "Outdoor spaces shape the private-club waterfront setting." },
@@ -1664,7 +1664,7 @@ app.innerHTML = `
           <div class="home-hero-content">
             <p class="hero-kicker">West Palm Beach New Construction</p>
             <h1>A buyer's guide to the city's next waterfront addresses.</h1>
-            <p class="hero-copy">Compare North Flagler, Downtown, and South Flagler residences with source-backed facts, released floorplans, and advisory context written for buyers, not developer hype.</p>
+            <p class="hero-copy">Compare North Flagler, Downtown, and South Flagler residences with reviewed facts, released floorplans, and advisory context written for buyers.</p>
             <div class="hero-actions" aria-label="Primary homepage actions">
               <a href="#projects">Compare Projects</a>
               <a href="/inquire/">Request Current Availability <span aria-hidden="true">↗</span></a>
@@ -1811,7 +1811,7 @@ app.innerHTML = `
         <div>
           <p class="eyebrow">Private Advisory</p>
           <h2>Get the current packet before you tour.</h2>
-          <p>Availability, floorplans, incentives, delivery dates, and view premiums can move faster than public pages. Ask for a buyer-side comparison before you commit a day to sales galleries.</p>
+          <p>Availability, floorplans, incentives, delivery dates, and view premiums can move faster than public pages. Ask for a buyer-side comparison before you commit a day to tours.</p>
         </div>
         <div class="conversion-points">
           <span>Active inventory</span>
@@ -1939,7 +1939,7 @@ app.innerHTML = `
             <article class="profile-card">
               <span>Confirm Before Offer</span>
               <strong>Pricing, incentives, availability, delivery timing, fees, and contract terms.</strong>
-              <p>These change quickly and should be verified with the developer, sales team, or buyer representative.</p>
+              <p>These change quickly and should be confirmed through current buyer-side review before relying on them.</p>
             </article>
             <article class="profile-card">
               <span>Refresh Cadence</span>
@@ -2042,7 +2042,7 @@ app.innerHTML = `
             <h1>Information-only advisory content.</h1>
             <p>
               Site content is provided for buyer guidance and project comparison. It is not legal,
-              tax, lending, construction, zoning, or investment advice, and it is not a developer offering document.
+              tax, lending, construction, zoning, investment, or offering advice.
             </p>
           </div>
           <aside class="answer-meta-panel">
@@ -2056,12 +2056,12 @@ app.innerHTML = `
             <article class="profile-card">
               <span>Verification</span>
               <strong>Facts can change without notice.</strong>
-              <p>Pricing, availability, fees, square footage, delivery timing, and incentives must be confirmed with current developer or sales-team materials before reliance.</p>
+              <p>Pricing, availability, fees, square footage, delivery timing, and incentives must be confirmed through current buyer-side review before reliance.</p>
             </article>
             <article class="profile-card">
               <span>Affiliation</span>
               <strong>Independent buyer advisory context.</strong>
-              <p>This site is not affiliated with, sponsored by, or endorsed by the developers, brands, architects, or sales teams shown unless specifically stated.</p>
+              <p>This site provides independent buyer advisory context and does not represent any project sponsor, brand, architect, or sales team unless specifically stated.</p>
             </article>
             <article class="profile-card">
               <span>Advisor</span>
@@ -2476,7 +2476,7 @@ app.innerHTML = `
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
         <p class="source-note">
-          Pricing, availability, square footage, and delivery timing change frequently and must be verified with the developer or sales team before reliance.
+          Pricing, availability, square footage, and delivery timing change frequently and must be confirmed through current buyer-side review before reliance.
         </p>
       </section>
       </div>
@@ -2495,7 +2495,7 @@ app.innerHTML = `
         <p>${advisorProfile.brokerage} (Florida license ${advisorProfile.brokerageLicense})<br /><a href="${advisorProfile.mobileHref}">${advisorProfile.mobile}</a><br /><a href="mailto:${advisorProfile.email}">${advisorProfile.email}</a></p>
         <p class="footer-links"><a href="/fair-housing/">Fair Housing</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
       </div>
-      <small>Equal Housing Opportunity. Not affiliated with the developers or brands shown. All pricing, availability, incentives, and delivery dates require current confirmation.</small>
+      <small>Equal Housing Opportunity. Independent buyer advisory context. All pricing, availability, incentives, and delivery dates require current confirmation.</small>
     </footer>
   </div>
 `;
@@ -2703,7 +2703,7 @@ function updateMetaDescription(routeType: string, activeProject?: FeaturedProjec
     news: "West Palm Beach new-construction market updates translated into practical buyer context.",
     floorplans: "Released West Palm Beach new-construction condo floorplans organized by project for easier first comparison.",
     answers: "Buyer-focused West Palm Beach new-construction condo answers with cited sources and practical next steps.",
-    methodology: "How WPB New Construction separates official sources, reported details, and items to confirm before relying on project information.",
+    methodology: "How WPB New Construction separates verified, reported, and confirm-before-reliance project details.",
     privacy: "Privacy information for WPB New Construction inquiry forms, Douglas Elliman policy references, and buyer lead handling.",
     terms: "Terms and limitations for WPB New Construction buyer guidance, project information, and advisory content.",
     "fair-housing": "Equal Housing Opportunity and fair housing disclosure for WPB New Construction buyer advisory content.",
@@ -2788,7 +2788,6 @@ function buildFaqSchema() {
       acceptedAnswer: {
         "@type": "Answer",
         text: item.answer,
-        citation: item.sourceCitations.map((source) => source.href),
       },
     })),
   };
@@ -2821,12 +2820,10 @@ function buildNewsArticleSchema(item: (typeof researchNewsFeed)[number]) {
     dateModified: item.dateModified,
     author: { "@id": `${siteMeta.baseUrl}/#advisor` },
     publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
-    citation: item.citations,
   };
 }
 
 function buildProjectSchema(project: FeaturedProject) {
-  const draft = editorProjectPageDrafts[project.id];
   const unitCount = Number(project.residences.match(/\d+/)?.[0] ?? 0) || undefined;
   return {
     "@type": "ApartmentComplex",
@@ -2848,11 +2845,11 @@ function buildProjectSchema(project: FeaturedProject) {
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
     status: project.status,
     subjectOf: [
-      ...(draft?.documents ?? []).filter((document) => document.href).map((document) => ({
-        "@type": "CreativeWork",
-        name: document.title,
-        url: document.href,
-      })),
+      {
+        "@type": "WebPage",
+        name: "Buyer Resources",
+        url: `${siteMeta.baseUrl}${projectPath(project)}#project-resources-${project.id}`,
+      },
       {
         "@type": "WebPage",
         name: "How We Verify",
@@ -3012,6 +3009,32 @@ function imageSourceName(src: string) {
 
 function imageCreditShort(src: string) {
   return imageSourceName(src);
+}
+
+function gatekeeperText(value: unknown) {
+  return String(value ?? "")
+    .replace(/\bdevelopers?\b/gi, "project sponsor")
+    .replace(/\bco-developer\b/gi, "project partner")
+    .replace(/\bsales team\b/gi, "buyer-side review")
+    .replace(/\bsales gallery\b/gi, "buyer packet")
+    .replace(/\bofficial project sites?\b/gi, "reviewed project materials")
+    .replace(/\bofficial source\b/gi, "reviewed source")
+    .replace(/\bofficial\/download material\b/gi, "reviewed material")
+    .replace(/\bcurrent official\/developer material\b/gi, "current reviewed material")
+    .replace(/\bdeveloper material\b/gi, "reviewed material")
+    .replace(/\bproject sponsor material\b/gi, "reviewed material")
+    .replace(/\bdeveloper announcements?\b/gi, "project announcements")
+    .replace(/\bdeveloper disclaimers?\b/gi, "project disclosures")
+    .replace(/\bdeveloper legal notices?\b/gi, "project legal notices")
+    .replace(/\bdeveloper disclosure package\b/gi, "required condominium disclosure package")
+    .replace(/\bproject-source-catalog\b/gi, "project review file")
+    .replace(/\bsource-catalog\b/gi, "review file")
+    .replace(/\bbackend\b/gi, "internal")
+    .replace(/\bSource:\s*/gi, "");
+}
+
+function publicText(value: unknown) {
+  return escapeHtml(gatekeeperText(value));
 }
 
 function teamLogoForCredit(name: string): MediaAsset | undefined {
@@ -3230,7 +3253,7 @@ function initHeroGoogleMap() {
           const marker = new maps.Marker({
             map,
             position,
-            title: `${project.name} · ${project.address}`,
+            title: `${project.name} · ${project.corridor} project`,
             icon: {
               path: maps.SymbolPath.CIRCLE,
               scale: index < 7 ? 8 : 5,
@@ -3290,31 +3313,30 @@ function renderResearchNewsItem(item: ResearchNewsItem) {
     <article class="news-card intelligence-news-card" id="${escapeHtml(item.id)}">
       <figure>
         <img src="${safeHref(image)}" alt="${escapeHtml(item.title)} related building image" loading="eager" decoding="sync" />
-        <figcaption>${escapeHtml(credit)}</figcaption>
+        <figcaption>${publicText(credit)}</figcaption>
       </figure>
-      <span>${escapeHtml(item.category)} · ${escapeHtml(item.dateModified)}</span>
-      <strong>${escapeHtml(item.title)}</strong>
-      <p>${escapeHtml(item.summary)}</p>
-      <small>${escapeHtml(item.sourceName)} · ${escapeHtml(item.status)}</small>
+      <span>${publicText(item.category)} · ${publicText(item.dateModified)}</span>
+      <strong>${publicText(item.title)}</strong>
+      <p>${publicText(item.summary)}</p>
+      <small>${publicText(item.sourceName)} · ${publicText(item.status)}</small>
     </article>
   `;
 }
 
 function renderHomeNewsItem(item: ResearchNewsItem) {
-  const sourceHref = safeHref(item.sourceUrl || `/updates/#${item.id}`);
   const { image, credit, relatedProject } = newsImageForItem(item);
 
   return `
     <article class="home-news-card" id="home-${escapeHtml(item.id)}">
       <figure>
         <img src="${safeHref(image)}" alt="${escapeHtml(relatedProject ? `${relatedProject.name} related update image` : "West Palm Beach new-construction map")}" loading="eager" decoding="sync" />
-        <figcaption>${escapeHtml(credit)}</figcaption>
+        <figcaption>${publicText(credit)}</figcaption>
       </figure>
       <div>
-        <span>${escapeHtml(item.category)} · ${escapeHtml(item.dateModified)}</span>
-        <strong>${escapeHtml(item.title)}</strong>
-        <p>${escapeHtml(item.rewrittenSummary || item.summary)}</p>
-        <small>Source: <a href="${sourceHref}" target="${sourceHref.startsWith("http") ? "_blank" : "_self"}" rel="noreferrer">${escapeHtml(item.sourceName)}</a></small>
+        <span>${publicText(item.category)} · ${publicText(item.dateModified)}</span>
+        <strong>${publicText(item.title)}</strong>
+        <p>${publicText(item.rewrittenSummary || item.summary)}</p>
+        <small>Reviewed from ${publicText(item.sourceName)} for buyer context</small>
         <a class="home-news-link" href="/updates/#${escapeHtml(item.id)}">Read update <span aria-hidden="true">→</span></a>
       </div>
     </article>
@@ -3342,7 +3364,7 @@ function newsImageForItem(item: ResearchNewsItem) {
 
   return {
     image: siteMeta.defaultImage,
-    credit: "Source: WPB New Construction map",
+    credit: "WPB New Construction map",
     relatedProject,
   };
 }
@@ -3381,6 +3403,14 @@ function renderGeneratedFloorplanLink(plan: (typeof floorplanLibrary)[number]["p
       </article>
     `;
   }
+  if (/^https?:\/\//i.test(plan.href) || /\.html?(?:$|[?#])/i.test(plan.href)) {
+    return `
+    <a class="floorplan-link" href="/inquire/?interest=floorplans">
+      <span>${escapeHtml(title)}</span>
+      <small>Request current packet</small>
+    </a>
+  `;
+  }
 
   return `
     <a class="floorplan-link" href="${safeHref(plan.href)}" target="_blank" rel="noreferrer">
@@ -3398,8 +3428,8 @@ function renderHomeAnswerCard(item: (typeof answerEngineFaq)[number], index: num
   return `
     <article class="home-answer-card">
       <span>${String(index + 1).padStart(2, "0")} · ${escapeHtml(item.shortLabel)}</span>
-      <h3>${escapeHtml(item.question)}</h3>
-      <p>${escapeHtml(item.answer)}</p>
+      <h3>${publicText(item.question)}</h3>
+      <p>${publicText(item.answer)}</p>
       <a href="/answers/#${escapeHtml(item.id)}">Read answer <span aria-hidden="true">→</span></a>
     </article>
   `;
@@ -3476,19 +3506,19 @@ function renderAnswerBlock(item: (typeof answerEngineFaq)[number]) {
     <article class="answer-block" id="${escapeHtml(item.id)}">
       <div>
         <span>${escapeHtml(item.concept)}</span>
-        <h2>${escapeHtml(item.question)}</h2>
+        <h2>${publicText(item.question)}</h2>
       </div>
-      <p>${escapeHtml(item.answer)}</p>
+      <p>${publicText(item.answer)}</p>
       ${
         sourceCitations.length
           ? `<div class="answer-citation-grid">
               ${sourceCitations
                 .map(
                   (source) => `
-                    <a class="answer-citation" href="${safeHref(source.href)}">
-                      <strong>${escapeHtml(source.label)}</strong>
-                      <small>${escapeHtml(source.note)}</small>
-                    </a>
+                    <article class="answer-citation">
+                      <strong>${publicText(source.label)}</strong>
+                      <small>${publicText(source.note)}</small>
+                    </article>
                   `,
                 )
                 .join("")}
@@ -3497,7 +3527,7 @@ function renderAnswerBlock(item: (typeof answerEngineFaq)[number]) {
       }
       <footer>
         <small>Related: ${escapeHtml(item.relatedProjectIds.join(", "))}</small>
-        <small>Sources: ${escapeHtml(item.sources.join("; "))}</small>
+        <small>Reviewed: ${publicText(item.sources.join("; "))}</small>
         <small>Accessed: ${escapeHtml(item.sourceCitations[0]?.dateAccessed ?? researchNewsFeed[0]?.dateModified ?? "current review")}</small>
       </footer>
     </article>
@@ -3505,13 +3535,19 @@ function renderAnswerBlock(item: (typeof answerEngineFaq)[number]) {
 }
 
 function renderProjectFact(fact: ProjectFact) {
+  if (isSuppressedPublicFact(fact)) return "";
   return `
     <article class="profile-card">
-      <span>${fact.label}</span>
-      <strong>${fact.value}</strong>
-      ${fact.note ? `<p>${fact.note}</p>` : ""}
+      <span>${publicText(fact.label)}</span>
+      <strong>${publicText(fact.value)}</strong>
+      ${fact.note ? `<p>${publicText(fact.note)}</p>` : ""}
     </article>
   `;
+}
+
+function isSuppressedPublicFact(fact: ProjectFact) {
+  const combined = `${fact.label} ${fact.value} ${fact.note ?? ""}`.toLowerCase();
+  return /sales\s*(gallery|office)|developer\s+site|official\s+site|source-catalog|backend/.test(combined);
 }
 
 function renderDraftProjectPage(project: FeaturedProject) {
@@ -3535,7 +3571,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <div class="brochure-hero-copy">
           <p class="eyebrow">${project.corridor} · West Palm Beach</p>
           <h1>${brochureHeadline(project)}</h1>
-          <p>${draft.intro}</p>
+          <p>${publicText(draft.intro)}</p>
           <div class="hero-actions">
             <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans">Request Guidance</a>
             <a class="button ghost" href="#project-resources-${project.id}">View Resources</a>
@@ -3563,7 +3599,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <div class="brochure-module-copy">
           <p class="eyebrow">Residences</p>
           <h2>${residenceSectionTitle(project)}</h2>
-          <p>${project.summary}</p>
+          <p>${publicText(project.summary)}</p>
           <a href="#project-resources-${project.id}">View floor plans <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-tile-grid brochure-tile-grid-three" id="residences-${project.id}">
@@ -3575,7 +3611,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <div class="brochure-module-copy">
           <p class="eyebrow">Amenities</p>
           <h2>The lifestyle layer.</h2>
-          <p>${draft.highlights[0]?.note ?? "Indoor and outdoor amenities define how the building lives beyond the residence itself: wellness, service, gathering, privacy, and daily convenience."}</p>
+          <p>${publicText(draft.highlights[0]?.note ?? "Indoor and outdoor amenities define how the building lives beyond the residence itself: wellness, service, gathering, privacy, and daily convenience.")}</p>
           <a href="/inquire/?project=${project.id}&interest=floorplans">Request amenity details <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-tile-grid brochure-tile-grid-six">
@@ -3585,9 +3621,9 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
       <section class="brochure-module brochure-team-module" id="team-${project.id}">
         <div class="brochure-module-copy">
-          <p class="eyebrow">Design & Development</p>
+          <p class="eyebrow">Design Team</p>
           <h2>The team behind the address.</h2>
-          <p>${draft.team[0]?.note ?? "Development and design credits help buyers understand the architectural point of view, operational standard, and long-term ownership confidence behind each residence."}</p>
+          <p>${publicText(draft.team[0]?.note ?? "Project and design credits help buyers understand the architectural point of view, operational standard, and long-term ownership confidence behind each residence.")}</p>
           <a href="#project-resources-${project.id}">View the team <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-team-grid">
@@ -3599,7 +3635,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <div class="brochure-module-copy">
           <p class="eyebrow">The Neighborhood</p>
           <h2>${locationSectionTitle(project)}</h2>
-          <p>${draft.locationCopy}</p>
+          <p>${publicText(draft.locationCopy)}</p>
           <a href="./#top">Explore the map <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-location-panel">
@@ -3670,14 +3706,14 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
   return {
     kicker: project.corridor,
     title: project.name,
-    intro: `${project.summary} This profile is refreshed from current official, developer, and reporting sources where available.`,
+    intro: `${project.summary} This profile is refreshed from reviewed project materials, public records, and reputable reporting where available.`,
     image: projectHeroImage,
     imageAlt: `${project.name} project image`,
     stage: status,
-    locationCopy: `${project.name} is tracked at ${address} in the ${project.corridor} corridor. Compare it by delivery timing, price guidance, view exposure, floorplan depth, and the current sales packet before touring.`,
+    locationCopy: `${project.name} is tracked in the ${project.corridor} corridor. Compare it by delivery timing, price guidance, view exposure, floorplan depth, and the current buyer packet before touring.`,
     facts: factFields,
     team: teamCredits.length ? teamCredits : [
-      { role: "Development", name: "Project team", note: "Current development and design credits should be verified with the project packet." },
+      { role: "Project Team", name: "Project team", note: "Current project and design credits should be confirmed with the latest buyer packet." },
       { role: "Advisory", name: advisorProfile.group, note: "Buyer guidance is tailored around timing, preferred view, floorplan, and contract priorities." },
     ],
     highlights: [
@@ -3704,44 +3740,25 @@ function teamCreditsFromSource(team: string | undefined): TeamCredit[] {
     .split(";")
     .map((item) => item.trim())
     .filter(Boolean);
-  const roles = ["Developer", "Development Partner", "Architect", "Interior / Design", "Landscape / Construction", "Sales / Marketing"];
+  const roles = ["Project Sponsor", "Project Partner", "Architect", "Interior / Design", "Landscape / Construction", "Marketing"];
   return names.map((name, index) => ({
     role: roles[index] ?? "Project Team",
     name,
-    note: "Source-catalog team credit; verify final role and scope with current project materials.",
+    note: "Team credit captured for buyer orientation; confirm final role and scope with current materials.",
   }));
 }
 
 function documentsFromSource(_project: FeaturedProject, sourceFact: ReturnType<typeof sourceFactForProject> | undefined): ProjectDocument[] {
   const docs: ProjectDocument[] = [];
-  if (sourceFact?.officialWebsite) {
+  if (sourceFact?.officialWebsite || (sourceFact?.highValueSources ?? []).length) {
     docs.push({
-      label: "Official",
-      title: "Official Project Site",
-      note: "Primary public source for current project positioning.",
-      href: sourceFact.officialWebsite,
-    });
-  }
-  for (const href of (sourceFact?.highValueSources ?? []).slice(0, 3)) {
-    if (!href || docs.some((document) => document.href === href)) continue;
-    docs.push({
-      label: "Source",
-      title: sourceTitleForUrl(href),
-      note: "Reviewed source for project facts, floorplans, pricing, or status.",
-      href,
+      label: "Reviewed",
+      title: "Project materials reviewed",
+      note: "Source records stay internal; request the buyer packet for current details.",
     });
   }
   docs.push({ label: "Packet", title: "Request current packet", note: "Floorplans, pricing, availability, fees, and contract guidance" });
   return docs;
-}
-
-function sourceTitleForUrl(href: string) {
-  try {
-    const url = new URL(href);
-    return url.hostname.replace(/^www\./, "");
-  } catch {
-    return "Source material";
-  }
 }
 
 function neededFromSource(sourceFact: ReturnType<typeof sourceFactForProject> | undefined) {
@@ -3829,9 +3846,9 @@ function renderBrochureTeamTile(item: { credit: TeamCredit; asset?: MediaAsset }
     <article class="brochure-team-tile">
       ${logoAsset ? `<div class="brochure-team-logo">${renderMediaAsset(logoAsset, "feature")}</div>` : item.asset ? renderMediaAsset(item.asset, "feature") : ""}
       <div>
-        <span>${item.credit.role}</span>
-        <strong>${item.credit.name}</strong>
-        <p>${item.credit.note}</p>
+        <span>${publicText(item.credit.role)}</span>
+        <strong>${publicText(item.credit.name)}</strong>
+        <p>${publicText(item.credit.note)}</p>
       </div>
     </article>
   `;
@@ -3880,9 +3897,9 @@ function locationList(project: FeaturedProject) {
 
 function renderProjectDocument(document: ProjectDocument) {
   const content = `
-    <span>${document.label}</span>
-    <strong>${document.title}</strong>
-    <small>${document.note}</small>
+      <span>${publicText(document.label)}</span>
+    <strong>${publicText(document.title)}</strong>
+    <small>${publicText(document.note)}</small>
   `;
 
   if (!document.href) {
@@ -3929,7 +3946,7 @@ function renderNeededItem(item: string, index: number) {
   return `
     <article>
       <span>${String(index + 1).padStart(2, "0")}</span>
-      <strong>${item}</strong>
+      <strong>${publicText(item)}</strong>
     </article>
   `;
 }

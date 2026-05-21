@@ -1,6 +1,6 @@
 # Launch QA Report
 
-Generated: 2026-05-21T21:41:16.392Z
+Generated: 2026-05-21T23:40:34.212Z
 
 ## Summary
 
@@ -9,7 +9,7 @@ Generated: 2026-05-21T21:41:16.392Z
 - Blocking findings: 0
 - Public artifact size: 603.8 MB
 - Research artifact size: 716.7 MB
-- Dist artifact size: 387.8 MB
+- Dist artifact size: 377.8 MB
 - Duplicate source extra bytes: 404.7 MB
 - Duplicate source byte delta: 0 B
 
@@ -51,6 +51,7 @@ Generated: 2026-05-21T21:41:16.392Z
 - PASS - Floorplan href coverage: 253/253
 - PASS - Local floorplan file coverage: 0 missing public files
 - PASS - Lead intake static form: wpb-lead-intake
+- PASS - Homepage Google Maps API loader: Google Maps script loader present
 
 ## Findings
 
@@ -60,8 +61,8 @@ Generated: 2026-05-21T21:41:16.392Z
 
 - public/: 603.8 MB
 - research/: 716.7 MB
-- dist/: 387.8 MB
-- .playwright-cli/: 3.0 MB
+- dist/: 377.8 MB
+- .playwright-cli/: 3.1 MB
 - output/: 128.2 MB
 - Duplicate inventory: 289 source groups, 404.7 MB source extra bytes, delta 0 B
 

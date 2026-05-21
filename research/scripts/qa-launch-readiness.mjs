@@ -49,6 +49,17 @@ async function readJson(filePath) {
   return JSON.parse(await fs.readFile(filePath, "utf8"));
 }
 
+async function readBuiltAssetText(extension) {
+  const assetsDir = path.join(distRoot, "assets");
+  const entries = await fs.readdir(assetsDir, { withFileTypes: true }).catch(() => []);
+  const contents = [];
+  for (const entry of entries) {
+    if (!entry.isFile() || !entry.name.endsWith(extension)) continue;
+    contents.push(await fs.readFile(path.join(assetsDir, entry.name), "utf8"));
+  }
+  return contents.join("\n");
+}
+
 async function dirSize(dirPath) {
   let total = 0;
   const entries = await fs.readdir(dirPath, { withFileTypes: true }).catch(() => []);
@@ -131,6 +142,17 @@ async function main() {
   const leadFormOk = homeHtml.includes('form name="wpb-lead-intake"') && homeHtml.includes('netlify-honeypot="company"');
   checks.push({ label: "Lead intake static form", ok: leadFormOk, detail: "wpb-lead-intake" });
   if (!leadFormOk) findings.push("Lead intake static form is missing from prerender shell.");
+
+  const builtJavaScript = await readBuiltAssetText(".js");
+  const googleMapsLoaderOk = builtJavaScript.includes("maps.googleapis.com/maps/api/js");
+  const googleMapsFallbackOnly = builtJavaScript.includes("Configure Google Map");
+  checks.push({
+    label: "Homepage Google Maps API loader",
+    ok: googleMapsLoaderOk && !googleMapsFallbackOnly,
+    detail: googleMapsLoaderOk ? "Google Maps script loader present" : "Google Maps script loader missing",
+  });
+  if (!googleMapsLoaderOk) findings.push("Homepage Google Maps API loader is missing from the production bundle.");
+  if (googleMapsFallbackOnly) findings.push("Homepage map bundle still contains the configure-only static fallback path.");
 
   const artifactSizes = {
     public: await dirSize(path.join(workspace, "public")),

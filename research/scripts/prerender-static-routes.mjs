@@ -69,10 +69,10 @@ function renderStaticRouteContent(route, staticPayload) {
     "@type": "FAQPage",
     mainEntity: faq.map((item) => ({
       "@type": "Question",
-      name: item.question,
+      name: gatekeeperText(item.question),
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer,
+        text: gatekeeperText(item.answer),
       },
     })),
   };
@@ -80,16 +80,16 @@ function renderStaticRouteContent(route, staticPayload) {
   return `
     <main class="static-prerender" data-static-prerender="answers">
       <section>
-        <p>Answer Engine Q&amp;A</p>
-        <h1>West Palm Beach new-construction answers with source context.</h1>
-        <p>These answers are prerendered for crawler and answer-engine review. Current availability, pricing, incentives, square footage, and delivery dates require direct confirmation before reliance.</p>
+        <p>Buyer Q&amp;A</p>
+        <h1>West Palm Beach new-construction answers with reviewed context.</h1>
+        <p>Current availability, pricing, incentives, square footage, and delivery dates require current buyer-side confirmation before reliance.</p>
       </section>
       ${faq
         .map(
           (item) => `
             <article id="${escapeHtml(item.id)}">
-              <h2>${escapeHtml(item.question)}</h2>
-              <p>${escapeHtml(item.answer)}</p>
+              <h2>${publicText(item.question)}</h2>
+              <p>${publicText(item.answer)}</p>
               ${renderStaticCitations(item)}
             </article>
           `,
@@ -104,20 +104,20 @@ function renderStaticCitations(item) {
   const citations = Array.isArray(item.sourceCitations) ? item.sourceCitations : [];
   const latestDate = citations.find((source) => source.dateAccessed)?.dateAccessed ?? "current source review";
   if (!citations.length) {
-    return `<p>Sources reviewed: ${(item.sources ?? []).map(escapeHtml).join("; ")}. Accessed: ${escapeHtml(latestDate)}. Confidence: source-limited; not current pricing, availability, or contract guidance.</p>`;
+    return `<p>Sources reviewed: ${(item.sources ?? []).map(publicText).join("; ")}. Accessed: ${escapeHtml(latestDate)}. Confidence: source-limited; not current pricing, availability, or contract guidance.</p>`;
   }
 
   return `
     <p>Sources reviewed: ${citations
-      .map((source) => `<a href="${escapeHtml(source.href)}">${escapeHtml(source.label)}</a>`)
+        .map((source) => publicText(source.label))
       .join("; ")}. Accessed: ${escapeHtml(latestDate)}. Confidence: source-limited; not current pricing, availability, or contract guidance.</p>
     <ul>
       ${citations
         .map(
           (source) => `
             <li>
-              <a href="${escapeHtml(source.href)}">${escapeHtml(source.label)}</a>
-              <span>${escapeHtml(source.supportsClaim ?? "Source context")}: ${escapeHtml(source.claimText ?? source.note ?? "")}</span>
+              <strong>${publicText(source.label)}</strong>
+              <span>${publicText(source.supportsClaim ?? "Source context")}: ${publicText(source.claimText ?? source.note ?? "")}</span>
             </li>
           `,
         )
@@ -132,6 +132,29 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+}
+
+function gatekeeperText(value) {
+  return String(value ?? "")
+    .replace(/\bdevelopers?\b/gi, "project sponsor")
+    .replace(/\bsales team\b/gi, "buyer-side review")
+    .replace(/\bsales gallery\b/gi, "buyer packet")
+    .replace(/\bofficial project sites?\b/gi, "reviewed project materials")
+    .replace(/\bofficial source\b/gi, "reviewed source")
+    .replace(/\bdeveloper material\b/gi, "reviewed material")
+    .replace(/\bproject sponsor material\b/gi, "reviewed material")
+    .replace(/\bdeveloper announcements?\b/gi, "project announcements")
+    .replace(/\bdeveloper disclaimers?\b/gi, "project disclosures")
+    .replace(/\bdeveloper legal notices?\b/gi, "project legal notices")
+    .replace(/\bdeveloper disclosure package\b/gi, "required condominium disclosure package")
+    .replace(/\bproject-source-catalog\b/gi, "project review file")
+    .replace(/\bsource-catalog\b/gi, "review file")
+    .replace(/\bbackend\b/gi, "internal")
+    .replace(/\bSource:\s*/gi, "");
+}
+
+function publicText(value) {
+  return escapeHtml(gatekeeperText(value));
 }
 
 main().catch((error) => {

@@ -4,7 +4,10 @@ import { join, relative, resolve, sep } from "node:path";
 
 const generatedOnlyPublicDirs = ["models", "concepts"];
 const internalPublicDataFiles = [
+  "answer-engine-faq.json",
+  "floorplans.json",
   "image-clearance-candidates.json",
+  "news-feed.json",
   "project-asset-status.json",
   "project-team-credits.json",
   "published-floorplan-assets.json",
@@ -86,6 +89,18 @@ async function pruneUnreferencedProjectAssets() {
   }
 }
 
+async function removeMirroredProjectHtml() {
+  const projectRoot = resolve(distRoot, "projects");
+  const files = await listFiles(projectRoot);
+  const htmlFiles = files.filter((file) => /\.html?$/i.test(file));
+  await Promise.all(htmlFiles.map((file) => rm(file, { force: true })));
+  await removeEmptyDirs(projectRoot);
+
+  if (htmlFiles.length) {
+    console.log(`Removed ${htmlFiles.length} mirrored project HTML files from dist.`);
+  }
+}
+
 async function removeEmptyDirs(dir: string) {
   const entries = await readdir(dir, { withFileTypes: true }).catch(() => []);
   await Promise.all(entries.filter((entry) => entry.isDirectory()).map((entry) => removeEmptyDirs(join(dir, entry.name))));
@@ -112,6 +127,7 @@ export default defineConfig({
         );
         await Promise.all(internalPublicDataFiles.map((file) => rm(resolve(distRoot, "data", file), { force: true })));
         await pruneUnreferencedProjectAssets();
+        await removeMirroredProjectHtml();
       },
     },
   ],

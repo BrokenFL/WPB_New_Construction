@@ -27,10 +27,16 @@ jobs:
         run: npm ci
 
       - name: Build site
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
+          VITE_GOOGLE_MAPS_MAP_ID: ${{ vars.VITE_GOOGLE_MAPS_MAP_ID }}
         run: npm run build
 
       - name: Run launch QA
         run: npm run qa:launch
+
+      - name: Run gatekeeper QA
+        run: npm run qa:gatekeeper
 
       - name: Deploy to Cloudflare Pages
         if: ${{ env.HAS_CLOUDFLARE_TOKEN == 'true' }}
