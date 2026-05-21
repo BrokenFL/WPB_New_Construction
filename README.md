@@ -69,6 +69,11 @@ If the hosting target changes, override the deploy command without editing the s
 LIVE_DEPLOY_COMMAND="your production deploy command" npm run ship:live
 ```
 
+GitHub Actions also builds and launch-QA checks every push to `main`. To let GitHub publish the live site automatically, add these repository secrets:
+
+- `CLOUDFLARE_API_TOKEN` - Cloudflare API token with Pages write access.
+- `CLOUDFLARE_ACCOUNT_ID` - `ab879f86c65cb8bcb1a2fcf0e815b008`.
+
 ## Launch Checklist
 
 - Brokerage/contact/legal pages are scaffolded with Douglas Elliman Real Estate Palm Beach, Brooke Matthew Snader, The Scott Gordon Group, mobile, license, Fair Housing, Privacy, and Terms references.
