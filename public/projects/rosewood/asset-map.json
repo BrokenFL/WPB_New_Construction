@@ -1,0 +1,60 @@
+{
+  "project": "Rosewood Residences West Palm Beach",
+  "slug": "rosewood",
+  "updated": "2026-05-21",
+  "publicBase": "/projects/rosewood/",
+  "rightsNote": "No final public media, brochure, logo, or floorplan assets are approved for publication yet. Editorial renderings from The Real Deal and Florida YIMBY are reference-only unless Brooke receives permission or a developer media kit.",
+  "placements": [
+    {
+      "role": "cityPlanningAgenda",
+      "file": null,
+      "researchFile": "research/rosewood/sources/wpb-planning-board-agenda-2026-05-19.pdf",
+      "sourceUrl": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf",
+      "usage": "Research/provenance only; do not present as buyer-facing sales collateral"
+    },
+    {
+      "role": "officialWebsite",
+      "file": null,
+      "sourceUrl": null,
+      "usage": "No official Rosewood WPB project microsite found as of 2026-05-21"
+    },
+    {
+      "role": "floorplans",
+      "file": null,
+      "sourceUrl": null,
+      "usage": "No public Rosewood WPB floorplan packet found"
+    },
+    {
+      "role": "brochure",
+      "file": null,
+      "sourceUrl": null,
+      "usage": "No public Rosewood WPB brochure found"
+    }
+  ],
+  "referenceOnlyVisualSources": [
+    {
+      "publisher": "The Real Deal",
+      "url": "https://therealdeal.com/miami/2026/04/10/related-group-bh-group-plan-rosewood-west-palm-beach/",
+      "note": "Rendering credited to BH Group, Related Group, and Arquitectonica; do not republish without permission."
+    },
+    {
+      "publisher": "The Real Deal",
+      "url": "https://therealdeal.com/miami/2025/10/27/related-bh-seek-height-bonus-for-west-palm-beach-project/",
+      "note": "Editorial rendering; do not republish without permission."
+    },
+    {
+      "publisher": "Florida YIMBY",
+      "url": "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",
+      "note": "Images credited to Arquitectonica and Google Earth; reference only."
+    }
+  ],
+  "recommendedMediaPlaceholders": [
+    "media/rosewood-hero-waterfront-tower-2880x1800.png",
+    "media/rosewood-mobile-hero-waterfront-1080x1350.png",
+    "media/rosewood-gallery-card-exterior-1600x2000.png",
+    "media/rosewood-arrival-context-2400x1600.png",
+    "media/rosewood-amenity-pool-2400x1600.png",
+    "media/rosewood-residence-view-2400x1600.png",
+    "media/rosewood-logo.svg"
+  ]
+}

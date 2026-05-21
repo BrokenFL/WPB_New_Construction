@@ -331,6 +331,45 @@ export const proposalScenarios: ProposalScenario[] = [
         modelHeightOffsetMeters: 20,
       },
       {
+        id: "rosewood",
+        name: "Rosewood Residences WPB",
+        status: "Planning",
+        description:
+          "Related Group and BH Group are pursuing a proposed Rosewood-branded condominium tower at 2001 North Flagler Drive. Current public materials support a 27-story, 90-residence plan pending city approvals; pricing, floorplans, builder, and delivery timing have not been announced.",
+        address: "2001 N Flagler Dr, West Palm Beach, FL 33407",
+        longitude: -80.05005,
+        latitude: 26.73135,
+        widthMeters: 45,
+        depthMeters: 38,
+        heightMeters: 93,
+        headingDegrees: 110,
+        floors: 27,
+        year: 2029,
+        color: "#b76e79",
+        confidence: "Medium",
+        sourceUrls: [
+          "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf",
+          "https://therealdeal.com/miami/2026/04/10/related-group-bh-group-plan-rosewood-west-palm-beach/",
+          "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",
+        ],
+        assetLinks: [
+          {
+            label: "City Planning Board Agenda",
+            url: "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf",
+            type: "Fact sheet",
+            note: "Municipal agenda source for planning status and 90-unit proposal; not buyer-facing sales collateral.",
+          },
+          {
+            label: "Rosewood Branding Report",
+            url: "https://therealdeal.com/miami/2026/04/10/related-group-bh-group-plan-rosewood-west-palm-beach/",
+            type: "Website",
+            note: "Reporting source; editorial images are not rights-clear for public site use.",
+          },
+        ],
+        modelingNote:
+          "Planning-stage marker based on public reporting and city agenda materials. Height, delivery year, and footprint are visualization assumptions until city approval documents or official launch materials provide final dimensions.",
+      },
+      {
         id: "mandarin-oriental",
         name: "Mandarin Oriental Residences",
         status: "Concept",

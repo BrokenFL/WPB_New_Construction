@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+<head>
+	<!-- Published by OpenCities, 1.37.2.0 -->
+
+    
+        
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#FFFFFF"/>
+    <title>Page Not Found City of West Palm Beach</title>
+	<meta name="generator" content="OpenCities - https://granicus.com/product/opencities" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using mobile-web-app-capable for now to enable full-screen experience on supported platforms -->
+    <!-- Note: This tag works mainly on Android Chrome. It does NOT enable full-screen mode on iOS Safari. -->
+    <!-- For iOS, the correct tag is: <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- TODO: Monitor for updated meta tag standards from Apple or other browser vendors -->
+    <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content="Page not found error" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.wpb.org/Page-Not-Found" />
+    <meta property="og:title" content="Page Not Found" />
+    <meta property="og:description" content="Page not found error" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Page Not Found" />
+    <meta property="twitter:description" content="Page not found error" />
+    <meta name="Threads" content="https://www.wpb.org/Page-Not-Found" />
+    <meta name="Threads Link" content="https://www.wpb.org/Page-Not-Found" />
+    <link rel="canonical" href="https://www.wpb.org/Page-Not-Found" />
+
+    
+    <link rel="icon" type="image/png" href="/files/ocfavicon/City/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/files/ocfavicon/City/favicon.svg" />
+<link rel="shortcut icon" href="/files/ocfavicon/City/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/files/ocfavicon/City/apple-touch-icon.png" />
+<link rel="manifest" href="/files/ocfavicon/City/site.webmanifest" />
+
+    <!-- Preconnecting to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Defer Roboto font loading to avoid render-blocking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const robotoLink = document.createElement('link');
+            robotoLink.rel = 'stylesheet';
+            robotoLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap';
+            document.head.appendChild(robotoLink);
+        });
+    </script>
+
+    <style>
+        .gm-style, .gm-style * {
+            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+        }
+    </style>
+
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+        
+            <script type="text/javascript">
+                window.__oc_flags_ImprovedBreakpointEventHandling = true;
+            </script>
+            
+        
+    
+    
+    
+        <script type="text/javascript">
+            var __metaQueryBreakpoints = {
+                'sc-size-4': '(max-width: 480px)',
+                'sc-size-3': '(min-width: 480px) and (max-width: 768px)',
+                'sc-size-2': '(min-width: 768px) and (max-width: 992px)',
+                'sc-size-1': '(min-width: 992px)'
+            }
+
+            var __ocSizePoints = [
+                { min: 0, name: 'sc-size-4' },
+                { min: 480, name: 'sc-size-3' },
+                { min: 768, name: 'sc-size-2' },
+                { min: 992, name: 'sc-size-1' }
+            ];
+
+        </script>
+    
+
+    <!-- Framework Section -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/files/templates/00000000-0000-0000-0000-000000000000/15e071f9-da60-46e1-b325-8134bd10e9e0/v/206/jquery-3.6.0.min.js?seamlessts=639124143004107818" ><\/script>')</script>
+
+    <!--Google Maps API Loader – Improved Version to avoid Warning
+    This script loads the Google Maps JavaScript API using a dynamic and async method.
+    It replaces the old static <script> tag to avoid performance warnings from Google.
+
+    Dynamically creates the <script> tag with loading = async for better performance
+    Builds the API URL with required libraries(places, geometry, marker, geocoding)
+    Uses a Promise and callback(google.maps.__ib__) to confirm when the script is ready
+
+    It Avoids Google’s warning about direct script loading
+    Improves page load speed by loading the API asynchronously-->
+
+    
+        <script>
+            (function (root) {
+                root.OpenCities = root.OpenCities || {};
+                if (!root.OpenCities.GoogleMapsLoader) {
+                    root.OpenCities.GoogleMapsLoader = {
+                        _cbs: [],
+                        _ready: false,
+                        onReady: function (cb) {
+                            if (this._ready) { try { cb(); } catch (e) { console.error(e); } }
+                            else if (typeof cb === 'function') this._cbs.push(cb);
+                        },
+                        _fire: function () {
+                            if (this._ready) return;
+                            this._ready = true;
+                            var q = this._cbs.splice(0);
+                            for (var i = 0; i < q.length; i++) {
+                                try { q[i](); } catch (e) { console.error(e); }
+                            }
+                        }
+                    };
+                }
+            })(window);
+
+            (g => {
+                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                    m = document, b = window;
+                b = b[c] || (b[c] = {});
+                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    u = () => h || (h = new Promise(async (resolve, reject) => {
+                        a = m.createElement("script");
+                        e.set("libraries", [...r] + "");
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                        e.set("callback", c + ".maps." + q);
+                        a.src = "https://maps." + c + "apis.com/maps/api/js?" + e.toString();
+                        a.loading = "async";
+                        a.async = true;
+                        a.defer = true;
+                        d[q] = resolve;
+                        a.onerror = () => reject(Error(p + " could not load."));
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                        m.head.append(a);
+                    }));
+                if (d[l]) {
+                    console.warn(p + " only loads once. Ignoring duplicate load.");
+                } else {
+                    d[l] = (f, ...n) => (r.add(f), u().then(() => d[l](f, ...n)));
+                }
+            })({
+                key: "AIzaSyD6Mzh1XppB_MIe_3QiCk7P0VJYQBqcxkY",
+                v: "quarterly"
+            });
+
+            (async () => {
+                try {
+                    if (!google?.maps?.importLibrary) return;
+
+                    if (!window.OpenCities.__mapsLibsPromise) {
+                        window.OpenCities.__mapsLibsPromise = Promise.all([
+                            google.maps.importLibrary('maps'),
+                            google.maps.importLibrary('places'),
+                            google.maps.importLibrary('geocoding'),
+                            google.maps.importLibrary('marker'),
+                            google.maps.importLibrary('geometry')
+                        ]);
+                    }
+                    await window.OpenCities.__mapsLibsPromise;
+
+                    if (window.OpenCities?.GoogleMapsLoader) {
+                        window.OpenCities.GoogleMapsLoader._fire();
+                    }
+                } catch (err) {
+                    console.error('Google Maps failed to initialise', err);
+                }
+            })();
+        </script>
+    
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/15e071f9-da60-46e1-b325-8134bd10e9e0/v/206/modernizr.custom.710f3bf.js?seamlessts=639124143004107818" defer></script>
+    
+    <!--// End Framework Section -->
+    <!-- OpenCities Section -->
+    <script>
+        var OpenCities = OpenCities || {};
+        OpenCities.Paths = {
+            SiteTemplate: '/files/templates/00000000-0000-0000-0000-000000000000/15e071f9-da60-46e1-b325-8134bd10e9e0/v/206/',
+            ThemePath: '/files/templates/00000000-0000-0000-0000-000000000000/15e071f9-da60-46e1-b325-8134bd10e9e0/v/206/'
+        };
+    </script>
+    <script src='/ocapi/7aa80ffc-9d00-4ed0-86f3-d7929ae61de9/en-US/websitesettings.js'></script>
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/15e071f9-da60-46e1-b325-8134bd10e9e0/v/206/oc_head.js?applied=20260409085136"></script>
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/15e071f9-da60-46e1-b325-8134bd10e9e0/v/206/oc_grid.css~oc_grid_s1.css~oc_style.css~oc_wizard_style.css~oc_main.css~oc_forms.css~oc_wizard.css~oc_wizard_menu.css~oc_main_s1.css~oc_wizard_s1.css~oc_wizard_menu_s1.css~OcScriptCombine_Minify0?uniqueid=20260409085136" rel="stylesheet" type="text/css">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/15e071f9-da60-46e1-b325-8134bd10e9e0/v/206/client_style.css~client.css~client_menu.css~client_s1.css~client_menu_s1.css~client_forms.css~OcScriptCombine_Minify0?uniqueid=20260409085136" rel="stylesheet" type="text/css">
+    <script>
+(function (BackgroundSettings, $, undefined) {
+    BackgroundSettings.initialise = function () {
+        this.Application = {"CSSSelector":".content-outer-container","EnableFade":true};
+    };
+} (OpenCities.BackgroundSettings = OpenCities.BackgroundSettings || {}, jQuery));
+OpenCities.BackgroundSettings.initialise();
+</script>
+    
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/15e071f9-da60-46e1-b325-8134bd10e9e0/v/206/oc_print.css~client_print.css~OcScriptCombine_Minify0?uniqueid=20260409085136" rel="stylesheet" type="text/css" media="print">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<script src="/files/oc-templates/00000000-0000-0000-0000-000000000000/15e071f9-da60-46e1-b325-8134bd10e9e0/v/206/external_plugins.js~oc_form_helper.js~oc_main.js~plugins.js~oc_main_init.js~OcScriptCombine_Minify0?uniqueid=20260409085136" defer="true"></script>
+    
+    
+</head>
+<body class="body layout-modern  site-search-always-visble header-full-width content-type-oc-general content-template-oc-2-column group-template-oc-2-column-with-default-header page-name-page-not-found page-sequence-23 page-depth-1 page-section-23 website-type-primary device-desktop " id="body-top">
+    <form name="mainForm" method="post" action="/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf" id="mainForm">
+<input type="hidden" name="ctl04_seamless_script_manager_TSM" id="ctl04_seamless_script_manager_TSM" value="" />
+<input type="hidden" name="__SEAMLESSVIEWSTATE" id="__SEAMLESSVIEWSTATE" value="H4sIAAAAAAAEAAFwAI//mlvzd8pUGqJwZpochKetrSPrUV0ax8xB7YaY8r0A/bckLsGPpsxu3RLL8ZfU5SdDj5BzQl2L02wLIK/0Fw/dl8FHBQD1WcerPT6HC+w/NmZZEkOiF8fA9RGOFibKkIVQZMhgI4DbTEwgn6aUzTbjxwExen9wAAAA" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-GB%3aa8328cc8-0a99-4e41-8fe3-b58afac64e45%3aea597d4b" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=8_yzYpzJ_VDUgP3g6seve5hqozqML8ZbU-fGU8ICzLW-AFzPVZEz7YdUGkq3ONOfZU7eYP5G0dBK3qrwnspXFuQpbKhN6Axr3AcFdiMDtkazU5atUJowdi1z4RwMmeq0kMrkd0YCkqbLGUse7aKDSC_yRJHUaJm2R9mM6lE51dmfGQg186qZRi-gOkeURfTO9eZvwfuUVw1YhIkoNjr-dqaaCj_59fF_jwleADXB78RoK8_kl7udL8WsqUuupF6PtR3FTOPndwu8zw4WsF74_fEXppZcOzI2Fpw7g2ZTMjliPw4xWkJPLWlNDqvp7PenTaJG_OSCpNLqqeUp1XKupUl16UDo3DZWVTVO9q0h33Czo-8e1Uldrtn82yJ4PTKqTKsFMJ1PuMxJjdUKl1d9nLsKp_0T3nrV-m4AD6SgzXrJoBzry5SMIFwxRY0_VLn10" type="text/javascript"></script>
+    
+<script type="text/javascript">
+    try{
+        function SeamlessEndRequestHandler(sender, args) {
+            try {
+                var dataItems = args.get_dataItems();
+                if(dataItems.ctl04_seamless_script_manager)
+                    document.getElementById('__SEAMLESSVIEWSTATE').value = dataItems.ctl04_seamless_script_manager;
+            }
+            catch (e) { }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SeamlessEndRequestHandler);
+    }
+    catch (e) { }
+</script>
+
+    <div class="unsupported-browser-warning js-element"></div>
+    
+    <div hidden>
+        <span id="new-window-0">opens in new tab or window </span>
+    </div>
+    <div class="overlay-container"></div>
+    
+    <div class="background-container">
+        <div class="page-container">
+            <!-- OC Layout Element GROUP TEMPLATE -->
+            <!--groupTemplateStart--><div id="skip-to-content-container">
+        <a href='#main-content' class="visuallyhidden focusable" id='skip-to-content-link'>Skip to main content</a>
+    </div><header><div class="print-header-outer-container print-element">
+<img src="/files/templates/00000000-0000-0000-0000-000000000000/15e071f9-da60-46e1-b325-8134bd10e9e0/v/205/print-logo.svg" alt="City of West Palm Beach - Logo" />
+</div>
+            <div class="toolbar-outer-container">
+  <div class="toolbar-inner-container clearfix">
+    <div class="toolbar-item toolbar-quicklinks toolbar-display-dropdown">
+	<button type="button" aria-controls="toolbar-quicklinks-drop-down" aria-expanded="false" class="toolbar-button toolbar-button-quicklinks js-element"><span>Quick Links</span><i aria-hidden="true"></i></button>	
+	<div id="toolbar-quicklinks-drop-down" class="toolbar-drop-down toolbar-quicklinks-drop-down clearfix">
+		<ul>
+		  <li><a href="https://www.wpb.org/Departments/Human-Resources/Job-Opportunities" class="oc-icon-b oc-i--none link-type-internal"><span>Jobs</span></a></li><li><a href="https://www.wpb.org/Departments/Development-Services/Flood-Information" class="oc-icon-b oc-i--none link-type-internal"><span>Flood Info</span></a></li><li><a href="https://www.wpb.org/Our-City/Contacts" class="oc-icon-b oc-i--none link-type-internal"><span>Contact Us</span></a></li><li><a href="https://public.govdelivery.com/accounts/FLWPB/subscriber/new" class="oc-icon-b oc-i--none link-type-external" target="_blank"><span>Subscribe</span></a></li><li><a href="https://www.facebook.com/CityofWPB" class="oc-icon-b oc-i-facebook link-type-external link-hide-text" target="_blank"><span>Facebook</span></a></li><li><a href="https://x.com/thecityofwpb" class="oc-icon-b oc-i-x link-type-external link-hide-text" target="_blank"><span>Twitter</span></a></li><li><a href="https://www.instagram.com/thecityofwpb/" class="oc-icon-b oc-i-instagram link-type-external link-hide-text" target="_blank"><span>Instagram</span></a></li><li><a href="https://www.linkedin.com/company/westpalmbeachfl" class="oc-icon-b oc-i-linkedin link-type-external link-hide-text" target="_blank"><span>LinkedIn</span></a></li><li><a href="https://nextdoor.com/pages/city-of-west-palm-beach-1?init_source=copy_link_share" class="oc-icon-b oc-i-nextdoor link-type-external link-hide-text" target="_blank"><span>Nextdoor</span></a></li><li><a href="https://www.youtube.com/@WestPalmTV" class="oc-icon-b oc-i-youtube link-type-external link-hide-text"><span>Youtube</span></a></li>
+		</ul>
+	</div>
+</div>
+  </div>
+</div>
+            <div class="header-outer-container">
+    <div class="header-container header-layout-4  clearfix">
+			<div class="header-site-logo">
+				<a href="https://www.wpb.org/Home" lang="en-US" aria-label="City of West Palm Beach - Home - Logo">
+				</a>
+			</div>
+      
+		    <div class="mobile-search-btn js-element">
+		        <button><i aria-hidden="true"></i><span class="mobile-search-btn-text"><span class="visuallyhidden">Open </span>Search</span></button>
+		    </div>
+		    <div class="header-website-settings">
+                <button id="btn-mob-nav" type="button" aria-expanded="false" aria-controls="nav">
+                    <i aria-hidden="true"></i><span class="side-menu-btn-text">Menu</span>
+                </button>
+        	</div>
+          <div class="navigation-outer-container">
+	<div id="nav" role="navigation" class="navigation-container  navigation-container-option-8" data-menu-type="horizontal" aria-label="primary">
+        <div class="grid">
+            <div class="col-xs-12">              
+                <ul class="sf-menu mega-menu" id="sc-main-menu"><li class="nav-section-quarters-1   first-item nav-item-seq-1">
+<a href="https://www.wpb.org/Our-City" class="nav-level-1 nav-has-children"  target="">
+	<i class="item-icon" aria-hidden="true"></i><span class="item-text">Our City</span>
+</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level" class="second-level-container ch-19">
+
+          
+            <li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James" class="nav-has-children"  target="">Office of Mayor Keith A. James</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/About-Mayor-James"  target="">About Mayor James</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Hurricane-Readiness-Guide"  target="">Hurricane Readiness Guide</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Inside-West-Palm-Beach-Podcasts"  target="">Inside West Palm Beach Podcasts</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Mayors-Jumpstart-Academy"  target="">Mayor's Jumpstart Academy</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Hispanic-Liaison"  target="">Hispanic Liaison</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/LGBTQ-Liaison"  target="">LGBTQ+ Liaison</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Neighborhoods-First"  target="">Neighborhoods First</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Community-Service"  target="">Community Service</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/WPB-Key"  target="_blank">WPB Key</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Office-of-Communications"  target="_self">Office of Communications</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Office-of-Economic-Development"  target="">Office of Economic Development</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Office-of-Small-Business-Programs"  target="">Office of Small Business Programs</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Task-Force-on-Racial-Ethnic-Equality"  target="">Task Force on Racial & Ethnic Equality</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Community-and-Opportunity"  target="">Community and Opportunity</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Education-Grants"  target="">Education Grants Program</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Boards-and-Committees" class=""  target="">Boards and Committees</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/City-Administration" class=""  target="">City Administration</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/City-Clerk" class="nav-has-children"  target="">City Clerk</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/City-Clerk/City-Clerks-Resources"  target="">City Clerk's Resources</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/City-Clerk/Commission-CRA-Agendas"  target="">Commission & CRA  Agendas</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/City-Clerk/Domestic-Partnership"  target="">Domestic Partnership</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/City-Clerk/Election-Information"  target="">Election Information</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/City-Clerk/2026-Lobbyist-Registration"  target="">2026 Lobbyist Registration</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/City-Clerk/MayorCommission-Work-Sessions"  target="_self">Mayor / Commission Work Sessions</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/City-Clerk/Public-Records-Requests"  target="_blank">Public Records Requests</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/City-Clerk/Woodlawn-Cemetery"  target="">Woodlawn Cemetery</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/City-Commission" class="nav-has-children"  target="">City Commission</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/City-Commission/District-Maps"  target="_blank">City Commission District Maps</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Code-of-Ordinances" class=""  target="_blank">Code of Ordinances</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Meetings-Agendas" class=""  target="">Meetings & Agendas</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Calendars" class="nav-has-children"  target="">Calendars</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Calendars/Events"  target="">Events</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Calendars/Meetings"  target="">Meetings</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Contacts" class="nav-has-children"  target="">Contacts</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Contacts/Directory-of-City-Departments"  target="">Directory of City Departments</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Contacts/Hotline"  target="">Hotline</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Our-City/Contacts/Make-an-Appointment"  target="">Make an Appointment</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Accessibility" class=""  target="">Accessibility</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Address-Finder" class=""  target="_blank">Address Finder</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Important-City-Documents" class=""  target="">Important City Documents</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Privacy-Policy" class=""  target="">Privacy Policy</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Mission-and-Vision" class=""  target="">Mission and Vision</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Maps-and-GIS" class=""  target="_blank">Maps and GIS</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Public-Safety" class=""  target="">Public Safety</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Awards-Recognitions" class=""  target="">Awards & Recognitions</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/Stay-in-Touch" class=""  target="">Stay in Touch</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Our-City/History" class=""  target="">History</a></li></ul></li>
+          
+            <li class="nav-section-quarters-1   nav-item-seq-2">
+<a href="https://www.wpb.org/Residents" class="nav-level-1 nav-has-children"  target="">Residents</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level" class="second-level-container ch-13">
+
+          
+            <li class="second-level-item  "><a href="https://www.wpb.org/Residents/Online-Payments" class=""  target="">Online Payments</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/Directory-of-City-Departments" class=""  target="_blank">Directory of City Departments</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/Art-in-Public-Places" class=""  target="_self">Art in Public Places | West Palm Beach</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/Community-Events" class="nav-has-children"  target="">Community Events</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Residents/Community-Events/Events"  target="">Events</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Residents/Community-Events/Community-Events-Calendar"  target="">Community Events Calendar</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Residents/Community-Events/Directions-and-Parking"  target="">Directions and Parking</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Residents/Community-Events/Lake-Pavilion"  target="">Lake Pavilion</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Residents/Community-Events/Event-Permits"  target="">Event Permits</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Residents/Community-Events/FAQs"  target="">FAQs</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/Mandel-Public-Library" class=""  target="_self">Mandel Public Library of West Palm Beach</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/The-Park-Municipal-Golf-Course" class=""  target="_self">The Park - Municipal Golf Course</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/News-Releases" class=""  target="_self">News Releases</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/Parks-Recreation" class="nav-has-children"  target="_self">Parks & Recreation</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Residents/Parks-Recreation/Afterschool-and-Camp-Programs"  target="_self">Afterschool and Camp Programs</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Residents/Parks-Recreation/Athletics"  target="_self">Athletics</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Residents/Parks-Recreation/Parks-Facilities-Locations"  target="_self">Parks & Facilities Locations</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/Newsletters" class="nav-has-children"  target="_blank">Newsletters</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Residents/Newsletters/Insider-Newsletters"  target="_self">Insider Newsletters</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/WPB-TV18" class=""  target="_self">WPB-TV18</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/Road-and-Dock-Closures" class=""  target="_blank">Road and Dock Closures</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/Hurricane-Readiness-Guide" class=""  target="_self">Hurricane Readiness Guide</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Residents/Emergency-Communications" class=""  target="_blank">Emergency Communications</a></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-3">
+<a href="https://www.wpb.org/Business" class="nav-level-1 nav-has-children"  target="">Business</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level" class="second-level-container ch-7">
+
+          
+            <li class="second-level-item  "><a href="https://www.wpb.org/Business/Community-Redevelopment-Agency" class=""  target="_self">Community Redevelopment Agency</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Business/Procurement" class=""  target="_self">Procurement</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Business/Office-of-Small-Business-Programs" class=""  target="_blank">Office of Small Business Programs</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Business/Office-of-Economic-Development" class=""  target="_self">Office of Economic Development</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Business/SizeUp-West-Palm-Beach" class=""  target="_self">SizeUp West Palm Beach</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Business/Why-West-Palm-Beach" class=""  target="_blank">Why West Palm Beach?</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Business/Business-Tax" class=""  target="_self">Business Tax</a></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-4">
+<a href="https://www.wpb.org/Visitors" class="nav-level-1 "  target="_self">Visitors</a>
+</li>
+          
+            <li class="nav-section-quarters-3   nav-item-seq-5">
+<a href="https://www.wpb.org/Departments" class="nav-level-1 nav-has-children"  target="">Departments</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level" class="second-level-container ch-19">
+
+          
+            <li class="second-level-item  "><a href="https://www.wpb.org/Departments/Code-Enforcement" class=""  target="_self">Code Enforcement</a></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Communications" class="nav-has-children"  target="">Communications</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Communications/Emergency-Communications"  target="">Emergency Communication</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Communications/News-Releases"  target="">News  Releases</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Communications/Mayors-Insider-Newsletters"  target="">Mayor's Insider Newsletters</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Communications/WPB-TV"  target="">WPB-TV</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency" class="nav-has-children"  target="">Community Redevelopment Agency</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/Reports-and-Plans"  target="">Reports and Plans</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/Incentives"  target="">Incentives</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/View-the-latest-CRA-Meeting"  target="">View the latest CRA Meeting</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/CRA-Board-of-Directors"  target="">CRA Board of Directors</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/CRA-Advisory-Board"  target="">CRA Advisory Board</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/CRA-Staff"  target="">CRA Staff</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/Center-for-Smart-Streetscapes"  target="">Center for Smart Streetscapes</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/Community-Meetings"  target="">Community Meetings</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/WPB-CRA-News"  target="">WPB CRA News & Happenings</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/DowntownCity-Center"  target="">Downtown/City Center</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/NorthwoodPleasant-City"  target="">Northwood / Pleasant City</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/Sunset-Lounge"  target="">Sunset Lounge</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/Contact-Us"  target="">Contact Us</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/Opportunities"  target="">Opportunities for Surplus Properties in the CRA District</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Community-Redevelopment-Agency/Leasing-Opportunities"  target="">Leasing Opportunities in the CRA Districts</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Development-Services" class="nav-has-children"  target="">Development Services</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Planning-Division"  target="">Planning Division</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Building-Division"  target="">Building Division</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Business-Tax"  target="">Business Tax</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Development-Services-Records"  target="">Development Services Records</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Staff-Directory"  target="">Staff Directory</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Enterprise-Permitting-Licensing-EPL"  target="">EPL Guide & Information</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Flood-Information"  target="">Flood Information</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Developer-Outreach"  target="">Developer Outreach</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Forms-and-Documents"  target="">Forms and Documents</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Special-Events-Private-Property"  target="">Special Events - Private Property</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/Contact-Development-Services"  target="">Contact Development Services</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Development-Services/City-of-West-Palm-Beach-Mobility-Fee"  target="">City of West Palm Beach Mobility Fee</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Engineering" class="nav-has-children"  target="">Engineering</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/2025-Bicycle-Master-Plan"  target="">2025 Bicycle Master Plan</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Capital-Improvement-Program-CIP"  target="">Capital Improvement Program (CIP)</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Right-of-way-Permit-Viewer"  target="_blank">Right-of-way Permit Viewer</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Engineering-Forms-Permits-and-Applications"  target="">Engineering Forms, Permits and Applications</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Engineering-Standards-Details"  target="">Engineering Standards Details</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Ongoing-City-Projects"  target="">Ongoing City Projects</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Railroad-Safety"  target="">Railroad Safety</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Road-Resurfacing-Program"  target="">Road Resurfacing Program</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Traffic-Calming"  target="">Traffic Calming</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Traffic-Count"  target="">Traffic Count</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Mobility-Transportation"  target="">Mobility & Transportation</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Engineering/Contact-Us"  target="">Contact Us</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Finance" class="nav-has-children"  target="">Finance</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Finance/Budget-Division"  target="">Budget Division</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Finance/Budget-Planning"  target="">Budget Planning</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Finance/Accounting-Division"  target="">Accounting Division</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Finance/Cash-Investment-Debt-Management"  target="">Cash, Investment & Debt Management</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Finance/City-Lien-Search"  target="">City Lien Search</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Finance/Fire-Fee-Frequently-Asked-Questions"  target="">Fire Fee Frequently Asked Questions</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department" class="nav-has-children"  target="">Fire Department</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department/Message-from-the-Fire-Chief"  target="">Message from the Fire Chief</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department/WPBFD-Careers"  target="">WPBFD Careers</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department/Emergency-Management"  target="">Emergency Management</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department/Emergency-Medical-Services"  target="">Emergency Medical Services</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department/Fire-Prevention-Bureau"  target="">Fire Prevention Bureau</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department/Special-Operations"  target="">Special Operations</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department/Training-and-Safety-Division"  target="">Training and Safety Division</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department/Community-Outreach"  target="">Community Outreach</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department/Fire-Stations"  target="">Fire Stations</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Fire-Department/9-11-Memorial-Tribute"  target="">9-11 Memorial Tribute</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Grassy-Waters-Preserve" class="nav-has-children"  target="">Grassy Waters Preserve</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Grassy-Waters-Preserve/Public-Program-Calendar"  target="">Public Program Calendar</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Grassy-Waters-Preserve/Trail-Information"  target="">Trail Information</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Grassy-Waters-Preserve/Plan-Your-Visit"  target="">Plan Your Visit</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Grassy-Waters-Preserve/About-Grassy-Waters"  target="">About Grassy Waters</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Grassy-Waters-Preserve/For-Teachers"  target="">For Teachers</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Grassy-Waters-Preserve/Volunteering"  target="">Volunteering</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development" class="nav-has-children"  target="">Housing & Community Development</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/Programs-Incentives"  target="">Programs & Incentives</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/Your-Waterfront-Your-Way"  target="">Your Waterfront. Your Way.</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/Homeless-Activity"  target="">Homeless Report and Activity Reporter</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/WPB-and-FAMU-Partnership"  target="">WPB and FAMU Partnership</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/1400-in-8"  target="">1400 in 8</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/Surplus-Property-for-Affordable-Housing-Purposes"  target="">Surplus Property for Affordable Housing Purposes</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/Reports-and-Notices"  target="">Reports and Notices</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/Community-Partners"  target="">Community Partners</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/Community-Services-Division"  target="">Community Services Division</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/Consolidated-Plan"  target="">Housing Consolidated Plan for 2025-2029</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Housing-Community-Development/Code-Enforcement"  target="">Code Enforcement</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Human-Resources" class="nav-has-children"  target="">Human Resources</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Human-Resources/Benefits"  target="">Benefits</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Human-Resources/Employee-Relations"  target="">Employee Relations</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Human-Resources/FAQs"  target="">FAQs</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Human-Resources/Job-Opportunities"  target="">Job Opportunities</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Human-Resources/Risk-Management"  target="">Risk Management</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Human-Resources/STAR-Award"  target="">STAR Award</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Internal-Auditors-Office" class="nav-has-children"  target="">Internal Auditor's Office</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Internal-Auditors-Office/Audit-Plans"  target="">Audit Plans</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Internal-Auditors-Office/Reports-Peer-Reviews"  target="">Reports & Peer Reviews</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Internal-Auditors-Office/Audit-Committee-Meetings"  target="">Audit Committee Meetings</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Mandel-Public-Library-of-West-Palm-Beach" class="nav-has-children"  target="">Mandel Public Library of West Palm Beach</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Mandel-Public-Library-of-West-Palm-Beach/About-the-Library"  target="">About the Library</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Mandel-Public-Library-of-West-Palm-Beach/Activities"  target="">Activities</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Mandel-Public-Library-of-West-Palm-Beach/Browse-Borrow"  target="">Browse & Borrow</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Mandel-Public-Library-of-West-Palm-Beach/Research-Learn"  target="">Research & Learn</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Mandel-Public-Library-of-West-Palm-Beach/Services"  target="">Services</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Mandel-Public-Library-of-West-Palm-Beach/Support-the-Library"  target="">Support the Library</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration" class="nav-has-children"  target="">Parking & Mobility Administration</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Appeal-a-Parking-Citation"  target="">Appeal a Parking Citation</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/EV-Charging-Amenities"  target="">EV Charging & Amenities</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Parking-Locations"  target="">Parking Locations</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Parking-Permits"  target="">Parking Permits</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Pay-Your-Parking-Ticket"  target="">Pay Your Parking Ticket</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Rates-Payment"  target="">Rates & Payment</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Safety-Features-and-Contact-Information"  target="">Safety Features and Contact Information</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Valet-Parking"  target="">Valet Parking Operations Permit Application</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Garage-Parking-Permits"  target="">Garage Parking Permits</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Residential-Parking-Permits"  target="">Residential Parking Permits (RPP)</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Strategic-Plan-and-Budget"  target="">Strategic Plan and Budget</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parking-Mobility-Administration/Parking-Update"  target="">New Parking Software</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation" class="nav-has-children"  target="">Parks & Recreation</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/2020-Parks-Bond"  target="">2020 Parks Bond</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/Athletics"  target="">Athletics</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/Aquatics"  target="">Aquatics</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/City-Docks"  target="">City Docks and Sailing Instruction</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/Facility-Pavilion-Rentals"  target="">Facility & Pavilion Rentals</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/Out-of-School-and-Camp-Programs"  target="">Out of School and Camp Programs</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/Parks-Facilities"  target="">Parks & Facilities</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/The-Park-at-West-Palm-Beach"  target="">The Park at West Palm Beach</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/Volunteer-Services"  target="">Volunteer Services</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/Recreation"  target="">Recreation</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/Community-Events"  target="_self">Community Events</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/Parks-Bond-Projects-Update"  target="">Parks Bond Projects Update</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Parks-Recreation/Parks-Bond-Projects-Update-Continued"  target="">Parks Bond Projects Update Continued</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Police-Department" class="nav-has-children"  target="">Police Department</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Join-Our-Team"  target="">Join Our Team</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Department-Directory-Services"  target="">Department Directory & Services</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Police-Explorers"  target="">Police Explorers</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Police-Department-News-Releases"  target="">Police Department News Releases</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Police-Station-Lobby-Access"  target="">Police Station & Lobby Access</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Police-Police-Records-Request"  target="">Police Public Records Request</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Aerial-Drone-as-First-Responder-DFR"  target="">Aerial Drone as First Responder (DFR)</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Alarm-Permits-Ordinance-Information"  target="">Alarm Permits & Ordinance Information</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Dispatch"  target="">Dispatch</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Fallen-Officers"  target="">Fallen Officers</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/No-Trespassing-Signs"  target="">No Trespassing Signs</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Police-Department/Security-Camera-Registration"  target="_blank">Security Camera Registration</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Procurement" class="nav-has-children"  target="">Procurement</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Procurement/Codes-and-Directory"  target="">Codes and Directory</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Procurement/Solicitations"  target="">Solicitations</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Procurement/CCNA"  target="">CCNA</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Procurement/Procurement-FAQs"  target="">FAQs</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities" class="nav-has-children"  target="">Public Utilities</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Billing-Payments"  target="">Billing & Payments</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Bill-Explanation"  target="">Bill Explanation</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Protecting-Water-Quality-Source-to-Tap"  target="">Protecting Water Quality - Source to Tap</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Safe-Water-Dashboard"  target="">Safe Water Dashboard</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Water-Quality-Reports"  target="">Water Quality Reports</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Fats-Oil-Grease"  target="">Fats, Oil & Grease</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Report-Damage-by-an-Outside-Contractor"  target="">Report Damage by an Outside Contractor</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Cyanotoxin-Expert-Panel"  target="">Cyanotoxin Expert Panel</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Our-Watershed"  target="">Our Watershed</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Report-Water-Sewer-Emergencies"  target="">Report Water & Sewer Emergencies</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/BackflowCross-Connection"  target="">Backflow/Cross Connection</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/UV-System-and-Water-Plant"  target="">UV System and Water Plant</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Environmental-Management-System"  target="">Environmental Management System</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Water-Service-Line"  target="">Water Service Line Inventory</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Utilities/Stormwater"  target="">Stormwater Division</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Public-Works" class="nav-has-children"  target="">Public Works</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Works/Solid-Waste"  target="">Solid Waste</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Works/KWPBB"  target="">Keep West Palm Beach Beautiful</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Works/Street-Lighting-Maintenance"  target="">Street and Lighting Maintenance</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Works/Pickup-Schedule"  target="_blank">Pickup Schedule</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Public-Works/Request-for-Service"  target="_blank">Request for Service</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/Departments/Sustainability" class="nav-has-children"  target="">Sustainability</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Sustainability/City-Initiatives"  target="">City Initiatives</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Sustainability/Event-Calendar"  target="">Event Calendar</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Sustainability/Get-Involved"  target="">Get Involved</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Sustainability/Contact-Sustainability"  target="">Contact Sustainability</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Sustainability/Green-Living"  target="">Green Living</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Sustainability/Climate-Change"  target="">Climate Change</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/Departments/Sustainability/Sustainability-Newsletter"  target="">Sustainability Newsletter</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-3   nav-item-seq-6">
+<a href="https://www.wpb.org/I-Want-To" class="nav-level-1 nav-has-children"  target="">I Want To</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level" class="second-level-container ch-8">
+
+          
+            <li class="second-level-item  "><a href="https://www.wpb.org/I-Want-To/Apply-for-a" class="nav-has-children"  target="">Apply for a...</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Apply-for-a/Library-Card"  target="_self">Library Card</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Apply-for-a/Building-Permit"  target="_self">Building Permit</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Apply-for-a/GreenMarket-vendor-opportunity"  target="_self">GreenMarket vendor opportunity</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Apply-for-a/Lien-Reduction"  target="_blank">Lien Reduction</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Apply-for-a/Business-Tax-Receipt"  target="_self">Business Tax Receipt</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Apply-for-a/City-Job-Opportunity"  target="_self">City Job Opportunity</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Apply-for-a/SBE-MWBE-Certification"  target="_self">SBE MWBE Certification</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/I-Want-To/Contact" class="nav-has-children"  target="">Contact</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Contact/A-specific-department-at-the-City"  target="_self">A specific department at the City</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Contact/Mayor-Keith-A.-James"  target="_self">Mayor Keith A. James</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Contact/A-member-of-the-City-Commission"  target="_self">A member of the City Commission</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Contact/The-West-Palm-Beach-Police-Department"  target="_self">The West Palm Beach Police Department</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Contact/A-member-of-Code-Enforcement"  target="_self">A member of Code Enforcement</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/I-Want-To/Find" class="nav-has-children"  target="">Find...</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/My-trash-collection-service-days"  target="_blank">My trash collection service days</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/Downtown-Parking"  target="_blank">Downtown Parking</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/My-flood-zone"  target="_self">My flood zone</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/What-are-my-propertys-setbacks"  target="_blank">What are my property's setbacks?</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/A-lien-search"  target="_blank">A lien search</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/My-yard-trash-bulk-waste-pickup-days"  target="_blank">My yard trash / bulk waste pickup days</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/What-roads-and-docks-are-closed"  target="_self">What roads and docks are closed</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/A-propertys-code-case"  target="_blank">A property's code case</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/A-meeting-agenda"  target="_blank">A meeting agenda</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/The-Citys-Code-of-Ordinances"  target="_self">The City's Code of Ordinances</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Find/Community-Events"  target="_self">Community Events</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn" class="nav-has-children"  target="">Learn...</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/About-the-City-Budget"  target="_self">About the City Budget</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/How-to-prepare-for-hurricanes"  target="_blank">How to prepare for hurricanes</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/Bus-and-free-City-van-routes"  target="_blank">Bus and free City van routes</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/City-news-and-events"  target="_blank">City news and event</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/How-to-perform-at-a-City-event"  target="_blank">How to perform at a City event</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/Regulations-for-historic-properties"  target="_blank">Regulations for historic properties</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/Residential-landscape-requirements"  target="_blank">Residential landscape requirements</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/How-to-appeal-a-parking-ticket"  target="_blank">How to appeal a parking ticket</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/How-to-volunteer-for-the-City"  target="_blank">How to volunteer for the City</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/Requirements-to-rent-my-property"  target="_blank">Requirements to rent my property</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/How-to-request-the-Police-watch-my-home-during-vacation"  target="_blank">How to request the Police watch my home during vacation</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/Who-maintains-my-street-light"  target="_blank">Who maintains my street light?</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Learn/Where-the-City-Docks-are-located-and-is-there-a-cost"  target="_blank">Where the City Docks are located and is there a cost?</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/I-Want-To/Pay-my" class="nav-has-children"  target="">Pay my...</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Pay-my/Parking-ticket"  target="_blank">Parking ticket</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Pay-my/Sanitation-bill"  target="_blank">Sanitation bill</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Pay-my/Utility-Bill"  target="_blank">Utility Bill</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Pay-my/Venue-rental-fees"  target="_blank">Venue rental fees</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Pay-my/Library-meeting-room"  target="_blank">Library meeting room</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Pay-my/Business-Tax"  target="_blank">Business Tax</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Pay-my/For-my-permit"  target="_blank">For my permit</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/I-Want-To/Report-a" class="nav-has-children"  target="">Report a...</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Report-a/Abandoned-vehicle"  target="_blank">Abandoned vehicle</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Report-a/A-broken-sidewalk-or-curb"  target="_blank">A broken sidewalk or curb</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Report-a/Code-violation"  target="_blank">Code violation</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Report-a/Police-report-online"  target="_blank">Police report online</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Report-a/Pothole"  target="_blank">Pothole</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Report-a/Malfunctioning-traffic-light"  target="_blank">Malfunctioning traffic light</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Report-a/Damage-by-an-outside-utility-contractor"  target="_blank">Damage by an outside utility contractor</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Report-a/Report-water-sewer-emergencies"  target="_blank">Report water & sewer emergencies</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Report-a/Homeless-Activity"  target="_blank">Homeless Activity</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/I-Want-To/Request-a" class="nav-has-children"  target="">Request a...</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Request-a/No-trespassing-sign"  target="_self">No trespassing sign</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Request-a/Library-item"  target="_self">Library item</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Request-a/City-participation-in-a-neighborhood-meeting"  target="">City participation in a neighborhood meeting</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Request-a/Public-record"  target="_self">Public record</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Request-a/Property-survey"  target="_self">Property survey</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Request-a/New-trash-container"  target="_self">New trash container</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Request-a/Road-resurfacing"  target="_self">Road resurfacing</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Request-a/Weekly-insider-newsletter"  target="_blank">Weekly insider newsletter</a></li></ul></li><li class="second-level-item  "><a href="https://www.wpb.org/I-Want-To/Watch" class="nav-has-children"  target="">Watch ...</a><button aria-label="Expand" aria-controls="sc-menu-third-level" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Watch/WPB-TV-18-Live-Stream"  target="_blank">WPB TV 18 Live Stream</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Watch/WPB-TV-18-On-Demand"  target="_blank">WPB TV 18 On Demand</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Watch/The-latest-City-Commission-meeting"  target="_blank">The latest City Commission meeting</a></li><li  class="third-level-item  "><a href="https://www.wpb.org/I-Want-To/Watch/The-latest-CRA-meeting"  target="_blank">The latest CRA meeting</a></li></ul></li></ul></li>
+          
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+			
+			<div class="header-search-control-container" id="header-search">
+				<div class="search-inner-container">
+					<div class="sc-search-panel">
+	<label for="ctl07_txtSearch" id="ctl07_lblSearch" class="sc-search-label">Search</label><input name="ctl07$txtSearch" type="text" id="ctl07_txtSearch" class="sc-search-text" placeholder="How can we help you?" /><input type="submit" name="ctl07$btnSearch" value="Search" id="ctl07_btnSearch" class="sc-search-button" />
+</div>
+					<div role="status" id="predictiveResults"></div>
+				</div>
+			</div>
+    </div>
+</div>
+
+            
+            </header>
+            <div class="content-outer-container">
+                <div id="main" role="main" class="main-outer-container clearfix">
+                        
+                        <div class="content-main-container">
+                            <div class="grid">
+					            <div class="col-xs-12">
+						            <nav id="breadcrumbs-container" aria-label="You Are Here :">
+							            <span role="list">
+<span role="listitem">
+	<a href="https://www.wpb.org/Home"  lang="en-US">Home</a>
+	<span class="nav-separator" aria-hidden="true" role="presentation">/</span>
+</span>
+          <span class="current-page" role="listitem" aria-current="page" >Page Not Found</span></span>
+						            </nav>
+					            </div>
+                      
+					            <div class="col-xs-12">
+						            <div class="main-inner-container">
+                                        <div class="grid">							
+								            <div class="col-lg-4">								
+									            <div id="sub-navigation-outter-container" role="navigation" aria-label="Section Navigation">
+									            &nbsp;
+									            <div id="sub-navigation-container">
+                                
+									            </div>
+									            </div>
+								            </div>
+								            <div class="col-xs-12 col-lg-8">
+							                <div id="main-content" class="main-container clearfix">
+							                  
+                                <!-- OC Layout Element Conent Template -->
+							                  <!--normalTemplateStart--><h1 class='oc-page-title '>Page Not Found</h1>
+
+
+
+      
+
+
+<!--normalTemplateEnd-->
+                                
+                                
+                                
+							                </div>
+							                </div>
+							             </div>
+						            </div>
+						            </div>
+                        
+					                  </div>
+                        </div>
+                        <div class="back-to-top-container text-center">
+                            <a href="#body-top" id="back-to-top"><i aria-hidden="true"></i><span class="js-visuallyhidden">Back to top</span></a>
+                        </div>
+                </div>
+            </div><!--groupTemplateEnd-->
+            <footer>
+                
+                    <div class="footer-outer-container footer-first-row">
+                        <div class="footer-container clearfix">
+                            <div class="grid grid-pad">
+                                <div class="col-xs-12 col-s-6 col-m-3 col-lg-4 contact-us-widget" >
+	<h3 class="footer-title">Contact Us</h3>
+	<p>City of West Palm Beach</p>
+<p>401 Clematis Street</p>
+<p>West Palm Beach, FL 33401</p>
+<p><a href="https://maps.app.goo.gl/6S1q45QsFtHeQepM9" target="_blank" name="contact-map" id="contact-map" style="font-family: inherit; font-size: 1em;">View on Map</a></p>
+<p>City Hotline: <a href="tel:5618222222" style="font-family: inherit; font-size: 1em;">(561) 822-2222</a></p>
+<p>(TTY: <a href="tel:8009558771">800-955-8771</a>)</p>
+
+
+	<ul class="footer-links with-icons ">   </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 quick-links-widget" >
+	<h3 class="footer-title">Quick Links</h3>
+	
+	<ul class="footer-links without-icons ">  <li>
+<a href="https://www.wpb.org/Residents/Online-Payments" target="_self"  >Make a Payment</a>
+</li>
+          <li>
+<a href="https://www.wpb.org/Departments/Human-Resources/Job-Opportunities" target="_self"  >Jobs</a>
+</li>
+          <li>
+<a href="https://www.wpb.org/Departments/Development-Services/Enterprise-Permitting-Licensing-EPL" target="_blank"  >Permitting & Licensing</a>
+</li>
+          <li>
+<a href="https://www.wpb.org/Our-City/Meetings-Agendas" target="_self"  >Meeting & Agendas</a>
+</li>
+          <li>
+<a href="https://www.wpb.org/Residents/Community-Events" target="_self"  >Community Events</a>
+</li>
+          <li>
+<a href="https://www.wpb.org/Our-City/Public-Safety" target="_self"  >Public Safety</a>
+</li>
+          <li>
+<a href="https://www.wpb.org/Our-City/Important-City-Documents" target="_self"  >Transparency</a>
+</li>
+          <li>
+<a href="https://www.wpb.org/Our-City/Office-of-Mayor-Keith-A.-James/Hurricane-Readiness-Guide" target="_self"  >Hurricane Readiness Guide</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-12 col-m-6 col-lg-5 share-connect" >
+	<h3 class="footer-title">Share &amp; Connect</h3>
+	
+	<ul class="footer-links with-icons social-media-links">  <li class="footer-link-facebook">
+	<a href="https://www.facebook.com/CityofWPB" target="_blank"  >
+<i aria-hidden="true"></i>Facebook
+</a>
+</li>
+          <li class="footer-link-twitter">
+	<a href="https://x.com/thecityofwpb" target="_blank"  >
+<i aria-hidden="true"></i>Twitter
+</a>
+</li>
+          <li class="footer-link-instagram">
+	<a href="https://www.instagram.com/thecityofwpb" target="_blank"  >
+<i aria-hidden="true"></i>Instagram
+</a>
+</li>
+          <li class="footer-link-linkedin">
+	<a href="https://www.linkedin.com/company/westpalmbeachfl" target="_blank"  >
+<i aria-hidden="true"></i>LinkedIn
+</a>
+</li>
+          <li class="footer-link-youtube">
+	<a href="https://www.youtube.com/@WestPalmTV" target="_blank"  >
+<i aria-hidden="true"></i>Threads
+</a>
+</li>
+          <li class="footer-link-nextdoor">
+	<a href="https://nextdoor.com/agency-detail/fl/west-palm-beach/city-of-west-palm-beach-1/" target="_blank"  >
+<i aria-hidden="true"></i>Nextdoor
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://public.govdelivery.com/accounts/FLWPB/subscriber/new" target="_blank"  >
+<i aria-hidden="true"></i>Subscribe to Communications
+</a>
+</li>
+           </ul>
+	
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="footer-outer-container footer-second-row">
+                    <div class="footer-container clearfix">
+                        <div class="grid grid-pad footer-secondary-links">
+                            <div class="col-xs-12 col-m-7">
+                                
+                                    <div><a href="https://www.wpb.org/Our-City/Accessibility" target="_self"  >Accessibility Statement</a>&nbsp;| <a href="https://www.wpb.org/Our-City/Privacy-Policy" target="_self"  >Privacy Statement</a>&nbsp;| <a href="https://www.wpb.org/Our-City/Sitemap" target="_self"  >Sitemap</a></div>
+                                
+                            </div>
+                            <div class="col-xs-12 col-m-5 powered-by">
+                                <div class="right">
+                                    &copy; 2026 City of West Palm Beach&nbsp;|&nbsp;<span class="powered-by">Powered by <a href="https://granicus.com/solution/govaccess/opencities/" target="_blank">Granicus</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/files/oc-resources/c7a436db-d2b8-4ff1-ba77-f4f975dfb754/JsTextSnippets.js?ocsvclang=en-US" type="text/javascript"></script><script></script>
+    
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-03205161JC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-03205161JC');
+</script>
+
+<script async src="https://docaccess.com/docbox.js"></script>
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl04_seamless_script_manager_TSM');//]]>
+</script>
+</form>
+</body>
+</html>

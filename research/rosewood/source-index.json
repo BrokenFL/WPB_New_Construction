@@ -1,0 +1,116 @@
+{
+  "updated": "2026-05-21",
+  "project": "Rosewood Residences West Palm Beach",
+  "sources": [
+    {
+      "type": "official_city",
+      "title": "City of West Palm Beach Planning Board Agenda, May 19, 2026",
+      "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf",
+      "localCopy": "sources/wpb-planning-board-agenda-2026-05-19.pdf",
+      "factsSupported": [
+        "Planning Board Case No. 2025 (SP-25100073)",
+        "Applicant: 2001 N Flagler Drive Owner LLC",
+        "Request for Level III Special Review with variances",
+        "90-unit multifamily residential development",
+        "Currie Mixed-Use District - Core I",
+        "Approximately 0.78-acre tract",
+        "2001 North Flagler Drive",
+        "Commission District No. 1"
+      ]
+    },
+    {
+      "type": "state_record",
+      "title": "Florida Sunbiz detail for 2001 N Flagler Drive Owner LLC",
+      "url": "https://search.sunbiz.org/Inquiry/corporationsearch/SearchResultDetail?aggregateId=forl-m24000012113-8df260de-cfa7-4096-bca7-d51bfdfb732a&directionType=Initial&inquirytype=EntityName&listNameOrder=2001METS+L050001214010&searchNameOrder=2001NFLAGLERDRIVEOWNER+M240000121130&searchTerm=2001+METS+LLC",
+      "factsSupported": [
+        "Owner/applicant entity active status",
+        "Principal address",
+        "Manager/member entity"
+      ]
+    },
+    {
+      "type": "reputable_reporting",
+      "title": "Related Group, BH Group plan Rosewood Residences in West Palm Beach",
+      "publisher": "The Real Deal",
+      "published": "2026-04-10",
+      "url": "https://therealdeal.com/miami/2026/04/10/related-group-bh-group-plan-rosewood-west-palm-beach/",
+      "factsSupported": [
+        "Rosewood branding",
+        "Related Group and BH Group development team",
+        "27-story, 90-unit high-rise",
+        "More than 13,000 square feet of indoor amenities",
+        "Fifth-floor swimming pool",
+        "185 parking spaces",
+        "Average unit size around 3,400 square feet",
+        "Arquitectonica as architect"
+      ],
+      "assetNotes": "Contains editorial rendering credited to BH Group, Related Group, and Arquitectonica. Do not republish without permission."
+    },
+    {
+      "type": "reputable_reporting",
+      "title": "Related, BH seek height bonus for planned 27-story condo in West Palm Beach",
+      "publisher": "The Real Deal",
+      "published": "2025-10-27",
+      "url": "https://therealdeal.com/miami/2025/10/27/related-bh-seek-height-bonus-for-west-palm-beach-project/",
+      "factsSupported": [
+        "195-foot height bonus request",
+        "111-foot current zoning cap reported",
+        "Proposed 306-foot total height",
+        "Five-story parking podium plus 22-story tower",
+        "90 units",
+        "$4.8 million public benefit proposal"
+      ],
+      "assetNotes": "Contains editorial rendering. Do not republish without permission."
+    },
+    {
+      "type": "reputable_reporting",
+      "title": "BH, Related add West Palm Beach dev site to growing portfolio",
+      "publisher": "The Real Deal",
+      "published": "2024-10-17",
+      "url": "https://therealdeal.com/miami/2024/10/17/bh-group-related-group-buy-west-palm-beach-development-site/",
+      "factsSupported": [
+        "$34 million acquisition reported",
+        "0.8-acre property",
+        "Existing 9,900-square-foot medical office building",
+        "Current zoning and potential height path reported"
+      ],
+      "assetNotes": "Uses Google Maps / developer profile imagery. Do not republish without permission."
+    },
+    {
+      "type": "development_reporting",
+      "title": "Developers Propose Luxury 27-Story for 2001 N Flagler Dr, West Palm Beach, FL",
+      "publisher": "Florida YIMBY",
+      "published": "2026-01-29",
+      "url": "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",
+      "factsSupported": [
+        "27 stories",
+        "Just over 480,000 square feet of new construction",
+        "90 condos",
+        "Average unit size 3,382 square feet",
+        "Eight lower-level townhouses",
+        "More than 13,000 square feet of indoor amenities",
+        "Fifth-floor swimming pool",
+        "185 parking spaces",
+        "Arquitectonica as architect"
+      ],
+      "assetNotes": "Contains images credited to Arquitectonica and Google Earth. Treat as reference only."
+    },
+    {
+      "type": "local_real_estate_reporting",
+      "title": "Related, BH Plan 27-Story Rosewood Tower on North Flagler in West Palm",
+      "publisher": "Discover South Florida",
+      "published": "2026-04-26",
+      "updated": "2026-05-11",
+      "url": "https://www.discoversouthflorida.com/blog/rosewood-west-palm-beach-related-groups-27-story-plan/",
+      "factsSupported": [
+        "Rosewood Residences WPB summary",
+        "27 stories",
+        "90 units",
+        "Pricing not announced",
+        "Height bonus pending",
+        "No groundbreaking announced"
+      ],
+      "notes": "Useful local synthesis, but rely on official city records and The Real Deal/YIMBY for core facts."
+    }
+  ]
+}

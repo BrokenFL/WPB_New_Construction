@@ -273,6 +273,26 @@ const baseFeaturedProjects: FeaturedProject[] = [
     address: "1865 N Flagler Dr",
   },
   {
+    id: "rosewood",
+    name: "Rosewood Residences WPB",
+    corridor: "North Flagler",
+    corridorKey: "north-flagler",
+    status: "Planning / Pending Approvals",
+    delivery: "Timing not released",
+    deliveryYear: 2029,
+    residences: "90 proposed",
+    price: "Not released",
+    href: "?project=rosewood",
+    summary:
+      "A proposed Rosewood-branded waterfront tower by Related Group and BH Group at 2001 North Flagler, tracked as early intelligence while approvals, pricing, floorplans, and launch timing remain pending.",
+    floorplans: false,
+    pageState: "Planning watch",
+    rank: 3.5,
+    longitude: -80.05005,
+    latitude: 26.73135,
+    address: "2001 N Flagler Dr",
+  },
+  {
     id: "mr-c",
     name: "Mr. C",
     corridor: "Downtown",
@@ -1138,6 +1158,50 @@ const ritzFloorplanDownloads = [
 ];
 
 const projectPageDrafts: Record<string, ProjectPageDraft> = {
+  rosewood: {
+    kicker: "North Flagler Planning Watch",
+    title: "Rosewood Residences West Palm Beach",
+    intro:
+      "Rosewood is being tracked as a proposed North Flagler branded-residence tower, not a launched sales offering. Public materials point to a 27-story, 90-residence plan at 2001 North Flagler Drive, with approval status, pricing, floorplans, builder, and delivery timing still to be verified.",
+    imageAlt: "Rosewood Residences West Palm Beach planning-stage project context",
+    stage: "Proposed / pending approvals",
+    locationCopy:
+      "The proposed site sits at 2001 North Flagler Drive, immediately within the active North Flagler waterfront pipeline near Olara, Shorecrest, and The Ritz-Carlton Residences. Treat this as early planning intelligence until city approvals and official sales materials are released.",
+    facts: [
+      { label: "Address", value: "2001 N Flagler Dr" },
+      { label: "Status", value: "Proposed / pending approvals" },
+      { label: "Stories", value: "27 proposed" },
+      { label: "Residences", value: "90 proposed" },
+      { label: "Bedrooms", value: "Not released" },
+      { label: "Sq Ft", value: "Not released" },
+      { label: "Pricing", value: "Not released" },
+      { label: "Delivery", value: "Not released" },
+      { label: "Floorplans", value: "Not public" },
+    ],
+    team: [
+      { role: "Developer", name: "Related Group + BH Group", note: "Reported development team for the proposal." },
+      { role: "Brand", name: "Rosewood Hotels & Resorts", note: "Reported branding; operating details are not yet public." },
+      { role: "Architect", name: "Arquitectonica", note: "Reported architect for the planning-stage proposal." },
+      { role: "Advisor", name: advisorProfile.group, note: "Use buyer-side guidance before relying on early-stage public reporting." },
+    ],
+    highlights: [
+      { label: "Planning Signal", value: "27 stories", note: "Current public materials support a proposed 27-story tower." },
+      { label: "Supply Watch", value: "90 residences", note: "The current proposal would add another boutique branded option to North Flagler." },
+      { label: "Unknowns", value: "Pricing / timing", note: "No official public pricing, floorplans, completion date, or sales launch was found." },
+    ],
+    gallery: [],
+    documents: [
+      { label: "Advisor", title: "Request Rosewood planning update", note: "Latest approval status, pricing watch, and buyer guidance" },
+      { label: "Status", title: "No public sales packet yet", note: "Brochure, floorplans, and rights-clear imagery were not found." },
+    ],
+    needed: [
+      "Planning Board outcome and any approval conditions",
+      "Official project site or sales-team packet",
+      "Rights-clear renderings or developer-approved media kit",
+      "Floorplans, pricing, reservation process, and deposit schedule",
+      "Builder / general contractor and construction timing",
+    ],
+  },
   shorecrest: {
     kicker: "North Flagler Waterfront",
     title: "Shorecrest",
@@ -3600,7 +3664,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <p class="eyebrow">Residences</p>
           <h2>${residenceSectionTitle(project)}</h2>
           <p>${publicText(project.summary)}</p>
-          <a href="#project-resources-${project.id}">View floor plans <span aria-hidden="true">→</span></a>
+          <a href="#project-resources-${project.id}">${project.id === "rosewood" ? "View planning notes" : "View floor plans"} <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-tile-grid brochure-tile-grid-three" id="residences-${project.id}">
           ${residenceTiles.map((asset, index) => renderBrochureImageTile(asset, ["Typical floor plan", "Interior gallery", "Finishes & features"][index] ?? asset.title)).join("")}
@@ -3650,7 +3714,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <div class="brochure-research-panel">
           <p class="eyebrow">Buyer Resources</p>
           <h2>Compare residences, floorplans, and next steps.</h2>
-          <p>Access available floorplans, project details, and advisor guidance before you tour or reserve.</p>
+          <p>${project.id === "rosewood" ? "Review current planning notes and advisor guidance before relying on early public reporting." : "Access available floorplans, project details, and advisor guidance before you tour or reserve."}</p>
           <div class="brochure-download-list">
             ${draft.documents.map(renderProjectDocument).join("")}
             ${floorplanProject?.plans.slice(0, 4).map((plan) => renderGeneratedFloorplanLink(plan)).join("") ?? ""}
@@ -3774,6 +3838,7 @@ function neededFromSource(sourceFact: ReturnType<typeof sourceFactForProject> | 
 }
 
 function brochureHeadline(project: FeaturedProject) {
+  if (project.id === "rosewood") return "Rosewood Residences West Palm Beach";
   if (project.corridorKey === "downtown") return "Refined living in the heart of everything";
   if (project.corridorKey === "south-flagler") return "Waterfront living along South Flagler";
   return "New waterfront living on North Flagler";
@@ -3793,7 +3858,7 @@ function projectBrochureStats(project: FeaturedProject, draft: ProjectPageDraft,
     { label: "Sq Ft", value: sqFt },
     { label: "Pricing", value: pricing },
     { label: "Est. Completion", value: delivery },
-    { label: "Floorplans", value: floorplanCount ? `${floorplanCount} plans` : "On request" },
+    { label: "Floorplans", value: project.id === "rosewood" ? "Not public" : floorplanCount ? `${floorplanCount} plans` : "On request" },
   ];
 }
 
@@ -3819,7 +3884,17 @@ function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraf
 
 function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPageDraft) {
   const gallery = projectBrochureGallery(project, draft);
-  const labels = ["Rooftop pool & sun deck", "Wellness studio", "Resident lounge", "Private dining", "Landscaped courtyard", "Concierge services"];
+  const labels =
+    project.id === "rosewood"
+      ? [
+          "Indoor amenities reported",
+          "Fifth-floor pool reported",
+          "Parking count reported",
+          "Rosewood branding reported",
+          "Approval status pending",
+          "Media rights pending",
+        ]
+      : ["Rooftop pool & sun deck", "Wellness studio", "Resident lounge", "Private dining", "Landscaped courtyard", "Concierge services"];
   return labels.map((label, index) => ({
     ...(gallery[index % Math.max(gallery.length, 1)] ?? {
       src: project.image ?? siteMeta.defaultImage,
@@ -3916,17 +3991,18 @@ function renderProjectDocument(document: ProjectDocument) {
 function renderProjectSnapshotPanel(projectId: string) {
   const floorplanProject = getFloorplanProject(projectId);
   const floorplanCount = floorplanProject?.count ?? 0;
+  const isRosewood = projectId === "rosewood";
   return `
     <section class="asset-status-strip" aria-label="Project snapshot">
       <article>
         <span>Project Media</span>
-        <strong>Gallery available</strong>
-        <small>Curated imagery, residence visuals, and location context for buyer review.</small>
+        <strong>${isRosewood ? "Awaiting approved media" : "Gallery available"}</strong>
+        <small>${isRosewood ? "No rights-clear official Rosewood image package has been found." : "Curated imagery, residence visuals, and location context for buyer review."}</small>
       </article>
       <article>
         <span>Floorplans</span>
-        <strong>${floorplanCount ? `${floorplanCount} plan records` : "Available on request"}</strong>
-        <small>${floorplanCount ? `Released plans and packet references are organized for quick comparison.` : "Request the current project packet for available plans."}</small>
+        <strong>${isRosewood ? "Not public" : floorplanCount ? `${floorplanCount} plan records` : "Available on request"}</strong>
+        <small>${isRosewood ? "No public Rosewood WPB floorplan packet has been found." : floorplanCount ? `Released plans and packet references are organized for quick comparison.` : "Request the current project packet for available plans."}</small>
       </article>
       <article>
         <span>Advisor</span>

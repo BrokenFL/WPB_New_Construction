@@ -1,0 +1,53 @@
+{
+  "slug": "rosewood",
+  "name": "Rosewood Residences West Palm Beach",
+  "updated": "2026-05-21",
+  "officialWebsite": null,
+  "address": "2001 North Flagler Drive, West Palm Beach, FL 33407",
+  "addressNote": "City Planning Board agenda and development reporting identify the site as 2001 North Flagler Drive. No official Rosewood WPB project microsite was found as of this update.",
+  "corridor": "North Flagler",
+  "status": "Proposed / pending city approvals",
+  "developer": "Related Group and BH Group",
+  "applicantOrOwnerEntity": "2001 N Flagler Drive Owner LLC",
+  "brandOperator": "Rosewood Hotels & Resorts",
+  "architect": "Arquitectonica",
+  "interiorDesigner": "Not publicly confirmed",
+  "landscapeArchitect": "Not publicly confirmed",
+  "builderOrGC": "Not publicly confirmed",
+  "salesAndMarketing": "Not publicly confirmed",
+  "storyCount": "27 stories proposed",
+  "heightNote": "Reporting says the proposal seeks a 195-foot height bonus to reach about 306 feet, above an as-of-right cap reported at 111 feet.",
+  "structureSummary": "Five-story parking podium plus 22-story residential tower reported",
+  "residenceCount": "90 proposed residences",
+  "unitMix": [
+    "90 multifamily residential units / condominiums proposed",
+    "Average unit size reported around 3,382 to 3,400 square feet",
+    "Eight lower-level townhouses reported by Florida YIMBY; confirm before publishing prominently"
+  ],
+  "amenityList": [
+    "More than 13,000 square feet of indoor amenities reported",
+    "Fifth-floor swimming pool reported",
+    "185 parking spaces reported",
+    "Rosewood-branded residential service program not yet publicly detailed"
+  ],
+  "priceRange": "Not announced",
+  "deliveryDate": "Not announced",
+  "expectedTopOffDate": "Not announced",
+  "floorplans": "Not publicly available",
+  "brochure": "Not publicly available",
+  "salesGalleryContact": null,
+  "statusNotes": [
+    "Use planned, proposed, and pending-approval language.",
+    "Do not say now selling, approved, under construction, or delivering in a specific year until official materials confirm it.",
+    "No rights-clear official image package, brochure, logo, or floorplans were found.",
+    "A Level III Special Review with variances appeared on the City of West Palm Beach Planning Board agenda for May 19, 2026; the outcome still needs verification."
+  ],
+  "sourceUrls": [
+    "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf",
+    "https://therealdeal.com/miami/2026/04/10/related-group-bh-group-plan-rosewood-west-palm-beach/",
+    "https://therealdeal.com/miami/2025/10/27/related-bh-seek-height-bonus-for-west-palm-beach-project/",
+    "https://therealdeal.com/miami/2024/10/17/bh-group-related-group-buy-west-palm-beach-development-site/",
+    "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",
+    "https://www.discoversouthflorida.com/blog/rosewood-west-palm-beach-related-groups-27-story-plan/"
+  ]
+}
