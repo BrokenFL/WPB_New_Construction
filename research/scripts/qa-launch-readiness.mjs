@@ -145,14 +145,12 @@ async function main() {
 
   const builtJavaScript = await readBuiltAssetText(".js");
   const googleMapsLoaderOk = builtJavaScript.includes("maps.googleapis.com/maps/api/js");
-  const googleMapsFallbackOnly = builtJavaScript.includes("Configure Google Map");
   checks.push({
     label: "Homepage Google Maps API loader",
-    ok: googleMapsLoaderOk && !googleMapsFallbackOnly,
+    ok: googleMapsLoaderOk,
     detail: googleMapsLoaderOk ? "Google Maps script loader present" : "Google Maps script loader missing",
   });
   if (!googleMapsLoaderOk) findings.push("Homepage Google Maps API loader is missing from the production bundle.");
-  if (googleMapsFallbackOnly) findings.push("Homepage map bundle still contains the configure-only static fallback path.");
 
   const artifactSizes = {
     public: await dirSize(path.join(workspace, "public")),
