@@ -57,6 +57,7 @@ type FeaturedProject = {
 
 type Route =
   | { type: "home"; projectId?: undefined }
+  | { type: "corridor"; corridorKey: CorridorKey; projectId?: undefined }
   | { type: "news"; projectId?: undefined }
   | { type: "inquire"; projectId?: undefined }
   | { type: "floorplans"; projectId?: undefined }
@@ -77,6 +78,7 @@ type CorridorSection = {
   label: string;
   detail: string;
   reviewNote: string;
+  description: string;
 };
 
 type NewsItem = {
@@ -84,6 +86,14 @@ type NewsItem = {
   title: string;
   summary: string;
   tag: string;
+};
+
+type BlogPost = {
+  id: string;
+  label: string;
+  title: string;
+  summary: string;
+  href: string;
 };
 
 type ResearchNewsItem = {
@@ -209,6 +219,12 @@ const staticRoutePaths: Record<string, string> = {
   "/privacy/": "privacy",
   "/terms/": "terms",
   "/inquire/": "inquire",
+};
+
+const corridorRoutePaths: Record<string, CorridorKey> = {
+  "/corridors/north-flagler/": "north-flagler",
+  "/corridors/downtown/": "downtown",
+  "/corridors/south-flagler/": "south-flagler",
 };
 
 const baseFeaturedProjects: FeaturedProject[] = [
@@ -836,18 +852,51 @@ const corridorSections: CorridorSection[] = [
     label: "North Flagler",
     detail: "Alba, Olara, Shorecrest, Ritz-Carlton",
     reviewNote: "Waterfront comparison corridor with the deepest active plan and image inventory.",
+    description:
+      "North Flagler is the densest new-construction comparison set in West Palm Beach. Buyers here are usually weighing direct Intracoastal exposure, large amenity programs, branded service, construction timing, and how each tower handles views toward Palm Beach.",
   },
   {
     key: "downtown",
     label: "Downtown",
     detail: "NORA House, Mr. C",
     reviewNote: "Urban lifestyle corridor where hotel-branded and district projects need current availability checks.",
+    description:
+      "Downtown is the walkability play. It is less about a single waterfront view and more about restaurants, rail access, hotel-style service, and the city becoming easier to live in without driving for every errand.",
   },
   {
     key: "south-flagler",
     label: "South Flagler",
     detail: "South Flagler House",
     reviewNote: "Southern waterfront benchmark for buyers comparing scale, privacy, and Palm Beach proximity.",
+    description:
+      "South Flagler reads quieter and more residential. Buyers tend to compare privacy, Palm Beach proximity, larger residences, calmer waterfront rhythm, and whether a delivered building or new launch better fits the ownership plan.",
+  },
+];
+
+const blogPosts: BlogPost[] = [
+  {
+    id: "how-to-pick-corridor",
+    label: "Buyer Strategy",
+    title: "Pick the corridor before you pick the tower.",
+    summary:
+      "North Flagler, Downtown, and South Flagler solve different problems. The cleanest shortlist starts with how you want to live, then tests buildings against timing, view, service, and plan depth.",
+    href: "/answers/#how-should-i-shortlist-projects",
+  },
+  {
+    id: "views-need-stack-plans",
+    label: "View Due Diligence",
+    title: "A water-view rendering is not a view guarantee.",
+    summary:
+      "Ask for stack plans, floor height, exposure, neighboring tower positions, balcony depth, and future development risk before treating any view premium as durable.",
+    href: "/answers/#view-corridor-evaluation",
+  },
+  {
+    id: "tour-with-packet",
+    label: "Tour Prep",
+    title: "Do not tour without the current packet.",
+    summary:
+      "Availability, pricing, incentives, fees, and delivery timing move quickly. The better first tour starts with a current buyer packet and a shortlist that compares the same facts across each building.",
+    href: "/inquire/",
   },
 ];
 
@@ -1747,71 +1796,43 @@ app.innerHTML = `
       <section class="home-atlas-feature" id="atlas" aria-label="West Palm Beach project atlas">
         <div class="home-atlas-copy">
           <p class="eyebrow">Buyer Atlas</p>
-          <h2>See the market by water, district, and timing.</h2>
-          <p>The strongest decisions start with geography. North Flagler, Downtown, and South Flagler each carry a different mix of service, walkability, privacy, and delivery risk.</p>
+          <h2>${featuredProjects.length} tracked projects across three corridors.</h2>
+          <p>Use the map for orientation first. The next section breaks the market into North Flagler, South Flagler, and Downtown so you can open the projects that belong to each area.</p>
           <div class="home-atlas-facts" aria-label="West Palm Beach atlas summary">
             <span>North Flagler waterfront cluster</span>
             <span>Downtown branded residences</span>
             <span>South Flagler privacy corridor</span>
           </div>
         </div>
-        <aside class="home-hero-map-card home-atlas-map-card" aria-label="Featured West Palm Beach project map">
+        <aside class="home-hero-map-card home-atlas-map-card home-atlas-map-only" aria-label="Featured West Palm Beach project map">
           <figure class="hero-map-preview">
             <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
             <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
           </figure>
-          <div class="hero-map-list">
-            <div class="hero-map-list-head">
-              <strong>${featuredProjects.length} projects</strong>
-              <a href="#projects">View all</a>
-            </div>
-            ${rankedFeaturedProjects.slice(0, 7).map((project, index) => `
-              <a class="hero-map-row" href="${projectPath(project)}">
-                <span>${String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <strong>${project.name}</strong>
-                  <small>${project.delivery} | ${project.residences} residences</small>
-                </div>
-                <em aria-hidden="true">›</em>
-              </a>
-            `).join("")}
+          <div class="home-map-count" aria-label="Map project count">
+            <strong>${featuredProjects.length}</strong>
+            <span>tracked West Palm Beach new-construction projects</span>
           </div>
-          <button class="hero-map-cta" type="button" data-map-expand>Explore map <span aria-hidden="true">↗</span></button>
         </aside>
-      </section>
-
-      <section class="home-editorial-bridge" aria-label="Featured West Palm Beach waterfront edit">
-        <div class="editorial-bridge-copy">
-          <p class="eyebrow">Waterfront Edit</p>
-          <h2>Start with the addresses setting the new-construction tone.</h2>
-          <p>Before the full atlas, focus on the projects defining the current buyer conversation: branded service, North Flagler waterfront scale, walkable downtown energy, and South Flagler privacy.</p>
-        </div>
-        <div class="editorial-spotlight-grid">
-          ${rankedFeaturedProjects.slice(0, 3).map((project, index) => `
-            <a class="editorial-spotlight-card" href="${projectPath(project)}">
-              ${project.image ? `<img src="${project.image}" alt="${project.name} waterfront project preview" />` : ""}
-              <span>${String(index + 1).padStart(2, "0")} · ${project.corridor}</span>
-              <strong>${project.name}</strong>
-            </a>
-          `).join("")}
-        </div>
       </section>
 
       <section class="home-corridor-guide" aria-label="Choose a West Palm Beach new-construction corridor">
         <div class="section-heading corridor-heading">
           <p class="eyebrow">Choose Your Corridor</p>
-          <h2>Each waterfront decision has a different rhythm.</h2>
+          <h2>Click a corridor header to see only its projects.</h2>
         </div>
         <div class="corridor-guide-grid">
           ${corridorSections.map((section) => {
             const count = featuredProjects.filter((project) => project.corridorKey === section.key).length;
             return `
               <article class="corridor-guide-card">
-                <span>${section.label}</span>
-                <strong>${section.detail}</strong>
-                <p>${section.reviewNote}</p>
+                <a class="corridor-card-heading" href="${corridorPath(section.key)}">
+                  <span>${section.label}</span>
+                  <strong>${section.detail}</strong>
+                </a>
+                <p>${section.description}</p>
                 <small>${count} tracked project${count === 1 ? "" : "s"}</small>
-                <a href="#projects">View corridor <span aria-hidden="true">→</span></a>
+                <a href="${corridorPath(section.key)}">View ${section.label} projects <span aria-hidden="true">→</span></a>
               </article>
             `;
           }).join("")}
@@ -1827,6 +1848,16 @@ app.innerHTML = `
           ${researchNewsFeed.slice(0, 3).map(renderHomeNewsItem).join("")}
         </div>
         <a class="home-answer-archive-link" href="/updates/">Read all market updates <span aria-hidden="true">→</span></a>
+      </section>
+
+      <section class="home-blog-section" aria-label="WPB New Construction buyer blog">
+        <div class="section-heading">
+          <p class="eyebrow">Buyer Blog</p>
+          <h2>How to read the market before you tour.</h2>
+        </div>
+        <div class="home-blog-grid">
+          ${blogPosts.map(renderBlogPostCard).join("")}
+        </div>
       </section>
 
       <section class="project-sort-shell" id="projects">
@@ -1859,17 +1890,6 @@ app.innerHTML = `
           </div>
       </section>
 
-      <section class="home-answer-section" aria-label="West Palm Beach new-construction buyer questions">
-        <div class="section-heading">
-          <p class="eyebrow">Buyer Q&A</p>
-          <h2>Questions worth answering before you tour.</h2>
-        </div>
-        <div class="home-answer-grid">
-          ${answerEngineFaq.slice(0, 4).map(renderHomeAnswerCard).join("")}
-        </div>
-        <a class="home-answer-archive-link" href="/answers/">Read the full buyer Q&A library <span aria-hidden="true">→</span></a>
-      </section>
-
       <section class="home-conversion-band" aria-label="Request current West Palm Beach new-construction guidance">
         <div>
           <p class="eyebrow">Private Advisory</p>
@@ -1884,6 +1904,8 @@ app.innerHTML = `
         <a href="/inquire/">Request Guidance <span aria-hidden="true">↗</span></a>
       </section>
       </div>
+
+      ${corridorSections.map(renderCorridorRouteView).join("")}
 
       <div class="route-view route-view-news" data-route-view="news" hidden>
       <section class="comparison-band" aria-label="Waterfront project comparison">
@@ -2544,6 +2566,23 @@ app.innerHTML = `
       </section>
       </div>
     </main>
+    <aside class="site-chat-assistant" data-chat-assistant aria-label="WPB buyer assistant">
+      <button class="chat-toggle" type="button" data-chat-toggle aria-expanded="false">Ask WPB</button>
+      <div class="chat-panel" data-chat-panel hidden>
+        <div class="chat-panel-head">
+          <span>Buyer Assistant</span>
+          <button type="button" data-chat-close aria-label="Close buyer assistant">x</button>
+        </div>
+        <div class="chat-thread" data-chat-thread aria-live="polite">
+          <p><strong>Ask about a building, corridor, timing, floorplans, or current availability.</strong></p>
+          <p>I can point you to the right guide page, then ask whether you want to be connected with an advisor.</p>
+        </div>
+        <form class="chat-form" data-chat-form>
+          <input name="question" type="text" autocomplete="off" placeholder="Ask about Olara, North Flagler, floorplans..." />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </aside>
     <footer class="site-footer">
       <div>
         <strong>WPB New Construction</strong>
@@ -2622,6 +2661,8 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
   }
 });
 
+initBuyerAssistant();
+
 function queueLeadLocally(leadRecord: Record<string, string>) {
   try {
     const existing = JSON.parse(window.localStorage.getItem("wpbLeadQueue") ?? "[]");
@@ -2631,6 +2672,73 @@ function queueLeadLocally(leadRecord: Record<string, string>) {
   } catch {
     // Lead capture still continues through the form endpoint or mailto fallback.
   }
+}
+
+function initBuyerAssistant() {
+  const panel = document.querySelector<HTMLElement>("[data-chat-panel]");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-chat-toggle]");
+  const close = document.querySelector<HTMLButtonElement>("[data-chat-close]");
+  const form = document.querySelector<HTMLFormElement>("[data-chat-form]");
+  const input = form?.querySelector<HTMLInputElement>('input[name="question"]');
+  const thread = document.querySelector<HTMLElement>("[data-chat-thread]");
+
+  if (!panel || !toggle || !form || !input || !thread) {
+    return;
+  }
+
+  const setOpen = (isOpen: boolean) => {
+    panel.hidden = !isOpen;
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    if (isOpen) {
+      input.focus();
+    }
+  };
+
+  toggle.addEventListener("click", () => setOpen(Boolean(panel.hidden)));
+  close?.addEventListener("click", () => setOpen(false));
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const question = input.value.trim();
+    if (!question) {
+      return;
+    }
+    appendChatMessage(thread, question, "user");
+    appendChatMessage(thread, answerBuyerAssistantQuestion(question), "assistant");
+    input.value = "";
+  });
+}
+
+function appendChatMessage(thread: HTMLElement, message: string, role: "user" | "assistant") {
+  const node = document.createElement("p");
+  node.className = `chat-message chat-message-${role}`;
+  node.textContent = message;
+  thread.append(node);
+  thread.scrollTop = thread.scrollHeight;
+}
+
+function answerBuyerAssistantQuestion(question: string) {
+  const normalized = question.toLowerCase();
+  const project = featuredProjects.find((project) => normalized.includes(project.name.toLowerCase()) || normalized.includes(project.id.replace(/-/g, " ")));
+  const corridor = corridorSections.find((section) => normalized.includes(section.label.toLowerCase()) || normalized.includes(section.key.replace(/-/g, " ")));
+
+  if (project) {
+    return `${project.name} is in ${project.corridor}. The quickest next step is its project page: ${projectPath(project)}. If you want live availability, pricing, or floorplans, I can connect you with an advisor through /inquire/.`;
+  }
+
+  if (corridor) {
+    return `${corridor.label} has ${featuredProjects.filter((project) => project.corridorKey === corridor.key).length} tracked projects. Start here: ${corridorPath(corridor.key)}. From there, compare buildings and request current availability when your shortlist is ready.`;
+  }
+
+  if (normalized.includes("floor") || normalized.includes("plan")) {
+    return "The floorplan library is at /floorplans/. Public plan material is only the starting point, so request the current packet before relying on availability, stack, or pricing.";
+  }
+
+  if (normalized.includes("agent") || normalized.includes("advisor") || normalized.includes("contact") || normalized.includes("connect")) {
+    return "Yes. Use /inquire/ and include the buildings or corridors you are considering. That routes the request toward a manual advisor follow-up.";
+  }
+
+  return "Start with corridor, timing, floorplans, and view exposure. You can ask about a specific building, North Flagler, South Flagler, Downtown, floorplans, or whether you would like to be connected with an advisor.";
 }
 
 async function submitLeadForm(form: FormData) {
@@ -2661,6 +2769,7 @@ function applyRoute() {
   const shell = document.querySelector<HTMLElement>(".site-shell");
   const views = Array.from(document.querySelectorAll<HTMLElement>("[data-route-view]"));
   const activeProject = route.type === "project" ? featuredProjects.find((project) => project.id === route.projectId) : undefined;
+  const activeCorridor = route.type === "corridor" ? corridorSections.find((section) => section.key === route.corridorKey) : undefined;
 
   shell?.setAttribute("data-active-route", route.type);
   shell?.setAttribute("data-active-project", route.projectId ?? "");
@@ -2674,7 +2783,11 @@ function applyRoute() {
     "fair-housing": "Fair Housing | WPB New Construction",
     inquire: "Inquire | WPB New Construction",
   };
-  document.title = activeProject ? `${activeProject.name} | WPB New Construction` : routeTitles[route.type] ?? siteMeta.title;
+  document.title = activeProject
+    ? `${activeProject.name} | WPB New Construction`
+    : activeCorridor
+      ? `${activeCorridor.label} Projects | WPB New Construction`
+      : routeTitles[route.type] ?? siteMeta.title;
 
   updateMetaDescription(route.type, activeProject);
   updateStructuredData(route.type, activeProject);
@@ -2684,7 +2797,9 @@ function applyRoute() {
     const isActive =
       route.type === "project"
         ? viewType === "project" && view.dataset.projectId === route.projectId
-        : viewType === route.type;
+        : route.type === "corridor"
+          ? viewType === "corridor" && view.dataset.corridorRoute === route.corridorKey
+          : viewType === route.type;
 
     view.hidden = !isActive;
   });
@@ -2710,7 +2825,7 @@ function applyRoute() {
 }
 
 function getActiveNavItem(route: Route) {
-  if (route.type === "project") {
+  if (route.type === "project" || route.type === "corridor") {
     return "projects";
   }
   if (route.type === "home") {
@@ -2745,6 +2860,11 @@ function getCurrentRoute(): Route {
   const pathView = staticRoutePaths[window.location.pathname];
   if (pathView) {
     return { type: pathView } as Route;
+  }
+
+  const corridorKey = corridorRoutePaths[window.location.pathname];
+  if (corridorKey) {
+    return { type: "corridor", corridorKey };
   }
 
   const projectPathMatch = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/);
@@ -3021,13 +3141,61 @@ function renderFeatureCard(asset: MediaAsset) {
   `;
 }
 
+function corridorPath(key: CorridorKey) {
+  return `/corridors/${key}/`;
+}
+
+function renderCorridorRouteView(section: CorridorSection) {
+  const projects = rankedFeaturedProjects.filter((project) => project.corridorKey === section.key);
+  return `
+    <div class="route-view route-view-corridor" data-route-view="corridor" data-corridor-route="${section.key}" hidden>
+      <section class="section intelligence-hero corridor-route-hero">
+        <div>
+          <p class="eyebrow">Choose Your Corridor</p>
+          <h1>${section.label}</h1>
+          <p>${section.description}</p>
+        </div>
+        <aside class="answer-meta-panel">
+          <span>${projects.length} tracked project${projects.length === 1 ? "" : "s"}</span>
+          <strong>${section.detail}</strong>
+          <small>Use this page to compare only the ${section.label} set, then request current availability before touring.</small>
+        </aside>
+      </section>
+      <section class="project-sort-shell corridor-project-shell">
+        <div class="project-sort-header">
+          <div>
+            <p class="eyebrow">Corridor Projects</p>
+            <h2>${section.label} buildings currently tracked.</h2>
+            <p class="selected-filter-summary">These are the buildings assigned to ${section.label}. Return to all buildings when you want a citywide comparison.</p>
+          </div>
+          <a class="corridor-back-link" href="/#projects">All buildings <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="front-project-grid front-project-grid-static">
+          ${projects.map(renderFeaturedProject).join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+function renderBlogPostCard(post: BlogPost) {
+  return `
+    <article class="home-blog-card" id="${escapeHtml(post.id)}">
+      <span>${escapeHtml(post.label)}</span>
+      <h3>${escapeHtml(post.title)}</h3>
+      <p>${escapeHtml(post.summary)}</p>
+      <a href="${safeHref(post.href)}">Read more <span aria-hidden="true">→</span></a>
+    </article>
+  `;
+}
+
 function imageProviderLabel(src: string) {
   const sourceName = imageSourceName(src);
   return `Image: ${sourceName}`;
 }
 
 function imageCaptionShort(src: string) {
-  return imageSourceName(src);
+  return projectLabelForImage(src) ?? imageSourceName(src);
 }
 
 function canShowImage(src: string) {
@@ -3086,7 +3254,12 @@ function imageSourceName(src: string) {
 }
 
 function imageCreditShort(src: string) {
-  return imageSourceName(src);
+  return projectLabelForImage(src) ?? imageSourceName(src);
+}
+
+function projectLabelForImage(src: string) {
+  const project = featuredProjects.find((project) => src.includes(`/projects/${project.id}/`));
+  return project ? `${project.name} | ${project.corridor}` : undefined;
 }
 
 function gatekeeperText(value: unknown) {
@@ -3497,7 +3670,7 @@ function newsImageForItem(item: ResearchNewsItem) {
   if (generatedImage && (generatedImage.startsWith("/maps/") || canShowImage(generatedImage))) {
     return {
       image: generatedImage,
-      credit: item.image?.credit ?? imageCreditShort(generatedImage),
+      credit: projectLabelForImage(generatedImage) ?? imageCreditShort(generatedImage),
       relatedProject,
     };
   }
@@ -3570,17 +3743,6 @@ function renderGeneratedFloorplanLink(plan: (typeof floorplanLibrary)[number]["p
 
 function answerShortLabel(item: (typeof answerEngineFaq)[number]) {
   return item.shortLabel;
-}
-
-function renderHomeAnswerCard(item: (typeof answerEngineFaq)[number], index: number) {
-  return `
-    <article class="home-answer-card">
-      <span>${String(index + 1).padStart(2, "0")} · ${escapeHtml(item.shortLabel)}</span>
-      <h3>${publicText(item.question)}</h3>
-      <p>${publicText(item.answer)}</p>
-      <a href="/answers/#${escapeHtml(item.id)}">Read answer <span aria-hidden="true">→</span></a>
-    </article>
-  `;
 }
 
 function renderAnswerFactMatrix() {
@@ -4143,7 +4305,7 @@ function initProjectBrowser() {
     return;
   }
 
-  const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-project-card]"));
+  const cards = Array.from(grid.querySelectorAll<HTMLElement>("[data-project-card]"));
   const pins = Array.from(document.querySelectorAll<HTMLElement>("[data-map-pin]"));
   let activeFilter = "all";
 

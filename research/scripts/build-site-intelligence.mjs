@@ -1384,6 +1384,101 @@ function buildNewsFeed(projects, floorplans, images) {
       "Buyer-facing development news feed refreshed from reviewed public material. Publish after human review of titles, facts, and source links.",
     items: [
       {
+        id: "mandarin-oriental-interiors-revealed",
+        title: "Mandarin Oriental interiors move the North Flagler comparison beyond skyline renderings",
+        summary:
+          "Recent reporting highlighted the first interior renderings for Mandarin Oriental Residences, West Palm Beach, giving buyers more to compare than tower massing and brand name alone.",
+        category: "North Flagler",
+        datePublished: "2026-05-18",
+        dateModified: "2026-05-22",
+        projectIds: ["mandarin-oriental", "olara", "ritz-carlton-wpb"],
+        sourceName: "Florida YIMBY",
+        sourceUrl:
+          "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",
+        sourceLinks: [
+          {
+            label: "Florida YIMBY Mandarin Oriental interior rendering coverage",
+            href:
+              "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",
+            sourceType: "development news coverage",
+          },
+          sourceLinkForProject(projectById.get("mandarin-oriental")),
+        ].filter(Boolean),
+        rewrittenSummary:
+          "Mandarin Oriental is still a long-horizon North Flagler option, but interior imagery gives buyers a better read on service tone, finish direction, and whether the brand premium belongs in the same shortlist as Olara, Ritz-Carlton, and Shorecrest.",
+        image: newsImageForProjects(["mandarin-oriental", "olara", "ritz-carlton-wpb"], images),
+        citations: [
+          "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
+          "The article describes the project as a planned 31-story luxury condominium tower at 5400 North Flagler Drive.",
+        ],
+        status: "Reviewed",
+      },
+      {
+        id: "rosewood-north-flagler-planning",
+        title: "Rosewood planning notes add another branded watch item to North Flagler",
+        summary:
+          "Recent project research and local planning material point to Rosewood Residences as another North Flagler branded-residence watch item, but buyers should treat it as early-stage until public plan details mature.",
+        category: "North Flagler",
+        datePublished: "2026-05-19",
+        dateModified: "2026-05-22",
+        projectIds: ["rosewood", "ritz-carlton-wpb", "mandarin-oriental"],
+        sourceName: "West Palm Beach planning materials",
+        sourceUrl:
+          "https://www.wpb.org/",
+        sourceLinks: [
+          {
+            label: "West Palm Beach planning materials reviewed",
+            href: "https://www.wpb.org/",
+            sourceType: "city planning material",
+          },
+          sourceLinkForProject(projectById.get("rosewood")),
+        ].filter(Boolean),
+        rewrittenSummary:
+          "Rosewood belongs on the buyer radar, not in the same decision bucket as projects with deeper released sales material. Track it for future North Flagler supply pressure while continuing to compare available buildings by current packet, timing, and view stack.",
+        image: newsImageForProjects(["rosewood", "ritz-carlton-wpb", "mandarin-oriental"], images),
+        citations: [
+          "Local planning materials reviewed in May 2026 identify Rosewood as a North Flagler branded-residence watch item.",
+          "The buyer use is pipeline awareness, not current pricing or availability reliance.",
+        ],
+        status: "Review before reliance",
+      },
+      {
+        id: "nora-house-local-coverage",
+        title: "NORA House keeps Downtown's ownership story in the local news cycle",
+        summary:
+          "Recent local coverage continues to frame NORA House as the first for-sale residential anchor inside the growing NORA district, shifting the downtown discussion from restaurants only to actual ownership inventory.",
+        category: "Downtown",
+        datePublished: "2026-04-10",
+        dateModified: "2026-05-22",
+        projectIds: ["nora-house", "mr-c", "banyan-tree"],
+        sourceName: "WFLX and World Red Eye",
+        sourceUrl:
+          "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/",
+        sourceLinks: [
+          {
+            label: "WFLX NORA House local coverage",
+            href:
+              "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/",
+            sourceType: "local news coverage",
+          },
+          {
+            label: "World Red Eye NORA House district coverage",
+            href:
+              "https://worldredeye.com/2026/03/wre-news-nora-house-anchors-residential-expansion-in-west-palm-beachs-nora-district/",
+            sourceType: "development news coverage",
+          },
+          sourceLinkForProject(projectById.get("nora-house")),
+        ].filter(Boolean),
+        rewrittenSummary:
+          "NORA House matters because it turns Downtown/NORA from a dining-and-retail story into a for-sale residential comparison. Buyers should verify delivery timing, parking, view exposure, and how daily life works once the district is fully active.",
+        image: newsImageForProjects(["nora-house", "mr-c", "banyan-tree"], images),
+        citations: [
+          "WFLX reported in April 2026 that NORA's next development phase includes an 11-story condominium building called NORA House.",
+          "World Red Eye previously reported NORA House will bring 117 residences and nearly 19,000 square feet of ground-floor commercial space to North Railroad Avenue.",
+        ],
+        status: "Reviewed",
+      },
+      {
         id: "shorecrest-construction-loan",
         title: "Shorecrest financing pushes the North Flagler cluster toward construction",
         summary:
@@ -2053,6 +2148,24 @@ function buildPrerenderRoutes() {
       path: "/updates/",
       title: "Market Updates | WPB New Construction",
       description: "West Palm Beach new-construction market updates translated into practical buyer context.",
+      ogImage: siteMeta.defaultImage,
+    },
+    {
+      path: "/corridors/north-flagler/",
+      title: "North Flagler Projects | WPB New Construction",
+      description: "North Flagler West Palm Beach new-construction projects organized for buyer comparison.",
+      ogImage: siteMeta.defaultImage,
+    },
+    {
+      path: "/corridors/downtown/",
+      title: "Downtown Projects | WPB New Construction",
+      description: "Downtown West Palm Beach new-construction projects organized for buyer comparison.",
+      ogImage: siteMeta.defaultImage,
+    },
+    {
+      path: "/corridors/south-flagler/",
+      title: "South Flagler Projects | WPB New Construction",
+      description: "South Flagler West Palm Beach new-construction projects organized for buyer comparison.",
       ogImage: siteMeta.defaultImage,
     },
     {

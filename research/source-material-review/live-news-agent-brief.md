@@ -14,13 +14,14 @@ Run from the repository root:
 npm run news:refresh
 npm run build
 npm run qa:launch
+npm run qa:gatekeeper
 ```
 
 ## Source Targets
 
-- Official project websites, developer press pages, brochures, and legal notices.
-- PR Newswire or direct developer/brand announcements.
-- Reputable reporting: The Real Deal, Florida YIMBY, South Florida Business Journal, Palm Beach Post, World Red Eye, and city records.
+- Reputable reporting: The Real Deal, Florida YIMBY, South Florida Business Journal, Palm Beach Post, WFLX, World Red Eye, and city records.
+- Project websites, project press pages, brochures, public filings, and legal notices when needed for evidence.
+- PR Newswire or direct brand/project announcements only as supporting evidence, not as the default public story angle.
 - Brokerage or SEO pages only as secondary leads, with facts marked for confirmation.
 
 ## Story Rules
@@ -28,7 +29,10 @@ npm run qa:launch
 - Add stories only when they change buyer decisions: delivery, construction status, sales launch, pricing, floorplans, financing, approvals, team changes, or notable inventory context.
 - Rewrite summaries in buyer-facing language; do not copy article text.
 - Keep `sourceUrl`, `sourceName`, `sourceLinks`, and date metadata attached to every item.
+- Homepage story cards should prioritize the most current reputable article leads, not only project announcements.
 - Do not add a story image unless the image is already authorized or user-provided for site use.
+- Public image captions should read `Building Name | Corridor`, for example `Olara | North Flagler`.
+- Do not expose outbound links to project sponsor sites, sales offices, or project sales pages in the public card UI.
 - If a source conflicts with existing facts, keep the conflict in the research notes and use conservative public wording.
 
 ## Handoff
