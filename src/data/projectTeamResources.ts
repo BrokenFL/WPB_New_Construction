@@ -1,13 +1,13 @@
 export type ProjectTeamResource = {
   projectId: string;
-  role: "Developer" | "Builder" | "Architect" | "Interior Designer" | "Landscape Architect" | "Brand Partner" | "Sales Team";
+  role: "Developer" | "Builder" | "Architect" | "Interior Designer" | "Landscape Architect" | "Brand Partner" | "Sales" | "Other";
   name: string;
   websiteUrl?: string;
   imagePath?: string;
   imageStatus: "available" | "needs-sourcing" | "placeholder";
   caption: string;
   sourceUrl?: string;
-  notes: string;
+  notes?: string;
 };
 
 export const projectTeamResources: readonly ProjectTeamResource[] = [

@@ -13,6 +13,8 @@ This site should show developer, builder, architect, designer, landscape, brand,
 
 Team imagery review records live in `src/data/projectTeamResources.ts`.
 
+Each record supports `projectId`, `role`, `name`, optional `websiteUrl`, optional `imagePath`, `imageStatus`, optional `sourceUrl`, `caption`, and optional `notes`. Supported roles are Developer, Builder, Architect, Interior Designer, Landscape Architect, Brand Partner, Sales, and Other.
+
 ## Current Review Priorities
 
 - Olara: confirm developer/team imagery and publication rights.

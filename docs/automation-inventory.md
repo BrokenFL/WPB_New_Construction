@@ -13,6 +13,7 @@
 - `npm run review:developer-images` generates the review report for imported imagery.
 - `npm run check:updates` validates imported project updates.
 - `npm run qa:copy` checks public copy for awkward operational language.
+- `npm run qa:image-repetition` checks repeated image use and project/corridor image mismatches.
 - `npm run qa:performance` checks image and bundle budgets.
 - `npm run assets:duplicates` writes a duplicate-asset inventory for review.
 
@@ -31,6 +32,7 @@
 ## Recommended Daily Maintenance Schedule
 
 - 9:00 AM local time: run `npm run daily:maintenance`.
+- The daily maintenance run is review-first: it imports/reviews candidate images, checks updates, copy, image repetition, performance, and duplicate assets, then writes `research/source-material-review/daily-maintenance-report.md`.
 - Human review after the daily report: approve or reject news, image, and copy findings before anything new is promoted publicly.
 - Weekly: run the full launch QA stack and review duplicate-asset recommendations before deleting or moving files.
 

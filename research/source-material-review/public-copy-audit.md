@@ -24,12 +24,14 @@
 - Project pages used a rich related-news card grid at the bottom, which made buyer updates feel like a feed module rather than a simple project note.
 - Public copy and data used phrases such as "watch item," "not publicly confirmed," and "source-linked updates" more heavily than a buyer needs.
 - Source and review workflow wording existed in public-adjacent JSON and generated text, so QA now has a stronger copy gate.
+- Local rendered-route scan on 2026-05-22 found no visible `backend`, `front-end`, `future CRM`, `review queue`, `needs review`, `needs-sourcing`, `source-material`, `public-source record`, `data model`, or `generated` language in the reviewed routes.
 
 ## Rewrites Applied
 
 - Project-page update sections now use "Recent project notes" with text rows, simple source lines, and direct source/inquiry links.
 - The project-update intro now explains what buyers should verify: pricing, availability, fees, and timing.
 - Public copy QA now flags operational phrases before launch.
+- Project visual modules now use placeholders when team/amenity imagery is missing instead of repeating the same render and exposing resource gaps through awkward copy.
 
 ## Remaining Copy Risks
 

@@ -1,19 +1,19 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-22T16:07:01.990Z",
-    "filesScanned": 1727,
-    "duplicateHashGroups": 323,
-    "duplicateExtraBytes": 433075634,
+    "generatedAt": "2026-05-22T16:31:01.488Z",
+    "filesScanned": 1776,
+    "duplicateHashGroups": 339,
+    "duplicateExtraBytes": 433634446,
     "sourceDuplicateHashGroups": 322,
     "sourceDuplicateExtraBytes": 431072268,
     "publicOnlyDuplicateHashGroups": 3,
     "publicOnlyDuplicateExtraBytes": 2033973,
-    "qaDuplicateHashGroups": 0,
-    "qaDuplicateExtraBytes": 0,
+    "qaDuplicateHashGroups": 16,
+    "qaDuplicateExtraBytes": 558812,
     "previousDuplicateExtraBytes": 433075634,
     "previousSourceDuplicateExtraBytes": 431072268,
-    "duplicateExtraByteDelta": 0,
+    "duplicateExtraByteDelta": 558812,
     "sourceDuplicateExtraByteDelta": 0
   },
   "policy": "Inventory only. Do not delete files from this report without explicit human approval; use it to choose canonical files and archive/move candidates.",
@@ -37,6 +37,11 @@
       "action": "Replace per-project copies with one shared internal placeholder reference.",
       "groups": 1,
       "extraBytes": 2003366
+    },
+    {
+      "action": "Archive older QA screenshots after approval.",
+      "groups": 16,
+      "extraBytes": 558812
     }
   ],
   "groups": [
@@ -5043,6 +5048,25 @@
       ]
     },
     {
+      "hash": "8f01ec90474a8bfdb15e60444abbcb8f418f3387019ee84b1dd6599300548ab2",
+      "count": 2,
+      "eachBytes": 108824,
+      "extraBytes": 108824,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-23-01-089Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-23-01-089Z.yml",
+          "size": 108824
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-28-077Z.yml",
+          "size": 108824
+        }
+      ]
+    },
+    {
       "hash": "1d22df10d9c2b5af31ad40458c2f6b1d10e7fafb82c6175523fcb18dad165fa6",
       "count": 2,
       "eachBytes": 107680,
@@ -5077,6 +5101,29 @@
         {
           "path": "research/asset-library/projects/olara/user-supplied/07_Residences_Primary_Bathroom-864x1024.jpg",
           "size": 106977
+        }
+      ]
+    },
+    {
+      "hash": "e87e8434fb47f0f6312f41a8cd79fb5ec35f326e2338a23c54323a67c9851e44",
+      "count": 3,
+      "eachBytes": 52465,
+      "extraBytes": 104930,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-21-42-086Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-21-42-086Z.yml",
+          "size": 52465
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-22-48-741Z.yml",
+          "size": 52465
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-17-001Z.yml",
+          "size": 52465
         }
       ]
     },
@@ -5366,6 +5413,25 @@
       ]
     },
     {
+      "hash": "38dc1b0932b5b5688a49faf70702e46d01611cec99b913d84eda5b4cf83e99fa",
+      "count": 2,
+      "eachBytes": 56223,
+      "extraBytes": 56223,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-23-02-914Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-23-02-914Z.yml",
+          "size": 56223
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-29-941Z.yml",
+          "size": 56223
+        }
+      ]
+    },
+    {
       "hash": "9b14d1cd3e60e791afec4692c83b6385912464db69bca2fc60cc0c63173e11a8",
       "count": 2,
       "eachBytes": 56168,
@@ -5457,6 +5523,25 @@
         {
           "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-thumb-480.jpg",
           "size": 53210
+        }
+      ]
+    },
+    {
+      "hash": "160a626617ab71497701231301b16b7f64fc5da42ff19ed7f760d7a089afef24",
+      "count": 2,
+      "eachBytes": 52184,
+      "extraBytes": 52184,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-22-50-552Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-22-50-552Z.yml",
+          "size": 52184
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-18-868Z.yml",
+          "size": 52184
         }
       ]
     },
@@ -5556,6 +5641,29 @@
       ]
     },
     {
+      "hash": "0a6937e0d0306f1b8419e42c86dcb40cf6dd8d20a76a7c5b4956028c0b93308e",
+      "count": 3,
+      "eachBytes": 21669,
+      "extraBytes": 43338,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-23-12-046Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-23-12-046Z.yml",
+          "size": 21669
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-39-368Z.yml",
+          "size": 21669
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-27-38-155Z.yml",
+          "size": 21669
+        }
+      ]
+    },
+    {
       "hash": "aa17d70c9f38d65089fecd2f587738e80a9f095bfbfeb323b1f97ef785b29217",
       "count": 2,
       "eachBytes": 43104,
@@ -5594,6 +5702,29 @@
       ]
     },
     {
+      "hash": "39690299d074c2ad058539e67cd5778e1aca0995e63459f424b6a04960d8b1a1",
+      "count": 3,
+      "eachBytes": 19792,
+      "extraBytes": 39584,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-23-10-261Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-23-10-261Z.yml",
+          "size": 19792
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-37-618Z.yml",
+          "size": 19792
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-27-36-273Z.yml",
+          "size": 19792
+        }
+      ]
+    },
+    {
       "hash": "d456b25b3ed0ede90139861d8dd09c2e4233d7bc9fe9ca442b5005a26fdf7b22",
       "count": 2,
       "eachBytes": 37848,
@@ -5609,6 +5740,29 @@
         {
           "path": "research/asset-library/preferred-image-exports/nora-house/hero-nora-house-exterior-thumb-480.jpg",
           "size": 37848
+        }
+      ]
+    },
+    {
+      "hash": "b11e0b5f52c6ecc79f9934ae8ea89fa6895dabb03b895b7b4ef0c37eb5fbda26",
+      "count": 3,
+      "eachBytes": 18795,
+      "extraBytes": 37590,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-23-06-605Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-23-06-605Z.yml",
+          "size": 18795
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-33-796Z.yml",
+          "size": 18795
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-25-04-178Z.yml",
+          "size": 18795
         }
       ]
     },
@@ -5796,6 +5950,82 @@
       ]
     },
     {
+      "hash": "d8c5780ef1cfdb62815ddb49990388230784185e363c86ced6fb6f1a052d8c90",
+      "count": 2,
+      "eachBytes": 17920,
+      "extraBytes": 17920,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-23-24-632Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-23-24-632Z.yml",
+          "size": 17920
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-35-853Z.yml",
+          "size": 17920
+        }
+      ]
+    },
+    {
+      "hash": "42e2d9f939351ac3599ea44dcee98b3f5d171afdc9c03de1f877e3115e45eb53",
+      "count": 2,
+      "eachBytes": 17068,
+      "extraBytes": 17068,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-23-17-602Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-23-17-602Z.yml",
+          "size": 17068
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-44-817Z.yml",
+          "size": 17068
+        }
+      ]
+    },
+    {
+      "hash": "646d220b01f8852733bc44d682e53f940daa803ffc328dc5fbb84f8d783a8430",
+      "count": 2,
+      "eachBytes": 17034,
+      "extraBytes": 17034,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-23-13-972Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-23-13-972Z.yml",
+          "size": 17034
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-41-171Z.yml",
+          "size": 17034
+        }
+      ]
+    },
+    {
+      "hash": "b1c0ee1741f8eaeda276c8052577d13750bac181298392685ff31aa3083f0eb5",
+      "count": 2,
+      "eachBytes": 15243,
+      "extraBytes": 15243,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-23-15-792Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-23-15-792Z.yml",
+          "size": 15243
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-43-020Z.yml",
+          "size": 15243
+        }
+      ]
+    },
+    {
       "hash": "89afc0189713637ef987ae0c483a0ec7d87ac7a34f90ba231f65cdcadc59d152",
       "count": 2,
       "eachBytes": 15212,
@@ -5869,6 +6099,44 @@
       ]
     },
     {
+      "hash": "57b31ab777842b194a0b45bd4cd07725382cd0cb73cc37aeaa2395f584213cc3",
+      "count": 2,
+      "eachBytes": 11211,
+      "extraBytes": 11211,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-22-55-314Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-22-55-314Z.yml",
+          "size": 11211
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-22-559Z.yml",
+          "size": 11211
+        }
+      ]
+    },
+    {
+      "hash": "3ef3b1a2c089ebd3cb2752f061caab6056bab5f8e114d5b223a8b94bfbf686fd",
+      "count": 2,
+      "eachBytes": 10877,
+      "extraBytes": 10877,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-23-04-745Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-23-04-745Z.yml",
+          "size": 10877
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-31-772Z.yml",
+          "size": 10877
+        }
+      ]
+    },
+    {
       "hash": "b2509730971d5de05346e554b641c63f91d8cbdf7ce367695e11bf72ae2be2ba",
       "count": 2,
       "eachBytes": 9844,
@@ -5884,6 +6152,63 @@
         {
           "path": "research/asset-library/projects/ritz-carlton-wpb/team-logos/developer--bh-group--logo--dc294953.webp",
           "size": 9844
+        }
+      ]
+    },
+    {
+      "hash": "fa22a1ba1ceec7863c47c6e7563c43bd2aa1d335fbb431ba115900878f6a7eca",
+      "count": 2,
+      "eachBytes": 9703,
+      "extraBytes": 9703,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-22-58-973Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-22-58-973Z.yml",
+          "size": 9703
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-26-243Z.yml",
+          "size": 9703
+        }
+      ]
+    },
+    {
+      "hash": "35944ba61f1df8c965f5a37ae37efe8e1a8df42a6afb41e6f5e41f36f039e27c",
+      "count": 2,
+      "eachBytes": 8543,
+      "extraBytes": 8543,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-22-53-472Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-22-53-472Z.yml",
+          "size": 8543
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-20-702Z.yml",
+          "size": 8543
+        }
+      ]
+    },
+    {
+      "hash": "7edcce3c1b09dad6d5a739c7e72f394bba3ed370f3bab603f25ddd83f999124a",
+      "count": 2,
+      "eachBytes": 8540,
+      "extraBytes": 8540,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T16-22-57-172Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-22-57-172Z.yml",
+          "size": 8540
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T16-24-24-385Z.yml",
+          "size": 8540
         }
       ]
     },

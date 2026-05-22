@@ -1,6 +1,6 @@
 # Launch QA Report
 
-Generated: 2026-05-22T16:09:17.070Z
+Generated: 2026-05-22T16:31:18.450Z
 
 ## Summary
 
@@ -62,8 +62,8 @@ Generated: 2026-05-22T16:09:17.070Z
 - public/: 566.0 MB
 - research/: 717.7 MB
 - dist/: 251.7 MB
-- .playwright-cli/: 69.7 KB
-- output/: 7.7 MB
+- .playwright-cli/: 2.6 MB
+- output/: 7.8 MB
 - Duplicate inventory: 322 source groups, 411.1 MB source extra bytes, delta 0 B
 
 ## Manual QA Still Required

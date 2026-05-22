@@ -6,19 +6,23 @@ const workspace = process.cwd();
 const distRoot = path.join(workspace, "dist");
 const wranglerVersion = process.env.WRANGLER_VERSION?.trim() || "4.93.0";
 const projectName = process.env.CLOUDFLARE_PAGES_PROJECT?.trim() || "wpbnewconstruction";
-const attempts = [0, 30_000, 60_000, 120_000, 240_000, 300_000];
+const retryDelays = [30_000, 60_000, 120_000, 240_000, 300_000];
+const maxAttempts = retryDelays.length;
 const args = new Set(process.argv.slice(2));
 const skipChecks = args.has("--skip-checks") || process.env.SHIP_LIVE_SKIP_CHECKS === "1";
 
 async function main() {
   console.log(`Cloudflare Pages deploy: ${projectName}`);
-  console.log(`Wrangler version: ${wranglerVersion}`);
+  console.log(`Wrangler version: pinned wrangler@${wranglerVersion}`);
 
   await runPreflight();
   await stripDeployJunk();
   await printLocalBundles();
+  const beforeBundles = await printLiveBundles("before deploy");
+  await printCloudflareDiagnostics();
   await deployWithRetry();
-  await printLiveBundles();
+  const afterBundles = await printLiveBundles("after deploy");
+  compareLiveBundles(beforeBundles, afterBundles);
 }
 
 async function runPreflight() {
@@ -32,7 +36,7 @@ async function runPreflight() {
 }
 
 async function stripDeployJunk() {
-  const junkPatterns = [/^\.DS_Store$/i, /^Thumbs\.db$/i, /^desktop\.ini$/i];
+  const junkPatterns = [/^\.DS_Store$/i, /^\._/, /^__MACOSX$/i, /^Thumbs\.db$/i, /^desktop\.ini$/i, /~$/, /\.(?:tmp|temp)$/i];
   const files = await listFiles(distRoot);
   const removed = [];
   await Promise.all(
@@ -49,14 +53,8 @@ async function stripDeployJunk() {
 
 async function deployWithRetry() {
   let lastFailure = null;
-  for (let index = 0; index < attempts.length; index += 1) {
-    const delayMs = attempts[index];
-    if (delayMs) {
-      console.log(`Waiting ${Math.round(delayMs / 1000)}s before retry ${index + 1}/${attempts.length}...`);
-      await sleep(delayMs);
-    }
-
-    console.log(`Cloudflare deploy attempt ${index + 1}/${attempts.length}...`);
+  for (let index = 0; index < maxAttempts; index += 1) {
+    console.log(`Cloudflare deploy attempt ${index + 1}/${maxAttempts}...`);
     const result = await runCommand(
       "npx",
       ["--yes", `wrangler@${wranglerVersion}`, "pages", "deploy", "dist", "--project-name", projectName],
@@ -69,9 +67,14 @@ async function deployWithRetry() {
       throw new Error(`Cloudflare deploy failed with a non-retryable error.\n${result.output}`);
     }
     console.error(`Transient Cloudflare deploy failure detected on attempt ${index + 1}.`);
+    if (index < maxAttempts - 1) {
+      const delayMs = retryDelays[index];
+      console.log(`Waiting ${Math.round(delayMs / 1000)}s before retry ${index + 2}/${maxAttempts}...`);
+      await sleep(delayMs);
+    }
   }
 
-  throw new Error(`Cloudflare API remained unhealthy after ${attempts.length} attempts.\n${lastFailure?.output ?? ""}`);
+  throw new Error(`Cloudflare API remained unhealthy after ${maxAttempts} attempts.\n${lastFailure?.output ?? ""}`);
 }
 
 async function printLocalBundles() {
@@ -80,12 +83,12 @@ async function printLocalBundles() {
   printBundles(html);
 }
 
-async function printLiveBundles() {
+async function printLiveBundles(label = "current") {
   const response = await fetch("https://www.wpbnewconstruction.com/", { redirect: "follow" });
   const html = await response.text();
-  console.log(`Live homepage status: ${response.status}`);
-  console.log("Live homepage bundles:");
-  printBundles(html);
+  console.log(`Live homepage status ${label}: ${response.status}`);
+  console.log(`Live homepage bundles ${label}:`);
+  return printBundles(html);
 }
 
 function printBundles(html) {
@@ -93,6 +96,30 @@ function printBundles(html) {
   const css = [...html.matchAll(/\/assets\/index-[^"]+\.css/g)].map((match) => match[0]);
   console.log(`JS: ${js[0] ?? "not found"}`);
   console.log(`CSS: ${css[0] ?? "not found"}`);
+  return { js: js[0] ?? "", css: css[0] ?? "" };
+}
+
+function compareLiveBundles(before, after) {
+  if (!before || !after) return;
+  const changed = before.js !== after.js || before.css !== after.css;
+  if (changed) {
+    console.log(`Live bundle changed: JS ${before.js || "not found"} -> ${after.js || "not found"}, CSS ${before.css || "not found"} -> ${after.css || "not found"}`);
+  } else {
+    console.log("Live bundle did not change after deploy. This can be acceptable if live already matched the local build; do not treat this as proof of a new live update.");
+  }
+}
+
+async function printCloudflareDiagnostics() {
+  console.log("Cloudflare diagnostics:");
+  await runDiagnostic(["--yes", `wrangler@${wranglerVersion}`, "pages", "project", "list"]);
+  await runDiagnostic(["--yes", `wrangler@${wranglerVersion}`, "pages", "deployment", "list", "--project-name", projectName]);
+}
+
+async function runDiagnostic(commandArgs) {
+  const result = await runCommand("npx", commandArgs, { retryable: true, quietFailure: true });
+  if (result.status !== 0) {
+    console.log(`Diagnostic unavailable: npx ${commandArgs.join(" ")}`);
+  }
 }
 
 async function runCommand(command, commandArgs, options) {

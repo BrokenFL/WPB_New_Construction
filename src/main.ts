@@ -5589,7 +5589,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const floorplanCount = floorplanProject?.count ?? 0;
   const brochureStats = projectBrochureStats(project, draft, floorplanCount);
   const gallery = projectBrochureGallery(project, draft);
-  const residenceTiles = gallery.slice(0, 3);
+  const residenceTiles = gallery.filter((asset) => asset.src !== heroImage).slice(0, 3);
   const amenityTiles = projectBrochureAmenityTiles(project, draft);
   const teamTiles = projectBrochureTeamTiles(project, draft);
   const heroImage = draft.image ?? project.heroImage ?? project.image;
@@ -5875,24 +5875,44 @@ function renderBrochureStat(stat: { label: string; value: string }) {
 }
 
 function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraft) {
+  const legacyGallery =
+    project.id === "olara"
+      ? [...featuredGallery, ...residenceGallery, ...amenityGallery]
+      : [];
   const importedAssets = approvedImportedImagesForProject(project.id).map((image) => ({
     src: importedImagePublicPath(image),
     kicker: image.imageType === "interior" ? "Interior Rendering" : image.imageType === "amenity" ? "Amenity Image" : image.imageType === "exterior" ? "Project Rendering" : "Developer Image",
     title: image.caption,
     alt: image.alt,
   }));
-  const assets = [...draft.gallery, ...importedAssets.filter((asset) => !draft.gallery.some((existing) => existing.src === asset.src))];
+  const assets = uniqueMediaAssets([...draft.gallery, ...legacyGallery, ...importedAssets]);
   if (draft.image && !assets.some((asset) => asset.src === draft.image)) {
     assets.unshift({ src: draft.image, kicker: "Project Image", title: draft.title, alt: draft.imageAlt });
   }
-  while (assets.length < 3 && project.image) {
-    assets.push({ src: project.image, kicker: "Project Image", title: project.name, alt: `${project.name} project image` });
-  }
-  return assets;
+  return uniqueMediaAssets(assets);
+}
+
+function uniqueMediaAssets(assets: MediaAsset[]) {
+  const seen = new Set<string>();
+  return assets.filter((asset) => {
+    if (!asset.src) return true;
+    if (seen.has(asset.src)) return false;
+    seen.add(asset.src);
+    return true;
+  });
+}
+
+function projectPlaceholderAsset(project: FeaturedProject, title: string, kicker = "Resource"): MediaAsset {
+  return {
+    src: "",
+    kicker,
+    title,
+    alt: `${project.name} ${title}`,
+  };
 }
 
 function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPageDraft) {
-  const gallery = projectBrochureGallery(project, draft);
+  const gallery = projectBrochureGallery(project, draft).filter((asset) => asset.src !== draft.image).slice(3);
   const labels =
     project.id === "rosewood"
       ? [
@@ -5905,22 +5925,16 @@ function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPag
         ]
       : ["Rooftop pool & sun deck", "Wellness studio", "Resident lounge", "Private dining", "Landscaped courtyard", "Concierge services"];
   return labels.map((label, index) => ({
-    ...(gallery[index % Math.max(gallery.length, 1)] ?? {
-      src: project.image ?? siteMeta.defaultImage,
-      kicker: "Amenity",
-      title: label,
-      alt: `${project.name} representative amenity visual`,
-    }),
+    ...(gallery[index] ?? projectPlaceholderAsset(project, label, "Amenity")),
     title: label,
     kicker: "Amenity",
   }));
 }
 
 function projectBrochureTeamTiles(project: FeaturedProject, draft: ProjectPageDraft) {
-  const gallery = projectBrochureGallery(project, draft);
-  return draft.team.slice(0, 3).map((credit, index) => ({
+  return draft.team.slice(0, 3).map((credit) => ({
     credit,
-    asset: gallery[index % Math.max(gallery.length, 1)],
+    asset: projectPlaceholderAsset(project, credit.role, "Project Team"),
   }));
 }
 

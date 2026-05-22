@@ -11,6 +11,7 @@ const tasks = [
   ["check news/update sources", "npm", ["run", "news:fetch"]],
   ["check imported project updates", "npm", ["run", "check:updates"]],
   ["check stale public copy", "npm", ["run", "qa:copy"]],
+  ["check image repetition and placement", "npm", ["run", "qa:image-repetition"]],
   ["check asset/performance budgets", "npm", ["run", "qa:performance"]],
   ["inventory duplicate assets", "npm", ["run", "assets:duplicates"]],
 ];
