@@ -27,6 +27,7 @@ export type MarketNote = {
   buyerThesis: string;
   buyerTakeaway: string;
   imageId?: string;
+  primaryProjectId?: string;
   projectIds: string[];
   sourceName: string;
   sourceLinks: MarketNoteSource[];
@@ -120,6 +121,7 @@ export const marketNotes = [
     buyerTakeaway:
       "Ask for current availability, floor-plan depth, view-stack context, amenity details, and delivery assumptions for both. The decision is not simply which tower is newer or closer; it is which operating model fits the way you want to live.",
     imageId: "flagler-waterfront-corridor",
+    primaryProjectId: "olara",
     projectIds: ["olara", "shorecrest", "ritz-carlton-wpb"],
     sourceName: "Reviewed project materials and public updates",
     sourceLinks: [
@@ -179,7 +181,7 @@ export const marketNotes = [
       "Published floor plans let a buyer compare function before emotion takes over. They reveal the difference between real fit and marketing momentum.",
     buyerTakeaway:
       "Before touring, ask for current floor plans, stack plans, dimensions, terrace depth, exposure, ceiling heights where available, and any line-specific limitations.",
-    imageId: "buyer-intelligence-interior",
+    primaryProjectId: "olara",
     projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"],
     sourceName: "WPB New Construction floor-plan library",
     sourceLinks: [
@@ -239,7 +241,7 @@ export const marketNotes = [
       "New-construction pricing changes too quickly to treat public ranges as a decision. A serious comparison verifies the actual line, floor, exposure, incentives, fees, and contract assumptions.",
     buyerTakeaway:
       "Use public pricing as a signal, not a promise. Ask Brooke to verify the current sheet before comparing buildings or scheduling tours around old numbers.",
-    imageId: "buyer-intelligence-interior",
+    primaryProjectId: "ritz-carlton-wpb",
     projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "mr-c", "south-flagler-house"],
     sourceName: "WPB New Construction pricing review method",
     sourceLinks: [
@@ -299,7 +301,7 @@ export const marketNotes = [
       "The downtown West Palm Beach condo search gets clearer when you pick the corridor first. Each area has a different rhythm, buyer profile, and diligence path.",
     buyerTakeaway:
       "Decide whether your first priority is waterfront calm, walkable restaurants, retail/dining energy, or growth-district upside. Then compare buildings inside that lane before jumping citywide.",
-    imageId: "wpb-geography-map-hero",
+    imageId: "kravis-center-downtown-attraction",
     projectIds: ["nora-house", "mr-c", "banyan-tree", "10-cityplace", "15-cityplace", "olara"],
     sourceName: "WPB New Construction corridor review",
     sourceLinks: [

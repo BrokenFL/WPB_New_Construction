@@ -8,6 +8,7 @@ import {
 } from "./generated/siteData";
 import { editorProjectOverrides, type EditorProjectOverrides } from "./generated/editorOverrides";
 import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
+import { editorialImageForId, type EditorialImageId } from "./data/editorialImagery";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
 import { advisorProfile } from "./lib/contact";
@@ -116,6 +117,27 @@ type ResearchNewsItem = {
   status: string;
 };
 
+type ContentImageContext = {
+  image?: {
+    path?: string;
+    credit?: string;
+  };
+  imageId?: string;
+  projectIds?: readonly string[];
+  primaryProjectId?: string;
+  category?: string;
+  title?: string;
+};
+
+type ResolvedContentImage = {
+  src: string;
+  alt: string;
+  credit: string;
+  caption: string;
+  relatedProject?: FeaturedProject;
+  source: "explicit" | "project" | "editorial" | "generic";
+};
+
 type ProjectDocument = {
   label: string;
   title: string;
@@ -176,6 +198,8 @@ const southFlaglerHouseUserCard = "/projects/south-flagler-house/media/user-prov
 const shorecrestUserHero = "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg";
 const shorecrestUserCard = "/projects/shorecrest/media/user-provided-shorecrest-card.jpg";
 const banyanTreeUserCard = "/projects/banyan-tree/media/user-provided-banyan-tree-card.jpg";
+const rosewoodRenderHero = "/projects/rosewood/media/user-provided-rosewood-render-01.jpg";
+const rosewoodRenderVertical = "/projects/rosewood/media/user-provided-rosewood-render-02.jpg";
 const cityPlace10Hero = "/projects/10-cityplace/media/10-cityplace-hero-1536x1024.jpg";
 const cityPlace10Card = "/projects/10-cityplace/media/10-cityplace-card-1448x1086.jpg";
 const cityPlace10MobileHero = "/projects/10-cityplace/media/10-cityplace-mobile-1122x1402.jpg";
@@ -305,6 +329,24 @@ const baseFeaturedProjects: FeaturedProject[] = [
     href: "?project=rosewood",
     summary:
       "A proposed Rosewood-branded waterfront tower by Related Group and BH Group at 2001 North Flagler, tracked as early intelligence while approvals, pricing, floorplans, and launch timing remain pending.",
+    image: rosewoodRenderHero,
+    heroImage: rosewoodRenderHero,
+    mobileImage: rosewoodRenderVertical,
+    galleryImages: [
+      {
+        src: rosewoodRenderHero,
+        mobileSrc: rosewoodRenderVertical,
+        kicker: "Project Rendering",
+        title: "Rosewood Residences West Palm Beach",
+        alt: "Rendering of Rosewood Residences in West Palm Beach.",
+      },
+      {
+        src: rosewoodRenderVertical,
+        kicker: "Project Rendering",
+        title: "Rosewood Residences evening tower",
+        alt: "Vertical evening rendering of Rosewood Residences in West Palm Beach.",
+      },
+    ],
     floorplans: false,
     pageState: "Planning watch",
     rank: 3.5,
@@ -1189,7 +1231,8 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     title: "Rosewood Residences West Palm Beach",
     intro:
       "Rosewood is being tracked as a proposed North Flagler branded-residence tower, not a launched sales offering. Public materials point to a 27-story, 90-residence plan at 2001 North Flagler Drive, with approval status, pricing, floorplans, builder, and delivery timing still to be verified.",
-    imageAlt: "Rosewood Residences West Palm Beach planning-stage project context",
+    image: rosewoodRenderHero,
+    imageAlt: "Rendering of Rosewood Residences in West Palm Beach.",
     stage: "Proposed / pending approvals",
     locationCopy:
       "The proposed site sits at 2001 North Flagler Drive, immediately within the active North Flagler waterfront pipeline near Olara, Shorecrest, and The Ritz-Carlton Residences. Treat this as early planning intelligence until city approvals and official sales materials are released.",
@@ -1215,15 +1258,29 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { label: "Supply Watch", value: "90 residences", note: "The current proposal would add another boutique branded option to North Flagler." },
       { label: "Unknowns", value: "Pricing / timing", note: "No official public pricing, floorplans, completion date, or sales launch was found." },
     ],
-    gallery: [],
+    gallery: [
+      {
+        src: rosewoodRenderHero,
+        mobileSrc: rosewoodRenderVertical,
+        kicker: "Project Rendering",
+        title: "Rosewood Residences West Palm Beach",
+        alt: "Rendering of Rosewood Residences in West Palm Beach.",
+      },
+      {
+        src: rosewoodRenderVertical,
+        kicker: "Project Rendering",
+        title: "Rosewood Residences evening tower",
+        alt: "Vertical evening rendering of Rosewood Residences in West Palm Beach.",
+      },
+    ],
     documents: [
       { label: "Advisor", title: "Request Rosewood planning update", note: "Latest approval status, pricing watch, and buyer guidance" },
-      { label: "Status", title: "No public sales packet yet", note: "Brochure, floorplans, and rights-clear imagery were not found." },
+      { label: "Status", title: "No public sales packet yet", note: "Brochure, floorplans, and confirmed official media kit were not found." },
     ],
     needed: [
       "Planning Board outcome and any approval conditions",
       "Official project site or sales-team packet",
-      "Rights-clear renderings or developer-approved media kit",
+      "Confirmed official media kit and current sales material",
       "Floorplans, pricing, reservation process, and deposit schedule",
       "Builder / general contractor and construction timing",
     ],
@@ -3572,7 +3629,9 @@ function corridorPath(key: CorridorKey) {
 }
 
 function corridorImageId(key: CorridorKey) {
-  return key === "downtown" ? "downtown-core-corridor" : "flagler-waterfront-corridor";
+  if (key === "north-flagler") return "flagler-waterfront-corridor";
+  if (key === "south-flagler") return "south-flagler-corridor";
+  return "rosemary-square-corridor";
 }
 
 function corridorBuyerThesis(section: CorridorSection) {
@@ -3654,6 +3713,7 @@ function renderMapCorridorCard(section: CorridorSection) {
   const relevantProjects = projects.slice(0, 4).map((project) => project.name).join(" · ");
   return `
     <article class="map-corridor-card">
+      ${renderEditorialImagePanel(corridorImageId(section.key), { compact: true, className: "map-corridor-card-image" })}
       <a href="${corridorPath(section.key)}">${section.label}</a>
       <p>${corridorBuyerThesis(section)}</p>
       <dl>
@@ -3814,6 +3874,7 @@ function marketNoteForSlug(slug: string) {
 }
 
 function renderMarketNoteCard(note: MarketNote) {
+  const resolvedImage = imageForContentItem(note);
   const relatedProjects = note.projectIds
     .map((projectId) => featuredProjects.find((project) => project.id === projectId)?.name)
     .filter(Boolean)
@@ -3824,7 +3885,7 @@ function renderMarketNoteCard(note: MarketNote) {
 
   return `
     <article class="home-blog-card market-note-card" id="${escapeHtml(note.seo.suggestedSlug)}">
-      ${renderEditorialImagePanel(note.imageId, { compact: true, className: "market-note-card-image" })}
+      ${renderResolvedContentImage(resolvedImage, "market-note-card-image")}
       <span>${escapeHtml(note.category)} · ${escapeHtml(note.dateModified)}</span>
       <h3>${escapeHtml(note.title)}</h3>
       <p>${escapeHtml(note.excerpt)}</p>
@@ -3851,6 +3912,7 @@ function syncMarketNoteDetail(note?: MarketNote) {
 }
 
 function renderMarketNoteArticle(note: MarketNote) {
+  const resolvedImage = imageForContentItem(note);
   const relatedProjects = note.projectIds
     .map((projectId) => featuredProjects.find((project) => project.id === projectId))
     .filter((project): project is FeaturedProject => Boolean(project));
@@ -3867,7 +3929,7 @@ function renderMarketNoteArticle(note: MarketNote) {
           <h1>${escapeHtml(note.title)}</h1>
           <p>${escapeHtml(note.excerpt)}</p>
         </div>
-        ${renderEditorialImagePanel(note.imageId, { compact: true, className: "market-note-hero-image" })}
+        ${renderResolvedContentImage(resolvedImage, "market-note-hero-image")}
       </header>
       <section class="section market-note-body">
         <aside class="market-note-thesis">
@@ -3956,12 +4018,12 @@ function renderMediaAsset(asset: MediaAsset, variant = "standard") {
       return `
         <picture>
           <source media="(max-width: 720px)" srcset="${asset.mobileSrc}" />
-          <img src="${asset.src}" alt="${asset.alt}" loading="lazy" />
+          <img src="${asset.src}" alt="${asset.alt}" loading="lazy" decoding="async" />
         </picture>
       `;
     }
 
-    return `<img src="${asset.src}" alt="${asset.alt}" loading="lazy" />`;
+    return `<img src="${asset.src}" alt="${asset.alt}" loading="lazy" decoding="async" />`;
   }
 
   return `
@@ -3969,6 +4031,108 @@ function renderMediaAsset(asset: MediaAsset, variant = "standard") {
       <span>${asset.kicker}</span>
       <strong>${asset.title}</strong>
     </div>
+  `;
+}
+
+function projectImageForContent(project: FeaturedProject) {
+  return project.image ?? project.heroImage ?? project.galleryImages?.find((asset) => canShowImage(asset.src))?.src;
+}
+
+function firstNamedProjectForContent(item: ContentImageContext) {
+  const projectIds = item.projectIds ?? [];
+  if (item.primaryProjectId) {
+    return featuredProjects.find((project) => project.id === item.primaryProjectId);
+  }
+
+  if (projectIds.length === 1) {
+    return featuredProjects.find((project) => project.id === projectIds[0]);
+  }
+
+  const title = (item.title ?? "").toLowerCase();
+  return projectIds
+    .map((projectId) => featuredProjects.find((project) => project.id === projectId))
+    .find((project): project is FeaturedProject => {
+      if (!project) return false;
+      const projectName = project.name.toLowerCase();
+      const shortName = projectName.split(/\s+/)[0];
+      return title.includes(projectName) || title.includes(shortName) || title.includes(project.id.replaceAll("-", " "));
+    });
+}
+
+function editorialImageIdForContent(item: ContentImageContext, relatedProject?: FeaturedProject): EditorialImageId {
+  if (item.imageId && editorialImageForId(item.imageId)?.status === "available") {
+    return item.imageId as EditorialImageId;
+  }
+
+  const category = (item.category ?? "").toLowerCase();
+  if (category.includes("nora")) return "nora-growth-corridor";
+  if (category.includes("downtown")) return "rosemary-square-corridor";
+  if (category.includes("south flagler")) return "south-flagler-corridor";
+
+  if (relatedProject?.corridorKey === "north-flagler") return "flagler-waterfront-corridor";
+  if (relatedProject?.corridorKey === "south-flagler") return "south-flagler-corridor";
+  if (relatedProject?.corridorKey === "downtown") return "rosemary-square-corridor";
+
+  return "wpb-geography-map-hero";
+}
+
+function imageForContentItem(item: ContentImageContext): ResolvedContentImage {
+  const explicitImage = item.image?.path ?? "";
+  if (explicitImage && canShowImage(explicitImage)) {
+    return {
+      src: explicitImage,
+      alt: `${item.title ?? "West Palm Beach new-construction update"} image`,
+      credit: item.image?.credit ?? imageCreditShort(explicitImage),
+      caption: item.image?.credit ?? imageCreditShort(explicitImage),
+      relatedProject: projectLabelForImage(explicitImage)
+        ? featuredProjects.find((project) => explicitImage.includes(`/projects/${project.id}/`))
+        : undefined,
+      source: "explicit",
+    };
+  }
+
+  const relatedProject = firstNamedProjectForContent(item);
+  const projectImage = relatedProject ? projectImageForContent(relatedProject) : undefined;
+  if (relatedProject && projectImage && canShowImage(projectImage)) {
+    return {
+      src: projectImage,
+      alt: `${relatedProject.name} related image`,
+      credit: imageCreditShort(projectImage),
+      caption: imageCaptionShort(projectImage),
+      relatedProject,
+      source: "project",
+    };
+  }
+
+  const editorialId = editorialImageIdForContent(item, relatedProject);
+  const editorial = editorialImageForId(editorialId) ?? editorialImageForId("wpb-geography-map-hero");
+  if (editorial?.status === "available") {
+    return {
+      src: editorial.assetPath,
+      alt: editorial.alt,
+      credit: editorial.credit ?? editorial.caption,
+      caption: editorial.caption,
+      relatedProject,
+      source: "editorial",
+    };
+  }
+
+  return {
+    src: siteMeta.defaultImage,
+    alt: "West Palm Beach new-construction map",
+    credit: "WPB New Construction map",
+    caption: "WPB New Construction map",
+    relatedProject,
+    source: "generic",
+  };
+}
+
+function renderResolvedContentImage(image: ResolvedContentImage, className = "") {
+  return `
+    <figure class="${["content-image-panel", className].filter(Boolean).join(" ")}" data-image-source="${image.source}">
+      <img src="${safeHref(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" decoding="async" />
+      <figcaption>${publicText(image.caption)}</figcaption>
+    </figure>
   `;
 }
 
@@ -3980,6 +4144,7 @@ function imageSourceName(src: string) {
   if (src.includes("/ritz-carlton-wpb/")) return "The Ritz-Carlton Residences WPB";
   if (src.includes("/mandarin-oriental/")) return "Mandarin Oriental Residences WPB";
   if (src.includes("/shorecrest/")) return "Shorecrest";
+  if (src.includes("/rosewood/")) return "Rosewood Residences WPB";
   if (src.includes("/mr-c/")) return "Mr. C Residences WPB";
   if (src.includes("/alba-palm-beach/")) return "Alba Palm Beach";
   if (src.includes("/nora-house/")) return "NORA House";
@@ -4387,14 +4552,11 @@ function renderNewsItem(item: NewsItem) {
 }
 
 function renderResearchNewsItem(item: ResearchNewsItem) {
-  const { image, credit } = newsImageForItem(item);
+  const resolvedImage = imageForContentItem(item);
   const isOlderPublicUpdate = isOlderThanDays(item.datePublished || item.dateModified, 90);
   return `
     <article class="news-card intelligence-news-card" id="${escapeHtml(item.id)}">
-      <figure>
-        <img src="${safeHref(image)}" alt="${escapeHtml(item.title)} related building image" loading="lazy" decoding="async" />
-        <figcaption>${publicText(credit)}</figcaption>
-      </figure>
+      ${renderResolvedContentImage(resolvedImage)}
       <span>${publicText(item.category)} · Last checked ${publicText(item.dateModified)}${isOlderPublicUpdate ? " · Older public update" : ""}</span>
       <strong>${publicText(item.title)}</strong>
       <p>${publicText(item.summary)}</p>
@@ -4404,15 +4566,12 @@ function renderResearchNewsItem(item: ResearchNewsItem) {
 }
 
 function renderHomeNewsItem(item: ResearchNewsItem) {
-  const { image, credit, relatedProject } = newsImageForItem(item);
+  const resolvedImage = imageForContentItem(item);
   const isOlderPublicUpdate = isOlderThanDays(item.datePublished || item.dateModified, 90);
 
   return `
     <article class="home-news-card" id="home-${escapeHtml(item.id)}">
-      <figure>
-        <img src="${safeHref(image)}" alt="${escapeHtml(relatedProject ? `${relatedProject.name} related update image` : "West Palm Beach new-construction map")}" loading="lazy" decoding="async" />
-        <figcaption>${publicText(credit)}</figcaption>
-      </figure>
+      ${renderResolvedContentImage(resolvedImage)}
       <div>
         <span>${publicText(item.category)} · Last checked ${publicText(item.dateModified)}${isOlderPublicUpdate ? " · Older public update" : ""}</span>
         <strong>${publicText(item.title)}</strong>
@@ -4429,32 +4588,6 @@ function isOlderThanDays(dateValue: string, days: number) {
   if (Number.isNaN(parsed)) return false;
   const ageMs = Date.now() - parsed;
   return ageMs > days * 24 * 60 * 60 * 1000;
-}
-
-function newsImageForItem(item: ResearchNewsItem) {
-  const relatedProject = featuredProjects.find((project) => item.projectIds.includes(project.id));
-  const generatedImage = item.image?.path ?? "";
-  if (generatedImage && (generatedImage.startsWith("/maps/") || canShowImage(generatedImage))) {
-    return {
-      image: generatedImage,
-      credit: projectLabelForImage(generatedImage) ?? imageCreditShort(generatedImage),
-      relatedProject,
-    };
-  }
-
-  if (relatedProject?.image && canShowImage(relatedProject.image)) {
-    return {
-      image: relatedProject.image,
-      credit: imageCreditShort(relatedProject.image),
-      relatedProject,
-    };
-  }
-
-  return {
-    image: siteMeta.defaultImage,
-    credit: "WPB New Construction map",
-    relatedProject,
-  };
 }
 
 function renderFloorplanProject(project: (typeof floorplanLibrary)[number]) {
@@ -5018,8 +5151,8 @@ function renderProjectSnapshotPanel(projectId: string) {
     <section class="asset-status-strip" aria-label="Project snapshot">
       <article>
         <span>Project Media</span>
-        <strong>${isRosewood ? "Awaiting approved media" : "Gallery available"}</strong>
-        <small>${isRosewood ? "No rights-clear official Rosewood image package has been found." : "Curated imagery, residence visuals, and location context for buyer review."}</small>
+        <strong>${isRosewood ? "User-provided rendering" : "Gallery available"}</strong>
+        <small>${isRosewood ? "Renderings are used as project-specific visuals, not generic corridor imagery." : "Curated imagery, residence visuals, and location context for buyer review."}</small>
       </article>
       <article>
         <span>Floorplans</span>

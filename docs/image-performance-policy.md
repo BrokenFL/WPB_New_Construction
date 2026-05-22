@@ -19,7 +19,19 @@
 
 - `wpb-geography-map-hero.jpg`: optimized user-provided Downtown WPB waterline image.
 - `downtown-core-corridor.jpg`: optimized user-provided Downtown WPB night skyline image.
-- `rosemary-square-corridor.jpg`: optimized representative Downtown/Rosemary image.
+- `rosemary-square-corridor.jpg`: optimized user-provided CityPlace / The Square image.
+- `nora-growth-corridor.jpg`: optimized user-provided NORA / North Downtown district image.
+- `south-flagler-corridor.jpg`: optimized user-provided South Flagler daytime waterfront image.
+- `south-flagler-evening-corridor.jpg`: optimized user-provided South Flagler evening waterfront image.
+- `kravis-center-downtown-attraction.jpg`: optimized user-provided Kravis Center attraction image.
 - `flagler-waterfront-corridor.jpg`: optimized user-provided North Flagler waterfront image.
-- `nora-growth-corridor.jpg`: needs sourcing.
+
+## Project Renderings
+
+- User-provided Rosewood renderings live under `public/projects/rosewood/media/`.
+- Project renderings should be used only for their project and related story contexts.
+- Do not use Rosewood renderings as corridor or generic Downtown/North Flagler imagery.
+
+## Remaining Sourcing Need
+
 - `buyer-intelligence-interior.jpg`: needs sourcing.

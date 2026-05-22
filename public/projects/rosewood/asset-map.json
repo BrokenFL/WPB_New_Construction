@@ -3,8 +3,20 @@
   "slug": "rosewood",
   "updated": "2026-05-21",
   "publicBase": "/projects/rosewood/",
-  "rightsNote": "No final public media, brochure, logo, or floorplan assets are approved for publication yet. Editorial renderings from The Real Deal and Florida YIMBY are reference-only unless Brooke receives permission or a developer media kit.",
+  "displayNote": "User-provided Rosewood renderings are available for Rosewood project and Rosewood-related story contexts. Brochure, logo, and floorplan assets are not available in this public packet.",
   "placements": [
+    {
+      "role": "userProvidedProjectRendering",
+      "file": "media/user-provided-rosewood-render-01.jpg",
+      "sourceUrl": null,
+      "usage": "Project-specific Rosewood rendering for buyer-facing project, card, and Rosewood-related update contexts"
+    },
+    {
+      "role": "userProvidedProjectRenderingVertical",
+      "file": "media/user-provided-rosewood-render-02.jpg",
+      "sourceUrl": null,
+      "usage": "Project-specific Rosewood vertical rendering for mobile/detail/gallery contexts"
+    },
     {
       "role": "cityPlanningAgenda",
       "file": null,
@@ -48,13 +60,10 @@
       "note": "Images credited to Arquitectonica and Google Earth; reference only."
     }
   ],
-  "recommendedMediaPlaceholders": [
-    "media/rosewood-hero-waterfront-tower-2880x1800.png",
-    "media/rosewood-mobile-hero-waterfront-1080x1350.png",
-    "media/rosewood-gallery-card-exterior-1600x2000.png",
-    "media/rosewood-arrival-context-2400x1600.png",
-    "media/rosewood-amenity-pool-2400x1600.png",
-    "media/rosewood-residence-view-2400x1600.png",
-    "media/rosewood-logo.svg"
+  "neededMedia": [
+    "confirmed project media kit",
+    "brochure",
+    "floorplans",
+    "project logo"
   ]
 }
