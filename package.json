@@ -16,6 +16,8 @@
     "qa:public-json": "node research/scripts/check-public-json-safety.mjs",
     "qa:a11y-forms": "node research/scripts/check-form-accessibility.mjs",
     "qa:performance": "node research/scripts/check-performance-budget.mjs",
+    "qa:gallery-images": "node research/scripts/check-gallery-images.mjs",
+    "qa:hero-performance": "node research/scripts/check-hero-performance.mjs",
     "qa:image-mapping": "node research/scripts/check-image-mapping.mjs",
     "qa:news-images": "node research/scripts/check-news-image-mapping.mjs",
     "qa:project-pages": "node research/scripts/check-project-page-completeness.mjs",

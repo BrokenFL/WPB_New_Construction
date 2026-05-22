@@ -1,37 +1,33 @@
 # Buyer Flow Conversion Audit
 
-## Routes Reviewed
+Updated 2026-05-22.
 
-- Homepage to Buildings, Map, Compare, Market Notes, Updates, project pages, and Inquiry.
-- Market Notes to related buildings, related updates, and Inquiry.
-- Updates to related buildings or inquiry.
-- Project pages to floor plans, resources, updates, and Inquiry.
-- Compare page shortlist to Inquiry with contextual message.
+## Reviewed Paths
 
-## Weak CTAs Found
+- Homepage -> Map -> Project Page -> Inquiry
+- Homepage -> Compare -> Inquiry
+- Homepage -> Market Notes -> Related Building -> Inquiry
+- Updates -> Related Building -> Inquiry
+- Answers -> Project/Corridor -> Inquiry
 
-- Answers had useful content but needed stronger project and inquiry links.
-- Methodology explained verification but did not route enough readers back to practical next steps.
+## Result
 
-## CTA Changes Made
+- Above-the-fold CTAs are present without making the site louder.
+- Project pages keep `Request Current Availability` as the primary buyer-intent action.
+- Compare routes users toward `Ask Brooke to Compare`.
+- Updates and related-building cards avoid dead ends.
+- Answers continue to route users toward useful project, corridor, and inquiry paths.
+- Inquiry remains the natural full-intent step after email-first curiosity capture.
 
-- Updated the homepage hero to explain the product immediately: mapped/comparable WPB new-construction condos with active sales, future projects, floor plans, updates, and waterfront positioning.
-- Added stable homepage hero CTAs for Explore Buildings, View Map, and Request Current Availability.
-- Added related project links and Request Current Availability CTAs to answer blocks.
-- Added methodology links to Answers, a project example, and Inquiry.
-- Preserved existing project-page hero CTAs for Request Current Availability / Ask About Floor Plans.
-- Preserved Updates card CTAs to View related building or Ask about this update.
-- Preserved Compare page contextual inquiry routing.
+## CTA Language
 
-## 2026-05-22 Flow Check
+The active language remains aligned with the requested vocabulary:
 
-- Homepage -> Buildings/Map/Compare -> Project Page -> Inquiry remains clear through hero CTAs, corridor cards, project cards, and project-page inquiry buttons.
-- Homepage -> Market Notes -> Related Building -> Inquiry remains intact through article cards and related building links.
-- Updates -> Related Building -> Inquiry remains intact through "View related building" / "Ask about this update" CTAs.
-- Answers -> Project/Corridor -> Inquiry remains intact through answer links and the shared inquiry route.
-- The rotating hero improves first-impression polish without changing copy per slide or adding carousel controls.
+- Request Current Availability
+- Ask Brooke to Compare
+- View Related Building
+- Ask About This Update
 
-## Remaining Buyer-Flow Gaps
+## Changes
 
-- A future branch could add a persistent shortlist summary across Project pages and Inquiry.
-- A future branch could make the inquiry form prefill more deeply from viewed buildings and corridor context.
+- No major product-flow changes were needed. The branch focuses on performance and polish.

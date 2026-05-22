@@ -1,37 +1,33 @@
 # Project Gallery Visual QA
 
-## Method
+Updated 2026-05-22.
 
-- Built a contact sheet at `research/source-material-review/project-gallery-contact-sheet.jpg`.
-- Built a homepage hero contact sheet at `research/source-material-review/hero-image-contact-sheet.jpg`.
-- Reviewed imported placed images for project fit, crop, duplication, placement, caption clarity, and likely page weight risk.
-- Reviewed homepage hero candidates for local geography, lack of baked-in labels, and whether they avoid implying Downtown WPB sits on the Atlantic surf line.
+Contact sheet: `research/source-material-review/project-gallery-contact-sheet.jpg`.
 
-## Homepage Hero Results
+## Priority Review
 
-- Selected five images: WPB geography map hero, North Flagler waterfront, South Flagler corridor, CityPlace/The Square, and NORA growth corridor.
-- Omitted project-specific hero renderings from the rotating homepage hero to keep the first viewport about buyer orientation rather than one building.
-- No visible carousel controls, text changes, or slide-specific captions were added beyond the subtle stable caption area.
-- No obvious wrong-geography or oceanfront-Downtown implication was found in the selected set.
+| Project | Result |
+| --- | --- |
+| Olara | Hero and first gallery row remain strong. Pool, arrival, residence, amenity, view, and marina imagery now use smaller JPG variants without changing the luxury read. |
+| Ritz-Carlton WPB | Hero remains strong. First gallery row keeps waterfront tower, arrival, and lounge/pool imagery with optimized variants. |
+| Shorecrest | Hero/card read well. The previous explicit residence slot pointed to a portrait-like image; it was replaced with the approved Shorecrest interior living-room rendering. |
+| Mr. C | Strong exterior and residence/amenity sequence; no change needed. |
+| Alba Palm Beach | Hero/card remain useful and correctly tied to waterfront positioning. |
+| Mandarin Oriental | Hero has a tighter vertical crop than ideal but remains recognizable and source-supported. Deferred. |
+| South Flagler House | Hero and first row remain premium and appropriate. Large floorplan/site-plan images are separate from gallery delivery. |
+| NORA House | Card/hero imagery reinforces district lifestyle; no change needed. |
+| Banyan Tree | Card/hero imagery supports the buyer page; no change needed. |
+| Berkeley | Card works as a building-forward visual; no change needed. |
+| Maison d'Or | Card remains usable; stronger official hero remains a known source gap. |
+| Forte on Flagler | Card remains useful; no change needed. |
+| Rosewood | User-provided render remains the right planning-watch visual. |
 
-## Project Results
+## Applied Fixes
 
-- Alba: beach-yoga card visual was not a strong project-specific building image; archived it and moved the exterior waterfront rendering to card placement.
-- Banyan Tree: several tear-image downloads rendered nearly blank; archived the weak/duplicate assets and kept the stronger terrace/interior rendering.
-- Berkeley: amenity, spa, dining, terrace, gym, and building visuals are appropriate; kept placements.
-- Forte: interior and exterior/waterfront renderings are appropriate; panoramic water image is supporting gallery only.
-- Maison d'Or: interior, pool, and tower images are appropriate; kept placements.
-- NORA House: exterior/card and rooftop/pool amenity image are appropriate; kept placements.
-- Ritz-Carlton WPB: imported residence/interior images are appropriate; kept placements.
-- Shorecrest: residence and tower images are appropriate; one lifestyle image was reclassified as supporting gallery context.
-- South Flagler House: residence, terrace, kitchen, living, and pool visuals are appropriate; kept placements.
-- Rosewood: user-provided project renderings remain project-specific planning-watch visuals.
-- Olara: existing curated project imagery remains strong and project-specific.
+- Replaced Shorecrest's explicit residence gallery slot with `/projects/shorecrest/media/imported/shorecrest-interior-living-room-rendering.jpg`.
+- Kept imperfect-but-useful assets in the library rather than deleting them.
 
-Archived imported records are preserved in `research/source-material-review/archived-imported-project-images.json`; original files remain on disk.
+## Deferred Items
 
-## Performance Notes
-
-- No new public image assets were added in this pass.
-- The rotating hero eagerly loads only the first image and lazily preloads the next layer.
-- Large source images remain controlled by the existing asset budget and performance QA.
+- Mandarin Oriental would benefit from a better horizontal hero crop if an approved source asset becomes available.
+- Maison d'Or still needs manual/approved exterior hero sourcing before it can match the stronger North Flagler pages.

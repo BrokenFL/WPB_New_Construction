@@ -326,7 +326,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     residences: "275",
     price: "Confirm before offer",
     href: "?project=olara",
-    image: `${mediaBase}olara-hero-exterior-1536x1024.png`,
+    image: `${mediaBase}olara-hero-exterior-1536x1024.jpg`,
     summary: "North Flagler waterfront residences anchored by marina access, 80,000+ square feet of amenities, Jose Andres dining, and one of the deepest released floorplan packets in the market.",
     floorplans: true,
     pageState: "Complete profile",
@@ -346,7 +346,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     residences: "138",
     price: "From about $3M",
     href: "?project=ritz-carlton-wpb",
-    image: `${ritzMediaBase}ritz-hero-waterfront-building-2880x1800.png`,
+    image: `${ritzMediaBase}ritz-hero-waterfront-building-2200x1375.jpg`,
     summary: "A Ritz-Carlton branded North Flagler address from Related Group and BH Group, pairing hospitality-level service with architecture by Arquitectonica, interiors by Rockwell Group, and landscape by Naturalficial.",
     floorplans: true,
     pageState: "Complete profile",
@@ -1079,19 +1079,19 @@ const projectTeam: TeamCredit[] = [
 
 const featuredGallery: MediaAsset[] = [
   {
-    src: `${mediaBase}olara-gallery-card-pool-1600x2000.png`,
+    src: `${mediaBase}olara-gallery-card-pool-1200x1500.jpg`,
     kicker: "Gallery Card",
     title: "Poolside Arrival",
     alt: "Olara pool deck with residents seated near the water",
   },
   {
-    src: `${mediaBase}olara-arrival-valet-lobby-2400x1600.png`,
+    src: `${mediaBase}olara-arrival-valet-lobby-1600x1067.jpg`,
     kicker: "Lobby",
     title: "Valet Arrival",
     alt: "Luxury valet arrival and lobby entrance at night",
   },
   {
-    src: `${mediaBase}olara-residence-terrace-sunrise-2400x1600.png`,
+    src: `${mediaBase}olara-residence-terrace-sunrise-1600x1067.jpg`,
     kicker: "Residence Terrace",
     title: "Sunrise Terrace",
     alt: "Residence terrace overlooking the Intracoastal at sunrise",
@@ -1100,19 +1100,19 @@ const featuredGallery: MediaAsset[] = [
 
 const residenceGallery: MediaAsset[] = [
   {
-    src: `${mediaBase}olara-residence-living-room-moonlight-2400x1600.png`,
+    src: `${mediaBase}olara-residence-living-room-moonlight-1600x1067.jpg`,
     kicker: "Residence",
     title: "Moonlit Living Room",
     alt: "Warm living room with full-height glass and moonlit water views",
   },
   {
-    src: `${mediaBase}olara-residence-kitchen-evening-2400x1600.png`,
+    src: `${mediaBase}olara-residence-kitchen-evening-1600x1067.jpg`,
     kicker: "Residence",
     title: "Kitchen And Entertaining",
     alt: "Open kitchen and living room with evening water views",
   },
   {
-    src: `${mediaBase}olara-residence-primary-bath-2400x1600.png`,
+    src: `${mediaBase}olara-residence-primary-bath-1600x1067.jpg`,
     kicker: "Residence",
     title: "Primary Bath",
     alt: "Primary bathroom with freestanding tub and Intracoastal view",
@@ -1127,31 +1127,31 @@ const residenceGallery: MediaAsset[] = [
 
 const amenityGallery: MediaAsset[] = [
   {
-    src: `${mediaBase}olara-amenity-gym-2400x1600.png`,
+    src: `${mediaBase}olara-amenity-gym-1600x1067.jpg`,
     kicker: "Wellness",
     title: "Fitness Studio",
     alt: "Light-filled fitness studio with cardio equipment and water views",
   },
   {
-    src: `${mediaBase}olara-amenity-rooftop-pool-reading-2400x1600.png`,
+    src: `${mediaBase}olara-amenity-rooftop-pool-reading-1600x1067.jpg`,
     kicker: "Pool Deck",
     title: "Rooftop Pool",
     alt: "Rooftop pool deck with residents reading by the water",
   },
   {
-    src: `${mediaBase}olara-amenity-spa-relaxation-2400x1600.png`,
+    src: `${mediaBase}olara-amenity-spa-relaxation-1600x1067.jpg`,
     kicker: "Spa",
     title: "Regeneration Spa",
     alt: "Spa relaxation room with residents in robes",
   },
   {
-    src: `${mediaBase}olara-amenity-hot-cold-plunge-2400x1600.png`,
+    src: `${mediaBase}olara-amenity-hot-cold-plunge-1600x1067.jpg`,
     kicker: "Recovery",
     title: "Hot And Cold Plunge",
     alt: "Outdoor hot and cold plunge pools overlooking the Intracoastal",
   },
   {
-    src: `${mediaBase}olara-amenity-pool-veranda-refreshments-2400x1600.png`,
+    src: `${mediaBase}olara-amenity-pool-veranda-refreshments-1600x1067.jpg`,
     kicker: "Pool Deck",
     title: "Veranda Service",
     alt: "Pool veranda with refreshments and lounge seating",
@@ -1241,19 +1241,19 @@ const ritzTeam: TeamCredit[] = [
 
 const ritzFeaturedGallery: MediaAsset[] = [
   {
-    src: `${ritzMediaBase}ritz-gallery-card-waterfront-tower-1600x2000.png`,
+    src: `${ritzMediaBase}ritz-gallery-card-waterfront-tower-1200x1500.jpg`,
     kicker: "Gallery Card",
     title: "Waterfront Tower",
     alt: "The Ritz-Carlton Residences tower reflected on the waterfront",
   },
   {
-    src: `${ritzMediaBase}ritz-arrival-porte-cochere-evening-2400x1600.png`,
+    src: `${ritzMediaBase}ritz-arrival-porte-cochere-evening-1600x1067.jpg`,
     kicker: "Arrival",
     title: "Porte Cochere",
     alt: "Evening arrival at the Ritz-Carlton Residences porte cochere",
   },
   {
-    src: `${ritzMediaBase}ritz-lobby-lounge-waterfront-2400x1600.png`,
+    src: `${ritzMediaBase}ritz-lobby-lounge-waterfront-1600x1067.jpg`,
     kicker: "Lobby",
     title: "Waterfront Lounge",
     alt: "Ritz-Carlton Residences lobby lounge with water views",
@@ -1262,19 +1262,19 @@ const ritzFeaturedGallery: MediaAsset[] = [
 
 const ritzResidenceGallery: MediaAsset[] = [
   {
-    src: `${ritzMediaBase}ritz-residence-living-room-sunrise-2400x1600.png`,
+    src: `${ritzMediaBase}ritz-residence-living-room-sunrise-1600x1067.jpg`,
     kicker: "Residence",
     title: "Sunrise Living Room",
     alt: "Ritz-Carlton residence living room with sunrise water views",
   },
   {
-    src: `${ritzMediaBase}ritz-residence-kitchen-entertaining-2400x1600.png`,
+    src: `${ritzMediaBase}ritz-residence-kitchen-entertaining-1600x1067.jpg`,
     kicker: "Residence",
     title: "Kitchen And Entertaining",
     alt: "Ritz-Carlton residence kitchen with marble island and sunset views",
   },
   {
-    src: `${ritzMediaBase}ritz-residence-primary-bath-2400x1600.png`,
+    src: `${ritzMediaBase}ritz-residence-primary-bath-1600x1067.jpg`,
     kicker: "Residence",
     title: "Primary Bath",
     alt: "Ritz-Carlton residence primary bathroom with marble and warm lighting",
@@ -1283,19 +1283,19 @@ const ritzResidenceGallery: MediaAsset[] = [
 
 const ritzAmenityGallery: MediaAsset[] = [
   {
-    src: `${ritzMediaBase}ritz-amenity-fitness-center-2400x1600.png`,
+    src: `${ritzMediaBase}ritz-amenity-fitness-center-1600x1067.jpg`,
     kicker: "Wellness",
     title: "Fitness Center",
     alt: "Ritz-Carlton Residences fitness center",
   },
   {
-    src: `${ritzMediaBase}ritz-amenity-pool-cabanas-2400x1600.png`,
+    src: `${ritzMediaBase}ritz-amenity-pool-cabanas-1600x1067.jpg`,
     kicker: "Pool Deck",
     title: "Private Cabanas",
     alt: "Ritz-Carlton Residences pool deck with cabanas",
   },
   {
-    src: `${ritzMediaBase}ritz-arrival-porte-cochere-two-cars-2400x1600.png`,
+    src: `${ritzMediaBase}ritz-arrival-porte-cochere-two-cars-1600x1067.jpg`,
     kicker: "Service",
     title: "Valet Arrival",
     alt: "Ritz-Carlton Residences valet arrival with two cars",
@@ -1416,10 +1416,10 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
         alt: "Shorecrest waterfront tower rendering",
       },
       {
-        src: "/projects/shorecrest/media/shorecrest-residence.png",
+        src: "/projects/shorecrest/media/imported/shorecrest-interior-living-room-rendering.jpg",
         kicker: "Residence",
-        title: "Residence View",
-        alt: "Shorecrest residence rendering",
+        title: "Living Room View",
+        alt: "Shorecrest residence living room rendering",
       },
       {
         src: "/projects/shorecrest/media/shorecrest-exterior-card.jpg",
@@ -2356,8 +2356,8 @@ app.innerHTML = `
       <div class="route-view route-view-project route-view-full-project" data-route-view="project-legacy" data-project-id="olara" hidden>
       <section class="hero project-hero" id="olara">
         <picture>
-          <source media="(max-width: 720px)" srcset="${mediaBase}olara-mobile-hero-exterior-1080x1350.png" />
-          <img src="${mediaBase}olara-hero-exterior-1536x1024.png" alt="Olara-inspired exterior on the West Palm Beach waterfront" />
+          <source media="(max-width: 720px)" srcset="${mediaBase}olara-mobile-hero-exterior-900x1125.jpg" />
+          <img src="${mediaBase}olara-hero-exterior-1536x1024.jpg" alt="Olara-inspired exterior on the West Palm Beach waterfront" />
         </picture>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -2436,7 +2436,7 @@ app.innerHTML = `
           </p>
         </div>
         <figure class="feature-image">
-          <img src="${mediaBase}olara-arrival-valet-lobby-2400x1600.png" alt="Olara valet and lobby arrival" />
+          <img src="${mediaBase}olara-arrival-valet-lobby-1600x1067.jpg" alt="Olara valet and lobby arrival" />
         </figure>
       </section>
 
@@ -2447,7 +2447,7 @@ app.innerHTML = `
         </div>
         <div class="editorial-grid residences-grid">
           <article class="feature-card wide">
-            <img src="${mediaBase}olara-residence-terrace-sunrise-2400x1600.png" alt="Olara residence terrace sunrise view" />
+            <img src="${mediaBase}olara-residence-terrace-sunrise-1600x1067.jpg" alt="Olara residence terrace sunrise view" />
             <div>
               <span>Residence Terrace</span>
               <strong>Sunrise over the Intracoastal</strong>
@@ -2464,12 +2464,12 @@ app.innerHTML = `
         </div>
         <div class="view-pair">
           <figure>
-            <img src="${mediaBase}olara-view-balcony-intracoastal-2400x1600.png" alt="Olara balcony chair with Intracoastal view" />
-            <figcaption>Balcony view · Intracoastal foreground · ${imageProviderLabel(`${mediaBase}olara-view-balcony-intracoastal-2400x1600.png`)}</figcaption>
+            <img src="${mediaBase}olara-view-balcony-intracoastal-1600x1067.jpg" alt="Olara balcony chair with Intracoastal view" />
+            <figcaption>Balcony view · Intracoastal foreground · ${imageProviderLabel(`${mediaBase}olara-view-balcony-intracoastal-1600x1067.jpg`)}</figcaption>
           </figure>
           <figure>
-            <img src="${mediaBase}olara-view-east-intracoastal-ocean-2400x1600.png" alt="Olara east-facing Intracoastal and ocean view" />
-            <figcaption>East view · Palm Beach and Atlantic horizon · ${imageProviderLabel(`${mediaBase}olara-view-east-intracoastal-ocean-2400x1600.png`)}</figcaption>
+            <img src="${mediaBase}olara-view-east-intracoastal-ocean-1600x1067.jpg" alt="Olara east-facing Intracoastal and ocean view" />
+            <figcaption>East view · Palm Beach and Atlantic horizon · ${imageProviderLabel(`${mediaBase}olara-view-east-intracoastal-ocean-1600x1067.jpg`)}</figcaption>
           </figure>
         </div>
       </section>
@@ -2486,7 +2486,7 @@ app.innerHTML = `
 
       <section class="section split-section marina-section">
         <figure class="feature-image">
-          <img src="${mediaBase}olara-marina-boat-dock-2400x1600.png" alt="Olara marina and boat dock lifestyle" />
+          <img src="${mediaBase}olara-marina-boat-dock-1600x1067.jpg" alt="Olara marina and boat dock lifestyle" />
         </figure>
         <div class="split-copy">
           <p class="eyebrow">Marina</p>
@@ -2530,8 +2530,8 @@ app.innerHTML = `
       <div class="route-view route-view-project route-view-full-project" data-route-view="project-legacy" data-project-id="ritz-carlton-wpb" hidden>
       <section class="project-break" id="ritz">
         <picture>
-          <source media="(max-width: 720px)" srcset="${ritzMediaBase}ritz-mobile-hero-tower-sunset-1080x1350.png" />
-          <img src="${ritzMediaBase}ritz-hero-waterfront-building-2880x1800.png" alt="The Ritz-Carlton Residences tower on the West Palm Beach waterfront" />
+          <source media="(max-width: 720px)" srcset="${ritzMediaBase}ritz-mobile-hero-tower-sunset-900x1125.jpg" />
+          <img src="${ritzMediaBase}ritz-hero-waterfront-building-2200x1375.jpg" alt="The Ritz-Carlton Residences tower on the West Palm Beach waterfront" />
         </picture>
         <div class="project-break-overlay"></div>
         <div class="project-break-content">
@@ -2588,7 +2588,7 @@ app.innerHTML = `
           </p>
         </div>
         <figure class="feature-image">
-          <img src="${ritzMediaBase}ritz-arrival-porte-cochere-evening-2400x1600.png" alt="Ritz-Carlton Residences evening porte cochere arrival" />
+          <img src="${ritzMediaBase}ritz-arrival-porte-cochere-evening-1600x1067.jpg" alt="Ritz-Carlton Residences evening porte cochere arrival" />
         </figure>
       </section>
 
@@ -2599,7 +2599,7 @@ app.innerHTML = `
         </div>
         <div class="editorial-grid residences-grid">
           <article class="feature-card wide">
-            <img src="${ritzMediaBase}ritz-residence-living-room-sunrise-2400x1600.png" alt="Ritz-Carlton residence living room at sunrise" />
+            <img src="${ritzMediaBase}ritz-residence-living-room-sunrise-1600x1067.jpg" alt="Ritz-Carlton residence living room at sunrise" />
             <div>
               <span>Residence</span>
               <strong>Sunrise living room</strong>
@@ -2607,7 +2607,7 @@ app.innerHTML = `
           </article>
           ${ritzResidenceGallery.slice(1).map(renderFeatureCard).join("")}
           <article class="feature-card">
-            <img src="${ritzMediaBase}ritz-lobby-service-2400x1600.png" alt="Ritz-Carlton residential lobby service moment" />
+            <img src="${ritzMediaBase}ritz-lobby-service-1600x1067.jpg" alt="Ritz-Carlton residential lobby service moment" />
             <div>
               <span>Service</span>
               <strong>Private residential rhythm</strong>
@@ -2623,12 +2623,12 @@ app.innerHTML = `
         </div>
         <div class="view-pair">
           <figure>
-            <img src="${ritzMediaBase}ritz-view-intracoastal-day-2400x1600.png" alt="Daytime Intracoastal and Palm Beach view from the Ritz-Carlton Residences" />
-            <figcaption>Day view · Palm Beach Island and Atlantic horizon · ${imageProviderLabel(`${ritzMediaBase}ritz-view-intracoastal-day-2400x1600.png`)}</figcaption>
+            <img src="${ritzMediaBase}ritz-view-intracoastal-day-1600x1067.jpg" alt="Daytime Intracoastal and Palm Beach view from the Ritz-Carlton Residences" />
+            <figcaption>Day view · Palm Beach Island and Atlantic horizon · ${imageProviderLabel(`${ritzMediaBase}ritz-view-intracoastal-day-1600x1067.jpg`)}</figcaption>
           </figure>
           <figure>
-            <img src="${ritzMediaBase}ritz-view-balcony-night-2400x1600.png" alt="Night balcony view toward downtown West Palm Beach" />
-            <figcaption>Night view · Downtown West Palm Beach and waterfront lights · ${imageProviderLabel(`${ritzMediaBase}ritz-view-balcony-night-2400x1600.png`)}</figcaption>
+            <img src="${ritzMediaBase}ritz-view-balcony-night-1600x1067.jpg" alt="Night balcony view toward downtown West Palm Beach" />
+            <figcaption>Night view · Downtown West Palm Beach and waterfront lights · ${imageProviderLabel(`${ritzMediaBase}ritz-view-balcony-night-1600x1067.jpg`)}</figcaption>
           </figure>
         </div>
       </section>
@@ -2645,7 +2645,7 @@ app.innerHTML = `
 
       <section class="section split-section marina-section">
         <figure class="feature-image">
-          <img src="${ritzMediaBase}ritz-evening-aerial-road-motion-2400x1600.png" alt="Night aerial view of the Ritz-Carlton Residences and West Palm Beach waterfront" />
+          <img src="${ritzMediaBase}ritz-evening-aerial-road-motion-1600x1067.jpg" alt="Night aerial view of the Ritz-Carlton Residences and West Palm Beach waterfront" />
         </figure>
         <div class="split-copy">
           <p class="eyebrow">Market Context</p>
@@ -4891,7 +4891,9 @@ function loadGoogleMaps() {
   return googleMapsLoader;
 }
 
-function setGoogleMapFallback(message = "Interactive map unavailable") {
+const buyerFriendlyMapFallback = "Map unavailable. Browse the building list instead.";
+
+function setGoogleMapFallback(message = buyerFriendlyMapFallback) {
   document.querySelectorAll<HTMLElement>(".home-hero-map-card").forEach((card) => {
     card.dataset.mapState = "unavailable";
     card.querySelectorAll<HTMLButtonElement>("[data-map-expand]").forEach((button) => {
@@ -4924,7 +4926,6 @@ function loadAdvancedMarkerElement(maps: GoogleMapsNamespace) {
       const markerLibrary = await maps.importLibrary("marker");
       return markerLibrary.AdvancedMarkerElement;
     } catch (error) {
-      console.warn(error instanceof Error ? error.message : "Google Maps marker library failed to load");
       return undefined;
     }
   })();
@@ -5030,7 +5031,12 @@ function initHeroGoogleMap() {
   }
 
   if (!googleMapsApiKey) {
-    setGoogleMapFallback("Missing VITE_GOOGLE_MAPS_API_KEY");
+    setGoogleMapFallback();
+    return;
+  }
+
+  if (!googleMapsMapId) {
+    setGoogleMapFallback();
     return;
   }
 
@@ -5094,9 +5100,8 @@ function initHeroGoogleMap() {
       map.addListener("click", expandMap);
       renderMarkers();
     })
-    .catch((error: Error) => {
-      setGoogleMapFallback(error.message);
-      console.warn(error.message);
+    .catch(() => {
+      setGoogleMapFallback();
     });
   });
 }
@@ -5115,7 +5120,12 @@ function initProjectLocationMaps() {
   }
 
   if (!googleMapsApiKey) {
-    setGoogleMapFallback("Missing VITE_GOOGLE_MAPS_API_KEY");
+    setGoogleMapFallback();
+    return;
+  }
+
+  if (!googleMapsMapId) {
+    setGoogleMapFallback();
     return;
   }
 
@@ -5156,9 +5166,8 @@ function initProjectLocationMaps() {
         element.dataset.mapState = "ready";
       });
     })
-    .catch((error: Error) => {
-      setGoogleMapFallback(error.message);
-      console.warn(error.message);
+    .catch(() => {
+      setGoogleMapFallback();
     });
 }
 

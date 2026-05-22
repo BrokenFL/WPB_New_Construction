@@ -751,7 +751,7 @@ textarea {
   content: "";
   background:
     linear-gradient(90deg, rgba(154, 122, 79, 0.14), transparent 38%),
-    url("/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png") center / cover;
+    url("/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-1600x1067.jpg") center / cover;
   opacity: 0.2;
   filter: saturate(0.7);
 }
@@ -1799,7 +1799,7 @@ h3 {
   color: var(--ivory);
   background:
     linear-gradient(180deg, rgba(11, 15, 18, 0.2), rgba(11, 15, 18, 0.78)),
-    url("/projects/ritz-carlton-wpb/media/ritz-gallery-card-waterfront-tower-1600x2000.png") center / cover;
+    url("/projects/ritz-carlton-wpb/media/ritz-gallery-card-waterfront-tower-1200x1500.jpg") center / cover;
 }
 
 .news-card:first-child span,

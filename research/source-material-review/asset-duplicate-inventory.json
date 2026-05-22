@@ -1,8 +1,8 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-22T14:35:01.244Z",
-    "filesScanned": 1668,
+    "generatedAt": "2026-05-22T15:08:20.560Z",
+    "filesScanned": 1707,
     "duplicateHashGroups": 331,
     "duplicateExtraBytes": 468698918,
     "sourceDuplicateHashGroups": 330,
@@ -11,9 +11,9 @@
     "publicOnlyDuplicateExtraBytes": 2033973,
     "qaDuplicateHashGroups": 0,
     "qaDuplicateExtraBytes": 0,
-    "previousDuplicateExtraBytes": 470756470,
+    "previousDuplicateExtraBytes": 468698918,
     "previousSourceDuplicateExtraBytes": 466695552,
-    "duplicateExtraByteDelta": -2057552,
+    "duplicateExtraByteDelta": 0,
     "sourceDuplicateExtraByteDelta": 0
   },
   "policy": "Inventory only. Do not delete files from this report without explicit human approval; use it to choose canonical files and archive/move candidates.",
