@@ -1019,6 +1019,127 @@ const answerBlocks = [
     ],
   },
   {
+    id: "available-new-construction-condos",
+    shortLabel: "Available condos",
+    question: "What new construction condos are available in West Palm Beach?",
+    answer:
+      "West Palm Beach buyers should separate active sales from future pipeline. Current buyer-review candidates include Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Alba Palm Beach, Mr. C, South Flagler House, NORA House, Banyan Tree, The Berkeley, Maison d'Or, and Forte or La Clara as delivered benchmarks. Availability changes by line, floor, release phase, and contract status, so request a current availability sheet before relying on a public list.",
+    concept: "Current availability",
+    relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "nora-house", "south-flagler-house"],
+    sources: ["official project sites", "project-source-catalog"],
+    sourceCitations: [],
+  },
+  {
+    id: "north-flagler-projects",
+    shortLabel: "North Flagler",
+    question: "Which West Palm Beach condo projects are on North Flagler?",
+    answer:
+      "The North Flagler buyer set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Alba Palm Beach, Mandarin Oriental Residences, and planning-watch items such as Rosewood Residences. It is the main Intracoastal-facing corridor for buyers comparing Palm Beach proximity, water views, service, amenities, and new-construction timing.",
+    concept: "Corridors",
+    relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "rosewood"],
+    sources: ["official project sites", "project-source-catalog"],
+    sourceCitations: [],
+  },
+  {
+    id: "active-sales-vs-future-projects",
+    shortLabel: "Active vs future",
+    question: "What is the difference between active sales and future projects?",
+    answer:
+      "Active-sales projects usually have enough public or requestable material for current buyer diligence: availability, floor plans, pricing guidance, deposits, timing, and sales-gallery review. Future projects can shape the market but may not yet have final offering details. Treat future projects as pipeline context until Brooke can confirm launch timing, plan depth, pricing, and legal offering documents.",
+    concept: "Buyer diligence",
+    relatedProjectIds: ["olara", "nora-house", "rosewood", "mandarin-oriental"],
+    sources: ["WPB methodology", "project-source-catalog"],
+    sourceCitations: [],
+  },
+  {
+    id: "published-floor-plan-projects",
+    shortLabel: "Floor plans",
+    question: "Which West Palm Beach condos have published floor plans?",
+    answer:
+      "The floor plan library currently tracks released or captured plan records for projects including Olara, Ritz-Carlton Residences West Palm Beach, Mr. C, NORA House, Alba Palm Beach, Shorecrest, The Berkeley, Forte, Maison d'Or, and South Flagler House tower records. Public plan depth varies, and buyers should request the current packet and stack plan before deciding what to tour.",
+    concept: "Floor plans",
+    relatedProjectIds: ["olara", "ritz-carlton-wpb", "mr-c", "nora-house", "shorecrest"],
+    sources: ["floorplan library", "official project sites"],
+    sourceCitations: [],
+  },
+  {
+    id: "compare-olara-and-shorecrest",
+    shortLabel: "Olara vs Shorecrest",
+    question: "How do I compare Olara and Shorecrest?",
+    answer:
+      "Compare Olara and Shorecrest on the same buyer questions: available lines, floor height, view exposure, terrace usability, service model, amenities, parking, fees, deposit timing, and delivery risk. Both belong in the North Flagler waterfront set, but Olara has deeper public floor-plan material while Shorecrest needs careful current confirmation around residence count, pricing, and available stacks.",
+    concept: "Project comparison",
+    relatedProjectIds: ["olara", "shorecrest"],
+    sources: ["official project sites", "market notes"],
+    sourceCitations: [],
+  },
+  {
+    id: "oceanfront-vs-intracoastal",
+    shortLabel: "Oceanfront?",
+    question: "Are West Palm Beach condos oceanfront?",
+    answer:
+      "Most Downtown West Palm Beach and Flagler Drive condo projects are not direct oceanfront buildings. West Palm Beach is west of the Intracoastal / Lake Worth Lagoon. Palm Beach island is east across the water, and the Atlantic Ocean is beyond Palm Beach. Many projects are Intracoastal-facing or urban-core buildings with water views, not Palm Beach oceanfront addresses.",
+    concept: "Geography",
+    relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"],
+    sources: ["local geography", "project-source-catalog"],
+    sourceCitations: [],
+  },
+  {
+    id: "waterfront-vs-palm-beach-oceanfront",
+    shortLabel: "Waterfront vs ocean",
+    question: "What is the difference between West Palm Beach waterfront and Palm Beach oceanfront?",
+    answer:
+      "West Palm Beach waterfront usually means Intracoastal or Lake Worth Lagoon orientation on the west side of the water, often with views toward Palm Beach. Palm Beach oceanfront means east of the Intracoastal on Palm Beach island, facing or near the Atlantic Ocean. A West Palm Beach condo can have strong water and Palm Beach views without being oceanfront.",
+    concept: "Geography",
+    relatedProjectIds: ["olara", "alba-palm-beach", "south-flagler-house", "maison-dor"],
+    sources: ["local geography", "project-source-catalog"],
+    sourceCitations: [],
+  },
+  {
+    id: "request-current-availability",
+    shortLabel: "Availability",
+    question: "How can I request current availability?",
+    answer:
+      "Use the inquiry page and name the buildings, corridors, budget range, timing, and whether you need floor plans or a sales-gallery visit. Brooke can help request current availability, pricing, floor-plan packets, view-stack context, and items to verify before you tour.",
+    concept: "Next step",
+    relatedProjectIds: ["olara", "shorecrest", "nora-house", "south-flagler-house"],
+    sources: ["WPB inquiry workflow"],
+    sourceCitations: [],
+  },
+  {
+    id: "closest-to-palm-beach",
+    shortLabel: "Palm Beach proximity",
+    question: "Which buildings are closest to Palm Beach?",
+    answer:
+      "North Flagler and South Flagler waterfront buildings are generally the closest West Palm Beach new-construction options to Palm Beach across the Intracoastal. Compare Olara, Ritz-Carlton, Shorecrest, Alba, South Flagler House, Maison d'Or, Forte, and La Clara by bridge access, view exposure, and daily drive pattern.",
+    concept: "Location fit",
+    relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "maison-dor"],
+    sources: ["project-source-catalog", "local geography"],
+    sourceCitations: [],
+  },
+  {
+    id: "near-square-downtown-nora",
+    shortLabel: "Downtown/NORA",
+    question: "Which buildings are near The Square or Downtown?",
+    answer:
+      "Downtown-oriented buyers should start with Mr. C, NORA House, Banyan Tree, The Berkeley, 10 CityPlace, and 15 CityPlace, then compare walkability to The Square, Rosemary, NORA, offices, restaurants, Brightline, and cultural venues. These are urban-core or district-lifestyle decisions rather than pure waterfront comparisons.",
+    concept: "Downtown fit",
+    relatedProjectIds: ["mr-c", "nora-house", "banyan-tree", "berkeley", "10-cityplace"],
+    sources: ["project-source-catalog", "corridor review"],
+    sourceCitations: [],
+  },
+  {
+    id: "before-sales-gallery",
+    shortLabel: "Before touring",
+    question: "What should buyers verify before visiting a sales gallery?",
+    answer:
+      "Before visiting a sales gallery, verify current availability, line-specific pricing, floor plan, stack plan, view exposure, terrace depth, parking and storage, fees, incentives, deposit schedule, delivery assumptions, cancellation language, and whether the project packet has changed since the public page was published.",
+    concept: "Tour preparation",
+    relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "nora-house", "south-flagler-house"],
+    sources: ["buyer verification checklist", "official project documents"],
+    sourceCitations: [],
+  },
+  {
     id: "how-to-read-amenity-lists",
     shortLabel: "Amenity lists",
     question: "How should buyers read long amenity lists without getting distracted?",
@@ -2139,19 +2260,44 @@ function renderLlmsTxt(floorplans, newsFeed) {
   const newsLines = newsFeed.items.map((item) => `- ${item.title}: ${item.summary}`);
   return `# WPB New Construction
 
-West Palm Beach new-construction condo guide with floorplans, corridor comparisons, and advisor-reviewed answers.
+West Palm Beach new-construction condo buyer guide with project pages, floorplans, corridor comparisons, Market Notes, source-linked Updates, and advisor-reviewed answers.
+
+The site is built to help buyers understand which West Palm Beach condo buildings exist, which are active versus future pipeline, which corridor fits the search, and when to request current pricing, availability, floor plans, and timing from Brooke Matthew Snader / Douglas Elliman.
 
 ## Core Pages
 
 - Home and corridor map: /
+- Buildings index: /buildings/
+- Project map: /map/
+- Compare buildings: /compare/
 - Floorplan library: /floorplans/
 - Buyer Q&A: /answers/
 - Market updates: /updates/
 - Market notes: /market-notes/
+- Inquiry route for current details: /inquire/
 - Source methodology: /methodology/
 - Fair housing: /fair-housing/
 - Privacy: /privacy/
 - Terms: /terms/
+
+## Corridor Pages
+
+- North Flagler condos: /corridors/north-flagler/
+- Downtown West Palm Beach condos: /corridors/downtown/
+- South Flagler condos: /corridors/south-flagler/
+
+## Priority Project Pages
+
+- Olara: /projects/olara/
+- Ritz-Carlton Residences West Palm Beach: /projects/ritz-carlton-wpb/
+- Shorecrest: /projects/shorecrest/
+- Rosewood Residences WPB: /projects/rosewood/
+- NORA House: /projects/nora-house/
+- South Flagler House: /projects/south-flagler-house/
+- Banyan Tree Residences West Palm Beach: /projects/banyan-tree/
+- The Berkeley: /projects/berkeley/
+- Maison d'Or: /projects/maison-dor/
+- Forte on Flagler: /projects/forte-on-flagler/
 
 ## Floorplan Coverage
 
@@ -2163,7 +2309,7 @@ ${newsLines.join("\n")}
 
 ## Use Guidance
 
-Prefer cited project pages, official source links, dated Q&A blocks, and advisor verification notes where sources conflict.
+Prefer cited project pages, official source links, dated Q&A blocks, and advisor verification notes where sources conflict. Pricing, availability, incentives, floor-plan release status, fees, delivery timing, and contract terms change and should be verified through the inquiry route before buyer reliance.
 `;
 }
 
@@ -2176,6 +2322,24 @@ Sitemap: ${productionBaseUrl}/sitemap.xml
 }
 
 function buildPrerenderRoutes() {
+  const projectRoutes = [
+    ["olara", "Olara West Palm Beach | New Construction Condo Guide", "Olara West Palm Beach buyer guide with North Flagler waterfront context, floor plans, amenities, timing, pricing checks, and current availability next steps.", "/projects/olara/media/olara-hero-exterior-1536x1024.png"],
+    ["ritz-carlton-wpb", "Ritz-Carlton WPB | New Construction Condo Guide", "Ritz-Carlton Residences West Palm Beach buyer guide with service model, waterfront position, floor plans, team credits, timing, and availability checks.", "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2880x1800.png"],
+    ["shorecrest", "Shorecrest West Palm Beach | Buyer Guide", "Shorecrest West Palm Beach buyer guide for North Flagler waterfront comparison, floor plans, amenities, delivery timing, and current availability questions.", "/projects/shorecrest/media/user-provided-shorecrest-card.jpg"],
+    ["rosewood", "Rosewood Residences WPB | Buyer Guide", "Rosewood Residences West Palm Beach planning-watch guide with North Flagler context, proposed project details, approval status, and buyer verification notes.", "/projects/rosewood/media/user-provided-rosewood-render-01.jpg"],
+    ["mr-c", "Mr. C West Palm Beach | Buyer Guide", "Mr. C West Palm Beach buyer guide for downtown walkability, hotel-residence service, floor plans, timing, and current availability checks.", "/projects/mr-c/media/mr-c-waterfront-building-source.jpg"],
+    ["alba-palm-beach", "Alba Palm Beach | New Construction Condo Guide", "Alba Palm Beach buyer guide for a boutique North Flagler waterfront building, released floor plans, delivery timing, and current pricing checks.", "/projects/alba-palm-beach/media/card.jpg"],
+    ["mandarin-oriental", "Mandarin Oriental WPB | Buyer Guide", "Mandarin Oriental Residences West Palm Beach buyer guide for a future North Flagler branded-residence project, timing, views, and verification notes.", "/projects/mandarin-oriental/media/mandarin-oriental-hero.webp"],
+    ["south-flagler-house", "South Flagler House | West Palm Beach Condo Guide", "South Flagler House buyer guide with waterfront context, floor plans, tower positioning, amenities, pricing checks, and availability questions.", "/projects/south-flagler-house/media/user-provided-south-flagler-house-card.jpg"],
+    ["nora-house", "NORA House West Palm Beach | Buyer Guide", "NORA House West Palm Beach buyer guide for NORA District walkability, floor plans, amenities, sales status, and current availability checks.", "/projects/nora-house/media/user-provided-nora-house-card.jpg"],
+    ["banyan-tree", "Banyan Tree Residences WPB | Buyer Guide", "Banyan Tree Residences West Palm Beach buyer guide with downtown location context, branded-residence positioning, floor plans, and pricing checks.", "/projects/banyan-tree/media/user-provided-banyan-tree-card.jpg"],
+    ["berkeley", "The Berkeley Palm Beach | Buyer Guide", "The Berkeley Palm Beach buyer guide for downtown West Palm Beach comparison, floor plans, amenities, pricing range, and current availability checks.", "/projects/berkeley/media/card.jpg"],
+    ["maison-dor", "Maison d'Or West Palm Beach | Buyer Guide", "Maison d'Or West Palm Beach buyer guide for boutique South Flagler waterfront living, floor plans, amenities, pricing checks, and availability questions.", "/projects/maison-dor/media/card.jpg"],
+    ["forte-on-flagler", "Forte on Flagler | West Palm Beach Condo Guide", "Forte on Flagler buyer guide for delivered South Flagler waterfront comparison, floor plans, amenities, and resale benchmark context.", "/projects/forte-on-flagler/media/card.jpg"],
+    ["la-clara", "La Clara West Palm Beach | Condo Benchmark", "La Clara West Palm Beach guide for delivered waterfront benchmark context when comparing South Flagler and new-construction alternatives.", "/projects/la-clara/media/la-clara-hero-3x2.jpg"],
+    ["10-cityplace", "10 CityPlace West Palm Beach | Buyer Guide", "10 CityPlace buyer guide for downtown West Palm Beach walkability, The Square context, and resale benchmark comparison.", "/projects/10-cityplace/media/10-cityplace-hero-1536x1024.jpg"],
+    ["15-cityplace", "15 CityPlace West Palm Beach | Buyer Guide", "15 CityPlace buyer guide for downtown West Palm Beach walkability, The Square context, and resale benchmark comparison.", "/projects/15-cityplace/media/15-cityplace-hero-1536x1024.jpg"],
+  ];
   return [
     {
       path: "/",
@@ -2185,44 +2349,44 @@ function buildPrerenderRoutes() {
     },
     {
       path: "/floorplans/",
-      title: "Floorplans | WPB New Construction",
-      description: "Released West Palm Beach new-construction condo floorplans organized by project for easier first comparison.",
+      title: "West Palm Beach Condo Floor Plans | New Construction Guide",
+      description: "Browse released West Palm Beach new-construction condo floor plans and request current sales packets before comparing available residences.",
       ogImage: siteMeta.defaultImage,
     },
     {
       path: "/buildings/",
-      title: "Buildings | WPB New Construction",
-      description: "Compare West Palm Beach new-construction buildings across North Flagler, Downtown, and South Flagler.",
+      title: "West Palm Beach New Construction Buildings | Buyer Guide",
+      description: "Compare West Palm Beach new-construction condos by corridor, pricing checks, floor plans, delivery timing, amenities, and waterfront position.",
       ogImage: siteMeta.defaultImage,
     },
     {
       path: "/map/",
-      title: "Map | WPB New Construction",
-      description: "Map West Palm Beach new-construction condo projects by corridor, waterfront position, and buyer context.",
+      title: "West Palm Beach Condo Map | New Construction Corridors",
+      description: "Map West Palm Beach new-construction condo projects by North Flagler, Downtown, and South Flagler corridor context.",
       ogImage: siteMeta.defaultImage,
     },
     {
       path: "/compare/",
-      title: "Compare | WPB New Construction",
-      description: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, and buyer fit.",
+      title: "Compare West Palm Beach New Construction Condos",
+      description: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
       ogImage: siteMeta.defaultImage,
     },
     {
       path: "/answers/",
-      title: "Buyer Q&A | WPB New Construction",
-      description: "Buyer-focused West Palm Beach new-construction condo answers with cited sources and practical next steps.",
+      title: "West Palm Beach New Construction Condo Answers",
+      description: "Concise answers to West Palm Beach new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
       ogImage: siteMeta.defaultImage,
     },
     {
       path: "/updates/",
-      title: "Market Updates | WPB New Construction",
-      description: "West Palm Beach new-construction market updates translated into practical buyer context.",
+      title: "West Palm Beach Condo Updates | Construction, Sales & Planning",
+      description: "Track West Palm Beach condo construction, sales, financing, and planning updates with links to original reporting and buyer next steps.",
       ogImage: siteMeta.defaultImage,
     },
     {
       path: "/market-notes/",
-      title: "Market Notes | WPB New Construction",
-      description: "Buyer notes and market intelligence for West Palm Beach new-construction condos.",
+      title: "West Palm Beach Condo Market Notes | Buyer Intelligence",
+      description: "Read buyer notes for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
       ogImage: siteMeta.defaultImage,
     },
     ...marketNoteRoutes.map((note) => (
@@ -2235,20 +2399,20 @@ function buildPrerenderRoutes() {
     )),
     {
       path: "/corridors/north-flagler/",
-      title: "North Flagler Projects | WPB New Construction",
-      description: "North Flagler West Palm Beach new-construction projects organized for buyer comparison.",
+      title: "North Flagler Condos | West Palm Beach Buyer Guide",
+      description: "Compare North Flagler new-construction condos by waterfront position, Palm Beach proximity, floor plans, status, and current availability questions.",
       ogImage: siteMeta.defaultImage,
     },
     {
       path: "/corridors/downtown/",
-      title: "Downtown Projects | WPB New Construction",
-      description: "Downtown West Palm Beach new-construction projects organized for buyer comparison.",
+      title: "Downtown West Palm Beach Condos | Buyer Guide",
+      description: "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
       ogImage: siteMeta.defaultImage,
     },
     {
       path: "/corridors/south-flagler/",
-      title: "South Flagler Projects | WPB New Construction",
-      description: "South Flagler West Palm Beach new-construction projects organized for buyer comparison.",
+      title: "South Flagler Condos | West Palm Beach Buyer Guide",
+      description: "Compare South Flagler waterfront condo projects by privacy, boutique scale, Palm Beach views, floor plans, and current availability checks.",
       ogImage: siteMeta.defaultImage,
     },
     {
@@ -2277,16 +2441,16 @@ function buildPrerenderRoutes() {
     },
     {
       path: "/inquire/",
-      title: "Inquire | WPB New Construction",
-      description: "Request current West Palm Beach new-construction availability, floorplans, pricing guidance, and private advisory context.",
+      title: "Request West Palm Beach Condo Availability",
+      description: "Request current West Palm Beach new-construction condo availability, floor plans, pricing guidance, and private buyer comparison notes.",
       ogImage: siteMeta.defaultImage,
     },
-    ...["olara", "ritz-carlton-wpb", "shorecrest", "mr-c", "alba-palm-beach", "mandarin-oriental", "10-cityplace", "15-cityplace", "south-flagler-house", "nora-house"].map(
-      (projectId) => ({
+    ...projectRoutes.map(
+      ([projectId, title, description, ogImage]) => ({
         path: `/projects/${projectId}/`,
-        title: `${projectTitle(projectId)} | WPB New Construction`,
-        description: "West Palm Beach new-construction project profile with facts, floorplans, source links, and buyer guidance.",
-        ogImage: siteMeta.defaultImage,
+        title,
+        description,
+        ogImage,
       }),
     ),
   ];
@@ -2316,6 +2480,12 @@ function renderSitemap(projects) {
     "mr-c",
     "alba-palm-beach",
     "mandarin-oriental",
+    "rosewood",
+    "banyan-tree",
+    "berkeley",
+    "maison-dor",
+    "forte-on-flagler",
+    "la-clara",
     "10-cityplace",
     "15-cityplace",
     "south-flagler-house-north",

@@ -2038,7 +2038,7 @@ app.innerHTML = `
         <section class="section news-section" id="news">
         <div class="section-heading">
           <p class="eyebrow">Development Headlines</p>
-          <h2>External West Palm Beach development news, linked to the original source.</h2>
+          <h1>External West Palm Beach development news, linked to the original source.</h1>
           <p>Track public sales, construction, planning, and financing updates across the West Palm Beach new-construction market. Older updates are useful background. For current pricing, availability, and delivery timing, ask Brooke to verify the latest details.</p>
         </div>
         <div class="answer-meta-panel">
@@ -2049,6 +2049,7 @@ app.innerHTML = `
         <div class="news-grid">
           ${publishedExternalNews.map(renderExternalNewsItem).join("")}
         </div>
+        <a class="home-answer-archive-link" href="/inquire/?lead_capture_context=updates_page">Ask About This Update <span aria-hidden="true">↗</span></a>
       </section>
       </div>
 
@@ -2092,6 +2093,7 @@ app.innerHTML = `
         </section>
         <section class="section floorplan-index-section">
           ${floorplanLibrary.map(renderFloorplanProject).join("")}
+          <a class="home-answer-archive-link" href="/inquire/?interest=floorplans&lead_capture_context=floorplans_page">Request Current Availability <span aria-hidden="true">↗</span></a>
         </section>
       </div>
 
@@ -2170,6 +2172,11 @@ app.innerHTML = `
               <strong>We do not verify legal, tax, lending, engineering, zoning, or investment conclusions.</strong>
               <p>Those decisions should be reviewed with the buyer's attorney, lender, architect, accountant, or other appropriate professional.</p>
             </article>
+          </div>
+          <div class="market-note-actions methodology-actions">
+            <a href="/answers/">Read buyer answers <span aria-hidden="true">→</span></a>
+            <a href="/projects/olara/">View a project example <span aria-hidden="true">→</span></a>
+            <a href="/inquire/?lead_capture_context=methodology_page">Request Current Availability <span aria-hidden="true">↗</span></a>
           </div>
         </section>
       </div>
@@ -2630,7 +2637,7 @@ app.innerHTML = `
       <section class="section inquiry-section" id="inquire">
         <div>
           <p class="eyebrow">Contact Brooke</p>
-          <h2>Request current pricing, availability, or floor plans</h2>
+          <h1>Request current pricing, availability, or floor plans</h1>
           <p>Pricing, incentives, available lines, and delivery timelines change quickly. Send what you’re considering and Brooke will help verify the current options before you compare buildings.</p>
           <div class="inquiry-context-panel">
             ${renderEditorialImagePanel("buyer-intelligence-interior", { compact: true })}
@@ -3157,31 +3164,12 @@ function applyRoute() {
 
   shell?.setAttribute("data-active-route", route.type);
   shell?.setAttribute("data-active-project", route.projectId ?? "");
-  const routeTitles: Record<string, string> = {
-    news: "Market Updates | WPB New Construction",
-    buildings: "Buildings | WPB New Construction",
-    map: "Map | WPB New Construction",
-    compare: "Compare | WPB New Construction",
-    "market-notes": "Market Notes | WPB New Construction",
-    "market-note-detail": activeMarketNote?.seo.titleTag ?? "Market Note | WPB New Construction",
-    floorplans: "Floorplans | WPB New Construction",
-    answers: "Buyer Q&A | WPB New Construction",
-    methodology: "How We Verify | WPB New Construction",
-    privacy: "Privacy | WPB New Construction",
-    terms: "Terms | WPB New Construction",
-    "fair-housing": "Fair Housing | WPB New Construction",
-    inquire: "Inquire | WPB New Construction",
-  };
-  document.title = activeProject
-    ? `${activeProject.name} | WPB New Construction`
-    : activeCorridor
-      ? `${activeCorridor.label} Projects | WPB New Construction`
-      : activeMarketNote
-        ? activeMarketNote.seo.titleTag
-      : routeTitles[route.type] ?? siteMeta.title;
+  const routeSeo = routeSeoDetails(route, activeProject, activeCorridor, activeMarketNote);
+  document.title = routeSeo.title;
 
   updateMetaDescription(route.type, activeProject, activeMarketNote);
   updateCanonical(route, activeProject, activeMarketNote);
+  updateSocialMetadata(routeSeo);
   updateStructuredData(route.type, activeProject, activeMarketNote);
 
   views.forEach((view) => {
@@ -3233,6 +3221,68 @@ function applyRoute() {
   } else if (!window.location.hash) {
     window.scrollTo({ top: 0, left: 0 });
   }
+}
+
+function routeSeoDetails(route: Route, activeProject?: FeaturedProject, activeCorridor?: CorridorSection, activeMarketNote?: MarketNote) {
+  const path =
+    activeProject ? projectPath(activeProject) :
+    activeCorridor ? corridorPath(activeCorridor.key) :
+    activeMarketNote ? `/market-notes/${activeMarketNote.slug}/` :
+    ({
+      home: "/",
+      buildings: "/buildings/",
+      map: "/map/",
+      compare: "/compare/",
+      news: "/updates/",
+      "market-notes": "/market-notes/",
+      floorplans: "/floorplans/",
+      answers: "/answers/",
+      methodology: "/methodology/",
+      privacy: "/privacy/",
+      terms: "/terms/",
+      "fair-housing": "/fair-housing/",
+      inquire: "/inquire/",
+    } as Record<string, string>)[route.type] ?? "/";
+  const corridorTitles: Record<CorridorKey, string> = {
+    "north-flagler": "North Flagler Condos | West Palm Beach Buyer Guide",
+    downtown: "Downtown West Palm Beach Condos | Buyer Guide",
+    "south-flagler": "South Flagler Condos | West Palm Beach Buyer Guide",
+  };
+  const corridorDescriptions: Record<CorridorKey, string> = {
+    "north-flagler": "Compare North Flagler new-construction condos by waterfront position, Palm Beach proximity, floor plans, status, and current availability questions.",
+    downtown: "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
+    "south-flagler": "Compare South Flagler waterfront condo projects by privacy, boutique scale, Palm Beach views, floor plans, and current availability checks.",
+  };
+  const routeTitles: Record<string, string> = {
+    home: siteMeta.title,
+    news: "West Palm Beach Condo Updates | Construction, Sales & Planning",
+    buildings: "West Palm Beach New Construction Buildings | Buyer Guide",
+    map: "West Palm Beach Condo Map | New Construction Corridors",
+    compare: "Compare West Palm Beach New Construction Condos",
+    "market-notes": "West Palm Beach Condo Market Notes | Buyer Intelligence",
+    floorplans: "West Palm Beach Condo Floor Plans | New Construction Guide",
+    answers: "West Palm Beach New Construction Condo Answers",
+    methodology: "How We Verify West Palm Beach Condo Project Facts",
+    privacy: "Privacy | WPB New Construction",
+    terms: "Terms | WPB New Construction",
+    "fair-housing": "Fair Housing | WPB New Construction",
+    inquire: "Request West Palm Beach Condo Availability",
+  };
+  const title = activeProject
+    ? `${activeProject.name} West Palm Beach | ${activeProject.pageState === "Complete profile" ? "New Construction Condo Guide" : "Buyer Guide"}`
+    : activeCorridor
+      ? corridorTitles[activeCorridor.key]
+      : activeMarketNote
+        ? activeMarketNote.seo.titleTag
+      : routeTitles[route.type] ?? siteMeta.title;
+  const description = activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type));
+  const image = activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : siteMeta.defaultImage);
+  return {
+    title,
+    description,
+    image: image.startsWith("http") ? image : `${productionOrigin}${image}`,
+    url: `${productionOrigin}${path}`,
+  };
 }
 
 function getActiveNavItem(route: Route) {
@@ -3464,29 +3514,64 @@ function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMa
 }
 
 function updateMetaDescription(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote) {
-  const descriptions: Record<string, string> = {
-    home: siteMeta.description,
-    buildings: "Compare West Palm Beach new-construction buildings across North Flagler, Downtown, and South Flagler.",
-    map: "Map West Palm Beach new-construction condo projects by corridor, waterfront position, and buyer context.",
-    compare: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, and buyer fit.",
-    news: "West Palm Beach new-construction market updates translated into practical buyer context.",
-    "market-notes": "Buyer notes and market intelligence for West Palm Beach new-construction condos, with source-backed buyer guidance and practical availability checks.",
-    floorplans: "Released West Palm Beach new-construction condo floorplans organized by project for easier first comparison.",
-    answers: "Buyer-focused West Palm Beach new-construction condo answers with cited sources and practical next steps.",
-    methodology: "How WPB New Construction separates verified, reported, and confirm-before-reliance project details.",
-    privacy: "Privacy information for WPB New Construction inquiry forms, Douglas Elliman policy references, and buyer lead handling.",
-    terms: "Terms and limitations for WPB New Construction buyer guidance, project information, and advisory content.",
-    "fair-housing": "Equal Housing Opportunity and fair housing disclosure for WPB New Construction buyer advisory content.",
-    inquire: "Request current West Palm Beach new-construction availability, floorplans, pricing guidance, and private advisory context.",
-    project: activeProject?.summary ?? "West Palm Beach new-construction project profile with facts, floorplans, sources, and buyer guidance.",
-  };
   let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
   if (!meta) {
     meta = document.createElement("meta");
     meta.name = "description";
     document.head.append(meta);
   }
-  meta.content = activeMarketNote?.seo.metaDescription ?? descriptions[routeType] ?? siteMeta.description;
+  meta.content = activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? metaDescriptionForRoute(routeType);
+}
+
+function metaDescriptionForRoute(routeType: string) {
+  const descriptions: Record<string, string> = {
+    home: siteMeta.description,
+    buildings: "Compare West Palm Beach new-construction condos by corridor, pricing checks, floor plans, delivery timing, amenities, and waterfront position.",
+    map: "Map West Palm Beach new-construction condo projects by North Flagler, Downtown, and South Flagler corridor context.",
+    compare: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
+    news: "Track West Palm Beach condo construction, sales, financing, and planning updates with links to original reporting and buyer next steps.",
+    "market-notes": "Read buyer notes for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
+    floorplans: "Browse released West Palm Beach new-construction condo floor plans and request current sales packets before comparing available residences.",
+    answers: "Concise answers to West Palm Beach new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
+    methodology: "How WPB New Construction separates official sources, reported details, and items buyers should verify before relying on project information.",
+    privacy: "Privacy information for WPB New Construction inquiry forms, Douglas Elliman policy references, and buyer lead handling.",
+    terms: "Terms and limitations for WPB New Construction buyer guidance, project information, and advisory content.",
+    "fair-housing": "Equal Housing Opportunity and fair housing disclosure for WPB New Construction buyer advisory content.",
+    inquire: "Request current West Palm Beach new-construction condo availability, floor plans, pricing guidance, and private buyer comparison notes.",
+    project: "West Palm Beach new-construction project profile with facts, floor plans, source links, and buyer guidance.",
+  };
+  return descriptions[routeType] ?? siteMeta.description;
+}
+
+function updateSocialMetadata(details: { title: string; description: string; image: string; url: string }) {
+  setMetaProperty("og:title", details.title);
+  setMetaProperty("og:description", details.description);
+  setMetaProperty("og:image", details.image);
+  setMetaProperty("og:url", details.url);
+  setMetaName("twitter:card", "summary_large_image");
+  setMetaName("twitter:title", details.title);
+  setMetaName("twitter:description", details.description);
+  setMetaName("twitter:image", details.image);
+}
+
+function setMetaProperty(property: string, content: string) {
+  let meta = document.querySelector<HTMLMetaElement>(`meta[property="${property}"]`);
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute("property", property);
+    document.head.append(meta);
+  }
+  meta.content = content;
+}
+
+function setMetaName(name: string, content: string) {
+  let meta = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.name = name;
+    document.head.append(meta);
+  }
+  meta.content = content;
 }
 
 function updateStructuredData(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote) {
@@ -3495,6 +3580,14 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
       "@type": siteMeta.publisher.type,
       "@id": `${siteMeta.baseUrl}/#publisher`,
       name: advisorProfile.brokerage,
+      url: siteMeta.baseUrl,
+      telephone: advisorProfile.mobile,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "West Palm Beach",
+        addressRegion: "FL",
+        addressCountry: "US",
+      },
       areaServed: siteMeta.publisher.areaServed,
     },
     {
@@ -3515,25 +3608,96 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
 
   const routeGraph =
     routeType === "answers"
-      ? [buildFaqSchema()]
+      ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Answers", path: "/answers/" }]), buildFaqSchema()]
       : routeType === "floorplans"
-        ? [buildFloorplanItemListSchema()]
+        ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Floor Plans", path: "/floorplans/" }]), buildFloorplanItemListSchema()]
         : routeType === "news"
-          ? researchNewsFeed.map(buildNewsArticleSchema)
+          ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Updates", path: "/updates/" }]), ...researchNewsFeed.map(buildNewsArticleSchema)]
           : routeType === "market-notes"
-            ? marketNotes.map(buildMarketNoteSchema)
+            ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Market Notes", path: "/market-notes/" }]), ...marketNotes.map(buildMarketNoteSchema)]
             : routeType === "market-note-detail" && activeMarketNote
-              ? [buildMarketNoteSchema(activeMarketNote)]
+              ? [
+                  buildBreadcrumbSchema([
+                    { name: "Home", path: "/" },
+                    { name: "Market Notes", path: "/market-notes/" },
+                    { name: activeMarketNote.title, path: `/market-notes/${activeMarketNote.slug}/` },
+                  ]),
+                  buildMarketNoteSchema(activeMarketNote),
+                ]
             : routeType === "methodology" || routeType === "privacy" || routeType === "terms" || routeType === "fair-housing"
-            ? [buildLegalPageSchema(routeType)]
+            ? [buildLegalPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: pageSchemaName(routeType), path: `/${routeType}/` }])]
           : activeProject
-            ? [buildProjectSchema(activeProject)]
-            : [buildHomeItemListSchema()];
+            ? [buildProjectBreadcrumbSchema(activeProject), buildProjectSchema(activeProject)]
+            : [buildWebPageSchema(routeType), buildHomeItemListSchema()];
 
   setJsonLd({
     "@context": "https://schema.org",
     "@graph": [...baseGraph, ...routeGraph],
   });
+}
+
+function buildWebPageSchema(routeType: string) {
+  const pathByRoute: Record<string, string> = {
+    home: "/",
+    buildings: "/buildings/",
+    map: "/map/",
+    compare: "/compare/",
+    news: "/updates/",
+    "market-notes": "/market-notes/",
+    floorplans: "/floorplans/",
+    answers: "/answers/",
+    inquire: "/inquire/",
+  };
+  const path = pathByRoute[routeType] ?? "/";
+  return {
+    "@type": routeType === "home" ? "CollectionPage" : "WebPage",
+    "@id": `${siteMeta.baseUrl}${path}#webpage`,
+    name: pageSchemaName(routeType),
+    url: `${siteMeta.baseUrl}${path}`,
+    description: metaDescriptionForRoute(routeType),
+    isPartOf: { "@id": `${siteMeta.baseUrl}/#website` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
+  };
+}
+
+function pageSchemaName(routeType: string) {
+  const labels: Record<string, string> = {
+    home: "West Palm Beach New Construction Condos",
+    buildings: "West Palm Beach New Construction Buildings",
+    map: "West Palm Beach Condo Map",
+    compare: "Compare West Palm Beach New Construction Condos",
+    news: "West Palm Beach Condo Updates",
+    "market-notes": "West Palm Beach Condo Market Notes",
+    floorplans: "West Palm Beach Condo Floor Plans",
+    answers: "West Palm Beach New Construction Condo Answers",
+    methodology: "How We Verify",
+    privacy: "Privacy",
+    terms: "Terms",
+    "fair-housing": "Fair Housing",
+    inquire: "Request Current Availability",
+  };
+  return labels[routeType] ?? "WPB New Construction";
+}
+
+function buildBreadcrumbSchema(items: { name: string; path: string }[]) {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${siteMeta.baseUrl}${item.path}`,
+    })),
+  };
+}
+
+function buildProjectBreadcrumbSchema(project: FeaturedProject) {
+  return buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Buildings", path: "/buildings/" },
+    { name: project.name, path: projectPath(project) },
+  ]);
 }
 
 function setJsonLd(data: unknown) {
@@ -3598,6 +3762,7 @@ function buildNewsArticleSchema(item: (typeof researchNewsFeed)[number]) {
 }
 
 function buildMarketNoteSchema(note: MarketNote) {
+  const resolvedImage = imageForContentItem(note);
   return {
     "@type": "Article",
     "@id": `${siteMeta.baseUrl}/market-notes/${note.slug}/#article`,
@@ -3608,6 +3773,7 @@ function buildMarketNoteSchema(note: MarketNote) {
     articleSection: note.category,
     author: { "@id": `${siteMeta.baseUrl}/#advisor` },
     publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+    image: resolvedImage.src ? `${siteMeta.baseUrl}${resolvedImage.src}` : `${siteMeta.baseUrl}${siteMeta.defaultImage}`,
     mainEntityOfPage: `${siteMeta.baseUrl}/market-notes/${note.slug}/`,
   };
 }
@@ -3630,6 +3796,11 @@ function buildProjectSchema(project: FeaturedProject) {
     description: project.summary,
     url: `${siteMeta.baseUrl}${projectPath(project)}`,
     image: project.image ? `${siteMeta.baseUrl}${project.image}` : undefined,
+    areaServed: "West Palm Beach, Florida",
+    containedInPlace: {
+      "@type": "City",
+      name: "West Palm Beach",
+    },
     numberOfAccommodationUnits: unitCount,
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
     status: project.status,
@@ -3645,6 +3816,14 @@ function buildProjectSchema(project: FeaturedProject) {
         url: `${siteMeta.baseUrl}/methodology/`,
       },
     ],
+    hasPart: project.image
+      ? [{
+          "@type": "ImageObject",
+          contentUrl: `${siteMeta.baseUrl}${project.image}`,
+          caption: `${project.name} project image`,
+          creditText: imageSourceName(project.image),
+        }]
+      : [],
     reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
     amenityFeature: getFloorplanProject(project.id)?.count ? [{ "@type": "LocationFeatureSpecification", name: "Floorplans available" }] : [],
   };
@@ -3868,6 +4047,7 @@ function renderMapRouteView() {
             <span>tracked West Palm Beach new-construction projects</span>
           </div>
         </aside>
+        <a class="home-answer-archive-link" href="/inquire/?lead_capture_context=map_page">Request Current Availability <span aria-hidden="true">↗</span></a>
       </section>
     </div>
   `;
@@ -4971,6 +5151,10 @@ function sourceFactForProject(projectId: string) {
 
 function renderAnswerBlock(item: (typeof answerEngineFaq)[number]) {
   const sourceCitations = item.sourceCitations;
+  const relatedProjects = item.relatedProjectIds
+    .map((projectId) => featuredProjects.find((project) => project.id === projectId))
+    .filter((project): project is FeaturedProject => Boolean(project))
+    .slice(0, 3);
   return `
     <article class="answer-block" id="${escapeHtml(item.id)}">
       <div>
@@ -4993,6 +5177,14 @@ function renderAnswerBlock(item: (typeof answerEngineFaq)[number]) {
                 .join("")}
             </div>`
           : ""
+      }
+      ${
+        relatedProjects.length
+          ? `<div class="market-note-actions">
+              ${relatedProjects.map((project) => `<a href="${projectPath(project)}">${escapeHtml(project.name)} <span aria-hidden="true">→</span></a>`).join("")}
+              <a href="/inquire/?lead_capture_context=answer_block&message=${encodeURIComponent(`I have a question about: ${item.question}`)}">Request Current Availability <span aria-hidden="true">↗</span></a>
+            </div>`
+          : `<div class="market-note-actions"><a href="/inquire/?lead_capture_context=answer_block">Request Current Availability <span aria-hidden="true">↗</span></a></div>`
       }
       <footer>
         <small>Related: ${escapeHtml(item.relatedProjectIds.join(", "))}</small>

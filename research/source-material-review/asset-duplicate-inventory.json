@@ -1,20 +1,20 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-22T13:31:37.075Z",
-    "filesScanned": 1725,
-    "duplicateHashGroups": 333,
-    "duplicateExtraBytes": 469237692,
+    "generatedAt": "2026-05-22T13:57:10.529Z",
+    "filesScanned": 1772,
+    "duplicateHashGroups": 348,
+    "duplicateExtraBytes": 469470044,
     "sourceDuplicateHashGroups": 330,
     "sourceDuplicateExtraBytes": 466695552,
     "publicOnlyDuplicateHashGroups": 3,
     "publicOnlyDuplicateExtraBytes": 2033973,
-    "qaDuplicateHashGroups": 2,
-    "qaDuplicateExtraBytes": 538774,
-    "previousDuplicateExtraBytes": 524855964,
-    "previousSourceDuplicateExtraBytes": 520180596,
-    "duplicateExtraByteDelta": -55618272,
-    "sourceDuplicateExtraByteDelta": -53485044
+    "qaDuplicateHashGroups": 17,
+    "qaDuplicateExtraBytes": 771126,
+    "previousDuplicateExtraBytes": 469237692,
+    "previousSourceDuplicateExtraBytes": 466695552,
+    "duplicateExtraByteDelta": 232352,
+    "sourceDuplicateExtraByteDelta": 0
   },
   "policy": "Inventory only. Do not delete files from this report without explicit human approval; use it to choose canonical files and archive/move candidates.",
   "cleanupPlan": [
@@ -40,8 +40,8 @@
     },
     {
       "action": "Archive older QA screenshots after approval.",
-      "groups": 2,
-      "extraBytes": 538774
+      "groups": 17,
+      "extraBytes": 771126
     }
   ],
   "groups": [
@@ -5668,6 +5668,25 @@
       ]
     },
     {
+      "hash": "b5454d7f6b760a0cffa79604aab740c75bafb78459d83cfc08caccd69daeb172",
+      "count": 2,
+      "eachBytes": 52223,
+      "extraBytes": 52223,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-34-36-609Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-34-36-609Z.yml",
+          "size": 52223
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-10-366Z.yml",
+          "size": 52223
+        }
+      ]
+    },
+    {
       "hash": "54dfefa7755e20cdf43533cb512e89ce9eee5fc00106970978029c2fc1fc2968",
       "count": 2,
       "eachBytes": 49614,
@@ -5965,6 +5984,25 @@
       ]
     },
     {
+      "hash": "26f2baaea50379cf811ea90ab1e7ad58a37eab7c2a7d8ef36fb68b7a6043a58e",
+      "count": 2,
+      "eachBytes": 21620,
+      "extraBytes": 21620,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-31-561Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-31-561Z.yml",
+          "size": 21620
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-36-12-169Z.yml",
+          "size": 21620
+        }
+      ]
+    },
+    {
       "hash": "a8f67ed6ed34d0942cb8c0ef9bbf9a019baa9b7d2fc2721cab91b6eb56b8b8e2",
       "count": 2,
       "eachBytes": 19743,
@@ -5980,6 +6018,25 @@
         {
           "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/amenity-south-flagler-house-north-tower-amenity-thumb-480.jpg",
           "size": 19743
+        }
+      ]
+    },
+    {
+      "hash": "251e44195909d07936561086780ef01a2d51c72ac0fb061c923df412815678ef",
+      "count": 2,
+      "eachBytes": 19720,
+      "extraBytes": 19720,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-29-690Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-29-690Z.yml",
+          "size": 19720
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-36-10-359Z.yml",
+          "size": 19720
         }
       ]
     },
@@ -6003,6 +6060,82 @@
       ]
     },
     {
+      "hash": "9ef842f38839d5a4d40ddac127da0e8aded9c6d0fc41bbbd2665dcf8d242414d",
+      "count": 2,
+      "eachBytes": 18767,
+      "extraBytes": 18767,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-26-039Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-26-039Z.yml",
+          "size": 18767
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-36-05-661Z.yml",
+          "size": 18767
+        }
+      ]
+    },
+    {
+      "hash": "92c3cc56a02cb0e354ad7cd389608b0e0912d4806633e1798a601c37bb9cc120",
+      "count": 2,
+      "eachBytes": 17052,
+      "extraBytes": 17052,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-36-958Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-36-958Z.yml",
+          "size": 17052
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-36-17-659Z.yml",
+          "size": 17052
+        }
+      ]
+    },
+    {
+      "hash": "7549915baf71319578ea3e306df18f3c80ea8f116b5e29250fb2fb2904e3d957",
+      "count": 2,
+      "eachBytes": 17026,
+      "extraBytes": 17026,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-33-351Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-33-351Z.yml",
+          "size": 17026
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-36-14-024Z.yml",
+          "size": 17026
+        }
+      ]
+    },
+    {
+      "hash": "425b099d67c4afe5de43d3799558ac40a4a99d7d82078f085df04d8c96047e65",
+      "count": 2,
+      "eachBytes": 15239,
+      "extraBytes": 15239,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-35-158Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-35-158Z.yml",
+          "size": 15239
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-36-15-825Z.yml",
+          "size": 15239
+        }
+      ]
+    },
+    {
       "hash": "89afc0189713637ef987ae0c483a0ec7d87ac7a34f90ba231f65cdcadc59d152",
       "count": 2,
       "eachBytes": 15212,
@@ -6018,6 +6151,25 @@
         {
           "path": "research/asset-library/projects/south-flagler-house-south/image-candidates.json",
           "size": 15212
+        }
+      ]
+    },
+    {
+      "hash": "18221f4a52d6ada2f553c3762f75367465f27e5b51574386be34f43cc1550266",
+      "count": 2,
+      "eachBytes": 14423,
+      "extraBytes": 14423,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-20-543Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-20-543Z.yml",
+          "size": 14423
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-36-00-176Z.yml",
+          "size": 14423
         }
       ]
     },
@@ -6057,6 +6209,25 @@
       ]
     },
     {
+      "hash": "0fffaaed347dec0fd9de6674a3bc64a92921784712904e02d577bafe963d8d53",
+      "count": 2,
+      "eachBytes": 13842,
+      "extraBytes": 13842,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-22-364Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-22-364Z.yml",
+          "size": 13842
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-36-01-944Z.yml",
+          "size": 13842
+        }
+      ]
+    },
+    {
       "hash": "a84f169a3fce50f9377bab749de9dc8784f73d9ef0ed6a10cf6263be94820dde",
       "count": 2,
       "eachBytes": 13341,
@@ -6076,6 +6247,44 @@
       ]
     },
     {
+      "hash": "fd57f90f8ec91d29ba41b48b6fc24d3d4dea46b031b05de48f5e000a3cd40ac7",
+      "count": 2,
+      "eachBytes": 11203,
+      "extraBytes": 11203,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-15-016Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-15-016Z.yml",
+          "size": 11203
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-54-838Z.yml",
+          "size": 11203
+        }
+      ]
+    },
+    {
+      "hash": "d3c57694c80da02320feaaad159a93a40f32dd9385ee705b7771184cad06dc1a",
+      "count": 2,
+      "eachBytes": 10877,
+      "extraBytes": 10877,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-24-186Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-24-186Z.yml",
+          "size": 10877
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-36-03-791Z.yml",
+          "size": 10877
+        }
+      ]
+    },
+    {
       "hash": "b2509730971d5de05346e554b641c63f91d8cbdf7ce367695e11bf72ae2be2ba",
       "count": 2,
       "eachBytes": 9844,
@@ -6091,6 +6300,44 @@
         {
           "path": "research/asset-library/projects/ritz-carlton-wpb/team-logos/developer--bh-group--logo--dc294953.webp",
           "size": 9844
+        }
+      ]
+    },
+    {
+      "hash": "06edbe77eb3b139807501baa0b3507e019622071d544fabfebebcc5f7cad865e",
+      "count": 2,
+      "eachBytes": 9693,
+      "extraBytes": 9693,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-18-684Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-18-684Z.yml",
+          "size": 9693
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-58-453Z.yml",
+          "size": 9693
+        }
+      ]
+    },
+    {
+      "hash": "a790066d5b11e38230493635f65e70887e76eaf752c1b5a6fbb653c77737a796",
+      "count": 2,
+      "eachBytes": 8367,
+      "extraBytes": 8367,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T13-35-16-845Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-16-845Z.yml",
+          "size": 8367
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T13-35-56-660Z.yml",
+          "size": 8367
         }
       ]
     },
@@ -6205,6 +6452,44 @@
         {
           "path": "research/asset-library/projects/ritz-carlton-wpb/team-logos/developer--related-group--logo--8dbcf17f.svg",
           "size": 1275
+        }
+      ]
+    },
+    {
+      "hash": "3f0c4568f5cba613f0bbd366c240af61384191f4057698086eb55e9f7bc0af26",
+      "count": 2,
+      "eachBytes": 1150,
+      "extraBytes": 1150,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/console-2026-05-22T13-35-29-540Z.log",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/console-2026-05-22T13-35-29-540Z.log",
+          "size": 1150
+        },
+        {
+          "path": ".playwright-cli/console-2026-05-22T13-36-12-026Z.log",
+          "size": 1150
+        }
+      ]
+    },
+    {
+      "hash": "03e206ad36c6dcd57dd962dad067a8df9eecafbc90dce962fdff4e8204d9c972",
+      "count": 2,
+      "eachBytes": 1150,
+      "extraBytes": 1150,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/console-2026-05-22T13-35-51-840Z.log",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/console-2026-05-22T13-35-51-840Z.log",
+          "size": 1150
+        },
+        {
+          "path": ".playwright-cli/console-2026-05-22T13-36-05-514Z.log",
+          "size": 1150
         }
       ]
     },
