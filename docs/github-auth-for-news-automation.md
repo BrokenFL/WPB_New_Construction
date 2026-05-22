@@ -17,11 +17,12 @@ If `gh` is missing or fails, it queries the GitHub Issues API. If `GITHUB_TOKEN`
 
 Current local status, checked 2026-05-22:
 
-- Homebrew is not available in the default Codex shell.
-- The official non-interactive Homebrew installer was attempted and blocked because sudo/admin access is required.
+- Homebrew is available in the default zsh shell through `/Users/brookesnader/.local/bin/brew`.
+- The standard `/opt/homebrew` installer was attempted and blocked because sudo/admin access is required.
+- A user-prefix Homebrew fallback is installed at `/Users/brookesnader/.homebrew/bin/brew`.
 - A local GitHub CLI binary was installed at `/Users/brookesnader/.local/bin/gh`.
 - `/Users/brookesnader/.local/bin/gh auth status` reports authenticated access as `BrokenFL`.
-- Add `/Users/brookesnader/.local/bin` to the LaunchAgent or shell `PATH` if automation needs `gh` by command name.
+- `/Users/brookesnader/.local/bin` and `/Users/brookesnader/.homebrew/bin` were added to zsh startup files. Add those paths to any LaunchAgent environment if automation needs `gh` or `brew` by command name.
 
 If Homebrew is available:
 
