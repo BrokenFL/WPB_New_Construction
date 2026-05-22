@@ -1,6 +1,6 @@
 # Launch QA Report
 
-Generated: 2026-05-22T01:38:58.958Z
+Generated: 2026-05-22T02:09:37.921Z
 
 ## Summary
 
@@ -32,22 +32,22 @@ Generated: 2026-05-22T01:38:58.958Z
 - PASS - Prerender route /projects/shorecrest/: dist/projects/shorecrest/index.html
 - PASS - Prerender route /projects/south-flagler-house/: dist/projects/south-flagler-house/index.html
 - PASS - Prerender route /projects/nora-house/: dist/projects/nora-house/index.html
-- PASS - Canonical /floorplans/: https://wpbnewconstruction.com/floorplans/
-- PASS - Canonical /answers/: https://wpbnewconstruction.com/answers/
-- PASS - Canonical /updates/: https://wpbnewconstruction.com/updates/
-- PASS - Canonical /methodology/: https://wpbnewconstruction.com/methodology/
-- PASS - Canonical /fair-housing/: https://wpbnewconstruction.com/fair-housing/
-- PASS - Canonical /privacy/: https://wpbnewconstruction.com/privacy/
-- PASS - Canonical /terms/: https://wpbnewconstruction.com/terms/
-- PASS - Canonical /inquire/: https://wpbnewconstruction.com/inquire/
-- PASS - Canonical /projects/olara/: https://wpbnewconstruction.com/projects/olara/
-- PASS - Canonical /projects/ritz-carlton-wpb/: https://wpbnewconstruction.com/projects/ritz-carlton-wpb/
-- PASS - Canonical /projects/mandarin-oriental/: https://wpbnewconstruction.com/projects/mandarin-oriental/
-- PASS - Canonical /projects/mr-c/: https://wpbnewconstruction.com/projects/mr-c/
-- PASS - Canonical /projects/alba-palm-beach/: https://wpbnewconstruction.com/projects/alba-palm-beach/
-- PASS - Canonical /projects/shorecrest/: https://wpbnewconstruction.com/projects/shorecrest/
-- PASS - Canonical /projects/south-flagler-house/: https://wpbnewconstruction.com/projects/south-flagler-house/
-- PASS - Canonical /projects/nora-house/: https://wpbnewconstruction.com/projects/nora-house/
+- PASS - Canonical /floorplans/: https://www.wpbnewconstruction.com/floorplans/
+- PASS - Canonical /answers/: https://www.wpbnewconstruction.com/answers/
+- PASS - Canonical /updates/: https://www.wpbnewconstruction.com/updates/
+- PASS - Canonical /methodology/: https://www.wpbnewconstruction.com/methodology/
+- PASS - Canonical /fair-housing/: https://www.wpbnewconstruction.com/fair-housing/
+- PASS - Canonical /privacy/: https://www.wpbnewconstruction.com/privacy/
+- PASS - Canonical /terms/: https://www.wpbnewconstruction.com/terms/
+- PASS - Canonical /inquire/: https://www.wpbnewconstruction.com/inquire/
+- PASS - Canonical /projects/olara/: https://www.wpbnewconstruction.com/projects/olara/
+- PASS - Canonical /projects/ritz-carlton-wpb/: https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/
+- PASS - Canonical /projects/mandarin-oriental/: https://www.wpbnewconstruction.com/projects/mandarin-oriental/
+- PASS - Canonical /projects/mr-c/: https://www.wpbnewconstruction.com/projects/mr-c/
+- PASS - Canonical /projects/alba-palm-beach/: https://www.wpbnewconstruction.com/projects/alba-palm-beach/
+- PASS - Canonical /projects/shorecrest/: https://www.wpbnewconstruction.com/projects/shorecrest/
+- PASS - Canonical /projects/south-flagler-house/: https://www.wpbnewconstruction.com/projects/south-flagler-house/
+- PASS - Canonical /projects/nora-house/: https://www.wpbnewconstruction.com/projects/nora-house/
 - PASS - Floorplan href coverage: 253/253
 - PASS - Local floorplan file coverage: 0 missing public files
 - PASS - Lead intake static form: wpb-lead-intake

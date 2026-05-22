@@ -73,7 +73,7 @@ Imported update candidates live in `src/data/importedUpdates.json` and are inten
   "date": "2026-05-22",
   "lastCheckedAt": "2026-05-22",
   "sourceName": "Source name",
-  "sourceUrl": "https://example.com/source",
+  "sourceUrl": "https://news-source.invalid/source",
   "sourceType": "developer | news | city | county | brokerage | permit | other",
   "category": "sales | construction | planning | financing | delivery | media | general",
   "relatedBuildingSlug": "optional-building-slug",

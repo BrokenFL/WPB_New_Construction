@@ -18,3 +18,6 @@ Some visuals may be editorial or representative unless marked as official projec
 - Use captions such as `Editorial visual` where the asset is representative.
 - Keep project-specific pages limited to official, authorized, or user-provided project imagery.
 - If an asset does not exist yet, render a polished placeholder and keep this manifest as the sourcing brief.
+- Implemented imagery records live in `src/data/editorialImagery.ts`.
+- The reusable renderer lives in `src/components/EditorialImagePanel.ts` and falls back to a polished editorial placeholder when files are not yet sourced.
+- Current editorial asset records are marked `needs-sourcing` until optimized JPG/WebP files are added under `public/assets/editorial/`.

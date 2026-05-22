@@ -1,0 +1,4 @@
+/blog/ /market-notes/ 301
+/blog/:slug/ /market-notes/:slug/ 301
+/contact/ /inquire/ 301
+/floor-plans/ /floorplans/ 301

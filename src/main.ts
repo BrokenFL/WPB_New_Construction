@@ -7,6 +7,7 @@ import {
   siteMeta,
 } from "./generated/siteData";
 import { editorProjectOverrides, type EditorProjectOverrides } from "./generated/editorOverrides";
+import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
 import { advisorProfile } from "./lib/contact";
@@ -221,6 +222,8 @@ const staticRoutePaths: Record<string, string> = {
   "/terms/": "terms",
   "/inquire/": "inquire",
 };
+
+const productionOrigin = "https://www.wpbnewconstruction.com";
 
 const corridorRoutePaths: Record<string, CorridorKey> = {
   "/corridors/north-flagler/": "north-flagler",
@@ -1733,8 +1736,8 @@ app.innerHTML = `
       </a>
       <nav aria-label="Primary navigation">
         <a href="/#projects" data-nav-item="projects">Buildings</a>
-        <a href="/#atlas" data-nav-item="atlas">Map</a>
-        <a href="/#compare" data-nav-item="compare">Compare</a>
+        <a href="/map/" data-nav-item="map">Map</a>
+        <a href="/compare/" data-nav-item="compare">Compare</a>
         <a href="/updates/" data-nav-item="news">Updates</a>
         <a href="/floorplans/" data-nav-item="floorplans">Floor Plans</a>
         <a href="/market-notes/" data-nav-item="market-notes">Buyer Notes</a>
@@ -1881,6 +1884,10 @@ app.innerHTML = `
         <a href="/inquire/">Request Current Availability <span aria-hidden="true">↗</span></a>
       </section>
       </div>
+
+      ${renderMapRouteView()}
+
+      ${renderCompareRouteView()}
 
       ${corridorSections.map(renderCorridorRouteView).join("")}
 
@@ -2497,6 +2504,20 @@ app.innerHTML = `
           <p class="eyebrow">Contact Brooke</p>
           <h2>Request current pricing, availability, or floor plans</h2>
           <p>Pricing, incentives, available lines, and delivery timelines change quickly. Send what you’re considering and Brooke will help verify the current options before you compare buildings.</p>
+          <div class="inquiry-context-panel">
+            ${renderEditorialImagePanel("buyer-intelligence-interior", { compact: true })}
+            <div>
+              <span>Before you tour, verify the moving parts.</span>
+              <ul>
+                <li>Current pricing</li>
+                <li>Available lines</li>
+                <li>Floor-plan depth</li>
+                <li>Delivery timing</li>
+                <li>Fees and parking assumptions</li>
+                <li>Nearby building alternatives</li>
+              </ul>
+            </div>
+          </div>
           <div class="inquiry-deliverables" aria-label="What the advisory packet includes">
             <article>
               <span>1</span>
@@ -2514,6 +2535,11 @@ app.innerHTML = `
               <small>North Flagler, Downtown, and South Flagler tradeoffs, source-risk notes, and tour path.</small>
             </article>
           </div>
+          <div class="brooke-identity-block">
+            <strong>${advisorProfile.name}</strong>
+            <span>${advisorProfile.brokerage}</span>
+            <a href="${advisorProfile.mobileHref}">${advisorProfile.mobile}</a>
+          </div>
           <p class="source-note">${advisorProfile.name}, ${advisorProfile.title} (${advisorProfile.license}) · ${advisorProfile.brokerage} (Florida license ${advisorProfile.brokerageLicense})</p>
         </div>
         <form class="inquiry-form" name="wpb-lead-intake" method="POST" data-netlify="true" netlify-honeypot="company">
@@ -2529,7 +2555,7 @@ app.innerHTML = `
           </label>
           <label>
             <span>Email</span>
-            <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+            <input type="email" name="email" autocomplete="email" placeholder="Email address" required />
           </label>
           <label>
             <span>Phone</span>
@@ -2989,6 +3015,7 @@ function applyRoute() {
       : routeTitles[route.type] ?? siteMeta.title;
 
   updateMetaDescription(route.type, activeProject, activeMarketNote);
+  updateCanonical(route, activeProject, activeMarketNote);
   updateStructuredData(route.type, activeProject, activeMarketNote);
 
   views.forEach((view) => {
@@ -3000,7 +3027,7 @@ function applyRoute() {
           ? viewType === "corridor" && view.dataset.corridorRoute === route.corridorKey
           : route.type === "market-note-detail"
             ? viewType === "market-note-detail"
-          : route.type === "buildings" || route.type === "map" || route.type === "compare"
+          : route.type === "buildings"
             ? viewType === "home"
           : viewType === route.type;
 
@@ -3022,6 +3049,7 @@ function applyRoute() {
   });
 
   syncInquiryContext();
+  initCompareShortlist();
   if (activeProject) {
     trackBuildingDetailView(activeProject);
   }
@@ -3033,8 +3061,7 @@ function applyRoute() {
     ...(route.type === "market-note-detail" ? { articleSlug: route.articleSlug } : {}),
   });
 
-  const routeAnchor =
-    route.type === "buildings" ? "projects" : route.type === "map" ? "atlas" : route.type === "compare" ? "compare" : "";
+  const routeAnchor = route.type === "buildings" ? "projects" : "";
   if (routeAnchor) {
     window.setTimeout(() => document.getElementById(routeAnchor)?.scrollIntoView({ block: "start" }), 0);
   } else if (!window.location.hash) {
@@ -3086,7 +3113,97 @@ function syncInquiryContext() {
   document.querySelector<HTMLInputElement>('.inquiry-form input[name="lead_capture_context"]')?.setAttribute("value", leadCaptureContext ?? "contact_page");
 }
 
+function initCompareShortlist() {
+  const route = getCurrentRoute();
+  if (route.type !== "compare") return;
+
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-compare-toggle]"));
+  const output = document.querySelector<HTMLElement>("[data-compare-shortlist]");
+  const inquireLink = document.querySelector<HTMLAnchorElement>("[data-compare-inquire]");
+  if (!buttons.length || !output) return;
+
+  const storageKey = "wpbCompareShortlist";
+  const readSelection = () => {
+    try {
+      const parsed = JSON.parse(sessionStorage.getItem(storageKey) ?? "[]");
+      return Array.isArray(parsed) ? parsed.filter((id): id is string => typeof id === "string") : [];
+    } catch {
+      return [];
+    }
+  };
+  const writeSelection = (ids: string[]) => sessionStorage.setItem(storageKey, JSON.stringify(ids.slice(0, 3)));
+  let selectedIds = readSelection().filter((id) => featuredProjects.some((project) => project.id === id)).slice(0, 3);
+
+  const render = () => {
+    buttons.forEach((button) => {
+      const isSelected = selectedIds.includes(button.dataset.compareToggle ?? "");
+      button.classList.toggle("is-selected", isSelected);
+      button.setAttribute("aria-pressed", String(isSelected));
+    });
+
+    const selectedProjects = selectedIds
+      .map((id) => featuredProjects.find((project) => project.id === id))
+      .filter((project): project is FeaturedProject => Boolean(project));
+
+    if (!selectedProjects.length) {
+      output.innerHTML = "<p>Select up to three buildings to build a compact buyer comparison.</p>";
+      if (inquireLink) {
+        inquireLink.href = "/inquire/?lead_capture_context=compare_shortlist";
+      }
+      return;
+    }
+
+    output.innerHTML = selectedProjects
+      .map(
+        (project) => `
+          <article class="compare-shortlist-card">
+            <a href="${projectPath(project)}">${escapeHtml(project.name)}</a>
+            <dl>
+              <div><dt>Corridor</dt><dd>${escapeHtml(project.corridor)}</dd></div>
+              <div><dt>Status</dt><dd>${escapeHtml(project.status)}</dd></div>
+              <div><dt>Delivery</dt><dd>${escapeHtml(project.delivery)}</dd></div>
+              <div><dt>Public floor plans</dt><dd>${project.floorplans ? "Yes" : "Request packet"}</dd></div>
+              <div><dt>Waterfront orientation</dt><dd>${project.corridorKey === "downtown" ? "Urban/walkability first" : "Intracoastal corridor context"}</dd></div>
+              <div><dt>Residence count</dt><dd>${escapeHtml(project.residences)}</dd></div>
+              <div><dt>Buyer fit</dt><dd>${escapeHtml(compareBuyerFit(project))}</dd></div>
+              <div><dt>Verification needed</dt><dd>${escapeHtml(compareVerificationNeed(project))}</dd></div>
+            </dl>
+          </article>
+        `,
+      )
+      .join("");
+
+    const names = selectedProjects.map((project) => project.name).join(", ");
+    const message = encodeURIComponent(`I want Brooke to compare these buildings: ${names}.`);
+    if (inquireLink) {
+      inquireLink.href = `/inquire/?lead_capture_context=compare_shortlist&message=${message}`;
+    }
+  };
+
+  buttons.forEach((button) => {
+    if (button.dataset.compareReady) return;
+    button.dataset.compareReady = "true";
+    button.addEventListener("click", () => {
+      const projectId = button.dataset.compareToggle;
+      if (!projectId) return;
+      if (selectedIds.includes(projectId)) {
+        selectedIds = selectedIds.filter((id) => id !== projectId);
+      } else if (selectedIds.length < 3) {
+        selectedIds = [...selectedIds, projectId];
+      }
+      writeSelection(selectedIds);
+      render();
+    });
+  });
+
+  render();
+}
+
 function getCurrentRoute(): Route {
+  const aliasTarget = canonicalAliasTarget(window.location.pathname);
+  if (aliasTarget) {
+    window.history.replaceState(null, "", `${aliasTarget}${window.location.search}${window.location.hash}`);
+  }
   const params = new URLSearchParams(window.location.search);
   const rawProjectId = params.get("project");
   const view = params.get("view");
@@ -3134,6 +3251,50 @@ function getCurrentRoute(): Route {
   }
 
   return { type: "home" };
+}
+
+function canonicalAliasTarget(pathname: string) {
+  if (pathname === "/blog/" || pathname === "/blog") return "/market-notes/";
+  if (pathname === "/contact/" || pathname === "/contact") return "/inquire/";
+  if (pathname === "/floor-plans/" || pathname === "/floor-plans") return "/floorplans/";
+  const blogMatch = pathname.match(/^\/blog\/([^/]+)\/?$/);
+  if (blogMatch) return `/market-notes/${blogMatch[1]}/`;
+  return "";
+}
+
+function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMarketNote?: MarketNote) {
+  const pathByRoute: Record<string, string> = {
+    home: "/",
+    buildings: "/buildings/",
+    map: "/map/",
+    compare: "/compare/",
+    news: "/updates/",
+    "market-notes": "/market-notes/",
+    floorplans: "/floorplans/",
+    answers: "/answers/",
+    methodology: "/methodology/",
+    privacy: "/privacy/",
+    terms: "/terms/",
+    "fair-housing": "/fair-housing/",
+    inquire: "/inquire/",
+  };
+  let path = pathByRoute[route.type] ?? "/";
+  if (route.type === "project" && activeProject) {
+    path = projectPath(activeProject);
+  }
+  if (route.type === "corridor") {
+    path = corridorPath(route.corridorKey);
+  }
+  if (route.type === "market-note-detail" && activeMarketNote) {
+    path = `/market-notes/${activeMarketNote.slug}/`;
+  }
+  let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    document.head.append(canonical);
+  }
+  canonical.href = `${productionOrigin}${path}`;
 }
 
 function updateMetaDescription(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote) {
@@ -3409,6 +3570,200 @@ function corridorPath(key: CorridorKey) {
   return `/corridors/${key}/`;
 }
 
+function corridorImageId(key: CorridorKey) {
+  return key === "downtown" ? "downtown-core-corridor" : "flagler-waterfront-corridor";
+}
+
+function corridorBuyerThesis(section: CorridorSection) {
+  const copy: Record<CorridorKey, string> = {
+    "north-flagler":
+      "Waterfront and marina-adjacent towers with Intracoastal orientation, Palm Beach proximity, and the deepest new-luxury pipeline.",
+    downtown:
+      "Walkable urban living near restaurants, offices, retail, Brightline, and the central business district.",
+    "south-flagler":
+      "More residential, estate-adjacent waterfront context with Palm Beach views and fewer true high-rise options.",
+  };
+  return copy[section.key];
+}
+
+function corridorBuyerQuestions(key: CorridorKey) {
+  const questions: Record<CorridorKey, string[]> = {
+    "north-flagler": [
+      "Do you want marina context or pure waterfront exposure?",
+      "How important is Palm Beach proximity?",
+      "Which buildings have deeper floor-plan packets?",
+      "How much construction/delivery risk are you willing to accept?",
+    ],
+    downtown: [
+      "Do you prioritize walkability over water views?",
+      "How important is Brightline/dining/office access?",
+      "Are you comparing new construction to delivered urban condos?",
+    ],
+    "south-flagler": [
+      "Are you looking for quieter waterfront positioning?",
+      "How important are views toward Palm Beach?",
+      "Do you prefer residential calm over downtown energy?",
+    ],
+  };
+  return questions[key];
+}
+
+function renderMapRouteView() {
+  return `
+    <div class="route-view route-view-map" data-route-view="map" hidden>
+      <section class="section map-orientation-hero">
+        <div class="map-orientation-copy">
+          <p class="eyebrow">Buyer Map</p>
+          <h1>Understand the West Palm Beach condo map before comparing buildings.</h1>
+          <p>Downtown West Palm Beach sits west of the Intracoastal, with Palm Beach island and the Atlantic beyond. The best comparison starts by understanding the corridors: North Flagler waterfront, Downtown/Rosemary, and South Flagler.</p>
+        </div>
+        ${renderEditorialImagePanel("wpb-geography-map-hero", { hero: true, className: "map-orientation-image" })}
+      </section>
+      <section class="section map-corridor-section" aria-label="West Palm Beach condo corridor guide">
+        <div class="section-heading">
+          <p class="eyebrow">Corridor Lens</p>
+          <h2>Three different buyer decisions, not one generic market.</h2>
+        </div>
+        <div class="map-corridor-grid">
+          ${corridorSections.map(renderMapCorridorCard).join("")}
+        </div>
+      </section>
+      <section class="section map-live-section" aria-label="Interactive West Palm Beach project map">
+        <div class="section-heading">
+          <p class="eyebrow">Project Map</p>
+          <h2>${featuredProjects.length} tracked projects on the ground.</h2>
+        </div>
+        <aside class="home-hero-map-card map-route-map-card" aria-label="West Palm Beach project map">
+          <figure class="hero-map-preview">
+            <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
+            <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
+          </figure>
+          <div class="home-map-count" aria-label="Map project count">
+            <strong>${featuredProjects.length}</strong>
+            <span>tracked West Palm Beach new-construction projects</span>
+          </div>
+        </aside>
+      </section>
+    </div>
+  `;
+}
+
+function renderMapCorridorCard(section: CorridorSection) {
+  const projects = rankedFeaturedProjects.filter((project) => project.corridorKey === section.key);
+  const relevantProjects = projects.slice(0, 4).map((project) => project.name).join(" · ");
+  return `
+    <article class="map-corridor-card">
+      <a href="${corridorPath(section.key)}">${section.label}</a>
+      <p>${corridorBuyerThesis(section)}</p>
+      <dl>
+        <div>
+          <dt>Buyer profile</dt>
+          <dd>${section.detail}</dd>
+        </div>
+        <div>
+          <dt>What to compare</dt>
+          <dd>${section.reviewNote}</dd>
+        </div>
+        <div>
+          <dt>Relevant projects</dt>
+          <dd>${relevantProjects || "Project set under review"}</dd>
+        </div>
+      </dl>
+      <a class="map-corridor-cta" href="${corridorPath(section.key)}">Open corridor <span aria-hidden="true">→</span></a>
+    </article>
+  `;
+}
+
+function compareBuyerFit(project: FeaturedProject) {
+  if (project.floorplans) return "Floor-plan-first buyer";
+  if (project.corridorKey === "downtown") return "Walkability buyer";
+  if (project.corridorKey === "north-flagler" || project.corridorKey === "south-flagler") return "Waterfront buyer";
+  if (/pipeline|planning|proposed/i.test(project.status)) return "Early pipeline watcher";
+  return "Buyer-fit review needed";
+}
+
+function compareVerificationNeed(project: FeaturedProject) {
+  if (/pipeline|planning|proposed/i.test(project.status)) {
+    return "Confirm planning status, launch timing, and buyer packet readiness.";
+  }
+  if (!project.floorplans) {
+    return "Request current plan packet and available line detail before touring.";
+  }
+  return "Verify line-specific availability, pricing, fees, parking, and delivery assumptions.";
+}
+
+function renderCompareRouteView() {
+  const categories = [
+    "Corridor",
+    "Status",
+    "Delivery timing",
+    "Public floor plans",
+    "Waterfront orientation",
+    "Residence count",
+    "Buyer fit",
+    "Verification needed",
+  ];
+  const filters = [
+    "Waterfront buyer",
+    "Walkability buyer",
+    "Large residence buyer",
+    "Early pipeline watcher",
+    "Floor-plan-first buyer",
+    "Amenity-depth buyer",
+  ];
+
+  return `
+    <div class="route-view route-view-compare" data-route-view="compare" hidden>
+      <section class="section compare-route-hero">
+        <div>
+          <p class="eyebrow">Compare</p>
+          <h1>Compare buildings by the facts that actually change a buyer's decision.</h1>
+          <p>Use this page to shortlist up to three West Palm Beach new-construction buildings, then ask Brooke to verify the current moving parts before you chase stale numbers.</p>
+        </div>
+        ${renderEditorialImagePanel("buyer-intelligence-interior", { compact: true, className: "compare-route-image" })}
+      </section>
+      <section class="section compare-framework-section">
+        <div class="compare-category-grid">
+          ${categories.map((category) => `<span>${category}</span>`).join("")}
+        </div>
+        <div class="compare-fit-grid" aria-label="Buyer fit filters">
+          ${filters.map((filter) => `<button type="button" data-compare-fit="${escapeHtml(filter)}">${escapeHtml(filter)}</button>`).join("")}
+        </div>
+      </section>
+      <section class="section compare-shortlist-section">
+        <div class="compare-selector-panel">
+          <div>
+            <p class="eyebrow">Shortlist Builder</p>
+            <h2>Select up to three buildings.</h2>
+            <p>Side-by-side comparison is most useful when the buildings share a real buyer question: water, walkability, delivery timing, plan depth, or risk tolerance.</p>
+          </div>
+          <div class="compare-selector-grid">
+            ${rankedFeaturedProjects
+              .map(
+                (project) => `
+                  <button type="button" data-compare-toggle="${project.id}">
+                    <strong>${project.name}</strong>
+                    <span>${project.corridor} · ${project.status}</span>
+                  </button>
+                `,
+              )
+              .join("")}
+          </div>
+        </div>
+        <div class="compare-shortlist-panel">
+          <div class="compare-shortlist-heading">
+            <span>Selected comparison</span>
+            <a href="/inquire/?lead_capture_context=compare_shortlist" data-compare-inquire>Ask Brooke to compare these buildings</a>
+          </div>
+          <div class="compare-shortlist-grid" data-compare-shortlist>
+            <p>Select up to three buildings to build a compact buyer comparison.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  `;
+}
+
 function renderCorridorRouteView(section: CorridorSection) {
   const projects = rankedFeaturedProjects.filter((project) => project.corridorKey === section.key);
   return `
@@ -3418,12 +3773,23 @@ function renderCorridorRouteView(section: CorridorSection) {
           <p class="eyebrow">Choose Your Corridor</p>
           <h1>${section.label}</h1>
           <p>${section.description}</p>
+          <p class="corridor-thesis">${corridorBuyerThesis(section)}</p>
         </div>
+        ${renderEditorialImagePanel(corridorImageId(section.key), { compact: true, className: "corridor-route-image" })}
+      </section>
+      <section class="section corridor-questions-section">
         <aside class="answer-meta-panel">
           <span>${projects.length} tracked project${projects.length === 1 ? "" : "s"}</span>
           <strong>${section.detail}</strong>
           <small>Use this page to compare only the ${section.label} set, then request current availability before touring.</small>
         </aside>
+        <div class="corridor-question-card">
+          <p class="eyebrow">Buyer Questions</p>
+          <ul>
+            ${corridorBuyerQuestions(section.key).map((question) => `<li>${question}</li>`).join("")}
+          </ul>
+          <a href="/inquire/?lead_capture_context=corridor&message=${encodeURIComponent(`I want help comparing ${section.label} projects.`)}">Request current ${section.label} availability <span aria-hidden="true">↗</span></a>
+        </div>
       </section>
       <section class="project-sort-shell corridor-project-shell">
         <div class="project-sort-header">
@@ -3457,6 +3823,7 @@ function renderMarketNoteCard(note: MarketNote) {
 
   return `
     <article class="home-blog-card market-note-card" id="${escapeHtml(note.seo.suggestedSlug)}">
+      ${renderEditorialImagePanel(note.imageId, { compact: true, className: "market-note-card-image" })}
       <span>${escapeHtml(note.category)} · ${escapeHtml(note.dateModified)}</span>
       <h3>${escapeHtml(note.title)}</h3>
       <p>${escapeHtml(note.excerpt)}</p>
@@ -3493,10 +3860,13 @@ function renderMarketNoteArticle(note: MarketNote) {
   return `
     <article class="market-note-article">
       <header class="section market-note-hero">
-        <a class="market-note-back" href="/market-notes/">Market Notes</a>
-        <p class="eyebrow">${escapeHtml(note.category)} · Published ${escapeHtml(note.datePublished)} · Updated ${escapeHtml(note.dateModified)}</p>
-        <h1>${escapeHtml(note.title)}</h1>
-        <p>${escapeHtml(note.excerpt)}</p>
+        <div>
+          <a class="market-note-back" href="/market-notes/">Market Notes</a>
+          <p class="eyebrow">${escapeHtml(note.category)} · Published ${escapeHtml(note.datePublished)} · Updated ${escapeHtml(note.dateModified)}</p>
+          <h1>${escapeHtml(note.title)}</h1>
+          <p>${escapeHtml(note.excerpt)}</p>
+        </div>
+        ${renderEditorialImagePanel(note.imageId, { compact: true, className: "market-note-hero-image" })}
       </header>
       <section class="section market-note-body">
         <aside class="market-note-thesis">
@@ -3844,31 +4214,40 @@ function googleMapBaseOptions(center: { lat: number; lng: number }, zoom: number
 }
 
 function initHeroGoogleMap() {
-  if (getCurrentRoute().type !== "home") {
+  const routeType = getCurrentRoute().type;
+  if (routeType !== "home" && routeType !== "map") {
     return;
   }
 
-  const card = document.querySelector<HTMLElement>(".home-hero-map-card");
-  const canvas = document.querySelector<HTMLElement>("[data-hero-google-map]");
-  const expandButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-map-expand]"));
+  const activeCards = Array.from(document.querySelectorAll<HTMLElement>(".home-hero-map-card")).filter(
+    (card) => !card.closest<HTMLElement>("[data-route-view]")?.hidden && !card.dataset.mapInitialized,
+  );
 
-  if (!card || !canvas) {
+  if (!activeCards.length) {
     return;
   }
 
   if (!googleMapsApiKey) {
-    card.dataset.mapState = "unavailable";
-    expandButtons.forEach((button) => {
-      button.textContent = "Map unavailable";
-      button.disabled = true;
+    activeCards.forEach((card) => {
+      card.dataset.mapState = "unavailable";
+      card.querySelectorAll<HTMLButtonElement>("[data-map-expand]").forEach((button) => {
+        button.textContent = "Map unavailable";
+        button.disabled = true;
+      });
     });
     return;
   }
 
-  card.dataset.mapState = "loading";
+  activeCards.forEach((card) => {
+    const canvas = card.querySelector<HTMLElement>("[data-hero-google-map]");
+    const expandButtons = Array.from(card.querySelectorAll<HTMLButtonElement>("[data-map-expand]"));
+    if (!canvas) return;
 
-  loadGoogleMaps()
-    .then((maps) => {
+    card.dataset.mapState = "loading";
+    card.dataset.mapInitialized = "true";
+
+    loadGoogleMaps()
+      .then((maps) => {
       card.dataset.mapState = "ready";
       const map = new maps.Map(canvas, googleMapBaseOptions({ lat: 26.7134, lng: -80.0564 }, 13));
       let expanded = false;
@@ -3927,6 +4306,7 @@ function initHeroGoogleMap() {
       card.dataset.mapState = "unavailable";
       console.warn(error.message);
     });
+  });
 }
 
 function initProjectLocationMaps() {

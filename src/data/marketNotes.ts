@@ -26,6 +26,7 @@ export type MarketNote = {
   excerpt: string;
   buyerThesis: string;
   buyerTakeaway: string;
+  imageId?: string;
   projectIds: string[];
   sourceName: string;
   sourceLinks: MarketNoteSource[];
@@ -58,6 +59,7 @@ export const marketNotes = [
       "The cleanest West Palm Beach search starts by separating active sales from pipeline watch items. They answer different buyer questions and should not be compared as if they carry the same certainty.",
     buyerTakeaway:
       "Use active-sales projects for current decisions, and use pipeline projects to understand future supply pressure. Do not treat early-stage concepts as current purchase options until pricing, plans, timing, and buyer packets are available.",
+    imageId: "wpb-geography-map-hero",
     projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "nora-house", "banyan-tree", "rosewood"],
     sourceName: "WPB New Construction source review",
     sourceLinks: [
@@ -117,6 +119,7 @@ export const marketNotes = [
       "Olara and Shorecrest both belong in the North Flagler comparison set, but the buyer profile is different. The better shortlist asks what kind of waterfront ownership you want before treating price or delivery as the only filter.",
     buyerTakeaway:
       "Ask for current availability, floor-plan depth, view-stack context, amenity details, and delivery assumptions for both. The decision is not simply which tower is newer or closer; it is which operating model fits the way you want to live.",
+    imageId: "flagler-waterfront-corridor",
     projectIds: ["olara", "shorecrest", "ritz-carlton-wpb"],
     sourceName: "Reviewed project materials and public updates",
     sourceLinks: [
@@ -168,7 +171,7 @@ export const marketNotes = [
     id: "why-published-floor-plans-matter",
     status: "published",
     category: "Floor Plan Notes",
-    title: "Why Published Floor Plans Matter Before You Visit a Sales Gallery",
+    title: "Why Published Floor Plans Matter Before You Tour",
     slug: "why-published-floor-plans-matter",
     excerpt:
       "Floor plans are not just pretty PDFs. They tell you whether a building can solve your life before you spend time in a presentation room.",
@@ -176,6 +179,7 @@ export const marketNotes = [
       "Published floor plans let a buyer compare function before emotion takes over. They reveal the difference between real fit and marketing momentum.",
     buyerTakeaway:
       "Before touring, ask for current floor plans, stack plans, dimensions, terrace depth, exposure, ceiling heights where available, and any line-specific limitations.",
+    imageId: "buyer-intelligence-interior",
     projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"],
     sourceName: "WPB New Construction floor-plan library",
     sourceLinks: [
@@ -220,7 +224,7 @@ export const marketNotes = [
       suggestedSlug: "why-published-floor-plans-matter",
       titleTag: "Why Published Floor Plans Matter | WPB",
       metaDescription:
-        "Why West Palm Beach condo buyers should review floor plans and stack plans before visiting new-construction sales presentations.",
+        "Why West Palm Beach condo buyers should review floor plans and stack plans before touring new-construction condos.",
     },
   },
   {
@@ -235,6 +239,7 @@ export const marketNotes = [
       "New-construction pricing changes too quickly to treat public ranges as a decision. A serious comparison verifies the actual line, floor, exposure, incentives, fees, and contract assumptions.",
     buyerTakeaway:
       "Use public pricing as a signal, not a promise. Ask Brooke to verify the current sheet before comparing buildings or scheduling tours around old numbers.",
+    imageId: "buyer-intelligence-interior",
     projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "mr-c", "south-flagler-house"],
     sourceName: "WPB New Construction pricing review method",
     sourceLinks: [
@@ -294,6 +299,7 @@ export const marketNotes = [
       "The downtown West Palm Beach condo search gets clearer when you pick the corridor first. Each area has a different rhythm, buyer profile, and diligence path.",
     buyerTakeaway:
       "Decide whether your first priority is waterfront calm, walkable restaurants, retail/dining energy, or growth-district upside. Then compare buildings inside that lane before jumping citywide.",
+    imageId: "wpb-geography-map-hero",
     projectIds: ["nora-house", "mr-c", "banyan-tree", "10-cityplace", "15-cityplace", "olara"],
     sourceName: "WPB New Construction corridor review",
     sourceLinks: [

@@ -104,7 +104,7 @@ async function main() {
 
   for (const route of requiredRoutes.filter((route) => route !== "/")) {
     const html = await fs.readFile(routeFile(route), "utf8").catch(() => "");
-    const canonical = `https://wpbnewconstruction.com${route}`;
+    const canonical = `https://www.wpbnewconstruction.com${route}`;
     const ok = html.includes(`rel="canonical" href="${canonical}"`);
     checks.push({ label: `Canonical ${route}`, ok, detail: canonical });
     if (!ok) findings.push(`Missing or incorrect canonical for ${route}`);

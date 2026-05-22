@@ -1,48 +1,46 @@
-# SEO Route Indexing
+# WPB New Construction SEO Route Indexing
 
-## Index
+## Canonical Route Strategy
+
+| Public surface | Canonical route | Alias route | Behavior | Indexing recommendation |
+| --- | --- | --- | --- | --- |
+| Market Notes index | `/market-notes/` | `/blog/` | `public/_redirects` 301 plus client-side replaceState fallback | Index canonical; keep alias out of sitemap |
+| Market Notes article | `/market-notes/:slug/` | `/blog/:slug/` | `public/_redirects` 301 plus client-side replaceState fallback | Index canonical; keep alias out of sitemap |
+| Inquiry | `/inquire/` | `/contact/` | `public/_redirects` 301 plus client-side replaceState fallback | Consider noindex if it remains only a form; canonical to `/inquire/` |
+| Floor plans | `/floorplans/` | `/floor-plans/` | `public/_redirects` 301 plus client-side replaceState fallback | Index `/floorplans/`; keep alias out of sitemap |
+| Building detail | `/projects/:id/` | query-string project routes | Render canonical metadata for `/projects/:id/` | Index project detail pages |
+| Corridor detail | `/corridors/:key/` | none | Direct route | Index corridor pages |
+
+## Indexed Routes
 
 - `/`
-- `/buildings`
-- `/map`
-- `/compare`
-- `/updates`
+- `/buildings/`
+- `/projects/:id/`
+- `/map/`
+- `/compare/`
+- `/updates/`
 - `/floorplans/`
-- `/floor-plans`
 - `/market-notes/`
 - `/market-notes/:slug/`
-- `/blog/` compatibility route
-- `/blog/:slug/` compatibility route
-- `/projects/:slug/`
 - `/corridors/north-flagler/`
 - `/corridors/downtown/`
 - `/corridors/south-flagler/`
 
-## Consider Noindex
+## Alias Handling
 
-- `/inquire/`
-- `/contact/` compatibility route
+Static redirects are declared in `public/_redirects`:
 
-Reason: these are primarily lead-form utility routes. They can remain crawlable for now, but they do not yet add much unique public search value beyond contact intent.
+```text
+/blog/ /market-notes/ 301
+/blog/:slug/ /market-notes/:slug/ 301
+/contact/ /inquire/ 301
+/floor-plans/ /floorplans/ 301
+```
 
-## Sitemap Notes
+The client route resolver also replaces those aliases with the canonical URL after JavaScript loads. The prerender step writes canonical metadata to the preferred URL even if an alias page is generated for compatibility.
 
-- `/market-notes/` is present in the sitemap.
-- `/blog/` is present as a compatibility route.
-- This branch adds article detail URLs to the generated sitemap.
-- Building detail pages should remain indexed with unique titles/descriptions.
+## Notes
 
-## Canonical Recommendations
-
-- Canonical Market Notes articles to `/market-notes/:slug/`.
-- Treat `/blog/:slug/` as compatibility. If redirects are later added, redirect `/blog/:slug/` to `/market-notes/:slug/`.
-- Canonical `/floor-plans` to `/floorplans/` if route redirects are added.
-- Canonical `/contact` to `/inquire/` if route redirects are added.
-
-## Search Console Checklist
-
-- Submit updated sitemap after deployment.
-- Inspect `/market-notes/active-sales-vs-pipeline-watch/`.
-- Inspect one building detail page.
-- Inspect `/updates/`.
-- Watch for duplicate indexing between `/blog/:slug/` and `/market-notes/:slug/`.
+- Alias routes are intentionally removed from `public/sitemap.xml`.
+- `/inquire/` is useful for buyer conversion but thin as a search result. Keep it canonicalized and consider adding `noindex` only if Search Console shows it competing with richer buyer pages.
+- Do not keyword-stuff corridor pages. Let the local geography and buyer questions carry the page.

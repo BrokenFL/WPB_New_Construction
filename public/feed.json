@@ -1,12 +1,12 @@
 {
   "version": "https://jsonfeed.org/version/1.1",
   "title": "WPB New Construction Updates",
-  "home_page_url": "https://wpbnewconstruction.com",
-  "feed_url": "https://wpbnewconstruction.com/feed.json",
+  "home_page_url": "https://www.wpbnewconstruction.com",
+  "feed_url": "https://www.wpbnewconstruction.com/feed.json",
   "items": [
     {
       "id": "mandarin-oriental-interiors-revealed",
-      "url": "https://wpbnewconstruction.com/updates/#mandarin-oriental-interiors-revealed",
+      "url": "https://www.wpbnewconstruction.com/updates/#mandarin-oriental-interiors-revealed",
       "title": "Mandarin Oriental interiors move the North Flagler comparison beyond skyline renderings",
       "content_text": "Recent reporting highlighted the first interior renderings for Mandarin Oriental Residences, West Palm Beach, giving buyers more to compare than tower massing and brand name alone.",
       "date_published": "2026-05-18",
@@ -20,7 +20,7 @@
     },
     {
       "id": "rosewood-north-flagler-planning",
-      "url": "https://wpbnewconstruction.com/updates/#rosewood-north-flagler-planning",
+      "url": "https://www.wpbnewconstruction.com/updates/#rosewood-north-flagler-planning",
       "title": "Rosewood planning notes add another branded watch item to North Flagler",
       "content_text": "Recent project research and local planning material point to Rosewood Residences as another North Flagler branded-residence watch item, but buyers should treat it as early-stage until public plan details mature.",
       "date_published": "2026-05-19",
@@ -34,7 +34,7 @@
     },
     {
       "id": "nora-house-local-coverage",
-      "url": "https://wpbnewconstruction.com/updates/#nora-house-local-coverage",
+      "url": "https://www.wpbnewconstruction.com/updates/#nora-house-local-coverage",
       "title": "NORA House keeps Downtown's ownership story in the local news cycle",
       "content_text": "Recent local coverage continues to frame NORA House as the first for-sale residential anchor inside the growing NORA district, shifting the downtown discussion from restaurants only to actual ownership inventory.",
       "date_published": "2026-04-10",
@@ -48,7 +48,7 @@
     },
     {
       "id": "shorecrest-construction-loan",
-      "url": "https://wpbnewconstruction.com/updates/#shorecrest-construction-loan",
+      "url": "https://www.wpbnewconstruction.com/updates/#shorecrest-construction-loan",
       "title": "Shorecrest financing pushes the North Flagler cluster toward construction",
       "content_text": "Related Ross announced a $157 million construction loan for Shorecrest, adding momentum to the North Flagler waterfront cluster.",
       "date_published": "2026-02-18",
@@ -62,7 +62,7 @@
     },
     {
       "id": "banyan-tree-sales-launch",
-      "url": "https://wpbnewconstruction.com/updates/#banyan-tree-sales-launch",
+      "url": "https://www.wpbnewconstruction.com/updates/#banyan-tree-sales-launch",
       "title": "Banyan Tree locks in 88 branded residences at 400 Hibiscus",
       "content_text": "Banyan Group announced the launch of Banyan Tree Residences West Palm Beach, adding another branded-residence option to the downtown buyer map.",
       "date_published": "2026-03-24",
@@ -76,7 +76,7 @@
     },
     {
       "id": "nora-house-district-launch",
-      "url": "https://wpbnewconstruction.com/updates/#nora-house-district-launch",
+      "url": "https://www.wpbnewconstruction.com/updates/#nora-house-district-launch",
       "title": "NORA House pairs its district launch with a deeper public plan stack",
       "content_text": "NORA House gives buyers a clearer ownership option inside the fast-changing NORA district rather than only nearby rental, hotel, retail, and restaurant activity.",
       "date_published": "2026-03-23",

@@ -5,7 +5,7 @@
     "summary": "Imported update records default to needs_review and should not appear publicly until a human verifies the source and publication status.",
     "date": "2026-05-22",
     "lastCheckedAt": "2026-05-22",
-    "sourceName": "Review pipeline placeholder",
+    "sourceName": "Review pipeline sample",
     "sourceUrl": "https://www.wpbnewconstruction.com/updates/",
     "sourceType": "other",
     "category": "general",

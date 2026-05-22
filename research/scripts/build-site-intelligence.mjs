@@ -11,7 +11,7 @@ const reviewRoot = path.join(workspace, "research/source-material-review");
 const publicDataRoot = path.join(workspace, "public/data");
 const generatedRoot = path.join(workspace, "src/generated");
 const preferredRoot = path.join(workspace, "research/asset-library/preferred-image-exports");
-const productionBaseUrl = "https://wpbnewconstruction.com";
+const productionBaseUrl = "https://www.wpbnewconstruction.com";
 const generatedDate = new Date().toISOString().slice(0, 10);
 const cloudflarePagesSingleFileLimitBytes = 25 * 1024 * 1024;
 const marketNoteRoutes = [
@@ -31,7 +31,7 @@ const marketNoteRoutes = [
     slug: "why-published-floor-plans-matter",
     title: "Why Published Floor Plans Matter | WPB",
     description:
-      "Why West Palm Beach condo buyers should review floor plans and stack plans before visiting new-construction sales presentations.",
+      "Why West Palm Beach condo buyers should review floor plans and stack plans before touring new-construction condos.",
   },
   {
     slug: "what-buyers-should-verify-before-trusting-pricing",
@@ -2190,12 +2190,6 @@ function buildPrerenderRoutes() {
       ogImage: siteMeta.defaultImage,
     },
     {
-      path: "/floor-plans/",
-      title: "Floorplans | WPB New Construction",
-      description: "Released West Palm Beach new-construction condo floorplans organized by project for easier first comparison.",
-      ogImage: siteMeta.defaultImage,
-    },
-    {
       path: "/buildings/",
       title: "Buildings | WPB New Construction",
       description: "Compare West Palm Beach new-construction buildings across North Flagler, Downtown, and South Flagler.",
@@ -2231,26 +2225,14 @@ function buildPrerenderRoutes() {
       description: "Buyer notes and market intelligence for West Palm Beach new-construction condos.",
       ogImage: siteMeta.defaultImage,
     },
-    {
-      path: "/blog/",
-      title: "Market Notes | WPB New Construction",
-      description: "Buyer notes and market intelligence for West Palm Beach new-construction condos.",
-      ogImage: siteMeta.defaultImage,
-    },
-    ...marketNoteRoutes.flatMap((note) => [
+    ...marketNoteRoutes.map((note) => (
       {
         path: `/market-notes/${note.slug}/`,
         title: note.title,
         description: note.description,
         ogImage: siteMeta.defaultImage,
-      },
-      {
-        path: `/blog/${note.slug}/`,
-        title: note.title,
-        description: note.description,
-        ogImage: siteMeta.defaultImage,
-      },
-    ]),
+      }
+    )),
     {
       path: "/corridors/north-flagler/",
       title: "North Flagler Projects | WPB New Construction",
@@ -2344,18 +2326,13 @@ function renderSitemap(projects) {
   const urls = [
     ["", "1.0"],
     ["floorplans/", "0.9"],
-    ["floor-plans/", "0.6"],
     ["buildings/", "0.9"],
     ["map/", "0.8"],
     ["compare/", "0.8"],
     ["answers/", "0.9"],
     ["updates/", "0.8"],
     ["market-notes/", "0.8"],
-    ["blog/", "0.6"],
-    ...marketNoteRoutes.flatMap((note) => [
-      [`market-notes/${note.slug}/`, "0.8"],
-      [`blog/${note.slug}/`, "0.4"],
-    ]),
+    ...marketNoteRoutes.map((note) => [`market-notes/${note.slug}/`, "0.8"]),
     ["methodology/", "0.7"],
     ["fair-housing/", "0.6"],
     ["privacy/", "0.5"],

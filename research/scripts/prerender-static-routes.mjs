@@ -6,7 +6,7 @@ const distRoot = path.join(workspace, "dist");
 const templatePath = path.join(distRoot, "index.html");
 const siteDataPath = path.join(workspace, "src/generated/siteData.ts");
 const answerFaqPath = path.join(workspace, "public/data/answer-engine-faq.json");
-const baseUrl = "https://wpbnewconstruction.com";
+const baseUrl = "https://www.wpbnewconstruction.com";
 
 async function main() {
   const template = await fs.readFile(templatePath, "utf8");
@@ -44,7 +44,7 @@ async function loadStaticPayload() {
 }
 
 function renderRouteHtml(template, route, staticPayload) {
-  const canonical = `${baseUrl}${route.path}`;
+  const canonical = `${baseUrl}${canonicalPathForRoute(route.path)}`;
   const staticContent = renderStaticRouteContent(route, staticPayload);
   let html = template
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(route.title)}</title>`)
@@ -56,6 +56,15 @@ function renderRouteHtml(template, route, staticPayload) {
 
   html = html.replace('<div id="app"></div>', `<div id="app">${staticContent}</div><script>window.__WPB_PRERENDER_PATH__=${JSON.stringify(route.path)};</script>`);
   return html;
+}
+
+function canonicalPathForRoute(routePath) {
+  if (routePath === "/blog/" || routePath === "/blog") return "/market-notes/";
+  if (routePath === "/contact/" || routePath === "/contact") return "/inquire/";
+  if (routePath === "/floor-plans/" || routePath === "/floor-plans") return "/floorplans/";
+  const blogMatch = routePath.match(/^\/blog\/([^/]+)\/?$/);
+  if (blogMatch) return `/market-notes/${blogMatch[1]}/`;
+  return routePath;
 }
 
 function renderStaticRouteContent(route, staticPayload) {

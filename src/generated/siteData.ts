@@ -1,6 +1,6 @@
 export const siteMeta = {
   "siteName": "WPB New Construction",
-  "baseUrl": "https://wpbnewconstruction.com",
+  "baseUrl": "https://www.wpbnewconstruction.com",
   "title": "West Palm Beach New Construction Condos | Buyer Guide",
   "description": "Compare West Palm Beach new-construction condos across North Flagler, Downtown, and South Flagler with source-backed facts, released floorplans, and buyer advisory context.",
   "publisher": {
@@ -4785,12 +4785,6 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
-    "path": "/floor-plans/",
-    "title": "Floorplans | WPB New Construction",
-    "description": "Released West Palm Beach new-construction condo floorplans organized by project for easier first comparison.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
-  },
-  {
     "path": "/buildings/",
     "title": "Buildings | WPB New Construction",
     "description": "Compare West Palm Beach new-construction buildings across North Flagler, Downtown, and South Flagler.",
@@ -4827,19 +4821,7 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
-    "path": "/blog/",
-    "title": "Market Notes | WPB New Construction",
-    "description": "Buyer notes and market intelligence for West Palm Beach new-construction condos.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
-  },
-  {
     "path": "/market-notes/active-sales-vs-pipeline-watch/",
-    "title": "Active Sales vs Pipeline Watch | WPB New Construction",
-    "description": "How West Palm Beach condo buyers can separate active sales from pipeline watch projects before comparing pricing, floor plans, and timing.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
-  },
-  {
-    "path": "/blog/active-sales-vs-pipeline-watch/",
     "title": "Active Sales vs Pipeline Watch | WPB New Construction",
     "description": "How West Palm Beach condo buyers can separate active sales from pipeline watch projects before comparing pricing, floor plans, and timing.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
@@ -4851,21 +4833,9 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
-    "path": "/blog/olara-vs-shorecrest-waterfront-buyer-profiles/",
-    "title": "Olara vs Shorecrest | WPB Buyer Notes",
-    "description": "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
-  },
-  {
     "path": "/market-notes/why-published-floor-plans-matter/",
     "title": "Why Published Floor Plans Matter | WPB",
-    "description": "Why West Palm Beach condo buyers should review floor plans and stack plans before visiting new-construction sales presentations.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
-  },
-  {
-    "path": "/blog/why-published-floor-plans-matter/",
-    "title": "Why Published Floor Plans Matter | WPB",
-    "description": "Why West Palm Beach condo buyers should review floor plans and stack plans before visiting new-construction sales presentations.",
+    "description": "Why West Palm Beach condo buyers should review floor plans and stack plans before touring new-construction condos.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
@@ -4875,19 +4845,7 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
-    "path": "/blog/what-buyers-should-verify-before-trusting-pricing/",
-    "title": "Verify New Construction Pricing | WPB",
-    "description": "A practical buyer checklist for verifying West Palm Beach new-construction condo pricing, incentives, fees, delivery, and availability.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
-  },
-  {
     "path": "/market-notes/downtown-west-palm-beach-condo-corridors-explained/",
-    "title": "Downtown WPB Condo Corridors Explained",
-    "description": "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
-  },
-  {
-    "path": "/blog/downtown-west-palm-beach-condo-corridors-explained/",
     "title": "Downtown WPB Condo Corridors Explained",
     "description": "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
