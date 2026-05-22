@@ -33,6 +33,7 @@
         </nav>
         <nav class="section-tabs" aria-label="Editor sections">
           <button class="active" data-section="dashboard" type="button">Dashboard</button>
+          <button data-section="homepage" type="button">Homepage</button>
           <button data-section="images" type="button">Images</button>
           <button data-section="projects" type="button">Projects</button>
           <button data-section="market" type="button">Market Notes</button>
@@ -68,6 +69,33 @@
               <a href="http://127.0.0.1:5173/market-notes/" target="_blank" rel="noreferrer">Preview notes</a>
             </article>
           </div>
+        </section>
+
+        <section id="homepageSection" class="section">
+          <h1>Homepage Editor</h1>
+          <form id="homepagePanel" class="tool-panel">
+            <div class="grid">
+              <label>Homepage block<select name="sectionId">
+                <option value="hero">Hero images</option>
+                <option value="map">Map / atlas image assignments</option>
+                <option value="corridors">Corridor image assignments</option>
+                <option value="updates">Updates section image assignments</option>
+                <option value="guidance">Guidance section image assignments</option>
+                <option value="featured-buildings">Featured building image assignments</option>
+                <option value="cta">CTA section</option>
+              </select></label>
+              <label>Existing repo image<select name="imagePath"></select></label>
+              <label>Headline<input name="headline" /></label>
+              <label>Subhead<input name="subhead" /></label>
+              <label>Caption<input name="caption" /></label>
+              <label>Alt text<input name="alt" /></label>
+              <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
+            </div>
+            <button class="primary" type="submit">Save Homepage Override</button>
+          </form>
+
+          <h1>Upload Homepage Image</h1>
+          <p class="muted">Use Upload / Replace Image with target type Homepage / corridor image or Update/news image, then assign the saved path here.</p>
         </section>
 
         <section id="imagesSection" class="section">

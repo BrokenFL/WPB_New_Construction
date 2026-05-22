@@ -1,12 +1,18 @@
 # Image Repetition Audit
 
-Generated: 2026-05-22T19:57:46.701Z
+Generated: 2026-05-22T20:29:24.943Z
 
 ## Summary
 
 - Blocking findings: 0
+- Rendered homepage checked: yes
 - Logos and same-project reuse are treated as acceptable.
 - Project/corridor mismatch rules are checked for Rosewood, Olara, Shorecrest, NORA House, South Flagler, Kravis, and NORA district imagery.
+- Rendered homepage checks block back-to-back duplicate images, adjacent Olara imagery, and overuse of generic geography/corridor imagery.
+
+## Rendered Homepage Image Order
+
+- Not available before a local build.
 
 ## Findings
 
@@ -83,7 +89,6 @@ Generated: 2026-05-22T19:57:46.701Z
 | /projects/shorecrest/media/shorecrest-exterior-card.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/shorecrest/media/user-provided-shorecrest-card.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/shorecrest/media/user-provided-shorecrest-hero.jpg | shared source | Yes | No change required. | Checked by static QA. |
-| /projects/south-flagler-house/media/imported/south-flagler-house-kitchen-residence-rendering.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/south-flagler-house/media/logo.svg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/south-flagler-house/media/south-flagler-house-entrance-source.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/south-flagler-house/media/south-flagler-house-rendering-02.jpg | shared source | Yes | No change required. | Checked by static QA. |

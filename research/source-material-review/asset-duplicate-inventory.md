@@ -1,12 +1,12 @@
 # Asset Duplicate Inventory
 
-Generated: 2026-05-22T19:57:02.664Z
+Generated: 2026-05-22T20:28:14.089Z
 
 This is a review report only. It does not delete, move, or rewrite assets.
 
 ## Summary
 
-- Files scanned: 1933
+- Files scanned: 1970
 - Duplicate groups: 355
 - Duplicate extra bytes: 417.1 MB
 - Source duplicate groups: 330

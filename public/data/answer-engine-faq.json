@@ -45,7 +45,7 @@
     "id": "what-will-it-cost",
     "shortLabel": "Cost",
     "question": "What will these West Palm Beach new-construction condos cost?",
-    "answer": "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from about $3M, Ritz-Carlton from about $3M in current reviewed material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, and Banyan Tree reporting around $1.9M. South Flagler House pricing changes by dated availability, so request a current sheet. The real answer is always line, floor, view, terrace, parking, and release phase.",
+    "answer": "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from about $3M, Ritz-Carlton from about $3M in current reviewed project material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, and Banyan Tree reporting around $1.9M. South Flagler House pricing changes by dated availability, so request a current sheet. The real answer is always line, floor, view, terrace, parking, and release phase.",
     "concept": "Pricing guidance",
     "relatedProjectIds": [
       "olara",
@@ -127,7 +127,7 @@
     "id": "stories-and-residence-counts",
     "shortLabel": "Stories + units",
     "question": "How many stories and residences does each major project have?",
-    "answer": "Current source notes show Olara at 26 stories and 275 residences; Ritz-Carlton at 27 stories and 138 residences; Shorecrest at 28 stories with a detail to verify between 98 and 100 residences; Mr. C at 27 stories with 146 residences plus 110 hotel suites; Alba at 22 stories and 55 residences; Mandarin Oriental at 31 stories and 87 residences; South Flagler House as two 28-story towers with roughly 105 to 108 residences depending on source date; NORA House at 11 stories and 117 residences; Banyan Tree at 25 stories with an 86 to 88 residence/unit detail to verify; and Maison d'Or at 19 stories and 39 residences.",
+    "answer": "Current review notes show Olara at 26 stories and 275 residences; Ritz-Carlton at 27 stories and 138 residences; Shorecrest at 28 stories with public counts varying between 98 and 100 residences; Mr. C at 27 stories with 146 residences plus 110 hotel suites; Alba at 22 stories and 55 residences; Mandarin Oriental at 31 stories and 87 residences; South Flagler House as two 28-story towers with roughly 105 to 108 residences depending on source date; NORA House at 11 stories and 117 residences; Banyan Tree at 25 stories with an 86 to 88 residence/unit count range; and Maison d'Or at 19 stories and 39 residences.",
     "concept": "Project facts",
     "relatedProjectIds": [
       "olara",
@@ -352,7 +352,7 @@
       {
         "label": "Banyan Tree legal notice",
         "href": "https://www.banyantreeresidenceswpb.com/",
-        "note": "project legal notice reminds buyers to rely on required condominium documents, not oral or promotional representations.",
+        "note": "project sponsor legal notice reminds buyers to rely on required condominium documents, not oral or promotional representations.",
         "sourceType": "official project site",
         "dateAccessed": "2026-05-22",
         "supportsClaim": "buyer should verify offering documents",
@@ -365,7 +365,7 @@
         "note": "Official page includes Florida condominium-document disclaimer language.",
         "sourceType": "official project site",
         "dateAccessed": "2026-05-22",
-        "supportsClaim": "project documents control",
+        "supportsClaim": "project sponsor documents control",
         "claimText": "Formal condominium documents should be requested before relying on project claims.",
         "confidence": "high"
       }
@@ -386,7 +386,7 @@
     ],
     "sources": [
       "official project sites",
-      "developer announcements"
+      "project sponsor announcements"
     ],
     "sourceCitations": [
       {
@@ -743,13 +743,13 @@
     ],
     "sources": [
       "official project sites",
-      "project legal notices"
+      "project sponsor legal notices"
     ],
     "sourceCitations": [
       {
         "label": "Banyan Tree official site",
         "href": "https://www.banyantreeresidenceswpb.com/",
-        "note": "Official source for brand licensing and project legal notice context.",
+        "note": "Official source for brand licensing and project sponsor legal notice context.",
         "sourceType": "official project site",
         "dateAccessed": "2026-05-22",
         "supportsClaim": "brand licensing should be reviewed",
@@ -823,7 +823,7 @@
     ],
     "sources": [
       "official project sites",
-      "project disclosures"
+      "project sponsor disclaimers"
     ],
     "sourceCitations": [
       {
@@ -1046,7 +1046,7 @@
     "id": "what-documents-to-request",
     "shortLabel": "Documents",
     "question": "What documents should I request before comparing two residences seriously?",
-    "answer": "Ask for the current availability sheet, floorplan with dimensions, site plan, stack plan, finish schedule, estimated budget, rules and restrictions, parking and storage schedule, reservation or contract form, deposit schedule, delivery assumptions, and the required condominium disclosure package required for Florida condominium buyers.",
+    "answer": "Ask for the current availability sheet, floorplan with dimensions, site plan, stack plan, finish schedule, estimated budget, rules and restrictions, parking and storage schedule, reservation or contract form, deposit schedule, delivery assumptions, and the project sponsor disclosure package required for Florida condominium buyers.",
     "concept": "Buyer documents",
     "relatedProjectIds": [
       "olara",
@@ -1055,7 +1055,7 @@
       "maison-dor"
     ],
     "sources": [
-      "project legal notices",
+      "project sponsor legal notices",
       "official project documents"
     ],
     "sourceCitations": [
@@ -1101,7 +1101,7 @@
       {
         "label": "Project source catalog",
         "href": "https://wpbnewconstruction.com/methodology/",
-        "note": "Methodology page explains how project information is separated from items requiring current confirmation.",
+        "note": "on-site methodology page explains how project information is separated from items requiring current confirmation.",
         "sourceType": "site methodology",
         "dateAccessed": "2026-05-22",
         "supportsClaim": "delivered inventory supports comparison",
@@ -1183,7 +1183,7 @@
     "id": "north-flagler-projects",
     "shortLabel": "North Flagler",
     "question": "Which West Palm Beach condo projects are on North Flagler?",
-    "answer": "The North Flagler buyer set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Alba Palm Beach, Mandarin Oriental Residences, and planning-projects to monitor such as Rosewood Residences. It is the main Intracoastal-facing corridor for buyers comparing Palm Beach proximity, water views, service, amenities, and new-construction timing.",
+    "answer": "The North Flagler buyer set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Alba Palm Beach, Mandarin Oriental Residences, and early-stage projects such as Rosewood Residences. It is the main Intracoastal-facing corridor for buyers comparing Palm Beach proximity, water views, service, amenities, and new-construction timing.",
     "concept": "Corridors",
     "relatedProjectIds": [
       "olara",
@@ -1202,7 +1202,7 @@
     "id": "active-sales-vs-future-projects",
     "shortLabel": "Active vs future",
     "question": "What is the difference between active sales and future projects?",
-    "answer": "Active-sales projects usually have enough public or requestable material for current buyer diligence: availability, floor plans, pricing guidance, deposits, timing, and buyer-appointment review. Future projects can shape the market but may not yet have final offering details. Treat future projects as pipeline context until Brooke can confirm launch timing, plan depth, pricing, and legal offering documents.",
+    "answer": "Active-sales projects usually have enough public or requestable material for current buyer diligence: availability, floor plans, pricing guidance, deposits, timing, and sales-gallery review. Future projects can shape the market but may not yet have final offering details. Treat future projects as pipeline context until Brooke can confirm launch timing, plan depth, pricing, and legal offering documents.",
     "concept": "Buyer diligence",
     "relatedProjectIds": [
       "olara",
@@ -1291,7 +1291,7 @@
     "id": "request-current-availability",
     "shortLabel": "Availability",
     "question": "How can I request current availability?",
-    "answer": "Use the inquiry page and name the buildings, corridors, budget range, timing, and whether you need floor plans or a buyer-appointment visit. Brooke can help request current availability, pricing, floor-plan packets, view-stack context, and items to verify before you tour.",
+    "answer": "Use the inquiry page and name the buildings, corridors, budget range, timing, and whether you need floor plans or a sales-gallery visit. Brooke can help request current availability, pricing, floor-plan packets, view-stack context, and items to verify before you tour.",
     "concept": "Next step",
     "relatedProjectIds": [
       "olara",
@@ -1343,7 +1343,7 @@
     "sourceCitations": []
   },
   {
-    "id": "before-buyer-appointment",
+    "id": "before-sales-gallery",
     "shortLabel": "Before touring",
     "question": "What should buyers verify before visiting a buyer appointment?",
     "answer": "Before visiting a buyer appointment, verify current availability, line-specific pricing, floor plan, stack plan, view exposure, terrace depth, parking and storage, fees, incentives, deposit schedule, delivery assumptions, cancellation language, and whether the project packet has changed since the public page was published.",

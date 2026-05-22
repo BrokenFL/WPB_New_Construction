@@ -52,6 +52,8 @@ async function main() {
   const imageUsages = collectImageUsages(sourceText);
   const findings = [];
   const rows = [];
+  const renderedChecks = await checkRenderedHomepage();
+  findings.push(...renderedChecks.findings);
 
   for (const [imagePath, usages] of imageUsages) {
     const acceptable = isAcceptableRepeat(imagePath, usages);
@@ -84,7 +86,7 @@ async function main() {
     }
   }
 
-  await writeReport(rows, findings);
+  await writeReport(rows, findings, renderedChecks);
 
   if (findings.length) {
     console.error(["Image repetition QA failed:", ...findings.map((finding) => `- ${finding}`)].join("\n"));
@@ -149,7 +151,37 @@ function isAcceptableRepeat(imagePath, usages) {
   return false;
 }
 
-async function writeReport(rows, findings) {
+async function checkRenderedHomepage() {
+  const htmlPath = path.join(workspace, "dist/index.html");
+  const html = await fs.readFile(htmlPath, "utf8").catch(() => "");
+  const findings = [];
+  const imageOrder = [...html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/gi)]
+    .map((match) => match[1])
+    .filter((src) => /\/(?:assets|projects|hero)\//.test(src));
+  for (let index = 1; index < imageOrder.length; index += 1) {
+    if (normalizeImage(imageOrder[index]) === normalizeImage(imageOrder[index - 1])) {
+      findings.push(`Rendered homepage repeats the same image back-to-back: ${imageOrder[index]}.`);
+    }
+    if (isProjectImage(imageOrder[index], "olara") && isProjectImage(imageOrder[index - 1], "olara")) {
+      findings.push("Rendered homepage shows Olara imagery in adjacent image positions.");
+    }
+  }
+  const genericEditorial = imageOrder.filter((src) => /wpb-geography-map-hero|rosemary-square-corridor|flagler-waterfront-corridor/.test(src));
+  if (genericEditorial.length > 4) {
+    findings.push(`Rendered homepage uses generic geography/corridor imagery ${genericEditorial.length} times; replace repeated section art with more specific media.`);
+  }
+  return { imageOrder, findings, htmlChecked: Boolean(html) };
+}
+
+function normalizeImage(src) {
+  return src.split("?")[0].replace(/-\d+x\d+(?=\.)/, "");
+}
+
+function isProjectImage(src, projectId) {
+  return src.includes(`/projects/${projectId}/`) || src.toLowerCase().includes(projectId);
+}
+
+async function writeReport(rows, findings, renderedChecks) {
   await fs.mkdir(path.dirname(reportPath), { recursive: true });
   const lines = [
     "# Image Repetition Audit",
@@ -161,8 +193,14 @@ async function writeReport(rows, findings) {
     findings.length
       ? `- Blocking findings: ${findings.length}`
       : "- Blocking findings: 0",
+    `- Rendered homepage checked: ${renderedChecks.htmlChecked ? "yes" : "no dist/index.html found before build"}`,
     "- Logos and same-project reuse are treated as acceptable.",
     "- Project/corridor mismatch rules are checked for Rosewood, Olara, Shorecrest, NORA House, South Flagler, Kravis, and NORA district imagery.",
+    "- Rendered homepage checks block back-to-back duplicate images, adjacent Olara imagery, and overuse of generic geography/corridor imagery.",
+    "",
+    "## Rendered Homepage Image Order",
+    "",
+    ...(renderedChecks.imageOrder.length ? renderedChecks.imageOrder.map((src, index) => `- ${index + 1}. ${src}`) : ["- Not available before a local build."]),
     "",
     "## Findings",
     "",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-22T15:07:53.290Z",
+  "generatedAt": "2026-05-22T20:27:48.553Z",
   "updatePolicy": "Buyer-facing development news feed refreshed from reviewed public material. Publish after human review of titles, facts, and source links.",
   "items": [
     {
@@ -42,8 +42,8 @@
     },
     {
       "id": "rosewood-north-flagler-planning",
-      "title": "Rosewood planning notes add another branded project to monitor to North Flagler",
-      "summary": "Recent project research and local planning material point to Rosewood Residences as another North Flagler branded-residence project to monitor, but buyers should treat it as early-stage until public plan details mature.",
+      "title": "Rosewood planning notes add another branded project to North Flagler",
+      "summary": "Recent project research and local planning review point to Rosewood Residences as another North Flagler branded-residence project, but buyers should treat it as early-stage until public plan details mature.",
       "category": "North Flagler",
       "datePublished": "2026-05-19",
       "dateModified": "2026-05-22",
@@ -68,7 +68,7 @@
         "credit": "Source: The Ritz-Carlton Residences, West Palm Beach original project materials"
       },
       "citations": [
-        "Local planning materials reviewed in May 2026 identify Rosewood as a North Flagler branded-residence project to monitor.",
+        "Local planning materials reviewed in May 2026 identify Rosewood as a North Flagler branded-residence project.",
         "The buyer use is pipeline awareness, not current pricing or availability reliance."
       ],
       "status": "Review before reliance"
@@ -134,12 +134,12 @@
         {
           "label": "Related Ross Shorecrest financing announcement",
           "href": "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
-          "sourceType": "developer press release"
+          "sourceType": "project sponsor press release"
         },
         {
           "label": "Related Ross Shorecrest property page",
           "href": "https://www.relatedross.com/our-company/properties/shorecrest",
-          "sourceType": "developer property page"
+          "sourceType": "project sponsor property page"
         },
         {
           "label": "Shorecrest",
@@ -177,7 +177,7 @@
         {
           "label": "Banyan Group sales launch announcement",
           "href": "https://www.prnewswire.com/news-releases/banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach-302723150.html",
-          "sourceType": "brand/developer announcement"
+          "sourceType": "brand/project sponsor announcement"
         },
         {
           "label": "Banyan Tree Residences West Palm Beach",

@@ -18,6 +18,7 @@ const overrideFiles = {
   projectCopy: "project-copy-overrides.json",
   pageCopy: "page-copy-overrides.json",
   projectImages: "project-image-overrides.json",
+  homepage: "homepage-overrides.json",
   imageCaptions: "image-caption-overrides.json",
   editorialImages: "editorial-image-overrides.json",
   marketNotes: "market-note-overrides.json",
@@ -48,6 +49,7 @@ async function main() {
       if (request.method === "GET" && url.pathname === "/api/state") return sendJson(response, await state());
       if (request.method === "POST" && url.pathname === "/api/project-copy") return saveProjectCopy(request, response);
       if (request.method === "POST" && url.pathname === "/api/page-copy") return savePageCopy(request, response);
+      if (request.method === "POST" && url.pathname === "/api/homepage-overrides") return saveHomepageOverrides(request, response);
       if (request.method === "POST" && url.pathname === "/api/upload-image") return uploadImage(request, response);
       if (request.method === "POST" && url.pathname === "/api/image-caption") return saveImageCaption(request, response);
       if (request.method === "POST" && url.pathname === "/api/project-update") return saveProjectUpdate(request, response);
@@ -71,12 +73,47 @@ async function state() {
     ok: true,
     projects: await readProjects(),
     overrides: await readAllOverrides(),
+    availableImages: await availablePublicImages(),
     news: await readDraftStore(),
     newsletter: await readNewsJsonFile(newsletterDraftsPath, { version: 1, updatedAt: "", items: [] }),
     automation: await automationStatus(),
     statusCards: await statusCards(),
     warning: "Local editorial tool. Changes write to repo files. Review Git diff before publishing.",
   };
+}
+
+async function saveHomepageOverrides(request, response) {
+  const body = await readJson(request);
+  const validation = validatePublicFields(body, ["sectionId", "headline", "subhead", "caption", "alt"]);
+  if (validation.length) return sendJson(response, { ok: false, error: validation.join(" ") }, 400);
+  const sectionId = slug(body.sectionId || body.assignedSection || "homepage");
+  const imagePath = clean(body.imagePath);
+  const overrides = await readOverride("homepage");
+  overrides.sections[sectionId] = {
+    sectionId,
+    imagePath,
+    caption: clean(body.caption),
+    alt: clean(body.alt),
+    headline: clean(body.headline),
+    subhead: clean(body.subhead),
+    status: body.status === "approved" ? "approved" : "needs_review",
+    updatedAt: new Date().toISOString(),
+  };
+  await writeOverride("homepage", overrides);
+  if (imagePath || body.caption || body.alt) {
+    const captions = await readOverride("imageCaptions");
+    captions.items = upsertBy(captions.items ?? [], "imagePath", {
+      imagePath,
+      caption: clean(body.caption),
+      alt: clean(body.alt),
+      status: body.status === "approved" ? "approved" : "needs_review",
+      assignedSection: sectionId,
+      updatedAt: new Date().toISOString(),
+    });
+    await writeOverride("imageCaptions", captions);
+  }
+  await logChange("homepage-overrides", { sectionId, imagePath, status: overrides.sections[sectionId].status });
+  return sendJson(response, { ok: true, item: overrides.sections[sectionId] });
 }
 
 async function saveProjectCopy(request, response) {
@@ -343,6 +380,7 @@ async function readOverride(key) {
     projectCopy: { version: 1, updatedAt: "", projects: {} },
     pageCopy: { version: 1, updatedAt: "", pages: {} },
     projectImages: { version: 1, updatedAt: "", images: [] },
+    homepage: { version: 1, updatedAt: "", sections: {} },
     imageCaptions: { version: 1, updatedAt: "", items: [] },
     editorialImages: { version: 1, updatedAt: "", items: [] },
     marketNotes: { version: 1, updatedAt: "", marketNotes: {} },
@@ -351,6 +389,26 @@ async function readOverride(key) {
     teamResources: { version: 1, updatedAt: "", teamResources: [] },
   };
   return readJsonFile(path.join(overridesRoot, overrideFiles[key]), defaults[key]);
+}
+
+async function availablePublicImages() {
+  const roots = ["public/assets/editorial", "public/projects", "public/hero"];
+  const files = [];
+  for (const root of roots) files.push(...await listPublicImages(path.join(workspace, root)));
+  return files
+    .map((filePath) => `/${path.relative(path.join(workspace, "public"), filePath).split(path.sep).join("/")}`)
+    .sort();
+}
+
+async function listPublicImages(root) {
+  const entries = await fs.readdir(root, { withFileTypes: true }).catch(() => []);
+  const files = [];
+  for (const entry of entries) {
+    const fullPath = path.join(root, entry.name);
+    if (entry.isDirectory()) files.push(...await listPublicImages(fullPath));
+    else if (/\.(?:jpe?g|png|webp|svg)$/i.test(entry.name)) files.push(fullPath);
+  }
+  return files;
 }
 
 async function writeOverride(key, payload) {
@@ -413,6 +471,22 @@ async function githubAuthStatus() {
   const tokenAvailable = Boolean(process.env.GITHUB_TOKEN || process.env.GH_TOKEN);
   if (gh.code === 0) return { mode: "gh", status: "authenticated", tokenFallbackAvailable: tokenAvailable };
   if (/ENOENT|not found|command not found/i.test(gh.stderr)) {
+    const localGh = path.join(process.env.HOME ?? "", ".local/bin/gh");
+    if (await exists(localGh)) {
+      const localStatus = await run(localGh, ["auth", "status"]);
+      if (localStatus.code === 0) {
+        return {
+          mode: "local-gh",
+          status: `${localGh} authenticated`,
+          tokenFallbackAvailable: tokenAvailable,
+        };
+      }
+      return {
+        mode: tokenAvailable ? "token-fallback" : "local-gh",
+        status: tokenAvailable ? `${localGh} unavailable; token fallback available` : `${localGh} installed but not authenticated`,
+        tokenFallbackAvailable: tokenAvailable,
+      };
+    }
     return {
       mode: tokenAvailable ? "token-fallback" : "unauthenticated",
       status: tokenAvailable ? "GH_TOKEN/GITHUB_TOKEN available in Builder process" : "gh CLI not installed in Builder process",

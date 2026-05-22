@@ -11,6 +11,7 @@ import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
 import { publishedExternalNews, type ExternalNewsItem } from "./data/approvedExternalNews";
 import { editorialImageForId, type EditorialImageId } from "./data/editorialImagery";
 import { homeHeroImages } from "./data/homeHeroImages";
+import homepageOverridesRaw from "../content/overrides/homepage-overrides.json";
 import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
@@ -77,6 +78,7 @@ type Route =
   | { type: "compare"; projectId?: undefined }
   | { type: "corridor"; corridorKey: CorridorKey; projectId?: undefined }
   | { type: "news"; projectId?: undefined }
+  | { type: "news-detail"; articleId: string; projectId?: undefined }
   | { type: "market-notes"; projectId?: undefined }
   | { type: "market-note-detail"; articleSlug: string; projectId?: undefined }
   | { type: "inquire"; projectId?: undefined }
@@ -232,12 +234,44 @@ type WindowWithGoogleMaps = Window & {
 };
 
 type ProjectDraftEditorOverride = NonNullable<EditorProjectOverrides[string]["draft"]>;
+type HomepageOverride = {
+  sectionId?: string;
+  imagePath?: string;
+  caption?: string;
+  alt?: string;
+  headline?: string;
+  subhead?: string;
+  status?: string;
+};
+
+const homepageOverrides = homepageOverridesRaw as { sections?: Record<string, HomepageOverride> };
+
+function homepageOverride(sectionId: string) {
+  return homepageOverrides.sections?.[sectionId];
+}
+
+function approvedHomepageOverride(sectionId: string) {
+  const override = homepageOverride(sectionId);
+  return override?.status === "approved" ? override : undefined;
+}
+
+const activeHomeHeroImages = (() => {
+  const override = approvedHomepageOverride("hero");
+  if (!override?.imagePath) return homeHeroImages;
+  return [
+    {
+      src: override.imagePath,
+      alt: override.alt || homeHeroImages[0].alt,
+      caption: override.caption || homeHeroImages[0].caption,
+    },
+    ...homeHeroImages.filter((image) => image.src !== override.imagePath),
+  ];
+})();
 
 const mediaBase = "/projects/olara/media/";
 const docsBase = "/projects/olara/docs/";
 const ritzMediaBase = "/projects/ritz-carlton-wpb/media/";
 const ritzDocsBase = "/projects/ritz-carlton-wpb/docs/";
-const ritzBrochureUrl = "https://www.flipsnack.com/relatedgroup/ritzwpb-brochure/full-view.html";
 const noraHouseUserHero = "/projects/nora-house/media/user-provided-nora-house-hero.jpg";
 const noraHouseUserCard = "/projects/nora-house/media/user-provided-nora-house-card.jpg";
 const southFlaglerHouseUserHero = "/projects/south-flagler-house/media/user-provided-south-flagler-house-hero.jpg";
@@ -302,6 +336,7 @@ const staticRoutePaths: Record<string, string> = {
   "/updates/": "news",
   "/market-notes/": "market-notes",
   "/blog/": "market-notes",
+  "/guidance/": "market-notes",
   "/contact": "inquire",
   "/contact/": "inquire",
   "/floor-plans/": "floorplans",
@@ -1896,7 +1931,7 @@ app.innerHTML = `
         <a href="/compare/" data-nav-item="compare">Compare</a>
         <a href="/updates/" data-nav-item="news">Updates</a>
         <a href="/floorplans/" data-nav-item="floorplans">Floor Plans</a>
-        <a href="/market-notes/" data-nav-item="market-notes">Buyer Notes</a>
+        <a href="/market-notes/" data-nav-item="market-notes">Guidance</a>
         <a href="/inquire/" data-nav-item="inquire">Contact</a>
       </nav>
       <a class="nav-cta" href="/inquire/" data-nav-item="inquire">Request Current Availability</a>
@@ -1909,8 +1944,8 @@ app.innerHTML = `
           <img
             class="home-hero-image is-active"
             data-home-hero-layer="active"
-            src="${homeHeroImages[0].src}"
-            alt="${escapeHtml(homeHeroImages[0].alt)}"
+            src="${activeHomeHeroImages[0].src}"
+            alt="${escapeHtml(activeHomeHeroImages[0].alt)}"
             loading="eager"
             decoding="async"
             fetchpriority="high"
@@ -1924,9 +1959,9 @@ app.innerHTML = `
             fetchpriority="low"
             aria-hidden="true"
           />
-          <figcaption class="home-hero-caption" data-home-hero-caption>${escapeHtml(homeHeroImages[0].caption)}</figcaption>
+          <figcaption class="home-hero-caption" data-home-hero-caption>${escapeHtml(activeHomeHeroImages[0].caption)}</figcaption>
           <ul class="sr-only">
-            ${homeHeroImages.map((image) => `<li>${escapeHtml(image.alt)}</li>`).join("")}
+            ${activeHomeHeroImages.map((image) => `<li>${escapeHtml(image.alt)}</li>`).join("")}
           </ul>
         </figure>
         <div class="home-hero-scrim"></div>
@@ -1954,8 +1989,8 @@ app.innerHTML = `
       <section class="home-atlas-feature" id="atlas" aria-label="West Palm Beach project atlas">
         <div class="home-atlas-copy">
           <p class="eyebrow">Buyer Atlas</p>
-          <h2>${featuredProjects.length} tracked projects across three corridors.</h2>
-          <p>Use the map for orientation first. The next section breaks the market into North Flagler, South Flagler, and Downtown so you can open the projects that belong to each area.</p>
+          <h2>${escapeHtml(approvedHomepageOverride("map")?.headline || `${featuredProjects.length} tracked projects across three corridors.`)}</h2>
+          <p>${escapeHtml(approvedHomepageOverride("map")?.subhead || "Use the map for orientation first. The next section breaks the market into North Flagler, South Flagler, and Downtown so you can open the projects that belong to each area.")}</p>
           <div class="home-atlas-facts" aria-label="West Palm Beach atlas summary">
             <span>North Flagler waterfront cluster</span>
             <span>Downtown branded residences</span>
@@ -2003,26 +2038,26 @@ app.innerHTML = `
         </div>
       </section>
 
-      <section class="home-news-section" aria-label="External West Palm Beach development headlines">
+      <section class="home-news-section" aria-label="West Palm Beach development updates">
         <div class="section-heading">
-          <p class="eyebrow">External Development News</p>
-          <h2>Recent headlines worth reading at the source.</h2>
+          <p class="eyebrow">Updates</p>
+          <h2>${escapeHtml(approvedHomepageOverride("updates")?.headline || "Recent West Palm Beach development updates, rewritten for buyer context.")}</h2>
         </div>
         <div class="home-news-grid">
           ${publishedExternalNews.slice(0, 3).map(renderHomeExternalNewsItem).join("")}
         </div>
-        <a class="home-answer-archive-link" href="/updates/">Read development headlines <span aria-hidden="true">→</span></a>
+        <a class="home-answer-archive-link" href="/updates/">Read Updates <span aria-hidden="true">→</span></a>
       </section>
 
       <section class="home-blog-section" aria-label="WPB New Construction market notes">
         <div class="section-heading">
-          <p class="eyebrow">Market Notes</p>
-          <h2>How to read the market before you tour.</h2>
+          <p class="eyebrow">Guidance</p>
+          <h2>${escapeHtml(approvedHomepageOverride("guidance")?.headline || "How to read the market before you tour.")}</h2>
         </div>
         <div class="home-blog-grid">
           ${marketNotes.slice(0, 3).map(renderMarketNoteCard).join("")}
         </div>
-        <a class="home-answer-archive-link" href="/market-notes/">Read all buyer notes <span aria-hidden="true">→</span></a>
+        <a class="home-answer-archive-link" href="/market-notes/">Read Guidance <span aria-hidden="true">→</span></a>
       </section>
 
       <span class="route-anchor" id="compare"></span>
@@ -2030,8 +2065,8 @@ app.innerHTML = `
           <div class="project-sort-header">
             <div>
               <p class="eyebrow">Curated Buyer Guide</p>
-              <h2>Compare the projects shaping West Palm Beach's next chapter.</h2>
-              <p class="selected-filter-summary" data-filter-summary>All tracked projects shown. Filter by corridor, construction status, or floorplan readiness.</p>
+              <h2>${escapeHtml(approvedHomepageOverride("featured-buildings")?.headline || "Compare the projects shaping West Palm Beach's next chapter.")}</h2>
+              <p class="selected-filter-summary" data-filter-summary>${escapeHtml(approvedHomepageOverride("featured-buildings")?.subhead || "All tracked projects shown. Filter by corridor, construction status, or floorplan readiness.")}</p>
               <div class="filter-chips" role="list" aria-label="Project filters">
                 ${projectFilters.map(renderProjectFilter).join("")}
               </div>
@@ -2096,13 +2131,13 @@ app.innerHTML = `
         <section class="section news-section" id="news">
         <div class="section-heading">
           <p class="eyebrow">Development Headlines</p>
-          <h1>External West Palm Beach development news, linked to the original source.</h1>
-          <p>Track public sales, construction, planning, and financing updates across the West Palm Beach new-construction market. Older updates are useful background. For current pricing, availability, and delivery timing, ask Brooke to verify the latest details.</p>
+          <h1>West Palm Beach development updates with buyer context.</h1>
+          <p>Track public sales, construction, planning, and financing updates across the West Palm Beach new-construction market. Each update opens here first, with the original source linked at the bottom of the article.</p>
         </div>
         <div class="answer-meta-panel">
           <span>Updated ${publishedExternalNews[0]?.fetchedAt ?? floorplanLibrary[0]?.updatedAt ?? "2026-05-22"}</span>
-          <strong>Original headlines, source names, dates, and direct article links.</strong>
-          <small>We keep external reporting linked to its source so buyers can separate background news from current decision details.</small>
+          <strong>Buyer-facing update cards and on-site article pages.</strong>
+          <small>Original sources stay available for attribution, but the primary reading path remains on WPB New Construction.</small>
         </div>
         <div class="news-grid">
           ${publishedExternalNews.map(renderExternalNewsItem).join("")}
@@ -2111,11 +2146,13 @@ app.innerHTML = `
       </section>
       </div>
 
+      <div class="route-view route-view-news-detail" data-route-view="news-detail" hidden></div>
+
       <div class="route-view route-view-market-notes" data-route-view="market-notes" hidden>
         <section class="section intelligence-hero">
           <div>
-            <p class="eyebrow">Market Notes</p>
-            <h1>Buyer intelligence for West Palm Beach new construction.</h1>
+            <p class="eyebrow">Guidance</p>
+            <h1>Evergreen buyer guidance for West Palm Beach new construction.</h1>
             <p>Short editorial notes that translate local coverage, project milestones, and details to verify into practical buyer questions. Facts stay tied to public sources; pricing and availability still require current confirmation.</p>
           </div>
           <aside class="answer-meta-panel">
@@ -2152,6 +2189,25 @@ app.innerHTML = `
         <section class="section floorplan-index-section">
           ${floorplanLibrary.map(renderFloorplanProject).join("")}
           <a class="home-answer-archive-link" href="/inquire/?interest=floorplans&lead_capture_context=floorplans_page">Request Current Availability <span aria-hidden="true">↗</span></a>
+        </section>
+      </div>
+
+      <div class="floorplan-viewer" data-floorplan-viewer hidden aria-hidden="true">
+        <div class="floorplan-viewer-backdrop" data-floorplan-close></div>
+        <section class="floorplan-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="floorplan-viewer-title">
+          <button class="floorplan-viewer-close" type="button" data-floorplan-close aria-label="Close floorplan viewer">×</button>
+          <div class="floorplan-viewer-header">
+            <span data-floorplan-project></span>
+            <h2 id="floorplan-viewer-title" data-floorplan-title>Floor plan</h2>
+            <p data-floorplan-caption></p>
+          </div>
+          <div class="floorplan-viewer-frame" data-floorplan-frame></div>
+          <div class="floorplan-viewer-actions">
+            <button type="button" data-floorplan-prev>Previous</button>
+            <button type="button" data-floorplan-next>Next</button>
+            <a href="/inquire/?interest=floorplans&lead_capture_context=floorplan_viewer">Request full floorplan packet</a>
+            <a href="/inquire/?interest=floorplans&lead_capture_context=floorplan_viewer">Ask Brooke</a>
+          </div>
         </section>
       </div>
 
@@ -2374,7 +2430,7 @@ app.innerHTML = `
           </p>
           <div class="hero-actions">
             <a class="button primary" href="/floorplans/#floorplans-olara">View Floorplans</a>
-            <a class="button ghost" href="${docsBase}olara-rack-brochure-digital-032026.pdf" target="_blank" rel="noreferrer">Open Brochure</a>
+            <a class="button ghost" href="/inquire/?project=olara&interest=availability">Ask Brooke About This Building</a>
           </div>
         </div>
         <aside class="hero-facts" aria-label="Olara quick facts">
@@ -2514,10 +2570,10 @@ app.innerHTML = `
             <strong>Complete Floorplan Collection</strong>
             <small>Individual residence plans organized for direct review</small>
           </a>
-          <a class="document-card" href="${docsBase}olara-rack-brochure-digital-032026.pdf" target="_blank" rel="noreferrer">
-            <span>PDF · Brochure</span>
-            <strong>Rack Brochure Digital 032026</strong>
-            <small>User-supplied brochure, renamed for site use</small>
+          <a class="document-card" href="/inquire/?project=olara&interest=availability">
+            <span>Buyer Packet</span>
+            <strong>Request current Olara packet</strong>
+            <small>Availability, floorplans, pricing guidance, and buyer notes</small>
           </a>
         </div>
         <div class="floorplan-library">
@@ -2547,7 +2603,7 @@ app.innerHTML = `
             imagery, brochure access, and released floorplans for a focused North Flagler comparison.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="${ritzBrochureUrl}" target="_blank" rel="noreferrer">Open Brochure</a>
+            <a class="button primary" href="/inquire/?project=ritz-carlton-wpb&interest=availability">Request Current Availability</a>
             <a class="button ghost" href="#ritz-floorplans">View Floorplans</a>
           </div>
         </div>
@@ -2668,15 +2724,15 @@ app.innerHTML = `
           <h2>Brochure and released floorplans.</h2>
         </div>
         <div class="document-grid">
-          <a class="document-card" href="${ritzBrochureUrl}" target="_blank" rel="noreferrer">
-            <span>External · Brochure</span>
-            <strong>Ritz-Carlton WPB Brochure</strong>
-            <small>Official public brochure viewer</small>
+          <a class="document-card" href="/inquire/?project=ritz-carlton-wpb&interest=availability">
+            <span>Buyer Packet</span>
+            <strong>Request current Ritz-Carlton packet</strong>
+            <small>Availability, floorplans, pricing guidance, and buyer notes</small>
           </a>
-          <a class="document-card" href="${ritzDocsBase}floorplans/ritz-residence-02.pdf" target="_blank" rel="noreferrer">
+          <a class="document-card" href="/floorplans/#floorplans-ritz-carlton-wpb">
             <span>PDF · Floorplan Example</span>
             <strong>Residence 02</strong>
-            <small>2 Bed / 2.5 Bath released plan</small>
+            <small>Open in the on-site floorplan viewer</small>
           </a>
         </div>
         <div class="floorplan-library">
@@ -3125,7 +3181,7 @@ function initQuickCtas() {
 
 function initHomeHero() {
   const hero = document.querySelector<HTMLElement>(".home-hero");
-  if (!hero || hero.dataset.heroInitialized || homeHeroImages.length < 2) return;
+  if (!hero || hero.dataset.heroInitialized || activeHomeHeroImages.length < 2) return;
 
   hero.dataset.heroInitialized = "true";
   const activeLayer = hero.querySelector<HTMLImageElement>("[data-home-hero-layer='active']");
@@ -3153,7 +3209,7 @@ function initHomeHero() {
   let standbyLayer = nextLayer;
 
   const preloadNext = async () => {
-    const image = homeHeroImages[(index + 1) % homeHeroImages.length];
+    const image = activeHomeHeroImages[(index + 1) % activeHomeHeroImages.length];
     if (!standbyLayer.src.endsWith(image.src)) {
       standbyLayer.src = image.src;
     }
@@ -3171,8 +3227,8 @@ function initHomeHero() {
   const rotate = async () => {
     if (paused || document.hidden || isTransitioning) return;
     isTransitioning = true;
-    const nextIndex = (index + 1) % homeHeroImages.length;
-    const image = homeHeroImages[nextIndex];
+    const nextIndex = (index + 1) % activeHomeHeroImages.length;
+    const image = activeHomeHeroImages[nextIndex];
     try {
       await preloadNext();
     } catch {
@@ -3317,16 +3373,17 @@ function applyRoute() {
   const activeProject = route.type === "project" ? featuredProjects.find((project) => project.id === route.projectId) : undefined;
   const activeCorridor = route.type === "corridor" ? corridorSections.find((section) => section.key === route.corridorKey) : undefined;
   const activeMarketNote = route.type === "market-note-detail" ? marketNoteForSlug(route.articleSlug) : undefined;
+  const activeNewsItem = route.type === "news-detail" ? updateForId(route.articleId) : undefined;
 
   shell?.setAttribute("data-active-route", route.type);
   shell?.setAttribute("data-active-project", route.projectId ?? "");
-  const routeSeo = routeSeoDetails(route, activeProject, activeCorridor, activeMarketNote);
+  const routeSeo = routeSeoDetails(route, activeProject, activeCorridor, activeMarketNote, activeNewsItem);
   document.title = routeSeo.title;
 
-  updateMetaDescription(route.type, activeProject, activeMarketNote);
-  updateCanonical(route, activeProject, activeMarketNote);
+  updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem);
+  updateCanonical(route, activeProject, activeMarketNote, activeNewsItem);
   updateSocialMetadata(routeSeo);
-  updateStructuredData(route.type, activeProject, activeMarketNote);
+  updateStructuredData(route.type, activeProject, activeMarketNote, activeNewsItem);
 
   views.forEach((view) => {
     const viewType = view.dataset.routeView;
@@ -3337,6 +3394,8 @@ function applyRoute() {
           ? viewType === "corridor" && view.dataset.corridorRoute === route.corridorKey
           : route.type === "market-note-detail"
             ? viewType === "market-note-detail"
+          : route.type === "news-detail"
+            ? viewType === "news-detail"
           : route.type === "buildings"
             ? viewType === "home"
           : viewType === route.type;
@@ -3344,6 +3403,8 @@ function applyRoute() {
     view.hidden = !isActive;
   });
   syncMarketNoteDetail(activeMarketNote);
+  syncNewsDetail(activeNewsItem);
+  initFloorplanViewer();
 
   initHeroGoogleMap();
   initProjectLocationMaps();
@@ -3369,6 +3430,7 @@ function applyRoute() {
     ...(route.type === "project" ? { projectId: route.projectId } : {}),
     ...(route.type === "corridor" ? { corridorKey: route.corridorKey } : {}),
     ...(route.type === "market-note-detail" ? { articleSlug: route.articleSlug } : {}),
+    ...(route.type === "news-detail" ? { articleId: route.articleId } : {}),
   });
 
   const routeAnchor = route.type === "buildings" ? "projects" : "";
@@ -3379,11 +3441,12 @@ function applyRoute() {
   }
 }
 
-function routeSeoDetails(route: Route, activeProject?: FeaturedProject, activeCorridor?: CorridorSection, activeMarketNote?: MarketNote) {
+function routeSeoDetails(route: Route, activeProject?: FeaturedProject, activeCorridor?: CorridorSection, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem) {
   const path =
     activeProject ? projectPath(activeProject) :
     activeCorridor ? corridorPath(activeCorridor.key) :
     activeMarketNote ? `/market-notes/${activeMarketNote.slug}/` :
+    activeNewsItem ? updatePath(activeNewsItem) :
     ({
       home: "/",
       buildings: "/buildings/",
@@ -3415,7 +3478,7 @@ function routeSeoDetails(route: Route, activeProject?: FeaturedProject, activeCo
     buildings: "West Palm Beach New Construction Buildings | Buyer Guide",
     map: "West Palm Beach Condo Map | New Construction Corridors",
     compare: "Compare West Palm Beach New Construction Condos",
-    "market-notes": "West Palm Beach Condo Market Notes | Buyer Intelligence",
+    "market-notes": "West Palm Beach Condo Guidance | Buyer Intelligence",
     floorplans: "West Palm Beach Condo Floor Plans | New Construction Guide",
     answers: "West Palm Beach New Construction Condo Answers",
     methodology: "How We Verify West Palm Beach Condo Project Facts",
@@ -3430,9 +3493,11 @@ function routeSeoDetails(route: Route, activeProject?: FeaturedProject, activeCo
       ? corridorTitles[activeCorridor.key]
       : activeMarketNote
         ? activeMarketNote.seo.titleTag
+      : activeNewsItem
+        ? `${activeNewsItem.title} | WPB Updates`
       : routeTitles[route.type] ?? siteMeta.title;
-  const description = activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type));
-  const image = activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : siteMeta.defaultImage);
+  const description = activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type));
+  const image = activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : activeNewsItem ? imageForContentItem(externalNewsImageContext(activeNewsItem)).src : siteMeta.defaultImage);
   return {
     title,
     description,
@@ -3447,6 +3512,9 @@ function getActiveNavItem(route: Route) {
   }
   if (route.type === "market-note-detail") {
     return "market-notes";
+  }
+  if (route.type === "news-detail") {
+    return "news";
   }
   if (route.type === "buildings" || route.type === "map" || route.type === "compare") {
     return route.type === "buildings" ? "projects" : route.type;
@@ -3591,7 +3659,12 @@ function getCurrentRoute(): Route {
     return { type: "corridor", corridorKey };
   }
 
-  const marketNotePathMatch = window.location.pathname.match(/^\/(?:market-notes|blog)\/([^/]+)\/?$/);
+  const updatePathMatch = window.location.pathname.match(/^\/updates\/([^/]+)\/?$/);
+  if (updatePathMatch) {
+    return { type: "news-detail", articleId: updatePathMatch[1] };
+  }
+
+  const marketNotePathMatch = window.location.pathname.match(/^\/(?:market-notes|blog|guidance)\/([^/]+)\/?$/);
   if (marketNotePathMatch) {
     return { type: "market-note-detail", articleSlug: marketNotePathMatch[1] };
   }
@@ -3628,14 +3701,17 @@ function getCurrentRoute(): Route {
 function canonicalAliasTarget(pathname: string) {
   if (pathname === "/brooke-builder/" || pathname === "/brooke-builder" || pathname === "/content-studio/" || pathname === "/content-studio") return "/";
   if (pathname === "/blog/" || pathname === "/blog") return "/market-notes/";
+  if (pathname === "/guidance/" || pathname === "/guidance") return "/market-notes/";
   if (pathname === "/contact/" || pathname === "/contact") return "/inquire/";
   if (pathname === "/floor-plans/" || pathname === "/floor-plans") return "/floorplans/";
   const blogMatch = pathname.match(/^\/blog\/([^/]+)\/?$/);
   if (blogMatch) return `/market-notes/${blogMatch[1]}/`;
+  const guidanceMatch = pathname.match(/^\/guidance\/([^/]+)\/?$/);
+  if (guidanceMatch) return `/market-notes/${guidanceMatch[1]}/`;
   return "";
 }
 
-function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMarketNote?: MarketNote) {
+function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem) {
   const pathByRoute: Record<string, string> = {
     home: "/",
     buildings: "/buildings/",
@@ -3661,6 +3737,9 @@ function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMa
   if (route.type === "market-note-detail" && activeMarketNote) {
     path = `/market-notes/${activeMarketNote.slug}/`;
   }
+  if (route.type === "news-detail" && activeNewsItem) {
+    path = updatePath(activeNewsItem);
+  }
   let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!canonical) {
     canonical = document.createElement("link");
@@ -3670,14 +3749,14 @@ function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMa
   canonical.href = `${productionOrigin}${path}`;
 }
 
-function updateMetaDescription(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote) {
+function updateMetaDescription(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem) {
   let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
   if (!meta) {
     meta = document.createElement("meta");
     meta.name = "description";
     document.head.append(meta);
   }
-  meta.content = activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? metaDescriptionForRoute(routeType);
+  meta.content = activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? metaDescriptionForRoute(routeType);
 }
 
 function metaDescriptionForRoute(routeType: string) {
@@ -3686,8 +3765,9 @@ function metaDescriptionForRoute(routeType: string) {
     buildings: "Compare West Palm Beach new-construction condos by corridor, pricing checks, floor plans, delivery timing, amenities, and waterfront position.",
     map: "Map West Palm Beach new-construction condo projects by North Flagler, Downtown, and South Flagler corridor context.",
     compare: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
-    news: "Track West Palm Beach condo construction, sales, financing, and planning updates with links to original reporting and buyer next steps.",
-    "market-notes": "Read buyer notes for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
+    news: "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
+    "news-detail": "Read a West Palm Beach new-construction update with buyer context, related buildings, Brooke's take, and the original source link.",
+    "market-notes": "Read evergreen guidance for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
     floorplans: "Browse released West Palm Beach new-construction condo floor plans and request current sales packets before comparing available residences.",
     answers: "Concise answers to West Palm Beach new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
     methodology: "How WPB New Construction separates official sources, reported details, and items buyers should verify before relying on project information.",
@@ -3731,7 +3811,7 @@ function setMetaName(name: string, content: string) {
   meta.content = content;
 }
 
-function updateStructuredData(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote) {
+function updateStructuredData(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem) {
   const baseGraph = [
     {
       "@type": siteMeta.publisher.type,
@@ -3769,14 +3849,23 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
       : routeType === "floorplans"
         ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Floor Plans", path: "/floorplans/" }]), buildFloorplanItemListSchema()]
         : routeType === "news"
-          ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Updates", path: "/updates/" }]), ...researchNewsFeed.map(buildNewsArticleSchema)]
+          ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Updates", path: "/updates/" }]), ...publishedExternalNews.map(buildExternalNewsArticleSchema)]
+          : routeType === "news-detail" && activeNewsItem
+            ? [
+                buildBreadcrumbSchema([
+                  { name: "Home", path: "/" },
+                  { name: "Updates", path: "/updates/" },
+                  { name: activeNewsItem.title, path: updatePath(activeNewsItem) },
+                ]),
+                buildExternalNewsArticleSchema(activeNewsItem),
+              ]
           : routeType === "market-notes"
-            ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Market Notes", path: "/market-notes/" }]), ...marketNotes.map(buildMarketNoteSchema)]
+            ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guidance", path: "/market-notes/" }]), ...marketNotes.map(buildMarketNoteSchema)]
             : routeType === "market-note-detail" && activeMarketNote
               ? [
                   buildBreadcrumbSchema([
                     { name: "Home", path: "/" },
-                    { name: "Market Notes", path: "/market-notes/" },
+                    { name: "Guidance", path: "/market-notes/" },
                     { name: activeMarketNote.title, path: `/market-notes/${activeMarketNote.slug}/` },
                   ]),
                   buildMarketNoteSchema(activeMarketNote),
@@ -3825,7 +3914,7 @@ function pageSchemaName(routeType: string) {
     map: "West Palm Beach Condo Map",
     compare: "Compare West Palm Beach New Construction Condos",
     news: "West Palm Beach Condo Updates",
-    "market-notes": "West Palm Beach Condo Market Notes",
+    "market-notes": "West Palm Beach Condo Guidance",
     floorplans: "West Palm Beach Condo Floor Plans",
     answers: "West Palm Beach New Construction Condo Answers",
     methodology: "How We Verify",
@@ -3905,16 +3994,18 @@ function buildFloorplanItemListSchema() {
   };
 }
 
-function buildNewsArticleSchema(item: (typeof researchNewsFeed)[number]) {
+function buildExternalNewsArticleSchema(item: ExternalNewsItem) {
+  const article = updateArticleContent(item);
   return {
     "@type": "NewsArticle",
-    "@id": `${siteMeta.baseUrl}/updates/#${item.id}`,
+    "@id": `${siteMeta.baseUrl}${updatePath(item)}#article`,
     headline: item.title,
-    description: item.summary,
-    datePublished: item.datePublished,
-    dateModified: item.dateModified,
+    description: article.excerpt,
+    datePublished: item.publishedAt,
+    dateModified: item.fetchedAt,
     author: { "@id": `${siteMeta.baseUrl}/#advisor` },
     publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+    mainEntityOfPage: `${siteMeta.baseUrl}${updatePath(item)}`,
   };
 }
 
@@ -4420,9 +4511,6 @@ function renderMarketNoteCard(note: MarketNote) {
     .filter(Boolean)
     .slice(0, 3)
     .join(" · ");
-  const source = note.sourceLinks[0];
-  const canShowSourceLink = source && !/developer|official project|official brand|brand\/developer/i.test(source.sourceType);
-
   return `
     <article class="home-blog-card market-note-card" id="${escapeHtml(note.seo.suggestedSlug)}">
       ${renderResolvedContentImage(resolvedImage, "market-note-card-image")}
@@ -4432,8 +4520,7 @@ function renderMarketNoteCard(note: MarketNote) {
       <small>${escapeHtml(note.buyerTakeaway)}</small>
       ${relatedProjects ? `<p class="market-note-related">Related: ${escapeHtml(relatedProjects)}</p>` : ""}
       <div class="market-note-actions">
-        ${canShowSourceLink ? `<a href="${safeHref(source.href)}" target="_blank" rel="noreferrer">Source <span aria-hidden="true">↗</span></a>` : ""}
-        <a href="/market-notes/${note.slug}/">Read Buyer Note <span aria-hidden="true">→</span></a>
+        <a href="/market-notes/${note.slug}/">Read Guidance <span aria-hidden="true">→</span></a>
       </div>
     </article>
   `;
@@ -4465,7 +4552,7 @@ function renderMarketNoteArticle(note: MarketNote) {
     <article class="market-note-article">
       <header class="section market-note-hero">
         <div>
-          <a class="market-note-back" href="/market-notes/">Market Notes</a>
+          <a class="market-note-back" href="/market-notes/">Guidance</a>
           <p class="eyebrow">${escapeHtml(note.category)}</p>
           <h1>${escapeHtml(note.title)}</h1>
           <p class="market-note-dek">${escapeHtml(note.excerpt)}</p>
@@ -4564,10 +4651,10 @@ function renderMissingMarketNote() {
   return `
     <section class="section intelligence-hero">
       <div>
-        <p class="eyebrow">Market Notes</p>
+        <p class="eyebrow">Guidance</p>
         <h1>That note is not available.</h1>
-        <p>Return to the Market Notes index for current buyer intelligence.</p>
-        <a class="button primary" href="/market-notes/">View Market Notes</a>
+        <p>Return to the Guidance index for current buyer intelligence.</p>
+        <a class="button primary" href="/market-notes/">View Guidance</a>
       </div>
     </section>
   `;
@@ -5298,32 +5385,164 @@ function formatNewsDate(value: string) {
 function renderExternalNewsItem(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
   const relatedProject = resolvedImage.relatedProject ?? item.relatedProjectIds.map((projectId) => featuredProjects.find((project) => project.id === projectId)).find(Boolean);
+  const article = updateArticleContent(item);
   return `
     <article class="news-card intelligence-news-card external-news-card" id="${escapeHtml(item.id)}">
       ${renderResolvedContentImage(resolvedImage)}
       <span>${publicText(item.sourceName)} · ${publicText(formatNewsDate(item.publishedAt))}${item.paywallStatus === "likely-paywalled" ? " · Likely paywalled" : ""}</span>
       <strong>${publicText(item.title)}</strong>
-      ${item.description ? `<p>${publicText(item.description)}</p>` : ""}
+      <p>${publicText(article.excerpt)}</p>
       <small>${publicText(relatedNewsLabel(item))}</small>
-      <a class="home-news-link" href="${safeHref(item.canonicalUrl)}" target="_blank" rel="noopener noreferrer">Read original article <span aria-hidden="true">→</span></a>
-      <a class="home-news-link" href="${relatedProject ? projectPath(relatedProject) : "/inquire/?lead_capture_context=external_update_card"}">${relatedProject ? "View related building" : "Ask about this update"} <span aria-hidden="true">→</span></a>
+      <a class="home-news-link" href="${updatePath(item)}">Read Update <span aria-hidden="true">→</span></a>
+      <a class="home-news-link" href="${relatedProject ? projectPath(relatedProject) : "/inquire/?lead_capture_context=external_update_card"}">${relatedProject ? "View related building" : "Ask Brooke About This"}</a>
     </article>
   `;
 }
 
 function renderHomeExternalNewsItem(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
+  const article = updateArticleContent(item);
   return `
     <article class="home-news-card external-news-card" id="home-${escapeHtml(item.id)}">
       ${renderResolvedContentImage(resolvedImage)}
       <div>
         <span>${publicText(item.sourceName)} · ${publicText(formatNewsDate(item.publishedAt))}</span>
         <strong>${publicText(item.title)}</strong>
-        ${item.description ? `<p>${publicText(item.description)}</p>` : ""}
+        <p>${publicText(article.excerpt)}</p>
         <small>${publicText(relatedNewsLabel(item))}</small>
-        <a class="home-news-link" href="${safeHref(item.canonicalUrl)}" target="_blank" rel="noopener noreferrer">Read original article <span aria-hidden="true">→</span></a>
+        <a class="home-news-link" href="${updatePath(item)}">Read Update <span aria-hidden="true">→</span></a>
       </div>
     </article>
+  `;
+}
+
+function updatePath(item: ExternalNewsItem) {
+  return `/updates/${item.id}/`;
+}
+
+function updateForId(articleId: string) {
+  return publishedExternalNews.find((item) => item.id === articleId);
+}
+
+function syncNewsDetail(item?: ExternalNewsItem) {
+  const detailView = document.querySelector<HTMLElement>('[data-route-view="news-detail"]');
+  if (!detailView) return;
+  detailView.innerHTML = item ? renderUpdateArticle(item) : renderMissingUpdateArticle();
+  if (item) {
+    track("update_article_view", {
+      articleId: item.id,
+      sourceName: item.sourceName,
+    });
+  }
+}
+
+function updateArticleContent(item: ExternalNewsItem) {
+  const relatedProjects = item.relatedProjectIds
+    .map((projectId) => featuredProjects.find((project) => project.id === projectId))
+    .filter((project): project is FeaturedProject => Boolean(project));
+  const relatedProjectNames = relatedProjects.map((project) => project.name).join(", ");
+  const relatedLabel = relatedProjectNames || relatedNewsLabel(item).replace(/^Related:\s*/i, "");
+  const deck = item.description || `${item.sourceName} reported a West Palm Beach development update tied to ${relatedLabel}.`;
+  const story = [
+    deck,
+    relatedProjects.length
+      ? `For buyers, the useful frame is not the headline alone. This update belongs in the same comparison set as ${relatedProjectNames}, so it should be read alongside current availability, view exposure, residence lines, timing, and the latest buyer packet.`
+      : "For buyers, the useful frame is not the headline alone. This update should be read alongside current project status, corridor momentum, timing, and the latest buyer packet.",
+  ];
+  return {
+    deck,
+    excerpt: `${deck} The practical question is whether it changes the right shortlist, timing, or due-diligence path.`,
+    story,
+    whyItMatters:
+      relatedProjects.length
+        ? `A public update can change how ${relatedProjectNames} should be compared, but it does not replace current pricing, availability, floorplan, and contract verification.`
+        : "A public update can change corridor context, but it does not replace current pricing, availability, floorplan, and contract verification.",
+    brookeTake:
+      "Use this as a signal, not a decision by itself. The next step is to verify what is current today, then compare the buildings that actually fit the buyer's goals.",
+    cta:
+      "For guidance on West Palm Beach new construction - including how these buildings compare, which residences stand out, and what may fit your goals best - contact Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach.",
+  };
+}
+
+function renderUpdateArticle(item: ExternalNewsItem) {
+  const resolvedImage = imageForContentItem(externalNewsImageContext(item));
+  const content = updateArticleContent(item);
+  const relatedProjects = item.relatedProjectIds
+    .map((projectId) => featuredProjects.find((project) => project.id === projectId))
+    .filter((project): project is FeaturedProject => Boolean(project));
+  return `
+    <article class="market-note-article update-article">
+      <header class="section market-note-hero">
+        <div>
+          <a class="market-note-back" href="/updates/">Updates</a>
+          <p class="eyebrow">${publicText(item.category)} Update</p>
+          <h1>${publicText(item.title)}</h1>
+          <p class="market-note-dek">${publicText(content.deck)}</p>
+          <p class="market-note-hero-thesis">${publicText(relatedNewsLabel(item))}</p>
+        </div>
+        ${renderResolvedContentImage(resolvedImage, "market-note-hero-image")}
+      </header>
+      <section class="market-note-meta-strip" aria-label="Update metadata">
+        <div><span>Source</span><strong>${publicText(item.sourceName)}</strong></div>
+        <div><span>Published</span><strong>${publicText(formatNewsDate(item.publishedAt))}</strong></div>
+        <div><span>Updated</span><strong>${publicText(item.fetchedAt)}</strong></div>
+        <div><span>Related</span><strong>${relatedProjects.length || item.relatedCorridorIds.length}</strong></div>
+      </section>
+      <section class="section market-note-body">
+        <aside class="market-note-thesis">
+          <span>Deck</span>
+          <strong>${publicText(content.deck)}</strong>
+        </aside>
+        <div class="market-note-sections">
+          <section>
+            <h2>The story</h2>
+            ${content.story.map((paragraph) => `<p>${publicText(paragraph)}</p>`).join("")}
+          </section>
+          <section>
+            <h2>Why it matters</h2>
+            <p>${publicText(content.whyItMatters)}</p>
+          </section>
+          <section>
+            <h2>Brooke's take</h2>
+            <p>${publicText(content.brookeTake)}</p>
+          </section>
+          <aside class="buyer-takeaway-box">
+            <span>Next step</span>
+            <p>${publicText(content.cta)}</p>
+            <a href="/inquire/?lead_capture_context=update_article&update=${encodeURIComponent(item.id)}">Contact Brooke <span aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+      </section>
+      ${
+        relatedProjects.length
+          ? `<section class="section market-note-related-section">
+              <div class="section-heading">
+                <p class="eyebrow">Related Buildings</p>
+                <h2>Compare the buildings tied to this update.</h2>
+              </div>
+              <div class="front-project-grid front-project-grid-static">
+                ${relatedProjects.slice(0, 4).map(renderRelatedBuildingCard).join("")}
+              </div>
+            </section>`
+          : ""
+      }
+      <footer class="section update-source-footer">
+        <a href="${safeHref(item.canonicalUrl)}" target="_blank" rel="noopener noreferrer">Read the original source</a>
+      </footer>
+    </article>
+  `;
+}
+
+function renderMissingUpdateArticle() {
+  return `
+    <section class="section intelligence-hero">
+      <div>
+        <p class="eyebrow">Updates</p>
+        <h1>That update is not available.</h1>
+        <p>Return to the updates index for the current published articles.</p>
+      </div>
+      <a class="button primary" href="/updates/">View Updates</a>
+    </section>
   `;
 }
 
@@ -5349,7 +5568,7 @@ function renderFloorplanProject(project: (typeof floorplanLibrary)[number]) {
       ${
         plans.length
           ? `<div class="floorplan-grid floorplan-grid-wide">
-              ${plans.map((plan) => renderGeneratedFloorplanLink(plan)).join("")}
+              ${plans.map((plan, index) => renderGeneratedFloorplanLink(plan, project, index)).join("")}
             </div>
             ${extraCount ? `<p class="source-note">${extraCount} additional plan records are available in the buyer catalog.</p>` : ""}`
           : `<p class="floorplan-gap">${escapeHtml(project.missingNote)}</p>`
@@ -5358,8 +5577,16 @@ function renderFloorplanProject(project: (typeof floorplanLibrary)[number]) {
   `;
 }
 
-function renderGeneratedFloorplanLink(plan: (typeof floorplanLibrary)[number]["plans"][number]) {
+function renderGeneratedFloorplanLink(
+  plan: (typeof floorplanLibrary)[number]["plans"][number],
+  project?: (typeof floorplanLibrary)[number],
+  index = 0,
+) {
   const title = plan.title;
+  const projectName = project?.name ?? "Project floorplan";
+  const caption = plan.href && !/^https?:\/\//i.test(plan.href)
+    ? "Preview this floorplan inside WPB New Construction, then request the current packet before relying on availability or stack details."
+    : "This plan is handled through the current packet request path so buyers do not leave the site for a sales-office download.";
   if (!plan.href) {
     return `
       <article class="floorplan-link floorplan-link-static">
@@ -5370,18 +5597,36 @@ function renderGeneratedFloorplanLink(plan: (typeof floorplanLibrary)[number]["p
   }
   if (/^https?:\/\//i.test(plan.href) || /\.html?(?:$|[?#])/i.test(plan.href)) {
     return `
-    <a class="floorplan-link" href="/inquire/?interest=floorplans">
+    <button
+      class="floorplan-link floorplan-link-button"
+      type="button"
+      data-floorplan-open
+      data-floorplan-index="${index}"
+      data-floorplan-title="${escapeHtml(title)}"
+      data-floorplan-project="${escapeHtml(projectName)}"
+      data-floorplan-caption="${escapeHtml(caption)}"
+      data-floorplan-src=""
+    >
       <span>${escapeHtml(title)}</span>
       <small>Request current packet</small>
-    </a>
+    </button>
   `;
   }
 
   return `
-    <a class="floorplan-link" href="${safeHref(plan.href)}" target="_blank" rel="noreferrer">
+    <button
+      class="floorplan-link floorplan-link-button"
+      type="button"
+      data-floorplan-open
+      data-floorplan-index="${index}"
+      data-floorplan-title="${escapeHtml(title)}"
+      data-floorplan-project="${escapeHtml(projectName)}"
+      data-floorplan-caption="${escapeHtml(caption)}"
+      data-floorplan-src="${safeHref(plan.href)}"
+    >
       <span>${escapeHtml(title)}</span>
-      <small>Open floorplan</small>
-    </a>
+      <small>Preview floorplan</small>
+    </button>
   `;
 }
 
@@ -5620,7 +5865,7 @@ function renderProjectUpdateNote(item: ExternalNewsItem) {
         <small>Source: ${publicText(item.sourceName)}${item.paywallStatus === "likely-paywalled" ? " · May require subscription" : ""}</small>
       </div>
       <nav aria-label="${escapeHtml(item.title)} actions">
-        <a href="${safeHref(item.canonicalUrl)}" target="_blank" rel="noopener noreferrer">View source</a>
+        <a href="${updatePath(item)}">Read Update</a>
         <a href="/inquire/?lead_capture_context=project_update&update=${encodeURIComponent(item.id)}">Ask about this update</a>
       </nav>
     </article>
@@ -5754,7 +5999,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <p>${isCompactWatch ? "Planning and source-watch pages are intentionally lighter. Use them for status, location, sponsor signals, and related news, not as a promise of current availability." : "Access available floorplans, project details, and advisor guidance before you tour or reserve."}</p>
           <div class="brochure-download-list">
             ${draft.documents.map(renderProjectDocument).join("")}
-            ${!isCompactWatch ? floorplanProject?.plans.slice(0, 4).map((plan) => renderGeneratedFloorplanLink(plan)).join("") ?? "" : ""}
+            ${!isCompactWatch ? floorplanProject?.plans.slice(0, 4).map((plan, index) => renderGeneratedFloorplanLink(plan, floorplanProject, index)).join("") ?? "" : ""}
           </div>
           ${!isCompactWatch && floorplanProject ? `<a href="/floorplans/#floorplans-${floorplanProject.projectId}">View floorplan library <span aria-hidden="true">→</span></a>` : ""}
         </div>
@@ -6059,8 +6304,16 @@ function renderProjectDocument(document: ProjectDocument) {
     return `<article class="document-card is-placeholder">${content}</article>`;
   }
 
+  if (/^https?:\/\//i.test(document.href) || /\.pdf(?:$|[?#])/i.test(document.href)) {
+    return `
+      <a class="document-card" href="/inquire/?interest=availability">
+        ${content}
+      </a>
+    `;
+  }
+
   return `
-    <a class="document-card" href="${document.href}" target="_blank" rel="noreferrer">
+    <a class="document-card" href="${document.href}">
       ${content}
     </a>
   `;
@@ -6106,12 +6359,77 @@ function renderNeededItem(item: string, index: number) {
 }
 
 function renderFloorplanLink(plan: { label: string; file: string; note?: string }, basePath = docsBase) {
+  const href = `${basePath}floorplans/${plan.file}`;
   return `
-    <a class="floorplan-link" href="${basePath}floorplans/${plan.file}" target="_blank" rel="noreferrer">
+    <button
+      class="floorplan-link floorplan-link-button"
+      type="button"
+      data-floorplan-open
+      data-floorplan-index="0"
+      data-floorplan-title="${escapeHtml(plan.label)}"
+      data-floorplan-project="Olara"
+      data-floorplan-caption="${escapeHtml(plan.note ?? "Floorplan PDF preview")}"
+      data-floorplan-src="${safeHref(href)}"
+    >
       <span>${plan.label}</span>
       <small>${plan.note ?? "Floorplan PDF"}</small>
-    </a>
+    </button>
   `;
+}
+
+function initFloorplanViewer() {
+  const viewer = document.querySelector<HTMLElement>("[data-floorplan-viewer]");
+  if (!viewer || viewer.dataset.ready === "true") return;
+  viewer.dataset.ready = "true";
+  const title = viewer.querySelector<HTMLElement>("[data-floorplan-title]");
+  const project = viewer.querySelector<HTMLElement>("[data-floorplan-project]");
+  const caption = viewer.querySelector<HTMLElement>("[data-floorplan-caption]");
+  const frame = viewer.querySelector<HTMLElement>("[data-floorplan-frame]");
+  let activeIndex = 0;
+
+  const openButtons = () => Array.from(document.querySelectorAll<HTMLButtonElement>("[data-floorplan-open]"));
+  const openAt = (index: number) => {
+    const buttons = openButtons();
+    const button = buttons[index];
+    if (!button || !frame) return;
+    activeIndex = index;
+    const src = button.dataset.floorplanSrc || "";
+    title?.replaceChildren(document.createTextNode(button.dataset.floorplanTitle || "Floor plan"));
+    project?.replaceChildren(document.createTextNode(button.dataset.floorplanProject || "Floorplan preview"));
+    caption?.replaceChildren(document.createTextNode(button.dataset.floorplanCaption || "Request the current packet before relying on plan availability."));
+    frame.innerHTML = src
+      ? `<iframe src="${safeHref(src)}" title="${escapeHtml(button.dataset.floorplanTitle || "Floorplan preview")}"></iframe>`
+      : `<div class="floorplan-viewer-request"><strong>Request this plan through Brooke.</strong><p>The public source sends buyers outside the site, so the primary action here is to request the current packet and confirm the latest plan details.</p></div>`;
+    viewer.hidden = false;
+    viewer.setAttribute("aria-hidden", "false");
+    document.body.classList.add("has-floorplan-viewer");
+  };
+  const close = () => {
+    viewer.hidden = true;
+    viewer.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("has-floorplan-viewer");
+  };
+
+  document.addEventListener("click", (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-floorplan-open]");
+    if (button) {
+      event.preventDefault();
+      openAt(openButtons().indexOf(button));
+      return;
+    }
+    if ((event.target as HTMLElement).closest("[data-floorplan-close]")) close();
+    if ((event.target as HTMLElement).closest("[data-floorplan-prev]")) {
+      const buttons = openButtons();
+      openAt((activeIndex - 1 + buttons.length) % buttons.length);
+    }
+    if ((event.target as HTMLElement).closest("[data-floorplan-next]")) {
+      const buttons = openButtons();
+      openAt((activeIndex + 1) % buttons.length);
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !viewer.hidden) close();
+  });
 }
 
 function initProjectBrowser() {

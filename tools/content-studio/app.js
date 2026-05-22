@@ -12,6 +12,7 @@ async function loadState() {
   renderStatusCards();
   renderAutomation();
   renderNewsDesk();
+  renderHomepageEditor();
   updateProjectPreview();
 }
 
@@ -56,6 +57,7 @@ document.querySelectorAll(".section-tabs button").forEach((button) => {
 
 bindForm("#copyPanel", "/api/project-copy", (payload) => ({ ...payload, projectId: activeProjectId() }));
 bindForm("#pageCopyPanel", "/api/page-copy", (payload) => ({ ...payload, projectId: activeProjectId() }));
+bindForm("#homepagePanel", "/api/homepage-overrides");
 bindForm("#captionPanel", "/api/image-caption", (payload) => ({ ...payload, projectId: activeProjectId() }));
 bindForm("#updatePanel", "/api/project-update", (payload) => ({ ...payload, projectId: activeProjectId() }));
 bindForm("#teamPanel", "/api/team-resource", (payload) => ({ ...payload, projectId: activeProjectId() }));
@@ -111,6 +113,23 @@ function renderAutomation() {
     </dl>
     <pre>${escapeHtml(JSON.stringify({ scripts: automation.scripts, changeLog: state.overrides.changeLog?.entries?.slice(0, 8) ?? [] }, null, 2))}</pre>
   `;
+}
+
+function renderHomepageEditor() {
+  const imageSelect = document.querySelector("#homepagePanel select[name=imagePath]");
+  const sectionSelect = document.querySelector("#homepagePanel select[name=sectionId]");
+  const sections = state.overrides.homepage?.sections ?? {};
+  imageSelect.innerHTML = `<option value="">Choose existing image</option>${(state.availableImages ?? []).map((imagePath) => `<option value="${escapeHtml(imagePath)}">${escapeHtml(imagePath)}</option>`).join("")}`;
+  const fill = () => {
+    const item = sections[sectionSelect.value] ?? {};
+    for (const element of document.querySelector("#homepagePanel").elements) {
+      if (!element.name || element.name === "sectionId") continue;
+      element.value = item[element.name] ?? "";
+    }
+  };
+  sectionSelect.removeEventListener("change", fill);
+  sectionSelect.addEventListener("change", fill);
+  fill();
 }
 
 function renderNewsDesk() {

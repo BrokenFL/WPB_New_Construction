@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import fsSync from "node:fs";
 import path from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
@@ -23,7 +24,7 @@ const marketNoteRoutes = [
   },
   {
     slug: "olara-vs-shorecrest-waterfront-buyer-profiles",
-    title: "Olara vs Shorecrest | WPB Buyer Notes",
+    title: "Olara vs Shorecrest | WPB Guidance",
     description:
       "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps.",
   },
@@ -46,6 +47,21 @@ const marketNoteRoutes = [
       "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
   },
 ];
+
+function approvedUpdateRoutes() {
+  const approvedPath = path.join(workspace, "research/news-review/approved-development-news.json");
+  try {
+    return JSON.parse(fsSync.readFileSync(approvedPath, "utf8"))
+      .filter((item) => item.status === "published")
+      .map((item) => ({
+        id: item.id,
+        title: `${item.title} | WPB Updates`,
+        description: item.description || "West Palm Beach new-construction update with buyer context and original source attribution.",
+      }));
+  } catch {
+    return [];
+  }
+}
 
 const priorityProjects = new Set([
   "olara",
@@ -191,7 +207,7 @@ const answerBlocks = [
     shortLabel: "Stories + units",
     question: "How many stories and residences does each major project have?",
     answer:
-      "Current source notes show Olara at 26 stories and 275 residences; Ritz-Carlton at 27 stories and 138 residences; Shorecrest at 28 stories with a source conflict between 98 and 100 residences; Mr. C at 27 stories with 146 residences plus 110 hotel suites; Alba at 22 stories and 55 residences; Mandarin Oriental at 31 stories and 87 residences; South Flagler House as two 28-story towers with roughly 105 to 108 residences depending on source date; NORA House at 11 stories and 117 residences; Banyan Tree at 25 stories with an 86 to 88 residence/unit source conflict; and Maison d'Or at 19 stories and 39 residences.",
+      "Current review notes show Olara at 26 stories and 275 residences; Ritz-Carlton at 27 stories and 138 residences; Shorecrest at 28 stories with public counts varying between 98 and 100 residences; Mr. C at 27 stories with 146 residences plus 110 hotel suites; Alba at 22 stories and 55 residences; Mandarin Oriental at 31 stories and 87 residences; South Flagler House as two 28-story towers with roughly 105 to 108 residences depending on source date; NORA House at 11 stories and 117 residences; Banyan Tree at 25 stories with an 86 to 88 residence/unit count range; and Maison d'Or at 19 stories and 39 residences.",
     concept: "Project facts",
     relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "mr-c", "south-flagler-house"],
     sources: ["official project sites", "Florida YIMBY", "The Real Deal", "World Red Eye", "project-source-catalog"],
@@ -1034,7 +1050,7 @@ const answerBlocks = [
     shortLabel: "North Flagler",
     question: "Which West Palm Beach condo projects are on North Flagler?",
     answer:
-      "The North Flagler buyer set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Alba Palm Beach, Mandarin Oriental Residences, and planning-watch items such as Rosewood Residences. It is the main Intracoastal-facing corridor for buyers comparing Palm Beach proximity, water views, service, amenities, and new-construction timing.",
+      "The North Flagler buyer set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Alba Palm Beach, Mandarin Oriental Residences, and early-stage projects such as Rosewood Residences. It is the main Intracoastal-facing corridor for buyers comparing Palm Beach proximity, water views, service, amenities, and new-construction timing.",
     concept: "Corridors",
     relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "rosewood"],
     sources: ["official project sites", "project-source-catalog"],
@@ -1222,31 +1238,36 @@ async function main() {
   const projectAssetStatus = buildProjectAssetStatus(catalog.projects, floorplans, publishedFloorplans, assetTracker);
   const imageClearanceCandidates = buildImageClearanceCandidates(catalog.projects, images, assetTracker);
   const projectTeamCredits = buildProjectTeamCredits(catalog.projects, assetTracker);
+  const publicNewsFeed = sanitizePublicPayload(newsFeed);
+  const publicAnswerBlocks = sanitizePublicPayload(answerBlocks);
+  const publicProjectAssetStatus = sanitizePublicPayload(projectAssetStatus);
+  const publicImageClearanceCandidates = sanitizePublicPayload(imageClearanceCandidates);
+  const publicProjectTeamCredits = sanitizePublicPayload(projectTeamCredits);
 
   await fs.writeFile(path.join(publicDataRoot, "site-meta.json"), `${JSON.stringify(siteMeta, null, 2)}\n`);
   await fs.writeFile(path.join(publicDataRoot, "floorplans.json"), `${JSON.stringify(publicFloorplans, null, 2)}\n`);
   await fs.writeFile(path.join(publicDataRoot, "published-floorplan-assets.json"), `${JSON.stringify(publishedFloorplans, null, 2)}\n`);
-  await fs.writeFile(path.join(publicDataRoot, "project-asset-status.json"), `${JSON.stringify(projectAssetStatus, null, 2)}\n`);
+  await fs.writeFile(path.join(publicDataRoot, "project-asset-status.json"), `${JSON.stringify(publicProjectAssetStatus, null, 2)}\n`);
   await fs.writeFile(
     path.join(publicDataRoot, "image-clearance-candidates.json"),
-    `${JSON.stringify(imageClearanceCandidates, null, 2)}\n`,
+    `${JSON.stringify(publicImageClearanceCandidates, null, 2)}\n`,
   );
   await fs.writeFile(
     path.join(publicDataRoot, "project-team-credits.json"),
-    `${JSON.stringify(projectTeamCredits, null, 2)}\n`,
+    `${JSON.stringify(publicProjectTeamCredits, null, 2)}\n`,
   );
-  await fs.writeFile(path.join(publicDataRoot, "news-feed.json"), `${JSON.stringify(newsFeed, null, 2)}\n`);
-  await fs.writeFile(path.join(publicDataRoot, "answer-engine-faq.json"), `${JSON.stringify(answerBlocks, null, 2)}\n`);
-  await fs.writeFile(path.join(workspace, "public/feed.json"), `${JSON.stringify(toJsonFeed(newsFeed), null, 2)}\n`);
-  await fs.writeFile(path.join(workspace, "public/rss.xml"), renderRss(newsFeed));
-  await fs.writeFile(path.join(workspace, "public/llms.txt"), renderLlmsTxt(publicFloorplans, newsFeed));
+  await fs.writeFile(path.join(publicDataRoot, "news-feed.json"), `${JSON.stringify(publicNewsFeed, null, 2)}\n`);
+  await fs.writeFile(path.join(publicDataRoot, "answer-engine-faq.json"), `${JSON.stringify(publicAnswerBlocks, null, 2)}\n`);
+  await fs.writeFile(path.join(workspace, "public/feed.json"), `${JSON.stringify(toJsonFeed(publicNewsFeed), null, 2)}\n`);
+  await fs.writeFile(path.join(workspace, "public/rss.xml"), renderRss(publicNewsFeed));
+  await fs.writeFile(path.join(workspace, "public/llms.txt"), renderLlmsTxt(publicFloorplans, publicNewsFeed));
   await fs.writeFile(path.join(workspace, "public/robots.txt"), renderRobots());
   await fs.writeFile(path.join(workspace, "public/sitemap.xml"), renderSitemap(catalog.projects));
   await fs.writeFile(path.join(reviewRoot, "floorplan-library.md"), renderFloorplanMd(floorplans));
   await fs.writeFile(path.join(reviewRoot, "image-candidate-catalog.md"), renderImageMd(images.catalog));
   await fs.writeFile(path.join(reviewRoot, "image-candidate-catalog.json"), `${JSON.stringify(images.catalog, null, 2)}\n`);
   await fs.writeFile(path.join(reviewRoot, "metadata-answer-engine-plan.md"), renderMetadataPlan(newsFeed));
-  await fs.writeFile(path.join(generatedRoot, "siteData.ts"), renderSiteDataTs({ floorplans: publicFloorplans, newsFeed, projectFacts }));
+  await fs.writeFile(path.join(generatedRoot, "siteData.ts"), renderSiteDataTs({ floorplans: publicFloorplans, newsFeed: publicNewsFeed, projectFacts: sanitizePublicPayload(projectFacts), answerBlocks: publicAnswerBlocks }));
 
   console.log(
     JSON.stringify(
@@ -1568,9 +1589,9 @@ function buildNewsFeed(projects, floorplans, images) {
       },
       {
         id: "rosewood-north-flagler-planning",
-        title: "Rosewood planning notes add another branded watch item to North Flagler",
+        title: "Rosewood planning notes add another branded project to North Flagler",
         summary:
-          "Recent project research and local planning material point to Rosewood Residences as another North Flagler branded-residence watch item, but buyers should treat it as early-stage until public plan details mature.",
+          "Recent project research and local planning review point to Rosewood Residences as another North Flagler branded-residence project, but buyers should treat it as early-stage until public plan details mature.",
         category: "North Flagler",
         datePublished: "2026-05-19",
         dateModified: "2026-05-22",
@@ -1590,7 +1611,7 @@ function buildNewsFeed(projects, floorplans, images) {
           "Rosewood belongs on the buyer radar, not in the same decision bucket as projects with deeper released sales material. Track it for future North Flagler supply pressure while continuing to compare available buildings by current packet, timing, and view stack.",
         image: newsImageForProjects(["rosewood", "ritz-carlton-wpb", "mandarin-oriental"], images),
         citations: [
-          "Local planning materials reviewed in May 2026 identify Rosewood as a North Flagler branded-residence watch item.",
+          "Local planning materials reviewed in May 2026 identify Rosewood as a North Flagler branded-residence project.",
           "The buyer use is pipeline awareness, not current pricing or availability reliance.",
         ],
         status: "Review before reliance",
@@ -1797,7 +1818,7 @@ function sourceLinkForProject(project) {
   return {
     label: project.name,
     href: project.officialWebsite || project.highValueSources?.[0] || "",
-    sourceType: project.officialWebsite ? "official project site" : "source material",
+    sourceType: project.officialWebsite ? "official project site" : "reviewed material",
   };
 }
 
@@ -1811,7 +1832,7 @@ function buildProjectAssetStatus(projects, floorplans, publishedFloorplans, asse
   return {
     generatedAt: new Date().toISOString(),
     usageNote:
-      "Project media and packet tracker for buyer-facing review. Media marked pending should be treated as representative or withheld until the source record is refreshed.",
+      "Project media and packet tracker for buyer-facing review. Media marked pending should be treated as representative or withheld until the review file is refreshed.",
     projects: projects
       .map((project) => {
         const authorization = imageAuthorizationForProject(project, assetTracker);
@@ -1922,6 +1943,27 @@ function publicClearanceStatus(status) {
     .replace(/\buser sign-off\b/gi, "buyer-facing media review")
     .replace(/\bdeveloper\b/gi, "project sponsor")
     .replace(/\binternal\b/gi, "review");
+}
+
+function sanitizePublicPayload(value) {
+  if (Array.isArray(value)) return value.map(sanitizePublicPayload);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, sanitizePublicPayload(item)]));
+  }
+  if (typeof value !== "string") return value;
+  return value
+    .replace(/\bproject-source-catalog\b/gi, "project review file")
+    .replace(/\bsource-catalog\b/gi, "review file")
+    .replace(/\bsource material\b/gi, "reviewed material")
+    .replace(/\bsource record\b/gi, "review file")
+    .replace(/\bsource conflict\b/gi, "public-source variation")
+    .replace(/\bcurrent record uses\b/gi, "current buyer review uses")
+    .replace(/\bwatch item\b/gi, "early-stage project")
+    .replace(/\bpipeline watch item\b/gi, "early-stage project")
+    .replace(/\bsales gallery\b/gi, "buyer appointment")
+    .replace(/\bdeveloper material\b/gi, "reviewed project material")
+    .replace(/\bdeveloper\b/gi, "project sponsor")
+    .replace(/\binternal\b/gi, "on-site");
 }
 
 function sourceLinkFromHref(href) {
@@ -2090,7 +2132,7 @@ function isFloorplanAsset(asset) {
 
 function inferClearanceStatus(projectId, asset, assetTracker) {
   const authorization = imageAuthorizationForProject({ projectId }, assetTracker);
-  if (authorization.isAuthorized) return "image available; credit original source materials";
+  if (authorization.isAuthorized) return "image available; credit original reviewed materials";
   if (/reject|avoid|blocked/i.test(`${asset.status ?? ""} ${asset.source ?? ""}`)) return "reject current candidate";
   return "pending media review";
 }
@@ -2174,7 +2216,7 @@ function toUrlPath(filePath) {
   return filePath.split(path.sep).join("/").split("/").map(encodeURIComponent).join("/");
 }
 
-function renderSiteDataTs({ floorplans, newsFeed, projectFacts }) {
+function renderSiteDataTs({ floorplans, newsFeed, projectFacts, answerBlocks }) {
   return `export const siteMeta = ${JSON.stringify(siteMeta, null, 2)} as const;\n\nexport const floorplanLibrary = ${JSON.stringify(floorplans.projects, null, 2)} as const;\n\nexport const answerEngineFaq = ${JSON.stringify(answerBlocks, null, 2)} as const;\n\nexport const researchNewsFeed = ${JSON.stringify(newsFeed.items, null, 2)} as const;\n\nexport const projectFacts = ${JSON.stringify(projectFacts, null, 2)} as const;\n\nexport const prerenderRoutes = ${JSON.stringify(buildPrerenderRoutes(), null, 2)} as const;\n`;
 }
 
@@ -2260,7 +2302,7 @@ function renderLlmsTxt(floorplans, newsFeed) {
   const newsLines = newsFeed.items.map((item) => `- ${item.title}: ${item.summary}`);
   return `# WPB New Construction
 
-West Palm Beach new-construction condo buyer guide with project pages, floorplans, corridor comparisons, Market Notes, source-linked Updates, and advisor-reviewed answers.
+West Palm Beach new-construction condo buyer guide with project pages, floorplans, corridor comparisons, Guidance, source-linked Updates, and advisor-reviewed answers.
 
 The site is built to help buyers understand which West Palm Beach condo buildings exist, which are active versus future pipeline, which corridor fits the search, and when to request current pricing, availability, floor plans, and timing from Brooke Matthew Snader / Douglas Elliman.
 
@@ -2322,6 +2364,7 @@ Sitemap: ${productionBaseUrl}/sitemap.xml
 }
 
 function buildPrerenderRoutes() {
+  const updateRoutes = approvedUpdateRoutes();
   const projectRoutes = [
     ["olara", "Olara West Palm Beach | New Construction Condo Guide", "Olara West Palm Beach buyer guide with North Flagler waterfront context, floor plans, amenities, timing, pricing checks, and current availability next steps.", "/projects/olara/media/olara-hero-exterior-1536x1024.png"],
     ["ritz-carlton-wpb", "Ritz-Carlton WPB | New Construction Condo Guide", "Ritz-Carlton Residences West Palm Beach buyer guide with service model, waterfront position, floor plans, team credits, timing, and availability checks.", "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2880x1800.png"],
@@ -2380,13 +2423,19 @@ function buildPrerenderRoutes() {
     {
       path: "/updates/",
       title: "West Palm Beach Condo Updates | Construction, Sales & Planning",
-      description: "Track West Palm Beach condo construction, sales, financing, and planning updates with links to original reporting and buyer next steps.",
+      description: "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
       ogImage: siteMeta.defaultImage,
     },
+    ...updateRoutes.map((item) => ({
+      path: `/updates/${item.id}/`,
+      title: item.title,
+      description: item.description,
+      ogImage: siteMeta.defaultImage,
+    })),
     {
       path: "/market-notes/",
-      title: "West Palm Beach Condo Market Notes | Buyer Intelligence",
-      description: "Read buyer notes for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
+      title: "West Palm Beach Condo Guidance | Buyer Intelligence",
+      description: "Read evergreen guidance for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
       ogImage: siteMeta.defaultImage,
     },
     ...marketNoteRoutes.map((note) => (
@@ -2472,6 +2521,7 @@ function projectTitle(projectId) {
 }
 
 function renderSitemap(projects) {
+  const updateRoutes = approvedUpdateRoutes();
   const today = new Date().toISOString().slice(0, 10);
   const routableProjects = new Set([
     "olara",
@@ -2501,6 +2551,7 @@ function renderSitemap(projects) {
     ["compare/", "0.8"],
     ["answers/", "0.9"],
     ["updates/", "0.8"],
+    ...updateRoutes.map((item) => [`updates/${item.id}/`, "0.8"]),
     ["market-notes/", "0.8"],
     ...marketNoteRoutes.map((note) => [`market-notes/${note.slug}/`, "0.8"]),
     ["methodology/", "0.7"],

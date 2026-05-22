@@ -2,7 +2,7 @@ export const siteMeta = {
   "siteName": "WPB New Construction",
   "baseUrl": "https://www.wpbnewconstruction.com",
   "title": "West Palm Beach New Construction Condos | Buyer Guide",
-  "description": "Compare West Palm Beach new-construction condos across North Flagler, Downtown, and South Flagler with reviewed facts, released floorplans, and buyer advisory context.",
+  "description": "Compare West Palm Beach new-construction condos across North Flagler, Downtown, and South Flagler with source-backed facts, released floorplans, and buyer advisory context.",
   "publisher": {
     "name": "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
     "type": "RealEstateAgent",
@@ -20,7 +20,7 @@ export const siteMeta = {
   },
   "reviewedBy": {
     "name": "WPB New Construction Review Desk",
-    "role": "Project review"
+    "role": "Project source review"
   },
   "defaultImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
 } as const;
@@ -2250,7 +2250,7 @@ export const answerEngineFaq = [
     "id": "what-will-it-cost",
     "shortLabel": "Cost",
     "question": "What will these West Palm Beach new-construction condos cost?",
-    "answer": "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from about $3M, Ritz-Carlton from about $3M in current reviewed material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, and Banyan Tree reporting around $1.9M. South Flagler House pricing changes by dated availability, so request a current sheet. The real answer is always line, floor, view, terrace, parking, and release phase.",
+    "answer": "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from about $3M, Ritz-Carlton from about $3M in current reviewed project material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, and Banyan Tree reporting around $1.9M. South Flagler House pricing changes by dated availability, so request a current sheet. The real answer is always line, floor, view, terrace, parking, and release phase.",
     "concept": "Pricing guidance",
     "relatedProjectIds": [
       "olara",
@@ -2332,7 +2332,7 @@ export const answerEngineFaq = [
     "id": "stories-and-residence-counts",
     "shortLabel": "Stories + units",
     "question": "How many stories and residences does each major project have?",
-    "answer": "Current source notes show Olara at 26 stories and 275 residences; Ritz-Carlton at 27 stories and 138 residences; Shorecrest at 28 stories with a detail to verify between 98 and 100 residences; Mr. C at 27 stories with 146 residences plus 110 hotel suites; Alba at 22 stories and 55 residences; Mandarin Oriental at 31 stories and 87 residences; South Flagler House as two 28-story towers with roughly 105 to 108 residences depending on source date; NORA House at 11 stories and 117 residences; Banyan Tree at 25 stories with an 86 to 88 residence/unit detail to verify; and Maison d'Or at 19 stories and 39 residences.",
+    "answer": "Current review notes show Olara at 26 stories and 275 residences; Ritz-Carlton at 27 stories and 138 residences; Shorecrest at 28 stories with public counts varying between 98 and 100 residences; Mr. C at 27 stories with 146 residences plus 110 hotel suites; Alba at 22 stories and 55 residences; Mandarin Oriental at 31 stories and 87 residences; South Flagler House as two 28-story towers with roughly 105 to 108 residences depending on source date; NORA House at 11 stories and 117 residences; Banyan Tree at 25 stories with an 86 to 88 residence/unit count range; and Maison d'Or at 19 stories and 39 residences.",
     "concept": "Project facts",
     "relatedProjectIds": [
       "olara",
@@ -2557,7 +2557,7 @@ export const answerEngineFaq = [
       {
         "label": "Banyan Tree legal notice",
         "href": "https://www.banyantreeresidenceswpb.com/",
-        "note": "project legal notice reminds buyers to rely on required condominium documents, not oral or promotional representations.",
+        "note": "project sponsor legal notice reminds buyers to rely on required condominium documents, not oral or promotional representations.",
         "sourceType": "official project site",
         "dateAccessed": "2026-05-22",
         "supportsClaim": "buyer should verify offering documents",
@@ -2570,7 +2570,7 @@ export const answerEngineFaq = [
         "note": "Official page includes Florida condominium-document disclaimer language.",
         "sourceType": "official project site",
         "dateAccessed": "2026-05-22",
-        "supportsClaim": "project documents control",
+        "supportsClaim": "project sponsor documents control",
         "claimText": "Formal condominium documents should be requested before relying on project claims.",
         "confidence": "high"
       }
@@ -2591,7 +2591,7 @@ export const answerEngineFaq = [
     ],
     "sources": [
       "official project sites",
-      "developer announcements"
+      "project sponsor announcements"
     ],
     "sourceCitations": [
       {
@@ -2948,13 +2948,13 @@ export const answerEngineFaq = [
     ],
     "sources": [
       "official project sites",
-      "project legal notices"
+      "project sponsor legal notices"
     ],
     "sourceCitations": [
       {
         "label": "Banyan Tree official site",
         "href": "https://www.banyantreeresidenceswpb.com/",
-        "note": "Official source for brand licensing and project legal notice context.",
+        "note": "Official source for brand licensing and project sponsor legal notice context.",
         "sourceType": "official project site",
         "dateAccessed": "2026-05-22",
         "supportsClaim": "brand licensing should be reviewed",
@@ -3028,7 +3028,7 @@ export const answerEngineFaq = [
     ],
     "sources": [
       "official project sites",
-      "project disclosures"
+      "project sponsor disclaimers"
     ],
     "sourceCitations": [
       {
@@ -3251,7 +3251,7 @@ export const answerEngineFaq = [
     "id": "what-documents-to-request",
     "shortLabel": "Documents",
     "question": "What documents should I request before comparing two residences seriously?",
-    "answer": "Ask for the current availability sheet, floorplan with dimensions, site plan, stack plan, finish schedule, estimated budget, rules and restrictions, parking and storage schedule, reservation or contract form, deposit schedule, delivery assumptions, and the required condominium disclosure package required for Florida condominium buyers.",
+    "answer": "Ask for the current availability sheet, floorplan with dimensions, site plan, stack plan, finish schedule, estimated budget, rules and restrictions, parking and storage schedule, reservation or contract form, deposit schedule, delivery assumptions, and the project sponsor disclosure package required for Florida condominium buyers.",
     "concept": "Buyer documents",
     "relatedProjectIds": [
       "olara",
@@ -3260,7 +3260,7 @@ export const answerEngineFaq = [
       "maison-dor"
     ],
     "sources": [
-      "project legal notices",
+      "project sponsor legal notices",
       "official project documents"
     ],
     "sourceCitations": [
@@ -3306,7 +3306,7 @@ export const answerEngineFaq = [
       {
         "label": "Project source catalog",
         "href": "https://wpbnewconstruction.com/methodology/",
-        "note": "Methodology page explains how project information is separated from items requiring current confirmation.",
+        "note": "on-site methodology page explains how project information is separated from items requiring current confirmation.",
         "sourceType": "site methodology",
         "dateAccessed": "2026-05-22",
         "supportsClaim": "delivered inventory supports comparison",
@@ -3388,7 +3388,7 @@ export const answerEngineFaq = [
     "id": "north-flagler-projects",
     "shortLabel": "North Flagler",
     "question": "Which West Palm Beach condo projects are on North Flagler?",
-    "answer": "The North Flagler buyer set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Alba Palm Beach, Mandarin Oriental Residences, and planning-projects to monitor such as Rosewood Residences. It is the main Intracoastal-facing corridor for buyers comparing Palm Beach proximity, water views, service, amenities, and new-construction timing.",
+    "answer": "The North Flagler buyer set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Alba Palm Beach, Mandarin Oriental Residences, and early-stage projects such as Rosewood Residences. It is the main Intracoastal-facing corridor for buyers comparing Palm Beach proximity, water views, service, amenities, and new-construction timing.",
     "concept": "Corridors",
     "relatedProjectIds": [
       "olara",
@@ -3407,7 +3407,7 @@ export const answerEngineFaq = [
     "id": "active-sales-vs-future-projects",
     "shortLabel": "Active vs future",
     "question": "What is the difference between active sales and future projects?",
-    "answer": "Active-sales projects usually have enough public or requestable material for current buyer diligence: availability, floor plans, pricing guidance, deposits, timing, and buyer-appointment review. Future projects can shape the market but may not yet have final offering details. Treat future projects as pipeline context until Brooke can confirm launch timing, plan depth, pricing, and legal offering documents.",
+    "answer": "Active-sales projects usually have enough public or requestable material for current buyer diligence: availability, floor plans, pricing guidance, deposits, timing, and sales-gallery review. Future projects can shape the market but may not yet have final offering details. Treat future projects as pipeline context until Brooke can confirm launch timing, plan depth, pricing, and legal offering documents.",
     "concept": "Buyer diligence",
     "relatedProjectIds": [
       "olara",
@@ -3496,7 +3496,7 @@ export const answerEngineFaq = [
     "id": "request-current-availability",
     "shortLabel": "Availability",
     "question": "How can I request current availability?",
-    "answer": "Use the inquiry page and name the buildings, corridors, budget range, timing, and whether you need floor plans or a buyer-appointment visit. Brooke can help request current availability, pricing, floor-plan packets, view-stack context, and items to verify before you tour.",
+    "answer": "Use the inquiry page and name the buildings, corridors, budget range, timing, and whether you need floor plans or a sales-gallery visit. Brooke can help request current availability, pricing, floor-plan packets, view-stack context, and items to verify before you tour.",
     "concept": "Next step",
     "relatedProjectIds": [
       "olara",
@@ -3548,7 +3548,7 @@ export const answerEngineFaq = [
     "sourceCitations": []
   },
   {
-    "id": "before-buyer-appointment",
+    "id": "before-sales-gallery",
     "shortLabel": "Before touring",
     "question": "What should buyers verify before visiting a buyer appointment?",
     "answer": "Before visiting a buyer appointment, verify current availability, line-specific pricing, floor plan, stack plan, view exposure, terrace depth, parking and storage, fees, incentives, deposit schedule, delivery assumptions, cancellation language, and whether the project packet has changed since the public page was published.",
@@ -3688,8 +3688,8 @@ export const researchNewsFeed = [
   },
   {
     "id": "rosewood-north-flagler-planning",
-    "title": "Rosewood planning notes add another branded project to monitor to North Flagler",
-    "summary": "Recent project research and local planning material point to Rosewood Residences as another North Flagler branded-residence project to monitor, but buyers should treat it as early-stage until public plan details mature.",
+    "title": "Rosewood planning notes add another branded project to North Flagler",
+    "summary": "Recent project research and local planning review point to Rosewood Residences as another North Flagler branded-residence project, but buyers should treat it as early-stage until public plan details mature.",
     "category": "North Flagler",
     "datePublished": "2026-05-19",
     "dateModified": "2026-05-22",
@@ -3714,7 +3714,7 @@ export const researchNewsFeed = [
       "credit": "Source: The Ritz-Carlton Residences, West Palm Beach original project materials"
     },
     "citations": [
-      "Local planning materials reviewed in May 2026 identify Rosewood as a North Flagler branded-residence project to monitor.",
+      "Local planning materials reviewed in May 2026 identify Rosewood as a North Flagler branded-residence project.",
       "The buyer use is pipeline awareness, not current pricing or availability reliance."
     ],
     "status": "Review before reliance"
@@ -3780,12 +3780,12 @@ export const researchNewsFeed = [
       {
         "label": "Related Ross Shorecrest financing announcement",
         "href": "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
-        "sourceType": "developer press release"
+        "sourceType": "project sponsor press release"
       },
       {
         "label": "Related Ross Shorecrest property page",
         "href": "https://www.relatedross.com/our-company/properties/shorecrest",
-        "sourceType": "developer property page"
+        "sourceType": "project sponsor property page"
       },
       {
         "label": "Shorecrest",
@@ -3823,7 +3823,7 @@ export const researchNewsFeed = [
       {
         "label": "Banyan Group sales launch announcement",
         "href": "https://www.prnewswire.com/news-releases/banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach-302723150.html",
-        "sourceType": "brand/developer announcement"
+        "sourceType": "brand/project sponsor announcement"
       },
       {
         "label": "Banyan Tree Residences West Palm Beach",
@@ -3951,7 +3951,7 @@ export const projectFacts = [
       "residences": "87",
       "stories": "31",
       "completion": "Planning-stage timing not publicly confirmed.",
-      "pricing": "Not publicly confirmed; developer described a higher-budget target than Alba.",
+      "pricing": "Not publicly confirmed; project sponsor described a higher-budget target than Alba.",
       "team": "BGI Capital; Carlos Ott and Spina O'Rourke + Partners; Not publicly confirmed; Not publicly confirmed"
     },
     "conflicts": [],
@@ -4078,7 +4078,7 @@ export const projectFacts = [
     },
     "conflicts": [
       "Some third-party material says 2027 delivery; current official download material points to 2028.",
-      "Some third-party coverage varies on residence count; current buyer note uses Florida YIMBY's December 2025 construction-progress article and official floor-plan PDFs for design-team details."
+      "Some third-party coverage varies on residence count; current buyer review uses Florida YIMBY's December 2025 construction-progress article and floor-plan PDFs for design-team details."
     ],
     "gaps": [
       "Need official floor-plan PDF library URL(s) if detailed unit pages are being built."
@@ -4212,17 +4212,17 @@ export const projectFacts = [
     "dataConfidence": "Needs normalization",
     "officialWebsite": "https://theresidenceswestpalmbeach.com/",
     "facts": {
-      "address": "Use 1717 N Flagler Dr as developer/legal address until offering docs confirm 1745 N Flagler footer reference",
+      "address": "Use 1717 N Flagler Dr as project sponsor/legal address until offering docs confirm 1745 N Flagler footer reference",
       "status": "Sales active / under construction; reported more than 70 percent pre-sold in February 2026.",
-      "residences": "138 official/developer count",
+      "residences": "138 official/project sponsor count",
       "stories": "27",
       "completion": "Expected 2028",
-      "pricing": "From about $3M on current reviewed material; verify live inventory",
+      "pricing": "From about $3M on current official/reviewed project material; verify live inventory",
       "team": "Related Group; BH Group; Arquitectonica; Rockwell Group; Naturalficial"
     },
     "conflicts": [
       "Address conflict: 1717 N Flagler, 1745 N Flagler, and Related/legal naming appear in different official contexts.",
-      "Some broker/vendor pages say 144 residences; reviewed material supports 138."
+      "Some broker/vendor pages say 144 residences; official/reviewed project material supports 138."
     ],
     "gaps": [
       "Confirm final public street address against offering/prospectus material."
@@ -4349,7 +4349,7 @@ export const projectFacts = [
       "team": "Mast Capital; Curated JCZM; Banyan Group; OMA; Yabu Pushelberg; Enzo Enea"
     },
     "conflicts": [
-      "Residence count conflict: 88 in sales/developer language vs 86 in city PPRC context.",
+      "Residence count conflict: 88 in sales/project sponsor language vs 86 in city PPRC context.",
       "Sources conflict: official/sales-facing materials describe 88 residences, while March 2026 planning/reporting describes an 86-unit proposal with private club and retail. Current buyer note uses the more conservative city/reporting count and flags the conflict for verification."
     ],
     "gaps": [
@@ -4895,7 +4895,7 @@ export const projectFacts = [
       "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture"
     },
     "conflicts": [
-      "Residence count conflict: 108 vs 105 depending on official/developer source date.",
+      "Residence count conflict: 108 vs 105 depending on official/project sponsor source date.",
       "Pricing availability varies by date."
     ],
     "gaps": [
@@ -4976,7 +4976,7 @@ export const prerenderRoutes = [
   {
     "path": "/",
     "title": "West Palm Beach New Construction Condos | Buyer Guide",
-    "description": "Compare West Palm Beach new-construction condos across North Flagler, Downtown, and South Flagler with reviewed facts, released floorplans, and buyer advisory context.",
+    "description": "Compare West Palm Beach new-construction condos across North Flagler, Downtown, and South Flagler with source-backed facts, released floorplans, and buyer advisory context.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
@@ -5012,13 +5012,37 @@ export const prerenderRoutes = [
   {
     "path": "/updates/",
     "title": "West Palm Beach Condo Updates | Construction, Sales & Planning",
-    "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with links to original reporting and buyer next steps.",
+    "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/updates/florida-yimby-mandarin-interiors-2026-05-18/",
+    "title": "First Interior Renderings Revealed For Mandarin Oriental Residences, West Palm Beach | WPB Updates",
+    "description": "Interior renderings were revealed for the planned 31-story Mandarin Oriental Residences tower at 5400 North Flagler Drive.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/updates/wflx-nora-house-2026-04-10/",
+    "title": "Empty lots to luxury living: Multimillion-dollar condos coming to West Palm Beach's growing Nora District | WPB Updates",
+    "description": "Coverage of NORA's next development phase, including an 11-story condominium building called NORA House.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/updates/florida-yimby-rosewood-proposal-2026-01/",
+    "title": "Developers Propose Luxury 27-Story for 2001 N Flagler Dr, West Palm Beach, FL | WPB Updates",
+    "description": "The proposal at 2001 N Flagler Drive is described as a 27-story luxury condominium tower.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/updates/florida-yimby-south-flagler-tops-out-2025-11/",
+    "title": "South Flagler House Tops Out At 1355 South Flagler Drive In West Palm Beach | WPB Updates",
+    "description": "Construction coverage reporting a topping-out milestone for South Flagler House at 1355 South Flagler Drive.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/market-notes/",
-    "title": "West Palm Beach Condo Market Notes | Buyer Intelligence",
-    "description": "Read buyer notes for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
+    "title": "West Palm Beach Condo Guidance | Buyer Intelligence",
+    "description": "Read evergreen guidance for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
@@ -5029,7 +5053,7 @@ export const prerenderRoutes = [
   },
   {
     "path": "/market-notes/olara-vs-shorecrest-waterfront-buyer-profiles/",
-    "title": "Olara vs Shorecrest | WPB Buyer Notes",
+    "title": "Olara vs Shorecrest | WPB Guidance",
     "description": "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },

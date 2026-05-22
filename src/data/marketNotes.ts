@@ -121,7 +121,7 @@ export const marketNotes = [
     buyerTakeaway:
       "Ask for current availability, floor-plan depth, view-stack context, amenity details, and delivery assumptions for both. The decision is not simply which tower is newer or closer; it is which operating model fits the way you want to live.",
     imageId: "flagler-waterfront-corridor",
-    primaryProjectId: "olara",
+    primaryProjectId: "shorecrest",
     projectIds: ["olara", "shorecrest", "ritz-carlton-wpb"],
     sourceName: "Reviewed project materials and public updates",
     sourceLinks: [
@@ -164,7 +164,7 @@ export const marketNotes = [
       primaryQuery: "Olara vs Shorecrest West Palm Beach",
       secondaryQueries: ["North Flagler waterfront condos", "West Palm Beach waterfront condos"],
       suggestedSlug: "olara-vs-shorecrest-waterfront-buyer-profiles",
-      titleTag: "Olara vs Shorecrest | WPB Buyer Notes",
+      titleTag: "Olara vs Shorecrest | WPB Guidance",
       metaDescription:
         "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps.",
     },
@@ -181,7 +181,7 @@ export const marketNotes = [
       "Published floor plans let a buyer compare function before emotion takes over. They reveal the difference between real fit and marketing momentum.",
     buyerTakeaway:
       "Before touring, ask for current floor plans, stack plans, dimensions, terrace depth, exposure, ceiling heights where available, and any line-specific limitations.",
-    primaryProjectId: "olara",
+    primaryProjectId: "mr-c",
     projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"],
     sourceName: "WPB New Construction floor-plan library",
     sourceLinks: [

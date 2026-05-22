@@ -1,5 +1,7 @@
 /blog/ /market-notes/ 301
 /blog/:slug/ /market-notes/:slug/ 301
+/guidance/ /market-notes/ 301
+/guidance/:slug/ /market-notes/:slug/ 301
 /contact/ /inquire/ 301
 /floor-plans/ /floorplans/ 301
 /content-studio/ / 302

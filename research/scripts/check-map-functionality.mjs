@@ -40,6 +40,14 @@ async function startPreview() {
     return "http://127.0.0.1:4173";
   }
 
+  const existingUrl = "http://127.0.0.1:4173";
+  try {
+    const response = await fetch(existingUrl);
+    if (response.ok) return existingUrl;
+  } catch {
+    // No existing preview on the default port; start an isolated one below.
+  }
+
   const port = String(4173 + Math.floor(Math.random() * 1000));
   const child = spawn(
     process.execPath,
