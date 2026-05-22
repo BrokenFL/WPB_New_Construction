@@ -803,7 +803,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     price: "Not released",
     href: "?project=rybovich-marina",
     image: "/projects/rybovich-marina/media/card.webp",
-    summary: "Large Northwood/Rybovich marina redevelopment watch item with potential to reshape the northern waterfront inventory map.",
+    summary: "Large Northwood/Rybovich marina redevelopment project to monitor with potential to reshape the northern waterfront inventory map.",
     floorplans: false,
     pageState: "Pipeline watch",
     rank: 20,
@@ -823,7 +823,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     price: "Not released",
     href: "?project=fort-partners-south-flagler",
     image: "/projects/fort-partners-south-flagler/media/card.jpg",
-    summary: "South Flagler assemblage watch item for buyers monitoring whether another ultra-luxury waterfront project emerges south of downtown.",
+    summary: "South Flagler assemblage project to monitor for buyers monitoring whether another ultra-luxury waterfront project emerges south of downtown.",
     floorplans: false,
     pageState: "Pipeline watch",
     rank: 21,
@@ -843,7 +843,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     price: "Not released",
     href: "?project=portofino-flagler-yacht-club",
     image: "/projects/portofino-flagler-yacht-club/media/card.jpg",
-    summary: "Condo buyout and yacht-club corridor watch item that could affect future South Flagler waterfront redevelopment supply.",
+    summary: "Condo buyout and yacht-club corridor project to monitor that could affect future South Flagler waterfront redevelopment supply.",
     floorplans: false,
     pageState: "Pipeline watch",
     rank: 22,
@@ -1391,7 +1391,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     locationCopy:
       "Located at 1865 N Flagler Drive on the west side of the Intracoastal, Shorecrest belongs in the first North Flagler comparison set: close enough to compare directly with Olara and Ritz-Carlton, but differentiated by smaller floor plates and wellness-led programming.",
     facts: [
-      { label: "Address", value: "1865 N Flagler Dr", note: "Some source material also references 1901 N Flagler." },
+      { label: "Address", value: "1865 N Flagler Dr", note: "Some public materials also reference 1901 N Flagler." },
       { label: "Stories", value: "28" },
       { label: "Residences", value: "98-100", note: "Related Ross' 2026 groundbreaking release says 98 residences; some project materials have referenced 100." },
       { label: "Bedrooms", value: "2-3" },
@@ -1432,8 +1432,8 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     documents: [
       { label: "Floorplans", title: "Official Floor Plans Index", note: "External public source", href: "https://www.shorecrestwpb.com/floorplans" },
-      { label: "Floorplan", title: "Residence 704", note: "Official PDF link", href: "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf" },
-      { label: "Floorplan", title: "Residence 303", note: "Official PDF link", href: "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf" },
+      { label: "Floorplan", title: "Residence 704", note: "PDF reference", href: "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf" },
+      { label: "Floorplan", title: "Residence 303", note: "PDF reference", href: "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf" },
     ],
     needed: [
       "Final legal address confirmation",
@@ -1511,8 +1511,8 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     documents: [
       { label: "Downloads", title: "Official Downloads Page", note: "External public source", href: "https://www.mrcresidenceswpb.com/downloads/" },
-      { label: "Fact Sheet", title: "Mr. C Fact Sheet", note: "Official PDF link", href: "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf" },
-      { label: "Guide", title: "West Palm Beach Guide", note: "Official PDF link", href: "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC-WPB-Guide-body-R13-Digital-Web.pdf" },
+      { label: "Fact Sheet", title: "Mr. C Fact Sheet", note: "PDF reference", href: "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf" },
+      { label: "Guide", title: "West Palm Beach Guide", note: "PDF reference", href: "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC-WPB-Guide-body-R13-Digital-Web.pdf" },
     ],
     needed: [
       "Confirmed architect and interior design credits",
@@ -1725,7 +1725,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     needed: [
       "Project renderings and logo sequence",
       "Released floorplan packet",
-      "Sales gallery contact and pricing rules",
+      "buyer appointment contact and pricing rules",
       "Per-tower or per-line inventory details",
     ],
   },
@@ -2113,7 +2113,7 @@ app.innerHTML = `
           <div>
             <p class="eyebrow">Market Notes</p>
             <h1>Buyer intelligence for West Palm Beach new construction.</h1>
-            <p>Short editorial notes that translate local coverage, project milestones, and source conflicts into practical buyer questions. Facts stay tied to public sources; pricing and availability still require current confirmation.</p>
+            <p>Short editorial notes that translate local coverage, project milestones, and details to verify into practical buyer questions. Facts stay tied to public sources; pricing and availability still require current confirmation.</p>
           </div>
           <aside class="answer-meta-panel">
             <span>${marketNotes.length} buyer notes</span>
@@ -4737,22 +4737,29 @@ function projectLabelForImage(src: string) {
 
 function gatekeeperText(value: unknown) {
   return String(value ?? "")
+    .replace(/\bdetailed review notes\b/gi, "detailed review notes")
+    .replace(/\breview notes\b/gi, "review notes")
+    .replace(/\bcurrent buyer note uses\b/gi, "current buyer note uses")
+    .replace(/\bdetails to verify\b/gi, "details to verify")
+    .replace(/\bnot publicly confirmed\b/gi, "Verify before relying")
+    .replace(/\bearly-stage projects to monitor?\b/gi, "early-stage projects to monitor")
+    .replace(/\bprojects to monitor?\b/gi, "projects to monitor")
     .replace(/\bdevelopers?\b/gi, "project sponsor")
     .replace(/\bco-developer\b/gi, "project partner")
     .replace(/\bsales team\b/gi, "buyer-side review")
-    .replace(/\bsales gallery\b/gi, "buyer packet")
+    .replace(/\bbuyer appointment\b/gi, "buyer packet")
     .replace(/\bofficial project sites?\b/gi, "reviewed project materials")
     .replace(/\bofficial source\b/gi, "reviewed source")
     .replace(/\bofficial\/download material\b/gi, "reviewed material")
-    .replace(/\bcurrent official\/developer material\b/gi, "current reviewed material")
-    .replace(/\bdeveloper material\b/gi, "reviewed material")
+    .replace(/\bcurrent official\/reviewed material\b/gi, "current reviewed material")
+    .replace(/\breviewed material\b/gi, "reviewed material")
     .replace(/\bproject sponsor material\b/gi, "reviewed material")
     .replace(/\bdeveloper announcements?\b/gi, "project announcements")
-    .replace(/\bdeveloper disclaimers?\b/gi, "project disclosures")
-    .replace(/\bdeveloper legal notices?\b/gi, "project legal notices")
-    .replace(/\bdeveloper disclosure package\b/gi, "required condominium disclosure package")
-    .replace(/\bproject-source-catalog\b/gi, "project review file")
-    .replace(/\bsource-catalog\b/gi, "review file")
+    .replace(/\bproject disclosures?\b/gi, "project disclosures")
+    .replace(/\bproject legal notices?\b/gi, "project legal notices")
+    .replace(/\brequired condominium disclosure package\b/gi, "required condominium disclosure package")
+    .replace(/\bproject review file\b/gi, "project review file")
+    .replace(/\breview file\b/gi, "review file")
     .replace(/\bbackend\b/gi, "operations")
     .replace(/\bSource:\s*/gi, "");
 }
@@ -5462,7 +5469,7 @@ function renderProjectFact(fact: ProjectFact) {
 
 function isSuppressedPublicFact(fact: ProjectFact) {
   const combined = `${fact.label} ${fact.value} ${fact.note ?? ""}`.toLowerCase();
-  return /sales\s*(gallery|office)|developer\s+site|official\s+site|source-catalog|operations layer/.test(combined);
+  return /sales\s*(gallery|office)|developer\s+site|official\s+site|review file|operations layer/.test(combined);
 }
 
 function projectTypeLabel(type: ProjectPageType) {
@@ -5549,13 +5556,30 @@ function renderProjectRelatedNews(project: FeaturedProject) {
   return `
     <section class="section project-related-news" id="project-updates-${project.id}" aria-label="${project.name} related development news">
       <div class="section-heading">
-        <p class="eyebrow">Related Development News</p>
-        <h2>Source-linked updates for this project.</h2>
+        <p class="eyebrow">Project Updates</p>
+        <h2>Recent project notes</h2>
+        <p>Public updates and buyer-relevant notes to verify before relying on current pricing, availability, or timing.</p>
       </div>
-      <div class="news-grid">
-        ${items.map(renderExternalNewsItem).join("")}
+      <div class="project-note-list">
+        ${items.map(renderProjectUpdateNote).join("")}
       </div>
     </section>
+  `;
+}
+
+function renderProjectUpdateNote(item: ExternalNewsItem) {
+  return `
+    <article class="project-note-row" id="${escapeHtml(item.id)}">
+      <div>
+        <span>${publicText(formatNewsDate(item.publishedAt))} — ${publicText(item.title)}</span>
+        ${item.description ? `<p>${publicText(item.description)}</p>` : ""}
+        <small>Source: ${publicText(item.sourceName)}${item.paywallStatus === "likely-paywalled" ? " · May require subscription" : ""}</small>
+      </div>
+      <nav aria-label="${escapeHtml(item.title)} actions">
+        <a href="${safeHref(item.canonicalUrl)}" target="_blank" rel="noopener noreferrer">View source</a>
+        <a href="/inquire/?lead_capture_context=project_update&update=${encodeURIComponent(item.id)}">Ask about this update</a>
+      </nav>
+    </article>
   `;
 }
 
@@ -5797,7 +5821,7 @@ function documentsFromSource(_project: FeaturedProject, sourceFact: ReturnType<t
     docs.push({
       label: "Reviewed",
       title: "Project materials reviewed",
-      note: "Detailed source records are kept out of the buyer page; request the buyer packet for current details.",
+      note: "Detailed review notes are kept out of the buyer page; request the buyer packet for current details.",
     });
   }
   docs.push({ label: "Packet", title: "Request current packet", note: "Floorplans, pricing, availability, fees, and contract guidance" });
@@ -5805,7 +5829,7 @@ function documentsFromSource(_project: FeaturedProject, sourceFact: ReturnType<t
 }
 
 function neededFromSource(sourceFact: ReturnType<typeof sourceFactForProject> | undefined) {
-  const conflicts = sourceFact?.conflicts?.map((item) => `Resolve source conflict: ${item}`) ?? [];
+  const conflicts = sourceFact?.conflicts?.map((item) => `Confirm detail: ${item}`) ?? [];
   const gaps = sourceFact?.gaps ?? [];
   return [
     ...conflicts,

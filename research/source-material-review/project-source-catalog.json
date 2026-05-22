@@ -1405,7 +1405,7 @@
         "Additional user-provided cleared CityPlace imagery added on 2026-05-18: 10 CityPlace entrance view plus shared 10/15 CityPlace skyline context images."
       ],
       "conflicts": [
-        "Seed/source conflict: seed references a 21-story assumption, while Related Ross release describes a 480,000-square-foot office tower without presenting it as condo inventory."
+        "Seed/detail to verify: seed references a 21-story assumption, while Related Ross release describes a 480,000-square-foot office tower without presenting it as condo inventory."
       ],
       "gaps": [],
       "sourceBuckets": {
@@ -1645,7 +1645,7 @@
       ],
       "conflicts": [
         "Residence count conflict: 88 in sales/developer language vs 86 in city PPRC context.",
-        "Sources conflict: official/sales-facing materials describe 88 residences, while March 2026 planning/reporting describes an 86-unit proposal with private club and retail. Current record uses the more conservative city/reporting count and flags the conflict for verification."
+        "Sources conflict: official/sales-facing materials describe 88 residences, while March 2026 planning/reporting describes an 86-unit proposal with private club and retail. Current buyer note uses the more conservative city/reporting count and flags the conflict for verification."
       ],
       "gaps": [
         "Need official brochure, floor plans, and city record packet.",
@@ -2378,7 +2378,7 @@
         "Address conflict: official site schema shows 1021 N Railroad Ave, the footer uses 955 N Railroad Avenue Suite B, and older reporting uses 1105 N Dixie Highway for district context.",
         "117 residences in new sales material vs earlier 122-condo planning coverage.",
         "Pricing conflict between official high $1Ms language and reporting's $2M to $6.5M range.",
-        "Seed notes conflict between inquiry address and earlier district reporting. Early planning coverage referenced 122 proposed condos; March 2026 sales-launch reporting says 117 residences. Current record uses the newer sales-launch figure."
+        "Seed notes conflict between inquiry address and earlier district reporting. Early planning coverage referenced 122 proposed condos; March 2026 sales-launch reporting says 117 residences. Current buyer note uses the newer sales-launch figure."
       ],
       "gaps": [
         "Need a downloadable brochure or PDF plan packet even though public residence and terrace plan pages are now live.",

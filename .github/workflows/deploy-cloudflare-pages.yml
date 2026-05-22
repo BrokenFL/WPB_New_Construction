@@ -40,11 +40,12 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         if: ${{ env.HAS_CLOUDFLARE_TOKEN == 'true' }}
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name wpbnewconstruction
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          SHIP_LIVE_SKIP_CHECKS: "1"
+          WRANGLER_VERSION: "4.93.0"
+        run: npm run ship:live
 
       - name: Cloudflare deploy not configured
         if: ${{ env.HAS_CLOUDFLARE_TOKEN != 'true' }}

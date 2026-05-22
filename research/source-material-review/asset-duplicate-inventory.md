@@ -1,20 +1,20 @@
 # Asset Duplicate Inventory
 
-Generated: 2026-05-22T15:29:07.917Z
+Generated: 2026-05-22T16:07:01.990Z
 
 This is a review report only. It does not delete, move, or rewrite assets.
 
 ## Summary
 
-- Files scanned: 1708
+- Files scanned: 1727
 - Duplicate groups: 323
 - Duplicate extra bytes: 413.0 MB
 - Source duplicate groups: 322
 - Source duplicate extra bytes: 411.1 MB
 - Public-only duplicate extra bytes: 1.9 MB
 - QA duplicate extra bytes: 0 B
-- Duplicate byte delta from previous report: -35623284 B
-- Source duplicate byte delta from previous report: -35623284 B
+- Duplicate byte delta from previous report: 0 B
+- Source duplicate byte delta from previous report: 0 B
 
 ## Cleanup Plan Buckets
 

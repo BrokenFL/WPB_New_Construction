@@ -3428,6 +3428,7 @@ select:focus-visible {
   .methodology-grid,
     .front-project-grid,
     .news-grid,
+    .project-note-row,
     .floorplan-grid,
     .inquiry-form {
     grid-template-columns: 1fr;
@@ -4458,6 +4459,55 @@ select:focus-visible {
 
 .project-missing-info li {
   color: rgba(37, 42, 45, 0.72);
+}
+
+.project-related-news .section-heading p:not(.eyebrow) {
+  max-width: 720px;
+  color: var(--soft-ink);
+}
+
+.project-note-list {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.project-note-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: start;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-note-row span {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.project-note-row p {
+  max-width: 760px;
+  margin-top: 8px;
+  color: var(--soft-ink);
+}
+
+.project-note-row small {
+  display: block;
+  margin-top: 10px;
+  color: rgba(37, 42, 45, 0.62);
+}
+
+.project-note-row nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.project-note-row a {
+  color: var(--ink);
+  border-bottom: 1px solid rgba(37, 42, 45, 0.32);
+  text-decoration: none;
 }
 
 .external-news-card a.home-news-link {
@@ -6560,6 +6610,10 @@ select:focus-visible {
 
   .home-news-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-note-row nav {
+    justify-content: flex-start;
   }
 
   .home-map-count {

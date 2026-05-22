@@ -57,7 +57,7 @@ export const marketNotes = [
     excerpt:
       "A buyer-friendly way to separate buildings you can underwrite now from pipeline projects that may matter later.",
     buyerThesis:
-      "The cleanest West Palm Beach search starts by separating active sales from pipeline watch items. They answer different buyer questions and should not be compared as if they carry the same certainty.",
+      "The cleanest West Palm Beach search starts by separating active sales from early-stage projects to monitor. They answer different buyer questions and should not be compared as if they carry the same certainty.",
     buyerTakeaway:
       "Use active-sales projects for current decisions, and use pipeline projects to understand future supply pressure. Do not treat early-stage concepts as current purchase options until pricing, plans, timing, and buyer packets are available.",
     imageId: "wpb-geography-map-hero",
@@ -147,7 +147,7 @@ export const marketNotes = [
       {
         heading: "Shorecrest needs careful current verification",
         body:
-          "Shorecrest is important because it adds another active North Flagler waterfront option, but buyers should preserve source conflicts and verify residence counts, available lines, pricing guidance, and construction timing before relying on broad summaries.",
+          "Shorecrest is important because it adds another active North Flagler waterfront option, but buyers should preserve details to verify and verify residence counts, available lines, pricing guidance, and construction timing before relying on broad summaries.",
       },
       {
         heading: "How to compare without getting lost",

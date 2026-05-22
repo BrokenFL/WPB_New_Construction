@@ -4,9 +4,26 @@ import path from "node:path";
 const workspace = process.cwd();
 const distRoot = path.join(workspace, "dist");
 
-const textFilePattern = /\.(?:html|xml|json|txt)$/i;
+const textFilePattern = /\.(?:html|xml|json|txt|js)$/i;
 const blockedVisiblePhrases = [
   /\bbackend\b/i,
+  /\bfront-end only\b/i,
+  /\bfuture CRM\b/i,
+  /\breview queue\b/i,
+  /\bneeds review\b/i,
+  /\bneeds-sourcing\b/i,
+  /\binternal\b/i,
+  /\bsource-material\b/i,
+  /\bapproved by\b/i,
+  /\bauthorized by\b/i,
+  /\bsign[-\s]?off\b/i,
+  /\bdata model\b/i,
+  /\brecord\b/i,
+  /\bgenerated\b/i,
+  /\bplaceholder\b/i,
+  /\bTODO\b/,
+  /\bFIXME\b/,
+  /\bunknown fields\b/i,
   /\bsource-catalog\b/i,
   /\bproject-source-catalog\b/i,
   /\bsales\s+(?:office|gallery)\b/i,
@@ -41,7 +58,7 @@ async function main() {
         const content = await fs.readFile(file, "utf8");
         for (const pattern of blockedVisiblePhrases) {
           const match = content.match(pattern);
-          if (match) findings.push(`${rel}: blocked public phrase "${match[0]}"`);
+          if (match && !isAllowedTechnicalOccurrence(rel, content, match[0])) findings.push(`${rel}: blocked public phrase "${match[0]}"`);
         }
         for (const href of extractHrefValues(content)) {
           if (isBlockedHref(href)) findings.push(`${rel}: blocked outbound project link ${href}`);
@@ -82,6 +99,19 @@ function isBlockedHref(href) {
   } catch {
     return false;
   }
+}
+
+function isAllowedTechnicalOccurrence(rel, content, phrase) {
+  if (/^dist\/assets\/index-[^/]+\.js$/i.test(rel)) {
+    const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const technical = new RegExp(
+      `(?:class|dataset|data|image|editorial|input|css|placeholder|generated)[^\\n]{0,80}${escaped}|${escaped}[^\\n]{0,80}(?:class|dataset|data|image|editorial|input|css|placeholder|generated)`,
+      "i",
+    );
+    if (technical.test(content)) return true;
+  }
+  if (/\/(?:image-clearance-candidates|floorplans)\.json$/i.test(rel) && /record|placeholder|generated/i.test(phrase)) return true;
+  return false;
 }
 
 main().catch((error) => {

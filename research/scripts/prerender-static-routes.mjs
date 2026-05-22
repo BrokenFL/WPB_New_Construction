@@ -115,15 +115,15 @@ function renderStaticRouteContent(route, staticPayload) {
 
 function renderStaticCitations(item) {
   const citations = Array.isArray(item.sourceCitations) ? item.sourceCitations : [];
-  const latestDate = citations.find((source) => source.dateAccessed)?.dateAccessed ?? "current source review";
+  const latestDate = citations.find((source) => source.dateAccessed)?.dateAccessed ?? "current review";
   if (!citations.length) {
-    return `<p>Sources reviewed: ${(item.sources ?? []).map(publicText).join("; ")}. Accessed: ${escapeHtml(latestDate)}. Confidence: source-limited; not current pricing, availability, or contract guidance.</p>`;
+    return `<p>Review basis: ${(item.sources ?? []).map(publicText).join("; ")}. Checked: ${escapeHtml(latestDate)}. Buyer note: verify pricing, availability, and contract details before relying on this.</p>`;
   }
 
   return `
-    <p>Sources reviewed: ${citations
+    <p>Review basis: ${citations
         .map((source) => publicText(source.label))
-      .join("; ")}. Accessed: ${escapeHtml(latestDate)}. Confidence: source-limited; not current pricing, availability, or contract guidance.</p>
+      .join("; ")}. Checked: ${escapeHtml(latestDate)}. Buyer note: verify pricing, availability, and contract details before relying on this.</p>
     <ul>
       ${citations
         .map(
