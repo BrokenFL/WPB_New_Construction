@@ -1,23 +1,4 @@
-export type ExternalNewsItem = {
-  id: string;
-  title: string;
-  sourceName: string;
-  sourceUrl: string;
-  canonicalUrl: string;
-  publishedAt: string;
-  fetchedAt: string;
-  description?: string;
-  query?: string;
-  category: "development" | "construction" | "planning" | "sales" | "financing" | "city" | "press-release" | "general";
-  relatedProjectIds: string[];
-  relatedCorridorIds: string[];
-  imageUrl?: string;
-  resolvedLocalImageId?: string;
-  paywallStatus: "free" | "unknown" | "likely-paywalled";
-  status: "needs-review" | "published" | "archived" | "duplicate";
-};
-
-export const approvedExternalNews: readonly ExternalNewsItem[] = [
+[
   {
     "id": "florida-yimby-mandarin-interiors-2026-05-18",
     "title": "First Interior Renderings Revealed For Mandarin Oriental Residences, West Palm Beach",
@@ -29,12 +10,8 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "description": "Interior renderings were revealed for the planned 31-story Mandarin Oriental Residences tower at 5400 North Flagler Drive.",
     "query": "West Palm Beach condo development",
     "category": "development",
-    "relatedProjectIds": [
-      "mandarin-oriental"
-    ],
-    "relatedCorridorIds": [
-      "north-flagler"
-    ],
+    "relatedProjectIds": ["mandarin-oriental"],
+    "relatedCorridorIds": ["north-flagler"],
     "paywallStatus": "free",
     "status": "published"
   },
@@ -49,12 +26,8 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "description": "Coverage of NORA's next development phase, including an 11-story condominium building called NORA House.",
     "query": "Downtown West Palm Beach development",
     "category": "development",
-    "relatedProjectIds": [
-      "nora-house"
-    ],
-    "relatedCorridorIds": [
-      "downtown"
-    ],
+    "relatedProjectIds": ["nora-house"],
+    "relatedCorridorIds": ["downtown"],
     "paywallStatus": "free",
     "status": "published"
   },
@@ -69,12 +42,8 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "description": "The proposal at 2001 N Flagler Drive is described as a 27-story luxury condominium tower.",
     "query": "West Palm Beach development",
     "category": "planning",
-    "relatedProjectIds": [
-      "rosewood"
-    ],
-    "relatedCorridorIds": [
-      "north-flagler"
-    ],
+    "relatedProjectIds": ["rosewood"],
+    "relatedCorridorIds": ["north-flagler"],
     "paywallStatus": "free",
     "status": "published"
   },
@@ -89,15 +58,9 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "description": "Construction coverage reporting a topping-out milestone for South Flagler House at 1355 South Flagler Drive.",
     "query": "West Palm Beach new construction",
     "category": "construction",
-    "relatedProjectIds": [
-      "south-flagler-house"
-    ],
-    "relatedCorridorIds": [
-      "south-flagler"
-    ],
+    "relatedProjectIds": ["south-flagler-house"],
+    "relatedCorridorIds": ["south-flagler"],
     "paywallStatus": "free",
     "status": "published"
   }
-] as const;
-
-export const publishedExternalNews = approvedExternalNews.filter((item) => item.status === "published");
+]

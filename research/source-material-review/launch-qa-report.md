@@ -1,15 +1,15 @@
 # Launch QA Report
 
-Generated: 2026-05-22T05:12:40.815Z
+Generated: 2026-05-22T05:25:57.324Z
 
 ## Summary
 
 - Routes checked: 17
 - Floorplan records checked: 253
 - Blocking findings: 0
-- Public artifact size: 608.6 MB
+- Public artifact size: 609.1 MB
 - Research artifact size: 717.1 MB
-- Dist artifact size: 383.3 MB
+- Dist artifact size: 383.2 MB
 - Duplicate source extra bytes: 404.7 MB
 - Duplicate source byte delta: 0 B
 
@@ -59,9 +59,9 @@ Generated: 2026-05-22T05:12:40.815Z
 
 ## Artifact And Duplicate Watch
 
-- public/: 608.6 MB
+- public/: 609.1 MB
 - research/: 717.1 MB
-- dist/: 383.3 MB
+- dist/: 383.2 MB
 - .playwright-cli/: 4.4 MB
 - output/: 128.2 MB
 - Duplicate inventory: 289 source groups, 404.7 MB source extra bytes, delta 0 B

@@ -38,7 +38,7 @@ if (/status:\s*"published"[\s\S]{0,260}paywallStatus:\s*"likely-paywalled"/.test
   findings.push("Published news includes likely-paywalled items; mark clearly and deprioritize or exclude.");
 }
 
-const urlMatches = [...source.matchAll(/canonicalUrl:\s*"([^"]+)"/g)];
+const urlMatches = [...source.matchAll(/"?canonicalUrl"?:\s*"([^"]+)"/g)];
 for (const [, url] of urlMatches) {
   if (url.includes("news.google.com")) findings.push(`${url}: published item should link to original article, not Google News.`);
 }

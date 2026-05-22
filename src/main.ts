@@ -224,8 +224,14 @@ const laClaraHeroPortrait = "/projects/la-clara/media/la-clara-hero-4x5.jpg";
 const relatedRossLogo = "/team-logos/related-ross-logo.webp";
 const arquitectonicaLogo = "/team-logos/arquitectonica-logo.webp";
 const projectLogoImages: Record<string, { src: string; alt: string }> = {
-  olara: { src: "/projects/olara/media/olara-logo-monogram-2000x2000.png", alt: "Olara logo" },
+  "alba-palm-beach": { src: "/projects/alba-palm-beach/media/logo.svg", alt: "Alba Palm Beach logo" },
+  "banyan-tree": { src: "/projects/banyan-tree/media/logo.png", alt: "Banyan Tree Residences West Palm Beach logo" },
+  "forte-on-flagler": { src: "/projects/forte-on-flagler/media/logo.png", alt: "Forte on Flagler logo" },
+  "mr-c": { src: "/projects/mr-c/media/logo.svg", alt: "Mr. C Hotel and Residences West Palm Beach logo" },
+  olara: { src: "/projects/olara/media/logo.svg", alt: "Olara logo" },
   "ritz-carlton-wpb": { src: "/projects/ritz-carlton-wpb/media/ritz-logo.svg", alt: "The Ritz-Carlton Residences West Palm Beach logo" },
+  shorecrest: { src: "/projects/shorecrest/media/logo.svg", alt: "Shorecrest logo" },
+  "south-flagler-house": { src: "/projects/south-flagler-house/media/logo.svg", alt: "South Flagler House logo" },
 };
 const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined;
 const googleMapsMapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID as string | undefined;
@@ -2894,7 +2900,7 @@ document.querySelectorAll<HTMLFormElement>("[data-email-signup]").forEach((signu
     const context = String(form.get("lead_capture_context") ?? "email_signup");
     if (submitted) {
       track("email_signup_submitted", { leadCaptureContext: context });
-      if (status) status.textContent = "Thanks. You are on the update list.";
+      if (status) status.textContent = "You're on the list.";
       target.reset();
       dismissLeadModal();
       return;
