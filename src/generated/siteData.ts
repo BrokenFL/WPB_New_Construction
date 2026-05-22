@@ -3360,7 +3360,7 @@ export const answerEngineFaq = [
         "sourceType": "site methodology",
         "dateAccessed": "2026-05-22",
         "supportsClaim": "pipeline caution",
-        "claimText": "Pipeline projects need current official confirmation before buyer reliance.",
+        "claimText": "Future-supply projects need current official confirmation before a buyer makes a decision.",
         "confidence": "medium"
       }
     ]

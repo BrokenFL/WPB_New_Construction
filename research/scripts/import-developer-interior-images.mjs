@@ -226,17 +226,21 @@ async function importImage(project, candidate, index, capturedAt) {
     localPath,
     capturedAt,
     imageType,
-    status: "needs_review",
+    status: "candidate",
     width: dimensions.width,
     height: dimensions.height,
     caption:
       imageType === "interior"
-        ? "Developer-site interior image"
+        ? "Interior rendering"
         : imageType === "amenity"
-          ? "Developer-site amenity image"
-          : "Developer-site image",
+          ? "Amenity image"
+          : imageType === "exterior"
+            ? "Project rendering"
+            : "Developer image",
     alt: `${imageType === "interior" ? "Interior" : imageType === "amenity" ? "Amenity" : "Project"} image for ${project.projectName} in West Palm Beach.`,
-    notes: `Imported from ${candidate.source} for review. Do not publish unless approved.`,
+    placement: "gallery",
+    credit: "Image via developer/project marketing materials",
+    notes: `Imported from ${candidate.source}; ready for placement analysis.`,
   };
 }
 

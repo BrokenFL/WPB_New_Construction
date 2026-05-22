@@ -6,7 +6,7 @@ const filePath = path.join(root, "src/data/importedUpdates.json");
 const allowedSourceTypes = new Set(["developer", "news", "city", "county", "brokerage", "permit", "other"]);
 const allowedCategories = new Set(["sales", "construction", "planning", "financing", "delivery", "media", "general"]);
 const allowedConfidence = new Set(["high", "medium", "low"]);
-const allowedStatuses = new Set(["needs_review", "published", "archived"]);
+const allowedStatuses = new Set(["candidate", "published", "archived"]);
 const required = ["id", "title", "summary", "date", "lastCheckedAt", "sourceName", "sourceUrl", "sourceType", "category", "confidence", "status"];
 
 const updates = JSON.parse(fs.readFileSync(filePath, "utf8"));

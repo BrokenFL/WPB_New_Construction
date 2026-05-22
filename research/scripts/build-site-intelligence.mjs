@@ -1013,7 +1013,7 @@ const answerBlocks = [
         sourceType: "site methodology",
         dateAccessed: generatedDate,
         supportsClaim: "pipeline caution",
-        claimText: "Pipeline projects need current official confirmation before buyer reliance.",
+        claimText: "Future-supply projects need current official confirmation before a buyer makes a decision.",
         confidence: "medium",
       },
     ],

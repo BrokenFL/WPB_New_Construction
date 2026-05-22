@@ -1,26 +1,28 @@
 # Asset Duplicate Inventory
 
-Generated: 2026-05-18T15:20:15.290Z
+Generated: 2026-05-22T13:31:37.075Z
 
 This is a review report only. It does not delete, move, or rewrite assets.
 
 ## Summary
 
-- Files scanned: 1066
-- Duplicate groups: 290
-- Duplicate extra bytes: 406.6 MB
-- Source duplicate groups: 289
-- Source duplicate extra bytes: 404.7 MB
-- Public-only duplicate extra bytes: 0 B
-- QA duplicate extra bytes: 0 B
-- Duplicate byte delta from previous report: -415772354 B
-- Source duplicate byte delta from previous report: 0 B
+- Files scanned: 1725
+- Duplicate groups: 333
+- Duplicate extra bytes: 447.5 MB
+- Source duplicate groups: 330
+- Source duplicate extra bytes: 445.1 MB
+- Public-only duplicate extra bytes: 1.9 MB
+- QA duplicate extra bytes: 526.1 KB
+- Duplicate byte delta from previous report: -55618272 B
+- Source duplicate byte delta from previous report: -53485044 B
 
 ## Cleanup Plan Buckets
 
-- Keep research as raw archive and public as publishable derivative only where authorized. (209 groups, 386.9 MB)
-- Review canonical path before any move or delete. (80 groups, 17.8 MB)
+- Keep research as raw archive and public as publishable derivative only where authorized. (217 groups, 393.1 MB)
+- Review canonical path before any move or delete. (110 groups, 50.1 MB)
+- Keep one canonical public URL, update references, then remove duplicate public alias after approval. (3 groups, 1.9 MB)
 - Replace per-project copies with one shared internal placeholder reference. (1 groups, 1.9 MB)
+- Archive older QA screenshots after approval. (2 groups, 526.1 KB)
 
 ## Largest Duplicate Groups
 
@@ -79,6 +81,20 @@ This is a review report only. It does not delete, move, or rewrite assets.
 - `research/asset-library/projects/olara/brochures/brochure--14fd9532.pdf`
 - `research/asset-library/projects/olara/user-supplied/RackBrochure_Digital_032026.pdf`
 
+### research-only duplicate - 8.2 MB extra
+
+- Recommended canonical: `research/asset-library/projects/south-flagler-house-north/images/public-research/image-05--heroexterior--southflaglerhouse.com--53e28a55.jpg`
+- Action: Review canonical path before any move or delete.
+- `research/asset-library/projects/south-flagler-house-north/images/public-research/image-05--heroexterior--southflaglerhouse.com--53e28a55.jpg`
+- `research/asset-library/projects/south-flagler-house-south/images/public-research/image-05--heroexterior--southflaglerhouse.com--53e28a55.jpg`
+
+### public/research source duplicate - 5.7 MB extra
+
+- Recommended canonical: `public/projects/shorecrest/media/shorecrest-exterior-hero.jpg`
+- Action: Keep research as raw archive and public as publishable derivative only where authorized.
+- `public/projects/shorecrest/media/shorecrest-exterior-hero.jpg`
+- `research/asset-library/projects/shorecrest/images/public-research/image-07--heroexterior--shorecrestwpb.com--a03a8ac8.jpg`
+
 ### public/research source duplicate - 5.4 MB extra
 
 - Recommended canonical: `public/projects/olara/media/olara-marina-boat-dock-2400x1600.png`
@@ -127,6 +143,13 @@ This is a review report only. It does not delete, move, or rewrite assets.
 - Action: Keep research as raw archive and public as publishable derivative only where authorized.
 - `public/projects/olara/media/olara-amenity-hot-cold-plunge-2400x1600.png`
 - `research/asset-library/projects/olara/user-supplied/rooftop_cooldown_jets_no_guy_2400x1600.png`
+
+### research-only duplicate - 4.6 MB extra
+
+- Recommended canonical: `research/asset-library/projects/edgeworth-north/images/public-research/image-10--residencesinteriors--static.therealdeal.com--1b4a66c3.jpg`
+- Action: Review canonical path before any move or delete.
+- `research/asset-library/projects/edgeworth-north/images/public-research/image-10--residencesinteriors--static.therealdeal.com--1b4a66c3.jpg`
+- `research/asset-library/projects/edgeworth-south/images/public-research/image-10--residencesinteriors--static.therealdeal.com--1b4a66c3.jpg`
 
 ### public/research source duplicate - 4.6 MB extra
 
@@ -254,6 +277,20 @@ This is a review report only. It does not delete, move, or rewrite assets.
 - `public/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf`
 - `research/asset-library/projects/mr-c/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf`
 
+### research-only duplicate - 2.8 MB extra
+
+- Recommended canonical: `research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-hero-1536x1024-cleared.png`
+- Action: Review canonical path before any move or delete.
+- `research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-hero-1536x1024-cleared.png`
+- `research/asset-library/projects/15-cityplace/images/final-cleared/cityplace-shared-hero-1536x1024-cleared.png`
+
+### research-only duplicate - 2.8 MB extra
+
+- Recommended canonical: `research/asset-library/projects/edgeworth-north/images/public-research/image-11--residencesinteriors--static.therealdeal.com--02e65175.jpg`
+- Action: Review canonical path before any move or delete.
+- `research/asset-library/projects/edgeworth-north/images/public-research/image-11--residencesinteriors--static.therealdeal.com--02e65175.jpg`
+- `research/asset-library/projects/edgeworth-south/images/public-research/image-11--residencesinteriors--static.therealdeal.com--02e65175.jpg`
+
 ### research-only duplicate - 2.5 MB extra
 
 - Recommended canonical: `research/asset-library/preferred-image-exports/shorecrest/residence-02-official-candidate-shorecrestwpb-com-hero-1600.png`
@@ -261,52 +298,17 @@ This is a review report only. It does not delete, move, or rewrite assets.
 - `research/asset-library/preferred-image-exports/shorecrest/residence-02-official-candidate-shorecrestwpb-com-hero-1600.png`
 - `research/asset-library/preferred-image-exports/shorecrest/residence-shorecrest-residence-hero-1600.png`
 
-### public/research source duplicate - 2.4 MB extra
+### research-only duplicate - 2.5 MB extra
 
-- Recommended canonical: `public/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-03.pdf`
-- Action: Keep research as raw archive and public as publishable derivative only where authorized.
-- `public/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-03.pdf`
-- `research/asset-library/projects/ritz-carlton-wpb/floorplans/res03--a1fb57a0.pdf`
+- Recommended canonical: `research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-mobile-1122x1402-cleared.png`
+- Action: Review canonical path before any move or delete.
+- `research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-mobile-1122x1402-cleared.png`
+- `research/asset-library/projects/15-cityplace/images/final-cleared/cityplace-shared-mobile-1122x1402-cleared.png`
 
-### public/research source duplicate - 2.4 MB extra
+### research-only duplicate - 2.4 MB extra
 
-- Recommended canonical: `public/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-01.pdf`
-- Action: Keep research as raw archive and public as publishable derivative only where authorized.
-- `public/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-01.pdf`
-- `research/asset-library/projects/ritz-carlton-wpb/floorplans/residence-01--5381e8b7.pdf`
-
-### public/research source duplicate - 2.3 MB extra
-
-- Recommended canonical: `public/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-12.pdf`
-- Action: Keep research as raw archive and public as publishable derivative only where authorized.
-- `public/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-12.pdf`
-- `research/asset-library/projects/ritz-carlton-wpb/floorplans/res12--cd99fe22.pdf`
-
-### public/research source duplicate - 2.3 MB extra
-
-- Recommended canonical: `public/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-12-1.pdf`
-- Action: Keep research as raw archive and public as publishable derivative only where authorized.
-- `public/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-12-1.pdf`
-- `research/asset-library/projects/ritz-carlton-wpb/downloads/res12-1--52fa7cb9.pdf`
-
-### public/research source duplicate - 2.2 MB extra
-
-- Recommended canonical: `public/projects/alba-palm-beach/docs/floorplans/alba-floorplans-thc-unbranded--2f37dd97.pdf`
-- Action: Keep research as raw archive and public as publishable derivative only where authorized.
-- `public/projects/alba-palm-beach/docs/floorplans/alba-floorplans-thc-unbranded--2f37dd97.pdf`
-- `research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-thc-unbranded--2f37dd97.pdf`
-
-### public/research source duplicate - 2.1 MB extra
-
-- Recommended canonical: `public/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf`
-- Action: Keep research as raw archive and public as publishable derivative only where authorized.
-- `public/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf`
-- `research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf`
-
-### public/research source duplicate - 2.1 MB extra
-
-- Recommended canonical: `public/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lpha-unbranded--cfde7c5e.pdf`
-- Action: Keep research as raw archive and public as publishable derivative only where authorized.
-- `public/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lpha-unbranded--cfde7c5e.pdf`
-- `research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-lpha-unbranded--cfde7c5e.pdf`
+- Recommended canonical: `research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-card-1448x1086-cleared.png`
+- Action: Review canonical path before any move or delete.
+- `research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-card-1448x1086-cleared.png`
+- `research/asset-library/projects/15-cityplace/images/final-cleared/cityplace-shared-card-1448x1086-cleared.png`
 

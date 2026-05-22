@@ -1,37 +1,47 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-18T15:20:15.290Z",
-    "filesScanned": 1066,
-    "duplicateHashGroups": 290,
-    "duplicateExtraBytes": 426348624,
-    "sourceDuplicateHashGroups": 289,
-    "sourceDuplicateExtraBytes": 424345258,
-    "publicOnlyDuplicateHashGroups": 0,
-    "publicOnlyDuplicateExtraBytes": 0,
-    "qaDuplicateHashGroups": 0,
-    "qaDuplicateExtraBytes": 0,
-    "previousDuplicateExtraBytes": 842120978,
-    "previousSourceDuplicateExtraBytes": 424345258,
-    "duplicateExtraByteDelta": -415772354,
-    "sourceDuplicateExtraByteDelta": 0
+    "generatedAt": "2026-05-22T13:31:37.075Z",
+    "filesScanned": 1725,
+    "duplicateHashGroups": 333,
+    "duplicateExtraBytes": 469237692,
+    "sourceDuplicateHashGroups": 330,
+    "sourceDuplicateExtraBytes": 466695552,
+    "publicOnlyDuplicateHashGroups": 3,
+    "publicOnlyDuplicateExtraBytes": 2033973,
+    "qaDuplicateHashGroups": 2,
+    "qaDuplicateExtraBytes": 538774,
+    "previousDuplicateExtraBytes": 524855964,
+    "previousSourceDuplicateExtraBytes": 520180596,
+    "duplicateExtraByteDelta": -55618272,
+    "sourceDuplicateExtraByteDelta": -53485044
   },
   "policy": "Inventory only. Do not delete files from this report without explicit human approval; use it to choose canonical files and archive/move candidates.",
   "cleanupPlan": [
     {
       "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "groups": 209,
-      "extraBytes": 405710277
+      "groups": 217,
+      "extraBytes": 412161496
     },
     {
       "action": "Review canonical path before any move or delete.",
-      "groups": 80,
-      "extraBytes": 18634981
+      "groups": 110,
+      "extraBytes": 52500083
+    },
+    {
+      "action": "Keep one canonical public URL, update references, then remove duplicate public alias after approval.",
+      "groups": 3,
+      "extraBytes": 2033973
     },
     {
       "action": "Replace per-project copies with one shared internal placeholder reference.",
       "groups": 1,
       "extraBytes": 2003366
+    },
+    {
+      "action": "Archive older QA screenshots after approval.",
+      "groups": 2,
+      "extraBytes": 538774
     }
   ],
   "groups": [
@@ -193,6 +203,44 @@
       ]
     },
     {
+      "hash": "98047a20d865e3028730167dba7c1ca77b5f2c05837b42d7a64e853cc75099e5",
+      "count": 2,
+      "eachBytes": 8617834,
+      "extraBytes": 8617834,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/south-flagler-house-north/images/public-research/image-05--heroexterior--southflaglerhouse.com--53e28a55.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/south-flagler-house-north/images/public-research/image-05--heroexterior--southflaglerhouse.com--53e28a55.jpg",
+          "size": 8617834
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-south/images/public-research/image-05--heroexterior--southflaglerhouse.com--53e28a55.jpg",
+          "size": 8617834
+        }
+      ]
+    },
+    {
+      "hash": "6ddca045659d077d0be246dbf25221c7908577401c263345c8fca16d74f1aa52",
+      "count": 2,
+      "eachBytes": 5992573,
+      "extraBytes": 5992573,
+      "classification": "public/research source duplicate",
+      "recommendedCanonical": "public/projects/shorecrest/media/shorecrest-exterior-hero.jpg",
+      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
+      "files": [
+        {
+          "path": "public/projects/shorecrest/media/shorecrest-exterior-hero.jpg",
+          "size": 5992573
+        },
+        {
+          "path": "research/asset-library/projects/shorecrest/images/public-research/image-07--heroexterior--shorecrestwpb.com--a03a8ac8.jpg",
+          "size": 5992573
+        }
+      ]
+    },
+    {
       "hash": "ada94b81c0fe2e22509293a888942771ceec47cfbf8a18f81e37b8e6ca3d3df1",
       "count": 2,
       "eachBytes": 5693498,
@@ -322,6 +370,25 @@
         {
           "path": "research/asset-library/projects/olara/user-supplied/rooftop_cooldown_jets_no_guy_2400x1600.png",
           "size": 4920284
+        }
+      ]
+    },
+    {
+      "hash": "f3267a267758219d7c9810332fbf897a3eceb6e1fcf511d290857246ea6cdef5",
+      "count": 2,
+      "eachBytes": 4839497,
+      "extraBytes": 4839497,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/edgeworth-north/images/public-research/image-10--residencesinteriors--static.therealdeal.com--1b4a66c3.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/edgeworth-north/images/public-research/image-10--residencesinteriors--static.therealdeal.com--1b4a66c3.jpg",
+          "size": 4839497
+        },
+        {
+          "path": "research/asset-library/projects/edgeworth-south/images/public-research/image-10--residencesinteriors--static.therealdeal.com--1b4a66c3.jpg",
+          "size": 4839497
         }
       ]
     },
@@ -668,6 +735,44 @@
       ]
     },
     {
+      "hash": "b2fe711b8d7cc09e6ea57e502a1e378fceda0803b952708fb7fed6d13455c5cc",
+      "count": 2,
+      "eachBytes": 2971375,
+      "extraBytes": 2971375,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-hero-1536x1024-cleared.png",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-hero-1536x1024-cleared.png",
+          "size": 2971375
+        },
+        {
+          "path": "research/asset-library/projects/15-cityplace/images/final-cleared/cityplace-shared-hero-1536x1024-cleared.png",
+          "size": 2971375
+        }
+      ]
+    },
+    {
+      "hash": "1d8e868c07ee420541c11c5265cb9ae793ec041084fe6499610d6033c2f770a0",
+      "count": 2,
+      "eachBytes": 2903575,
+      "extraBytes": 2903575,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/edgeworth-north/images/public-research/image-11--residencesinteriors--static.therealdeal.com--02e65175.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/edgeworth-north/images/public-research/image-11--residencesinteriors--static.therealdeal.com--02e65175.jpg",
+          "size": 2903575
+        },
+        {
+          "path": "research/asset-library/projects/edgeworth-south/images/public-research/image-11--residencesinteriors--static.therealdeal.com--02e65175.jpg",
+          "size": 2903575
+        }
+      ]
+    },
+    {
       "hash": "63519964152636942a6e12b1e599c2078e430d6e7cc15d6203e647a02816ea0f",
       "count": 2,
       "eachBytes": 2648666,
@@ -683,6 +788,44 @@
         {
           "path": "research/asset-library/preferred-image-exports/shorecrest/residence-shorecrest-residence-hero-1600.png",
           "size": 2648666
+        }
+      ]
+    },
+    {
+      "hash": "47a12376f441a185a5036ed5bcd779ce8fa42bb2c4de7cb968e7c761bdb5c7be",
+      "count": 2,
+      "eachBytes": 2624562,
+      "extraBytes": 2624562,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-mobile-1122x1402-cleared.png",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-mobile-1122x1402-cleared.png",
+          "size": 2624562
+        },
+        {
+          "path": "research/asset-library/projects/15-cityplace/images/final-cleared/cityplace-shared-mobile-1122x1402-cleared.png",
+          "size": 2624562
+        }
+      ]
+    },
+    {
+      "hash": "53e48abc2f6d717f3cb20437d81948216189337ecbfa2b7c81bc319c95364ef4",
+      "count": 2,
+      "eachBytes": 2547354,
+      "extraBytes": 2547354,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-card-1448x1086-cleared.png",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/10-cityplace/images/final-cleared/cityplace-shared-card-1448x1086-cleared.png",
+          "size": 2547354
+        },
+        {
+          "path": "research/asset-library/projects/15-cityplace/images/final-cleared/cityplace-shared-card-1448x1086-cleared.png",
+          "size": 2547354
         }
       ]
     },
@@ -930,6 +1073,25 @@
         {
           "path": "research/asset-library/projects/alba-palm-beach/floorplans/alba-floorplans-c-unbranded--858d4e18.pdf",
           "size": 2207940
+        }
+      ]
+    },
+    {
+      "hash": "721df4f744f997f6f33890514c3cdca0e14a631882a33152f0381c439a236bd8",
+      "count": 2,
+      "eachBytes": 2194653,
+      "extraBytes": 2194653,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/edgeworth-north/images/public-research/image-01--viewscontext--static.therealdeal.com--aec3890d.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/edgeworth-north/images/public-research/image-01--viewscontext--static.therealdeal.com--aec3890d.jpg",
+          "size": 2194653
+        },
+        {
+          "path": "research/asset-library/projects/edgeworth-south/images/public-research/image-01--viewscontext--static.therealdeal.com--aec3890d.jpg",
+          "size": 2194653
         }
       ]
     },
@@ -1352,6 +1514,25 @@
       ]
     },
     {
+      "hash": "7ad50d31c84034bf96209c5f37214628a980fa4235bdc00ff72a00b1a6393b1d",
+      "count": 2,
+      "eachBytes": 1611486,
+      "extraBytes": 1611486,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/mr-c/images/public-research/image-05--viewscontext--i0.wp.com--41f0a09e.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/mr-c/images/public-research/image-05--viewscontext--i0.wp.com--41f0a09e.jpg",
+          "size": 1611486
+        },
+        {
+          "path": "research/asset-library/projects/mr-c/images/public-research/image-06--viewscontext--i0.wp.com--6df90b7a.jpg",
+          "size": 1611486
+        }
+      ]
+    },
+    {
       "hash": "22801de07dd47e8f4488cb34749fa6d5718c6c57772a370e4869cc5b5528ef66",
       "count": 2,
       "eachBytes": 1608633,
@@ -1424,6 +1605,44 @@
         {
           "path": "research/asset-library/projects/mr-c/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
           "size": 1576986
+        }
+      ]
+    },
+    {
+      "hash": "ab4aaf1c1c14dd4ce01ee6498a891a7d3551fc35d307c6567bf383bee57eeee6",
+      "count": 2,
+      "eachBytes": 1574015,
+      "extraBytes": 1574015,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/edgeworth-north/images/public-research/image-02--viewscontext--static.therealdeal.com--d58e2eb0.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/edgeworth-north/images/public-research/image-02--viewscontext--static.therealdeal.com--d58e2eb0.jpg",
+          "size": 1574015
+        },
+        {
+          "path": "research/asset-library/projects/edgeworth-south/images/public-research/image-02--viewscontext--static.therealdeal.com--d58e2eb0.jpg",
+          "size": 1574015
+        }
+      ]
+    },
+    {
+      "hash": "c997e44876f6a8ab8859bbeb40530c1ffad4ffbda9f0bc3e49238242f8592874",
+      "count": 2,
+      "eachBytes": 1558264,
+      "extraBytes": 1558264,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/edgeworth-north/images/public-research/image-12--residencesinteriors--static.therealdeal.com--17bed633.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/edgeworth-north/images/public-research/image-12--residencesinteriors--static.therealdeal.com--17bed633.jpg",
+          "size": 1558264
+        },
+        {
+          "path": "research/asset-library/projects/edgeworth-south/images/public-research/image-12--residencesinteriors--static.therealdeal.com--17bed633.jpg",
+          "size": 1558264
         }
       ]
     },
@@ -2496,6 +2715,25 @@
       ]
     },
     {
+      "hash": "de6291999394fa4e61d08ce05b91810d4dcbf186822a09c6ed416bb78ee6456b",
+      "count": 2,
+      "eachBytes": 739355,
+      "extraBytes": 739355,
+      "classification": "public-only duplicate",
+      "recommendedCanonical": "public/projects/10-cityplace/media/cityplace-shared-hero-1536x1024.jpg",
+      "action": "Keep one canonical public URL, update references, then remove duplicate public alias after approval.",
+      "files": [
+        {
+          "path": "public/projects/10-cityplace/media/cityplace-shared-hero-1536x1024.jpg",
+          "size": 739355
+        },
+        {
+          "path": "public/projects/15-cityplace/media/cityplace-shared-hero-1536x1024.jpg",
+          "size": 739355
+        }
+      ]
+    },
+    {
       "hash": "d61e154f1dc3c2da5e3e92c6689b6943f4ac744aefd5fc6251df495d8af0c296",
       "count": 2,
       "eachBytes": 720498,
@@ -2534,6 +2772,25 @@
       ]
     },
     {
+      "hash": "95528da1dfcc841a548af96a96e70f9e3c2c40677fb2f16d8f2edbb0b22a9cee",
+      "count": 2,
+      "eachBytes": 717165,
+      "extraBytes": 717165,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/olara/images/public-research/image-01--heroexterior--d3af2gfyi5943v.cloudfront.net--c9228724.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/olara/images/public-research/image-01--heroexterior--d3af2gfyi5943v.cloudfront.net--c9228724.jpg",
+          "size": 717165
+        },
+        {
+          "path": "research/asset-library/projects/olara/user-supplied/01_Lifestyle_Hero_Pool.jpg",
+          "size": 717165
+        }
+      ]
+    },
+    {
       "hash": "e95e521cabafbd19a461b0f6520f0e8b0ce2c2ed890ba1dfa8794edf64a18190",
       "count": 2,
       "eachBytes": 679220,
@@ -2549,6 +2806,44 @@
         {
           "path": "research/asset-library/projects/shorecrest/floorplans/residence-1602-floor-plan--4891242d.pdf",
           "size": 679220
+        }
+      ]
+    },
+    {
+      "hash": "e65cb54f627dbb5590730385a5ea2019c9ca430bbddb118bfc9ded9e66f95776",
+      "count": 2,
+      "eachBytes": 662275,
+      "extraBytes": 662275,
+      "classification": "public-only duplicate",
+      "recommendedCanonical": "public/projects/10-cityplace/media/cityplace-shared-mobile-1122x1402.jpg",
+      "action": "Keep one canonical public URL, update references, then remove duplicate public alias after approval.",
+      "files": [
+        {
+          "path": "public/projects/10-cityplace/media/cityplace-shared-mobile-1122x1402.jpg",
+          "size": 662275
+        },
+        {
+          "path": "public/projects/15-cityplace/media/cityplace-shared-mobile-1122x1402.jpg",
+          "size": 662275
+        }
+      ]
+    },
+    {
+      "hash": "efe4fe9ae1eae2a89624869bdbfbcd59f7d80c7bbb4008b20a59a2c7af836768",
+      "count": 2,
+      "eachBytes": 632343,
+      "extraBytes": 632343,
+      "classification": "public-only duplicate",
+      "recommendedCanonical": "public/projects/10-cityplace/media/cityplace-shared-card-1448x1086.jpg",
+      "action": "Keep one canonical public URL, update references, then remove duplicate public alias after approval.",
+      "files": [
+        {
+          "path": "public/projects/10-cityplace/media/cityplace-shared-card-1448x1086.jpg",
+          "size": 632343
+        },
+        {
+          "path": "public/projects/15-cityplace/media/cityplace-shared-card-1448x1086.jpg",
+          "size": 632343
         }
       ]
     },
@@ -2747,6 +3042,25 @@
       ]
     },
     {
+      "hash": "e86c8c1794fbf443a0399f6516c493c71baedd2242e4a0dc6e60d126c6ef32da",
+      "count": 2,
+      "eachBytes": 444646,
+      "extraBytes": 444646,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/maison-dor/images/public-research/image-07--amenities--images.squarespace-cdn.com--9a01e85f.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/maison-dor/images/public-research/image-07--amenities--images.squarespace-cdn.com--9a01e85f.jpg",
+          "size": 444646
+        },
+        {
+          "path": "research/asset-library/projects/maison-dor/images/public-research/image-11--amenities--images.squarespace-cdn.com--c8b5813b.jpg",
+          "size": 444646
+        }
+      ]
+    },
+    {
       "hash": "8ab5d166810d5dbb173002be6a4fde8b3868a933fb08873aa1f5f022c41f836e",
       "count": 2,
       "eachBytes": 431081,
@@ -2762,6 +3076,25 @@
         {
           "path": "research/asset-library/preferred-image-exports/portofino-flagler-yacht-club/amenity-portofino-south-flagler-yacht-club-buyout-watch-amenity-hero-1600.jpg",
           "size": 431081
+        }
+      ]
+    },
+    {
+      "hash": "43d6e63426247e94800837e539526ef4f623c0d2aaddc35fdca8120f3fb0aac6",
+      "count": 2,
+      "eachBytes": 430673,
+      "extraBytes": 430673,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/10-cityplace-project-mobile-fixed.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/10-cityplace-project-mobile-fixed.png",
+          "size": 430673
+        },
+        {
+          "path": "output/playwright/10-cityplace-project-mobile-updated.png",
+          "size": 430673
         }
       ]
     },
@@ -3640,6 +3973,25 @@
       ]
     },
     {
+      "hash": "e8494ab0ea29b3fbe8b42cd350da55a0b0ac0226694384887df478d55a90d325",
+      "count": 2,
+      "eachBytes": 281716,
+      "extraBytes": 281716,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/mr-c/images/public-research/image-01--viewscontext--i0.wp.com--059ddaa7.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/mr-c/images/public-research/image-01--viewscontext--i0.wp.com--059ddaa7.jpg",
+          "size": 281716
+        },
+        {
+          "path": "research/asset-library/projects/mr-c/images/public-research/image-02--viewscontext--i0.wp.com--6ef44cb2.jpg",
+          "size": 281716
+        }
+      ]
+    },
+    {
       "hash": "f19fd29fc2e463f6d09c92a15c9a190bce5cb1d7ab1fef9a439e41392370ca3f",
       "count": 2,
       "eachBytes": 278622,
@@ -3792,6 +4144,25 @@
       ]
     },
     {
+      "hash": "c04b206126e90101e85ff04c47a2ad8a6bef2a49c591d265fb467366b21e14e9",
+      "count": 2,
+      "eachBytes": 225982,
+      "extraBytes": 225982,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/south-flagler-house-north/images/public-research/image-02--heroexterior--southflaglerhouse.com--df9dbaf5.webp",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/south-flagler-house-north/images/public-research/image-02--heroexterior--southflaglerhouse.com--df9dbaf5.webp",
+          "size": 225982
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-south/images/public-research/image-02--heroexterior--southflaglerhouse.com--df9dbaf5.webp",
+          "size": 225982
+        }
+      ]
+    },
+    {
       "hash": "e0ec0f411b72353e9df6febcc2ce25dd01b7e8b4e12fc5ad5d34085870e39b78",
       "count": 2,
       "eachBytes": 214735,
@@ -3807,6 +4178,25 @@
         {
           "path": "research/asset-library/projects/nora-house/floorplans/terrace-413-floorplan--e8fddd07.jpg",
           "size": 214735
+        }
+      ]
+    },
+    {
+      "hash": "33fbb83452541c16ca24de775b2126a8835ac5fdb2376268b1c7d4801d3604e5",
+      "count": 2,
+      "eachBytes": 213783,
+      "extraBytes": 213783,
+      "classification": "public/research source duplicate",
+      "recommendedCanonical": "public/projects/alba-palm-beach/media/logo.svg",
+      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
+      "files": [
+        {
+          "path": "public/projects/alba-palm-beach/media/logo.svg",
+          "size": 213783
+        },
+        {
+          "path": "research/asset-library/projects/alba-palm-beach/logos/project-logo--alba-palm-beach--5e446a90.svg",
+          "size": 213783
         }
       ]
     },
@@ -3921,6 +4311,25 @@
         {
           "path": "research/asset-library/projects/nora-house/floorplans/terrace-414-floorplan--83c5f27b.jpg",
           "size": 197826
+        }
+      ]
+    },
+    {
+      "hash": "c62bb25ebdc6c296fca2c61958110215b4671b8cef059c5094b1ad65548855e6",
+      "count": 2,
+      "eachBytes": 195126,
+      "extraBytes": 195126,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/maison-dor/images/public-research/image-06--amenities--static1.squarespace.com--5197b0f0.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/maison-dor/images/public-research/image-06--amenities--static1.squarespace.com--5197b0f0.jpg",
+          "size": 195126
+        },
+        {
+          "path": "research/asset-library/projects/maison-dor/images/public-research/image-10--amenities--images.squarespace-cdn.com--535cc6e3.jpg",
+          "size": 195126
         }
       ]
     },
@@ -4111,6 +4520,29 @@
         {
           "path": "research/asset-library/projects/nora-house/floorplans/terrace-416-floorplan--e8ea896d.jpg",
           "size": 185265
+        }
+      ]
+    },
+    {
+      "hash": "8bed8e9cfd632b7238bafe3bdfcf3cae8a75cc8ecffe80b564d7fc57656c28cf",
+      "count": 3,
+      "eachBytes": 91292,
+      "extraBytes": 182584,
+      "classification": "public/research source duplicate",
+      "recommendedCanonical": "public/projects/nora-house/docs/floorplans/residence-01-floorplan--1f9ee4f9.webp",
+      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
+      "files": [
+        {
+          "path": "public/projects/nora-house/docs/floorplans/residence-01-floorplan--1f9ee4f9.webp",
+          "size": 91292
+        },
+        {
+          "path": "research/asset-library/projects/nora-house/floorplans/residence-01-floorplan--1f9ee4f9.webp",
+          "size": 91292
+        },
+        {
+          "path": "research/asset-library/projects/nora-house/images/public-research/image-04--residencesinteriors--norahouse.com--ec6dbda4.webp",
+          "size": 91292
         }
       ]
     },
@@ -4571,6 +5003,25 @@
       ]
     },
     {
+      "hash": "91a602f19cef926a438d4e5cc194b459d331ea8c23732a3915acb36c988660c6",
+      "count": 2,
+      "eachBytes": 146940,
+      "extraBytes": 146940,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/edgeworth-north/images/public-research/image-06--viewscontext--static.therealdeal.com--ed949d60.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/edgeworth-north/images/public-research/image-06--viewscontext--static.therealdeal.com--ed949d60.jpg",
+          "size": 146940
+        },
+        {
+          "path": "research/asset-library/projects/edgeworth-south/images/public-research/image-06--viewscontext--static.therealdeal.com--ed949d60.jpg",
+          "size": 146940
+        }
+      ]
+    },
+    {
       "hash": "268b8f11f579d5662ef2b5c338debdf4d7f6ef5aec263229fd305eeb65dc8fd7",
       "count": 2,
       "eachBytes": 146669,
@@ -4723,6 +5174,25 @@
       ]
     },
     {
+      "hash": "89bef26d2424f705a02f0f71c4fe847df66d6160d14a6f8a571cd771a73b46c6",
+      "count": 2,
+      "eachBytes": 119418,
+      "extraBytes": 119418,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/south-flagler-house-north/images/public-research/image-03--heroexterior--southflaglerhouse.com--a4956cef.webp",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/south-flagler-house-north/images/public-research/image-03--heroexterior--southflaglerhouse.com--a4956cef.webp",
+          "size": 119418
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-south/images/public-research/image-03--heroexterior--southflaglerhouse.com--a4956cef.webp",
+          "size": 119418
+        }
+      ]
+    },
+    {
       "hash": "cd9d396f2bed7031a53c0ac600f546204cc356922151f69d2677fc2304939459",
       "count": 2,
       "eachBytes": 116787,
@@ -4757,6 +5227,25 @@
         {
           "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/amenity-south-flagler-house-north-tower-amenity-hero-1600.jpg",
           "size": 116480
+        }
+      ]
+    },
+    {
+      "hash": "e92c6681e6bf21c9e7dba31ad20d9bdc76c21b35604fec660cf4566f9263e60a",
+      "count": 2,
+      "eachBytes": 108101,
+      "extraBytes": 108101,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/market-notes-active-sales-vs-pipeline-watch-mobile-final.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/market-notes-active-sales-vs-pipeline-watch-mobile-final.png",
+          "size": 108101
+        },
+        {
+          "path": "output/playwright/market-notes-active-sales-vs-pipeline-watch-mobile.png",
+          "size": 108101
         }
       ]
     },
@@ -4818,21 +5307,21 @@
       ]
     },
     {
-      "hash": "8bed8e9cfd632b7238bafe3bdfcf3cae8a75cc8ecffe80b564d7fc57656c28cf",
+      "hash": "69dccdb2e070ce1fd39cab4f26cd9161865b019a14b0011f4e68204a18b0bf74",
       "count": 2,
-      "eachBytes": 91292,
-      "extraBytes": 91292,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/nora-house/docs/floorplans/residence-01-floorplan--1f9ee4f9.webp",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
+      "eachBytes": 95112,
+      "extraBytes": 95112,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/south-flagler-house-north/images/public-research/image-04--heroexterior--southflaglerhouse.com--7ba704ae.webp",
+      "action": "Review canonical path before any move or delete.",
       "files": [
         {
-          "path": "public/projects/nora-house/docs/floorplans/residence-01-floorplan--1f9ee4f9.webp",
-          "size": 91292
+          "path": "research/asset-library/projects/south-flagler-house-north/images/public-research/image-04--heroexterior--southflaglerhouse.com--7ba704ae.webp",
+          "size": 95112
         },
         {
-          "path": "research/asset-library/projects/nora-house/floorplans/residence-01-floorplan--1f9ee4f9.webp",
-          "size": 91292
+          "path": "research/asset-library/projects/south-flagler-house-south/images/public-research/image-04--heroexterior--southflaglerhouse.com--7ba704ae.webp",
+          "size": 95112
         }
       ]
     },
@@ -5065,6 +5554,63 @@
       ]
     },
     {
+      "hash": "579c78ce4c8c33214473aa60585f79f6447bc05554614f1277c8a1f6db593c91",
+      "count": 2,
+      "eachBytes": 56880,
+      "extraBytes": 56880,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/edgeworth-north/logos/project-logo--edgeworth-north--aa71a4bd.png",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/edgeworth-north/logos/project-logo--edgeworth-north--aa71a4bd.png",
+          "size": 56880
+        },
+        {
+          "path": "research/asset-library/projects/edgeworth-south/logos/project-logo--edgeworth-south--aa71a4bd.png",
+          "size": 56880
+        }
+      ]
+    },
+    {
+      "hash": "9b14d1cd3e60e791afec4692c83b6385912464db69bca2fc60cc0c63173e11a8",
+      "count": 2,
+      "eachBytes": 56168,
+      "extraBytes": 56168,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/south-flagler-house-north/images/public-research/image-01--heroexterior--southflaglerhouse.com--40c9b9d3.webp",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/south-flagler-house-north/images/public-research/image-01--heroexterior--southflaglerhouse.com--40c9b9d3.webp",
+          "size": 56168
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-south/images/public-research/image-01--heroexterior--southflaglerhouse.com--40c9b9d3.webp",
+          "size": 56168
+        }
+      ]
+    },
+    {
+      "hash": "6eeab64018bdb724bf89b55d1e6c7849b5f016b81f4e3ffff4b5d2e6e90d5bde",
+      "count": 2,
+      "eachBytes": 54658,
+      "extraBytes": 54658,
+      "classification": "public/research source duplicate",
+      "recommendedCanonical": "public/team-logos/arquitectonica-logo.webp",
+      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
+      "files": [
+        {
+          "path": "public/team-logos/arquitectonica-logo.webp",
+          "size": 54658
+        },
+        {
+          "path": "research/asset-library/shared/team-logos/arquitectonica-logo-cleared.webp",
+          "size": 54658
+        }
+      ]
+    },
+    {
       "hash": "d2e27fbd774335cc9c6cecc28dab9122362d085624970480e01a41804818e9df",
       "count": 2,
       "eachBytes": 53953,
@@ -5080,6 +5626,25 @@
         {
           "path": "research/asset-library/preferred-image-exports/related-ross-fern-street/hero-related-ross-fern-street-south-dixie-condo-exterior-thumb-480.jpg",
           "size": 53953
+        }
+      ]
+    },
+    {
+      "hash": "b92c5ddcc06d8e586330e09185f31c5f5ec4bb52350b9886590ff18e62ddc737",
+      "count": 2,
+      "eachBytes": 53344,
+      "extraBytes": 53344,
+      "classification": "public/research source duplicate",
+      "recommendedCanonical": "public/team-logos/related-ross-logo.webp",
+      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
+      "files": [
+        {
+          "path": "public/team-logos/related-ross-logo.webp",
+          "size": 53344
+        },
+        {
+          "path": "research/asset-library/shared/team-logos/related-ross-logo-cleared.webp",
+          "size": 53344
         }
       ]
     },
@@ -5255,6 +5820,37 @@
       ]
     },
     {
+      "hash": "62f6f28e0d11a9d45a9ab2ca110b56ae3abcb70f91aa36b6d93b2bae85bd14e6",
+      "count": 5,
+      "eachBytes": 9086,
+      "extraBytes": 36344,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/15-cityplace/team-logos/architect--arquitectonica--logo--d1c67c68.svg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/15-cityplace/team-logos/architect--arquitectonica--logo--d1c67c68.svg",
+          "size": 9086
+        },
+        {
+          "path": "research/asset-library/projects/forte-on-flagler/team-logos/architect--arquitectonica--logo--d1c67c68.svg",
+          "size": 9086
+        },
+        {
+          "path": "research/asset-library/projects/mr-c/team-logos/architect--arquitectonica--logo--d1c67c68.svg",
+          "size": 9086
+        },
+        {
+          "path": "research/asset-library/projects/olara/team-logos/architect--arquitectonica--logo--d1c67c68.svg",
+          "size": 9086
+        },
+        {
+          "path": "research/asset-library/projects/ritz-carlton-wpb/team-logos/architect--arquitectonica--logo--d1c67c68.svg",
+          "size": 9086
+        }
+      ]
+    },
+    {
       "hash": "14165fa7bf49c619715fc1f55f2642fd68dd4cea42658b90c3637d8540b68831",
       "count": 2,
       "eachBytes": 34096,
@@ -5350,6 +5946,25 @@
       ]
     },
     {
+      "hash": "df9b559d3ae636a8da22bb5a4893472c51bde7848c62922795fa21b79d920a93",
+      "count": 2,
+      "eachBytes": 22447,
+      "extraBytes": 22447,
+      "classification": "public/research source duplicate",
+      "recommendedCanonical": "public/projects/banyan-tree/media/logo.png",
+      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
+      "files": [
+        {
+          "path": "public/projects/banyan-tree/media/logo.png",
+          "size": 22447
+        },
+        {
+          "path": "research/asset-library/projects/banyan-tree/logos/project-logo--banyan-tree--c16963a9.png",
+          "size": 22447
+        }
+      ]
+    },
+    {
       "hash": "a8f67ed6ed34d0942cb8c0ef9bbf9a019baa9b7d2fc2721cab91b6eb56b8b8e2",
       "count": 2,
       "eachBytes": 19743,
@@ -5365,6 +5980,25 @@
         {
           "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/amenity-south-flagler-house-north-tower-amenity-thumb-480.jpg",
           "size": 19743
+        }
+      ]
+    },
+    {
+      "hash": "9882f0ec5c851a14ad29745933be6e2487aa773eca0dc33478c8fa8dcbae4fce",
+      "count": 2,
+      "eachBytes": 19329,
+      "extraBytes": 19329,
+      "classification": "public/research source duplicate",
+      "recommendedCanonical": "public/projects/ritz-carlton-wpb/media/ritz-logo.svg",
+      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
+      "files": [
+        {
+          "path": "public/projects/ritz-carlton-wpb/media/ritz-logo.svg",
+          "size": 19329
+        },
+        {
+          "path": "research/asset-library/projects/ritz-carlton-wpb/logos/project-logo--ritz-carlton-wpb--a77ac520.svg",
+          "size": 19329
         }
       ]
     },
@@ -5388,6 +6022,41 @@
       ]
     },
     {
+      "hash": "1fefa98d2b679b28dd93e0fc525a3d89c420189f798fe28982bfdff042690aa2",
+      "count": 6,
+      "eachBytes": 2883,
+      "extraBytes": 14415,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/15-cityplace/logos/project-logo--15-cityplace--a36df28c.svg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/15-cityplace/logos/project-logo--15-cityplace--a36df28c.svg",
+          "size": 2883
+        },
+        {
+          "path": "research/asset-library/projects/edgeworth-north/team-logos/developer--related-ross--logo--a36df28c.svg",
+          "size": 2883
+        },
+        {
+          "path": "research/asset-library/projects/edgeworth-south/team-logos/developer--related-ross--logo--a36df28c.svg",
+          "size": 2883
+        },
+        {
+          "path": "research/asset-library/projects/shorecrest/team-logos/developer--related-ross--logo--a36df28c.svg",
+          "size": 2883
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-north/team-logos/developer--related-ross--logo--a36df28c.svg",
+          "size": 2883
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-south/team-logos/developer--related-ross--logo--a36df28c.svg",
+          "size": 2883
+        }
+      ]
+    },
+    {
       "hash": "a84f169a3fce50f9377bab749de9dc8784f73d9ef0ed6a10cf6263be94820dde",
       "count": 2,
       "eachBytes": 13341,
@@ -5403,6 +6072,177 @@
         {
           "path": "research/asset-library/preferred-image-exports/forte-on-flagler/hero-fort-on-flagler-exterior-thumb-480.png",
           "size": 13341
+        }
+      ]
+    },
+    {
+      "hash": "b2509730971d5de05346e554b641c63f91d8cbdf7ce367695e11bf72ae2be2ba",
+      "count": 2,
+      "eachBytes": 9844,
+      "extraBytes": 9844,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/apogee-wpb/team-logos/developer--bh-group--logo--dc294953.webp",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/apogee-wpb/team-logos/developer--bh-group--logo--dc294953.webp",
+          "size": 9844
+        },
+        {
+          "path": "research/asset-library/projects/ritz-carlton-wpb/team-logos/developer--bh-group--logo--dc294953.webp",
+          "size": 9844
+        }
+      ]
+    },
+    {
+      "hash": "eed8e4e665e8a22c8c6ad83548b223ef8948a7933aa0b5dbc6d405f63867e01c",
+      "count": 2,
+      "eachBytes": 8283,
+      "extraBytes": 8283,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/banyan-tree/team-logos/landscape-architect--enzo-enea--logo--b5d03bbb.png",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/banyan-tree/team-logos/landscape-architect--enzo-enea--logo--b5d03bbb.png",
+          "size": 8283
+        },
+        {
+          "path": "research/asset-library/projects/mandarin-oriental/team-logos/landscape-architect--enea-landscape-architecture--logo--b5d03bbb.png",
+          "size": 8283
+        }
+      ]
+    },
+    {
+      "hash": "9711fcd7ee58f236c7fe94bb08b7f3b4025225e3cddb63937cf0b72c4e7a7051",
+      "count": 2,
+      "eachBytes": 5932,
+      "extraBytes": 5932,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/la-clara/team-logos/developer--great-gulf--logo--1f13c9a2.svg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/la-clara/team-logos/developer--great-gulf--logo--1f13c9a2.svg",
+          "size": 5932
+        },
+        {
+          "path": "research/asset-library/projects/mandarin-oriental/team-logos/developer--great-gulf--logo--1f13c9a2.svg",
+          "size": 5932
+        }
+      ]
+    },
+    {
+      "hash": "e44d970832bba00a47dabfe5d96f32b27195e225f717eb3aa2434f8e95bd2e18",
+      "count": 2,
+      "eachBytes": 4783,
+      "extraBytes": 4783,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/edgeworth-north/team-logos/interior-designer--mawd--logo--6b65791a.svg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/edgeworth-north/team-logos/interior-designer--mawd--logo--6b65791a.svg",
+          "size": 4783
+        },
+        {
+          "path": "research/asset-library/projects/edgeworth-south/team-logos/interior-designer--mawd--logo--6b65791a.svg",
+          "size": 4783
+        }
+      ]
+    },
+    {
+      "hash": "55d1aa3a1955b0600f5c195158fe42e65423642b3db263f1045502026452f9ff",
+      "count": 2,
+      "eachBytes": 3044,
+      "extraBytes": 3044,
+      "classification": "public/research source duplicate",
+      "recommendedCanonical": "public/projects/olara/media/logo.svg",
+      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
+      "files": [
+        {
+          "path": "public/projects/olara/media/logo.svg",
+          "size": 3044
+        },
+        {
+          "path": "research/asset-library/projects/olara/logos/project-logo--olara--8ed48914.svg",
+          "size": 3044
+        }
+      ]
+    },
+    {
+      "hash": "5f93d573d836f344d05b2d7c9cb08df416b7eed424d7c926c117aaeab25cc710",
+      "count": 2,
+      "eachBytes": 1574,
+      "extraBytes": 1574,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/la-clara/team-logos/developer--terra--logo--8879be95.svg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/la-clara/team-logos/developer--terra--logo--8879be95.svg",
+          "size": 1574
+        },
+        {
+          "path": "research/asset-library/projects/mr-c/team-logos/developer--terra--logo--8879be95.svg",
+          "size": 1574
+        }
+      ]
+    },
+    {
+      "hash": "d23d2c2c97df8ec65ac703bbcc751e37cd315f05d37ca82c82e82d5346a100c9",
+      "count": 2,
+      "eachBytes": 1275,
+      "extraBytes": 1275,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/apogee-wpb/team-logos/developer--related-group--logo--8dbcf17f.svg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/apogee-wpb/team-logos/developer--related-group--logo--8dbcf17f.svg",
+          "size": 1275
+        },
+        {
+          "path": "research/asset-library/projects/ritz-carlton-wpb/team-logos/developer--related-group--logo--8dbcf17f.svg",
+          "size": 1275
+        }
+      ]
+    },
+    {
+      "hash": "399046820a2d95e383ea387f39e7f5b549b9180f1976b43cb65f39ac07159c7a",
+      "count": 2,
+      "eachBytes": 881,
+      "extraBytes": 881,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/south-flagler-house-north/team-logos/architect--robert-am-stern-architects--logo--fa1cbad7.svg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/south-flagler-house-north/team-logos/architect--robert-am-stern-architects--logo--fa1cbad7.svg",
+          "size": 881
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-south/team-logos/architect--robert-am-stern-architects--logo--fa1cbad7.svg",
+          "size": 881
+        }
+      ]
+    },
+    {
+      "hash": "73eb422bbb974688d8a9126b8ef7e83db83600503e199743e871e39e02e2dd0b",
+      "count": 2,
+      "eachBytes": 749,
+      "extraBytes": 749,
+      "classification": "public/research source duplicate",
+      "recommendedCanonical": "public/projects/south-flagler-house/media/logo.svg",
+      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
+      "files": [
+        {
+          "path": "public/projects/south-flagler-house/media/logo.svg",
+          "size": 749
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-north/logos/project-logo--south-flagler-house-north--84bcda37.svg",
+          "size": 749
         }
       ]
     },
@@ -5574,6 +6414,25 @@
         {
           "path": "research/asset-library/projects/edgeworth-south/source-pages/04--page-summary.json",
           "size": 303
+        }
+      ]
+    },
+    {
+      "hash": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "count": 2,
+      "eachBytes": 3,
+      "extraBytes": 3,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/apogee-wpb/image-candidates.json",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/apogee-wpb/image-candidates.json",
+          "size": 3
+        },
+        {
+          "path": "research/imported-project-images/approved-images.json",
+          "size": 3
         }
       ]
     }

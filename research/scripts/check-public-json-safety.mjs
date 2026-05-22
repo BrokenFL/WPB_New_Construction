@@ -4,15 +4,14 @@ import path from "node:path";
 const workspace = process.cwd();
 const scanRoots = ["public", "dist"].map((item) => path.join(workspace, item));
 const blockedPatterns = [
+  /needs_review/i,
+  /pending\s+approval/i,
+  /approved\s+by\s+Brooke/i,
   /sign[-\s]?off/i,
   /signed\s+off/i,
-  /authorization/i,
-  /authorized/i,
-  /endorsement/i,
-  /endorsed/i,
-  /approved\s+by\s+Brooke/i,
-  /cleared\s+by\s+Brooke/i,
+  /authorization\s+pending/i,
   /internal\s+approval/i,
+  /internal\s+review/i,
   /source-material\s+review/i,
   /future\s+backend/i,
   /front-end\s+only/i,

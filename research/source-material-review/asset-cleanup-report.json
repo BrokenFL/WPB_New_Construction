@@ -1,27 +1,32 @@
 {
-  "generatedAt": "2026-05-18T15:18:33.084Z",
+  "generatedAt": "2026-05-22T13:31:33.149Z",
   "mode": "applied",
   "policy": "Approved cleanup removes exact duplicate stale public aliases, per-project generated placeholder copies, generated build output, and old QA CLI artifacts. Raw project research originals are preserved.",
   "removed": [
     {
-      "path": "public/projects/south-flagler-house/docs/floorplans/south-flagler-house-north/site-plan-floors-5-9--7e6bd746.jpg",
-      "action": "removed exact duplicate public alias; canonical is public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-      "bytes": 7029534
+      "path": "public/projects/olara/docs/floorplans/all-floor-plans--fc168288.pdf",
+      "action": "removed exact duplicate public alias; canonical is public/projects/olara/docs/olara-floorplans-all-march-2026.pdf",
+      "bytes": 26739448
     },
     {
-      "path": "public/projects/south-flagler-house/docs/floorplans/south-flagler-house-south/site-plan-floors-5-9--7e6bd746.jpg",
-      "action": "removed exact duplicate public alias; canonical is public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-      "bytes": 7029534
+      "path": "public/projects/olara/docs/floorplans/olara-floor-plans-all-march-2026--9503a396.pdf",
+      "action": "removed exact duplicate public alias; canonical is public/projects/olara/docs/olara-floorplans-all-march-2026.pdf",
+      "bytes": 26739448
     },
     {
-      "path": "public/projects/shorecrest/media/shorecrest-hero.png",
-      "action": "removed exact duplicate public alias; canonical is public/projects/shorecrest/media/card.png",
-      "bytes": 1493872
+      "path": "public/projects/alba-palm-beach/.DS_Store",
+      "action": "removed exact duplicate public alias; canonical is public/projects/15-cityplace/.DS_Store",
+      "bytes": 6148
     },
     {
-      "path": "public/projects/shorecrest/media/card.jpg",
-      "action": "removed exact duplicate public alias; canonical is public/projects/nora-house/media/card.jpg",
-      "bytes": 116418
+      "path": "dist",
+      "action": "removed disposable generated dist artifacts",
+      "bytes": 402235212
+    },
+    {
+      "path": ".playwright-cli",
+      "action": "removed disposable generated .playwright-cli artifacts",
+      "bytes": 5000658
     }
   ],
   "updated": [
@@ -36,20 +41,25 @@
   ],
   "skipped": [
     {
-      "path": "dist",
-      "action": "removed disposable generated dist artifacts",
-      "reason": "path not found"
+      "path": "public/projects/15-cityplace/media/cityplace-shared-hero-1536x1024.jpg",
+      "action": "remove public alias",
+      "reason": "still referenced by source/data"
     },
     {
-      "path": ".playwright-cli",
-      "action": "removed disposable generated .playwright-cli artifacts",
-      "reason": "path not found"
+      "path": "public/projects/15-cityplace/media/cityplace-shared-mobile-1122x1402.jpg",
+      "action": "remove public alias",
+      "reason": "still referenced by source/data"
+    },
+    {
+      "path": "public/projects/15-cityplace/media/cityplace-shared-card-1448x1086.jpg",
+      "action": "remove public alias",
+      "reason": "still referenced by source/data"
     }
   ],
   "summary": {
-    "removedFiles": 4,
+    "removedFiles": 5,
     "updatedFiles": 2,
-    "skippedItems": 2,
-    "removedBytes": 15669358
+    "skippedItems": 3,
+    "removedBytes": 460720914
   }
 }

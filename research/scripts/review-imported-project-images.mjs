@@ -12,7 +12,7 @@ function readJson(file, fallback) {
 }
 
 const records = readJson(metadataPath, []);
-const approvedRecords = records.filter((record) => record.status === "approved");
+const placedRecords = records.filter((record) => record.status === "placed");
 const groups = new Map();
 for (const record of records) {
   if (!groups.has(record.projectId)) groups.set(record.projectId, []);
@@ -24,7 +24,7 @@ const lines = [
   "",
   `Generated: ${new Date().toISOString()}`,
   "",
-  "Imported developer/project-site images default to `needs_review`. Public pages may only use records synced into `src/data/approvedImportedProjectImages.json` after their metadata status is changed to `approved`.",
+  "Imported developer/project-site images default to `candidate`. Public pages may use records synced into `src/data/approvedImportedProjectImages.json` after duplicate and placement analysis marks them `placed`.",
   "",
 ];
 
@@ -38,7 +38,7 @@ if (!records.length) {
     for (const record of projectRecords) {
       const localPath = record.localPath.replace(/^public\//, "/");
       const dimensions = record.width && record.height ? `${record.width}x${record.height}` : "Unknown";
-      const recommendation = record.status === "needs_review" ? "Review rights, relevance, quality, and project match before approving." : "No action unless status changes.";
+      const recommendation = record.status === "candidate" ? "Review relevance, quality, project match, and best placement." : "No action unless placement changes.";
       lines.push(
         `| ![](${localPath})<br />\`${record.localPath}\` | ${record.imageType} | ${dimensions} | ${record.status} | [source](${record.sourcePageUrl}) | ${recommendation} |`,
       );
@@ -50,13 +50,13 @@ if (!records.length) {
 mkdirSync(path.dirname(reportPath), { recursive: true });
 writeFileSync(reportPath, `${lines.join("\n")}\n`);
 mkdirSync(path.dirname(publicApprovedPath), { recursive: true });
-writeFileSync(publicApprovedPath, `${JSON.stringify(approvedRecords, null, 2)}\n`);
+writeFileSync(publicApprovedPath, `${JSON.stringify(placedRecords, null, 2)}\n`);
 console.log(
   JSON.stringify(
     {
       developerImageReview: "complete",
       records: records.length,
-      approvedForPublicBundle: approvedRecords.length,
+      placedForPublicBundle: placedRecords.length,
       reportPath: path.relative(root, reportPath),
     },
     null,

@@ -98,14 +98,24 @@ if (/imageId:\s*"buyer-intelligence-interior"/.test(marketNotesSource)) {
   fail("Market Notes still point to the unsourced buyer-intelligence interior image.");
 }
 
-if (!/approvedImportedImagesForProject/.test(mainSource) || !/status === "approved"/.test(mainSource)) {
-  fail("Imported project images are not gated to approved status before public rendering.");
+if (!/approvedImportedImagesForProject/.test(mainSource) || !/status === "placed"/.test(mainSource)) {
+  fail("Imported project images are not gated to placed status before public rendering.");
 }
 
 for (const image of approvedImportedImages) {
-  if (image.status !== "approved") {
-    fail(`Public imported image bundle contains a non-approved image: ${image.id}`);
+  if (image.status !== "placed") {
+    fail(`Public imported image bundle contains a non-placed image: ${image.id}`);
   }
+  for (const key of ["projectId", "sourcePageUrl", "sourceImageUrl", "localPath", "capturedAt", "imageType", "caption", "alt", "placement", "credit"]) {
+    if (!image[key]) fail(`Public imported image is missing ${key}: ${image.id ?? image.localPath}`);
+  }
+  if (!existsSync(path.join(root, image.localPath))) {
+    fail(`Placed imported image file is missing: ${image.localPath}`);
+  }
+}
+
+if (!mainSource.includes("Some project images and renderings are sourced from developer or project marketing materials")) {
+  fail("Developer/project image disclaimer is missing from public rendering.");
 }
 
 function cssBlock(selector) {

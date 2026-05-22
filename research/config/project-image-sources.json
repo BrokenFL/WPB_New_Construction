@@ -8,7 +8,7 @@
       "crawlSeeds": ["https://www.olarawestpalmbeach.com/"],
       "allowedSourceDomains": ["olarawestpalmbeach.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Seeded from existing project source catalog. Imported images require manual approval before public use."
+      "notes": "Seeded from existing project source catalog. Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "ritz-carlton-wpb",
@@ -21,7 +21,7 @@
       ],
       "allowedSourceDomains": ["theresidenceswestpalmbeach.com", "relatedgroup.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "shorecrest",
@@ -30,7 +30,7 @@
       "crawlSeeds": ["https://www.shorecrestwpb.com/", "https://www.shorecrestwpb.com/floorplans"],
       "allowedSourceDomains": ["shorecrestwpb.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "mr-c",
@@ -43,7 +43,7 @@
       ],
       "allowedSourceDomains": ["mrcresidenceswpb.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "alba-palm-beach",
@@ -52,7 +52,7 @@
       "crawlSeeds": ["https://www.albapalmbeach.com/"],
       "allowedSourceDomains": ["albapalmbeach.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "mandarin-oriental",
@@ -61,7 +61,7 @@
       "crawlSeeds": ["https://mandarinorientalwestpalmbeach.com/"],
       "allowedSourceDomains": ["mandarinorientalwestpalmbeach.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "south-flagler-house",
@@ -70,7 +70,7 @@
       "crawlSeeds": ["https://www.southflaglerhouse.com/"],
       "allowedSourceDomains": ["southflaglerhouse.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "nora-house",
@@ -79,7 +79,7 @@
       "crawlSeeds": ["https://norahouse.com/", "https://norahouse.com/amenities/"],
       "allowedSourceDomains": ["norahouse.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "banyan-tree",
@@ -88,7 +88,7 @@
       "crawlSeeds": ["https://www.banyantreeresidenceswpb.com/"],
       "allowedSourceDomains": ["banyantreeresidenceswpb.com", "admin.banyantreeresidenceswpb.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "berkeley",
@@ -97,7 +97,7 @@
       "crawlSeeds": ["https://www.theberkeleypalmbeach.com/"],
       "allowedSourceDomains": ["theberkeleypalmbeach.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "maison-dor",
@@ -106,7 +106,7 @@
       "crawlSeeds": ["https://livemaisondor.com/"],
       "allowedSourceDomains": ["livemaisondor.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     },
     {
       "projectId": "forte-on-flagler",
@@ -115,7 +115,7 @@
       "crawlSeeds": ["https://fortewpb.com/"],
       "allowedSourceDomains": ["fortewpb.com"],
       "priorityImageTypes": ["interior", "amenity", "rendering"],
-      "notes": "Imported images require manual approval before public use."
+      "notes": "Developer-site images are available for placement after source, duplicate, and best-version analysis."
     }
   ]
 }

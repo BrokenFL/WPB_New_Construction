@@ -152,11 +152,13 @@ type ImportedProjectImage = {
   localPath: string;
   capturedAt: string;
   imageType: "interior" | "amenity" | "exterior" | "rendering" | "floorplan" | "logo" | "unknown";
-  status: "needs_review" | "approved" | "rejected" | "archived";
+  status: "candidate" | "placed" | "rejected" | "archived";
   width?: number;
   height?: number;
   caption: string;
   alt: string;
+  placement?: "hero" | "card" | "gallery" | "interior" | "amenity" | "update" | "article";
+  credit?: string;
   notes?: string;
 };
 
@@ -2037,12 +2039,12 @@ app.innerHTML = `
         <div class="section-heading">
           <p class="eyebrow">Development Headlines</p>
           <h2>External West Palm Beach development news, linked to the original source.</h2>
-          <p>Track public sales, construction, planning, and financing signals across the West Palm Beach new-construction pipeline. Older updates are preserved for context and should be verified before buyer reliance.</p>
+          <p>Track public sales, construction, planning, and financing updates across the West Palm Beach new-construction market. Older updates are useful background. For current pricing, availability, and delivery timing, ask Brooke to verify the latest details.</p>
         </div>
         <div class="answer-meta-panel">
           <span>Updated ${publishedExternalNews[0]?.fetchedAt ?? floorplanLibrary[0]?.updatedAt ?? "2026-05-22"}</span>
           <strong>Original headlines, source names, dates, and direct article links.</strong>
-          <small>Raw feed results stay in review until approved; paywalled or unrelated links are excluded or marked before publication.</small>
+          <small>We keep external reporting linked to its source so buyers can separate background news from current decision details.</small>
         </div>
         <div class="news-grid">
           ${publishedExternalNews.map(renderExternalNewsItem).join("")}
@@ -2060,7 +2062,7 @@ app.innerHTML = `
           <aside class="answer-meta-panel">
             <span>${marketNotes.length} buyer notes</span>
             <strong>Built for comparison, not brochure fog.</strong>
-            <small>Each note names the buyer angle and the items Brooke should verify before you rely on it.</small>
+            <small>Each note names the buyer angle and the items Brooke should verify before you make a decision.</small>
           </aside>
         </section>
         <section class="section">
@@ -2160,8 +2162,8 @@ app.innerHTML = `
             </article>
             <article class="profile-card">
               <span>Refresh Cadence</span>
-              <strong>Source data is refreshed through the review workflow before publication updates.</strong>
-              <p>Corrections should be handled by updating the source catalog, regenerating the site data, and noting material changes in the updates feed.</p>
+              <strong>Public facts are refreshed before buyer guidance changes.</strong>
+              <p>When project facts change, the page should show what changed, where it came from, and what still needs current confirmation.</p>
             </article>
             <article class="profile-card">
               <span>Limits</span>
@@ -2791,6 +2793,7 @@ app.innerHTML = `
       <div>
         <span>Review Method</span>
         <p>Project facts are separated as official, reported, or confirm-before-offer when sources conflict. <a href="/methodology/">See how we verify.</a></p>
+        <p class="media-disclaimer">Some project images and renderings are sourced from developer or project marketing materials and are shown for buyer reference. Availability, finishes, views, amenities, and project details should be verified before reliance.</p>
       </div>
       <div>
         <span>Contact</span>
@@ -2875,8 +2878,8 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     status.textContent = "Saving inquiry...";
   }
 
-  const sentToFormHandler = await submitLeadForm(form);
-  if (sentToFormHandler) {
+  const sentToFormEndpoint = await submitLeadForm(form);
+  if (sentToFormEndpoint) {
     track("lead_modal_submitted", {
       project: project || "not-sure-yet",
       interest,
@@ -3467,7 +3470,7 @@ function updateMetaDescription(routeType: string, activeProject?: FeaturedProjec
     map: "Map West Palm Beach new-construction condo projects by corridor, waterfront position, and buyer context.",
     compare: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, and buyer fit.",
     news: "West Palm Beach new-construction market updates translated into practical buyer context.",
-    "market-notes": "Buyer notes and market intelligence for West Palm Beach new-construction condos, with source-aware context and practical availability checks.",
+    "market-notes": "Buyer notes and market intelligence for West Palm Beach new-construction condos, with source-backed buyer guidance and practical availability checks.",
     floorplans: "Released West Palm Beach new-construction condo floorplans organized by project for easier first comparison.",
     answers: "Buyer-focused West Palm Beach new-construction condo answers with cited sources and practical next steps.",
     methodology: "How WPB New Construction separates verified, reported, and confirm-before-reliance project details.",
@@ -3932,7 +3935,7 @@ function renderCompareRouteView() {
         <div>
           <p class="eyebrow">Compare</p>
           <h1>Compare buildings by the facts that actually change a buyer's decision.</h1>
-          <p>Use this page to shortlist up to three West Palm Beach new-construction buildings, then ask Brooke to verify the current moving parts before you chase stale numbers.</p>
+          <p>Use this page to shortlist up to three West Palm Beach new-construction buildings, then ask Brooke to verify the current moving parts before you rely on older public numbers.</p>
         </div>
         ${renderEditorialImagePanel("buyer-intelligence-interior", { compact: true, className: "compare-route-image" })}
       </section>
@@ -4072,7 +4075,7 @@ function renderMarketNoteArticle(note: MarketNote) {
   const relatedUpdates = researchNewsFeed
     .filter((item) => item.projectIds.some((projectId) => note.projectIds.includes(projectId)))
     .slice(0, 3);
-  const sourceStatus = note.sourceLinks.length ? "Source-linked buyer note" : "Internal buyer note";
+  const sourceStatus = note.sourceLinks.length ? "Source-linked buyer note" : "Buyer guidance note";
 
   return `
     <article class="market-note-article">
@@ -4150,7 +4153,7 @@ function renderMarketNoteArticle(note: MarketNote) {
         <div>
           <p class="eyebrow">Private Comparison Notes</p>
           <h2>Want help applying this to your search?</h2>
-          <p>Send the buildings you are weighing and Brooke will help verify current availability, floor plans, and timing before you build a shortlist around stale numbers.</p>
+          <p>Send the buildings you are weighing and Brooke will help verify current availability, floor plans, and timing before you build a shortlist around older public numbers.</p>
         </div>
         <a href="/inquire/?lead_capture_context=market_note_article&message=${encodeURIComponent(`I want help applying this note: ${note.title}`)}">Request Current Availability <span aria-hidden="true">↗</span></a>
       </section>
@@ -4222,23 +4225,35 @@ function renderMediaAsset(asset: MediaAsset, variant = "standard") {
 }
 
 function projectImageForContent(project: FeaturedProject) {
-  return project.heroImage
-    ?? (approvedImportedImagesForProject(project.id)[0] ? importedImagePublicPath(approvedImportedImagesForProject(project.id)[0]) : undefined)
+  return curatedProjectImage(project)
+    ?? placedImportedImageForProject(project.id, "card")
     ?? project.image
     ?? project.galleryImages?.find((asset) => canShowImage(asset.src))?.src;
 }
 
 function approvedImportedImagesForProject(projectId: string) {
   return importedProjectImages
-    .filter((image) => image.projectId === projectId && image.status === "approved" && canShowImage(image.localPath))
+    .filter((image) => image.projectId === projectId && image.status === "placed" && canShowImage(importedImagePublicPath(image)))
     .sort((a, b) => {
-      const priority = { interior: 0, amenity: 1, rendering: 2, exterior: 3, floorplan: 4, unknown: 5, logo: 6 };
-      return priority[a.imageType] - priority[b.imageType];
+      const placementPriority = { hero: 0, card: 1, gallery: 2, interior: 3, amenity: 4, update: 5, article: 6 };
+      const typePriority = { exterior: 0, rendering: 1, unknown: 2, interior: 3, amenity: 4, floorplan: 5, logo: 6 };
+      return (placementPriority[a.placement ?? "gallery"] - placementPriority[b.placement ?? "gallery"]) || (typePriority[a.imageType] - typePriority[b.imageType]);
     });
 }
 
 function importedImagePublicPath(image: ImportedProjectImage) {
   return image.localPath.replace(/^public/, "");
+}
+
+function curatedProjectImage(project: FeaturedProject) {
+  const candidates = [project.heroImage, project.mobileImage, project.image, ...(project.galleryImages?.map((asset) => asset.src) ?? [])].filter(Boolean) as string[];
+  return candidates.find((src) => src.includes("user-provided-"));
+}
+
+function placedImportedImageForProject(projectId: string, placement?: ImportedProjectImage["placement"]) {
+  const records = approvedImportedImagesForProject(projectId);
+  const record = placement ? records.find((image) => image.placement === placement) ?? records[0] : records[0];
+  return record ? importedImagePublicPath(record) : undefined;
 }
 
 function firstNamedProjectForContent(item: ContentImageContext) {
@@ -4304,7 +4319,7 @@ function imageForContentItem(item: ContentImageContext): ResolvedContentImage {
     return {
       src: projectImage,
       alt: approvedImport?.alt ?? `${relatedProject.name} related image`,
-      credit: approvedImport?.caption ?? imageCreditShort(projectImage),
+      credit: approvedImport?.credit ?? imageCreditShort(projectImage),
       caption: approvedImport?.caption ?? imageCaptionShort(projectImage),
       relatedProject,
       source: approvedImport ? "imported" : "project",
@@ -4335,10 +4350,11 @@ function imageForContentItem(item: ContentImageContext): ResolvedContentImage {
 }
 
 function renderResolvedContentImage(image: ResolvedContentImage, className = "") {
+  const caption = image.source === "imported" ? `${image.caption} · ${image.credit}` : image.caption;
   return `
     <figure class="${["content-image-panel", className].filter(Boolean).join(" ")}" data-image-source="${image.source}">
       <img src="${safeHref(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" decoding="async" />
-      <figcaption>${publicText(image.caption)}</figcaption>
+      <figcaption>${publicText(caption)}</figcaption>
     </figure>
   `;
 }
@@ -4400,7 +4416,7 @@ function gatekeeperText(value: unknown) {
     .replace(/\bdeveloper disclosure package\b/gi, "required condominium disclosure package")
     .replace(/\bproject-source-catalog\b/gi, "project review file")
     .replace(/\bsource-catalog\b/gi, "review file")
-    .replace(/\bbackend\b/gi, "internal")
+    .replace(/\bbackend\b/gi, "operations")
     .replace(/\bSource:\s*/gi, "");
 }
 
@@ -5000,7 +5016,7 @@ function renderProjectFact(fact: ProjectFact) {
 
 function isSuppressedPublicFact(fact: ProjectFact) {
   const combined = `${fact.label} ${fact.value} ${fact.note ?? ""}`.toLowerCase();
-  return /sales\s*(gallery|office)|developer\s+site|official\s+site|source-catalog|backend/.test(combined);
+  return /sales\s*(gallery|office)|developer\s+site|official\s+site|source-catalog|operations layer/.test(combined);
 }
 
 function projectTypeLabel(type: ProjectPageType) {
@@ -5147,6 +5163,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <a href="${isCompactWatch ? `#project-updates-${project.id}` : `/inquire/?project=${project.id}&interest=floorplans`}">${primaryCta}</a>
       </nav>
 
+      ${renderDeveloperImageDisclaimer()}
+
       <section class="brochure-stat-rail" aria-label="${project.name} quick facts">
         ${brochureStats.map(renderBrochureStat).join("")}
       </section>
@@ -5263,7 +5281,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
   const residences = conciseResidences(project.id, source?.residences ?? "") || project.residences;
   const delivery = conciseDelivery(source?.completion ?? "") || project.delivery;
   const pricing = concisePricing(source?.pricing ?? "") || project.price;
-  const projectHeroImage = project.heroImage ?? project.image;
+  const projectHeroImage = curatedProjectImage(project) ?? placedImportedImageForProject(project.id, "card") ?? project.heroImage ?? project.image;
   const factFields = [
     { label: "Address", value: address },
     { label: "Stories", value: stories },
@@ -5277,7 +5295,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
   const teamCredits = teamCreditsFromSource(source?.team);
   const approvedImportedGallery = approvedImportedImagesForProject(project.id).map((image) => ({
     src: importedImagePublicPath(image),
-    kicker: image.imageType === "interior" ? "Interior Rendering" : image.imageType === "amenity" ? "Amenity Image" : "Developer-site Image",
+    kicker: image.imageType === "interior" ? "Interior Rendering" : image.imageType === "amenity" ? "Amenity Image" : image.imageType === "exterior" ? "Project Rendering" : "Developer Image",
     title: image.caption,
     alt: image.alt,
   }));
@@ -5333,7 +5351,7 @@ function documentsFromSource(_project: FeaturedProject, sourceFact: ReturnType<t
     docs.push({
       label: "Reviewed",
       title: "Project materials reviewed",
-      note: "Source records stay internal; request the buyer packet for current details.",
+      note: "Detailed source records are kept out of the buyer page; request the buyer packet for current details.",
     });
   }
   docs.push({ label: "Packet", title: "Request current packet", note: "Floorplans, pricing, availability, fees, and contract guidance" });
@@ -5387,7 +5405,13 @@ function renderBrochureStat(stat: { label: string; value: string }) {
 }
 
 function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraft) {
-  const assets = [...draft.gallery];
+  const importedAssets = approvedImportedImagesForProject(project.id).map((image) => ({
+    src: importedImagePublicPath(image),
+    kicker: image.imageType === "interior" ? "Interior Rendering" : image.imageType === "amenity" ? "Amenity Image" : image.imageType === "exterior" ? "Project Rendering" : "Developer Image",
+    title: image.caption,
+    alt: image.alt,
+  }));
+  const assets = [...draft.gallery, ...importedAssets.filter((asset) => !draft.gallery.some((existing) => existing.src === asset.src))];
   if (draft.image && !assets.some((asset) => asset.src === draft.image)) {
     assets.unshift({ src: draft.image, kicker: "Project Image", title: draft.title, alt: draft.imageAlt });
   }
@@ -5445,11 +5469,22 @@ function renderBrochureTeamTile(item: { credit: TeamCredit; asset?: MediaAsset }
 }
 
 function renderBrochureImageTile(asset: MediaAsset, label: string) {
+  const sourceLabel = asset.src.includes("/media/imported/") ? ` · ${developerImageCredit()}` : "";
   return `
     <article class="brochure-image-tile">
       ${renderMediaAsset(asset, "feature")}
-      <span>${label}</span>
+      <span>${label}${sourceLabel}</span>
     </article>
+  `;
+}
+
+function developerImageCredit() {
+  return "Image via project marketing materials";
+}
+
+function renderDeveloperImageDisclaimer() {
+  return `
+    <p class="media-disclaimer">Some project images and renderings are sourced from developer or project marketing materials and are shown for buyer reference. Availability, finishes, views, amenities, and project details should be verified before reliance.</p>
   `;
 }
 

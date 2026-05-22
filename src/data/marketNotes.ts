@@ -97,7 +97,7 @@ export const marketNotes = [
     ctaText: articleCta,
     factCheckRequired: [
       "Refresh current active-sales and planning status before treating a project as decision-grade.",
-      "Confirm pricing, availability, and delivery timing directly before buyer reliance.",
+      "Confirm pricing, availability, and delivery timing directly before making a decision.",
     ],
     seo: {
       primaryQuery: "West Palm Beach new construction condos",
@@ -158,7 +158,7 @@ export const marketNotes = [
     ctaText: articleCta,
     factCheckRequired: [
       "Confirm current Shorecrest residence count and construction status before publication updates.",
-      "Confirm current Olara and Shorecrest pricing and availability before buyer reliance.",
+      "Confirm current Olara and Shorecrest pricing and availability before making a decision.",
     ],
     seo: {
       primaryQuery: "Olara vs Shorecrest West Palm Beach",
@@ -277,8 +277,8 @@ export const marketNotes = [
     ],
     ctaText: articleCta,
     factCheckRequired: [
-      "Current pricing and incentives must be verified directly before buyer reliance.",
-      "Avoid quoting stale public pricing without date and source context.",
+      "Current pricing and incentives must be verified directly before making a decision.",
+      "Avoid quoting older public pricing without date and source context.",
     ],
     seo: {
       primaryQuery: "West Palm Beach condo availability",
