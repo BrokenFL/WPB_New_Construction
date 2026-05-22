@@ -1,0 +1,7 @@
+# Template only. Do not install or route this tunnel until Cloudflare Access is configured.
+tunnel: brooke-builder
+credentials-file: /Users/brookesnader/.cloudflared/<tunnel-id>.json
+ingress:
+  - hostname: builder.wpbnewconstruction.com
+    service: http://127.0.0.1:8787
+  - service: http_status:404

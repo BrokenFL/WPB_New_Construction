@@ -75,7 +75,7 @@ async function waitForPreview(url, child) {
   });
 
   const started = Date.now();
-  while (Date.now() - started < 15000) {
+  while (Date.now() - started < 30000) {
     if (child.exitCode !== null) {
       throw new Error(`Vite preview exited early.\n${output}`);
     }

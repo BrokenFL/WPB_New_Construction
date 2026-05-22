@@ -243,6 +243,12 @@ type HomepageOverride = {
   headline?: string;
   subhead?: string;
   status?: string;
+  imagePosition?: string;
+  focalPoint?: {
+    x?: number;
+    y?: number;
+  };
+  objectFit?: string;
 };
 
 const homepageOverrides = homepageOverridesRaw as { sections?: Record<string, HomepageOverride> };
@@ -272,12 +278,23 @@ function approvedHomepageCardOverride(sectionId: string, cardId: string) {
 
 function renderHomepageOverrideImage(override: HomepageCardOverride, fallbackTitle: string, className = "") {
   const caption = override.caption ? `<figcaption>${escapeHtml(override.caption)}</figcaption>` : "";
+  const style = imageStyle(override);
   return `
     <figure class="${className}">
-      <img src="${safeHref(override.imagePath || "")}" alt="${escapeHtml(override.alt || fallbackTitle)}" loading="lazy" decoding="async" />
+      <img src="${safeHref(override.imagePath || "")}" alt="${escapeHtml(override.alt || fallbackTitle)}" loading="lazy" decoding="async"${style} />
       ${caption}
     </figure>
   `;
+}
+
+function imageStyle(override?: HomepageCardOverride) {
+  const position = override?.imagePosition || (override?.focalPoint ? `${override.focalPoint.x ?? 50}% ${override.focalPoint.y ?? 50}%` : "");
+  const fit = override?.objectFit && ["cover", "contain"].includes(override.objectFit) ? override.objectFit : "";
+  const declarations = [
+    position ? `object-position: ${position}` : "",
+    fit ? `object-fit: ${fit}` : "",
+  ].filter(Boolean);
+  return declarations.length ? ` style="${escapeHtml(declarations.join("; "))}"` : "";
 }
 
 const activeHomeHeroImages = (() => {
@@ -289,6 +306,7 @@ const activeHomeHeroImages = (() => {
       src: override.imagePath,
       alt: override.alt || homeHeroImages[0].alt,
       caption: override.caption || homeHeroImages[0].caption,
+      imagePosition: override.imagePosition || (override.focalPoint ? `${override.focalPoint.x ?? 50}% ${override.focalPoint.y ?? 50}%` : undefined),
     },
     ...homeHeroImages.filter((image) => image.src !== override.imagePath),
   ];
@@ -1976,6 +1994,7 @@ app.innerHTML = `
             loading="eager"
             decoding="async"
             fetchpriority="high"
+            ${heroImagePosition(activeHomeHeroImages[0]) ? `style="object-position: ${escapeHtml(heroImagePosition(activeHomeHeroImages[0]))}"` : ""}
           />
           <img
             class="home-hero-image"
@@ -3265,6 +3284,8 @@ function initHomeHero() {
       return;
     }
     standbyLayer.alt = image.alt;
+    const nextPosition = heroImagePosition(image);
+    standbyLayer.style.objectPosition = nextPosition || "";
     standbyLayer.removeAttribute("aria-hidden");
     currentLayer.style.zIndex = "1";
     standbyLayer.style.zIndex = "2";
@@ -3303,6 +3324,10 @@ function initHomeHero() {
   window.setInterval(() => {
     void rotate();
   }, HERO_ROTATION_INTERVAL_MS);
+}
+
+function heroImagePosition(image: object) {
+  return "imagePosition" in image && typeof image.imagePosition === "string" ? image.imagePosition : "";
 }
 
 function initBuyerAssistant() {

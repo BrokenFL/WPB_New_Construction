@@ -20,6 +20,7 @@
     </header>
 
     <p class="warning">Local editorial tool. Changes write to repo files. Review changes before publishing.</p>
+    <p id="remoteBanner" class="remote-banner" hidden>Remote Builder Mode - secure access through Cloudflare. Confirm carefully before publishing.</p>
 
     <main class="builder-shell">
       <aside class="sidebar">
@@ -30,6 +31,7 @@
         <nav class="tabs" aria-label="Main workflows">
           <button class="active" data-tab="site" type="button">Site Editor</button>
           <button data-tab="news" type="button">News Desk</button>
+          <button data-tab="reports" type="button">Reports</button>
         </nav>
         <nav class="section-tabs" aria-label="Editor sections">
           <button class="active" data-section="dashboard" type="button">Dashboard</button>
@@ -121,7 +123,29 @@
               </div>
               <label>Deck / excerpt<textarea name="deck"></textarea></label>
               <div id="repetitionWarning" class="repetition-warning" hidden></div>
-              <div id="cardPreview" class="card-preview"></div>
+              <fieldset class="crop-controls">
+                <legend>Image crop</legend>
+                <div class="preset-row">
+                  <button data-position-preset="center center" type="button">Center</button>
+                  <button data-position-preset="top center" type="button">Top</button>
+                  <button data-position-preset="bottom center" type="button">Bottom</button>
+                  <button data-position-preset="left center" type="button">Left</button>
+                  <button data-position-preset="right center" type="button">Right</button>
+                </div>
+                <div class="grid">
+                  <label>Focal X <input name="focalPointX" type="range" min="0" max="100" value="50" /></label>
+                  <label>Focal Y <input name="focalPointY" type="range" min="0" max="100" value="50" /></label>
+                  <label>Object fit<select name="objectFit"><option value="cover">cover</option><option value="contain">contain</option></select></label>
+                  <input name="imagePosition" type="hidden" value="center center" />
+                </div>
+                <button id="resetCrop" type="button">Reset Crop</button>
+              </fieldset>
+              <fieldset class="repeat-approval">
+                <legend>Intentional repetition</legend>
+                <label class="checkbox-row"><input name="allowRepeatedImage" type="checkbox" /> Allow repeated image after review</label>
+                <label>Reason<textarea name="repetitionApprovalReason" placeholder="Intentional reuse for project-specific article and feature card."></textarea></label>
+              </fieldset>
+              <div id="cardPreview" class="card-preview-grid"></div>
               <div class="card-actions">
                 <button data-card-action="draft" type="submit">Save Draft</button>
                 <button data-card-action="approved" class="primary" type="submit">Approve</button>
@@ -250,6 +274,10 @@
             <button data-workflow="update" class="primary" type="button">Update Site Checks</button>
           </div>
           <div id="automationStatus"></div>
+          <div class="confirm-box">
+            <label class="checkbox-row"><input id="confirmUpdate" type="checkbox" /> I reviewed the current branch, dirty state, and reports before Update Site.</label>
+            <label class="checkbox-row"><input id="confirmRemote" type="checkbox" /> Remote mode only: I understand the desktop must stay on and publishing is final.</label>
+          </div>
         </section>
       </section>
 
@@ -269,6 +297,22 @@
           <section><h2>Needs Review</h2><div id="laneReview" class="news-list"></div></section>
           <section><h2>Published</h2><div id="lanePublished" class="news-list"></div></section>
           <section><h2>Newsletter Drafts</h2><div id="newsletterDrafts" class="news-list"></div></section>
+        </div>
+      </section>
+
+      <section id="reportsPanel" class="workspace panel">
+        <h1>Reports</h1>
+        <div class="reports-shell">
+          <aside id="reportList" class="report-list"></aside>
+          <article class="report-viewer">
+            <div class="report-actions">
+              <strong id="reportTitle">Choose a report</strong>
+              <button id="copyReport" type="button">Copy Text</button>
+              <button id="openReportPath" type="button">Open File Path</button>
+            </div>
+            <div id="reportMeta" class="muted"></div>
+            <div id="reportBody" class="markdown-body"></div>
+          </article>
         </div>
       </section>
     </main>

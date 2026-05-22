@@ -1,6 +1,8 @@
 let state;
 let selectedFile;
 let activeHomepageCard = { sectionId: "hero", cardId: "hero" };
+let activeReportPath = "";
+let activeReportText = "";
 
 const projectSelect = document.querySelector("#projectSelect");
 const result = document.querySelector("#result");
@@ -12,6 +14,8 @@ async function loadState() {
   fillCopyForm();
   renderStatusCards();
   renderAutomation();
+  renderRemoteMode();
+  renderReports();
   renderNewsDesk();
   renderHomepageEditor();
   renderHomepageCardEditor();
@@ -118,10 +122,16 @@ function renderAutomation() {
       <div><dt>News publisher agent</dt><dd>${status(automation.newsPublisherInstalled ? (automation.newsPublisherLoaded ? "Healthy" : "Warning") : "Not installed")}</dd></div>
       <div><dt>Manual daily run</dt><dd><code>${escapeHtml(automation.dailyMaintenanceManualRun || "npm run daily:maintenance")}</code></dd></div>
       <div><dt>Manual publisher run</dt><dd><code>${escapeHtml(automation.newsPublisherManualRun || "npm run news:daily-publisher")}</code></dd></div>
-      <div><dt>Reports</dt><dd>${(automation.reports || []).map((path) => `<code>${escapeHtml(path)}</code>`).join("<br />")}</dd></div>
+      <div><dt>Latest reports</dt><dd>${(automation.reports || []).map((path) => `<button data-report-shortcut="${escapeHtml(path)}" type="button">${escapeHtml(fileName(path))}</button>`).join("")}</dd></div>
     </dl>
     <pre>${escapeHtml(JSON.stringify({ scripts: automation.scripts, changeLog: state.overrides.changeLog?.entries?.slice(0, 8) ?? [] }, null, 2))}</pre>
   `;
+  document.querySelectorAll("[data-report-shortcut]").forEach((button) => {
+    button.onclick = async () => {
+      document.querySelector("[data-tab='reports']").click();
+      await loadReport(button.dataset.reportShortcut);
+    };
+  });
 }
 
 function renderHomepageEditor() {
@@ -189,6 +199,12 @@ function renderHomepageCardEditor() {
   for (const name of ["headline", "subhead", "deck", "caption", "alt", "ctaLabel", "status"]) {
     if (form.elements[name]) form.elements[name].value = activeOverride[name] ?? "";
   }
+  form.elements.objectFit.value = activeOverride.objectFit || "cover";
+  form.elements.imagePosition.value = activeOverride.imagePosition || "center center";
+  form.elements.focalPointX.value = activeOverride.focalPoint?.x ?? focalFromPosition(form.elements.imagePosition.value).x;
+  form.elements.focalPointY.value = activeOverride.focalPoint?.y ?? focalFromPosition(form.elements.imagePosition.value).y;
+  form.elements.allowRepeatedImage.checked = Boolean(activeOverride.allowRepeatedImage);
+  form.elements.repetitionApprovalReason.value = activeOverride.repetitionApprovalReason || "";
   if (!form.elements.status.value) form.elements.status.value = "draft";
   updateCardPreview();
   updateRepetitionWarning();
@@ -199,6 +215,12 @@ function renderHomepageCardEditor() {
   ["headline", "subhead", "deck", "caption", "alt", "ctaLabel"].forEach((name) => {
     form.elements[name].oninput = updateCardPreview;
   });
+  ["focalPointX", "focalPointY", "objectFit"].forEach((name) => {
+    form.elements[name].oninput = () => {
+      form.elements.imagePosition.value = `${form.elements.focalPointX.value}% ${form.elements.focalPointY.value}%`;
+      updateCardPreview();
+    };
+  });
 }
 
 function bindHomepageCardForm() {
@@ -206,7 +228,12 @@ function bindHomepageCardForm() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const payload = formPayload(form);
+    payload.allowRepeatedImage = form.elements.allowRepeatedImage.checked;
     payload.status = event.submitter?.dataset.cardAction === "approved" ? "approved" : "draft";
+    if (payload.allowRepeatedImage && !payload.repetitionApprovalReason.trim()) {
+      show({ ok: false, error: "Intentional repeated image approval requires a reason." });
+      return;
+    }
     show(await postJson("/api/homepage-card-overrides", payload));
     await loadState();
   });
@@ -217,6 +244,12 @@ function bindHomepageCardForm() {
     await loadState();
   });
 }
+
+document.querySelectorAll("[data-position-preset]").forEach((button) => {
+  button.addEventListener("click", () => setImagePosition(button.dataset.positionPreset));
+});
+
+document.querySelector("#resetCrop").addEventListener("click", () => setImagePosition("center center"));
 
 function populateImageSelect(select, selected = "") {
   const images = state.imageCatalog ?? [];
@@ -258,18 +291,43 @@ function renderImagePicker() {
 function updateCardPreview() {
   const form = document.querySelector("#homepageCardPanel");
   const imagePath = form.elements.imagePath.value;
+  const imagePosition = form.elements.imagePosition.value || "center center";
+  const objectFit = form.elements.objectFit.value || "cover";
   const title = form.elements.headline.value || document.querySelector("#selectedCardTitle").textContent;
   const deck = form.elements.deck.value || form.elements.subhead.value || "Card preview";
   const cta = form.elements.ctaLabel.value || defaultCtaLabel(activeHomepageCard.sectionId);
+  const activeCard = (state.homepageCards?.[activeHomepageCard.sectionId] ?? []).find((card) => card.id === activeHomepageCard.cardId) ?? {};
+  const activeOverride = state.overrides.homepageCards?.sections?.[activeHomepageCard.sectionId]?.cards?.[activeHomepageCard.cardId] ?? {};
+  const published = {
+    imagePath: activeCard.imagePath || "",
+    headline: activeCard.title || "Current published",
+    deck: activeCard.deck || "Published fallback",
+    ctaLabel: defaultCtaLabel(activeHomepageCard.sectionId),
+  };
+  const draft = { imagePath, headline: title, deck, ctaLabel: cta };
+  const approved = activeOverride.status === "approved" ? activeOverride : null;
   document.querySelector("#cardPreview").innerHTML = `
-    ${imagePath ? `<img src="${escapeHtml(imagePath)}" alt="${escapeHtml(form.elements.alt.value || title)}" />` : `<div class="preview-placeholder">Default image</div>`}
-    <div>
-      <span>${escapeHtml(activeHomepageCard.sectionId)}</span>
-      <strong>${escapeHtml(title)}</strong>
-      <p>${escapeHtml(deck)}</p>
-      <small>${escapeHtml(form.elements.caption.value || "No caption override")}</small>
-      <a>${escapeHtml(cta)}</a>
-    </div>
+    ${previewVariant("Current published", published, "desktop", "center center", "cover")}
+    ${previewVariant("Draft override", draft, "desktop", imagePosition, objectFit)}
+    ${previewVariant("Draft mobile crop", draft, "mobile", imagePosition, objectFit)}
+    ${previewVariant("Approved override", approved, "desktop", approved?.imagePosition || "center center", approved?.objectFit || "cover")}
+  `;
+}
+
+function previewVariant(label, item, size, imagePosition, objectFit) {
+  if (!item) return `<article class="card-preview ${size}"><span>${escapeHtml(label)}</span><div class="preview-placeholder">No approved override</div></article>`;
+  const image = item.imagePath
+    ? `<img src="${escapeHtml(item.imagePath)}" alt="" style="object-position:${escapeHtml(imagePosition)};object-fit:${escapeHtml(objectFit)}" />`
+    : `<div class="preview-placeholder">Default image</div>`;
+  return `
+    <article class="card-preview ${size}">
+      <span>${escapeHtml(label)}</span>
+      ${image}
+      <strong>${escapeHtml(item.headline || "Card headline")}</strong>
+      <p>${escapeHtml(item.deck || item.subhead || "Card deck")}</p>
+      <small>${escapeHtml(item.caption || "No caption override")}</small>
+      <a>${escapeHtml(item.ctaLabel || defaultCtaLabel(activeHomepageCard.sectionId))}</a>
+    </article>
   `;
 }
 
@@ -279,7 +337,8 @@ function updateRepetitionWarning() {
   const warning = repetitionWarningFor(activeHomepageCard.sectionId, activeHomepageCard.cardId, imagePath);
   const target = document.querySelector("#repetitionWarning");
   target.hidden = !warning;
-  target.textContent = warning;
+  const allowed = form.elements.allowRepeatedImage.checked && form.elements.repetitionApprovalReason.value.trim();
+  target.textContent = warning && allowed ? `${warning} Intentional reuse is marked with a reason and will be listed in QA.` : warning;
 }
 
 function repetitionWarningFor(sectionId, cardId, imagePath) {
@@ -302,6 +361,75 @@ function repetitionWarningFor(sectionId, cardId, imagePath) {
   }
   return "";
 }
+
+function setImagePosition(position) {
+  const form = document.querySelector("#homepageCardPanel");
+  const focal = focalFromPosition(position);
+  form.elements.imagePosition.value = position;
+  form.elements.focalPointX.value = focal.x;
+  form.elements.focalPointY.value = focal.y;
+  updateCardPreview();
+}
+
+function focalFromPosition(position) {
+  const presets = {
+    "center center": { x: 50, y: 50 },
+    "top center": { x: 50, y: 0 },
+    "bottom center": { x: 50, y: 100 },
+    "left center": { x: 0, y: 50 },
+    "right center": { x: 100, y: 50 },
+  };
+  const percent = String(position || "").match(/(\d+)%\s+(\d+)%/);
+  if (percent) return { x: Number(percent[1]), y: Number(percent[2]) };
+  return presets[position] || presets["center center"];
+}
+
+function renderRemoteMode() {
+  const banner = document.querySelector("#remoteBanner");
+  banner.hidden = !state.remote?.isRemote;
+  banner.textContent = state.remote?.message || "";
+  document.body.classList.toggle("is-remote-mode", Boolean(state.remote?.isRemote));
+}
+
+async function renderReports() {
+  const payload = await fetchJson("/api/reports");
+  const reports = payload.reports || [];
+  const groups = groupBy(reports, "category");
+  document.querySelector("#reportList").innerHTML = Object.entries(groups).map(([category, items]) => `
+    <section>
+      <h2>${escapeHtml(category)}</h2>
+      ${items.map((item) => `
+        <button data-report-path="${escapeHtml(item.path)}" type="button" class="${item.path === activeReportPath ? "active" : ""}">
+          <strong>${escapeHtml(fileName(item.path))}</strong>
+          <span>${escapeHtml(item.exists ? formatDate(item.updatedAt) : "Missing")}</span>
+        </button>
+      `).join("")}
+    </section>
+  `).join("");
+  document.querySelectorAll("[data-report-path]").forEach((button) => {
+    button.onclick = () => loadReport(button.dataset.reportPath);
+  });
+  if (!activeReportPath && reports.find((item) => item.exists)) await loadReport(reports.find((item) => item.exists).path);
+}
+
+async function loadReport(reportPath) {
+  const payload = await fetchJson(`/api/report?path=${encodeURIComponent(reportPath)}`);
+  activeReportPath = reportPath;
+  activeReportText = payload.text || "";
+  document.querySelector("#reportTitle").textContent = fileName(reportPath);
+  document.querySelector("#reportMeta").textContent = `${payload.category || "Report"} · ${reportPath}`;
+  document.querySelector("#reportBody").innerHTML = renderMarkdown(activeReportText || "Report not found.");
+  document.querySelectorAll("[data-report-path]").forEach((button) => button.classList.toggle("active", button.dataset.reportPath === reportPath));
+}
+
+document.querySelector("#copyReport").addEventListener("click", async () => {
+  await navigator.clipboard.writeText(activeReportText || "");
+  show({ ok: true, copied: activeReportPath });
+});
+
+document.querySelector("#openReportPath").addEventListener("click", () => {
+  show({ ok: true, reportPath: activeReportPath });
+});
 
 function defaultCtaLabel(sectionId) {
   if (sectionId === "updates") return "Read Update";
@@ -418,7 +546,10 @@ function bindForm(selector, url, prepare = (payload) => payload) {
 
 async function runWorkflow(workflow) {
   show({ ok: true, running: workflow });
-  show(await postJson("/api/run-workflow", { workflow }));
+  const payload = { workflow };
+  if (["update", "update-deploy"].includes(workflow)) payload.confirmUpdate = document.querySelector("#confirmUpdate")?.checked === true;
+  if (state.remote?.isRemote) payload.confirmRemote = document.querySelector("#confirmRemote")?.checked === true;
+  show(await postJson("/api/run-workflow", payload));
   await loadState();
 }
 
@@ -430,7 +561,11 @@ async function setSelectedFile(file) {
 }
 
 function formPayload(form) {
-  return Object.fromEntries(new FormData(form).entries());
+  const payload = Object.fromEntries(new FormData(form).entries());
+  form.querySelectorAll("input[type='checkbox'][name]").forEach((input) => {
+    payload[input.name] = input.checked;
+  });
+  return payload;
 }
 
 async function fetchJson(url) {
@@ -469,6 +604,29 @@ function datetimeLocal(value) {
 
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+}
+
+function renderMarkdown(markdown) {
+  return escapeHtml(markdown)
+    .replace(/^### (.*)$/gm, "<h3>$1</h3>")
+    .replace(/^## (.*)$/gm, "<h2>$1</h2>")
+    .replace(/^# (.*)$/gm, "<h1>$1</h1>")
+    .replace(/^\- (.*)$/gm, "<li>$1</li>")
+    .replace(/(<li>.*<\/li>)/gs, "<ul>$1</ul>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\n{2,}/g, "</p><p>")
+    .replace(/^/, "<p>")
+    .replace(/$/, "</p>");
+}
+
+function fileName(filePath) {
+  return String(filePath || "").split("/").pop() || filePath;
+}
+
+function formatDate(value) {
+  if (!value) return "No date";
+  return new Date(value).toLocaleString();
 }
 
 function slug(value) {

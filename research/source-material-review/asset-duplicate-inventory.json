@@ -1,19 +1,19 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-22T21:16:24.078Z",
-    "filesScanned": 2007,
-    "duplicateHashGroups": 369,
-    "duplicateExtraBytes": 447477690,
+    "generatedAt": "2026-05-22T21:43:20.282Z",
+    "filesScanned": 2022,
+    "duplicateHashGroups": 368,
+    "duplicateExtraBytes": 447477637,
     "sourceDuplicateHashGroups": 330,
     "sourceDuplicateExtraBytes": 434360130,
     "publicOnlyDuplicateHashGroups": 3,
     "publicOnlyDuplicateExtraBytes": 2033973,
     "qaDuplicateHashGroups": 35,
     "qaDuplicateExtraBytes": 11113173,
-    "previousDuplicateExtraBytes": 437354594,
+    "previousDuplicateExtraBytes": 447477690,
     "previousSourceDuplicateExtraBytes": 434360130,
-    "duplicateExtraByteDelta": 10123096,
+    "duplicateExtraByteDelta": -53,
     "sourceDuplicateExtraByteDelta": 0
   },
   "policy": "Inventory only. Do not delete files from this report without explicit human approval; use it to choose canonical files and archive/move candidates.",
@@ -25,8 +25,8 @@
     },
     {
       "action": "Review canonical path before any move or delete.",
-      "groups": 124,
-      "extraBytes": 77226547
+      "groups": 123,
+      "extraBytes": 77226494
     },
     {
       "action": "Archive older QA screenshots after approval.",
@@ -7171,25 +7171,6 @@
         {
           "path": "research/content-editor/site-overrides.json",
           "size": 56
-        }
-      ]
-    },
-    {
-      "hash": "891524f9fcd58d1c6b6f29f3066f1d300d9fcca995c80cc07e7727aba77ae6ec",
-      "count": 2,
-      "eachBytes": 53,
-      "extraBytes": 53,
-      "classification": "workspace duplicate",
-      "recommendedCanonical": "content/overrides/editorial-image-overrides.json",
-      "action": "Review canonical path before any move or delete.",
-      "files": [
-        {
-          "path": "content/overrides/editorial-image-overrides.json",
-          "size": 53
-        },
-        {
-          "path": "content/overrides/image-caption-overrides.json",
-          "size": 53
         }
       ]
     },

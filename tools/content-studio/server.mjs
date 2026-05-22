@@ -13,6 +13,20 @@ const changeLogPath = path.join(overridesRoot, "change-log.json");
 const builderChangeLogPath = path.join(overridesRoot, "content-studio-change-log.json");
 const port = Number(process.env.WPB_CONTENT_STUDIO_PORT ?? 8787);
 const launchAgentRoot = path.join(process.env.HOME ?? "", "Library/LaunchAgents");
+const remoteHostnames = ["builder.wpbnewconstruction.com", "brooke-builder.wpbnewconstruction.com"];
+const reportDefinitions = [
+  { category: "Builder", path: "research/source-material-review/card-level-visual-polish-audit.md" },
+  { category: "Visual QA", path: "research/source-material-review/live-visual-product-audit.md" },
+  { category: "Visual QA", path: "research/source-material-review/image-repetition-audit.md" },
+  { category: "Automation", path: "research/source-material-review/news-publisher-report.md" },
+  { category: "Automation", path: "research/source-material-review/news-daily-publisher-report.md" },
+  { category: "Automation", path: "research/source-material-review/daily-maintenance-report.md" },
+  { category: "Builder", path: "research/source-material-review/brooke-builder-update-site-test.md" },
+  { category: "Product", path: "research/source-material-review/floorplan-viewer-ux.md" },
+  { category: "Product", path: "research/source-material-review/project-link-out-cleanup.md" },
+  { category: "Remote Access", path: "research/source-material-review/brooke-builder-remote-access-feasibility.md" },
+  { category: "Remote Access", path: "research/source-material-review/builder-remote-report-focal-point-audit.md" },
+];
 
 const overrideFiles = {
   projectCopy: "project-copy-overrides.json",
@@ -47,7 +61,9 @@ async function main() {
       if (request.method === "GET" && url.pathname === "/app.js") return sendFile(response, "app.js", "text/javascript; charset=utf-8");
       if (request.method === "GET" && url.pathname === "/style.css") return sendFile(response, "style.css", "text/css; charset=utf-8");
       if (request.method === "GET" && url.pathname === "/favicon.ico") return sendText(response, "", 204);
-      if (request.method === "GET" && url.pathname === "/api/state") return sendJson(response, await state());
+      if (request.method === "GET" && url.pathname === "/api/state") return sendJson(response, await state(request));
+      if (request.method === "GET" && url.pathname === "/api/reports") return sendJson(response, await reportsIndex());
+      if (request.method === "GET" && url.pathname === "/api/report") return sendJson(response, await reportBody(url.searchParams.get("path")));
       if (request.method === "POST" && url.pathname === "/api/project-copy") return saveProjectCopy(request, response);
       if (request.method === "POST" && url.pathname === "/api/page-copy") return savePageCopy(request, response);
       if (request.method === "POST" && url.pathname === "/api/homepage-overrides") return saveHomepageOverrides(request, response);
@@ -70,9 +86,11 @@ async function main() {
   });
 }
 
-async function state() {
+async function state(request) {
+  const remote = remoteContext(request);
   return {
     ok: true,
+    remote,
     projects: await readProjects(),
     overrides: await readAllOverrides(),
     availableImages: await availablePublicImages(),
@@ -81,8 +99,10 @@ async function state() {
     news: await readDraftStore(),
     newsletter: await readNewsJsonFile(newsletterDraftsPath, { version: 1, updatedAt: "", items: [] }),
     automation: await automationStatus(),
-    statusCards: await statusCards(),
-    warning: "Local editorial tool. Changes write to repo files. Review Git diff before publishing.",
+    statusCards: await statusCards(remote),
+    warning: remote.isRemote
+      ? "Remote Builder Mode - secure access through Cloudflare. Confirm carefully before publishing."
+      : "Local editorial tool. Changes write to repo files. Review Git diff before publishing.",
   };
 }
 
@@ -132,6 +152,8 @@ async function saveHomepageCardOverride(request, response) {
   if (body.action === "revert") {
     delete overrides.sections[sectionId].cards[cardId];
   } else {
+    const focalPoint = normalizeFocalPoint(body);
+    const imagePosition = imagePositionFromBody(body, focalPoint);
     overrides.sections[sectionId].cards[cardId] = {
       imagePath: clean(body.imagePath),
       caption: clean(body.caption),
@@ -140,9 +162,17 @@ async function saveHomepageCardOverride(request, response) {
       subhead: clean(body.subhead),
       deck: clean(body.deck),
       ctaLabel: clean(body.ctaLabel),
+      objectFit: ["cover", "contain"].includes(clean(body.objectFit)) ? clean(body.objectFit) : "cover",
+      imagePosition,
+      focalPoint,
+      allowRepeatedImage: body.allowRepeatedImage === true || body.allowRepeatedImage === "true" || body.allowRepeatedImage === "on",
+      repetitionApprovalReason: clean(body.repetitionApprovalReason),
       status: body.status === "approved" ? "approved" : "draft",
       updatedAt: new Date().toISOString(),
     };
+    if (overrides.sections[sectionId].cards[cardId].allowRepeatedImage && !overrides.sections[sectionId].cards[cardId].repetitionApprovalReason) {
+      return sendJson(response, { ok: false, error: "Intentional repeated image approval requires a reason." }, 400);
+    }
   }
   await writeOverride("homepageCards", overrides);
   const entry = overrides.sections[sectionId].cards[cardId];
@@ -348,6 +378,7 @@ async function saveNewsDraft(request, response) {
 async function runWorkflow(request, response) {
   const body = await readJson(request);
   const workflow = clean(body.workflow);
+  const remote = remoteContext(request);
   const workflows = {
     preview: [["git", ["status", "--short"]]],
     qa: [["npm", ["run", "typecheck"]], ["npm", ["run", "build"]], ["npm", ["run", "qa:launch"]]],
@@ -370,6 +401,12 @@ async function runWorkflow(request, response) {
     ],
   };
   if (!workflows[workflow]) return sendJson(response, { ok: false, error: `Unknown workflow: ${workflow}` }, 400);
+  if (["update", "update-deploy"].includes(workflow) && body.confirmUpdate !== true) {
+    return sendJson(response, { ok: false, error: "Update Site requires explicit confirmation before running checks or publishing." }, 400);
+  }
+  if (remote.isRemote && ["update", "update-deploy", "news-publish"].includes(workflow) && body.confirmRemote !== true) {
+    return sendJson(response, { ok: false, error: "Remote Builder Mode requires the remote confirmation checkbox before this workflow can run." }, 400);
+  }
   if (workflow === "update-deploy" && body.confirmDeploy !== true) {
     return sendJson(response, { ok: false, error: "Final deploy requires confirmDeploy: true. Use Run QA first, review git diff, then confirm." }, 400);
   }
@@ -647,6 +684,7 @@ async function automationStatus() {
     cloudflareDeployStatus: deployReport.exists ? "Deploy report found" : "No deploy report found",
     reports: [
       "research/source-material-review/news-publisher-report.md",
+      "research/source-material-review/news-daily-publisher-report.md",
       "research/source-material-review/daily-maintenance-report.md",
       "research/source-material-review/gpt-news-issue-import-test.md",
       "content/newsletter-digest-drafts.json",
@@ -698,14 +736,17 @@ async function githubAuthStatus() {
   };
 }
 
-async function statusCards() {
-  const [gitStatus, lastBuild, lastDeploy, liveBundle] = await Promise.all([
+async function statusCards(remote = { isRemote: false }) {
+  const [gitStatus, gitBranch, lastBuild, lastDeploy, liveBundle] = await Promise.all([
     run("git", ["status", "--short"]),
+    run("git", ["branch", "--show-current"]),
     exists(path.join(workspace, "dist/index.html")),
     exists(path.join(workspace, "research/source-material-review/deploy-report.json")),
     run("bash", ["-lc", "curl --max-time 5 -Ls https://www.wpbnewconstruction.com/ | grep -o '/assets/index-[^\" ]*\\.js' | head -1"]),
   ]);
   return {
+    builderMode: remote.isRemote ? `Remote via ${remote.host || "Cloudflare tunnel"}` : "Local only",
+    gitBranch: gitBranch.stdout.trim() || "unknown",
     workingTreeStatus: gitStatus.stdout.trim() || "clean",
     lastBuildResult: lastBuild ? "dist exists" : "no local dist build found",
     lastDeployResult: lastDeploy ? "deploy report exists" : "no deploy report found",
@@ -713,6 +754,67 @@ async function statusCards() {
     dailyNewsAutomationStatus: "GPT issue import available with npm run news:import-gpt",
     dailySiteMaintenanceStatus: "daily:maintenance configured",
   };
+}
+
+function remoteContext(request) {
+  const host = clean(request?.headers?.host).split(":")[0].toLowerCase();
+  const forwardedHost = clean(request?.headers?.["x-forwarded-host"]).split(":")[0].toLowerCase();
+  const cfRay = clean(request?.headers?.["cf-ray"]);
+  const envRemote = process.env.BROOKE_BUILDER_REMOTE_MODE === "true";
+  const matchedHost = [host, forwardedHost].find((value) => remoteHostnames.includes(value));
+  const isRemote = envRemote || Boolean(matchedHost) || (Boolean(cfRay) && remoteHostnames.includes(forwardedHost));
+  return {
+    isRemote,
+    host: matchedHost || forwardedHost || host || "",
+    recommendedHostname: "builder.wpbnewconstruction.com",
+    accessRequired: true,
+    message: isRemote
+      ? "Remote Builder Mode - secure access through Cloudflare. Confirm carefully before publishing."
+      : "Local Builder Mode - bound to 127.0.0.1.",
+    desktopNote: "Desktop Mac must remain awake and Brooke Builder must keep running.",
+  };
+}
+
+async function reportsIndex() {
+  const reports = [];
+  for (const definition of reportDefinitions) {
+    const filePath = path.join(workspace, definition.path);
+    const stat = await fs.stat(filePath).catch(() => null);
+    reports.push({
+      ...definition,
+      exists: Boolean(stat),
+      updatedAt: stat?.mtime?.toISOString?.() ?? "",
+      bytes: stat?.size ?? 0,
+    });
+  }
+  return { ok: true, reports };
+}
+
+async function reportBody(relativePath) {
+  const definition = reportDefinitions.find((item) => item.path === relativePath);
+  if (!definition) return { ok: false, error: "Report is not on the approved Builder report list." };
+  const filePath = path.join(workspace, definition.path);
+  const text = await fs.readFile(filePath, "utf8").catch(() => "");
+  return { ok: Boolean(text), ...definition, text };
+}
+
+function normalizeFocalPoint(body) {
+  const x = clampNumber(body.focalPointX ?? body.focalX ?? body.x, 0, 100, 50);
+  const y = clampNumber(body.focalPointY ?? body.focalY ?? body.y, 0, 100, 50);
+  return { x, y };
+}
+
+function imagePositionFromBody(body, focalPoint) {
+  const preset = clean(body.imagePositionPreset || body.imagePosition);
+  const presets = new Set(["center center", "top center", "bottom center", "left center", "right center"]);
+  if (presets.has(preset)) return preset;
+  return `${focalPoint.x}% ${focalPoint.y}%`;
+}
+
+function clampNumber(value, min, max, fallback) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return fallback;
+  return Math.min(max, Math.max(min, Math.round(number)));
 }
 
 async function appendImageCaptionOverride(entry) {

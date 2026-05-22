@@ -51,22 +51,24 @@ const projectSpecificRules = [
 async function main() {
   const sourceText = await readSources();
   const imageUsages = collectImageUsages(sourceText);
+  const approvals = await intentionalRepetitionApprovals();
   const findings = [];
   const rows = [];
   const renderedChecks = await checkRenderedHomepage();
   findings.push(...renderedChecks.findings);
 
   for (const [imagePath, usages] of imageUsages) {
-    const acceptable = isAcceptableRepeat(imagePath, usages);
+    const approval = approvals.get(imagePath);
+    const acceptable = isAcceptableRepeat(imagePath, usages) || Boolean(approval);
     if (usages.length > 3 && !acceptable) {
       findings.push(`${imagePath} appears ${usages.length} times in source mappings.`);
     }
     rows.push({
       imagePath,
       routes: [...new Set(usages.map((usage) => usage.context))].join(", "),
-      acceptable: acceptable ? "Yes" : usages.length <= 3 ? "Yes, low repetition" : "Needs review",
-      recommendation: acceptable || usages.length <= 3 ? "No change required." : "Replace repeated use with project or corridor-specific media.",
-      fixes: "Checked by static QA.",
+      acceptable: approval ? "Yes, approved intentional reuse" : acceptable ? "Yes" : usages.length <= 3 ? "Yes, low repetition" : "Needs review",
+      recommendation: approval ? approval.reason : acceptable || usages.length <= 3 ? "No change required." : "Replace repeated use with project or corridor-specific media.",
+      fixes: approval ? `Approved in ${approval.locations.join(", ")}` : "Checked by static QA.",
     });
   }
 
@@ -87,7 +89,7 @@ async function main() {
     }
   }
 
-  await writeReport(rows, findings, renderedChecks);
+  await writeReport(rows, findings, renderedChecks, approvals);
 
   if (findings.length) {
     console.error(["Image repetition QA failed:", ...findings.map((finding) => `- ${finding}`)].join("\n"));
@@ -95,6 +97,25 @@ async function main() {
   }
 
   console.log(JSON.stringify({ imageRepetition: "pass", imagesChecked: imageUsages.size, reportPath: path.relative(workspace, reportPath) }, null, 2));
+}
+
+async function intentionalRepetitionApprovals() {
+  const filePath = path.join(workspace, "content/overrides/homepage-card-overrides.json");
+  const overrides = JSON.parse(await fs.readFile(filePath, "utf8").catch(() => "{}"));
+  const approvals = new Map();
+  for (const [sectionId, section] of Object.entries(overrides.sections ?? {})) {
+    for (const [cardId, card] of Object.entries(section.cards ?? {})) {
+      if (!card.allowRepeatedImage) continue;
+      if (!card.repetitionApprovalReason || !String(card.repetitionApprovalReason).trim()) {
+        throw new Error(`Intentional repetition approval for ${sectionId}/${cardId} requires repetitionApprovalReason.`);
+      }
+      if (!card.imagePath) continue;
+      const existing = approvals.get(card.imagePath) ?? { reason: card.repetitionApprovalReason, locations: [] };
+      existing.locations.push(`${sectionId}/${cardId}`);
+      approvals.set(card.imagePath, existing);
+    }
+  }
+  return approvals;
 }
 
 async function readSources() {
@@ -194,7 +215,7 @@ function projectFromImage(src) {
   return src.match(/\/projects\/([^/]+)\//)?.[1] || "";
 }
 
-async function writeReport(rows, findings, renderedChecks) {
+async function writeReport(rows, findings, renderedChecks, approvals) {
   await fs.mkdir(path.dirname(reportPath), { recursive: true });
   const lines = [
     "# Image Repetition Audit",
@@ -211,6 +232,7 @@ async function writeReport(rows, findings, renderedChecks) {
     "- Project/corridor mismatch rules are checked for Rosewood, Olara, Shorecrest, NORA House, South Flagler, Kravis, and NORA district imagery.",
     "- Rendered homepage checks block back-to-back duplicate images, adjacent Olara imagery, and overuse of generic geography/corridor imagery.",
     "- Homepage card overrides are included so manual image assignments cannot bypass repetition QA.",
+    "- Intentional repeated images are allowed only when homepage card overrides include allowRepeatedImage and a reason.",
     "",
     "## Rendered Homepage Image Order",
     "",
@@ -219,6 +241,10 @@ async function writeReport(rows, findings, renderedChecks) {
     "## Findings",
     "",
     ...(findings.length ? findings.map((finding) => `- ${finding}`) : ["- No blocking image repetition or context mismatch findings."]),
+    "",
+    "## Intentional Repetition Approvals",
+    "",
+    ...(approvals.size ? [...approvals.entries()].map(([imagePath, approval]) => `- ${imagePath}: ${approval.reason} (${approval.locations.join(", ")})`) : ["- None."]),
     "",
     "## Image Inventory",
     "",

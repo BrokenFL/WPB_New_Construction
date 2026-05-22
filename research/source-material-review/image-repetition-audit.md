@@ -1,6 +1,6 @@
 # Image Repetition Audit
 
-Generated: 2026-05-22T21:22:52.344Z
+Generated: 2026-05-22T21:45:02.355Z
 
 ## Summary
 
@@ -10,6 +10,7 @@ Generated: 2026-05-22T21:22:52.344Z
 - Project/corridor mismatch rules are checked for Rosewood, Olara, Shorecrest, NORA House, South Flagler, Kravis, and NORA district imagery.
 - Rendered homepage checks block back-to-back duplicate images, adjacent Olara imagery, and overuse of generic geography/corridor imagery.
 - Homepage card overrides are included so manual image assignments cannot bypass repetition QA.
+- Intentional repeated images are allowed only when homepage card overrides include allowRepeatedImage and a reason.
 
 ## Rendered Homepage Image Order
 
@@ -18,6 +19,10 @@ Generated: 2026-05-22T21:22:52.344Z
 ## Findings
 
 - No blocking image repetition or context mismatch findings.
+
+## Intentional Repetition Approvals
+
+- None.
 
 ## Image Inventory
 
