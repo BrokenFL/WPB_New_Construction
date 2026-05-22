@@ -4797,6 +4797,18 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/market-notes/",
+    "title": "Market Notes | WPB New Construction",
+    "description": "Buyer notes and market intelligence for West Palm Beach new-construction condos.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/blog/",
+    "title": "Market Notes | WPB New Construction",
+    "description": "Buyer notes and market intelligence for West Palm Beach new-construction condos.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
     "path": "/corridors/north-flagler/",
     "title": "North Flagler Projects | WPB New Construction",
     "description": "North Flagler West Palm Beach new-construction projects organized for buyer comparison.",

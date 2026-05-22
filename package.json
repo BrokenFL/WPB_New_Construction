@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "typecheck": "tsc --noEmit",
     "build": "tsc && vite build",
     "postbuild": "node research/scripts/prerender-static-routes.mjs",
     "preview": "vite preview",
@@ -19,7 +20,9 @@
     "assets:cleanup-approved": "node research/scripts/apply-approved-asset-cleanup.mjs --write",
     "assets:plan-resize": "npm run research:site-intelligence && node research/scripts/prepare-image-captions-and-sizes.mjs && node research/scripts/plan-authorized-asset-resize.mjs --write",
     "editor": "node research/scripts/local-content-editor.mjs",
-    "editor:sync": "node research/scripts/sync-editor-overrides.mjs"
+    "editor:sync": "node research/scripts/sync-editor-overrides.mjs",
+    "test": "npm run qa:launch && npm run qa:gatekeeper",
+    "lint": "node research/scripts/lint-public-surface.mjs"
   },
   "devDependencies": {
     "typescript": "~6.0.2",

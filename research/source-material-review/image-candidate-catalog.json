@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-22T00:43:37.059Z",
+  "generatedAt": "2026-05-22T01:14:00.549Z",
   "usageNote": "Image candidates are organized for production use. Preferred exports are resized working files with concise project-source attribution.",
   "projects": [
     {
@@ -19,7 +19,7 @@
           "width": 985,
           "height": 531,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -33,7 +33,7 @@
           "width": 574,
           "height": 860,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -47,7 +47,7 @@
           "width": 674,
           "height": 786,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -61,7 +61,7 @@
           "width": 1920,
           "height": 1755,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         }
       ],
@@ -72,7 +72,7 @@
           "researchPath": "research/asset-library/projects/alba-palm-beach/images/candidates/04--official-candidate--albapalmbeach.com--c0fe2ffd.jpg",
           "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/CAM_08_aerial_sunset_FINAL_02.jpeg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -80,7 +80,7 @@
           "researchPath": "research/asset-library/projects/alba-palm-beach/images/candidates/01--official-candidate--albapalmbeach.com--11aa06d4.jpg",
           "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/exterior-sketch.jpg",
           "recommendedUse": "card/background only",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -90,7 +90,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -98,7 +98,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -106,7 +106,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -114,7 +114,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -122,7 +122,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -130,7 +130,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -151,7 +151,7 @@
           "width": 1500,
           "height": 1000,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -165,7 +165,7 @@
           "width": 700,
           "height": 467,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -179,7 +179,7 @@
           "width": 768,
           "height": 512,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -193,7 +193,7 @@
           "width": 1024,
           "height": 683,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         }
       ],
@@ -204,7 +204,7 @@
           "researchPath": "research/asset-library/projects/alba-reserve/images/candidates/01--official-candidate--static.therealdeal.com--ad0ee3bd.jpg",
           "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -214,7 +214,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/alba-reserve/hero-alba-reserve-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -222,7 +222,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/alba-reserve/hero-alba-reserve-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -230,7 +230,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/alba-reserve/hero-alba-reserve-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -260,7 +260,7 @@
           "width": 1200,
           "height": 630,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -274,7 +274,7 @@
           "width": 4096,
           "height": 2304,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -288,7 +288,7 @@
           "width": 2000,
           "height": 1200,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -302,7 +302,7 @@
           "width": 750,
           "height": 450,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         }
       ],
@@ -313,7 +313,7 @@
           "researchPath": "research/asset-library/projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
           "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
           "recommendedUse": "card/background only",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "card",
@@ -321,7 +321,7 @@
           "researchPath": "research/asset-library/projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
           "sourceUrl": "https://media.ffycdn.net/eu/mandarin-oriental-hotel-group/hYMWjgRcN744BQoPJbE4.png",
           "recommendedUse": "gallery/supporting image",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -331,7 +331,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -339,7 +339,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -347,7 +347,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/projects/mandarin-oriental/images/candidates/01--official-candidate--storage.googleapis.com--89f03894.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "card",
@@ -355,7 +355,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "card",
@@ -363,7 +363,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "card",
@@ -371,7 +371,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/projects/mandarin-oriental/images/candidates/02--official-candidate--media.ffycdn.net--45becc7d.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -392,7 +392,7 @@
           "width": 1202,
           "height": 1424,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -406,7 +406,7 @@
           "width": 2560,
           "height": 1707,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -420,7 +420,7 @@
           "width": 2560,
           "height": 1013,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -434,7 +434,7 @@
           "width": 1803,
           "height": 2136,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         }
       ],
@@ -445,7 +445,7 @@
           "researchPath": "research/asset-library/projects/olara/images/candidates/02--official-candidate--d3af2gfyi5943v.cloudfront.net--7ba74780.jpg",
           "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/BoatHomepage-scaled.jpg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -453,7 +453,7 @@
           "researchPath": "research/asset-library/projects/olara/images/candidates/04--official-candidate--d3af2gfyi5943v.cloudfront.net--5b7f77f4.jpg",
           "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2025/12/04_Homepage_Lobby_Entrance.jpg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -463,7 +463,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -471,7 +471,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -479,7 +479,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -487,7 +487,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -495,7 +495,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -503,7 +503,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/olara/hero-olara-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -524,7 +524,7 @@
           "width": 1440,
           "height": 720,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -538,7 +538,7 @@
           "width": 2000,
           "height": 1125,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "arrival/service section"
         },
         {
@@ -552,7 +552,7 @@
           "width": 1333,
           "height": 2000,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "arrival/service section"
         },
         {
@@ -566,7 +566,7 @@
           "width": 540,
           "height": 540,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         }
       ],
@@ -577,7 +577,7 @@
           "researchPath": "research/asset-library/projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
           "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -587,7 +587,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -595,7 +595,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -603,7 +603,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/projects/rybovich-marina/images/candidates/01--official-candidate--e1.nmcdn.io--9c1ae4c2.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -624,7 +624,7 @@
           "width": 960,
           "height": 1258,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -638,7 +638,7 @@
           "width": 1200,
           "height": 688,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "residence gallery and project detail section"
         },
         {
@@ -652,7 +652,7 @@
           "width": 480,
           "height": 630,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -666,7 +666,7 @@
           "width": 612,
           "height": 895,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         }
       ],
@@ -677,7 +677,7 @@
           "researchPath": "research/asset-library/projects/shorecrest/images/candidates/01--official-candidate--shorecrestwpb.com--26140aef.png",
           "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2024-04/RogerFerris_Portrait_DSC5898_Grayscale.png",
           "recommendedUse": "card/background only",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -685,7 +685,7 @@
           "researchPath": "research/asset-library/projects/shorecrest/images/candidates/02--official-candidate--shorecrestwpb.com--5ac3a6fb.png",
           "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2024-05/marcus-four-season-atelier-zebulon-perron-interiors-restaurant-bar-montreal-canada_dezeen_2364_col_8-1704x1137.png",
           "recommendedUse": "residence gallery and project detail section",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -695,7 +695,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/shorecrest/hero-shorecrest-exterior-hero-1600.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -703,7 +703,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/shorecrest/hero-shorecrest-exterior-card-900.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -711,7 +711,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/shorecrest/hero-shorecrest-exterior-thumb-480.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -719,7 +719,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/shorecrest/residence-shorecrest-residence-hero-1600.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -727,7 +727,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/shorecrest/residence-shorecrest-residence-card-900.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -735,7 +735,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/shorecrest/residence-shorecrest-residence-thumb-480.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -756,7 +756,7 @@
           "width": 1800,
           "height": 1013,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "amenity gallery and lifestyle section"
         },
         {
@@ -770,7 +770,7 @@
           "width": 1800,
           "height": 1200,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "residence gallery and project detail section"
         },
         {
@@ -784,7 +784,7 @@
           "width": 1800,
           "height": 1200,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "amenity gallery and lifestyle section"
         },
         {
@@ -798,7 +798,7 @@
           "width": 1920,
           "height": 1317,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "residence gallery and project detail section"
         }
       ],
@@ -809,7 +809,7 @@
           "researchPath": "research/asset-library/projects/ritz-carlton-wpb/images/candidates/04--official-candidate--theresidenceswestpalmbeach.com--228a51e1.jpg",
           "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993.jpg",
           "recommendedUse": "residence gallery and project detail section",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -817,7 +817,7 @@
           "researchPath": "research/asset-library/projects/ritz-carlton-wpb/images/candidates/02--official-candidate--theresidenceswestpalmbeach.com--36dd5172.jpg",
           "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/02/Unit-Residence-01-Kitchen.jpg",
           "recommendedUse": "residence gallery and project detail section",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -827,7 +827,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -835,7 +835,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -843,7 +843,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -851,7 +851,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -859,7 +859,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -867,7 +867,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/ritz-carlton-wpb/residence-the-ritz-carlton-residences-west-palm-beach-residence-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -897,7 +897,7 @@
           "width": 1600,
           "height": 800,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -911,7 +911,7 @@
           "width": 1600,
           "height": 889,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -925,7 +925,7 @@
           "width": 1600,
           "height": 1600,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -939,7 +939,7 @@
           "width": 1600,
           "height": 1600,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         }
       ],
@@ -950,7 +950,7 @@
           "researchPath": "research/asset-library/projects/15-cityplace/images/candidates/02--official-candidate--relatedross.com--07ea9ff2.jpg",
           "sourceUrl": "https://www.relatedross.com/sites/default/files/styles/16x9_horizontal_rectangle_w/public/2025-05/acquiadam-assets/related-ross-15-cityplace-terrace-redleaf_2_easttower_terrace_completion_spiral.jpg?itok=8enFkXRF",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -960,7 +960,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/15-cityplace/hero-15-cityplace-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -968,7 +968,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/15-cityplace/hero-15-cityplace-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -976,7 +976,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/15-cityplace/hero-15-cityplace-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -997,7 +997,7 @@
           "width": 512,
           "height": 512,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "residence gallery and project detail section"
         },
         {
@@ -1011,7 +1011,7 @@
           "width": 1412,
           "height": 1432,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -1025,7 +1025,7 @@
           "width": 1466,
           "height": 1839,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "residence gallery and project detail section"
         },
         {
@@ -1039,7 +1039,7 @@
           "width": 1200,
           "height": 1262,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "amenity gallery and lifestyle section"
         }
       ],
@@ -1050,7 +1050,7 @@
           "researchPath": "research/asset-library/projects/banyan-tree/images/candidates/02--official-candidate--admin.banyantreeresidenceswpb.com--639915ad.png",
           "sourceUrl": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/TearHero.png",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -1058,7 +1058,7 @@
           "researchPath": "research/asset-library/projects/banyan-tree/images/candidates/03--official-candidate--admin.banyantreeresidenceswpb.com--188631da.png",
           "sourceUrl": "https://admin.banyantreeresidenceswpb.com/app/uploads/2026/02/Tear.png",
           "recommendedUse": "residence gallery and project detail section",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -1068,7 +1068,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/banyan-tree/hero-banyan-tree-residences-west-palm-beach-exterior-hero-1600.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1076,7 +1076,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/banyan-tree/hero-banyan-tree-residences-west-palm-beach-exterior-card-900.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1084,7 +1084,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/banyan-tree/hero-banyan-tree-residences-west-palm-beach-exterior-thumb-480.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -1092,7 +1092,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/banyan-tree/residence-banyan-tree-residences-west-palm-beach-residence-hero-1600.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -1100,7 +1100,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/banyan-tree/residence-banyan-tree-residences-west-palm-beach-residence-card-900.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "residence",
@@ -1108,7 +1108,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/banyan-tree/residence-banyan-tree-residences-west-palm-beach-residence-thumb-480.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -1129,7 +1129,7 @@
           "width": 1677,
           "height": 879,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "residence gallery and project detail section"
         },
         {
@@ -1143,7 +1143,7 @@
           "width": 1677,
           "height": 1049,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "residence gallery and project detail section"
         },
         {
@@ -1157,7 +1157,7 @@
           "width": 1677,
           "height": 941,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -1171,7 +1171,7 @@
           "width": 1677,
           "height": 941,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         }
       ],
@@ -1182,7 +1182,7 @@
           "researchPath": "research/asset-library/projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
           "sourceUrl": "https://i0.wp.com/www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg?fit=1677%2C941&quality=89&ssl=1",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1190,7 +1190,7 @@
           "researchPath": "research/asset-library/projects/mr-c/images/candidates/04--official-candidate--mrcresidenceswpb.com--70dd69fb.jpg",
           "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/BINYAN_TEA2768_MrCWest_S050_EXT_HummingbirdEast_Final_2K-1.jpg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -1200,7 +1200,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1208,7 +1208,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1216,7 +1216,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/projects/mr-c/images/candidates/03--official-candidate--i0.wp.com--dc1588f7.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1224,7 +1224,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/mr-c/hero-mr-c-hotel-residences-west-palm-beach-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1232,7 +1232,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/mr-c/hero-mr-c-hotel-residences-west-palm-beach-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1240,7 +1240,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/mr-c/hero-mr-c-hotel-residences-west-palm-beach-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -1261,7 +1261,7 @@
           "width": 1500,
           "height": 1000,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -1275,7 +1275,7 @@
           "width": 700,
           "height": 467,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -1289,7 +1289,7 @@
           "width": 768,
           "height": 512,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -1303,7 +1303,7 @@
           "width": 1024,
           "height": 683,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         }
       ],
@@ -1314,7 +1314,7 @@
           "researchPath": "research/asset-library/projects/related-ross-fern-street/images/candidates/01--official-candidate--static.therealdeal.com--c00cedb5.jpg",
           "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -1324,7 +1324,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/related-ross-fern-street/hero-related-ross-fern-street-south-dixie-condo-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1332,7 +1332,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/related-ross-fern-street/hero-related-ross-fern-street-south-dixie-condo-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1340,7 +1340,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/related-ross-fern-street/hero-related-ross-fern-street-south-dixie-condo-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -1361,7 +1361,7 @@
           "width": 777,
           "height": 824,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -1375,7 +1375,7 @@
           "width": 2560,
           "height": 1485,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -1389,7 +1389,7 @@
           "width": 2560,
           "height": 1440,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "arrival/service section"
         },
         {
@@ -1403,7 +1403,7 @@
           "width": 2560,
           "height": 1441,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "arrival/service section"
         }
       ],
@@ -1414,7 +1414,7 @@
           "researchPath": "research/asset-library/projects/berkeley/images/candidates/01--official-candidate--floridayimby.com--24582688.jpg",
           "sourceUrl": "https://floridayimby.com/wp-content/uploads/2025/09/BERKELEY_Hero_V2-777x824.jpeg",
           "recommendedUse": "card/background only",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -1424,7 +1424,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/berkeley/hero-the-berkeley-palm-beach-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1432,7 +1432,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/berkeley/hero-the-berkeley-palm-beach-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1440,7 +1440,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/berkeley/hero-the-berkeley-palm-beach-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -1461,7 +1461,7 @@
           "width": 2200,
           "height": 1302,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -1475,7 +1475,7 @@
           "width": 2560,
           "height": 1515,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -1489,7 +1489,7 @@
           "width": 1024,
           "height": 606,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -1503,7 +1503,7 @@
           "width": 1920,
           "height": 1136,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         }
       ],
@@ -1514,7 +1514,7 @@
           "researchPath": "research/asset-library/projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
           "sourceUrl": "https://norahouse.com/wp-content/uploads/2026/03/2026.02.18_CG_Pender_front-rev-2.webp",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1522,7 +1522,7 @@
           "researchPath": "research/asset-library/projects/nora-house/images/candidates/01--official-candidate--norahouse.com--7f3c7c65.jpg",
           "sourceUrl": "https://norahouse.com/wp-content/uploads/2026/04/nora-sunset-fnl.jpg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -1532,7 +1532,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1540,7 +1540,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1548,7 +1548,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/projects/nora-house/images/candidates/02--official-candidate--norahouse.com--a2ef2708.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1556,7 +1556,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/nora-house/hero-nora-house-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1564,7 +1564,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/nora-house/hero-nora-house-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1572,7 +1572,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/nora-house/hero-nora-house-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -1593,7 +1593,7 @@
           "width": 2500,
           "height": 1667,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -1607,7 +1607,7 @@
           "width": 750,
           "height": 500,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -1621,7 +1621,7 @@
           "width": 1000,
           "height": 667,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -1635,7 +1635,7 @@
           "width": 1500,
           "height": 1000,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         }
       ],
@@ -1646,7 +1646,7 @@
           "researchPath": "research/asset-library/projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
           "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1654,7 +1654,7 @@
           "researchPath": "research/asset-library/projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
           "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg?format=1500w",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -1664,7 +1664,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1672,7 +1672,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1680,7 +1680,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/projects/edgeworth-north/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1688,7 +1688,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1696,7 +1696,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1704,7 +1704,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/projects/edgeworth-north/images/candidates/04--official-candidate--images.squarespace-cdn.com--54cfbcd7.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -1725,7 +1725,7 @@
           "width": 2500,
           "height": 1667,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -1739,7 +1739,7 @@
           "width": 750,
           "height": 500,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -1753,7 +1753,7 @@
           "width": 1000,
           "height": 667,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -1767,7 +1767,7 @@
           "width": 1500,
           "height": 1000,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         }
       ],
@@ -1778,7 +1778,7 @@
           "researchPath": "research/asset-library/projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
           "sourceUrl": "https://images.squarespace-cdn.com/content/v1/69aed843fb7aa030d49206fd/81bea0bc-7c14-4ae7-9ea3-7532b59f6f5e/4400_FamilyChurch_Ext_Hummingbird.jpg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -1788,7 +1788,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1796,7 +1796,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1804,7 +1804,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/projects/edgeworth-south/images/candidates/01--official-candidate--images.squarespace-cdn.com--70310756.webp",
           "status": "resize skipped; use source",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -1825,7 +1825,7 @@
           "width": 1500,
           "height": 1000,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -1839,7 +1839,7 @@
           "width": 700,
           "height": 467,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -1853,7 +1853,7 @@
           "width": 768,
           "height": 512,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -1867,7 +1867,7 @@
           "width": 1024,
           "height": 683,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         }
       ],
@@ -1878,7 +1878,7 @@
           "researchPath": "research/asset-library/projects/fort-partners-south-flagler/images/candidates/01--official-candidate--static.therealdeal.com--a913c60e.jpg",
           "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2025/10/MIA-Fort-Partners-Related-Ross-Settle-Lawsuit.jpg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -1888,7 +1888,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/fort-partners-south-flagler/hero-fort-partners-south-flagler-assemblage-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1896,7 +1896,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/fort-partners-south-flagler/hero-fort-partners-south-flagler-assemblage-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -1904,7 +1904,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/fort-partners-south-flagler/hero-fort-partners-south-flagler-assemblage-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -1925,7 +1925,7 @@
           "width": 3884,
           "height": 1718,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -1939,7 +1939,7 @@
           "width": 2000,
           "height": 1360,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -1953,7 +1953,7 @@
           "width": 1000,
           "height": 563,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -1967,7 +1967,7 @@
           "width": 2000,
           "height": 600,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         }
       ],
@@ -1978,7 +1978,7 @@
           "researchPath": "research/asset-library/projects/forte-on-flagler/images/candidates/01--official-candidate--fortewpb.com--b5b863ab.png",
           "sourceUrl": "https://fortewpb.com/wp-content/uploads/Forte-on-Flagler.png",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "card",
@@ -1986,7 +1986,7 @@
           "researchPath": "research/asset-library/projects/forte-on-flagler/images/candidates/02--official-candidate--fortewpb.com--9a29aed6.jpg",
           "sourceUrl": "https://fortewpb.com/wp-content/uploads/home-main-desktop.jpg",
           "recommendedUse": "gallery/supporting image",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -1996,7 +1996,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/forte-on-flagler/hero-fort-on-flagler-exterior-hero-1600.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -2004,7 +2004,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/forte-on-flagler/hero-fort-on-flagler-exterior-card-900.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -2012,7 +2012,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/forte-on-flagler/hero-fort-on-flagler-exterior-thumb-480.png",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "card",
@@ -2020,7 +2020,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/forte-on-flagler/card-fort-on-flagler-preview-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "card",
@@ -2028,7 +2028,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/forte-on-flagler/card-fort-on-flagler-preview-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "card",
@@ -2036,7 +2036,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/forte-on-flagler/card-fort-on-flagler-preview-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -2057,7 +2057,7 @@
           "width": 1800,
           "height": 1200,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -2071,7 +2071,7 @@
           "width": 2800,
           "height": 1640,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "hero or project-card lead"
         },
         {
@@ -2085,7 +2085,7 @@
           "width": 2800,
           "height": 1640,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -2099,7 +2099,7 @@
           "width": 1400,
           "height": 820,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         }
       ],
@@ -2110,7 +2110,7 @@
           "researchPath": "research/asset-library/projects/la-clara/images/candidates/02--official-candidate--stantec.com--282d9cb6.jpg",
           "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/homepage-hero/2025/digital-stantec-staff-234469.jpg",
           "recommendedUse": "hero or project-card lead",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -2120,7 +2120,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/la-clara/hero-la-clara-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -2128,7 +2128,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/la-clara/hero-la-clara-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -2136,7 +2136,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/la-clara/hero-la-clara-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -2157,7 +2157,7 @@
           "width": 1097,
           "height": 1058,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "card/background only"
         },
         {
@@ -2171,7 +2171,7 @@
           "width": 2560,
           "height": 823,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "residence gallery and project detail section"
         },
         {
@@ -2185,7 +2185,7 @@
           "width": 653,
           "height": 788,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -2199,7 +2199,7 @@
           "width": 2560,
           "height": 850,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "amenity gallery and lifestyle section"
         }
       ],
@@ -2210,7 +2210,7 @@
           "researchPath": "research/asset-library/projects/maison-dor/images/candidates/01--official-candidate--livemaisondor.com--5af88e37.jpg",
           "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2026/04/Hero-East-Face-scaled-e1776714416617.jpg",
           "recommendedUse": "card/background only",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -2220,7 +2220,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/maison-dor/hero-maison-d-or-exterior-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -2228,7 +2228,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/maison-dor/hero-maison-d-or-exterior-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "hero",
@@ -2236,7 +2236,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/maison-dor/hero-maison-d-or-exterior-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -2257,7 +2257,7 @@
           "width": 1500,
           "height": 1000,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "amenity gallery and lifestyle section"
         },
         {
@@ -2271,7 +2271,7 @@
           "width": 700,
           "height": 467,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "amenity gallery and lifestyle section"
         },
         {
@@ -2285,7 +2285,7 @@
           "width": 768,
           "height": 512,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "amenity gallery and lifestyle section"
         },
         {
@@ -2299,7 +2299,7 @@
           "width": 1024,
           "height": 683,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "amenity gallery and lifestyle section"
         }
       ],
@@ -2310,7 +2310,7 @@
           "researchPath": "research/asset-library/projects/portofino-flagler-yacht-club/images/candidates/01--official-candidate--static.therealdeal.com--9a39e6c8.jpg",
           "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer.jpg",
           "recommendedUse": "amenity gallery and lifestyle section",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -2320,7 +2320,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/portofino-flagler-yacht-club/amenity-portofino-south-flagler-yacht-club-buyout-watch-amenity-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "amenity",
@@ -2328,7 +2328,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/portofino-flagler-yacht-club/amenity-portofino-south-flagler-yacht-club-buyout-watch-amenity-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "amenity",
@@ -2336,7 +2336,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/portofino-flagler-yacht-club/amenity-portofino-south-flagler-yacht-club-buyout-watch-amenity-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },
@@ -2357,7 +2357,7 @@
           "width": 3840,
           "height": 1636,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "amenity gallery and lifestyle section"
         },
         {
@@ -2371,7 +2371,7 @@
           "width": 3840,
           "height": 1636,
           "orientation": "landscape",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -2385,7 +2385,7 @@
           "width": 960,
           "height": 1080,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         },
         {
@@ -2399,7 +2399,7 @@
           "width": 960,
           "height": 1080,
           "orientation": "portrait",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials",
+          "clearanceStatus": "image available; credit original source materials",
           "recommendedUse": "gallery/supporting image"
         }
       ],
@@ -2410,7 +2410,7 @@
           "researchPath": "research/asset-library/projects/south-flagler-house-north/images/candidates/02--official-candidate--southflaglerhouse.com--4ad798de.jpg",
           "sourceUrl": "https://www.southflaglerhouse.com/sites/default/files/2025-11/42532c47288179b7379b6153af3a3c5da2c91987%20%281%29.jpg",
           "recommendedUse": "gallery/supporting image",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "amenity",
@@ -2418,7 +2418,7 @@
           "researchPath": "research/asset-library/projects/south-flagler-house-north/images/candidates/01--official-candidate--southflaglerhouse.com--5f3223c8.jpg",
           "sourceUrl": "https://www.southflaglerhouse.com/sites/default/files/2025-08/Spa.jpg",
           "recommendedUse": "amenity gallery and lifestyle section",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ],
       "preferredExports": [
@@ -2428,7 +2428,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/card-south-flagler-house-north-tower-preview-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "card",
@@ -2436,7 +2436,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/card-south-flagler-house-north-tower-preview-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "card",
@@ -2444,7 +2444,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/card-south-flagler-house-north-tower-preview-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "amenity",
@@ -2452,7 +2452,7 @@
           "maxDimension": 1600,
           "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/amenity-south-flagler-house-north-tower-amenity-hero-1600.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "amenity",
@@ -2460,7 +2460,7 @@
           "maxDimension": 900,
           "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/amenity-south-flagler-house-north-tower-amenity-card-900.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         },
         {
           "role": "amenity",
@@ -2468,7 +2468,7 @@
           "maxDimension": 480,
           "path": "research/asset-library/preferred-image-exports/south-flagler-house-north/amenity-south-flagler-house-north-tower-amenity-thumb-480.jpg",
           "status": "resized",
-          "clearanceStatus": "authorized by user sign-off; credit original source materials"
+          "clearanceStatus": "image available; credit original source materials"
         }
       ]
     },

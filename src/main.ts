@@ -7,6 +7,9 @@ import {
   siteMeta,
 } from "./generated/siteData";
 import { editorProjectOverrides, type EditorProjectOverrides } from "./generated/editorOverrides";
+import { marketNotes } from "./data/marketNotes";
+import { track } from "./lib/analytics";
+import { advisorProfile } from "./lib/contact";
 import { escapeHtml, safeHref } from "./renderUtils";
 
 type MediaAsset = {
@@ -59,6 +62,7 @@ type Route =
   | { type: "home"; projectId?: undefined }
   | { type: "corridor"; corridorKey: CorridorKey; projectId?: undefined }
   | { type: "news"; projectId?: undefined }
+  | { type: "market-notes"; projectId?: undefined }
   | { type: "inquire"; projectId?: undefined }
   | { type: "floorplans"; projectId?: undefined }
   | { type: "answers"; projectId?: undefined }
@@ -88,20 +92,13 @@ type NewsItem = {
   tag: string;
 };
 
-type BlogPost = {
-  id: string;
-  label: string;
-  title: string;
-  summary: string;
-  href: string;
-};
-
 type ResearchNewsItem = {
   id: string;
   title: string;
   summary: string;
   rewrittenSummary?: string;
   category: string;
+  datePublished: string;
   dateModified: string;
   projectIds: readonly string[];
   sourceName: string;
@@ -197,23 +194,12 @@ const googleMapsMapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID as string | unde
 const heroMapScriptId = "wpb-google-map-script";
 let googleMapsLoader: Promise<GoogleMapsNamespace> | null = null;
 
-const advisorProfile = {
-  name: "Brooke Matthew Snader",
-  group: "The Scott Gordon Group",
-  brokerage: "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
-  brokerageLicense: "CQ1020232",
-  mobile: "(561) 891-0186",
-  mobileHref: "tel:+15618910186",
-  license: "BK3291335",
-  email: "info@wpbnewconstruction.com",
-  privacyUrl: "https://www.elliman.com/privacy-policy",
-  termsUrl: "https://www.elliman.com/terms-of-service",
-};
-
 const staticRoutePaths: Record<string, string> = {
   "/floorplans/": "floorplans",
   "/answers/": "answers",
   "/updates/": "news",
+  "/market-notes/": "market-notes",
+  "/blog/": "market-notes",
   "/methodology/": "methodology",
   "/fair-housing/": "fair-housing",
   "/privacy/": "privacy",
@@ -873,33 +859,6 @@ const corridorSections: CorridorSection[] = [
   },
 ];
 
-const blogPosts: BlogPost[] = [
-  {
-    id: "how-to-pick-corridor",
-    label: "Buyer Strategy",
-    title: "Pick the corridor before you pick the tower.",
-    summary:
-      "North Flagler, Downtown, and South Flagler solve different problems. The cleanest shortlist starts with how you want to live, then tests buildings against timing, view, service, and plan depth.",
-    href: "/answers/#how-should-i-shortlist-projects",
-  },
-  {
-    id: "views-need-stack-plans",
-    label: "View Due Diligence",
-    title: "A water-view rendering is not a view guarantee.",
-    summary:
-      "Ask for stack plans, floor height, exposure, neighboring tower positions, balcony depth, and future development risk before treating any view premium as durable.",
-    href: "/answers/#view-corridor-evaluation",
-  },
-  {
-    id: "tour-with-packet",
-    label: "Tour Prep",
-    title: "Do not tour without the current packet.",
-    summary:
-      "Availability, pricing, incentives, fees, and delivery timing move quickly. The better first tour starts with a current buyer packet and a shortlist that compares the same facts across each building.",
-    href: "/inquire/",
-  },
-];
-
 const newsItems: NewsItem[] = [
   {
     kicker: "Construction",
@@ -1231,7 +1190,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { role: "Developer", name: "Related Group + BH Group", note: "Reported development team for the proposal." },
       { role: "Brand", name: "Rosewood Hotels & Resorts", note: "Reported branding; operating details are not yet public." },
       { role: "Architect", name: "Arquitectonica", note: "Reported architect for the planning-stage proposal." },
-      { role: "Advisor", name: advisorProfile.group, note: "Use buyer-side guidance before relying on early-stage public reporting." },
+      { role: "Advisor", name: advisorProfile.brokerage, note: "Use buyer-side guidance before relying on early-stage public reporting." },
     ],
     highlights: [
       { label: "Planning Signal", value: "27 stories", note: "Current public materials support a proposed 27-story tower." },
@@ -1758,14 +1717,15 @@ app.innerHTML = `
         </span>
       </a>
       <nav aria-label="Primary navigation">
+        <a href="/#projects" data-nav-item="projects">Buildings</a>
         <a href="/#atlas" data-nav-item="atlas">Map</a>
-        <a href="/#projects" data-nav-item="projects">Projects</a>
-        <a href="/floorplans/" data-nav-item="floorplans">Floorplans</a>
-        <a href="/answers/" data-nav-item="answers">Buyer Questions</a>
+        <a href="/#compare" data-nav-item="compare">Compare</a>
         <a href="/updates/" data-nav-item="news">Updates</a>
-        <a href="/methodology/" data-nav-item="methodology">How We Verify</a>
+        <a href="/floorplans/" data-nav-item="floorplans">Floor Plans</a>
+        <a href="/market-notes/" data-nav-item="market-notes">Buyer Notes</a>
+        <a href="/inquire/" data-nav-item="inquire">Contact</a>
       </nav>
-      <a class="nav-cta" href="/inquire/" data-nav-item="inquire">Ask For Guidance</a>
+      <a class="nav-cta" href="/inquire/" data-nav-item="inquire">Request Current Availability</a>
     </header>
 
     <main>
@@ -1779,7 +1739,7 @@ app.innerHTML = `
             <h1>A buyer's guide to the city's next waterfront addresses.</h1>
             <p class="hero-copy">Compare North Flagler, Downtown, and South Flagler residences with reviewed facts, released floorplans, and advisory context written for buyers.</p>
             <div class="hero-actions" aria-label="Primary homepage actions">
-              <a href="#projects">Compare Projects</a>
+              <a href="#projects">Explore Buildings</a>
               <a href="/inquire/">Request Current Availability <span aria-hidden="true">↗</span></a>
             </div>
           </div>
@@ -1850,14 +1810,15 @@ app.innerHTML = `
         <a class="home-answer-archive-link" href="/updates/">Read all market updates <span aria-hidden="true">→</span></a>
       </section>
 
-      <section class="home-blog-section" aria-label="WPB New Construction buyer blog">
+      <section class="home-blog-section" aria-label="WPB New Construction market notes">
         <div class="section-heading">
-          <p class="eyebrow">Buyer Blog</p>
+          <p class="eyebrow">Market Notes</p>
           <h2>How to read the market before you tour.</h2>
         </div>
         <div class="home-blog-grid">
-          ${blogPosts.map(renderBlogPostCard).join("")}
+          ${marketNotes.slice(0, 3).map(renderMarketNoteCard).join("")}
         </div>
+        <a class="home-answer-archive-link" href="/market-notes/">Read all buyer notes <span aria-hidden="true">→</span></a>
       </section>
 
       <section class="project-sort-shell" id="projects">
@@ -1901,7 +1862,7 @@ app.innerHTML = `
           <span>Released floorplans</span>
           <span>Tour strategy</span>
         </div>
-        <a href="/inquire/">Request Guidance <span aria-hidden="true">↗</span></a>
+        <a href="/inquire/">Request Current Availability <span aria-hidden="true">↗</span></a>
       </section>
       </div>
 
@@ -1938,6 +1899,26 @@ app.innerHTML = `
           ${newsItems.map(renderNewsItem).join("")}
         </div>
       </section>
+      </div>
+
+      <div class="route-view route-view-market-notes" data-route-view="market-notes" hidden>
+        <section class="section intelligence-hero">
+          <div>
+            <p class="eyebrow">Market Notes</p>
+            <h1>Buyer intelligence for West Palm Beach new construction.</h1>
+            <p>Short editorial notes that translate local coverage, project milestones, and source conflicts into practical buyer questions. Facts stay tied to public sources; pricing and availability still require current confirmation.</p>
+          </div>
+          <aside class="answer-meta-panel">
+            <span>${marketNotes.length} notes in review</span>
+            <strong>Built for comparison, not brochure fog.</strong>
+            <small>Each note names the buyer angle and the items Brooke should verify before you rely on it.</small>
+          </aside>
+        </section>
+        <section class="section">
+          <div class="home-blog-grid market-note-grid">
+            ${marketNotes.map(renderMarketNoteCard).join("")}
+          </div>
+        </section>
       </div>
 
       <div class="route-view route-view-floorplans" data-route-view="floorplans" hidden>
@@ -2072,7 +2053,7 @@ app.innerHTML = `
             <article class="profile-card">
               <span>Contact</span>
               <strong>${advisorProfile.name}</strong>
-              <p>${advisorProfile.group}<br />${advisorProfile.brokerage}<br /><a href="${advisorProfile.mobileHref}">${advisorProfile.mobile}</a></p>
+              <p>${advisorProfile.brokerage}<br /><a href="${advisorProfile.mobileHref}">${advisorProfile.mobile}</a></p>
             </article>
           </div>
         </section>
@@ -2151,7 +2132,7 @@ app.innerHTML = `
             <article class="profile-card">
               <span>Advisor</span>
               <strong>${advisorProfile.name}</strong>
-              <p>${advisorProfile.group}<br />${advisorProfile.brokerage}<br />License ${advisorProfile.license}</p>
+              <p>${advisorProfile.brokerage}<br />License ${advisorProfile.license}</p>
             </article>
           </div>
         </section>
@@ -2495,8 +2476,9 @@ app.innerHTML = `
       <div class="route-view route-view-inquiry" data-route-view="inquire" hidden>
       <section class="section inquiry-section" id="inquire">
         <div>
-          <p class="eyebrow">Private Advisory</p>
-          <h2>Request current availability and the full floorplan packet.</h2>
+          <p class="eyebrow">Contact Brooke</p>
+          <h2>Request current pricing, availability, or floor plans</h2>
+          <p>Pricing, incentives, available lines, and delivery timelines change quickly. Send what you’re considering and Brooke will help verify the current options before you compare buildings.</p>
           <div class="inquiry-deliverables" aria-label="What the advisory packet includes">
             <article>
               <span>1</span>
@@ -2514,10 +2496,14 @@ app.innerHTML = `
               <small>North Flagler, Downtown, and South Flagler tradeoffs, source-risk notes, and tour path.</small>
             </article>
           </div>
-          <p class="source-note">${advisorProfile.name}, Broker Associate (${advisorProfile.license}) · ${advisorProfile.group} · ${advisorProfile.brokerage} (Florida license ${advisorProfile.brokerageLicense})</p>
+          <p class="source-note">${advisorProfile.name}, ${advisorProfile.title} (${advisorProfile.license}) · ${advisorProfile.brokerage} (Florida license ${advisorProfile.brokerageLicense})</p>
         </div>
         <form class="inquiry-form" name="wpb-lead-intake" method="POST" data-netlify="true" netlify-honeypot="company">
           <input type="hidden" name="form-name" value="wpb-lead-intake" />
+          <input type="hidden" name="source_page" value="" />
+          <input type="hidden" name="viewed_buildings" value="" />
+          <input type="hidden" name="submitted_at" value="" />
+          <input type="hidden" name="lead_capture_context" value="" />
           <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label>
             <span>Name</span>
@@ -2532,32 +2518,52 @@ app.innerHTML = `
             <input type="tel" name="phone" autocomplete="tel" placeholder="Preferred phone" />
           </label>
           <label>
-            <span>Project</span>
+            <span>Interested buildings</span>
             <select name="project">
               <option value="">Not sure yet</option>
               ${featuredProjects.map((project) => `<option value="${project.id}">${project.name}</option>`).join("")}
             </select>
           </label>
           <label>
-            <span>Interest</span>
+            <span>Inquiry type</span>
             <select name="interest">
-              <option>Request floorplans</option>
-              <option>Request Ritz-Carlton floorplans</option>
-              <option>Request Olara floorplans</option>
+              <option>Request current availability</option>
+              <option>Request private floor-plan packet</option>
+              <option>Compare buildings</option>
               <option>Schedule private tour</option>
-              <option>Ask an advisor</option>
-              <option>Compare with Ritz / Shorecrest / Mr. C</option>
+              <option>Ask Brooke about this building</option>
+            </select>
+          </label>
+          <label>
+            <span>Budget range optional</span>
+            <input type="text" name="budget" autocomplete="off" placeholder="Example: $2M-$4M" />
+          </label>
+          <label>
+            <span>Residence size optional</span>
+            <input type="text" name="residence_size" autocomplete="off" placeholder="Example: 2-3 bedrooms" />
+          </label>
+          <label>
+            <span>Timeline optional</span>
+            <input type="text" name="timeline" autocomplete="off" placeholder="Example: 6-18 months" />
+          </label>
+          <label>
+            <span>Are you represented by an agent?</span>
+            <select name="represented_by_agent">
+              <option value="">Prefer not to say</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>I am an agent</option>
             </select>
           </label>
           <label class="inquiry-message">
-            <span>What would help most?</span>
-            <textarea name="message" rows="4" placeholder="Project, timing, budget range, or questions you want answered"></textarea>
+            <span>Message</span>
+            <textarea name="message" rows="4" placeholder="Buildings you are considering, timing, budget range, or questions you want answered"></textarea>
           </label>
           <label class="consent-row">
             <input type="checkbox" name="consent" required />
-            <span>By submitting, I consent to be contacted by ${advisorProfile.name}, ${advisorProfile.group}, and ${advisorProfile.brokerage} at the email address or phone number I provided about this real-estate inquiry. This request is for a manual response and is not consent to autodialed, prerecorded, or automated marketing calls or texts. Pricing, availability, incentives, square footage, fees, and delivery dates require current written confirmation.</span>
+            <span>By submitting, I consent to be contacted by ${advisorProfile.name} and ${advisorProfile.brokerage} at the email address or phone number I provided about this real-estate inquiry. This request is for a manual response and is not consent to autodialed, prerecorded, or automated marketing calls or texts. Pricing, availability, incentives, square footage, fees, and delivery dates require current written confirmation.</span>
           </label>
-          <button class="button primary" type="submit">Request Advisory Packet</button>
+          <button class="button primary" type="submit">Request Current Availability</button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
         <p class="source-note">
@@ -2565,7 +2571,27 @@ app.innerHTML = `
         </p>
       </section>
       </div>
-    </main>
+      </main>
+    <aside class="floating-availability-cta" data-floating-cta aria-label="Request current availability">
+      <a href="/inquire/?lead_capture_context=floating_cta">Request Current Availability</a>
+    </aside>
+    <nav class="mobile-cta-bar" aria-label="Quick contact actions">
+      <a href="${advisorProfile.mobileHref}" data-quick-cta="call">Call</a>
+      <a href="mailto:${advisorProfile.email}" data-quick-cta="email">Email</a>
+      <a href="/inquire/?lead_capture_context=mobile_cta" data-quick-cta="request">Request</a>
+    </nav>
+    <div class="lead-modal-backdrop" data-lead-modal hidden>
+      <section class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" aria-describedby="lead-modal-body">
+        <button class="lead-modal-close" type="button" data-lead-modal-dismiss aria-label="Keep browsing">×</button>
+        <p class="eyebrow">Current Availability</p>
+        <h2 id="lead-modal-title">Want current pricing and available lines?</h2>
+        <p id="lead-modal-body">You’ve compared more than one West Palm Beach new-construction building. Send your criteria and Brooke will help verify pricing, floor plans, and delivery timing before you chase the wrong option.</p>
+        <div class="lead-modal-actions">
+          <a class="button primary" href="/inquire/?lead_capture_context=second_building_view" data-lead-modal-submit>Request Current Availability</a>
+          <button class="button ghost" type="button" data-lead-modal-dismiss>Keep Browsing</button>
+        </div>
+      </section>
+    </div>
     <aside class="site-chat-assistant" data-chat-assistant aria-label="WPB buyer assistant">
       <button class="chat-toggle" type="button" data-chat-toggle aria-expanded="false">Ask WPB</button>
       <div class="chat-panel" data-chat-panel hidden>
@@ -2586,7 +2612,7 @@ app.innerHTML = `
     <footer class="site-footer">
       <div>
         <strong>WPB New Construction</strong>
-        <p>${advisorProfile.name}, Broker Associate (${advisorProfile.license})<br />${advisorProfile.group}<br />${advisorProfile.brokerage}<br />Florida license ${advisorProfile.brokerageLicense}</p>
+        <p>${advisorProfile.name}, ${advisorProfile.title} (${advisorProfile.license})<br />${advisorProfile.brokerage}<br />Florida license ${advisorProfile.brokerageLicense}</p>
       </div>
       <div>
         <span>Review Method</span>
@@ -2618,10 +2644,29 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
   const email = String(form.get("email") ?? "").trim();
   const phone = String(form.get("phone") ?? "").trim();
   const project = String(form.get("project") ?? "").trim();
-  const interest = String(form.get("interest") ?? "Request floorplans");
+  const interest = String(form.get("interest") ?? "Request current availability");
+  const budget = String(form.get("budget") ?? "").trim();
+  const residenceSize = String(form.get("residence_size") ?? "").trim();
+  const timeline = String(form.get("timeline") ?? "").trim();
+  const representedByAgent = String(form.get("represented_by_agent") ?? "").trim();
   const message = String(form.get("message") ?? "").trim();
   const status = target.querySelector<HTMLElement>(".form-status");
   const submittedAt = new Date().toISOString();
+  const viewedBuildings = getViewedBuildings();
+  const context = String(form.get("lead_capture_context") ?? "").trim() || new URLSearchParams(window.location.search).get("lead_capture_context") || "contact_page";
+
+  target.querySelector<HTMLInputElement>('input[name="source_page"]')?.setAttribute("value", window.location.href);
+  target.querySelector<HTMLInputElement>('input[name="viewed_buildings"]')?.setAttribute("value", JSON.stringify(viewedBuildings));
+  target.querySelector<HTMLInputElement>('input[name="submitted_at"]')?.setAttribute("value", submittedAt);
+  target.querySelector<HTMLInputElement>('input[name="lead_capture_context"]')?.setAttribute("value", context);
+
+  if (!project && !message) {
+    if (status) {
+      status.textContent = "Please name a building you are considering or add a short message.";
+    }
+    return;
+  }
+
   const leadRecord = {
     submittedAt,
     name,
@@ -2629,13 +2674,27 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     phone,
     project,
     interest,
+    budget,
+    residenceSize,
+    timeline,
+    representedByAgent,
     message,
+    viewedBuildings: JSON.stringify(viewedBuildings),
+    leadCaptureContext: context,
     consent: "yes",
     source: window.location.href,
   };
+  track("contact_form_submit", {
+    project: project || "not-sure-yet",
+    interest,
+    hasPhone: Boolean(phone),
+    hasMessage: Boolean(message),
+    leadCaptureContext: context,
+    viewedBuildingCount: viewedBuildings.length,
+  });
   const subject = encodeURIComponent(`WPB New Construction inquiry: ${interest}`);
   const body = encodeURIComponent(
-    `Submitted: ${submittedAt}\nName: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\nProject: ${project || "Not sure yet"}\nInterest: ${interest}\nMessage: ${message || "Please send current availability, floorplans, and advisor notes."}\n\nConsent: Buyer understands pricing, availability, and delivery dates require current confirmation.`,
+    `Submitted: ${submittedAt}\nName: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\nProject: ${project || "Not sure yet"}\nInterest: ${interest}\nBudget: ${budget || "Not provided"}\nResidence size: ${residenceSize || "Not provided"}\nTimeline: ${timeline || "Not provided"}\nRepresented by agent: ${representedByAgent || "Not provided"}\nViewed buildings: ${viewedBuildings.map((building) => building.name).join(", ") || "None tracked"}\nMessage: ${message || "Please send current availability, floor plans, and advisor notes."}\n\nConsent: Buyer understands pricing, availability, and delivery dates require current confirmation.`,
   );
 
   if (status) {
@@ -2644,8 +2703,13 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
 
   const sentToFormHandler = await submitLeadForm(form);
   if (sentToFormHandler) {
+    track("lead_modal_submitted", {
+      project: project || "not-sure-yet",
+      interest,
+      leadCaptureContext: context,
+    });
     if (status) {
-      status.textContent = "Inquiry captured. Brooke will follow up with current availability and floorplan guidance.";
+      status.textContent = "Thanks — your request is ready to send. Brooke will follow up with current availability and floor plan guidance.";
     }
     target.reset();
     return;
@@ -2653,7 +2717,16 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
 
   if (status) {
     queueLeadLocally(leadRecord);
-    status.textContent = "Inquiry saved in this browser. Email did not submit automatically; ";
+    track("lead_queue_local_save", {
+      project: project || "not-sure-yet",
+      interest,
+    });
+    track("lead_form_submit_fallback", {
+      project: project || "not-sure-yet",
+      interest,
+      leadCaptureContext: context,
+    });
+    status.textContent = "Thanks — your request is ready to send. Your email client will open so you can send it directly; ";
     const link = document.createElement("a");
     link.href = `mailto:${advisorProfile.email}?subject=${subject}&body=${body}`;
     link.textContent = "send it by email";
@@ -2662,6 +2735,8 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
 });
 
 initBuyerAssistant();
+initLeadCaptureModal();
+initQuickCtas();
 
 function queueLeadLocally(leadRecord: Record<string, string>) {
   try {
@@ -2672,6 +2747,104 @@ function queueLeadLocally(leadRecord: Record<string, string>) {
   } catch {
     // Lead capture still continues through the form endpoint or mailto fallback.
   }
+}
+
+type ViewedBuilding = {
+  slug: string;
+  name: string;
+  timestamp: string;
+};
+
+const viewedBuildingsStorageKey = "wpbViewedBuildings";
+const leadModalDismissedKey = "wpbLeadModalDismissed";
+
+function getViewedBuildings(): ViewedBuilding[] {
+  try {
+    const stored = JSON.parse(window.sessionStorage.getItem(viewedBuildingsStorageKey) ?? "[]");
+    if (!Array.isArray(stored)) return [];
+    return stored
+      .filter((item): item is ViewedBuilding => Boolean(item?.slug && item?.name && item?.timestamp))
+      .slice(-12);
+  } catch {
+    return [];
+  }
+}
+
+function setViewedBuildings(buildings: ViewedBuilding[]) {
+  try {
+    window.sessionStorage.setItem(viewedBuildingsStorageKey, JSON.stringify(buildings.slice(-12)));
+  } catch {
+    // Session tracking is advisory only; browsing and inquiry still work without it.
+  }
+}
+
+function trackBuildingDetailView(project: FeaturedProject) {
+  const existing = getViewedBuildings();
+  const alreadyViewed = existing.some((building) => building.slug === project.id);
+  const next = [
+    ...existing.filter((building) => building.slug !== project.id),
+    { slug: project.id, name: project.name, timestamp: new Date().toISOString() },
+  ];
+  setViewedBuildings(next);
+  track("building_view", {
+    buildingSlug: project.id,
+    buildingName: project.name,
+    category: project.corridor,
+    salesStatus: project.status,
+  });
+
+  if (!alreadyViewed && next.length === 2) {
+    track("second_building_view", {
+      buildingSlug: project.id,
+      buildingName: project.name,
+      viewedBuildings: next.map((building) => building.slug).join(","),
+    });
+    showLeadModal(next);
+  }
+}
+
+function initLeadCaptureModal() {
+  document.querySelectorAll<HTMLElement>("[data-lead-modal-dismiss]").forEach((element) => {
+    element.addEventListener("click", () => dismissLeadModal());
+  });
+  document.querySelector<HTMLElement>("[data-lead-modal-submit]")?.addEventListener("click", () => {
+    window.sessionStorage.setItem(leadModalDismissedKey, "submitted");
+    track("lead_modal_submitted", {
+      viewedBuildingCount: getViewedBuildings().length,
+    });
+  });
+}
+
+function showLeadModal(viewedBuildings = getViewedBuildings()) {
+  if (window.sessionStorage.getItem(leadModalDismissedKey)) return;
+  const modal = document.querySelector<HTMLElement>("[data-lead-modal]");
+  if (!modal) return;
+  modal.hidden = false;
+  track("lead_modal_shown", {
+    viewedBuildingCount: viewedBuildings.length,
+    viewedBuildings: viewedBuildings.map((building) => building.slug).join(","),
+  });
+}
+
+function dismissLeadModal() {
+  const modal = document.querySelector<HTMLElement>("[data-lead-modal]");
+  if (modal) modal.hidden = true;
+  window.sessionStorage.setItem(leadModalDismissedKey, "dismissed");
+  track("lead_modal_dismissed", {
+    viewedBuildingCount: getViewedBuildings().length,
+  });
+}
+
+function initQuickCtas() {
+  document.querySelectorAll<HTMLElement>("[data-quick-cta]").forEach((element) => {
+    element.addEventListener("click", () => {
+      const action = element.dataset.quickCta ?? "request";
+      track(action === "call" ? "phone_click" : action === "email" ? "email_click" : "inquiry_cta_click", {
+        action,
+        source: "persistent_cta",
+      });
+    });
+  });
 }
 
 function initBuyerAssistant() {
@@ -2775,6 +2948,7 @@ function applyRoute() {
   shell?.setAttribute("data-active-project", route.projectId ?? "");
   const routeTitles: Record<string, string> = {
     news: "Market Updates | WPB New Construction",
+    "market-notes": "Market Notes | WPB New Construction",
     floorplans: "Floorplans | WPB New Construction",
     answers: "Buyer Q&A | WPB New Construction",
     methodology: "How We Verify | WPB New Construction",
@@ -2818,6 +2992,15 @@ function applyRoute() {
   });
 
   syncInquiryContext();
+  if (activeProject) {
+    trackBuildingDetailView(activeProject);
+  }
+  track("page_view", {
+    route: route.type,
+    path: window.location.pathname,
+    ...(route.type === "project" ? { projectId: route.projectId } : {}),
+    ...(route.type === "corridor" ? { corridorKey: route.corridorKey } : {}),
+  });
 
   if (!window.location.hash) {
     window.scrollTo({ top: 0, left: 0 });
@@ -2829,7 +3012,7 @@ function getActiveNavItem(route: Route) {
     return "projects";
   }
   if (route.type === "home") {
-    return window.location.hash === "#atlas" ? "atlas" : "projects";
+    return window.location.hash === "#atlas" ? "atlas" : window.location.hash === "#compare" ? "compare" : "projects";
   }
   return route.type;
 }
@@ -2839,16 +3022,27 @@ function syncInquiryContext() {
   const rawProjectId = params.get("project");
   const projectId = rawProjectId ? projectRouteAliases[rawProjectId] ?? rawProjectId : "";
   const interest = params.get("interest");
+  const message = params.get("message");
+  const leadCaptureContext = params.get("lead_capture_context");
   const projectSelect = document.querySelector<HTMLSelectElement>('.inquiry-form select[name="project"]');
   const interestSelect = document.querySelector<HTMLSelectElement>('.inquiry-form select[name="interest"]');
+  const messageField = document.querySelector<HTMLTextAreaElement>('.inquiry-form textarea[name="message"]');
 
   if (projectSelect && projectId && featuredProjects.some((project) => project.id === projectId)) {
     projectSelect.value = projectId;
   }
 
   if (interestSelect && interest === "floorplans") {
-    interestSelect.value = "Request floorplans";
+    interestSelect.value = "Request private floor-plan packet";
   }
+
+  if (messageField && message) {
+    messageField.value = message;
+  }
+
+  document.querySelector<HTMLInputElement>('.inquiry-form input[name="source_page"]')?.setAttribute("value", window.location.href);
+  document.querySelector<HTMLInputElement>('.inquiry-form input[name="viewed_buildings"]')?.setAttribute("value", JSON.stringify(getViewedBuildings()));
+  document.querySelector<HTMLInputElement>('.inquiry-form input[name="lead_capture_context"]')?.setAttribute("value", leadCaptureContext ?? "contact_page");
 }
 
 function getCurrentRoute(): Route {
@@ -2877,6 +3071,7 @@ function getCurrentRoute(): Route {
 
   if (
     view === "news" ||
+    view === "market-notes" ||
     view === "inquire" ||
     view === "floorplans" ||
     view === "answers" ||
@@ -2899,6 +3094,7 @@ function updateMetaDescription(routeType: string, activeProject?: FeaturedProjec
   const descriptions: Record<string, string> = {
     home: siteMeta.description,
     news: "West Palm Beach new-construction market updates translated into practical buyer context.",
+    "market-notes": "Buyer notes and market intelligence for West Palm Beach new-construction condos, with source-aware context and practical availability checks.",
     floorplans: "Released West Palm Beach new-construction condo floorplans organized by project for easier first comparison.",
     answers: "Buyer-focused West Palm Beach new-construction condo answers with cited sources and practical next steps.",
     methodology: "How WPB New Construction separates verified, reported, and confirm-before-reliance project details.",
@@ -2922,14 +3118,14 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
     {
       "@type": siteMeta.publisher.type,
       "@id": `${siteMeta.baseUrl}/#publisher`,
-      name: siteMeta.publisher.name,
+      name: advisorProfile.brokerage,
       areaServed: siteMeta.publisher.areaServed,
     },
     {
       "@type": "Person",
       "@id": `${siteMeta.baseUrl}/#advisor`,
-      name: siteMeta.expertByline.name,
-      jobTitle: siteMeta.expertByline.title,
+      name: advisorProfile.name,
+      jobTitle: advisorProfile.title,
       worksFor: { "@id": `${siteMeta.baseUrl}/#publisher` },
     },
     {
@@ -2948,6 +3144,8 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
         ? [buildFloorplanItemListSchema()]
         : routeType === "news"
           ? researchNewsFeed.map(buildNewsArticleSchema)
+          : routeType === "market-notes"
+            ? marketNotes.map(buildMarketNoteSchema)
           : routeType === "methodology" || routeType === "privacy" || routeType === "terms" || routeType === "fair-housing"
             ? [buildLegalPageSchema(routeType)]
           : activeProject
@@ -3018,6 +3216,21 @@ function buildNewsArticleSchema(item: (typeof researchNewsFeed)[number]) {
     dateModified: item.dateModified,
     author: { "@id": `${siteMeta.baseUrl}/#advisor` },
     publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+  };
+}
+
+function buildMarketNoteSchema(note: (typeof marketNotes)[number]) {
+  return {
+    "@type": "Article",
+    "@id": `${siteMeta.baseUrl}/market-notes/#${note.seo.suggestedSlug}`,
+    headline: note.title,
+    description: note.summary,
+    datePublished: note.datePublished,
+    dateModified: note.dateModified,
+    articleSection: note.category,
+    author: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+    mainEntityOfPage: `${siteMeta.baseUrl}/market-notes/`,
   };
 }
 
@@ -3178,13 +3391,26 @@ function renderCorridorRouteView(section: CorridorSection) {
   `;
 }
 
-function renderBlogPostCard(post: BlogPost) {
+function renderMarketNoteCard(note: (typeof marketNotes)[number]) {
+  const relatedProjects = note.projectIds
+    .map((projectId) => featuredProjects.find((project) => project.id === projectId)?.name)
+    .filter(Boolean)
+    .slice(0, 3)
+    .join(" · ");
+  const source = note.sourceLinks[0];
+  const canShowSourceLink = source && !/developer|official project|official brand|brand\/developer/i.test(source.sourceType);
+
   return `
-    <article class="home-blog-card" id="${escapeHtml(post.id)}">
-      <span>${escapeHtml(post.label)}</span>
-      <h3>${escapeHtml(post.title)}</h3>
-      <p>${escapeHtml(post.summary)}</p>
-      <a href="${safeHref(post.href)}">Read more <span aria-hidden="true">→</span></a>
+    <article class="home-blog-card market-note-card" id="${escapeHtml(note.seo.suggestedSlug)}">
+      <span>${escapeHtml(note.category)} · ${escapeHtml(note.dateModified)}</span>
+      <h3>${escapeHtml(note.title)}</h3>
+      <p>${escapeHtml(note.summary)}</p>
+      <small>${escapeHtml(note.buyerAngle)}</small>
+      ${relatedProjects ? `<p class="market-note-related">Related: ${escapeHtml(relatedProjects)}</p>` : ""}
+      <div class="market-note-actions">
+        ${canShowSourceLink ? `<a href="${safeHref(source.href)}" target="_blank" rel="noreferrer">Source <span aria-hidden="true">↗</span></a>` : ""}
+        <a href="/inquire/?lead_capture_context=market_note&message=${encodeURIComponent(`I want help applying this note: ${note.title}`)}">Request current availability <span aria-hidden="true">→</span></a>
+      </div>
     </article>
   `;
 }
@@ -3310,8 +3536,9 @@ function teamLogoForCredit(name: string): MediaAsset | undefined {
 }
 
 function renderFeaturedProject(project: FeaturedProject) {
+  const priorityMedia = project.rank <= 3;
   const media = project.image && canShowImage(project.image)
-    ? `<img src="${project.image}" alt="${project.name} project preview" loading="eager" decoding="sync" fetchpriority="${project.rank <= 6 ? "high" : "auto"}" />`
+    ? `<img src="${project.image}" alt="${project.name} project preview" loading="${priorityMedia ? "eager" : "lazy"}" decoding="${priorityMedia ? "sync" : "async"}" fetchpriority="${priorityMedia ? "high" : "auto"}" />`
     : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${project.name}</strong></div>`;
   const floorplanCount = getFloorplanProject(project.id)?.count ?? 0;
   const residenceLabel = project.residences.toLowerCase().includes("reported") || project.residences.toLowerCase().includes("residence")
@@ -3630,13 +3857,14 @@ function renderNewsItem(item: NewsItem) {
 
 function renderResearchNewsItem(item: ResearchNewsItem) {
   const { image, credit } = newsImageForItem(item);
+  const isOlderPublicUpdate = isOlderThanDays(item.datePublished || item.dateModified, 90);
   return `
     <article class="news-card intelligence-news-card" id="${escapeHtml(item.id)}">
       <figure>
-        <img src="${safeHref(image)}" alt="${escapeHtml(item.title)} related building image" loading="eager" decoding="sync" />
+        <img src="${safeHref(image)}" alt="${escapeHtml(item.title)} related building image" loading="lazy" decoding="async" />
         <figcaption>${publicText(credit)}</figcaption>
       </figure>
-      <span>${publicText(item.category)} · ${publicText(item.dateModified)}</span>
+      <span>${publicText(item.category)} · Last checked ${publicText(item.dateModified)}${isOlderPublicUpdate ? " · Older public update" : ""}</span>
       <strong>${publicText(item.title)}</strong>
       <p>${publicText(item.summary)}</p>
       <small>${publicText(item.sourceName)} · ${publicText(item.status)}</small>
@@ -3646,15 +3874,16 @@ function renderResearchNewsItem(item: ResearchNewsItem) {
 
 function renderHomeNewsItem(item: ResearchNewsItem) {
   const { image, credit, relatedProject } = newsImageForItem(item);
+  const isOlderPublicUpdate = isOlderThanDays(item.datePublished || item.dateModified, 90);
 
   return `
     <article class="home-news-card" id="home-${escapeHtml(item.id)}">
       <figure>
-        <img src="${safeHref(image)}" alt="${escapeHtml(relatedProject ? `${relatedProject.name} related update image` : "West Palm Beach new-construction map")}" loading="eager" decoding="sync" />
+        <img src="${safeHref(image)}" alt="${escapeHtml(relatedProject ? `${relatedProject.name} related update image` : "West Palm Beach new-construction map")}" loading="lazy" decoding="async" />
         <figcaption>${publicText(credit)}</figcaption>
       </figure>
       <div>
-        <span>${publicText(item.category)} · ${publicText(item.dateModified)}</span>
+        <span>${publicText(item.category)} · Last checked ${publicText(item.dateModified)}${isOlderPublicUpdate ? " · Older public update" : ""}</span>
         <strong>${publicText(item.title)}</strong>
         <p>${publicText(item.rewrittenSummary || item.summary)}</p>
         <small>Reviewed from ${publicText(item.sourceName)} for buyer context</small>
@@ -3662,6 +3891,13 @@ function renderHomeNewsItem(item: ResearchNewsItem) {
       </div>
     </article>
   `;
+}
+
+function isOlderThanDays(dateValue: string, days: number) {
+  const parsed = Date.parse(dateValue);
+  if (Number.isNaN(parsed)) return false;
+  const ageMs = Date.now() - parsed;
+  return ageMs > days * 24 * 60 * 60 * 1000;
 }
 
 function newsImageForItem(item: ResearchNewsItem) {
@@ -3890,7 +4126,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       </section>
 
       <nav class="brochure-section-nav" aria-label="${project.name} project sections">
-        <a href="/#projects">Compare Projects</a>
+        <a href="/#projects">Explore Buildings</a>
         <a href="#overview-${project.id}">Overview</a>
         <a href="#residences-${project.id}">Residences</a>
         <a href="#amenities-${project.id}">Amenities</a>
@@ -3978,13 +4214,13 @@ function renderDraftProjectPage(project: FeaturedProject) {
         </div>
         <form class="brochure-inquiry-card" action="mailto:${advisorProfile.email}" method="post" enctype="text/plain">
           <p class="eyebrow">Inquire</p>
-          <h2>Let's connect</h2>
+          <h2>Request current availability</h2>
           <p>Request the latest availability, pricing guidance, and project context for your shortlist.</p>
-          <input name="name" type="text" placeholder="Full name" />
-          <input name="email" type="email" placeholder="Email address" />
-          <input name="phone" type="tel" placeholder="Phone number" />
-          <textarea name="message" placeholder="How can we help?">${project.name} inquiry</textarea>
-          <button type="submit">Submit inquiry</button>
+          <input name="name" type="text" placeholder="Full name" aria-label="Full name" required />
+          <input name="email" type="email" placeholder="Email address" aria-label="Email address" required />
+          <input name="phone" type="tel" placeholder="Phone number" aria-label="Phone number" />
+          <textarea name="message" placeholder="How can Brooke help?" aria-label="Message">${project.name} inquiry</textarea>
+          <button type="submit">Request Current Availability</button>
         </form>
       </section>
 
@@ -4033,7 +4269,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
     facts: factFields,
     team: teamCredits.length ? teamCredits : [
       { role: "Project Team", name: "Project team", note: "Current project and design credits should be confirmed with the latest buyer packet." },
-      { role: "Advisory", name: advisorProfile.group, note: "Buyer guidance is tailored around timing, preferred view, floorplan, and contract priorities." },
+      { role: "Advisory", name: advisorProfile.brokerage, note: "Buyer guidance is tailored around timing, preferred view, floorplan, and contract priorities." },
     ],
     highlights: [
       { label: "Buyer Fit", value: project.corridor, note: project.summary },
@@ -4262,7 +4498,7 @@ function renderProjectSnapshotPanel(projectId: string) {
       <article>
         <span>Advisor</span>
         <strong>${advisorProfile.name}</strong>
-        <small>${advisorProfile.group} · ${advisorProfile.mobile}</small>
+        <small>${advisorProfile.brokerage} · ${advisorProfile.mobile}</small>
       </article>
     </section>
   `;

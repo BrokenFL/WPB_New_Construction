@@ -8,6 +8,7 @@ West Palm Beach new-construction condo guide with floorplans, corridor compariso
 - Floorplan library: /floorplans/
 - Buyer Q&A: /answers/
 - Market updates: /updates/
+- Market notes: /market-notes/
 - Source methodology: /methodology/
 - Fair housing: /fair-housing/
 - Privacy: /privacy/

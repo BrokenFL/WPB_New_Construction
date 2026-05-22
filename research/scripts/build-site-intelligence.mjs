@@ -1658,7 +1658,7 @@ function buildProjectAssetStatus(projects, floorplans, publishedFloorplans, asse
   return {
     generatedAt: new Date().toISOString(),
     usageNote:
-      "Project media and packet tracker for the public site. Image authorization follows the reviewed asset tracker; pending projects must not be treated as publishable without source evidence.",
+      "Project media and packet tracker for buyer-facing review. Media marked pending should be treated as representative or withheld until the source record is refreshed.",
     projects: projects
       .map((project) => {
         const authorization = imageAuthorizationForProject(project, assetTracker);
@@ -1682,8 +1682,8 @@ function buildProjectAssetStatus(projects, floorplans, publishedFloorplans, asse
           name: project.name,
           area: project.area,
           projectPagePath: routeProjectIds.has(project.projectId) ? `/projects/${publicProjectId}/` : "",
-          imageAuthorizationStatus: authorization.status,
-          imageUseNote: authorization.note,
+          imageAuthorizationStatus: publicImageStatus(authorization),
+          imageUseNote: publicImageUseNote(authorization),
           imageSourceCredit: imageSourceCreditForProject(project, authorization),
           floorplanCount: floorplanCounts.get(project.projectId) ?? 0,
           publishedFloorplanAssetCount: publishedCounts.get(project.projectId) ?? 0,
@@ -1700,7 +1700,7 @@ function buildImageClearanceCandidates(projects, images, assetTracker) {
   return {
     generatedAt: images.catalog.generatedAt,
     usageNote:
-      "Project image candidates grouped by reviewed authorization state. Pending candidates stay internal until explicit clearance is recorded.",
+      "Project image candidates grouped by public media readiness. Pending candidates should not be presented as current project imagery.",
     projects: projects
       .map((project) => {
         const imageProject = imageProjectById.get(project.projectId);
@@ -1709,13 +1709,13 @@ function buildImageClearanceCandidates(projects, images, assetTracker) {
           projectId: project.projectId,
           name: project.name,
           officialWebsite: project.officialWebsite || "",
-          imageAuthorizationStatus: authorization.status,
-          imageUseNote: authorization.note,
+          imageAuthorizationStatus: publicImageStatus(authorization),
+          imageUseNote: publicImageUseNote(authorization),
           imageSourceCredit: imageSourceCreditForProject(project, authorization),
           candidateCount: imageProject?.candidateCount ?? 0,
           preferred: (imageProject?.preferred ?? []).map((candidate) => ({
             ...candidate,
-            clearanceStatus: authorization.isAuthorized ? candidate.clearanceStatus : "pending authorization; keep internal",
+            clearanceStatus: authorization.isAuthorized ? publicClearanceStatus(candidate.clearanceStatus) : "pending media review",
           })),
         };
       })
@@ -1748,9 +1748,27 @@ function imageSourceCreditForProject(project, authorization = null) {
     label: `Source: ${label} original materials`,
     sourceUrl: source,
     note: authorization?.isAuthorized
-      ? "User sign-off recorded for site use; no developer or brand endorsement implied."
-      : "Rights review pending; do not treat original-source material as publishable until authorization is recorded.",
+      ? "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+      : "Media review pending; use representative visuals or omit imagery until source status is refreshed.",
   };
+}
+
+function publicImageStatus(authorization) {
+  return authorization?.isAuthorized ? "image available" : "pending media review";
+}
+
+function publicImageUseNote(authorization) {
+  return authorization?.isAuthorized
+    ? "Project image available for buyer-facing context; no project sponsor or brand endorsement implied."
+    : "Project media pending; use representative visuals or omit imagery until source status is refreshed.";
+}
+
+function publicClearanceStatus(status) {
+  return String(status ?? "")
+    .replace(/\bauthorized\b/gi, "image available")
+    .replace(/\buser sign-off\b/gi, "buyer-facing media review")
+    .replace(/\bdeveloper\b/gi, "project sponsor")
+    .replace(/\binternal\b/gi, "review");
 }
 
 function sourceLinkFromHref(href) {
@@ -1826,13 +1844,13 @@ function imageAuthorizationForProject(project, assetTracker) {
   const status = tracked?.status || "pending authorization";
   const isAuthorized = /\bauthorized\b/i.test(status) && !/pending|not authorized|unauthorized/i.test(status);
   return {
-    status: isAuthorized ? "authorized" : "pending authorization",
+    status: isAuthorized ? "image available" : "pending media review",
     isAuthorized,
     note:
       tracked?.note ||
       (isAuthorized
-        ? "User confirmed project image authorization for site use."
-        : "Images must stay internal or carry pending-authorization handling until explicit clearance is recorded."),
+        ? "Project image available for buyer-facing context."
+        : "Project media pending; use representative visuals or omit imagery until source status is refreshed."),
   };
 }
 
@@ -1919,9 +1937,9 @@ function isFloorplanAsset(asset) {
 
 function inferClearanceStatus(projectId, asset, assetTracker) {
   const authorization = imageAuthorizationForProject({ projectId }, assetTracker);
-  if (authorization.isAuthorized) return "authorized by user sign-off; credit original source materials";
+  if (authorization.isAuthorized) return "image available; credit original source materials";
   if (/reject|avoid|blocked/i.test(`${asset.status ?? ""} ${asset.source ?? ""}`)) return "reject current candidate";
-  return "pending authorization; keep internal until explicit clearance is recorded";
+  return "pending media review";
 }
 
 function publicHrefForResearchPath(researchAssetPath) {
@@ -2097,6 +2115,7 @@ West Palm Beach new-construction condo guide with floorplans, corridor compariso
 - Floorplan library: /floorplans/
 - Buyer Q&A: /answers/
 - Market updates: /updates/
+- Market notes: /market-notes/
 - Source methodology: /methodology/
 - Fair housing: /fair-housing/
 - Privacy: /privacy/
@@ -2148,6 +2167,18 @@ function buildPrerenderRoutes() {
       path: "/updates/",
       title: "Market Updates | WPB New Construction",
       description: "West Palm Beach new-construction market updates translated into practical buyer context.",
+      ogImage: siteMeta.defaultImage,
+    },
+    {
+      path: "/market-notes/",
+      title: "Market Notes | WPB New Construction",
+      description: "Buyer notes and market intelligence for West Palm Beach new-construction condos.",
+      ogImage: siteMeta.defaultImage,
+    },
+    {
+      path: "/blog/",
+      title: "Market Notes | WPB New Construction",
+      description: "Buyer notes and market intelligence for West Palm Beach new-construction condos.",
       ogImage: siteMeta.defaultImage,
     },
     {
@@ -2245,6 +2276,8 @@ function renderSitemap(projects) {
     ["floorplans/", "0.9"],
     ["answers/", "0.9"],
     ["updates/", "0.8"],
+    ["market-notes/", "0.8"],
+    ["blog/", "0.6"],
     ["methodology/", "0.7"],
     ["fair-housing/", "0.6"],
     ["privacy/", "0.5"],
