@@ -11,8 +11,10 @@
 
 - Replaced generic imported-image alt text such as "Project image" and "Interior image" with project-specific descriptions.
 - Added clearer alt text for Alba, Banyan Tree, Berkeley, Forte, Maison d'Or, NORA House, Ritz-Carlton, Shorecrest, and South Flagler House imported assets.
-- Preserved concise captions such as Project rendering, Interior rendering, Amenity image, and Lifestyle image.
+- Replaced weak captions such as "Developer image" and "Amenity image" with concise project-specific captions.
+- Added homepage hero alt text in `src/data/homeHeroImages.ts` for geography, North Flagler, South Flagler, CityPlace/The Square, and NORA imagery.
 - Kept developer/project marketing credit fields on placed imported images.
+- Renamed placed imported images to descriptive project/image-type filenames where the subject was clear.
 
 ## Gallery QA Changes
 
@@ -24,9 +26,10 @@
 
 ## Weak Alt Text Remaining
 
-- Some older hand-authored inline gallery assets still use concise labels such as "reference card image"; these are not blocking but can be improved during a future image-name cleanup pass.
+- Some older hand-authored inline gallery assets still use concise labels such as "reference card image"; these are not blocking but can be improved during a future broader media pass.
 
-## Recommended Future Filename Cleanup
+## Filename Cleanup Result
 
-- Imported filenames still include dated import names such as `unknown-2026-05-22-009.jpg`.
-- Rename only in a dedicated branch with a reference update script and route QA, because current public paths are already wired into JSON and project rendering.
+- Completed for placed imported project images in `src/data/approvedImportedProjectImages.json`.
+- Full mapping is documented in `research/source-material-review/imported-image-filename-cleanup.md`.
+- Candidate-only archived/imported files that are not public placements remain unchanged until they are approved for use.

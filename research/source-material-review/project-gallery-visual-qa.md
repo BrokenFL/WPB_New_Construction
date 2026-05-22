@@ -3,7 +3,16 @@
 ## Method
 
 - Built a contact sheet at `research/source-material-review/project-gallery-contact-sheet.jpg`.
+- Built a homepage hero contact sheet at `research/source-material-review/hero-image-contact-sheet.jpg`.
 - Reviewed imported placed images for project fit, crop, duplication, placement, caption clarity, and likely page weight risk.
+- Reviewed homepage hero candidates for local geography, lack of baked-in labels, and whether they avoid implying Downtown WPB sits on the Atlantic surf line.
+
+## Homepage Hero Results
+
+- Selected five images: WPB geography map hero, North Flagler waterfront, South Flagler corridor, CityPlace/The Square, and NORA growth corridor.
+- Omitted project-specific hero renderings from the rotating homepage hero to keep the first viewport about buyer orientation rather than one building.
+- No visible carousel controls, text changes, or slide-specific captions were added beyond the subtle stable caption area.
+- No obvious wrong-geography or oceanfront-Downtown implication was found in the selected set.
 
 ## Project Results
 
@@ -24,4 +33,5 @@ Archived imported records are preserved in `research/source-material-review/arch
 ## Performance Notes
 
 - No new public image assets were added in this pass.
+- The rotating hero eagerly loads only the first image and lazily preloads the next layer.
 - Large source images remain controlled by the existing asset budget and performance QA.

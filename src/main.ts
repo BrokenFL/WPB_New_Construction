@@ -10,6 +10,7 @@ import { editorProjectOverrides, type EditorProjectOverrides } from "./generated
 import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
 import { publishedExternalNews, type ExternalNewsItem } from "./data/approvedExternalNews";
 import { editorialImageForId, type EditorialImageId } from "./data/editorialImagery";
+import { homeHeroImages } from "./data/homeHeroImages";
 import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
@@ -197,15 +198,37 @@ type GoogleMapsNamespace = {
     setMap: (map: unknown | null) => void;
     addListener: (eventName: string, handler: () => void) => void;
   };
+  importLibrary?: (libraryName: "marker") => Promise<{
+    AdvancedMarkerElement?: new (options: Record<string, unknown>) => {
+      map: unknown | null;
+      addListener?: (eventName: string, handler: () => void) => void;
+      addEventListener?: (eventName: string, handler: () => void) => void;
+    };
+  }>;
+  marker?: {
+    AdvancedMarkerElement?: new (options: Record<string, unknown>) => {
+      map: unknown | null;
+      addListener?: (eventName: string, handler: () => void) => void;
+      addEventListener?: (eventName: string, handler: () => void) => void;
+    };
+  };
   SymbolPath: {
     CIRCLE: unknown;
   };
+};
+
+type GoogleAdvancedMarkerConstructor = NonNullable<NonNullable<GoogleMapsNamespace["marker"]>["AdvancedMarkerElement"]>;
+
+type GoogleMarkerHandle = {
+  clear: () => void;
 };
 
 type WindowWithGoogleMaps = Window & {
   google?: {
     maps?: GoogleMapsNamespace;
   };
+  __wpbGoogleMapsReady?: () => void;
+  gm_authFailure?: () => void;
 };
 
 type ProjectDraftEditorOverride = NonNullable<EditorProjectOverrides[string]["draft"]>;
@@ -255,7 +278,9 @@ const projectLogoImages: Record<string, { src: string; alt: string }> = {
 const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined;
 const googleMapsMapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID as string | undefined;
 const heroMapScriptId = "wpb-google-map-script";
+const heroMapCallbackName = "__wpbGoogleMapsReady";
 let googleMapsLoader: Promise<GoogleMapsNamespace> | null = null;
+let googleAdvancedMarkerLoader: Promise<GoogleAdvancedMarkerConstructor | undefined> | null = null;
 
 const staticRoutePaths: Record<string, string> = {
   "/buildings": "buildings",
@@ -1874,16 +1899,40 @@ app.innerHTML = `
     <main>
       <div class="route-view route-view-home" data-route-view="home">
       <section class="home-hero" id="top">
-        <img class="home-hero-image" src="/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png" alt="West Palm Beach waterfront towers and Intracoastal at twilight" />
+        <figure class="home-hero-media" aria-label="Curated West Palm Beach new-construction editorial imagery">
+          <img
+            class="home-hero-image is-active"
+            data-home-hero-layer="active"
+            src="${homeHeroImages[0].src}"
+            alt="${escapeHtml(homeHeroImages[0].alt)}"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <img
+            class="home-hero-image"
+            data-home-hero-layer="next"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+            aria-hidden="true"
+          />
+          <figcaption class="home-hero-caption" data-home-hero-caption>${escapeHtml(homeHeroImages[0].caption)}</figcaption>
+          <ul class="sr-only">
+            ${homeHeroImages.map((image) => `<li>${escapeHtml(image.alt)}</li>`).join("")}
+          </ul>
+        </figure>
         <div class="home-hero-scrim"></div>
         <div class="home-hero-layout">
           <div class="home-hero-content">
             <p class="hero-kicker">West Palm Beach New Construction</p>
-            <h1>A buyer's guide to the city's next waterfront addresses.</h1>
-            <p class="hero-copy">Compare North Flagler, Downtown, and South Flagler residences with reviewed facts, released floorplans, and advisory context written for buyers.</p>
+            <h1>West Palm Beach New Construction Condos, Mapped and Compared.</h1>
+            <p class="hero-copy">A buyer-focused guide to active sales, future projects, floor plans, updates, and waterfront positioning across Downtown West Palm Beach.</p>
             <div class="hero-actions" aria-label="Primary homepage actions">
-              <a href="#projects">Explore Buildings</a>
-              <a href="/inquire/">Request Current Availability <span aria-hidden="true">↗</span></a>
+              <a href="#projects" data-hero-cta="explore-buildings">Explore Buildings</a>
+              <a href="/map/" data-hero-cta="view-map">View Map</a>
+              <a href="/inquire/" data-hero-cta="request-availability">Request Current Availability <span aria-hidden="true">↗</span></a>
             </div>
           </div>
         </div>
@@ -1911,6 +1960,10 @@ app.innerHTML = `
           <figure class="hero-map-preview">
             <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
             <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
+            <div class="hero-map-fallback">
+              <span>Map unavailable. Browse the building list instead.</span>
+              <a href="/buildings/">Browse buildings</a>
+            </div>
           </figure>
           <div class="home-map-count" aria-label="Map project count">
             <strong>${featuredProjects.length}</strong>
@@ -2948,6 +3001,7 @@ document.querySelectorAll<HTMLFormElement>("[data-email-signup]").forEach((signu
 initBuyerAssistant();
 initLeadCaptureModal();
 initQuickCtas();
+initHomeHero();
 
 function queueLeadLocally(leadRecord: Record<string, string>) {
   try {
@@ -3062,6 +3116,79 @@ function initQuickCtas() {
       });
     });
   });
+}
+
+function initHomeHero() {
+  const hero = document.querySelector<HTMLElement>(".home-hero");
+  if (!hero || hero.dataset.heroInitialized || homeHeroImages.length < 2) return;
+
+  hero.dataset.heroInitialized = "true";
+  const activeLayer = hero.querySelector<HTMLImageElement>("[data-home-hero-layer='active']");
+  const nextLayer = hero.querySelector<HTMLImageElement>("[data-home-hero-layer='next']");
+  const caption = hero.querySelector<HTMLElement>("[data-home-hero-caption]");
+  if (!activeLayer || !nextLayer) return;
+
+  hero.querySelectorAll<HTMLElement>("[data-hero-cta]").forEach((element) => {
+    element.addEventListener("click", () => {
+      track("homepage_hero_cta_click", {
+        action: element.dataset.heroCta,
+        href: element.getAttribute("href"),
+      });
+    });
+  });
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  let index = 0;
+  let paused = false;
+
+  const preloadNext = () => {
+    const image = homeHeroImages[(index + 1) % homeHeroImages.length];
+    if (!nextLayer.src.endsWith(image.src)) {
+      nextLayer.src = image.src;
+    }
+  };
+
+  const rotate = () => {
+    if (paused || document.hidden) return;
+    const nextIndex = (index + 1) % homeHeroImages.length;
+    const image = homeHeroImages[nextIndex];
+    nextLayer.src = image.src;
+    nextLayer.alt = image.alt;
+    nextLayer.removeAttribute("aria-hidden");
+    nextLayer.classList.add("is-active");
+    activeLayer.classList.remove("is-active");
+
+    window.setTimeout(() => {
+      activeLayer.src = image.src;
+      activeLayer.alt = image.alt;
+      activeLayer.classList.add("is-active");
+      nextLayer.classList.remove("is-active");
+      nextLayer.alt = "";
+      nextLayer.setAttribute("aria-hidden", "true");
+      caption?.replaceChildren(document.createTextNode(image.caption));
+      index = nextIndex;
+      preloadNext();
+    }, 1500);
+  };
+
+  hero.addEventListener("mouseenter", () => {
+    paused = true;
+  });
+  hero.addEventListener("mouseleave", () => {
+    paused = false;
+  });
+  hero.addEventListener("focusin", () => {
+    paused = true;
+  });
+  hero.addEventListener("focusout", () => {
+    paused = false;
+  });
+
+  preloadNext();
+  window.setInterval(rotate, 8500);
 }
 
 function initBuyerAssistant() {
@@ -4041,6 +4168,10 @@ function renderMapRouteView() {
           <figure class="hero-map-preview">
             <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
             <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
+            <div class="hero-map-fallback">
+              <span>Map unavailable. Browse the building list instead.</span>
+              <a href="/buildings/">Browse buildings</a>
+            </div>
           </figure>
           <div class="home-map-count" aria-label="Map project count">
             <strong>${featuredProjects.length}</strong>
@@ -4715,16 +4846,27 @@ function loadGoogleMaps() {
   }
 
   googleMapsLoader = new Promise((resolve, reject) => {
+    (window as WindowWithGoogleMaps).gm_authFailure = () => {
+      setGoogleMapFallback("Google Maps authentication failed");
+      reject(new Error("Google Maps authentication failed"));
+    };
+
+    const resolveLoadedMaps = () => {
+      const maps = (window as WindowWithGoogleMaps).google?.maps;
+      if (maps?.Map) {
+        resolve(maps);
+      } else {
+        reject(new Error("Google Maps loaded without maps constructor"));
+      }
+    };
+
     const existingScript = document.querySelector<HTMLScriptElement>(`script[data-map-loader="${heroMapScriptId}"]`);
     if (existingScript) {
-      existingScript.addEventListener("load", () => {
-        const maps = (window as WindowWithGoogleMaps).google?.maps;
-        if (maps) {
-          resolve(maps);
-        } else {
-          reject(new Error("Google Maps loaded without maps namespace"));
-        }
-      });
+      if ((window as WindowWithGoogleMaps).google?.maps?.Map) {
+        resolveLoadedMaps();
+        return;
+      }
+      (window as WindowWithGoogleMaps).__wpbGoogleMapsReady = resolveLoadedMaps;
       existingScript.addEventListener("error", () => reject(new Error("Google Maps failed to load")));
       return;
     }
@@ -4732,25 +4874,117 @@ function loadGoogleMaps() {
     const params = new URLSearchParams({
       key: googleMapsApiKey,
       libraries: "marker",
+      loading: "async",
+      v: "weekly",
+      callback: heroMapCallbackName,
     });
     const script = document.createElement("script");
     script.dataset.mapLoader = heroMapScriptId;
     script.async = true;
     script.defer = true;
     script.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
-    script.addEventListener("load", () => {
-      const maps = (window as WindowWithGoogleMaps).google?.maps;
-      if (maps) {
-        resolve(maps);
-      } else {
-        reject(new Error("Google Maps loaded without maps namespace"));
-      }
-    });
+    (window as WindowWithGoogleMaps).__wpbGoogleMapsReady = resolveLoadedMaps;
     script.addEventListener("error", () => reject(new Error("Google Maps failed to load")));
     document.head.append(script);
   });
 
   return googleMapsLoader;
+}
+
+function setGoogleMapFallback(message = "Interactive map unavailable") {
+  document.querySelectorAll<HTMLElement>(".home-hero-map-card").forEach((card) => {
+    card.dataset.mapState = "unavailable";
+    card.querySelectorAll<HTMLButtonElement>("[data-map-expand]").forEach((button) => {
+      button.textContent = "Map unavailable";
+      button.disabled = true;
+    });
+  });
+  document.querySelectorAll<HTMLElement>("[data-project-google-map]").forEach((element) => {
+    element.dataset.mapState = "unavailable";
+    element.textContent = message;
+  });
+}
+
+function loadAdvancedMarkerElement(maps: GoogleMapsNamespace) {
+  if (!googleMapsMapId) {
+    return Promise.resolve(undefined);
+  }
+  if (googleAdvancedMarkerLoader) {
+    return googleAdvancedMarkerLoader;
+  }
+
+  googleAdvancedMarkerLoader = (async () => {
+    if (maps.marker?.AdvancedMarkerElement) {
+      return maps.marker.AdvancedMarkerElement;
+    }
+    if (!maps.importLibrary) {
+      return undefined;
+    }
+    try {
+      const markerLibrary = await maps.importLibrary("marker");
+      return markerLibrary.AdvancedMarkerElement;
+    } catch (error) {
+      console.warn(error instanceof Error ? error.message : "Google Maps marker library failed to load");
+      return undefined;
+    }
+  })();
+
+  return googleAdvancedMarkerLoader;
+}
+
+function markerPinElement(priority: "primary" | "secondary") {
+  const pin = document.createElement("span");
+  pin.className = `map-advanced-marker map-advanced-marker-${priority}`;
+  pin.setAttribute("aria-hidden", "true");
+  return pin;
+}
+
+function createMapMarker(
+  maps: GoogleMapsNamespace,
+  map: unknown,
+  position: { lat: number; lng: number },
+  title: string,
+  priority: "primary" | "secondary",
+  onClick: () => void,
+  AdvancedMarkerElement?: GoogleAdvancedMarkerConstructor,
+): GoogleMarkerHandle {
+  if (AdvancedMarkerElement) {
+    const marker = new AdvancedMarkerElement({
+      map,
+      position,
+      title,
+      content: markerPinElement(priority),
+      gmpClickable: true,
+    });
+    if (marker.addEventListener) {
+      marker.addEventListener("gmp-click", onClick);
+    } else {
+      marker.addListener?.("click", onClick);
+    }
+    return {
+      clear: () => {
+        marker.map = null;
+      },
+    };
+  }
+
+  const marker = new maps.Marker({
+    map,
+    position,
+    title,
+    icon: {
+      path: maps.SymbolPath.CIRCLE,
+      scale: priority === "primary" ? 8 : 5,
+      fillColor: priority === "primary" ? "#0d3125" : "#50665e",
+      fillOpacity: 1,
+      strokeColor: "#fffaf1",
+      strokeWeight: priority === "primary" ? 2 : 1,
+    },
+  });
+  marker.addListener("click", onClick);
+  return {
+    clear: () => marker.setMap(null),
+  };
 }
 
 function googleMapBaseOptions(center: { lat: number; lng: number }, zoom: number): Record<string, unknown> {
@@ -4796,13 +5030,7 @@ function initHeroGoogleMap() {
   }
 
   if (!googleMapsApiKey) {
-    activeCards.forEach((card) => {
-      card.dataset.mapState = "unavailable";
-      card.querySelectorAll<HTMLButtonElement>("[data-map-expand]").forEach((button) => {
-        button.textContent = "Map unavailable";
-        button.disabled = true;
-      });
-    });
+    setGoogleMapFallback("Missing VITE_GOOGLE_MAPS_API_KEY");
     return;
   }
 
@@ -4815,14 +5043,15 @@ function initHeroGoogleMap() {
     card.dataset.mapInitialized = "true";
 
     loadGoogleMaps()
-      .then((maps) => {
+      .then(async (maps) => {
       card.dataset.mapState = "ready";
+      const AdvancedMarkerElement = await loadAdvancedMarkerElement(maps);
       const map = new maps.Map(canvas, googleMapBaseOptions({ lat: 26.7134, lng: -80.0564 }, 13));
       let expanded = false;
-      let markers: InstanceType<GoogleMapsNamespace["Marker"]>[] = [];
+      let markers: GoogleMarkerHandle[] = [];
 
       const renderMarkers = () => {
-        markers.forEach((marker) => marker.setMap(null));
+        markers.forEach((marker) => marker.clear());
         markers = [];
         const projects = expanded ? rankedFeaturedProjects : rankedFeaturedProjects.slice(0, 7);
         const bounds = new maps.LatLngBounds();
@@ -4830,22 +5059,17 @@ function initHeroGoogleMap() {
         projects.forEach((project, index) => {
           const position = { lat: project.latitude, lng: project.longitude };
           bounds.extend(position);
-          const marker = new maps.Marker({
+          const marker = createMapMarker(
+            maps,
             map,
             position,
-            title: `${project.name} · ${project.corridor} project`,
-            icon: {
-              path: maps.SymbolPath.CIRCLE,
-              scale: index < 7 ? 8 : 5,
-              fillColor: index < 7 ? "#0d3125" : "#50665e",
-              fillOpacity: 1,
-              strokeColor: "#fffaf1",
-              strokeWeight: index < 7 ? 2 : 1,
+            `${project.name} · ${project.corridor} project`,
+            index < 7 ? "primary" : "secondary",
+            () => {
+              window.location.assign(projectPath(project));
             },
-          });
-          marker.addListener("click", () => {
-            window.location.assign(projectPath(project));
-          });
+            AdvancedMarkerElement,
+          );
           markers.push(marker);
         });
 
@@ -4871,7 +5095,7 @@ function initHeroGoogleMap() {
       renderMarkers();
     })
     .catch((error: Error) => {
-      card.dataset.mapState = "unavailable";
+      setGoogleMapFallback(error.message);
       console.warn(error.message);
     });
   });
@@ -4891,10 +5115,7 @@ function initProjectLocationMaps() {
   }
 
   if (!googleMapsApiKey) {
-    mapsToInit.forEach((element) => {
-      element.dataset.mapState = "unavailable";
-      element.textContent = "Interactive map unavailable";
-    });
+    setGoogleMapFallback("Missing VITE_GOOGLE_MAPS_API_KEY");
     return;
   }
 
@@ -4904,7 +5125,8 @@ function initProjectLocationMaps() {
   });
 
   loadGoogleMaps()
-    .then((maps) => {
+    .then(async (maps) => {
+      const AdvancedMarkerElement = await loadAdvancedMarkerElement(maps);
       mapsToInit.forEach((element) => {
         const latitude = Number(element.dataset.latitude);
         const longitude = Number(element.dataset.longitude);
@@ -4917,28 +5139,25 @@ function initProjectLocationMaps() {
 
         const position = { lat: latitude, lng: longitude };
         const map = new maps.Map(element, googleMapBaseOptions(position, 15));
-        new maps.Marker({
+        createMapMarker(
+          maps,
           map,
           position,
-          title: projectName,
-          icon: {
-            path: maps.SymbolPath.CIRCLE,
-            scale: 9,
-            fillColor: "#0d3125",
-            fillOpacity: 1,
-            strokeColor: "#fffaf1",
-            strokeWeight: 2,
+          projectName,
+          "primary",
+          () => {
+            const projectId = element.closest<HTMLElement>("[data-route-view='project']")?.dataset.projectId;
+            const project = projectId ? featuredProjects.find((item) => item.id === projectId) : undefined;
+            if (project) window.location.assign(projectPath(project));
           },
-        });
+          AdvancedMarkerElement,
+        );
         element.dataset.mapInitialized = "true";
         element.dataset.mapState = "ready";
       });
     })
     .catch((error: Error) => {
-      mapsToInit.forEach((element) => {
-        element.dataset.mapState = "unavailable";
-        element.textContent = "Interactive map unavailable";
-      });
+      setGoogleMapFallback(error.message);
       console.warn(error.message);
     });
 }
@@ -5224,7 +5443,7 @@ function projectTypeLabel(type: ProjectPageType) {
 
 function renderProjectIdentityHeader(project: FeaturedProject, pageType: ProjectPageType) {
   const logo = project.logoImage && canShowImage(project.logoImage)
-    ? `<img src="${safeHref(project.logoImage)}" alt="${escapeHtml(project.logoAlt ?? `${project.name} logo`)}" loading="eager" decoding="async" />`
+    ? `<img src="${safeHref(project.logoImage)}" alt="${escapeHtml(project.logoAlt ?? `${project.name} logo`)}" loading="lazy" decoding="async" />`
     : `<strong>${publicText(project.name)}</strong>`;
   return `
     <header class="project-identity-header">
