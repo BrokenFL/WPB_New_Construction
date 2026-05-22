@@ -2330,6 +2330,110 @@ h3 {
   text-transform: uppercase;
 }
 
+.market-note-hero {
+  padding-top: clamp(118px, 14vw, 190px);
+  padding-bottom: clamp(44px, 7vw, 86px);
+}
+
+.market-note-hero h1 {
+  max-width: 920px;
+  margin: 14px 0 0;
+  font-family:
+    Iowan Old Style,
+    Palatino Linotype,
+    Georgia,
+    serif;
+  font-size: clamp(2.8rem, 7vw, 6.8rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.94;
+}
+
+.market-note-hero > p:not(.eyebrow) {
+  max-width: 760px;
+  color: var(--soft-ink);
+  font-size: clamp(1.06rem, 1.6vw, 1.32rem);
+}
+
+.market-note-back {
+  display: inline-flex;
+  margin-bottom: 20px;
+  color: var(--bronze);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.market-note-body {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.34fr) minmax(0, 0.66fr);
+  gap: clamp(28px, 6vw, 84px);
+  align-items: start;
+}
+
+.market-note-thesis {
+  position: sticky;
+  top: 110px;
+  border: 1px solid rgba(37, 42, 45, 0.12);
+  padding: clamp(22px, 3vw, 34px);
+  background: rgba(255, 250, 241, 0.62);
+}
+
+.market-note-thesis span {
+  display: block;
+  color: var(--bronze);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.market-note-thesis strong {
+  display: block;
+  margin-top: 12px;
+  color: var(--ink);
+  font-family:
+    Iowan Old Style,
+    Palatino Linotype,
+    Georgia,
+    serif;
+  font-size: clamp(1.35rem, 2.4vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.market-note-thesis p,
+.market-note-sections p {
+  color: var(--soft-ink);
+  line-height: 1.72;
+}
+
+.market-note-sections {
+  display: grid;
+  gap: clamp(28px, 4vw, 54px);
+}
+
+.market-note-sections h2 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-family:
+    Iowan Old Style,
+    Palatino Linotype,
+    Georgia,
+    serif;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  font-weight: 400;
+  line-height: 1.02;
+}
+
+.market-note-related-section {
+  padding-top: clamp(28px, 5vw, 70px);
+}
+
+.market-note-cta {
+  margin-top: clamp(32px, 6vw, 82px);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2465,6 +2569,7 @@ select:focus-visible {
   .marina-section,
   .inquiry-section,
   .intelligence-hero,
+  .market-note-body,
   .answer-block,
   .floorplan-library,
   .asset-status-strip,
@@ -2475,6 +2580,10 @@ select:focus-visible {
 
   .answer-fact-row {
     grid-template-columns: 1fr;
+  }
+
+  .market-note-thesis {
+    position: static;
   }
 
   .answer-fact-row dl {
@@ -2656,6 +2765,14 @@ select:focus-visible {
 /* Atlas homepage */
 .route-view[hidden] {
   display: none !important;
+}
+
+.route-anchor {
+  display: block;
+  position: relative;
+  top: -90px;
+  width: 1px;
+  height: 1px;
 }
 
 .site-shell[data-active-route="news"] .site-nav,

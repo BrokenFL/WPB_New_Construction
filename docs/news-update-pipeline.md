@@ -63,6 +63,39 @@ Use the same fields consistently for future editorial notes and feed entries:
 - `factCheckRequired`: details that must be refreshed before publication.
 - `seo`: primary query, secondary queries, suggested slug, title tag, and meta description.
 
+Imported update candidates live in `src/data/importedUpdates.json` and are intentionally review-first. Use this shape:
+
+```json
+{
+  "id": "stable-slug",
+  "title": "Buyer-facing headline",
+  "summary": "Short factual summary",
+  "date": "2026-05-22",
+  "lastCheckedAt": "2026-05-22",
+  "sourceName": "Source name",
+  "sourceUrl": "https://example.com/source",
+  "sourceType": "developer | news | city | county | brokerage | permit | other",
+  "category": "sales | construction | planning | financing | delivery | media | general",
+  "relatedBuildingSlug": "optional-building-slug",
+  "confidence": "high | medium | low",
+  "status": "needs_review | published | archived"
+}
+```
+
+Run:
+
+```bash
+npm run check:updates
+```
+
+Rules:
+
+- Imported records default to `needs_review`.
+- Do not auto-publish imported records.
+- Published records require `sourceUrl`, `lastCheckedAt`, and non-low confidence.
+- If a public update is older than 90 days, label it as `Older public update`.
+- Never imply older information is current.
+
 ## Handoff Template
 
 ```markdown

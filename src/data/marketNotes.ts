@@ -1,8 +1,4 @@
-export type MarketNoteStatus =
-  | "draft"
-  | "ready-for-review"
-  | "published"
-  | "needs-refresh";
+export type MarketNoteStatus = "draft" | "ready-for-review" | "published" | "needs-refresh";
 
 export type MarketNoteSource = {
   label: string;
@@ -16,18 +12,27 @@ export type MarketNoteSource = {
     | "brand/developer announcement";
 };
 
+export type MarketNoteSection = {
+  heading: string;
+  body: string;
+};
+
 export type MarketNote = {
   id: string;
   status: MarketNoteStatus;
   category: string;
   title: string;
-  summary: string;
-  buyerAngle: string;
+  slug: string;
+  excerpt: string;
+  buyerThesis: string;
+  buyerTakeaway: string;
   projectIds: string[];
   sourceName: string;
   sourceLinks: MarketNoteSource[];
   datePublished: string;
   dateModified: string;
+  sections: MarketNoteSection[];
+  ctaText: string;
   factCheckRequired: string[];
   seo: {
     primaryQuery: string;
@@ -38,216 +43,302 @@ export type MarketNote = {
   };
 };
 
+const articleCta = "Want help applying this to your search? Request current availability and private comparison notes.";
+
 export const marketNotes = [
   {
-    id: "mandarin-oriental-interiors-revealed",
-    status: "ready-for-review",
-    category: "North Flagler",
-    title:
-      "Mandarin Oriental interiors move the North Flagler comparison beyond skyline renderings",
-    summary:
-      "Recent reporting highlighted first interior renderings for Mandarin Oriental Residences, West Palm Beach.",
-    buyerAngle:
-      "Treat the new imagery as finish and service-positioning context, then compare it against current packet depth, timing, and view-stack evidence for Olara, Ritz-Carlton, Shorecrest, and other North Flagler options.",
-    projectIds: ["mandarin-oriental", "olara", "ritz-carlton-wpb"],
-    sourceName: "Florida YIMBY",
+    id: "active-sales-vs-pipeline-watch",
+    status: "published",
+    category: "Buyer Education",
+    title: "Active Sales vs Pipeline Watch: How to Read the West Palm Beach Condo Market",
+    slug: "active-sales-vs-pipeline-watch",
+    excerpt:
+      "A buyer-friendly way to separate buildings you can underwrite now from pipeline projects that may matter later.",
+    buyerThesis:
+      "The cleanest West Palm Beach search starts by separating active sales from pipeline watch items. They answer different buyer questions and should not be compared as if they carry the same certainty.",
+    buyerTakeaway:
+      "Use active-sales projects for current decisions, and use pipeline projects to understand future supply pressure. Do not treat early-stage concepts as current purchase options until pricing, plans, timing, and buyer packets are available.",
+    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "nora-house", "banyan-tree", "rosewood"],
+    sourceName: "WPB New Construction source review",
     sourceLinks: [
       {
-        label: "Florida YIMBY Mandarin Oriental interior rendering coverage",
-        href: "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",
+        label: "WPB New Construction updates",
+        href: "/updates/",
         sourceType: "development news coverage",
       },
+    ],
+    datePublished: "2026-05-22",
+    dateModified: "2026-05-22",
+    sections: [
       {
-        label: "Mandarin Oriental Residences, West Palm Beach",
-        href: "https://mandarinorientalwestpalmbeach.com/",
-        sourceType: "official project site",
+        heading: "Why the distinction matters",
+        body:
+          "Active-sales buildings give a buyer something practical to verify: available lines, floor plans, deposits, delivery assumptions, parking, fees, and contract language. Pipeline projects are useful, but mostly as context. They can explain where supply may be headed, which corridors are attracting capital, and why a current building may or may not hold pricing power.",
+      },
+      {
+        heading: "What belongs in the active-sales bucket",
+        body:
+          "A building belongs in the active-sales bucket when a buyer can request current availability, review plan depth, and compare the project against real timing and contract questions. Olara, Ritz-Carlton, Shorecrest, South Flagler House, Mr. C, Alba, and similar public-sales projects should still be verified, but they offer more decision-grade material than early concepts.",
+      },
+      {
+        heading: "What belongs in the pipeline-watch bucket",
+        body:
+          "Pipeline-watch projects can include planning-stage branded residences, district redevelopment items, office or mixed-use catalysts, and sites with limited public detail. They matter because they shape the buyer map, not because they can be compared line by line today.",
+      },
+      {
+        heading: "The practical buyer move",
+        body:
+          "Built for comparison, not brochure fog. Start with what can actually be verified now, then use the pipeline to understand where the corridor may be in two to four years. That keeps you from chasing concepts when a current building may already solve the search.",
       },
     ],
-    datePublished: "2026-05-18",
-    dateModified: "2026-05-22",
+    ctaText: articleCta,
     factCheckRequired: [
-      "Confirm any residence count, delivery timing, pricing, or current sales-office details before publication.",
-      "Use only authorized or user-provided imagery if this becomes a public article.",
+      "Refresh current active-sales and planning status before treating a project as decision-grade.",
+      "Confirm pricing, availability, and delivery timing directly before buyer reliance.",
     ],
     seo: {
-      primaryQuery: "Mandarin Oriental West Palm Beach interiors",
-      secondaryQueries: [
-        "North Flagler condos",
-        "West Palm Beach branded residences",
-      ],
-      suggestedSlug: "mandarin-oriental-interiors-north-flagler",
-      titleTag: "Mandarin Oriental Interiors | WPB New Construction",
+      primaryQuery: "West Palm Beach new construction condos",
+      secondaryQueries: ["West Palm Beach pre-construction condos", "Downtown West Palm Beach condos"],
+      suggestedSlug: "active-sales-vs-pipeline-watch",
+      titleTag: "Active Sales vs Pipeline Watch | WPB New Construction",
       metaDescription:
-        "Buyer-focused context on Mandarin Oriental interior renderings and the North Flagler new-construction condo comparison.",
+        "How West Palm Beach condo buyers can separate active sales from pipeline watch projects before comparing pricing, floor plans, and timing.",
     },
   },
   {
-    id: "rosewood-north-flagler-planning",
-    status: "needs-refresh",
-    category: "North Flagler",
-    title: "Rosewood planning notes add another branded watch item to North Flagler",
-    summary:
-      "Planning-oriented research points to Rosewood as a North Flagler branded-residence watch item, with details still early-stage.",
-    buyerAngle:
-      "Keep Rosewood in the pipeline watchlist, but do not compare it as a current purchase option until public plan, pricing, timing, and sales materials are stronger.",
-    projectIds: ["rosewood", "ritz-carlton-wpb", "mandarin-oriental"],
-    sourceName: "West Palm Beach planning materials",
+    id: "olara-vs-shorecrest",
+    status: "published",
+    category: "Building Comparisons",
+    title: "Olara vs Shorecrest: Two Different Waterfront Buyer Profiles",
+    slug: "olara-vs-shorecrest-waterfront-buyer-profiles",
+    excerpt:
+      "Both sit in the North Flagler waterfront conversation, but they should not be evaluated as interchangeable tower choices.",
+    buyerThesis:
+      "Olara and Shorecrest both belong in the North Flagler comparison set, but the buyer profile is different. The better shortlist asks what kind of waterfront ownership you want before treating price or delivery as the only filter.",
+    buyerTakeaway:
+      "Ask for current availability, floor-plan depth, view-stack context, amenity details, and delivery assumptions for both. The decision is not simply which tower is newer or closer; it is which operating model fits the way you want to live.",
+    projectIds: ["olara", "shorecrest", "ritz-carlton-wpb"],
+    sourceName: "Reviewed project materials and public updates",
     sourceLinks: [
       {
-        label: "West Palm Beach planning materials reviewed",
-        href: "https://www.wpb.org/",
+        label: "Market updates",
+        href: "/updates/",
+        sourceType: "development news coverage",
+      },
+    ],
+    datePublished: "2026-05-22",
+    dateModified: "2026-05-22",
+    sections: [
+      {
+        heading: "The shared North Flagler frame",
+        body:
+          "Both buildings sit inside the same waterfront conversation: Intracoastal exposure, Palm Beach proximity, large amenity programs, and a growing cluster of luxury condominium inventory. That shared context is useful, but it can hide the real buyer questions.",
+      },
+      {
+        heading: "Olara tends to reward amenity-depth buyers",
+        body:
+          "Olara is useful for buyers who want a deeper public packet, a large amenity story, marina context, and more material to compare before touring. That does not make it automatically better; it means the diligence path can start with more visible pieces.",
+      },
+      {
+        heading: "Shorecrest needs careful current verification",
+        body:
+          "Shorecrest is important because it adds another active North Flagler waterfront option, but buyers should preserve source conflicts and verify residence counts, available lines, pricing guidance, and construction timing before relying on broad summaries.",
+      },
+      {
+        heading: "How to compare without getting lost",
+        body:
+          "Compare the same facts across both buildings: available lines, floor height, view exposure, terrace usability, fees, parking, storage, amenity access, deposit structure, and delivery risk. Anything else is brochure fog.",
+      },
+    ],
+    ctaText: articleCta,
+    factCheckRequired: [
+      "Confirm current Shorecrest residence count and construction status before publication updates.",
+      "Confirm current Olara and Shorecrest pricing and availability before buyer reliance.",
+    ],
+    seo: {
+      primaryQuery: "Olara vs Shorecrest West Palm Beach",
+      secondaryQueries: ["North Flagler waterfront condos", "West Palm Beach waterfront condos"],
+      suggestedSlug: "olara-vs-shorecrest-waterfront-buyer-profiles",
+      titleTag: "Olara vs Shorecrest | WPB Buyer Notes",
+      metaDescription:
+        "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps.",
+    },
+  },
+  {
+    id: "why-published-floor-plans-matter",
+    status: "published",
+    category: "Floor Plan Notes",
+    title: "Why Published Floor Plans Matter Before You Visit a Sales Gallery",
+    slug: "why-published-floor-plans-matter",
+    excerpt:
+      "Floor plans are not just pretty PDFs. They tell you whether a building can solve your life before you spend time in a presentation room.",
+    buyerThesis:
+      "Published floor plans let a buyer compare function before emotion takes over. They reveal the difference between real fit and marketing momentum.",
+    buyerTakeaway:
+      "Before touring, ask for current floor plans, stack plans, dimensions, terrace depth, exposure, ceiling heights where available, and any line-specific limitations.",
+    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"],
+    sourceName: "WPB New Construction floor-plan library",
+    sourceLinks: [
+      {
+        label: "Floor plan library",
+        href: "/floorplans/",
+        sourceType: "official project site",
+      },
+    ],
+    datePublished: "2026-05-22",
+    dateModified: "2026-05-22",
+    sections: [
+      {
+        heading: "Plans expose the daily-life problem",
+        body:
+          "A residence can photograph beautifully and still fail the basic living test. Floor plans show entry sequence, kitchen relationship, bedroom separation, storage, terrace access, den usefulness, and whether the primary rooms actually face the view you care about.",
+      },
+      {
+        heading: "Released plans create a fair comparison",
+        body:
+          "When one building has dozens of released plans and another requires a private packet, that does not automatically decide the search. It does tell you where diligence is easier and where Brooke should request more current material before you tour.",
+      },
+      {
+        heading: "The missing piece is the stack plan",
+        body:
+          "A floor plan shows layout; a stack plan shows position. Buyers need both. The same plan can feel different by floor, exposure, neighboring tower position, balcony depth, and future view risk.",
+      },
+      {
+        heading: "Use plans to shorten the tour list",
+        body:
+          "The best use of a plan library is not endless browsing. It is removing bad fits early, then asking for current availability only on the lines that actually support the buyer's life.",
+      },
+    ],
+    ctaText: articleCta,
+    factCheckRequired: [
+      "Confirm current floor-plan packet availability for each building.",
+      "Do not imply a public plan is currently available for purchase without availability confirmation.",
+    ],
+    seo: {
+      primaryQuery: "West Palm Beach condo floor plans",
+      secondaryQueries: ["West Palm Beach new construction floor plans", "condo stack plans West Palm Beach"],
+      suggestedSlug: "why-published-floor-plans-matter",
+      titleTag: "Why Published Floor Plans Matter | WPB",
+      metaDescription:
+        "Why West Palm Beach condo buyers should review floor plans and stack plans before visiting new-construction sales presentations.",
+    },
+  },
+  {
+    id: "verify-new-construction-pricing",
+    status: "published",
+    category: "Buyer Education",
+    title: "What Buyers Should Verify Before Trusting New Construction Pricing",
+    slug: "what-buyers-should-verify-before-trusting-pricing",
+    excerpt:
+      "Published price ranges are only the opening frame. The useful number is line-specific, date-specific, and tied to real terms.",
+    buyerThesis:
+      "New-construction pricing changes too quickly to treat public ranges as a decision. A serious comparison verifies the actual line, floor, exposure, incentives, fees, and contract assumptions.",
+    buyerTakeaway:
+      "Use public pricing as a signal, not a promise. Ask Brooke to verify the current sheet before comparing buildings or scheduling tours around old numbers.",
+    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "mr-c", "south-flagler-house"],
+    sourceName: "WPB New Construction pricing review method",
+    sourceLinks: [
+      {
+        label: "How we verify",
+        href: "/methodology/",
         sourceType: "city planning material",
       },
     ],
-    datePublished: "2026-05-19",
+    datePublished: "2026-05-22",
     dateModified: "2026-05-22",
+    sections: [
+      {
+        heading: "A range is not an offer",
+        body:
+          "A public 'from' price can help you understand the entry point, but it rarely tells you the residence line, floor, exposure, parking, deposit schedule, upgrade assumptions, or whether the relevant unit is still available.",
+      },
+      {
+        heading: "Incentives can change the real comparison",
+        body:
+          "Two buildings with similar public pricing can behave differently once incentives, closing credits, deposit timing, decorator allowances, parking, storage, and maintenance assumptions enter the conversation. Those details need current written confirmation.",
+      },
+      {
+        heading: "Delivery timing has economic value",
+        body:
+          "A 2027 delivery and a later pipeline project do not carry the same risk profile. Buyers should compare timing, walk-through process, financing assumptions, and what happens if construction or closing windows move.",
+      },
+      {
+        heading: "The verification checklist",
+        body:
+          "Ask for current availability, line-specific pricing, floor plan, stack plan, fees, parking, storage, incentives, deposit schedule, cancellation language, delivery assumptions, and the required condominium disclosure package.",
+      },
+    ],
+    ctaText: articleCta,
     factCheckRequired: [
-      "Refresh city record links before publication because this note currently points to the general city site.",
-      "Do not publish residence counts, pricing, team details, delivery timing, or amenity claims without project-specific source evidence.",
+      "Current pricing and incentives must be verified directly before buyer reliance.",
+      "Avoid quoting stale public pricing without date and source context.",
     ],
     seo: {
-      primaryQuery: "Rosewood Residences West Palm Beach",
-      secondaryQueries: [
-        "North Flagler development pipeline",
-        "West Palm Beach branded residences",
-      ],
-      suggestedSlug: "rosewood-north-flagler-planning-watch",
-      titleTag: "Rosewood North Flagler Planning Watch | WPB",
+      primaryQuery: "West Palm Beach condo availability",
+      secondaryQueries: ["West Palm Beach condo pricing", "West Palm Beach new construction condos"],
+      suggestedSlug: "what-buyers-should-verify-before-trusting-pricing",
+      titleTag: "Verify New Construction Pricing | WPB",
       metaDescription:
-        "Conservative buyer context on Rosewood as a North Flagler watch item, pending stronger public project details.",
+        "A practical buyer checklist for verifying West Palm Beach new-construction condo pricing, incentives, fees, delivery, and availability.",
     },
   },
   {
-    id: "nora-house-local-coverage",
-    status: "ready-for-review",
-    category: "Downtown",
-    title: "NORA House keeps Downtown's ownership story in the local news cycle",
-    summary:
-      "Local coverage continues to frame NORA House as a for-sale residential anchor inside the growing NORA district.",
-    buyerAngle:
-      "Use the update to explain how NORA shifts from a dining and retail district story into a downtown ownership comparison, while telling buyers to verify timing, parking, exposure, and active district conditions.",
-    projectIds: ["nora-house", "mr-c", "banyan-tree"],
-    sourceName: "WFLX and World Red Eye",
+    id: "downtown-condo-corridors-explained",
+    status: "published",
+    category: "Neighborhood Guides",
+    title: "Downtown West Palm Beach Condo Corridors Explained",
+    slug: "downtown-west-palm-beach-condo-corridors-explained",
+    excerpt:
+      "Downtown is not one single market. North Flagler, the core, The Square/Rosemary, and NORA each answer a different lifestyle question.",
+    buyerThesis:
+      "The downtown West Palm Beach condo search gets clearer when you pick the corridor first. Each area has a different rhythm, buyer profile, and diligence path.",
+    buyerTakeaway:
+      "Decide whether your first priority is waterfront calm, walkable restaurants, retail/dining energy, or growth-district upside. Then compare buildings inside that lane before jumping citywide.",
+    projectIds: ["nora-house", "mr-c", "banyan-tree", "10-cityplace", "15-cityplace", "olara"],
+    sourceName: "WPB New Construction corridor review",
     sourceLinks: [
       {
-        label: "WFLX NORA House local coverage",
-        href: "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/",
-        sourceType: "local news coverage",
-      },
-      {
-        label: "World Red Eye NORA House district coverage",
-        href: "https://worldredeye.com/2026/03/wre-news-nora-house-anchors-residential-expansion-in-west-palm-beachs-nora-district/",
+        label: "Market map",
+        href: "/#atlas",
         sourceType: "development news coverage",
       },
-      {
-        label: "NORA House",
-        href: "https://norahouse.com/",
-        sourceType: "official project site",
-      },
     ],
-    datePublished: "2026-04-10",
+    datePublished: "2026-05-22",
     dateModified: "2026-05-22",
+    sections: [
+      {
+        heading: "North Flagler is the waterfront decision set",
+        body:
+          "North Flagler is where buyers compare Intracoastal exposure, Palm Beach views across the water, amenity scale, marina context, and newer waterfront inventory. It is not the same lifestyle as being in the downtown restaurant core.",
+      },
+      {
+        heading: "Downtown core is the walkability decision",
+        body:
+          "The core is about restaurants, offices, Brightline access, cultural venues, hotels, and daily convenience. Buyers here should ask how often they want to use a car and whether energy matters more than a quieter waterfront arrival.",
+      },
+      {
+        heading: "The Square and Rosemary are lifestyle connectors",
+        body:
+          "The Square and Rosemary corridor connect dining, retail, hotel, office, and residential demand. They can be useful for buyers who want polished walkability but still need to understand how nearby development affects daily life.",
+      },
+      {
+        heading: "NORA is the growth corridor",
+        body:
+          "NORA is more about trajectory. It brings adaptive reuse, dining, retail, and new residential energy into a district that is still forming. Buyers should verify timing, parking, exposure, and how construction-phase friction may affect ownership.",
+      },
+    ],
+    ctaText: articleCta,
     factCheckRequired: [
-      "Verify current floorplan, pricing, and delivery details directly before turning this into a live article.",
-      "Keep district claims limited to sourced NORA House and district coverage.",
+      "Refresh district project status and construction impacts before relying on corridor guidance.",
+      "Do not imply any specific current availability without buyer-packet confirmation.",
     ],
     seo: {
-      primaryQuery: "NORA House West Palm Beach",
-      secondaryQueries: [
-        "NORA District condos",
-        "Downtown West Palm Beach new construction",
-      ],
-      suggestedSlug: "nora-house-downtown-ownership-update",
-      titleTag: "NORA House Downtown Ownership Update | WPB",
+      primaryQuery: "Downtown West Palm Beach condos",
+      secondaryQueries: ["West Palm Beach condo corridors", "NORA District condos", "North Flagler condos"],
+      suggestedSlug: "downtown-west-palm-beach-condo-corridors-explained",
+      titleTag: "Downtown WPB Condo Corridors Explained",
       metaDescription:
-        "How NORA House changes the downtown West Palm Beach ownership conversation, with buyer checks before relying on details.",
-    },
-  },
-  {
-    id: "shorecrest-construction-loan",
-    status: "ready-for-review",
-    category: "North Flagler",
-    title: "Shorecrest financing pushes the North Flagler cluster toward construction",
-    summary:
-      "Related Ross announced a construction loan for Shorecrest, adding momentum to the North Flagler waterfront comparison set.",
-    buyerAngle:
-      "Frame Shorecrest as a more active North Flagler watch item, while preserving the existing source conflict around residence count and avoiding any live availability claims.",
-    projectIds: ["shorecrest", "olara", "ritz-carlton-wpb"],
-    sourceName: "Related Ross press release",
-    sourceLinks: [
-      {
-        label: "Related Ross Shorecrest financing announcement",
-        href: "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
-        sourceType: "developer press release",
-      },
-      {
-        label: "Related Ross Shorecrest property page",
-        href: "https://www.relatedross.com/our-company/properties/shorecrest",
-        sourceType: "official project site",
-      },
-      {
-        label: "Shorecrest",
-        href: "https://www.shorecrestwpb.com/",
-        sourceType: "official project site",
-      },
-    ],
-    datePublished: "2026-02-18",
-    dateModified: "2026-05-18",
-    factCheckRequired: [
-      "Preserve the 98 versus 100 residence-count conflict unless a current source resolves it.",
-      "Confirm construction status, current pricing, and availability before public use.",
-    ],
-    seo: {
-      primaryQuery: "Shorecrest West Palm Beach construction loan",
-      secondaryQueries: [
-        "Shorecrest West Palm Beach",
-        "North Flagler waterfront condos",
-      ],
-      suggestedSlug: "shorecrest-construction-loan-north-flagler",
-      titleTag: "Shorecrest Construction Loan | WPB New Construction",
-      metaDescription:
-        "Buyer context on Shorecrest financing and what it means for the North Flagler waterfront condo comparison.",
-    },
-  },
-  {
-    id: "banyan-tree-sales-launch",
-    status: "ready-for-review",
-    category: "Downtown",
-    title: "Banyan Tree adds another branded-residence option downtown",
-    summary:
-      "Banyan Group announced Banyan Tree Residences West Palm Beach, adding another branded-residence entry to the downtown buyer map.",
-    buyerAngle:
-      "Use the story to compare downtown brand positioning against Mr. C and NORA House, with careful verification of current pricing, residence count, and buyer-packet details before publication.",
-    projectIds: ["banyan-tree", "mr-c", "nora-house"],
-    sourceName: "PR Newswire and official Banyan Tree site",
-    sourceLinks: [
-      {
-        label: "Banyan Group sales launch announcement",
-        href: "https://www.prnewswire.com/news-releases/banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach-302723150.html",
-        sourceType: "brand/developer announcement",
-      },
-      {
-        label: "Banyan Tree Residences West Palm Beach",
-        href: "https://www.banyantreeresidenceswpb.com/",
-        sourceType: "official project site",
-      },
-    ],
-    datePublished: "2026-03-24",
-    dateModified: "2026-05-16",
-    factCheckRequired: [
-      "Refresh current buyer-packet details before relying on residence count, pricing, or inquiry language.",
-      "Avoid repeating announcement copy; recast the angle around buyer comparison.",
-    ],
-    seo: {
-      primaryQuery: "Banyan Tree Residences West Palm Beach",
-      secondaryQueries: [
-        "Downtown West Palm Beach condos",
-        "West Palm Beach branded residences",
-      ],
-      suggestedSlug: "banyan-tree-downtown-branded-residences",
-      titleTag: "Banyan Tree Residences WPB | Buyer Context",
-      metaDescription:
-        "Buyer-focused context on Banyan Tree Residences and how it fits the downtown West Palm Beach condo comparison.",
+        "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
     },
   },
 ] as const satisfies readonly MarketNote[];

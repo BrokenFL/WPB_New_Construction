@@ -7,7 +7,7 @@ import {
   siteMeta,
 } from "./generated/siteData";
 import { editorProjectOverrides, type EditorProjectOverrides } from "./generated/editorOverrides";
-import { marketNotes } from "./data/marketNotes";
+import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
 import { advisorProfile } from "./lib/contact";
 import { escapeHtml, safeHref } from "./renderUtils";
@@ -60,9 +60,13 @@ type FeaturedProject = {
 
 type Route =
   | { type: "home"; projectId?: undefined }
+  | { type: "buildings"; projectId?: undefined }
+  | { type: "map"; projectId?: undefined }
+  | { type: "compare"; projectId?: undefined }
   | { type: "corridor"; corridorKey: CorridorKey; projectId?: undefined }
   | { type: "news"; projectId?: undefined }
   | { type: "market-notes"; projectId?: undefined }
+  | { type: "market-note-detail"; articleSlug: string; projectId?: undefined }
   | { type: "inquire"; projectId?: undefined }
   | { type: "floorplans"; projectId?: undefined }
   | { type: "answers"; projectId?: undefined }
@@ -195,11 +199,22 @@ const heroMapScriptId = "wpb-google-map-script";
 let googleMapsLoader: Promise<GoogleMapsNamespace> | null = null;
 
 const staticRoutePaths: Record<string, string> = {
+  "/buildings": "buildings",
+  "/buildings/": "buildings",
+  "/map": "map",
+  "/map/": "map",
+  "/compare": "compare",
+  "/compare/": "compare",
   "/floorplans/": "floorplans",
+  "/floor-plans": "floorplans",
   "/answers/": "answers",
+  "/updates": "news",
   "/updates/": "news",
   "/market-notes/": "market-notes",
   "/blog/": "market-notes",
+  "/contact": "inquire",
+  "/contact/": "inquire",
+  "/floor-plans/": "floorplans",
   "/methodology/": "methodology",
   "/fair-housing/": "fair-housing",
   "/privacy/": "privacy",
@@ -1821,6 +1836,7 @@ app.innerHTML = `
         <a class="home-answer-archive-link" href="/market-notes/">Read all buyer notes <span aria-hidden="true">→</span></a>
       </section>
 
+      <span class="route-anchor" id="compare"></span>
       <section class="project-sort-shell" id="projects">
           <div class="project-sort-header">
             <div>
@@ -1920,6 +1936,8 @@ app.innerHTML = `
           </div>
         </section>
       </div>
+
+      <div class="route-view route-view-market-note-detail" data-route-view="market-note-detail" hidden></div>
 
       <div class="route-view route-view-floorplans" data-route-view="floorplans" hidden>
         <section class="section intelligence-hero">
@@ -2943,12 +2961,17 @@ function applyRoute() {
   const views = Array.from(document.querySelectorAll<HTMLElement>("[data-route-view]"));
   const activeProject = route.type === "project" ? featuredProjects.find((project) => project.id === route.projectId) : undefined;
   const activeCorridor = route.type === "corridor" ? corridorSections.find((section) => section.key === route.corridorKey) : undefined;
+  const activeMarketNote = route.type === "market-note-detail" ? marketNoteForSlug(route.articleSlug) : undefined;
 
   shell?.setAttribute("data-active-route", route.type);
   shell?.setAttribute("data-active-project", route.projectId ?? "");
   const routeTitles: Record<string, string> = {
     news: "Market Updates | WPB New Construction",
+    buildings: "Buildings | WPB New Construction",
+    map: "Map | WPB New Construction",
+    compare: "Compare | WPB New Construction",
     "market-notes": "Market Notes | WPB New Construction",
+    "market-note-detail": activeMarketNote?.seo.titleTag ?? "Market Note | WPB New Construction",
     floorplans: "Floorplans | WPB New Construction",
     answers: "Buyer Q&A | WPB New Construction",
     methodology: "How We Verify | WPB New Construction",
@@ -2961,10 +2984,12 @@ function applyRoute() {
     ? `${activeProject.name} | WPB New Construction`
     : activeCorridor
       ? `${activeCorridor.label} Projects | WPB New Construction`
+      : activeMarketNote
+        ? activeMarketNote.seo.titleTag
       : routeTitles[route.type] ?? siteMeta.title;
 
-  updateMetaDescription(route.type, activeProject);
-  updateStructuredData(route.type, activeProject);
+  updateMetaDescription(route.type, activeProject, activeMarketNote);
+  updateStructuredData(route.type, activeProject, activeMarketNote);
 
   views.forEach((view) => {
     const viewType = view.dataset.routeView;
@@ -2973,10 +2998,15 @@ function applyRoute() {
         ? viewType === "project" && view.dataset.projectId === route.projectId
         : route.type === "corridor"
           ? viewType === "corridor" && view.dataset.corridorRoute === route.corridorKey
+          : route.type === "market-note-detail"
+            ? viewType === "market-note-detail"
+          : route.type === "buildings" || route.type === "map" || route.type === "compare"
+            ? viewType === "home"
           : viewType === route.type;
 
     view.hidden = !isActive;
   });
+  syncMarketNoteDetail(activeMarketNote);
 
   initHeroGoogleMap();
   initProjectLocationMaps();
@@ -3000,9 +3030,14 @@ function applyRoute() {
     path: window.location.pathname,
     ...(route.type === "project" ? { projectId: route.projectId } : {}),
     ...(route.type === "corridor" ? { corridorKey: route.corridorKey } : {}),
+    ...(route.type === "market-note-detail" ? { articleSlug: route.articleSlug } : {}),
   });
 
-  if (!window.location.hash) {
+  const routeAnchor =
+    route.type === "buildings" ? "projects" : route.type === "map" ? "atlas" : route.type === "compare" ? "compare" : "";
+  if (routeAnchor) {
+    window.setTimeout(() => document.getElementById(routeAnchor)?.scrollIntoView({ block: "start" }), 0);
+  } else if (!window.location.hash) {
     window.scrollTo({ top: 0, left: 0 });
   }
 }
@@ -3010,6 +3045,12 @@ function applyRoute() {
 function getActiveNavItem(route: Route) {
   if (route.type === "project" || route.type === "corridor") {
     return "projects";
+  }
+  if (route.type === "market-note-detail") {
+    return "market-notes";
+  }
+  if (route.type === "buildings" || route.type === "map" || route.type === "compare") {
+    return route.type === "buildings" ? "projects" : route.type;
   }
   if (route.type === "home") {
     return window.location.hash === "#atlas" ? "atlas" : window.location.hash === "#compare" ? "compare" : "projects";
@@ -3061,6 +3102,11 @@ function getCurrentRoute(): Route {
     return { type: "corridor", corridorKey };
   }
 
+  const marketNotePathMatch = window.location.pathname.match(/^\/(?:market-notes|blog)\/([^/]+)\/?$/);
+  if (marketNotePathMatch) {
+    return { type: "market-note-detail", articleSlug: marketNotePathMatch[1] };
+  }
+
   const projectPathMatch = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/);
   if (projectPathMatch) {
     const staticProjectId = projectRouteAliases[projectPathMatch[1]] ?? projectPathMatch[1];
@@ -3090,9 +3136,12 @@ function getCurrentRoute(): Route {
   return { type: "home" };
 }
 
-function updateMetaDescription(routeType: string, activeProject?: FeaturedProject) {
+function updateMetaDescription(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote) {
   const descriptions: Record<string, string> = {
     home: siteMeta.description,
+    buildings: "Compare West Palm Beach new-construction buildings across North Flagler, Downtown, and South Flagler.",
+    map: "Map West Palm Beach new-construction condo projects by corridor, waterfront position, and buyer context.",
+    compare: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, and buyer fit.",
     news: "West Palm Beach new-construction market updates translated into practical buyer context.",
     "market-notes": "Buyer notes and market intelligence for West Palm Beach new-construction condos, with source-aware context and practical availability checks.",
     floorplans: "Released West Palm Beach new-construction condo floorplans organized by project for easier first comparison.",
@@ -3110,10 +3159,10 @@ function updateMetaDescription(routeType: string, activeProject?: FeaturedProjec
     meta.name = "description";
     document.head.append(meta);
   }
-  meta.content = descriptions[routeType] ?? siteMeta.description;
+  meta.content = activeMarketNote?.seo.metaDescription ?? descriptions[routeType] ?? siteMeta.description;
 }
 
-function updateStructuredData(routeType: string, activeProject?: FeaturedProject) {
+function updateStructuredData(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote) {
   const baseGraph = [
     {
       "@type": siteMeta.publisher.type,
@@ -3146,7 +3195,9 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
           ? researchNewsFeed.map(buildNewsArticleSchema)
           : routeType === "market-notes"
             ? marketNotes.map(buildMarketNoteSchema)
-          : routeType === "methodology" || routeType === "privacy" || routeType === "terms" || routeType === "fair-housing"
+            : routeType === "market-note-detail" && activeMarketNote
+              ? [buildMarketNoteSchema(activeMarketNote)]
+            : routeType === "methodology" || routeType === "privacy" || routeType === "terms" || routeType === "fair-housing"
             ? [buildLegalPageSchema(routeType)]
           : activeProject
             ? [buildProjectSchema(activeProject)]
@@ -3219,18 +3270,18 @@ function buildNewsArticleSchema(item: (typeof researchNewsFeed)[number]) {
   };
 }
 
-function buildMarketNoteSchema(note: (typeof marketNotes)[number]) {
+function buildMarketNoteSchema(note: MarketNote) {
   return {
     "@type": "Article",
-    "@id": `${siteMeta.baseUrl}/market-notes/#${note.seo.suggestedSlug}`,
+    "@id": `${siteMeta.baseUrl}/market-notes/${note.slug}/#article`,
     headline: note.title,
-    description: note.summary,
+    description: note.excerpt,
     datePublished: note.datePublished,
     dateModified: note.dateModified,
     articleSection: note.category,
     author: { "@id": `${siteMeta.baseUrl}/#advisor` },
     publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
-    mainEntityOfPage: `${siteMeta.baseUrl}/market-notes/`,
+    mainEntityOfPage: `${siteMeta.baseUrl}/market-notes/${note.slug}/`,
   };
 }
 
@@ -3391,7 +3442,11 @@ function renderCorridorRouteView(section: CorridorSection) {
   `;
 }
 
-function renderMarketNoteCard(note: (typeof marketNotes)[number]) {
+function marketNoteForSlug(slug: string) {
+  return marketNotes.find((note) => note.slug === slug || note.seo.suggestedSlug === slug);
+}
+
+function renderMarketNoteCard(note: MarketNote) {
   const relatedProjects = note.projectIds
     .map((projectId) => featuredProjects.find((project) => project.id === projectId)?.name)
     .filter(Boolean)
@@ -3404,14 +3459,110 @@ function renderMarketNoteCard(note: (typeof marketNotes)[number]) {
     <article class="home-blog-card market-note-card" id="${escapeHtml(note.seo.suggestedSlug)}">
       <span>${escapeHtml(note.category)} · ${escapeHtml(note.dateModified)}</span>
       <h3>${escapeHtml(note.title)}</h3>
-      <p>${escapeHtml(note.summary)}</p>
-      <small>${escapeHtml(note.buyerAngle)}</small>
+      <p>${escapeHtml(note.excerpt)}</p>
+      <small>${escapeHtml(note.buyerThesis)}</small>
       ${relatedProjects ? `<p class="market-note-related">Related: ${escapeHtml(relatedProjects)}</p>` : ""}
       <div class="market-note-actions">
         ${canShowSourceLink ? `<a href="${safeHref(source.href)}" target="_blank" rel="noreferrer">Source <span aria-hidden="true">↗</span></a>` : ""}
-        <a href="/inquire/?lead_capture_context=market_note&message=${encodeURIComponent(`I want help applying this note: ${note.title}`)}">Request current availability <span aria-hidden="true">→</span></a>
+        <a href="/market-notes/${note.slug}/">Read note <span aria-hidden="true">→</span></a>
       </div>
     </article>
+  `;
+}
+
+function syncMarketNoteDetail(note?: MarketNote) {
+  const detailView = document.querySelector<HTMLElement>('[data-route-view="market-note-detail"]');
+  if (!detailView) return;
+  detailView.innerHTML = note ? renderMarketNoteArticle(note) : renderMissingMarketNote();
+  if (note) {
+    track("blog_article_view", {
+      articleSlug: note.slug,
+      category: note.category,
+    });
+  }
+}
+
+function renderMarketNoteArticle(note: MarketNote) {
+  const relatedProjects = note.projectIds
+    .map((projectId) => featuredProjects.find((project) => project.id === projectId))
+    .filter((project): project is FeaturedProject => Boolean(project));
+  const relatedUpdates = researchNewsFeed
+    .filter((item) => item.projectIds.some((projectId) => note.projectIds.includes(projectId)))
+    .slice(0, 3);
+
+  return `
+    <article class="market-note-article">
+      <header class="section market-note-hero">
+        <a class="market-note-back" href="/market-notes/">Market Notes</a>
+        <p class="eyebrow">${escapeHtml(note.category)} · Published ${escapeHtml(note.datePublished)} · Updated ${escapeHtml(note.dateModified)}</p>
+        <h1>${escapeHtml(note.title)}</h1>
+        <p>${escapeHtml(note.excerpt)}</p>
+      </header>
+      <section class="section market-note-body">
+        <aside class="market-note-thesis">
+          <span>Buyer thesis</span>
+          <strong>${escapeHtml(note.buyerThesis)}</strong>
+          <p>${escapeHtml(note.buyerTakeaway)}</p>
+        </aside>
+        <div class="market-note-sections">
+          ${note.sections
+            .map(
+              (section) => `
+                <section>
+                  <h2>${escapeHtml(section.heading)}</h2>
+                  <p>${escapeHtml(section.body)}</p>
+                </section>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+      <section class="section market-note-related-section">
+        <div class="section-heading">
+          <p class="eyebrow">Related Buildings</p>
+          <h2>Buildings to compare while this note is fresh.</h2>
+        </div>
+        <div class="front-project-grid front-project-grid-static">
+          ${relatedProjects.slice(0, 4).map(renderFeaturedProject).join("")}
+        </div>
+      </section>
+      ${
+        relatedUpdates.length
+          ? `
+            <section class="section market-note-related-section">
+              <div class="section-heading">
+                <p class="eyebrow">Related Updates</p>
+                <h2>Recent public signals tied to this note.</h2>
+              </div>
+              <div class="news-grid">
+                ${relatedUpdates.map(renderResearchNewsItem).join("")}
+              </div>
+            </section>
+          `
+          : ""
+      }
+      <section class="section conversion-section market-note-cta">
+        <div>
+          <p class="eyebrow">Private Comparison Notes</p>
+          <h2>${escapeHtml(note.ctaText)}</h2>
+          <p>Send the buildings you are weighing and Brooke will help verify current availability, floor plans, and timing before you build a shortlist around stale numbers.</p>
+        </div>
+        <a href="/inquire/?lead_capture_context=market_note_article&message=${encodeURIComponent(`I want help applying this note: ${note.title}`)}">Request Current Availability <span aria-hidden="true">↗</span></a>
+      </section>
+    </article>
+  `;
+}
+
+function renderMissingMarketNote() {
+  return `
+    <section class="section intelligence-hero">
+      <div>
+        <p class="eyebrow">Market Notes</p>
+        <h1>That note is not available.</h1>
+        <p>Return to the Market Notes index for current buyer intelligence.</p>
+        <a class="button primary" href="/market-notes/">View Market Notes</a>
+      </div>
+    </section>
   `;
 }
 

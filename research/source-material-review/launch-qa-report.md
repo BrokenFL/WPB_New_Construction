@@ -1,6 +1,6 @@
 # Launch QA Report
 
-Generated: 2026-05-22T01:15:38.324Z
+Generated: 2026-05-22T01:38:58.958Z
 
 ## Summary
 
@@ -9,7 +9,7 @@ Generated: 2026-05-22T01:15:38.324Z
 - Blocking findings: 0
 - Public artifact size: 603.8 MB
 - Research artifact size: 716.8 MB
-- Dist artifact size: 377.8 MB
+- Dist artifact size: 377.9 MB
 - Duplicate source extra bytes: 404.7 MB
 - Duplicate source byte delta: 0 B
 
@@ -61,8 +61,8 @@ Generated: 2026-05-22T01:15:38.324Z
 
 - public/: 603.8 MB
 - research/: 716.8 MB
-- dist/: 377.8 MB
-- .playwright-cli/: 3.7 MB
+- dist/: 377.9 MB
+- .playwright-cli/: 3.8 MB
 - output/: 128.2 MB
 - Duplicate inventory: 289 source groups, 404.7 MB source extra bytes, delta 0 B
 

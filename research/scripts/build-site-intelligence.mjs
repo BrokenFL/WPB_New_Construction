@@ -14,6 +14,38 @@ const preferredRoot = path.join(workspace, "research/asset-library/preferred-ima
 const productionBaseUrl = "https://wpbnewconstruction.com";
 const generatedDate = new Date().toISOString().slice(0, 10);
 const cloudflarePagesSingleFileLimitBytes = 25 * 1024 * 1024;
+const marketNoteRoutes = [
+  {
+    slug: "active-sales-vs-pipeline-watch",
+    title: "Active Sales vs Pipeline Watch | WPB New Construction",
+    description:
+      "How West Palm Beach condo buyers can separate active sales from pipeline watch projects before comparing pricing, floor plans, and timing.",
+  },
+  {
+    slug: "olara-vs-shorecrest-waterfront-buyer-profiles",
+    title: "Olara vs Shorecrest | WPB Buyer Notes",
+    description:
+      "Buyer-focused comparison notes for Olara and Shorecrest on North Flagler, including floor plans, timing, amenities, and verification steps.",
+  },
+  {
+    slug: "why-published-floor-plans-matter",
+    title: "Why Published Floor Plans Matter | WPB",
+    description:
+      "Why West Palm Beach condo buyers should review floor plans and stack plans before visiting new-construction sales presentations.",
+  },
+  {
+    slug: "what-buyers-should-verify-before-trusting-pricing",
+    title: "Verify New Construction Pricing | WPB",
+    description:
+      "A practical buyer checklist for verifying West Palm Beach new-construction condo pricing, incentives, fees, delivery, and availability.",
+  },
+  {
+    slug: "downtown-west-palm-beach-condo-corridors-explained",
+    title: "Downtown WPB Condo Corridors Explained",
+    description:
+      "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
+  },
+];
 
 const priorityProjects = new Set([
   "olara",
@@ -2158,6 +2190,30 @@ function buildPrerenderRoutes() {
       ogImage: siteMeta.defaultImage,
     },
     {
+      path: "/floor-plans/",
+      title: "Floorplans | WPB New Construction",
+      description: "Released West Palm Beach new-construction condo floorplans organized by project for easier first comparison.",
+      ogImage: siteMeta.defaultImage,
+    },
+    {
+      path: "/buildings/",
+      title: "Buildings | WPB New Construction",
+      description: "Compare West Palm Beach new-construction buildings across North Flagler, Downtown, and South Flagler.",
+      ogImage: siteMeta.defaultImage,
+    },
+    {
+      path: "/map/",
+      title: "Map | WPB New Construction",
+      description: "Map West Palm Beach new-construction condo projects by corridor, waterfront position, and buyer context.",
+      ogImage: siteMeta.defaultImage,
+    },
+    {
+      path: "/compare/",
+      title: "Compare | WPB New Construction",
+      description: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, and buyer fit.",
+      ogImage: siteMeta.defaultImage,
+    },
+    {
       path: "/answers/",
       title: "Buyer Q&A | WPB New Construction",
       description: "Buyer-focused West Palm Beach new-construction condo answers with cited sources and practical next steps.",
@@ -2181,6 +2237,20 @@ function buildPrerenderRoutes() {
       description: "Buyer notes and market intelligence for West Palm Beach new-construction condos.",
       ogImage: siteMeta.defaultImage,
     },
+    ...marketNoteRoutes.flatMap((note) => [
+      {
+        path: `/market-notes/${note.slug}/`,
+        title: note.title,
+        description: note.description,
+        ogImage: siteMeta.defaultImage,
+      },
+      {
+        path: `/blog/${note.slug}/`,
+        title: note.title,
+        description: note.description,
+        ogImage: siteMeta.defaultImage,
+      },
+    ]),
     {
       path: "/corridors/north-flagler/",
       title: "North Flagler Projects | WPB New Construction",
@@ -2274,10 +2344,18 @@ function renderSitemap(projects) {
   const urls = [
     ["", "1.0"],
     ["floorplans/", "0.9"],
+    ["floor-plans/", "0.6"],
+    ["buildings/", "0.9"],
+    ["map/", "0.8"],
+    ["compare/", "0.8"],
     ["answers/", "0.9"],
     ["updates/", "0.8"],
     ["market-notes/", "0.8"],
     ["blog/", "0.6"],
+    ...marketNoteRoutes.flatMap((note) => [
+      [`market-notes/${note.slug}/`, "0.8"],
+      [`blog/${note.slug}/`, "0.4"],
+    ]),
     ["methodology/", "0.7"],
     ["fair-housing/", "0.6"],
     ["privacy/", "0.5"],

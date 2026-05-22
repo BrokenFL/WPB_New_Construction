@@ -22,7 +22,8 @@
     "editor": "node research/scripts/local-content-editor.mjs",
     "editor:sync": "node research/scripts/sync-editor-overrides.mjs",
     "test": "npm run qa:launch && npm run qa:gatekeeper",
-    "lint": "node research/scripts/lint-public-surface.mjs"
+    "lint": "node research/scripts/lint-public-surface.mjs",
+    "check:updates": "node research/scripts/check-imported-updates.mjs"
   },
   "devDependencies": {
     "typescript": "~6.0.2",
