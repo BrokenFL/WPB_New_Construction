@@ -62,7 +62,7 @@ if (!mainSource.includes("homepage_hero_cta_click")) {
   fail("Homepage hero CTA analytics are missing.");
 }
 
-if (!mainSource.includes("Map unavailable. Browse the building list instead.")) {
+if (!mainSource.includes("Map temporarily unavailable") || !mainSource.includes("The project map could not load.")) {
   fail("Google Maps fallback copy is missing.");
 }
 

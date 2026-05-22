@@ -279,6 +279,10 @@ const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | un
 const googleMapsMapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID as string | undefined;
 const heroMapScriptId = "wpb-google-map-script";
 const heroMapCallbackName = "__wpbGoogleMapsReady";
+const mapFallbackTitle = "Map temporarily unavailable";
+const mapFallbackBody =
+  "The project map could not load. You can still compare buildings by corridor below, or contact Brooke for current project guidance.";
+const buyerFriendlyMapFallback = `${mapFallbackTitle}. ${mapFallbackBody}`;
 const HERO_ROTATION_INTERVAL_MS = 16000;
 const HERO_FADE_DURATION_MS = 1800;
 let googleMapsLoader: Promise<GoogleMapsNamespace> | null = null;
@@ -1963,8 +1967,7 @@ app.innerHTML = `
             <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
             <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
             <div class="hero-map-fallback">
-              <span>Map unavailable. Browse the building list instead.</span>
-              <a href="/buildings/">Browse buildings</a>
+              ${renderProjectMapFallback()}
             </div>
           </figure>
           <div class="home-map-count" aria-label="Map project count">
@@ -4165,6 +4168,49 @@ function corridorBuyerQuestions(key: CorridorKey) {
   return questions[key];
 }
 
+function renderProjectMapFallback() {
+  return `
+    <div class="map-fallback-panel">
+      <strong>${mapFallbackTitle}</strong>
+      <p>${mapFallbackBody}</p>
+      <div class="map-fallback-actions">
+        <a href="/buildings/">View Buildings</a>
+        <a href="/compare/">Compare Projects</a>
+        <a href="/inquire/?lead_capture_context=map_fallback">Request Current Availability</a>
+      </div>
+    </div>
+  `;
+}
+
+function renderMapFallbackCorridorList() {
+  return `
+    <div class="map-fallback-corridor-list" aria-label="Text project list by corridor">
+      ${corridorSections
+        .map((section) => {
+          const projects = rankedFeaturedProjects.filter((project) => project.corridorKey === section.key);
+          return `
+            <article>
+              <strong>${corridorDisplayLabel(section.key)}</strong>
+              <ul>
+                ${projects
+                  .map(
+                    (project) => `
+                      <li>
+                        <a href="${projectPath(project)}">${escapeHtml(project.name)}</a>
+                        ${project.address ? `<span>${escapeHtml(project.address)}</span>` : ""}
+                      </li>
+                    `,
+                  )
+                  .join("")}
+              </ul>
+            </article>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
+}
+
 function renderMapRouteView() {
   return `
     <div class="route-view route-view-map" data-route-view="map" hidden>
@@ -4195,8 +4241,7 @@ function renderMapRouteView() {
             <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
             <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
             <div class="hero-map-fallback">
-              <span>Map unavailable. Browse the building list instead.</span>
-              <a href="/buildings/">Browse buildings</a>
+              ${renderProjectMapFallback()}
             </div>
           </figure>
           <div class="home-map-count" aria-label="Map project count">
@@ -4205,6 +4250,7 @@ function renderMapRouteView() {
           </div>
         </aside>
         <a class="home-answer-archive-link" href="/inquire/?lead_capture_context=map_page">Request Current Availability <span aria-hidden="true">↗</span></a>
+        ${renderMapFallbackCorridorList()}
       </section>
     </div>
   `;
@@ -4924,8 +4970,6 @@ function loadGoogleMaps() {
   return googleMapsLoader;
 }
 
-const buyerFriendlyMapFallback = "Map unavailable. Browse the building list instead.";
-
 function setGoogleMapFallback(message = buyerFriendlyMapFallback) {
   document.querySelectorAll<HTMLElement>(".home-hero-map-card").forEach((card) => {
     card.dataset.mapState = "unavailable";
@@ -4938,6 +4982,10 @@ function setGoogleMapFallback(message = buyerFriendlyMapFallback) {
     element.dataset.mapState = "unavailable";
     element.textContent = message;
   });
+}
+
+function validMapProjects(projects: FeaturedProject[]) {
+  return projects.filter((project) => Number.isFinite(project.latitude) && Number.isFinite(project.longitude));
 }
 
 function loadAdvancedMarkerElement(maps: GoogleMapsNamespace) {
@@ -5068,11 +5116,6 @@ function initHeroGoogleMap() {
     return;
   }
 
-  if (!googleMapsMapId) {
-    setGoogleMapFallback();
-    return;
-  }
-
   activeCards.forEach((card) => {
     const canvas = card.querySelector<HTMLElement>("[data-hero-google-map]");
     const expandButtons = Array.from(card.querySelectorAll<HTMLButtonElement>("[data-map-expand]"));
@@ -5085,6 +5128,7 @@ function initHeroGoogleMap() {
       .then(async (maps) => {
       card.dataset.mapState = "ready";
       const AdvancedMarkerElement = await loadAdvancedMarkerElement(maps);
+      if (!canvas.isConnected) return;
       const map = new maps.Map(canvas, googleMapBaseOptions({ lat: 26.7134, lng: -80.0564 }, 13));
       let expanded = false;
       let markers: GoogleMarkerHandle[] = [];
@@ -5092,7 +5136,11 @@ function initHeroGoogleMap() {
       const renderMarkers = () => {
         markers.forEach((marker) => marker.clear());
         markers = [];
-        const projects = expanded ? rankedFeaturedProjects : rankedFeaturedProjects.slice(0, 7);
+        const projects = validMapProjects(expanded ? rankedFeaturedProjects : rankedFeaturedProjects.slice(0, 7));
+        if (!projects.length) {
+          setGoogleMapFallback();
+          return;
+        }
         const bounds = new maps.LatLngBounds();
 
         projects.forEach((project, index) => {
@@ -5153,11 +5201,6 @@ function initProjectLocationMaps() {
   }
 
   if (!googleMapsApiKey) {
-    setGoogleMapFallback();
-    return;
-  }
-
-  if (!googleMapsMapId) {
     setGoogleMapFallback();
     return;
   }
