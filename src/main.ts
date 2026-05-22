@@ -1701,7 +1701,7 @@ if (!app) {
 app.innerHTML = `
   <div class="site-shell">
     <header class="site-nav">
-      <a class="brand" href="./" aria-label="WPB New Construction home">
+      <a class="brand" href="/" aria-label="WPB New Construction home">
         <span class="brand-mark" aria-hidden="true">WPB</span>
         <span>
           <strong>WPB New Construction</strong>
@@ -1709,14 +1709,14 @@ app.innerHTML = `
         </span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="./#atlas" data-nav-item="home">Map</a>
-        <a href="./#projects" data-nav-item="home">Projects</a>
+        <a href="/#atlas" data-nav-item="atlas">Map</a>
+        <a href="/#projects" data-nav-item="projects">Projects</a>
         <a href="/floorplans/" data-nav-item="floorplans">Floorplans</a>
-        <a href="/answers/" data-nav-item="answers">Q&A</a>
+        <a href="/answers/" data-nav-item="answers">Buyer Questions</a>
         <a href="/updates/" data-nav-item="news">Updates</a>
-        <a href="/methodology/" data-nav-item="methodology">Verify</a>
+        <a href="/methodology/" data-nav-item="methodology">How We Verify</a>
       </nav>
-      <a class="nav-cta" href="/inquire/" data-nav-item="inquire">Request Guidance</a>
+      <a class="nav-cta" href="/inquire/" data-nav-item="inquire">Ask For Guidance</a>
     </header>
 
     <main>
@@ -1758,7 +1758,6 @@ app.innerHTML = `
         <aside class="home-hero-map-card home-atlas-map-card" aria-label="Featured West Palm Beach project map">
           <figure class="hero-map-preview">
             <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
-            <img class="hero-map-fallback" src="/maps/wpb-atlas-map-editorial.svg" alt="Fallback map of West Palm Beach new-construction corridors" />
             <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
           </figure>
           <div class="hero-map-list">
@@ -2654,7 +2653,8 @@ const projectRouteAliases: Record<string, string> = {
 
 applyRoute();
 initProjectBrowser();
-initHeroGoogleMap();
+window.addEventListener("hashchange", applyRoute);
+window.addEventListener("popstate", applyRoute);
 
 function applyRoute() {
   const route = getCurrentRoute();
@@ -2689,8 +2689,12 @@ function applyRoute() {
     view.hidden = !isActive;
   });
 
+  initHeroGoogleMap();
+  initProjectLocationMaps();
+
+  const activeNavItem = getActiveNavItem(route);
   document.querySelectorAll<HTMLElement>("[data-nav-item]").forEach((item) => {
-    const isActive = item.dataset.navItem === route.type || (route.type === "project" && item.dataset.navItem === "home");
+    const isActive = item.dataset.navItem === activeNavItem;
     if (isActive) {
       item.setAttribute("aria-current", "page");
     } else {
@@ -2703,6 +2707,16 @@ function applyRoute() {
   if (!window.location.hash) {
     window.scrollTo({ top: 0, left: 0 });
   }
+}
+
+function getActiveNavItem(route: Route) {
+  if (route.type === "project") {
+    return "projects";
+  }
+  if (route.type === "home") {
+    return window.location.hash === "#atlas" ? "atlas" : "projects";
+  }
+  return route.type;
 }
 
 function syncInquiryContext() {
@@ -2722,7 +2736,7 @@ function syncInquiryContext() {
   }
 }
 
-function getCurrentRoute() {
+function getCurrentRoute(): Route {
   const params = new URLSearchParams(window.location.search);
   const rawProjectId = params.get("project");
   const view = params.get("view");
@@ -3185,8 +3199,8 @@ function renderFeaturedProject(project: FeaturedProject) {
           </div>
         </dl>
         <div class="project-card-actions">
-          <a href="${projectPath(project)}">Open Project <span aria-hidden="true">→</span></a>
-          <a href="/inquire/?project=${project.id}&interest=floorplans">Request Packet <span aria-hidden="true">→</span></a>
+          <a href="${projectPath(project)}">View Project <span aria-hidden="true">→</span></a>
+          <a href="/inquire/?project=${project.id}&interest=floorplans">Request Current Availability <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </article>
@@ -3250,6 +3264,34 @@ function loadGoogleMaps() {
   return googleMapsLoader;
 }
 
+function googleMapBaseOptions(center: { lat: number; lng: number }, zoom: number): Record<string, unknown> {
+  const mapOptions: Record<string, unknown> = {
+    center,
+    zoom,
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: false,
+    clickableIcons: false,
+    gestureHandling: "cooperative",
+    styles: [
+      { elementType: "geometry", stylers: [{ color: "#ebe5da" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#3a332d" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#f7f3eb" }] },
+      { featureType: "water", elementType: "geometry.fill", stylers: [{ color: "#a9c0c2" }] },
+      { featureType: "poi", stylers: [{ visibility: "off" }] },
+      { featureType: "transit", stylers: [{ visibility: "off" }] },
+      { featureType: "road", elementType: "geometry", stylers: [{ color: "#fffaf1" }] },
+      { featureType: "road.arterial", elementType: "geometry", stylers: [{ color: "#d7cbb9" }] },
+    ],
+  };
+
+  if (googleMapsMapId) {
+    mapOptions.mapId = googleMapsMapId;
+  }
+
+  return mapOptions;
+}
+
 function initHeroGoogleMap() {
   if (getCurrentRoute().type !== "home") {
     return;
@@ -3264,9 +3306,9 @@ function initHeroGoogleMap() {
   }
 
   if (!googleMapsApiKey) {
-    card.dataset.mapState = "fallback";
+    card.dataset.mapState = "unavailable";
     expandButtons.forEach((button) => {
-      button.textContent = "Configure Google Map";
+      button.textContent = "Map unavailable";
       button.disabled = true;
     });
     return;
@@ -3277,31 +3319,7 @@ function initHeroGoogleMap() {
   loadGoogleMaps()
     .then((maps) => {
       card.dataset.mapState = "ready";
-      const mapOptions: Record<string, unknown> = {
-        center: { lat: 26.7134, lng: -80.0564 },
-        zoom: 13,
-        mapTypeControl: false,
-        streetViewControl: false,
-        fullscreenControl: false,
-        clickableIcons: false,
-        gestureHandling: "cooperative",
-        styles: [
-          { elementType: "geometry", stylers: [{ color: "#ebe5da" }] },
-          { elementType: "labels.text.fill", stylers: [{ color: "#3a332d" }] },
-          { elementType: "labels.text.stroke", stylers: [{ color: "#f7f3eb" }] },
-          { featureType: "water", elementType: "geometry.fill", stylers: [{ color: "#a9c0c2" }] },
-          { featureType: "poi", stylers: [{ visibility: "off" }] },
-          { featureType: "transit", stylers: [{ visibility: "off" }] },
-          { featureType: "road", elementType: "geometry", stylers: [{ color: "#fffaf1" }] },
-          { featureType: "road.arterial", elementType: "geometry", stylers: [{ color: "#d7cbb9" }] },
-        ],
-      };
-
-      if (googleMapsMapId) {
-        mapOptions.mapId = googleMapsMapId;
-      }
-
-      const map = new maps.Map(canvas, mapOptions);
+      const map = new maps.Map(canvas, googleMapBaseOptions({ lat: 26.7134, lng: -80.0564 }, 13));
       let expanded = false;
       let markers: InstanceType<GoogleMapsNamespace["Marker"]>[] = [];
 
@@ -3355,7 +3373,73 @@ function initHeroGoogleMap() {
       renderMarkers();
     })
     .catch((error: Error) => {
-      card.dataset.mapState = "fallback";
+      card.dataset.mapState = "unavailable";
+      console.warn(error.message);
+    });
+}
+
+function initProjectLocationMaps() {
+  const route = getCurrentRoute();
+  if (route.type !== "project") {
+    return;
+  }
+
+  const mapsToInit = Array.from(document.querySelectorAll<HTMLElement>("[data-project-google-map]"))
+    .filter((element) => !element.dataset.mapInitialized && !element.closest<HTMLElement>("[data-route-view]")?.hidden);
+
+  if (!mapsToInit.length) {
+    return;
+  }
+
+  if (!googleMapsApiKey) {
+    mapsToInit.forEach((element) => {
+      element.dataset.mapState = "unavailable";
+      element.textContent = "Interactive map unavailable";
+    });
+    return;
+  }
+
+  mapsToInit.forEach((element) => {
+    element.dataset.mapState = "loading";
+    element.textContent = "";
+  });
+
+  loadGoogleMaps()
+    .then((maps) => {
+      mapsToInit.forEach((element) => {
+        const latitude = Number(element.dataset.latitude);
+        const longitude = Number(element.dataset.longitude);
+        const projectName = element.dataset.projectName || "Selected project";
+        if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+          element.dataset.mapState = "unavailable";
+          element.textContent = "Project map unavailable";
+          return;
+        }
+
+        const position = { lat: latitude, lng: longitude };
+        const map = new maps.Map(element, googleMapBaseOptions(position, 15));
+        new maps.Marker({
+          map,
+          position,
+          title: projectName,
+          icon: {
+            path: maps.SymbolPath.CIRCLE,
+            scale: 9,
+            fillColor: "#0d3125",
+            fillOpacity: 1,
+            strokeColor: "#fffaf1",
+            strokeWeight: 2,
+          },
+        });
+        element.dataset.mapInitialized = "true";
+        element.dataset.mapState = "ready";
+      });
+    })
+    .catch((error: Error) => {
+      mapsToInit.forEach((element) => {
+        element.dataset.mapState = "unavailable";
+        element.textContent = "Interactive map unavailable";
+      });
       console.warn(error.message);
     });
 }
@@ -3637,20 +3721,21 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <h1>${brochureHeadline(project)}</h1>
           <p>${publicText(draft.intro)}</p>
           <div class="hero-actions">
-            <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans">Request Guidance</a>
-            <a class="button ghost" href="#project-resources-${project.id}">View Resources</a>
+            <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans">Request Current Availability</a>
+            <a class="button ghost" href="#project-resources-${project.id}">View Floorplans & Documents</a>
           </div>
         </div>
       </section>
 
       <nav class="brochure-section-nav" aria-label="${project.name} project sections">
+        <a href="/#projects">Compare Projects</a>
         <a href="#overview-${project.id}">Overview</a>
         <a href="#residences-${project.id}">Residences</a>
         <a href="#amenities-${project.id}">Amenities</a>
         <a href="#team-${project.id}">Design Team</a>
         <a href="#location-${project.id}">Location</a>
         <a href="#project-resources-${project.id}">Buyer Resources</a>
-        <a href="/inquire/?project=${project.id}&interest=floorplans">Contact</a>
+        <a href="/inquire/?project=${project.id}&interest=floorplans">Ask For This Project</a>
       </nav>
 
       <section class="brochure-stat-rail" aria-label="${project.name} quick facts">
@@ -3700,10 +3785,18 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <p class="eyebrow">The Neighborhood</p>
           <h2>${locationSectionTitle(project)}</h2>
           <p>${publicText(draft.locationCopy)}</p>
-          <a href="./#top">Explore the map <span aria-hidden="true">→</span></a>
+          <a href="/#atlas">Open full atlas <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-location-panel">
-          <img src="/maps/wpb-atlas-map-editorial.svg" alt="West Palm Beach project location map" loading="lazy" />
+          <div
+            class="project-google-map"
+            data-project-google-map
+            data-project-id="${project.id}"
+            data-project-name="${publicText(project.name)}"
+            data-latitude="${project.latitude}"
+            data-longitude="${project.longitude}"
+            aria-label="Google map centered on ${publicText(project.name)}"
+          ></div>
           <ol>
             ${locationList(project).map((item) => `<li><span>${item.label}</span><strong>${item.time}</strong></li>`).join("")}
           </ol>

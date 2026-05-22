@@ -54,7 +54,7 @@ const siteMeta = {
     name: "WPB New Construction Review Desk",
     role: "Project source review",
   },
-  defaultImage: "/maps/wpb-atlas-map-editorial.svg",
+  defaultImage: "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
 };
 
 const answerBlocks = [
