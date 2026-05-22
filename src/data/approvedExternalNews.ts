@@ -1,0 +1,87 @@
+export type ExternalNewsItem = {
+  id: string;
+  title: string;
+  sourceName: string;
+  sourceUrl: string;
+  canonicalUrl: string;
+  publishedAt: string;
+  fetchedAt: string;
+  description?: string;
+  query?: string;
+  category: "development" | "construction" | "planning" | "sales" | "financing" | "city" | "press-release" | "general";
+  relatedProjectIds: string[];
+  relatedCorridorIds: string[];
+  imageUrl?: string;
+  resolvedLocalImageId?: string;
+  paywallStatus: "free" | "unknown" | "likely-paywalled";
+  status: "needs-review" | "published" | "archived" | "duplicate";
+};
+
+export const approvedExternalNews: readonly ExternalNewsItem[] = [
+  {
+    id: "florida-yimby-mandarin-interiors-2026-05-18",
+    title: "First Interior Renderings Revealed For Mandarin Oriental Residences, West Palm Beach",
+    sourceName: "Florida YIMBY",
+    sourceUrl: "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",
+    canonicalUrl: "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",
+    publishedAt: "2026-05-18",
+    fetchedAt: "2026-05-22",
+    description: "Interior renderings were revealed for the planned 31-story Mandarin Oriental Residences tower at 5400 North Flagler Drive.",
+    query: "West Palm Beach condo development",
+    category: "development",
+    relatedProjectIds: ["mandarin-oriental"],
+    relatedCorridorIds: ["north-flagler"],
+    paywallStatus: "free",
+    status: "published",
+  },
+  {
+    id: "wflx-nora-house-2026-04-10",
+    title: "Empty lots to luxury living: Multimillion-dollar condos coming to West Palm Beach's growing Nora District",
+    sourceName: "WFLX",
+    sourceUrl: "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/",
+    canonicalUrl: "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/",
+    publishedAt: "2026-04-10",
+    fetchedAt: "2026-05-22",
+    description: "Coverage of NORA's next development phase, including an 11-story condominium building called NORA House.",
+    query: "Downtown West Palm Beach development",
+    category: "development",
+    relatedProjectIds: ["nora-house"],
+    relatedCorridorIds: ["downtown"],
+    paywallStatus: "free",
+    status: "published",
+  },
+  {
+    id: "florida-yimby-rosewood-proposal-2026-01",
+    title: "Developers Propose Luxury 27-Story for 2001 N Flagler Dr, West Palm Beach, FL",
+    sourceName: "Florida YIMBY",
+    sourceUrl: "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",
+    canonicalUrl: "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",
+    publishedAt: "2026-01-01",
+    fetchedAt: "2026-05-22",
+    description: "The proposal at 2001 N Flagler Drive is described as a 27-story luxury condominium tower.",
+    query: "West Palm Beach development",
+    category: "planning",
+    relatedProjectIds: ["rosewood"],
+    relatedCorridorIds: ["north-flagler"],
+    paywallStatus: "free",
+    status: "published",
+  },
+  {
+    id: "florida-yimby-south-flagler-tops-out-2025-11",
+    title: "South Flagler House Tops Out At 1355 South Flagler Drive In West Palm Beach",
+    sourceName: "Florida YIMBY",
+    sourceUrl: "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html",
+    canonicalUrl: "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html",
+    publishedAt: "2025-11-01",
+    fetchedAt: "2026-05-22",
+    description: "Construction coverage reporting a topping-out milestone for South Flagler House at 1355 South Flagler Drive.",
+    query: "West Palm Beach new construction",
+    category: "construction",
+    relatedProjectIds: ["south-flagler-house"],
+    relatedCorridorIds: ["south-flagler"],
+    paywallStatus: "free",
+    status: "published",
+  },
+];
+
+export const publishedExternalNews = approvedExternalNews.filter((item) => item.status === "published");
