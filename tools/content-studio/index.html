@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brooke Content Studio</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <strong>Brooke Content Studio</strong>
+        <span>Local editorial tool. Changes write to repo files. Review Git diff before publishing.</span>
+      </div>
+      <button id="refresh" type="button">Refresh</button>
+    </header>
+    <main class="studio-shell">
+      <aside class="sidebar">
+        <label>
+          Project
+          <select id="projectSelect"></select>
+        </label>
+        <nav class="tabs" aria-label="Editor sections">
+          <button class="active" data-tab="copy" type="button">Copy</button>
+          <button data-tab="image" type="button">Images</button>
+          <button data-tab="update" type="button">Updates</button>
+          <button data-tab="team" type="button">Team</button>
+          <button data-tab="automation" type="button">Automation</button>
+        </nav>
+      </aside>
+      <section class="workspace">
+        <p class="warning">Local editorial tool. Changes write to repo files. Review Git diff before publishing.</p>
+
+        <form id="copyPanel" class="panel active">
+          <h1>Safe Copy Fields</h1>
+          <label>Summary<textarea name="summary"></textarea></label>
+          <label>Editorial intro<textarea name="editorialIntro"></textarea></label>
+          <label>Buyer fit<textarea name="buyerFit"></textarea></label>
+          <label>Missing info / verification notes<textarea name="missingInfo"></textarea></label>
+          <label>Project page update text<textarea name="projectPageUpdateText"></textarea></label>
+          <label>CTA support copy<textarea name="ctaSupportCopy"></textarea></label>
+          <label>Project facts notes<textarea name="projectFactsNotes"></textarea></label>
+          <label>Status<select name="status"><option>needs_review</option><option>approved</option><option>rejected</option></select></label>
+          <button class="primary" type="submit">Save Copy Override</button>
+        </form>
+
+        <form id="imagePanel" class="panel">
+          <h1>Image Upload</h1>
+          <div id="dropZone" class="drop-zone">Drop image here or choose a file.<input name="file" type="file" accept="image/*" /></div>
+          <img id="imagePreview" alt="" class="preview" hidden />
+          <div class="grid">
+            <label>Target type<select name="targetType">
+              <option value="projectHero">Project hero image</option>
+              <option value="projectCard">Project card image</option>
+              <option value="projectGallery">Project gallery image</option>
+              <option value="editorial">Editorial/corridor image</option>
+              <option value="marketNote">Market Notes article image</option>
+              <option value="update">Update/news image</option>
+              <option value="team">Developer/builder/designer/architect/team image</option>
+              <option value="buyerInterior">Buyer intelligence interior image</option>
+            </select></label>
+            <label>Image type<input name="imageType" placeholder="hero, card, gallery, interior" /></label>
+            <label>Caption<input name="caption" /></label>
+            <label>Alt text<input name="alt" /></label>
+            <label>Source / rights note<textarea name="sourceRightsNote"></textarea></label>
+            <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
+          </div>
+          <button class="primary" type="submit">Save Image</button>
+        </form>
+
+        <form id="updatePanel" class="panel">
+          <h1>Project Update Row</h1>
+          <label>Date<input name="date" type="date" /></label>
+          <label>Title<input name="title" /></label>
+          <label>Buyer-facing summary<textarea name="summary"></textarea></label>
+          <label>Source name<input name="sourceName" /></label>
+          <label>Source URL<input name="sourceUrl" type="url" /></label>
+          <label>Status<select name="status"><option>needs_review</option><option>approved</option><option>rejected</option></select></label>
+          <button class="primary" type="submit">Add Update Row</button>
+        </form>
+
+        <form id="teamPanel" class="panel">
+          <h1>Team Resource</h1>
+          <label>Role<select name="role"><option>Developer</option><option>Builder</option><option>Architect</option><option>Interior Designer</option><option>Landscape Architect</option><option>Brand Partner</option><option>Sales</option><option>Other</option></select></label>
+          <label>Name<input name="name" /></label>
+          <label>Website URL<input name="websiteUrl" type="url" /></label>
+          <label>Image path<input name="imagePath" placeholder="/team-resources/project/role-name.jpg" /></label>
+          <label>Caption<input name="caption" /></label>
+          <label>Source URL<input name="sourceUrl" type="url" /></label>
+          <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
+          <button class="primary" type="submit">Save Team Resource</button>
+        </form>
+
+        <section id="automationPanel" class="panel">
+          <h1>Automation Status</h1>
+          <pre id="automationStatus"></pre>
+        </section>
+
+        <pre id="result" class="result"></pre>
+      </section>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

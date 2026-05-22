@@ -15,6 +15,9 @@
 - `npm run qa:copy` checks public copy for awkward operational language.
 - `npm run qa:image-repetition` checks repeated image use and project/corridor image mismatches.
 - `npm run qa:performance` checks image and bundle budgets.
+- `npm run qa:live` checks the live domain for HTTP status, bundle availability, visible route rendering, blank roots, and critical console errors.
+- `npm run qa:content-studio` checks that Brooke Content Studio remains local-only and validates override files.
+- `npm run content:studio` starts Brooke Content Studio at `http://localhost:8787`.
 - `npm run assets:duplicates` writes a duplicate-asset inventory for review.
 
 ## LaunchAgents Found
@@ -28,6 +31,7 @@
 - No loaded LaunchAgent was found for the repo's developer-image import job.
 - No loaded LaunchAgent was found for the new daily site maintenance job.
 - Cloudflare deploy recovery is scripted, but live deploy still depends on Cloudflare API health and valid Cloudflare credentials in the shell or CI environment.
+- Brooke Content Studio shows a read-only automation status panel. It reports known scripts and local LaunchAgent presence only; it does not mark automation as installed unless local files or `launchctl` confirm it.
 
 ## Recommended Daily Maintenance Schedule
 

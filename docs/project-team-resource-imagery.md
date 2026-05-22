@@ -1,23 +1,24 @@
 # Project Team Resource Imagery
 
-This site should show developer, builder, architect, designer, landscape, brand, and sales-team context only when the source and usage rights are clear.
+Team resources are managed through `src/data/projectTeamResources.ts` and local review overrides in `content/overrides/team-resource-overrides.json`.
 
-## Public Display Rules
+Supported roles:
 
-- Show a real team image only after it is sourced from official project materials, the team website, or user-provided material and reviewed for public use.
-- If no reviewed image exists, use a clean logo-style or team-profile placeholder.
-- Do not use fake people, fake offices, or imagery that implies an affiliation beyond the sourced project data.
-- Do not expose sourcing status words in the public interface.
+- Developer
+- Builder
+- Architect
+- Interior Designer
+- Landscape Architect
+- Brand Partner
+- Sales
+- Other
 
-## Data Source
+If no approved image is available, public pages should show a clean placeholder or omit the image. Do not publish fake people, unverifiable portraits, or backend labels such as `needs_review`.
 
-Team imagery review records live in `src/data/projectTeamResources.ts`.
+Preferred image path:
 
-Each record supports `projectId`, `role`, `name`, optional `websiteUrl`, optional `imagePath`, `imageStatus`, optional `sourceUrl`, `caption`, and optional `notes`. Supported roles are Developer, Builder, Architect, Interior Designer, Landscape Architect, Brand Partner, Sales, and Other.
+```text
+public/team-resources/{projectId}/{role-slug}-{name-slug}.jpg
+```
 
-## Current Review Priorities
-
-- Olara: confirm developer/team imagery and publication rights.
-- Rosewood: confirm brand/developer/team imagery once public project materials mature.
-- NORA House: source official developer or district imagery.
-- South Flagler House: confirm architecture/design imagery that can be shown publicly.
+Every uploaded resource should include a caption, source URL, rights/source note, and review status.

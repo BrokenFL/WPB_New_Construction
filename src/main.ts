@@ -5589,10 +5589,10 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const floorplanCount = floorplanProject?.count ?? 0;
   const brochureStats = projectBrochureStats(project, draft, floorplanCount);
   const gallery = projectBrochureGallery(project, draft);
+  const heroImage = draft.image ?? project.heroImage ?? project.image;
   const residenceTiles = gallery.filter((asset) => asset.src !== heroImage).slice(0, 3);
   const amenityTiles = projectBrochureAmenityTiles(project, draft);
   const teamTiles = projectBrochureTeamTiles(project, draft);
-  const heroImage = draft.image ?? project.heroImage ?? project.image;
   const heroMobileImage = heroImage === project.heroImage ? project.mobileImage : undefined;
   const pageType = project.projectPageType ?? pageTypeForProject(project);
   const isCompactWatch = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker";

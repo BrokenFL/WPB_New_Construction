@@ -9,7 +9,7 @@
     "build": "tsc && vite build",
     "postbuild": "node research/scripts/prerender-static-routes.mjs",
     "preview": "vite preview",
-    "qa:launch": "node research/scripts/qa-launch-readiness.mjs && npm run qa:copy && npm run qa:hero-images && npm run qa:renamed-images && npm run qa:public-json && npm run qa:a11y-forms && npm run qa:performance && npm run qa:image-mapping && npm run qa:image-repetition && npm run qa:news-images && npm run qa:project-pages && npm run qa:project-logos && npm run qa:approved-news && npm run qa:customer-copy && npm run qa:seo && npm run qa:image-alt && npm run qa:internal-links",
+    "qa:launch": "node research/scripts/qa-launch-readiness.mjs && npm run qa:copy && npm run qa:hero-images && npm run qa:renamed-images && npm run qa:public-json && npm run qa:a11y-forms && npm run qa:performance && npm run qa:image-mapping && npm run qa:image-repetition && npm run qa:news-images && npm run qa:project-pages && npm run qa:project-logos && npm run qa:approved-news && npm run qa:customer-copy && npm run qa:seo && npm run qa:image-alt && npm run qa:internal-links && npm run qa:content-studio",
     "qa:gatekeeper": "node research/scripts/qa-gatekeeper-surface.mjs",
     "qa:hero-images": "node research/scripts/check-hero-images.mjs",
     "qa:renamed-images": "node research/scripts/check-renamed-image-references.mjs",
@@ -29,6 +29,8 @@
     "qa:seo": "node research/scripts/check-seo-readiness.mjs",
     "qa:image-alt": "node research/scripts/check-image-alt-quality.mjs",
     "qa:internal-links": "node research/scripts/check-internal-links.mjs",
+    "qa:content-studio": "node research/scripts/check-content-studio-safety.mjs",
+    "qa:live": "node research/scripts/check-live-site-health.mjs",
     "deploy:live": "node research/scripts/deploy-cloudflare-pages-with-retry.mjs",
     "ship:live": "node research/scripts/deploy-cloudflare-pages-with-retry.mjs",
     "research:site-intelligence": "node research/scripts/build-site-intelligence.mjs",
@@ -45,11 +47,13 @@
     "assets:plan-resize": "npm run research:site-intelligence && node research/scripts/prepare-image-captions-and-sizes.mjs && node research/scripts/plan-authorized-asset-resize.mjs --write",
     "editor": "node research/scripts/local-content-editor.mjs",
     "editor:sync": "node research/scripts/sync-editor-overrides.mjs",
+    "content:studio": "node tools/content-studio/server.mjs",
     "test": "npm run qa:launch && npm run qa:gatekeeper",
     "lint": "node research/scripts/lint-public-surface.mjs",
     "check:updates": "node research/scripts/check-imported-updates.mjs"
   },
   "devDependencies": {
+    "playwright": "^1.60.0",
     "typescript": "~6.0.2",
     "vite": "^8.0.9"
   }
