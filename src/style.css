@@ -3609,7 +3609,7 @@ select:focus-visible {
   min-height: clamp(690px, 94vh, 880px);
   padding: clamp(118px, 13vh, 156px) clamp(24px, 6vw, 104px) clamp(58px, 7vw, 92px);
   color: var(--ivory);
-  background: #071012;
+  background: #0b1418;
   isolation: isolate;
   overflow: hidden;
 }
@@ -3629,22 +3629,24 @@ select:focus-visible {
   z-index: 0;
   margin: 0;
   overflow: hidden;
+  background: #0b1418;
 }
 
 .home-hero-image {
   z-index: 0;
   width: 100%;
   top: 0;
-  height: 108%;
+  height: 100%;
   object-fit: cover;
   object-position: center 45%;
   filter: saturate(1.08) contrast(1.05) brightness(0.92);
   opacity: 0;
-  transition: opacity 1400ms ease;
+  transition: opacity 1800ms ease;
   will-change: opacity;
 }
 
 .home-hero-image.is-active {
+  z-index: 1;
   opacity: 1;
 }
 

@@ -279,6 +279,8 @@ const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | un
 const googleMapsMapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID as string | undefined;
 const heroMapScriptId = "wpb-google-map-script";
 const heroMapCallbackName = "__wpbGoogleMapsReady";
+const HERO_ROTATION_INTERVAL_MS = 16000;
+const HERO_FADE_DURATION_MS = 1800;
 let googleMapsLoader: Promise<GoogleMapsNamespace> | null = null;
 let googleAdvancedMarkerLoader: Promise<GoogleAdvancedMarkerConstructor | undefined> | null = null;
 
@@ -3143,35 +3145,57 @@ function initHomeHero() {
 
   let index = 0;
   let paused = false;
+  let isTransitioning = false;
+  let currentLayer = activeLayer;
+  let standbyLayer = nextLayer;
 
-  const preloadNext = () => {
+  const preloadNext = async () => {
     const image = homeHeroImages[(index + 1) % homeHeroImages.length];
-    if (!nextLayer.src.endsWith(image.src)) {
-      nextLayer.src = image.src;
+    if (!standbyLayer.src.endsWith(image.src)) {
+      standbyLayer.src = image.src;
     }
+    if (standbyLayer.complete && standbyLayer.naturalWidth > 0) {
+      await standbyLayer.decode().catch(() => undefined);
+      return;
+    }
+    await new Promise<void>((resolve, reject) => {
+      standbyLayer.addEventListener("load", () => resolve(), { once: true });
+      standbyLayer.addEventListener("error", () => reject(new Error(`Unable to load hero image: ${image.src}`)), { once: true });
+    });
+    await standbyLayer.decode().catch(() => undefined);
   };
 
-  const rotate = () => {
-    if (paused || document.hidden) return;
+  const rotate = async () => {
+    if (paused || document.hidden || isTransitioning) return;
+    isTransitioning = true;
     const nextIndex = (index + 1) % homeHeroImages.length;
     const image = homeHeroImages[nextIndex];
-    nextLayer.src = image.src;
-    nextLayer.alt = image.alt;
-    nextLayer.removeAttribute("aria-hidden");
-    nextLayer.classList.add("is-active");
-    activeLayer.classList.remove("is-active");
+    try {
+      await preloadNext();
+    } catch {
+      isTransitioning = false;
+      return;
+    }
+    standbyLayer.alt = image.alt;
+    standbyLayer.removeAttribute("aria-hidden");
+    currentLayer.style.zIndex = "1";
+    standbyLayer.style.zIndex = "2";
+    standbyLayer.classList.add("is-active");
 
     window.setTimeout(() => {
-      activeLayer.src = image.src;
-      activeLayer.alt = image.alt;
-      activeLayer.classList.add("is-active");
-      nextLayer.classList.remove("is-active");
-      nextLayer.alt = "";
-      nextLayer.setAttribute("aria-hidden", "true");
+      currentLayer.classList.remove("is-active");
+      currentLayer.alt = "";
+      currentLayer.setAttribute("aria-hidden", "true");
+      currentLayer.style.zIndex = "0";
+      const previousLayer = currentLayer;
+      currentLayer = standbyLayer;
+      standbyLayer = previousLayer;
+      currentLayer.style.zIndex = "1";
       caption?.replaceChildren(document.createTextNode(image.caption));
       index = nextIndex;
-      preloadNext();
-    }, 1500);
+      void preloadNext();
+      isTransitioning = false;
+    }, HERO_FADE_DURATION_MS);
   };
 
   hero.addEventListener("mouseenter", () => {
@@ -3187,8 +3211,10 @@ function initHomeHero() {
     paused = false;
   });
 
-  preloadNext();
-  window.setInterval(rotate, 8500);
+  void preloadNext();
+  window.setInterval(() => {
+    void rotate();
+  }, HERO_ROTATION_INTERVAL_MS);
 }
 
 function initBuyerAssistant() {

@@ -1,25 +1,25 @@
 # Asset Duplicate Inventory
 
-Generated: 2026-05-22T15:08:20.560Z
+Generated: 2026-05-22T15:29:07.917Z
 
 This is a review report only. It does not delete, move, or rewrite assets.
 
 ## Summary
 
-- Files scanned: 1707
-- Duplicate groups: 331
-- Duplicate extra bytes: 447.0 MB
-- Source duplicate groups: 330
-- Source duplicate extra bytes: 445.1 MB
+- Files scanned: 1708
+- Duplicate groups: 323
+- Duplicate extra bytes: 413.0 MB
+- Source duplicate groups: 322
+- Source duplicate extra bytes: 411.1 MB
 - Public-only duplicate extra bytes: 1.9 MB
 - QA duplicate extra bytes: 0 B
-- Duplicate byte delta from previous report: 0 B
-- Source duplicate byte delta from previous report: 0 B
+- Duplicate byte delta from previous report: -35623284 B
+- Source duplicate byte delta from previous report: -35623284 B
 
 ## Cleanup Plan Buckets
 
-- Keep research as raw archive and public as publishable derivative only where authorized. (217 groups, 393.1 MB)
-- Review canonical path before any move or delete. (110 groups, 50.1 MB)
+- Keep research as raw archive and public as publishable derivative only where authorized. (206 groups, 338.7 MB)
+- Review canonical path before any move or delete. (113 groups, 70.5 MB)
 - Keep one canonical public URL, update references, then remove duplicate public alias after approval. (3 groups, 1.9 MB)
 - Replace per-project copies with one shared internal placeholder reference. (1 groups, 1.9 MB)
 
@@ -40,30 +40,6 @@ This is a review report only. It does not delete, move, or rewrite assets.
 - `public/projects/forte-on-flagler/docs/floorplans/north-open-kitchen-plan--e3976295.pdf`
 - `research/asset-library/projects/forte-on-flagler/downloads/north-open-kitchen-plan--570a05d0.pdf`
 - `research/asset-library/projects/forte-on-flagler/floorplans/north-open-kitchen-plan--e3976295.pdf`
-
-### public/research source duplicate - 13.8 MB extra
-
-- Recommended canonical: `public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg`
-- Action: Keep research as raw archive and public as publishable derivative only where authorized.
-- `public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg`
-- `research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-19-20--113324cb.jpg`
-- `research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-19-20--113324cb.jpg`
-
-### public/research source duplicate - 13.6 MB extra
-
-- Recommended canonical: `public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg`
-- Action: Keep research as raw archive and public as publishable derivative only where authorized.
-- `public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg`
-- `research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-10-18--29f041ee.jpg`
-- `research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-10-18--29f041ee.jpg`
-
-### public/research source duplicate - 13.4 MB extra
-
-- Recommended canonical: `public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg`
-- Action: Keep research as raw archive and public as publishable derivative only where authorized.
-- `public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg`
-- `research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-5-9--7e6bd746.jpg`
-- `research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-5-9--7e6bd746.jpg`
 
 ### public/research source duplicate - 9.3 MB extra
 
@@ -86,6 +62,27 @@ This is a review report only. It does not delete, move, or rewrite assets.
 - Action: Review canonical path before any move or delete.
 - `research/asset-library/projects/south-flagler-house-north/images/public-research/image-05--heroexterior--southflaglerhouse.com--53e28a55.jpg`
 - `research/asset-library/projects/south-flagler-house-south/images/public-research/image-05--heroexterior--southflaglerhouse.com--53e28a55.jpg`
+
+### research-only duplicate - 6.9 MB extra
+
+- Recommended canonical: `research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-19-20--113324cb.jpg`
+- Action: Review canonical path before any move or delete.
+- `research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-19-20--113324cb.jpg`
+- `research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-19-20--113324cb.jpg`
+
+### research-only duplicate - 6.8 MB extra
+
+- Recommended canonical: `research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-10-18--29f041ee.jpg`
+- Action: Review canonical path before any move or delete.
+- `research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-10-18--29f041ee.jpg`
+- `research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-10-18--29f041ee.jpg`
+
+### research-only duplicate - 6.7 MB extra
+
+- Recommended canonical: `research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-5-9--7e6bd746.jpg`
+- Action: Review canonical path before any move or delete.
+- `research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-5-9--7e6bd746.jpg`
+- `research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-5-9--7e6bd746.jpg`
 
 ### public/research source duplicate - 5.7 MB extra
 

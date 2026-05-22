@@ -1,32 +1,32 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-22T15:08:20.560Z",
-    "filesScanned": 1707,
-    "duplicateHashGroups": 331,
-    "duplicateExtraBytes": 468698918,
-    "sourceDuplicateHashGroups": 330,
-    "sourceDuplicateExtraBytes": 466695552,
+    "generatedAt": "2026-05-22T15:29:07.917Z",
+    "filesScanned": 1708,
+    "duplicateHashGroups": 323,
+    "duplicateExtraBytes": 433075634,
+    "sourceDuplicateHashGroups": 322,
+    "sourceDuplicateExtraBytes": 431072268,
     "publicOnlyDuplicateHashGroups": 3,
     "publicOnlyDuplicateExtraBytes": 2033973,
     "qaDuplicateHashGroups": 0,
     "qaDuplicateExtraBytes": 0,
     "previousDuplicateExtraBytes": 468698918,
     "previousSourceDuplicateExtraBytes": 466695552,
-    "duplicateExtraByteDelta": 0,
-    "sourceDuplicateExtraByteDelta": 0
+    "duplicateExtraByteDelta": -35623284,
+    "sourceDuplicateExtraByteDelta": -35623284
   },
   "policy": "Inventory only. Do not delete files from this report without explicit human approval; use it to choose canonical files and archive/move candidates.",
   "cleanupPlan": [
     {
       "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "groups": 217,
-      "extraBytes": 412161496
+      "groups": 206,
+      "extraBytes": 355100631
     },
     {
       "action": "Review canonical path before any move or delete.",
-      "groups": 110,
-      "extraBytes": 52500083
+      "groups": 113,
+      "extraBytes": 73937664
     },
     {
       "action": "Keep one canonical public URL, update references, then remove duplicate public alias after approval.",
@@ -83,75 +83,6 @@
         {
           "path": "research/asset-library/projects/forte-on-flagler/floorplans/north-open-kitchen-plan--e3976295.pdf",
           "size": 10034786
-        }
-      ]
-    },
-    {
-      "hash": "c053b7f6f342f791d15db3323080bc8c4553ac8f95b572d68833395bef16acbb",
-      "count": 3,
-      "eachBytes": 7255512,
-      "extraBytes": 14511024,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-          "size": 7255512
-        },
-        {
-          "path": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-19-20--113324cb.jpg",
-          "size": 7255512
-        },
-        {
-          "path": "research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-19-20--113324cb.jpg",
-          "size": 7255512
-        }
-      ]
-    },
-    {
-      "hash": "a2f712dadb0604f5b27e0d64c2c553fc957d726219f1295267112eff2c24b8e2",
-      "count": 3,
-      "eachBytes": 7152535,
-      "extraBytes": 14305070,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-          "size": 7152535
-        },
-        {
-          "path": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-10-18--29f041ee.jpg",
-          "size": 7152535
-        },
-        {
-          "path": "research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-10-18--29f041ee.jpg",
-          "size": 7152535
-        }
-      ]
-    },
-    {
-      "hash": "b0ab5b2becfad2683e3b506c4d901246e61f1852cdae033bcd44741d1f6b4315",
-      "count": 3,
-      "eachBytes": 7029534,
-      "extraBytes": 14059068,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-          "size": 7029534
-        },
-        {
-          "path": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-5-9--7e6bd746.jpg",
-          "size": 7029534
-        },
-        {
-          "path": "research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-5-9--7e6bd746.jpg",
-          "size": 7029534
         }
       ]
     },
@@ -213,6 +144,63 @@
         {
           "path": "research/asset-library/projects/south-flagler-house-south/images/public-research/image-05--heroexterior--southflaglerhouse.com--53e28a55.jpg",
           "size": 8617834
+        }
+      ]
+    },
+    {
+      "hash": "c053b7f6f342f791d15db3323080bc8c4553ac8f95b572d68833395bef16acbb",
+      "count": 2,
+      "eachBytes": 7255512,
+      "extraBytes": 7255512,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-19-20--113324cb.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-19-20--113324cb.jpg",
+          "size": 7255512
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-19-20--113324cb.jpg",
+          "size": 7255512
+        }
+      ]
+    },
+    {
+      "hash": "a2f712dadb0604f5b27e0d64c2c553fc957d726219f1295267112eff2c24b8e2",
+      "count": 2,
+      "eachBytes": 7152535,
+      "extraBytes": 7152535,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-10-18--29f041ee.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-10-18--29f041ee.jpg",
+          "size": 7152535
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-10-18--29f041ee.jpg",
+          "size": 7152535
+        }
+      ]
+    },
+    {
+      "hash": "b0ab5b2becfad2683e3b506c4d901246e61f1852cdae033bcd44741d1f6b4315",
+      "count": 2,
+      "eachBytes": 7029534,
+      "extraBytes": 7029534,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-5-9--7e6bd746.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/south-flagler-house-north/floorplans/site-plan-floors-5-9--7e6bd746.jpg",
+          "size": 7029534
+        },
+        {
+          "path": "research/asset-library/projects/south-flagler-house-south/floorplans/site-plan-floors-5-9--7e6bd746.jpg",
+          "size": 7029534
         }
       ]
     },
@@ -1243,25 +1231,6 @@
       ]
     },
     {
-      "hash": "e7b31ba2571099bd6d34a5d3773473357c3b41b7c34444226d36fbe90c2e07d7",
-      "count": 2,
-      "eachBytes": 1960169,
-      "extraBytes": 1960169,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/berkeley/docs/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/berkeley/docs/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
-          "size": 1960169
-        },
-        {
-          "path": "research/asset-library/projects/berkeley/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
-          "size": 1960169
-        }
-      ]
-    },
-    {
       "hash": "458db989f16d71e93fcbfdc621246b96a7f647bdb1f26829e7a79bc99c8c2224",
       "count": 2,
       "eachBytes": 1940617,
@@ -1319,82 +1288,6 @@
       ]
     },
     {
-      "hash": "663b91527fdb711c620f73fe246931770547eec089bba26bf6c13dcf038a140a",
-      "count": 2,
-      "eachBytes": 1847318,
-      "extraBytes": 1847318,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/berkeley/docs/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/berkeley/docs/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
-          "size": 1847318
-        },
-        {
-          "path": "research/asset-library/projects/berkeley/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
-          "size": 1847318
-        }
-      ]
-    },
-    {
-      "hash": "b644aac1a0dc6ffa05f44d2030cd9aff0ff5d421c13e0c2ddb5c7777160492d0",
-      "count": 2,
-      "eachBytes": 1753584,
-      "extraBytes": 1753584,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/berkeley/docs/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/berkeley/docs/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
-          "size": 1753584
-        },
-        {
-          "path": "research/asset-library/projects/berkeley/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
-          "size": 1753584
-        }
-      ]
-    },
-    {
-      "hash": "7bdcaaa6b315c4a1668c7069ded18bab3d9656c7f4eb9ba0880d58a840cced2a",
-      "count": 2,
-      "eachBytes": 1750358,
-      "extraBytes": 1750358,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/berkeley/docs/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/berkeley/docs/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
-          "size": 1750358
-        },
-        {
-          "path": "research/asset-library/projects/berkeley/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
-          "size": 1750358
-        }
-      ]
-    },
-    {
-      "hash": "c7a6b35a14a182302dfbb504bc22b79364710067620c8649e4e26b7cf75ea1c4",
-      "count": 2,
-      "eachBytes": 1746568,
-      "extraBytes": 1746568,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/berkeley/docs/floorplans/residence-d-floorplan-template--904ee317.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/berkeley/docs/floorplans/residence-d-floorplan-template--904ee317.jpg",
-          "size": 1746568
-        },
-        {
-          "path": "research/asset-library/projects/berkeley/floorplans/residence-d-floorplan-template--904ee317.jpg",
-          "size": 1746568
-        }
-      ]
-    },
-    {
       "hash": "6b46a01e7343cc3b62d461e7f62142f62db082b8db92b513801a8767f6204b71",
       "count": 2,
       "eachBytes": 1742676,
@@ -1429,63 +1322,6 @@
         {
           "path": "research/asset-library/projects/mr-c/floorplans/residence-07--438e91d4.pdf",
           "size": 1737412
-        }
-      ]
-    },
-    {
-      "hash": "e7f32ac9165e41da3e05224ba1b061ae8a4f91d2252fd0c4b566e798fea11d08",
-      "count": 2,
-      "eachBytes": 1731909,
-      "extraBytes": 1731909,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/berkeley/docs/floorplans/residence-g-floorplan-template--95ec6883.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/berkeley/docs/floorplans/residence-g-floorplan-template--95ec6883.jpg",
-          "size": 1731909
-        },
-        {
-          "path": "research/asset-library/projects/berkeley/floorplans/residence-g-floorplan-template--95ec6883.jpg",
-          "size": 1731909
-        }
-      ]
-    },
-    {
-      "hash": "f283b53856da32c88b60a1c487dbba368e3fb577be6df5b881582bbafcfcce28",
-      "count": 2,
-      "eachBytes": 1710668,
-      "extraBytes": 1710668,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/berkeley/docs/floorplans/residence-c-floorplan-template--b089a348.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/berkeley/docs/floorplans/residence-c-floorplan-template--b089a348.jpg",
-          "size": 1710668
-        },
-        {
-          "path": "research/asset-library/projects/berkeley/floorplans/residence-c-floorplan-template--b089a348.jpg",
-          "size": 1710668
-        }
-      ]
-    },
-    {
-      "hash": "d8098b5458922bd7ab6b45fd42572fad2cbc8bfc31aa4b7003b9cefc1015a400",
-      "count": 2,
-      "eachBytes": 1685129,
-      "extraBytes": 1685129,
-      "classification": "public/research source duplicate",
-      "recommendedCanonical": "public/projects/berkeley/docs/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
-      "action": "Keep research as raw archive and public as publishable derivative only where authorized.",
-      "files": [
-        {
-          "path": "public/projects/berkeley/docs/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
-          "size": 1685129
-        },
-        {
-          "path": "research/asset-library/projects/berkeley/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
-          "size": 1685129
         }
       ]
     },

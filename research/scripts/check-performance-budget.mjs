@@ -6,6 +6,7 @@ const roots = ["src", "public"].map((item) => path.join(workspace, item));
 const distAssets = path.join(workspace, "dist/assets");
 const maxEditorialBytes = 750 * 1024;
 const maxPublicImageBytes = 1.5 * 1024 * 1024;
+const maxFloorplanPreviewBytes = 1.25 * 1024 * 1024;
 const maxJsBytes = 450 * 1024;
 const maxCssBytes = 140 * 1024;
 const preExistingLargeImageAllowlist = [
@@ -31,7 +32,9 @@ async function main() {
   for (const file of files.filter((item) => /\.(?:jpe?g|png|webp)$/i.test(item))) {
     const rel = path.relative(workspace, file);
     const size = (await fs.stat(file)).size;
-    if (rel.startsWith("public/assets/editorial/") && size > maxEditorialBytes) {
+    if (rel.startsWith("public/projects/") && rel.includes("/docs/floorplans/") && size > maxFloorplanPreviewBytes) {
+      findings.push(`${rel}: floorplan preview exceeds ${formatBytes(maxFloorplanPreviewBytes)} (${formatBytes(size)})`);
+    } else if (rel.startsWith("public/assets/editorial/") && size > maxEditorialBytes) {
       findings.push(`${rel}: editorial image exceeds ${formatBytes(maxEditorialBytes)} (${formatBytes(size)})`);
     } else if (size > maxPublicImageBytes && !preExistingLargeImageAllowlist.some((pattern) => pattern.test(rel))) {
       findings.push(`${rel}: public image exceeds ${formatBytes(maxPublicImageBytes)} (${formatBytes(size)})`);
