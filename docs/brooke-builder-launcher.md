@@ -29,6 +29,11 @@ Automation installers are intentionally separate. Run these only when you want t
 /Volumes/ExternalSSD/WPB_NewConstruction/tools/launchers/install-news-publisher-automation.command
 ```
 
+Installed schedules:
+
+- Daily maintenance: `npm run daily:maintenance` at 9:00 AM local time.
+- News publisher: `npm run news:daily-publisher` at 9:20 AM local time.
+
 Uninstall automation:
 
 ```sh

@@ -97,6 +97,30 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     ],
     "paywallStatus": "free",
     "status": "published"
+  },
+  {
+    "id": "2026-05-22-test-wpb-luxury-condo-boom",
+    "title": "West Palm Beach’s luxury condo boom is no longer theoretical",
+    "sourceName": "New York Post",
+    "sourceUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
+    "canonicalUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
+    "publishedAt": "2026-05-22",
+    "fetchedAt": "2026-05-22",
+    "description": "A new wave of ultra-luxury condominium projects is pushing West Palm Beach into a different buyer category, with resort-level amenities, branded residences, and prices that increasingly compete with Palm Beach itself.",
+    "query": "GPT daily news draft",
+    "category": "construction",
+    "relatedProjectIds": [
+      "south-flagler-house",
+      "olara"
+    ],
+    "relatedCorridorIds": [
+      "south-flagler",
+      "north-flagler",
+      "downtown"
+    ],
+    "imageUrl": "/projects/south-flagler-house/media/imported/south-flagler-house-kitchen-residence-rendering.jpg",
+    "paywallStatus": "unknown",
+    "status": "published"
   }
 ] as const;
 

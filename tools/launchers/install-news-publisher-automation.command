@@ -23,4 +23,4 @@ launchctl bootout "$DOMAIN/$LABEL" >/dev/null 2>&1 || true
 launchctl bootstrap "$DOMAIN" "$TARGET"
 launchctl enable "$DOMAIN/$LABEL"
 echo "Installed and loaded $LABEL"
-echo "Manual run: cd $WORKSPACE && npm run news:publish-queued"
+echo "Manual run: cd $WORKSPACE && npm run news:daily-publisher"

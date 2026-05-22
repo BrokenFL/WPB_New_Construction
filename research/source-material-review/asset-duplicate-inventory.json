@@ -1,19 +1,19 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-22T18:58:08.912Z",
-    "filesScanned": 1909,
-    "duplicateHashGroups": 350,
-    "duplicateExtraBytes": 434067138,
-    "sourceDuplicateHashGroups": 322,
-    "sourceDuplicateExtraBytes": 431072268,
+    "generatedAt": "2026-05-22T19:57:02.664Z",
+    "filesScanned": 1933,
+    "duplicateHashGroups": 355,
+    "duplicateExtraBytes": 437354594,
+    "sourceDuplicateHashGroups": 330,
+    "sourceDuplicateExtraBytes": 434360130,
     "publicOnlyDuplicateHashGroups": 3,
     "publicOnlyDuplicateExtraBytes": 2033973,
     "qaDuplicateHashGroups": 21,
-    "qaDuplicateExtraBytes": 987532,
-    "previousDuplicateExtraBytes": 434060928,
-    "previousSourceDuplicateExtraBytes": 431072268,
-    "duplicateExtraByteDelta": 6210,
+    "qaDuplicateExtraBytes": 990077,
+    "previousDuplicateExtraBytes": 437354594,
+    "previousSourceDuplicateExtraBytes": 434360130,
+    "duplicateExtraByteDelta": 0,
     "sourceDuplicateExtraByteDelta": 0
   },
   "policy": "Inventory only. Do not delete files from this report without explicit human approval; use it to choose canonical files and archive/move candidates.",
@@ -25,8 +25,8 @@
     },
     {
       "action": "Review canonical path before any move or delete.",
-      "groups": 119,
-      "extraBytes": 73941636
+      "groups": 124,
+      "extraBytes": 77226547
     },
     {
       "action": "Keep one canonical public URL, update references, then remove duplicate public alias after approval.",
@@ -41,7 +41,7 @@
     {
       "action": "Archive older QA screenshots after approval.",
       "groups": 21,
-      "extraBytes": 987532
+      "extraBytes": 990077
     }
   ],
   "groups": [
@@ -2783,6 +2783,44 @@
       ]
     },
     {
+      "hash": "41982fc36e49e03a8552ce1a604c6dcfffd60f96e2599236938e58f40beeb5a0",
+      "count": 2,
+      "eachBytes": 511434,
+      "extraBytes": 511434,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-050-public-copy.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-050-public-copy.jpg",
+          "size": 511434
+        },
+        {
+          "path": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-050.jpg",
+          "size": 511434
+        }
+      ]
+    },
+    {
+      "hash": "5f34e390a9c6b1666faceefa34550a494764cc224731f464875ebafef0d08910",
+      "count": 2,
+      "eachBytes": 498944,
+      "extraBytes": 498944,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-055-public-copy.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-055-public-copy.jpg",
+          "size": 498944
+        },
+        {
+          "path": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-055.jpg",
+          "size": 498944
+        }
+      ]
+    },
+    {
       "hash": "55a1accfefc93a1650b8905212fa21bc9515893e4efb5c248ac0de9ef4edd9cf",
       "count": 2,
       "eachBytes": 496742,
@@ -2878,6 +2916,44 @@
       ]
     },
     {
+      "hash": "f30c2386ab0e06e70886dcc4b0be09ba8892df5efe157fc966ae83d75c0e883c",
+      "count": 2,
+      "eachBytes": 476906,
+      "extraBytes": 476906,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-052-public-copy.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-052-public-copy.jpg",
+          "size": 476906
+        },
+        {
+          "path": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-052.jpg",
+          "size": 476906
+        }
+      ]
+    },
+    {
+      "hash": "a7bbec95a25a5d10443ea613f61b473dc96f611913d3f7e775049125fba1405b",
+      "count": 2,
+      "eachBytes": 461239,
+      "extraBytes": 461239,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-051-public-copy.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-051-public-copy.jpg",
+          "size": 461239
+        },
+        {
+          "path": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-051.jpg",
+          "size": 461239
+        }
+      ]
+    },
+    {
       "hash": "e86c8c1794fbf443a0399f6516c493c71baedd2242e4a0dc6e60d126c6ef32da",
       "count": 2,
       "eachBytes": 444646,
@@ -2935,6 +3011,25 @@
       ]
     },
     {
+      "hash": "14b6f594377f11c62e7607ed3c63d6c8a00b3db4286a2f68da9710e5826ba74c",
+      "count": 2,
+      "eachBytes": 414190,
+      "extraBytes": 414190,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-053-public-copy.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-053-public-copy.jpg",
+          "size": 414190
+        },
+        {
+          "path": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-053.jpg",
+          "size": 414190
+        }
+      ]
+    },
+    {
       "hash": "a58d6c00ec8f12438f0fa5e11363251f2f0ac55b6e725d26c05036230730e72d",
       "count": 2,
       "eachBytes": 412178,
@@ -2988,6 +3083,25 @@
         {
           "path": "research/asset-library/preferred-image-exports/alba-palm-beach/hero-alba-palm-beach-exterior-hero-1600.jpg",
           "size": 406328
+        }
+      ]
+    },
+    {
+      "hash": "0e837ded6ffb8459b62be589192872a269d693e83313697d658307fce786a978",
+      "count": 2,
+      "eachBytes": 399367,
+      "extraBytes": 399367,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-054-public-copy.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-054-public-copy.jpg",
+          "size": 399367
+        },
+        {
+          "path": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-054.jpg",
+          "size": 399367
         }
       ]
     },
@@ -3083,6 +3197,25 @@
         {
           "path": "research/asset-library/projects/nora-house/images/candidates/01--official-candidate--norahouse.com--7f3c7c65.jpg",
           "size": 351320
+        }
+      ]
+    },
+    {
+      "hash": "799da4220512f6d2c537c9dc89eee3afc9c372394d6bf9608a30da80a8c11690",
+      "count": 2,
+      "eachBytes": 350295,
+      "extraBytes": 350295,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-056-public-copy.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-056-public-copy.jpg",
+          "size": 350295
+        },
+        {
+          "path": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-056.jpg",
+          "size": 350295
         }
       ]
     },
@@ -4623,6 +4756,25 @@
         {
           "path": "research/asset-library/projects/nora-house/floorplans/terrace-407-floorplan--cd216b95.jpg",
           "size": 176665
+        }
+      ]
+    },
+    {
+      "hash": "51e1b8e70e4703f9dff70f221ecbc2fb5f1097f9829fa82e30d78b48de7bfd32",
+      "count": 2,
+      "eachBytes": 175487,
+      "extraBytes": 175487,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-057-public-copy.jpg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-057-public-copy.jpg",
+          "size": 175487
+        },
+        {
+          "path": "research/imported-project-images/review/south-flagler-house/unknown-2026-05-22-057.jpg",
+          "size": 175487
         }
       ]
     },
@@ -6284,29 +6436,10 @@
       ]
     },
     {
-      "hash": "9711fcd7ee58f236c7fe94bb08b7f3b4025225e3cddb63937cf0b72c4e7a7051",
-      "count": 2,
-      "eachBytes": 5932,
-      "extraBytes": 5932,
-      "classification": "research-only duplicate",
-      "recommendedCanonical": "research/asset-library/projects/la-clara/team-logos/developer--great-gulf--logo--1f13c9a2.svg",
-      "action": "Review canonical path before any move or delete.",
-      "files": [
-        {
-          "path": "research/asset-library/projects/la-clara/team-logos/developer--great-gulf--logo--1f13c9a2.svg",
-          "size": 5932
-        },
-        {
-          "path": "research/asset-library/projects/mandarin-oriental/team-logos/developer--great-gulf--logo--1f13c9a2.svg",
-          "size": 5932
-        }
-      ]
-    },
-    {
       "hash": "0572b18de6beefc890f338634de41c321cbed1f1b9d2daf68427bbabcd7b680c",
-      "count": 3,
+      "count": 4,
       "eachBytes": 2545,
-      "extraBytes": 5090,
+      "extraBytes": 7635,
       "classification": "QA screenshot/output duplicate",
       "recommendedCanonical": ".playwright-cli/page-2026-05-22T18-12-05-917Z.yml",
       "action": "Archive older QA screenshots after approval.",
@@ -6322,6 +6455,29 @@
         {
           "path": ".playwright-cli/page-2026-05-22T18-56-56-324Z.yml",
           "size": 2545
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T19-51-44-642Z.yml",
+          "size": 2545
+        }
+      ]
+    },
+    {
+      "hash": "9711fcd7ee58f236c7fe94bb08b7f3b4025225e3cddb63937cf0b72c4e7a7051",
+      "count": 2,
+      "eachBytes": 5932,
+      "extraBytes": 5932,
+      "classification": "research-only duplicate",
+      "recommendedCanonical": "research/asset-library/projects/la-clara/team-logos/developer--great-gulf--logo--1f13c9a2.svg",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "research/asset-library/projects/la-clara/team-logos/developer--great-gulf--logo--1f13c9a2.svg",
+          "size": 5932
+        },
+        {
+          "path": "research/asset-library/projects/mandarin-oriental/team-logos/developer--great-gulf--logo--1f13c9a2.svg",
+          "size": 5932
         }
       ]
     },
@@ -6379,44 +6535,6 @@
         {
           "path": "research/asset-library/projects/mr-c/team-logos/developer--terra--logo--8879be95.svg",
           "size": 1574
-        }
-      ]
-    },
-    {
-      "hash": "e9405d4c0e39af8068a91db1305fb3e422db6f85af9eaa41fbde656c0e9ad7cc",
-      "count": 2,
-      "eachBytes": 1448,
-      "extraBytes": 1448,
-      "classification": "workspace duplicate",
-      "recommendedCanonical": "dist-local/Brooke-Builder-Launcher/brooke-builder-launcher.md",
-      "action": "Review canonical path before any move or delete.",
-      "files": [
-        {
-          "path": "dist-local/Brooke-Builder-Launcher/brooke-builder-launcher.md",
-          "size": 1448
-        },
-        {
-          "path": "docs/brooke-builder-launcher.md",
-          "size": 1448
-        }
-      ]
-    },
-    {
-      "hash": "41ccce48de3d7ee49c513aae019da671314b189be15a7312d2f5932ce7df1ef0",
-      "count": 2,
-      "eachBytes": 1367,
-      "extraBytes": 1367,
-      "classification": "workspace duplicate",
-      "recommendedCanonical": "dist-local/Brooke-Builder-Launcher/install-brooke-builder-launcher.command",
-      "action": "Review canonical path before any move or delete.",
-      "files": [
-        {
-          "path": "dist-local/Brooke-Builder-Launcher/install-brooke-builder-launcher.command",
-          "size": 1367
-        },
-        {
-          "path": "tools/launchers/install-brooke-builder-launcher.command",
-          "size": 1367
         }
       ]
     },
@@ -6792,17 +6910,13 @@
     },
     {
       "hash": "891524f9fcd58d1c6b6f29f3066f1d300d9fcca995c80cc07e7727aba77ae6ec",
-      "count": 3,
+      "count": 2,
       "eachBytes": 53,
-      "extraBytes": 106,
+      "extraBytes": 53,
       "classification": "workspace duplicate",
-      "recommendedCanonical": "content/newsletter-digest-drafts.json",
+      "recommendedCanonical": "content/overrides/editorial-image-overrides.json",
       "action": "Review canonical path before any move or delete.",
       "files": [
-        {
-          "path": "content/newsletter-digest-drafts.json",
-          "size": 53
-        },
         {
           "path": "content/overrides/editorial-image-overrides.json",
           "size": 53
@@ -6810,25 +6924,6 @@
         {
           "path": "content/overrides/image-caption-overrides.json",
           "size": 53
-        }
-      ]
-    },
-    {
-      "hash": "dd418c4df32a44db16eb198c0aa7b24c0e1afdfee72b9117a3f7f459b6f7407e",
-      "count": 2,
-      "eachBytes": 83,
-      "extraBytes": 83,
-      "classification": "workspace duplicate",
-      "recommendedCanonical": "dist-local/Brooke-Builder-Launcher/Open Brooke Builder.command",
-      "action": "Review canonical path before any move or delete.",
-      "files": [
-        {
-          "path": "dist-local/Brooke-Builder-Launcher/Open Brooke Builder.command",
-          "size": 83
-        },
-        {
-          "path": "tools/launchers/Open Brooke Builder.command",
-          "size": 83
         }
       ]
     },

@@ -4,13 +4,13 @@
 Developer/project-site images are treated as usable project assets when they come from a registry domain. Records are analyzed for project fit, dimensions, duplicate source variants, and best public placement. Selected records are marked `placed`; lower-quality duplicates are `archived`; unsuitable assets are `rejected`; the rest remain `candidate`.
 
 ## Best Images Selected
-- alba-palm-beach: alba-palm-beach-unknown-2026-05-22-009 (unknown, 1920x1077, 325 KB) -> card; /projects/alba-palm-beach/media/imported/unknown-2026-05-22-009.jpg; source https://www.albapalmbeach.com/
+- alba-palm-beach: alba-palm-beach-alba-palm-beach-card-waterfront-rendering-2026-05-22-009 (unknown, 1920x1077, 325 KB) -> card; /projects/alba-palm-beach/media/imported/alba-palm-beach-card-waterfront-rendering-2026-05-22-009.jpg; source https://www.albapalmbeach.com/
 - alba-palm-beach: alba-palm-beach-alba-palm-beach-exterior-aerial-waterfront-rendering (exterior, 1920x1755, 964 KB) -> gallery; /projects/alba-palm-beach/media/imported/alba-palm-beach-exterior-aerial-waterfront-rendering.jpg; source https://www.albapalmbeach.com/
-- banyan-tree: banyan-tree-interior-2026-05-22-019 (interior, 1412x1432, 72 KB) -> interior; /projects/banyan-tree/media/imported/interior-2026-05-22-019.jpg; source https://www.banyantreeresidenceswpb.com/
-- banyan-tree: banyan-tree-interior-2026-05-22-020 (interior, 1466x1839, 64 KB) -> interior; /projects/banyan-tree/media/imported/interior-2026-05-22-020.jpg; source https://www.banyantreeresidenceswpb.com/
+- banyan-tree: banyan-tree-banyan-tree-interior-rendering-2026-05-22-019 (interior, 1412x1432, 72 KB) -> interior; /projects/banyan-tree/media/imported/banyan-tree-interior-rendering-2026-05-22-019.jpg; source https://www.banyantreeresidenceswpb.com/
+- banyan-tree: banyan-tree-banyan-tree-interior-rendering-2026-05-22-020 (interior, 1466x1839, 64 KB) -> interior; /projects/banyan-tree/media/imported/banyan-tree-interior-rendering-2026-05-22-020.jpg; source https://www.banyantreeresidenceswpb.com/
 - banyan-tree: banyan-tree-banyan-tree-interior-living-room-rendering (interior, 2416x1400, 353 KB) -> interior; /projects/banyan-tree/media/imported/banyan-tree-interior-living-room-rendering.jpg; source https://www.banyantreeresidenceswpb.com/
-- banyan-tree: banyan-tree-interior-2026-05-22-022 (interior, 1466x1839, 64 KB) -> interior; /projects/banyan-tree/media/imported/interior-2026-05-22-022.jpg; source https://www.banyantreeresidenceswpb.com/
-- banyan-tree: banyan-tree-interior-2026-05-22-044 (interior, 2416x1400, 393 KB) -> interior; /projects/banyan-tree/media/imported/interior-2026-05-22-044.jpg; source https://www.banyantreeresidenceswpb.com/
+- banyan-tree: banyan-tree-banyan-tree-interior-rendering-2026-05-22-022 (interior, 1466x1839, 64 KB) -> interior; /projects/banyan-tree/media/imported/banyan-tree-interior-rendering-2026-05-22-022.jpg; source https://www.banyantreeresidenceswpb.com/
+- banyan-tree: banyan-tree-banyan-tree-interior-rendering-2026-05-22-044 (interior, 2416x1400, 393 KB) -> interior; /projects/banyan-tree/media/imported/banyan-tree-interior-rendering-2026-05-22-044.jpg; source https://www.banyantreeresidenceswpb.com/
 - berkeley: berkeley-berkeley-outdoor-amenity-terrace-rendering (amenity, 1777x1000, 712 KB) -> amenity; /projects/berkeley/media/imported/berkeley-outdoor-amenity-terrace-rendering.jpg; source https://www.theberkeleypalmbeach.com/
 - berkeley: berkeley-berkeley-spa-amenity-rendering (amenity, 1777x1000, 442 KB) -> amenity; /projects/berkeley/media/imported/berkeley-spa-amenity-rendering.jpg; source https://www.theberkeleypalmbeach.com/
 - berkeley: berkeley-berkeley-fitness-center-rendering (amenity, 1777x1000, 469 KB) -> amenity; /projects/berkeley/media/imported/berkeley-fitness-center-rendering.jpg; source https://www.theberkeleypalmbeach.com/
@@ -54,8 +54,8 @@ Developer/project-site images are treated as usable project assets when they com
 - shorecrest: shorecrest-unknown-2026-05-22-038 (unknown) rejected; https://www.shorecrestwpb.com/sites/default/files/2024-04/RogerFerris_Portrait_DSC5898_Grayscale.png
 
 ## Project Placement Decisions
-- alba-palm-beach: card=alba-palm-beach-unknown-2026-05-22-009; gallery=alba-palm-beach-alba-palm-beach-exterior-aerial-waterfront-rendering
-- banyan-tree: interior=banyan-tree-interior-2026-05-22-019; interior=banyan-tree-interior-2026-05-22-020; interior=banyan-tree-banyan-tree-interior-living-room-rendering; interior=banyan-tree-interior-2026-05-22-022; interior=banyan-tree-interior-2026-05-22-044
+- alba-palm-beach: card=alba-palm-beach-alba-palm-beach-card-waterfront-rendering-2026-05-22-009; gallery=alba-palm-beach-alba-palm-beach-exterior-aerial-waterfront-rendering
+- banyan-tree: interior=banyan-tree-banyan-tree-interior-rendering-2026-05-22-019; interior=banyan-tree-banyan-tree-interior-rendering-2026-05-22-020; interior=banyan-tree-banyan-tree-interior-living-room-rendering; interior=banyan-tree-banyan-tree-interior-rendering-2026-05-22-022; interior=banyan-tree-banyan-tree-interior-rendering-2026-05-22-044
 - berkeley: amenity=berkeley-berkeley-outdoor-amenity-terrace-rendering; amenity=berkeley-berkeley-spa-amenity-rendering; amenity=berkeley-berkeley-fitness-center-rendering; gallery=berkeley-berkeley-rooftop-amenity-rendering; gallery=berkeley-berkeley-exterior-arrival-rendering; interior=berkeley-berkeley-private-dining-room-rendering
 - forte-on-flagler: gallery=forte-on-flagler-forte-on-flagler-exterior-main-rendering; gallery=forte-on-flagler-forte-on-flagler-amenity-waterfront-terrace-rendering; gallery=forte-on-flagler-forte-on-flagler-featured-exterior-rendering; interior=forte-on-flagler-forte-on-flagler-interior-residence-rendering
 - maison-dor: amenity=maison-dor-maison-dor-east-pool-deck-rendering; gallery=maison-dor-maison-dor-east-facade-rendering; interior=maison-dor-maison-dor-interior-great-room-rendering

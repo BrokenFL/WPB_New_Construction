@@ -381,10 +381,17 @@ async function logChange(action, detail) {
 
 async function automationStatus() {
   const launchctl = await run("launchctl", ["list"]);
+  const gh = await githubAuthStatus();
+  const drafts = await readDraftStore();
+  const importedDrafts = drafts.items.filter((item) => item.importedFromIssue?.number);
   const dailyAgent = path.join(launchAgentRoot, "com.brooke.wpb-daily-site-maintenance.plist");
   const newsPublisherAgent = path.join(launchAgentRoot, "com.brooke.wpb-news-publisher.plist");
   return {
-    scripts: ["daily:maintenance", "news:import-gpt", "news:publish-queued", "newsletter:draft", "qa:live"],
+    scripts: ["daily:maintenance", "news:import-gpt", "news:daily-publisher", "news:publish-queued", "newsletter:draft", "qa:live"],
+    githubAuth: gh,
+    gptIssueImportStatus: importedDrafts.length
+      ? `${importedDrafts.length} imported draft(s); latest issue #${importedDrafts.at(-1).importedFromIssue.number}`
+      : "No GPT issue imports found in content/news-drafts.json",
     condoScanLoaded: launchctl.stdout.includes("com.brooke.wpb-condo-scan"),
     dailyMaintenanceInstalled: await exists(dailyAgent),
     dailyMaintenanceLoaded: launchctl.stdout.includes("com.brooke.wpb-daily-site-maintenance"),
@@ -394,8 +401,28 @@ async function automationStatus() {
     newsPublisherInstalled: await exists(newsPublisherAgent),
     newsPublisherLoaded: launchctl.stdout.includes("com.brooke.wpb-news-publisher"),
     newsPublisherNextRun: "Daily at 9:20 AM local time when installed from launchd/com.brooke.wpb-news-publisher.plist",
-    newsPublisherManualRun: "npm run news:publish-queued",
+    newsPublisherManualRun: "npm run news:daily-publisher",
+    newsPublisherDryRun: "npm run news:daily-publisher -- --dry-run",
+    newsPublisherLastReport: await lastReport("research/source-material-review/news-publisher-report.md"),
     developerImageImportInstalled: await exists(path.join(process.env.HOME ?? "", "Library/LaunchAgents/com.brooke.wpb-developer-image-import.plist")),
+  };
+}
+
+async function githubAuthStatus() {
+  const gh = await run("gh", ["auth", "status"]);
+  const tokenAvailable = Boolean(process.env.GITHUB_TOKEN || process.env.GH_TOKEN);
+  if (gh.code === 0) return { mode: "gh", status: "authenticated", tokenFallbackAvailable: tokenAvailable };
+  if (/ENOENT|not found|command not found/i.test(gh.stderr)) {
+    return {
+      mode: tokenAvailable ? "token-fallback" : "unauthenticated",
+      status: tokenAvailable ? "GH_TOKEN/GITHUB_TOKEN available in Builder process" : "gh CLI not installed in Builder process",
+      tokenFallbackAvailable: tokenAvailable,
+    };
+  }
+  return {
+    mode: tokenAvailable ? "token-fallback" : "gh",
+    status: tokenAvailable ? "gh unavailable; token fallback available" : "gh installed but not authenticated",
+    tokenFallbackAvailable: tokenAvailable,
   };
 }
 

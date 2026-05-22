@@ -31,6 +31,11 @@ chmod +x "$LAUNCHER_SOURCE" "$LAUNCHER_HELPER"
 cp "$LAUNCHER_SOURCE" "$DESKTOP_LAUNCHER"
 chmod +x "$DESKTOP_LAUNCHER"
 
+if ! grep -q "$LAUNCHER_HELPER" "$DESKTOP_LAUNCHER"; then
+  echo "Desktop launcher did not include the repo helper path."
+  exit 1
+fi
+
 echo "Installed: $DESKTOP_LAUNCHER"
 echo "Opening $URL"
 open "$URL" >/dev/null 2>&1 || true

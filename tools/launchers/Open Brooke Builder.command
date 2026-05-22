@@ -1,3 +1,2 @@
 #!/bin/zsh
-DIR="$(cd "$(dirname "$0")" && pwd)"
-exec "$DIR/open-brooke-builder.sh"
+exec "/Volumes/ExternalSSD/WPB_NewConstruction/tools/launchers/open-brooke-builder.sh"

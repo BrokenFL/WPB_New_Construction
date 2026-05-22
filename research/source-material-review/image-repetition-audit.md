@@ -1,6 +1,6 @@
 # Image Repetition Audit
 
-Generated: 2026-05-22T18:57:53.878Z
+Generated: 2026-05-22T19:56:43.673Z
 
 ## Summary
 
@@ -83,6 +83,7 @@ Generated: 2026-05-22T18:57:53.878Z
 | /projects/shorecrest/media/shorecrest-exterior-card.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/shorecrest/media/user-provided-shorecrest-card.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/shorecrest/media/user-provided-shorecrest-hero.jpg | shared source | Yes | No change required. | Checked by static QA. |
+| /projects/south-flagler-house/media/imported/south-flagler-house-kitchen-residence-rendering.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/south-flagler-house/media/logo.svg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/south-flagler-house/media/south-flagler-house-entrance-source.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/south-flagler-house/media/south-flagler-house-rendering-02.jpg | shared source | Yes | No change required. | Checked by static QA. |

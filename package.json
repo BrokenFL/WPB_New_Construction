@@ -42,6 +42,7 @@
     "news:fetch": "node research/scripts/fetch-development-news.mjs",
     "news:promote": "node research/scripts/promote-approved-news.mjs",
     "news:import-gpt": "node research/scripts/import-gpt-news-issues.mjs",
+    "news:daily-publisher": "node research/scripts/run-daily-news-publisher.mjs",
     "news:publish-queued": "node research/scripts/publish-news-drafts.mjs",
     "newsletter:draft": "node research/scripts/generate-newsletter-digest.mjs",
     "import:developer-images": "node research/scripts/import-developer-interior-images.mjs",

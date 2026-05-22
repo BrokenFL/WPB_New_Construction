@@ -10,8 +10,12 @@
     "description": "Interior renderings were revealed for the planned 31-story Mandarin Oriental Residences tower at 5400 North Flagler Drive.",
     "query": "West Palm Beach condo development",
     "category": "development",
-    "relatedProjectIds": ["mandarin-oriental"],
-    "relatedCorridorIds": ["north-flagler"],
+    "relatedProjectIds": [
+      "mandarin-oriental"
+    ],
+    "relatedCorridorIds": [
+      "north-flagler"
+    ],
     "paywallStatus": "free",
     "status": "published"
   },
@@ -26,8 +30,12 @@
     "description": "Coverage of NORA's next development phase, including an 11-story condominium building called NORA House.",
     "query": "Downtown West Palm Beach development",
     "category": "development",
-    "relatedProjectIds": ["nora-house"],
-    "relatedCorridorIds": ["downtown"],
+    "relatedProjectIds": [
+      "nora-house"
+    ],
+    "relatedCorridorIds": [
+      "downtown"
+    ],
     "paywallStatus": "free",
     "status": "published"
   },
@@ -42,8 +50,12 @@
     "description": "The proposal at 2001 N Flagler Drive is described as a 27-story luxury condominium tower.",
     "query": "West Palm Beach development",
     "category": "planning",
-    "relatedProjectIds": ["rosewood"],
-    "relatedCorridorIds": ["north-flagler"],
+    "relatedProjectIds": [
+      "rosewood"
+    ],
+    "relatedCorridorIds": [
+      "north-flagler"
+    ],
     "paywallStatus": "free",
     "status": "published"
   },
@@ -58,9 +70,37 @@
     "description": "Construction coverage reporting a topping-out milestone for South Flagler House at 1355 South Flagler Drive.",
     "query": "West Palm Beach new construction",
     "category": "construction",
-    "relatedProjectIds": ["south-flagler-house"],
-    "relatedCorridorIds": ["south-flagler"],
+    "relatedProjectIds": [
+      "south-flagler-house"
+    ],
+    "relatedCorridorIds": [
+      "south-flagler"
+    ],
     "paywallStatus": "free",
+    "status": "published"
+  },
+  {
+    "id": "2026-05-22-test-wpb-luxury-condo-boom",
+    "title": "West Palm Beach’s luxury condo boom is no longer theoretical",
+    "sourceName": "New York Post",
+    "sourceUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
+    "canonicalUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
+    "publishedAt": "2026-05-22",
+    "fetchedAt": "2026-05-22",
+    "description": "A new wave of ultra-luxury condominium projects is pushing West Palm Beach into a different buyer category, with resort-level amenities, branded residences, and prices that increasingly compete with Palm Beach itself.",
+    "query": "GPT daily news draft",
+    "category": "construction",
+    "relatedProjectIds": [
+      "south-flagler-house",
+      "olara"
+    ],
+    "relatedCorridorIds": [
+      "south-flagler",
+      "north-flagler",
+      "downtown"
+    ],
+    "imageUrl": "/projects/south-flagler-house/media/imported/south-flagler-house-kitchen-residence-rendering.jpg",
+    "paywallStatus": "unknown",
     "status": "published"
   }
 ]

@@ -97,13 +97,17 @@ function renderAutomation() {
   document.querySelector("#automationStatus").innerHTML = `
     <dl class="automation-grid">
       <div><dt>Condo scan</dt><dd>${automation.condoScanLoaded ? "loaded" : "not loaded"}</dd></div>
+      <div><dt>GitHub auth</dt><dd>${escapeHtml(`${automation.githubAuth?.mode || "unknown"} / ${automation.githubAuth?.status || "not checked"}`)}</dd></div>
       <div><dt>Daily maintenance</dt><dd>${automation.dailyMaintenanceInstalled ? "installed" : "not installed"} / ${automation.dailyMaintenanceLoaded ? "loaded" : "not loaded"}</dd></div>
       <div><dt>News publisher</dt><dd>${automation.newsPublisherInstalled ? "installed" : "not installed"} / ${automation.newsPublisherLoaded ? "loaded" : "not loaded"}</dd></div>
       <div><dt>Manual daily run</dt><dd><code>${escapeHtml(automation.dailyMaintenanceManualRun || "npm run daily:maintenance")}</code></dd></div>
-      <div><dt>Manual publisher run</dt><dd><code>${escapeHtml(automation.newsPublisherManualRun || "npm run news:publish-queued")}</code></dd></div>
+      <div><dt>Manual publisher run</dt><dd><code>${escapeHtml(automation.newsPublisherManualRun || "npm run news:daily-publisher")}</code></dd></div>
+      <div><dt>Publisher dry run</dt><dd><code>${escapeHtml(automation.newsPublisherDryRun || "npm run news:daily-publisher -- --dry-run")}</code></dd></div>
       <div><dt>Next daily run</dt><dd>${escapeHtml(automation.dailyMaintenanceNextRun || "Install automation to schedule.")}</dd></div>
       <div><dt>Next publisher run</dt><dd>${escapeHtml(automation.newsPublisherNextRun || "Install automation to schedule.")}</dd></div>
-      <div><dt>Last report</dt><dd>${automation.dailyMaintenanceLastReport?.exists ? escapeHtml(`${automation.dailyMaintenanceLastReport.path} updated ${automation.dailyMaintenanceLastReport.updatedAt}`) : "No report found."}</dd></div>
+      <div><dt>Daily report</dt><dd>${automation.dailyMaintenanceLastReport?.exists ? escapeHtml(`${automation.dailyMaintenanceLastReport.path} updated ${automation.dailyMaintenanceLastReport.updatedAt}`) : "No report found."}</dd></div>
+      <div><dt>Publisher report</dt><dd>${automation.newsPublisherLastReport?.exists ? escapeHtml(`${automation.newsPublisherLastReport.path} updated ${automation.newsPublisherLastReport.updatedAt}`) : "No report found."}</dd></div>
+      <div><dt>GPT issue import</dt><dd>${escapeHtml(automation.gptIssueImportStatus || "not checked")}</dd></div>
     </dl>
     <pre>${escapeHtml(JSON.stringify({ scripts: automation.scripts, changeLog: state.overrides.changeLog?.entries?.slice(0, 8) ?? [] }, null, 2))}</pre>
   `;
