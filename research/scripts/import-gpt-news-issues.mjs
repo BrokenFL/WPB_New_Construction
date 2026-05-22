@@ -76,7 +76,7 @@ function parseCandidates(body) {
 function isGptNewsIssue(issue) {
   const body = issue.body || "";
   const labels = (issue.labels || []).map((label) => typeof label === "string" ? label : label.name).filter(Boolean);
-  return issue.title?.startsWith("Daily WPB News Drafts") &&
+  return /^Daily WPB News Drafts\b/.test(issue.title || "") &&
     body.includes("news-candidate") &&
     parseCandidates(body).length > 0 &&
     ["news-candidate", "gpt-draft", "needs-codex-draft", "wpb-new-construction"].every((label) => body.includes(label) || labels.includes(label));
@@ -100,27 +100,29 @@ async function fetchIssues() {
   if (gh.status === 0) return JSON.parse(gh.stdout || "[]");
 
   const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
-  if (!token) {
-    throw new Error("GitHub issue import needs either the gh CLI authenticated for this repo or GITHUB_TOKEN/GH_TOKEN in the environment.");
-  }
   const [owner, name] = repo.split("/");
   const response = await fetch(`https://api.github.com/repos/${owner}/${name}/issues?state=open&per_page=50`, {
     headers: {
       accept: "application/vnd.github+json",
-      authorization: `Bearer ${token}`,
+      ...(token ? { authorization: `Bearer ${token}` } : {}),
       "user-agent": "wpb-news-draft-importer",
     },
   });
-  if (!response.ok) throw new Error(`GitHub API issue query failed: ${response.status} ${await response.text()}`);
+  if (!response.ok) {
+    const authHint = token ? "Token-backed" : "Unauthenticated";
+    throw new Error(`${authHint} GitHub API issue query failed: ${response.status} ${await response.text()}`);
+  }
   return response.json();
 }
 
 function commentOnIssue(number, body) {
-  spawnSync("gh", ["issue", "comment", String(number), "--repo", repo, "--body", body], { cwd: workspace, stdio: "inherit" });
+  const gh = spawnSync("gh", ["issue", "comment", String(number), "--repo", repo, "--body", body], { cwd: workspace, stdio: "inherit" });
+  if (gh.error?.code === "ENOENT") console.warn("Skipping GitHub issue comment because gh is not installed in this shell.");
 }
 
 function addLabel(number, label) {
-  spawnSync("gh", ["issue", "edit", String(number), "--repo", repo, "--add-label", label], { cwd: workspace, stdio: "inherit" });
+  const gh = spawnSync("gh", ["issue", "edit", String(number), "--repo", repo, "--add-label", label], { cwd: workspace, stdio: "inherit" });
+  if (gh.error?.code === "ENOENT") console.warn(`Skipping GitHub issue label ${label} because gh is not installed in this shell.`);
 }
 
 main().catch((error) => {

@@ -93,10 +93,20 @@ function renderStatusCards() {
 }
 
 function renderAutomation() {
-  document.querySelector("#automationStatus").textContent = JSON.stringify({
-    automation: state.automation,
-    changeLog: state.overrides.changeLog?.entries?.slice(0, 8) ?? [],
-  }, null, 2);
+  const automation = state.automation ?? {};
+  document.querySelector("#automationStatus").innerHTML = `
+    <dl class="automation-grid">
+      <div><dt>Condo scan</dt><dd>${automation.condoScanLoaded ? "loaded" : "not loaded"}</dd></div>
+      <div><dt>Daily maintenance</dt><dd>${automation.dailyMaintenanceInstalled ? "installed" : "not installed"} / ${automation.dailyMaintenanceLoaded ? "loaded" : "not loaded"}</dd></div>
+      <div><dt>News publisher</dt><dd>${automation.newsPublisherInstalled ? "installed" : "not installed"} / ${automation.newsPublisherLoaded ? "loaded" : "not loaded"}</dd></div>
+      <div><dt>Manual daily run</dt><dd><code>${escapeHtml(automation.dailyMaintenanceManualRun || "npm run daily:maintenance")}</code></dd></div>
+      <div><dt>Manual publisher run</dt><dd><code>${escapeHtml(automation.newsPublisherManualRun || "npm run news:publish-queued")}</code></dd></div>
+      <div><dt>Next daily run</dt><dd>${escapeHtml(automation.dailyMaintenanceNextRun || "Install automation to schedule.")}</dd></div>
+      <div><dt>Next publisher run</dt><dd>${escapeHtml(automation.newsPublisherNextRun || "Install automation to schedule.")}</dd></div>
+      <div><dt>Last report</dt><dd>${automation.dailyMaintenanceLastReport?.exists ? escapeHtml(`${automation.dailyMaintenanceLastReport.path} updated ${automation.dailyMaintenanceLastReport.updatedAt}`) : "No report found."}</dd></div>
+    </dl>
+    <pre>${escapeHtml(JSON.stringify({ scripts: automation.scripts, changeLog: state.overrides.changeLog?.entries?.slice(0, 8) ?? [] }, null, 2))}</pre>
+  `;
 }
 
 function renderNewsDesk() {
@@ -110,11 +120,16 @@ function renderNewsDesk() {
 
 function renderLane(selector, items) {
   document.querySelector(selector).innerHTML = items.length ? items.map(newsCard).join("") : `<p class="muted">No items.</p>`;
-  document.querySelectorAll(`${selector} [data-news-action]`).forEach((button) => {
-    button.addEventListener("click", async () => {
-      const status = button.dataset.newsAction;
-      const id = button.closest("[data-news-id]").dataset.newsId;
-      show(await postJson("/api/news-draft", { id, status }));
+  document.querySelectorAll(`${selector} [data-news-edit]`).forEach((form) => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const payload = formPayload(event.currentTarget);
+      const action = event.submitter?.dataset.newsAction || "draft";
+      payload.id = event.currentTarget.closest("[data-news-id]").dataset.newsId;
+      payload.status = action;
+      payload.sendToNewsletter = action === "newsletter";
+      if (action === "newsletter") payload.status = "queued";
+      show(await postJson("/api/news-draft", payload));
       await loadState();
     });
   });
@@ -132,29 +147,48 @@ function renderNewsletterDrafts() {
 }
 
 function newsCard(item) {
+  const bodySectionsText = (item.bodySections ?? []).map((section) => `${section.heading || ""}\n${section.body || ""}`.trim()).join("\n\n");
+  const canQuickPublish = item.riskLevel !== "high";
   return `
     <article class="news-card" data-news-id="${escapeHtml(item.id)}">
       <div class="news-card-head">
         <strong>${escapeHtml(item.rewrittenHeadline)}</strong>
-        <span>${escapeHtml(item.riskLevel)} / ${escapeHtml(item.status)}</span>
+        <span>${escapeHtml(item.riskLevel)} / ${escapeHtml(item.status)} / ${escapeHtml(item.publishMode || "manual")}</span>
       </div>
       <p>${escapeHtml(item.deck)}</p>
-      <p class="muted">${escapeHtml(item.sourceName)} · <a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">source</a></p>
-      <p class="muted">Project: ${(item.relatedProjectIds ?? []).join(", ") || "none"} · Corridor: ${(item.relatedCorridorIds ?? []).join(", ") || "none"}</p>
-      <p class="muted">Image: ${escapeHtml(item.suggestedImagePath || "assign before publishing")}</p>
-      <p class="muted">${escapeHtml(item.imageResolutionReason || "")}</p>
-      <details>
-        <summary>Article preview</summary>
-        ${(item.bodySections ?? []).map((section) => `<h3>${escapeHtml(section.heading)}</h3><p>${escapeHtml(section.body)}</p>`).join("")}
-        <p><strong>Buyer takeaway:</strong> ${escapeHtml(item.buyerTakeaway || "")}</p>
-        <p><strong>Newsletter:</strong> ${escapeHtml(item.newsletterBlurb || "")}</p>
-      </details>
-      <div class="card-actions">
-        <button data-news-action="queued" type="button">Approve</button>
-        <button data-news-action="blocked" type="button">Block</button>
-        <button data-news-action="published" type="button">Mark Published</button>
-        <button data-news-action="draft" type="button">Edit Later</button>
-      </div>
+      <dl class="news-meta">
+        <div><dt>Source</dt><dd>${escapeHtml(item.sourceName)} · <a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">source</a></dd></div>
+        <div><dt>Projects</dt><dd>${escapeHtml((item.relatedProjectIds ?? []).join(", ") || "none")}</dd></div>
+        <div><dt>Corridors</dt><dd>${escapeHtml((item.relatedCorridorIds ?? []).join(", ") || "none")}</dd></div>
+        <div><dt>Image</dt><dd>${escapeHtml(item.suggestedImagePath || "assign before publishing")}</dd></div>
+        <div><dt>Image note</dt><dd>${escapeHtml(item.imageResolutionReason || "")}</dd></div>
+        <div><dt>CTA</dt><dd>${escapeHtml(item.cta || "Compare related projects")}</dd></div>
+        <div><dt>Newsletter</dt><dd>${escapeHtml(item.newsletterStatus || "not sent")}</dd></div>
+      </dl>
+      <form class="news-edit-form" data-news-edit>
+        <div class="grid">
+          <label>Edit headline<input name="rewrittenHeadline" value="${escapeHtml(item.rewrittenHeadline)}" /></label>
+          <label>Edit source name<input name="sourceName" value="${escapeHtml(item.sourceName)}" /></label>
+          <label>Edit source link<input name="sourceUrl" type="url" value="${escapeHtml(item.sourceUrl)}" /></label>
+          <label>Change image<input name="suggestedImagePath" value="${escapeHtml(item.suggestedImagePath || "")}" /></label>
+          <label>Schedule<input name="scheduledAt" type="datetime-local" value="${escapeHtml(datetimeLocal(item.scheduledAt))}" /></label>
+          <label>Edit CTA<input name="cta" value="${escapeHtml(item.cta || "")}" /></label>
+        </div>
+        <label>Edit deck<textarea name="deck">${escapeHtml(item.deck)}</textarea></label>
+        <label>Edit story body<textarea name="bodySectionsText">${escapeHtml(bodySectionsText)}</textarea></label>
+        <label>Edit Brooke take<textarea name="buyerTakeaway">${escapeHtml(item.buyerTakeaway || "")}</textarea></label>
+        <label>Edit newsletter blurb<textarea name="newsletterBlurb">${escapeHtml(item.newsletterBlurb || "")}</textarea></label>
+        <label>Image explanation<textarea name="imageResolutionReason">${escapeHtml(item.imageResolutionReason || "")}</textarea></label>
+        <div class="card-actions">
+          <button data-news-action="draft" type="submit">Save Draft</button>
+          <button data-news-action="queued" type="submit"${canQuickPublish ? "" : " disabled"}>Approve</button>
+          <button data-news-action="blocked" type="submit">Block</button>
+          <button data-news-action="published" type="submit"${canQuickPublish ? "" : " disabled"}>Publish Now</button>
+          <button data-news-action="scheduled" type="submit"${canQuickPublish ? "" : " disabled"}>Schedule</button>
+          <button data-news-action="newsletter" type="submit"${canQuickPublish ? "" : " disabled"}>Send to Newsletter Draft</button>
+        </div>
+      </form>
+      ${canQuickPublish ? "" : `<p class="risk-note">High-risk drafts cannot quick-publish. Edit, verify, and lower risk only after manual review.</p>`}
     </article>
   `;
 }
@@ -209,6 +243,13 @@ function fileAsDataUrl(file) {
 
 function show(payload) {
   result.textContent = JSON.stringify(payload, null, 2);
+}
+
+function datetimeLocal(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  return date.toISOString().slice(0, 16);
 }
 
 function escapeHtml(value) {

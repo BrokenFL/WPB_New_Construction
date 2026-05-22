@@ -151,6 +151,7 @@ export async function normalizeCandidate(candidate, existingItems = []) {
     deck: clean(candidate.deck || candidate.summary || "Buyer-facing summary needs editor review."),
     bodySections: normalizeBodySections(candidate),
     buyerTakeaway: clean(candidate.buyerTakeaway || "Verify the practical buyer impact before relying on this item."),
+    cta: clean(candidate.cta || candidate.callToAction || "Compare related West Palm Beach projects"),
     newsletterBlurb: clean(candidate.newsletterBlurb || candidate.deck || candidate.summary || rewrittenHeadline),
     createdAt: clean(candidate.createdAt) || now,
     updatedAt: now,

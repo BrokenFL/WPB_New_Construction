@@ -1,5 +1,54 @@
 {
   "version": 1,
-  "updatedAt": "",
-  "items": []
+  "updatedAt": "2026-05-22T18:57:20.362Z",
+  "items": [
+    {
+      "id": "2026-05-22-test-wpb-luxury-condo-boom",
+      "sourceUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
+      "sourceName": "New York Post",
+      "sourceTitle": "Builders are betting on a bevy of new ultra-luxe condos in West Palm Beach",
+      "sourcePublishedAt": "2026-03-26",
+      "status": "queued",
+      "riskLevel": "medium",
+      "publishMode": "queued-unless-blocked",
+      "relatedProjectIds": [
+        "south-flagler-house",
+        "olara"
+      ],
+      "relatedCorridorIds": [
+        "south-flagler",
+        "north-flagler",
+        "downtown"
+      ],
+      "suggestedImagePath": "/projects/south-flagler-house/media/imported/south-flagler-house-kitchen-residence-rendering.jpg",
+      "imageResolutionReason": "Exact related project image selected for south-flagler-house.",
+      "rewrittenHeadline": "West Palm Beach’s luxury condo boom is no longer theoretical",
+      "deck": "A new wave of ultra-luxury condominium projects is pushing West Palm Beach into a different buyer category, with resort-level amenities, branded residences, and prices that increasingly compete with Palm Beach itself.",
+      "bodySections": [
+        {
+          "heading": "What happened",
+          "body": "A recent report highlighted the surge of ultra-luxury condominium development across West Palm Beach, including high-profile projects such as South Flagler House and Olara. The broader story is not simply that more condos are being built; it is that the city’s new construction pipeline is moving toward larger residences, richer amenity packages, and pricing that reflects a much more affluent buyer pool."
+        },
+        {
+          "heading": "Why it matters for buyers",
+          "body": "For buyers comparing new construction in West Palm Beach, the market is becoming more segmented. Some buildings are competing on full-service luxury, private-club-style amenities, hospitality branding, and waterfront positioning. Others are better understood as lifestyle or corridor bets. That makes direct comparison more important: price alone does not tell the full story."
+        },
+        {
+          "heading": "What to verify",
+          "body": "Current availability by line and exposure; whether published pricing reflects actual available inventory; association fees and what amenities are included; delivery timing and construction status; parking, storage, and service assumptions; and whether branded/resort-style amenities are meaningful or mostly marketing."
+        }
+      ],
+      "buyerTakeaway": "West Palm Beach new construction is no longer one market. Buyers should compare actual lifestyle promise, waterfront position, floor-plan depth, and service model before assuming every luxury condo is competing for the same buyer.",
+      "cta": "Compare related West Palm Beach projects",
+      "newsletterBlurb": "West Palm Beach’s condo pipeline is moving further into ultra-luxury territory, with new projects competing on amenities, branding, waterfront position, and residence scale.",
+      "createdAt": "2026-05-22T09:00:00-04:00",
+      "updatedAt": "2026-05-22T18:57:20.362Z",
+      "importedFromIssue": {
+        "repo": "BrokenFL/WPB_New_Construction",
+        "number": 2,
+        "title": "Daily WPB News Drafts — 2026-05-22 TEST",
+        "url": "https://api.github.com/repos/BrokenFL/WPB_New_Construction/issues/2"
+      }
+    }
+  ]
 }

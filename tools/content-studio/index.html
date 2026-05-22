@@ -180,18 +180,22 @@
           <div class="workflow-buttons">
             <button data-workflow="preview" type="button">Preview Changes</button>
             <button data-workflow="qa" type="button">Run QA</button>
+            <button data-workflow="daily-maintenance" type="button">Run Daily Maintenance Now</button>
             <button data-workflow="update" class="primary" type="button">Update Site Checks</button>
           </div>
-          <pre id="automationStatus"></pre>
+          <div id="automationStatus"></div>
         </section>
       </section>
 
       <section id="newsPanel" class="workspace panel">
         <h1>News Desk</h1>
         <div class="workflow-buttons">
-          <button data-workflow="news-import" type="button">Import GPT Issues</button>
-          <button data-workflow="news-publish" type="button">Publish Eligible Queue</button>
+          <button data-workflow="news-import" type="button">Import GPT Drafts</button>
+          <button data-workflow="daily-maintenance" type="button">Run Daily Maintenance Now</button>
           <button data-workflow="newsletter" type="button">Generate Newsletter Draft</button>
+          <button data-workflow="news-publish" type="button">Publish Queued</button>
+          <button data-workflow="qa" type="button">Run QA</button>
+          <button data-workflow="update" class="primary" type="button">Update Site</button>
         </div>
         <div class="news-lanes">
           <section><h2>Source Inbox</h2><div id="laneDraft" class="news-list"></div></section>

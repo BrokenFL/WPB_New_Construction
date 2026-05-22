@@ -12,6 +12,7 @@ const legacyEditorOverridesPath = path.join(workspace, "research/content-editor/
 const changeLogPath = path.join(overridesRoot, "change-log.json");
 const builderChangeLogPath = path.join(overridesRoot, "content-studio-change-log.json");
 const port = Number(process.env.WPB_CONTENT_STUDIO_PORT ?? 8787);
+const launchAgentRoot = path.join(process.env.HOME ?? "", "Library/LaunchAgents");
 
 const overrideFiles = {
   projectCopy: "project-copy-overrides.json",
@@ -239,19 +240,26 @@ async function saveNewsDraft(request, response) {
   if (!["draft", "queued", "scheduled", "published", "blocked", "needs_review", "archived"].includes(nextStatus)) {
     return sendJson(response, { ok: false, error: `Invalid status: ${nextStatus}` }, 400);
   }
-  if (draft.riskLevel === "high" && ["queued", "scheduled"].includes(nextStatus)) {
-    return sendJson(response, { ok: false, error: "High-risk drafts require manual review and cannot be queued from the quick action." }, 400);
+  if (draft.riskLevel === "high" && ["queued", "scheduled", "published"].includes(nextStatus)) {
+    return sendJson(response, { ok: false, error: "High-risk drafts require manual review and cannot be queued, scheduled, or published from News Desk quick actions." }, 400);
   }
   draft.rewrittenHeadline = clean(body.rewrittenHeadline || draft.rewrittenHeadline);
   draft.deck = clean(body.deck || draft.deck);
+  draft.bodySections = parseBodySections(body.bodySectionsText, draft.bodySections);
   draft.buyerTakeaway = clean(body.buyerTakeaway || draft.buyerTakeaway);
+  draft.cta = clean(body.cta || draft.cta);
   draft.newsletterBlurb = clean(body.newsletterBlurb || draft.newsletterBlurb);
+  draft.sourceUrl = clean(body.sourceUrl || draft.sourceUrl);
+  draft.sourceName = clean(body.sourceName || draft.sourceName);
   draft.suggestedImagePath = clean(body.suggestedImagePath || draft.suggestedImagePath);
+  draft.imageResolutionReason = clean(body.imageResolutionReason || draft.imageResolutionReason);
+  draft.scheduledAt = nextStatus === "scheduled" ? clean(body.scheduledAt || draft.scheduledAt) : draft.scheduledAt;
+  draft.newsletterStatus = body.sendToNewsletter === true || body.sendToNewsletter === "true" ? "ready_for_digest" : draft.newsletterStatus;
   draft.status = nextStatus;
   draft.updatedAt = new Date().toISOString();
   await writeDraftStore(store);
-  await logChange("news-draft", { id: draft.id, status: draft.status });
-  return sendJson(response, { ok: true, draft });
+  await logChange("news-draft", { id: draft.id, status: draft.status, newsletterStatus: draft.newsletterStatus });
+  return sendJson(response, { ok: true, draft, changedFiles: await changedFiles(), nextStep: nextStepForNewsDraft(draft) });
 }
 
 async function runWorkflow(request, response) {
@@ -263,6 +271,7 @@ async function runWorkflow(request, response) {
     "news-import": [["npm", ["run", "news:import-gpt"]]],
     "news-publish": [["npm", ["run", "news:publish-queued"]]],
     newsletter: [["npm", ["run", "newsletter:draft"]]],
+    "daily-maintenance": [["npm", ["run", "daily:maintenance"]]],
     update: [["npm", ["run", "typecheck"]], ["npm", ["run", "build"]], ["npm", ["run", "qa:launch"]]],
     "update-deploy": [
       ["npm", ["run", "typecheck"]],
@@ -295,7 +304,7 @@ async function runWorkflow(request, response) {
     }
   }
   await logChange("workflow", { workflow, commands: results.length });
-  return sendJson(response, { ok: true, workflow, results });
+  return sendJson(response, { ok: true, workflow, results, changedFiles: await changedFiles(), nextStep: nextStepForWorkflow(workflow) });
 }
 
 async function syncLegacyProjectOverrides(overrides) {
@@ -372,10 +381,20 @@ async function logChange(action, detail) {
 
 async function automationStatus() {
   const launchctl = await run("launchctl", ["list"]);
+  const dailyAgent = path.join(launchAgentRoot, "com.brooke.wpb-daily-site-maintenance.plist");
+  const newsPublisherAgent = path.join(launchAgentRoot, "com.brooke.wpb-news-publisher.plist");
   return {
-    scripts: ["daily:maintenance", "news:fetch", "news:promote", "import:developer-images", "review:developer-images", "qa:live"],
+    scripts: ["daily:maintenance", "news:import-gpt", "news:publish-queued", "newsletter:draft", "qa:live"],
     condoScanLoaded: launchctl.stdout.includes("com.brooke.wpb-condo-scan"),
-    dailyMaintenanceInstalled: await exists(path.join(process.env.HOME ?? "", "Library/LaunchAgents/com.brooke.wpb-daily-site-maintenance.plist")),
+    dailyMaintenanceInstalled: await exists(dailyAgent),
+    dailyMaintenanceLoaded: launchctl.stdout.includes("com.brooke.wpb-daily-site-maintenance"),
+    dailyMaintenanceNextRun: "Daily at 9:00 AM local time when installed from launchd/com.brooke.wpb-daily-site-maintenance.plist",
+    dailyMaintenanceManualRun: "npm run daily:maintenance",
+    dailyMaintenanceLastReport: await lastReport("research/source-material-review/daily-maintenance-report.md"),
+    newsPublisherInstalled: await exists(newsPublisherAgent),
+    newsPublisherLoaded: launchctl.stdout.includes("com.brooke.wpb-news-publisher"),
+    newsPublisherNextRun: "Daily at 9:20 AM local time when installed from launchd/com.brooke.wpb-news-publisher.plist",
+    newsPublisherManualRun: "npm run news:publish-queued",
     developerImageImportInstalled: await exists(path.join(process.env.HOME ?? "", "Library/LaunchAgents/com.brooke.wpb-developer-image-import.plist")),
   };
 }
@@ -469,6 +488,49 @@ function run(command, args) {
     child.on("error", (error) => resolve({ code: 1, stdout, stderr: error.message }));
     child.on("close", (code) => resolve({ code: code ?? 1, stdout, stderr }));
   });
+}
+
+async function changedFiles() {
+  const status = await run("git", ["status", "--short"]);
+  return status.stdout.split("\n").map((line) => line.trim()).filter(Boolean);
+}
+
+function parseBodySections(text, fallback = []) {
+  const raw = clean(text);
+  if (!raw) return fallback;
+  return raw.split(/\n{2,}/).map((block) => {
+    const [heading, ...bodyLines] = block.split("\n");
+    return { heading: clean(heading), body: clean(bodyLines.join("\n")) };
+  }).filter((section) => section.heading && section.body);
+}
+
+function nextStepForNewsDraft(draft) {
+  if (draft.status === "queued") return "Run Publish Queued after QA passes, or generate a newsletter draft.";
+  if (draft.status === "scheduled") return "Confirm scheduled timing, then run QA before publishing.";
+  if (draft.status === "blocked") return "No publish action will run for this draft.";
+  if (draft.status === "published") return "Run QA and review public news output before deploy.";
+  return "Continue editing, then approve or block the draft.";
+}
+
+function nextStepForWorkflow(workflow) {
+  const steps = {
+    preview: "Review changed files before running QA.",
+    qa: "If QA passed, review git diff before Update Site or deploy.",
+    "news-import": "Open News Desk and edit, approve, block, schedule, or send imported drafts to newsletter.",
+    "news-publish": "Run QA before deploying any published news output.",
+    newsletter: "Review content/newsletter-digest-drafts.json before sending.",
+    "daily-maintenance": "Review the daily maintenance report and changed files before publishing.",
+    update: "Review git diff; deploy only after checks pass.",
+    "update-deploy": "Verify live site health and public bundle.",
+  };
+  return steps[workflow] ?? "Review output and changed files.";
+}
+
+async function lastReport(relativePath) {
+  const filePath = path.join(workspace, relativePath);
+  const stat = await fs.stat(filePath).catch(() => null);
+  if (!stat) return { path: relativePath, exists: false };
+  return { path: relativePath, exists: true, updatedAt: stat.mtime.toISOString() };
 }
 
 function clean(value) {
