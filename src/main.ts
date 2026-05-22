@@ -10,6 +10,7 @@ import { editorProjectOverrides, type EditorProjectOverrides } from "./generated
 import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
 import { publishedExternalNews, type ExternalNewsItem } from "./data/approvedExternalNews";
 import { editorialImageForId, type EditorialImageId } from "./data/editorialImagery";
+import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
 import { advisorProfile } from "./lib/contact";
@@ -140,7 +141,23 @@ type ResolvedContentImage = {
   credit: string;
   caption: string;
   relatedProject?: FeaturedProject;
-  source: "explicit" | "project" | "editorial" | "generic";
+  source: "explicit" | "project" | "imported" | "editorial" | "generic";
+};
+
+type ImportedProjectImage = {
+  id: string;
+  projectId: string;
+  sourcePageUrl: string;
+  sourceImageUrl: string;
+  localPath: string;
+  capturedAt: string;
+  imageType: "interior" | "amenity" | "exterior" | "rendering" | "floorplan" | "logo" | "unknown";
+  status: "needs_review" | "approved" | "rejected" | "archived";
+  width?: number;
+  height?: number;
+  caption: string;
+  alt: string;
+  notes?: string;
 };
 
 type ProjectDocument = {
@@ -810,6 +827,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
 const projectFactById = new Map(projectFacts.map((project) => [project.projectId, project]));
 const featuredProjects = enhanceProjectIdentity(applyEditorProjectOverrides(applySourceFactsToProjects(baseFeaturedProjects), editorProjectOverrides));
 const rankedFeaturedProjects = [...featuredProjects].sort((a, b) => a.rank - b.rank);
+const importedProjectImages = approvedImportedProjectImagesRaw as ImportedProjectImage[];
 
 function enhanceProjectIdentity(projects: FeaturedProject[]): FeaturedProject[] {
   return projects.map((project) => {
@@ -2015,10 +2033,11 @@ app.innerHTML = `
         </div>
       </section>
 
-      <section class="section news-section" id="news">
+        <section class="section news-section" id="news">
         <div class="section-heading">
           <p class="eyebrow">Development Headlines</p>
           <h2>External West Palm Beach development news, linked to the original source.</h2>
+          <p>Track public sales, construction, planning, and financing signals across the West Palm Beach new-construction pipeline. Older updates are preserved for context and should be verified before buyer reliance.</p>
         </div>
         <div class="answer-meta-panel">
           <span>Updated ${publishedExternalNews[0]?.fetchedAt ?? floorplanLibrary[0]?.updatedAt ?? "2026-05-22"}</span>
@@ -2039,7 +2058,7 @@ app.innerHTML = `
             <p>Short editorial notes that translate local coverage, project milestones, and source conflicts into practical buyer questions. Facts stay tied to public sources; pricing and availability still require current confirmation.</p>
           </div>
           <aside class="answer-meta-panel">
-            <span>${marketNotes.length} notes in review</span>
+            <span>${marketNotes.length} buyer notes</span>
             <strong>Built for comparison, not brochure fog.</strong>
             <small>Each note names the buyer angle and the items Brooke should verify before you rely on it.</small>
           </aside>
@@ -2646,6 +2665,7 @@ app.innerHTML = `
             <strong>${advisorProfile.name}</strong>
             <span>${advisorProfile.brokerage}</span>
             <a href="${advisorProfile.mobileHref}">${advisorProfile.mobile}</a>
+            <p>Private new-construction guidance for West Palm Beach buyers.</p>
           </div>
           ${renderEmailSignup("inquiry_page", "Get WPB new-construction updates")}
           <p class="source-note">${advisorProfile.name}, ${advisorProfile.title} (${advisorProfile.license}) · ${advisorProfile.brokerage} (Florida license ${advisorProfile.brokerageLicense})</p>
@@ -4019,14 +4039,14 @@ function renderMarketNoteCard(note: MarketNote) {
   return `
     <article class="home-blog-card market-note-card" id="${escapeHtml(note.seo.suggestedSlug)}">
       ${renderResolvedContentImage(resolvedImage, "market-note-card-image")}
-      <span>${escapeHtml(note.category)} · ${escapeHtml(note.dateModified)}</span>
+      <span>${escapeHtml(note.category)} · Updated ${escapeHtml(note.dateModified)}</span>
       <h3>${escapeHtml(note.title)}</h3>
       <p>${escapeHtml(note.excerpt)}</p>
-      <small>${escapeHtml(note.buyerThesis)}</small>
+      <small>${escapeHtml(note.buyerTakeaway)}</small>
       ${relatedProjects ? `<p class="market-note-related">Related: ${escapeHtml(relatedProjects)}</p>` : ""}
       <div class="market-note-actions">
         ${canShowSourceLink ? `<a href="${safeHref(source.href)}" target="_blank" rel="noreferrer">Source <span aria-hidden="true">↗</span></a>` : ""}
-        <a href="/market-notes/${note.slug}/">Read note <span aria-hidden="true">→</span></a>
+        <a href="/market-notes/${note.slug}/">Read Buyer Note <span aria-hidden="true">→</span></a>
       </div>
     </article>
   `;
@@ -4052,25 +4072,37 @@ function renderMarketNoteArticle(note: MarketNote) {
   const relatedUpdates = researchNewsFeed
     .filter((item) => item.projectIds.some((projectId) => note.projectIds.includes(projectId)))
     .slice(0, 3);
+  const sourceStatus = note.sourceLinks.length ? "Source-linked buyer note" : "Internal buyer note";
 
   return `
     <article class="market-note-article">
       <header class="section market-note-hero">
         <div>
           <a class="market-note-back" href="/market-notes/">Market Notes</a>
-          <p class="eyebrow">${escapeHtml(note.category)} · Published ${escapeHtml(note.datePublished)} · Updated ${escapeHtml(note.dateModified)}</p>
+          <p class="eyebrow">${escapeHtml(note.category)}</p>
           <h1>${escapeHtml(note.title)}</h1>
-          <p>${escapeHtml(note.excerpt)}</p>
+          <p class="market-note-dek">${escapeHtml(note.excerpt)}</p>
+          <p class="market-note-hero-thesis">${escapeHtml(note.buyerThesis)}</p>
         </div>
         ${renderResolvedContentImage(resolvedImage, "market-note-hero-image")}
       </header>
+      <section class="market-note-meta-strip" aria-label="Article metadata">
+        <div><span>Category</span><strong>${escapeHtml(note.category)}</strong></div>
+        <div><span>Published</span><strong>${escapeHtml(note.datePublished)}</strong></div>
+        <div><span>Updated</span><strong>${escapeHtml(note.dateModified)}</strong></div>
+        <div><span>Buildings</span><strong>${relatedProjects.length}</strong></div>
+        <div><span>Verification</span><strong>${escapeHtml(sourceStatus)}</strong></div>
+      </section>
       <section class="section market-note-body">
         <aside class="market-note-thesis">
           <span>Buyer thesis</span>
           <strong>${escapeHtml(note.buyerThesis)}</strong>
-          <p>${escapeHtml(note.buyerTakeaway)}</p>
         </aside>
         <div class="market-note-sections">
+          <aside class="buyer-takeaway-box">
+            <span>Buyer Takeaway</span>
+            <p>${escapeHtml(note.buyerTakeaway)}</p>
+          </aside>
           ${note.sections
             .map(
               (section) => `
@@ -4081,6 +4113,12 @@ function renderMarketNoteArticle(note: MarketNote) {
               `,
             )
             .join("")}
+          <aside class="verify-box">
+            <span>What to verify before relying on this</span>
+            <ul>
+              ${note.factCheckRequired.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+            </ul>
+          </aside>
         </div>
       </section>
       <section class="section market-note-related-section">
@@ -4089,7 +4127,7 @@ function renderMarketNoteArticle(note: MarketNote) {
           <h2>Buildings to compare while this note is fresh.</h2>
         </div>
         <div class="front-project-grid front-project-grid-static">
-          ${relatedProjects.slice(0, 4).map(renderFeaturedProject).join("")}
+          ${relatedProjects.slice(0, 4).map(renderRelatedBuildingCard).join("")}
         </div>
       </section>
       ${
@@ -4108,13 +4146,29 @@ function renderMarketNoteArticle(note: MarketNote) {
           : ""
       }
       <section class="section conversion-section market-note-cta">
+        ${renderEditorialImagePanel("buyer-intelligence-interior", { compact: true, className: "market-note-cta-image" })}
         <div>
           <p class="eyebrow">Private Comparison Notes</p>
-          <h2>${escapeHtml(note.ctaText)}</h2>
+          <h2>Want help applying this to your search?</h2>
           <p>Send the buildings you are weighing and Brooke will help verify current availability, floor plans, and timing before you build a shortlist around stale numbers.</p>
         </div>
         <a href="/inquire/?lead_capture_context=market_note_article&message=${encodeURIComponent(`I want help applying this note: ${note.title}`)}">Request Current Availability <span aria-hidden="true">↗</span></a>
       </section>
+    </article>
+  `;
+}
+
+function renderRelatedBuildingCard(project: FeaturedProject) {
+  const image = projectImageForContent(project) ?? project.image;
+  return `
+    <article class="related-building-card">
+      ${image ? `<img src="${safeHref(image)}" alt="${escapeHtml(project.name)} building image" loading="lazy" decoding="async" />` : ""}
+      <div>
+        <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
+        <strong>${escapeHtml(project.name)}</strong>
+        <p>${escapeHtml(project.summary)}</p>
+        <a href="${projectPath(project)}">View building <span aria-hidden="true">→</span></a>
+      </div>
     </article>
   `;
 }
@@ -4168,7 +4222,23 @@ function renderMediaAsset(asset: MediaAsset, variant = "standard") {
 }
 
 function projectImageForContent(project: FeaturedProject) {
-  return project.heroImage ?? project.image ?? project.galleryImages?.find((asset) => canShowImage(asset.src))?.src;
+  return project.heroImage
+    ?? (approvedImportedImagesForProject(project.id)[0] ? importedImagePublicPath(approvedImportedImagesForProject(project.id)[0]) : undefined)
+    ?? project.image
+    ?? project.galleryImages?.find((asset) => canShowImage(asset.src))?.src;
+}
+
+function approvedImportedImagesForProject(projectId: string) {
+  return importedProjectImages
+    .filter((image) => image.projectId === projectId && image.status === "approved" && canShowImage(image.localPath))
+    .sort((a, b) => {
+      const priority = { interior: 0, amenity: 1, rendering: 2, exterior: 3, floorplan: 4, unknown: 5, logo: 6 };
+      return priority[a.imageType] - priority[b.imageType];
+    });
+}
+
+function importedImagePublicPath(image: ImportedProjectImage) {
+  return image.localPath.replace(/^public/, "");
 }
 
 function firstNamedProjectForContent(item: ContentImageContext) {
@@ -4230,13 +4300,14 @@ function imageForContentItem(item: ContentImageContext): ResolvedContentImage {
   const relatedProject = firstNamedProjectForContent(item);
   const projectImage = relatedProject ? projectImageForContent(relatedProject) : undefined;
   if (relatedProject && projectImage && canShowImage(projectImage)) {
+    const approvedImport = approvedImportedImagesForProject(relatedProject.id).find((image) => importedImagePublicPath(image) === projectImage);
     return {
       src: projectImage,
-      alt: `${relatedProject.name} related image`,
-      credit: imageCreditShort(projectImage),
-      caption: imageCaptionShort(projectImage),
+      alt: approvedImport?.alt ?? `${relatedProject.name} related image`,
+      credit: approvedImport?.caption ?? imageCreditShort(projectImage),
+      caption: approvedImport?.caption ?? imageCaptionShort(projectImage),
       relatedProject,
-      source: "project",
+      source: approvedImport ? "imported" : "project",
     };
   }
 
@@ -4679,13 +4750,15 @@ function initProjectLocationMaps() {
 function renderResearchNewsItem(item: ResearchNewsItem) {
   const resolvedImage = imageForContentItem(item);
   const isOlderPublicUpdate = isOlderThanDays(item.datePublished || item.dateModified, 90);
+  const relatedProject = resolvedImage.relatedProject ?? item.projectIds.map((projectId) => featuredProjects.find((project) => project.id === projectId)).find(Boolean);
   return `
     <article class="news-card intelligence-news-card" id="${escapeHtml(item.id)}">
       ${renderResolvedContentImage(resolvedImage)}
-      <span>${publicText(item.category)} · Last checked ${publicText(item.dateModified)}${isOlderPublicUpdate ? " · Older public update" : ""}</span>
+      <span>${publicText(item.category)} · ${publicText(item.datePublished)} · Last checked ${publicText(item.dateModified)}${isOlderPublicUpdate ? " · Older public update" : ""}</span>
       <strong>${publicText(item.title)}</strong>
       <p>${publicText(item.summary)}</p>
-      <small>${publicText(item.sourceName)} · ${publicText(item.status)}</small>
+      <small>${publicText(item.sourceName)}${relatedProject ? ` · Related: ${escapeHtml(relatedProject.name)}` : ""} · ${publicText(item.status)}</small>
+      <a class="home-news-link" href="${relatedProject ? projectPath(relatedProject) : "/inquire/?lead_capture_context=update_card"}">${relatedProject ? "View related building" : "Ask about this update"} <span aria-hidden="true">→</span></a>
     </article>
   `;
 }
@@ -4723,6 +4796,7 @@ function formatNewsDate(value: string) {
 
 function renderExternalNewsItem(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
+  const relatedProject = resolvedImage.relatedProject ?? item.relatedProjectIds.map((projectId) => featuredProjects.find((project) => project.id === projectId)).find(Boolean);
   return `
     <article class="news-card intelligence-news-card external-news-card" id="${escapeHtml(item.id)}">
       ${renderResolvedContentImage(resolvedImage)}
@@ -4731,6 +4805,7 @@ function renderExternalNewsItem(item: ExternalNewsItem) {
       ${item.description ? `<p>${publicText(item.description)}</p>` : ""}
       <small>${publicText(relatedNewsLabel(item))}</small>
       <a class="home-news-link" href="${safeHref(item.canonicalUrl)}" target="_blank" rel="noopener noreferrer">Read original article <span aria-hidden="true">→</span></a>
+      <a class="home-news-link" href="${relatedProject ? projectPath(relatedProject) : "/inquire/?lead_capture_context=external_update_card"}">${relatedProject ? "View related building" : "Ask about this update"} <span aria-hidden="true">→</span></a>
     </article>
   `;
 }
@@ -5200,6 +5275,12 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
     { label: "Corridor", value: project.corridor },
   ].filter((fact) => fact.value);
   const teamCredits = teamCreditsFromSource(source?.team);
+  const approvedImportedGallery = approvedImportedImagesForProject(project.id).map((image) => ({
+    src: importedImagePublicPath(image),
+    kicker: image.imageType === "interior" ? "Interior Rendering" : image.imageType === "amenity" ? "Amenity Image" : "Developer-site Image",
+    title: image.caption,
+    alt: image.alt,
+  }));
   return {
     kicker: project.corridor,
     title: project.name,
@@ -5222,6 +5303,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
     gallery: projectHeroImage
       ? [
           { src: projectHeroImage, mobileSrc: project.mobileImage, kicker: "Project Image", title: project.name, alt: `${project.name} project image` },
+          ...approvedImportedGallery,
           { src: project.image ?? projectHeroImage, kicker: "Street Context", title: "Downtown context", alt: `${project.name} project preview` },
           { src: project.mobileImage ?? projectHeroImage, kicker: "Design", title: "Architectural detail", alt: `${project.name} design context` },
           ...(project.galleryImages ?? []),

@@ -19,6 +19,8 @@ function publicPathFromSitePath(sitePath) {
 const editorialSource = read("src/data/editorialImagery.ts");
 const mainSource = read("src/main.ts");
 const marketNotesSource = read("src/data/marketNotes.ts");
+const styleSource = read("src/style.css");
+const approvedImportedImages = JSON.parse(read("src/data/approvedImportedProjectImages.json"));
 
 const editorialRecords = [...editorialSource.matchAll(/\{[\s\S]*?id:\s*"([^"]+)"[\s\S]*?assetPath:\s*"([^"]+)"[\s\S]*?status:\s*"([^"]+)"[\s\S]*?\}/g)]
   .map((match) => ({
@@ -40,6 +42,7 @@ const requiredEditorialIds = [
   "south-flagler-corridor",
   "south-flagler-evening-corridor",
   "kravis-center-downtown-attraction",
+  "buyer-intelligence-interior",
 ];
 
 for (const id of requiredEditorialIds) {
@@ -93,6 +96,31 @@ if (!/primaryProjectId\?: string/.test(marketNotesSource)) {
 
 if (/imageId:\s*"buyer-intelligence-interior"/.test(marketNotesSource)) {
   fail("Market Notes still point to the unsourced buyer-intelligence interior image.");
+}
+
+if (!/approvedImportedImagesForProject/.test(mainSource) || !/status === "approved"/.test(mainSource)) {
+  fail("Imported project images are not gated to approved status before public rendering.");
+}
+
+for (const image of approvedImportedImages) {
+  if (image.status !== "approved") {
+    fail(`Public imported image bundle contains a non-approved image: ${image.id}`);
+  }
+}
+
+function cssBlock(selector) {
+  const start = styleSource.indexOf(`${selector} {`);
+  if (start === -1) return "";
+  const end = styleSource.indexOf("}", start);
+  return end === -1 ? "" : styleSource.slice(start, end);
+}
+
+if (/position:\s*absolute/.test(cssBlock(".editorial-image-panel figcaption"))) {
+  fail("Editorial image captions still render as image overlays.");
+}
+
+if (/position:\s*absolute/.test(cssBlock(".content-image-panel figcaption"))) {
+  fail("Content image captions still render as image overlays.");
 }
 
 if (errors.length) {

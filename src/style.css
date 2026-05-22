@@ -25,7 +25,6 @@
 }
 
 .editorial-image-panel {
-  position: relative;
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(37, 42, 45, 0.14);
@@ -130,19 +129,14 @@
 }
 
 .editorial-image-panel figcaption {
-  position: absolute;
-  left: 12px;
-  bottom: 12px;
-  z-index: 2;
   display: inline-flex;
   gap: 8px;
   align-items: center;
-  border: 1px solid rgba(255, 250, 241, 0.26);
-  border-radius: 999px;
-  padding: 6px 10px;
-  color: rgba(255, 250, 241, 0.86);
-  background: rgba(11, 15, 18, 0.56);
-  backdrop-filter: blur(16px);
+  width: 100%;
+  border-top: 1px solid rgba(37, 42, 45, 0.1);
+  padding: 9px 12px;
+  color: rgba(37, 42, 45, 0.66);
+  background: rgba(255, 253, 248, 0.72);
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -454,22 +448,16 @@
 }
 
 .content-image-panel {
-  position: relative;
   overflow: hidden;
   margin: 0;
   background: #ebe2d4;
 }
 
 .content-image-panel figcaption {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  left: 12px;
-  border: 1px solid rgba(255, 250, 241, 0.34);
-  border-radius: 999px;
-  padding: 7px 10px;
-  color: #fffaf1;
-  background: rgba(11, 15, 18, 0.58);
+  border-top: 1px solid rgba(37, 42, 45, 0.1);
+  padding: 8px 11px;
+  color: rgba(37, 42, 45, 0.62);
+  background: rgba(255, 253, 248, 0.84);
   font-size: 0.66rem;
   font-weight: 700;
 }
@@ -536,6 +524,7 @@
   .map-orientation-hero,
   .compare-route-hero,
   .market-note-hero,
+  .market-note-cta,
   .compare-shortlist-section,
   .corridor-questions-section,
   .inquiry-context-panel {
@@ -543,6 +532,7 @@
   }
 
   .map-corridor-grid,
+  .market-note-meta-strip,
   .compare-shortlist-grid {
     grid-template-columns: 1fr;
   }
@@ -2905,10 +2895,60 @@ h3 {
   line-height: 0.94;
 }
 
-.market-note-hero > p:not(.eyebrow) {
+.market-note-dek {
   max-width: 760px;
   color: var(--soft-ink);
   font-size: clamp(1.06rem, 1.6vw, 1.32rem);
+}
+
+.market-note-hero-thesis {
+  max-width: 760px;
+  margin-top: 20px;
+  border-left: 3px solid rgba(154, 122, 79, 0.58);
+  padding-left: 18px;
+  color: var(--ink);
+  font-family:
+    Iowan Old Style,
+    Palatino Linotype,
+    Georgia,
+    serif;
+  font-size: clamp(1.22rem, 1.9vw, 1.8rem);
+  line-height: 1.28;
+}
+
+.market-note-meta-strip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  border-top: 1px solid rgba(154, 122, 79, 0.18);
+  border-bottom: 1px solid rgba(154, 122, 79, 0.18);
+  padding: 0 clamp(18px, 4vw, 54px);
+  background: rgba(154, 122, 79, 0.16);
+}
+
+.market-note-meta-strip div {
+  display: grid;
+  gap: 6px;
+  min-height: 94px;
+  align-content: center;
+  padding: 16px;
+  background: rgba(255, 250, 241, 0.92);
+}
+
+.market-note-meta-strip span,
+.buyer-takeaway-box span,
+.verify-box span,
+.related-building-card span {
+  color: var(--bronze);
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.market-note-meta-strip strong {
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.25;
 }
 
 .market-note-back {
@@ -2969,6 +3009,39 @@ h3 {
   gap: clamp(28px, 4vw, 54px);
 }
 
+.buyer-takeaway-box,
+.verify-box {
+  border: 1px solid rgba(143, 185, 173, 0.42);
+  border-radius: 8px;
+  padding: clamp(20px, 2.4vw, 30px);
+  background: rgba(143, 185, 173, 0.14);
+}
+
+.buyer-takeaway-box p {
+  margin: 10px 0 0;
+  color: var(--ink);
+  font-family:
+    Iowan Old Style,
+    Palatino Linotype,
+    Georgia,
+    serif;
+  font-size: clamp(1.3rem, 2vw, 1.9rem);
+  line-height: 1.24;
+}
+
+.verify-box {
+  border-color: rgba(154, 122, 79, 0.28);
+  background: rgba(255, 250, 241, 0.72);
+}
+
+.verify-box ul {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-left: 20px;
+  color: var(--soft-ink);
+}
+
 .market-note-sections h2 {
   margin: 0 0 12px;
   color: var(--ink);
@@ -2987,7 +3060,65 @@ h3 {
 }
 
 .market-note-cta {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr) auto;
+  gap: clamp(18px, 3vw, 36px);
+  align-items: center;
   margin-top: clamp(32px, 6vw, 82px);
+}
+
+.market-note-cta-image img,
+.market-note-cta-image .editorial-placeholder {
+  min-height: 170px;
+}
+
+.related-building-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid rgba(154, 122, 79, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.8);
+}
+
+.related-building-card img {
+  width: 100%;
+  min-height: 170px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.related-building-card div {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+.related-building-card strong {
+  color: var(--ink);
+  font-family:
+    Iowan Old Style,
+    Palatino Linotype,
+    Georgia,
+    serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.related-building-card p {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.related-building-card a {
+  color: #0d3125;
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .sr-only {
@@ -3102,8 +3233,7 @@ select:focus-visible {
   }
 
   .site-chat-assistant {
-    right: 14px;
-    bottom: 92px;
+    display: none;
   }
 
   .hero-content {
@@ -4839,15 +4969,10 @@ select:focus-visible {
 }
 
 .home-news-card figcaption {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  left: 12px;
-  border: 1px solid rgba(255, 250, 241, 0.42);
-  border-radius: 4px;
+  border-top: 1px solid rgba(154, 122, 79, 0.18);
   padding: 8px 10px;
-  color: #fffaf1;
-  background: rgba(11, 15, 18, 0.54);
+  color: rgba(37, 42, 45, 0.66);
+  background: rgba(255, 253, 248, 0.9);
   font-size: 0.68rem;
   line-height: 1.25;
 }
@@ -4909,14 +5034,10 @@ select:focus-visible {
 }
 
 .intelligence-news-card figcaption {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  left: 10px;
-  border-radius: 999px;
-  padding: 7px 10px;
-  color: #fffaf1;
-  background: rgba(11, 15, 18, 0.58);
+  border-top: 1px solid rgba(154, 122, 79, 0.18);
+  padding: 8px 10px;
+  color: rgba(37, 42, 45, 0.66);
+  background: rgba(255, 253, 248, 0.88);
   font-size: 0.66rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -6746,6 +6867,12 @@ select:focus-visible {
 html,
 body {
   overflow-x: clip;
+}
+
+@media (max-width: 860px) {
+  .site-chat-assistant {
+    display: none;
+  }
 }
 
 .site-nav,

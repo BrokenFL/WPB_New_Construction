@@ -1,0 +1,121 @@
+{
+  "generatedAt": "2026-05-22T09:00:00-04:00",
+  "projects": [
+    {
+      "projectId": "olara",
+      "projectName": "Olara",
+      "officialSiteUrl": "https://www.olarawestpalmbeach.com/",
+      "crawlSeeds": ["https://www.olarawestpalmbeach.com/"],
+      "allowedSourceDomains": ["olarawestpalmbeach.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Seeded from existing project source catalog. Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "ritz-carlton-wpb",
+      "projectName": "The Ritz-Carlton Residences, West Palm Beach",
+      "officialSiteUrl": "https://theresidenceswestpalmbeach.com/",
+      "crawlSeeds": [
+        "https://theresidenceswestpalmbeach.com/",
+        "https://theresidenceswestpalmbeach.com/gallery/",
+        "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/"
+      ],
+      "allowedSourceDomains": ["theresidenceswestpalmbeach.com", "relatedgroup.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "shorecrest",
+      "projectName": "Shorecrest",
+      "officialSiteUrl": "https://www.shorecrestwpb.com/",
+      "crawlSeeds": ["https://www.shorecrestwpb.com/", "https://www.shorecrestwpb.com/floorplans"],
+      "allowedSourceDomains": ["shorecrestwpb.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "mr-c",
+      "projectName": "Mr. C Hotel & Residences West Palm Beach",
+      "officialSiteUrl": "https://www.mrcresidenceswpb.com/",
+      "crawlSeeds": [
+        "https://www.mrcresidenceswpb.com/",
+        "https://www.mrcresidenceswpb.com/gallery/",
+        "https://www.mrcresidenceswpb.com/amenities-services/"
+      ],
+      "allowedSourceDomains": ["mrcresidenceswpb.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "alba-palm-beach",
+      "projectName": "Alba Palm Beach",
+      "officialSiteUrl": "https://www.albapalmbeach.com/",
+      "crawlSeeds": ["https://www.albapalmbeach.com/"],
+      "allowedSourceDomains": ["albapalmbeach.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "mandarin-oriental",
+      "projectName": "Mandarin Oriental Residences, West Palm Beach",
+      "officialSiteUrl": "https://mandarinorientalwestpalmbeach.com/",
+      "crawlSeeds": ["https://mandarinorientalwestpalmbeach.com/"],
+      "allowedSourceDomains": ["mandarinorientalwestpalmbeach.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "south-flagler-house",
+      "projectName": "South Flagler House",
+      "officialSiteUrl": "https://www.southflaglerhouse.com/",
+      "crawlSeeds": ["https://www.southflaglerhouse.com/"],
+      "allowedSourceDomains": ["southflaglerhouse.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "nora-house",
+      "projectName": "NORA House",
+      "officialSiteUrl": "https://norahouse.com/",
+      "crawlSeeds": ["https://norahouse.com/", "https://norahouse.com/amenities/"],
+      "allowedSourceDomains": ["norahouse.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "banyan-tree",
+      "projectName": "Banyan Tree Residences West Palm Beach",
+      "officialSiteUrl": "https://www.banyantreeresidenceswpb.com/",
+      "crawlSeeds": ["https://www.banyantreeresidenceswpb.com/"],
+      "allowedSourceDomains": ["banyantreeresidenceswpb.com", "admin.banyantreeresidenceswpb.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "berkeley",
+      "projectName": "The Berkeley Palm Beach",
+      "officialSiteUrl": "https://www.theberkeleypalmbeach.com/",
+      "crawlSeeds": ["https://www.theberkeleypalmbeach.com/"],
+      "allowedSourceDomains": ["theberkeleypalmbeach.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "maison-dor",
+      "projectName": "Maison d'Or",
+      "officialSiteUrl": "https://livemaisondor.com/",
+      "crawlSeeds": ["https://livemaisondor.com/"],
+      "allowedSourceDomains": ["livemaisondor.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    },
+    {
+      "projectId": "forte-on-flagler",
+      "projectName": "Forte on Flagler",
+      "officialSiteUrl": "https://fortewpb.com/",
+      "crawlSeeds": ["https://fortewpb.com/"],
+      "allowedSourceDomains": ["fortewpb.com"],
+      "priorityImageTypes": ["interior", "amenity", "rendering"],
+      "notes": "Imported images require manual approval before public use."
+    }
+  ]
+}

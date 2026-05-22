@@ -115,9 +115,10 @@ export const editorialImagery: readonly EditorialImage[] = [
     routeUse: ["/inquire/", "/market-notes/", "/compare/"],
     assetPath: "/assets/editorial/buyer-intelligence-interior.jpg",
     fallbackGradient: "interior",
-    alt: "Editorial condo interior overlooking the Intracoastal toward Palm Beach and the Atlantic beyond.",
+    alt: "Editorial condo interior arranged for buyer review with West Palm Beach Intracoastal context.",
     caption: "Editorial visual",
-    status: "needs-sourcing",
+    credit: "Curated from existing project interior imagery for buyer-advisory context.",
+    status: "available",
     geographyNote: "Interior view should look east across the lagoon toward Palm Beach, with the Atlantic beyond.",
   },
 ] as const;

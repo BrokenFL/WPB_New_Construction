@@ -26,6 +26,8 @@
     "news:refresh": "node research/scripts/build-site-intelligence.mjs",
     "news:fetch": "node research/scripts/fetch-development-news.mjs",
     "news:promote": "node research/scripts/promote-approved-news.mjs",
+    "import:developer-images": "node research/scripts/import-developer-interior-images.mjs",
+    "review:developer-images": "node research/scripts/review-imported-project-images.mjs",
     "assets:duplicates": "node research/scripts/report-duplicate-assets.mjs --write",
     "assets:cleanup-approved": "node research/scripts/apply-approved-asset-cleanup.mjs --write",
     "assets:plan-resize": "npm run research:site-intelligence && node research/scripts/prepare-image-captions-and-sizes.mjs && node research/scripts/plan-authorized-asset-resize.mjs --write",
