@@ -1,19 +1,19 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-22T20:28:14.089Z",
-    "filesScanned": 1970,
-    "duplicateHashGroups": 355,
-    "duplicateExtraBytes": 437354594,
+    "generatedAt": "2026-05-22T21:16:24.078Z",
+    "filesScanned": 2007,
+    "duplicateHashGroups": 369,
+    "duplicateExtraBytes": 447477690,
     "sourceDuplicateHashGroups": 330,
     "sourceDuplicateExtraBytes": 434360130,
     "publicOnlyDuplicateHashGroups": 3,
     "publicOnlyDuplicateExtraBytes": 2033973,
-    "qaDuplicateHashGroups": 21,
-    "qaDuplicateExtraBytes": 990077,
+    "qaDuplicateHashGroups": 35,
+    "qaDuplicateExtraBytes": 11113173,
     "previousDuplicateExtraBytes": 437354594,
     "previousSourceDuplicateExtraBytes": 434360130,
-    "duplicateExtraByteDelta": 0,
+    "duplicateExtraByteDelta": 10123096,
     "sourceDuplicateExtraByteDelta": 0
   },
   "policy": "Inventory only. Do not delete files from this report without explicit human approval; use it to choose canonical files and archive/move candidates.",
@@ -29,6 +29,11 @@
       "extraBytes": 77226547
     },
     {
+      "action": "Archive older QA screenshots after approval.",
+      "groups": 35,
+      "extraBytes": 11113173
+    },
+    {
       "action": "Keep one canonical public URL, update references, then remove duplicate public alias after approval.",
       "groups": 3,
       "extraBytes": 2033973
@@ -37,11 +42,6 @@
       "action": "Replace per-project copies with one shared internal placeholder reference.",
       "groups": 1,
       "extraBytes": 2003366
-    },
-    {
-      "action": "Archive older QA screenshots after approval.",
-      "groups": 21,
-      "extraBytes": 990077
     }
   ],
   "groups": [
@@ -1331,6 +1331,25 @@
       ]
     },
     {
+      "hash": "3f58c5d22b870f2b00582480b83b0d606238d3c8909181f08b1de72aed1089ca",
+      "count": 2,
+      "eachBytes": 1692274,
+      "extraBytes": 1692274,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_.png",
+          "size": 1692274
+        },
+        {
+          "path": "output/playwright/local-_-desktop.png",
+          "size": 1692274
+        }
+      ]
+    },
+    {
       "hash": "d5e6131239dc4a4407e7fcb38ce2e1ef041ed001e602bb084ba95ad6763762bf",
       "count": 2,
       "eachBytes": 1666749,
@@ -1479,6 +1498,25 @@
         {
           "path": "research/asset-library/projects/edgeworth-south/images/public-research/image-12--residencesinteriors--static.therealdeal.com--17bed633.jpg",
           "size": 1558264
+        }
+      ]
+    },
+    {
+      "hash": "43b36e3bb69018a1d54bb24c0bd94a9eb0a3cb7ea126effac6143fb5a3b9d76f",
+      "count": 2,
+      "eachBytes": 1540209,
+      "extraBytes": 1540209,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_projects_olara_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_projects_olara_.png",
+          "size": 1540209
+        },
+        {
+          "path": "output/playwright/local-_projects_olara_-desktop.png",
+          "size": 1540209
         }
       ]
     },
@@ -1749,6 +1787,25 @@
       ]
     },
     {
+      "hash": "8659ec11a043c25202c310bc8aa9ef6b77899c56b1f7d2b17c2099d2051cc54a",
+      "count": 2,
+      "eachBytes": 1184575,
+      "extraBytes": 1184575,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_projects_south-flagler-house_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_projects_south-flagler-house_.png",
+          "size": 1184575
+        },
+        {
+          "path": "output/playwright/local-_projects_south-flagler-house_-desktop.png",
+          "size": 1184575
+        }
+      ]
+    },
+    {
       "hash": "3d633996d35745147ffcd8272596bd860de94570edb63e2c06f64fcada122550",
       "count": 2,
       "eachBytes": 1173087,
@@ -1954,6 +2011,25 @@
         {
           "path": "research/asset-library/projects/olara/floorplans/olara-floorplans-digital-31126-l--16cc910d.pdf",
           "size": 1148019
+        }
+      ]
+    },
+    {
+      "hash": "8156a9d7333724fe019b1494af3b66ec4a99ef708aa8ed9df733fa1a03de6f2f",
+      "count": 2,
+      "eachBytes": 1137653,
+      "extraBytes": 1137653,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_buildings_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_buildings_.png",
+          "size": 1137653
+        },
+        {
+          "path": "output/playwright/local-_buildings_-desktop.png",
+          "size": 1137653
         }
       ]
     },
@@ -2494,6 +2570,25 @@
       ]
     },
     {
+      "hash": "d68aa36e6c34b655056b8c38db9bdc6480f18b139d333e29be460f235c1a2c2e",
+      "count": 2,
+      "eachBytes": 824196,
+      "extraBytes": 824196,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_map_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_map_.png",
+          "size": 824196
+        },
+        {
+          "path": "output/playwright/local-_map_-desktop.png",
+          "size": 824196
+        }
+      ]
+    },
+    {
       "hash": "1328764077cd11649c74fa809dbcf3b98496ebcfe3c3ccb5d306c6c2fbc5ffdd",
       "count": 2,
       "eachBytes": 790782,
@@ -2646,6 +2741,25 @@
       ]
     },
     {
+      "hash": "3c68afd07c8e7c1dc23846cd641fd6bb54c7527585f2046f60287c88de8eb0a5",
+      "count": 2,
+      "eachBytes": 669827,
+      "extraBytes": 669827,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_compare_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_compare_.png",
+          "size": 669827
+        },
+        {
+          "path": "output/playwright/local-_compare_-desktop.png",
+          "size": 669827
+        }
+      ]
+    },
+    {
       "hash": "e65cb54f627dbb5590730385a5ea2019c9ca430bbddb118bfc9ded9e66f95776",
       "count": 2,
       "eachBytes": 662275,
@@ -2665,6 +2779,25 @@
       ]
     },
     {
+      "hash": "bd30d8cbd7b692d3f8f6c063c60477c1ebfb739de1d55b57e6f388a66141d07b",
+      "count": 2,
+      "eachBytes": 633335,
+      "extraBytes": 633335,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_corridors_north-flagler_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_corridors_north-flagler_.png",
+          "size": 633335
+        },
+        {
+          "path": "output/playwright/local-_corridors_north-flagler_-desktop.png",
+          "size": 633335
+        }
+      ]
+    },
+    {
       "hash": "efe4fe9ae1eae2a89624869bdbfbcd59f7d80c7bbb4008b20a59a2c7af836768",
       "count": 2,
       "eachBytes": 632343,
@@ -2680,6 +2813,25 @@
         {
           "path": "public/projects/15-cityplace/media/cityplace-shared-card-1448x1086.jpg",
           "size": 632343
+        }
+      ]
+    },
+    {
+      "hash": "7017dfc38b3f40124cfa6f5921ca30cfac26d46593114c4c85121ec470e1c9e7",
+      "count": 2,
+      "eachBytes": 626312,
+      "extraBytes": 626312,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_corridors_south-flagler_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_corridors_south-flagler_.png",
+          "size": 626312
+        },
+        {
+          "path": "output/playwright/local-_corridors_south-flagler_-desktop.png",
+          "size": 626312
         }
       ]
     },
@@ -2722,6 +2874,25 @@
         {
           "path": "research/asset-library/projects/olara/user-supplied/logo_monogram_clean_2000x2000.png",
           "size": 613147
+        }
+      ]
+    },
+    {
+      "hash": "5d45b021bae20c574a200bc7a42ff09818228813a57f78b49ddf27d72c709ee9",
+      "count": 2,
+      "eachBytes": 591447,
+      "extraBytes": 591447,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_guidance_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_guidance_.png",
+          "size": 591447
+        },
+        {
+          "path": "output/playwright/card-level-audit/desktop-_market-notes_.png",
+          "size": 591447
         }
       ]
     },
@@ -2950,6 +3121,25 @@
         {
           "path": "research/imported-project-images/review/ritz-carlton-wpb/interior-2026-05-22-051.jpg",
           "size": 461239
+        }
+      ]
+    },
+    {
+      "hash": "6a660a78cb2a7932ba89cd493c1c268cc2fafee1945246bc2cc176d292efb723",
+      "count": 2,
+      "eachBytes": 460057,
+      "extraBytes": 460057,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_projects_rosewood_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_projects_rosewood_.png",
+          "size": 460057
+        },
+        {
+          "path": "output/playwright/local-_projects_rosewood_-desktop.png",
+          "size": 460057
         }
       ]
     },
@@ -3961,6 +4151,25 @@
       ]
     },
     {
+      "hash": "3bafd9284120aa120ddd0abbff37f009b9ba52398a3ac1b64c58035bbf53d749",
+      "count": 2,
+      "eachBytes": 277701,
+      "extraBytes": 277701,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_inquire_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_inquire_.png",
+          "size": 277701
+        },
+        {
+          "path": "output/playwright/local-_inquire_-desktop.png",
+          "size": 277701
+        }
+      ]
+    },
+    {
       "hash": "f57be81232c16a7e2f2ab5ed968e6286200ab3314336d0d27b6c29afb6d7e542",
       "count": 2,
       "eachBytes": 277531,
@@ -4300,6 +4509,25 @@
       ]
     },
     {
+      "hash": "6f1050c9249599f1255a3db8af3be0938b3ab898d34bf92f5ee7dad573d34fbe",
+      "count": 2,
+      "eachBytes": 198572,
+      "extraBytes": 198572,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_floorplans_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_floorplans_.png",
+          "size": 198572
+        },
+        {
+          "path": "output/playwright/local-_floorplans_-desktop.png",
+          "size": 198572
+        }
+      ]
+    },
+    {
       "hash": "a0a409c9fa2113461d7a97ce3cf7a099c89623a9163a7bff02278f87f0a408cf",
       "count": 2,
       "eachBytes": 197826,
@@ -4505,6 +4733,25 @@
         {
           "path": "research/asset-library/projects/nora-house/floorplans/terrace-402-floorplan--770a3c13.jpg",
           "size": 188638
+        }
+      ]
+    },
+    {
+      "hash": "fe3ddd26cfdb0ff58a7dd20b411ca0df133f3e6e15950b503b049cc2cc89f301",
+      "count": 2,
+      "eachBytes": 187437,
+      "extraBytes": 187437,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/desktop-_updates_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/desktop-_updates_.png",
+          "size": 187437
+        },
+        {
+          "path": "output/playwright/local-_updates_-desktop.png",
+          "size": 187437
         }
       ]
     },
@@ -5353,6 +5600,25 @@
         {
           "path": "research/asset-library/projects/edgeworth-south/images/candidates/03--official-candidate--images.squarespace-cdn.com--977977f0.webp",
           "size": 100746
+        }
+      ]
+    },
+    {
+      "hash": "616a210b28a627239f282588a6e74075e5d1e8887f69c42a89a34f5980e80942",
+      "count": 2,
+      "eachBytes": 99501,
+      "extraBytes": 99501,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": "output/playwright/card-level-audit/mobile-_guidance_.png",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": "output/playwright/card-level-audit/mobile-_guidance_.png",
+          "size": 99501
+        },
+        {
+          "path": "output/playwright/card-level-audit/mobile-_market-notes_.png",
+          "size": 99501
         }
       ]
     },

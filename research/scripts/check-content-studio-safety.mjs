@@ -26,6 +26,7 @@ async function main() {
   await validateJson("content/overrides/project-copy-overrides.json");
   await validateJson("content/overrides/page-copy-overrides.json");
   await validateJson("content/overrides/project-image-overrides.json");
+  await validateJson("content/overrides/homepage-card-overrides.json");
   await validateJson("content/overrides/image-caption-overrides.json");
   await validateJson("content/overrides/editorial-image-overrides.json");
   await validateJson("content/overrides/market-note-overrides.json");

@@ -19,6 +19,7 @@ const overrideFiles = {
   pageCopy: "page-copy-overrides.json",
   projectImages: "project-image-overrides.json",
   homepage: "homepage-overrides.json",
+  homepageCards: "homepage-card-overrides.json",
   imageCaptions: "image-caption-overrides.json",
   editorialImages: "editorial-image-overrides.json",
   marketNotes: "market-note-overrides.json",
@@ -50,6 +51,7 @@ async function main() {
       if (request.method === "POST" && url.pathname === "/api/project-copy") return saveProjectCopy(request, response);
       if (request.method === "POST" && url.pathname === "/api/page-copy") return savePageCopy(request, response);
       if (request.method === "POST" && url.pathname === "/api/homepage-overrides") return saveHomepageOverrides(request, response);
+      if (request.method === "POST" && url.pathname === "/api/homepage-card-overrides") return saveHomepageCardOverride(request, response);
       if (request.method === "POST" && url.pathname === "/api/upload-image") return uploadImage(request, response);
       if (request.method === "POST" && url.pathname === "/api/image-caption") return saveImageCaption(request, response);
       if (request.method === "POST" && url.pathname === "/api/project-update") return saveProjectUpdate(request, response);
@@ -74,6 +76,8 @@ async function state() {
     projects: await readProjects(),
     overrides: await readAllOverrides(),
     availableImages: await availablePublicImages(),
+    imageCatalog: await imageCatalog(),
+    homepageCards: await homepageCardInventory(),
     news: await readDraftStore(),
     newsletter: await readNewsJsonFile(newsletterDraftsPath, { version: 1, updatedAt: "", items: [] }),
     automation: await automationStatus(),
@@ -114,6 +118,48 @@ async function saveHomepageOverrides(request, response) {
   }
   await logChange("homepage-overrides", { sectionId, imagePath, status: overrides.sections[sectionId].status });
   return sendJson(response, { ok: true, item: overrides.sections[sectionId] });
+}
+
+async function saveHomepageCardOverride(request, response) {
+  const body = await readJson(request);
+  const validation = validatePublicFields(body, ["sectionId", "cardId", "headline", "subhead", "deck", "caption", "alt", "ctaLabel"]);
+  if (validation.length) return sendJson(response, { ok: false, error: validation.join(" ") }, 400);
+  const sectionId = homepageSectionId(body.sectionId);
+  const cardId = clean(body.cardId || body.itemId);
+  if (!sectionId || !cardId) return sendJson(response, { ok: false, error: "sectionId and cardId are required" }, 400);
+  const overrides = await readOverride("homepageCards");
+  overrides.sections[sectionId] = overrides.sections[sectionId] ?? { cards: {} };
+  if (body.action === "revert") {
+    delete overrides.sections[sectionId].cards[cardId];
+  } else {
+    overrides.sections[sectionId].cards[cardId] = {
+      imagePath: clean(body.imagePath),
+      caption: clean(body.caption),
+      alt: clean(body.alt),
+      headline: clean(body.headline),
+      subhead: clean(body.subhead),
+      deck: clean(body.deck),
+      ctaLabel: clean(body.ctaLabel),
+      status: body.status === "approved" ? "approved" : "draft",
+      updatedAt: new Date().toISOString(),
+    };
+  }
+  await writeOverride("homepageCards", overrides);
+  const entry = overrides.sections[sectionId].cards[cardId];
+  if (entry?.imagePath || entry?.caption || entry?.alt) {
+    const captions = await readOverride("imageCaptions");
+    captions.items = upsertBy(captions.items ?? [], "imagePath", {
+      imagePath: entry.imagePath,
+      caption: entry.caption,
+      alt: entry.alt,
+      status: entry.status === "approved" ? "approved" : "needs_review",
+      assignedSection: `homepage:${sectionId}:${cardId}`,
+      updatedAt: entry.updatedAt,
+    });
+    await writeOverride("imageCaptions", captions);
+  }
+  await logChange(body.action === "revert" ? "homepage-card-revert" : "homepage-card-override", { sectionId, cardId, status: entry?.status ?? "reverted" });
+  return sendJson(response, { ok: true, sectionId, cardId, item: entry ?? null, overrides });
 }
 
 async function saveProjectCopy(request, response) {
@@ -306,6 +352,7 @@ async function runWorkflow(request, response) {
     preview: [["git", ["status", "--short"]]],
     qa: [["npm", ["run", "typecheck"]], ["npm", ["run", "build"]], ["npm", ["run", "qa:launch"]]],
     "news-import": [["npm", ["run", "news:import-gpt"]]],
+    "news-daily-publisher": [["npm", ["run", "news:daily-publisher"]]],
     "news-publish": [["npm", ["run", "news:publish-queued"]]],
     newsletter: [["npm", ["run", "newsletter:draft"]]],
     "daily-maintenance": [["npm", ["run", "daily:maintenance"]]],
@@ -381,6 +428,7 @@ async function readOverride(key) {
     pageCopy: { version: 1, updatedAt: "", pages: {} },
     projectImages: { version: 1, updatedAt: "", images: [] },
     homepage: { version: 1, updatedAt: "", sections: {} },
+    homepageCards: { version: 1, updatedAt: "", sections: defaultHomepageCardSections() },
     imageCaptions: { version: 1, updatedAt: "", items: [] },
     editorialImages: { version: 1, updatedAt: "", items: [] },
     marketNotes: { version: 1, updatedAt: "", marketNotes: {} },
@@ -398,6 +446,127 @@ async function availablePublicImages() {
   return files
     .map((filePath) => `/${path.relative(path.join(workspace, "public"), filePath).split(path.sep).join("/")}`)
     .sort();
+}
+
+async function imageCatalog() {
+  const imagePaths = await availablePublicImages();
+  const usage = await imageUsageCounts(imagePaths);
+  const uploaded = await readOverride("projectImages");
+  const uploadedByPath = new Map((uploaded.images ?? []).map((item) => [item.path, item]));
+  return Promise.all(imagePaths.map(async (imagePath) => {
+    const filePath = path.join(workspace, "public", imagePath.replace(/^\//, ""));
+    const stat = await fs.stat(filePath).catch(() => null);
+    const uploadedEntry = uploadedByPath.get(imagePath);
+    const meta = imageMetadata(imagePath, uploadedEntry);
+    return {
+      path: imagePath,
+      category: meta.category,
+      association: meta.association,
+      dimensions: shouldReadImageDimensions(imagePath) ? await imageDimensions(filePath) : "",
+      imageType: uploadedEntry?.imageType || meta.imageType,
+      usageCount: usage.get(imagePath) ?? 0,
+      status: uploadedEntry?.status || meta.status,
+      reviewOnly: meta.reviewOnly,
+      bytes: stat?.size ?? 0,
+      updatedAt: stat?.mtime?.toISOString?.() ?? "",
+    };
+  }));
+}
+
+function shouldReadImageDimensions(imagePath) {
+  if (/\.svg$/i.test(imagePath)) return false;
+  if (imagePath.includes("/docs/floorplans/")) return false;
+  return imagePath.startsWith("/assets/editorial/")
+    || imagePath.startsWith("/hero/")
+    || imagePath.includes("/media/")
+    || imagePath.startsWith("/team-resources/");
+}
+
+async function imageUsageCounts(imagePaths) {
+  const counts = new Map(imagePaths.map((imagePath) => [imagePath, 0]));
+  const files = ["src/main.ts", "src/data/marketNotes.ts", "src/data/approvedExternalNews.ts", "src/data/editorialImagery.ts", "content/overrides/homepage-card-overrides.json", "content/overrides/homepage-overrides.json"];
+  const text = (await Promise.all(files.map((file) => fs.readFile(path.join(workspace, file), "utf8").catch(() => "")))).join("\n");
+  for (const imagePath of imagePaths) {
+    counts.set(imagePath, text.split(imagePath).length - 1);
+  }
+  return counts;
+}
+
+async function imageDimensions(filePath) {
+  if (/\.svg$/i.test(filePath)) return "";
+  const result = await run("sips", ["-g", "pixelWidth", "-g", "pixelHeight", filePath]);
+  if (result.code !== 0) return "";
+  const width = result.stdout.match(/pixelWidth:\s*(\d+)/)?.[1];
+  const height = result.stdout.match(/pixelHeight:\s*(\d+)/)?.[1];
+  return width && height ? `${width}x${height}` : "";
+}
+
+function imageMetadata(imagePath, uploadedEntry) {
+  if (uploadedEntry) {
+    return {
+      category: uploadedEntry.targetType === "team" ? "Team/developer/designer/architect images" : "Recently uploaded",
+      association: uploadedEntry.projectId || uploadedEntry.targetType,
+      imageType: uploadedEntry.imageType || uploadedEntry.targetType,
+      status: uploadedEntry.status || "needs_review",
+      reviewOnly: uploadedEntry.status !== "approved",
+    };
+  }
+  const projectMatch = imagePath.match(/^\/projects\/([^/]+)\//);
+  if (projectMatch) {
+    const type = imagePath.includes("/docs/floorplans/") ? "Floorplan previews" : "Project images";
+    return { category: type, association: projectMatch[1], imageType: type === "Floorplan previews" ? "floorplan" : "project", status: "approved", reviewOnly: false };
+  }
+  if (imagePath.startsWith("/assets/editorial/")) return { category: "Editorial/corridor images", association: "editorial", imageType: "editorial", status: "approved", reviewOnly: false };
+  if (imagePath.startsWith("/team-resources/")) return { category: "Team/developer/designer/architect images", association: imagePath.split("/")[2] || "team", imageType: "team", status: "approved", reviewOnly: false };
+  return { category: "Review-only images", association: "review", imageType: "review", status: "needs_review", reviewOnly: true };
+}
+
+async function homepageCardInventory() {
+  const [updates, guidance] = await Promise.all([readUpdateCards(), readGuidanceCards()]);
+  return {
+    hero: [{ id: "hero", title: "Homepage hero", imagePath: "", deck: "Hero image rotation and lead copy" }],
+    corridors: [
+      { id: "north-flagler", title: "North Flagler", imagePath: "/assets/editorial/flagler-waterfront-corridor.jpg", deck: "Waterfront and marina corridor" },
+      { id: "downtown", title: "Downtown", imagePath: "/assets/editorial/rosemary-square-corridor.jpg", deck: "Walkability and district living" },
+      { id: "south-flagler", title: "South Flagler", imagePath: "/assets/editorial/south-flagler-corridor.jpg", deck: "Quieter waterfront corridor" },
+    ],
+    updates,
+    guidance,
+    featuredBuildings: await featuredBuildingCards(),
+    cta: [{ id: "bottom-cta", title: "Bottom homepage CTA", imagePath: "", deck: "Final advisory conversion block" }],
+  };
+}
+
+async function readUpdateCards() {
+  const text = await fs.readFile(path.join(workspace, "src/data/approvedExternalNews.ts"), "utf8").catch(() => "");
+  return [...text.matchAll(/"?id"?\s*:\s*"([^"]+)"[\s\S]{0,320}?"?title"?\s*:\s*"([^"]+)"/g)]
+    .slice(0, 8)
+    .map((match) => ({ id: match[1], title: match[2], imagePath: "", deck: "Homepage update card" }));
+}
+
+async function readGuidanceCards() {
+  const text = await fs.readFile(path.join(workspace, "src/data/marketNotes.ts"), "utf8").catch(() => "");
+  return [...text.matchAll(/"?title"?\s*:\s*"([^"]+)"[\s\S]{0,180}?"?slug"?\s*:\s*"([^"]+)"/g)]
+    .slice(0, 8)
+    .map((match) => ({ id: match[2], title: match[1], imagePath: "", deck: "Homepage guidance card" }));
+}
+
+async function featuredBuildingCards() {
+  const projects = await readProjects();
+  return projects.slice(0, 18).map((project) => ({ id: project.id, title: project.name, imagePath: "", deck: "Featured building card" }));
+}
+
+function defaultHomepageCardSections() {
+  return Object.fromEntries(["hero", "corridors", "updates", "guidance", "featuredBuildings", "cta"].map((key) => [key, { cards: {} }]));
+}
+
+function homepageSectionId(value) {
+  const raw = clean(value);
+  const aliases = {
+    "featured-buildings": "featuredBuildings",
+    featuredbuildings: "featuredBuildings",
+  };
+  return aliases[raw] || aliases[slug(raw)] || raw;
 }
 
 async function listPublicImages(root) {
@@ -442,11 +611,22 @@ async function automationStatus() {
   const gh = await githubAuthStatus();
   const drafts = await readDraftStore();
   const importedDrafts = drafts.items.filter((item) => item.importedFromIssue?.number);
+  const latestImport = importedDrafts.at(-1);
   const dailyAgent = path.join(launchAgentRoot, "com.brooke.wpb-daily-site-maintenance.plist");
   const newsPublisherAgent = path.join(launchAgentRoot, "com.brooke.wpb-news-publisher.plist");
+  const deployReport = await lastReport("research/source-material-review/deploy-report.json");
+  const newsletterReport = await lastReport("content/newsletter-digest-drafts.json");
   return {
     scripts: ["daily:maintenance", "news:import-gpt", "news:daily-publisher", "news:publish-queued", "newsletter:draft", "qa:live"],
     githubAuth: gh,
+    githubPath: await commandPath("gh"),
+    loadedLaunchAgents: launchctl.stdout.split("\n").filter((line) => /wpb|news|maintenance/i.test(line)).map((line) => line.trim()).filter(Boolean),
+    gptIssueImport: {
+      label: importedDrafts.length ? "Healthy" : "Not run yet",
+      lastImportTime: latestImport?.updatedAt || latestImport?.createdAt || "",
+      lastImportedIssue: latestImport?.importedFromIssue ? `#${latestImport.importedFromIssue.number} ${latestImport.importedFromIssue.title || latestImport.rewrittenHeadline || ""}`.trim() : "",
+      importedDraftCount: importedDrafts.length,
+    },
     gptIssueImportStatus: importedDrafts.length
       ? `${importedDrafts.length} imported draft(s); latest issue #${importedDrafts.at(-1).importedFromIssue.number}`
       : "No GPT issue imports found in content/news-drafts.json",
@@ -462,8 +642,26 @@ async function automationStatus() {
     newsPublisherManualRun: "npm run news:daily-publisher",
     newsPublisherDryRun: "npm run news:daily-publisher -- --dry-run",
     newsPublisherLastReport: await lastReport("research/source-material-review/news-publisher-report.md"),
+    newsletterLastGenerated: newsletterReport,
+    lastDeployResult: deployReport.exists ? "Healthy" : "Not run yet",
+    cloudflareDeployStatus: deployReport.exists ? "Deploy report found" : "No deploy report found",
+    reports: [
+      "research/source-material-review/news-publisher-report.md",
+      "research/source-material-review/daily-maintenance-report.md",
+      "research/source-material-review/gpt-news-issue-import-test.md",
+      "content/newsletter-digest-drafts.json",
+    ],
     developerImageImportInstalled: await exists(path.join(process.env.HOME ?? "", "Library/LaunchAgents/com.brooke.wpb-developer-image-import.plist")),
   };
+}
+
+async function commandPath(command) {
+  const result = await run("bash", ["-lc", `command -v ${command} || true`]);
+  const found = result.stdout.trim();
+  if (found) return found;
+  const local = path.join(process.env.HOME ?? "", ".local/bin", command);
+  if (await exists(local)) return local;
+  return "Not installed";
 }
 
 async function githubAuthStatus() {
@@ -618,6 +816,7 @@ function nextStepForWorkflow(workflow) {
     preview: "Review changed files before running QA.",
     qa: "If QA passed, review git diff before Update Site or deploy.",
     "news-import": "Open News Desk and edit, approve, block, schedule, or send imported drafts to newsletter.",
+    "news-daily-publisher": "Review the news publisher report and changed files before publishing.",
     "news-publish": "Run QA before deploying any published news output.",
     newsletter: "Review content/newsletter-digest-drafts.json before sending.",
     "daily-maintenance": "Review the daily maintenance report and changed files before publishing.",

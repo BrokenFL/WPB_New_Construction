@@ -94,8 +94,43 @@
             <button class="primary" type="submit">Save Homepage Override</button>
           </form>
 
-          <h1>Upload Homepage Image</h1>
-          <p class="muted">Use Upload / Replace Image with target type Homepage / corridor image or Update/news image, then assign the saved path here.</p>
+          <h1>Card-Level Editor</h1>
+          <div class="card-editor-shell">
+            <aside class="card-list-panel">
+              <label>Homepage section<select id="cardSectionSelect"></select></label>
+              <div id="homepageCardList" class="homepage-card-list"></div>
+            </aside>
+            <form id="homepageCardPanel" class="tool-panel card-edit-panel">
+              <input name="sectionId" type="hidden" />
+              <input name="cardId" type="hidden" />
+              <div class="selected-card-heading">
+                <div>
+                  <span class="muted">Selected card</span>
+                  <strong id="selectedCardTitle">Choose a card</strong>
+                </div>
+                <button data-card-action="revert" type="button">Revert Override</button>
+              </div>
+              <div class="grid">
+                <label>Existing image<select name="imagePath" data-image-picker></select></label>
+                <label>CTA label<input name="ctaLabel" placeholder="Read Update" /></label>
+                <label>Headline<input name="headline" /></label>
+                <label>Subhead<input name="subhead" /></label>
+                <label>Caption<input name="caption" /></label>
+                <label>Alt text<input name="alt" /></label>
+                <label>Status<select name="status"><option value="draft">draft</option><option value="approved">approved</option></select></label>
+              </div>
+              <label>Deck / excerpt<textarea name="deck"></textarea></label>
+              <div id="repetitionWarning" class="repetition-warning" hidden></div>
+              <div id="cardPreview" class="card-preview"></div>
+              <div class="card-actions">
+                <button data-card-action="draft" type="submit">Save Draft</button>
+                <button data-card-action="approved" class="primary" type="submit">Approve</button>
+              </div>
+            </form>
+          </div>
+
+          <h1>Image Picker</h1>
+          <div id="imagePicker" class="image-picker"></div>
         </section>
 
         <section id="imagesSection" class="section">
@@ -208,7 +243,10 @@
           <div class="workflow-buttons">
             <button data-workflow="preview" type="button">Preview Changes</button>
             <button data-workflow="qa" type="button">Run QA</button>
+            <button data-workflow="news-import" type="button">Import GPT Drafts</button>
+            <button data-workflow="news-daily-publisher" type="button">Run News Publisher Now</button>
             <button data-workflow="daily-maintenance" type="button">Run Daily Maintenance Now</button>
+            <button data-workflow="newsletter" type="button">Generate Newsletter Draft</button>
             <button data-workflow="update" class="primary" type="button">Update Site Checks</button>
           </div>
           <div id="automationStatus"></div>

@@ -12,6 +12,7 @@ import { publishedExternalNews, type ExternalNewsItem } from "./data/approvedExt
 import { editorialImageForId, type EditorialImageId } from "./data/editorialImagery";
 import { homeHeroImages } from "./data/homeHeroImages";
 import homepageOverridesRaw from "../content/overrides/homepage-overrides.json";
+import homepageCardOverridesRaw from "../content/overrides/homepage-card-overrides.json";
 import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
@@ -245,6 +246,15 @@ type HomepageOverride = {
 };
 
 const homepageOverrides = homepageOverridesRaw as { sections?: Record<string, HomepageOverride> };
+type HomepageCardOverride = HomepageOverride & {
+  deck?: string;
+  ctaLabel?: string;
+};
+const homepageCardOverrides = homepageCardOverridesRaw as { sections?: Record<string, { cards?: Record<string, HomepageCardOverride> }> };
+const fullBrookeCtaCopy =
+  "For guidance on West Palm Beach new construction - including how these buildings compare, which residences stand out, and what may fit your goals best - contact Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach.";
+const shortBrookeCtaCopy =
+  "Need help comparing West Palm Beach new construction? Contact Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach.";
 
 function homepageOverride(sectionId: string) {
   return homepageOverrides.sections?.[sectionId];
@@ -255,8 +265,24 @@ function approvedHomepageOverride(sectionId: string) {
   return override?.status === "approved" ? override : undefined;
 }
 
+function approvedHomepageCardOverride(sectionId: string, cardId: string) {
+  const override = homepageCardOverrides.sections?.[sectionId]?.cards?.[cardId];
+  return override?.status === "approved" ? override : undefined;
+}
+
+function renderHomepageOverrideImage(override: HomepageCardOverride, fallbackTitle: string, className = "") {
+  const caption = override.caption ? `<figcaption>${escapeHtml(override.caption)}</figcaption>` : "";
+  return `
+    <figure class="${className}">
+      <img src="${safeHref(override.imagePath || "")}" alt="${escapeHtml(override.alt || fallbackTitle)}" loading="lazy" decoding="async" />
+      ${caption}
+    </figure>
+  `;
+}
+
 const activeHomeHeroImages = (() => {
-  const override = approvedHomepageOverride("hero");
+  const cardOverride = approvedHomepageCardOverride("hero", "hero");
+  const override = cardOverride ?? approvedHomepageOverride("hero");
   if (!override?.imagePath) return homeHeroImages;
   return [
     {
@@ -267,6 +293,7 @@ const activeHomeHeroImages = (() => {
     ...homeHeroImages.filter((image) => image.src !== override.imagePath),
   ];
 })();
+const approvedHeroCardOverride = approvedHomepageCardOverride("hero", "hero");
 
 const mediaBase = "/projects/olara/media/";
 const docsBase = "/projects/olara/docs/";
@@ -701,7 +728,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     residences: "168",
     price: "Not released",
     href: "?project=edgeworth-south",
-    image: "/projects/edgeworth-north/media/card.webp",
+    image: "/assets/editorial/south-flagler-corridor.jpg",
     summary: "Second Edgeworth tower marker for buyers watching how much new South Flagler inventory may follow South Flagler House.",
     floorplans: false,
     pageState: "Pipeline watch",
@@ -1968,8 +1995,8 @@ app.innerHTML = `
         <div class="home-hero-layout">
           <div class="home-hero-content">
             <p class="hero-kicker">West Palm Beach New Construction</p>
-            <h1>West Palm Beach New Construction Condos, Mapped and Compared.</h1>
-            <p class="hero-copy">A buyer-focused guide to active sales, future projects, floor plans, updates, and waterfront positioning across Downtown West Palm Beach.</p>
+            <h1>${escapeHtml(approvedHeroCardOverride?.headline || "West Palm Beach New Construction Condos, Mapped and Compared.")}</h1>
+            <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || "A buyer-focused guide to active sales, future projects, floor plans, updates, and waterfront positioning across Downtown West Palm Beach.")}</p>
             <div class="hero-actions" aria-label="Primary homepage actions">
               <a href="#projects" data-hero-cta="explore-buildings">Explore Buildings</a>
               <a href="/map/" data-hero-cta="view-map">View Map</a>
@@ -2020,18 +2047,19 @@ app.innerHTML = `
         <div class="corridor-guide-grid">
           ${corridorSections.map((section) => {
             const count = featuredProjects.filter((project) => project.corridorKey === section.key).length;
+            const cardOverride = approvedHomepageCardOverride("corridors", section.key);
             return `
               <article class="corridor-guide-card">
                 <a class="corridor-guide-image-link" href="${corridorPath(section.key)}" aria-label="View ${section.label} projects">
-                  ${renderEditorialImagePanel(corridorCardImageId(section.key), { compact: true, className: "corridor-guide-image" })}
+                  ${cardOverride?.imagePath ? renderHomepageOverrideImage(cardOverride, section.label, "corridor-guide-image") : renderEditorialImagePanel(corridorCardImageId(section.key), { compact: true, className: "corridor-guide-image" })}
                 </a>
                 <div class="corridor-guide-card-body">
                   <span>${corridorDisplayLabel(section.key)}</span>
-                  <strong>${section.label}</strong>
-                  <p>${corridorBuyerThesis(section)}</p>
+                  <strong>${escapeHtml(cardOverride?.headline || section.label)}</strong>
+                  <p>${escapeHtml(cardOverride?.deck || cardOverride?.subhead || corridorBuyerThesis(section))}</p>
                 </div>
                 <small>${count} tracked project${count === 1 ? "" : "s"}</small>
-                <a href="${corridorPath(section.key)}">${corridorCtaLabel(section.key)} <span aria-hidden="true">→</span></a>
+                <a href="${corridorPath(section.key)}">${escapeHtml(cardOverride?.ctaLabel || corridorCtaLabel(section.key))} <span aria-hidden="true">→</span></a>
               </article>
             `;
           }).join("")}
@@ -2094,15 +2122,15 @@ app.innerHTML = `
       <section class="home-conversion-band" aria-label="Request current West Palm Beach new-construction guidance">
         <div>
           <p class="eyebrow">Private Advisory</p>
-          <h2>Get the current packet before you tour.</h2>
-          <p>Availability, floorplans, incentives, delivery dates, and view premiums can move faster than public pages. Ask for a buyer-side comparison before you commit a day to tours.</p>
+          <h2>${escapeHtml(approvedHomepageCardOverride("cta", "bottom-cta")?.headline || "Get the current packet before you tour.")}</h2>
+          <p>${escapeHtml(approvedHomepageCardOverride("cta", "bottom-cta")?.deck || approvedHomepageCardOverride("cta", "bottom-cta")?.subhead || fullBrookeCtaCopy)}</p>
         </div>
         <div class="conversion-points">
           <span>Active inventory</span>
           <span>Released floorplans</span>
           <span>Tour strategy</span>
         </div>
-        <a href="/inquire/">Request Current Availability <span aria-hidden="true">↗</span></a>
+        <a href="/inquire/">${escapeHtml(approvedHomepageCardOverride("cta", "bottom-cta")?.ctaLabel || "Contact Brooke")} <span aria-hidden="true">↗</span></a>
       </section>
       </div>
 
@@ -2208,6 +2236,7 @@ app.innerHTML = `
             <a href="/inquire/?interest=floorplans&lead_capture_context=floorplan_viewer">Request full floorplan packet</a>
             <a href="/inquire/?interest=floorplans&lead_capture_context=floorplan_viewer">Ask Brooke</a>
           </div>
+          <p class="floorplan-viewer-request">${shortBrookeCtaCopy}</p>
         </section>
       </div>
 
@@ -2752,7 +2781,7 @@ app.innerHTML = `
         <div>
           <p class="eyebrow">Contact Brooke</p>
           <h1>Request current pricing, availability, or floor plans</h1>
-          <p>Pricing, incentives, available lines, and delivery timelines change quickly. Send what you’re considering and Brooke will help verify the current options before you compare buildings.</p>
+          <p>${fullBrookeCtaCopy}</p>
           <div class="inquiry-context-panel">
             ${renderEditorialImagePanel("buyer-intelligence-interior", { compact: true })}
             <div>
@@ -4410,7 +4439,7 @@ function renderCompareRouteView() {
         <div>
           <p class="eyebrow">Compare</p>
           <h1>Compare buildings by the facts that actually change a buyer's decision.</h1>
-          <p>Use this page to shortlist up to three West Palm Beach new-construction buildings, then ask Brooke to verify the current moving parts before you rely on older public numbers.</p>
+          <p>${shortBrookeCtaCopy} Use this page to shortlist up to three West Palm Beach new-construction buildings, then ask Brooke to verify the current moving parts before you rely on older public numbers.</p>
         </div>
         ${renderEditorialImagePanel("buyer-intelligence-interior", { compact: true, className: "compare-route-image" })}
       </section>
@@ -4506,6 +4535,7 @@ function marketNoteForSlug(slug: string) {
 
 function renderMarketNoteCard(note: MarketNote) {
   const resolvedImage = imageForContentItem(note);
+  const cardOverride = approvedHomepageCardOverride("guidance", note.slug);
   const relatedProjects = note.projectIds
     .map((projectId) => featuredProjects.find((project) => project.id === projectId)?.name)
     .filter(Boolean)
@@ -4513,17 +4543,25 @@ function renderMarketNoteCard(note: MarketNote) {
     .join(" · ");
   return `
     <article class="home-blog-card market-note-card" id="${escapeHtml(note.seo.suggestedSlug)}">
-      ${renderResolvedContentImage(resolvedImage, "market-note-card-image")}
-      <span>${escapeHtml(note.category)} · Updated ${escapeHtml(note.dateModified)}</span>
-      <h3>${escapeHtml(note.title)}</h3>
-      <p>${escapeHtml(note.excerpt)}</p>
+      ${cardOverride?.imagePath ? renderHomepageOverrideImage(cardOverride, note.title, "market-note-card-image") : renderResolvedContentImage(resolvedImage, "market-note-card-image")}
+      <span>${escapeHtml(publicGuidanceLabel(note.category))} · Updated ${escapeHtml(note.dateModified)}</span>
+      <h3>${escapeHtml(cardOverride?.headline || note.title)}</h3>
+      <p>${escapeHtml(cardOverride?.deck || cardOverride?.subhead || note.excerpt)}</p>
       <small>${escapeHtml(note.buyerTakeaway)}</small>
       ${relatedProjects ? `<p class="market-note-related">Related: ${escapeHtml(relatedProjects)}</p>` : ""}
       <div class="market-note-actions">
-        <a href="/market-notes/${note.slug}/">Read Guidance <span aria-hidden="true">→</span></a>
+        <a href="/market-notes/${note.slug}/">${escapeHtml(cardOverride?.ctaLabel || "Read Guidance")} <span aria-hidden="true">→</span></a>
       </div>
     </article>
   `;
+}
+
+function publicGuidanceLabel(category: string) {
+  if (/floor/i.test(category)) return "Floor Plan Strategy";
+  if (/corridor/i.test(category)) return "Corridor Guide";
+  if (/market/i.test(category)) return "Market Context";
+  if (/guide|guidance/i.test(category)) return "Buyer Guide";
+  return "Guidance";
 }
 
 function syncMarketNoteDetail(note?: MarketNote) {
@@ -4924,7 +4962,10 @@ function teamLogoForCredit(name: string): MediaAsset | undefined {
 }
 
 function renderFeaturedProject(project: FeaturedProject) {
-  const media = project.image && canShowImage(project.image)
+  const cardOverride = approvedHomepageCardOverride("featuredBuildings", project.id);
+  const media = cardOverride?.imagePath
+    ? `<img src="${safeHref(cardOverride.imagePath)}" alt="${escapeHtml(cardOverride.alt || `${project.name} project preview`)}" loading="lazy" decoding="async" />`
+    : project.image && canShowImage(project.image)
     ? `<img src="${project.image}" alt="${project.name} project preview" loading="lazy" decoding="async" />`
     : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${project.name}</strong></div>`;
   const floorplanCount = getFloorplanProject(project.id)?.count ?? 0;
@@ -4951,12 +4992,12 @@ function renderFeaturedProject(project: FeaturedProject) {
     >
       <figure>
         ${media}
-        <figcaption>${project.image ? imageCaptionShort(project.image) : `${project.corridor} project`}</figcaption>
+        <figcaption>${escapeHtml(cardOverride?.caption || (project.image ? imageCaptionShort(project.image) : `${project.corridor} project`))}</figcaption>
       </figure>
       <div class="front-project-card-body">
         <span>${project.corridor} · ${project.status}</span>
-        <strong>${project.name}</strong>
-        <p>${project.summary}</p>
+        <strong>${escapeHtml(cardOverride?.headline || project.name)}</strong>
+        <p>${escapeHtml(cardOverride?.deck || cardOverride?.subhead || project.summary)}</p>
         <div class="project-card-intel" aria-label="${project.name} buyer intelligence">
           <small>Delivery: ${project.delivery}</small>
           <small>${residenceLabel}</small>
@@ -4986,7 +5027,7 @@ function renderFeaturedProject(project: FeaturedProject) {
           </div>
         </dl>
         <div class="project-card-actions">
-          <a href="${projectPath(project)}">View Project <span aria-hidden="true">→</span></a>
+          <a href="${projectPath(project)}">${escapeHtml(cardOverride?.ctaLabel || "View Project")} <span aria-hidden="true">→</span></a>
           <a href="/inquire/?project=${project.id}&interest=floorplans">Request Current Availability <span aria-hidden="true">→</span></a>
         </div>
       </div>
@@ -5402,15 +5443,16 @@ function renderExternalNewsItem(item: ExternalNewsItem) {
 function renderHomeExternalNewsItem(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
   const article = updateArticleContent(item);
+  const cardOverride = approvedHomepageCardOverride("updates", item.id);
   return `
     <article class="home-news-card external-news-card" id="home-${escapeHtml(item.id)}">
-      ${renderResolvedContentImage(resolvedImage)}
+      ${cardOverride?.imagePath ? renderHomepageOverrideImage(cardOverride, item.title) : renderResolvedContentImage(resolvedImage)}
       <div>
-        <span>${publicText(item.sourceName)} · ${publicText(formatNewsDate(item.publishedAt))}</span>
-        <strong>${publicText(item.title)}</strong>
-        <p>${publicText(article.excerpt)}</p>
+        <span>Update · ${publicText(relatedNewsLabel(item).replace(/^Related:\s*/, ""))} · ${publicText(formatNewsDate(item.publishedAt))}</span>
+        <strong>${publicText(cardOverride?.headline || item.title)}</strong>
+        <p>${publicText(cardOverride?.deck || cardOverride?.subhead || article.excerpt)}</p>
         <small>${publicText(relatedNewsLabel(item))}</small>
-        <a class="home-news-link" href="${updatePath(item)}">Read Update <span aria-hidden="true">→</span></a>
+        <a class="home-news-link" href="${updatePath(item)}">${publicText(cardOverride?.ctaLabel || "Read Update")} <span aria-hidden="true">→</span></a>
       </div>
     </article>
   `;
@@ -6006,7 +6048,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project) : `<form class="brochure-inquiry-card" action="mailto:${advisorProfile.email}" method="post" enctype="text/plain">
           <p class="eyebrow">Inquire</p>
           <h2>Request current availability</h2>
-          <p>Request the latest availability, pricing guidance, and project context for your shortlist.</p>
+          <p>${shortBrookeCtaCopy}</p>
           <label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Full name" required /></label>
           <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="Email address" required /></label>
           <label><span>Phone</span><input name="phone" type="tel" autocomplete="tel" placeholder="Phone number" /></label>

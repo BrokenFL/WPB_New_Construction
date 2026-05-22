@@ -8,6 +8,7 @@ const sourceFiles = [
   "src/data/marketNotes.ts",
   "src/data/approvedExternalNews.ts",
   "src/data/editorialImagery.ts",
+  "content/overrides/homepage-card-overrides.json",
 ];
 
 const allowedRepeatedFragments = ["/logo.", "/logo.svg", "brand-mark"];
@@ -30,7 +31,7 @@ const routeChecks = [
   {
     label: "South Flagler imagery stays in South Flagler context",
     imageFragment: "south-flagler-corridor",
-    allowedFragments: ["south-flagler", "South Flagler"],
+    allowedFragments: ["south-flagler", "South Flagler", "edgeworth"],
   },
   {
     label: "North Flagler imagery is not used as South Flagler fallback",
@@ -138,9 +139,10 @@ function contextualUsages(sources, fragment) {
 function nearbyContext(lines, index) {
   const window = lines.slice(Math.max(0, index - 8), Math.min(lines.length, index + 9)).join(" ");
   const project = window.match(/id:\s*"([^"]+)"/)?.[1] ?? window.match(/projectId:\s*"([^"]+)"/)?.[1];
+  const corridor = window.match(/corridorKey:\s*"([^"]+)"/)?.[1];
   const slug = window.match(/slug:\s*"([^"]+)"/)?.[1];
   const route = window.match(/routeUse:\s*\[([^\]]+)/)?.[1];
-  return project ?? slug ?? route?.replaceAll('"', "").trim() ?? "shared source";
+  return [project, corridor].filter(Boolean).join(" ") || slug || route?.replaceAll('"', "").trim() || "shared source";
 }
 
 function isAcceptableRepeat(imagePath, usages) {
@@ -166,7 +168,14 @@ async function checkRenderedHomepage() {
       findings.push("Rendered homepage shows Olara imagery in adjacent image positions.");
     }
   }
-  const genericEditorial = imageOrder.filter((src) => /wpb-geography-map-hero|rosemary-square-corridor|flagler-waterfront-corridor/.test(src));
+  for (let index = 1; index < imageOrder.length; index += 1) {
+    const currentProject = projectFromImage(imageOrder[index]);
+    const previousProject = projectFromImage(imageOrder[index - 1]);
+    if (currentProject && currentProject === previousProject) {
+      findings.push(`Rendered homepage repeats ${currentProject} project imagery in adjacent positions.`);
+    }
+  }
+  const genericEditorial = imageOrder.filter((src) => /wpb-geography-map-hero|rosemary-square-corridor|flagler-waterfront-corridor|south-flagler-corridor/.test(src));
   if (genericEditorial.length > 4) {
     findings.push(`Rendered homepage uses generic geography/corridor imagery ${genericEditorial.length} times; replace repeated section art with more specific media.`);
   }
@@ -179,6 +188,10 @@ function normalizeImage(src) {
 
 function isProjectImage(src, projectId) {
   return src.includes(`/projects/${projectId}/`) || src.toLowerCase().includes(projectId);
+}
+
+function projectFromImage(src) {
+  return src.match(/\/projects\/([^/]+)\//)?.[1] || "";
 }
 
 async function writeReport(rows, findings, renderedChecks) {
@@ -197,6 +210,7 @@ async function writeReport(rows, findings, renderedChecks) {
     "- Logos and same-project reuse are treated as acceptable.",
     "- Project/corridor mismatch rules are checked for Rosewood, Olara, Shorecrest, NORA House, South Flagler, Kravis, and NORA district imagery.",
     "- Rendered homepage checks block back-to-back duplicate images, adjacent Olara imagery, and overuse of generic geography/corridor imagery.",
+    "- Homepage card overrides are included so manual image assignments cannot bypass repetition QA.",
     "",
     "## Rendered Homepage Image Order",
     "",
