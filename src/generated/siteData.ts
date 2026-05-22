@@ -4289,7 +4289,7 @@ export const projectFacts = [
       "team": "Al Adelson development team; verify legal development entity; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed"
     },
     "conflicts": [
-      "Official site credits Al Adelson's development legacy but the precise legal development entity should be verified. Fact-sheet contact placeholder text appears incomplete, so sales contact uses the official site footer."
+      "Official site credits Al Adelson's development legacy but the precise legal development entity should be verified. Fact-sheet contact copy appears incomplete, so sales contact uses the official site footer."
     ],
     "gaps": [
       "No brochure or fact-sheet assets in catalog."

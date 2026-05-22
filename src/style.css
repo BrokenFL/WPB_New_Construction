@@ -536,6 +536,18 @@ body {
   overflow-x: hidden;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -564,7 +576,7 @@ textarea {
   grid-template-columns: minmax(220px, 1.1fr) minmax(220px, 1fr) minmax(180px, 0.7fr);
   gap: clamp(18px, 4vw, 54px);
   border-top: 1px solid var(--line);
-  padding: clamp(32px, 5vw, 64px) clamp(18px, 4vw, 54px);
+  padding: clamp(32px, 5vw, 64px) clamp(18px, 4vw, 54px) calc(clamp(32px, 5vw, 64px) + env(safe-area-inset-bottom));
   color: var(--soft-ink);
   background: rgba(255, 255, 255, 0.28);
 }
@@ -2723,6 +2735,8 @@ h3 {
   position: fixed;
   left: 0;
   right: 0;
+  box-sizing: border-box;
+  width: 100%;
   bottom: 0;
   z-index: 42;
   display: none;
@@ -2735,6 +2749,7 @@ h3 {
 }
 
 .mobile-cta-bar a {
+  box-sizing: border-box;
   min-height: 44px;
   min-width: 0;
   padding: 10px 12px;
@@ -3024,7 +3039,8 @@ select:focus-visible {
 
 @media (max-width: 860px) {
   body {
-    padding-bottom: 76px;
+    --mobile-sticky-cta-height: 82px;
+    padding-bottom: var(--mobile-sticky-cta-height);
   }
 
   .floating-availability-cta {
@@ -3033,6 +3049,16 @@ select:focus-visible {
 
   .mobile-cta-bar {
     display: grid;
+  }
+
+  .mobile-cta-bar a {
+    padding-inline: 8px;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+  }
+
+  .site-footer {
+    padding-bottom: calc(32px + var(--mobile-sticky-cta-height) + env(safe-area-inset-bottom));
   }
 
   .site-chat-assistant {
@@ -5779,6 +5805,18 @@ select:focus-visible {
 .brochure-inquiry-card textarea {
   min-height: 104px;
   resize: vertical;
+}
+
+.brochure-inquiry-card label {
+  display: grid;
+  gap: 7px;
+}
+
+.brochure-inquiry-card label span {
+  color: rgba(244, 239, 229, 0.72);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .brochure-inquiry-card button {

@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-05-22T01:59:46.769Z",
+  "generatedAt": "2026-05-22T02:51:01.281Z",
   "usageNote": "Project image candidates grouped by public media readiness. Pending candidates should not be presented as current project imagery.",
   "projects": [
     {
       "projectId": "10-cityplace",
       "name": "10 CityPlace",
       "officialWebsite": "https://www.relatedross.com/our-company/properties/10-cityplace",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: 10 CityPlace original materials",
         "sourceUrl": "https://www.relatedross.com/our-company/properties/10-cityplace",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 0,
       "preferred": []
@@ -20,12 +20,12 @@
       "projectId": "15-cityplace",
       "name": "15 CityPlace",
       "officialWebsite": "https://www.relatedross.com/office/15-cityplace",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: 15 CityPlace original materials",
         "sourceUrl": "https://www.relatedross.com/office/15-cityplace",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -43,12 +43,12 @@
       "projectId": "alba-palm-beach",
       "name": "Alba Palm Beach",
       "officialWebsite": "https://www.albapalmbeach.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Alba Palm Beach original materials",
         "sourceUrl": "https://www.albapalmbeach.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -74,12 +74,12 @@
       "projectId": "alba-reserve",
       "name": "Alba Reserve",
       "officialWebsite": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Alba Reserve original materials",
         "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -97,12 +97,12 @@
       "projectId": "apogee-wpb",
       "name": "Apogee West Palm Beach",
       "officialWebsite": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Apogee West Palm Beach original materials",
         "sourceUrl": "",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 0,
       "preferred": []
@@ -111,12 +111,12 @@
       "projectId": "banyan-tree",
       "name": "Banyan Tree Residences West Palm Beach",
       "officialWebsite": "https://www.banyantreeresidenceswpb.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Banyan Tree Residences West Palm Beach original materials",
         "sourceUrl": "https://www.banyantreeresidenceswpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -142,12 +142,12 @@
       "projectId": "edgeworth-north",
       "name": "Edgeworth North Tower",
       "officialWebsite": "https://www.edgeworthwpb.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Edgeworth North Tower original materials",
         "sourceUrl": "https://www.edgeworthwpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -173,12 +173,12 @@
       "projectId": "edgeworth-south",
       "name": "Edgeworth South Tower",
       "officialWebsite": "https://www.edgeworthwpb.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Edgeworth South Tower original materials",
         "sourceUrl": "https://www.edgeworthwpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -196,12 +196,12 @@
       "projectId": "fort-partners-south-flagler",
       "name": "Fort Partners South Flagler Assemblage",
       "officialWebsite": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Fort Partners South Flagler Assemblage original materials",
         "sourceUrl": "https://therealdeal.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -219,12 +219,12 @@
       "projectId": "forte-on-flagler",
       "name": "Forté on Flagler",
       "officialWebsite": "https://fortewpb.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Forté on Flagler original materials",
         "sourceUrl": "https://fortewpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -250,12 +250,12 @@
       "projectId": "la-clara",
       "name": "La Clara",
       "officialWebsite": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: La Clara original materials",
         "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/service%20page%20images/climate-solutions-service-1800x1200.jpg",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -273,12 +273,12 @@
       "projectId": "maison-dor",
       "name": "Maison d'Or",
       "officialWebsite": "https://livemaisondor.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Maison d'Or original materials",
         "sourceUrl": "https://livemaisondor.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -296,12 +296,12 @@
       "projectId": "mandarin-oriental",
       "name": "Mandarin Oriental Residences, West Palm Beach",
       "officialWebsite": "https://mandarinorientalwestpalmbeach.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Mandarin Oriental Residences, West Palm Beach original materials",
         "sourceUrl": "https://mandarinorientalwestpalmbeach.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -327,12 +327,12 @@
       "projectId": "mr-c",
       "name": "Mr. C Hotel & Residences West Palm Beach",
       "officialWebsite": "https://www.mrcresidenceswpb.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Mr. C Hotel & Residences West Palm Beach original materials",
         "sourceUrl": "https://www.mrcresidenceswpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -358,12 +358,12 @@
       "projectId": "nora-house",
       "name": "NORA House",
       "officialWebsite": "https://norahouse.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: NORA House original materials",
         "sourceUrl": "https://norahouse.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -389,12 +389,12 @@
       "projectId": "olara",
       "name": "Olara",
       "officialWebsite": "https://www.olarawestpalmbeach.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Olara original materials",
         "sourceUrl": "https://www.olarawestpalmbeach.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -420,12 +420,12 @@
       "projectId": "portofino-flagler-yacht-club",
       "name": "Portofino South / Flagler Yacht Club Buyout Watch",
       "officialWebsite": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Portofino South / Flagler Yacht Club Buyout Watch original materials",
         "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer.jpg",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -443,12 +443,12 @@
       "projectId": "related-ross-fern-street",
       "name": "Related Ross Fern Street / South Dixie Condo",
       "officialWebsite": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Related Ross Fern Street / South Dixie Condo original materials",
         "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -466,12 +466,12 @@
       "projectId": "rybovich-marina",
       "name": "Rybovich Marina Redevelopment",
       "officialWebsite": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Rybovich Marina Redevelopment original materials",
         "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -489,12 +489,12 @@
       "projectId": "shorecrest",
       "name": "Shorecrest",
       "officialWebsite": "https://www.shorecrestwpb.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Shorecrest original materials",
         "sourceUrl": "https://www.shorecrestwpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -520,12 +520,12 @@
       "projectId": "south-flagler-house-north",
       "name": "South Flagler House North Tower",
       "officialWebsite": "https://www.southflaglerhouse.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: South Flagler House North Tower original materials",
         "sourceUrl": "https://www.southflaglerhouse.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -551,12 +551,12 @@
       "projectId": "south-flagler-house-south",
       "name": "South Flagler House South Tower",
       "officialWebsite": "https://www.southflaglerhouse.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: South Flagler House South Tower original materials",
         "sourceUrl": "https://www.southflaglerhouse.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 0,
       "preferred": []
@@ -565,12 +565,12 @@
       "projectId": "berkeley",
       "name": "The Berkeley Palm Beach",
       "officialWebsite": "https://www.theberkeleypalmbeach.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: The Berkeley Palm Beach original materials",
         "sourceUrl": "https://www.theberkeleypalmbeach.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [
@@ -588,12 +588,12 @@
       "projectId": "ritz-carlton-wpb",
       "name": "The Ritz-Carlton Residences, West Palm Beach",
       "officialWebsite": "https://theresidenceswestpalmbeach.com/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: The Ritz-Carlton Residences, West Palm Beach original materials",
         "sourceUrl": "https://theresidenceswestpalmbeach.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "candidateCount": 4,
       "preferred": [

@@ -1714,7 +1714,7 @@ function buildProjectAssetStatus(projects, floorplans, publishedFloorplans, asse
           name: project.name,
           area: project.area,
           projectPagePath: routeProjectIds.has(project.projectId) ? `/projects/${publicProjectId}/` : "",
-          imageAuthorizationStatus: publicImageStatus(authorization),
+          imageDisplayStatus: publicImageStatus(authorization),
           imageUseNote: publicImageUseNote(authorization),
           imageSourceCredit: imageSourceCreditForProject(project, authorization),
           floorplanCount: floorplanCounts.get(project.projectId) ?? 0,
@@ -1741,7 +1741,7 @@ function buildImageClearanceCandidates(projects, images, assetTracker) {
           projectId: project.projectId,
           name: project.name,
           officialWebsite: project.officialWebsite || "",
-          imageAuthorizationStatus: publicImageStatus(authorization),
+          imageDisplayStatus: publicImageStatus(authorization),
           imageUseNote: publicImageUseNote(authorization),
           imageSourceCredit: imageSourceCreditForProject(project, authorization),
           candidateCount: imageProject?.candidateCount ?? 0,
@@ -1780,7 +1780,7 @@ function imageSourceCreditForProject(project, authorization = null) {
     label: `Source: ${label} original materials`,
     sourceUrl: source,
     note: authorization?.isAuthorized
-      ? "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+      ? "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       : "Media review pending; use representative visuals or omit imagery until source status is refreshed.",
   };
 }
@@ -1791,7 +1791,7 @@ function publicImageStatus(authorization) {
 
 function publicImageUseNote(authorization) {
   return authorization?.isAuthorized
-    ? "Project image available for buyer-facing context; no project sponsor or brand endorsement implied."
+    ? "Project image available for buyer-facing context; no project sponsor or brand affiliation implied."
     : "Project media pending; use representative visuals or omit imagery until source status is refreshed.";
 }
 

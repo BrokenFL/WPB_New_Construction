@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-22T01:59:52.141Z",
+  "generatedAt": "2026-05-22T02:51:06.740Z",
   "usageNote": "Project media and packet tracker for buyer-facing review. Media marked pending should be treated as representative or withheld until the source record is refreshed.",
   "projects": [
     {
@@ -8,12 +8,12 @@
       "name": "10 CityPlace",
       "area": "Downtown",
       "projectPagePath": "/projects/10-cityplace/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: 10 CityPlace original materials",
         "sourceUrl": "https://www.relatedross.com/our-company/properties/10-cityplace",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -26,12 +26,12 @@
       "name": "15 CityPlace",
       "area": "Downtown",
       "projectPagePath": "/projects/15-cityplace/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: 15 CityPlace original materials",
         "sourceUrl": "https://www.relatedross.com/office/15-cityplace",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -44,12 +44,12 @@
       "name": "Alba Palm Beach",
       "area": "North Flagler",
       "projectPagePath": "/projects/alba-palm-beach/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Alba Palm Beach original materials",
         "sourceUrl": "https://www.albapalmbeach.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 10,
       "publishedFloorplanAssetCount": 9,
@@ -62,12 +62,12 @@
       "name": "Alba Reserve",
       "area": "North Flagler",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Alba Reserve original materials",
         "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -80,12 +80,12 @@
       "name": "Apogee West Palm Beach",
       "area": "North Flagler",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Apogee West Palm Beach original materials",
         "sourceUrl": "",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -98,12 +98,12 @@
       "name": "Banyan Tree Residences West Palm Beach",
       "area": "Downtown",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Banyan Tree Residences West Palm Beach original materials",
         "sourceUrl": "https://www.banyantreeresidenceswpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -116,12 +116,12 @@
       "name": "Edgeworth North Tower",
       "area": "South Flagler",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Edgeworth North Tower original materials",
         "sourceUrl": "https://www.edgeworthwpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -134,12 +134,12 @@
       "name": "Edgeworth South Tower",
       "area": "South Flagler",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Edgeworth South Tower original materials",
         "sourceUrl": "https://www.edgeworthwpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -152,12 +152,12 @@
       "name": "Fort Partners South Flagler Assemblage",
       "area": "South Flagler",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Fort Partners South Flagler Assemblage original materials",
         "sourceUrl": "https://therealdeal.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -170,12 +170,12 @@
       "name": "Forté on Flagler",
       "area": "South Flagler",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Forté on Flagler original materials",
         "sourceUrl": "https://fortewpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 5,
       "publishedFloorplanAssetCount": 3,
@@ -188,12 +188,12 @@
       "name": "La Clara",
       "area": "South Flagler",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: La Clara original materials",
         "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/service%20page%20images/climate-solutions-service-1800x1200.jpg",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -206,12 +206,12 @@
       "name": "Maison d'Or",
       "area": "South Flagler",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Maison d'Or original materials",
         "sourceUrl": "https://livemaisondor.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 2,
       "publishedFloorplanAssetCount": 1,
@@ -224,12 +224,12 @@
       "name": "Mandarin Oriental Residences, West Palm Beach",
       "area": "North Flagler",
       "projectPagePath": "/projects/mandarin-oriental/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Mandarin Oriental Residences, West Palm Beach original materials",
         "sourceUrl": "https://mandarinorientalwestpalmbeach.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -242,12 +242,12 @@
       "name": "Mr. C Hotel & Residences West Palm Beach",
       "area": "Downtown",
       "projectPagePath": "/projects/mr-c/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Mr. C Hotel & Residences West Palm Beach original materials",
         "sourceUrl": "https://www.mrcresidenceswpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 64,
       "publishedFloorplanAssetCount": 32,
@@ -260,12 +260,12 @@
       "name": "NORA House",
       "area": "Downtown / NORA",
       "projectPagePath": "/projects/nora-house/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: NORA House original materials",
         "sourceUrl": "https://norahouse.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 65,
       "publishedFloorplanAssetCount": 64,
@@ -278,12 +278,12 @@
       "name": "Olara",
       "area": "North Flagler",
       "projectPagePath": "/projects/olara/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Olara original materials",
         "sourceUrl": "https://www.olarawestpalmbeach.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 55,
       "publishedFloorplanAssetCount": 26,
@@ -296,12 +296,12 @@
       "name": "Portofino South / Flagler Yacht Club Buyout Watch",
       "area": "South Flagler",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Portofino South / Flagler Yacht Club Buyout Watch original materials",
         "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer.jpg",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -314,12 +314,12 @@
       "name": "Related Ross Fern Street / South Dixie Condo",
       "area": "Downtown",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Related Ross Fern Street / South Dixie Condo original materials",
         "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -332,12 +332,12 @@
       "name": "Rybovich Marina Redevelopment",
       "area": "North Flagler",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Rybovich Marina Redevelopment original materials",
         "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 0,
       "publishedFloorplanAssetCount": 0,
@@ -350,12 +350,12 @@
       "name": "Shorecrest",
       "area": "North Flagler",
       "projectPagePath": "/projects/shorecrest/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: Shorecrest original materials",
         "sourceUrl": "https://www.shorecrestwpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 9,
       "publishedFloorplanAssetCount": 4,
@@ -368,12 +368,12 @@
       "name": "South Flagler House North Tower",
       "area": "South Flagler",
       "projectPagePath": "/projects/south-flagler-house/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: South Flagler House North Tower original materials",
         "sourceUrl": "https://www.southflaglerhouse.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 3,
       "publishedFloorplanAssetCount": 3,
@@ -386,12 +386,12 @@
       "name": "South Flagler House South Tower",
       "area": "South Flagler",
       "projectPagePath": "/projects/south-flagler-house/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: South Flagler House South Tower original materials",
         "sourceUrl": "https://www.southflaglerhouse.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 3,
       "publishedFloorplanAssetCount": 3,
@@ -404,12 +404,12 @@
       "name": "The Berkeley Palm Beach",
       "area": "Downtown",
       "projectPagePath": "",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: The Berkeley Palm Beach original materials",
         "sourceUrl": "https://www.theberkeleypalmbeach.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 9,
       "publishedFloorplanAssetCount": 8,
@@ -422,12 +422,12 @@
       "name": "The Ritz-Carlton Residences, West Palm Beach",
       "area": "North Flagler",
       "projectPagePath": "/projects/ritz-carlton-wpb/",
-      "imageAuthorizationStatus": "image available",
-      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand endorsement implied.",
+      "imageDisplayStatus": "image available",
+      "imageUseNote": "Project image available for buyer-facing context; no project sponsor or brand affiliation implied.",
       "imageSourceCredit": {
         "label": "Source: The Ritz-Carlton Residences, West Palm Beach original materials",
         "sourceUrl": "https://theresidenceswestpalmbeach.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand endorsement implied."
+        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
       "floorplanCount": 28,
       "publishedFloorplanAssetCount": 12,

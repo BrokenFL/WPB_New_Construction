@@ -2648,7 +2648,8 @@ app.innerHTML = `
           <p>I can point you to the right guide page, then ask whether you want to be connected with an advisor.</p>
         </div>
         <form class="chat-form" data-chat-form>
-          <input name="question" type="text" autocomplete="off" placeholder="Ask about Olara, North Flagler, floorplans..." />
+          <label class="sr-only" for="chat-question">Question</label>
+          <input id="chat-question" name="question" type="text" autocomplete="off" placeholder="Ask about Olara, North Flagler, floorplans..." />
           <button type="submit">Send</button>
         </form>
       </div>
@@ -4057,9 +4058,8 @@ function teamLogoForCredit(name: string): MediaAsset | undefined {
 }
 
 function renderFeaturedProject(project: FeaturedProject) {
-  const priorityMedia = project.rank <= 3;
   const media = project.image && canShowImage(project.image)
-    ? `<img src="${project.image}" alt="${project.name} project preview" loading="${priorityMedia ? "eager" : "lazy"}" decoding="${priorityMedia ? "sync" : "async"}" fetchpriority="${priorityMedia ? "high" : "auto"}" />`
+    ? `<img src="${project.image}" alt="${project.name} project preview" loading="lazy" decoding="async" />`
     : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${project.name}</strong></div>`;
   const floorplanCount = getFloorplanProject(project.id)?.count ?? 0;
   const residenceLabel = project.residences.toLowerCase().includes("reported") || project.residences.toLowerCase().includes("residence")
@@ -4747,10 +4747,10 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <p class="eyebrow">Inquire</p>
           <h2>Request current availability</h2>
           <p>Request the latest availability, pricing guidance, and project context for your shortlist.</p>
-          <input name="name" type="text" placeholder="Full name" aria-label="Full name" required />
-          <input name="email" type="email" placeholder="Email address" aria-label="Email address" required />
-          <input name="phone" type="tel" placeholder="Phone number" aria-label="Phone number" />
-          <textarea name="message" placeholder="How can Brooke help?" aria-label="Message">${project.name} inquiry</textarea>
+          <label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Full name" required /></label>
+          <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="Email address" required /></label>
+          <label><span>Phone</span><input name="phone" type="tel" autocomplete="tel" placeholder="Phone number" /></label>
+          <label><span>Message</span><textarea name="message" placeholder="How can Brooke help?">${project.name} inquiry</textarea></label>
           <button type="submit">Request Current Availability</button>
         </form>
       </section>
@@ -4922,7 +4922,7 @@ function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPag
       src: project.image ?? siteMeta.defaultImage,
       kicker: "Amenity",
       title: label,
-      alt: `${project.name} amenity placeholder`,
+      alt: `${project.name} representative amenity visual`,
     }),
     title: label,
     kicker: "Amenity",

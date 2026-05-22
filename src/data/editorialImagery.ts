@@ -20,7 +20,8 @@ export const editorialImagery: readonly EditorialImage[] = [
     fallbackGradient: "geography",
     alt: "Editorial geography image showing Downtown West Palm Beach west of the Intracoastal with Palm Beach island to the east.",
     caption: "Editorial visual",
-    status: "needs-sourcing",
+    credit: "User-provided editorial image, optimized for site use.",
+    status: "available",
     geographyNote:
       "Downtown WPB sits west of the Intracoastal / Lake Worth Lagoon; Palm Beach island and the Atlantic sit east across the water.",
   },
@@ -32,7 +33,8 @@ export const editorialImagery: readonly EditorialImage[] = [
     fallbackGradient: "waterfront",
     alt: "Editorial image of the Flagler waterfront corridor with towers, marina context, and Palm Beach across the Intracoastal.",
     caption: "Editorial visual",
-    status: "needs-sourcing",
+    credit: "User-provided North Flagler editorial image, optimized for site use.",
+    status: "available",
     geographyNote: "Show Intracoastal waterfront context, not Atlantic surf directly against Downtown West Palm Beach.",
   },
   {
@@ -43,7 +45,8 @@ export const editorialImagery: readonly EditorialImage[] = [
     fallbackGradient: "downtown",
     alt: "Editorial image of walkable Downtown West Palm Beach with restaurants, offices, and residential towers.",
     caption: "Editorial visual",
-    status: "needs-sourcing",
+    credit: "User-provided Downtown West Palm Beach editorial image, optimized for site use.",
+    status: "available",
     geographyNote: "Use city and street-life cues rather than beach imagery.",
   },
   {
@@ -54,7 +57,8 @@ export const editorialImagery: readonly EditorialImage[] = [
     fallbackGradient: "rosemary",
     alt: "Editorial image of open-air Rosemary and The Square dining and retail context in West Palm Beach.",
     caption: "Editorial visual",
-    status: "needs-sourcing",
+    credit: "User-provided Downtown West Palm Beach editorial image, optimized for site use.",
+    status: "available",
     geographyNote: "Keep the visual grounded in the downtown retail and dining district.",
   },
   {
