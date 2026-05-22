@@ -127,7 +127,7 @@ const answerBlocks = [
     shortLabel: "Cost",
     question: "What will these West Palm Beach new-construction condos cost?",
     answer:
-      "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from about $3M, Ritz-Carlton from about $3M in current developer material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House in the high $1Ms with reporting around $2M to $6.5M, and Banyan Tree reporting around $1.9M. South Flagler House pricing changes by dated availability, so request a current sheet. The real answer is always line, floor, view, terrace, parking, and release phase.",
+      "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from about $3M, Ritz-Carlton from about $3M in current developer material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, and Banyan Tree reporting around $1.9M. South Flagler House pricing changes by dated availability, so request a current sheet. The real answer is always line, floor, view, terrace, parking, and release phase.",
     concept: "Pricing guidance",
     relatedProjectIds: ["olara", "alba-palm-beach", "shorecrest", "ritz-carlton-wpb", "maison-dor"],
     sources: ["official project sites", "The Real Deal", "Florida YIMBY", "project-source-catalog"],

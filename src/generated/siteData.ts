@@ -2250,7 +2250,7 @@ export const answerEngineFaq = [
     "id": "what-will-it-cost",
     "shortLabel": "Cost",
     "question": "What will these West Palm Beach new-construction condos cost?",
-    "answer": "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from about $3M, Ritz-Carlton from about $3M in current developer material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House in the high $1Ms with reporting around $2M to $6.5M, and Banyan Tree reporting around $1.9M. South Flagler House pricing changes by dated availability, so request a current sheet. The real answer is always line, floor, view, terrace, parking, and release phase.",
+    "answer": "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from about $3M, Ritz-Carlton from about $3M in current developer material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, and Banyan Tree reporting around $1.9M. South Flagler House pricing changes by dated availability, so request a current sheet. The real answer is always line, floor, view, terrace, parking, and release phase.",
     "concept": "Pricing guidance",
     "relatedProjectIds": [
       "olara",
@@ -4285,7 +4285,7 @@ export const projectFacts = [
       "residences": "193",
       "stories": "25",
       "completion": "2028 target in seed/reporting; verify with sales team.",
-      "pricing": "Official fact sheet lists pricing from under $2M to $10M+; verify current availability.",
+      "pricing": "Official site now lists residences from $2M to over $10M; verify current availability.",
       "team": "Al Adelson development team; verify legal development entity; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed"
     },
     "conflicts": [
@@ -4330,7 +4330,7 @@ export const projectFacts = [
       "residences": "117",
       "stories": "11",
       "completion": "Construction planned 2027 with finish around 2029 per March 2026 reporting",
-      "pricing": "Official high $1Ms; reporting says roughly $2M to $6.5M",
+      "pricing": "Official site now lists residences from the low $2Ms; March 2026 launch reporting said roughly $2M to $6.5M",
       "team": "The Ronto Group; Wheelock Street Capital; Swedroe Architecture; Lillian Wu Studio; Conner & Gaskins; Design Studio Boca"
     },
     "conflicts": [

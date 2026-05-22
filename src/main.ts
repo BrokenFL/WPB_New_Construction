@@ -881,6 +881,8 @@ function concisePricing(value: string) {
   if (/about \$3M/i.test(value)) return "From about $3M";
   if (/starting from \$3\.5M/i.test(value)) return "From $3.5M";
   if (/starting at \$5\.7M/i.test(value)) return "From $5.7M";
+  if (/low \$2M/i.test(value)) return "From the low $2Ms";
+  if (/\$2M to over \$10M/i.test(value)) return "From $2M to $10M+";
   if (/high \$1Ms/i.test(value)) return "From high $1Ms reported";
   if (/about \$1\.9M/i.test(value)) return "From about $1.9M reported";
   if (/under \$2M to \$10M/i.test(value)) return "From under $2M reported";

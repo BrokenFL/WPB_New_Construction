@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T00:00:00.000Z",
+  "generatedAt": "2026-05-22T00:00:00.000Z",
   "basedOnAssetManifestGeneratedAt": "2026-05-13T15:18:28.296Z",
   "sourceRepo": "https://github.com/BrokenFL/WestPalmNewConstruction",
   "sourceRepoCommit": "3753c0ef2370817338e55f959cb78224783fccbd",
@@ -2246,7 +2246,7 @@
         "residences": "193",
         "stories": "25",
         "completion": "2028 target in seed/reporting; verify with sales team.",
-        "pricing": "Official fact sheet lists pricing from under $2M to $10M+; verify current availability.",
+        "pricing": "Official site now lists residences from $2M to over $10M; verify current availability.",
         "team": "Al Adelson development team; verify legal development entity; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed"
       },
       "sourceCounts": {
@@ -2345,7 +2345,7 @@
         "residences": "117",
         "stories": "11",
         "completion": "Construction planned 2027 with finish around 2029 per March 2026 reporting",
-        "pricing": "Official high $1Ms; reporting says roughly $2M to $6.5M",
+        "pricing": "Official site now lists residences from the low $2Ms; March 2026 launch reporting said roughly $2M to $6.5M",
         "team": "The Ronto Group; Wheelock Street Capital; Swedroe Architecture; Lillian Wu Studio; Conner & Gaskins; Design Studio Boca"
       },
       "sourceCounts": {
