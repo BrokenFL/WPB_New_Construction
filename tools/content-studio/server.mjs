@@ -3,19 +3,25 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { spawn } from "node:child_process";
 import { syncEditorOverrides } from "../../research/scripts/sync-editor-overrides.mjs";
+import { newsletterDraftsPath, readDraftStore, readJsonFile as readNewsJsonFile, writeDraftStore } from "../../research/scripts/news-draft-utils.mjs";
 
 const workspace = process.cwd();
 const studioRoot = path.join(workspace, "tools/content-studio");
 const overridesRoot = path.join(workspace, "content/overrides");
 const legacyEditorOverridesPath = path.join(workspace, "research/content-editor/site-overrides.json");
 const changeLogPath = path.join(overridesRoot, "change-log.json");
+const builderChangeLogPath = path.join(overridesRoot, "content-studio-change-log.json");
 const port = Number(process.env.WPB_CONTENT_STUDIO_PORT ?? 8787);
 
 const overrideFiles = {
   projectCopy: "project-copy-overrides.json",
+  pageCopy: "page-copy-overrides.json",
   projectImages: "project-image-overrides.json",
+  imageCaptions: "image-caption-overrides.json",
+  editorialImages: "editorial-image-overrides.json",
   marketNotes: "market-note-overrides.json",
   updates: "update-overrides.json",
+  projectUpdates: "project-update-overrides.json",
   teamResources: "team-resource-overrides.json",
 };
 
@@ -40,9 +46,13 @@ async function main() {
       if (request.method === "GET" && url.pathname === "/favicon.ico") return sendText(response, "", 204);
       if (request.method === "GET" && url.pathname === "/api/state") return sendJson(response, await state());
       if (request.method === "POST" && url.pathname === "/api/project-copy") return saveProjectCopy(request, response);
+      if (request.method === "POST" && url.pathname === "/api/page-copy") return savePageCopy(request, response);
       if (request.method === "POST" && url.pathname === "/api/upload-image") return uploadImage(request, response);
+      if (request.method === "POST" && url.pathname === "/api/image-caption") return saveImageCaption(request, response);
       if (request.method === "POST" && url.pathname === "/api/project-update") return saveProjectUpdate(request, response);
       if (request.method === "POST" && url.pathname === "/api/team-resource") return saveTeamResource(request, response);
+      if (request.method === "POST" && url.pathname === "/api/news-draft") return saveNewsDraft(request, response);
+      if (request.method === "POST" && url.pathname === "/api/run-workflow") return runWorkflow(request, response);
       return sendText(response, "Not found", 404);
     } catch (error) {
       return sendJson(response, { ok: false, error: error.message }, 500);
@@ -50,7 +60,7 @@ async function main() {
   });
 
   server.listen(port, "127.0.0.1", () => {
-    console.log(`Brooke Content Studio running at http://127.0.0.1:${port}`);
+    console.log(`Brooke Builder running at http://127.0.0.1:${port}`);
     console.log("Local editorial tool only. Review Git diff before publishing.");
   });
 }
@@ -60,7 +70,10 @@ async function state() {
     ok: true,
     projects: await readProjects(),
     overrides: await readAllOverrides(),
+    news: await readDraftStore(),
+    newsletter: await readNewsJsonFile(newsletterDraftsPath, { version: 1, updatedAt: "", items: [] }),
     automation: await automationStatus(),
+    statusCards: await statusCards(),
     warning: "Local editorial tool. Changes write to repo files. Review Git diff before publishing.",
   };
 }
@@ -70,6 +83,8 @@ async function saveProjectCopy(request, response) {
   const projectId = slug(body.projectId);
   if (!projectId) return sendJson(response, { ok: false, error: "projectId is required" }, 400);
   const overrides = await readOverride("projectCopy");
+  const validation = validatePublicFields(body, ["summary", "editorialIntro", "buyerFit", "missingInfo", "projectPageUpdateText", "ctaSupportCopy", "projectFactsNotes"]);
+  if (validation.length) return sendJson(response, { ok: false, error: validation.join(" ") }, 400);
   overrides.projects[projectId] = {
     ...(overrides.projects[projectId] ?? {}),
     summary: clean(body.summary),
@@ -85,6 +100,27 @@ async function saveProjectCopy(request, response) {
   await syncLegacyProjectOverrides(overrides);
   await logChange("project-copy", { projectId, status: overrides.projects[projectId].status });
   return sendJson(response, { ok: true, overrides });
+}
+
+async function savePageCopy(request, response) {
+  const body = await readJson(request);
+  const pageId = slug(body.pageId || body.route || "homepage");
+  const validation = validatePublicFields(body, ["headline", "subhead", "bodyCopy", "cta"]);
+  if (validation.length) return sendJson(response, { ok: false, error: validation.join(" ") }, 400);
+  const overrides = await readOverride("pageCopy");
+  overrides.pages[pageId] = {
+    route: clean(body.route) || "/",
+    section: clean(body.section) || "homepage",
+    headline: clean(body.headline),
+    subhead: clean(body.subhead),
+    bodyCopy: clean(body.bodyCopy),
+    cta: clean(body.cta),
+    status: body.status === "approved" ? "approved" : "needs_review",
+    updatedAt: new Date().toISOString(),
+  };
+  await writeOverride("pageCopy", overrides);
+  await logChange("page-copy", { pageId, status: overrides.pages[pageId].status });
+  return sendJson(response, { ok: true, item: overrides.pages[pageId] });
 }
 
 async function uploadImage(request, response) {
@@ -123,7 +159,30 @@ async function uploadImage(request, response) {
   };
   overrides.images = [...(overrides.images ?? []), entry];
   await writeOverride("projectImages", overrides);
+  await appendImageCaptionOverride(entry);
   await logChange("image-upload", entry);
+  return sendJson(response, { ok: true, entry });
+}
+
+async function saveImageCaption(request, response) {
+  const body = await readJson(request);
+  const imagePath = clean(body.imagePath);
+  if (!imagePath) return sendJson(response, { ok: false, error: "imagePath is required" }, 400);
+  const entry = {
+    imagePath,
+    caption: clean(body.caption),
+    alt: clean(body.alt),
+    credit: clean(body.credit || body.sourceRightsNote),
+    status: body.status === "approved" ? "approved" : "needs_review",
+    assignedSection: clean(body.assignedSection),
+    assignedProject: slug(body.assignedProject || body.projectId),
+    assignedCorridor: slug(body.assignedCorridor),
+    updatedAt: new Date().toISOString(),
+  };
+  const captions = await readOverride("imageCaptions");
+  captions.items = upsertBy(captions.items ?? [], "imagePath", entry);
+  await writeOverride("imageCaptions", captions);
+  await logChange("image-caption", { imagePath, status: entry.status });
   return sendJson(response, { ok: true, entry });
 }
 
@@ -143,6 +202,9 @@ async function saveProjectUpdate(request, response) {
   };
   overrides.projectUpdates[projectId].push(entry);
   await writeOverride("updates", overrides);
+  const projectUpdates = await readOverride("projectUpdates");
+  projectUpdates.projects[projectId] = [...(projectUpdates.projects[projectId] ?? []), { ...entry, updatedAt: new Date().toISOString() }];
+  await writeOverride("projectUpdates", projectUpdates);
   await logChange("project-update", { projectId, title: entry.title, status: entry.status });
   return sendJson(response, { ok: true, entry });
 }
@@ -166,6 +228,74 @@ async function saveTeamResource(request, response) {
   await writeOverride("teamResources", overrides);
   await logChange("team-resource", { projectId, role: entry.role, name: entry.name, status: entry.status });
   return sendJson(response, { ok: true, entry });
+}
+
+async function saveNewsDraft(request, response) {
+  const body = await readJson(request);
+  const store = await readDraftStore();
+  const draft = store.items.find((item) => item.id === body.id);
+  if (!draft) return sendJson(response, { ok: false, error: "News draft not found." }, 404);
+  const nextStatus = clean(body.status || draft.status);
+  if (!["draft", "queued", "scheduled", "published", "blocked", "needs_review", "archived"].includes(nextStatus)) {
+    return sendJson(response, { ok: false, error: `Invalid status: ${nextStatus}` }, 400);
+  }
+  if (draft.riskLevel === "high" && ["queued", "scheduled"].includes(nextStatus)) {
+    return sendJson(response, { ok: false, error: "High-risk drafts require manual review and cannot be queued from the quick action." }, 400);
+  }
+  draft.rewrittenHeadline = clean(body.rewrittenHeadline || draft.rewrittenHeadline);
+  draft.deck = clean(body.deck || draft.deck);
+  draft.buyerTakeaway = clean(body.buyerTakeaway || draft.buyerTakeaway);
+  draft.newsletterBlurb = clean(body.newsletterBlurb || draft.newsletterBlurb);
+  draft.suggestedImagePath = clean(body.suggestedImagePath || draft.suggestedImagePath);
+  draft.status = nextStatus;
+  draft.updatedAt = new Date().toISOString();
+  await writeDraftStore(store);
+  await logChange("news-draft", { id: draft.id, status: draft.status });
+  return sendJson(response, { ok: true, draft });
+}
+
+async function runWorkflow(request, response) {
+  const body = await readJson(request);
+  const workflow = clean(body.workflow);
+  const workflows = {
+    preview: [["git", ["status", "--short"]]],
+    qa: [["npm", ["run", "typecheck"]], ["npm", ["run", "build"]], ["npm", ["run", "qa:launch"]]],
+    "news-import": [["npm", ["run", "news:import-gpt"]]],
+    "news-publish": [["npm", ["run", "news:publish-queued"]]],
+    newsletter: [["npm", ["run", "newsletter:draft"]]],
+    update: [["npm", ["run", "typecheck"]], ["npm", ["run", "build"]], ["npm", ["run", "qa:launch"]]],
+    "update-deploy": [
+      ["npm", ["run", "typecheck"]],
+      ["npm", ["run", "build"]],
+      ["npm", ["run", "qa:launch"]],
+      ["git", ["status", "--short"]],
+      ["git", ["add", "content", "src", "public", "docs", "research", "package.json", "tools"]],
+      ["git", ["commit", "-m", "Update site content from Brooke Builder"]],
+      ["git", ["push", "origin", "main"]],
+      ["npm", ["run", "ship:live"]],
+      ["npm", ["run", "qa:live"]],
+    ],
+  };
+  if (!workflows[workflow]) return sendJson(response, { ok: false, error: `Unknown workflow: ${workflow}` }, 400);
+  if (workflow === "update-deploy" && body.confirmDeploy !== true) {
+    return sendJson(response, { ok: false, error: "Final deploy requires confirmDeploy: true. Use Run QA first, review git diff, then confirm." }, 400);
+  }
+  if (workflow === "update-deploy") {
+    const status = await run("git", ["status", "--short"]);
+    const risky = status.stdout.split("\n").filter(Boolean).filter((line) => !/^..\s+(content|src|public|docs|research|package\.json|tools)\b/.test(line));
+    if (risky.length) return sendJson(response, { ok: false, error: `Unrelated changes need review before deploy: ${risky.join("; ")}` }, 400);
+  }
+  const results = [];
+  for (const [command, args] of workflows[workflow]) {
+    const result = await run(command, args);
+    results.push({ command: `${command} ${args.join(" ")}`, ...result });
+    if (result.code !== 0) {
+      await logChange("workflow-failed", { workflow, command, code: result.code });
+      return sendJson(response, { ok: false, workflow, results }, 500);
+    }
+  }
+  await logChange("workflow", { workflow, commands: results.length });
+  return sendJson(response, { ok: true, workflow, results });
 }
 
 async function syncLegacyProjectOverrides(overrides) {
@@ -202,9 +332,13 @@ async function readAllOverrides() {
 async function readOverride(key) {
   const defaults = {
     projectCopy: { version: 1, updatedAt: "", projects: {} },
+    pageCopy: { version: 1, updatedAt: "", pages: {} },
     projectImages: { version: 1, updatedAt: "", images: [] },
+    imageCaptions: { version: 1, updatedAt: "", items: [] },
+    editorialImages: { version: 1, updatedAt: "", items: [] },
     marketNotes: { version: 1, updatedAt: "", marketNotes: {} },
     updates: { version: 1, updatedAt: "", projectUpdates: {} },
+    projectUpdates: { version: 1, updatedAt: "", projects: {} },
     teamResources: { version: 1, updatedAt: "", teamResources: [] },
   };
   return readJsonFile(path.join(overridesRoot, overrideFiles[key]), defaults[key]);
@@ -231,6 +365,9 @@ async function logChange(action, detail) {
   const log = await readJsonFile(changeLogPath, { version: 1, entries: [] });
   log.entries.unshift({ at: new Date().toISOString(), action, detail });
   await fs.writeFile(changeLogPath, `${JSON.stringify(log, null, 2)}\n`);
+  const builderLog = await readJsonFile(builderChangeLogPath, { version: 1, entries: [] });
+  builderLog.entries.unshift({ at: new Date().toISOString(), action, detail });
+  await fs.writeFile(builderChangeLogPath, `${JSON.stringify(builderLog, null, 2)}\n`);
 }
 
 async function automationStatus() {
@@ -241,6 +378,49 @@ async function automationStatus() {
     dailyMaintenanceInstalled: await exists(path.join(process.env.HOME ?? "", "Library/LaunchAgents/com.brooke.wpb-daily-site-maintenance.plist")),
     developerImageImportInstalled: await exists(path.join(process.env.HOME ?? "", "Library/LaunchAgents/com.brooke.wpb-developer-image-import.plist")),
   };
+}
+
+async function statusCards() {
+  const [gitStatus, lastBuild, lastDeploy, liveBundle] = await Promise.all([
+    run("git", ["status", "--short"]),
+    exists(path.join(workspace, "dist/index.html")),
+    exists(path.join(workspace, "research/source-material-review/deploy-report.json")),
+    run("bash", ["-lc", "curl --max-time 5 -Ls https://www.wpbnewconstruction.com/ | grep -o '/assets/index-[^\" ]*\\.js' | head -1"]),
+  ]);
+  return {
+    workingTreeStatus: gitStatus.stdout.trim() || "clean",
+    lastBuildResult: lastBuild ? "dist exists" : "no local dist build found",
+    lastDeployResult: lastDeploy ? "deploy report exists" : "no deploy report found",
+    liveBundle: liveBundle.stdout.trim() || "not checked",
+    dailyNewsAutomationStatus: "GPT issue import available with npm run news:import-gpt",
+    dailySiteMaintenanceStatus: "daily:maintenance configured",
+  };
+}
+
+async function appendImageCaptionOverride(entry) {
+  const captions = await readOverride("imageCaptions");
+  captions.items = upsertBy(captions.items ?? [], "imagePath", {
+    imagePath: entry.path,
+    caption: entry.caption,
+    alt: entry.alt,
+    credit: entry.sourceRightsNote,
+    status: entry.status,
+    assignedSection: entry.targetType,
+    assignedProject: entry.projectId,
+    updatedAt: entry.updatedAt,
+  });
+  await writeOverride("imageCaptions", captions);
+}
+
+function upsertBy(items, key, entry) {
+  const index = items.findIndex((item) => item[key] === entry[key]);
+  if (index >= 0) return items.map((item, itemIndex) => itemIndex === index ? { ...item, ...entry } : item);
+  return [entry, ...items];
+}
+
+function validatePublicFields(body, fields) {
+  const forbidden = /\b(needs_review|generated|placeholder|internal|data model|source-material)\b/i;
+  return fields.flatMap((field) => forbidden.test(clean(body[field])) ? [`${field} contains a backend/admin phrase.`] : []);
 }
 
 async function optimizeImage(inputPath, outputPath, maxWidth) {

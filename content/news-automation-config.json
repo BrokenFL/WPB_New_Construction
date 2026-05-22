@@ -1,0 +1,7 @@
+{
+  "autoPublishEnabled": true,
+  "autoPublishDelayHours": 6,
+  "maxAutoPublishedPerDay": 3,
+  "highRiskRequiresReview": true,
+  "newsletterDigestFrequency": "weekly"
+}

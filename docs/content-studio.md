@@ -1,6 +1,8 @@
-# Brooke Content Studio
+# Brooke Builder / Content Studio
 
-Brooke Content Studio is a local-only editorial tool for reviewable site edits.
+Brooke Builder is the current product name for the local-only editorial tool. The internal folder remains `tools/content-studio/` for compatibility.
+
+See `docs/brooke-builder.md` for the launcher and News Desk workflow.
 
 Run it with:
 
@@ -8,10 +10,16 @@ Run it with:
 npm run content:studio
 ```
 
+or:
+
+```bash
+npm run brooke:builder
+```
+
 Local URL:
 
 ```text
-http://localhost:8787
+http://127.0.0.1:8787
 ```
 
 The server binds only to `127.0.0.1`. Do not deploy it publicly.

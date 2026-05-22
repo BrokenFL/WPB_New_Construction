@@ -3626,6 +3626,7 @@ function getCurrentRoute(): Route {
 }
 
 function canonicalAliasTarget(pathname: string) {
+  if (pathname === "/brooke-builder/" || pathname === "/brooke-builder" || pathname === "/content-studio/" || pathname === "/content-studio") return "/";
   if (pathname === "/blog/" || pathname === "/blog") return "/market-notes/";
   if (pathname === "/contact/" || pathname === "/contact") return "/inquire/";
   if (pathname === "/floor-plans/" || pathname === "/floor-plans") return "/floorplans/";

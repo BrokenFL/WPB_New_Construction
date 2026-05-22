@@ -6,6 +6,10 @@ const workspace = process.cwd();
 const reportPath = path.join(workspace, "research/source-material-review/daily-maintenance-report.md");
 const taskTimeoutMs = Number(process.env.DAILY_MAINTENANCE_TASK_TIMEOUT_MS ?? 180_000);
 const tasks = [
+  ["import GPT news issue drafts", "npm", ["run", "news:import-gpt"]],
+  ["validate news drafts", "npm", ["run", "qa:news"]],
+  ["publish eligible queued low-risk news", "npm", ["run", "news:publish-queued"]],
+  ["generate newsletter digest draft", "npm", ["run", "newsletter:draft"]],
   ["import developer/project images", "npm", ["run", "import:developer-images"]],
   ["review imported developer/project images", "npm", ["run", "review:developer-images"]],
   ["check news/update sources", "npm", ["run", "news:fetch"]],
@@ -14,6 +18,7 @@ const tasks = [
   ["check image repetition and placement", "npm", ["run", "qa:image-repetition"]],
   ["check asset/performance budgets", "npm", ["run", "qa:performance"]],
   ["inventory duplicate assets", "npm", ["run", "assets:duplicates"]],
+  ["run launch QA", "npm", ["run", "qa:launch"]],
 ];
 
 const results = [];
@@ -42,7 +47,7 @@ Review \`research/imported-project-images/importedProjectImages.json\` and \`res
 
 ## New News Found
 
-Review \`research/news-review/development-news-candidates.json\`. New items remain review-first and are not public until promoted through the approved-news workflow.
+Review \`content/news-drafts.json\` and \`research/news-review/development-news-candidates.json\`. GPT issue drafts land in the News Desk first. High-risk items remain review-first and cannot auto-publish.
 
 ## Stale Copy Flags
 

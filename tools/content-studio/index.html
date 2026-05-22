@@ -3,102 +3,207 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Brooke Content Studio</title>
+    <title>Brooke Builder</title>
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <header class="topbar">
       <div>
-        <strong>Brooke Content Studio</strong>
-        <span>Local editorial tool. Changes write to repo files. Review Git diff before publishing.</span>
+        <strong>Brooke Builder</strong>
+        <span>Local editor for WPB New Construction</span>
       </div>
-      <button id="refresh" type="button">Refresh</button>
+      <div class="top-actions">
+        <button id="refresh" type="button">Refresh</button>
+        <button id="runQa" type="button">Run QA</button>
+        <button id="updateSite" class="primary" type="button">Update Site</button>
+      </div>
     </header>
-    <main class="studio-shell">
+
+    <p class="warning">Local editorial tool. Changes write to repo files. Review changes before publishing.</p>
+
+    <main class="builder-shell">
       <aside class="sidebar">
         <label>
           Project
           <select id="projectSelect"></select>
         </label>
-        <nav class="tabs" aria-label="Editor sections">
-          <button class="active" data-tab="copy" type="button">Copy</button>
-          <button data-tab="image" type="button">Images</button>
-          <button data-tab="update" type="button">Updates</button>
-          <button data-tab="team" type="button">Team</button>
-          <button data-tab="automation" type="button">Automation</button>
+        <nav class="tabs" aria-label="Main workflows">
+          <button class="active" data-tab="site" type="button">Site Editor</button>
+          <button data-tab="news" type="button">News Desk</button>
+        </nav>
+        <nav class="section-tabs" aria-label="Editor sections">
+          <button class="active" data-section="dashboard" type="button">Dashboard</button>
+          <button data-section="images" type="button">Images</button>
+          <button data-section="projects" type="button">Projects</button>
+          <button data-section="market" type="button">Market Notes</button>
+          <button data-section="updates" type="button">Project Updates</button>
+          <button data-section="team" type="button">Team Resources</button>
+          <button data-section="automation" type="button">Automation Status</button>
         </nav>
       </aside>
-      <section class="workspace">
-        <p class="warning">Local editorial tool. Changes write to repo files. Review Git diff before publishing.</p>
 
-        <form id="copyPanel" class="panel active">
-          <h1>Safe Copy Fields</h1>
-          <label>Summary<textarea name="summary"></textarea></label>
-          <label>Editorial intro<textarea name="editorialIntro"></textarea></label>
-          <label>Buyer fit<textarea name="buyerFit"></textarea></label>
-          <label>Missing info / verification notes<textarea name="missingInfo"></textarea></label>
-          <label>Project page update text<textarea name="projectPageUpdateText"></textarea></label>
-          <label>CTA support copy<textarea name="ctaSupportCopy"></textarea></label>
-          <label>Project facts notes<textarea name="projectFactsNotes"></textarea></label>
-          <label>Status<select name="status"><option>needs_review</option><option>approved</option><option>rejected</option></select></label>
-          <button class="primary" type="submit">Save Copy Override</button>
-        </form>
-
-        <form id="imagePanel" class="panel">
-          <h1>Image Upload</h1>
-          <div id="dropZone" class="drop-zone">Drop image here or choose a file.<input name="file" type="file" accept="image/*" /></div>
-          <img id="imagePreview" alt="" class="preview" hidden />
-          <div class="grid">
-            <label>Target type<select name="targetType">
-              <option value="projectHero">Project hero image</option>
-              <option value="projectCard">Project card image</option>
-              <option value="projectGallery">Project gallery image</option>
-              <option value="editorial">Editorial/corridor image</option>
-              <option value="marketNote">Market Notes article image</option>
-              <option value="update">Update/news image</option>
-              <option value="team">Developer/builder/designer/architect/team image</option>
-              <option value="buyerInterior">Buyer intelligence interior image</option>
-            </select></label>
-            <label>Image type<input name="imageType" placeholder="hero, card, gallery, interior" /></label>
-            <label>Caption<input name="caption" /></label>
-            <label>Alt text<input name="alt" /></label>
-            <label>Source / rights note<textarea name="sourceRightsNote"></textarea></label>
-            <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
+      <section id="sitePanel" class="workspace panel active">
+        <section id="dashboardSection" class="section active">
+          <h1>Site Editor</h1>
+          <div id="statusCards" class="cards"></div>
+          <div class="editor-map">
+            <article>
+              <h2>Homepage</h2>
+              <p>Hero images, hero captions, hero copy, corridor cards, and CTA copy.</p>
+              <a href="http://127.0.0.1:5173/" target="_blank" rel="noreferrer">Preview homepage</a>
+            </article>
+            <article>
+              <h2>Project pages</h2>
+              <p>Hero image, card image, gallery, summary, buyer notes, updates, team resources, and CTA copy.</p>
+              <a id="projectPreview" href="/" target="_blank" rel="noreferrer">Preview selected project</a>
+            </article>
+            <article>
+              <h2>Corridor pages</h2>
+              <p>Corridor image, caption, copy, and related projects.</p>
+              <a href="http://127.0.0.1:5173/corridors/downtown/" target="_blank" rel="noreferrer">Preview corridor</a>
+            </article>
+            <article>
+              <h2>Market Notes / Updates</h2>
+              <p>Article image, headline, summary, article body, source links, and related project/corridor.</p>
+              <a href="http://127.0.0.1:5173/market-notes/" target="_blank" rel="noreferrer">Preview notes</a>
+            </article>
           </div>
-          <button class="primary" type="submit">Save Image</button>
-        </form>
-
-        <form id="updatePanel" class="panel">
-          <h1>Project Update Row</h1>
-          <label>Date<input name="date" type="date" /></label>
-          <label>Title<input name="title" /></label>
-          <label>Buyer-facing summary<textarea name="summary"></textarea></label>
-          <label>Source name<input name="sourceName" /></label>
-          <label>Source URL<input name="sourceUrl" type="url" /></label>
-          <label>Status<select name="status"><option>needs_review</option><option>approved</option><option>rejected</option></select></label>
-          <button class="primary" type="submit">Add Update Row</button>
-        </form>
-
-        <form id="teamPanel" class="panel">
-          <h1>Team Resource</h1>
-          <label>Role<select name="role"><option>Developer</option><option>Builder</option><option>Architect</option><option>Interior Designer</option><option>Landscape Architect</option><option>Brand Partner</option><option>Sales</option><option>Other</option></select></label>
-          <label>Name<input name="name" /></label>
-          <label>Website URL<input name="websiteUrl" type="url" /></label>
-          <label>Image path<input name="imagePath" placeholder="/team-resources/project/role-name.jpg" /></label>
-          <label>Caption<input name="caption" /></label>
-          <label>Source URL<input name="sourceUrl" type="url" /></label>
-          <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
-          <button class="primary" type="submit">Save Team Resource</button>
-        </form>
-
-        <section id="automationPanel" class="panel">
-          <h1>Automation Status</h1>
-          <pre id="automationStatus"></pre>
         </section>
 
-        <pre id="result" class="result"></pre>
+        <section id="imagesSection" class="section">
+          <h1>Image Caption Editor</h1>
+          <form id="captionPanel" class="tool-panel">
+            <div class="grid">
+              <label>Current image path<input name="imagePath" placeholder="/assets/editorial/rosemary-square-corridor.jpg" /></label>
+              <label>Assigned section<input name="assignedSection" placeholder="homepage hero, corridor card, project gallery" /></label>
+              <label>Caption<input name="caption" /></label>
+              <label>Alt text<input name="alt" /></label>
+              <label>Credit / source<input name="credit" /></label>
+              <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
+            </div>
+            <button class="primary" type="submit">Save Caption Draft</button>
+          </form>
+
+          <h1>Upload / Replace Image</h1>
+          <form id="imagePanel" class="tool-panel">
+            <div id="dropZone" class="drop-zone">Drop image here or choose a file.<input name="file" type="file" accept="image/*" /></div>
+            <img id="imagePreview" alt="" class="preview" hidden />
+            <div class="grid">
+              <label>Target type<select name="targetType">
+                <option value="projectHero">Project hero image</option>
+                <option value="projectCard">Project card image</option>
+                <option value="projectGallery">Project gallery image</option>
+                <option value="editorial">Homepage / corridor image</option>
+                <option value="marketNote">Market Notes article image</option>
+                <option value="update">Update/news image</option>
+                <option value="team">Developer/designer/architect/team image</option>
+                <option value="buyerInterior">Buyer intelligence interior image</option>
+              </select></label>
+              <label>Slug<input name="slug" placeholder="short-image-name" /></label>
+              <label>Image type<input name="imageType" placeholder="hero, card, gallery, interior" /></label>
+              <label>Caption<input name="caption" /></label>
+              <label>Alt text<input name="alt" /></label>
+              <label>Source / rights note<textarea name="sourceRightsNote"></textarea></label>
+              <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
+            </div>
+            <button class="primary" type="submit">Save Image Draft</button>
+          </form>
+        </section>
+
+        <section id="projectsSection" class="section">
+          <h1>Project Copy Editor</h1>
+          <form id="copyPanel" class="tool-panel">
+            <label>Summary<textarea name="summary"></textarea></label>
+            <label>Editorial intro<textarea name="editorialIntro"></textarea></label>
+            <label>Buyer fit<textarea name="buyerFit"></textarea></label>
+            <label>Verification notes<textarea name="missingInfo"></textarea></label>
+            <label>Project page update text<textarea name="projectPageUpdateText"></textarea></label>
+            <label>CTA support copy<textarea name="ctaSupportCopy"></textarea></label>
+            <label>Fact notes<textarea name="projectFactsNotes"></textarea></label>
+            <label>Status<select name="status"><option>needs_review</option><option>approved</option><option>rejected</option></select></label>
+            <button class="primary" type="submit">Save Project Copy Draft</button>
+          </form>
+
+          <h1>Page / Section Copy</h1>
+          <form id="pageCopyPanel" class="tool-panel">
+            <div class="grid">
+              <label>Page / route<input name="route" value="/" /></label>
+              <label>Section<input name="section" value="homepage hero" /></label>
+              <label>Headline<input name="headline" /></label>
+              <label>Subhead<input name="subhead" /></label>
+              <label>CTA<input name="cta" /></label>
+              <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
+            </div>
+            <label>Body copy<textarea name="bodyCopy"></textarea></label>
+            <button class="primary" type="submit">Save Page Copy Draft</button>
+          </form>
+        </section>
+
+        <section id="marketSection" class="section">
+          <h1>Market Notes / Updates</h1>
+          <p class="muted">Use News Desk for imported GPT article drafts. This panel is for manual page-section copy and image assignments.</p>
+        </section>
+
+        <section id="updatesSection" class="section">
+          <h1>Project Updates</h1>
+          <form id="updatePanel" class="tool-panel">
+            <div class="grid">
+              <label>Date<input name="date" type="date" /></label>
+              <label>Title<input name="title" /></label>
+              <label>Source name<input name="sourceName" /></label>
+              <label>Source URL<input name="sourceUrl" type="url" /></label>
+              <label>Status<select name="status"><option>needs_review</option><option>approved</option><option>rejected</option></select></label>
+            </div>
+            <label>Buyer-facing summary<textarea name="summary"></textarea></label>
+            <button class="primary" type="submit">Add Update Row</button>
+          </form>
+        </section>
+
+        <section id="teamSection" class="section">
+          <h1>Team Resources</h1>
+          <form id="teamPanel" class="tool-panel">
+            <div class="grid">
+              <label>Role<select name="role"><option>Developer</option><option>Builder</option><option>Architect</option><option>Interior Designer</option><option>Landscape Architect</option><option>Brand Partner</option><option>Sales</option><option>Other</option></select></label>
+              <label>Name<input name="name" /></label>
+              <label>Website URL<input name="websiteUrl" type="url" /></label>
+              <label>Image path<input name="imagePath" placeholder="/team-resources/project/role-name.jpg" /></label>
+              <label>Caption<input name="caption" /></label>
+              <label>Source URL<input name="sourceUrl" type="url" /></label>
+              <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
+            </div>
+            <button class="primary" type="submit">Save Team Resource</button>
+          </form>
+        </section>
+
+        <section id="automationSection" class="section">
+          <h1>Build / Deploy</h1>
+          <div class="workflow-buttons">
+            <button data-workflow="preview" type="button">Preview Changes</button>
+            <button data-workflow="qa" type="button">Run QA</button>
+            <button data-workflow="update" class="primary" type="button">Update Site Checks</button>
+          </div>
+          <pre id="automationStatus"></pre>
+        </section>
+      </section>
+
+      <section id="newsPanel" class="workspace panel">
+        <h1>News Desk</h1>
+        <div class="workflow-buttons">
+          <button data-workflow="news-import" type="button">Import GPT Issues</button>
+          <button data-workflow="news-publish" type="button">Publish Eligible Queue</button>
+          <button data-workflow="newsletter" type="button">Generate Newsletter Draft</button>
+        </div>
+        <div class="news-lanes">
+          <section><h2>Source Inbox</h2><div id="laneDraft" class="news-list"></div></section>
+          <section><h2>Draft Queue</h2><div id="laneQueued" class="news-list"></div></section>
+          <section><h2>Needs Review</h2><div id="laneReview" class="news-list"></div></section>
+          <section><h2>Published</h2><div id="lanePublished" class="news-list"></div></section>
+          <section><h2>Newsletter Drafts</h2><div id="newsletterDrafts" class="news-list"></div></section>
+        </div>
       </section>
     </main>
+
+    <pre id="result" class="result"></pre>
     <script type="module" src="/app.js"></script>
   </body>
 </html>

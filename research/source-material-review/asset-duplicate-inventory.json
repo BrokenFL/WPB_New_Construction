@@ -1,19 +1,19 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-22T17:27:42.400Z",
-    "filesScanned": 1871,
-    "duplicateHashGroups": 344,
-    "duplicateExtraBytes": 434058132,
+    "generatedAt": "2026-05-22T18:13:26.616Z",
+    "filesScanned": 1891,
+    "duplicateHashGroups": 347,
+    "duplicateExtraBytes": 434060928,
     "sourceDuplicateHashGroups": 322,
     "sourceDuplicateExtraBytes": 431072268,
     "publicOnlyDuplicateHashGroups": 3,
     "publicOnlyDuplicateExtraBytes": 2033973,
-    "qaDuplicateHashGroups": 20,
-    "qaDuplicateExtraBytes": 982442,
+    "qaDuplicateHashGroups": 21,
+    "qaDuplicateExtraBytes": 984987,
     "previousDuplicateExtraBytes": 434058132,
     "previousSourceDuplicateExtraBytes": 431072268,
-    "duplicateExtraByteDelta": 0,
+    "duplicateExtraByteDelta": 2796,
     "sourceDuplicateExtraByteDelta": 0
   },
   "policy": "Inventory only. Do not delete files from this report without explicit human approval; use it to choose canonical files and archive/move candidates.",
@@ -25,8 +25,8 @@
     },
     {
       "action": "Review canonical path before any move or delete.",
-      "groups": 114,
-      "extraBytes": 73937720
+      "groups": 116,
+      "extraBytes": 73937971
     },
     {
       "action": "Keep one canonical public URL, update references, then remove duplicate public alias after approval.",
@@ -40,8 +40,8 @@
     },
     {
       "action": "Archive older QA screenshots after approval.",
-      "groups": 20,
-      "extraBytes": 982442
+      "groups": 21,
+      "extraBytes": 984987
     }
   ],
   "groups": [
@@ -6341,6 +6341,25 @@
       ]
     },
     {
+      "hash": "0572b18de6beefc890f338634de41c321cbed1f1b9d2daf68427bbabcd7b680c",
+      "count": 2,
+      "eachBytes": 2545,
+      "extraBytes": 2545,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-22T18-12-05-917Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-22T18-12-05-917Z.yml",
+          "size": 2545
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-22T18-12-52-378Z.yml",
+          "size": 2545
+        }
+      ]
+    },
+    {
       "hash": "5f93d573d836f344d05b2d7c9cb08df416b7eed424d7c926c117aaeab25cc710",
       "count": 2,
       "eachBytes": 1574,
@@ -6688,10 +6707,37 @@
       ]
     },
     {
+      "hash": "891524f9fcd58d1c6b6f29f3066f1d300d9fcca995c80cc07e7727aba77ae6ec",
+      "count": 4,
+      "eachBytes": 53,
+      "extraBytes": 159,
+      "classification": "workspace duplicate",
+      "recommendedCanonical": "content/news-drafts.json",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "content/news-drafts.json",
+          "size": 53
+        },
+        {
+          "path": "content/newsletter-digest-drafts.json",
+          "size": 53
+        },
+        {
+          "path": "content/overrides/editorial-image-overrides.json",
+          "size": 53
+        },
+        {
+          "path": "content/overrides/image-caption-overrides.json",
+          "size": 53
+        }
+      ]
+    },
+    {
       "hash": "9c905be7d8ad979a1c143bb2a1bd7491b01d3cce551265e6a728481d726e44c7",
-      "count": 2,
+      "count": 3,
       "eachBytes": 56,
-      "extraBytes": 56,
+      "extraBytes": 112,
       "classification": "workspace duplicate",
       "recommendedCanonical": "content/overrides/project-copy-overrides.json",
       "action": "Review canonical path before any move or delete.",
@@ -6701,8 +6747,31 @@
           "size": 56
         },
         {
+          "path": "content/overrides/project-update-overrides.json",
+          "size": 56
+        },
+        {
           "path": "research/content-editor/site-overrides.json",
           "size": 56
+        }
+      ]
+    },
+    {
+      "hash": "7c1051f6e2bc3943b7c1dbe4da229694455681b8875a346c99279e555edb733f",
+      "count": 2,
+      "eachBytes": 36,
+      "extraBytes": 36,
+      "classification": "workspace duplicate",
+      "recommendedCanonical": "content/overrides/change-log.json",
+      "action": "Review canonical path before any move or delete.",
+      "files": [
+        {
+          "path": "content/overrides/change-log.json",
+          "size": 36
+        },
+        {
+          "path": "content/overrides/content-studio-change-log.json",
+          "size": 36
         }
       ]
     },
