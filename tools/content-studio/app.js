@@ -5,6 +5,8 @@ let activeReportPath = "";
 let activeReportText = "";
 let activeBuilderSection = "homepage";
 let activePreviewDevice = "desktop";
+let activeVisualMode = "edit";
+let activeVisualPage = "homepage";
 
 const projectSelect = document.querySelector("#projectSelect");
 const result = document.querySelector("#result");
@@ -19,6 +21,15 @@ const homepageSectionLabels = {
   guidance: "Guidance",
   featuredBuildings: "Featured Buildings",
   cta: "CTA",
+};
+const uploadTargetBySection = {
+  hero: "editorial",
+  map: "editorial",
+  corridors: "editorial",
+  updates: "update",
+  guidance: "marketNote",
+  featuredBuildings: "projectCard",
+  cta: "editorial",
 };
 
 async function loadState() {
@@ -100,6 +111,38 @@ document.querySelectorAll(".section-tabs button").forEach((button) => {
 
 document.querySelectorAll("[data-go-tab]").forEach((button) => {
   button.addEventListener("click", () => goTo(button.dataset.goTab, button.dataset.goSection));
+});
+
+document.querySelector("#editModeButton")?.addEventListener("click", () => setVisualMode("edit"));
+document.querySelector("#previewModeButton")?.addEventListener("click", () => setVisualMode("preview"));
+document.querySelector("#visualPageSelect")?.addEventListener("change", (event) => {
+  activeVisualPage = event.target.value;
+  renderLivePagePreview();
+});
+document.querySelector("#selectedDropZone")?.addEventListener("dragover", (event) => {
+  event.preventDefault();
+  event.currentTarget.classList.add("is-drop-target");
+});
+document.querySelector("#selectedDropZone")?.addEventListener("dragleave", (event) => {
+  event.currentTarget.classList.remove("is-drop-target");
+});
+document.querySelector("#selectedDropZone")?.addEventListener("drop", async (event) => {
+  event.preventDefault();
+  event.currentTarget.classList.remove("is-drop-target");
+  await handleVisualImageDrop(event.dataTransfer.files[0], activeHomepageCard.sectionId, activeHomepageCard.cardId);
+});
+document.querySelector("#visualDropFile")?.addEventListener("change", async (event) => {
+  await handleVisualImageDrop(event.target.files[0], activeHomepageCard.sectionId, activeHomepageCard.cardId);
+  event.target.value = "";
+});
+document.querySelectorAll("[data-page-choice]").forEach((button) => {
+  button.addEventListener("click", () => {
+    activeVisualPage = button.dataset.pageChoice || "homepage";
+    const select = document.querySelector("#visualPageSelect");
+    if (select) select.value = activeVisualPage;
+    goTo("site", "homepage");
+    renderLivePagePreview();
+  });
 });
 
 bindForm("#copyPanel", "/api/project-copy", (payload) => ({ ...payload, projectId: activeProjectId() }));
@@ -241,9 +284,7 @@ function renderHomepageCardEditor() {
   document.querySelector("#selectedCardTitle").textContent = activeCard.title || "Choose a card";
   document.querySelector("#editingBreadcrumb").textContent = editingBreadcrumb(activeHomepageCard.sectionId, activeCard, activeHomepageCard.cardId);
   document.querySelector("#selectedCardContext").textContent = `Homepage ${homepageSectionLabels[activeHomepageCard.sectionId] || activeHomepageCard.sectionId} card only`;
-  document.querySelector("#draftPreviewStatus").textContent = "Draft preview visible on right";
   document.querySelector("#previewHomepage").href = previewUrlFor("homepage");
-  document.querySelector("#openLivePreview").href = previewUrlFor("homepage");
   populateImageSelect(form.elements.imagePath, activeOverride.imagePath || activeCard.imagePath || "");
   for (const name of ["headline", "subhead", "deck", "caption", "alt", "ctaLabel", "status"]) {
     if (form.elements[name]) form.elements[name].value = activeOverride[name] ?? "";
@@ -351,6 +392,13 @@ function bindHomepageCardForm() {
     show(await postJson("/api/homepage-card-overrides", payload));
     await loadState();
   });
+}
+
+function setVisualMode(mode) {
+  activeVisualMode = mode === "preview" ? "preview" : "edit";
+  document.querySelector("#editModeButton")?.classList.toggle("active", activeVisualMode === "edit");
+  document.querySelector("#previewModeButton")?.classList.toggle("active", activeVisualMode === "preview");
+  renderLivePagePreview();
 }
 
 document.querySelectorAll("[data-position-preset]").forEach((button) => {
@@ -481,50 +529,175 @@ function renderLivePagePreview() {
   if (!state?.homepageCards) return;
   const previewRoot = document.querySelector("#pagePreview");
   if (!previewRoot) return;
-  previewRoot.className = `page-preview-shell device-${activePreviewDevice}`;
-  document.querySelector("#previewPageTitle").textContent = "Homepage draft";
-  const ordered = ["hero", "corridors", "updates", "guidance", "featuredBuildings", "cta"].filter((sectionId) => state.homepageCards?.[sectionId]);
-  previewRoot.innerHTML = `<div class="draft-page-frame">${ordered.map((sectionId) => draftPreviewSection(sectionId)).join("")}</div>`;
+  const notice = document.querySelector("#visualPageNotice");
+  if (notice) notice.hidden = activeVisualPage === "homepage";
+  previewRoot.className = `page-preview-shell visual-page-preview device-${activePreviewDevice} mode-${activeVisualMode}`;
+  if (activeVisualPage !== "homepage") {
+    previewRoot.innerHTML = comingNextPreview(activeVisualPage);
+    return;
+  }
+  previewRoot.innerHTML = `<div class="site-preview-frame">${sitePreviewMarkup()}</div>`;
   previewRoot.querySelectorAll("[data-preview-section]").forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
+      if (activeVisualMode !== "edit") return;
+      const focusField = event.target?.dataset?.inlineField || "";
       activeHomepageCard = { sectionId: button.dataset.previewSection, cardId: button.dataset.previewCard };
       renderHomepageCardEditor();
+      if (focusField) document.querySelector(`#homepageCardPanel [name="${focusField}"]`)?.focus();
+    });
+    button.addEventListener("dragover", (event) => {
+      if (activeVisualMode !== "edit") return;
+      event.preventDefault();
+      button.classList.add("is-drop-target");
+    });
+    button.addEventListener("dragleave", () => button.classList.remove("is-drop-target"));
+    button.addEventListener("drop", async (event) => {
+      event.preventDefault();
+      button.classList.remove("is-drop-target");
+      if (activeVisualMode !== "edit") return;
+      await handleVisualImageDrop(event.dataTransfer.files[0], button.dataset.previewSection, button.dataset.previewCard);
     });
   });
 }
 
-function draftPreviewSection(sectionId) {
-  const cards = state.homepageCards?.[sectionId] ?? [];
-  const visibleCards = sectionId === "hero" ? cards.slice(0, 1) : cards;
-  const isHero = sectionId === "hero";
+function sitePreviewMarkup() {
   return `
-    <section class="draft-section ${isHero ? "is-hero" : ""}">
-      <div class="draft-section-label">${escapeHtml(homepageSectionLabels[sectionId] || sectionId)}</div>
-      <div class="${isHero ? "draft-hero-layout" : "draft-card-row"}">
-        ${visibleCards.map((card, index) => draftPreviewCard(sectionId, card, index)).join("")}
+    ${visualHeroSection()}
+    ${visualMapSection()}
+    ${visualCardSection("corridors", "Choose a corridor", "Compare the locations that shape the buyer experience.", "visual-corridor-grid")}
+    ${visualCardSection("updates", "Latest development updates", "Source-backed movement across West Palm Beach new construction.", "visual-news-grid")}
+    ${visualCardSection("guidance", "Buyer guidance", "Practical notes for comparing buildings, timelines, and tradeoffs.", "visual-guidance-grid")}
+    ${visualCardSection("featuredBuildings", "Featured buildings", "A curated look at the projects buyers ask about first.", "visual-building-grid")}
+    ${visualCtaSection()}
+  `;
+}
+
+function comingNextPreview(pageId) {
+  const label = pageId.charAt(0).toUpperCase() + pageId.slice(1);
+  return `
+    <div class="site-preview-frame">
+      <section class="visual-coming-next-page">
+        <strong>${escapeHtml(label)}</strong>
+        <p>Visual editing for this page is coming next. Homepage is ready for direct visual editing now.</p>
+        <button data-go-tab="site" data-go-section="advanced" type="button">Open Advanced Editor</button>
+      </section>
+    </div>
+  `;
+}
+
+function visualHeroSection() {
+  const card = (state.homepageCards?.hero ?? [])[0] || {};
+  const item = previewItem("hero", card);
+  const imagePosition = item.imagePosition || "center center";
+  const objectFit = item.objectFit || "cover";
+  return `
+    <section class="site-section visual-hero-section">
+      <button class="${hotspotClass("hero", card.id)}" data-preview-section="hero" data-preview-card="${escapeHtml(card.id || "hero")}" type="button">
+        <span class="hotspot-label">Hero image</span>
+        ${builderImage(item.imagePath || heroFallbackImage(), item.alt || item.headline || "West Palm Beach waterfront skyline", { style: `object-position:${imagePosition};object-fit:${objectFit}` })}
+        <span class="visual-hero-copy">
+          <small>WPB New Construction</small>
+          <strong data-inline-field="headline">${escapeHtml(item.headline || card.title || "West Palm Beach new construction, compared carefully")}</strong>
+          <em data-inline-field="deck">${escapeHtml(item.deck || item.subhead || card.deck || "Compare buildings, corridors, timing, and buyer-fit notes before you tour.")}</em>
+        </span>
+      </button>
+    </section>
+  `;
+}
+
+function visualMapSection() {
+  const card = (state.homepageCards?.map ?? [])[0] || {};
+  const item = previewItem("map", card);
+  return `
+    <section class="site-section visual-map-section">
+      <div>
+        <span class="section-kicker">Map</span>
+        <h2>Where the new buildings are clustering</h2>
+        <p>Use the map as the orientation point before comparing individual buildings and corridors.</p>
+      </div>
+      <button class="${hotspotClass("map", card.id)}" data-preview-section="map" data-preview-card="${escapeHtml(card.id || "homepage-map")}" type="button">
+        <span class="hotspot-label">Map preview</span>
+        ${builderImage(item.imagePath || "/assets/editorial/wpb-geography-map-hero.jpg", item.alt || "West Palm Beach new construction map preview", {})}
+      </button>
+    </section>
+  `;
+}
+
+function visualCardSection(sectionId, heading, subhead, gridClass) {
+  const cards = state.homepageCards?.[sectionId] ?? [];
+  return `
+    <section class="site-section visual-list-section visual-${escapeHtml(sectionId)}">
+      <div class="visual-section-head">
+        <span class="section-kicker">${escapeHtml(homepageSectionLabels[sectionId] || sectionId)}</span>
+        <h2>${escapeHtml(heading)}</h2>
+        <p>${escapeHtml(subhead)}</p>
+      </div>
+      <div class="${escapeHtml(gridClass)}">
+        ${cards.slice(0, sectionId === "featuredBuildings" ? 6 : 4).map((card, index) => visualCard(sectionId, card, index)).join("")}
       </div>
     </section>
   `;
 }
 
-function draftPreviewCard(sectionId, card, index) {
+function visualCard(sectionId, card, index) {
+  const item = previewItem(sectionId, card);
+  const label = previewCardLabel(sectionId, card, index);
+  const imagePosition = item.imagePosition || "center center";
+  const objectFit = item.objectFit || "cover";
+  const imagePath = item.imagePath || sectionFallbackImage(sectionId, index);
+  return `
+    <button class="${hotspotClass(sectionId, card.id)}" data-preview-section="${escapeHtml(sectionId)}" data-preview-card="${escapeHtml(card.id)}" type="button">
+      <span class="hotspot-label">${escapeHtml(label)}</span>
+      ${builderImage(imagePath, item.alt || item.headline || item.title || label, { style: `object-position:${imagePosition};object-fit:${objectFit}` })}
+      <span class="visual-card-copy">
+        <strong data-inline-field="headline">${escapeHtml(item.headline || item.title || label)}</strong>
+        <em data-inline-field="deck">${escapeHtml(item.deck || item.subhead || card.deck || "Draft preview")}</em>
+        <small>${escapeHtml(item.caption || item.ctaLabel || defaultCtaLabel(sectionId))}</small>
+      </span>
+    </button>
+  `;
+}
+
+function visualCtaSection() {
+  const card = (state.homepageCards?.cta ?? [])[0] || {};
+  const item = previewItem("cta", card);
+  return `
+    <section class="site-section visual-cta-section">
+      <button class="${hotspotClass("cta", card.id)}" data-preview-section="cta" data-preview-card="${escapeHtml(card.id || "bottom-cta")}" type="button">
+        <span class="hotspot-label">CTA</span>
+        <strong data-inline-field="headline">${escapeHtml(item.headline || "Want the shortlist before you tour?")}</strong>
+        <span data-inline-field="deck">${escapeHtml(item.deck || item.subhead || card.deck || "Send Brooke your criteria and get a focused read on the buildings that actually fit.")}</span>
+        <em>${escapeHtml(item.ctaLabel || "Compare my options")}</em>
+      </button>
+    </section>
+  `;
+}
+
+function previewItem(sectionId, card) {
   const form = document.querySelector("#homepageCardPanel");
   const savedOverride = state.overrides.homepageCards?.sections?.[sectionId]?.cards?.[card.id] ?? {};
   const isSelected = activeHomepageCard.sectionId === sectionId && activeHomepageCard.cardId === card.id;
   const liveDraft = isSelected && form ? draftFromForm(card, savedOverride) : {};
-  const item = { ...card, ...savedOverride, ...liveDraft };
-  const label = previewCardLabel(sectionId, card, index);
-  const imagePosition = item.imagePosition || "center center";
-  const objectFit = item.objectFit || "cover";
-  return `
-    <button class="draft-card ${isSelected ? "is-selected" : ""} ${sectionId === "hero" ? "is-hero-card" : ""}" data-preview-section="${escapeHtml(sectionId)}" data-preview-card="${escapeHtml(card.id)}" type="button">
-      <span>${escapeHtml(label)}</span>
-      ${builderImage(item.imagePath || "", item.alt || item.title || "", { style: `object-position:${imagePosition};object-fit:${objectFit}` })}
-      <strong>${escapeHtml(item.headline || item.title || label)}</strong>
-      <p>${escapeHtml(item.deck || item.subhead || card.deck || "Draft preview")}</p>
-      <small>${escapeHtml(item.caption || item.ctaLabel || defaultCtaLabel(sectionId))}</small>
-    </button>
-  `;
+  return { ...card, ...savedOverride, ...liveDraft };
+}
+
+function hotspotClass(sectionId, cardId) {
+  const selected = activeHomepageCard.sectionId === sectionId && activeHomepageCard.cardId === cardId;
+  return `visual-hotspot ${selected ? "is-selected" : ""}`;
+}
+
+function heroFallbackImage() {
+  return (state.homepageCards?.featuredBuildings ?? []).find((card) => card.imagePath)?.imagePath || "/assets/editorial/flagler-waterfront-corridor.jpg";
+}
+
+function sectionFallbackImage(sectionId, index = 0) {
+  const fallbacks = {
+    corridors: ["/assets/editorial/flagler-waterfront-corridor.jpg", "/assets/editorial/rosemary-square-corridor.jpg", "/assets/editorial/south-flagler-corridor.jpg"],
+    updates: ["/assets/editorial/nora-growth-corridor.jpg", "/assets/editorial/downtown-core-corridor.jpg", "/assets/editorial/kravis-center-downtown-attraction.jpg"],
+    guidance: ["/assets/editorial/buyer-intelligence-interior.jpg", "/assets/editorial/wpb-geography-map-hero.jpg", "/assets/editorial/south-flagler-evening-corridor.jpg"],
+    featuredBuildings: ["/projects/olara/media/olara-hero-exterior-1536x1024.jpg", "/projects/mandarin-oriental/media/mandarin-oriental-exterior-hero-source.jpg", "/projects/nora-house/media/user-provided-nora-house-card.jpg"],
+  };
+  return fallbacks[sectionId]?.[index % fallbacks[sectionId].length] || heroFallbackImage();
 }
 
 function draftFromForm(card, savedOverride) {
@@ -546,7 +719,7 @@ function previewCardLabel(sectionId, card, index) {
   if (sectionId === "updates") return `Update card ${index + 1}`;
   if (sectionId === "guidance") return `Guidance card ${index + 1}`;
   if (sectionId === "corridors") return `Corridor card ${index + 1}`;
-  if (sectionId === "featuredBuildings") return `Featured Building card ${index + 1}`;
+  if (sectionId === "featuredBuildings") return `Featured building: ${card.title || `Card ${index + 1}`}`;
   if (sectionId === "cta") return "CTA";
   if (sectionId === "hero") return "Hero";
   return card.title || "Card";
@@ -556,6 +729,35 @@ function updateBuilderContext() {
   document.body.classList.toggle("is-project-editing", activeBuilderSection === "projects");
   const wrapper = document.querySelector("#projectSelectorWrap");
   if (wrapper) wrapper.hidden = activeBuilderSection !== "projects";
+}
+
+async function handleVisualImageDrop(file, sectionId, cardId) {
+  if (!file) return show({ ok: false, error: "Drop an image file." });
+  activeHomepageCard = { sectionId, cardId };
+  renderHomepageCardEditor();
+  const form = document.querySelector("#homepageCardPanel");
+  const payload = {
+    targetType: uploadTargetBySection[sectionId] || "editorial",
+    projectId: sectionId === "featuredBuildings" ? cardId : activeProjectId(),
+    fileName: file.name,
+    slug: `${sectionId}-${cardId}-${Date.now()}`,
+    imageType: "homepage visual editor",
+    caption: form.elements.caption.value || "",
+    alt: form.elements.alt.value || form.elements.headline.value || "",
+    sourceRightsNote: "Uploaded through Brooke Builder visual editor; verify rights before approval.",
+    status: "needs_review",
+    dataUrl: await fileAsDataUrl(file),
+  };
+  const upload = await postJson("/api/upload-image", payload);
+  if (!upload.ok) return show(upload);
+  form.elements.imagePath.value = upload.entry.path;
+  form.elements.status.value = "draft";
+  updateCardPreview();
+  renderLivePagePreview();
+  const overridePayload = formPayload(form);
+  overridePayload.status = "draft";
+  show(await postJson("/api/homepage-card-overrides", overridePayload));
+  await loadState();
 }
 
 function renderProjectPageContext() {

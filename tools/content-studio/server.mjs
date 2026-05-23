@@ -29,6 +29,8 @@ const reportDefinitions = [
   { category: "Deployment", path: "research/source-material-review/remote-builder-image-loading-fix.md" },
   { category: "Visual Audits", path: "research/source-material-review/brooke-builder-live-preview-before.md" },
   { category: "Visual Audits", path: "research/source-material-review/brooke-builder-live-preview-after.md" },
+  { category: "Visual Audits", path: "research/source-material-review/brooke-builder-visual-overlay-before.md" },
+  { category: "Visual Audits", path: "research/source-material-review/brooke-builder-visual-overlay-after.md" },
 ];
 
 const overrideFiles = {

@@ -33,7 +33,8 @@ async function main() {
 
 async function inspectHomepage(browser, viewport) {
   const page = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
-  await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: "networkidle", timeout: 30000 });
+  await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await page.waitForTimeout(750);
   const data = await page.evaluate(() => {
     const sectionTop = (selector) => document.querySelector(selector)?.getBoundingClientRect().top ?? null;
     const visibleImages = [...document.querySelectorAll("main img")]

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Brooke Builder</title>
-    <link rel="stylesheet" href="/style.css?v=live-preview-remote-images" />
+    <link rel="stylesheet" href="/style.css?v=visual-overlay-editor" />
   </head>
   <body>
     <header class="topbar">
@@ -30,19 +30,13 @@
           <select id="projectSelect"></select>
         </label>
         <nav class="tabs" aria-label="Main workflows">
-          <strong>Edit Pages</strong>
-          <button class="active" data-tab="site" data-section="homepage" type="button">Homepage</button>
-          <button data-tab="site" data-section="updates" type="button">Updates</button>
-          <button data-tab="site" data-section="market" type="button">Guidance</button>
-          <button data-tab="site" data-section="projects" type="button">Projects</button>
-          <button data-tab="site" data-section="floorplans" type="button">Floorplans</button>
-          <button data-tab="site" data-section="corridors" type="button">Corridors</button>
-          <strong>Content</strong>
+          <button class="active" data-tab="site" data-section="homepage" type="button">Visual Editor</button>
+          <button data-tab="site" data-section="pages" type="button">Pages</button>
           <button data-tab="site" data-section="images" type="button">Images</button>
           <button data-tab="news" type="button">News Desk</button>
-          <strong>Operations</strong>
           <button data-tab="reports" type="button">Reports</button>
           <button data-tab="site" data-section="automation" type="button">Operations</button>
+          <button data-tab="site" data-section="advanced" type="button">Advanced Editor</button>
         </nav>
         <nav class="section-tabs" aria-label="Editor sections">
           <button data-section="dashboard" type="button">Builder Home</button>
@@ -95,7 +89,18 @@
         </section>
 
         <section id="homepageSection" class="section active">
-          <div class="editing-header">
+          <div class="visual-editor-toolbar">
+            <div>
+              <span class="muted">Editing page</span>
+              <select id="visualPageSelect" aria-label="Editing page">
+                <option value="homepage">Homepage</option>
+                <option value="updates">Updates</option>
+                <option value="guidance">Guidance</option>
+                <option value="projects">Projects</option>
+                <option value="floorplans">Floorplans</option>
+                <option value="corridors">Corridors</option>
+              </select>
+            </div>
             <div>
               <span class="muted">You are editing</span>
               <strong id="editingBreadcrumb">Homepage</strong>
@@ -105,39 +110,23 @@
               <strong id="selectedCardContext">Choose a section or card</strong>
             </div>
             <div>
-              <span class="muted">Preview</span>
-              <strong id="draftPreviewStatus">Draft preview visible on right</strong>
+              <span class="muted">Mode</span>
+              <div class="edit-mode-toggle" aria-label="Visual editor mode">
+                <button id="editModeButton" class="active" type="button">Edit</button>
+                <button id="previewModeButton" type="button">Preview</button>
+              </div>
             </div>
             <a id="previewHomepage" href="http://127.0.0.1:5173/" target="_blank" rel="noreferrer">Open live page</a>
           </div>
-          <form id="homepagePanel" class="tool-panel">
-            <div class="grid">
-              <label>Homepage block<select name="sectionId">
-                <option value="hero">Hero images</option>
-                <option value="map">Map / atlas image assignments</option>
-                <option value="corridors">Corridor image assignments</option>
-                <option value="updates">Updates section image assignments</option>
-                <option value="guidance">Guidance section image assignments</option>
-                <option value="featured-buildings">Featured building image assignments</option>
-                <option value="cta">CTA section</option>
-              </select></label>
-              <label>Existing repo image<select name="imagePath"></select></label>
-              <label>Headline<input name="headline" /></label>
-              <label>Subhead<input name="subhead" /></label>
-              <label>Caption<input name="caption" /></label>
-              <label>Alt text<input name="alt" /></label>
-              <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
-            </div>
-            <button class="primary" type="submit">Save Homepage Override</button>
-          </form>
 
-          <div class="card-editor-shell">
-            <aside class="card-list-panel">
-              <h2>Page Structure</h2>
-              <div id="homepageTree" class="page-tree"></div>
-              <label>Homepage section<select id="cardSectionSelect"></select></label>
-              <div id="homepageCardList" class="homepage-card-list"></div>
-            </aside>
+          <div id="visualEditorShell" class="visual-editor-shell">
+            <section class="visual-canvas-wrap" aria-label="Homepage visual editor">
+              <div id="visualPageNotice" class="coming-next" hidden>
+                <strong>Visual editing coming next</strong>
+                <span>Homepage is fully visual today. Use Advanced Editor for detailed edits on this page.</span>
+              </div>
+              <div id="pagePreview" class="page-preview-shell visual-page-preview"></div>
+            </section>
             <form id="homepageCardPanel" class="tool-panel card-edit-panel">
               <input name="sectionId" type="hidden" />
               <input name="cardId" type="hidden" />
@@ -148,14 +137,20 @@
                 </div>
                 <button data-card-action="revert" type="button">Revert Override</button>
               </div>
+              <div class="visual-drop-box" id="selectedDropZone">
+                <span>Replace image</span>
+                <strong>Drag image here</strong>
+                <small>or drop directly onto the selected image in the page.</small>
+                <input id="visualDropFile" type="file" accept="image/*" />
+              </div>
               <div class="grid">
-                <label>Existing image<select name="imagePath" data-image-picker></select></label>
+                <label>Choose existing image<select name="imagePath" data-image-picker></select></label>
                 <label>CTA label<input name="ctaLabel" placeholder="Read Update" /></label>
                 <label>Headline<input name="headline" /></label>
                 <label>Subhead<input name="subhead" /></label>
                 <label>Caption<input name="caption" /></label>
                 <label>Alt text<input name="alt" /></label>
-                <label>Status<select name="status"><option value="draft">draft</option><option value="approved">approved</option></select></label>
+                <label>Status<select name="status"><option value="draft">Draft</option><option value="approved">Approved</option></select></label>
               </div>
               <label>Deck / excerpt<textarea name="deck"></textarea></label>
               <div id="repetitionWarning" class="repetition-warning" hidden></div>
@@ -197,28 +192,55 @@
                 <button data-go-tab="site" data-go-section="automation" type="button">Update Site</button>
               </div>
             </form>
-            <aside class="live-preview-panel" aria-label="Live page preview">
-              <div class="live-preview-head">
-                <div>
-                  <span class="muted">Live Page Preview</span>
-                  <strong id="previewPageTitle">Homepage draft</strong>
-                </div>
-                <div class="device-toggle" aria-label="Preview device">
-                  <button class="active" type="button" data-device-preview="desktop">Desktop</button>
-                  <button type="button" data-device-preview="tablet">Tablet</button>
-                  <button type="button" data-device-preview="mobile">Mobile</button>
-                </div>
-              </div>
-              <div class="preview-source-row">
-                <span>Draft changes are applied here before publishing.</span>
-                <a id="openLivePreview" href="http://127.0.0.1:5173/" target="_blank" rel="noreferrer">Open live page</a>
-              </div>
-              <div id="pagePreview" class="page-preview-shell"></div>
-            </aside>
           </div>
+        </section>
 
-          <h1>Image Picker</h1>
-          <div id="imagePicker" class="image-picker" data-image-picker-grid></div>
+        <section id="pagesSection" class="section">
+          <h1>Pages</h1>
+          <div class="page-choice-grid">
+            <button data-page-choice="homepage" type="button"><strong>Homepage</strong><span>Full visual editor available</span></button>
+            <button data-page-choice="updates" type="button"><strong>Updates</strong><span>Visual editing coming next</span></button>
+            <button data-page-choice="guidance" type="button"><strong>Guidance</strong><span>Visual editing coming next</span></button>
+            <button data-page-choice="projects" type="button"><strong>Projects</strong><span>Use Advanced Editor today</span></button>
+            <button data-page-choice="floorplans" type="button"><strong>Floorplans</strong><span>Use source-backed workflow today</span></button>
+            <button data-page-choice="corridors" type="button"><strong>Corridors</strong><span>Homepage corridor cards are editable now</span></button>
+          </div>
+        </section>
+
+        <section id="advancedSection" class="section">
+          <h1>Advanced Editor</h1>
+          <form id="homepagePanel" class="tool-panel">
+            <div class="grid">
+              <label>Homepage block<select name="sectionId">
+                <option value="hero">Hero images</option>
+                <option value="map">Map / atlas image assignments</option>
+                <option value="corridors">Corridor image assignments</option>
+                <option value="updates">Updates section image assignments</option>
+                <option value="guidance">Guidance section image assignments</option>
+                <option value="featured-buildings">Featured building image assignments</option>
+                <option value="cta">CTA section</option>
+              </select></label>
+              <label>Existing repo image<select name="imagePath"></select></label>
+              <label>Headline<input name="headline" /></label>
+              <label>Subhead<input name="subhead" /></label>
+              <label>Caption<input name="caption" /></label>
+              <label>Alt text<input name="alt" /></label>
+              <label>Status<select name="status"><option>needs_review</option><option>approved</option></select></label>
+            </div>
+            <button class="primary" type="submit">Save Homepage Override</button>
+          </form>
+          <div class="advanced-editor-grid">
+            <aside class="card-list-panel">
+              <h2>Page Structure</h2>
+              <div id="homepageTree" class="page-tree"></div>
+              <label>Homepage section<select id="cardSectionSelect"></select></label>
+              <div id="homepageCardList" class="homepage-card-list"></div>
+            </aside>
+            <div>
+              <h2>Image Picker</h2>
+              <div id="imagePicker" class="image-picker" data-image-picker-grid></div>
+            </div>
+          </div>
         </section>
 
         <section id="imagesSection" class="section">
@@ -420,6 +442,6 @@
     </main>
 
     <pre id="result" class="result"></pre>
-    <script type="module" src="/app.js?v=live-preview-remote-images"></script>
+    <script type="module" src="/app.js?v=visual-overlay-editor"></script>
   </body>
 </html>
