@@ -335,6 +335,10 @@ document.querySelectorAll("[data-position-preset]").forEach((button) => {
   button.addEventListener("click", () => setImagePosition(button.dataset.positionPreset));
 });
 
+document.querySelectorAll("[data-preview-mode]").forEach((button) => {
+  button.addEventListener("click", () => setPreviewMode(button.dataset.previewMode));
+});
+
 document.querySelector("#resetCrop").addEventListener("click", () => setImagePosition("center center"));
 
 function populateImageSelect(select, selected = "") {
@@ -398,11 +402,12 @@ function updateCardPreview() {
   document.querySelector("#currentPublishedPanel").innerHTML = editorSnapshot("Current published", published, "published");
   document.querySelector("#draftOverridePanel").innerHTML = editorSnapshot("Draft override", { ...draft, caption: form.elements.caption.value, alt: form.elements.alt.value, status: form.elements.status.value }, "draft");
   document.querySelector("#cardPreview").innerHTML = `
-    ${previewVariant("Current published", published, "desktop", "center center", "cover")}
-    ${previewVariant("Draft override", draft, "desktop", imagePosition, objectFit)}
-    ${previewVariant("Draft mobile crop", draft, "mobile", imagePosition, objectFit)}
-    ${previewVariant("Approved override", approved, "desktop", approved?.imagePosition || "center center", approved?.objectFit || "cover")}
+    ${previewVariant("Current published", published, "desktop preview-desktop", "center center", "cover")}
+    ${previewVariant("Draft override", draft, "desktop preview-desktop", imagePosition, objectFit)}
+    ${previewVariant("Draft mobile crop", draft, "mobile preview-mobile", imagePosition, objectFit)}
+    ${previewVariant("Approved override", approved, "desktop preview-desktop", approved?.imagePosition || "center center", approved?.objectFit || "cover")}
   `;
+  setPreviewMode(document.querySelector("[data-preview-mode].active")?.dataset.previewMode || "desktop");
 }
 
 function previewVariant(label, item, size, imagePosition, objectFit) {
@@ -433,6 +438,12 @@ function editorSnapshot(label, item, status) {
       <em>${escapeHtml(status)}</em>
     </article>
   `;
+}
+
+function setPreviewMode(mode) {
+  const normalized = mode === "mobile" ? "mobile" : "desktop";
+  document.querySelectorAll("[data-preview-mode]").forEach((button) => button.classList.toggle("active", button.dataset.previewMode === normalized));
+  document.querySelector("#cardPreview")?.classList.toggle("show-mobile-preview", normalized === "mobile");
 }
 
 function updateRepetitionWarning() {

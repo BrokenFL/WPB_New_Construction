@@ -107,6 +107,10 @@ dd { margin: 3px 0 0; overflow-wrap: anywhere; }
 .preview-tabs { display: flex; gap: 8px; margin-bottom: 10px; }
 .preview-tabs button.active { background: #eef7f7; border-color: var(--accent); color: var(--accent-dark); font-weight: 800; }
 .card-preview-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.card-preview-grid .preview-mobile { display: none; }
+.card-preview-grid.show-mobile-preview { grid-template-columns: minmax(220px, 320px); }
+.card-preview-grid.show-mobile-preview .preview-desktop { display: none; }
+.card-preview-grid.show-mobile-preview .preview-mobile { display: grid; }
 .card-preview { display: grid; gap: 8px; align-items: start; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: #fff; min-width: 0; }
 .card-preview.mobile { max-width: 260px; }
 .card-preview .builder-image-frame, .editor-snapshot .builder-image-frame, .preview-placeholder { width: 100%; aspect-ratio: 4 / 3; border-radius: 6px; background: var(--wash); }
