@@ -1416,6 +1416,93 @@ const ritzFloorplanDownloads = [
 ];
 
 const projectPageDrafts: Record<string, ProjectPageDraft> = {
+  olara: {
+    kicker: "North Flagler Waterfront",
+    title: "Olara",
+    intro:
+      "Olara is the amenity-rich North Flagler waterfront project built around the idea that daily life should feel both residential and resort-like. Designed by Arquitectonica and planned with an unusually deep lifestyle program, the 26-story tower brings a large-scale luxury condominium experience to one of West Palm Beach's most closely watched waterfront corridors.",
+    image: `${mediaBase}olara-hero-exterior-1536x1024.jpg`,
+    imageAlt: "Olara waterfront tower rendering in West Palm Beach",
+    stage: "Under construction",
+    locationCopy:
+      "At 1919 N Flagler Drive, Olara sits in the core North Flagler comparison set with Shorecrest and The Ritz-Carlton Residences. The useful buyer read is amenity depth, waterfront access, current floorplan availability, and how the building's resort-like daily rhythm compares with smaller or more brand-led nearby projects.",
+    facts: [
+      { label: "Address", value: "1919 N Flagler Dr" },
+      { label: "Stories", value: "26" },
+      { label: "Residences", value: "275", note: "Confirm the latest count in the current buyer packet." },
+      { label: "Delivery", value: "2027 / 2028 range", note: "Verify current timing before relying on a date." },
+      { label: "Pricing", value: "Request current pricing" },
+      { label: "Profile", value: "Amenity-rich North Flagler waterfront" },
+    ],
+    team: projectTeam,
+    highlights: [
+      { label: "Wellness", value: "Everyday fitness and recovery", note: "Developer materials describe a serious wellness environment rather than a token gym." },
+      { label: "Waterfront Leisure", value: "Pool, marina, outdoor living", note: "Use the water-facing lifestyle as a comparison point, while confirming exact access and offering terms." },
+      { label: "Social / Entertaining", value: "Dining and gathering spaces", note: "Lounges, dining, and amenity areas should be reviewed as extensions of the residence." },
+      { label: "Buyer Fit", value: "Full-service amenity depth", note: "Best fit for buyers who want a large amenity program rather than a smaller boutique building." },
+    ],
+    gallery: [
+      ...featuredGallery,
+      ...residenceGallery,
+      ...amenityGallery,
+      {
+        src: `${mediaBase}olara-marina-boat-dock-1600x1067.jpg`,
+        kicker: "Waterfront",
+        title: "Marina Context",
+        alt: "Olara marina and boat dock lifestyle rendering",
+      },
+    ],
+    documents: [
+      { label: "Advisor Packet", title: "Request current Olara materials", note: "Pricing, availability, floorplans, fees, and contract guidance" },
+      { label: "Reviewed Materials", title: "Official project, architecture, brochure, amenity, and floorplan materials reviewed", note: "Verification details are kept internal." },
+    ],
+    needed: [
+      "Current residence count from the latest fact sheet",
+      "Which amenities are included in the condominium offering and which are subject to change",
+      "Current delivery timing and construction update",
+      "Line-specific availability, pricing, deposits, fees, parking, and storage",
+    ],
+  },
+  "ritz-carlton-wpb": {
+    kicker: "North Flagler Branded Residences",
+    title: "The Ritz-Carlton Residences, West Palm Beach",
+    intro:
+      "The Ritz-Carlton Residences, West Palm Beach brings branded-residence luxury to North Flagler, pairing a globally recognized hospitality name with a new waterfront condominium developed by Related Group and BH Group. With 138 residences planned at 1717 North Flagler Drive, the project is positioned for buyers who want the privacy of ownership with the service language and brand confidence of Ritz-Carlton.",
+    image: `${ritzMediaBase}ritz-hero-waterfront-building-2200x1375.jpg`,
+    imageAlt: "The Ritz-Carlton Residences West Palm Beach waterfront tower rendering",
+    stage: "Under construction",
+    locationCopy:
+      "At 1717 N Flagler Drive, The Ritz-Carlton Residences belongs in the same North Flagler shortlist as Olara and Shorecrest, but the buyer logic is different: branded service, recognition, and hospitality-style confidence carry more weight than simply comparing square footage or amenity count.",
+    facts: ritzFacts,
+    team: ritzTeam,
+    highlights: [
+      { label: "Branded Service", value: "Ritz-Carlton residential identity", note: "The brand story should be read as service culture and recognition, not as a promise of hotel access unless current materials confirm it." },
+      { label: "Waterfront Ownership", value: "North Flagler address", note: "Compare the address inside the broader corridor transformation rather than as a standalone brochure claim." },
+      { label: "Private Residential Lifestyle", value: "Ownership with service language", note: "Best fit for buyers who value brand, service, and long-term recognition." },
+      { label: "Developer Context", value: "Related Group + BH Group", note: "Developer and partner roles are a credibility signal; final offering details still need current packet review." },
+    ],
+    gallery: [
+      ...ritzFeaturedGallery,
+      ...ritzResidenceGallery,
+      ...ritzAmenityGallery,
+      {
+        src: `${ritzMediaBase}ritz-evening-aerial-road-motion-1600x1067.jpg`,
+        kicker: "Market Context",
+        title: "North Flagler Waterfront",
+        alt: "Night aerial view of The Ritz-Carlton Residences and West Palm Beach waterfront",
+      },
+    ],
+    documents: [
+      { label: "Advisor Packet", title: "Request current Ritz-Carlton materials", note: "Availability, floorplans, service details, pricing, and buyer guidance" },
+      { label: "Reviewed Materials", title: "Official project, Related Group, and floorplan materials reviewed", note: "Verification details are kept internal." },
+    ],
+    needed: [
+      "Current design-team confirmation from the latest official materials",
+      "Amenity and residential-service details from the current buyer packet",
+      "Latest delivery timing before relying on a hard date",
+      "Line-specific availability, fees, parking, storage, and contract terms",
+    ],
+  },
   rosewood: {
     kicker: "North Flagler Planning Watch",
     title: "Rosewood Residences West Palm Beach",
@@ -1479,12 +1566,12 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     kicker: "North Flagler Waterfront",
     title: "Shorecrest",
     intro:
-      "Related Ross' North Flagler tower brings a more intimate ownership scale to the same waterfront corridor as Olara and Ritz-Carlton, with boutique floor plates, Equinox-curated wellness, and released plan resources for serious comparison.",
+      "Shorecrest brings a more intimate luxury condominium profile to North Flagler, with 98 residences planned across a 28-story waterfront tower. Backed by Related Ross and now under construction, the project gives buyers a lower-density alternative within the same fast-changing corridor as Olara and Ritz-Carlton Residences West Palm Beach.",
     image: shorecrestUserHero,
     imageAlt: "Shorecrest waterfront tower rendering",
     stage: "Under construction",
     locationCopy:
-      "Located at 1865 N Flagler Drive on the west side of the Intracoastal, Shorecrest belongs in the first North Flagler comparison set: close enough to compare directly with Olara and Ritz-Carlton, but differentiated by smaller floor plates and wellness-led programming.",
+      "Located at 1865 N Flagler Drive on the west side of the Intracoastal, Shorecrest belongs in the first North Flagler comparison set. Its buyer distinction is privacy and scale: fewer residences than Olara, a direct waterfront setting, and Related Ross credibility without making the page feel like a generic resort brochure.",
     facts: [
       { label: "Address", value: "1865 N Flagler Dr", note: "Some public materials also reference 1901 N Flagler." },
       { label: "Stories", value: "28" },
@@ -1501,9 +1588,9 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { role: "Wellness Partner", name: "Equinox-curated program", note: "Wellness programming is part of the amenity positioning." },
     ],
     highlights: [
-      { label: "Amenity Program", value: "18,355 SF", note: "Reported amenity depth with rooftop pool, wellness, dining, golf simulator, and meeting rooms." },
-      { label: "Residences", value: "2-3 bedrooms", note: "Residence lines can be compared against the current floorplan packet." },
-      { label: "Context", value: "North Flagler cluster", note: "Compare directly against Olara and Ritz-Carlton." },
+      { label: "Privacy And Scale", value: "98 residences", note: "A lower-density North Flagler alternative to larger nearby towers." },
+      { label: "Waterfront Living", value: "Flagler Drive setting", note: "Confirm exact exposure, floor height, and view corridor before ranking lines." },
+      { label: "Buyer Fit", value: "Refined / residential", note: "Best fit for buyers who want new waterfront construction with fewer residences than major resort-style buildings." },
     ],
     gallery: [
       {
@@ -1526,9 +1613,8 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       },
     ],
     documents: [
-      { label: "Floorplans", title: "Official Floor Plans Index", note: "External public source", href: "https://www.shorecrestwpb.com/floorplans" },
-      { label: "Floorplan", title: "Residence 704", note: "PDF reference", href: "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf" },
-      { label: "Floorplan", title: "Residence 303", note: "PDF reference", href: "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf" },
+      { label: "Advisor Packet", title: "Request current Shorecrest materials", note: "Availability, line details, pricing, fees, and buyer guidance" },
+      { label: "Reviewed Materials", title: "Official site, floorplan, fact sheet, brochure, and Related Ross materials reviewed", note: "Verification details are kept internal." },
     ],
     needed: [
       "Final legal address confirmation",
@@ -1760,12 +1846,12 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     kicker: "South Flagler Waterfront",
     title: "South Flagler House",
     intro:
-      "South Flagler House is the southern waterfront benchmark: two RAMSA-designed towers with large-format residences, private-club amenities, and a quieter relationship to Palm Beach Island.",
+      "South Flagler House is the architectural heavyweight of the South Flagler waterfront: a two-tower luxury condominium composition planned for 1355 South Flagler Drive, directly across the water from Palm Beach Island. Rather than selling only height or amenities, the project is positioned around permanence, formal design, and the rare feel of an estate-scale address in a vertical waterfront setting.",
     image: southFlaglerHouseUserHero,
     imageAlt: "South Flagler House reference image",
     stage: "Under construction",
     locationCopy:
-      "At 1355 S Flagler Drive, South Flagler House anchors the southern waterfront comparison. It should be read against North Flagler projects on privacy, scale, architecture, and proximity to Palm Beach rather than only price or delivery timing.",
+      "At 1355 S Flagler Drive, South Flagler House anchors the southern waterfront comparison. It should be read less like a downtown tower and more like a Palm Beach-adjacent architectural address, with privacy, scale, formal arrival, and long-term design credibility carrying the buyer conversation.",
     facts: [
       { label: "Address", value: "1355 S Flagler Dr" },
       { label: "Stories", value: "28 + 28", note: "Two tower composition." },
@@ -1782,9 +1868,9 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { role: "Landscape Architect", name: "Landscape design", note: "Outdoor spaces shape the private-club waterfront setting." },
     ],
     highlights: [
-      { label: "Amenity Program", value: "50,000 SF", note: "Private club amenities, lakefront pool, spa, fitness, pickleball, simulator, and dining." },
-      { label: "Buyer Fit", value: "High-end waterfront", note: "South Flagler benchmark across from Palm Beach Island." },
-      { label: "Imagery", value: "Gallery ready", note: "Waterfront renderings support a stronger project profile." },
+      { label: "Estate-Scale Arrival", value: "Two-tower composition", note: "Position the arrival sequence, privacy, and formality where current materials support it." },
+      { label: "Architecture As Amenity", value: "RAMSA design", note: "Design credibility is part of the value proposition, not just a team credit." },
+      { label: "Buyer Fit", value: "Palm Beach-adjacent scale", note: "Best fit for buyers seeking architectural gravitas and a quieter South Flagler ownership profile." },
     ],
     gallery: [
       {
@@ -1813,9 +1899,8 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       },
     ],
     documents: [
-      { label: "Website", title: "Official South Flagler House", note: "External public source", href: "https://www.southflaglerhouse.com/" },
-      { label: "Fact Sheet", title: "Public Fact Sheet", note: "External public source", href: "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf" },
-      { label: "Floorplans", title: "Current Plan Packet", note: "Request current release details" },
+      { label: "Advisor Packet", title: "Request current South Flagler House materials", note: "Availability, line details, pricing, fees, and buyer guidance" },
+      { label: "Reviewed Materials", title: "Official site and fact sheet materials reviewed", note: "Verification details are kept internal." },
     ],
     needed: [
       "Project renderings and logo sequence",
@@ -6067,6 +6152,37 @@ function renderProjectRelatedNews(project: FeaturedProject) {
   `;
 }
 
+function relatedProjectComparisonIds(projectId: string) {
+  const related: Record<string, string[]> = {
+    olara: ["shorecrest", "ritz-carlton-wpb"],
+    shorecrest: ["olara", "ritz-carlton-wpb"],
+    "ritz-carlton-wpb": ["olara", "shorecrest", "mandarin-oriental"],
+    "south-flagler-house": ["edgeworth-north", "edgeworth-south", "maison-dor"],
+    "edgeworth-north": ["south-flagler-house", "edgeworth-south"],
+    "edgeworth-south": ["south-flagler-house", "edgeworth-north"],
+  };
+  return related[projectId] ?? [];
+}
+
+function renderProjectInternalComparison(project: FeaturedProject) {
+  const relatedProjects = relatedProjectComparisonIds(project.id)
+    .map((projectId) => featuredProjects.find((item) => item.id === projectId))
+    .filter((item): item is FeaturedProject => Boolean(item));
+  if (!relatedProjects.length) return "";
+  return `
+    <section class="section market-note-related-section project-internal-comparison" aria-label="${project.name} related project comparisons">
+      <div class="section-heading">
+        <p class="eyebrow">Compare Nearby</p>
+        <h2>Keep the shortlist inside West Palm Beach.</h2>
+        <p>Use these internal profiles to compare scale, service model, timing, and corridor fit before relying on any outside sales material.</p>
+      </div>
+      <div class="front-project-grid front-project-grid-static">
+        ${relatedProjects.map(renderRelatedBuildingCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderProjectUpdateNote(item: ExternalNewsItem) {
   return `
     <article class="project-note-row" id="${escapeHtml(item.id)}">
@@ -6202,6 +6318,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
           </ol>
         </div>
       </section>
+
+      ${renderProjectInternalComparison(project)}
 
       <section class="brochure-research-contact" id="project-resources-${project.id}">
         <div class="brochure-research-panel">
@@ -6505,6 +6623,14 @@ function locationList(project: FeaturedProject) {
 }
 
 function renderProjectDocument(document: ProjectDocument) {
+  if (document.href && (/^https?:\/\//i.test(document.href) || /\.pdf(?:$|[?#])/i.test(document.href))) {
+    return `<article class="document-card is-placeholder">
+      <span>${publicText(document.label)}</span>
+      <strong>${publicText(document.title)}</strong>
+      <small>Reviewed internally; request the current buyer packet for details.</small>
+    </article>`;
+  }
+
   const content = `
       <span>${publicText(document.label)}</span>
     <strong>${publicText(document.title)}</strong>
@@ -6513,14 +6639,6 @@ function renderProjectDocument(document: ProjectDocument) {
 
   if (!document.href) {
     return `<article class="document-card is-placeholder">${content}</article>`;
-  }
-
-  if (/^https?:\/\//i.test(document.href) || /\.pdf(?:$|[?#])/i.test(document.href)) {
-    return `
-      <a class="document-card" href="/inquire/?interest=availability">
-        ${content}
-      </a>
-    `;
   }
 
   return `
