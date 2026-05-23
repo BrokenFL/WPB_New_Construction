@@ -7,6 +7,10 @@ export type ExternalNewsItem = {
   canonicalUrl: string;
   publishedAt: string;
   sourcePublishedAt?: string;
+  sourcePublishedDate: string;
+  eventDate?: string;
+  dateDiscovered: string;
+  freshnessLane: "breaking_14d" | "recent_30d" | "evergreen_context" | "evergreen_analysis" | "background_context" | "archive_only";
   fetchedAt: string;
   deck?: string;
   description?: string;
@@ -23,6 +27,9 @@ export type ExternalNewsItem = {
   category: "development" | "construction" | "planning" | "sales" | "financing" | "city" | "press-release" | "general";
   relatedProjectIds: string[];
   relatedCorridorIds: string[];
+  relatedProjectSlugs: string[];
+  relatedCorridors: string[];
+  primaryProjectSlug?: string;
   corridorLabel?: string;
   imageUrl?: string;
   imagePath?: string;
@@ -31,6 +38,24 @@ export type ExternalNewsItem = {
   status: "needs-review" | "published" | "archived" | "duplicate";
   riskLevel?: "low" | "medium" | "high";
 };
+
+export function newsSortTimestamp(item: ExternalNewsItem): number {
+  const value = item.publishedAt || item.sourcePublishedDate || item.sourcePublishedAt || item.dateDiscovered || item.fetchedAt;
+  const timestamp = Date.parse(value);
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
+export function sortNewsItems<T extends ExternalNewsItem>(items: readonly T[]): T[] {
+  return [...items].sort((a, b) => {
+    const dateDelta = newsSortTimestamp(b) - newsSortTimestamp(a);
+    if (dateDelta !== 0) return dateDelta;
+    return a.id.localeCompare(b.id);
+  });
+}
+
+export function isHomepageFreshnessLane(item: ExternalNewsItem): boolean {
+  return item.freshnessLane === "breaking_14d" || item.freshnessLane === "recent_30d";
+}
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
@@ -76,7 +101,17 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     ],
     "paywallStatus": "free",
     "status": "published",
-    "riskLevel": "medium"
+    "riskLevel": "medium",
+    "sourcePublishedDate": "2026-05-18",
+    "dateDiscovered": "2026-05-22",
+    "freshnessLane": "breaking_14d",
+    "relatedProjectSlugs": [
+      "mandarin-oriental"
+    ],
+    "relatedCorridors": [
+      "north-flagler"
+    ],
+    "primaryProjectSlug": "mandarin-oriental"
   },
   {
     "id": "wflx-nora-house-2026-04-10",
@@ -121,7 +156,17 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     ],
     "paywallStatus": "free",
     "status": "published",
-    "riskLevel": "medium"
+    "riskLevel": "medium",
+    "sourcePublishedDate": "2026-04-10",
+    "dateDiscovered": "2026-05-22",
+    "freshnessLane": "archive_only",
+    "relatedProjectSlugs": [
+      "nora-house"
+    ],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "primaryProjectSlug": "nora-house"
   },
   {
     "id": "florida-yimby-rosewood-proposal-2026-01",
@@ -166,7 +211,17 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     ],
     "paywallStatus": "free",
     "status": "published",
-    "riskLevel": "high"
+    "riskLevel": "high",
+    "sourcePublishedDate": "2026-01-01",
+    "dateDiscovered": "2026-05-22",
+    "freshnessLane": "archive_only",
+    "relatedProjectSlugs": [
+      "rosewood"
+    ],
+    "relatedCorridors": [
+      "north-flagler"
+    ],
+    "primaryProjectSlug": "rosewood"
   },
   {
     "id": "florida-yimby-south-flagler-tops-out-2025-11",
@@ -211,7 +266,17 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     ],
     "paywallStatus": "free",
     "status": "published",
-    "riskLevel": "medium"
+    "riskLevel": "medium",
+    "sourcePublishedDate": "2025-11-01",
+    "dateDiscovered": "2026-05-22",
+    "freshnessLane": "archive_only",
+    "relatedProjectSlugs": [
+      "south-flagler-house"
+    ],
+    "relatedCorridors": [
+      "south-flagler"
+    ],
+    "primaryProjectSlug": "south-flagler-house"
   },
   {
     "id": "2026-05-23-wpb-vertical-resort-condos",
@@ -258,7 +323,16 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "imagePath": "/hero/north-flagler-skyline-mockup.jpg",
     "paywallStatus": "unknown",
     "status": "published",
-    "riskLevel": "low"
+    "riskLevel": "low",
+    "sourcePublishedDate": "2026-03-26",
+    "dateDiscovered": "2026-05-23",
+    "freshnessLane": "archive_only",
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "south-flagler",
+      "north-flagler",
+      "downtown"
+    ]
   },
   {
     "id": "2026-05-23-nora-residential-gravity",
@@ -305,8 +379,19 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "imagePath": "/projects/nora-house/media/card.jpg",
     "paywallStatus": "unknown",
     "status": "published",
-    "riskLevel": "low"
+    "riskLevel": "low",
+    "sourcePublishedDate": "2026-03-26",
+    "dateDiscovered": "2026-05-23",
+    "freshnessLane": "archive_only",
+    "relatedProjectSlugs": [
+      "nora-house"
+    ],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "primaryProjectSlug": "nora-house"
   }
 ] as const;
 
-export const publishedExternalNews = approvedExternalNews.filter((item) => item.status === "published");
+export const publishedExternalNews = sortNewsItems(approvedExternalNews.filter((item) => item.status === "published"));
+export const homepageExternalNews = publishedExternalNews.filter(isHomepageFreshnessLane);

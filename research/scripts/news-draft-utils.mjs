@@ -78,6 +78,16 @@ export function isoDate(value = new Date()) {
   return match ? match[0] : new Date().toISOString().slice(0, 10);
 }
 
+export function freshnessLaneFor(sourcePublishedDate, dateDiscovered = new Date()) {
+  const sourceMs = Date.parse(sourcePublishedDate);
+  const discoveredMs = Date.parse(dateDiscovered instanceof Date ? dateDiscovered.toISOString() : dateDiscovered) || Date.now();
+  if (Number.isNaN(sourceMs)) return "archive_only";
+  const ageDays = Math.floor((discoveredMs - sourceMs) / 86400000);
+  if (ageDays <= 14) return "breaking_14d";
+  if (ageDays <= 30) return "recent_30d";
+  return "archive_only";
+}
+
 export function riskLevelFor(candidate) {
   const explicit = clean(candidate.riskLevel).toLowerCase().replace(/-/g, "_");
   if (riskLevels.has(explicit)) return explicit;
@@ -121,6 +131,7 @@ export async function normalizeCandidate(candidate, existingItems = []) {
   const source = Array.isArray(candidate.sources) ? candidate.sources[0] : candidate.source;
   const sourceTitle = clean(candidate.sourceTitle || source?.title || candidate.title || candidate.headline || "Untitled source item");
   const sourcePublishedAt = isoDate(candidate.sourcePublishedAt || source?.date || candidate.publishedAt || candidate.date);
+  const dateDiscovered = isoDate(candidate.dateDiscovered || candidate.discoveredAt || now);
   const riskLevel = riskLevelFor(candidate);
   const rewrittenHeadline = clean(candidate.rewrittenHeadline || candidate.headline || buyerHeadline(sourceTitle));
   const relatedProjectIds = asSlugArray(candidate.relatedProjectIds || candidate.projects || candidate.projectIds);
@@ -140,11 +151,18 @@ export async function normalizeCandidate(candidate, existingItems = []) {
     sourceName: clean(candidate.sourceName || source?.publication || candidate.publication || candidate.publisher || "Source"),
     sourceTitle,
     sourcePublishedAt,
+    sourcePublishedDate: clean(candidate.sourcePublishedDate || sourcePublishedAt),
+    eventDate: clean(candidate.eventDate),
+    dateDiscovered,
+    freshnessLane: clean(candidate.freshnessLane) || freshnessLaneFor(sourcePublishedAt, dateDiscovered),
     status: statusForRisk(riskLevel, candidate),
     riskLevel,
     publishMode: riskLevel === "high" ? "manual-review" : riskLevel === "medium" ? "queued-unless-blocked" : "auto-queue",
     relatedProjectIds,
     relatedCorridorIds,
+    relatedProjectSlugs: asSlugArray(candidate.relatedProjectSlugs || relatedProjectIds),
+    relatedCorridors: asSlugArray(candidate.relatedCorridors || relatedCorridorIds),
+    primaryProjectSlug: clean(candidate.primaryProjectSlug || relatedProjectIds[0]),
     suggestedImagePath: image.path,
     imageResolutionReason: image.reason,
     suggestedImagePrompt: image.prompt,
@@ -208,6 +226,10 @@ export function eligibleForAutoPublish(item, config, now = new Date()) {
 }
 
 export function publicNewsRecordFromDraft(item) {
+  const sourcePublishedDate = item.sourcePublishedDate || item.sourcePublishedAt;
+  const dateDiscovered = item.dateDiscovered || isoDate(item.createdAt || new Date());
+  const relatedProjectSlugs = item.relatedProjectSlugs?.length ? item.relatedProjectSlugs : item.relatedProjectIds ?? [];
+  const relatedCorridors = item.relatedCorridors?.length ? item.relatedCorridors : item.relatedCorridorIds ?? [];
   return {
     id: item.id,
     slug: item.slug || item.id,
@@ -216,8 +238,12 @@ export function publicNewsRecordFromDraft(item) {
     sourceUrl: item.sourceUrl,
     canonicalUrl: item.sourceUrl,
     sourcePublishedAt: item.sourcePublishedAt,
-    publishedAt: isoDate(item.sourcePublishedAt || new Date()),
-    fetchedAt: isoDate(item.createdAt || new Date()),
+    sourcePublishedDate,
+    eventDate: item.eventDate || undefined,
+    dateDiscovered,
+    freshnessLane: item.freshnessLane || freshnessLaneFor(sourcePublishedDate, dateDiscovered),
+    publishedAt: isoDate(sourcePublishedDate || new Date()),
+    fetchedAt: dateDiscovered,
     deck: item.deck,
     description: item.deck,
     summary: item.buyerTakeaway || item.deck,
@@ -232,6 +258,9 @@ export function publicNewsRecordFromDraft(item) {
     category: item.riskLevel === "high" ? "general" : item.riskLevel === "medium" ? "construction" : "development",
     relatedProjectIds: item.relatedProjectIds ?? [],
     relatedCorridorIds: item.relatedCorridorIds ?? [],
+    relatedProjectSlugs,
+    relatedCorridors,
+    primaryProjectSlug: item.primaryProjectSlug || relatedProjectSlugs[0] || undefined,
     imageUrl: item.suggestedImagePath || undefined,
     imagePath: item.suggestedImagePath || undefined,
     paywallStatus: "unknown",

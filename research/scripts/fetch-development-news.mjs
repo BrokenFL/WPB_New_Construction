@@ -3,6 +3,8 @@ import path from "node:path";
 
 const workspace = process.cwd();
 const outputPath = path.join(workspace, "research/news-review/development-news-candidates.json");
+const defaultSourceWindowDays = 14;
+const fallbackSourceWindowDays = 30;
 
 const queries = [
   "West Palm Beach development",
@@ -75,6 +77,20 @@ function matchIds(text, matchers) {
   return matchers.filter(([, pattern]) => pattern.test(text)).map(([id]) => id);
 }
 
+function freshnessLaneFor(sourcePublishedDate, dateDiscovered = new Date()) {
+  const sourceMs = Date.parse(sourcePublishedDate);
+  const discoveredMs = Date.parse(dateDiscovered instanceof Date ? dateDiscovered.toISOString() : dateDiscovered) || Date.now();
+  if (Number.isNaN(sourceMs)) return "archive_only";
+  const ageDays = Math.floor((discoveredMs - sourceMs) / 86400000);
+  if (ageDays <= defaultSourceWindowDays) return "breaking_14d";
+  if (ageDays <= fallbackSourceWindowDays) return "recent_30d";
+  return "background_context";
+}
+
+function isCredibleCandidate(item) {
+  return item.relatedProjectSlugs.length > 0 || item.relatedCorridors.length > 0 || /condo|development|construction|planning|waterfront|residence|tower/i.test(`${item.title} ${item.description}`);
+}
+
 async function fetchQuery(query) {
   const url = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
   const response = await fetch(url, { headers: { "User-Agent": "WPB New Construction news review" } });
@@ -88,9 +104,13 @@ async function fetchQuery(query) {
     const sourceName = tagValue(block, "source") || sourceFromTitle(rawTitle) || hostFor(link) || "Unknown source";
     const sourceUrl = block.match(/<source[^>]*url="([^"]+)"/i)?.[1] ?? link;
     const publishedAt = new Date(tagValue(block, "pubDate") || Date.now()).toISOString();
+    const sourcePublishedDate = publishedAt.slice(0, 10);
+    const dateDiscovered = new Date().toISOString().slice(0, 10);
     const description = tagValue(block, "description").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
     const matchText = `${title} ${description}`;
     const host = hostFor(sourceUrl || link);
+    const relatedProjectSlugs = matchIds(matchText, projectMatchers);
+    const relatedCorridors = matchIds(matchText, corridorMatchers);
     return {
       id: `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 72)}-${publishedAt.slice(0, 10)}`,
       title,
@@ -99,12 +119,19 @@ async function fetchQuery(query) {
       canonicalUrl: sourceUrl || link,
       googleNewsUrl: link,
       publishedAt,
-      fetchedAt: new Date().toISOString(),
+      sourcePublishedAt: sourcePublishedDate,
+      sourcePublishedDate,
+      dateDiscovered,
+      freshnessLane: freshnessLaneFor(sourcePublishedDate, dateDiscovered),
+      fetchedAt: dateDiscovered,
       description,
       query,
       category: categoryFor(query, title),
-      relatedProjectIds: matchIds(matchText, projectMatchers),
-      relatedCorridorIds: matchIds(matchText, corridorMatchers),
+      relatedProjectIds: relatedProjectSlugs,
+      relatedCorridorIds: relatedCorridors,
+      relatedProjectSlugs,
+      relatedCorridors,
+      primaryProjectSlug: relatedProjectSlugs[0] || undefined,
       imageUrl: "",
       paywallStatus: likelyPaywalledHosts.some((paywallHost) => host.includes(paywallHost)) ? "likely-paywalled" : "unknown",
       status: "needs-review",
@@ -120,7 +147,18 @@ for (const query of queries) {
   }
 }
 
-const candidates = [...byKey.values()].filter((item) => /west palm|wpb|flagler|nora|cityplace|rosewood|mandarin|shorecrest|olara/i.test(`${item.title} ${item.description}`));
+const allCandidates = [...byKey.values()].filter((item) => /west palm|wpb|flagler|nora|cityplace|rosewood|mandarin|shorecrest|olara/i.test(`${item.title} ${item.description}`));
+const breakingCandidates = allCandidates.filter((item) => item.freshnessLane === "breaking_14d");
+const recentCandidates = allCandidates.filter((item) => item.freshnessLane === "recent_30d");
+const credibleBreaking = breakingCandidates.filter(isCredibleCandidate);
+const publishableWindow = credibleBreaking.length >= 2 ? new Set(["breaking_14d"]) : new Set(["breaking_14d", "recent_30d"]);
+const candidates = allCandidates
+  .map((item) => publishableWindow.has(item.freshnessLane) ? item : { ...item, freshnessLane: item.freshnessLane === "recent_30d" ? "background_context" : item.freshnessLane })
+  .sort((a, b) => {
+    const dateDelta = Date.parse(b.sourcePublishedDate) - Date.parse(a.sourcePublishedDate);
+    if (dateDelta !== 0) return dateDelta;
+    return a.id.localeCompare(b.id);
+  });
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, `${JSON.stringify(candidates, null, 2)}\n`);
-console.log(`Wrote ${candidates.length} news candidate${candidates.length === 1 ? "" : "s"} to ${outputPath}`);
+console.log(`Wrote ${candidates.length} news candidate${candidates.length === 1 ? "" : "s"} to ${outputPath} (${breakingCandidates.length} within 14d, ${recentCandidates.length} within 30d).`);

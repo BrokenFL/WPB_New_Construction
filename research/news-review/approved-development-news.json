@@ -42,7 +42,17 @@
     ],
     "paywallStatus": "free",
     "status": "published",
-    "riskLevel": "medium"
+    "riskLevel": "medium",
+    "sourcePublishedDate": "2026-05-18",
+    "dateDiscovered": "2026-05-22",
+    "freshnessLane": "breaking_14d",
+    "relatedProjectSlugs": [
+      "mandarin-oriental"
+    ],
+    "relatedCorridors": [
+      "north-flagler"
+    ],
+    "primaryProjectSlug": "mandarin-oriental"
   },
   {
     "id": "wflx-nora-house-2026-04-10",
@@ -87,7 +97,17 @@
     ],
     "paywallStatus": "free",
     "status": "published",
-    "riskLevel": "medium"
+    "riskLevel": "medium",
+    "sourcePublishedDate": "2026-04-10",
+    "dateDiscovered": "2026-05-22",
+    "freshnessLane": "archive_only",
+    "relatedProjectSlugs": [
+      "nora-house"
+    ],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "primaryProjectSlug": "nora-house"
   },
   {
     "id": "florida-yimby-rosewood-proposal-2026-01",
@@ -132,7 +152,17 @@
     ],
     "paywallStatus": "free",
     "status": "published",
-    "riskLevel": "high"
+    "riskLevel": "high",
+    "sourcePublishedDate": "2026-01-01",
+    "dateDiscovered": "2026-05-22",
+    "freshnessLane": "archive_only",
+    "relatedProjectSlugs": [
+      "rosewood"
+    ],
+    "relatedCorridors": [
+      "north-flagler"
+    ],
+    "primaryProjectSlug": "rosewood"
   },
   {
     "id": "florida-yimby-south-flagler-tops-out-2025-11",
@@ -177,7 +207,17 @@
     ],
     "paywallStatus": "free",
     "status": "published",
-    "riskLevel": "medium"
+    "riskLevel": "medium",
+    "sourcePublishedDate": "2025-11-01",
+    "dateDiscovered": "2026-05-22",
+    "freshnessLane": "archive_only",
+    "relatedProjectSlugs": [
+      "south-flagler-house"
+    ],
+    "relatedCorridors": [
+      "south-flagler"
+    ],
+    "primaryProjectSlug": "south-flagler-house"
   },
   {
     "id": "2026-05-23-wpb-vertical-resort-condos",
@@ -224,7 +264,16 @@
     "imagePath": "/hero/north-flagler-skyline-mockup.jpg",
     "paywallStatus": "unknown",
     "status": "published",
-    "riskLevel": "low"
+    "riskLevel": "low",
+    "sourcePublishedDate": "2026-03-26",
+    "dateDiscovered": "2026-05-23",
+    "freshnessLane": "archive_only",
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "south-flagler",
+      "north-flagler",
+      "downtown"
+    ]
   },
   {
     "id": "2026-05-23-nora-residential-gravity",
@@ -271,6 +320,16 @@
     "imagePath": "/projects/nora-house/media/card.jpg",
     "paywallStatus": "unknown",
     "status": "published",
-    "riskLevel": "low"
+    "riskLevel": "low",
+    "sourcePublishedDate": "2026-03-26",
+    "dateDiscovered": "2026-05-23",
+    "freshnessLane": "archive_only",
+    "relatedProjectSlugs": [
+      "nora-house"
+    ],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "primaryProjectSlug": "nora-house"
   }
 ]

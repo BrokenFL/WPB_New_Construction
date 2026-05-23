@@ -8,9 +8,10 @@ import {
 } from "./generated/siteData";
 import { editorProjectOverrides, type EditorProjectOverrides } from "./generated/editorOverrides";
 import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
-import { publishedExternalNews, type ExternalNewsItem } from "./data/approvedExternalNews";
+import { homepageExternalNews, publishedExternalNews, type ExternalNewsItem } from "./data/approvedExternalNews";
 import { editorialImageForId, type EditorialImageId } from "./data/editorialImagery";
 import { homeHeroImages } from "./data/homeHeroImages";
+import { batch1ProjectCopyByProjectId, loadBatch1ProjectCopyPackageSync, type ProjectCopyPackage } from "./data/projectCopyPackage";
 import homepageOverridesRaw from "../content/overrides/homepage-overrides.json";
 import homepageCardOverridesRaw from "../content/overrides/homepage-card-overrides.json";
 import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
@@ -187,6 +188,7 @@ type ProjectPageDraft = {
   gallery: MediaAsset[];
   documents: ProjectDocument[];
   needed: string[];
+  copyPackage?: ProjectCopyPackage;
 };
 
 type GoogleMapsNamespace = {
@@ -2056,6 +2058,8 @@ if (!app) {
   throw new Error("App container was not found.");
 }
 
+loadBatch1ProjectCopyPackageSync();
+
 app.innerHTML = `
   <div class="site-shell">
     <header class="site-nav">
@@ -2186,7 +2190,7 @@ app.innerHTML = `
           <h2>${escapeHtml(approvedHomepageOverride("updates")?.headline || "New-construction signals worth watching.")}</h2>
         </div>
         <div class="home-news-grid">
-          ${publishedExternalNews.slice(0, 4).map(renderHomeExternalNewsItem).join("")}
+          ${homepageExternalNews.slice(0, 3).map(renderHomeExternalNewsItem).join("")}
         </div>
         <a class="home-answer-archive-link" href="/updates/">More West Palm Beach Development Updates <span aria-hidden="true">→</span></a>
       </section>
@@ -5538,9 +5542,7 @@ function externalNewsImageContext(item: ExternalNewsItem): ContentImageContext {
 }
 
 function relatedNewsLabel(item: ExternalNewsItem) {
-  const projectLabels = item.relatedProjectIds
-    .map((projectId) => featuredProjects.find((project) => project.id === projectId)?.name)
-    .filter(Boolean);
+  const projectLabels = relatedProjectsForArticle(item).map((project) => project.name);
   if (projectLabels.length) return `Related: ${projectLabels.join(", ")}`;
   const corridorLabels = item.relatedCorridorIds
     .map((corridorId) => corridorSections.find((section) => section.key === corridorId)?.label)
@@ -5569,7 +5571,7 @@ function renderExternalNewsItem(item: ExternalNewsItem) {
     <article class="news-card intelligence-news-card external-news-card" id="${escapeHtml(item.id)}" data-news-card data-news-category="${escapeHtml(item.category)}" data-news-corridors="${escapeHtml(item.relatedCorridorIds.join(" "))}" data-news-projects="${escapeHtml(item.relatedProjectIds.join(" "))}" data-news-search="${escapeHtml(searchText.toLowerCase())}">
       ${renderResolvedContentImage(resolvedImage)}
       <div>
-        <span>${publicText(item.category)} · ${publicText(formatNewsDate(item.publishedAt))}</span>
+        <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
         <strong>${publicText(item.title)}</strong>
         <p>${publicText(article.excerpt)}</p>
         <small>${publicText(relatedNewsLabel(item))}</small>
@@ -5586,7 +5588,7 @@ function renderFeaturedExternalNewsItem(item: ExternalNewsItem) {
     <article class="featured-update-card">
       ${renderResolvedContentImage(resolvedImage)}
       <div>
-        <span>${publicText(item.category)} · ${publicText(formatNewsDate(item.publishedAt))} · ${publicText(relatedNewsLabel(item).replace(/^Related:\s*/, ""))}</span>
+        <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))} · ${publicText(relatedNewsLabel(item).replace(/^Related:\s*/, ""))}</span>
         <h2>${publicText(item.title)}</h2>
         <p>${publicText(article.deck)}</p>
         <a class="button primary" href="${updatePath(item)}">Read Latest Update <span aria-hidden="true">→</span></a>
@@ -5603,7 +5605,7 @@ function renderHomeExternalNewsItem(item: ExternalNewsItem) {
     <article class="home-news-card external-news-card" id="home-${escapeHtml(item.id)}">
       ${cardOverride?.imagePath ? renderHomepageOverrideImage(cardOverride, item.title) : renderResolvedContentImage(resolvedImage)}
       <div>
-        <span>Update · ${publicText(relatedNewsLabel(item).replace(/^Related:\s*/, ""))} · ${publicText(formatNewsDate(item.publishedAt))}</span>
+        <span>Update · ${publicText(relatedNewsLabel(item).replace(/^Related:\s*/, ""))} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
         <strong>${publicText(cardOverride?.headline || item.title)}</strong>
         <p>${publicText(cardOverride?.deck || cardOverride?.subhead || article.excerpt)}</p>
         <small>${publicText(relatedNewsLabel(item))}</small>
@@ -5678,9 +5680,7 @@ function initNewsArchive() {
 }
 
 function updateArticleContent(item: ExternalNewsItem) {
-  const relatedProjects = item.relatedProjectIds
-    .map((projectId) => featuredProjects.find((project) => project.id === projectId))
-    .filter((project): project is FeaturedProject => Boolean(project));
+  const relatedProjects = relatedProjectsForArticle(item);
   const relatedProjectNames = relatedProjects.map((project) => project.name).join(", ");
   const relatedLabel = relatedProjectNames || relatedNewsLabel(item).replace(/^Related:\s*/i, "");
   const deck = item.deck || item.description || `${item.sourceName} reported a West Palm Beach development update tied to ${relatedLabel}.`;
@@ -5754,9 +5754,7 @@ function updateArticleContent(item: ExternalNewsItem) {
 function renderUpdateArticle(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
   const content = updateArticleContent(item);
-  const relatedProjects = item.relatedProjectIds
-    .map((projectId) => featuredProjects.find((project) => project.id === projectId))
-    .filter((project): project is FeaturedProject => Boolean(project));
+  const relatedProjects = relatedProjectsForArticle(item);
   return `
     <article class="market-note-article update-article">
       <header class="section market-note-hero">
@@ -5771,7 +5769,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
       </header>
       <section class="market-note-meta-strip" aria-label="Update metadata">
         <div><span>Category</span><strong>${publicText(item.category)}</strong></div>
-        <div><span>Published</span><strong>${publicText(formatNewsDate(item.publishedAt))}</strong></div>
+        <div><span>Published</span><strong>${publicText(formatNewsDate(newsDisplayDate(item)))}</strong></div>
         <div><span>Updated</span><strong>${publicText(item.fetchedAt)}</strong></div>
         <div><span>Related</span><strong>${relatedProjects.length || item.relatedCorridorIds.length}</strong></div>
       </section>
@@ -5827,6 +5825,15 @@ function renderUpdateArticle(item: ExternalNewsItem) {
       </footer>
     </article>
   `;
+}
+
+function relatedProjectsForArticle(item: ExternalNewsItem) {
+  const slugs = new Set([
+    ...(item.relatedProjectIds ?? []),
+    ...(item.relatedProjectSlugs ?? []),
+    item.primaryProjectSlug,
+  ].filter(Boolean));
+  return featuredProjects.filter((project) => slugs.has(project.id) || projectCopySlugs(project.id).some((slug) => slugs.has(slug)));
 }
 
 function renderMissingUpdateArticle() {
@@ -6135,8 +6142,39 @@ function renderProjectMissingInfoPanel(project: FeaturedProject) {
   `;
 }
 
+function renderProjectBuyerLens(copy: ProjectCopyPackage) {
+  return `
+    <section class="section project-buyer-lens" aria-label="Brooke's buyer lens">
+      <div class="section-heading">
+        <p class="eyebrow">Brooke's Buyer Lens</p>
+        <h2>${publicText(copy.introHeadline)}</h2>
+        <p>${publicText(copy.brookeTake)}</p>
+      </div>
+      <div class="project-buyer-lens-grid">
+        <article>
+          <span>Best for</span>
+          <ul>${copy.bestFor.map((item) => `<li>${publicText(item)}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <span>What makes it different</span>
+          <ul>${copy.signatureFeatures.map((item) => `<li>${publicText(item)}</li>`).join("")}</ul>
+        </article>
+        <article>
+          <span>Compare against</span>
+          <p>${publicText(copy.buyerComparisonNotes)}</p>
+        </article>
+        <article>
+          <span>Source posture</span>
+          <p>${publicText(copy.sourceNotes.join(" "))}</p>
+          <small>Copy research: ${publicText(copy.lastCopyResearchDate)} · Confidence: ${publicText(copy.copyConfidence)}</small>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
 function renderProjectRelatedNews(project: FeaturedProject) {
-  const items = publishedExternalNews.filter((item) => item.relatedProjectIds.includes(project.id));
+  const items = publishedExternalNews.filter((item) => projectMatchesArticle(project, item));
   if (!items.length) return "";
   return `
     <section class="section project-related-news" id="project-updates-${project.id}" aria-label="${project.name} related development news">
@@ -6184,12 +6222,13 @@ function renderProjectInternalComparison(project: FeaturedProject) {
 }
 
 function renderProjectUpdateNote(item: ExternalNewsItem) {
+  const article = updateArticleContent(item);
   return `
     <article class="project-note-row" id="${escapeHtml(item.id)}">
       <div>
-        <span>${publicText(formatNewsDate(item.publishedAt))} — ${publicText(item.title)}</span>
-        ${item.description ? `<p>${publicText(item.description)}</p>` : ""}
-        <small>Source: ${publicText(item.sourceName)}${item.paywallStatus === "likely-paywalled" ? " · May require subscription" : ""}</small>
+        <span>${publicText(item.title)}</span>
+        <p>${publicText(article.excerpt)}</p>
+        <small>${publicText(formatNewsDate(newsDisplayDate(item)))} · ${publicText(item.category)} · Source: ${publicText(item.sourceName)}${item.paywallStatus === "likely-paywalled" ? " · May require subscription" : ""}</small>
       </div>
       <nav aria-label="${escapeHtml(item.title)} actions">
         <a href="${updatePath(item)}">Read Update</a>
@@ -6199,8 +6238,28 @@ function renderProjectUpdateNote(item: ExternalNewsItem) {
   `;
 }
 
+function projectMatchesArticle(project: FeaturedProject, item: ExternalNewsItem) {
+  const projectSlugs = new Set([
+    project.id,
+    ...projectCopySlugs(project.id),
+  ]);
+  return item.relatedProjectIds.includes(project.id) ||
+    item.relatedProjectSlugs?.some((slug) => projectSlugs.has(slug)) ||
+    (item.primaryProjectSlug ? projectSlugs.has(item.primaryProjectSlug) : false);
+}
+
+function projectCopySlugs(projectId: string) {
+  const copy = batch1ProjectCopyByProjectId.get(projectId);
+  return copy ? [copy.slug, copy.repoProjectId] : [projectId];
+}
+
+function newsDisplayDate(item: ExternalNewsItem) {
+  return item.publishedAt || item.sourcePublishedDate || item.sourcePublishedAt || item.dateDiscovered || item.fetchedAt;
+}
+
 function renderDraftProjectPage(project: FeaturedProject) {
   const draft = editorProjectPageDrafts[project.id] ?? projectDraftFromFeatured(project);
+  const copyPackage = batch1ProjectCopyByProjectId.get(project.id);
   const floorplanProject = getFloorplanProject(project.id);
   const floorplanCount = floorplanProject?.count ?? 0;
   const brochureStats = projectBrochureStats(project, draft, floorplanCount);
@@ -6227,8 +6286,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
         </figure>
         <div class="brochure-hero-copy">
           <p class="eyebrow">${project.corridor} · West Palm Beach</p>
-          <h1>${brochureHeadline(project)}</h1>
-          <p>${publicText(project.editorialIntro ?? draft.intro)}</p>
+          <h1>${copyPackage ? publicText(copyPackage.introHeadline) : brochureHeadline(project)}</h1>
+          <p>${publicText(copyPackage?.introDek ?? project.editorialIntro ?? draft.intro)}</p>
           <div class="hero-actions">
             ${isCompactWatch
               ? `<a class="button primary" href="#project-updates-${project.id}">${primaryCta}</a>`
@@ -6257,12 +6316,13 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
       ${renderProjectKnownFactsPanel(project, draft, pageType)}
       ${renderProjectSnapshotPanel(project.id)}
+      ${copyPackage ? renderProjectBuyerLens(copyPackage) : ""}
 
       <section class="brochure-module brochure-residences-module" id="overview-${project.id}">
         <div class="brochure-module-copy">
           <p class="eyebrow">${isCompactWatch ? "Editorial Brief" : "Residences"}</p>
           <h2>${isCompactWatch ? `${project.name} buyer read` : residenceSectionTitle(project)}</h2>
-          <p>${publicText(project.summary)}</p>
+          <p>${publicText(copyPackage?.residenceNarrative ?? project.summary)}</p>
           <a href="#project-resources-${project.id}">${isCompactWatch ? "View what is confirmed" : "View floor plans"} <span aria-hidden="true">→</span></a>
         </div>
         ${hasGallery ? `
@@ -6276,7 +6336,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <div class="brochure-module-copy">
           <p class="eyebrow">Amenities</p>
           <h2>The lifestyle layer.</h2>
-          <p>${publicText(draft.highlights[0]?.note ?? "Indoor and outdoor amenities define how the building lives beyond the residence itself: wellness, service, gathering, privacy, and daily convenience.")}</p>
+          <p>${publicText(copyPackage?.amenityNarrative ?? draft.highlights[0]?.note ?? "Indoor and outdoor amenities define how the building lives beyond the residence itself: wellness, service, gathering, privacy, and daily convenience.")}</p>
           <a href="/inquire/?project=${project.id}&interest=floorplans">Request amenity details <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-tile-grid brochure-tile-grid-six">
@@ -6288,7 +6348,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <div class="brochure-module-copy">
           <p class="eyebrow">Design Team</p>
           <h2>The team behind the address.</h2>
-          <p>${publicText(draft.team[0]?.note ?? "Project and design credits help buyers understand the architectural point of view, operational standard, and long-term ownership confidence behind each residence.")}</p>
+          <p>${publicText(copyPackage?.projectTeamNarrative ?? draft.team[0]?.note ?? "Project and design credits help buyers understand the architectural point of view, operational standard, and long-term ownership confidence behind each residence.")}</p>
           <a href="#project-resources-${project.id}">View the team <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-team-grid">
@@ -6300,7 +6360,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <div class="brochure-module-copy">
           <p class="eyebrow">The Neighborhood</p>
           <h2>${locationSectionTitle(project)}</h2>
-          <p>${publicText(draft.locationCopy)}</p>
+          <p>${publicText(copyPackage?.locationNarrative ?? draft.locationCopy)}</p>
           <a href="/#atlas">Open full atlas <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-location-panel">

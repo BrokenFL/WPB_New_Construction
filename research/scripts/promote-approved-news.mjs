@@ -18,9 +18,13 @@ const items = JSON.parse(fs.readFileSync(approvedPath, "utf8"));
 if (!Array.isArray(items)) fail(`${approvedPath} must contain an array.`);
 
 const seenCanonical = new Set();
-for (const [index, item] of items.entries()) {
+const normalizedItems = items.map((item) => normalizeApprovedNewsItem(item));
+for (const [index, item] of normalizedItems.entries()) {
   for (const field of ["id", "title", "sourceName", "sourceUrl", "canonicalUrl", "publishedAt", "fetchedAt", "category", "paywallStatus", "status"]) {
     if (!item[field]) fail(`item ${index} is missing ${field}.`);
+  }
+  for (const field of ["sourcePublishedDate", "dateDiscovered", "freshnessLane", "relatedProjectSlugs", "relatedCorridors"]) {
+    if (!item[field]) fail(`${item.id}: missing ${field}.`);
   }
   if (!categories.has(item.category)) fail(`${item.id}: invalid category ${item.category}.`);
   if (!paywallStatuses.has(item.paywallStatus)) fail(`${item.id}: invalid paywallStatus ${item.paywallStatus}.`);
@@ -28,6 +32,8 @@ for (const [index, item] of items.entries()) {
   if (item.status !== "published") fail(`${item.id}: approved public news must use status "published".`);
   if (!Array.isArray(item.relatedProjectIds)) fail(`${item.id}: relatedProjectIds must be an array.`);
   if (!Array.isArray(item.relatedCorridorIds)) fail(`${item.id}: relatedCorridorIds must be an array.`);
+  if (!Array.isArray(item.relatedProjectSlugs)) fail(`${item.id}: relatedProjectSlugs must be an array.`);
+  if (!Array.isArray(item.relatedCorridors)) fail(`${item.id}: relatedCorridors must be an array.`);
   if (seenCanonical.has(item.canonicalUrl)) fail(`${item.id}: duplicate canonicalUrl ${item.canonicalUrl}.`);
   seenCanonical.add(item.canonicalUrl);
   if (/news\.google\.com/.test(item.canonicalUrl)) fail(`${item.id}: canonicalUrl must point to the original article, not Google News.`);
@@ -43,6 +49,10 @@ const rendered = `export type ExternalNewsItem = {
   canonicalUrl: string;
   publishedAt: string;
   sourcePublishedAt?: string;
+  sourcePublishedDate: string;
+  eventDate?: string;
+  dateDiscovered: string;
+  freshnessLane: "breaking_14d" | "recent_30d" | "evergreen_context" | "evergreen_analysis" | "background_context" | "archive_only";
   fetchedAt: string;
   deck?: string;
   description?: string;
@@ -59,6 +69,9 @@ const rendered = `export type ExternalNewsItem = {
   category: "development" | "construction" | "planning" | "sales" | "financing" | "city" | "press-release" | "general";
   relatedProjectIds: string[];
   relatedCorridorIds: string[];
+  relatedProjectSlugs: string[];
+  relatedCorridors: string[];
+  primaryProjectSlug?: string;
   corridorLabel?: string;
   imageUrl?: string;
   imagePath?: string;
@@ -68,10 +81,57 @@ const rendered = `export type ExternalNewsItem = {
   riskLevel?: "low" | "medium" | "high";
 };
 
-export const approvedExternalNews: readonly ExternalNewsItem[] = ${JSON.stringify(items, null, 2)} as const;
+export function newsSortTimestamp(item: ExternalNewsItem): number {
+  const value = item.publishedAt || item.sourcePublishedDate || item.sourcePublishedAt || item.dateDiscovered || item.fetchedAt;
+  const timestamp = Date.parse(value);
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
 
-export const publishedExternalNews = approvedExternalNews.filter((item) => item.status === "published");
+export function sortNewsItems<T extends ExternalNewsItem>(items: readonly T[]): T[] {
+  return [...items].sort((a, b) => {
+    const dateDelta = newsSortTimestamp(b) - newsSortTimestamp(a);
+    if (dateDelta !== 0) return dateDelta;
+    return a.id.localeCompare(b.id);
+  });
+}
+
+export function isHomepageFreshnessLane(item: ExternalNewsItem): boolean {
+  return item.freshnessLane === "breaking_14d" || item.freshnessLane === "recent_30d";
+}
+
+export const approvedExternalNews: readonly ExternalNewsItem[] = ${JSON.stringify(normalizedItems, null, 2)} as const;
+
+export const publishedExternalNews = sortNewsItems(approvedExternalNews.filter((item) => item.status === "published"));
+export const homepageExternalNews = publishedExternalNews.filter(isHomepageFreshnessLane);
 `;
 
+fs.writeFileSync(approvedPath, `${JSON.stringify(normalizedItems, null, 2)}\n`);
 fs.writeFileSync(outputPath, rendered);
-console.log(`Promoted ${items.length} approved external news item${items.length === 1 ? "" : "s"} to ${outputPath}`);
+console.log(`Promoted ${normalizedItems.length} approved external news item${normalizedItems.length === 1 ? "" : "s"} to ${outputPath}`);
+
+function normalizeApprovedNewsItem(item) {
+  const sourcePublishedDate = item.sourcePublishedDate || item.sourcePublishedAt || item.publishedAt;
+  const dateDiscovered = item.dateDiscovered || item.fetchedAt || new Date().toISOString().slice(0, 10);
+  const freshnessLane = item.freshnessLane || freshnessLaneFor(sourcePublishedDate, dateDiscovered);
+  const relatedProjectSlugs = item.relatedProjectSlugs || item.relatedProjectIds || [];
+  const relatedCorridors = item.relatedCorridors || item.relatedCorridorIds || [];
+  return {
+    ...item,
+    sourcePublishedDate,
+    dateDiscovered,
+    freshnessLane,
+    relatedProjectSlugs,
+    relatedCorridors,
+    primaryProjectSlug: item.primaryProjectSlug || relatedProjectSlugs[0] || undefined,
+  };
+}
+
+function freshnessLaneFor(sourcePublishedDate, dateDiscovered) {
+  const sourceMs = Date.parse(sourcePublishedDate);
+  const discoveredMs = Date.parse(dateDiscovered) || Date.now();
+  if (Number.isNaN(sourceMs)) return "archive_only";
+  const ageDays = Math.floor((discoveredMs - sourceMs) / 86400000);
+  if (ageDays <= 14) return "breaking_14d";
+  if (ageDays <= 30) return "recent_30d";
+  return "archive_only";
+}
