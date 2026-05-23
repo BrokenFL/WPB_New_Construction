@@ -28,14 +28,14 @@ Skip or hold when the lead is mostly promotional, duplicates existing guidance, 
 ## Workflow
 
 1. GPT/automation gathers 2-3 relevant West Palm Beach new-construction or development leads per day.
-2. Drafts arrive through GitHub issues and `npm run news:import-gpt`, or are entered directly into `content/news-drafts.json`.
+2. Drafts arrive through GitHub issues and `npm run news:process-gpt-issues`, or are entered directly into `content/news-drafts.json`.
 3. Confirm each factual claim against source material.
 4. Add or update source evidence in the research catalog or relevant research note.
 5. Draft the buyer angle:
    - What changed?
    - Which buyer comparison does it affect?
    - What should be confirmed before relying on it?
-6. Low-risk queued drafts can be promoted by `npm run news:publish-queued`; medium/high-risk drafts stay reviewable until Codex or Brooke approves the wording.
+6. Low-risk queued drafts can be promoted by `npm run news:publish-eligible`; medium/high-risk drafts stay reviewable until Codex or Brooke approves the wording.
 7. Approved public updates live in `research/news-review/approved-development-news.json` and are promoted into `src/data/approvedExternalNews.ts` with `npm run news:promote`.
 8. The public reading path is always on-site:
    `Homepage Updates -> /updates/ archive -> /updates/:slug/ article -> inquiry or newsletter CTA`.
@@ -115,6 +115,24 @@ Rules:
 - Published records require `sourceUrl`, `lastCheckedAt`, and non-low confidence.
 - If a public update is older than 90 days, label it as `Older public update`.
 - Never imply older information is current.
+
+## GPT Issue Automation
+
+Manual command:
+
+```bash
+npm run news:process-gpt-issues
+```
+
+The scheduled command runs from `com.brooke.wpb-news-issue-importer` at 9:00 AM, 12:00 PM, 3:00 PM, and 6:00 PM local time. It checks open GitHub issues in `BrokenFL/WPB_New_Construction` where the title starts with `Daily WPB News Drafts` or labels include `gpt-draft`, `news-candidate`, or `needs-codex-draft`. Issues already labeled `codex-imported` are skipped unless `force-reimport` is present.
+
+`news:process-gpt-issues` imports source-backed candidates, publishes only low-risk/high-confidence drafts that pass the auto-publish guardrails, updates the newsletter digest, runs news and launch QA, deploys only after QA passes and publishable files changed, then runs live QA. Medium/high-risk, unclear, paywalled-only, unsupported, unmapped, or judgment-heavy items stay held for review and receive `needs-review` on the issue.
+
+Disable the schedule:
+
+```bash
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.brooke.wpb-news-issue-importer.plist
+```
 
 ## Handoff Template
 

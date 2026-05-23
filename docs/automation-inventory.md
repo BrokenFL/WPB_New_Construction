@@ -5,6 +5,7 @@
 - `com.brooke.wpb-condo-scan` is loaded in `launchctl` and has a matching file in `~/Library/LaunchAgents/com.brooke.wpb-condo-scan.plist`.
 - `com.brooke.wpb-daily-site-maintenance` is installed in `~/Library/LaunchAgents` and loaded with `launchctl`.
 - `com.brooke.wpb-news-publisher` is installed in `~/Library/LaunchAgents` and loaded with `launchctl`.
+- `com.brooke.wpb-news-issue-importer` is installed in `~/Library/LaunchAgents` and loaded with `launchctl`.
 
 ## Repo Scripts That Can Be Automated
 
@@ -12,6 +13,9 @@
 - `npm run news:fetch` gathers news candidates into review.
 - `npm run news:promote` publishes only approved news from the review file.
 - `npm run news:daily-publisher` imports GPT issue drafts, validates news drafts, publishes only eligible low-risk queued items, generates the newsletter digest, runs news QA, and writes a publisher report.
+- `npm run news:process-gpt-issues` is the safe scheduled GPT issue processor: import matching GitHub issues, publish eligible low-risk items, hold review items, comment/label issues, run QA, and deploy only after passing gates.
+- `npm run news:import-gpt-issues` imports matching GPT/news-candidate GitHub issues into `content/news-drafts.json`.
+- `npm run news:publish-eligible` publishes only drafts that pass `eligibleForAutoPublish`.
 - `npm run newsletter:draft` builds a newsletter-ready digest from published `/updates/` articles plus published/queued intake drafts.
 - `npm run import:developer-images` imports candidate project imagery.
 - `npm run review:developer-images` generates the review report for imported imagery.
@@ -29,6 +33,7 @@
 - `launchd/com.brooke.wpb-developer-image-import.plist` exists in the repo, but it was not confirmed as loaded by `launchctl`.
 - `launchd/com.brooke.wpb-daily-site-maintenance.plist` exists in the repo and is installed locally.
 - `launchd/com.brooke.wpb-news-publisher.plist` exists in the repo and is installed locally.
+- `launchd/com.brooke.wpb-news-issue-importer.plist` exists in the repo and is installed locally.
 - `~/Library/LaunchAgents/com.brooke.wpb-condo-scan.plist` exists locally and is loaded.
 
 ## Automations Missing
@@ -41,6 +46,7 @@
 
 - 9:00 AM local time: run `npm run daily:maintenance`.
 - 9:20 AM local time: run `npm run news:daily-publisher`.
+- 9:00 AM, 12:00 PM, 3:00 PM, and 6:00 PM local time: run `npm run news:process-gpt-issues` from `com.brooke.wpb-news-issue-importer`.
 - The daily maintenance run is review-first: it imports/reviews candidate images, checks updates, copy, image repetition, performance, and duplicate assets, then writes `research/source-material-review/daily-maintenance-report.md`.
 - Human review after the daily report: approve or reject news, image, and copy findings before anything medium/high-risk is promoted publicly.
 - Low-risk news can move from GitHub issue intake to `content/news-drafts.json`, then through `news:publish-queued`, `news:promote`, and `newsletter:draft` without Brooke using the Builder UI.
@@ -61,9 +67,24 @@ Install news publisher:
 /Volumes/ExternalSSD/WPB_NewConstruction/tools/launchers/install-news-publisher-automation.command
 ```
 
+Install GPT news issue importer:
+
+```bash
+cp /Volumes/ExternalSSD/WPB_NewConstruction/launchd/com.brooke.wpb-news-issue-importer.plist ~/Library/LaunchAgents/
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.brooke.wpb-news-issue-importer.plist
+launchctl enable gui/$(id -u)/com.brooke.wpb-news-issue-importer
+```
+
 Uninstall daily maintenance:
 
 ```bash
 launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.brooke.wpb-daily-site-maintenance.plist
 rm ~/Library/LaunchAgents/com.brooke.wpb-daily-site-maintenance.plist
+```
+
+Disable GPT news issue importer:
+
+```bash
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.brooke.wpb-news-issue-importer.plist
+rm ~/Library/LaunchAgents/com.brooke.wpb-news-issue-importer.plist
 ```

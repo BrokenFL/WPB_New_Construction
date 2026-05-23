@@ -27,6 +27,21 @@ export const highRiskTerms = [
   "loan",
   "mortgage",
 ];
+export const reviewFlagTerms = [
+  "paywall",
+  "subscriber-only",
+  "lawsuit",
+  "litigation",
+  "settlement",
+  "foreclosure",
+  "bankruptcy",
+  "fraud",
+  "criminal",
+  "zoning appeal",
+  "code violation",
+  "unverified",
+  "rumor",
+];
 
 export async function readJsonFile(filePath, fallback) {
   const raw = await fs.readFile(filePath, "utf8").catch(() => "");
@@ -106,7 +121,7 @@ export function riskLevelFor(candidate) {
 export function statusForRisk(riskLevel, candidate = {}) {
   const explicit = clean(candidate.status).toLowerCase();
   if (validStatuses.has(explicit)) return explicit;
-  return riskLevel === "high" ? "needs_review" : "queued";
+  return riskLevel === "low" ? "queued" : "needs_review";
 }
 
 export function normalizeBodySections(candidate) {
@@ -157,7 +172,9 @@ export async function normalizeCandidate(candidate, existingItems = []) {
     freshnessLane: clean(candidate.freshnessLane) || freshnessLaneFor(sourcePublishedAt, dateDiscovered),
     status: statusForRisk(riskLevel, candidate),
     riskLevel,
-    publishMode: riskLevel === "high" ? "manual-review" : riskLevel === "medium" ? "queued-unless-blocked" : "auto-queue",
+    confidence: clean(candidate.confidence || candidate.sourceConfidence || candidate.editorialConfidence),
+    paywallStatus: clean(candidate.paywallStatus || candidate.sourcePaywallStatus),
+    publishMode: riskLevel === "low" ? "auto-queue" : "manual-review",
     relatedProjectIds,
     relatedCorridorIds,
     relatedProjectSlugs: asSlugArray(candidate.relatedProjectSlugs || relatedProjectIds),
@@ -220,9 +237,48 @@ export function eligibleForAutoPublish(item, config, now = new Date()) {
   if (item.status !== "queued") return false;
   if (item.riskLevel !== "low") return false;
   if (!config.autoPublishEnabled) return false;
+  if (!item.sourceUrl || !/^https?:\/\//i.test(item.sourceUrl)) return false;
+  if (!clean(item.rewrittenHeadline) || !clean(item.deck) || !clean(item.newsletterBlurb)) return false;
+  if (!Array.isArray(item.bodySections) || item.bodySections.length === 0) return false;
+  if (!mappingIsClear(item)) return false;
+  if (!confidenceIsHigh(item)) return false;
+  if (hasReviewFlags(item)) return false;
   const createdAt = new Date(item.createdAt || item.updatedAt || now);
   const ageHours = (now.getTime() - createdAt.getTime()) / 36e5;
   return ageHours >= Number(config.autoPublishDelayHours ?? 6);
+}
+
+function mappingIsClear(item) {
+  return Boolean(
+    item.primaryProjectSlug ||
+    item.relatedProjectIds?.length ||
+    item.relatedProjectSlugs?.length ||
+    item.relatedCorridorIds?.length ||
+    item.relatedCorridors?.length,
+  );
+}
+
+function confidenceIsHigh(item) {
+  const confidence = clean(item.confidence || item.sourceConfidence || item.editorialConfidence).toLowerCase();
+  if (!confidence) return true;
+  if (confidence === "high") return true;
+  const numeric = Number(confidence);
+  return Number.isFinite(numeric) && numeric >= 0.8;
+}
+
+function hasReviewFlags(item) {
+  const paywall = clean(item.paywallStatus || item.sourcePaywallStatus).toLowerCase();
+  if (paywall.includes("paywall") && !paywall.includes("not")) return true;
+  const text = [
+    item.sourceTitle,
+    item.rewrittenHeadline,
+    item.deck,
+    item.buyerTakeaway,
+    item.cta,
+    item.newsletterBlurb,
+    ...(item.bodySections ?? []).flatMap((section) => [section.heading, section.body]),
+  ].join(" ").toLowerCase();
+  return reviewFlagTerms.some((term) => text.includes(term));
 }
 
 export function publicNewsRecordFromDraft(item) {

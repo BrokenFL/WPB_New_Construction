@@ -10,13 +10,16 @@ import {
 
 const repo = process.env.GITHUB_REPOSITORY || "BrokenFL/WPB_New_Construction";
 const fixturePath = process.env.GPT_NEWS_ISSUES_FIXTURE || "";
+const reportPath = process.env.GPT_NEWS_IMPORT_REPORT || "";
+const dryRun = process.argv.includes("--dry-run") || process.env.GPT_NEWS_IMPORT_DRY_RUN === "1";
 
 async function main() {
   const issues = fixturePath ? JSON.parse(await fs.readFile(fixturePath, "utf8")) : await fetchIssues();
   const matching = issues.filter(isGptNewsIssue);
   const store = await readDraftStore();
   const seenUrls = new Set(store.items.map((item) => item.sourceUrl).filter(Boolean));
-  const importedIssues = [];
+  const importedIssues = new Map();
+  const issueSummaries = [];
   let importedCount = 0;
 
   for (const issue of matching) {
@@ -31,29 +34,62 @@ async function main() {
       },
     }));
     const newDrafts = [];
+    const duplicateDrafts = [];
+    const unimportedDrafts = [];
     for (const candidate of candidates) {
       const sourceUrl = canonicalUrlFor(candidate);
-      if (!sourceUrl || seenUrls.has(sourceUrl)) continue;
+      if (!sourceUrl) {
+        unimportedDrafts.push({ title: candidate.rewrittenHeadline || candidate.sourceTitle || candidate.title || "Untitled candidate", reason: "missing source URL" });
+        continue;
+      }
+      if (seenUrls.has(sourceUrl)) {
+        duplicateDrafts.push({ sourceUrl, title: candidate.rewrittenHeadline || candidate.sourceTitle || candidate.title || sourceUrl });
+        continue;
+      }
       const draft = await normalizeCandidate(candidate, [...store.items, ...newDrafts]);
       newDrafts.push(draft);
       seenUrls.add(sourceUrl);
     }
-    if (!newDrafts.length) continue;
-    store.items.push(...newDrafts);
-    importedCount += newDrafts.length;
-    importedIssues.push(issue);
+    if (newDrafts.length) {
+      store.items.push(...newDrafts);
+      importedCount += newDrafts.length;
+      importedIssues.set(issue.number, issue);
+    }
+    issueSummaries.push({
+      number: issue.number,
+      title: issue.title,
+      url: issue.url,
+      candidateCount: candidates.length,
+      importedCount: newDrafts.length,
+      duplicateCount: duplicateDrafts.length,
+      unimportedCount: unimportedDrafts.length,
+      importedDraftIds: newDrafts.map((draft) => draft.id),
+      duplicateItems: duplicateDrafts,
+      unimportedItems: unimportedDrafts,
+      labels: labelNames(issue),
+    });
   }
 
-  await writeDraftStore(store);
+  if (importedCount > 0 && !dryRun) await writeDraftStore(store);
 
-  if (!fixturePath) {
-    for (const issue of importedIssues) {
+  if (!fixturePath && !dryRun) {
+    for (const issue of importedIssues.values()) {
       commentOnIssue(issue.number, `Imported into content/news-drafts.json on ${new Date().toISOString().slice(0, 10)}.`);
       addLabel(issue.number, "codex-imported");
     }
   }
 
-  console.log(JSON.stringify({ importedIssues: importedIssues.length, importedDrafts: importedCount, output: "content/news-drafts.json" }, null, 2));
+  const report = {
+    generatedAt: new Date().toISOString(),
+    repo,
+    matchedIssues: matching.length,
+    importedIssues: importedIssues.size,
+    importedDrafts: importedCount,
+    issues: issueSummaries,
+    output: "content/news-drafts.json",
+  };
+  if (reportPath) await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+  console.log(JSON.stringify(report, null, 2));
 }
 
 function parseCandidates(body) {
@@ -80,11 +116,18 @@ function parseCandidates(body) {
 
 function isGptNewsIssue(issue) {
   const body = issue.body || "";
-  const labels = (issue.labels || []).map((label) => typeof label === "string" ? label : label.name).filter(Boolean);
-  return /^Daily WPB News Drafts\b/.test(issue.title || "") &&
-    body.includes("news-candidate") &&
-    parseCandidates(body).length > 0 &&
-    ["news-candidate", "gpt-draft", "needs-codex-draft", "wpb-new-construction"].every((label) => body.includes(label) || labels.includes(label));
+  const labels = labelNames(issue);
+  if (labels.includes("codex-imported") && !labels.includes("force-reimport")) return false;
+  const titleMatches = /^Daily WPB News Drafts\b/.test(issue.title || "");
+  const labelMatches = ["news-candidate", "gpt-draft", "needs-codex-draft"].some((label) => labels.includes(label));
+  const bodyMatches = body.includes("news-candidate") || body.includes("gpt-draft") || body.includes("needs-codex-draft");
+  return (titleMatches || labelMatches || bodyMatches) && parseCandidates(body).length > 0;
+}
+
+function labelNames(issue) {
+  return (issue.labels || [])
+    .map((label) => typeof label === "string" ? label : label.name)
+    .filter(Boolean);
 }
 
 function parseMarkdownCandidates(body) {
@@ -208,12 +251,10 @@ async function fetchIssues() {
     repo,
     "--state",
     "open",
-    "--search",
-    '"Daily WPB News Drafts"',
     "--json",
     "number,title,body,url,labels,createdAt",
     "--limit",
-    "50",
+    "100",
   ], { cwd: workspace, encoding: "utf8" });
   if (gh.status === 0) return JSON.parse(gh.stdout || "[]");
 
