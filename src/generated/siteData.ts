@@ -5018,25 +5018,25 @@ export const prerenderRoutes = [
   {
     "path": "/updates/florida-yimby-mandarin-interiors-2026-05-18/",
     "title": "First Interior Renderings Revealed For Mandarin Oriental Residences, West Palm Beach | WPB Updates",
-    "description": "Interior renderings were revealed for the planned 31-story Mandarin Oriental Residences tower at 5400 North Flagler Drive.",
+    "description": "New interior renderings give buyers the first look at the design direction for Mandarin Oriental Residences at 5400 North Flagler Drive, where branded service, finishes, and lifestyle experience are central to the pitch.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/updates/wflx-nora-house-2026-04-10/",
     "title": "Empty lots to luxury living: Multimillion-dollar condos coming to West Palm Beach's growing Nora District | WPB Updates",
-    "description": "Coverage of NORA's next development phase, including an 11-story condominium building called NORA House.",
+    "description": "NORA House anchors the broader north downtown shift from underused blocks into a walkable dining, retail, and residential district, giving buyers a non-waterfront option built around neighborhood energy.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/updates/florida-yimby-rosewood-proposal-2026-01/",
     "title": "Related Group and BH Group Announce Rosewood Residences, a 27-Story Luxury Tower on N Flagler | WPB Updates",
-    "description": "The proposal at 2001 N Flagler Drive is described as a 27-story luxury condominium tower.",
+    "description": "Related Group and BH Group's Rosewood proposal would add another branded luxury signal to North Flagler if it advances, but buyers should treat it as pipeline context rather than an immediate purchase option.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/updates/florida-yimby-south-flagler-tops-out-2025-11/",
     "title": "South Flagler House Tops Out At 1355 South Flagler Drive In West Palm Beach | WPB Updates",
-    "description": "Construction coverage reporting a topping-out milestone for South Flagler House at 1355 South Flagler Drive.",
+    "description": "South Flagler House reaching its topping-out milestone makes the project more tangible in the luxury pipeline for buyers comparing near-term delivery, privacy, scale, and South Flagler positioning.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {

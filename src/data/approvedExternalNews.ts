@@ -26,7 +26,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "canonicalUrl": "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",
     "publishedAt": "2026-05-18",
     "fetchedAt": "2026-05-22",
-    "description": "Interior renderings were revealed for the planned 31-story Mandarin Oriental Residences tower at 5400 North Flagler Drive.",
+    "description": "New interior renderings give buyers the first look at the design direction for Mandarin Oriental Residences at 5400 North Flagler Drive, where branded service, finishes, and lifestyle experience are central to the pitch.",
     "query": "West Palm Beach condo development",
     "category": "development",
     "relatedProjectIds": [
@@ -46,7 +46,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "canonicalUrl": "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/",
     "publishedAt": "2026-04-10",
     "fetchedAt": "2026-05-22",
-    "description": "Coverage of NORA's next development phase, including an 11-story condominium building called NORA House.",
+    "description": "NORA House anchors the broader north downtown shift from underused blocks into a walkable dining, retail, and residential district, giving buyers a non-waterfront option built around neighborhood energy.",
     "query": "Downtown West Palm Beach development",
     "category": "development",
     "relatedProjectIds": [
@@ -66,7 +66,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "canonicalUrl": "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",
     "publishedAt": "2026-01-01",
     "fetchedAt": "2026-05-22",
-    "description": "The proposal at 2001 N Flagler Drive is described as a 27-story luxury condominium tower.",
+    "description": "Related Group and BH Group's Rosewood proposal would add another branded luxury signal to North Flagler if it advances, but buyers should treat it as pipeline context rather than an immediate purchase option.",
     "query": "West Palm Beach development",
     "category": "planning",
     "relatedProjectIds": [
@@ -86,7 +86,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "canonicalUrl": "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html",
     "publishedAt": "2025-11-01",
     "fetchedAt": "2026-05-22",
-    "description": "Construction coverage reporting a topping-out milestone for South Flagler House at 1355 South Flagler Drive.",
+    "description": "South Flagler House reaching its topping-out milestone makes the project more tangible in the luxury pipeline for buyers comparing near-term delivery, privacy, scale, and South Flagler positioning.",
     "query": "West Palm Beach new construction",
     "category": "construction",
     "relatedProjectIds": [

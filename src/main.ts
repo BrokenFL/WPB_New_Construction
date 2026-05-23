@@ -5449,17 +5449,17 @@ function formatNewsDate(value: string) {
 
 function renderExternalNewsItem(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
-  const relatedProject = resolvedImage.relatedProject ?? item.relatedProjectIds.map((projectId) => featuredProjects.find((project) => project.id === projectId)).find(Boolean);
   const article = updateArticleContent(item);
   return `
     <article class="news-card intelligence-news-card external-news-card" id="${escapeHtml(item.id)}">
       ${renderResolvedContentImage(resolvedImage)}
-      <span>${publicText(item.sourceName)} · ${publicText(formatNewsDate(item.publishedAt))}${item.paywallStatus === "likely-paywalled" ? " · Likely paywalled" : ""}</span>
-      <strong>${publicText(item.title)}</strong>
-      <p>${publicText(article.excerpt)}</p>
-      <small>${publicText(relatedNewsLabel(item))}</small>
-      <a class="home-news-link" href="${updatePath(item)}">Read Update <span aria-hidden="true">→</span></a>
-      <a class="home-news-link" href="${relatedProject ? projectPath(relatedProject) : "/inquire/?lead_capture_context=external_update_card"}">${relatedProject ? "View related building" : "Ask Brooke About This"}</a>
+      <div>
+        <span>${publicText(item.sourceName)} · ${publicText(formatNewsDate(item.publishedAt))}${item.paywallStatus === "likely-paywalled" ? " · Likely paywalled" : ""}</span>
+        <strong>${publicText(item.title)}</strong>
+        <p>${publicText(article.excerpt)}</p>
+        <small>${publicText(relatedNewsLabel(item))}</small>
+        <a class="home-news-link" href="${updatePath(item)}">Read Update <span aria-hidden="true">→</span></a>
+      </div>
     </article>
   `;
 }
@@ -5509,21 +5509,63 @@ function updateArticleContent(item: ExternalNewsItem) {
   const relatedProjectNames = relatedProjects.map((project) => project.name).join(", ");
   const relatedLabel = relatedProjectNames || relatedNewsLabel(item).replace(/^Related:\s*/i, "");
   const deck = item.description || `${item.sourceName} reported a West Palm Beach development update tied to ${relatedLabel}.`;
+  const specificContent: Record<string, { story: string[]; whyItMatters: string; brookeTake: string }> = {
+    "florida-yimby-mandarin-interiors-2026-05-18": {
+      story: [
+        "Florida YIMBY reported new interior renderings for Mandarin Oriental Residences, West Palm Beach, the planned tower at 5400 North Flagler Drive. The update shifts the project conversation from basic massing and address into the lifestyle layer buyers will actually compare in person: arrival, finish direction, branded service cues, and amenity atmosphere.",
+        "That matters because Mandarin Oriental is competing in a crowded North Flagler luxury set where the buyer decision is not only about height or waterfront proximity. The interiors help show how the project intends to separate itself through hospitality branding and daily living experience.",
+      ],
+      whyItMatters:
+        "For a buyer comparing Mandarin Oriental with Olara, Ritz-Carlton Residences, Alba, or future North Flagler pipeline projects, the new visuals help clarify whether the building belongs on a service-driven shortlist or a purely waterfront/view-driven shortlist.",
+      brookeTake:
+        "Use the renderings as a design signal, then verify current residence lines, finish packages, view exposure, carrying costs, and what branded services are included versus optional before ranking the project.",
+    },
+    "wflx-nora-house-2026-04-10": {
+      story: [
+        "WFLX covered NORA House as part of the larger Nora District transformation north of downtown West Palm Beach. The buyer angle is not just another condo building; it is a district story, with underused blocks being repositioned around dining, retail, residential density, and walkable neighborhood energy.",
+        "NORA House gives buyers a different version of West Palm Beach new construction. Instead of prioritizing direct waterfront or estate-adjacent quiet, it points toward restaurants, convenience, and a more urban daily routine close to the downtown core.",
+      ],
+      whyItMatters:
+        "Buyers who care about walkability, newer restaurants, and neighborhood momentum may evaluate NORA House differently from the Flagler Drive waterfront towers, especially if lifestyle and convenience matter more than water views.",
+      brookeTake:
+        "Treat Nora as a location thesis. Before leaning in, compare the released floor plans, parking, noise exposure, pricing, and construction timing against the waterfront buildings and the established downtown inventory.",
+    },
+    "florida-yimby-rosewood-proposal-2026-01": {
+      story: [
+        "Florida YIMBY reported that Related Group and BH Group announced Rosewood Residences, a proposed 27-story luxury tower for 2001 North Flagler Drive. If the proposal advances, it would add another branded luxury name to the North Flagler corridor.",
+        "For buyers, the important distinction is timing. Rosewood is future market context, not the same thing as a currently available residence with released pricing, contracts, and near-term delivery.",
+      ],
+      whyItMatters:
+        "The proposal reinforces North Flagler's direction as a branded luxury corridor, which can influence how buyers think about future supply, resale positioning, and whether to act on existing projects or wait for more detail.",
+      brookeTake:
+        "Keep Rosewood on the radar, but compare it differently from active sales. Use it as context while verifying what is actually purchasable today at Olara, Ritz-Carlton Residences, Alba, Mandarin Oriental, and other North Flagler options.",
+    },
+    "florida-yimby-south-flagler-tops-out-2025-11": {
+      story: [
+        "Florida YIMBY reported that South Flagler House topped out at 1355 South Flagler Drive. Topping out is a practical construction milestone: the building has reached its structural height, making the project feel more tangible than an early rendering or sales announcement.",
+        "That milestone matters in West Palm Beach's luxury pipeline because South Flagler House occupies a different lane from the larger North Flagler cluster: more estate-adjacent, more residential in feel, and more focused on privacy and scale.",
+      ],
+      whyItMatters:
+        "For buyers comparing delivery timing, corridor feel, and the tradeoff between downtown energy and South Flagler privacy, the topping-out milestone can move South Flagler House from watchlist concept to serious shortlist discussion.",
+      brookeTake:
+        "Use the milestone to pressure-test timing and fit. The next step is to verify remaining construction timeline, available residences, view corridors, service model, and how the South Flagler setting compares with North Flagler or downtown options.",
+    },
+  };
+  const articleContent = specificContent[item.id];
   const story = [
-    deck,
+    ...(articleContent?.story ?? [deck]),
     relatedProjects.length
-      ? `For buyers, the useful frame is not the headline alone. This update belongs in the same comparison set as ${relatedProjectNames}, so it should be read alongside current availability, view exposure, residence lines, timing, and the latest buyer packet.`
-      : "For buyers, the useful frame is not the headline alone. This update should be read alongside current project status, corridor momentum, timing, and the latest buyer packet.",
+      ? `What to verify next: current availability, view exposure, residence lines, timing, and the latest buyer packet for ${relatedProjectNames}.`
+      : "What to verify next: current project status, corridor momentum, timing, and any released buyer materials.",
   ];
   return {
     deck,
-    excerpt: `${deck} The practical question is whether it changes the right shortlist, timing, or due-diligence path.`,
+    excerpt: deck,
     story,
-    whyItMatters:
-      relatedProjects.length
+    whyItMatters: articleContent?.whyItMatters ?? (relatedProjects.length
         ? `A public update can change how ${relatedProjectNames} should be compared, but it does not replace current pricing, availability, floorplan, and contract verification.`
-        : "A public update can change corridor context, but it does not replace current pricing, availability, floorplan, and contract verification.",
-    brookeTake:
+        : "A public update can change corridor context, but it does not replace current pricing, availability, floorplan, and contract verification."),
+    brookeTake: articleContent?.brookeTake ??
       "Use this as a signal, not a decision by itself. The next step is to verify what is current today, then compare the buildings that actually fit the buyer's goals.",
     cta:
       "For guidance on West Palm Beach new construction - including how these buildings compare, which residences stand out, and what may fit your goals best - contact Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach.",
