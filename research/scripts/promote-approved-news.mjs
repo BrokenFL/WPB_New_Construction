@@ -37,20 +37,35 @@ for (const [index, item] of items.entries()) {
 const rendered = `export type ExternalNewsItem = {
   id: string;
   title: string;
+  slug?: string;
   sourceName: string;
   sourceUrl: string;
   canonicalUrl: string;
   publishedAt: string;
+  sourcePublishedAt?: string;
   fetchedAt: string;
+  deck?: string;
   description?: string;
+  summary?: string;
+  story?: string[];
+  bodySections?: { heading: string; body: string }[];
+  whyItMatters?: string;
+  brookeTake?: string;
+  buyerContext?: string;
+  newsletterHeadline?: string;
+  newsletterBlurb?: string;
+  newsletterCta?: string;
   query?: string;
   category: "development" | "construction" | "planning" | "sales" | "financing" | "city" | "press-release" | "general";
   relatedProjectIds: string[];
   relatedCorridorIds: string[];
+  corridorLabel?: string;
   imageUrl?: string;
+  imagePath?: string;
   resolvedLocalImageId?: string;
   paywallStatus: "free" | "unknown" | "likely-paywalled";
   status: "needs-review" | "published" | "archived" | "duplicate";
+  riskLevel?: "low" | "medium" | "high";
 };
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = ${JSON.stringify(items, null, 2)} as const;

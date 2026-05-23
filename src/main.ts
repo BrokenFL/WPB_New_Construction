@@ -1054,6 +1054,17 @@ const projectFilters: ProjectFilter[] = [
   { key: "floorplans", label: "Floor Plans" },
 ];
 
+const newsFilters: ProjectFilter[] = [
+  { key: "all", label: "All" },
+  { key: "development", label: "Development" },
+  { key: "construction", label: "Construction" },
+  { key: "planning", label: "Planning" },
+  { key: "sales", label: "Sales" },
+  { key: "north-flagler", label: "North Flagler" },
+  { key: "downtown", label: "Downtown / NORA" },
+  { key: "south-flagler", label: "South Flagler" },
+];
+
 const corridorSections: CorridorSection[] = [
   {
     key: "north-flagler",
@@ -2086,13 +2097,13 @@ app.innerHTML = `
 
       <section class="home-news-section" aria-label="West Palm Beach development updates">
         <div class="section-heading">
-          <p class="eyebrow">Market News</p>
-          <h2>${escapeHtml(approvedHomepageOverride("updates")?.headline || "WPB Market News")}</h2>
+          <p class="eyebrow">Latest Updates</p>
+          <h2>${escapeHtml(approvedHomepageOverride("updates")?.headline || "New-construction signals worth watching.")}</h2>
         </div>
         <div class="home-news-grid">
-          ${publishedExternalNews.slice(0, 3).map(renderHomeExternalNewsItem).join("")}
+          ${publishedExternalNews.slice(0, 4).map(renderHomeExternalNewsItem).join("")}
         </div>
-        <a class="home-answer-archive-link" href="/updates/">Read Updates <span aria-hidden="true">→</span></a>
+        <a class="home-answer-archive-link" href="/updates/">More West Palm Beach Development Updates <span aria-hidden="true">→</span></a>
       </section>
 
       <section class="home-blog-section" aria-label="WPB New Construction market notes">
@@ -2159,37 +2170,38 @@ app.innerHTML = `
       ${corridorSections.map(renderCorridorRouteView).join("")}
 
       <div class="route-view route-view-news" data-route-view="news" hidden>
-      <section class="comparison-band" aria-label="Waterfront project comparison">
-        <div>
-          <span>Primary Corridor</span>
-          <strong>North Flagler + Downtown Waterfront</strong>
-        </div>
-        <div>
-          <span>Core Advantage</span>
-          <strong>Released plans, service models, teams, and timing in one place</strong>
-        </div>
-        <div>
-          <span>Lead CTA</span>
-          <strong>Request current availability</strong>
-        </div>
-      </section>
-
-        <section class="section news-section" id="news">
-        <div class="section-heading">
-          <p class="eyebrow">Development Headlines</p>
-          <h1>West Palm Beach development updates with buyer context.</h1>
-          <p>Track public sales, construction, planning, and financing updates across the West Palm Beach new-construction market. Each update opens here first, with the original source linked at the bottom of the article.</p>
-        </div>
-        <div class="answer-meta-panel">
-          <span>Updated ${publishedExternalNews[0]?.fetchedAt ?? floorplanLibrary[0]?.updatedAt ?? "2026-05-22"}</span>
-          <strong>Buyer-facing update cards and on-site article pages.</strong>
-          <small>Original sources stay available for attribution, but the primary reading path remains on WPB New Construction.</small>
-        </div>
-        <div class="news-grid">
-          ${publishedExternalNews.map(renderExternalNewsItem).join("")}
-        </div>
-        <a class="home-answer-archive-link" href="/inquire/?lead_capture_context=updates_page">Ask About This Update <span aria-hidden="true">↗</span></a>
-      </section>
+        <section class="section news-section newsroom-archive" id="news">
+          <div class="newsroom-hero">
+            <div>
+              <p class="eyebrow">Development Newsroom</p>
+              <h1>West Palm Beach New Construction Updates</h1>
+              <p>Current development, construction, approvals, sales, and corridor signals translated into buyer-useful context. Start with the latest story, then filter the archive by topic or location.</p>
+            </div>
+            <aside class="answer-meta-panel">
+              <span>Updated ${publishedExternalNews[0]?.fetchedAt ?? floorplanLibrary[0]?.updatedAt ?? "2026-05-22"}</span>
+              <strong>${publishedExternalNews.length} on-site update${publishedExternalNews.length === 1 ? "" : "s"} with original sources at the bottom of each article.</strong>
+              <small>Brooke can help compare what is reported, what is actually available, and what belongs on your shortlist.</small>
+            </aside>
+          </div>
+          ${publishedExternalNews[0] ? renderFeaturedExternalNewsItem(publishedExternalNews[0]) : ""}
+          <div class="newsroom-controls" aria-label="Filter West Palm Beach updates">
+            <div class="filter-chips news-filter-chips" role="list" aria-label="Update filters">
+              ${newsFilters.map(renderNewsFilter).join("")}
+            </div>
+            <label class="news-search-control">
+              <span>Search updates</span>
+              <input type="search" data-news-search placeholder="Search project, corridor, or topic" />
+            </label>
+          </div>
+          <div class="news-grid" data-news-grid>
+            ${publishedExternalNews.map(renderExternalNewsItem).join("")}
+          </div>
+          <p class="news-empty-state" data-news-empty hidden>No updates match that filter yet.</p>
+          <div class="newsroom-cta-row">
+            ${renderEmailSignup("updates_archive", "Get the WPB new-construction update digest", true)}
+            <a class="button primary" href="/inquire/?lead_capture_context=updates_page">Request Current Availability <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
       </div>
 
       <div class="route-view route-view-news-detail" data-route-view="news-detail" hidden></div>
@@ -3457,6 +3469,7 @@ function applyRoute() {
   });
   syncMarketNoteDetail(activeMarketNote);
   syncNewsDetail(activeNewsItem);
+  initNewsArchive();
   initFloorplanViewer();
 
   initHeroGoogleMap();
@@ -4167,6 +4180,15 @@ function renderProjectFilter(filter: ProjectFilter) {
   const active = filter.key === "all" ? " is-active" : "";
   return `
     <button class="filter-chip${active}" type="button" data-project-filter="${filter.key}" aria-pressed="${filter.key === "all"}">
+      ${filter.label}
+    </button>
+  `;
+}
+
+function renderNewsFilter(filter: ProjectFilter) {
+  const active = filter.key === "all" ? " is-active" : "";
+  return `
+    <button class="filter-chip${active}" type="button" data-news-filter="${filter.key}" aria-pressed="${filter.key === "all"}">
       ${filter.label}
     </button>
   `;
@@ -5423,7 +5445,7 @@ function externalNewsImageContext(item: ExternalNewsItem): ContentImageContext {
     projectIds: item.relatedProjectIds,
     relatedProjectIds: item.relatedProjectIds,
     relatedCorridorIds: item.relatedCorridorIds,
-    image: item.imageUrl ? { path: item.imageUrl, credit: item.sourceName } : undefined,
+    image: item.imagePath || item.imageUrl ? { path: item.imagePath || item.imageUrl, credit: item.sourceName } : undefined,
     imageId: item.resolvedLocalImageId,
     resolvedLocalImageId: item.resolvedLocalImageId,
     canonicalUrl: item.canonicalUrl,
@@ -5450,15 +5472,39 @@ function formatNewsDate(value: string) {
 function renderExternalNewsItem(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
   const article = updateArticleContent(item);
+  const searchText = [
+    item.title,
+    article.excerpt,
+    item.category,
+    relatedNewsLabel(item),
+    ...item.relatedProjectIds,
+    ...item.relatedCorridorIds,
+  ].join(" ");
   return `
-    <article class="news-card intelligence-news-card external-news-card" id="${escapeHtml(item.id)}">
+    <article class="news-card intelligence-news-card external-news-card" id="${escapeHtml(item.id)}" data-news-card data-news-category="${escapeHtml(item.category)}" data-news-corridors="${escapeHtml(item.relatedCorridorIds.join(" "))}" data-news-projects="${escapeHtml(item.relatedProjectIds.join(" "))}" data-news-search="${escapeHtml(searchText.toLowerCase())}">
       ${renderResolvedContentImage(resolvedImage)}
       <div>
-        <span>${publicText(item.sourceName)} · ${publicText(formatNewsDate(item.publishedAt))}${item.paywallStatus === "likely-paywalled" ? " · Likely paywalled" : ""}</span>
+        <span>${publicText(item.category)} · ${publicText(formatNewsDate(item.publishedAt))}</span>
         <strong>${publicText(item.title)}</strong>
         <p>${publicText(article.excerpt)}</p>
         <small>${publicText(relatedNewsLabel(item))}</small>
         <a class="home-news-link" href="${updatePath(item)}">Read Update <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  `;
+}
+
+function renderFeaturedExternalNewsItem(item: ExternalNewsItem) {
+  const resolvedImage = imageForContentItem(externalNewsImageContext(item));
+  const article = updateArticleContent(item);
+  return `
+    <article class="featured-update-card">
+      ${renderResolvedContentImage(resolvedImage)}
+      <div>
+        <span>${publicText(item.category)} · ${publicText(formatNewsDate(item.publishedAt))} · ${publicText(relatedNewsLabel(item).replace(/^Related:\s*/, ""))}</span>
+        <h2>${publicText(item.title)}</h2>
+        <p>${publicText(article.deck)}</p>
+        <a class="button primary" href="${updatePath(item)}">Read Latest Update <span aria-hidden="true">→</span></a>
       </div>
     </article>
   `;
@@ -5483,11 +5529,11 @@ function renderHomeExternalNewsItem(item: ExternalNewsItem) {
 }
 
 function updatePath(item: ExternalNewsItem) {
-  return `/updates/${item.id}/`;
+  return `/updates/${item.slug || item.id}/`;
 }
 
 function updateForId(articleId: string) {
-  return publishedExternalNews.find((item) => item.id === articleId);
+  return publishedExternalNews.find((item) => item.id === articleId || item.slug === articleId);
 }
 
 function syncNewsDetail(item?: ExternalNewsItem) {
@@ -5502,13 +5548,57 @@ function syncNewsDetail(item?: ExternalNewsItem) {
   }
 }
 
+function initNewsArchive() {
+  const grid = document.querySelector<HTMLElement>("[data-news-grid]");
+  if (!grid || grid.dataset.newsArchiveReady === "true") return;
+  grid.dataset.newsArchiveReady = "true";
+  const cards = Array.from(grid.querySelectorAll<HTMLElement>("[data-news-card]"));
+  const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-news-filter]"));
+  const searchInput = document.querySelector<HTMLInputElement>("[data-news-search]");
+  const emptyState = document.querySelector<HTMLElement>("[data-news-empty]");
+  let activeFilter = "all";
+
+  const applyNewsState = () => {
+    const query = searchInput?.value.trim().toLowerCase() ?? "";
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const category = card.dataset.newsCategory ?? "";
+      const corridors = card.dataset.newsCorridors ?? "";
+      const searchText = card.dataset.newsSearch ?? "";
+      const matchesFilter = activeFilter === "all" || category === activeFilter || corridors.split(" ").includes(activeFilter);
+      const matchesSearch = !query || searchText.includes(query);
+      const isVisible = matchesFilter && matchesSearch;
+      card.hidden = !isVisible;
+      if (isVisible) visibleCount += 1;
+    });
+    if (emptyState) emptyState.hidden = visibleCount > 0;
+  };
+
+  filterButtons.forEach((button) => {
+    if (button.dataset.newsFilterReady === "true") return;
+    button.dataset.newsFilterReady = "true";
+    button.addEventListener("click", () => {
+      activeFilter = button.dataset.newsFilter ?? "all";
+      filterButtons.forEach((item) => {
+        const isActive = item.dataset.newsFilter === activeFilter;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
+      });
+      applyNewsState();
+    });
+  });
+
+  searchInput?.addEventListener("input", applyNewsState);
+  applyNewsState();
+}
+
 function updateArticleContent(item: ExternalNewsItem) {
   const relatedProjects = item.relatedProjectIds
     .map((projectId) => featuredProjects.find((project) => project.id === projectId))
     .filter((project): project is FeaturedProject => Boolean(project));
   const relatedProjectNames = relatedProjects.map((project) => project.name).join(", ");
   const relatedLabel = relatedProjectNames || relatedNewsLabel(item).replace(/^Related:\s*/i, "");
-  const deck = item.description || `${item.sourceName} reported a West Palm Beach development update tied to ${relatedLabel}.`;
+  const deck = item.deck || item.description || `${item.sourceName} reported a West Palm Beach development update tied to ${relatedLabel}.`;
   const specificContent: Record<string, { story: string[]; whyItMatters: string; brookeTake: string }> = {
     "florida-yimby-mandarin-interiors-2026-05-18": {
       story: [
@@ -5552,21 +5642,25 @@ function updateArticleContent(item: ExternalNewsItem) {
     },
   };
   const articleContent = specificContent[item.id];
+  const bodyStory = item.bodySections?.map((section) => `${section.heading}: ${section.body}`) ?? [];
   const story = [
-    ...(articleContent?.story ?? [deck]),
+    ...(item.story?.length ? item.story : bodyStory.length ? bodyStory : articleContent?.story ?? [deck]),
     relatedProjects.length
       ? `What to verify next: current availability, view exposure, residence lines, timing, and the latest buyer packet for ${relatedProjectNames}.`
       : "What to verify next: current project status, corridor momentum, timing, and any released buyer materials.",
   ];
   return {
     deck,
-    excerpt: deck,
+    excerpt: item.summary || deck,
     story,
-    whyItMatters: articleContent?.whyItMatters ?? (relatedProjects.length
+    whyItMatters: item.whyItMatters || articleContent?.whyItMatters || (relatedProjects.length
         ? `A public update can change how ${relatedProjectNames} should be compared, but it does not replace current pricing, availability, floorplan, and contract verification.`
         : "A public update can change corridor context, but it does not replace current pricing, availability, floorplan, and contract verification."),
-    brookeTake: articleContent?.brookeTake ??
+    brookeTake: item.brookeTake || articleContent?.brookeTake ||
       "Use this as a signal, not a decision by itself. The next step is to verify what is current today, then compare the buildings that actually fit the buyer's goals.",
+    buyerContext: item.buyerContext || item.summary || deck,
+    newsletterBlurb: item.newsletterBlurb || item.summary || deck,
+    newsletterCta: item.newsletterCta || "Request current availability",
     cta:
       "For guidance on West Palm Beach new construction - including how these buildings compare, which residences stand out, and what may fit your goals best - contact Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach.",
   };
@@ -5591,7 +5685,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
         ${renderResolvedContentImage(resolvedImage, "market-note-hero-image")}
       </header>
       <section class="market-note-meta-strip" aria-label="Update metadata">
-        <div><span>Source</span><strong>${publicText(item.sourceName)}</strong></div>
+        <div><span>Category</span><strong>${publicText(item.category)}</strong></div>
         <div><span>Published</span><strong>${publicText(formatNewsDate(item.publishedAt))}</strong></div>
         <div><span>Updated</span><strong>${publicText(item.fetchedAt)}</strong></div>
         <div><span>Related</span><strong>${relatedProjects.length || item.relatedCorridorIds.length}</strong></div>
@@ -5611,9 +5705,17 @@ function renderUpdateArticle(item: ExternalNewsItem) {
             <p>${publicText(content.whyItMatters)}</p>
           </section>
           <section>
+            <h2>Buyer context</h2>
+            <p>${publicText(content.buyerContext)}</p>
+          </section>
+          <section>
             <h2>Brooke's take</h2>
             <p>${publicText(content.brookeTake)}</p>
           </section>
+          <aside class="verify-box">
+            <span>Newsletter-ready note</span>
+            <p>${publicText(content.newsletterBlurb)}</p>
+          </aside>
           <aside class="buyer-takeaway-box">
             <span>Next step</span>
             <p>${publicText(content.cta)}</p>
@@ -5635,6 +5737,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
           : ""
       }
       <footer class="section update-source-footer">
+        <span>Original source: ${publicText(item.sourceName)}${item.sourcePublishedAt ? ` · ${publicText(formatNewsDate(item.sourcePublishedAt))}` : ""}</span>
         <a href="${safeHref(item.canonicalUrl)}" target="_blank" rel="noopener noreferrer">Read the original source</a>
       </footer>
     </article>

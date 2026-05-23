@@ -1,6 +1,6 @@
 # News Update Pipeline
 
-This pipeline turns West Palm Beach development news into buyer-facing updates without fabricating building facts or pushing readers toward sponsor pages.
+This pipeline turns West Palm Beach development news into on-site buyer-facing updates without fabricating building facts or pushing readers toward sponsor pages. Brooke can keep giving guidance through ChatGPT/Codex; the Builder console is not required for the newsroom workflow.
 
 ## Inputs
 
@@ -27,16 +27,20 @@ Skip or hold when the lead is mostly promotional, duplicates existing guidance, 
 
 ## Workflow
 
-1. Collect candidate leads.
-2. Confirm each factual claim against source material.
-3. Add or update source evidence in the research catalog or relevant research note.
-4. Draft the buyer angle:
+1. GPT/automation gathers 2-3 relevant West Palm Beach new-construction or development leads per day.
+2. Drafts arrive through GitHub issues and `npm run news:import-gpt`, or are entered directly into `content/news-drafts.json`.
+3. Confirm each factual claim against source material.
+4. Add or update source evidence in the research catalog or relevant research note.
+5. Draft the buyer angle:
    - What changed?
    - Which buyer comparison does it affect?
    - What should be confirmed before relying on it?
-5. Add or update the story in the news feed source layer used by `research/scripts/build-site-intelligence.mjs`.
-6. Keep public cards free of direct sponsor CTAs and unsupported urgency.
-7. Run validation:
+6. Low-risk queued drafts can be promoted by `npm run news:publish-queued`; medium/high-risk drafts stay reviewable until Codex or Brooke approves the wording.
+7. Approved public updates live in `research/news-review/approved-development-news.json` and are promoted into `src/data/approvedExternalNews.ts` with `npm run news:promote`.
+8. The public reading path is always on-site:
+   `Homepage Updates -> /updates/ archive -> /updates/:slug/ article -> inquiry or newsletter CTA`.
+9. Keep archive cards and homepage cards free of direct source links. Original source links belong at the bottom of each article page as attribution.
+10. Run validation:
 
 ```bash
 npm run news:refresh
@@ -45,8 +49,8 @@ npm run qa:launch
 npm run qa:gatekeeper
 ```
 
-8. Check the homepage update module and `/updates/` page.
-9. Record changed stories, skipped leads, source conflicts, route checks, and blockers in the handoff notes.
+11. Check the homepage update module, `/updates/`, and at least two `/updates/:slug/` article pages.
+12. Record changed stories, skipped leads, source conflicts, route checks, and blockers in the handoff notes.
 
 ## Record Shape
 
@@ -57,11 +61,27 @@ Use the same fields consistently for future editorial notes and feed entries:
 - `category`: corridor or editorial bucket.
 - `title`: buyer-facing headline.
 - `summary`: short factual summary.
+- `deck`: article intro shown on the article page.
+- `bodySections`: article body sections for what happened, where it fits, and what to verify.
 - `buyerAngle`: interpretation limited to what the evidence supports.
+- `whyItMatters`: buyer-useful interpretation.
+- `brookeTake`: advisory guidance in Brooke's voice.
+- `buyerContext`: comparison context for buyers.
 - `projectIds`: related internal project ids.
+- `relatedCorridorIds`: related corridor ids.
+- `newsletterHeadline`, `newsletterBlurb`, `newsletterCta`: fields used by `npm run newsletter:draft`.
 - `sourceLinks`: source label, URL, and source type.
 - `factCheckRequired`: details that must be refreshed before publication.
 - `seo`: primary query, secondary queries, suggested slug, title tag, and meta description.
+
+## Newsletter Readiness
+
+`npm run newsletter:draft` reads both:
+
+- published public updates from `research/news-review/approved-development-news.json`
+- published or queued intake drafts from `content/news-drafts.json`
+
+Digest blurbs should be short, advisory, and useful without copying source language. Each blurb should include a related project or corridor when available, a simple CTA, and the original source in `sourceLinks`.
 
 Imported update candidates live in `src/data/importedUpdates.json` and are intentionally review-first. Use this shape:
 

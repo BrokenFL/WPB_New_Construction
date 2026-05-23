@@ -12,6 +12,7 @@
 - `npm run news:fetch` gathers news candidates into review.
 - `npm run news:promote` publishes only approved news from the review file.
 - `npm run news:daily-publisher` imports GPT issue drafts, validates news drafts, publishes only eligible low-risk queued items, generates the newsletter digest, runs news QA, and writes a publisher report.
+- `npm run newsletter:draft` builds a newsletter-ready digest from published `/updates/` articles plus published/queued intake drafts.
 - `npm run import:developer-images` imports candidate project imagery.
 - `npm run review:developer-images` generates the review report for imported imagery.
 - `npm run check:updates` validates imported project updates.
@@ -41,7 +42,8 @@
 - 9:00 AM local time: run `npm run daily:maintenance`.
 - 9:20 AM local time: run `npm run news:daily-publisher`.
 - The daily maintenance run is review-first: it imports/reviews candidate images, checks updates, copy, image repetition, performance, and duplicate assets, then writes `research/source-material-review/daily-maintenance-report.md`.
-- Human review after the daily report: approve or reject news, image, and copy findings before anything new is promoted publicly.
+- Human review after the daily report: approve or reject news, image, and copy findings before anything medium/high-risk is promoted publicly.
+- Low-risk news can move from GitHub issue intake to `content/news-drafts.json`, then through `news:publish-queued`, `news:promote`, and `newsletter:draft` without Brooke using the Builder UI.
 - Weekly: run the full launch QA stack and review duplicate-asset recommendations before deleting or moving files.
 
 ## Install / Uninstall Commands

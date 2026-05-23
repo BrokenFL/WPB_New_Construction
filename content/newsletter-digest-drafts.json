@@ -1,7 +1,102 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-22T19:52:34.746Z",
+  "updatedAt": "2026-05-23T04:06:13.381Z",
   "items": [
+    {
+      "id": "digest-2026-05-23",
+      "status": "draft",
+      "subject": "West Palm Beach new-construction buyer notes",
+      "intro": "Here are the latest West Palm Beach development notes to help buyers compare timing, corridor fit, and what should be verified before touring.",
+      "storyBlurbs": [
+        {
+          "updateId": "florida-yimby-mandarin-interiors-2026-05-18",
+          "headline": "Mandarin Oriental releases a clearer interior design signal",
+          "blurb": "New Mandarin Oriental renderings give buyers a better read on the project's branded-service and interior-design positioning along North Flagler.",
+          "relatedProjectIds": [
+            "mandarin-oriental"
+          ],
+          "relatedCorridorIds": [
+            "north-flagler"
+          ],
+          "cta": "Compare Mandarin Oriental with North Flagler alternatives",
+          "articlePath": "/updates/florida-yimby-mandarin-interiors-2026-05-18/",
+          "sourceName": "Florida YIMBY",
+          "sourceUrl": "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html"
+        },
+        {
+          "updateId": "wflx-nora-house-2026-04-10",
+          "headline": "NORA House sharpens the downtown/NORA buyer thesis",
+          "blurb": "NORA House gives buyers a walkability-first alternative to Flagler Drive, with the district story becoming as important as the building itself.",
+          "relatedProjectIds": [
+            "nora-house"
+          ],
+          "relatedCorridorIds": [
+            "downtown"
+          ],
+          "cta": "Compare NORA House with downtown and waterfront options",
+          "articlePath": "/updates/wflx-nora-house-2026-04-10/",
+          "sourceName": "WFLX",
+          "sourceUrl": "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/"
+        },
+        {
+          "updateId": "florida-yimby-rosewood-proposal-2026-01",
+          "headline": "Rosewood adds another branded North Flagler signal",
+          "blurb": "Rosewood Residences points to more branded luxury supply on North Flagler, but buyers should treat it as pipeline context until buyer-ready details are confirmed.",
+          "relatedProjectIds": [
+            "rosewood"
+          ],
+          "relatedCorridorIds": [
+            "north-flagler"
+          ],
+          "cta": "Separate future pipeline from active inventory",
+          "articlePath": "/updates/florida-yimby-rosewood-proposal-2026-01/",
+          "sourceName": "Florida YIMBY",
+          "sourceUrl": "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html"
+        },
+        {
+          "updateId": "florida-yimby-south-flagler-tops-out-2025-11",
+          "headline": "South Flagler House becomes more tangible after topping out",
+          "blurb": "South Flagler House's topping-out milestone gives buyers a more concrete timing signal for a privacy-focused South Flagler option.",
+          "relatedProjectIds": [
+            "south-flagler-house"
+          ],
+          "relatedCorridorIds": [
+            "south-flagler"
+          ],
+          "cta": "Compare South Flagler timing and privacy",
+          "articlePath": "/updates/florida-yimby-south-flagler-tops-out-2025-11/",
+          "sourceName": "Florida YIMBY",
+          "sourceUrl": "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html"
+        },
+        {
+          "draftId": "2026-05-22-test-wpb-luxury-condo-boom",
+          "headline": "West Palm Beach’s luxury condo boom is no longer theoretical",
+          "blurb": "West Palm Beach’s condo pipeline is moving further into ultra-luxury territory, with new projects competing on amenities, branding, waterfront position, and residence scale.",
+          "relatedProjectIds": [
+            "south-flagler-house",
+            "olara"
+          ],
+          "relatedCorridorIds": [
+            "south-flagler",
+            "north-flagler",
+            "downtown"
+          ],
+          "cta": "Compare related West Palm Beach projects",
+          "sourceName": "New York Post",
+          "sourceUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/"
+        }
+      ],
+      "cta": "Reply with the projects you are watching and we will help separate firm details from early-stage signals.",
+      "sourceLinks": [
+        "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",
+        "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/",
+        "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",
+        "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html",
+        "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/"
+      ],
+      "createdAt": "2026-05-23T04:06:13.381Z",
+      "updatedAt": "2026-05-23T04:06:13.381Z"
+    },
     {
       "id": "digest-2026-05-22",
       "status": "draft",
