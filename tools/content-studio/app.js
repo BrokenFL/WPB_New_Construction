@@ -7,11 +7,21 @@ let activeReportText = "";
 const projectSelect = document.querySelector("#projectSelect");
 const result = document.querySelector("#result");
 const preview = document.querySelector("#imagePreview");
+const homepageSectionLabels = {
+  hero: "Hero",
+  map: "Map",
+  corridors: "Corridors",
+  updates: "Updates",
+  guidance: "Guidance",
+  featuredBuildings: "Featured Buildings",
+  cta: "CTA",
+};
 
 async function loadState() {
   state = await fetchJson("/api/state");
   projectSelect.innerHTML = state.projects.map((project) => `<option value="${project.id}">${escapeHtml(project.name)}</option>`).join("");
   fillCopyForm();
+  renderTopStatus();
   renderStatusCards();
   renderAutomation();
   renderRemoteMode();
@@ -25,6 +35,15 @@ async function loadState() {
 
 function activeProjectId() {
   return projectSelect.value;
+}
+
+function goTo(tab, section) {
+  const tabButton = document.querySelector(`[data-tab="${tab}"]`);
+  if (tabButton) tabButton.click();
+  if (section) {
+    const sectionButton = document.querySelector(`[data-section="${section}"]`);
+    if (sectionButton) sectionButton.click();
+  }
 }
 
 function fillCopyForm() {
@@ -52,6 +71,10 @@ document.querySelectorAll(".tabs button").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".tabs button").forEach((item) => item.classList.toggle("active", item === button));
     document.querySelectorAll(".builder-shell > .panel").forEach((panel) => panel.classList.toggle("active", panel.id === `${button.dataset.tab}Panel`));
+    if (button.dataset.section) {
+      document.querySelectorAll(".section-tabs button").forEach((item) => item.classList.toggle("active", item.dataset.section === button.dataset.section));
+      document.querySelectorAll("#sitePanel .section").forEach((section) => section.classList.toggle("active", section.id === `${button.dataset.section}Section`));
+    }
   });
 });
 
@@ -60,6 +83,10 @@ document.querySelectorAll(".section-tabs button").forEach((button) => {
     document.querySelectorAll(".section-tabs button").forEach((item) => item.classList.toggle("active", item === button));
     document.querySelectorAll("#sitePanel .section").forEach((section) => section.classList.toggle("active", section.id === `${button.dataset.section}Section`));
   });
+});
+
+document.querySelectorAll("[data-go-tab]").forEach((button) => {
+  button.addEventListener("click", () => goTo(button.dataset.goTab, button.dataset.goSection));
 });
 
 bindForm("#copyPanel", "/api/project-copy", (payload) => ({ ...payload, projectId: activeProjectId() }));
@@ -100,6 +127,17 @@ function renderStatusCards() {
       <strong>${escapeHtml(String(value))}</strong>
     </article>
   `).join("");
+}
+
+function renderTopStatus() {
+  const cards = state.statusCards ?? {};
+  document.querySelector("#topStatus").innerHTML = `
+    <span>${escapeHtml(state.remote?.isRemote ? "Remote" : "Local")}</span>
+    <span>${escapeHtml(cards.gitBranch || "branch unknown")}</span>
+    <span>${escapeHtml((cards.workingTreeStatus || "clean") === "clean" ? "Clean" : "Dirty")}</span>
+    <span>${escapeHtml(cards.lastDeployResult || "Deploy n/a")}</span>
+  `;
+  document.querySelector("#builderWarning").textContent = state.warning || "";
 }
 
 function renderAutomation() {
@@ -155,15 +193,7 @@ function renderHomepageCardEditor() {
   const sections = state.homepageCards ?? {};
   const overrides = state.overrides.homepageCards?.sections ?? {};
   const sectionSelect = document.querySelector("#cardSectionSelect");
-  const sectionLabels = {
-    hero: "Homepage Hero",
-    corridors: "Corridor cards",
-    updates: "Updates cards",
-    guidance: "Guidance cards",
-    featuredBuildings: "Featured building cards",
-    cta: "CTA block",
-  };
-  sectionSelect.innerHTML = Object.keys(sections).map((sectionId) => `<option value="${escapeHtml(sectionId)}">${escapeHtml(sectionLabels[sectionId] || sectionId)}</option>`).join("");
+  sectionSelect.innerHTML = Object.keys(sections).map((sectionId) => `<option value="${escapeHtml(sectionId)}">${escapeHtml(homepageSectionLabels[sectionId] || sectionId)}</option>`).join("");
   sectionSelect.value = activeHomepageCard.sectionId;
   sectionSelect.onchange = () => {
     const firstCard = (sections[sectionSelect.value] ?? [])[0];
@@ -173,6 +203,7 @@ function renderHomepageCardEditor() {
 
   const cards = sections[activeHomepageCard.sectionId] ?? [];
   if (!cards.some((card) => card.id === activeHomepageCard.cardId) && cards[0]) activeHomepageCard.cardId = cards[0].id;
+  renderHomepageTree(sections, overrides);
   document.querySelector("#homepageCardList").innerHTML = cards.map((card) => {
     const override = overrides[activeHomepageCard.sectionId]?.cards?.[card.id];
     return `
@@ -195,6 +226,9 @@ function renderHomepageCardEditor() {
   form.elements.sectionId.value = activeHomepageCard.sectionId;
   form.elements.cardId.value = activeHomepageCard.cardId || "";
   document.querySelector("#selectedCardTitle").textContent = activeCard.title || "Choose a card";
+  document.querySelector("#editingBreadcrumb").textContent = editingBreadcrumb(activeHomepageCard.sectionId, activeCard, activeHomepageCard.cardId);
+  document.querySelector("#selectedCardContext").textContent = `Section: ${homepageSectionLabels[activeHomepageCard.sectionId] || activeHomepageCard.sectionId} · Card: ${activeCard.title || activeHomepageCard.cardId || "choose a card"}`;
+  document.querySelector("#previewHomepage").href = state.previewUrls?.homepage || "http://127.0.0.1:5173/";
   populateImageSelect(form.elements.imagePath, activeOverride.imagePath || activeCard.imagePath || "");
   for (const name of ["headline", "subhead", "deck", "caption", "alt", "ctaLabel", "status"]) {
     if (form.elements[name]) form.elements[name].value = activeOverride[name] ?? "";
@@ -221,6 +255,58 @@ function renderHomepageCardEditor() {
       updateCardPreview();
     };
   });
+}
+
+function renderHomepageTree(sections, overrides) {
+  const ordered = ["hero", "map", "corridors", "updates", "guidance", "featuredBuildings", "cta"].filter((sectionId) => sections[sectionId]);
+  document.querySelector("#homepageTree").innerHTML = `
+    <button class="tree-root" data-tree-section="hero" data-tree-card="hero" type="button">Homepage</button>
+    ${ordered.map((sectionId) => {
+      const cards = sections[sectionId] ?? [];
+      return `
+        <div class="tree-section">
+          <button class="${activeHomepageCard.sectionId === sectionId ? "active" : ""}" data-tree-section="${escapeHtml(sectionId)}" data-tree-card="${escapeHtml(cards[0]?.id || "")}" type="button">
+            ${escapeHtml(homepageSectionLabels[sectionId] || sectionId)}
+          </button>
+          <div>
+            ${cards.map((card, index) => {
+              const hasOverride = Boolean(overrides[sectionId]?.cards?.[card.id]);
+              const label = sectionId === "updates" ? `Update card ${index + 1}` : sectionId === "guidance" ? `Guidance card ${index + 1}` : card.title;
+              return `
+                <button class="${activeHomepageCard.sectionId === sectionId && activeHomepageCard.cardId === card.id ? "active" : ""}" data-tree-section="${escapeHtml(sectionId)}" data-tree-card="${escapeHtml(card.id)}" type="button">
+                  <span>${escapeHtml(label)}</span>
+                  ${hasOverride ? "<small>draft</small>" : ""}
+                </button>
+              `;
+            }).join("")}
+          </div>
+        </div>
+      `;
+    }).join("")}
+  `;
+  document.querySelectorAll("[data-tree-section]").forEach((button) => {
+    button.onclick = () => {
+      activeHomepageCard = { sectionId: button.dataset.treeSection, cardId: button.dataset.treeCard };
+      renderHomepageCardEditor();
+    };
+  });
+}
+
+function editingBreadcrumb(sectionId, card, cardId) {
+  const section = homepageSectionLabels[sectionId] || sectionId || "Section";
+  const cardLabel = card?.title || cardId || "Card";
+  const numbered = sectionId === "updates"
+    ? cardNumberLabel("Update card", sectionId, cardId)
+    : sectionId === "guidance"
+      ? cardNumberLabel("Guidance card", sectionId, cardId)
+      : cardLabel;
+  return `Editing: Homepage -> ${section} -> ${numbered}`;
+}
+
+function cardNumberLabel(prefix, sectionId, cardId) {
+  const cards = state.homepageCards?.[sectionId] ?? [];
+  const index = cards.findIndex((card) => card.id === cardId);
+  return index >= 0 ? `${prefix} ${index + 1}` : prefix;
 }
 
 function bindHomepageCardForm() {
@@ -262,13 +348,13 @@ function populateImageSelect(select, selected = "") {
 
 function renderImagePicker() {
   const groups = groupBy(state.imageCatalog ?? [], "category");
-  document.querySelector("#imagePicker").innerHTML = Object.entries(groups).map(([category, images]) => `
+  const markup = Object.entries(groups).map(([category, images]) => `
     <section class="image-picker-group">
       <h2>${escapeHtml(category)}</h2>
       <div class="image-picker-grid">
         ${images.slice(0, 60).map((image) => `
           <button data-picker-image="${escapeHtml(image.path)}" type="button" class="${image.reviewOnly ? "is-review" : ""}">
-            <img src="${escapeHtml(image.path)}" alt="" loading="lazy" />
+            ${builderImage(image.path, "", {})}
             <span>${escapeHtml(image.path)}</span>
             <small>${escapeHtml([image.association, image.dimensions, image.imageType, `used ${image.usageCount}`].filter(Boolean).join(" · "))}</small>
           </button>
@@ -276,6 +362,9 @@ function renderImagePicker() {
       </div>
     </section>
   `).join("");
+  document.querySelectorAll("[data-image-picker-grid]").forEach((target) => {
+    target.innerHTML = markup;
+  });
   document.querySelectorAll("[data-picker-image]").forEach((button) => {
     button.onclick = () => {
       const imagePath = button.dataset.pickerImage;
@@ -290,14 +379,14 @@ function renderImagePicker() {
 
 function updateCardPreview() {
   const form = document.querySelector("#homepageCardPanel");
-  const imagePath = form.elements.imagePath.value;
-  const imagePosition = form.elements.imagePosition.value || "center center";
-  const objectFit = form.elements.objectFit.value || "cover";
-  const title = form.elements.headline.value || document.querySelector("#selectedCardTitle").textContent;
-  const deck = form.elements.deck.value || form.elements.subhead.value || "Card preview";
-  const cta = form.elements.ctaLabel.value || defaultCtaLabel(activeHomepageCard.sectionId);
   const activeCard = (state.homepageCards?.[activeHomepageCard.sectionId] ?? []).find((card) => card.id === activeHomepageCard.cardId) ?? {};
   const activeOverride = state.overrides.homepageCards?.sections?.[activeHomepageCard.sectionId]?.cards?.[activeHomepageCard.cardId] ?? {};
+  const imagePath = form.elements.imagePath.value || activeOverride.imagePath || activeCard.imagePath || "";
+  const imagePosition = form.elements.imagePosition.value || "center center";
+  const objectFit = form.elements.objectFit.value || "cover";
+  const title = form.elements.headline.value || activeOverride.headline || activeCard.title || document.querySelector("#selectedCardTitle").textContent;
+  const deck = form.elements.deck.value || form.elements.subhead.value || activeOverride.deck || activeCard.deck || "Card preview";
+  const cta = form.elements.ctaLabel.value || defaultCtaLabel(activeHomepageCard.sectionId);
   const published = {
     imagePath: activeCard.imagePath || "",
     headline: activeCard.title || "Current published",
@@ -306,6 +395,8 @@ function updateCardPreview() {
   };
   const draft = { imagePath, headline: title, deck, ctaLabel: cta };
   const approved = activeOverride.status === "approved" ? activeOverride : null;
+  document.querySelector("#currentPublishedPanel").innerHTML = editorSnapshot("Current published", published, "published");
+  document.querySelector("#draftOverridePanel").innerHTML = editorSnapshot("Draft override", { ...draft, caption: form.elements.caption.value, alt: form.elements.alt.value, status: form.elements.status.value }, "draft");
   document.querySelector("#cardPreview").innerHTML = `
     ${previewVariant("Current published", published, "desktop", "center center", "cover")}
     ${previewVariant("Draft override", draft, "desktop", imagePosition, objectFit)}
@@ -317,7 +408,7 @@ function updateCardPreview() {
 function previewVariant(label, item, size, imagePosition, objectFit) {
   if (!item) return `<article class="card-preview ${size}"><span>${escapeHtml(label)}</span><div class="preview-placeholder">No approved override</div></article>`;
   const image = item.imagePath
-    ? `<img src="${escapeHtml(item.imagePath)}" alt="" style="object-position:${escapeHtml(imagePosition)};object-fit:${escapeHtml(objectFit)}" />`
+    ? builderImage(item.imagePath, "", { style: `object-position:${imagePosition};object-fit:${objectFit}` })
     : `<div class="preview-placeholder">Default image</div>`;
   return `
     <article class="card-preview ${size}">
@@ -327,6 +418,19 @@ function previewVariant(label, item, size, imagePosition, objectFit) {
       <p>${escapeHtml(item.deck || item.subhead || "Card deck")}</p>
       <small>${escapeHtml(item.caption || "No caption override")}</small>
       <a>${escapeHtml(item.ctaLabel || defaultCtaLabel(activeHomepageCard.sectionId))}</a>
+    </article>
+  `;
+}
+
+function editorSnapshot(label, item, status) {
+  return `
+    <article class="editor-snapshot">
+      <span>${escapeHtml(label)}</span>
+      ${item.imagePath ? builderImage(item.imagePath, item.alt || "", {}) : `<div class="preview-placeholder">Default image</div>`}
+      <strong>${escapeHtml(item.headline || "No headline")}</strong>
+      <p>${escapeHtml(item.deck || item.subhead || "No deck")}</p>
+      <small>${escapeHtml(item.caption || item.ctaLabel || "")}</small>
+      <em>${escapeHtml(status)}</em>
     </article>
   `;
 }
@@ -393,7 +497,13 @@ function renderRemoteMode() {
 
 async function renderReports() {
   const payload = await fetchJson("/api/reports");
-  const reports = payload.reports || [];
+  const reports = (payload.reports || []).sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
+  const latestVisual = reports.find((item) => item.category === "Visual Audits" && item.exists);
+  const latestAutomation = reports.find((item) => item.category === "News / Automation" && item.exists);
+  document.querySelector("#reportShortcuts").innerHTML = `
+    <button data-report-path="${escapeHtml(latestVisual?.path || "")}" type="button"${latestVisual ? "" : " disabled"}>Open latest visual audit</button>
+    <button data-report-path="${escapeHtml(latestAutomation?.path || "")}" type="button"${latestAutomation ? "" : " disabled"}>Open latest automation report</button>
+  `;
   const groups = groupBy(reports, "category");
   document.querySelector("#reportList").innerHTML = Object.entries(groups).map(([category, items]) => `
     <section>
@@ -401,7 +511,7 @@ async function renderReports() {
       ${items.map((item) => `
         <button data-report-path="${escapeHtml(item.path)}" type="button" class="${item.path === activeReportPath ? "active" : ""}">
           <strong>${escapeHtml(fileName(item.path))}</strong>
-          <span>${escapeHtml(item.exists ? formatDate(item.updatedAt) : "Missing")}</span>
+          <span><em class="report-chip ${item.exists ? "is-ready" : "is-missing"}">${item.exists ? "ready" : "missing"}</em>${escapeHtml(item.exists ? formatDate(item.updatedAt) : " Missing")}</span>
         </button>
       `).join("")}
     </section>
@@ -437,6 +547,36 @@ function defaultCtaLabel(sectionId) {
   if (sectionId === "corridors") return "View Corridor";
   if (sectionId === "featuredBuildings") return "View Project";
   return "Contact Brooke";
+}
+
+function resolveBuilderAssetUrl(imagePath, mode = state?.remote?.isRemote ? "remote" : "local") {
+  const value = String(imagePath || "").trim();
+  if (!value) return "";
+  if (/^https?:\/\//i.test(value)) return value;
+  if (/^(?:\/Users|\/Volumes|[A-Za-z]:\\)/.test(value)) return "";
+  const publicPath = value.startsWith("/") ? value : `/${value.replace(/^public\//, "")}`;
+  if (mode === "remote") return `https://www.wpbnewconstruction.com${publicPath}`;
+  return publicPath;
+}
+
+function builderImage(imagePath, alt = "", options = {}) {
+  const src = resolveBuilderAssetUrl(imagePath);
+  const style = options.style ? ` style="${escapeHtml(options.style)}"` : "";
+  const displayPath = escapeHtml(imagePath || "No image path");
+  if (!src) {
+    return `<div class="image-fallback"><strong>Image not loading</strong><span>${displayPath}</span></div>`;
+  }
+  return `
+    <figure class="builder-image-frame">
+      <img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy"${style} onerror="this.closest('figure').classList.add('is-broken')" />
+      <figcaption><strong>Image not loading</strong><span>${displayPath}</span></figcaption>
+    </figure>
+  `;
+}
+
+function projectImageForNews(item) {
+  const projectId = item.relatedProjectIds?.[0];
+  return (state.homepageCards?.featuredBuildings ?? []).find((card) => card.id === projectId)?.imagePath || "";
 }
 
 function projectFromImage(imagePath = "") {
@@ -492,18 +632,30 @@ function renderNewsletterDrafts() {
 function newsCard(item) {
   const bodySectionsText = (item.bodySections ?? []).map((section) => `${section.heading || ""}\n${section.body || ""}`.trim()).join("\n\n");
   const canQuickPublish = item.riskLevel !== "high";
+  const imagePath = item.suggestedImagePath || projectImageForNews(item) || "";
   return `
     <article class="news-card" data-news-id="${escapeHtml(item.id)}">
+      <div class="news-visual">
+        ${imagePath ? builderImage(imagePath, item.rewrittenHeadline || "", {}) : `<div class="preview-placeholder">Assign image before publishing</div>`}
+        <div>
+          <span class="status-pill status-${slug(item.status || "draft")}">${escapeHtml(item.status || "draft")}</span>
+          <span class="status-pill status-${slug(item.riskLevel || "normal")}">${escapeHtml(item.riskLevel || "normal")}</span>
+        </div>
+      </div>
       <div class="news-card-head">
         <strong>${escapeHtml(item.rewrittenHeadline)}</strong>
-        <span>${escapeHtml(item.riskLevel)} / ${escapeHtml(item.status)} / ${escapeHtml(item.publishMode || "manual")}</span>
+        <span>${escapeHtml(item.publishMode || "manual")}</span>
       </div>
       <p>${escapeHtml(item.deck)}</p>
+      <div class="article-preview">
+        <strong>Article preview</strong>
+        <p>${escapeHtml(bodySectionsText.split("\n").filter(Boolean).slice(0, 3).join(" "))}</p>
+      </div>
       <dl class="news-meta">
         <div><dt>Source</dt><dd>${escapeHtml(item.sourceName)} · <a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">source</a></dd></div>
         <div><dt>Projects</dt><dd>${escapeHtml((item.relatedProjectIds ?? []).join(", ") || "none")}</dd></div>
         <div><dt>Corridors</dt><dd>${escapeHtml((item.relatedCorridorIds ?? []).join(", ") || "none")}</dd></div>
-        <div><dt>Image</dt><dd>${escapeHtml(item.suggestedImagePath || "assign before publishing")}</dd></div>
+        <div><dt>Image</dt><dd>${escapeHtml(imagePath || "assign before publishing")}</dd></div>
         <div><dt>Image note</dt><dd>${escapeHtml(item.imageResolutionReason || "")}</dd></div>
         <div><dt>CTA</dt><dd>${escapeHtml(item.cta || "Compare related projects")}</dd></div>
         <div><dt>Newsletter</dt><dd>${escapeHtml(item.newsletterStatus || "not sent")}</dd></div>

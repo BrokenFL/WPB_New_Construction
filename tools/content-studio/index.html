@@ -10,8 +10,9 @@
     <header class="topbar">
       <div>
         <strong>Brooke Builder</strong>
-        <span>Local editor for WPB New Construction</span>
+        <span>Visual editor for WPB New Construction</span>
       </div>
+      <div id="topStatus" class="top-status" aria-label="Builder status"></div>
       <div class="top-actions">
         <button id="refresh" type="button">Refresh</button>
         <button id="runQa" type="button">Run QA</button>
@@ -19,8 +20,8 @@
       </div>
     </header>
 
-    <p class="warning">Local editorial tool. Changes write to repo files. Review changes before publishing.</p>
-    <p id="remoteBanner" class="remote-banner" hidden>Remote Builder Mode - secure access through Cloudflare. Confirm carefully before publishing.</p>
+    <p id="builderWarning" class="warning">Local editorial tool. Changes write to repo files. Review changes before publishing.</p>
+    <p id="remoteBanner" class="remote-banner" hidden>Remote Builder Mode — connected through Cloudflare Access. Extra confirmation required before publishing.</p>
 
     <main class="builder-shell">
       <aside class="sidebar">
@@ -29,13 +30,24 @@
           <select id="projectSelect"></select>
         </label>
         <nav class="tabs" aria-label="Main workflows">
-          <button class="active" data-tab="site" type="button">Site Editor</button>
+          <strong>Edit Site</strong>
+          <button class="active" data-tab="site" data-section="homepage" type="button">Homepage</button>
+          <button data-tab="site" data-section="updates" type="button">Updates</button>
+          <button data-tab="site" data-section="market" type="button">Guidance</button>
+          <button data-tab="site" data-section="projects" type="button">Projects</button>
+          <button data-tab="site" data-section="images" type="button">Images</button>
+          <strong>Content</strong>
           <button data-tab="news" type="button">News Desk</button>
+          <button data-tab="site" data-section="updates" type="button">Project Updates</button>
+          <button data-tab="site" data-section="team" type="button">Team Resources</button>
+          <strong>Operations</strong>
           <button data-tab="reports" type="button">Reports</button>
+          <button data-tab="site" data-section="automation" type="button">Automation Status</button>
+          <button data-tab="site" data-section="automation" type="button">Build / Deploy</button>
         </nav>
         <nav class="section-tabs" aria-label="Editor sections">
-          <button class="active" data-section="dashboard" type="button">Dashboard</button>
-          <button data-section="homepage" type="button">Homepage</button>
+          <button data-section="dashboard" type="button">Builder Home</button>
+          <button class="active" data-section="homepage" type="button">Homepage Editor</button>
           <button data-section="images" type="button">Images</button>
           <button data-section="projects" type="button">Projects</button>
           <button data-section="market" type="button">Market Notes</button>
@@ -46,9 +58,19 @@
       </aside>
 
       <section id="sitePanel" class="workspace panel active">
-        <section id="dashboardSection" class="section active">
-          <h1>Site Editor</h1>
-          <div id="statusCards" class="cards"></div>
+        <section id="dashboardSection" class="section">
+          <h1>Builder Home</h1>
+          <div class="quick-actions">
+            <button class="primary" data-go-tab="site" data-go-section="homepage" type="button">Edit Homepage</button>
+            <button data-go-tab="site" data-go-section="updates" type="button">Edit Updates</button>
+            <button data-go-tab="site" data-go-section="market" type="button">Edit Guidance</button>
+            <button data-go-tab="site" data-go-section="projects" type="button">Edit Projects</button>
+            <button data-go-tab="site" data-go-section="images" type="button">Review Images</button>
+            <button data-go-tab="news" type="button">News Desk</button>
+            <button data-go-tab="reports" type="button">Reports</button>
+            <button data-go-tab="site" data-go-section="automation" type="button">Update Site</button>
+          </div>
+          <div id="statusCards" class="cards compact-status"></div>
           <div class="editor-map">
             <article>
               <h2>Homepage</h2>
@@ -73,8 +95,13 @@
           </div>
         </section>
 
-        <section id="homepageSection" class="section">
+        <section id="homepageSection" class="section active">
           <h1>Homepage Editor</h1>
+          <div class="context-bar">
+            <strong id="editingBreadcrumb">Editing: Homepage</strong>
+            <span id="selectedCardContext">Choose a section or card</span>
+            <a id="previewHomepage" href="http://127.0.0.1:5173/" target="_blank" rel="noreferrer">Preview homepage</a>
+          </div>
           <form id="homepagePanel" class="tool-panel">
             <div class="grid">
               <label>Homepage block<select name="sectionId">
@@ -99,6 +126,8 @@
           <h1>Card-Level Editor</h1>
           <div class="card-editor-shell">
             <aside class="card-list-panel">
+              <h2>Page Structure</h2>
+              <div id="homepageTree" class="page-tree"></div>
               <label>Homepage section<select id="cardSectionSelect"></select></label>
               <div id="homepageCardList" class="homepage-card-list"></div>
             </aside>
@@ -145,19 +174,32 @@
                 <label class="checkbox-row"><input name="allowRepeatedImage" type="checkbox" /> Allow repeated image after review</label>
                 <label>Reason<textarea name="repetitionApprovalReason" placeholder="Intentional reuse for project-specific article and feature card."></textarea></label>
               </fieldset>
+              <div class="snapshot-grid">
+                <div id="currentPublishedPanel"></div>
+                <div id="draftOverridePanel"></div>
+              </div>
+              <div class="preview-tabs" aria-label="Preview sizes">
+                <button type="button" class="active">Desktop</button>
+                <button type="button">Mobile</button>
+              </div>
               <div id="cardPreview" class="card-preview-grid"></div>
               <div class="card-actions">
                 <button data-card-action="draft" type="submit">Save Draft</button>
-                <button data-card-action="approved" class="primary" type="submit">Approve</button>
+                <button data-card-action="approved" class="primary" type="submit">Approve Override</button>
+                <a class="button-link" href="http://127.0.0.1:5173/" target="_blank" rel="noreferrer">Preview Page</a>
+                <button data-go-tab="site" data-go-section="automation" type="button">Update Site</button>
               </div>
             </form>
           </div>
 
           <h1>Image Picker</h1>
-          <div id="imagePicker" class="image-picker"></div>
+          <div id="imagePicker" class="image-picker" data-image-picker-grid></div>
         </section>
 
         <section id="imagesSection" class="section">
+          <h1>Review Images</h1>
+          <div id="imagePickerImages" class="image-picker" data-image-picker-grid></div>
+
           <h1>Image Caption Editor</h1>
           <form id="captionPanel" class="tool-panel">
             <div class="grid">
@@ -302,6 +344,7 @@
 
       <section id="reportsPanel" class="workspace panel">
         <h1>Reports</h1>
+        <div id="reportShortcuts" class="report-shortcuts"></div>
         <div class="reports-shell">
           <aside id="reportList" class="report-list"></aside>
           <article class="report-viewer">

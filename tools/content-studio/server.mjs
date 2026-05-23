@@ -15,17 +15,17 @@ const port = Number(process.env.WPB_CONTENT_STUDIO_PORT ?? 8787);
 const launchAgentRoot = path.join(process.env.HOME ?? "", "Library/LaunchAgents");
 const remoteHostnames = ["builder.wpbnewconstruction.com", "brooke-builder.wpbnewconstruction.com"];
 const reportDefinitions = [
-  { category: "Builder", path: "research/source-material-review/card-level-visual-polish-audit.md" },
-  { category: "Visual QA", path: "research/source-material-review/live-visual-product-audit.md" },
-  { category: "Visual QA", path: "research/source-material-review/image-repetition-audit.md" },
-  { category: "Automation", path: "research/source-material-review/news-publisher-report.md" },
-  { category: "Automation", path: "research/source-material-review/news-daily-publisher-report.md" },
-  { category: "Automation", path: "research/source-material-review/daily-maintenance-report.md" },
-  { category: "Builder", path: "research/source-material-review/brooke-builder-update-site-test.md" },
-  { category: "Product", path: "research/source-material-review/floorplan-viewer-ux.md" },
-  { category: "Product", path: "research/source-material-review/project-link-out-cleanup.md" },
-  { category: "Remote Access", path: "research/source-material-review/brooke-builder-remote-access-feasibility.md" },
-  { category: "Remote Access", path: "research/source-material-review/builder-remote-report-focal-point-audit.md" },
+  { category: "Visual Audits", path: "research/source-material-review/card-level-visual-polish-audit.md" },
+  { category: "Visual Audits", path: "research/source-material-review/live-visual-product-audit.md" },
+  { category: "Visual Audits", path: "research/source-material-review/image-repetition-audit.md" },
+  { category: "News / Automation", path: "research/source-material-review/news-publisher-report.md" },
+  { category: "News / Automation", path: "research/source-material-review/news-daily-publisher-report.md" },
+  { category: "News / Automation", path: "research/source-material-review/daily-maintenance-report.md" },
+  { category: "QA", path: "research/source-material-review/brooke-builder-update-site-test.md" },
+  { category: "Floorplans / Images", path: "research/source-material-review/floorplan-viewer-ux.md" },
+  { category: "Floorplans / Images", path: "research/source-material-review/project-link-out-cleanup.md" },
+  { category: "Deployment", path: "research/source-material-review/brooke-builder-remote-access-feasibility.md" },
+  { category: "Deployment", path: "research/source-material-review/builder-remote-report-focal-point-audit.md" },
 ];
 
 const overrideFiles = {
@@ -61,6 +61,7 @@ async function main() {
       if (request.method === "GET" && url.pathname === "/app.js") return sendFile(response, "app.js", "text/javascript; charset=utf-8");
       if (request.method === "GET" && url.pathname === "/style.css") return sendFile(response, "style.css", "text/css; charset=utf-8");
       if (request.method === "GET" && url.pathname === "/favicon.ico") return sendText(response, "", 204);
+      if (request.method === "GET" && await maybeSendPublicAsset(url.pathname, response)) return;
       if (request.method === "GET" && url.pathname === "/api/state") return sendJson(response, await state(request));
       if (request.method === "GET" && url.pathname === "/api/reports") return sendJson(response, await reportsIndex());
       if (request.method === "GET" && url.pathname === "/api/report") return sendJson(response, await reportBody(url.searchParams.get("path")));
@@ -91,6 +92,12 @@ async function state(request) {
   return {
     ok: true,
     remote,
+    assetBaseUrl: remote.isRemote ? "https://www.wpbnewconstruction.com" : "",
+    previewUrls: {
+      homepage: remote.isRemote ? "https://www.wpbnewconstruction.com/" : "http://127.0.0.1:5173/",
+      updates: remote.isRemote ? "https://www.wpbnewconstruction.com/updates/" : "http://127.0.0.1:5173/updates/",
+      guidance: remote.isRemote ? "https://www.wpbnewconstruction.com/answers/" : "http://127.0.0.1:5173/answers/",
+    },
     projects: await readProjects(),
     overrides: await readAllOverrides(),
     availableImages: await availablePublicImages(),
@@ -101,7 +108,7 @@ async function state(request) {
     automation: await automationStatus(),
     statusCards: await statusCards(remote),
     warning: remote.isRemote
-      ? "Remote Builder Mode - secure access through Cloudflare. Confirm carefully before publishing."
+      ? "Remote Builder Mode - connected through Cloudflare Access. Extra confirmation required before publishing."
       : "Local editorial tool. Changes write to repo files. Review Git diff before publishing.",
   };
 }
@@ -562,6 +569,7 @@ async function homepageCardInventory() {
   const [updates, guidance] = await Promise.all([readUpdateCards(), readGuidanceCards()]);
   return {
     hero: [{ id: "hero", title: "Homepage hero", imagePath: "", deck: "Hero image rotation and lead copy" }],
+    map: [{ id: "homepage-map", title: "Map", imagePath: "/assets/editorial/wpb-geography-map-hero.jpg", deck: "Map and corridor orientation block" }],
     corridors: [
       { id: "north-flagler", title: "North Flagler", imagePath: "/assets/editorial/flagler-waterfront-corridor.jpg", deck: "Waterfront and marina corridor" },
       { id: "downtown", title: "Downtown", imagePath: "/assets/editorial/rosemary-square-corridor.jpg", deck: "Walkability and district living" },
@@ -576,25 +584,57 @@ async function homepageCardInventory() {
 
 async function readUpdateCards() {
   const text = await fs.readFile(path.join(workspace, "src/data/approvedExternalNews.ts"), "utf8").catch(() => "");
-  return [...text.matchAll(/"?id"?\s*:\s*"([^"]+)"[\s\S]{0,320}?"?title"?\s*:\s*"([^"]+)"/g)]
+  return [...text.matchAll(/"?id"?\s*:\s*"([^"]+)"[\s\S]{0,420}?"?title"?\s*:\s*"([^"]+)"[\s\S]{0,900}?(?:"?description"?\s*:\s*"([^"]+)")?[\s\S]{0,900}?(?:"?relatedProjectIds"?\s*:\s*\[\s*"([^"]+)")?/g)]
     .slice(0, 8)
-    .map((match) => ({ id: match[1], title: match[2], imagePath: "", deck: "Homepage update card" }));
+    .map((match) => ({ id: match[1], title: match[2], imagePath: projectPreviewImage(match[4]), deck: match[3] || "Homepage update card" }));
 }
 
 async function readGuidanceCards() {
   const text = await fs.readFile(path.join(workspace, "src/data/marketNotes.ts"), "utf8").catch(() => "");
-  return [...text.matchAll(/"?title"?\s*:\s*"([^"]+)"[\s\S]{0,180}?"?slug"?\s*:\s*"([^"]+)"/g)]
+  return [...text.matchAll(/"?title"?\s*:\s*"([^"]+)"[\s\S]{0,260}?"?slug"?\s*:\s*"([^"]+)"[\s\S]{0,700}?(?:"?excerpt"?\s*:\s*"([^"]+)")?[\s\S]{0,700}?(?:"?imageId"?\s*:\s*"([^"]+)")?/g)]
     .slice(0, 8)
-    .map((match) => ({ id: match[2], title: match[1], imagePath: "", deck: "Homepage guidance card" }));
+    .map((match) => ({ id: match[2], title: match[1], imagePath: imagePathFromImageId(match[4]), deck: match[3] || "Homepage guidance card" }));
 }
 
 async function featuredBuildingCards() {
   const projects = await readProjects();
-  return projects.slice(0, 18).map((project) => ({ id: project.id, title: project.name, imagePath: "", deck: "Featured building card" }));
+  const projectImages = await projectCardImages();
+  return projects.slice(0, 18).map((project) => ({
+    id: project.id,
+    title: project.name,
+    imagePath: projectImages.get(project.id) || projectPreviewImage(project.id),
+    deck: "Featured building card",
+  }));
+}
+
+async function projectCardImages() {
+  const text = await fs.readFile(path.join(workspace, "src/main.ts"), "utf8").catch(() => "");
+  const images = new Map();
+  for (const match of text.matchAll(/id:\s*"([^"]+)"[\s\S]{0,520}?image:\s*"([^"]+)"/g)) {
+    if (!images.has(match[1])) images.set(match[1], match[2]);
+  }
+  return images;
+}
+
+function projectPreviewImage(projectId = "") {
+  const fallback = {
+    olara: "/projects/olara/media/olara-hero-exterior-1536x1024.jpg",
+    rosewood: "/projects/rosewood/media/rosewood-rendering-hero.jpg",
+    "nora-house": "/projects/nora-house/media/nora-house-card.jpg",
+    "mandarin-oriental": "/projects/mandarin-oriental/media/mandarin-oriental-exterior-hero-source.jpg",
+    "south-flagler-house": "/projects/south-flagler-house/media/card.jpg",
+    shorecrest: "/projects/shorecrest/media/card.jpg",
+  };
+  return fallback[projectId] || "";
+}
+
+function imagePathFromImageId(imageId = "") {
+  if (!imageId) return "";
+  return `/assets/editorial/${imageId}.jpg`;
 }
 
 function defaultHomepageCardSections() {
-  return Object.fromEntries(["hero", "corridors", "updates", "guidance", "featuredBuildings", "cta"].map((key) => [key, { cards: {} }]));
+  return Object.fromEntries(["hero", "map", "corridors", "updates", "guidance", "featuredBuildings", "cta"].map((key) => [key, { cards: {} }]));
 }
 
 function homepageSectionId(value) {
@@ -769,7 +809,7 @@ function remoteContext(request) {
     recommendedHostname: "builder.wpbnewconstruction.com",
     accessRequired: true,
     message: isRemote
-      ? "Remote Builder Mode - secure access through Cloudflare. Confirm carefully before publishing."
+      ? "Remote Builder Mode - connected through Cloudflare Access. Extra confirmation required before publishing."
       : "Local Builder Mode - bound to 127.0.0.1.",
     desktopNote: "Desktop Mac must remain awake and Brooke Builder must keep running.",
   };
@@ -858,6 +898,30 @@ async function sendFile(response, fileName, contentType) {
   const body = await fs.readFile(path.join(studioRoot, fileName));
   response.writeHead(200, { "content-type": contentType });
   response.end(body);
+}
+
+async function maybeSendPublicAsset(urlPath, response) {
+  if (!/^\/(?:assets|projects|hero|team-resources)\//.test(urlPath)) return false;
+  const decoded = decodeURIComponent(urlPath);
+  const assetPath = path.normalize(path.join(workspace, "public", decoded));
+  const publicRoot = path.join(workspace, "public");
+  if (!assetPath.startsWith(publicRoot)) return false;
+  const body = await fs.readFile(assetPath).catch(() => null);
+  if (!body) return false;
+  response.writeHead(200, {
+    "content-type": contentTypeFor(assetPath),
+    "cache-control": "public, max-age=300",
+  });
+  response.end(body);
+  return true;
+}
+
+function contentTypeFor(filePath) {
+  if (/\.jpe?g$/i.test(filePath)) return "image/jpeg";
+  if (/\.png$/i.test(filePath)) return "image/png";
+  if (/\.webp$/i.test(filePath)) return "image/webp";
+  if (/\.svg$/i.test(filePath)) return "image/svg+xml";
+  return "application/octet-stream";
 }
 
 async function readJson(request, limit = 1024 * 1024) {
