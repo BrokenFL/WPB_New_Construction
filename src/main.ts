@@ -325,6 +325,9 @@ const southFlaglerHouseUserHero = "/projects/south-flagler-house/media/user-prov
 const southFlaglerHouseUserCard = "/projects/south-flagler-house/media/user-provided-south-flagler-house-card.jpg";
 const shorecrestUserHero = "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg";
 const shorecrestUserCard = "/projects/shorecrest/media/user-provided-shorecrest-card.jpg";
+const southFlaglerMediaBase = "/projects/south-flagler-house/media/";
+const albaMediaBase = "/projects/alba-palm-beach/media/";
+const shorecrestMediaBase = "/projects/shorecrest/media/";
 const banyanTreeUserCard = "/projects/banyan-tree/media/user-provided-banyan-tree-card.jpg";
 const rosewoodRenderHero = "/projects/rosewood/media/user-provided-rosewood-render-01.jpg";
 const rosewoodRenderVertical = "/projects/rosewood/media/user-provided-rosewood-render-02.jpg";
@@ -347,14 +350,14 @@ const laClaraHeroPortrait = "/projects/la-clara/media/la-clara-hero-4x5.jpg";
 const relatedRossLogo = "/team-logos/related-ross-logo.webp";
 const arquitectonicaLogo = "/team-logos/arquitectonica-logo.webp";
 const projectLogoImages: Record<string, { src: string; alt: string }> = {
-  "alba-palm-beach": { src: "/projects/alba-palm-beach/media/logo.svg", alt: "Alba Palm Beach logo" },
+  "alba-palm-beach": { src: `${albaMediaBase}logo.svg`, alt: "Alba Palm Beach logo" },
   "banyan-tree": { src: "/projects/banyan-tree/media/logo.png", alt: "Banyan Tree Residences West Palm Beach logo" },
   "forte-on-flagler": { src: "/projects/forte-on-flagler/media/logo.png", alt: "Forte on Flagler logo" },
   "mr-c": { src: "/projects/mr-c/media/logo.svg", alt: "Mr. C Hotel and Residences West Palm Beach logo" },
   olara: { src: "/projects/olara/media/logo.svg", alt: "Olara logo" },
   "ritz-carlton-wpb": { src: "/projects/ritz-carlton-wpb/media/ritz-logo.svg", alt: "The Ritz-Carlton Residences West Palm Beach logo" },
-  shorecrest: { src: "/projects/shorecrest/media/logo.svg", alt: "Shorecrest logo" },
-  "south-flagler-house": { src: "/projects/south-flagler-house/media/logo.svg", alt: "South Flagler House logo" },
+  shorecrest: { src: `${shorecrestMediaBase}logo.svg`, alt: "Shorecrest logo" },
+  "south-flagler-house": { src: `${southFlaglerMediaBase}logo.svg`, alt: "South Flagler House logo" },
 };
 const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined;
 const googleMapsMapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID as string | undefined;
@@ -532,7 +535,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     residences: "55",
     price: "Confirm before offer",
     href: "?project=alba-palm-beach",
-    image: "/projects/alba-palm-beach/media/card.jpg",
+    image: `${albaMediaBase}card.jpg`,
     summary: "A boutique 55-residence North Flagler waterfront building at 4714 N Flagler, appealing to buyers who want new construction at a more intimate scale than the larger Flagler towers.",
     floorplans: true,
     pageState: "Advisory brief",
@@ -1142,37 +1145,37 @@ const projectTeam: TeamCredit[] = [
   {
     role: "Development Lead",
     name: "Savanna",
-    note: "Vertically integrated real estate investment and development firm behind Olara.",
+    note: "Developer execution, timing, and operations support the amenity promise.",
   },
   {
     role: "Architect",
     name: "Arquitectonica",
-    note: "Responsible for the sculptural waterfront tower architecture.",
+    note: "Tower orientation, arrival, balconies, and views start here.",
   },
   {
     role: "Interior Designer",
     name: "Gabellini Sheppard",
-    note: "Leads the residence and amenity interior design language.",
+    note: "Residences and amenities need to feel warm, usable, and residential.",
   },
   {
     role: "Landscape Architect",
     name: "EDSA",
-    note: "Landscape and outdoor environment design partner.",
+    note: "Pool, marina, garden, and arrival spaces shape daily life.",
   },
   {
     role: "Construction",
     name: "SavCon + Gilbane",
-    note: "Preconstruction and construction management team.",
+    note: "Schedule confidence and execution quality.",
   },
   {
     role: "Restaurant Partner",
     name: "Jose Andres Group",
-    note: "Signature dining partner for the waterfront lifestyle program.",
+    note: "Olara's lifestyle pitch is more social and food-driven.",
   },
   {
     role: "Sales And Marketing",
     name: "Compass DMG",
-    note: "Exclusive sales and marketing team.",
+    note: "Confirm releases, fees, and appointment protocol.",
   },
 ];
 
@@ -1417,17 +1420,227 @@ const ritzFloorplanDownloads = [
   { label: "Lake Home 12.1", file: "ritz-lake-home-12-1.pdf", note: "Alt floorplan PDF" },
 ];
 
+const southFlaglerTeam: TeamCredit[] = [
+  {
+    role: "Developer",
+    name: "Related Ross",
+    note: "Sponsor depth, financing, and delivery confidence are central here.",
+  },
+  {
+    role: "Architect",
+    name: "Robert A.M. Stern Architects",
+    note: "Proportion, permanence, and Palm Beach-adjacent credibility drive the value.",
+  },
+  {
+    role: "Interior Designer",
+    name: "Pembrooke & Ives",
+    note: "Interiors should support a composed, long-term home.",
+  },
+  {
+    role: "Landscape Architect",
+    name: "SMI Landscape Architecture",
+    note: "Gardens, terraces, pool edges, and arrival carry the club feeling.",
+  },
+];
+
+const albaTeam: TeamCredit[] = [
+  {
+    role: "Developer",
+    name: "BGI Companies / Kenneth Baboun",
+    note: "Boutique scale makes execution and closeout timing important.",
+  },
+  {
+    role: "Development Partner",
+    name: "Blue Road",
+    note: "Partnership depth supports delivery.",
+  },
+  {
+    role: "Architect",
+    name: "Spina O'Rourke + Partners",
+    note: "Alba needs a quieter, residential waterfront design read.",
+  },
+  {
+    role: "Landscape Architect",
+    name: "Schmidt Nichols",
+    note: "Outdoor edges and arrival spaces matter in a small building.",
+  },
+  {
+    role: "Construction",
+    name: "Moss Construction",
+    note: "Verify progress against current closing guidance.",
+  },
+  {
+    role: "Sales",
+    name: "One Sotheby's International Realty",
+    note: "Current inventory, townhomes, incentives, and pricing require a packet.",
+  },
+];
+
+const shorecrestTeam: TeamCredit[] = [
+  {
+    role: "Developer",
+    name: "Related Ross",
+    note: "Useful context, but pricing, lines, and timing still need verification.",
+  },
+  {
+    role: "Architect",
+    name: "Roger Ferris + Partners",
+    note: "Shorecrest should read as contemporary North Flagler, not South Flagler copy.",
+  },
+  {
+    role: "Interior Designer",
+    name: "Rottet Studio",
+    note: "Tone, light, and amenity atmosphere need current-material review.",
+  },
+  {
+    role: "Landscape Designer",
+    name: "DS Boca",
+    note: "Outdoor amenity and arrival details still need packet review.",
+  },
+  {
+    role: "Sales / Marketing",
+    name: "Related Sales / Corcoran Sunshine",
+    note: "Availability and contract terms still need direct confirmation.",
+  },
+];
+
+const southFlaglerResidenceGallery: MediaAsset[] = [
+  {
+    src: `${southFlaglerMediaBase}imported/south-flagler-house-penthouse-living-room-rendering.jpg`,
+    kicker: "Residence",
+    title: "Penthouse Living",
+    alt: "South Flagler House penthouse living room rendering",
+  },
+  {
+    src: `${southFlaglerMediaBase}imported/south-flagler-house-kitchen-residence-rendering.jpg`,
+    kicker: "Residence",
+    title: "Kitchen And Dining",
+    alt: "South Flagler House kitchen and dining residence rendering",
+  },
+  {
+    src: `${southFlaglerMediaBase}imported/south-flagler-house-primary-bedroom-duplex-rendering.jpg`,
+    kicker: "Residence",
+    title: "Primary Suite",
+    alt: "South Flagler House primary bedroom duplex rendering",
+  },
+];
+
+const southFlaglerAmenityGallery: MediaAsset[] = [
+  {
+    src: `${southFlaglerMediaBase}imported/south-flagler-house-pool-amenity-rendering.jpg`,
+    kicker: "Amenity",
+    title: "Waterfront Pool",
+    alt: "South Flagler House pool amenity rendering",
+  },
+  {
+    src: `${southFlaglerMediaBase}imported/amenity-2026-05-22-041.jpg`,
+    kicker: "Amenity",
+    title: "Private Club Space",
+    alt: "South Flagler House private club amenity rendering",
+  },
+  {
+    src: `${southFlaglerMediaBase}imported/amenity-2026-05-22-042.jpg`,
+    kicker: "Amenity",
+    title: "Wellness Amenity",
+    alt: "South Flagler House wellness amenity rendering",
+  },
+];
+
+const albaResidenceGallery: MediaAsset[] = [
+  {
+    src: `${albaMediaBase}imported/alba-palm-beach-exterior-aerial-waterfront-rendering.jpg`,
+    kicker: "Waterfront",
+    title: "Direct Intracoastal Setting",
+    alt: "Alba Palm Beach direct Intracoastal waterfront rendering",
+  },
+  {
+    src: `${albaMediaBase}alba-exterior-sketch.jpg`,
+    kicker: "Architecture",
+    title: "Boutique Exterior",
+    alt: "Alba Palm Beach exterior sketch",
+  },
+  {
+    src: `${albaMediaBase}imported/alba-palm-beach-card-waterfront-rendering-2026-05-22-009.jpg`,
+    kicker: "Residence",
+    title: "Waterfront Residence Context",
+    alt: "Alba Palm Beach boutique waterfront residence rendering",
+  },
+];
+
+const albaAmenityGallery: MediaAsset[] = [
+  {
+    src: `${albaMediaBase}imported/alba-palm-beach-card-waterfront-rendering-2026-05-22-009.jpg`,
+    kicker: "Amenity",
+    title: "Waterfront Terrace",
+    alt: "Alba Palm Beach waterfront terrace rendering",
+  },
+  {
+    src: `${albaMediaBase}alba-hero.jpg`,
+    kicker: "Amenity",
+    title: "Pool And Waterfront Edge",
+    alt: "Alba Palm Beach aerial waterfront and amenity deck rendering",
+  },
+  {
+    src: `${albaMediaBase}card.jpg`,
+    kicker: "Amenity",
+    title: "Boutique Building Rhythm",
+    alt: "Alba Palm Beach boutique waterfront building image",
+  },
+];
+
+const shorecrestResidenceGallery: MediaAsset[] = [
+  {
+    src: `${shorecrestMediaBase}imported/shorecrest-interior-living-room-rendering.jpg`,
+    kicker: "Residence",
+    title: "Living Room View",
+    alt: "Shorecrest residence living room rendering",
+  },
+  {
+    src: `${shorecrestMediaBase}shorecrest-residence-900x1179.jpg`,
+    kicker: "Residence",
+    title: "Residence Interior",
+    alt: "Shorecrest residence interior rendering",
+  },
+  {
+    src: `${shorecrestMediaBase}shorecrest-exterior-card.jpg`,
+    kicker: "Waterfront",
+    title: "Waterfront Exposure",
+    alt: "Shorecrest waterfront exterior rendering",
+  },
+];
+
+const shorecrestAmenityGallery: MediaAsset[] = [
+  {
+    src: `${shorecrestMediaBase}imported/unknown-2026-05-22-038.jpg`,
+    kicker: "Amenity",
+    title: "Pool And Amenity Context",
+    alt: "Shorecrest amenity rendering from project materials",
+  },
+  {
+    src: `${shorecrestMediaBase}imported/shorecrest-restaurant-bar-lifestyle-reference.jpg`,
+    kicker: "Amenity",
+    title: "Dining / Lounge Reference",
+    alt: "Shorecrest dining and lounge lifestyle reference image",
+  },
+  {
+    src: `${shorecrestMediaBase}imported/shorecrest-hummingbird-exterior-rendering.jpg`,
+    kicker: "Amenity",
+    title: "Outdoor Setting",
+    alt: "Shorecrest outdoor setting rendering from project materials",
+  },
+];
+
 const projectPageDrafts: Record<string, ProjectPageDraft> = {
   olara: {
     kicker: "North Flagler Waterfront",
     title: "Olara",
     intro:
-      "Olara is the amenity-rich North Flagler waterfront project built around the idea that daily life should feel both residential and resort-like. Designed by Arquitectonica and planned with an unusually deep lifestyle program, the 26-story tower brings a large-scale luxury condominium experience to one of West Palm Beach's most closely watched waterfront corridors.",
+      "Olara is the lively North Flagler waterfront choice for buyers who want marina access, wellness, dining, and social energy built into the address. The useful read is not simply that it has resort amenities; it is how the building turns water, food, fitness, and daily service into a more active residential routine.",
     image: `${mediaBase}olara-hero-exterior-1536x1024.jpg`,
     imageAlt: "Olara waterfront tower rendering in West Palm Beach",
     stage: "Under construction",
     locationCopy:
-      "At 1919 N Flagler Drive, Olara sits in the core North Flagler comparison set with Shorecrest and The Ritz-Carlton Residences. The useful buyer read is amenity depth, waterfront access, current floorplan availability, and how the building's resort-like daily rhythm compares with smaller or more brand-led nearby projects.",
+      "At 1919 N Flagler Drive, Olara sits in the core North Flagler comparison set with Shorecrest and The Ritz-Carlton Residences. Compare it by amenity depth, marina access, current floorplan availability, and whether an active waterfront-resort rhythm fits better than a boutique or formal-estate posture.",
     facts: [
       { label: "Address", value: "1919 N Flagler Dr" },
       { label: "Stories", value: "26" },
@@ -1438,10 +1651,10 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     team: projectTeam,
     highlights: [
-      { label: "Wellness", value: "Everyday fitness and recovery", note: "The building is positioned with a serious wellness environment rather than a token gym." },
-      { label: "Waterfront Leisure", value: "Pool, marina, outdoor living", note: "Use the water-facing lifestyle as a comparison point, while confirming exact access and offering terms." },
-      { label: "Social / Entertaining", value: "Dining and gathering spaces", note: "Lounges, dining, and amenity areas should be reviewed as extensions of the residence." },
-      { label: "Buyer Fit", value: "Full-service amenity depth", note: "Best fit for buyers who want a large amenity program rather than a smaller boutique building." },
+      { label: "Wellness", value: "Fitness, spa, and recovery", note: "Review the wellness spaces as daily-use infrastructure, not as a brochure checkbox." },
+      { label: "Marina", value: "Water-oriented ownership", note: "Confirm exact marina access, slips, fees, and operating rules before assigning value." },
+      { label: "Dining", value: "Culinary identity", note: "The Jose Andres connection gives Olara a social layer that separates it from quieter Flagler options." },
+      { label: "Buyer Fit", value: "Active amenity depth", note: "Best for buyers who want the building to feel alive and service-rich." },
     ],
     gallery: [
       ...featuredGallery,
@@ -1568,12 +1781,12 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     kicker: "North Flagler Waterfront",
     title: "Shorecrest",
     intro:
-      "Shorecrest brings a more intimate luxury condominium profile to North Flagler, with 98 residences planned across a 28-story waterfront tower. Backed by Related Ross and now under construction, the project gives buyers a lower-density alternative within the same fast-changing corridor as Olara and Ritz-Carlton Residences West Palm Beach.",
+      "Shorecrest is a source-confirmed Related Ross waterfront project on North Flagler, but the page should stay measured: use the official materials for address, team, residence count range, and broad amenity posture, then mark current pricing, line availability, and final offering details for packet review.",
     image: shorecrestUserHero,
     imageAlt: "Shorecrest waterfront tower rendering",
     stage: "Under construction",
     locationCopy:
-      "Located at 1865 N Flagler Drive on the west side of the Intracoastal, Shorecrest belongs in the first North Flagler comparison set. Its buyer distinction is privacy and scale: fewer residences than Olara, a direct waterfront setting, and Related Ross credibility without making the page feel like a generic resort brochure.",
+      "Located at 1865 N Flagler Drive on the west side of the Intracoastal, Shorecrest belongs in the first North Flagler comparison set. It should be read as a contemporary waterfront condominium with Related Ross context, not as a South Flagler House clone.",
     facts: [
       { label: "Address", value: "1865 N Flagler Dr", note: "Some public materials also reference 1901 N Flagler." },
       { label: "Stories", value: "28" },
@@ -1583,16 +1796,11 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { label: "Pricing", value: "From $3M reported", note: "Request current availability before scheduling." },
       { label: "Profile", value: "North Flagler waterfront" },
     ],
-    team: [
-      { role: "Project Sponsor", name: "Related Ross", note: "Lead project sponsor." },
-      { role: "Architect", name: "Roger Ferris + Partners", note: "Architecture partner for the waterfront tower." },
-      { role: "Interior Designer", name: "Rottet Studio", note: "Interior design partner for residences and amenities." },
-      { role: "Wellness Partner", name: "Equinox-curated program", note: "Wellness programming is part of the amenity positioning." },
-    ],
+    team: shorecrestTeam,
     highlights: [
-      { label: "Privacy And Scale", value: "98 residences", note: "A lower-density North Flagler alternative to larger nearby towers." },
-      { label: "Waterfront Living", value: "Flagler Drive setting", note: "Confirm exact exposure, floor height, and view corridor before ranking lines." },
-      { label: "Buyer Fit", value: "Refined / residential", note: "Best fit for buyers who want new waterfront construction with fewer residences than major resort-style buildings." },
+      { label: "What We Know", value: "Related Ross + North Flagler", note: "Official and sponsor sources support the broad project context and design team." },
+      { label: "What Needs Confirmation", value: "Current packet", note: "Confirm pricing, releases, amenities, fees, delivery, parking, storage, and offering terms before reliance." },
+      { label: "Buyer Fit", value: "Contemporary waterfront", note: "A North Flagler option to compare on scale, views, and service without borrowing South Flagler language." },
     ],
     gallery: [
       {
@@ -1602,13 +1810,13 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
         alt: "Shorecrest waterfront tower rendering",
       },
       {
-        src: "/projects/shorecrest/media/imported/shorecrest-interior-living-room-rendering.jpg",
+        src: `${shorecrestMediaBase}imported/shorecrest-interior-living-room-rendering.jpg`,
         kicker: "Residence",
         title: "Living Room View",
         alt: "Shorecrest residence living room rendering",
       },
       {
-        src: "/projects/shorecrest/media/shorecrest-exterior-card.jpg",
+        src: `${shorecrestMediaBase}shorecrest-exterior-card.jpg`,
         kicker: "Exterior",
         title: "Waterfront Profile",
         alt: "Shorecrest reference card image",
@@ -1708,12 +1916,12 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     kicker: "Northwood / North Flagler",
     title: "Alba Palm Beach",
     intro:
-      "Alba Palm Beach is the smaller-scale North Flagler alternative: a 55-residence waterfront building for buyers who want new construction, direct water orientation, and a more private building rhythm.",
-    image: "/projects/alba-palm-beach/media/alba-hero.jpg",
+      "Alba Palm Beach is the boutique North Flagler waterfront alternative: 55 residences, direct Intracoastal orientation, and a quieter residential scale for buyers who do not want the mega-tower feel.",
+    image: `${albaMediaBase}alba-hero.jpg`,
     imageAlt: "Alba Palm Beach aerial rendering",
     stage: "Under construction",
     locationCopy:
-      "At 4714 N Flagler Drive, Alba extends the waterfront comparison north of the Olara/Shorecrest/Ritz cluster. Compare it on scale, delivery timing, view orientation, and the feel of a boutique building.",
+      "At 4714 N Flagler Drive, Alba extends the waterfront comparison north of the Olara/Shorecrest/Ritz cluster. Compare it on scale, direct water orientation, townhome-style options, and the calmer Northwood feel.",
     facts: [
       { label: "Address", value: "4714 N Flagler Dr" },
       { label: "Stories", value: "22" },
@@ -1722,31 +1930,27 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { label: "Pricing", value: "Request current pricing", note: "Lower penthouse reporting starts around $6.95M." },
       { label: "Profile", value: "Boutique North Flagler" },
     ],
-    team: [
-      { role: "Developer", name: "BGI Companies", note: "Developer for the boutique waterfront project." },
-      { role: "Architect", name: "Spina O'Rourke + Partners", note: "Architecture partner for Alba Palm Beach." },
-      { role: "Sales", name: "Current availability", note: "Request current pricing, inventory, and tour details." },
-    ],
+    team: albaTeam,
     highlights: [
-      { label: "Scale", value: "Boutique", note: "55 residences gives it a different buyer profile from the larger Flagler towers." },
-      { label: "Status", value: "Topped out reporting", note: "Request the latest construction and delivery update." },
-      { label: "Floorplans", value: "Public PDF", note: "Official external floorplan packet is indexed in the floorplan library." },
+      { label: "Scale", value: "55 residences", note: "The appeal is proportion and privacy, not the longest possible amenity inventory." },
+      { label: "Residence Mix", value: "Condos + townhomes", note: "Townhome-style options make Alba relevant for buyers who want a more grounded residential feel." },
+      { label: "Status", value: "Topped-out / nearing delivery", note: "Request the latest construction, closing, incentive, and inventory update." },
     ],
     gallery: [
       {
-        src: "/projects/alba-palm-beach/media/alba-hero.jpg",
+        src: `${albaMediaBase}alba-hero.jpg`,
         kicker: "Exterior",
         title: "Aerial Waterfront",
         alt: "Alba Palm Beach aerial rendering",
       },
       {
-        src: "/projects/alba-palm-beach/media/alba-exterior-sketch.jpg",
+        src: `${albaMediaBase}alba-exterior-sketch.jpg`,
         kicker: "Architecture",
         title: "Exterior Sketch",
         alt: "Alba Palm Beach exterior sketch",
       },
       {
-        src: "/projects/alba-palm-beach/media/card.jpg",
+        src: `${albaMediaBase}card.jpg`,
         kicker: "Exterior",
         title: "Boutique Waterfront",
         alt: "Alba reference card image",
@@ -1848,12 +2052,12 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     kicker: "South Flagler Waterfront",
     title: "South Flagler House",
     intro:
-      "South Flagler House is the architectural heavyweight of the South Flagler waterfront: a two-tower luxury condominium composition planned for 1355 South Flagler Drive, directly across the water from Palm Beach Island. Rather than selling only height or amenities, the project is positioned around permanence, formal design, and the rare feel of an estate-scale address in a vertical waterfront setting.",
+      "South Flagler House is the composed South Flagler waterfront address for buyers who want Palm Beach-adjacent formality in a full-service condominium. The pitch is architecture, privacy, and private-club depth rather than North Flagler resort energy.",
     image: southFlaglerHouseUserHero,
     imageAlt: "South Flagler House reference image",
     stage: "Under construction",
     locationCopy:
-      "At 1355 S Flagler Drive, South Flagler House anchors the southern waterfront comparison. It should be read less like a downtown tower and more like a Palm Beach-adjacent architectural address, with privacy, scale, formal arrival, and long-term design credibility carrying the buyer conversation.",
+      "At 1355 S Flagler Drive, South Flagler House anchors the southern waterfront comparison. Read it by Palm Beach access, privacy, residence scale, formal arrival, and whether the quieter South Flagler setting fits the way the buyer wants to live.",
     facts: [
       { label: "Address", value: "1355 S Flagler Dr" },
       { label: "Stories", value: "28 + 28", note: "Two tower composition." },
@@ -1863,16 +2067,11 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { label: "Pricing", value: "Request current pricing" },
       { label: "Profile", value: "South Flagler waterfront" },
     ],
-    team: [
-      { role: "Project Sponsor", name: "Related Ross", note: "Lead project sponsor." },
-      { role: "Architect", name: "Robert A.M. Stern Architects", note: "Architecture partner for the twin-tower waterfront composition." },
-      { role: "Interior Designer", name: "Pembrooke & Ives", note: "Interior design partner for residences and amenities." },
-      { role: "Landscape Architect", name: "Landscape design", note: "Outdoor spaces shape the private-club waterfront setting." },
-    ],
+    team: southFlaglerTeam,
     highlights: [
-      { label: "Estate-Scale Arrival", value: "Two-tower composition", note: "Position the arrival sequence, privacy, and formality where current materials support it." },
-      { label: "Architecture As Amenity", value: "RAMSA design", note: "Design credibility is part of the value proposition, not just a team credit." },
-      { label: "Buyer Fit", value: "Palm Beach-adjacent scale", note: "Best fit for buyers seeking architectural gravitas and a quieter South Flagler ownership profile." },
+      { label: "Architecture", value: "RAMSA design", note: "Design credibility is part of the value proposition, not just a team credit." },
+      { label: "Private Club", value: "Amenity depth", note: "Review the club, wellness, dining, pool, and service program as daily-life infrastructure." },
+      { label: "Buyer Fit", value: "Palm Beach-adjacent calm", note: "Best for buyers seeking scale and composure rather than a marina-resort identity." },
     ],
     gallery: [
       {
@@ -1882,19 +2081,19 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
         alt: "South Flagler House waterfront rendering",
       },
       {
-        src: "/projects/south-flagler-house/media/south-flagler-house-entrance-source.jpg",
+        src: `${southFlaglerMediaBase}south-flagler-house-entrance-source.jpg`,
         kicker: "Arrival",
         title: "Entrance Sequence",
         alt: "South Flagler House arrival and entrance rendering",
       },
       {
-        src: "/projects/south-flagler-house/media/south-flagler-house-rendering-02.jpg",
+        src: `${southFlaglerMediaBase}south-flagler-house-rendering-02.jpg`,
         kicker: "Architecture",
         title: "Tower Rendering",
         alt: "South Flagler House tower rendering",
       },
       {
-        src: "/projects/south-flagler-house/media/south-flagler-house-rendering-03.png",
+        src: `${southFlaglerMediaBase}south-flagler-house-rendering-03.png`,
         kicker: "Detail",
         title: "Project Detail",
         alt: "South Flagler House project rendering detail",
@@ -6181,7 +6380,7 @@ function renderProjectRelatedNews(project: FeaturedProject) {
       <div class="section-heading">
         <p class="eyebrow">Latest Coverage</p>
         <h2>Recent public signals tied to this building.</h2>
-        <p>Project-specific updates appear first, followed by closely related North Flagler branded-residence coverage when it affects the buyer comparison.</p>
+        <p>Project-specific updates appear first, followed by corridor or sponsor context only when it affects the buyer comparison.</p>
       </div>
       <div class="project-note-list">
         ${items.map(renderProjectUpdateNote).join("")}
@@ -6197,13 +6396,33 @@ function projectRelatedNewsItems(project: FeaturedProject) {
   const directIds = new Set(direct.map((item) => item.id));
   const fallback = publishedExternalNews.filter((item) => {
     if (directIds.has(item.id)) return false;
-    if (project.id !== "ritz-carlton-wpb") return false;
-    const text = `${item.title} ${item.deck ?? ""} ${item.description ?? ""} ${item.summary ?? ""} ${item.bodySections?.map((section) => section.body).join(" ") ?? ""}`.toLowerCase();
-    const isNorthFlagler = item.relatedCorridorIds.includes("north-flagler") || item.relatedCorridors.includes("north-flagler");
-    const isBrandedLuxury = /branded|hospitality|ritz|mandarin|rosewood|luxury|waterfront/.test(text);
-    return isNorthFlagler && isBrandedLuxury;
+    if (!projectFallbackArticleMatches(project, item)) return false;
+    return true;
   });
   return [...direct, ...fallback].slice(0, 4);
+}
+
+function projectFallbackArticleMatches(project: FeaturedProject, item: ExternalNewsItem) {
+  const text = `${item.title} ${item.deck ?? ""} ${item.description ?? ""} ${item.summary ?? ""} ${item.bodySections?.map((section) => section.body).join(" ") ?? ""}`.toLowerCase();
+  const isNorthFlagler = item.relatedCorridorIds.includes("north-flagler") || item.relatedCorridors.includes("north-flagler");
+  const isSouthFlagler = item.relatedCorridorIds.includes("south-flagler") || item.relatedCorridors.includes("south-flagler");
+  if (project.id === "ritz-carlton-wpb") {
+    const isBrandedLuxury = /branded|hospitality|ritz|mandarin|rosewood|luxury|waterfront/.test(text);
+    return isNorthFlagler && isBrandedLuxury;
+  }
+  if (project.id === "olara") {
+    return isNorthFlagler && /olara|marina|resort|wellness|culinary|vertical resort|luxury condo/.test(text);
+  }
+  if (project.id === "alba-palm-beach") {
+    return isNorthFlagler && /alba|boutique|intracoastal|northwood|waterfront/.test(text);
+  }
+  if (project.id === "shorecrest") {
+    return isNorthFlagler && /shorecrest|related ross|waterfront|construction loan|groundbreak|pipeline/.test(text);
+  }
+  if (project.id === "south-flagler-house") {
+    return isSouthFlagler && /south flagler|related ross|tops out|construction|estate|waterfront/.test(text);
+  }
+  return false;
 }
 
 function projectArticlePriority(project: FeaturedProject, item: ExternalNewsItem) {
@@ -6599,6 +6818,25 @@ function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraf
   const legacyGallery =
     project.id === "olara"
       ? [...featuredGallery, ...residenceGallery, ...amenityGallery]
+      : project.id === "south-flagler-house"
+        ? [
+            { src: draft.image ?? southFlaglerHouseUserHero, kicker: "Exterior", title: "Waterfront Address", alt: draft.imageAlt },
+            ...southFlaglerResidenceGallery,
+            ...southFlaglerAmenityGallery,
+            { src: `${southFlaglerMediaBase}south-flagler-house-entrance-source.jpg`, kicker: "Arrival", title: "Entrance Sequence", alt: "South Flagler House entrance rendering" },
+          ]
+        : project.id === "alba-palm-beach"
+          ? [
+              { src: draft.image ?? `${albaMediaBase}alba-hero.jpg`, kicker: "Exterior", title: "Boutique Waterfront", alt: draft.imageAlt },
+              ...albaResidenceGallery,
+              ...albaAmenityGallery,
+            ]
+          : project.id === "shorecrest"
+            ? [
+                { src: draft.image ?? shorecrestUserHero, kicker: "Exterior", title: "Waterfront Tower", alt: draft.imageAlt },
+                ...shorecrestResidenceGallery,
+                ...shorecrestAmenityGallery,
+              ]
       : [];
   const importedAssets = approvedImportedImagesForProject(project.id).map((image) => ({
     src: importedImagePublicPath(image),
@@ -6653,6 +6891,46 @@ function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPag
       },
     ];
   }
+  if (project.id === "olara") {
+    return [
+      { ...amenityGallery[0], title: "Fitness and training" },
+      { ...amenityGallery[2], title: "Spa and relaxation" },
+      { ...amenityGallery[3], title: "Hot and cold recovery" },
+      { ...amenityGallery[4], title: "Poolside service" },
+      { src: `${mediaBase}olara-marina-boat-dock-1600x1067.jpg`, kicker: "Amenity", title: "Marina context", alt: "Olara marina and boat dock lifestyle rendering" },
+      { ...featuredGallery[0], title: "Social pool deck" },
+    ];
+  }
+  if (project.id === "south-flagler-house") {
+    return [
+      { ...southFlaglerAmenityGallery[0], title: "Waterfront pool" },
+      { ...southFlaglerAmenityGallery[1], title: "Private club depth" },
+      { ...southFlaglerAmenityGallery[2], title: "Wellness setting" },
+      { src: `${southFlaglerMediaBase}south-flagler-house-entrance-source.jpg`, kicker: "Amenity", title: "Formal arrival", alt: "South Flagler House formal arrival rendering" },
+      { src: `${southFlaglerMediaBase}imported/south-flagler-house-penthouse-deck-rendering.jpg`, kicker: "Amenity", title: "Outdoor terraces", alt: "South Flagler House penthouse deck rendering" },
+      { src: `${southFlaglerMediaBase}south-flagler-house-rendering-03.png`, kicker: "Amenity", title: "Gardened base", alt: "South Flagler House gardened base rendering detail" },
+    ];
+  }
+  if (project.id === "alba-palm-beach") {
+    return [
+      { ...albaAmenityGallery[0], title: "Waterfront terrace" },
+      { ...albaAmenityGallery[1], title: "Pool and direct water edge" },
+      { ...albaAmenityGallery[2], title: "Boutique scale" },
+      { ...albaResidenceGallery[0], title: "Intracoastal setting" },
+      { ...albaResidenceGallery[1], title: "Residential character" },
+      projectPlaceholderAsset(project, "Current amenity packet", "Amenity"),
+    ];
+  }
+  if (project.id === "shorecrest") {
+    return [
+      { ...shorecrestAmenityGallery[0], title: "Pool and amenity context" },
+      { ...shorecrestAmenityGallery[1], title: "Dining / lounge reference" },
+      { ...shorecrestAmenityGallery[2], title: "Outdoor setting" },
+      projectPlaceholderAsset(project, "Lobby and concierge", "Source Confirmed"),
+      projectPlaceholderAsset(project, "Fitness / spa details", "Source Confirmed"),
+      projectPlaceholderAsset(project, "Offering terms to verify", "Needs Confirmation"),
+    ];
+  }
   const gallery = projectBrochureGallery(project, draft).filter((asset) => asset.src !== draft.image).slice(3);
   const labels =
     project.id === "rosewood"
@@ -6673,7 +6951,7 @@ function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPag
 }
 
 function projectBrochureTeamTiles(project: FeaturedProject, draft: ProjectPageDraft) {
-  if (project.id === "ritz-carlton-wpb") {
+  if (["ritz-carlton-wpb", "olara", "south-flagler-house", "alba-palm-beach", "shorecrest"].includes(project.id)) {
     return draft.team.slice(0, 6).map((credit) => ({
       credit,
       asset: projectPlaceholderAsset(project, credit.role, "Project Team"),
@@ -6721,6 +6999,9 @@ function renderDeveloperImageDisclaimer() {
 
 function residenceSectionTitle(project: FeaturedProject) {
   if (project.id === "ritz-carlton-wpb") return "How the residences live.";
+  if (project.id === "olara") return "Residences made for water, light, and gathering.";
+  if (project.id === "shorecrest") return "What is known about the residences.";
+  if (project.id === "alba-palm-beach") return "Boutique residences with direct Intracoastal orientation.";
   if (project.corridorKey === "downtown") return "Thoughtfully designed for modern city living.";
   if (project.corridorKey === "south-flagler") return "Private residences composed around waterfront calm.";
   return "Thoughtfully designed for modern waterfront living.";
@@ -6728,11 +7009,16 @@ function residenceSectionTitle(project: FeaturedProject) {
 
 function amenitySectionTitle(project: FeaturedProject) {
   if (project.id === "ritz-carlton-wpb") return "Service, wellness, and daily operations.";
+  if (project.id === "olara") return "Marina, wellness, dining, and social energy.";
+  if (project.id === "south-flagler-house") return "Private-club depth without resort noise.";
+  if (project.id === "alba-palm-beach") return "Enough amenity support, held at a boutique scale.";
+  if (project.id === "shorecrest") return "Amenity claims kept verification-first.";
   return "The lifestyle layer.";
 }
 
 function teamSectionTitle(project: FeaturedProject) {
   if (project.id === "ritz-carlton-wpb") return "Why the team matters.";
+  if (["olara", "south-flagler-house", "alba-palm-beach", "shorecrest"].includes(project.id)) return "Who they are, and why buyers should care.";
   return "The team behind the address.";
 }
 

@@ -47,9 +47,16 @@ Use this checklist before treating any project page as buyer-ready.
 - First show articles where `primaryProjectSlug`, `relatedProjectSlugs`, or `relatedProjectIds` matches the project.
 - Then show corridor or project-family coverage only when directly relevant.
 - Avoid unrelated generic news unless there are no project-specific or corridor-relevant articles.
+- Tune fallback coverage by project posture: resort/marina context for Olara, construction/progress for South Flagler House, boutique/waterfront context for Alba, and source-confirmed Related Ross/waterfront pipeline context for Shorecrest.
 - Each card should show headline, date, short deck, category, and `Read Update`.
 - Article pages should link back to related project pages.
 - Keep original external source links in article footers, not as primary project-page CTAs.
+
+## Source-Watch Pages
+
+- Use "what we know / what needs confirmation" copy when public materials support only part of the page.
+- Do not borrow tone, amenity claims, or team implications from adjacent projects with the same sponsor.
+- Team cards may be published when sourced, but their notes should distinguish confirmed role context from packet-dependent buyer details.
 
 ## CTA
 
