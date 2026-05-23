@@ -60,7 +60,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
   },
   {
     "id": "florida-yimby-rosewood-proposal-2026-01",
-    "title": "Developers Propose Luxury 27-Story for 2001 N Flagler Dr, West Palm Beach, FL",
+    "title": "Related Group and BH Group Announce Rosewood Residences, a 27-Story Luxury Tower on N Flagler",
     "sourceName": "Florida YIMBY",
     "sourceUrl": "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",
     "canonicalUrl": "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",

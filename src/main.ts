@@ -2061,7 +2061,6 @@ app.innerHTML = `
       <section class="home-corridor-guide" aria-label="Choose a West Palm Beach new-construction corridor">
         <div class="section-heading corridor-heading">
           <p class="eyebrow">Choose Your Corridor</p>
-          <h2>Click a corridor header to see only its projects.</h2>
         </div>
         <div class="corridor-guide-grid">
           ${corridorSections.map((section) => {
@@ -2087,8 +2086,8 @@ app.innerHTML = `
 
       <section class="home-news-section" aria-label="West Palm Beach development updates">
         <div class="section-heading">
-          <p class="eyebrow">Updates</p>
-          <h2>${escapeHtml(approvedHomepageOverride("updates")?.headline || "Recent West Palm Beach development updates, rewritten for buyer context.")}</h2>
+          <p class="eyebrow">Market News</p>
+          <h2>${escapeHtml(approvedHomepageOverride("updates")?.headline || "WPB Market News")}</h2>
         </div>
         <div class="home-news-grid">
           ${publishedExternalNews.slice(0, 3).map(renderHomeExternalNewsItem).join("")}

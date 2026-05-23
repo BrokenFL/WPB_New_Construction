@@ -4436,6 +4436,20 @@ select:focus-visible {
   padding-bottom: 0;
 }
 
+.corridor-heading .eyebrow {
+  margin-bottom: 0;
+  color: var(--deep-green);
+  font-family:
+    "Canela",
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+  font-size: clamp(2.3rem, 6vw, 5.4rem);
+  font-weight: 500;
+  line-height: 0.95;
+  text-transform: none;
+}
+
 .corridor-heading h2 {
   max-width: 11ch;
   margin: 10px 0 0;
@@ -5166,6 +5180,12 @@ select:focus-visible {
   background:
     linear-gradient(180deg, rgba(255, 250, 241, 0.72), rgba(244, 239, 229, 0.92)),
     var(--ivory);
+}
+
+.home-news-section .section-heading h2 {
+  max-width: none;
+  font-size: clamp(2.55rem, 8vw, 5.1rem);
+  white-space: nowrap;
 }
 
 .home-answer-section {
