@@ -17,6 +17,7 @@ async function main() {
 
   await runPreflight();
   await stripDeployJunk();
+  await verifyProductionMapBundle();
   await printLocalBundles();
   const beforeBundles = await printLiveBundles("before deploy");
   await printCloudflareDiagnostics();
@@ -49,6 +50,26 @@ async function stripDeployJunk() {
   );
   console.log(`Deploy cleanup removed ${removed.length} junk file${removed.length === 1 ? "" : "s"}.`);
   removed.forEach((file) => console.log(`- ${file}`));
+}
+
+async function verifyProductionMapBundle() {
+  const indexHtml = await fs.readFile(path.join(distRoot, "index.html"), "utf8").catch(() => "");
+  const scriptPath = indexHtml.match(/\/assets\/index-[^"]+\.js/)?.[0];
+  if (!scriptPath) {
+    throw new Error("Production map guard failed: dist/index.html does not reference an app bundle.");
+  }
+  const bundlePath = path.join(distRoot, scriptPath.replace(/^\//, ""));
+  const bundle = await fs.readFile(bundlePath, "utf8").catch(() => "");
+  if (!bundle.includes("maps.googleapis.com/maps/api/js")) {
+    throw new Error(
+      [
+        "Production map guard failed: the built app bundle does not include the Google Maps loader.",
+        "Set VITE_GOOGLE_MAPS_API_KEY for the production build before deploying.",
+        "VITE_GOOGLE_MAPS_MAP_ID remains optional; the API key is required for the public interactive map.",
+      ].join("\n"),
+    );
+  }
+  console.log("Production map guard passed: built bundle includes the Google Maps loader.");
 }
 
 async function deployWithRetry() {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-23T17:05:24.124Z",
+  "updatedAt": "2026-05-23T23:39:16.912Z",
   "items": [
     {
       "id": "digest-2026-05-23",
@@ -42,7 +42,9 @@
           "updateId": "2026-05-23-wpb-vertical-resort-condos",
           "headline": "In West Palm Beach, luxury condo now means vertical resort",
           "blurb": "West Palm Beach luxury condo development is shifting from nice building to vertical resort.",
-          "relatedProjectIds": [],
+          "relatedProjectIds": [
+            "ritz-carlton-wpb"
+          ],
           "relatedCorridorIds": [
             "south-flagler",
             "north-flagler",
@@ -69,6 +71,21 @@
           "sourceUrl": "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/"
         },
         {
+          "updateId": "florida-yimby-ritz-groundbreaking-2026-02-24",
+          "headline": "Ritz-Carlton Residences moves into construction-stage review",
+          "blurb": "The Ritz-Carlton Residences West Palm Beach groundbreaking gives buyers a clearer construction and team signal for the North Flagler shortlist.",
+          "relatedProjectIds": [
+            "ritz-carlton-wpb"
+          ],
+          "relatedCorridorIds": [
+            "north-flagler"
+          ],
+          "cta": "Compare Ritz-Carlton Residences with active North Flagler alternatives",
+          "articlePath": "/updates/florida-yimby-ritz-groundbreaking-2026-02-24/",
+          "sourceName": "Florida YIMBY",
+          "sourceUrl": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html"
+        },
+        {
           "updateId": "florida-yimby-rosewood-proposal-2026-01",
           "headline": "Rosewood adds another branded North Flagler signal",
           "blurb": "Rosewood Residences points to more branded luxury supply on North Flagler, but buyers should treat it as pipeline context until buyer-ready details are confirmed.",
@@ -82,21 +99,6 @@
           "articlePath": "/updates/florida-yimby-rosewood-proposal-2026-01/",
           "sourceName": "Florida YIMBY",
           "sourceUrl": "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html"
-        },
-        {
-          "updateId": "florida-yimby-south-flagler-tops-out-2025-11",
-          "headline": "South Flagler House becomes more tangible after topping out",
-          "blurb": "South Flagler House's topping-out milestone gives buyers a more concrete timing signal for a privacy-focused South Flagler option.",
-          "relatedProjectIds": [
-            "south-flagler-house"
-          ],
-          "relatedCorridorIds": [
-            "south-flagler"
-          ],
-          "cta": "Compare South Flagler timing and privacy",
-          "articlePath": "/updates/florida-yimby-south-flagler-tops-out-2025-11/",
-          "sourceName": "Florida YIMBY",
-          "sourceUrl": "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html"
         },
         {
           "draftId": "2026-05-23-wpb-vertical-resort-condos",
@@ -133,11 +135,11 @@
         "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/",
         "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
         "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/",
-        "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html",
-        "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html"
+        "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
+        "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html"
       ],
-      "createdAt": "2026-05-23T17:05:24.124Z",
-      "updatedAt": "2026-05-23T17:05:24.124Z"
+      "createdAt": "2026-05-23T23:39:16.912Z",
+      "updatedAt": "2026-05-23T23:39:16.912Z"
     },
     {
       "id": "digest-2026-05-22",

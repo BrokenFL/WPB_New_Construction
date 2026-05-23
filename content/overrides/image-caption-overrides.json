@@ -1,5 +1,22 @@
 {
   "version": 1,
-  "updatedAt": "",
-  "items": []
+  "updatedAt": "2026-05-23T03:05:32.028Z",
+  "items": [
+    {
+      "imagePath": "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg",
+      "caption": "",
+      "alt": "",
+      "status": "needs_review",
+      "assignedSection": "homepage:guidance:olara-vs-shorecrest-waterfront-buyer-profiles",
+      "updatedAt": "2026-05-23T03:05:32.026Z"
+    },
+    {
+      "imagePath": "/projects/mandarin-oriental/media/mandarin-oriental-podium.jpg",
+      "caption": "",
+      "alt": "",
+      "status": "needs_review",
+      "assignedSection": "homepage:updates:florida-yimby-mandarin-interiors-2026-05-18",
+      "updatedAt": "2026-05-23T03:01:00.981Z"
+    }
+  ]
 }

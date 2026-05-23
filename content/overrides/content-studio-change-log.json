@@ -2,6 +2,24 @@
   "version": 1,
   "entries": [
     {
+      "at": "2026-05-23T03:05:32.031Z",
+      "action": "homepage-card-override",
+      "detail": {
+        "sectionId": "guidance",
+        "cardId": "olara-vs-shorecrest-waterfront-buyer-profiles",
+        "status": "draft"
+      }
+    },
+    {
+      "at": "2026-05-23T03:01:00.986Z",
+      "action": "homepage-card-override",
+      "detail": {
+        "sectionId": "updates",
+        "cardId": "florida-yimby-mandarin-interiors-2026-05-18",
+        "status": "draft"
+      }
+    },
+    {
       "at": "2026-05-22T18:57:20.363Z",
       "action": "news-draft",
       "detail": {

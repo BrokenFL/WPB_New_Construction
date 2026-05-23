@@ -1,6 +1,6 @@
 # Image Repetition Audit
 
-Generated: 2026-05-23T04:13:10.933Z
+Generated: 2026-05-23T23:40:39.835Z
 
 ## Summary
 
@@ -50,10 +50,6 @@ Generated: 2026-05-23T04:13:10.933Z
 | /projects/15-cityplace/media/cityplace-shared-card-1448x1086.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/15-cityplace/media/cityplace-shared-hero-1536x1024.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/15-cityplace/media/cityplace-shared-mobile-1122x1402.jpg | shared source | Yes | No change required. | Checked by static QA. |
-| /projects/alba-palm-beach/media/alba-exterior-sketch.jpg | shared source | Yes | No change required. | Checked by static QA. |
-| /projects/alba-palm-beach/media/alba-hero.jpg | shared source | Yes | No change required. | Checked by static QA. |
-| /projects/alba-palm-beach/media/card.jpg | north-flagler, shared source | Yes, low repetition | No change required. | Checked by static QA. |
-| /projects/alba-palm-beach/media/logo.svg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/alba-reserve/media/card.jpg | north-flagler | Yes | No change required. | Checked by static QA. |
 | /projects/banyan-tree/media/logo.png | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/banyan-tree/media/user-provided-banyan-tree-card.jpg | shared source | Yes | No change required. | Checked by static QA. |
@@ -86,19 +82,13 @@ Generated: 2026-05-23T04:13:10.933Z
 | /projects/olara/media/logo.svg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/portofino-flagler-yacht-club/media/card.jpg | south-flagler | Yes | No change required. | Checked by static QA. |
 | /projects/related-ross-fern-street/media/card.jpg | downtown | Yes | No change required. | Checked by static QA. |
+| /projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/ritz-carlton-wpb/media/ritz-logo.svg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/rosewood/media/user-provided-rosewood-render-01.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/rosewood/media/user-provided-rosewood-render-02.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/rybovich-marina/media/card.webp | north-flagler | Yes | No change required. | Checked by static QA. |
-| /projects/shorecrest/media/imported/shorecrest-interior-living-room-rendering.jpg | shared source | Yes | No change required. | Checked by static QA. |
-| /projects/shorecrest/media/logo.svg | shared source | Yes | No change required. | Checked by static QA. |
-| /projects/shorecrest/media/shorecrest-exterior-card.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/shorecrest/media/user-provided-shorecrest-card.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/shorecrest/media/user-provided-shorecrest-hero.jpg | shared source | Yes | No change required. | Checked by static QA. |
-| /projects/south-flagler-house/media/logo.svg | shared source | Yes | No change required. | Checked by static QA. |
-| /projects/south-flagler-house/media/south-flagler-house-entrance-source.jpg | shared source | Yes | No change required. | Checked by static QA. |
-| /projects/south-flagler-house/media/south-flagler-house-rendering-02.jpg | shared source | Yes | No change required. | Checked by static QA. |
-| /projects/south-flagler-house/media/south-flagler-house-rendering-03.png | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/south-flagler-house/media/user-provided-south-flagler-house-card.jpg | shared source | Yes | No change required. | Checked by static QA. |
 | /projects/south-flagler-house/media/user-provided-south-flagler-house-hero.jpg | shared source | Yes | No change required. | Checked by static QA. |
 

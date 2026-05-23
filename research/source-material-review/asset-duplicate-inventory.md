@@ -1,14 +1,14 @@
 # Asset Duplicate Inventory
 
-Generated: 2026-05-23T02:57:11.108Z
+Generated: 2026-05-23T23:40:40.062Z
 
 This is a review report only. It does not delete, move, or rewrite assets.
 
 ## Summary
 
-- Files scanned: 2058
-- Duplicate groups: 369
-- Duplicate extra bytes: 426.7 MB
+- Files scanned: 2116
+- Duplicate groups: 370
+- Duplicate extra bytes: 426.8 MB
 - Source duplicate groups: 330
 - Source duplicate extra bytes: 414.2 MB
 - Public-only duplicate extra bytes: 1.9 MB
@@ -19,8 +19,8 @@ This is a review report only. It does not delete, move, or rewrite assets.
 ## Cleanup Plan Buckets
 
 - Keep research as raw archive and public as publishable derivative only where authorized. (206 groups, 338.7 MB)
-- Review canonical path before any move or delete. (124 groups, 73.6 MB)
-- Archive older QA screenshots after approval. (35 groups, 10.6 MB)
+- Review canonical path before any move or delete. (123 groups, 73.6 MB)
+- Archive older QA screenshots after approval. (37 groups, 10.6 MB)
 - Keep one canonical public URL, update references, then remove duplicate public alias after approval. (3 groups, 1.9 MB)
 - Replace per-project copies with one shared internal placeholder reference. (1 groups, 1.9 MB)
 

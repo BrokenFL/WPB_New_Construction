@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-22T21:20:43.099Z",
+  "updatedAt": "2026-05-23T03:05:32.026Z",
   "sections": {
     "hero": {
       "cards": {}
@@ -9,10 +9,50 @@
       "cards": {}
     },
     "updates": {
-      "cards": {}
+      "cards": {
+        "florida-yimby-mandarin-interiors-2026-05-18": {
+          "imagePath": "/projects/mandarin-oriental/media/mandarin-oriental-podium.jpg",
+          "caption": "",
+          "alt": "",
+          "headline": "",
+          "subhead": "",
+          "deck": "",
+          "ctaLabel": "",
+          "objectFit": "cover",
+          "imagePosition": "center center",
+          "focalPoint": {
+            "x": 50,
+            "y": 50
+          },
+          "allowRepeatedImage": false,
+          "repetitionApprovalReason": "",
+          "status": "draft",
+          "updatedAt": "2026-05-23T03:01:00.981Z"
+        }
+      }
     },
     "guidance": {
-      "cards": {}
+      "cards": {
+        "olara-vs-shorecrest-waterfront-buyer-profiles": {
+          "imagePath": "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg",
+          "caption": "",
+          "alt": "",
+          "headline": "",
+          "subhead": "",
+          "deck": "",
+          "ctaLabel": "",
+          "objectFit": "cover",
+          "imagePosition": "center center",
+          "focalPoint": {
+            "x": 50,
+            "y": 50
+          },
+          "allowRepeatedImage": false,
+          "repetitionApprovalReason": "",
+          "status": "draft",
+          "updatedAt": "2026-05-23T03:05:32.026Z"
+        }
+      }
     },
     "featuredBuildings": {
       "cards": {}

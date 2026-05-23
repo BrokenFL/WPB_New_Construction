@@ -1,17 +1,17 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-23T02:57:11.108Z",
-    "filesScanned": 2058,
-    "duplicateHashGroups": 369,
-    "duplicateExtraBytes": 447477690,
+    "generatedAt": "2026-05-23T23:40:40.062Z",
+    "filesScanned": 2116,
+    "duplicateHashGroups": 370,
+    "duplicateExtraBytes": 447496059,
     "sourceDuplicateHashGroups": 330,
     "sourceDuplicateExtraBytes": 434360130,
     "publicOnlyDuplicateHashGroups": 3,
     "publicOnlyDuplicateExtraBytes": 2033973,
-    "qaDuplicateHashGroups": 35,
-    "qaDuplicateExtraBytes": 11113173,
-    "previousDuplicateExtraBytes": 447477690,
+    "qaDuplicateHashGroups": 37,
+    "qaDuplicateExtraBytes": 11131595,
+    "previousDuplicateExtraBytes": 447496059,
     "previousSourceDuplicateExtraBytes": 434360130,
     "duplicateExtraByteDelta": 0,
     "sourceDuplicateExtraByteDelta": 0
@@ -25,13 +25,13 @@
     },
     {
       "action": "Review canonical path before any move or delete.",
-      "groups": 124,
-      "extraBytes": 77226547
+      "groups": 123,
+      "extraBytes": 77226494
     },
     {
       "action": "Archive older QA screenshots after approval.",
-      "groups": 35,
-      "extraBytes": 11113173
+      "groups": 37,
+      "extraBytes": 11131595
     },
     {
       "action": "Keep one canonical public URL, update references, then remove duplicate public alias after approval.",
@@ -6664,6 +6664,25 @@
       ]
     },
     {
+      "hash": "3045400ac82e466a1811a47b1e1faa3a08f8b74b2e876f5c593ea624e2fd45ba",
+      "count": 2,
+      "eachBytes": 9877,
+      "extraBytes": 9877,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-23T04-09-27-390Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-23T04-09-27-390Z.yml",
+          "size": 9877
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-23T04-14-55-160Z.yml",
+          "size": 9877
+        }
+      ]
+    },
+    {
       "hash": "b2509730971d5de05346e554b641c63f91d8cbdf7ce367695e11bf72ae2be2ba",
       "count": 2,
       "eachBytes": 9844,
@@ -6679,6 +6698,25 @@
         {
           "path": "research/asset-library/projects/ritz-carlton-wpb/team-logos/developer--bh-group--logo--dc294953.webp",
           "size": 9844
+        }
+      ]
+    },
+    {
+      "hash": "8602d81f9eece7e14ab1da617de17c1531cceed1c3560914defcbf1dcf7ee4bb",
+      "count": 2,
+      "eachBytes": 8545,
+      "extraBytes": 8545,
+      "classification": "QA screenshot/output duplicate",
+      "recommendedCanonical": ".playwright-cli/page-2026-05-23T04-09-42-398Z.yml",
+      "action": "Archive older QA screenshots after approval.",
+      "files": [
+        {
+          "path": ".playwright-cli/page-2026-05-23T04-09-42-398Z.yml",
+          "size": 8545
+        },
+        {
+          "path": ".playwright-cli/page-2026-05-23T04-15-12-800Z.yml",
+          "size": 8545
         }
       ]
     },
@@ -7171,25 +7209,6 @@
         {
           "path": "research/content-editor/site-overrides.json",
           "size": 56
-        }
-      ]
-    },
-    {
-      "hash": "891524f9fcd58d1c6b6f29f3066f1d300d9fcca995c80cc07e7727aba77ae6ec",
-      "count": 2,
-      "eachBytes": 53,
-      "extraBytes": 53,
-      "classification": "workspace duplicate",
-      "recommendedCanonical": "content/overrides/editorial-image-overrides.json",
-      "action": "Review canonical path before any move or delete.",
-      "files": [
-        {
-          "path": "content/overrides/editorial-image-overrides.json",
-          "size": 53
-        },
-        {
-          "path": "content/overrides/image-caption-overrides.json",
-          "size": 53
         }
       ]
     },

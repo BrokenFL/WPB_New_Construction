@@ -30,6 +30,9 @@ const allowedAutomationPaths = [
   "research/news-review/approved-development-news.json",
   "research/source-material-review/news-issue-importer-last-run.json",
   "research/source-material-review/news-publisher-report.md",
+  "research/source-material-review/homepage-visual-flow-report.md",
+  "research/source-material-review/image-repetition-audit.md",
+  "research/source-material-review/launch-qa-report.md",
   "src/data/approvedExternalNews.ts",
 ];
 
@@ -180,9 +183,9 @@ async function changedPaths() {
   const result = await runCommand("git", ["status", "--porcelain"], { quiet: true });
   return result.stdout
     .split("\n")
-    .map((line) => line.trim())
+    .map((line) => line.trimEnd())
     .filter(Boolean)
-    .map((line) => line.replace(/^.. /, "").replace(/^.* -> /, ""));
+    .map((line) => line.slice(3).trim().replace(/^.* -> /, ""));
 }
 
 async function runTask(label, command, args, options = {}) {

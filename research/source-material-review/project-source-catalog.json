@@ -2377,7 +2377,6 @@
       "conflicts": [
         "Address conflict: official site schema shows 1021 N Railroad Ave, the footer uses 955 N Railroad Avenue Suite B, and older reporting uses 1105 N Dixie Highway for district context.",
         "117 residences in new sales material vs earlier 122-condo planning coverage.",
-        "Pricing conflict between official high $1Ms language and reporting's $2M to $6.5M range.",
         "Seed notes conflict between inquiry address and earlier district reporting. Early planning coverage referenced 122 proposed condos; March 2026 sales-launch reporting says 117 residences. Current buyer note uses the newer sales-launch figure."
       ],
       "gaps": [
@@ -3149,7 +3148,7 @@
         "residences": "108 in official site/fact material for full project; Related Ross loan release says 105",
         "stories": "Two 28-story towers",
         "completion": "Expected/delivering 2027",
-        "pricing": "Official availability ranges change by date; show request current pricing unless using a dated table",
+        "pricing": "Current official inquiry and availability surfaces start at about $6M, with dated live availability ranging materially higher; verify the current sheet by line and tower.",
         "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture"
       },
       "sourceCounts": {
@@ -3177,7 +3176,7 @@
       ],
       "conflicts": [
         "Residence count conflict: 108 vs 105 depending on official/developer source date.",
-        "Pricing availability varies by date."
+        "Pricing availability varies by date, but the current official inquiry and availability surfaces begin at about $6M."
       ],
       "gaps": [
         "No complete public floor-plan PDF library found beyond site-plan/tier imagery.",
@@ -3253,7 +3252,7 @@
         "residences": "Part of the full South Flagler House residence count",
         "stories": "28",
         "completion": "Expected/delivering 2027",
-        "pricing": "Request current pricing",
+        "pricing": "Current official inquiry and availability surfaces start at about $6M, with dated live availability ranging materially higher; verify the current sheet by line and tower.",
         "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture"
       },
       "sourceCounts": {
@@ -3278,7 +3277,7 @@
         "Use shared South Flagler House materials; avoid duplicating exact same copy on both tower pages."
       ],
       "conflicts": [
-        "Same full-project count and pricing conflicts as north tower."
+        "Same full-project count conflicts as north tower; pricing availability varies by date, but the current official inquiry and availability surfaces begin at about $6M."
       ],
       "gaps": [
         "Need decide whether this remains a separate card or becomes one South Flagler House page.",

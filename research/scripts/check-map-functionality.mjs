@@ -1,11 +1,13 @@
 import { spawn } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { chromium } from "playwright";
 
 const liveMode = process.argv.includes("--live");
 const failures = [];
 let previewProcess;
 const baseUrl = liveMode ? (process.env.WPB_LIVE_BASE_URL ?? "https://www.wpbnewconstruction.com").replace(/\/$/, "") : await startPreview();
+const localApiKeyPresent = hasBuildTimeApiKey();
+const requireGoogleMapRender = liveMode || process.env.CI === "true" || localApiKeyPresent;
 const criticalConsolePatterns = [
   /ReferenceError/i,
   /TypeError/i,
@@ -48,21 +50,32 @@ async function startPreview() {
     // No existing preview on the default port; start an isolated one below.
   }
 
-  const port = String(4173 + Math.floor(Math.random() * 1000));
-  const child = spawn(
-    process.execPath,
-    ["node_modules/vite/bin/vite.js", "preview", "--host", "127.0.0.1", "--port", port, "--strictPort"],
-    {
-    cwd: process.cwd(),
-    env: process.env,
-    stdio: ["ignore", "pipe", "pipe"],
-    },
-  );
-  previewProcess = child;
-  const url = `http://127.0.0.1:${port}`;
+  let lastError;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const port = String(4173 + Math.floor(Math.random() * 1500));
+    const child = spawn(
+      process.execPath,
+      ["node_modules/vite/bin/vite.js", "preview", "--host", "127.0.0.1", "--port", port, "--strictPort"],
+      {
+        cwd: process.cwd(),
+        env: process.env,
+        stdio: ["ignore", "pipe", "pipe"],
+      },
+    );
+    previewProcess = child;
+    const url = `http://127.0.0.1:${port}`;
 
-  await waitForPreview(url, child);
-  return url;
+    try {
+      await waitForPreview(url, child);
+      return url;
+    } catch (error) {
+      lastError = error;
+      child.kill("SIGTERM");
+      previewProcess = undefined;
+    }
+  }
+
+  throw lastError;
 }
 
 async function waitForPreview(url, child) {
@@ -75,7 +88,7 @@ async function waitForPreview(url, child) {
   });
 
   const started = Date.now();
-  while (Date.now() - started < 30000) {
+  while (Date.now() - started < 60000) {
     if (child.exitCode !== null) {
       throw new Error(`Vite preview exited early.\n${output}`);
     }
@@ -93,6 +106,7 @@ async function checkRoute(browser, route, label) {
   const page = await browser.newPage({ viewport: { width: 1366, height: 900 } });
   const consoleErrors = [];
   const networkFailures = [];
+  const mapRequests = [];
   page.on("console", (message) => {
     if (message.type() !== "error") return;
     const text = message.text();
@@ -106,6 +120,9 @@ async function checkRoute(browser, route, label) {
     if (url.startsWith(baseUrl) || url.includes("maps.googleapis.com")) {
       networkFailures.push(`${url} failed: ${request.failure()?.errorText ?? "unknown error"}`);
     }
+  });
+  page.on("request", (request) => {
+    if (/maps\.googleapis\.com|maps\.gstatic\.com/i.test(request.url())) mapRequests.push(request.url());
   });
 
   try {
@@ -140,6 +157,10 @@ async function checkRoute(browser, route, label) {
     if (!state.mapContainerAppears) failures.push(`${route} does not render a map container.`);
     if (label === "map" && !state.corridorListVisible) failures.push("/map/ does not expose the corridor/project text fallback list.");
     if (!state.googleMapRendered && !state.fallbackRendered) failures.push(`${route} shows neither Google map tiles nor the clean fallback.`);
+    if (requireGoogleMapRender && !state.googleMapRendered) {
+      const reason = mapRequests.length ? "Google Maps was requested but did not render" : "Google Maps was not requested by the bundle";
+      failures.push(`${route} did not render Google Maps in ${liveMode ? "live" : "map-key"} mode: ${reason}.`);
+    }
     if (state.fallbackRendered && !/Map temporarily unavailable/.test(state.fallbackCopy)) {
       failures.push(`${route} fallback copy is not the approved public copy.`);
     }
@@ -153,6 +174,13 @@ async function checkRoute(browser, route, label) {
     }
     await page.close();
   }
+}
+
+function hasBuildTimeApiKey() {
+  if (process.env.VITE_GOOGLE_MAPS_API_KEY?.trim()) return true;
+  if (!existsSync(".env.local")) return false;
+  const envLocal = readFileSync(".env.local", "utf8");
+  return /^VITE_GOOGLE_MAPS_API_KEY=.+/m.test(envLocal);
 }
 
 main().catch((error) => {

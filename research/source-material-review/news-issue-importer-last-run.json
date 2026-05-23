@@ -1,51 +1,55 @@
 {
-  "generatedAt": "2026-05-23T22:01:51.142Z",
+  "generatedAt": "2026-05-23T23:39:15.766Z",
   "repo": "BrokenFL/WPB_New_Construction",
-  "mode": "dry-run",
+  "mode": "publish",
   "imported": 0,
   "published": 0,
   "heldForReview": 0,
   "issues": [],
   "publishedUrls": [],
   "heldItems": [],
-  "qa": [],
-  "deploy": "not-run",
-  "githubAuth": "gh authenticated",
-  "gitStartStatus": [
-    "M content/overrides/change-log.json",
-    "M content/overrides/content-studio-change-log.json",
-    "M content/overrides/homepage-card-overrides.json",
-    "M content/overrides/image-caption-overrides.json",
-    "M public/data/answer-engine-faq.json",
-    "M public/data/floorplans.json",
-    "M public/data/image-clearance-candidates.json",
-    "M public/data/news-feed.json",
-    "M public/data/project-asset-status.json",
-    "M public/data/project-team-credits.json",
-    "M public/data/published-floorplan-assets.json",
-    "M public/projects/berkeley/docs/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
-    "M public/projects/berkeley/docs/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
-    "M public/projects/berkeley/docs/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
-    "M public/projects/berkeley/docs/floorplans/residence-c-floorplan-template--b089a348.jpg",
-    "M public/projects/berkeley/docs/floorplans/residence-d-floorplan-template--904ee317.jpg",
-    "M public/projects/berkeley/docs/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
-    "M public/projects/berkeley/docs/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
-    "M public/projects/berkeley/docs/floorplans/residence-g-floorplan-template--95ec6883.jpg",
-    "M public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-    "M public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-    "M public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-    "M public/sitemap.xml",
-    "M research/scripts/build-site-intelligence.mjs",
-    "M research/scripts/import-gpt-news-issues.mjs",
-    "M research/scripts/process-gpt-news-issues.mjs",
-    "M research/source-material-review/homepage-visual-flow-report.md",
-    "M research/source-material-review/image-candidate-catalog.json",
-    "M research/source-material-review/image-repetition-audit.md",
-    "M research/source-material-review/launch-qa-report.md",
-    "M research/source-material-review/project-source-catalog.json",
-    "M src/generated/siteData.ts"
+  "qa": [
+    {
+      "name": "typecheck",
+      "status": "passed"
+    },
+    {
+      "name": "build",
+      "status": "passed"
+    },
+    {
+      "name": "lint",
+      "status": "passed"
+    },
+    {
+      "name": "qa:news",
+      "status": "passed"
+    },
+    {
+      "name": "qa:approved-news",
+      "status": "passed"
+    },
+    {
+      "name": "qa:homepage-visual",
+      "status": "passed"
+    },
+    {
+      "name": "qa:internal-links",
+      "status": "passed"
+    },
+    {
+      "name": "qa:launch",
+      "status": "passed"
+    },
+    {
+      "name": "qa:live",
+      "status": "passed"
+    }
   ],
-  "finishedAt": "2026-05-23T22:01:51.433Z",
-  "status": "failed",
-  "message": "Worktree is dirty before import; stopping before touching news issues. Dirty paths: M content/overrides/change-log.json, M content/overrides/content-studio-change-log.json, M content/overrides/homepage-card-overrides.json, M content/overrides/image-caption-overrides.json, M public/data/answer-engine-faq.json, M public/data/floorplans.json, M public/data/image-clearance-candidates.json, M public/data/news-feed.json, M public/data/project-asset-status.json, M public/data/project-team-credits.json, M public/data/published-floorplan-assets.json, M public/projects/berkeley/docs/floorplans/penthouse-floorplan-template--a68d7efe.jpg, M public/projects/berkeley/docs/floorplans/residence-a-floorplan-template--3f71b9ce.jpg, M public/projects/berkeley/docs/floorplans/residence-b-floorplan-template--9d9ba081.jpg, M public/projects/berkeley/docs/floorplans/residence-c-floorplan-template--b089a348.jpg, M public/projects/berkeley/docs/floorplans/residence-d-floorplan-template--904ee317.jpg, M public/projects/berkeley/docs/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg, M public/projects/berkeley/docs/floorplans/residence-f-floorplan-template--5c0f8efd.jpg, M public/projects/berkeley/docs/floorplans/residence-g-floorplan-template--95ec6883.jpg, M public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg, M public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg, M public/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg, M public/sitemap.xml, M research/scripts/build-site-intelligence.mjs, M research/scripts/import-gpt-news-issues.mjs, M research/scripts/process-gpt-news-issues.mjs, M research/source-material-review/homepage-visual-flow-report.md, M research/source-material-review/image-candidate-catalog.json, M research/source-material-review/image-repetition-audit.md, M research/source-material-review/launch-qa-report.md, M research/source-material-review/project-source-catalog.json, M src/generated/siteData.ts"
+  "deploy": "skipped: no eligible low-risk articles were published",
+  "githubAuth": "gh authenticated",
+  "gitStartStatus": [],
+  "finishedAt": "2026-05-23T23:39:42.842Z",
+  "status": "passed",
+  "message": "skipped: no eligible low-risk articles were published"
 }
