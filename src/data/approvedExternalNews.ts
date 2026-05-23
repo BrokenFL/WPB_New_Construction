@@ -279,6 +279,65 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "primaryProjectSlug": "south-flagler-house"
   },
   {
+    "id": "florida-yimby-ritz-groundbreaking-2026-02-24",
+    "slug": "florida-yimby-ritz-groundbreaking-2026-02-24",
+    "title": "Related Group and BH Group Break Ground on The Ritz-Carlton Residences, West Palm Beach",
+    "sourceName": "Florida YIMBY",
+    "sourceUrl": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
+    "canonicalUrl": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
+    "publishedAt": "2026-02-24",
+    "sourcePublishedAt": "2026-02-24",
+    "sourcePublishedDate": "2026-02-24",
+    "eventDate": "2026-02-24",
+    "dateDiscovered": "2026-05-23",
+    "freshnessLane": "archive_only",
+    "fetchedAt": "2026-05-23",
+    "deck": "The groundbreaking moves The Ritz-Carlton Residences from sales story to construction-stage decision, with public reporting pointing to Related Group, BH Group, Marriott International, Arquitectonica, Rockwell Group, Naturalficial, 138 residences, and expected 2028 completion.",
+    "description": "The Ritz-Carlton Residences West Palm Beach has broken ground, giving buyers a construction milestone and current team context to verify against the latest buyer packet.",
+    "summary": "Groundbreaking makes the project more tangible for buyers comparing service-led North Flagler residences, but current availability, line-specific pricing, fees, and operating details still need direct confirmation.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Florida YIMBY reported that Related Group and BH Group broke ground on The Ritz-Carlton Residences, West Palm Beach, with Marriott International involved through the Ritz-Carlton residential brand."
+      },
+      {
+        "heading": "Where it fits",
+        "body": "The update places the building firmly in the active North Flagler comparison set rather than a speculative pipeline bucket."
+      },
+      {
+        "heading": "What to verify",
+        "body": "Buyers should verify current availability, line-specific pricing, service inclusions, monthly costs, parking, storage, view exposure, and the latest construction timeline."
+      }
+    ],
+    "whyItMatters": "A construction milestone can improve buyer confidence, especially for clients comparing active sales buildings against earlier-stage branded proposals.",
+    "brookeTake": "Use the milestone to sharpen the shortlist, not to skip diligence. The next review should be unit-specific: plan, exposure, service model, fees, timing, and the alternatives available at the same budget.",
+    "buyerContext": "This is most useful for buyers weighing brand/service confidence against Olara, Alba, Mandarin Oriental, Shorecrest, and other Flagler Drive choices.",
+    "newsletterHeadline": "Ritz-Carlton Residences moves into construction-stage review",
+    "newsletterBlurb": "The Ritz-Carlton Residences West Palm Beach groundbreaking gives buyers a clearer construction and team signal for the North Flagler shortlist.",
+    "newsletterCta": "Compare Ritz-Carlton Residences with active North Flagler alternatives",
+    "query": "Ritz-Carlton Residences West Palm Beach construction",
+    "category": "construction",
+    "relatedProjectIds": [
+      "ritz-carlton-wpb"
+    ],
+    "relatedCorridorIds": [
+      "north-flagler"
+    ],
+    "relatedProjectSlugs": [
+      "ritz-carlton-wpb",
+      "ritz-carlton-residences-west-palm-beach"
+    ],
+    "relatedCorridors": [
+      "north-flagler"
+    ],
+    "primaryProjectSlug": "ritz-carlton-wpb",
+    "imageUrl": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg",
+    "imagePath": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg",
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "low"
+  },
+  {
     "id": "2026-05-23-wpb-vertical-resort-condos",
     "slug": "2026-05-23-wpb-vertical-resort-condos",
     "title": "In West Palm Beach, luxury condo now means vertical resort",
@@ -313,7 +372,9 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "newsletterCta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach helps buyers compare West Palm Beach new-construction condos across buildings and corridors.",
     "query": "GPT daily news draft",
     "category": "development",
-    "relatedProjectIds": [],
+    "relatedProjectIds": [
+      "ritz-carlton-wpb"
+    ],
     "relatedCorridorIds": [
       "south-flagler",
       "north-flagler",

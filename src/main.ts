@@ -8,7 +8,7 @@ import {
 } from "./generated/siteData";
 import { editorProjectOverrides, type EditorProjectOverrides } from "./generated/editorOverrides";
 import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
-import { homepageExternalNews, publishedExternalNews, type ExternalNewsItem } from "./data/approvedExternalNews";
+import { homepageExternalNews, newsSortTimestamp, publishedExternalNews, type ExternalNewsItem } from "./data/approvedExternalNews";
 import { editorialImageForId, type EditorialImageId } from "./data/editorialImagery";
 import { homeHeroImages } from "./data/homeHeroImages";
 import { batch1ProjectCopyByProjectId, loadBatch1ProjectCopyPackageSync, type ProjectCopyPackage } from "./data/projectCopyPackage";
@@ -1140,7 +1140,7 @@ function missingInfoForProject(project: FeaturedProject) {
 
 const projectTeam: TeamCredit[] = [
   {
-    role: "Developer",
+    role: "Development Lead",
     name: "Savanna",
     note: "Vertically integrated real estate investment and development firm behind Olara.",
   },
@@ -1307,34 +1307,34 @@ const ritzFacts: ProjectFact[] = [
 
 const ritzTeam: TeamCredit[] = [
   {
-    role: "Project Sponsor",
+    role: "Development Lead",
     name: "Related Group",
-    note: "Project sponsor for the branded residential tower on the North Flagler waterfront.",
+    note: "Who they are: a Miami-based condominium developer with a long Florida luxury-residential track record. Why it matters for buyers: sponsor experience matters when evaluating execution, delivery, and resale confidence.",
   },
   {
-    role: "Project Partner",
+    role: "Development Partner",
     name: "BH Group",
-    note: "Project partner on the West Palm Beach Ritz-Carlton Residences.",
+    note: "Who they are: Related Group's development partner on this project. Why it matters for buyers: the joint venture adds acquisition, capital, and execution depth behind the address.",
   },
   {
     role: "Architect",
     name: "Arquitectonica",
-    note: "Architectural design partner for the tower and podium language.",
+    note: "Who they are: the architecture firm named in official and public project materials. Why it matters for buyers: the building's waterfront orientation, tower language, and arrival sequence start with the architecture.",
   },
   {
-    role: "Interior Designer",
+    role: "Interior / Design",
     name: "Rockwell Group",
-    note: "Residence and amenity interiors, including the calm coastal material palette.",
+    note: "Who they are: the interiors studio behind the residences and amenity spaces. Why it matters for buyers: interior tone, materials, and daily usability determine whether the brand promise feels residential.",
   },
   {
     role: "Landscape Architect",
     name: "Naturalficial",
-    note: "Landscape architecture and exterior green-space design.",
+    note: "Who they are: the landscape-design credit in current project materials. Why it matters for buyers: exterior spaces, pool edges, and arrival landscaping shape how the building lives beyond the unit.",
   },
   {
-    role: "Brand",
+    role: "Brand / Service Partner",
     name: "The Ritz-Carlton",
-    note: "Residential service platform and branded hospitality standard.",
+    note: "Who they are: the licensed hospitality brand associated with the residential service standard through Marriott International. Why it matters for buyers: confirm exactly which services, staffing, and operating costs are included.",
   },
 ];
 
@@ -1469,19 +1469,19 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     kicker: "North Flagler Branded Residences",
     title: "The Ritz-Carlton Residences, West Palm Beach",
     intro:
-      "The Ritz-Carlton Residences, West Palm Beach brings branded-residence luxury to North Flagler, pairing a globally recognized hospitality name with a new waterfront condominium developed by Related Group and BH Group. With 138 residences planned at 1717 North Flagler Drive, the project is positioned for buyers who want the privacy of ownership with the service language and brand confidence of Ritz-Carlton.",
+      "The Ritz-Carlton Residences, West Palm Beach is a 27-story condominium planned with 138 residences at 1717 N Flagler Drive. The buyer proposition is simple: private ownership, water-facing homes, and a recognized residential service platform from a team led by Related Group and BH Group.",
     image: `${ritzMediaBase}ritz-hero-waterfront-building-2200x1375.jpg`,
     imageAlt: "The Ritz-Carlton Residences West Palm Beach waterfront tower rendering",
     stage: "Under construction",
     locationCopy:
-      "At 1717 N Flagler Drive, The Ritz-Carlton Residences belongs in the same North Flagler shortlist as Olara and Shorecrest, but the buyer logic is different: branded service, recognition, and hospitality-style confidence carry more weight than simply comparing square footage or amenity count.",
+      "The address sits along the Intracoastal side of West Palm Beach, close enough to downtown, Palm Beach, and the broader Flagler Drive pipeline to make comparison shopping practical. Judge the location by bridge access, view exposure, construction context, and how the corridor will feel by delivery.",
     facts: ritzFacts,
     team: ritzTeam,
     highlights: [
-      { label: "Branded Service", value: "Ritz-Carlton residential identity", note: "The brand story should be read as service culture and recognition, not as a promise of hotel access unless current materials confirm it." },
-      { label: "Waterfront Ownership", value: "North Flagler address", note: "Compare the address inside the broader corridor transformation rather than as a standalone brochure claim." },
-      { label: "Private Residential Lifestyle", value: "Ownership with service language", note: "Best fit for buyers who value brand, service, and long-term recognition." },
-      { label: "Developer Context", value: "Related Group + BH Group", note: "Developer and partner roles are a credibility signal; final offering details still need current packet review." },
+      { label: "Service Model", value: "Residential hospitality", note: "Understand the staffing, included services, and monthly cost structure before assigning value to the brand." },
+      { label: "Ownership Fit", value: "Private full-service condo", note: "Best for buyers who want a managed daily environment without moving into a larger estate-style residence." },
+      { label: "Residence Read", value: "Light, views, balconies", note: "Compare stack, exposure, balcony depth, and elevator access by line before touring." },
+      { label: "Sponsor Context", value: "Related Group + BH Group", note: "Development-team depth is useful, but final buyer decisions still need current offering documents." },
     ],
     gallery: [
       ...ritzFeaturedGallery,
@@ -2000,7 +2000,7 @@ function applySourceFactsToDraft(base: ProjectPageDraft, project: FeaturedProjec
   ].filter((fact) => fact.value);
   const sourceLabels = new Set(sourceFacts.map((fact) => fact.label.toLowerCase()));
   const facts = [...sourceFacts, ...base.facts.filter((fact) => !sourceLabels.has(fact.label.toLowerCase()))];
-  const team = teamCreditsFromSource(source.team);
+  const team = project.id === "ritz-carlton-wpb" ? base.team : teamCreditsFromSource(source.team);
   return {
     ...base,
     stage: source.status || base.stage,
@@ -6174,20 +6174,44 @@ function renderProjectBuyerLens(copy: ProjectCopyPackage) {
 }
 
 function renderProjectRelatedNews(project: FeaturedProject) {
-  const items = publishedExternalNews.filter((item) => projectMatchesArticle(project, item));
+  const items = projectRelatedNewsItems(project);
   if (!items.length) return "";
   return `
     <section class="section project-related-news" id="project-updates-${project.id}" aria-label="${project.name} related development news">
       <div class="section-heading">
-        <p class="eyebrow">Project Updates</p>
-        <h2>Recent project notes</h2>
-        <p>Public updates and buyer-relevant notes to verify before relying on current pricing, availability, or timing.</p>
+        <p class="eyebrow">Latest Coverage</p>
+        <h2>Recent public signals tied to this building.</h2>
+        <p>Project-specific updates appear first, followed by closely related North Flagler branded-residence coverage when it affects the buyer comparison.</p>
       </div>
       <div class="project-note-list">
         ${items.map(renderProjectUpdateNote).join("")}
       </div>
     </section>
   `;
+}
+
+function projectRelatedNewsItems(project: FeaturedProject) {
+  const direct = publishedExternalNews
+    .filter((item) => projectMatchesArticle(project, item))
+    .sort((a, b) => projectArticlePriority(project, a) - projectArticlePriority(project, b) || newsSortTimestamp(b) - newsSortTimestamp(a));
+  const directIds = new Set(direct.map((item) => item.id));
+  const fallback = publishedExternalNews.filter((item) => {
+    if (directIds.has(item.id)) return false;
+    if (project.id !== "ritz-carlton-wpb") return false;
+    const text = `${item.title} ${item.deck ?? ""} ${item.description ?? ""} ${item.summary ?? ""} ${item.bodySections?.map((section) => section.body).join(" ") ?? ""}`.toLowerCase();
+    const isNorthFlagler = item.relatedCorridorIds.includes("north-flagler") || item.relatedCorridors.includes("north-flagler");
+    const isBrandedLuxury = /branded|hospitality|ritz|mandarin|rosewood|luxury|waterfront/.test(text);
+    return isNorthFlagler && isBrandedLuxury;
+  });
+  return [...direct, ...fallback].slice(0, 4);
+}
+
+function projectArticlePriority(project: FeaturedProject, item: ExternalNewsItem) {
+  const slugs = new Set([project.id, ...projectCopySlugs(project.id)]);
+  if (item.primaryProjectSlug && slugs.has(item.primaryProjectSlug)) return 0;
+  if (item.relatedProjectSlugs?.some((slug) => slugs.has(slug))) return 1;
+  if (item.relatedProjectIds.includes(project.id)) return 2;
+  return 3;
 }
 
 function relatedProjectComparisonIds(projectId: string) {
@@ -6226,13 +6250,13 @@ function renderProjectUpdateNote(item: ExternalNewsItem) {
   return `
     <article class="project-note-row" id="${escapeHtml(item.id)}">
       <div>
-        <span>${publicText(item.title)}</span>
+        <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
+        <strong>${publicText(item.title)}</strong>
         <p>${publicText(article.excerpt)}</p>
-        <small>${publicText(formatNewsDate(newsDisplayDate(item)))} · ${publicText(item.category)} · Source: ${publicText(item.sourceName)}${item.paywallStatus === "likely-paywalled" ? " · May require subscription" : ""}</small>
+        <small>Source: ${publicText(item.sourceName)}${item.paywallStatus === "likely-paywalled" ? " · May require subscription" : ""}</small>
       </div>
       <nav aria-label="${escapeHtml(item.title)} actions">
         <a href="${updatePath(item)}">Read Update</a>
-        <a href="/inquire/?lead_capture_context=project_update&update=${encodeURIComponent(item.id)}">Ask about this update</a>
       </nav>
     </article>
   `;
@@ -6335,7 +6359,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${hasAmenities ? `<section class="brochure-module brochure-amenities-module" id="amenities-${project.id}">
         <div class="brochure-module-copy">
           <p class="eyebrow">Amenities</p>
-          <h2>The lifestyle layer.</h2>
+          <h2>${amenitySectionTitle(project)}</h2>
           <p>${publicText(copyPackage?.amenityNarrative ?? draft.highlights[0]?.note ?? "Indoor and outdoor amenities define how the building lives beyond the residence itself: wellness, service, gathering, privacy, and daily convenience.")}</p>
           <a href="/inquire/?project=${project.id}&interest=floorplans">Request amenity details <span aria-hidden="true">→</span></a>
         </div>
@@ -6346,8 +6370,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
       ${hasTeam ? `<section class="brochure-module brochure-team-module" id="team-${project.id}">
         <div class="brochure-module-copy">
-          <p class="eyebrow">Design Team</p>
-          <h2>The team behind the address.</h2>
+          <p class="eyebrow">Project Team</p>
+          <h2>${teamSectionTitle(project)}</h2>
           <p>${publicText(copyPackage?.projectTeamNarrative ?? draft.team[0]?.note ?? "Project and design credits help buyers understand the architectural point of view, operational standard, and long-term ownership confidence behind each residence.")}</p>
           <a href="#project-resources-${project.id}">View the team <span aria-hidden="true">→</span></a>
         </div>
@@ -6553,6 +6577,25 @@ function renderBrochureStat(stat: { label: string; value: string }) {
 }
 
 function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraft) {
+  if (project.id === "ritz-carlton-wpb") {
+    return uniqueMediaAssets([
+      { src: draft.image ?? `${ritzMediaBase}ritz-hero-waterfront-building-2200x1375.jpg`, kicker: "Project Image", title: draft.title, alt: draft.imageAlt },
+      ...ritzResidenceGallery,
+      ...ritzAmenityGallery,
+      {
+        src: `${ritzMediaBase}ritz-view-intracoastal-day-1600x1067.jpg`,
+        kicker: "View",
+        title: "Intracoastal View",
+        alt: "Daytime Intracoastal and Palm Beach view from The Ritz-Carlton Residences",
+      },
+      {
+        src: `${ritzMediaBase}ritz-evening-aerial-road-motion-1600x1067.jpg`,
+        kicker: "Location",
+        title: "Flagler Drive Context",
+        alt: "Night aerial view of The Ritz-Carlton Residences and the West Palm Beach waterfront",
+      },
+    ]);
+  }
   const legacyGallery =
     project.id === "olara"
       ? [...featuredGallery, ...residenceGallery, ...amenityGallery]
@@ -6590,6 +6633,26 @@ function projectPlaceholderAsset(project: FeaturedProject, title: string, kicker
 }
 
 function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPageDraft) {
+  if (project.id === "ritz-carlton-wpb") {
+    return [
+      { ...ritzAmenityGallery[0], title: "Fitness and wellness" },
+      { ...ritzAmenityGallery[1], title: "Pool deck and cabanas" },
+      { ...ritzFeaturedGallery[2], title: "Waterfront lounge" },
+      { ...ritzAmenityGallery[2], title: "Valet arrival" },
+      {
+        src: `${ritzMediaBase}ritz-lobby-service-1600x1067.jpg`,
+        kicker: "Amenity",
+        title: "Residential service",
+        alt: "Ritz-Carlton residential lobby service moment",
+      },
+      {
+        src: `${ritzMediaBase}ritz-view-balcony-night-1600x1067.jpg`,
+        kicker: "Amenity",
+        title: "Evening terrace setting",
+        alt: "Night balcony view toward downtown West Palm Beach",
+      },
+    ];
+  }
   const gallery = projectBrochureGallery(project, draft).filter((asset) => asset.src !== draft.image).slice(3);
   const labels =
     project.id === "rosewood"
@@ -6610,6 +6673,12 @@ function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPag
 }
 
 function projectBrochureTeamTiles(project: FeaturedProject, draft: ProjectPageDraft) {
+  if (project.id === "ritz-carlton-wpb") {
+    return draft.team.slice(0, 6).map((credit) => ({
+      credit,
+      asset: projectPlaceholderAsset(project, credit.role, "Project Team"),
+    }));
+  }
   return draft.team.slice(0, 3).map((credit) => ({
     credit,
     asset: projectPlaceholderAsset(project, credit.role, "Project Team"),
@@ -6651,9 +6720,20 @@ function renderDeveloperImageDisclaimer() {
 }
 
 function residenceSectionTitle(project: FeaturedProject) {
+  if (project.id === "ritz-carlton-wpb") return "How the residences live.";
   if (project.corridorKey === "downtown") return "Thoughtfully designed for modern city living.";
   if (project.corridorKey === "south-flagler") return "Private residences composed around waterfront calm.";
   return "Thoughtfully designed for modern waterfront living.";
+}
+
+function amenitySectionTitle(project: FeaturedProject) {
+  if (project.id === "ritz-carlton-wpb") return "Service, wellness, and daily operations.";
+  return "The lifestyle layer.";
+}
+
+function teamSectionTitle(project: FeaturedProject) {
+  if (project.id === "ritz-carlton-wpb") return "Why the team matters.";
+  return "The team behind the address.";
 }
 
 function locationSectionTitle(project: FeaturedProject) {

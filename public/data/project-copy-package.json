@@ -108,37 +108,41 @@
   {
     "slug": "ritz-carlton-residences-west-palm-beach",
     "repoProjectId": "ritz-carlton-wpb",
-    "introHeadline": "Branded waterfront service for buyers who want the Ritz-Carlton residential model in West Palm Beach.",
-    "introDek": "The Ritz-Carlton Residences West Palm Beach brings a globally understood service brand to the local new-construction condo market, pairing North Flagler waterfront positioning with concierge-level operations, wellness amenities, and residences designed for buyers who want polish without necessarily moving into the largest-format estate product.",
-    "brookeTake": "The Ritz name matters because buyers understand what it is supposed to signal: service, consistency, and a certain hospitality standard. The question is not whether the brand is impressive. The question is whether the residence size, view line, service model, and North Flagler location match how the buyer actually wants to live.",
+    "introHeadline": "Private waterfront residences with a recognized service platform.",
+    "introDek": "The Ritz-Carlton Residences West Palm Beach is a 27-story condominium planned with 138 homes, water-facing views, and residential operations associated with the Ritz-Carlton brand. For buyers, the useful read is not the logo alone; it is how the floor plan, exposure, service model, and monthly cost structure fit daily life.",
+    "brookeTake": "This building is for a buyer who wants a managed, polished environment without making the residence feel like a hotel stay. The right comparison is line by line: view, balcony, elevator access, service expectations, fees, and how the address will feel as Flagler Drive keeps changing.",
     "bestFor": [
-      "Buyers who value branded residential service",
-      "Clients who want waterfront new construction with a globally recognizable name",
-      "Buyers comparing manageable residence sizes against larger ultra-luxury formats",
-      "Clients who want concierge, valet, wellness, and hospitality-style operations"
+      "Buyers who want private ownership with staffed residential operations",
+      "Clients who value brand recognition but still need a practical floor-plan review",
+      "Buyers comparing service-led living against marina, boutique, or estate-style alternatives",
+      "Clients who want concierge, valet, wellness, and a calmer water-facing residence"
     ],
     "signatureFeatures": [
-      "Ritz-Carlton branded residential service model",
-      "Reported 144-residence waterfront project",
-      "Related and BH Group development context from public reporting",
-      "Arquitectonica and Rockwell Group design team reported in public coverage",
-      "Floor-to-ceiling windows and spacious balconies reported in public coverage",
-      "Pool, wellness/fitness center, spa, valet, and 24-hour concierge service reported in public coverage"
+      "Official project sources support 138 residences across 27 stories",
+      "Related Group and BH Group development team",
+      "Architecture by Arquitectonica",
+      "Interiors by Rockwell Group",
+      "Landscape architecture by Naturalficial",
+      "Water-facing homes with private balconies, wellness amenities, concierge, and valet service reported in current materials"
     ],
-    "amenityNarrative": "The amenity story is less about sheer square footage and more about the brand/service promise. Buyers should evaluate how the Ritz-Carlton residential service model is implemented day to day: concierge, valet, wellness, common areas, and the overall sense of hospitality within a private residential building.",
-    "residenceNarrative": "Public reporting has described residences in a more manageable size range than some of the larger estate-style waterfront products. That may appeal to buyers who want new construction, service, views, and brand credibility without taking on the scale of a very large residence.",
-    "locationNarrative": "North Flagler gives the project waterfront identity and places it inside one of West Palm Beach's most active development corridors. It should be compared not only by brand, but by view quality, access, building scale, and how the surrounding corridor continues to mature.",
-    "buyerComparisonNotes": "Compare Ritz-Carlton Residences against Olara for resort/marina energy, Alba for boutique North Flagler waterfront living, and South Flagler House for a more formal estate-inspired product. Ritz is the clearest branded-service comparison point in this group.",
-    "projectTeamNarrative": "Use verified public and official sources to describe the team. Public reporting has connected the project to Related, BH Group, Arquitectonica, Rockwell Group, and Ritz-Carlton residential services. Confirm official project source language before publishing final claims.",
+    "amenityNarrative": "The amenity question is operational. Buyers should understand how concierge, valet, wellness, pool, lounge, and service staffing work in practice, then compare that daily support against buildings that lead with marina access, larger club programs, or boutique privacy.",
+    "residenceNarrative": "The residences should be evaluated by light, balcony depth, view corridor, elevator access, storage, parking, and how each line lives at different floors. The best unit is the one where the plan and exposure justify the premium, not simply the one attached to the strongest brand name.",
+    "locationNarrative": "The site sits in the active Flagler Drive waterfront corridor, close to Palm Beach access and downtown West Palm Beach. The buyer test is practical: views, bridge pattern, construction context, and how the surrounding pipeline may affect the address by completion.",
+    "buyerComparisonNotes": "Compare Ritz-Carlton Residences against Olara for marina/resort energy, Alba for boutique waterfront scale, Mandarin Oriental for another hospitality-branded North Flagler option, and South Flagler House for a more formal estate-style product.",
+    "projectTeamNarrative": "The team is part of the underwriting story. Related Group and BH Group supply the development platform, Arquitectonica shapes the tower, Rockwell Group defines the interior atmosphere, Naturalficial handles the landscape layer, and the Ritz-Carlton affiliation sets expectations for service. Each role should be confirmed against the current buyer packet before contract reliance.",
     "sourceNotes": [
-      "Current copy should remain medium confidence until the official project website/current fact sheet is confirmed.",
-      "Use public reporting for directional positioning, but verify final residence count, amenities, pricing, and team details against official materials."
+      "Official project/developer sources support 138 residences, 27 stories, Related Group, BH Group, Arquitectonica, Rockwell Group, Naturalficial, and Ritz-Carlton residential branding.",
+      "Address references vary across official contexts; use 1717 N Flagler as the current developer/legal address until offering documents confirm final street-address language."
     ],
     "sourceUrls": [
-      "https://www.architecturaldigest.com/story/a-home-made-famous-by-mariah-carey-hits-the-market-richard-neutras-coe-house-lists-and-more-real-estate-news"
+      "https://theresidenceswestpalmbeach.com/",
+      "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
+      "https://www.rockwellgroup.com/index.php/projects/the-ritz-carlton-residences",
+      "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/",
+      "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html"
     ],
     "lastCopyResearchDate": "2026-05-23",
-    "copyConfidence": "medium"
+    "copyConfidence": "high"
   },
   {
     "slug": "shorecrest-west-palm-beach",

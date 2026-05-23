@@ -4830,6 +4830,15 @@ select:focus-visible {
   padding: clamp(22px, 4vw, 36px);
 }
 
+.route-view-brochure-project .section-heading h2,
+.project-known-facts h2,
+.project-buyer-lens .section-heading h2 {
+  max-width: 18ch;
+  font-size: clamp(2rem, 3.2vw, 3.45rem);
+  letter-spacing: -0.012em;
+  line-height: 1.02;
+}
+
 .project-known-facts dl {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -6414,17 +6423,17 @@ select:focus-visible {
 }
 
 .brochure-hero-copy h1 {
-  max-width: 11ch;
+  max-width: 13ch;
   color: var(--ink);
   font-family:
     Iowan Old Style,
     Palatino Linotype,
     Georgia,
     serif;
-  font-size: clamp(4.2rem, 7.8vw, 8rem);
+  font-size: clamp(3.7rem, 6.6vw, 6.9rem);
   font-weight: 400;
-  letter-spacing: -0.065em;
-  line-height: 0.86;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
 }
 
 .brochure-hero-copy > p:not(.eyebrow) {
@@ -6523,16 +6532,17 @@ select:focus-visible {
     Palatino Linotype,
     Georgia,
     serif;
-  font-size: clamp(2.35rem, 4vw, 4.4rem);
+  font-size: clamp(1.9rem, 2.9vw, 3.35rem);
   font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.96;
+  letter-spacing: -0.018em;
+  line-height: 1.02;
 }
 
 .brochure-module-copy p:not(.eyebrow),
 .brochure-research-contact p:not(.eyebrow),
 .brochure-team-tile p {
   color: var(--soft-ink);
+  font-size: 0.98rem;
   line-height: 1.55;
 }
 
@@ -6607,7 +6617,7 @@ select:focus-visible {
 }
 
 .brochure-team-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .brochure-team-tile div {
@@ -6631,9 +6641,9 @@ select:focus-visible {
     Palatino Linotype,
     Georgia,
     serif;
-  font-size: clamp(1.35rem, 1.8vw, 2rem);
+  font-size: clamp(1.15rem, 1.45vw, 1.55rem);
   font-weight: 400;
-  line-height: 1.08;
+  line-height: 1.12;
 }
 
 .brochure-location-panel {
