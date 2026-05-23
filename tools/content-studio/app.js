@@ -3,10 +3,14 @@ let selectedFile;
 let activeHomepageCard = { sectionId: "hero", cardId: "hero" };
 let activeReportPath = "";
 let activeReportText = "";
+let activeBuilderSection = "homepage";
+let activePreviewDevice = "desktop";
 
 const projectSelect = document.querySelector("#projectSelect");
 const result = document.querySelector("#result");
 const preview = document.querySelector("#imagePreview");
+const publicSiteBaseUrl = "https://www.wpbnewconstruction.com";
+const placeholderImageSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600' viewBox='0 0 900 600'%3E%3Crect width='900' height='600' fill='%23eef1ef'/%3E%3Cpath d='M140 420h620L570 230 430 360l-80-90z' fill='%23c8d4d2'/%3E%3Ccircle cx='300' cy='210' r='52' fill='%23d8e0df'/%3E%3Ctext x='450' y='520' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' fill='%23617073'%3EImage preview%3C/text%3E%3C/svg%3E";
 const homepageSectionLabels = {
   hero: "Hero",
   map: "Map",
@@ -31,6 +35,8 @@ async function loadState() {
   renderHomepageCardEditor();
   renderImagePicker();
   updateProjectPreview();
+  renderProjectPageContext();
+  updateBuilderContext();
 }
 
 function activeProjectId() {
@@ -56,7 +62,9 @@ function fillCopyForm() {
 }
 
 function updateProjectPreview() {
-  document.querySelector("#projectPreview").href = `http://127.0.0.1:5173/projects/${activeProjectId()}/`;
+  const href = previewUrlFor("project", activeProjectId());
+  document.querySelector("#projectPreview").href = href;
+  document.querySelector("#projectLivePreview").href = href;
 }
 
 document.querySelector("#refresh").addEventListener("click", loadState);
@@ -65,23 +73,28 @@ document.querySelector("#updateSite").addEventListener("click", () => runWorkflo
 projectSelect.addEventListener("change", () => {
   fillCopyForm();
   updateProjectPreview();
+  renderProjectPageContext();
 });
 
 document.querySelectorAll(".tabs button").forEach((button) => {
   button.addEventListener("click", () => {
+    activeBuilderSection = button.dataset.section || button.dataset.tab || activeBuilderSection;
     document.querySelectorAll(".tabs button").forEach((item) => item.classList.toggle("active", item === button));
     document.querySelectorAll(".builder-shell > .panel").forEach((panel) => panel.classList.toggle("active", panel.id === `${button.dataset.tab}Panel`));
     if (button.dataset.section) {
       document.querySelectorAll(".section-tabs button").forEach((item) => item.classList.toggle("active", item.dataset.section === button.dataset.section));
       document.querySelectorAll("#sitePanel .section").forEach((section) => section.classList.toggle("active", section.id === `${button.dataset.section}Section`));
     }
+    updateBuilderContext();
   });
 });
 
 document.querySelectorAll(".section-tabs button").forEach((button) => {
   button.addEventListener("click", () => {
+    activeBuilderSection = button.dataset.section || activeBuilderSection;
     document.querySelectorAll(".section-tabs button").forEach((item) => item.classList.toggle("active", item === button));
     document.querySelectorAll("#sitePanel .section").forEach((section) => section.classList.toggle("active", section.id === `${button.dataset.section}Section`));
+    updateBuilderContext();
   });
 });
 
@@ -227,8 +240,10 @@ function renderHomepageCardEditor() {
   form.elements.cardId.value = activeHomepageCard.cardId || "";
   document.querySelector("#selectedCardTitle").textContent = activeCard.title || "Choose a card";
   document.querySelector("#editingBreadcrumb").textContent = editingBreadcrumb(activeHomepageCard.sectionId, activeCard, activeHomepageCard.cardId);
-  document.querySelector("#selectedCardContext").textContent = `Section: ${homepageSectionLabels[activeHomepageCard.sectionId] || activeHomepageCard.sectionId} · Card: ${activeCard.title || activeHomepageCard.cardId || "choose a card"}`;
-  document.querySelector("#previewHomepage").href = state.previewUrls?.homepage || "http://127.0.0.1:5173/";
+  document.querySelector("#selectedCardContext").textContent = `Homepage ${homepageSectionLabels[activeHomepageCard.sectionId] || activeHomepageCard.sectionId} card only`;
+  document.querySelector("#draftPreviewStatus").textContent = "Draft preview visible on right";
+  document.querySelector("#previewHomepage").href = previewUrlFor("homepage");
+  document.querySelector("#openLivePreview").href = previewUrlFor("homepage");
   populateImageSelect(form.elements.imagePath, activeOverride.imagePath || activeCard.imagePath || "");
   for (const name of ["headline", "subhead", "deck", "caption", "alt", "ctaLabel", "status"]) {
     if (form.elements[name]) form.elements[name].value = activeOverride[name] ?? "";
@@ -241,18 +256,25 @@ function renderHomepageCardEditor() {
   form.elements.repetitionApprovalReason.value = activeOverride.repetitionApprovalReason || "";
   if (!form.elements.status.value) form.elements.status.value = "draft";
   updateCardPreview();
+  renderLivePagePreview();
+  updateBuilderContext();
   updateRepetitionWarning();
   form.elements.imagePath.onchange = () => {
     updateCardPreview();
+    renderLivePagePreview();
     updateRepetitionWarning();
   };
   ["headline", "subhead", "deck", "caption", "alt", "ctaLabel"].forEach((name) => {
-    form.elements[name].oninput = updateCardPreview;
+    form.elements[name].oninput = () => {
+      updateCardPreview();
+      renderLivePagePreview();
+    };
   });
   ["focalPointX", "focalPointY", "objectFit"].forEach((name) => {
     form.elements[name].oninput = () => {
       form.elements.imagePosition.value = `${form.elements.focalPointX.value}% ${form.elements.focalPointY.value}%`;
       updateCardPreview();
+      renderLivePagePreview();
     };
   });
 }
@@ -375,6 +397,7 @@ function renderImagePicker() {
       const select = document.querySelector("#homepageCardPanel [name=imagePath]");
       select.value = imagePath;
       updateCardPreview();
+      renderLivePagePreview();
       updateRepetitionWarning();
       document.querySelector("#homepageCardPanel").scrollIntoView({ behavior: "smooth", block: "start" });
     };
@@ -444,6 +467,121 @@ function setPreviewMode(mode) {
   const normalized = mode === "mobile" ? "mobile" : "desktop";
   document.querySelectorAll("[data-preview-mode]").forEach((button) => button.classList.toggle("active", button.dataset.previewMode === normalized));
   document.querySelector("#cardPreview")?.classList.toggle("show-mobile-preview", normalized === "mobile");
+}
+
+document.querySelectorAll("[data-device-preview]").forEach((button) => {
+  button.addEventListener("click", () => {
+    activePreviewDevice = button.dataset.devicePreview || "desktop";
+    document.querySelectorAll("[data-device-preview]").forEach((item) => item.classList.toggle("active", item === button));
+    renderLivePagePreview();
+  });
+});
+
+function renderLivePagePreview() {
+  if (!state?.homepageCards) return;
+  const previewRoot = document.querySelector("#pagePreview");
+  if (!previewRoot) return;
+  previewRoot.className = `page-preview-shell device-${activePreviewDevice}`;
+  document.querySelector("#previewPageTitle").textContent = "Homepage draft";
+  const ordered = ["hero", "corridors", "updates", "guidance", "featuredBuildings", "cta"].filter((sectionId) => state.homepageCards?.[sectionId]);
+  previewRoot.innerHTML = `<div class="draft-page-frame">${ordered.map((sectionId) => draftPreviewSection(sectionId)).join("")}</div>`;
+  previewRoot.querySelectorAll("[data-preview-section]").forEach((button) => {
+    button.addEventListener("click", () => {
+      activeHomepageCard = { sectionId: button.dataset.previewSection, cardId: button.dataset.previewCard };
+      renderHomepageCardEditor();
+    });
+  });
+}
+
+function draftPreviewSection(sectionId) {
+  const cards = state.homepageCards?.[sectionId] ?? [];
+  const visibleCards = sectionId === "hero" ? cards.slice(0, 1) : cards;
+  const isHero = sectionId === "hero";
+  return `
+    <section class="draft-section ${isHero ? "is-hero" : ""}">
+      <div class="draft-section-label">${escapeHtml(homepageSectionLabels[sectionId] || sectionId)}</div>
+      <div class="${isHero ? "draft-hero-layout" : "draft-card-row"}">
+        ${visibleCards.map((card, index) => draftPreviewCard(sectionId, card, index)).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function draftPreviewCard(sectionId, card, index) {
+  const form = document.querySelector("#homepageCardPanel");
+  const savedOverride = state.overrides.homepageCards?.sections?.[sectionId]?.cards?.[card.id] ?? {};
+  const isSelected = activeHomepageCard.sectionId === sectionId && activeHomepageCard.cardId === card.id;
+  const liveDraft = isSelected && form ? draftFromForm(card, savedOverride) : {};
+  const item = { ...card, ...savedOverride, ...liveDraft };
+  const label = previewCardLabel(sectionId, card, index);
+  const imagePosition = item.imagePosition || "center center";
+  const objectFit = item.objectFit || "cover";
+  return `
+    <button class="draft-card ${isSelected ? "is-selected" : ""} ${sectionId === "hero" ? "is-hero-card" : ""}" data-preview-section="${escapeHtml(sectionId)}" data-preview-card="${escapeHtml(card.id)}" type="button">
+      <span>${escapeHtml(label)}</span>
+      ${builderImage(item.imagePath || "", item.alt || item.title || "", { style: `object-position:${imagePosition};object-fit:${objectFit}` })}
+      <strong>${escapeHtml(item.headline || item.title || label)}</strong>
+      <p>${escapeHtml(item.deck || item.subhead || card.deck || "Draft preview")}</p>
+      <small>${escapeHtml(item.caption || item.ctaLabel || defaultCtaLabel(sectionId))}</small>
+    </button>
+  `;
+}
+
+function draftFromForm(card, savedOverride) {
+  const form = document.querySelector("#homepageCardPanel");
+  return {
+    imagePath: form.elements.imagePath.value || savedOverride.imagePath || card.imagePath || "",
+    headline: form.elements.headline.value || savedOverride.headline || card.title || "",
+    subhead: form.elements.subhead.value || savedOverride.subhead || "",
+    deck: form.elements.deck.value || form.elements.subhead.value || savedOverride.deck || card.deck || "",
+    caption: form.elements.caption.value || savedOverride.caption || "",
+    alt: form.elements.alt.value || savedOverride.alt || "",
+    ctaLabel: form.elements.ctaLabel.value || savedOverride.ctaLabel || defaultCtaLabel(activeHomepageCard.sectionId),
+    objectFit: form.elements.objectFit.value || savedOverride.objectFit || "cover",
+    imagePosition: form.elements.imagePosition.value || savedOverride.imagePosition || "center center",
+  };
+}
+
+function previewCardLabel(sectionId, card, index) {
+  if (sectionId === "updates") return `Update card ${index + 1}`;
+  if (sectionId === "guidance") return `Guidance card ${index + 1}`;
+  if (sectionId === "corridors") return `Corridor card ${index + 1}`;
+  if (sectionId === "featuredBuildings") return `Featured Building card ${index + 1}`;
+  if (sectionId === "cta") return "CTA";
+  if (sectionId === "hero") return "Hero";
+  return card.title || "Card";
+}
+
+function updateBuilderContext() {
+  document.body.classList.toggle("is-project-editing", activeBuilderSection === "projects");
+  const wrapper = document.querySelector("#projectSelectorWrap");
+  if (wrapper) wrapper.hidden = activeBuilderSection !== "projects";
+}
+
+function renderProjectPageContext() {
+  if (!state?.projects?.length) return;
+  const project = state.projects.find((item) => item.id === activeProjectId()) || state.projects[0];
+  const projectCard = (state.homepageCards?.featuredBuildings ?? []).find((card) => card.id === project.id);
+  const title = `Project Page: ${project.name}`;
+  document.querySelector("#projectStructureTitle").textContent = title;
+  document.querySelector("#projectPreviewTitle").textContent = title;
+  document.querySelector("#projectPagePreview").innerHTML = `
+    <div class="draft-page-frame project-draft">
+      <section class="draft-section is-hero">
+        <div class="draft-section-label">Hero</div>
+        <div class="draft-hero-layout">
+          <article class="draft-card is-selected is-hero-card">
+            ${builderImage(projectCard?.imagePath || "", `${project.name} project preview`, {})}
+            <strong>${escapeHtml(project.name)}</strong>
+            <p>${escapeHtml(projectCard?.deck || "West Palm Beach project page")}</p>
+          </article>
+        </div>
+      </section>
+      ${["Gallery", "Summary", "Recent notes", "Floorplans", "CTA"].map((label) => `
+        <section class="draft-section"><div class="draft-section-label">${label}</div><div class="project-preview-block">${escapeHtml(label)} section</div></section>
+      `).join("")}
+    </div>
+  `;
 }
 
 function updateRepetitionWarning() {
@@ -560,29 +698,38 @@ function defaultCtaLabel(sectionId) {
   return "Contact Brooke";
 }
 
-function resolveBuilderAssetUrl(imagePath, mode = state?.remote?.isRemote ? "remote" : "local") {
+function resolveBuilderAssetUrl(imagePath, context = {}) {
   const value = String(imagePath || "").trim();
-  if (!value) return "";
+  const mode = context.mode || (state?.remote?.isRemote ? "remote" : "local");
+  const assetBaseUrl = context.assetBaseUrl || state?.assetBaseUrl || publicSiteBaseUrl;
+  if (!value) return placeholderImageSvg;
   if (/^https?:\/\//i.test(value)) return value;
-  if (/^(?:\/Users|\/Volumes|[A-Za-z]:\\)/.test(value)) return "";
+  if (/^(?:\/Users|\/Volumes|[A-Za-z]:\\)/.test(value)) return placeholderImageSvg;
   const publicPath = value.startsWith("/") ? value : `/${value.replace(/^public\//, "")}`;
-  if (mode === "remote") return `https://www.wpbnewconstruction.com${publicPath}`;
+  if (mode === "remote") return `${assetBaseUrl.replace(/\/$/, "")}${publicPath}`;
   return publicPath;
 }
 
 function builderImage(imagePath, alt = "", options = {}) {
-  const src = resolveBuilderAssetUrl(imagePath);
+  const src = resolveBuilderAssetUrl(imagePath, options.context || {});
   const style = options.style ? ` style="${escapeHtml(options.style)}"` : "";
   const displayPath = escapeHtml(imagePath || "No image path");
-  if (!src) {
-    return `<div class="image-fallback"><strong>Image not loading</strong><span>${displayPath}</span></div>`;
-  }
   return `
     <figure class="builder-image-frame">
-      <img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy"${style} onerror="this.closest('figure').classList.add('is-broken')" />
+      <img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy"${style} data-builder-asset-path="${displayPath}" onerror="console.warn('Builder thumbnail failed', this.dataset.builderAssetPath, this.currentSrc); this.closest('figure').classList.add('is-broken')" />
       <figcaption><strong>Image not loading</strong><span>${displayPath}</span></figcaption>
     </figure>
   `;
+}
+
+function previewUrlFor(page, projectId = activeProjectId()) {
+  if (page === "homepage") return state?.previewUrls?.homepage || "http://127.0.0.1:5173/";
+  if (page === "updates") return state?.previewUrls?.updates || "http://127.0.0.1:5173/updates/";
+  if (page === "guidance") return state?.previewUrls?.guidance || "http://127.0.0.1:5173/answers/";
+  if (page === "market") return state?.previewUrls?.market || "http://127.0.0.1:5173/market-notes/";
+  if (page === "floorplans") return state?.previewUrls?.floorplans || "http://127.0.0.1:5173/floorplans/";
+  if (page === "project") return state?.previewUrls?.projectBase ? `${state.previewUrls.projectBase}${projectId}/` : `http://127.0.0.1:5173/projects/${projectId}/`;
+  return state?.previewUrls?.homepage || "http://127.0.0.1:5173/";
 }
 
 function projectImageForNews(item) {

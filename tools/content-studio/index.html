@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Brooke Builder</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style.css?v=live-preview-remote-images" />
   </head>
   <body>
     <header class="topbar">
@@ -25,25 +25,24 @@
 
     <main class="builder-shell">
       <aside class="sidebar">
-        <label>
-          Project
+        <label id="projectSelectorWrap" class="project-selector">
+          Editing project page
           <select id="projectSelect"></select>
         </label>
         <nav class="tabs" aria-label="Main workflows">
-          <strong>Edit Site</strong>
+          <strong>Edit Pages</strong>
           <button class="active" data-tab="site" data-section="homepage" type="button">Homepage</button>
           <button data-tab="site" data-section="updates" type="button">Updates</button>
           <button data-tab="site" data-section="market" type="button">Guidance</button>
           <button data-tab="site" data-section="projects" type="button">Projects</button>
-          <button data-tab="site" data-section="images" type="button">Images</button>
+          <button data-tab="site" data-section="floorplans" type="button">Floorplans</button>
+          <button data-tab="site" data-section="corridors" type="button">Corridors</button>
           <strong>Content</strong>
+          <button data-tab="site" data-section="images" type="button">Images</button>
           <button data-tab="news" type="button">News Desk</button>
-          <button data-tab="site" data-section="updates" type="button">Project Updates</button>
-          <button data-tab="site" data-section="team" type="button">Team Resources</button>
           <strong>Operations</strong>
           <button data-tab="reports" type="button">Reports</button>
-          <button data-tab="site" data-section="automation" type="button">Automation Status</button>
-          <button data-tab="site" data-section="automation" type="button">Build / Deploy</button>
+          <button data-tab="site" data-section="automation" type="button">Operations</button>
         </nav>
         <nav class="section-tabs" aria-label="Editor sections">
           <button data-section="dashboard" type="button">Builder Home</button>
@@ -96,11 +95,20 @@
         </section>
 
         <section id="homepageSection" class="section active">
-          <h1>Homepage Editor</h1>
-          <div class="context-bar">
-            <strong id="editingBreadcrumb">Editing: Homepage</strong>
-            <span id="selectedCardContext">Choose a section or card</span>
-            <a id="previewHomepage" href="http://127.0.0.1:5173/" target="_blank" rel="noreferrer">Preview homepage</a>
+          <div class="editing-header">
+            <div>
+              <span class="muted">You are editing</span>
+              <strong id="editingBreadcrumb">Homepage</strong>
+            </div>
+            <div>
+              <span class="muted">This changes</span>
+              <strong id="selectedCardContext">Choose a section or card</strong>
+            </div>
+            <div>
+              <span class="muted">Preview</span>
+              <strong id="draftPreviewStatus">Draft preview visible on right</strong>
+            </div>
+            <a id="previewHomepage" href="http://127.0.0.1:5173/" target="_blank" rel="noreferrer">Open live page</a>
           </div>
           <form id="homepagePanel" class="tool-panel">
             <div class="grid">
@@ -123,7 +131,6 @@
             <button class="primary" type="submit">Save Homepage Override</button>
           </form>
 
-          <h1>Card-Level Editor</h1>
           <div class="card-editor-shell">
             <aside class="card-list-panel">
               <h2>Page Structure</h2>
@@ -190,6 +197,24 @@
                 <button data-go-tab="site" data-go-section="automation" type="button">Update Site</button>
               </div>
             </form>
+            <aside class="live-preview-panel" aria-label="Live page preview">
+              <div class="live-preview-head">
+                <div>
+                  <span class="muted">Live Page Preview</span>
+                  <strong id="previewPageTitle">Homepage draft</strong>
+                </div>
+                <div class="device-toggle" aria-label="Preview device">
+                  <button class="active" type="button" data-device-preview="desktop">Desktop</button>
+                  <button type="button" data-device-preview="tablet">Tablet</button>
+                  <button type="button" data-device-preview="mobile">Mobile</button>
+                </div>
+              </div>
+              <div class="preview-source-row">
+                <span>Draft changes are applied here before publishing.</span>
+                <a id="openLivePreview" href="http://127.0.0.1:5173/" target="_blank" rel="noreferrer">Open live page</a>
+              </div>
+              <div id="pagePreview" class="page-preview-shell"></div>
+            </aside>
           </div>
 
           <h1>Image Picker</h1>
@@ -241,6 +266,30 @@
 
         <section id="projectsSection" class="section">
           <h1>Project Copy Editor</h1>
+          <div class="project-context-preview">
+            <aside class="card-list-panel">
+              <h2 id="projectStructureTitle">Project Page</h2>
+              <div class="page-tree">
+                <button class="tree-root active" type="button">Project Page</button>
+                <button type="button">Hero</button>
+                <button type="button">Gallery</button>
+                <button type="button">Summary</button>
+                <button type="button">Recent notes</button>
+                <button type="button">Floorplans</button>
+                <button type="button">CTA</button>
+              </div>
+            </aside>
+            <aside class="live-preview-panel">
+              <div class="live-preview-head">
+                <div>
+                  <span class="muted">Project preview</span>
+                  <strong id="projectPreviewTitle">Selected project page</strong>
+                </div>
+                <a id="projectLivePreview" href="/" target="_blank" rel="noreferrer">Open live page</a>
+              </div>
+              <div id="projectPagePreview" class="page-preview-shell"></div>
+            </aside>
+          </div>
           <form id="copyPanel" class="tool-panel">
             <label>Summary<textarea name="summary"></textarea></label>
             <label>Editorial intro<textarea name="editorialIntro"></textarea></label>
@@ -271,6 +320,16 @@
         <section id="marketSection" class="section">
           <h1>Market Notes / Updates</h1>
           <p class="muted">Use News Desk for imported GPT article drafts. This panel is for manual page-section copy and image assignments.</p>
+        </section>
+
+        <section id="floorplansSection" class="section">
+          <h1>Floorplans</h1>
+          <p class="muted">Floorplan page preview is available from the live preview menu. Detailed floorplan editing stays source-backed.</p>
+        </section>
+
+        <section id="corridorsSection" class="section">
+          <h1>Corridors</h1>
+          <p class="muted">Corridor cards are edited from the Homepage page tree and highlighted in the draft preview.</p>
         </section>
 
         <section id="updatesSection" class="section">
@@ -361,6 +420,6 @@
     </main>
 
     <pre id="result" class="result"></pre>
-    <script type="module" src="/app.js"></script>
+    <script type="module" src="/app.js?v=live-preview-remote-images"></script>
   </body>
 </html>

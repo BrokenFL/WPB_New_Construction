@@ -26,6 +26,9 @@ const reportDefinitions = [
   { category: "Floorplans / Images", path: "research/source-material-review/project-link-out-cleanup.md" },
   { category: "Deployment", path: "research/source-material-review/brooke-builder-remote-access-feasibility.md" },
   { category: "Deployment", path: "research/source-material-review/builder-remote-report-focal-point-audit.md" },
+  { category: "Deployment", path: "research/source-material-review/remote-builder-image-loading-fix.md" },
+  { category: "Visual Audits", path: "research/source-material-review/brooke-builder-live-preview-before.md" },
+  { category: "Visual Audits", path: "research/source-material-review/brooke-builder-live-preview-after.md" },
 ];
 
 const overrideFiles = {
@@ -97,6 +100,9 @@ async function state(request) {
       homepage: remote.isRemote ? "https://www.wpbnewconstruction.com/" : "http://127.0.0.1:5173/",
       updates: remote.isRemote ? "https://www.wpbnewconstruction.com/updates/" : "http://127.0.0.1:5173/updates/",
       guidance: remote.isRemote ? "https://www.wpbnewconstruction.com/answers/" : "http://127.0.0.1:5173/answers/",
+      market: remote.isRemote ? "https://www.wpbnewconstruction.com/market-notes/" : "http://127.0.0.1:5173/market-notes/",
+      floorplans: remote.isRemote ? "https://www.wpbnewconstruction.com/floorplans/" : "http://127.0.0.1:5173/floorplans/",
+      projectBase: remote.isRemote ? "https://www.wpbnewconstruction.com/projects/" : "http://127.0.0.1:5173/projects/",
     },
     projects: await readProjects(),
     overrides: await readAllOverrides(),
@@ -620,7 +626,7 @@ function projectPreviewImage(projectId = "") {
   const fallback = {
     olara: "/projects/olara/media/olara-hero-exterior-1536x1024.jpg",
     rosewood: "/projects/rosewood/media/rosewood-rendering-hero.jpg",
-    "nora-house": "/projects/nora-house/media/nora-house-card.jpg",
+    "nora-house": "/projects/nora-house/media/user-provided-nora-house-card.jpg",
     "mandarin-oriental": "/projects/mandarin-oriental/media/mandarin-oriental-exterior-hero-source.jpg",
     "south-flagler-house": "/projects/south-flagler-house/media/card.jpg",
     shorecrest: "/projects/shorecrest/media/card.jpg",
@@ -896,7 +902,7 @@ function maxWidthFor(targetType) {
 
 async function sendFile(response, fileName, contentType) {
   const body = await fs.readFile(path.join(studioRoot, fileName));
-  response.writeHead(200, { "content-type": contentType });
+  response.writeHead(200, { "content-type": contentType, "cache-control": "no-store" });
   response.end(body);
 }
 
@@ -934,7 +940,7 @@ async function readJson(request, limit = 1024 * 1024) {
 }
 
 function sendJson(response, payload, status = 200) {
-  response.writeHead(status, { "content-type": "application/json; charset=utf-8" });
+  response.writeHead(status, { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" });
   response.end(`${JSON.stringify(payload, null, 2)}\n`);
 }
 

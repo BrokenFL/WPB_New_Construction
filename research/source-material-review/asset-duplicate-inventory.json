@@ -1,8 +1,8 @@
 {
   "summary": {
     "metricVersion": 2,
-    "generatedAt": "2026-05-23T01:33:28.099Z",
-    "filesScanned": 2038,
+    "generatedAt": "2026-05-23T02:05:29.825Z",
+    "filesScanned": 2052,
     "duplicateHashGroups": 369,
     "duplicateExtraBytes": 447477690,
     "sourceDuplicateHashGroups": 330,
