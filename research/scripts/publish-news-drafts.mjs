@@ -16,10 +16,13 @@ async function main() {
   const store = await readDraftStore();
   const approved = await readJsonFile(approvedNewsPath, []);
   const seen = new Set(approved.map((item) => item.canonicalUrl || item.sourceUrl));
+  const manualIds = new Set(valueForArg("--ids").split(",").map((item) => item.trim()).filter(Boolean));
   const today = new Date().toISOString().slice(0, 10);
   const alreadyPublishedToday = store.items.filter((item) => item.publishedAt?.startsWith(today)).length;
   const limit = Math.max(0, Number(config.maxAutoPublishedPerDay ?? 3) - alreadyPublishedToday);
-  const selected = store.items.filter((item) => eligibleForAutoPublish(item, config)).slice(0, limit);
+  const selected = manualIds.size
+    ? store.items.filter((item) => manualIds.has(item.id) && item.riskLevel === "low" && item.status !== "published")
+    : store.items.filter((item) => eligibleForAutoPublish(item, config)).slice(0, limit);
 
   for (const item of selected) {
     if (seen.has(item.sourceUrl)) {
@@ -44,6 +47,14 @@ async function main() {
   }
 
   console.log(JSON.stringify({ published: selected.length, approvedNews: "research/news-review/approved-development-news.json" }, null, 2));
+}
+
+function valueForArg(name) {
+  const prefix = `${name}=`;
+  const inline = process.argv.find((arg) => arg.startsWith(prefix));
+  if (inline) return inline.slice(prefix.length);
+  const index = process.argv.indexOf(name);
+  return index >= 0 ? process.argv[index + 1] || "" : "";
 }
 
 main().catch((error) => {

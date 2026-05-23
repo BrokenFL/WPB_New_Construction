@@ -1,13 +1,14 @@
 # News Publisher Report
 
-Generated: 2026-05-22T19:50:41.932Z
+Generated: 2026-05-23T17:05:24.579Z
 
-Mode: dry-run
+Mode: publish
 
 ## Scripts Run
 
 - import GPT news issue drafts: passed
 - validate news drafts: passed
+- publish eligible queued low-risk news: passed
 - generate newsletter digest draft: passed
 - check approved news surface: passed
 - check news image mapping: passed

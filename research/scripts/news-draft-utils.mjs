@@ -60,7 +60,7 @@ export async function readAutomationConfig() {
 }
 
 export function canonicalUrlFor(item) {
-  return clean(item.canonicalUrl || item.sourceUrl || item.url || item.link);
+  return clean(item.canonicalUrl || item.sourceUrl || item.url || item.link || item.source?.url || item.sources?.[0]?.url);
 }
 
 export function clean(value) {
@@ -118,8 +118,9 @@ export function normalizeBodySections(candidate) {
 export async function normalizeCandidate(candidate, existingItems = []) {
   const now = new Date().toISOString();
   const sourceUrl = canonicalUrlFor(candidate);
-  const sourceTitle = clean(candidate.sourceTitle || candidate.title || candidate.headline || "Untitled source item");
-  const sourcePublishedAt = isoDate(candidate.sourcePublishedAt || candidate.publishedAt || candidate.date);
+  const source = Array.isArray(candidate.sources) ? candidate.sources[0] : candidate.source;
+  const sourceTitle = clean(candidate.sourceTitle || source?.title || candidate.title || candidate.headline || "Untitled source item");
+  const sourcePublishedAt = isoDate(candidate.sourcePublishedAt || source?.date || candidate.publishedAt || candidate.date);
   const riskLevel = riskLevelFor(candidate);
   const rewrittenHeadline = clean(candidate.rewrittenHeadline || candidate.headline || buyerHeadline(sourceTitle));
   const relatedProjectIds = asSlugArray(candidate.relatedProjectIds || candidate.projects || candidate.projectIds);
@@ -136,7 +137,7 @@ export async function normalizeCandidate(candidate, existingItems = []) {
   return {
     id,
     sourceUrl,
-    sourceName: clean(candidate.sourceName || candidate.publication || candidate.publisher || "Source"),
+    sourceName: clean(candidate.sourceName || source?.publication || candidate.publication || candidate.publisher || "Source"),
     sourceTitle,
     sourcePublishedAt,
     status: statusForRisk(riskLevel, candidate),
@@ -153,7 +154,7 @@ export async function normalizeCandidate(candidate, existingItems = []) {
     buyerTakeaway: clean(candidate.buyerTakeaway || "Verify the practical buyer impact before relying on this item."),
     cta: clean(candidate.cta || candidate.callToAction || "Compare related West Palm Beach projects"),
     newsletterBlurb: clean(candidate.newsletterBlurb || candidate.deck || candidate.summary || rewrittenHeadline),
-    createdAt: clean(candidate.createdAt) || now,
+    createdAt: clean(candidate.createdAt || candidate.importedFromIssue?.createdAt) || now,
     updatedAt: now,
     importedFromIssue: candidate.importedFromIssue,
   };
@@ -199,7 +200,7 @@ export async function resolveNewsImage(candidate) {
 
 export function eligibleForAutoPublish(item, config, now = new Date()) {
   if (item.status !== "queued") return false;
-  if (item.riskLevel === "high") return false;
+  if (item.riskLevel !== "low") return false;
   if (!config.autoPublishEnabled) return false;
   const createdAt = new Date(item.createdAt || item.updatedAt || now);
   const ageHours = (now.getTime() - createdAt.getTime()) / 36e5;

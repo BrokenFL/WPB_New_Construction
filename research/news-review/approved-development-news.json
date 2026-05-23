@@ -178,5 +178,99 @@
     "paywallStatus": "free",
     "status": "published",
     "riskLevel": "medium"
+  },
+  {
+    "id": "2026-05-23-wpb-vertical-resort-condos",
+    "slug": "2026-05-23-wpb-vertical-resort-condos",
+    "title": "In West Palm Beach, luxury condo now means vertical resort",
+    "sourceName": "New York Post",
+    "sourceUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
+    "canonicalUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
+    "sourcePublishedAt": "2026-03-26",
+    "publishedAt": "2026-03-26",
+    "fetchedAt": "2026-05-23",
+    "deck": "Private marinas, wine rooms, yacht access, wellness programming, branded hospitality, and record-setting penthouse pricing are becoming the new language of West Palm Beach condo development.",
+    "description": "Private marinas, wine rooms, yacht access, wellness programming, branded hospitality, and record-setting penthouse pricing are becoming the new language of West Palm Beach condo development.",
+    "summary": "The best building is not the one with the longest amenity list. It is the one where amenities, location, views, timing, and future buyer pool actually fit how someone wants to live.",
+    "bodySections": [
+      {
+        "heading": "The story",
+        "body": "West Palm Beach’s new-construction condo market has crossed into a new phase. The city is no longer just adding luxury towers. It is adding lifestyle systems. The newest projects are competing with resort-style amenity packages: private marinas, yacht access, wine rooms, pickleball, rooftop pools, hospitality partnerships, wellness services, concierge programming, and branded residential identities. The shift is visible across South Flagler House, Shorecrest, Edgeworth, Ritz-Carlton Residences, Mandarin Oriental Residences, Olara, Alba, and the planned Banyan Tree-branded project on Hibiscus Street."
+      },
+      {
+        "heading": "Why it matters",
+        "body": "Buyers need to evaluate amenity quality, view protection, completion timing, corridor trajectory, service model, HOA structure, parking, marina access, and resale audience."
+      },
+      {
+        "heading": "Brooke's take",
+        "body": "The best building is not the one with the longest amenity list. It is the one where amenities, location, views, timing, and future buyer pool actually fit how someone wants to live."
+      }
+    ],
+    "whyItMatters": "Buyers need to evaluate amenity quality, view protection, completion timing, corridor trajectory, service model, HOA structure, parking, marina access, and resale audience.",
+    "brookeTake": "The best building is not the one with the longest amenity list. It is the one where amenities, location, views, timing, and future buyer pool actually fit how someone wants to live.",
+    "buyerContext": "The best building is not the one with the longest amenity list. It is the one where amenities, location, views, timing, and future buyer pool actually fit how someone wants to live.",
+    "newsletterHeadline": "In West Palm Beach, luxury condo now means vertical resort",
+    "newsletterBlurb": "West Palm Beach luxury condo development is shifting from nice building to vertical resort.",
+    "newsletterCta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach helps buyers compare West Palm Beach new-construction condos across buildings and corridors.",
+    "query": "GPT daily news draft",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [
+      "south-flagler",
+      "north-flagler",
+      "downtown"
+    ],
+    "imageUrl": "/hero/north-flagler-skyline-mockup.jpg",
+    "imagePath": "/hero/north-flagler-skyline-mockup.jpg",
+    "paywallStatus": "unknown",
+    "status": "published",
+    "riskLevel": "low"
+  },
+  {
+    "id": "2026-05-23-nora-residential-gravity",
+    "slug": "2026-05-23-nora-residential-gravity",
+    "title": "NORA is moving from restaurant buzz to residential gravity",
+    "sourceName": "New York Post",
+    "sourceUrl": "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/",
+    "canonicalUrl": "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/",
+    "sourcePublishedAt": "2026-03-26",
+    "publishedAt": "2026-03-26",
+    "fetchedAt": "2026-05-23",
+    "deck": "NORA is becoming more than a restaurant district. With hotel, rental, and luxury condo components in motion, it may become one of West Palm Beach’s most important lifestyle corridors for buyers who want walkability and neighborhood energy.",
+    "description": "NORA is becoming more than a restaurant district. With hotel, rental, and luxury condo components in motion, it may become one of West Palm Beach’s most important lifestyle corridors for buyers who want walkability and neighborhood energy.",
+    "summary": "Buyers need to compare corridors, not just buildings. A NORA buyer and a South Flagler buyer may both want West Palm Beach new construction, but they are buying completely different daily lives.",
+    "bodySections": [
+      {
+        "heading": "The story",
+        "body": "NORA started as a restored warehouse district with restaurants, cafés, and a deliberate sense of place. The next buyer-facing story is what comes next: hospitality, multifamily housing, and a planned luxury condominium. For buyers comparing West Palm Beach new construction, NORA sits in a different lane than waterfront towers. It is not trying to compete with South Flagler’s direct Intracoastal views or North Flagler’s resort-marina energy. Its pitch is walkability, food, design, historic warehouse texture, and daily life."
+      },
+      {
+        "heading": "Why it matters",
+        "body": "NORA expands the buyer map beyond direct waterfront living."
+      },
+      {
+        "heading": "Brooke's take",
+        "body": "Buyers need to compare corridors, not just buildings. A NORA buyer and a South Flagler buyer may both want West Palm Beach new construction, but they are buying completely different daily lives."
+      }
+    ],
+    "whyItMatters": "NORA expands the buyer map beyond direct waterfront living.",
+    "brookeTake": "Buyers need to compare corridors, not just buildings. A NORA buyer and a South Flagler buyer may both want West Palm Beach new construction, but they are buying completely different daily lives.",
+    "buyerContext": "Buyers need to compare corridors, not just buildings. A NORA buyer and a South Flagler buyer may both want West Palm Beach new construction, but they are buying completely different daily lives.",
+    "newsletterHeadline": "NORA is moving from restaurant buzz to residential gravity",
+    "newsletterBlurb": "NORA is becoming one of the key lifestyle corridors to watch in West Palm Beach.",
+    "newsletterCta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach can help compare NORA, North Flagler, South Flagler, and Downtown based on lifestyle, timing, views, amenities, and long-term fit.",
+    "query": "GPT daily news draft",
+    "category": "development",
+    "relatedProjectIds": [
+      "nora-house"
+    ],
+    "relatedCorridorIds": [
+      "downtown"
+    ],
+    "imageUrl": "/projects/nora-house/media/card.jpg",
+    "imagePath": "/projects/nora-house/media/card.jpg",
+    "paywallStatus": "unknown",
+    "status": "published",
+    "riskLevel": "low"
   }
 ]

@@ -1,55 +1,146 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-22T19:52:34.659Z",
+  "updatedAt": "2026-05-23T17:05:24.026Z",
   "items": [
     {
-      "id": "2026-05-22-test-wpb-luxury-condo-boom",
+      "id": "2026-05-23-wpb-vertical-resort-condos",
       "sourceUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
       "sourceName": "New York Post",
       "sourceTitle": "Builders are betting on a bevy of new ultra-luxe condos in West Palm Beach",
       "sourcePublishedAt": "2026-03-26",
       "status": "published",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "publishMode": "queued-unless-blocked",
-      "relatedProjectIds": [
-        "south-flagler-house",
-        "olara"
-      ],
+      "relatedProjectIds": [],
       "relatedCorridorIds": [
         "south-flagler",
         "north-flagler",
         "downtown"
       ],
-      "suggestedImagePath": "/projects/south-flagler-house/media/imported/south-flagler-house-kitchen-residence-rendering.jpg",
-      "imageResolutionReason": "Exact related project image selected for south-flagler-house.",
-      "rewrittenHeadline": "West Palm Beach’s luxury condo boom is no longer theoretical",
-      "deck": "A new wave of ultra-luxury condominium projects is pushing West Palm Beach into a different buyer category, with resort-level amenities, branded residences, and prices that increasingly compete with Palm Beach itself.",
+      "suggestedImagePath": "/hero/north-flagler-skyline-mockup.jpg",
+      "imageResolutionReason": "Existing West Palm Beach waterfront skyline editorial image selected for citywide vertical-resort context.",
+      "rewrittenHeadline": "In West Palm Beach, luxury condo now means vertical resort",
+      "deck": "Private marinas, wine rooms, yacht access, wellness programming, branded hospitality, and record-setting penthouse pricing are becoming the new language of West Palm Beach condo development.",
       "bodySections": [
         {
-          "heading": "What happened",
-          "body": "A recent report highlighted the surge of ultra-luxury condominium development across West Palm Beach, including high-profile projects such as South Flagler House and Olara. The broader story is not simply that more condos are being built; it is that the city’s new construction pipeline is moving toward larger residences, richer amenity packages, and pricing that reflects a much more affluent buyer pool."
+          "heading": "The story",
+          "body": "West Palm Beach’s new-construction condo market has crossed into a new phase. The city is no longer just adding luxury towers. It is adding lifestyle systems. The newest projects are competing with resort-style amenity packages: private marinas, yacht access, wine rooms, pickleball, rooftop pools, hospitality partnerships, wellness services, concierge programming, and branded residential identities. The shift is visible across South Flagler House, Shorecrest, Edgeworth, Ritz-Carlton Residences, Mandarin Oriental Residences, Olara, Alba, and the planned Banyan Tree-branded project on Hibiscus Street."
         },
         {
-          "heading": "Why it matters for buyers",
-          "body": "For buyers comparing new construction in West Palm Beach, the market is becoming more segmented. Some buildings are competing on full-service luxury, private-club-style amenities, hospitality branding, and waterfront positioning. Others are better understood as lifestyle or corridor bets. That makes direct comparison more important: price alone does not tell the full story."
+          "heading": "Why it matters",
+          "body": "Buyers need to evaluate amenity quality, view protection, completion timing, corridor trajectory, service model, HOA structure, parking, marina access, and resale audience."
         },
         {
-          "heading": "What to verify",
-          "body": "Current availability by line and exposure; whether published pricing reflects actual available inventory; association fees and what amenities are included; delivery timing and construction status; parking, storage, and service assumptions; and whether branded/resort-style amenities are meaningful or mostly marketing."
+          "heading": "Brooke's take",
+          "body": "The best building is not the one with the longest amenity list. It is the one where amenities, location, views, timing, and future buyer pool actually fit how someone wants to live."
         }
       ],
-      "buyerTakeaway": "West Palm Beach new construction is no longer one market. Buyers should compare actual lifestyle promise, waterfront position, floor-plan depth, and service model before assuming every luxury condo is competing for the same buyer.",
-      "cta": "Compare related West Palm Beach projects",
-      "newsletterBlurb": "West Palm Beach’s condo pipeline is moving further into ultra-luxury territory, with new projects competing on amenities, branding, waterfront position, and residence scale.",
-      "createdAt": "2026-05-22T09:00:00-04:00",
-      "updatedAt": "2026-05-22T19:46:14.977Z",
+      "buyerTakeaway": "The best building is not the one with the longest amenity list. It is the one where amenities, location, views, timing, and future buyer pool actually fit how someone wants to live.",
+      "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach helps buyers compare West Palm Beach new-construction condos across buildings and corridors.",
+      "newsletterBlurb": "West Palm Beach luxury condo development is shifting from nice building to vertical resort.",
+      "createdAt": "2026-05-23T14:55:56Z",
+      "updatedAt": "2026-05-23T17:04:22.505Z",
       "importedFromIssue": {
         "repo": "BrokenFL/WPB_New_Construction",
-        "number": 2,
-        "title": "Daily WPB News Drafts — 2026-05-22 TEST",
-        "url": "https://api.github.com/repos/BrokenFL/WPB_New_Construction/issues/2"
+        "number": 7,
+        "title": "Daily WPB News Drafts — 2026-05-23",
+        "url": "https://github.com/BrokenFL/WPB_New_Construction/issues/7",
+        "createdAt": "2026-05-23T14:55:56Z"
       },
-      "publishedAt": "2026-05-22T19:46:14.977Z"
+      "publishedAt": "2026-05-23T17:04:22.505Z"
+    },
+    {
+      "id": "2026-05-23-nora-residential-gravity",
+      "sourceUrl": "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/",
+      "sourceName": "New York Post",
+      "sourceTitle": "This newly redeveloped West Palm Beach neighborhood is loaded with New York spirit",
+      "sourcePublishedAt": "2026-03-26",
+      "status": "published",
+      "riskLevel": "low",
+      "publishMode": "auto-queue",
+      "relatedProjectIds": [
+        "nora-house"
+      ],
+      "relatedCorridorIds": [
+        "downtown"
+      ],
+      "suggestedImagePath": "/projects/nora-house/media/card.jpg",
+      "imageResolutionReason": "Exact related project image selected for nora-house.",
+      "rewrittenHeadline": "NORA is moving from restaurant buzz to residential gravity",
+      "deck": "NORA is becoming more than a restaurant district. With hotel, rental, and luxury condo components in motion, it may become one of West Palm Beach’s most important lifestyle corridors for buyers who want walkability and neighborhood energy.",
+      "bodySections": [
+        {
+          "heading": "The story",
+          "body": "NORA started as a restored warehouse district with restaurants, cafés, and a deliberate sense of place. The next buyer-facing story is what comes next: hospitality, multifamily housing, and a planned luxury condominium. For buyers comparing West Palm Beach new construction, NORA sits in a different lane than waterfront towers. It is not trying to compete with South Flagler’s direct Intracoastal views or North Flagler’s resort-marina energy. Its pitch is walkability, food, design, historic warehouse texture, and daily life."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "NORA expands the buyer map beyond direct waterfront living."
+        },
+        {
+          "heading": "Brooke's take",
+          "body": "Buyers need to compare corridors, not just buildings. A NORA buyer and a South Flagler buyer may both want West Palm Beach new construction, but they are buying completely different daily lives."
+        }
+      ],
+      "buyerTakeaway": "Buyers need to compare corridors, not just buildings. A NORA buyer and a South Flagler buyer may both want West Palm Beach new construction, but they are buying completely different daily lives.",
+      "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach can help compare NORA, North Flagler, South Flagler, and Downtown based on lifestyle, timing, views, amenities, and long-term fit.",
+      "newsletterBlurb": "NORA is becoming one of the key lifestyle corridors to watch in West Palm Beach.",
+      "createdAt": "2026-05-23T14:55:56Z",
+      "updatedAt": "2026-05-23T17:04:22.505Z",
+      "importedFromIssue": {
+        "repo": "BrokenFL/WPB_New_Construction",
+        "number": 7,
+        "title": "Daily WPB News Drafts — 2026-05-23",
+        "url": "https://github.com/BrokenFL/WPB_New_Construction/issues/7",
+        "createdAt": "2026-05-23T14:55:56Z"
+      },
+      "publishedAt": "2026-05-23T17:04:22.505Z"
+    },
+    {
+      "id": "2026-05-23-branded-residences-wpb-context",
+      "sourceUrl": "https://www.wsj.com/real-estate/luxury-homes/branded-residences-luxury-condos-1bce6574",
+      "sourceName": "Wall Street Journal",
+      "sourceTitle": "Porsche, Armani and Now Music Festivals? Brands Are Taking Over Miami Condos",
+      "sourcePublishedAt": "2026-05-19",
+      "status": "needs_review",
+      "riskLevel": "medium",
+      "publishMode": "queued-unless-blocked",
+      "relatedProjectIds": [],
+      "relatedCorridorIds": [
+        "south-flagler",
+        "north-flagler",
+        "downtown"
+      ],
+      "suggestedImagePath": "/assets/editorial/south-flagler-corridor.jpg",
+      "imageResolutionReason": "Corridor image selected for south-flagler.",
+      "rewrittenHeadline": "For West Palm Beach buyers, the brand is becoming part of the building",
+      "deck": "As West Palm Beach adds Ritz-Carlton, Mandarin Oriental, Banyan Tree, and Cipriani-linked projects to its luxury pipeline, buyers should treat the brand as a clue to service, lifestyle, resale audience, and daily experience.",
+      "bodySections": [
+        {
+          "heading": "The story",
+          "body": "Branded residences have become one of the defining forces in Florida luxury real estate. Miami may be the loudest version of the trend, but West Palm Beach is building its own more restrained version. A brand can shape service expectations, amenity programming, design language, wellness offerings, and the type of buyer a building is likely to attract. The question is not whether the brand sounds impressive. The question is what the brand actually changes about the way the building lives."
+        },
+        {
+          "heading": "Why it matters",
+          "body": "Branding can affect pricing, demand, lifestyle expectations, and resale perception, but it does not solve view quality, floor plan fit, HOA costs, construction timing, or corridor risk."
+        },
+        {
+          "heading": "Brooke's take",
+          "body": "A brand can be useful, but it is not a magic wand. Buyers should ask what the brand actually controls: service, design, food and beverage, wellness, operations, or mostly the name."
+        }
+      ],
+      "buyerTakeaway": "A brand can be useful, but it is not a magic wand. Buyers should ask what the brand actually controls: service, design, food and beverage, wellness, operations, or mostly the name.",
+      "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach can help buyers compare branded and non-branded West Palm Beach new-construction condos.",
+      "newsletterBlurb": "In West Palm Beach, the real branded-residence question is not whether the name is impressive. It is what the brand changes about daily life.",
+      "createdAt": "2026-05-23T14:55:56Z",
+      "updatedAt": "2026-05-23T17:03:24.461Z",
+      "importedFromIssue": {
+        "repo": "BrokenFL/WPB_New_Construction",
+        "number": 7,
+        "title": "Daily WPB News Drafts — 2026-05-23",
+        "url": "https://github.com/BrokenFL/WPB_New_Construction/issues/7",
+        "createdAt": "2026-05-23T14:55:56Z"
+      }
     }
   ]
 }

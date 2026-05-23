@@ -6,9 +6,9 @@
   <string>com.brooke.wpb-news-publisher</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/bin/zsh</string>
-    <string>-lc</string>
-    <string>cd /Volumes/ExternalSSD/WPB_NewConstruction &amp;&amp; npm run news:daily-publisher</string>
+    <string>/usr/bin/osascript</string>
+    <string>-e</string>
+    <string>tell application "Terminal" to do script "cd /Volumes/ExternalSSD/WPB_NewConstruction; /bin/zsh tools/launchers/run-news-publisher.sh; exit"</string>
   </array>
   <key>StartCalendarInterval</key>
   <dict>
@@ -18,8 +18,8 @@
     <integer>20</integer>
   </dict>
   <key>StandardOutPath</key>
-  <string>/tmp/wpb-news-publisher.out.log</string>
+  <string>/Users/brookesnader/wpb-news-publisher.launchd.out.log</string>
   <key>StandardErrorPath</key>
-  <string>/tmp/wpb-news-publisher.err.log</string>
+  <string>/Users/brookesnader/wpb-news-publisher.launchd.err.log</string>
 </dict>
 </plist>

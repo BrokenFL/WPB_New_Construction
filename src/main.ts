@@ -1436,7 +1436,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     team: projectTeam,
     highlights: [
-      { label: "Wellness", value: "Everyday fitness and recovery", note: "Developer materials describe a serious wellness environment rather than a token gym." },
+      { label: "Wellness", value: "Everyday fitness and recovery", note: "The building is positioned with a serious wellness environment rather than a token gym." },
       { label: "Waterfront Leisure", value: "Pool, marina, outdoor living", note: "Use the water-facing lifestyle as a comparison point, while confirming exact access and offering terms." },
       { label: "Social / Entertaining", value: "Dining and gathering spaces", note: "Lounges, dining, and amenity areas should be reviewed as extensions of the residence." },
       { label: "Buyer Fit", value: "Full-service amenity depth", note: "Best fit for buyers who want a large amenity program rather than a smaller boutique building." },
