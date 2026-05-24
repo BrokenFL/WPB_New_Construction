@@ -1817,6 +1817,19 @@ h3 {
   gap: clamp(24px, 4vw, 48px);
 }
 
+.newsroom-section-block {
+  display: grid;
+  gap: clamp(16px, 2.4vw, 24px);
+}
+
+.newsroom-section-block .section-heading {
+  margin-bottom: 0;
+}
+
+.newsroom-section-block .section-heading h2 {
+  max-width: 900px;
+}
+
 .newsroom-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
@@ -5414,7 +5427,13 @@ select:focus-visible {
 .home-news-section .section-heading h2 {
   max-width: none;
   font-size: clamp(2.55rem, 8vw, 5.1rem);
-  white-space: nowrap;
+}
+
+.home-news-section .section-heading p:not(.eyebrow) {
+  max-width: 840px;
+  color: rgba(37, 42, 45, 0.72);
+  font-size: clamp(1rem, 1.45vw, 1.22rem);
+  line-height: 1.55;
 }
 
 .home-answer-section {
@@ -5542,7 +5561,7 @@ select:focus-visible {
 
 .home-news-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(12px, 1.7vw, 20px);
 }
 

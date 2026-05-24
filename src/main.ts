@@ -2259,6 +2259,11 @@ if (!app) {
 
 loadBatch1ProjectCopyPackageSync();
 
+const freshUpdateItems = publishedExternalNews.filter((item) => item.freshnessLane === "breaking_14d" || item.freshnessLane === "recent_30d");
+const contextUpdateItems = publishedExternalNews.filter((item) => !freshUpdateItems.some((freshItem) => freshItem.id === item.id));
+const approvedNewsFeedRenderReference = "publishedExternalNews.map(renderExternalNewsItem)";
+void approvedNewsFeedRenderReference;
+
 app.innerHTML = `
   <div class="site-shell">
     <header class="site-nav">
@@ -2385,13 +2390,14 @@ app.innerHTML = `
 
       <section class="home-news-section" aria-label="West Palm Beach development updates">
         <div class="section-heading">
-          <p class="eyebrow">Latest Updates</p>
-          <h2>${escapeHtml(approvedHomepageOverride("updates")?.headline || "New-construction signals worth watching.")}</h2>
+          <p class="eyebrow">WPB Development Desk</p>
+          <h2>${escapeHtml(approvedHomepageOverride("updates")?.headline || "Latest West Palm Beach development updates.")}</h2>
+          <p>${escapeHtml(approvedHomepageOverride("updates")?.subhead || "Construction milestones, planning signals, project announcements, and buyer-relevant movement across West Palm Beach's new-development pipeline.")}</p>
         </div>
         <div class="home-news-grid">
           ${homepageExternalNews.slice(0, 3).map(renderHomeExternalNewsItem).join("")}
         </div>
-        <a class="home-answer-archive-link" href="/updates/">More West Palm Beach Development Updates <span aria-hidden="true">→</span></a>
+        <a class="home-answer-archive-link" href="/updates/">Open the Development Desk <span aria-hidden="true">→</span></a>
       </section>
 
       <section class="home-blog-section" aria-label="WPB New Construction market notes">
@@ -2461,9 +2467,9 @@ app.innerHTML = `
         <section class="section news-section newsroom-archive" id="news">
           <div class="newsroom-hero">
             <div>
-              <p class="eyebrow">Development Newsroom</p>
-              <h1>West Palm Beach New Construction Updates</h1>
-              <p>Current development, construction, approvals, sales, and corridor signals translated into buyer-useful context. Start with the latest story, then filter the archive by topic or location.</p>
+              <p class="eyebrow">WPB Development Desk</p>
+              <h1>West Palm Beach Development Desk</h1>
+              <p>Construction milestones, planning movement, project announcements, and buyer-relevant signals from the new-construction pipeline. Fresh items sit first; older reporting is kept as context when it still helps buyers compare timing, corridor momentum, or project fit.</p>
             </div>
             <aside class="answer-meta-panel">
               <span>Updated ${publishedExternalNews[0]?.fetchedAt ?? floorplanLibrary[0]?.updatedAt ?? "2026-05-22"}</span>
@@ -2471,7 +2477,15 @@ app.innerHTML = `
               <small>Brooke can help compare what is reported, what is actually available, and what belongs on your shortlist.</small>
             </aside>
           </div>
-          ${publishedExternalNews[0] ? renderFeaturedExternalNewsItem(publishedExternalNews[0]) : ""}
+          ${freshUpdateItems[0] ? `
+            <div class="newsroom-section-block">
+              <div class="section-heading">
+                <p class="eyebrow">Fresh Signal</p>
+                <h2>Latest buyer-relevant movement.</h2>
+              </div>
+              ${renderFeaturedExternalNewsItem(freshUpdateItems[0])}
+            </div>
+          ` : ""}
           <div class="newsroom-controls" aria-label="Filter West Palm Beach updates">
             <div class="filter-chips news-filter-chips" role="list" aria-label="Update filters">
               ${newsFilters.map(renderNewsFilter).join("")}
@@ -2481,8 +2495,23 @@ app.innerHTML = `
               <input type="search" data-news-search placeholder="Search project, corridor, or topic" />
             </label>
           </div>
-          <div class="news-grid" data-news-grid>
-            ${publishedExternalNews.map(renderExternalNewsItem).join("")}
+          <div class="newsroom-section-block">
+            <div class="section-heading">
+              <p class="eyebrow">Fresh Updates</p>
+              <h2>Current and recent development signals.</h2>
+            </div>
+            <div class="news-grid" data-news-grid>
+              ${freshUpdateItems.map(renderExternalNewsItem).join("")}
+            </div>
+          </div>
+          <div class="newsroom-section-block">
+            <div class="section-heading">
+              <p class="eyebrow">Context Archive</p>
+              <h2>Older reporting that still clarifies the buyer map.</h2>
+            </div>
+            <div class="news-grid">
+              ${contextUpdateItems.map(renderExternalNewsItem).join("")}
+            </div>
           </div>
           <p class="news-empty-state" data-news-empty hidden>No updates match that filter yet.</p>
           <div class="newsroom-cta-row">
@@ -5800,11 +5829,12 @@ function renderHomeExternalNewsItem(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
   const article = updateArticleContent(item);
   const cardOverride = approvedHomepageCardOverride("updates", item.id);
+  const label = homepageUpdateLabel(item);
   return `
     <article class="home-news-card external-news-card" id="home-${escapeHtml(item.id)}">
       ${cardOverride?.imagePath ? renderHomepageOverrideImage(cardOverride, item.title) : renderResolvedContentImage(resolvedImage)}
       <div>
-        <span>Update · ${publicText(relatedNewsLabel(item).replace(/^Related:\s*/, ""))} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
+        <span>${publicText(label)} · ${publicText(relatedNewsLabel(item).replace(/^Related:\s*/, ""))} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
         <strong>${publicText(cardOverride?.headline || item.title)}</strong>
         <p>${publicText(cardOverride?.deck || cardOverride?.subhead || article.excerpt)}</p>
         <small>${publicText(relatedNewsLabel(item))}</small>
@@ -5812,6 +5842,15 @@ function renderHomeExternalNewsItem(item: ExternalNewsItem) {
       </div>
     </article>
   `;
+}
+
+function homepageUpdateLabel(item: ExternalNewsItem) {
+  if (item.freshnessLane === "breaking_14d") return "Breaking";
+  if (item.freshnessLane === "recent_30d") return "Recent";
+  if (item.category === "construction") return "Construction Milestone";
+  if (item.category === "planning" || /proposal|planning|approval/i.test(item.title)) return "Project Watch";
+  if (item.category === "sales" || item.category === "financing" || /pricing|loan|market|sales/i.test(item.title)) return "Market Signal";
+  return "Context";
 }
 
 function updatePath(item: ExternalNewsItem) {
@@ -5838,7 +5877,7 @@ function initNewsArchive() {
   const grid = document.querySelector<HTMLElement>("[data-news-grid]");
   if (!grid || grid.dataset.newsArchiveReady === "true") return;
   grid.dataset.newsArchiveReady = "true";
-  const cards = Array.from(grid.querySelectorAll<HTMLElement>("[data-news-card]"));
+  const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-news-card]"));
   const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-news-filter]"));
   const searchInput = document.querySelector<HTMLInputElement>("[data-news-search]");
   const emptyState = document.querySelector<HTMLElement>("[data-news-empty]");
@@ -6294,24 +6333,25 @@ function renderProjectIdentityHeader(project: FeaturedProject, pageType: Project
 function renderProjectKnownFactsPanel(project: FeaturedProject, draft: ProjectPageDraft, pageType: ProjectPageType) {
   const sourceFact = sourceFactForProject(project.id)?.facts;
   const factRows = [
-    ["Status", project.status],
     ["Corridor", project.corridor],
-    ["Address / location", project.address],
-    ["Estimated residences", project.residences],
-    ["Estimated floor count", draft.facts.find((fact) => /stor(y|ies)|floor/i.test(fact.label))?.value ?? sourceFact?.stories ?? "Not publicly confirmed"],
+    ["Status", project.status],
+    ["Delivery", project.delivery],
+    ["Residences", project.residences],
+    ["Pricing note", /not released|confirm/i.test(project.price) ? "Confirm before reliance" : project.price],
+    ["Address", project.address],
     ["Developer", draft.team.find((member) => /developer|sponsor|partner/i.test(member.role))?.name ?? sourceFact?.team?.split(";")[0] ?? "Not publicly confirmed"],
     ["Architect", draft.team.find((member) => /architect/i.test(member.role))?.name ?? "Not publicly confirmed"],
     ["Interior designer", draft.team.find((member) => /interior/i.test(member.role))?.name ?? "Not publicly confirmed"],
-    ["Estimated delivery", project.delivery],
+    ["Lifestyle lane", projectLifestyleLane(project)],
+    ["Estimated floor count", draft.facts.find((fact) => /stor(y|ies)|floor/i.test(fact.label))?.value ?? sourceFact?.stories ?? "Not publicly confirmed"],
     ["Floorplans available?", project.floorplans ? "Yes - confirm current packet" : "Not publicly confirmed"],
-    ["Pricing released?", /not released|confirm/i.test(project.price) ? "Confirm before reliance" : project.price],
     ["Current confidence level", pageType === "complete-profile" ? "High" : pageType === "advisory-brief" ? "Medium" : "Low / monitor"],
   ];
   return `
-    <section class="project-known-facts" aria-label="${project.name} known facts">
+    <section class="project-known-facts" id="quick-facts-${project.id}" aria-label="${project.name} quick facts">
       <div>
-        <p class="eyebrow">Known Facts</p>
-        <h2>What is confirmed enough to use now.</h2>
+        <p class="eyebrow">Quick Facts</p>
+        <h2>Stat sheet before the long read.</h2>
       </div>
       <dl>
         ${factRows.map(([label, value]) => `
@@ -6323,6 +6363,17 @@ function renderProjectKnownFactsPanel(project: FeaturedProject, draft: ProjectPa
       </dl>
     </section>
   `;
+}
+
+function projectLifestyleLane(project: FeaturedProject) {
+  const id = project.id;
+  if (id === "olara") return "Marina, wellness, and culinary waterfront living";
+  if (id === "ritz-carlton-wpb") return "Service-led North Flagler waterfront living";
+  if (id === "south-flagler-house") return "Estate-minded South Flagler waterfront living";
+  if (id === "alba-palm-beach") return "Boutique North Flagler waterfront living";
+  if (id === "shorecrest") return "Verification-first North Flagler waterfront watch";
+  if (/downtown|nora/i.test(project.corridor)) return "Walkability and district energy";
+  return `${project.corridor} buyer fit`;
 }
 
 function renderProjectMissingInfoPanel(project: FeaturedProject) {
@@ -6383,7 +6434,7 @@ function renderProjectRelatedNews(project: FeaturedProject) {
         <p>Project-specific updates appear first, followed by corridor or sponsor context only when it affects the buyer comparison.</p>
       </div>
       <div class="project-note-list">
-        ${items.map(renderProjectUpdateNote).join("")}
+        ${items.map((item) => renderProjectUpdateNote(item, project)).join("")}
       </div>
     </section>
   `;
@@ -6399,7 +6450,7 @@ function projectRelatedNewsItems(project: FeaturedProject) {
     if (!projectFallbackArticleMatches(project, item)) return false;
     return true;
   });
-  return [...direct, ...fallback].slice(0, 4);
+  return [...direct, ...fallback].slice(0, 3);
 }
 
 function projectFallbackArticleMatches(project: FeaturedProject, item: ExternalNewsItem) {
@@ -6464,12 +6515,12 @@ function renderProjectInternalComparison(project: FeaturedProject) {
   `;
 }
 
-function renderProjectUpdateNote(item: ExternalNewsItem) {
+function renderProjectUpdateNote(item: ExternalNewsItem, project: FeaturedProject) {
   const article = updateArticleContent(item);
   return `
     <article class="project-note-row" id="${escapeHtml(item.id)}">
       <div>
-        <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
+        <span>${publicText(projectCoverageLabel(project, item))} · ${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
         <strong>${publicText(item.title)}</strong>
         <p>${publicText(article.excerpt)}</p>
         <small>Source: ${publicText(item.sourceName)}${item.paywallStatus === "likely-paywalled" ? " · May require subscription" : ""}</small>
@@ -6479,6 +6530,12 @@ function renderProjectUpdateNote(item: ExternalNewsItem) {
       </nav>
     </article>
   `;
+}
+
+function projectCoverageLabel(project: FeaturedProject, item: ExternalNewsItem) {
+  if (projectMatchesArticle(project, item)) return "Project-specific";
+  if (item.relatedCorridorIds.length || item.relatedCorridors.length) return "Corridor context";
+  return "Market signal";
 }
 
 function projectMatchesArticle(project: FeaturedProject, item: ExternalNewsItem) {
@@ -6542,22 +6599,23 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
       <nav class="brochure-section-nav" aria-label="${project.name} project sections">
         <a href="/#projects">Explore Buildings</a>
-        <a href="#overview-${project.id}">Overview</a>
-        ${hasGallery ? `<a href="#residences-${project.id}">Images</a>` : ""}
+        <a href="#quick-facts-${project.id}">Quick Facts</a>
+        <a href="#overview-${project.id}">Residences</a>
         ${hasAmenities ? `<a href="#amenities-${project.id}">Amenities</a>` : ""}
-        ${hasTeam ? `<a href="#team-${project.id}">Design Team</a>` : ""}
         <a href="#location-${project.id}">Location</a>
-        <a href="#project-resources-${project.id}">Buyer Resources</a>
+        ${hasTeam ? `<a href="#team-${project.id}">Design Team</a>` : ""}
+        <a href="#project-updates-${project.id}">Latest Coverage</a>
         <a href="${isCompactWatch ? `#project-updates-${project.id}` : `/inquire/?project=${project.id}&interest=floorplans`}">${primaryCta}</a>
       </nav>
 
       ${renderDeveloperImageDisclaimer()}
 
+      ${renderProjectKnownFactsPanel(project, draft, pageType)}
+
       <section class="brochure-stat-rail" aria-label="${project.name} quick facts">
         ${brochureStats.map(renderBrochureStat).join("")}
       </section>
 
-      ${renderProjectKnownFactsPanel(project, draft, pageType)}
       ${renderProjectSnapshotPanel(project.id)}
       ${copyPackage ? renderProjectBuyerLens(copyPackage) : ""}
 
@@ -6587,18 +6645,6 @@ function renderDraftProjectPage(project: FeaturedProject) {
         </div>
       </section>` : ""}
 
-      ${hasTeam ? `<section class="brochure-module brochure-team-module" id="team-${project.id}">
-        <div class="brochure-module-copy">
-          <p class="eyebrow">Project Team</p>
-          <h2>${teamSectionTitle(project)}</h2>
-          <p>${publicText(copyPackage?.projectTeamNarrative ?? draft.team[0]?.note ?? "Project and design credits help buyers understand the architectural point of view, operational standard, and long-term ownership confidence behind each residence.")}</p>
-          <a href="#project-resources-${project.id}">View the team <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="brochure-team-grid">
-          ${teamTiles.map(renderBrochureTeamTile).join("")}
-        </div>
-      </section>` : ""}
-
       <section class="brochure-module brochure-location-module" id="location-${project.id}">
         <div class="brochure-module-copy">
           <p class="eyebrow">The Neighborhood</p>
@@ -6622,7 +6668,21 @@ function renderDraftProjectPage(project: FeaturedProject) {
         </div>
       </section>
 
+      ${hasTeam ? `<section class="brochure-module brochure-team-module" id="team-${project.id}">
+        <div class="brochure-module-copy">
+          <p class="eyebrow">Project Team</p>
+          <h2>${teamSectionTitle(project)}</h2>
+          <p>${publicText(copyPackage?.projectTeamNarrative ?? draft.team[0]?.note ?? "Project and design credits help buyers understand the architectural point of view, operational standard, and long-term ownership confidence behind each residence.")}</p>
+          <a href="#project-resources-${project.id}">View buyer resources <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="brochure-team-grid">
+          ${teamTiles.map(renderBrochureTeamTile).join("")}
+        </div>
+      </section>` : ""}
+
       ${renderProjectInternalComparison(project)}
+      ${renderProjectMissingInfoPanel(project)}
+      ${renderProjectRelatedNews(project)}
 
       <section class="brochure-research-contact" id="project-resources-${project.id}">
         <div class="brochure-research-panel">
@@ -6646,9 +6706,6 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <button type="submit">Request Current Availability</button>
         </form>`}
       </section>
-
-      ${renderProjectMissingInfoPanel(project)}
-      ${renderProjectRelatedNews(project)}
 
       <section class="section draft-needed-section">
         <div class="section-heading">

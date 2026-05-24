@@ -57,6 +57,12 @@ export function isHomepageFreshnessLane(item: ExternalNewsItem): boolean {
   return item.freshnessLane === "breaking_14d" || item.freshnessLane === "recent_30d";
 }
 
+export function isHomepageContextLane(item: ExternalNewsItem): boolean {
+  return item.freshnessLane === "evergreen_analysis" ||
+    item.freshnessLane === "evergreen_context" ||
+    item.freshnessLane === "archive_only";
+}
+
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
     "id": "world-red-eye-olara-private-marina-2026-04-04",
@@ -416,8 +422,8 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "sourcePublishedAt": "2026-03-26",
     "publishedAt": "2026-03-26",
     "fetchedAt": "2026-05-23",
-    "deck": "Private marinas, wine rooms, yacht access, wellness programming, branded hospitality, and record-setting penthouse pricing are becoming the new language of West Palm Beach condo development.",
-    "description": "Private marinas, wine rooms, yacht access, wellness programming, branded hospitality, and record-setting penthouse pricing are becoming the new language of West Palm Beach condo development.",
+    "deck": "Private marinas, wine rooms, yacht access, wellness programming, branded hospitality, and top-of-market penthouse pricing are becoming the new language of West Palm Beach condo development.",
+    "description": "Private marinas, wine rooms, yacht access, wellness programming, branded hospitality, and top-of-market penthouse pricing are becoming the new language of West Palm Beach condo development.",
     "summary": "The best building is not the one with the longest amenity list. It is the one where amenities, location, views, timing, and future buyer pool actually fit how someone wants to live.",
     "bodySections": [
       {
@@ -524,4 +530,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
 ] as const;
 
 export const publishedExternalNews = sortNewsItems(approvedExternalNews.filter((item) => item.status === "published"));
-export const homepageExternalNews = publishedExternalNews.filter(isHomepageFreshnessLane);
+export const homepageExternalNews = [
+  ...publishedExternalNews.filter(isHomepageFreshnessLane),
+  ...publishedExternalNews.filter(isHomepageContextLane),
+].filter((item, index, items) => items.findIndex((candidate) => candidate.id === item.id) === index).slice(0, 3);

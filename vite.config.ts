@@ -116,6 +116,17 @@ async function removeEmptyDirs(dir: string) {
 }
 
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("/src/data/approvedExternalNews.ts")) {
+            return "news-data";
+          }
+        },
+      },
+    },
+  },
   plugins: [
     {
       name: "prune-unused-public-build-assets",

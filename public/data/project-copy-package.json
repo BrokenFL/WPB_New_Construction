@@ -3,8 +3,8 @@
     "slug": "south-flagler-house",
     "repoProjectId": "south-flagler-house",
     "introHeadline": "A composed South Flagler address with Palm Beach-adjacent scale.",
-    "introDek": "South Flagler House is the estate-minded entry in West Palm Beach's luxury condo pipeline: RAMSA architecture, a South Flagler waterfront setting, and a private-club amenity program that feels more long-term residence than seasonal resort.",
-    "brookeTake": "South Flagler House is for buyers who want the visual language of Palm Beach estates translated into a full-service condominium. The draw is the combination of Robert A.M. Stern architecture, Related Ross execution, Pembrooke & Ives interiors, and a quieter South Flagler posture.",
+    "introDek": "South Flagler House is the formal South Flagler entry in West Palm Beach's condo pipeline: RAMSA architecture, a lake-facing setting, and a private-club amenity program built around long-term residence.",
+    "brookeTake": "South Flagler House is for buyers who want Palm Beach architectural cues translated into a staffed condominium. The draw is the combination of Robert A.M. Stern architecture, Related Ross execution, Pembrooke & Ives interiors, and a quieter South Flagler posture.",
     "bestFor": [
       "Buyers who want a grand but composed waterfront address",
       "Palm Beach-oriented buyers who want condo service without losing traditional architectural character",
@@ -23,7 +23,7 @@
     "residenceNarrative": "The residences are positioned for buyers who want scale, traditional luxury cues, and a more permanent sense of home. Larger layouts, penthouse offerings, and guest-suite options make the project relevant for buyers replacing a Palm Beach house or adding a West Palm Beach residence with similar formality.",
     "locationNarrative": "South Flagler is its own lane. It is close to Palm Beach, Worth Avenue, Royal Poinciana Plaza, and the Norton Museum, but it feels more residential than the increasingly active North Flagler and Downtown corridors.",
     "buyerComparisonNotes": "Compare South Flagler House against Shorecrest and Edgeworth for the Related Ross waterfront pipeline, against Olara for resort/marina lifestyle, and against Ritz-Carlton Residences for branded-service North Flagler living. South Flagler House is the more formal, estate-inspired option in that set.",
-    "projectTeamNarrative": "The team is central to the pitch: Related Ross as developer, Robert A.M. Stern Architects for the architecture, Pembrooke & Ives for interiors, and SMI Landscape Architecture for the outdoor setting. Together, the project leans into architectural permanence and Palm Beach-adjacent estate language rather than a glass-tower resort identity.",
+    "projectTeamNarrative": "The team is central to the pitch: Related Ross as developer, Robert A.M. Stern Architects for the architecture, Pembrooke & Ives for interiors, and SMI Landscape Architecture for the outdoor setting. Together, the project leans into permanence and Palm Beach-adjacent formality rather than a glass-tower identity.",
     "sourceNotes": [
       "Developer source positions the project as a legacy-style waterfront address inspired by Palm Beach's grand estates.",
       "Verify current pricing, availability, and construction status before publishing any time-sensitive details."
@@ -38,8 +38,8 @@
     "slug": "olara-west-palm-beach",
     "repoProjectId": "olara",
     "introHeadline": "North Flagler living with marina, wellness, and culinary energy.",
-    "introDek": "Olara is the active waterfront choice: expansive amenities, private marina context, wellness programming, and a Jose Andres culinary partnership wrapped into a North Flagler address along the Intracoastal.",
-    "brookeTake": "Olara is for the buyer who wants the building to feel alive. This is not the quiet-estate version of West Palm Beach luxury; it is more social, food-and-wellness driven, and tied to the future of North Flagler as a lifestyle corridor.",
+    "introDek": "Olara is the active North Flagler choice: expansive amenities, private marina context, wellness programming, and a Jose Andres culinary partnership along the Intracoastal.",
+    "brookeTake": "Olara is for the buyer who wants the building to feel alive. This is not the quiet-estate version of West Palm Beach; it is more social, food-and-wellness driven, and tied to the future of North Flagler as a lifestyle corridor.",
     "bestFor": [
       "Buyers who want active waterfront living",
       "Boaters or water-oriented buyers drawn to private marina access",
@@ -55,10 +55,10 @@
       "Interiors by Gabellini Sheppard",
       "Lap and leisure pool, spa, fitness, and resort-style service language"
     ],
-    "amenityNarrative": "Olara's amenity story is broad and lifestyle-driven. The marina, spa, pools, dining, and wellness spaces make the building feel like an active waterfront address where much of the daily routine is close at hand.",
+    "amenityNarrative": "Olara's amenity story is broad and lifestyle-driven. The marina, spa, pools, dining, and wellness spaces make the building feel like an active residential club where much of the daily routine is close at hand.",
     "residenceNarrative": "The residences are positioned around generous scale, waterfront connection, and refined materials. The project is especially relevant for buyers who want new construction with a strong social and wellness identity.",
-    "locationNarrative": "North Flagler is becoming one of West Palm Beach's most important waterfront corridors. Olara benefits from that momentum while offering a more private waterfront setting than Downtown and a more animated lifestyle than South Flagler.",
-    "buyerComparisonNotes": "Compare Olara against Ritz-Carlton Residences for branded service, Alba for boutique waterfront living, and South Flagler House for a more formal South Flagler estate-style product. Olara's edge is its resort-marina lifestyle and amenity scale.",
+    "locationNarrative": "North Flagler is becoming one of West Palm Beach's most important development corridors. Olara benefits from that momentum while offering more privacy than Downtown and a more animated daily rhythm than South Flagler.",
+    "buyerComparisonNotes": "Compare Olara against Ritz-Carlton Residences for staffed residential operations, Alba for boutique scale, and South Flagler House for a more formal South Flagler product. Olara's edge is its marina lifestyle and amenity scale.",
     "projectTeamNarrative": "The project team reinforces the resort/residential positioning: Arquitectonica brings recognizable South Florida architectural experience, Gabellini Sheppard shapes the interior language, and the Jose Andres dining connection gives the building a stronger culinary identity than most condo projects.",
     "sourceNotes": [
       "Developer source describes a luxury waterfront residential oasis with resort-level service, private marina, and major wellness/leisure amenity program.",
@@ -74,7 +74,7 @@
     "slug": "alba-palm-beach",
     "repoProjectId": "alba-palm-beach",
     "introHeadline": "The boutique North Flagler waterfront alternative.",
-    "introDek": "Alba Palm Beach is a smaller-scale waterfront condominium for buyers who want new construction on the Intracoastal without the mega-tower feel. With only 55 residences, townhome options, and a more residential North Flagler setting, Alba sits in a quieter lane than many larger luxury projects nearby.",
+    "introDek": "Alba Palm Beach is a smaller-scale condominium for buyers who want new construction on the Intracoastal without the mega-tower feel. With only 55 residences, townhome options, and a more residential North Flagler setting, Alba sits in a quieter lane than many larger projects nearby.",
     "brookeTake": "Alba is compelling because it is not trying to be everything to everyone. It is boutique, direct-waterfront, and more neighborhood-scaled. For the right buyer, that smaller footprint may matter more than having the longest amenity list in town.",
     "bestFor": [
       "Buyers who prefer boutique buildings over large towers",
@@ -90,9 +90,9 @@
       "Located at 4714 North Flagler Drive",
       "Boutique scale compared with larger West Palm Beach luxury towers"
     ],
-    "amenityNarrative": "Alba offers a meaningful amenity package, but its strongest differentiator is proportion. The building does not need to compete with the largest amenity programs to make sense; its appeal is a more personal waterfront environment with enough lifestyle support to feel complete.",
+    "amenityNarrative": "Alba offers a meaningful amenity package, but its strongest differentiator is proportion. The building does not need to compete with the largest amenity programs to make sense; its appeal is a more personal environment with enough lifestyle support to feel complete.",
     "residenceNarrative": "The residence mix gives Alba a different buyer profile than many towers. The inclusion of larger townhome-style options broadens the appeal for buyers who want new construction and waterfront access but still like the feel of a more grounded home environment.",
-    "locationNarrative": "Alba's North Flagler location is quieter and more residential than Downtown, while still participating in the same broader corridor transformation. It is best understood as a boutique waterfront option rather than a vertical resort.",
+    "locationNarrative": "Alba's North Flagler location is quieter and more residential than Downtown, while still participating in the same broader corridor transformation. It is best understood as a boutique option rather than an amenity mega-project.",
     "buyerComparisonNotes": "Compare Alba against Olara for North Flagler activity at a larger scale, Ritz-Carlton Residences for branded service, and South Flagler House for formal estate-inspired luxury. Alba's advantage is intimacy, direct waterfront setting, and boutique building size.",
     "projectTeamNarrative": "The project should be presented through its scale, waterfront siting, and residence mix first. Verified sources support BGI Companies / Kenneth Baboun, Blue Road, Spina O'Rourke + Partners, Schmidt Nichols, Moss Construction, and One Sotheby's International Realty; do not add unsourced team roles.",
     "sourceNotes": [
@@ -109,7 +109,7 @@
     "slug": "ritz-carlton-residences-west-palm-beach",
     "repoProjectId": "ritz-carlton-wpb",
     "introHeadline": "Private waterfront residences with a recognized service platform.",
-    "introDek": "The Ritz-Carlton Residences West Palm Beach is a 27-story condominium planned with 138 homes, water-facing views, and residential operations associated with the Ritz-Carlton brand. For buyers, the useful read is not the logo alone; it is how the floor plan, exposure, service model, and monthly cost structure fit daily life.",
+    "introDek": "The Ritz-Carlton Residences West Palm Beach is a 27-story condominium planned with 138 homes, water-facing views, and residential operations associated with the Ritz-Carlton name. For buyers, the useful read is how the floor plan, exposure, staffing model, and monthly cost structure fit daily life.",
     "brookeTake": "This building is for a buyer who wants a managed, polished environment without making the residence feel like a hotel stay. The right comparison is line by line: view, balcony, elevator access, service expectations, fees, and how the address will feel as Flagler Drive keeps changing.",
     "bestFor": [
       "Buyers who want private ownership with staffed residential operations",
@@ -125,11 +125,11 @@
       "Landscape architecture by Naturalficial",
       "Water-facing homes with private balconies, wellness amenities, concierge, and valet service reported in current materials"
     ],
-    "amenityNarrative": "The amenity question is operational. Buyers should understand how concierge, valet, wellness, pool, lounge, and service staffing work in practice, then compare that daily support against buildings that lead with marina access, larger club programs, or boutique privacy.",
+    "amenityNarrative": "The amenity question is operational. Buyers should understand how concierge, valet, wellness, pool, lounge, and staffing work in practice, then compare that daily support against buildings that lead with marina access, larger club programs, or boutique privacy.",
     "residenceNarrative": "The residences should be evaluated by light, balcony depth, view corridor, elevator access, storage, parking, and how each line lives at different floors. The best unit is the one where the plan and exposure justify the premium, not simply the one attached to the strongest brand name.",
     "locationNarrative": "The site sits in the active Flagler Drive waterfront corridor, close to Palm Beach access and downtown West Palm Beach. The buyer test is practical: views, bridge pattern, construction context, and how the surrounding pipeline may affect the address by completion.",
-    "buyerComparisonNotes": "Compare Ritz-Carlton Residences against Olara for marina/resort energy, Alba for boutique waterfront scale, Mandarin Oriental for another hospitality-branded North Flagler option, and South Flagler House for a more formal estate-style product.",
-    "projectTeamNarrative": "The team is part of the underwriting story. Related Group and BH Group supply the development platform, Arquitectonica shapes the tower, Rockwell Group defines the interior atmosphere, Naturalficial handles the landscape layer, and the Ritz-Carlton affiliation sets expectations for service. Each role should be confirmed against the current buyer packet before contract reliance.",
+    "buyerComparisonNotes": "Compare Ritz-Carlton Residences against Olara for marina energy, Alba for boutique scale, Mandarin Oriental for another hospitality-branded North Flagler option, and South Flagler House for a more formal product.",
+    "projectTeamNarrative": "The team is part of the underwriting story. Related Group and BH Group supply the development platform, Arquitectonica shapes the tower, Rockwell Group defines the interior atmosphere, Naturalficial handles the landscape layer, and the Ritz-Carlton affiliation sets operational expectations. Each role should be confirmed against the current buyer packet before contract reliance.",
     "sourceNotes": [
       "Official project/developer sources support 138 residences, 27 stories, Related Group, BH Group, Arquitectonica, Rockwell Group, Naturalficial, and Ritz-Carlton residential branding.",
       "Address references vary across official contexts; use 1717 N Flagler as the current developer/legal address until offering documents confirm final street-address language."
@@ -147,9 +147,9 @@
   {
     "slug": "shorecrest-west-palm-beach",
     "repoProjectId": "shorecrest",
-    "introHeadline": "A verification-first Related Ross waterfront project on North Flagler.",
-    "introDek": "Shorecrest belongs in the West Palm Beach waterfront conversation because official and sponsor sources now support its Related Ross context, North Flagler address, design team, and broad amenity posture. The page should still keep pricing, availability, fees, delivery, and offering terms in a current-packet lane.",
-    "brookeTake": "Shorecrest is an important comparison point for buyers tracking the Related Ross waterfront pipeline, but the page should stay disciplined. Identify what public sources support, explain what still needs confirmation, and do not borrow South Flagler House's estate language.",
+    "introHeadline": "A verification-first Related Ross project on North Flagler.",
+    "introDek": "Shorecrest belongs in the West Palm Beach comparison set because official and sponsor sources now support its Related Ross context, North Flagler address, design team, and broad amenity posture. The page should still keep pricing, availability, fees, delivery, and offering terms in a current-packet lane.",
+    "brookeTake": "Shorecrest is an important comparison point for buyers tracking the Related Ross pipeline, but the page should stay disciplined. Identify what public sources support, explain what still needs confirmation, and do not borrow South Flagler House's formal architectural language.",
     "bestFor": [
       "Buyers tracking Related Ross waterfront development in West Palm Beach",
       "Clients comparing Olara, Ritz-Carlton Residences, Shorecrest, and other North Flagler options",
@@ -162,7 +162,7 @@
     ],
     "amenityNarrative": "Public sources support a meaningful amenity posture, but the buyer page should avoid over-detailing anything that belongs in the current offering packet. Use the amenity section to separate source-supported categories from items that need current confirmation.",
     "residenceNarrative": "Residence count, address references, size range, pricing, and delivery timing should remain tied to current materials. Avoid filling gaps with assumptions from other Related Ross projects.",
-    "locationNarrative": "Shorecrest should be framed through its North Flagler waterfront context. The buyer value depends on how it compares with Olara, Ritz-Carlton Residences, Alba, and the broader West Palm Beach waterfront pipeline.",
+    "locationNarrative": "Shorecrest should be framed through its North Flagler context. The buyer value depends on how it compares with Olara, Ritz-Carlton Residences, Alba, and the broader West Palm Beach pipeline.",
     "buyerComparisonNotes": "Use Shorecrest as a carefully verified North Flagler comparison point. Do not imply it has the same architectural language, amenities, or buyer profile as South Flagler House.",
     "projectTeamNarrative": "Public sources support Related Ross, Roger Ferris + Partners, Rottet Studio, DS Boca, and sales/marketing context. Mark pricing, line availability, service inclusions, fees, parking, storage, and delivery as current-packet verification items.",
     "sourceNotes": [
