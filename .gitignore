@@ -20,6 +20,7 @@ dist-ssr
 .playwright-mcp/
 .qodo/
 output/
+.runtime/
 
 # Imported reference repositories are not part of the app source.
 research/source-repos/

@@ -24,6 +24,11 @@ async function main() {
     ? store.items.filter((item) => manualIds.has(item.id) && item.riskLevel === "low" && item.status !== "published")
     : store.items.filter((item) => eligibleForAutoPublish(item, config)).slice(0, limit);
 
+  if (!selected.length) {
+    console.log(JSON.stringify({ published: 0, approvedNews: "research/news-review/approved-development-news.json" }, null, 2));
+    return;
+  }
+
   for (const item of selected) {
     if (seen.has(item.sourceUrl)) {
       item.status = "published";
@@ -41,10 +46,8 @@ async function main() {
   await writeJsonFile(approvedNewsPath, approved);
   await writeDraftStore(store);
 
-  if (selected.length) {
-    const promoted = spawnSync("npm", ["run", "news:promote"], { cwd: workspace, stdio: "inherit" });
-    if (promoted.status !== 0) process.exit(promoted.status ?? 1);
-  }
+  const promoted = spawnSync("npm", ["run", "news:promote"], { cwd: workspace, stdio: "inherit" });
+  if (promoted.status !== 0) process.exit(promoted.status ?? 1);
 
   console.log(JSON.stringify({ published: selected.length, approvedNews: "research/news-review/approved-development-news.json" }, null, 2));
 }

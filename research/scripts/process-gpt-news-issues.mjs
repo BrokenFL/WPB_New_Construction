@@ -8,11 +8,12 @@ import {
   readDraftStore,
   workspace,
 } from "./news-draft-utils.mjs";
+import { ensureReportDir, qaNoWrite, qaReportPath } from "./qa-report-utils.mjs";
 
 const repo = process.env.GITHUB_REPOSITORY || "BrokenFL/WPB_New_Construction";
 const dryRun = process.argv.includes("--dry-run");
 const allowDirty = process.env.NEWS_PROCESS_ALLOW_DIRTY === "1";
-const reportPath = path.join(workspace, "research/source-material-review/news-issue-importer-last-run.json");
+const reportPath = qaReportPath(workspace, "research/source-material-review/news-issue-importer-last-run.json");
 const publicBaseUrl = "https://www.wpbnewconstruction.com";
 const qaTasks = [
   ["typecheck", "npm", ["run", "typecheck"]],
@@ -86,6 +87,7 @@ async function main() {
   const config = await readAutomationConfig();
   const publishableBeforePublish = importedDrafts.filter((item) => eligibleForAutoPublish(item, config));
   const heldBeforePublish = importedDrafts.filter((item) => !eligibleForAutoPublish(item, config));
+  const publishableQueuedDrafts = afterImportStore.items.filter((item) => eligibleForAutoPublish(item, config));
 
   if (dryRun) {
     report.published = publishableBeforePublish.length;
@@ -94,6 +96,22 @@ async function main() {
     report.heldItems = heldBeforePublish.map((item) => itemLabel(item));
     report.deploy = "skipped: dry-run";
     await finish(0, "Dry-run completed without importing, commenting, labeling, publishing, QA, or deploy.");
+    return;
+  }
+
+  if (!importedDrafts.length && !publishableQueuedDrafts.length) {
+    for (const [name, command, args] of qaTasks) {
+      const result = await runTask(name, command, args, { env: { ...process.env, QA_NO_WRITE: "1" } });
+      report.qa.push({ name, status: result.status === 0 ? "passed" : "failed" });
+      if (result.status !== 0) {
+        await finish(1, `${name} failed; no publishable articles were available and deploy was skipped.`);
+        return;
+      }
+    }
+    const liveResult = await runTask("qa:live", "npm", ["run", "qa:live"]);
+    report.qa.push({ name: "qa:live", status: liveResult.status === 0 ? "passed" : "failed" });
+    report.deploy = "skipped: no GPT issues matched and no eligible queued drafts were available";
+    await finish(liveResult.status === 0 ? 0 : 1, report.deploy);
     return;
   }
 
@@ -129,7 +147,7 @@ async function main() {
   await commentAndLabel(importReport, publishedDrafts, heldDrafts, "pending QA");
 
   for (const [name, command, args] of qaTasks) {
-    const result = await runTask(name, command, args);
+    const result = await runTask(name, command, args, { env: { ...process.env, QA_NO_WRITE: "1" } });
     report.qa.push({ name, status: result.status === 0 ? "passed" : "failed" });
     if (result.status !== 0) {
       await commentAndLabel(importReport, publishedDrafts, heldDrafts, "QA failed; deploy skipped");
@@ -296,9 +314,9 @@ async function finish(status, message) {
   report.finishedAt = new Date().toISOString();
   report.status = status === 0 ? "passed" : "failed";
   report.message = message;
-  await fs.mkdir(path.dirname(reportPath), { recursive: true });
+  await ensureReportDir(reportPath);
   await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
-  console.log(message);
+  console.log(`${message}${qaNoWrite ? ` Report written to ${path.relative(workspace, reportPath)}.` : ""}`);
   process.exit(status);
 }
 

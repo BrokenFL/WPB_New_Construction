@@ -1,8 +1,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { ensureReportDir, qaReportMode, qaReportPath } from "./qa-report-utils.mjs";
 
 const workspace = process.cwd();
-const reportPath = path.join(workspace, "research/source-material-review/image-repetition-audit.md");
+const reportPath = qaReportPath(workspace, "research/source-material-review/image-repetition-audit.md");
 const sourceFiles = [
   "src/main.ts",
   "src/data/marketNotes.ts",
@@ -96,7 +97,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(JSON.stringify({ imageRepetition: "pass", imagesChecked: imageUsages.size, reportPath: path.relative(workspace, reportPath) }, null, 2));
+  console.log(JSON.stringify({ imageRepetition: "pass", imagesChecked: imageUsages.size, reportPath: path.relative(workspace, reportPath), reportMode: qaReportMode() }, null, 2));
 }
 
 async function intentionalRepetitionApprovals() {
@@ -216,7 +217,7 @@ function projectFromImage(src) {
 }
 
 async function writeReport(rows, findings, renderedChecks, approvals) {
-  await fs.mkdir(path.dirname(reportPath), { recursive: true });
+  await ensureReportDir(reportPath);
   const lines = [
     "# Image Repetition Audit",
     "",

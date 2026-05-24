@@ -1,9 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { ensureReportDir, qaNoWrite, qaReportMode, qaReportPath } from "./qa-report-utils.mjs";
 
 const workspace = process.cwd();
 const distRoot = path.join(workspace, "dist");
-const reportPath = path.join(workspace, "research/source-material-review/launch-qa-report.md");
+const reportPath = qaReportPath(workspace, "research/source-material-review/launch-qa-report.md");
 const floorplanDataPath = path.join(workspace, "public/data/floorplans.json");
 const duplicateReportPath = path.join(workspace, "research/source-material-review/asset-duplicate-inventory.json");
 
@@ -205,8 +206,9 @@ async function main() {
     "- Final broker/compliance review before launch.",
   ];
 
+  await ensureReportDir(reportPath);
   await fs.writeFile(reportPath, `${reportLines.join("\n")}\n`);
-  console.log(JSON.stringify({ reportPath, checks: checks.length, findings: findings.length }, null, 2));
+  console.log(JSON.stringify({ reportPath, reportMode: qaReportMode(), noWrite: qaNoWrite, checks: checks.length, findings: findings.length }, null, 2));
   if (findings.length) process.exitCode = 1;
 }
 

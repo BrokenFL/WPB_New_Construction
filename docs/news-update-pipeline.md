@@ -45,9 +45,11 @@ Skip or hold when the lead is mostly promotional, duplicates existing guidance, 
 ```bash
 npm run news:refresh
 npm run build
-npm run qa:launch
+npm run qa:launch:no-write
 npm run qa:gatekeeper
 ```
+
+For a deliberate manual audit artifact, run `npm run qa:launch:write-reports` instead. No-write QA writes generated reports to `.runtime/qa/`; tracked reports stay unchanged unless the write-reports command is used.
 
 11. Check the homepage update module, `/updates/`, and at least two `/updates/:slug/` article pages.
 12. Record changed stories, skipped leads, source conflicts, route checks, and blockers in the handoff notes.
@@ -126,7 +128,9 @@ npm run news:process-gpt-issues
 
 The scheduled command runs from `com.brooke.wpb-news-issue-importer` at 9:00 AM, 12:00 PM, 3:00 PM, and 6:00 PM local time. It checks open GitHub issues in `BrokenFL/WPB_New_Construction` where the title starts with `Daily WPB News Drafts` or labels include `gpt-draft`, `news-candidate`, or `needs-codex-draft`. Issues already labeled `codex-imported` are skipped unless `force-reimport` is present.
 
-`news:process-gpt-issues` imports source-backed candidates, publishes only low-risk/high-confidence drafts that pass the auto-publish guardrails, updates the newsletter digest, runs news and launch QA, deploys only after QA passes and publishable files changed, then runs live QA. Medium/high-risk, unclear, paywalled-only, unsupported, unmapped, or judgment-heavy items stay held for review and receive `needs-review` on the issue.
+`news:process-gpt-issues` imports source-backed candidates, publishes only low-risk/high-confidence drafts that pass the auto-publish guardrails, updates the newsletter digest, runs news and launch QA in `QA_NO_WRITE=1` mode, deploys only after QA passes and publishable files changed, then runs live QA. Medium/high-risk, unclear, paywalled-only, unsupported, unmapped, or judgment-heavy items stay held for review and receive `needs-review` on the issue.
+
+Scheduled/no-change runs write runtime reports to `.runtime/qa/` and should not rewrite tracked QA Markdown. Manual launch-report refreshes should use `npm run qa:launch:write-reports`. Deploy preflight also uses no-write launch QA; the deploy itself remains gated by build, launch QA, gatekeeper, and live QA.
 
 Disable the schedule:
 

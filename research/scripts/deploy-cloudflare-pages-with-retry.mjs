@@ -32,7 +32,7 @@ async function runPreflight() {
     return;
   }
   await runCommand("npm", ["run", "build"], { retryable: false });
-  await runCommand("npm", ["run", "qa:launch"], { retryable: false });
+  await runCommand("npm", ["run", "qa:launch:no-write"], { retryable: false });
   await runCommand("npm", ["run", "qa:gatekeeper"], { retryable: false });
 }
 

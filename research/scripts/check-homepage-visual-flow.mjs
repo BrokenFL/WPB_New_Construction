@@ -2,10 +2,11 @@ import http from "node:http";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
+import { ensureReportDir, qaReportMode, qaReportPath } from "./qa-report-utils.mjs";
 
 const workspace = process.cwd();
 const distRoot = path.join(workspace, "dist");
-const reportPath = path.join(workspace, "research/source-material-review/homepage-visual-flow-report.md");
+const reportPath = qaReportPath(workspace, "research/source-material-review/homepage-visual-flow-report.md");
 const port = 4197;
 
 async function main() {
@@ -28,7 +29,7 @@ async function main() {
     console.error(["Homepage visual flow QA failed:", ...findings.map((finding) => `- ${finding}`)].join("\n"));
     process.exit(1);
   }
-  console.log(JSON.stringify({ homepageVisual: "pass", checks: checks.length, reportPath: path.relative(workspace, reportPath) }, null, 2));
+  console.log(JSON.stringify({ homepageVisual: "pass", checks: checks.length, reportPath: path.relative(workspace, reportPath), reportMode: qaReportMode() }, null, 2));
 }
 
 async function inspectHomepage(browser, viewport) {
@@ -144,7 +145,7 @@ function contentType(filePath) {
 }
 
 async function writeReport({ desktop, mobile, findings, checks }) {
-  await fs.mkdir(path.dirname(reportPath), { recursive: true });
+  await ensureReportDir(reportPath);
   const lines = [
     "# Homepage Visual Flow QA",
     "",

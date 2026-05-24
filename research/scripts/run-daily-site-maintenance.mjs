@@ -18,7 +18,7 @@ const tasks = [
   ["check image repetition and placement", "npm", ["run", "qa:image-repetition"]],
   ["check asset/performance budgets", "npm", ["run", "qa:performance"]],
   ["inventory duplicate assets", "npm", ["run", "assets:duplicates"]],
-  ["run launch QA", "npm", ["run", "qa:launch"]],
+  ["run launch QA", "npm", ["run", "qa:launch:no-write"]],
 ];
 
 const results = [];
@@ -77,7 +77,7 @@ function resultSummary(items, label) {
 function runTask(label, command, args) {
   console.log(`Running: ${label}`);
   return new Promise((resolve) => {
-    const child = spawn(command, args, { cwd: workspace, env: process.env, stdio: "inherit" });
+    const child = spawn(command, args, { cwd: workspace, env: { ...process.env, QA_NO_WRITE: "1" }, stdio: "inherit" });
     const timeout = setTimeout(() => {
       console.error(`${label} exceeded ${Math.round(taskTimeoutMs / 1000)}s and was stopped so the daily report can continue.`);
       child.kill("SIGTERM");
