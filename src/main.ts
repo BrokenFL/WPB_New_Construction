@@ -6345,13 +6345,13 @@ function renderProjectKnownFactsPanel(project: FeaturedProject, draft: ProjectPa
     ["Lifestyle lane", projectLifestyleLane(project)],
     ["Estimated floor count", draft.facts.find((fact) => /stor(y|ies)|floor/i.test(fact.label))?.value ?? sourceFact?.stories ?? "Not publicly confirmed"],
     ["Floorplans available?", project.floorplans ? "Yes - confirm current packet" : "Not publicly confirmed"],
-    ["Current confidence level", pageType === "complete-profile" ? "High" : pageType === "advisory-brief" ? "Medium" : "Low / monitor"],
+    ["Information status", pageType === "complete-profile" ? "Well documented" : pageType === "advisory-brief" ? "Details still being confirmed" : "Current public information is limited"],
   ];
   return `
     <section class="project-known-facts" id="quick-facts-${project.id}" aria-label="${project.name} quick facts">
       <div>
-        <p class="eyebrow">Quick Facts</p>
-        <h2>Stat sheet before the long read.</h2>
+        <p class="eyebrow">Project Snapshot</p>
+        <h2>Key project details at a glance.</h2>
       </div>
       <dl>
         ${factRows.map(([label, value]) => `
@@ -6371,7 +6371,7 @@ function projectLifestyleLane(project: FeaturedProject) {
   if (id === "ritz-carlton-wpb") return "Service-led North Flagler waterfront living";
   if (id === "south-flagler-house") return "Estate-minded South Flagler waterfront living";
   if (id === "alba-palm-beach") return "Boutique North Flagler waterfront living";
-  if (id === "shorecrest") return "Verification-first North Flagler waterfront watch";
+  if (id === "shorecrest") return "North Flagler waterfront details being monitored";
   if (/downtown|nora/i.test(project.corridor)) return "Walkability and district energy";
   return `${project.corridor} buyer fit`;
 }
@@ -6414,9 +6414,9 @@ function renderProjectBuyerLens(copy: ProjectCopyPackage) {
           <p>${publicText(copy.buyerComparisonNotes)}</p>
         </article>
         <article>
-          <span>Source posture</span>
+          <span>Information status</span>
           <p>${publicText(copy.sourceNotes.join(" "))}</p>
-          <small>Copy research: ${publicText(copy.lastCopyResearchDate)} · Confidence: ${publicText(copy.copyConfidence)}</small>
+          <small>Project details continue to be monitored.</small>
         </article>
       </div>
     </section>
@@ -6506,7 +6506,7 @@ function renderProjectInternalComparison(project: FeaturedProject) {
       <div class="section-heading">
         <p class="eyebrow">Compare Nearby</p>
         <h2>Keep the shortlist inside West Palm Beach.</h2>
-        <p>Use these internal profiles to compare scale, service model, timing, and corridor fit before relying on any outside sales material.</p>
+        <p>Use these West Palm Beach profiles to compare scale, service model, timing, and corridor fit before relying on any outside sales material.</p>
       </div>
       <div class="front-project-grid front-project-grid-static">
         ${relatedProjects.map(renderRelatedBuildingCard).join("")}
@@ -7069,7 +7069,7 @@ function amenitySectionTitle(project: FeaturedProject) {
   if (project.id === "olara") return "Marina, wellness, dining, and social energy.";
   if (project.id === "south-flagler-house") return "Private-club depth without resort noise.";
   if (project.id === "alba-palm-beach") return "Enough amenity support, held at a boutique scale.";
-  if (project.id === "shorecrest") return "Amenity claims kept verification-first.";
+  if (project.id === "shorecrest") return "Amenity details separated from items still being confirmed.";
   return "The lifestyle layer.";
 }
 
@@ -7110,7 +7110,7 @@ function renderProjectDocument(document: ProjectDocument) {
     return `<article class="document-card is-placeholder">
       <span>${publicText(document.label)}</span>
       <strong>${publicText(document.title)}</strong>
-      <small>Reviewed internally; request the current buyer packet for details.</small>
+      <small>Request the current buyer packet for details.</small>
     </article>`;
   }
 

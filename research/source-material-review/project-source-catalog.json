@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-22T00:00:00.000Z",
+  "generatedAt": "2026-05-24T00:00:00.000Z",
   "basedOnAssetManifestGeneratedAt": "2026-05-13T15:18:28.296Z",
   "sourceRepo": "https://github.com/BrokenFL/WestPalmNewConstruction",
   "sourceRepoCommit": "3753c0ef2370817338e55f959cb78224783fccbd",
@@ -8,9 +8,9 @@
     "projects": 24,
     "downloadedPdfs": 91,
     "downloadedImages": 84,
-    "sourcePages": 83,
-    "officialSourceUrls": 71,
-    "reportingSourceUrls": 24
+    "sourcePages": 86,
+    "officialSourceUrls": 73,
+    "reportingSourceUrls": 25
   },
   "areas": {
     "North Flagler": {
@@ -2746,15 +2746,15 @@
         "status": "Delivered / closings underway / resale benchmark",
         "residences": "41",
         "stories": "25 in newer construction/reporting; older material can say 24",
-        "completion": "Topped off in April 2024 and closings were reported underway in July 2025; request current resale availability and building confirmation",
+        "completion": "Official site still markets topped-out / construction-underway language, while The Real Deal reported closings underway in July 2025; request current resale availability and building confirmation",
         "pricing": "Current resale/listing pricing varies; request current availability.",
         "team": "Two Roads; Alpha Blue; Arquitectonica; Jean-Louis Deniot"
       },
       "sourceCounts": {
         "official": 5,
-        "reporting": 1,
+        "reporting": 2,
         "other": 1,
-        "sourcePages": 5
+        "sourcePages": 6
       },
       "assetCounts": {
         "floorplans": 2,
@@ -2766,6 +2766,7 @@
       },
       "highValueSources": [
         "https://fortewpb.com/",
+        "https://therealdeal.com/miami/2025/07/31/closings-start-at-forte-on-flagler-west-palm-beach-condos/",
         "https://fortewpb.com/wp-content/uploads/Digital-Flipbook.pdf",
         "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
         "https://fortewpb.com/wp-content/uploads/South-Open-Kitchen.pdf"
@@ -2775,7 +2776,8 @@
       ],
       "conflicts": [
         "Project address vs listing/unit address differences.",
-        "24 vs 25 stories across older/current material."
+        "24 vs 25 stories across older/current material.",
+        "Official site still uses topped-out / construction-underway language while July 2025 reporting said closings were underway."
       ],
       "gaps": [],
       "sourceBuckets": {
@@ -2787,7 +2789,8 @@
           "https://fortewpb.com/wp-content/uploads/South-Open-Kitchen.pdf"
         ],
         "reporting": [
-          "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html"
+          "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html",
+          "https://therealdeal.com/miami/2025/07/31/closings-start-at-forte-on-flagler-west-palm-beach-condos/"
         ],
         "other": [
           "https://www.vickierealestate.com/south-florida-pre-construction-condos/palm-beach-pre-construction/forte-on-flagler/"
@@ -3152,10 +3155,10 @@
         "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture"
       },
       "sourceCounts": {
-        "official": 5,
+        "official": 6,
         "reporting": 0,
         "other": 0,
-        "sourcePages": 5
+        "sourcePages": 6
       },
       "assetCounts": {
         "floorplans": 0,
@@ -3167,6 +3170,7 @@
       },
       "highValueSources": [
         "https://www.southflaglerhouse.com/",
+        "https://www.southflaglerhouse.com/residences/",
         "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf",
         "https://www.relatedross.com/press-releases/2025-06-23/related-ross-secures-400-million-construction-loan-south-flagler-house"
       ],
@@ -3176,7 +3180,7 @@
       ],
       "conflicts": [
         "Residence count conflict: 108 vs 105 depending on official/developer source date.",
-        "Pricing availability varies by date, but the current official inquiry and availability surfaces begin at about $6M."
+        "Pricing availability varies by date: the current official inquiry and availability surfaces begin at about $6M, while the current residences page shows released homes from about $7.98M to $34.5M."
       ],
       "gaps": [
         "No complete public floor-plan PDF library found beyond site-plan/tier imagery.",
@@ -3185,6 +3189,7 @@
       "sourceBuckets": {
         "official": [
           "https://www.southflaglerhouse.com/",
+          "https://www.southflaglerhouse.com/residences/",
           "https://www.southflaglerhouse.com/architecture-design",
           "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
           "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf",
@@ -3256,7 +3261,7 @@
         "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture"
       },
       "sourceCounts": {
-        "official": 4,
+        "official": 5,
         "reporting": 0,
         "other": 0,
         "sourcePages": 5
@@ -3271,13 +3276,14 @@
       },
       "highValueSources": [
         "https://www.southflaglerhouse.com/",
+        "https://www.southflaglerhouse.com/residences/",
         "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf"
       ],
       "assetNotes": [
         "Use shared South Flagler House materials; avoid duplicating exact same copy on both tower pages."
       ],
       "conflicts": [
-        "Same full-project count conflicts as north tower; pricing availability varies by date, but the current official inquiry and availability surfaces begin at about $6M."
+        "Same full-project count conflicts as north tower; pricing availability varies by date, with current official inquiry surfaces beginning at about $6M while the current residences page shows released homes from about $7.98M to $34.5M."
       ],
       "gaps": [
         "Need decide whether this remains a separate card or becomes one South Flagler House page.",
@@ -3287,6 +3293,7 @@
       "sourceBuckets": {
         "official": [
           "https://www.southflaglerhouse.com/",
+          "https://www.southflaglerhouse.com/residences/",
           "https://www.southflaglerhouse.com/architecture-design",
           "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
           "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf"
