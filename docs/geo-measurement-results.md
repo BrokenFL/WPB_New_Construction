@@ -3,13 +3,13 @@
 Run date: 2026-05-26  
 Site: `https://www.wpbnewconstruction.com`
 
-Follow-up update: later on 2026-05-26, Search Console access became available for `sc-domain:wpbnewconstruction.com`. The sitemap was submitted successfully and read by Google. Bing remained unverified and required a verification change or Google-import consent.
+Follow-up update: later on 2026-05-26, Search Console access became available for `sc-domain:wpbnewconstruction.com`. The sitemap was submitted successfully and read by Google. Bing verification was later completed with the HTML meta tag method, and the Bing sitemap was submitted.
 
 ## Executive Summary
 
 The recent SEO/GEO files are live and crawlable: `sitemap.xml`, `robots.txt`, and `llms.txt` all returned `200`, and the live sitemap contains 52 URLs including the priority answer, corridor, compare, and project routes.
 
-The biggest remaining blockers are URL-level inspection execution and Bing verification. Google Search Console is now accessible for Brooke's signed-in Google account and the sitemap has been submitted successfully. However, the URL Inspection bar accepted typed URLs but did not launch inspection results through the automated Chrome session, so priority URL indexing/request-indexing data is still not available. Bing Webmaster Tools shows the site as not verified and requires either a site/DNS/code change or Google-import consent before sitemap and URL tools can be used.
+The biggest remaining blocker is URL-level inspection execution in Google Search Console. Google Search Console is now accessible for Brooke's signed-in Google account and the sitemap has been submitted successfully. However, the URL Inspection bar accepted typed URLs but did not launch inspection results through the automated Chrome session, so priority URL indexing/request-indexing data is still not available. Bing Webmaster Tools ownership is verified, the sitemap is submitted, and Bing URL Inspection/URL Submission are now available.
 
 Public Google discovery is partial. Google shows the homepage and at least one corridor page, but the answer hub did not appear for `site:wpbnewconstruction.com/answers`, the current Downtown canonical did not appear for the expected `/corridors/downtown-west-palm-beach/` path, and the Olara project query surfaced floorplan PDFs instead of the canonical project page. AI answer engines tested so far did not mention or cite `wpbnewconstruction.com`.
 
@@ -52,24 +52,29 @@ Public Google discovery is partial. Google shows the homepage and at least one c
 
 ## Bing Findings
 
-- Bing Webmaster Tools is accessible enough to show the pending site record, but the site is not verified.
+- Bing Webmaster Tools verification status: verified on May 26, 2026.
 - Site shown: `https://wpbnewconstruction.com/`
-- Status: Not verified
-- Modified: 58 minutes ago at the time of the follow-up check.
-- Google Search Console import remains available, but using it would require Google/Bing consent and was not used.
-- Verification methods shown:
-  - XML file: download `BingSiteAuth.xml` and upload it to `https://wpbnewconstruction.com/BingSiteAuth.xml`. Bing currently says it cannot access that XML file.
-  - HTML meta tag: `<meta name="msvalidate.01" content="4536DF263E4510BEB421D8E762573C57" />`
-  - DNS CNAME: name `18fed6d8ed16ba6c11e95db76e51a826`, value `verify.bing.com.`
-- No verification action was taken because all available manual methods require a site, code, file, DNS, or consent change.
-- Sitemap submission and URL inspection: not available until verification is completed.
+- Verification method used: HTML meta tag on the homepage, `<meta name="msvalidate.01" content="4536DF263E4510BEB421D8E762573C57" />`.
+- DNS was not changed.
+- XML file verification was not used because Bing did not expose exact file contents in the visible UI; it only offered a `BingSiteAuth.xml` download action.
+- Bing confirmation message after verification: "Site addition successful" for `https://wpbnewconstruction.com`.
+- Sitemap submitted:
+  - Sitemap: `https://www.wpbnewconstruction.com/sitemap.xml`
+  - Submitted: May 26, 2026
+  - Known sitemaps: 1
+  - Status: Processing
+  - Sitemaps with errors: 0
+  - Sitemaps with warnings: 0
+  - Total URLs discovered: 0 at initial submission time
+  - Row detail: `Last submit` May 26, 2026; `Last crawl` submitted; `Status` Processing; `URLs discovered` not yet shown.
+- URL Inspection and URL Submission are now available in Bing Webmaster Tools for this verified property.
 - IndexNow: not enabled.
 
 ## Cloudflare Findings
 
 - Account dashboard access: available in Brooke's Chrome profile.
 - Pages project: `wpbnewconstruction`.
-- Current production deployment visible in Cloudflare Pages:
+- Earlier production deployment visible in Cloudflare Pages before Bing verification:
   - Environment: Production
   - Source: `main`
   - Deployment label: `Fix Brooke contact phone number`
@@ -81,6 +86,16 @@ Public Google discovery is partial. Google shows the homepage and at least one c
 - Latest local git commit matching the visible deployment label:
   - `8cda81e79eeb7fcc64932f54e29ad150874acfdf`
   - `Fix Brooke contact phone number`
+- Bing verification deployment:
+  - GitHub `main` was pushed to `12309c6293a24b451b6cada76a6f39693bccfe73`.
+  - GitHub Actions deploy run `26461831192` was triggered for that commit but failed before deploy because the runner did not have the Playwright Chromium binary for `qa:homepage-visual`.
+  - A separate clean worktree at `/tmp/wpb-bing-deploy` was checked out at `12309c6293a24b451b6cada76a6f39693bccfe73` to avoid deploying unrelated dirty local generated/content changes.
+  - Clean worktree production deploy source: `main`, source `12309c6`.
+  - Deployment URL: `https://bfc89cdc.wpbnewconstruction.pages.dev`
+  - Deployment ID: `bfc89cdc-4431-4aea-841c-414130121956`
+  - Live app bundle after deploy: `/assets/index-Be8GI55y.js`
+  - Live stylesheet after deploy: `/assets/index-CfuGSP9t.css`
+  - Live homepage meta tag check passed on both `https://www.wpbnewconstruction.com/` and `https://wpbnewconstruction.com/`.
 - Web Analytics:
   - Site exists: `wpbnewconstruction.com`
   - Created: 8 days ago
@@ -212,13 +227,13 @@ Recommended decision path for a later implementation:
 
 1. In GSC, manually use URL Inspection for the priority URLs now that the sitemap is submitted; request indexing for missing answer, compare, corridor, Olara, and Rosewood pages where available.
 2. Re-check GSC Page Indexing after the dashboard finishes processing data.
-3. Complete Bing Webmaster Tools verification with Brooke's approval, then submit the sitemap and inspect priority URLs. Do not enable IndexNow yet.
+3. Re-check the Bing sitemap after processing completes; then use Bing URL Inspection/URL Submission for the same priority pages if needed. Do not enable IndexNow yet.
 4. Investigate why Google is showing `/corridors/downtown/` and Olara PDFs instead of the preferred canonical pages.
 5. Re-run AI prompt tests after GSC/Bing indexing requests have had time to process; current answer engines are citing competitors and official/listing sources, not WPB New Construction.
 
 ## What Brooke Must Do Manually
 
 - In GSC, manually run URL Inspection if the automation bar continues not to execute inspections.
-- Approve a Bing verification path: upload `BingSiteAuth.xml`, add the HTML meta tag, add the DNS CNAME, or approve Google Search Console import consent.
+- In Bing Webmaster Tools, re-check the submitted sitemap after processing finishes and record discovered URL counts or crawl warnings.
 - Solve Bing/Copilot human-verification challenges if Brooke wants public Bing/Copilot checks completed in the same browser profile.
 - Decide later whether request logs/Logpush are worth a paid Cloudflare plan path; do not change billing just for this measurement run.
