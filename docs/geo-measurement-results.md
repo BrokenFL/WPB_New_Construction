@@ -32,6 +32,20 @@ Public Google discovery is partial. Google shows the homepage and at least one c
   - The Search Console inspection bar accepted `https://www.wpbnewconstruction.com/`, displayed the autocomplete row, and then returned to the dashboard without loading an inspection result.
   - No priority URL inspection detail could be captured in this automated session.
   - No indexing requests were submitted because the URL Inspection result screen and request-indexing button were not reached.
+- Manual URL Inspection fallback checklist:
+
+| Priority URL | URL is on Google? | Indexing allowed? | User-declared canonical | Google-selected canonical | Last crawl date | Indexing requested? | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `https://www.wpbnewconstruction.com/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Start here to confirm the property can inspect live URLs. |
+| `https://www.wpbnewconstruction.com/answers/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Public Google `site:` check did not surface this directory. |
+| `https://www.wpbnewconstruction.com/answers/best-new-construction-condos-west-palm-beach/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Priority answer page for buyer-intent discovery. |
+| `https://www.wpbnewconstruction.com/answers/closest-new-condos-to-palm-beach/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Priority answer page for Palm Beach proximity searches. |
+| `https://www.wpbnewconstruction.com/compare/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Comparison page was not observed in public result captures. |
+| `https://www.wpbnewconstruction.com/corridors/north-flagler/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Public Google showed North Flagler, but GSC canonical/crawl details are still needed. |
+| `https://www.wpbnewconstruction.com/corridors/downtown-west-palm-beach/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Public Google showed older `/corridors/downtown/` instead. |
+| `https://www.wpbnewconstruction.com/corridors/south-flagler/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Priority corridor page not observed in public result captures. |
+| `https://www.wpbnewconstruction.com/projects/olara/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Public Google showed Olara PDFs instead of the project page. |
+| `https://www.wpbnewconstruction.com/projects/rosewood/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Public Google showed a Rosewood update, not the project page. |
 - Page Indexing report:
   - Still processing data.
   - No indexed/not-indexed reason table was available yet.
@@ -157,6 +171,42 @@ Unable to confirm via GSC URL Inspection because the inspection result screen di
 - Google surfaced Olara floorplan PDFs for `site:wpbnewconstruction.com/projects/olara` instead of the canonical Olara project page.
 - A broader search result source surfaced a very deep generated HTML floorplan route under `projects/nora-house/docs/floorplans/...` as a top result. This should be reviewed after GSC access is available.
 - Some public snippets still showed `561-891-0816` in AI/search captures from indexed or generated content, even though the latest deployment label indicates a phone-number fix. Confirm with URL Inspection after GSC access is restored.
+
+## Deep Document and Floorplan Indexing Review
+
+Investigation-only status as of May 26, 2026. No noindex, robots, canonical, sitemap, or internal-link changes were made in this pass.
+
+- Public generated document/floorplan assets found under `public/projects/*/docs/*`: 165 total.
+- File types: 90 PDFs, 32 HTML floorplan page copies, and 43 image floorplan/site-plan files.
+- Live sample checks returned `200` for an Olara PDF, a NORA House HTML floorplan copy, and a Berkeley floorplan image. The sampled responses did not include an `X-Robots-Tag` noindex header.
+- `robots.txt` allows all crawlers and does not disallow `/projects/*/docs/`, so these files are crawlable if discovered.
+- `sitemap.xml` does not list the generated document/floorplan asset URLs directly.
+- Internal discovery exists through `public/data/floorplans.json` and `src/generated/siteData.ts`; 163 of 165 generated document/floorplan assets are referenced there. The two unreferenced files are the larger Olara all-floorplans PDF and Olara rack brochure PDF under `/projects/olara/docs/`.
+- PDF and image assets cannot declare HTML canonicals themselves. In the current static setup they are indexable standalone assets unless blocked by headers or robots rules.
+- The 32 NORA House HTML floorplan page copies include canonical tags pointing to the official `https://norahouse.com/floorplan/...` source pages, not to WPB New Construction parent pages. They do not include `noindex`.
+
+Project-level public asset counts:
+
+| Project | Total docs assets | PDFs | HTML pages | Images | Referenced internally | In sitemap | Canonical/noindex notes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Alba Palm Beach | 9 | 9 | 0 | 0 | 9 | 0 | PDFs have no HTML canonical mechanism. |
+| The Berkeley Palm Beach | 8 | 0 | 0 | 8 | 8 | 0 | Images have no HTML canonical mechanism. |
+| Forte on Flagler | 3 | 3 | 0 | 0 | 3 | 0 | PDFs have no HTML canonical mechanism. |
+| Maison d'Or | 1 | 1 | 0 | 0 | 1 | 0 | PDF has no HTML canonical mechanism. |
+| Mr. C Hotel & Residences West Palm Beach | 32 | 32 | 0 | 0 | 32 | 0 | PDFs have no HTML canonical mechanism. |
+| NORA House | 64 | 0 | 32 | 32 | 64 | 0 | HTML copies canonicalize to `norahouse.com`; no `noindex` found. Images have no HTML canonical mechanism. |
+| Olara | 28 | 28 | 0 | 0 | 26 | 0 | PDFs have no HTML canonical mechanism; Google already surfaced at least two. |
+| The Ritz-Carlton Residences, West Palm Beach | 13 | 13 | 0 | 0 | 12 | 0 | PDFs have no HTML canonical mechanism. |
+| Shorecrest | 4 | 4 | 0 | 0 | 4 | 0 | PDFs have no HTML canonical mechanism. |
+| South Flagler House | 3 | 0 | 0 | 3 | 3 | 0 | Images have no HTML canonical mechanism. |
+
+Recommended decision path for a later implementation:
+
+1. Keep the buyer-facing `/floorplans/` library and project pages indexable.
+2. Treat local PDF/image/HTML document copies as support assets rather than landing pages.
+3. For PDFs/images that should not rank independently, prefer an `X-Robots-Tag: noindex` header or equivalent static-host header rule, because file-level HTML canonicals are unavailable.
+4. For NORA House HTML copies, either noindex them or replace their public discovery path with links to the parent NORA project/floorplan library page; do not leave them as indexable WPB-hosted pages canonicalizing to another domain without a clear reason.
+5. If any document asset is intentionally indexable, document the rights basis and the intended parent route so it does not compete with `/projects/<project>/` or `/floorplans/`.
 
 ## Top 5 Next Actions
 
