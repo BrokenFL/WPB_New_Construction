@@ -5216,7 +5216,7 @@ export const prerenderRoutes = [
   {
     "path": "/projects/rosewood/",
     "title": "Rosewood Residences WPB | Buyer Guide",
-    "description": "Rosewood Residences West Palm Beach planning-watch guide with North Flagler context, proposed project details, approval status, and buyer verification notes.",
+    "description": "Rosewood Residences West Palm Beach planning-watch guide with North Flagler context, proposed project details, approval status, buyer verification notes, and review context.",
     "ogImage": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg"
   },
   {
