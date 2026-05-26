@@ -6565,6 +6565,183 @@ function newsDisplayDate(item: ExternalNewsItem) {
   return item.publishedAt || item.sourcePublishedDate || item.sourcePublishedAt || item.dateDiscovered || item.fetchedAt;
 }
 
+function isPriorityEntityProjectId(projectId: string) {
+  return [
+    "olara",
+    "south-flagler-house",
+    "ritz-carlton-wpb",
+    "shorecrest",
+    "alba-palm-beach",
+    "berkeley",
+    "nora-house",
+    "forte-on-flagler",
+    "mr-c",
+    "maison-dor",
+  ].includes(projectId);
+}
+
+function renderProjectEntityBrief(
+  project: FeaturedProject,
+  floorplanProject: ReturnType<typeof getFloorplanProject>,
+  copyPackage?: ProjectCopyPackage,
+) {
+  if (!isPriorityEntityProjectId(project.id)) return "";
+  const sourceFact = sourceFactForProject(project.id);
+  const source = sourceFact?.facts;
+  const sourceLinks: string[] = projectSourceNoteLinks(sourceFact).slice(0, 6);
+  const relatedProjects = relatedProjectComparisonIds(project.id)
+    .map((projectId) => featuredProjects.find((item) => item.id === projectId))
+    .filter((item): item is FeaturedProject => Boolean(item));
+  const sourceTeam = source?.team ? teamCreditsFromSource(source.team) : [];
+  const hasSourcedAmenities = Boolean(copyPackage?.amenityNarrative) || sourceLinks.some((href) => /amenit/i.test(href));
+  const floorplanCount = floorplanProject?.count ?? 0;
+
+  return `
+    <section class="section project-entity-brief" id="entity-brief-${project.id}" aria-label="${project.name} source-backed entity brief">
+      <div class="section-heading">
+        <p class="eyebrow">Source-Backed Entity Brief</p>
+        <h2>Bottom line for ${publicText(project.name)}.</h2>
+        <p>${publicText(entityBluf(project, sourceFact))}</p>
+      </div>
+      <div class="profile-grid">
+        ${entityFactCard("Location", source?.address || project.address, "Confirm final legal/project address before relying on it.")}
+        ${entityFactCard("Status", source?.status || project.status, "Verify current construction and sales status before touring.")}
+        ${entityFactCard("Residences", source?.residences || project.residences, "Counts can vary by source date or tower definition.")}
+        ${entityFactCard("Delivery", source?.completion || project.delivery, "Delivery timing should be checked against the current buyer packet.")}
+        ${entityFactCard("Pricing", source?.pricing || project.price, "Public pricing can lag live inventory and incentives.")}
+        ${entityFactCard("Floorplans", floorplanCount ? `${floorplanCount} tracked records` : "Request current packet", "Confirm line, stack, exposure, and whether the plan is still available.")}
+      </div>
+    </section>
+
+    <section class="section project-entity-residences" aria-label="${project.name} residence and floorplan overview">
+      <div class="section-heading">
+        <p class="eyebrow">Residence / Floorplan Overview</p>
+        <h2>What buyers can compare now.</h2>
+        <p>${publicText(copyPackage?.residenceNarrative ?? `${project.name} is tracked by corridor, status, residence count, floorplan availability, and source notes. Use public plan material as a starting point, then request the current packet before relying on availability or pricing.`)}</p>
+      </div>
+      ${floorplanProject?.plans.length ? `<div class="brochure-download-list">${floorplanProject.plans.slice(0, 4).map((plan, index) => renderGeneratedFloorplanLink(plan, floorplanProject, index)).join("")}</div>` : `<p class="source-note">No complete public floorplan packet is confirmed in the current catalog. Request current floorplans before comparing lines or stacks.</p>`}
+    </section>
+
+    ${hasSourcedAmenities ? `<section class="section project-entity-amenities" aria-label="${project.name} sourced amenity context">
+      <div class="section-heading">
+        <p class="eyebrow">Amenities</p>
+        <h2>Amenity claims stay source-backed.</h2>
+        <p>${publicText(copyPackage?.amenityNarrative ?? "Amenity detail is referenced in reviewed project material. Confirm which amenities are included, optional, phased, or subject to association rules before relying on a public summary.")}</p>
+      </div>
+    </section>` : ""}
+
+    ${sourceTeam.length ? `<section class="section project-entity-team" aria-label="${project.name} sourced project team">
+      <div class="section-heading">
+        <p class="eyebrow">Project Team</p>
+        <h2>Team credits captured from reviewed material.</h2>
+        <p>${publicText(copyPackage?.projectTeamNarrative ?? "Team credits are included for buyer orientation and should be confirmed against the latest project packet or offering material.")}</p>
+      </div>
+      <div class="brochure-team-grid">
+        ${sourceTeam.slice(0, 6).map((credit) => renderBrochureTeamTile({ credit, asset: projectPlaceholderAsset(project, credit.role, "Project Team") })).join("")}
+      </div>
+    </section>` : ""}
+
+    <section class="section project-entity-source-notes" aria-label="${project.name} source notes">
+      <div class="section-heading">
+        <p class="eyebrow">Source Notes</p>
+        <h2>What this page is based on.</h2>
+        <p>Source counts: ${sourceFact?.sourceCounts?.official ?? 0} official, ${sourceFact?.sourceCounts?.reporting ?? 0} reporting, ${sourceFact?.sourceCounts?.other ?? 0} other. Conflicts and gaps are preserved rather than smoothed away.</p>
+      </div>
+      <div class="brochure-download-list">
+        ${sourceLinks.length ? sourceLinks.map((href) => `<a class="document-card" href="${safeHref(href)}" target="_blank" rel="noopener noreferrer"><span>Reviewed Source</span><strong>${publicText(sourceLinkLabel(href))}</strong><small>Use for fact orientation; verify current buyer terms before reliance.</small></a>`).join("") : `<article class="document-card is-placeholder"><span>Source Review</span><strong>Needs current source refresh</strong><small>No public source link is attached to this brief.</small></article>`}
+      </div>
+    </section>
+
+    ${relatedProjects.length ? `<section class="section project-entity-comparisons" aria-label="${project.name} comparison links">
+      <div class="section-heading">
+        <p class="eyebrow">Compare Against</p>
+        <h2>Nearby pages to keep the shortlist grounded.</h2>
+      </div>
+      <div class="front-project-grid front-project-grid-static">
+        ${relatedProjects.map(renderRelatedBuildingCard).join("")}
+      </div>
+    </section>` : ""}
+
+    <section class="section project-entity-faq" aria-label="${project.name} frequently asked questions">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common buyer questions about ${publicText(project.name)}.</h2>
+      </div>
+      <div class="answer-list">
+        ${projectEntityFaq(project, sourceFact, floorplanProject).map((item) => `
+          <article class="answer-block">
+            <h3>${publicText(item.question)}</h3>
+            <p>${publicText(item.answer)}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function entityFactCard(label: string, value: string | undefined, note: string) {
+  return `
+    <article class="profile-card">
+      <span>${publicText(label)}</span>
+      <strong>${publicText(value || "Needs verification")}</strong>
+      <p>${publicText(note)}</p>
+    </article>
+  `;
+}
+
+function entityBluf(project: FeaturedProject, sourceFact: ReturnType<typeof sourceFactForProject> | undefined) {
+  const facts = sourceFact?.facts;
+  const status = facts?.status || project.status;
+  const delivery = facts?.completion || project.delivery;
+  return `${project.name} is a ${project.corridor} project tracked for buyer comparison by status, location, residence scale, floorplan availability, and open verification notes. Current source notes show ${status}; timing is ${delivery}. Pricing, availability, incentives, fees, square footage, view exposure, delivery, and contract terms should be verified before reliance.`;
+}
+
+function projectSourceNoteLinks(sourceFact: ReturnType<typeof sourceFactForProject> | undefined) {
+  const links = [
+    sourceFact?.officialWebsite,
+    ...(sourceFact?.highValueSources ?? []),
+    ...(sourceFact?.sourceBuckets?.official ?? []),
+    ...(sourceFact?.sourceBuckets?.reporting ?? []),
+  ];
+  return links
+    .map((href) => String(href ?? "").trim())
+    .filter(Boolean)
+    .filter((href, index, list) => list.indexOf(href) === index);
+}
+
+function sourceLinkLabel(href: string) {
+  try {
+    const url = new URL(href);
+    return url.hostname.replace(/^www\./, "") + url.pathname.replace(/\/$/, "");
+  } catch {
+    return href;
+  }
+}
+
+function projectEntityFaq(
+  project: FeaturedProject,
+  sourceFact: ReturnType<typeof sourceFactForProject> | undefined,
+  floorplanProject: ReturnType<typeof getFloorplanProject>,
+) {
+  const facts = sourceFact?.facts;
+  return [
+    {
+      question: `What is the bottom line on ${project.name}?`,
+      answer: entityBluf(project, sourceFact),
+    },
+    {
+      question: `Are floorplans available for ${project.name}?`,
+      answer: floorplanProject?.count
+        ? `${floorplanProject.count} floorplan records are tracked, but buyers should confirm current line availability, stack, exposure, fees, and pricing before relying on public material.`
+        : "No complete public floorplan packet is confirmed in the current catalog. Request the current buyer packet before comparing lines, stacks, or availability.",
+    },
+    {
+      question: `What should buyers verify before relying on ${project.name} public information?`,
+      answer: `Verify current pricing, availability, incentives, fees, square footage, view exposure, delivery timing, contract terms, and any open verification notes. Current source notes include: ${[...(sourceFact?.conflicts ?? []), ...(sourceFact?.gaps ?? [])].slice(0, 2).join(" ") || facts?.pricing || "request current buyer-side confirmation."}`,
+    },
+  ];
+}
+
 function renderDraftProjectPage(project: FeaturedProject) {
   const draft = editorProjectPageDrafts[project.id] ?? projectDraftFromFeatured(project);
   const copyPackage = batch1ProjectCopyByProjectId.get(project.id);
@@ -6625,6 +6802,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       </section>
 
       ${renderProjectSnapshotPanel(project.id)}
+      ${renderProjectEntityBrief(project, floorplanProject, copyPackage)}
       ${copyPackage ? renderProjectBuyerLens(copyPackage) : ""}
 
       <section class="brochure-module brochure-residences-module" id="overview-${project.id}">

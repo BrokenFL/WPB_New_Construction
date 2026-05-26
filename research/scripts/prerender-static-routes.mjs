@@ -265,6 +265,8 @@ function renderProjectRoute(route, payload, slug) {
   const floorplans = floorplanForProject(payload, project.projectId);
   const facts = project.facts || {};
   const sources = sourceLinksForProject(project).slice(0, 6);
+  const comparisons = comparisonProjectsForStatic(payload, project).slice(0, 4);
+  const hasSourcedAmenities = sources.some((href) => /amenit/i.test(href));
   return pageShell(
     `project-${slug}`,
     project.name,
@@ -292,11 +294,36 @@ function renderProjectRoute(route, payload, slug) {
         <p>This page gives AI crawlers and buyers one stable entity page for ${publicText(project.name)}. It separates sourced facts from items that need confirmation, links the building to its West Palm Beach corridor, and keeps the next step focused on current buyer-side verification.</p>
       </section>
       <section>
+        <h2>Location and corridor context</h2>
+        <p>${publicText(project.name)} is tracked in the ${publicText(project.area || "West Palm Beach")} lane. Compare this location by daily drive pattern, Palm Beach access, waterfront or downtown orientation, view exposure, parking, and what nearby construction may mean before touring.</p>
+      </section>
+      <section>
+        <h2>Residence and floorplan overview</h2>
+        <p>${floorplans?.count ? `${floorplans.count} floorplan records are currently tracked for this project.` : "No complete public floorplan packet is confirmed in the current catalog."} Public plans are not a substitute for the current buyer packet; confirm line, stack, exposure, square footage, fees, pricing, and availability.</p>
+        ${floorplans?.plans?.length ? `<ul>${floorplans.plans.slice(0, 6).map((plan) => `<li>${publicText(plan.title)} - ${publicText(plan.status || plan.sourceUse || "Floorplan record")}</li>`).join("")}</ul>` : ""}
+      </section>
+      ${hasSourcedAmenities ? `<section>
+        <h2>Amenities</h2>
+        <p>Amenity information is referenced in reviewed project pages for this project. Confirm which amenities are included, optional, phased, or subject to association rules before relying on a public summary.</p>
+      </section>` : ""}
+      ${facts.team ? `<section>
+        <h2>Project team</h2>
+        <p>${publicText(facts.team)}. Team credits are included for buyer orientation and should be confirmed against the latest project packet or offering material.</p>
+      </section>` : ""}
+      ${comparisons.length ? `<section>
+        <h2>Compare against</h2>
+        <ul>${comparisons.map((item) => `<li><a href="${projectPath(item)}">${publicText(item.name)}</a> - ${publicText(item.area || "West Palm Beach")}</li>`).join("")}</ul>
+      </section>` : ""}
+      <section>
         <h2>Source basis</h2>
         <p>Source counts: ${project.sourceCounts?.official ?? 0} official, ${project.sourceCounts?.reporting ?? 0} reporting, ${project.sourceCounts?.other ?? 0} other. Conflicts and gaps are preserved for buyer review.</p>
         ${sources.length ? `<ul>${sources.map((href) => `<li><a href="${safeHref(href)}">${publicText(sourceLabel(href))}</a></li>`).join("")}</ul>` : "<p>Needs source refresh before adding more detail.</p>"}
       </section>
       ${renderConflictAndGapSection(project)}
+      <section>
+        <h2>FAQ</h2>
+        ${projectFaqForStatic(project, floorplans).map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
+      </section>
     `,
   );
 }
@@ -510,6 +537,46 @@ function projectPath(project) {
 
 function firstVerificationNote(project) {
   return project.conflicts?.[0] || project.gaps?.[0] || "Verify current pricing, availability, fees, incentives, square footage, delivery timing, and contract terms.";
+}
+
+function comparisonProjectsForStatic(payload, project) {
+  const explicit = {
+    olara: ["shorecrest", "ritz-carlton-wpb"],
+    shorecrest: ["olara", "ritz-carlton-wpb"],
+    "ritz-carlton-wpb": ["olara", "shorecrest", "mandarin-oriental"],
+    "south-flagler-house-north": ["maison-dor", "forte-on-flagler"],
+    "alba-palm-beach": ["olara", "shorecrest"],
+    berkeley: ["nora-house", "mr-c"],
+    "nora-house": ["berkeley", "mr-c", "banyan-tree"],
+    "forte-on-flagler": ["maison-dor", "south-flagler-house-north"],
+    "mr-c": ["nora-house", "berkeley", "banyan-tree"],
+    "maison-dor": ["south-flagler-house-north", "forte-on-flagler"],
+  }[project.projectId] || [];
+  const byId = new Map(payload.projectFacts.map((item) => [item.projectId, item]));
+  const explicitProjects = explicit.map((id) => byId.get(id)).filter(Boolean);
+  if (explicitProjects.length) return explicitProjects;
+  return payload.projectFacts
+    .filter((item) => item.projectId !== project.projectId && normalize(item.area) === normalize(project.area))
+    .slice(0, 3);
+}
+
+function projectFaqForStatic(project, floorplans) {
+  return [
+    {
+      question: `What is the bottom line on ${project.name}?`,
+      answer: `${project.name} is tracked as a ${project.area || "West Palm Beach"} project page with ${project.pageStatus || "buyer-guide"} status. Verify current pricing, availability, incentives, fees, square footage, delivery timing, and contract terms before relying on public summaries.`,
+    },
+    {
+      question: `Are floorplans available for ${project.name}?`,
+      answer: floorplans?.count
+        ? `${floorplans.count} floorplan records are tracked, but the current buyer packet should control availability, stack, exposure, and pricing.`
+        : "No complete public floorplan packet is confirmed in the current catalog. Request the current buyer packet before comparing lines or stacks.",
+    },
+    {
+      question: `What should buyers verify before relying on ${project.name} information?`,
+      answer: firstVerificationNote(project),
+    },
+  ];
 }
 
 function sourceLinksForProject(project) {
