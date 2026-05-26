@@ -44,6 +44,7 @@
     "qa:map": "node research/scripts/check-map-functionality.mjs",
     "qa:untracked-assets": "node research/scripts/check-untracked-assets.mjs",
     "qa:live": "node research/scripts/check-live-site-health.mjs",
+    "check:assets": "node scripts/check-assets.mjs",
     "deploy:live": "node research/scripts/deploy-cloudflare-pages-with-retry.mjs",
     "ship:live": "node research/scripts/deploy-cloudflare-pages-with-retry.mjs",
     "research:site-intelligence": "node research/scripts/build-site-intelligence.mjs",
