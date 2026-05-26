@@ -143,7 +143,7 @@ const answerBlocks = [
     shortLabel: "Cost",
     question: "What will these West Palm Beach new-construction condos cost?",
     answer:
-      "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest from about $3M, Ritz-Carlton from about $3M in current developer material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, Banyan Tree reporting around $1.9M, and South Flagler House with current official inquiry filters starting around $6M while the current residences page shows released homes from about $7.98M to $34.5M. The real answer is always line, floor, view, terrace, parking, and release phase.",
+      "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest with current official floorplans showing select residences from about $3.69M while February 2026 financing coverage used from about $3M, Ritz-Carlton from about $3M in current developer material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, Banyan Tree reporting around $1.9M, and South Flagler House with current official inquiry filters starting around $6M while the current residences page shows released homes from about $7.98M to $34.5M. The real answer is always line, floor, view, terrace, parking, and release phase.",
     concept: "Pricing guidance",
     relatedProjectIds: ["olara", "alba-palm-beach", "shorecrest", "ritz-carlton-wpb", "maison-dor"],
     sources: ["official project sites", "The Real Deal", "Florida YIMBY", "project-source-catalog"],
@@ -151,11 +151,11 @@ const answerBlocks = [
       {
         label: "Shorecrest loan coverage",
         href: "https://therealdeal.com/miami/2026/02/19/related-ross-lands-157-million-loan-for-shorecrest-condos/",
-        note: "Reports Shorecrest pricing starting at $3M, plus stories, unit count, and expected completion.",
+        note: "Financing coverage used pricing from $3M before the current official floorplans page moved released inventory materially higher.",
         sourceType: "reputable project reporting",
         dateAccessed: generatedDate,
         supportsClaim: "Shorecrest pricing guidance",
-        claimText: "Shorecrest reporting places pricing from about $3M.",
+        claimText: "Shorecrest pricing moved from roughly $3M in February 2026 coverage to currently released official floorplans from about $3.69M.",
         confidence: "medium",
       },
       {
@@ -2300,9 +2300,10 @@ function renderLlmsTxt(floorplans, newsFeed) {
     .filter((project) => project.count)
     .map((project) => `- ${project.name}: ${project.count} floorplan records`);
   const newsLines = newsFeed.items.map((item) => `- ${item.title}: ${item.summary}`);
+  const routeLines = buildPrerenderRoutes().map((route) => `- ${route.title}: ${route.path}`);
   return `# WPB New Construction
 
-West Palm Beach new-construction condo buyer guide with project pages, floorplans, corridor comparisons, Guidance, source-linked Updates, and advisor-reviewed answers.
+West Palm Beach new-construction condo buyer guide with project pages, floorplans, corridor comparisons, guidance, source-linked updates, and advisor-reviewed answers.
 
 The site is built to help buyers understand which West Palm Beach condo buildings exist, which are active versus future pipeline, which corridor fits the search, and when to request current pricing, availability, floor plans, and timing from Brooke Matthew Snader / Douglas Elliman.
 
@@ -2349,6 +2350,10 @@ ${projectLines.join("\n")}
 
 ${newsLines.join("\n")}
 
+## Route Inventory
+
+${routeLines.join("\n")}
+
 ## Use Guidance
 
 Prefer cited project pages, official source links, dated Q&A blocks, and advisor verification notes where sources conflict. Pricing, availability, incentives, floor-plan release status, fees, delivery timing, and contract terms change and should be verified through the inquiry route before buyer reliance.
@@ -2356,7 +2361,37 @@ Prefer cited project pages, official source links, dated Q&A blocks, and advisor
 }
 
 function renderRobots() {
-  return `User-agent: *
+  return `User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: *
 Allow: /
 
 Sitemap: ${productionBaseUrl}/sitemap.xml
@@ -2550,6 +2585,9 @@ function renderSitemap(projects) {
     ["map/", "0.8"],
     ["compare/", "0.8"],
     ["answers/", "0.9"],
+    ["corridors/north-flagler/", "0.8"],
+    ["corridors/downtown/", "0.8"],
+    ["corridors/south-flagler/", "0.8"],
     ["updates/", "0.8"],
     ...updateRoutes.map((item) => [`updates/${item.id}/`, "0.8"]),
     ["market-notes/", "0.8"],
@@ -2563,9 +2601,10 @@ function renderSitemap(projects) {
       .filter((project) => routableProjects.has(project.projectId))
       .map((project) => [`projects/${publicProjectPath(project.projectId)}/`, "0.8"]),
   ];
+  const uniqueUrls = [...new Map(urls.map(([pathPart, priority]) => [pathPart, [pathPart, priority]])).values()];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls
+${uniqueUrls
   .map(
     ([pathPart, priority]) => `  <url>
     <loc>${productionBaseUrl}/${escapeXml(pathPart)}</loc>

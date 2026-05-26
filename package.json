@@ -31,6 +31,7 @@
     "qa:customer-copy": "node research/scripts/check-customer-facing-copy.mjs",
     "qa:copy": "node research/scripts/check-public-copy-quality.mjs",
     "qa:seo": "node research/scripts/check-seo-readiness.mjs",
+    "qa:geo": "node research/scripts/check-geo-crawlability.mjs",
     "qa:image-alt": "node research/scripts/check-image-alt-quality.mjs",
     "qa:internal-links": "node research/scripts/check-internal-links.mjs",
     "qa:content-studio": "node research/scripts/check-content-studio-safety.mjs",

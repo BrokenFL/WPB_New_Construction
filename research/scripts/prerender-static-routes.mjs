@@ -5,14 +5,37 @@ const workspace = process.cwd();
 const distRoot = path.join(workspace, "dist");
 const templatePath = path.join(distRoot, "index.html");
 const siteDataPath = path.join(workspace, "src/generated/siteData.ts");
-const answerFaqPath = path.join(workspace, "public/data/answer-engine-faq.json");
+const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
 const baseUrl = "https://www.wpbnewconstruction.com";
+
+const projectAliases = new Map([
+  ["south-flagler-house", "south-flagler-house-north"],
+  ["edgeworth", "edgeworth-north"],
+]);
+
+const corridorDetails = {
+  "north-flagler": {
+    label: "North Flagler",
+    summary:
+      "North Flagler is the deepest West Palm Beach waterfront comparison set, with active and future projects that buyers should compare by view exposure, delivery timing, floor-plan depth, and current packet availability.",
+  },
+  downtown: {
+    label: "Downtown",
+    summary:
+      "Downtown West Palm Beach is the walkability lane, where buyers weigh restaurant access, NORA and The Square proximity, hotel-style service, parking, noise, and district phasing against direct waterfront exposure.",
+  },
+  "south-flagler": {
+    label: "South Flagler",
+    summary:
+      "South Flagler is the quieter waterfront lane south of downtown, where privacy, Palm Beach proximity, boutique scale, and delivered-building benchmarks matter as much as headline amenity lists.",
+  },
+};
 
 async function main() {
   const template = await fs.readFile(templatePath, "utf8");
   const siteData = await fs.readFile(siteDataPath, "utf8");
-  const staticPayload = await loadStaticPayload();
-  const routes = parsePrerenderRoutes(siteData);
+  const staticPayload = await loadStaticPayload(siteData);
+  const routes = staticPayload.prerenderRoutes;
 
   for (const route of routes) {
     const html = renderRouteHtml(template, route, staticPayload);
@@ -25,27 +48,39 @@ async function main() {
   console.log(JSON.stringify({ prerenderedRoutes: routes.length }, null, 2));
 }
 
-function parsePrerenderRoutes(siteData) {
-  const match = siteData.match(/export const prerenderRoutes = (\[[\s\S]*?\]) as const;/);
-  if (!match) {
-    throw new Error("Could not find prerenderRoutes export in src/generated/siteData.ts");
-  }
-  return JSON.parse(match[1]);
+async function loadStaticPayload(siteData) {
+  const approvedNews = await readJson(approvedNewsPath, []);
+  return {
+    siteMeta: parseExport(siteData, "siteMeta"),
+    floorplanLibrary: parseExport(siteData, "floorplanLibrary"),
+    answerFaq: parseExport(siteData, "answerEngineFaq"),
+    researchNewsFeed: parseExport(siteData, "researchNewsFeed"),
+    projectFacts: parseExport(siteData, "projectFacts"),
+    prerenderRoutes: parseExport(siteData, "prerenderRoutes"),
+    approvedNews: approvedNews.filter((item) => item.status === "published"),
+  };
 }
 
-async function loadStaticPayload() {
+async function readJson(filePath, fallback) {
   try {
-    return {
-      answerFaq: JSON.parse(await fs.readFile(answerFaqPath, "utf8")),
-    };
+    return JSON.parse(await fs.readFile(filePath, "utf8"));
   } catch {
-    return { answerFaq: [] };
+    return fallback;
   }
+}
+
+function parseExport(siteData, name) {
+  const match = siteData.match(new RegExp(`export const ${name} = ([\\s\\S]*?) as const;`));
+  if (!match) {
+    throw new Error(`Could not find ${name} export in src/generated/siteData.ts`);
+  }
+  return JSON.parse(match[1]);
 }
 
 function renderRouteHtml(template, route, staticPayload) {
   const canonical = `${baseUrl}${canonicalPathForRoute(route.path)}`;
   const staticContent = renderStaticRouteContent(route, staticPayload);
+  const schema = buildRouteSchema(route, staticPayload, canonical);
   let html = template
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(route.title)}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(route.description)}" />`)
@@ -58,7 +93,11 @@ function renderRouteHtml(template, route, staticPayload) {
     .replace(/<meta name="twitter:image" content="[^"]*" \/>/, `<meta name="twitter:image" content="${escapeHtml(route.ogImage)}" />`)
     .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${escapeHtml(canonical)}" />`);
 
-  html = html.replace('<div id="app"></div>', `<div id="app">${staticContent}</div><script>window.__WPB_PRERENDER_PATH__=${JSON.stringify(route.path)};</script>`);
+  html = html.replace("</head>", `  <script type="application/ld+json">${jsonForHtml(schema)}</script>\n  </head>`);
+  html = html.replace(
+    '<div id="app"></div>',
+    `<div id="app">${staticContent}</div><script>window.__WPB_PRERENDER_PATH__=${JSON.stringify(route.path)};</script>`,
+  );
   return html;
 }
 
@@ -71,45 +110,342 @@ function canonicalPathForRoute(routePath) {
   return routePath;
 }
 
-function renderStaticRouteContent(route, staticPayload) {
-  if (route.path !== "/answers/") {
-    return "";
-  }
+function renderStaticRouteContent(route, payload) {
+  const routeKind = routeKindForPath(route.path);
+  if (routeKind.type === "project") return renderProjectRoute(route, payload, routeKind.slug);
+  if (routeKind.type === "corridor") return renderCorridorRoute(route, payload, routeKind.slug);
+  if (routeKind.type === "update") return renderUpdateRoute(route, payload, routeKind.slug);
+  if (routeKind.type === "market-note") return renderMarketNoteRoute(route, routeKind.slug);
+  if (route.path === "/") return renderHomeRoute(route, payload);
+  if (route.path === "/buildings/") return renderBuildingsRoute(route, payload);
+  if (route.path === "/compare/") return renderCompareRoute(route, payload);
+  if (route.path === "/floorplans/") return renderFloorplansRoute(route, payload);
+  if (route.path === "/answers/") return renderAnswersRoute(route, payload);
+  if (route.path === "/updates/") return renderUpdatesIndex(route, payload);
+  if (route.path === "/market-notes/") return renderMarketNotesIndex(route, payload);
+  return renderSimpleRoute(route);
+}
 
-  const faq = Array.isArray(staticPayload.answerFaq) ? staticPayload.answerFaq : [];
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
-      "@type": "Question",
-      name: gatekeeperText(item.question),
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: gatekeeperText(item.answer),
-      },
-    })),
-  };
+function routeKindForPath(routePath) {
+  const project = routePath.match(/^\/projects\/([^/]+)\/$/);
+  if (project) return { type: "project", slug: project[1] };
+  const corridor = routePath.match(/^\/corridors\/([^/]+)\/$/);
+  if (corridor) return { type: "corridor", slug: corridor[1] };
+  const update = routePath.match(/^\/updates\/([^/]+)\/$/);
+  if (update) return { type: "update", slug: update[1] };
+  const note = routePath.match(/^\/market-notes\/([^/]+)\/$/);
+  if (note) return { type: "market-note", slug: note[1] };
+  return { type: "page" };
+}
 
-  return `
-    <main class="static-prerender" data-static-prerender="answers">
+function renderHomeRoute(route, payload) {
+  const projects = priorityProjectFacts(payload).slice(0, 12);
+  return pageShell(
+    "home",
+    "West Palm Beach New Construction Condos",
+    route.description,
+    `
       <section>
-        <p>Buyer Q&amp;A</p>
-        <h1>West Palm Beach new-construction answers with reviewed context.</h1>
+        <h2>Buyer-ready project directory</h2>
+        <p>Use this site to compare West Palm Beach new-construction condo buildings by corridor, status, floor-plan availability, source confidence, and current buyer verification needs.</p>
+        ${projectCards(projects)}
+      </section>
+      <section>
+        <h2>Core buyer paths</h2>
+        <ul>
+          <li><a href="/buildings/">Compare tracked buildings</a></li>
+          <li><a href="/floorplans/">Browse released floorplan records</a></li>
+          <li><a href="/answers/">Read direct buyer answers</a></li>
+          <li><a href="/methodology/">Review the source methodology</a></li>
+        </ul>
+      </section>
+      ${renderLatestUpdates(payload)}
+    `,
+  );
+}
+
+function renderBuildingsRoute(route, payload) {
+  return pageShell(
+    "buildings",
+    "West Palm Beach New Construction Buildings",
+    route.description,
+    `
+      <section>
+        <h2>Tracked building entities</h2>
+        <p>Each project page is the canonical entity page for that building or benchmark. Public details are useful for orientation, but pricing, availability, incentives, fees, square footage, and timing require current buyer-side confirmation.</p>
+        ${projectCards(payload.projectFacts)}
+      </section>
+    `,
+  );
+}
+
+function renderCompareRoute(route, payload) {
+  const rows = priorityProjectFacts(payload).slice(0, 16);
+  return pageShell(
+    "compare",
+    "Compare West Palm Beach New Construction Condos",
+    route.description,
+    `
+      <section>
+        <h2>Comparison snapshot</h2>
+        <p>Start with corridor, project status, delivery assumptions, released floorplans, and what still needs direct verification. This table is a crawler-readable companion to the interactive comparison tool.</p>
+        <table>
+          <thead><tr><th>Building</th><th>Corridor</th><th>Status</th><th>Delivery</th><th>Floorplans</th><th>Verification note</th></tr></thead>
+          <tbody>
+            ${rows.map((project) => {
+              const floorplans = floorplanForProject(payload, project.projectId);
+              return `<tr>
+                <td><a href="${projectPath(project)}">${publicText(project.name)}</a></td>
+                <td>${publicText(project.area || "West Palm Beach")}</td>
+                <td>${publicText(project.facts?.status || project.pageStatus || "Needs verification")}</td>
+                <td>${publicText(project.facts?.completion || "Needs verification")}</td>
+                <td>${floorplans?.count ? `${floorplans.count} records` : "Request current packet"}</td>
+                <td>${publicText(firstVerificationNote(project))}</td>
+              </tr>`;
+            }).join("")}
+          </tbody>
+        </table>
+      </section>
+    `,
+  );
+}
+
+function renderFloorplansRoute(route, payload) {
+  const projects = payload.floorplanLibrary.filter((project) => project.count > 0);
+  return pageShell(
+    "floorplans",
+    "West Palm Beach Condo Floor Plans",
+    route.description,
+    `
+      <section>
+        <h2>Released floorplan records</h2>
+        <p>Floorplan links and PDFs are starting points for buyer diligence. Before relying on a plan, confirm current availability, stack, view exposure, pricing, fees, and whether the plan is still contractable.</p>
+        ${projects.map((project) => `
+          <article id="floorplans-${escapeHtml(project.projectId)}">
+            <h3>${publicText(project.name)}</h3>
+            <p>${project.count} floorplan records currently tracked. ${publicText(project.missingNote || "Request the current buyer packet before relying on any public floorplan record.")}</p>
+            <ul>
+              ${project.plans.slice(0, 8).map((plan) => `<li><a href="${safeHref(plan.href || plan.sourceUrl || "#")}">${publicText(plan.title)}</a> - ${publicText(plan.status || plan.sourceUse || "Floorplan record")}</li>`).join("")}
+            </ul>
+          </article>
+        `).join("")}
+      </section>
+    `,
+  );
+}
+
+function renderAnswersRoute(route, payload) {
+  const faq = Array.isArray(payload.answerFaq) ? payload.answerFaq : [];
+  return pageShell(
+    "answers",
+    "West Palm Beach new-construction answers with reviewed context",
+    route.description,
+    `
+      <section>
+        <h2>Direct buyer answers</h2>
         <p>Current availability, pricing, incentives, square footage, and delivery dates require current buyer-side confirmation before reliance.</p>
       </section>
-      ${faq
-        .map(
-          (item) => `
-            <article id="${escapeHtml(item.id)}">
-              <h2>${publicText(item.question)}</h2>
-              <p>${publicText(item.answer)}</p>
-              ${renderStaticCitations(item)}
-            </article>
-          `,
-        )
-        .join("")}
-      <script type="application/ld+json">${JSON.stringify(faqSchema).replace(/</g, "\\u003c")}</script>
+      ${faq.map((item) => `
+        <article id="${escapeHtml(item.id)}">
+          <h2>${publicText(item.question)}</h2>
+          <p>${publicText(item.answer)}</p>
+          ${renderStaticCitations(item)}
+        </article>
+      `).join("")}
+    `,
+  );
+}
+
+function renderProjectRoute(route, payload, slug) {
+  const project = projectForSlug(payload, slug);
+  if (!project) return renderSimpleRoute(route);
+  const floorplans = floorplanForProject(payload, project.projectId);
+  const facts = project.facts || {};
+  const sources = sourceLinksForProject(project).slice(0, 6);
+  return pageShell(
+    `project-${slug}`,
+    project.name,
+    route.description,
+    `
+      <section>
+        <h2>Bottom line</h2>
+        <p>${publicText(project.name)} is tracked as a ${publicText(project.area || "West Palm Beach")} project page with ${publicText(project.pageStatus || "buyer-guide")} status. Use this page for orientation, then verify current pricing, availability, incentives, fees, floor-plan release status, square footage, delivery timing, and contract terms before relying on any public summary.</p>
+      </section>
+      <section>
+        <h2>Key facts to verify</h2>
+        <dl>
+          ${factRow("Address", facts.address)}
+          ${factRow("Status", facts.status || project.pageStatus)}
+          ${factRow("Residences", facts.residences)}
+          ${factRow("Stories", facts.stories)}
+          ${factRow("Delivery", facts.completion)}
+          ${factRow("Pricing", facts.pricing)}
+          ${factRow("Project team", facts.team)}
+          ${factRow("Floorplans", floorplans?.count ? `${floorplans.count} records tracked` : "Request current packet")}
+        </dl>
+      </section>
+      <section>
+        <h2>Why this page matters</h2>
+        <p>This page gives AI crawlers and buyers one stable entity page for ${publicText(project.name)}. It separates sourced facts from items that need confirmation, links the building to its West Palm Beach corridor, and keeps the next step focused on current buyer-side verification.</p>
+      </section>
+      <section>
+        <h2>Source basis</h2>
+        <p>Source counts: ${project.sourceCounts?.official ?? 0} official, ${project.sourceCounts?.reporting ?? 0} reporting, ${project.sourceCounts?.other ?? 0} other. Conflicts and gaps are preserved for buyer review.</p>
+        ${sources.length ? `<ul>${sources.map((href) => `<li><a href="${safeHref(href)}">${publicText(sourceLabel(href))}</a></li>`).join("")}</ul>` : "<p>Needs source refresh before adding more detail.</p>"}
+      </section>
+      ${renderConflictAndGapSection(project)}
+    `,
+  );
+}
+
+function renderCorridorRoute(route, payload, slug) {
+  const corridor = corridorDetails[slug] || { label: route.title, summary: route.description };
+  const projects = payload.projectFacts.filter((project) => normalize(project.area).includes(normalize(corridor.label)));
+  return pageShell(
+    `corridor-${slug}`,
+    `${corridor.label} Condos`,
+    route.description,
+    `
+      <section>
+        <h2>Bottom line</h2>
+        <p>${publicText(corridor.summary)}</p>
+      </section>
+      <section>
+        <h2>Tracked projects in this corridor</h2>
+        ${projectCards(projects)}
+      </section>
+    `,
+  );
+}
+
+function renderUpdateRoute(route, payload, slug) {
+  const item = payload.approvedNews.find((news) => (news.slug || news.id) === slug) ||
+    payload.researchNewsFeed.find((news) => news.id === slug);
+  if (!item) return renderSimpleRoute(route);
+  const sections = Array.isArray(item.bodySections) ? item.bodySections : [];
+  return pageShell(
+    `update-${slug}`,
+    item.title,
+    item.description || item.summary || route.description,
+    `
+      <article>
+        <p>Published ${publicText(item.publishedAt || item.datePublished || "current review")} from ${publicText(item.sourceName || "reviewed source")}.</p>
+        <p>${publicText(item.deck || item.summary || item.rewrittenSummary || route.description)}</p>
+        ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(section.body)}</p></section>`).join("")}
+        ${item.whyItMatters ? `<section><h2>Why it matters</h2><p>${publicText(item.whyItMatters)}</p></section>` : ""}
+        ${item.buyerContext ? `<section><h2>Buyer context</h2><p>${publicText(item.buyerContext)}</p></section>` : ""}
+        <section><h2>Source</h2><p><a href="${safeHref(item.canonicalUrl || item.sourceUrl || "#")}">${publicText(item.sourceName || "Original source")}</a>. Verify current project details before buyer reliance.</p></section>
+      </article>
+    `,
+  );
+}
+
+function renderUpdatesIndex(route, payload) {
+  return pageShell(
+    "updates",
+    "West Palm Beach Condo Updates",
+    route.description,
+    `
+      <section>
+        <h2>Published updates</h2>
+        <p>Updates connect buyer-facing project pages to source-linked reporting, planning, financing, construction, and sales signals.</p>
+        ${payload.approvedNews.slice(0, 12).map((item) => `
+          <article>
+            <h3><a href="/updates/${escapeHtml(item.slug || item.id)}/">${publicText(item.title)}</a></h3>
+            <p>${publicText(item.description || item.summary || item.deck || "West Palm Beach project update with source attribution.")}</p>
+            <p>Source: ${publicText(item.sourceName)}. Published: ${publicText(item.publishedAt || item.sourcePublishedAt || "current review")}.</p>
+          </article>
+        `).join("")}
+      </section>
+    `,
+  );
+}
+
+function renderMarketNoteRoute(route, slug) {
+  return pageShell(
+    `market-note-${slug}`,
+    route.title.replace(/\s+\|\s+.*$/, ""),
+    route.description,
+    `
+      <article>
+        <h2>Bottom line</h2>
+        <p>${publicText(route.description)} This guide is buyer education, not a substitute for current building-specific pricing, availability, fee, or contract verification.</p>
+        <h2>How to use this guidance</h2>
+        <p>Use the guidance to frame questions before comparing West Palm Beach buildings. Then check project pages, current floor-plan packets, source-linked updates, and Brooke Snader / Douglas Elliman buyer-side review for the details that can change.</p>
+        <h2>Verification note</h2>
+        <p>Before touring or relying on a public summary, verify current availability, incentives, carrying costs, square footage, delivery timing, and whether a building's public packet has changed.</p>
+      </article>
+    `,
+  );
+}
+
+function renderMarketNotesIndex(route, payload) {
+  const notes = payload.prerenderRoutes.filter((item) => item.path.startsWith("/market-notes/") && item.path !== "/market-notes/");
+  return pageShell(
+    "market-notes",
+    "West Palm Beach Condo Guidance",
+    route.description,
+    `
+      <section>
+        <h2>Buyer guidance library</h2>
+        <p>These evergreen guides explain how to compare West Palm Beach new-construction condos without relying on brochure language alone.</p>
+        ${notes.map((note) => `<article><h3><a href="${safeHref(note.path)}">${publicText(note.title)}</a></h3><p>${publicText(note.description)}</p></article>`).join("")}
+      </section>
+    `,
+  );
+}
+
+function renderSimpleRoute(route) {
+  return pageShell(
+    route.path.replace(/[^a-z0-9]+/gi, "-"),
+    route.title.replace(/\s+\|\s+.*$/, ""),
+    route.description,
+    `
+      <section>
+        <h2>Page summary</h2>
+        <p>${publicText(route.description)} This page is part of WPB New Construction's source-backed buyer guide for West Palm Beach condo research.</p>
+        <p>Use it with the project pages, floorplan library, market updates, and inquiry route when current pricing, availability, incentives, square footage, fees, or delivery timing matters.</p>
+      </section>
+    `,
+  );
+}
+
+function pageShell(label, h1, intro, body) {
+  return `
+    <main class="static-prerender" data-static-prerender="${escapeHtml(label)}">
+      <section>
+        <p>WPB New Construction</p>
+        <h1>${publicText(h1)}</h1>
+        <p>${publicText(intro)}</p>
+      </section>
+      ${body}
     </main>
+  `;
+}
+
+function projectCards(projects) {
+  if (!projects.length) return "<p>No matching projects are currently published for this route.</p>";
+  return `
+    <div>
+      ${projects.map((project) => `
+        <article>
+          <h3><a href="${projectPath(project)}">${publicText(project.name)}</a></h3>
+          <p>${publicText(project.area || "West Palm Beach")} - ${publicText(project.facts?.status || project.pageStatus || "Status needs verification")}</p>
+          <p>${publicText(firstVerificationNote(project))}</p>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderLatestUpdates(payload) {
+  const updates = payload.approvedNews.slice(0, 4);
+  if (!updates.length) return "";
+  return `
+    <section>
+      <h2>Current updates</h2>
+      ${updates.map((item) => `<article><h3><a href="/updates/${escapeHtml(item.slug || item.id)}/">${publicText(item.title)}</a></h3><p>${publicText(item.summary || item.description || item.deck || "Source-linked West Palm Beach project update.")}</p></article>`).join("")}
+    </section>
   `;
 }
 
@@ -121,30 +457,242 @@ function renderStaticCitations(item) {
   }
 
   return `
-    <p>Review basis: ${citations
-        .map((source) => publicText(source.label))
-      .join("; ")}. Checked: ${escapeHtml(latestDate)}. Buyer note: verify pricing, availability, and contract details before relying on this.</p>
+    <p>Review basis: ${citations.map((source) => publicText(source.label)).join("; ")}. Checked: ${escapeHtml(latestDate)}. Buyer note: verify pricing, availability, and contract details before relying on this.</p>
     <ul>
-      ${citations
-        .map(
-          (source) => `
-            <li>
-              <strong>${publicText(source.label)}</strong>
-              <span>${publicText(source.supportsClaim ?? "Source context")}: ${publicText(source.claimText ?? source.note ?? "")}</span>
-            </li>
-          `,
-        )
-        .join("")}
+      ${citations.map((source) => `<li><strong>${publicText(source.label)}</strong> ${publicText(source.supportsClaim ?? "Source context")}: ${publicText(source.claimText ?? source.note ?? "")}</li>`).join("")}
     </ul>
   `;
 }
 
+function factRow(label, value) {
+  return `<div><dt>${publicText(label)}</dt><dd>${publicText(value || "Needs verification")}</dd></div>`;
+}
+
+function renderConflictAndGapSection(project) {
+  const items = [...(project.conflicts || []), ...(project.gaps || [])].filter(Boolean);
+  if (!items.length) return "";
+  return `
+    <section>
+      <h2>Items to confirm</h2>
+      <ul>${items.map((item) => `<li>${publicText(item)}</li>`).join("")}</ul>
+    </section>
+  `;
+}
+
+function priorityProjectFacts(payload) {
+  return [...payload.projectFacts].sort((a, b) => {
+    const aRank = a.pageStatus === "Primary condo page" ? 0 : a.pageStatus === "Candidate project page" ? 1 : 2;
+    const bRank = b.pageStatus === "Primary condo page" ? 0 : b.pageStatus === "Candidate project page" ? 1 : 2;
+    return aRank - bRank || a.name.localeCompare(b.name);
+  });
+}
+
+function floorplanForProject(payload, projectId) {
+  const aliases = new Set([projectId]);
+  if (projectId === "south-flagler-house-north" || projectId === "south-flagler-house-south") aliases.add("south-flagler-house");
+  return payload.floorplanLibrary.find((project) => aliases.has(project.projectId));
+}
+
+function projectForSlug(payload, slug) {
+  const id = projectAliases.get(slug) || slug;
+  return payload.projectFacts.find((project) => project.projectId === id || project.projectId === slug);
+}
+
+function projectPath(project) {
+  const publicId = project.projectId === "south-flagler-house-north" || project.projectId === "south-flagler-house-south"
+    ? "south-flagler-house"
+    : project.projectId;
+  return `/projects/${publicId}/`;
+}
+
+function firstVerificationNote(project) {
+  return project.conflicts?.[0] || project.gaps?.[0] || "Verify current pricing, availability, fees, incentives, square footage, delivery timing, and contract terms.";
+}
+
+function sourceLinksForProject(project) {
+  return [
+    project.officialWebsite,
+    ...(project.highValueSources || []),
+    ...(project.sourceBuckets?.official || []),
+    ...(project.sourceBuckets?.reporting || []),
+  ].filter(Boolean).filter((href, index, list) => list.indexOf(href) === index);
+}
+
+function sourceLabel(href) {
+  try {
+    return new URL(href).hostname.replace(/^www\./, "");
+  } catch {
+    return href;
+  }
+}
+
+function buildRouteSchema(route, payload, canonical) {
+  const routeKind = routeKindForPath(route.path);
+  const baseGraph = [
+    {
+      "@type": payload.siteMeta.publisher?.type || "RealEstateAgent",
+      "@id": `${baseUrl}/#publisher`,
+      name: payload.siteMeta.publisher?.name || "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
+      url: baseUrl,
+      areaServed: payload.siteMeta.publisher?.areaServed || "West Palm Beach, Florida",
+    },
+    {
+      "@type": "Person",
+      "@id": `${baseUrl}/#advisor`,
+      name: payload.siteMeta.expertByline?.name || "Brooke Matthew Snader",
+      jobTitle: payload.siteMeta.expertByline?.title || "Licensed Real Estate Broker Associate",
+      worksFor: { "@id": `${baseUrl}/#publisher` },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${baseUrl}/#website`,
+      name: payload.siteMeta.siteName || "WPB New Construction",
+      url: baseUrl,
+      publisher: { "@id": `${baseUrl}/#publisher` },
+    },
+    {
+      "@type": route.path === "/" ? "CollectionPage" : "WebPage",
+      "@id": `${canonical}#webpage`,
+      name: route.title,
+      url: canonical,
+      description: route.description,
+      isPartOf: { "@id": `${baseUrl}/#website` },
+      reviewedBy: { "@id": `${baseUrl}/#advisor` },
+    },
+    breadcrumbSchema(route, canonical),
+  ];
+
+  const routeGraph = [];
+  if (routeKind.type === "project") {
+    const project = projectForSlug(payload, routeKind.slug);
+    if (project) routeGraph.push(projectSchema(project));
+  } else if (routeKind.type === "corridor") {
+    routeGraph.push(itemListSchema(canonical, "Tracked corridor projects", payload.projectFacts.filter((project) => normalize(project.area).includes(normalize(corridorDetails[routeKind.slug]?.label || ""))).map((project) => ({ name: project.name, url: `${baseUrl}${projectPath(project)}` }))));
+  } else if (route.path === "/" || route.path === "/buildings/" || route.path === "/compare/") {
+    routeGraph.push(itemListSchema(canonical, "West Palm Beach New Construction Projects", priorityProjectFacts(payload).map((project) => ({ name: project.name, url: `${baseUrl}${projectPath(project)}` }))));
+  } else if (route.path === "/floorplans/") {
+    routeGraph.push(itemListSchema(canonical, "West Palm Beach New Construction Floorplans", payload.floorplanLibrary.filter((project) => project.count > 0).map((project) => ({ name: project.name, url: `${baseUrl}/floorplans/#floorplans-${project.projectId}` }))));
+  } else if (route.path === "/answers/") {
+    routeGraph.push(faqSchema(payload.answerFaq));
+  } else if (routeKind.type === "update") {
+    const item = payload.approvedNews.find((news) => (news.slug || news.id) === routeKind.slug);
+    if (item) routeGraph.push(newsArticleSchema(item, canonical));
+  } else if (routeKind.type === "market-note") {
+    routeGraph.push(articleSchema(route, canonical));
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [...baseGraph, ...routeGraph],
+  };
+}
+
+function breadcrumbSchema(route, canonical) {
+  const parts = [{ name: "Home", item: `${baseUrl}/` }];
+  if (route.path !== "/") {
+    const segments = route.path.split("/").filter(Boolean);
+    if (segments[0] === "projects") parts.push({ name: "Buildings", item: `${baseUrl}/buildings/` });
+    if (segments[0] === "updates") parts.push({ name: "Updates", item: `${baseUrl}/updates/` });
+    if (segments[0] === "market-notes") parts.push({ name: "Guidance", item: `${baseUrl}/market-notes/` });
+    if (segments[0] === "corridors") parts.push({ name: "Corridors", item: `${baseUrl}/buildings/` });
+    parts.push({ name: route.title.replace(/\s+\|\s+.*$/, ""), item: canonical });
+  }
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: parts.map((item, index) => ({ "@type": "ListItem", position: index + 1, ...item })),
+  };
+}
+
+function projectSchema(project) {
+  const facts = project.facts || {};
+  return {
+    "@type": "Place",
+    "@id": `${baseUrl}${projectPath(project)}#project`,
+    name: project.name,
+    url: `${baseUrl}${projectPath(project)}`,
+    description: `${project.name} buyer guide for ${project.area || "West Palm Beach"} with source-backed facts and verification notes.`,
+    address: facts.address ? {
+      "@type": "PostalAddress",
+      streetAddress: facts.address,
+      addressLocality: "West Palm Beach",
+      addressRegion: "FL",
+      addressCountry: "US",
+    } : undefined,
+    containedInPlace: { "@type": "City", name: "West Palm Beach" },
+    subjectOf: { "@id": `${baseUrl}${projectPath(project)}#webpage` },
+    reviewedBy: { "@id": `${baseUrl}/#advisor` },
+  };
+}
+
+function itemListSchema(canonical, name, items) {
+  return {
+    "@type": "ItemList",
+    "@id": `${canonical}#itemlist`,
+    name,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      url: item.url,
+    })),
+  };
+}
+
+function faqSchema(faq) {
+  return {
+    "@type": "FAQPage",
+    "@id": `${baseUrl}/answers/#faq`,
+    name: "West Palm Beach New Construction Answers",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: gatekeeperText(item.question),
+      acceptedAnswer: { "@type": "Answer", text: gatekeeperText(item.answer) },
+    })),
+  };
+}
+
+function newsArticleSchema(item, canonical) {
+  return {
+    "@type": "NewsArticle",
+    "@id": `${canonical}#article`,
+    headline: item.title,
+    description: item.description || item.summary || item.deck,
+    datePublished: item.publishedAt || item.sourcePublishedAt,
+    dateModified: item.fetchedAt || item.publishedAt,
+    author: { "@id": `${baseUrl}/#advisor` },
+    publisher: { "@id": `${baseUrl}/#publisher` },
+    mainEntityOfPage: canonical,
+  };
+}
+
+function articleSchema(route, canonical) {
+  return {
+    "@type": "Article",
+    "@id": `${canonical}#article`,
+    headline: route.title.replace(/\s+\|\s+.*$/, ""),
+    description: route.description,
+    author: { "@id": `${baseUrl}/#advisor` },
+    publisher: { "@id": `${baseUrl}/#publisher` },
+    mainEntityOfPage: canonical,
+  };
+}
+
 function escapeHtml(value) {
-  return String(value)
+  return String(value ?? "")
     .replace(/&/g, "&amp;")
     .replace(/"/g, "&quot;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+}
+
+function safeHref(value) {
+  const href = String(value ?? "");
+  if (!href || /^(?:javascript|data):/i.test(href)) return "#";
+  return escapeHtml(href);
+}
+
+function normalize(value) {
+  return String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
 }
 
 function gatekeeperText(value) {
@@ -168,6 +716,10 @@ function gatekeeperText(value) {
 
 function publicText(value) {
   return escapeHtml(gatekeeperText(value));
+}
+
+function jsonForHtml(value) {
+  return JSON.stringify(value).replace(/</g, "\\u003c");
 }
 
 main().catch((error) => {
