@@ -5106,7 +5106,7 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
-    "path": "/corridors/downtown/",
+    "path": "/corridors/downtown-west-palm-beach/",
     "title": "Downtown West Palm Beach Condos | Buyer Guide",
     "description": "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"

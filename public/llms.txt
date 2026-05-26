@@ -23,7 +23,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 ## Corridor Pages
 
 - North Flagler condos: /corridors/north-flagler/
-- Downtown West Palm Beach condos: /corridors/downtown/
+- Downtown West Palm Beach condos: /corridors/downtown-west-palm-beach/
 - South Flagler condos: /corridors/south-flagler/
 
 ## Priority Project Pages
@@ -85,7 +85,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Verify New Construction Pricing | WPB: /market-notes/what-buyers-should-verify-before-trusting-pricing/
 - Downtown WPB Condo Corridors Explained: /market-notes/downtown-west-palm-beach-condo-corridors-explained/
 - North Flagler Condos | West Palm Beach Buyer Guide: /corridors/north-flagler/
-- Downtown West Palm Beach Condos | Buyer Guide: /corridors/downtown/
+- Downtown West Palm Beach Condos | Buyer Guide: /corridors/downtown-west-palm-beach/
 - South Flagler Condos | West Palm Beach Buyer Guide: /corridors/south-flagler/
 - How We Verify | WPB New Construction: /methodology/
 - Fair Housing | WPB New Construction: /fair-housing/

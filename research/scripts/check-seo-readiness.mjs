@@ -17,7 +17,7 @@ const requiredRoutes = [
   "/methodology/",
   "/inquire/",
   "/corridors/north-flagler/",
-  "/corridors/downtown/",
+  "/corridors/downtown-west-palm-beach/",
   "/corridors/south-flagler/",
   "/projects/olara/",
   "/projects/rosewood/",

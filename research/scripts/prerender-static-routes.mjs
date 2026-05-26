@@ -24,6 +24,12 @@ const corridorDetails = {
     summary:
       "Downtown West Palm Beach is the walkability lane, where buyers weigh restaurant access, NORA and The Square proximity, hotel-style service, parking, noise, and district phasing against direct waterfront exposure.",
   },
+  "downtown-west-palm-beach": {
+    label: "Downtown",
+    canonicalSlug: "downtown-west-palm-beach",
+    summary:
+      "Downtown West Palm Beach is the walkability lane, where buyers weigh restaurant access, NORA and The Square proximity, hotel-style service, parking, noise, and district phasing against direct waterfront exposure.",
+  },
   "south-flagler": {
     label: "South Flagler",
     summary:
@@ -184,30 +190,36 @@ function renderBuildingsRoute(route, payload) {
 
 function renderCompareRoute(route, payload) {
   const rows = priorityProjectFacts(payload).slice(0, 16);
+  const priorityRows = comparisonAuthorityProjects(payload);
   return pageShell(
     "compare",
     "Compare West Palm Beach New Construction Condos",
     route.description,
     `
       <section>
+        <h2>Bottom line</h2>
+        <p>Start with corridor fit, then compare sourced status, delivery language, released floorplan depth, and open verification notes. North Flagler is the main waterfront comparison set, Downtown is the walkability lane, and South Flagler is the quieter waterfront lane. Pricing, incentives, fees, and exact availability should be confirmed from the current buyer packet.</p>
+      </section>
+      <section>
         <h2>Comparison snapshot</h2>
         <p>Start with corridor, project status, delivery assumptions, released floorplans, and what still needs direct verification. This table is a crawler-readable companion to the interactive comparison tool.</p>
-        <table>
-          <thead><tr><th>Building</th><th>Corridor</th><th>Status</th><th>Delivery</th><th>Floorplans</th><th>Verification note</th></tr></thead>
-          <tbody>
-            ${rows.map((project) => {
-              const floorplans = floorplanForProject(payload, project.projectId);
-              return `<tr>
-                <td><a href="${projectPath(project)}">${publicText(project.name)}</a></td>
-                <td>${publicText(project.area || "West Palm Beach")}</td>
-                <td>${publicText(project.facts?.status || project.pageStatus || "Needs verification")}</td>
-                <td>${publicText(project.facts?.completion || "Needs verification")}</td>
-                <td>${floorplans?.count ? `${floorplans.count} records` : "Request current packet"}</td>
-                <td>${publicText(firstVerificationNote(project))}</td>
-              </tr>`;
-            }).join("")}
-          </tbody>
-        </table>
+        ${renderStaticComparisonTable(payload, rows)}
+      </section>
+      <section>
+        <h2>Best-fit buyer lanes</h2>
+        <ul>
+          <li><a href="/corridors/north-flagler/">North Flagler</a>: waterfront shortlist with the deepest active comparison depth.</li>
+          <li><a href="/corridors/downtown-west-palm-beach/">Downtown West Palm Beach</a>: walkability, restaurants, NORA, The Square, and district energy.</li>
+          <li><a href="/corridors/south-flagler/">South Flagler</a>: quieter waterfront positioning, privacy, and Palm Beach proximity.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Priority building comparison</h2>
+        ${renderStaticComparisonTable(payload, priorityRows)}
+      </section>
+      <section>
+        <h2>Buyer verification FAQ</h2>
+        ${comparisonFaqForStatic().map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
       </section>
     `,
   );
@@ -338,11 +350,23 @@ function renderCorridorRoute(route, payload, slug) {
     `
       <section>
         <h2>Bottom line</h2>
-        <p>${publicText(corridor.summary)}</p>
+        <p>${publicText(corridor.summary)} Compare the buildings below by sourced status, delivery language, released floorplan depth, and open verification notes before treating two projects as substitutes.</p>
+      </section>
+      <section>
+        <h2>${publicText(corridor.label)} comparison table</h2>
+        ${renderStaticComparisonTable(payload, projects)}
       </section>
       <section>
         <h2>Tracked projects in this corridor</h2>
         ${projectCards(projects)}
+      </section>
+      <section>
+        <h2>Buyer fit and verification notes</h2>
+        <p>${publicText(corridorBestFit(slug))} Confirm current pricing, availability, incentives, fees, floor-plan release status, stack, exposure, delivery timing, and contract terms before making a purchase decision.</p>
+      </section>
+      <section>
+        <h2>FAQ</h2>
+        ${corridorFaqForStatic(corridor, projects).map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
       </section>
     `,
   );
@@ -537,6 +561,99 @@ function projectPath(project) {
 
 function firstVerificationNote(project) {
   return project.conflicts?.[0] || project.gaps?.[0] || "Verify current pricing, availability, fees, incentives, square footage, delivery timing, and contract terms.";
+}
+
+function comparisonAuthorityProjects(payload) {
+  const priorityIds = [
+    "olara",
+    "south-flagler-house-north",
+    "ritz-carlton-wpb",
+    "shorecrest",
+    "alba-palm-beach",
+    "berkeley",
+    "nora-house",
+    "forte-on-flagler",
+    "mr-c",
+    "maison-dor",
+  ];
+  const byId = new Map(payload.projectFacts.map((project) => [project.projectId, project]));
+  return priorityIds.map((projectId) => byId.get(projectId)).filter(Boolean);
+}
+
+function renderStaticComparisonTable(payload, projects) {
+  return `
+    <table>
+      <thead><tr><th>Building</th><th>Corridor</th><th>Status</th><th>Delivery</th><th>Floorplans</th><th>Best fit</th><th>Verification note</th></tr></thead>
+      <tbody>
+        ${projects.map((project) => {
+          const floorplans = floorplanForProject(payload, project.projectId);
+          return `<tr>
+            <td><a href="${projectPath(project)}">${publicText(project.name)}</a></td>
+            <td>${publicText(project.area || "West Palm Beach")}</td>
+            <td>${publicText(project.facts?.status || project.pageStatus || "Needs verification")}</td>
+            <td>${publicText(project.facts?.completion || "Needs verification")}</td>
+            <td>${floorplans?.count ? `${floorplans.count} records` : "Request current packet"}</td>
+            <td>${publicText(staticBuyerFit(project))}</td>
+            <td>${publicText(firstVerificationNote(project))}</td>
+          </tr>`;
+        }).join("")}
+      </tbody>
+    </table>
+  `;
+}
+
+function staticBuyerFit(project) {
+  if (floorplanSignals(project)) return "Floor-plan-first buyer";
+  if (normalize(project.area).includes("downtown")) return "Walkability buyer";
+  if (normalize(project.area).includes("flagler")) return "Waterfront buyer";
+  if (/pipeline|planning|proposed/i.test(project.pageStatus || project.facts?.status || "")) return "Early pipeline watcher";
+  return "Buyer-fit review needed";
+}
+
+function floorplanSignals(project) {
+  return /floorplan|floor plan/i.test(`${project.pageStatus || ""} ${project.gaps?.join(" ") || ""}`);
+}
+
+function corridorBestFit(slug) {
+  const key = slug === "downtown-west-palm-beach" ? "downtown" : slug;
+  if (key === "north-flagler") return "North Flagler is best for waterfront buyers who want the deepest active comparison set.";
+  if (key === "south-flagler") return "South Flagler is best for buyers who want quieter waterfront positioning and Palm Beach proximity.";
+  return "Downtown West Palm Beach is best for buyers who prioritize walkability, restaurants, district energy, and hotel-style service.";
+}
+
+function comparisonFaqForStatic() {
+  return [
+    {
+      question: "What is the fastest way to compare West Palm Beach new-construction condos?",
+      answer: "Choose the corridor first, then compare sourced status, delivery language, released floorplans, residence scale, and open verification notes. Current pricing, incentives, fees, and availability should come from the current buyer packet.",
+    },
+    {
+      question: "Can Downtown, North Flagler, and South Flagler projects be compared directly?",
+      answer: "Yes, but they answer different buyer goals. North Flagler is the main waterfront comparison set, Downtown is the walkability lane, and South Flagler is quieter and more residential.",
+    },
+    {
+      question: "What should buyers verify before relying on comparison pages?",
+      answer: "Confirm current pricing, live availability, line and stack, exposure, monthly fees, parking, storage, incentives, delivery timing, contract terms, and whether a public floorplan is still available.",
+    },
+  ];
+}
+
+function corridorFaqForStatic(corridor, projects) {
+  const names = projects.slice(0, 4).map((project) => project.name).join(", ");
+  return [
+    {
+      question: `What is the bottom line on ${corridor.label}?`,
+      answer: `${corridor.label} is a distinct buyer lane in West Palm Beach new construction. Start with ${names || "the tracked project list"}, then confirm current packets before relying on public summaries.`,
+    },
+    {
+      question: `Which ${corridor.label} buildings should buyers compare first?`,
+      answer: names ? `Start with ${names}, then compare project pages, floorplan depth, timing, and open verification notes.` : "Start with the tracked project list, then confirm which buildings have current buyer packets and released floorplans.",
+    },
+    {
+      question: `What should buyers verify in ${corridor.label}?`,
+      answer: "Confirm current pricing, availability, incentives, fees, floor-plan release status, view exposure, delivery timing, and contract terms before making a purchase decision.",
+    },
+  ];
 }
 
 function comparisonProjectsForStatic(payload, project) {

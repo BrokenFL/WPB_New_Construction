@@ -60,7 +60,7 @@ for (const route of priorityRoutes) {
   if (!llms.includes(route)) findings.push(`llms.txt missing route ${route}.`);
 }
 
-for (const route of ["/corridors/north-flagler/", "/corridors/downtown/", "/corridors/south-flagler/"]) {
+for (const route of ["/corridors/north-flagler/", "/corridors/downtown-west-palm-beach/", "/corridors/south-flagler/"]) {
   if (!sitemapRoutes.includes(route)) findings.push(`sitemap.xml missing corridor route ${route}.`);
 }
 

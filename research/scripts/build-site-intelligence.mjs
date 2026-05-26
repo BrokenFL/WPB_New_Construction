@@ -2326,7 +2326,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 ## Corridor Pages
 
 - North Flagler condos: /corridors/north-flagler/
-- Downtown West Palm Beach condos: /corridors/downtown/
+- Downtown West Palm Beach condos: /corridors/downtown-west-palm-beach/
 - South Flagler condos: /corridors/south-flagler/
 
 ## Priority Project Pages
@@ -2488,7 +2488,7 @@ function buildPrerenderRoutes() {
       ogImage: siteMeta.defaultImage,
     },
     {
-      path: "/corridors/downtown/",
+      path: "/corridors/downtown-west-palm-beach/",
       title: "Downtown West Palm Beach Condos | Buyer Guide",
       description: "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
       ogImage: siteMeta.defaultImage,
@@ -2586,7 +2586,7 @@ function renderSitemap(projects) {
     ["compare/", "0.8"],
     ["answers/", "0.9"],
     ["corridors/north-flagler/", "0.8"],
-    ["corridors/downtown/", "0.8"],
+    ["corridors/downtown-west-palm-beach/", "0.8"],
     ["corridors/south-flagler/", "0.8"],
     ["updates/", "0.8"],
     ...updateRoutes.map((item) => [`updates/${item.id}/`, "0.8"]),

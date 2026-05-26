@@ -401,6 +401,7 @@ const productionOrigin = "https://www.wpbnewconstruction.com";
 
 const corridorRoutePaths: Record<string, CorridorKey> = {
   "/corridors/north-flagler/": "north-flagler",
+  "/corridors/downtown-west-palm-beach/": "downtown",
   "/corridors/downtown/": "downtown",
   "/corridors/south-flagler/": "south-flagler",
 };
@@ -4599,6 +4600,7 @@ function renderFeatureCard(asset: MediaAsset) {
 }
 
 function corridorPath(key: CorridorKey) {
+  if (key === "downtown") return "/corridors/downtown-west-palm-beach/";
   return `/corridors/${key}/`;
 }
 
@@ -4784,6 +4786,127 @@ function compareVerificationNeed(project: FeaturedProject) {
   return "Verify line-specific availability, pricing, fees, parking, and delivery assumptions.";
 }
 
+function comparisonAuthorityProjects() {
+  const priorityIds = [
+    "olara",
+    "south-flagler-house",
+    "ritz-carlton-wpb",
+    "shorecrest",
+    "alba-palm-beach",
+    "berkeley",
+    "nora-house",
+    "forte-on-flagler",
+    "mr-c",
+    "maison-dor",
+  ];
+  const byId = new Map(featuredProjects.map((project) => [project.id, project]));
+  return priorityIds.map((projectId) => byId.get(projectId)).filter((project): project is FeaturedProject => Boolean(project));
+}
+
+function renderComparisonAuthoritySections() {
+  const projects = comparisonAuthorityProjects();
+  return `
+    <section class="section compare-answer-section" aria-label="West Palm Beach condo comparison answer">
+      <div class="section-heading">
+        <p class="eyebrow">BLUF</p>
+        <h2>Best first comparison: corridor, timing, floorplans, then current packet.</h2>
+        <p>Start by choosing the buyer lane: North Flagler for the deepest waterfront set, Downtown for walkability and district energy, and South Flagler for quieter waterfront positioning. Then compare only sourced facts: status, delivery language, released floorplan depth, residence scale, and what still needs buyer-side confirmation.</p>
+      </div>
+      ${renderAuthorityComparisonTable(projects)}
+    </section>
+    <section class="section compare-fit-section" aria-label="Best fit explanations for West Palm Beach new construction">
+      <div class="section-heading">
+        <p class="eyebrow">Best Fit</p>
+        <h2>Which lane should a buyer start with?</h2>
+      </div>
+      <div class="profile-grid">
+        ${corridorSections.map((section) => `
+          <article class="profile-card">
+            <span>${publicText(section.label)}</span>
+            <strong>${publicText(corridorBestFit(section.key))}</strong>
+            <p>${publicText(corridorBuyerThesis(section))}</p>
+            <a href="${corridorPath(section.key)}">Review ${publicText(section.label)}</a>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+    <section class="section compare-verification-section" aria-label="Buyer verification notes">
+      <div class="section-heading">
+        <p class="eyebrow">Buyer Verification Notes</p>
+        <h2>What to confirm before comparing buildings as substitutes.</h2>
+      </div>
+      <div class="answer-list">
+        ${comparisonFaq().map((item) => `
+          <article class="answer-block">
+            <h3>${publicText(item.question)}</h3>
+            <p>${publicText(item.answer)}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderAuthorityComparisonTable(projects: FeaturedProject[]) {
+  return `
+    <div class="comparison-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Building</th>
+            <th>Corridor</th>
+            <th>Status</th>
+            <th>Delivery</th>
+            <th>Floorplans</th>
+            <th>Best fit</th>
+            <th>Buyer verification</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${projects.map((project) => {
+            const source = sourceFactForProject(project.id)?.facts;
+            const floorplanProject = getFloorplanProject(project.id);
+            return `
+              <tr>
+                <td><a href="${projectPath(project)}">${publicText(project.name)}</a></td>
+                <td>${publicText(project.corridor)}</td>
+                <td>${publicText(source?.status || project.status || "Needs verification")}</td>
+                <td>${publicText(source?.completion || project.delivery || "Needs verification")}</td>
+                <td>${floorplanProject?.count ? `${floorplanProject.count} tracked records` : "Request current packet"}</td>
+                <td>${publicText(compareBuyerFit(project))}</td>
+                <td>${publicText(compareVerificationNeed(project))}</td>
+              </tr>
+            `;
+          }).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function corridorBestFit(key: CorridorKey) {
+  if (key === "north-flagler") return "Waterfront shortlist with the most active comparison depth.";
+  if (key === "downtown") return "Walkability, restaurants, district energy, and hotel-style service.";
+  return "Quieter waterfront ownership, privacy, and Palm Beach proximity.";
+}
+
+function comparisonFaq() {
+  return [
+    {
+      question: "What is the fastest way to compare West Palm Beach new-construction condos?",
+      answer: "Pick the corridor first, then compare status, delivery language, released floorplans, residence scale, and the open verification notes for each building. Pricing, incentives, fees, and exact availability should come from the current buyer packet.",
+    },
+    {
+      question: "Should North Flagler, Downtown, and South Flagler be compared directly?",
+      answer: "They can be compared, but they answer different buyer goals. North Flagler is the main waterfront comparison set, Downtown is the walkability lane, and South Flagler is quieter and more residential. A useful shortlist usually includes one or two projects from the lane that fits the buyer's daily life.",
+    },
+    {
+      question: "What should be verified before relying on a comparison table?",
+      answer: "Confirm current pricing, live availability, line and stack, exposure, monthly fees, parking, storage, incentives, delivery timing, contract terms, and whether the public floorplan is still available.",
+    },
+  ];
+}
+
 function renderCompareRouteView() {
   const categories = [
     "Corridor",
@@ -4852,6 +4975,7 @@ function renderCompareRouteView() {
           </div>
         </div>
       </section>
+      ${renderComparisonAuthoritySections()}
     </div>
   `;
 }
@@ -4883,6 +5007,7 @@ function renderCorridorRouteView(section: CorridorSection) {
           <a href="/inquire/?lead_capture_context=corridor&message=${encodeURIComponent(`I want help comparing ${section.label} projects.`)}">Request current ${section.label} availability <span aria-hidden="true">↗</span></a>
         </div>
       </section>
+      ${renderCorridorAuthoritySections(section, projects)}
       <section class="project-sort-shell corridor-project-shell">
         <div class="project-sort-header">
           <div>
@@ -4898,6 +5023,51 @@ function renderCorridorRouteView(section: CorridorSection) {
       </section>
     </div>
   `;
+}
+
+function renderCorridorAuthoritySections(section: CorridorSection, projects: FeaturedProject[]) {
+  return `
+    <section class="section corridor-authority-section" aria-label="${section.label} authority summary">
+      <div class="section-heading">
+        <p class="eyebrow">BLUF</p>
+        <h2>How to use ${publicText(section.label)} in a buyer shortlist.</h2>
+        <p>${publicText(section.description)} Use the table below to compare sourced status, delivery language, floorplan depth, and current verification needs before treating any two buildings as interchangeable.</p>
+      </div>
+      ${renderAuthorityComparisonTable(projects)}
+    </section>
+    <section class="section corridor-faq-section" aria-label="${section.label} buyer FAQs">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Buyer questions for ${publicText(section.label)}.</h2>
+      </div>
+      <div class="answer-list">
+        ${corridorFaq(section, projects).map((item) => `
+          <article class="answer-block">
+            <h3>${publicText(item.question)}</h3>
+            <p>${publicText(item.answer)}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function corridorFaq(section: CorridorSection, projects: FeaturedProject[]) {
+  const projectLinks = projects.slice(0, 4).map((project) => project.name).join(", ");
+  return [
+    {
+      question: `What is the bottom line on ${section.label}?`,
+      answer: `${section.label} is a ${corridorBestFit(section.key).toLowerCase()} The current tracked set includes ${projectLinks || "projects that need review"}. Confirm current availability, pricing, fees, delivery timing, and floorplan release status before relying on public summaries.`,
+    },
+    {
+      question: `Which ${section.label} buildings should buyers compare first?`,
+      answer: projectLinks ? `Start with ${projectLinks}, then use project pages and the comparison page to verify floorplans, timing, status, and open confirmation notes.` : "Start with the tracked project list, then confirm which buildings have current buyer packets and released floorplans.",
+    },
+    {
+      question: `What should buyers verify in ${section.label}?`,
+      answer: corridorBuyerQuestions(section.key).join(" "),
+    },
+  ];
 }
 
 function marketNoteForSlug(slug: string) {
