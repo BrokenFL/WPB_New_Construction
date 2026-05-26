@@ -27,7 +27,10 @@ async function main() {
   assert(redirects.includes("/brooke-builder/ / 302") && redirects.includes("/content-studio/ / 302"), "Public Builder redirects are missing.");
   assert(main.includes('"/brooke-builder/"') && main.includes('"/content-studio/"') && main.includes('return "/"'), "App route guard for Builder paths is missing.");
   assert(pkg.scripts?.["qa:builder-remote"] === "node research/scripts/check-builder-remote-safety.mjs", "qa:builder-remote script is missing.");
-  assert(pkg.scripts?.["qa:launch"]?.includes("qa:builder-remote"), "qa:launch must include qa:builder-remote.");
+  assert(
+    `${pkg.scripts?.["qa:launch"] ?? ""} ${pkg.scripts?.["qa:launch:run"] ?? ""}`.includes("qa:builder-remote"),
+    "qa:launch must include qa:builder-remote.",
+  );
 
   if (failures.length) {
     console.error(["Builder remote safety QA failed:", ...failures.map((failure) => `- ${failure}`)].join("\n"));

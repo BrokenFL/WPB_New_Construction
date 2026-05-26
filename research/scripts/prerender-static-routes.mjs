@@ -332,7 +332,7 @@ function renderAnswersRoute(route, payload) {
       `).join("")}
       <section>
         <h2>Buyer-intent answer guides</h2>
-        <p>Use these pages for source-aware buyer questions, then confirm current pricing, availability, fees, floorplan availability, delivery timing, and contract terms before relying on any public summary.</p>
+        <p>Use these pages for reviewed buyer questions, then confirm current pricing, availability, fees, floorplan availability, delivery timing, and contract terms before relying on any public summary.</p>
         ${payload.buyerIntentAnswers.map((answer) => `
           <article>
             <h3><a href="/answers/${escapeHtml(answer.slug)}/">${publicText(answer.question)}</a></h3>

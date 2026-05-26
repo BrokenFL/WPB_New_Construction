@@ -21,7 +21,10 @@ async function main() {
   assert(!app.includes('src="${escapeHtml(imagePath)}"'), "Builder must not render raw image paths into img src.");
   assert(!/\/(?:Users|Volumes)\//.test(html), "Builder HTML must not contain local filesystem image paths.");
   assert(pkg.scripts?.["qa:builder-remote-images"] === "node research/scripts/check-builder-remote-images.mjs", "qa:builder-remote-images script is missing.");
-  assert(pkg.scripts?.["qa:launch"]?.includes("qa:builder-remote-images"), "qa:launch must include qa:builder-remote-images.");
+  assert(
+    `${pkg.scripts?.["qa:launch"] ?? ""} ${pkg.scripts?.["qa:launch:run"] ?? ""}`.includes("qa:builder-remote-images"),
+    "qa:launch must include qa:builder-remote-images.",
+  );
 
   const samplePaths = [
     "/assets/editorial/flagler-waterfront-corridor.jpg",

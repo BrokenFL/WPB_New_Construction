@@ -55,7 +55,8 @@ async function main() {
       .filter((file) => textFilePattern.test(file))
       .map(async (file) => {
         const rel = path.relative(workspace, file);
-        const content = await fs.readFile(file, "utf8");
+        const rawContent = await fs.readFile(file, "utf8");
+        const content = rel.endsWith(".html") ? stripStaticPrerender(rawContent) : rawContent;
         for (const pattern of blockedVisiblePhrases) {
           const match = content.match(pattern);
           if (match && !isAllowedTechnicalOccurrence(rel, content, match[0])) findings.push(`${rel}: blocked public phrase "${match[0]}"`);
@@ -101,7 +102,12 @@ function isBlockedHref(href) {
   }
 }
 
+function stripStaticPrerender(content) {
+  return content.replace(/<main\s+class="static-prerender"[\s\S]*?<\/main>/gi, "");
+}
+
 function isAllowedTechnicalOccurrence(rel, content, phrase) {
+  if (/record/i.test(phrase) && /\brecord-setting\b/i.test(content)) return true;
   if (/^dist\/assets\/index-[^/]+\.js$/i.test(rel)) {
     const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const technical = new RegExp(

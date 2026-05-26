@@ -33,7 +33,10 @@ async function main() {
   assert(css.includes(".visual-drop-box") && css.includes(".is-drop-target"), "Drag/drop styles are missing.");
 
   assert(pkg.scripts?.["qa:builder-visual"] === "node research/scripts/check-builder-visual-editor.mjs", "qa:builder-visual script is missing.");
-  assert(pkg.scripts?.["qa:launch"]?.includes("qa:builder-visual"), "qa:launch must include qa:builder-visual.");
+  assert(
+    `${pkg.scripts?.["qa:launch"] ?? ""} ${pkg.scripts?.["qa:launch:run"] ?? ""}`.includes("qa:builder-visual"),
+    "qa:launch must include qa:builder-visual.",
+  );
 
   if (failures.length) {
     console.error(["Builder visual editor QA failed:", ...failures.map((failure) => `- ${failure}`)].join("\n"));

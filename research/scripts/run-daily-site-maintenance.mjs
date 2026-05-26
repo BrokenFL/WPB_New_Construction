@@ -1,9 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { spawn } from "node:child_process";
+import { qaNoWrite, qaReportMode, qaReportPath } from "./qa-report-utils.mjs";
 
 const workspace = process.cwd();
-const reportPath = path.join(workspace, "research/source-material-review/daily-maintenance-report.md");
+const reportPath = qaReportPath(workspace, "research/source-material-review/daily-maintenance-report.md");
 const taskTimeoutMs = Number(process.env.DAILY_MAINTENANCE_TASK_TIMEOUT_MS ?? 180_000);
 const tasks = [
   ["import GPT news issue drafts", "npm", ["run", "news:import-gpt"]],
@@ -28,7 +29,7 @@ for (const [label, command, args] of tasks) {
 
 await fs.mkdir(path.dirname(reportPath), { recursive: true });
 await fs.writeFile(reportPath, renderReport(results));
-console.log(`Daily maintenance report written to ${path.relative(workspace, reportPath)}`);
+console.log(`Daily maintenance report written to ${path.relative(workspace, reportPath)} (${qaReportMode()}).`);
 
 function renderReport(items) {
   const timestamp = new Date().toISOString();
@@ -77,7 +78,7 @@ function resultSummary(items, label) {
 function runTask(label, command, args) {
   console.log(`Running: ${label}`);
   return new Promise((resolve) => {
-    const child = spawn(command, args, { cwd: workspace, env: { ...process.env, QA_NO_WRITE: "1" }, stdio: "inherit" });
+    const child = spawn(command, args, { cwd: workspace, env: { ...process.env, ...(qaNoWrite ? { QA_NO_WRITE: "1" } : {}) }, stdio: "inherit" });
     const timeout = setTimeout(() => {
       console.error(`${label} exceeded ${Math.round(taskTimeoutMs / 1000)}s and was stopped so the daily report can continue.`);
       child.kill("SIGTERM");
