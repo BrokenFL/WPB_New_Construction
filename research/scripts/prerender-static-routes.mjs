@@ -906,6 +906,7 @@ function buildRouteSchema(route, payload, canonical) {
       "@id": `${baseUrl}/#publisher`,
       name: payload.siteMeta.publisher?.name || "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
       url: baseUrl,
+      telephone: "+1-561-891-0186",
       areaServed: payload.siteMeta.publisher?.areaServed || "West Palm Beach, Florida",
     },
     {

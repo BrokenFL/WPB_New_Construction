@@ -130,6 +130,9 @@ Prompt categories:
 
 For future schema, contact, or analytics work, Brooke Snader's confirmed phone number is:
 
-- `561-891-0816`
+- Display: `561-891-0186`
+- Schema telephone: `+1-561-891-0186`
 
-Do not use `561-891-0186`.
+Future phone strategy: Brooke may add a web-based tracking/routing number for campaign attribution and CRM logging. Until selected, the canonical public contact number remains 561-891-0186.
+
+Do not use `561-891-0816`.

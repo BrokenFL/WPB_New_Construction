@@ -15,7 +15,7 @@ export const siteMeta = {
     "role": "West Palm Beach new-construction advisor",
     "license": "BK3291335",
     "group": "The Scott Gordon Group",
-    "phone": "(561) 891-0186",
+    "phone": "561-891-0186",
     "brokerage": "Douglas Elliman Florida, LLC d/b/a Douglas Elliman"
   },
   "reviewedBy": {

@@ -4444,7 +4444,7 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
       "@id": `${siteMeta.baseUrl}/#publisher`,
       name: advisorProfile.brokerage,
       url: siteMeta.baseUrl,
-      telephone: advisorProfile.mobile,
+      telephone: advisorProfile.schemaTelephone,
       address: {
         "@type": "PostalAddress",
         addressLocality: "West Palm Beach",
