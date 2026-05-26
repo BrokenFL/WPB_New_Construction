@@ -53,6 +53,7 @@ for (const route of priorityRoutes) {
   if (h1Count < 1) findings.push(`${route}: missing static H1.`);
   if (canonical !== expectedCanonical) findings.push(`${route}: canonical mismatch (${canonical || "missing"}).`);
   if (jsonLdCount < 1) findings.push(`${route}: missing static JSON-LD.`);
+  if (jsonLdCount > 1) findings.push(`${route}: expected one static JSON-LD graph, found ${jsonLdCount}.`);
 }
 
 for (const route of priorityRoutes) {

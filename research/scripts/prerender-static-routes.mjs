@@ -93,7 +93,10 @@ function renderRouteHtml(template, route, staticPayload) {
     .replace(/<meta name="twitter:image" content="[^"]*" \/>/, `<meta name="twitter:image" content="${escapeHtml(route.ogImage)}" />`)
     .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${escapeHtml(canonical)}" />`);
 
-  html = html.replace("</head>", `  <script type="application/ld+json">${jsonForHtml(schema)}</script>\n  </head>`);
+  html = html.replace(
+    "</head>",
+    `  <script id="wpb-static-structured-data" type="application/ld+json" data-static-path="${escapeHtml(route.path)}">${jsonForHtml(schema)}</script>\n  </head>`,
+  );
   html = html.replace(
     '<div id="app"></div>',
     `<div id="app">${staticContent}</div><script>window.__WPB_PRERENDER_PATH__=${JSON.stringify(route.path)};</script>`,

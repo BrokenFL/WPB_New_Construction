@@ -4331,6 +4331,14 @@ function buildProjectBreadcrumbSchema(project: FeaturedProject) {
 
 function setJsonLd(data: unknown) {
   const id = "wpb-structured-data";
+  const staticScript = document.querySelector<HTMLScriptElement>("#wpb-static-structured-data");
+  const staticPath = staticScript?.dataset.staticPath;
+  if (staticScript && staticPath === window.location.pathname && !document.querySelector<HTMLScriptElement>(`#${id}`)) {
+    return;
+  }
+  if (staticScript && staticPath !== window.location.pathname) {
+    staticScript.remove();
+  }
   let script = document.querySelector<HTMLScriptElement>(`#${id}`);
   if (!script) {
     script = document.createElement("script");
