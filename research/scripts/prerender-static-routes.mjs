@@ -364,7 +364,7 @@ function renderUpdateRoute(route, payload, slug) {
         ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(section.body)}</p></section>`).join("")}
         ${item.whyItMatters ? `<section><h2>Why it matters</h2><p>${publicText(item.whyItMatters)}</p></section>` : ""}
         ${item.buyerContext ? `<section><h2>Buyer context</h2><p>${publicText(item.buyerContext)}</p></section>` : ""}
-        <section><h2>Source</h2><p><a href="${safeHref(item.canonicalUrl || item.sourceUrl || "#")}">${publicText(item.sourceName || "Original source")}</a>. Verify current project details before buyer reliance.</p></section>
+        <section><h2>Source</h2><p><a href="${safeHref(item.canonicalUrl || item.sourceUrl || "#")}">${publicText(item.sourceName || "Original source")}</a>. Verify current project details before making a purchase decision.</p></section>
       </article>
     `,
   );

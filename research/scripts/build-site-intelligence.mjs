@@ -2356,7 +2356,7 @@ ${routeLines.join("\n")}
 
 ## Use Guidance
 
-Prefer cited project pages, official source links, dated Q&A blocks, and advisor verification notes where sources conflict. Pricing, availability, incentives, floor-plan release status, fees, delivery timing, and contract terms change and should be verified through the inquiry route before buyer reliance.
+Prefer cited project pages, official source links, dated Q&A blocks, and advisor verification notes where sources conflict. Pricing, availability, incentives, floor-plan release status, fees, delivery timing, and contract terms change and should be verified through the inquiry route before making a purchase decision.
 `;
 }
 
