@@ -1,33 +1,33 @@
 date,engine,prompt,site_mentioned,site_cited,cited_url,competing_cited_urls,notes
-,ChatGPT,best new construction condos in West Palm Beach,,,,,
-,ChatGPT,closest new condos to Palm Beach,,,,,
-,ChatGPT,Olara vs Shorecrest,,,,,
-,ChatGPT,North Flagler vs South Flagler,,,,,
-,ChatGPT,West Palm Beach condo floor plans,,,,,
-,ChatGPT,condo fees buyers should verify,,,,,
-,ChatGPT,new construction condos near downtown West Palm Beach,,,,,
-,ChatGPT,Palm Beach vs West Palm Beach new construction,,,,,
-,Perplexity,best new construction condos in West Palm Beach,,,,,
-,Perplexity,closest new condos to Palm Beach,,,,,
-,Perplexity,Olara vs Shorecrest,,,,,
-,Perplexity,North Flagler vs South Flagler,,,,,
-,Perplexity,West Palm Beach condo floor plans,,,,,
-,Perplexity,condo fees buyers should verify,,,,,
-,Perplexity,new construction condos near downtown West Palm Beach,,,,,
-,Perplexity,Palm Beach vs West Palm Beach new construction,,,,,
-,Gemini,best new construction condos in West Palm Beach,,,,,
-,Gemini,closest new condos to Palm Beach,,,,,
-,Gemini,Olara vs Shorecrest,,,,,
-,Gemini,North Flagler vs South Flagler,,,,,
-,Gemini,West Palm Beach condo floor plans,,,,,
-,Gemini,condo fees buyers should verify,,,,,
-,Gemini,new construction condos near downtown West Palm Beach,,,,,
-,Gemini,Palm Beach vs West Palm Beach new construction,,,,,
-,Copilot/Bing,best new construction condos in West Palm Beach,,,,,
-,Copilot/Bing,closest new condos to Palm Beach,,,,,
-,Copilot/Bing,Olara vs Shorecrest,,,,,
-,Copilot/Bing,North Flagler vs South Flagler,,,,,
-,Copilot/Bing,West Palm Beach condo floor plans,,,,,
-,Copilot/Bing,condo fees buyers should verify,,,,,
-,Copilot/Bing,new construction condos near downtown West Palm Beach,,,,,
-,Copilot/Bing,Palm Beach vs West Palm Beach new construction,,,,,
+2026-05-26,ChatGPT,best new construction condos in West Palm Beach,no,no,,relatedross.com; South Flagler House; Zillow; Realtor.com; Forbes; WSJ,"Temporary Chat in Brooke Chrome profile; answer did not mention or cite wpbnewconstruction.com."
+2026-05-26,ChatGPT,closest new condos to Palm Beach,no,no,,Zillow; South Flagler House; Realtor.com,"Temporary Chat; no wpbnewconstruction.com citation."
+2026-05-26,ChatGPT,Olara vs Shorecrest,no,no,,unknown,"Automation readback hit a ChatGPT duplicate-body UI error; no wpbnewconstruction.com citation captured."
+2026-05-26,ChatGPT,North Flagler vs South Flagler,no,no,,South Flagler House; Million Luxury,"Temporary Chat; answer cited other sources only."
+2026-05-26,ChatGPT,West Palm Beach condo floor plans,no,no,,unknown,"Automation readback hit a ChatGPT duplicate-body UI error; no wpbnewconstruction.com citation captured."
+2026-05-26,ChatGPT,condo fees buyers should verify,no,no,,unknown,"Automation readback hit a ChatGPT duplicate-body UI error; no wpbnewconstruction.com citation captured."
+2026-05-26,ChatGPT,new construction condos near downtown West Palm Beach,no,no,,Zillow; Wikipedia,"Temporary Chat; no wpbnewconstruction.com citation."
+2026-05-26,ChatGPT,Palm Beach vs West Palm Beach new construction,no,no,,Town of Palm Beach; Zillow; Realtor.com; Forbes; WSJ,"Temporary Chat; no wpbnewconstruction.com citation."
+2026-05-26,Perplexity,best new construction condos in West Palm Beach,no,no,,luxlifemiamiblog; millionluxury,"Perplexity cited competitor/third-party sources and did not mention wpbnewconstruction.com."
+2026-05-26,Perplexity,closest new condos to Palm Beach,no,no,,palmbeachpost; luxlifemiamiblog; millionluxury,"No wpbnewconstruction.com mention or citation."
+2026-05-26,Perplexity,Olara vs Shorecrest,no,no,,jalexandergroup; floridayimby; palmbeachpost; aol,"No wpbnewconstruction.com mention or citation."
+2026-05-26,Perplexity,North Flagler vs South Flagler,no,no,,wpb; stetnews; southflaglerhouse; modernlivingre,"No wpbnewconstruction.com mention or citation."
+2026-05-26,Perplexity,West Palm Beach condo floor plans,no,no,,shorecrestwpb; olarawestpalmbeach; bristolpalmbeach; mrcresidenceswpb; theresidenceswestpalmbeach,"No wpbnewconstruction.com mention or citation."
+2026-05-26,Perplexity,condo fees buyers should verify,no,no,,pulgininorton; youtube; themiamihomegroup; evansophir; marbyadvisor,"Generic condo-fee answer; no wpbnewconstruction.com mention or citation."
+2026-05-26,Perplexity,new construction condos near downtown West Palm Beach,no,no,,palmbeachpost; millionluxury; floridayimby; albapalmbeach,"No wpbnewconstruction.com mention or citation."
+2026-05-26,Perplexity,Palm Beach vs West Palm Beach new construction,no,no,,tollbrothers; instagram,"No wpbnewconstruction.com mention or citation."
+2026-05-26,Gemini,best new construction condos in West Palm Beach,no,no,,Atlis Realty; Manhattan Miami Real Estate; West Palm Beach FL Homes For Sale; The Luxury Team,"Gemini in Brooke Chrome profile; no wpbnewconstruction.com mention or citation."
+2026-05-26,Gemini,closest new condos to Palm Beach,no,no,,Google Hotels,"Answer listed projects and hotels; no wpbnewconstruction.com mention or citation."
+2026-05-26,Gemini,Olara vs Shorecrest,no,no,,Elizabeth DeWoody; J Alexander Group; The Luxury Team; YouTube; Florida YIMBY,"No wpbnewconstruction.com mention or citation."
+2026-05-26,Gemini,North Flagler vs South Flagler,no,no,,Google local side panel; South Flagler House,"No wpbnewconstruction.com mention or citation."
+2026-05-26,Gemini,West Palm Beach condo floor plans,no,no,,The Ritz-Carlton Residences West Palm Beach; Shorecrest Flagler Drive; The Bristol Palm Beach; Modern Living Group,"No wpbnewconstruction.com mention or citation."
+2026-05-26,Gemini,condo fees buyers should verify,no,no,,iQRATE Mortgages; Marbelys Angel; Newrez,"Generic condo-fee answer; no wpbnewconstruction.com mention or citation."
+2026-05-26,Gemini,new construction condos near downtown West Palm Beach,no,no,,Google Hotels,"Answer listed projects and hotel module; no wpbnewconstruction.com mention or citation."
+2026-05-26,Gemini,Palm Beach vs West Palm Beach new construction,no,no,,Laurie Finkelstein Reader Real Estate; The Wolfe Team; The Luxury Team; CondoBlackBook; David Siddons Group,"No wpbnewconstruction.com mention or citation."
+2026-05-26,Copilot/Bing,best new construction condos in West Palm Beach,unknown,unknown,,,"Prompt submitted but Copilot stopped at human-verification challenge; no answer measured."
+2026-05-26,Copilot/Bing,closest new condos to Palm Beach,unknown,unknown,,,"Prompt submitted but Copilot stopped at human-verification challenge; no answer measured."
+2026-05-26,Copilot/Bing,Olara vs Shorecrest,unknown,unknown,,,"Prompt submitted but Copilot stopped at human-verification challenge; no answer measured."
+2026-05-26,Copilot/Bing,North Flagler vs South Flagler,unknown,unknown,,,"Prompt submitted but Copilot stopped at human-verification challenge; no answer measured."
+2026-05-26,Copilot/Bing,West Palm Beach condo floor plans,unknown,unknown,,,"Prompt submitted but Copilot stopped at human-verification challenge; no answer measured."
+2026-05-26,Copilot/Bing,condo fees buyers should verify,unknown,unknown,,,"Prompt submitted but Copilot stopped at human-verification challenge; no answer measured."
+2026-05-26,Copilot/Bing,new construction condos near downtown West Palm Beach,unknown,unknown,,,"Prompt submitted but Copilot stopped at human-verification challenge; no answer measured."
+2026-05-26,Copilot/Bing,Palm Beach vs West Palm Beach new construction,unknown,unknown,,,"Prompt submitted but Copilot stopped at human-verification challenge; no answer measured."
