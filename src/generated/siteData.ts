@@ -5016,6 +5016,54 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/answers/best-new-construction-condos-west-palm-beach/",
+    "title": "Best New Construction Condos in West Palm Beach | WPB Answers",
+    "description": "A buyer-first answer for comparing West Palm Beach new-construction condo options by corridor, readiness, floorplan depth, and verification needs.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/closest-new-condos-to-palm-beach/",
+    "title": "Which West Palm Beach New Condos Are Closest to Palm Beach? | WPB Answers",
+    "description": "A corridor-based answer for buyers comparing West Palm Beach new-construction condos by Palm Beach proximity and verification needs.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/north-flagler-vs-south-flagler-new-condos/",
+    "title": "North Flagler vs South Flagler New Condos | WPB Answers",
+    "description": "A buyer guide to comparing North Flagler and South Flagler new-construction condo corridors in West Palm Beach.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/downtown-vs-waterfront-new-construction-condos/",
+    "title": "Downtown West Palm Beach vs Waterfront New Construction Condos | WPB Answers",
+    "description": "A buyer-facing comparison of Downtown West Palm Beach condo projects and Flagler Drive waterfront new construction.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/compare-floor-plans-west-palm-beach-new-construction-condos/",
+    "title": "How to Compare Floor Plans in West Palm Beach New Construction Condos | WPB Answers",
+    "description": "A practical buyer answer for comparing West Palm Beach new-construction condo floor plans, stacks, exposure, and current packet details.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/west-palm-beach-new-construction-condo-fees-verify/",
+    "title": "West Palm Beach New Construction Condo Fees: What Buyers Should Verify | WPB Answers",
+    "description": "A cautious buyer checklist for West Palm Beach new-construction condo fees, carrying costs, and association questions.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/preconstruction-vs-completed-new-construction-condos-west-palm-beach/",
+    "title": "Preconstruction vs Completed New Construction Condos in West Palm Beach | WPB Answers",
+    "description": "A buyer guide to comparing preconstruction, under-construction, pipeline, and completed/newly delivered West Palm Beach condo options.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/answers/strongest-lifestyle-fit-west-palm-beach-new-condos/",
+    "title": "Which West Palm Beach New Condos Have the Strongest Lifestyle Fit for Buyers? | WPB Answers",
+    "description": "A buyer-lifestyle answer for comparing West Palm Beach new-construction condos by corridor, daily routine, service model, and verification needs.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
     "path": "/updates/",
     "title": "West Palm Beach Condo Updates | Construction, Sales & Planning",
     "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",

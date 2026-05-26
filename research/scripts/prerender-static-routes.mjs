@@ -5,6 +5,7 @@ const workspace = process.cwd();
 const distRoot = path.join(workspace, "dist");
 const templatePath = path.join(distRoot, "index.html");
 const siteDataPath = path.join(workspace, "src/generated/siteData.ts");
+const appSourcePath = path.join(workspace, "src/main.ts");
 const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
 const baseUrl = "https://www.wpbnewconstruction.com";
 
@@ -56,10 +57,12 @@ async function main() {
 
 async function loadStaticPayload(siteData) {
   const approvedNews = await readJson(approvedNewsPath, []);
+  const appSource = await fs.readFile(appSourcePath, "utf8").catch(() => "");
   return {
     siteMeta: parseExport(siteData, "siteMeta"),
     floorplanLibrary: parseExport(siteData, "floorplanLibrary"),
     answerFaq: parseExport(siteData, "answerEngineFaq"),
+    buyerIntentAnswers: parseBuyerIntentAnswers(appSource),
     researchNewsFeed: parseExport(siteData, "researchNewsFeed"),
     projectFacts: parseExport(siteData, "projectFacts"),
     prerenderRoutes: parseExport(siteData, "prerenderRoutes"),
@@ -81,6 +84,63 @@ function parseExport(siteData, name) {
     throw new Error(`Could not find ${name} export in src/generated/siteData.ts`);
   }
   return JSON.parse(match[1]);
+}
+
+function parseBuyerIntentAnswers(appSource) {
+  const marker = "const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = ";
+  const markerIndex = appSource.indexOf(marker);
+  if (markerIndex === -1) return [];
+  const start = appSource.indexOf("[", markerIndex + marker.length);
+  if (start === -1) return [];
+  const end = findMatchingBracket(appSource, start);
+  if (end === -1) return [];
+  const arraySource = appSource.slice(start, end + 1);
+  try {
+    return Function(`"use strict"; return (${arraySource});`)();
+  } catch {
+    return [];
+  }
+}
+
+function findMatchingBracket(source, start) {
+  let depth = 0;
+  let quote = "";
+  let escaping = false;
+  let templateDepth = 0;
+  for (let index = start; index < source.length; index += 1) {
+    const char = source[index];
+    if (quote) {
+      if (escaping) {
+        escaping = false;
+        continue;
+      }
+      if (char === "\\") {
+        escaping = true;
+        continue;
+      }
+      if (quote === "`" && char === "$" && source[index + 1] === "{") {
+        templateDepth += 1;
+        index += 1;
+        continue;
+      }
+      if (quote === "`" && templateDepth && char === "}") {
+        templateDepth -= 1;
+        continue;
+      }
+      if (char === quote && !templateDepth) quote = "";
+      continue;
+    }
+    if (char === "\"" || char === "'" || char === "`") {
+      quote = char;
+      continue;
+    }
+    if (char === "[") depth += 1;
+    if (char === "]") {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
 }
 
 function renderRouteHtml(template, route, staticPayload) {
@@ -123,6 +183,7 @@ function renderStaticRouteContent(route, payload) {
   const routeKind = routeKindForPath(route.path);
   if (routeKind.type === "project") return renderProjectRoute(route, payload, routeKind.slug);
   if (routeKind.type === "corridor") return renderCorridorRoute(route, payload, routeKind.slug);
+  if (routeKind.type === "answer") return renderBuyerIntentAnswerRoute(route, payload, routeKind.slug);
   if (routeKind.type === "update") return renderUpdateRoute(route, payload, routeKind.slug);
   if (routeKind.type === "market-note") return renderMarketNoteRoute(route, routeKind.slug);
   if (route.path === "/") return renderHomeRoute(route, payload);
@@ -140,6 +201,8 @@ function routeKindForPath(routePath) {
   if (project) return { type: "project", slug: project[1] };
   const corridor = routePath.match(/^\/corridors\/([^/]+)\/$/);
   if (corridor) return { type: "corridor", slug: corridor[1] };
+  const answer = routePath.match(/^\/answers\/([^/]+)\/$/);
+  if (answer) return { type: "answer", slug: answer[1] };
   const update = routePath.match(/^\/updates\/([^/]+)\/$/);
   if (update) return { type: "update", slug: update[1] };
   const note = routePath.match(/^\/market-notes\/([^/]+)\/$/);
@@ -267,8 +330,78 @@ function renderAnswersRoute(route, payload) {
           ${renderStaticCitations(item)}
         </article>
       `).join("")}
+      <section>
+        <h2>Buyer-intent answer guides</h2>
+        <p>Use these pages for source-aware buyer questions, then confirm current pricing, availability, fees, floorplan availability, delivery timing, and contract terms before relying on any public summary.</p>
+        ${payload.buyerIntentAnswers.map((answer) => `
+          <article>
+            <h3><a href="/answers/${escapeHtml(answer.slug)}/">${publicText(answer.question)}</a></h3>
+            <p>${publicText(answer.bluf)}</p>
+          </article>
+        `).join("")}
+      </section>
     `,
   );
+}
+
+function renderBuyerIntentAnswerRoute(route, payload, slug) {
+  const answer = payload.buyerIntentAnswers.find((item) => item.slug === slug);
+  if (!answer) return renderSimpleRoute(route);
+  return pageShell(
+    `answer-${slug}`,
+    answer.question,
+    route.description,
+    `
+      <section>
+        <h2>Bottom line</h2>
+        <p>${publicText(answer.bluf)}</p>
+        <p>${publicText(answer.explanation)}</p>
+      </section>
+      <section>
+        <h2>Buyer comparison table</h2>
+        ${renderBuyerIntentTable(answer)}
+      </section>
+      <section>
+        <h2>Related pages</h2>
+        <ul>
+          <li><a href="/compare/">Compare buildings</a></li>
+          <li><a href="/floorplans/">Review floorplans</a></li>
+          ${answer.corridorKeys.map((key) => `<li><a href="${corridorPathForKey(key)}">${publicText(corridorLabelForKey(key))} corridor</a></li>`).join("")}
+          ${answer.projectIds.slice(0, 6).map((projectId) => {
+            const project = projectForSlug(payload, projectId);
+            return project ? `<li><a href="${projectPath(project)}">${publicText(project.name)}</a></li>` : "";
+          }).join("")}
+        </ul>
+      </section>
+      <section>
+        <h2>Source and verification notes</h2>
+        <ul>
+          ${answer.sourceNotes.map((note) => `<li>${publicText(note)}</li>`).join("")}
+          <li>Current pricing, incentives, fees, availability, delivery timing, floorplan availability, and contract terms should be verified before making a purchase decision.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>FAQ</h2>
+        ${answer.faqs.map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
+      </section>
+    `,
+  );
+}
+
+function renderBuyerIntentTable(answer) {
+  return `
+    <table>
+      <thead><tr><th>Buyer question</th><th>Best use</th><th>Related pages</th><th>What to verify</th></tr></thead>
+      <tbody>
+        ${answer.tableRows.map((row) => `<tr>
+          <td>${publicText(row.label)}</td>
+          <td>${publicText(row.bestUse)}</td>
+          <td>${row.links.map((href) => `<a href="${safeHref(href)}">${publicText(linkLabelForAnswer(href))}</a>`).join("<br>")}</td>
+          <td>${publicText(row.verify)}</td>
+        </tr>`).join("")}
+      </tbody>
+    </table>
+  `;
 }
 
 function renderProjectRoute(route, payload, slug) {
@@ -309,6 +442,7 @@ function renderProjectRoute(route, payload, slug) {
         <h2>Location and corridor context</h2>
         <p>${publicText(project.name)} is tracked in the ${publicText(project.area || "West Palm Beach")} lane. Compare this location by daily drive pattern, Palm Beach access, waterfront or downtown orientation, view exposure, parking, and what nearby construction may mean before touring.</p>
       </section>
+      ${renderProjectCorridorCta(project, payload)}
       <section>
         <h2>Residence and floorplan overview</h2>
         <p>${floorplans?.count ? `${floorplans.count} floorplan records are currently tracked for this project.` : "No complete public floorplan packet is confirmed in the current catalog."} Public plans are not a substitute for the current buyer packet; confirm line, stack, exposure, square footage, fees, pricing, and availability.</p>
@@ -559,6 +693,57 @@ function projectPath(project) {
   return `/projects/${publicId}/`;
 }
 
+function corridorKeyForProject(project) {
+  const area = normalize(project.area);
+  if (area.includes("south-flagler")) return "south-flagler";
+  if (area.includes("downtown")) return "downtown";
+  return "north-flagler";
+}
+
+function corridorPathForKey(key) {
+  return key === "downtown" ? "/corridors/downtown-west-palm-beach/" : `/corridors/${key}/`;
+}
+
+function corridorLabelForKey(key) {
+  if (key === "north-flagler") return "North Flagler";
+  if (key === "south-flagler") return "South Flagler";
+  return "Downtown West Palm Beach";
+}
+
+function renderProjectCorridorCta(project, payload) {
+  const corridorKey = corridorKeyForProject(project);
+  const corridorProjects = payload.projectFacts
+    .filter((item) => item.projectId !== project.projectId && corridorKeyForProject(item) === corridorKey)
+    .slice(0, 3);
+  return `
+    <section>
+      <h2>Compare ${publicText(project.name)} within ${publicText(corridorLabelForKey(corridorKey))}</h2>
+      <p>Use the corridor guide to compare nearby West Palm Beach projects by buyer fit, current status, released floorplans, and what still needs verification before touring.</p>
+      <ul>
+        <li><a href="${corridorPathForKey(corridorKey)}">Review ${publicText(corridorLabelForKey(corridorKey))} corridor</a></li>
+        <li><a href="/compare/">Compare all buildings</a></li>
+        ${corridorProjects.map((item) => `<li><a href="${projectPath(item)}">${publicText(item.name)}</a></li>`).join("")}
+      </ul>
+    </section>
+  `;
+}
+
+function linkLabelForAnswer(href) {
+  const projectMatch = href.match(/^\/projects\/([^/]+)\//);
+  if (projectMatch) {
+    return projectMatch[1].replace(/-/g, " ");
+  }
+  if (href === "/compare/") return "Compare";
+  if (href === "/floorplans/") return "Floorplans";
+  if (href === "/inquire/") return "Inquiry";
+  if (href.includes("north-flagler")) return "North Flagler";
+  if (href.includes("downtown-west-palm-beach")) return "Downtown West Palm Beach";
+  if (href.includes("south-flagler")) return "South Flagler";
+  if (href.includes("active-sales-vs-pipeline-watch")) return "Active sales vs pipeline";
+  if (href.includes("why-published-floor-plans-matter")) return "Why floorplans matter";
+  return href.replace(/^\/|\/$/g, "").replace(/-/g, " ");
+}
+
 function firstVerificationNote(project) {
   return project.conflicts?.[0] || project.gaps?.[0] || "Verify current pricing, availability, fees, incentives, square footage, delivery timing, and contract terms.";
 }
@@ -761,6 +946,9 @@ function buildRouteSchema(route, payload, canonical) {
     routeGraph.push(itemListSchema(canonical, "West Palm Beach New Construction Floorplans", payload.floorplanLibrary.filter((project) => project.count > 0).map((project) => ({ name: project.name, url: `${baseUrl}/floorplans/#floorplans-${project.projectId}` }))));
   } else if (route.path === "/answers/") {
     routeGraph.push(faqSchema(payload.answerFaq));
+  } else if (routeKind.type === "answer") {
+    const answer = payload.buyerIntentAnswers.find((item) => item.slug === routeKind.slug);
+    if (answer) routeGraph.push(buyerIntentFaqSchema(answer, canonical));
   } else if (routeKind.type === "update") {
     const item = payload.approvedNews.find((news) => (news.slug || news.id) === routeKind.slug);
     if (item) routeGraph.push(newsArticleSchema(item, canonical));
@@ -831,6 +1019,19 @@ function faqSchema(faq) {
     "@id": `${baseUrl}/answers/#faq`,
     name: "West Palm Beach New Construction Answers",
     mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: gatekeeperText(item.question),
+      acceptedAnswer: { "@type": "Answer", text: gatekeeperText(item.answer) },
+    })),
+  };
+}
+
+function buyerIntentFaqSchema(answer, canonical) {
+  return {
+    "@type": "FAQPage",
+    "@id": `${canonical}#faq`,
+    name: answer.title,
+    mainEntity: answer.faqs.map((item) => ({
       "@type": "Question",
       name: gatekeeperText(item.question),
       acceptedAnswer: { "@type": "Answer", text: gatekeeperText(item.answer) },

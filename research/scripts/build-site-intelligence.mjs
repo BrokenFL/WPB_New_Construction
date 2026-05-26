@@ -47,6 +47,56 @@ const marketNoteRoutes = [
       "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
   },
 ];
+const buyerIntentAnswerRoutes = loadBuyerIntentAnswerRoutes();
+
+function loadBuyerIntentAnswerRoutes() {
+  const appSourcePath = path.join(workspace, "src/main.ts");
+  const appSource = fsSync.readFileSync(appSourcePath, "utf8");
+  const marker = "const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = ";
+  const markerIndex = appSource.indexOf(marker);
+  if (markerIndex === -1) return [];
+  const start = appSource.indexOf("[", markerIndex + marker.length);
+  if (start === -1) return [];
+  const end = findMatchingBracket(appSource, start);
+  if (end === -1) return [];
+  const answerPages = Function(`"use strict"; return (${appSource.slice(start, end + 1)});`)();
+  return answerPages.map((answer) => ({
+    slug: answer.slug,
+    title: `${answer.title} | WPB Answers`,
+    description: answer.description,
+  }));
+}
+
+function findMatchingBracket(source, start) {
+  let depth = 0;
+  let quote = "";
+  let escaping = false;
+  for (let index = start; index < source.length; index += 1) {
+    const char = source[index];
+    if (quote) {
+      if (escaping) {
+        escaping = false;
+        continue;
+      }
+      if (char === "\\") {
+        escaping = true;
+        continue;
+      }
+      if (char === quote) quote = "";
+      continue;
+    }
+    if (char === "\"" || char === "'" || char === "`") {
+      quote = char;
+      continue;
+    }
+    if (char === "[") depth += 1;
+    if (char === "]") {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
 
 function approvedUpdateRoutes() {
   const approvedPath = path.join(workspace, "research/news-review/approved-development-news.json");
@@ -2455,6 +2505,12 @@ function buildPrerenderRoutes() {
       description: "Concise answers to West Palm Beach new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
       ogImage: siteMeta.defaultImage,
     },
+    ...buyerIntentAnswerRoutes.map((answer) => ({
+      path: `/answers/${answer.slug}/`,
+      title: answer.title,
+      description: answer.description,
+      ogImage: siteMeta.defaultImage,
+    })),
     {
       path: "/updates/",
       title: "West Palm Beach Condo Updates | Construction, Sales & Planning",
@@ -2585,6 +2641,7 @@ function renderSitemap(projects) {
     ["map/", "0.8"],
     ["compare/", "0.8"],
     ["answers/", "0.9"],
+    ...buyerIntentAnswerRoutes.map((answer) => [`answers/${answer.slug}/`, "0.8"]),
     ["corridors/north-flagler/", "0.8"],
     ["corridors/downtown-west-palm-beach/", "0.8"],
     ["corridors/south-flagler/", "0.8"],

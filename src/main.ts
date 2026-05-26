@@ -86,11 +86,35 @@ type Route =
   | { type: "inquire"; projectId?: undefined }
   | { type: "floorplans"; projectId?: undefined }
   | { type: "answers"; projectId?: undefined }
+  | { type: "answer-detail"; answerSlug: string; projectId?: undefined }
   | { type: "methodology"; projectId?: undefined }
   | { type: "privacy"; projectId?: undefined }
   | { type: "terms"; projectId?: undefined }
   | { type: "fair-housing"; projectId?: undefined }
   | { type: "project"; projectId: string };
+
+type BuyerIntentAnswerPage = {
+  slug: string;
+  shortLabel: string;
+  title: string;
+  question: string;
+  description: string;
+  bluf: string;
+  explanation: string;
+  projectIds: string[];
+  corridorKeys: CorridorKey[];
+  tableRows: Array<{
+    label: string;
+    bestUse: string;
+    links: string[];
+    verify: string;
+  }>;
+  faqs: Array<{
+    question: string;
+    answer: string;
+  }>;
+  sourceNotes: string[];
+};
 
 type ProjectFilter = {
   key: string;
@@ -1095,6 +1119,190 @@ const corridorSections: CorridorSection[] = [
     reviewNote: "Southern waterfront benchmark for buyers comparing scale, privacy, and Palm Beach proximity.",
     description:
       "South Flagler reads quieter and more residential. Buyers tend to compare privacy, Palm Beach proximity, larger residences, calmer waterfront rhythm, and whether a delivered building or new launch better fits the ownership plan.",
+  },
+];
+
+const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
+  {
+    slug: "best-new-construction-condos-west-palm-beach",
+    shortLabel: "Best condos",
+    title: "Best New Construction Condos in West Palm Beach",
+    question: "What are the best new construction condos in West Palm Beach?",
+    description: "A buyer-first answer for comparing West Palm Beach new-construction condo options by corridor, readiness, floorplan depth, and verification needs.",
+    bluf:
+      "The best West Palm Beach new-construction condo depends on the buyer's corridor, timing, floorplan needs, and risk tolerance. Start with Olara, Ritz-Carlton, Shorecrest, Alba, South Flagler House, NORA House, Mr. C, The Berkeley, Forté, and Maison d'Or, then verify live pricing, availability, fees, and contract terms.",
+    explanation:
+      "Use this as a shortlist framework, not a ranking. The useful question is which building fits the buyer's daily life and due-diligence profile: waterfront versus walkability, active sales versus pipeline watch, released plans versus request-only material, and whether current documents support the claim.",
+    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "south-flagler-house", "nora-house", "mr-c", "berkeley", "forte-on-flagler", "maison-dor"],
+    corridorKeys: ["north-flagler", "downtown", "south-flagler"],
+    tableRows: [
+      { label: "North Flagler waterfront shortlist", bestUse: "Buyers comparing the deepest active waterfront set.", links: ["/corridors/north-flagler/", "/projects/olara/", "/projects/ritz-carlton-wpb/", "/projects/shorecrest/"], verify: "Confirm stack, floor, exposure, current inventory, and delivery language." },
+      { label: "Downtown walkability shortlist", bestUse: "Buyers prioritizing restaurants, NORA, The Square, and urban convenience.", links: ["/corridors/downtown-west-palm-beach/", "/projects/nora-house/", "/projects/mr-c/", "/projects/berkeley/"], verify: "Confirm parking, district phasing, noise, fees, and current packet availability." },
+      { label: "South Flagler privacy shortlist", bestUse: "Buyers seeking quieter waterfront positioning and Palm Beach proximity.", links: ["/corridors/south-flagler/", "/projects/south-flagler-house/", "/projects/maison-dor/", "/projects/forte-on-flagler/"], verify: "Confirm current availability, association costs, delivery timing, and resale/new-construction tradeoffs." },
+    ],
+    faqs: [
+      { question: "Is there one best new construction condo in West Palm Beach?", answer: "No. The best building changes by budget, timing, desired corridor, floorplan, service expectations, and current inventory. Use the comparison page, then request current buyer documents before making decisions." },
+      { question: "Which pages should buyers compare first?", answer: "Start with the corridor pages, the comparison page, and the individual project pages for the buildings that match the buyer's lifestyle lane." },
+    ],
+    sourceNotes: ["Project facts and floorplan availability come from the existing WPB New Construction source catalog.", "Pricing, incentives, fees, and availability are intentionally treated as verification items."],
+  },
+  {
+    slug: "closest-new-condos-to-palm-beach",
+    shortLabel: "Palm Beach",
+    title: "Which West Palm Beach New Condos Are Closest to Palm Beach?",
+    question: "Which West Palm Beach new condos are closest to Palm Beach?",
+    description: "A corridor-based answer for buyers comparing West Palm Beach new-construction condos by Palm Beach proximity and verification needs.",
+    bluf:
+      "Start with the Flagler Drive corridors when Palm Beach proximity matters. South Flagler and North Flagler projects are the primary comparison lanes, but buyers should verify exact bridge access, drive pattern, exposure, parking, and current availability before relying on a proximity claim.",
+    explanation:
+      "This page avoids ranking buildings by exact distance because buyer experience depends on the route, bridge, traffic, tower position, parking, and the unit itself. Use the corridor pages to narrow the lane, then confirm current packet details before touring.",
+    projectIds: ["south-flagler-house", "maison-dor", "forte-on-flagler", "olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach"],
+    corridorKeys: ["south-flagler", "north-flagler"],
+    tableRows: [
+      { label: "South Flagler", bestUse: "Quieter waterfront positioning south of downtown.", links: ["/corridors/south-flagler/", "/projects/south-flagler-house/", "/projects/maison-dor/"], verify: "Confirm Palm Beach route, current inventory, association costs, and delivery timing." },
+      { label: "North Flagler", bestUse: "Waterfront comparison with more active project depth.", links: ["/corridors/north-flagler/", "/projects/olara/", "/projects/ritz-carlton-wpb/", "/projects/shorecrest/"], verify: "Confirm bridge pattern, stack exposure, construction context, and current packet details." },
+    ],
+    faqs: [
+      { question: "Can a public page confirm the closest building to Palm Beach?", answer: "It can orient the buyer by corridor, but exact convenience should be verified with the current address, route, parking plan, bridge access, and buyer schedule." },
+      { question: "Should Downtown projects be excluded?", answer: "No. Downtown projects can still fit buyers who value restaurants and walkability more than Flagler Drive waterfront positioning." },
+    ],
+    sourceNotes: ["Corridor assignments come from the existing project fact layer.", "Exact proximity, commute time, and route convenience should be verified for the buyer's routine."],
+  },
+  {
+    slug: "north-flagler-vs-south-flagler-new-condos",
+    shortLabel: "Flagler lanes",
+    title: "North Flagler vs South Flagler New Condos",
+    question: "How should buyers compare North Flagler vs South Flagler new condos?",
+    description: "A buyer guide to comparing North Flagler and South Flagler new-construction condo corridors in West Palm Beach.",
+    bluf:
+      "North Flagler is the broader active waterfront comparison set; South Flagler is the quieter, more residential lane. Compare them by lifestyle, delivery timing, floorplan release depth, Palm Beach access, and current buyer packet details rather than by headline marketing copy.",
+    explanation:
+      "Both corridors can serve waterfront buyers, but they do different jobs. North Flagler usually creates more side-by-side choices; South Flagler is useful for buyers who want a calmer residential feel and are comparing new launches against delivered South Flagler benchmarks.",
+    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "south-flagler-house", "maison-dor", "forte-on-flagler"],
+    corridorKeys: ["north-flagler", "south-flagler"],
+    tableRows: [
+      { label: "North Flagler", bestUse: "Deeper active waterfront shortlist.", links: ["/corridors/north-flagler/", "/projects/olara/", "/projects/ritz-carlton-wpb/", "/projects/shorecrest/"], verify: "Confirm current project status, delivery language, released plans, view stack, and fees." },
+      { label: "South Flagler", bestUse: "Quieter waterfront lane and delivered-building benchmarks.", links: ["/corridors/south-flagler/", "/projects/south-flagler-house/", "/projects/maison-dor/", "/projects/forte-on-flagler/"], verify: "Confirm availability, association costs, delivery timing, and resale/new-construction alternatives." },
+    ],
+    faqs: [
+      { question: "Is North Flagler better than South Flagler?", answer: "Not universally. North Flagler is better for a broad active waterfront comparison, while South Flagler may fit buyers who want quieter positioning and Palm Beach proximity." },
+      { question: "What should buyers verify in both corridors?", answer: "Verify current pricing, availability, fees, stack, exposure, parking, delivery timing, and whether the public floorplan is still current." },
+    ],
+    sourceNotes: ["Corridor framing follows the existing corridor pages and project fact layer.", "Changing buyer-sensitive details are handled as verification items."],
+  },
+  {
+    slug: "downtown-vs-waterfront-new-construction-condos",
+    shortLabel: "Downtown vs water",
+    title: "Downtown West Palm Beach vs Waterfront New Construction Condos",
+    question: "How should buyers compare Downtown West Palm Beach vs waterfront new construction condos?",
+    description: "A buyer-facing comparison of Downtown West Palm Beach condo projects and Flagler Drive waterfront new construction.",
+    bluf:
+      "Downtown is the walkability and district-energy choice; Flagler Drive is the waterfront comparison. Buyers should decide which daily life matters more, then verify parking, fees, views, stack, current availability, and floorplan packet details before comparing prices.",
+    explanation:
+      "Downtown projects are often evaluated through restaurants, NORA, The Square, hotel-style service, and car-light convenience. Waterfront projects are usually evaluated through exposure, tower position, privacy, service, and how the building relates to Palm Beach and the Intracoastal.",
+    projectIds: ["nora-house", "mr-c", "berkeley", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"],
+    corridorKeys: ["downtown", "north-flagler", "south-flagler"],
+    tableRows: [
+      { label: "Downtown", bestUse: "Walkability, restaurants, NORA, The Square, and district energy.", links: ["/corridors/downtown-west-palm-beach/", "/projects/nora-house/", "/projects/mr-c/", "/projects/berkeley/"], verify: "Confirm parking, noise, fees, district phasing, and current availability." },
+      { label: "Waterfront corridors", bestUse: "Intracoastal/Palm Beach orientation and quieter residential positioning.", links: ["/corridors/north-flagler/", "/corridors/south-flagler/", "/compare/"], verify: "Confirm stack, floor, exposure, construction context, fees, and current packet details." },
+    ],
+    faqs: [
+      { question: "Should a buyer choose Downtown or waterfront first?", answer: "Choose the daily-life lane first. Downtown is about walkability and district access; waterfront is about exposure, privacy, and Flagler Drive positioning." },
+      { question: "Can Downtown projects still have strong lifestyle fit?", answer: "Yes. They may be the stronger fit for buyers who value restaurants, service, and walkability more than waterfront positioning." },
+    ],
+    sourceNotes: ["Downtown and waterfront comparisons use existing corridor assignments.", "Unit-level views and exact costs require current project documents."],
+  },
+  {
+    slug: "compare-floor-plans-west-palm-beach-new-construction-condos",
+    shortLabel: "Floorplans",
+    title: "How to Compare Floor Plans in West Palm Beach New Construction Condos",
+    question: "How should buyers compare floor plans in West Palm Beach new construction condos?",
+    description: "A practical buyer answer for comparing West Palm Beach new-construction condo floor plans, stacks, exposure, and current packet details.",
+    bluf:
+      "Compare floor plans by line, stack, exposure, usable layout, terrace, parking, storage, fees, and whether the plan is still available. Public PDFs are only a starting point; the current buyer packet should control availability, pricing, and contractable details.",
+    explanation:
+      "A floorplan that looks similar online can live very differently by floor, exposure, view corridor, ceiling condition, terrace depth, elevator location, parking assignment, and release phase. Use the floorplan library to orient, then request current project documents.",
+    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "nora-house", "mr-c", "berkeley", "maison-dor"],
+    corridorKeys: ["north-flagler", "downtown", "south-flagler"],
+    tableRows: [
+      { label: "Plan availability", bestUse: "Separating released plans from request-only material.", links: ["/floorplans/", "/compare/"], verify: "Ask whether the plan is still contractable and what release phase it belongs to." },
+      { label: "Stack and exposure", bestUse: "Understanding light, privacy, and future view risk.", links: ["/market-notes/why-published-floor-plans-matter/", "/inquire/"], verify: "Confirm stack plan, floor height, neighboring projects, and exposure." },
+      { label: "Monthly ownership fit", bestUse: "Comparing the real cost beyond layout.", links: ["/answers/west-palm-beach-new-construction-condo-fees-verify/", "/inquire/"], verify: "Confirm association estimates, reserves, parking, storage, and service charges." },
+    ],
+    faqs: [
+      { question: "Are public floorplan PDFs enough to choose a residence?", answer: "No. They are useful for orientation, but buyers should verify current availability, stack, exposure, fees, and contract terms." },
+      { question: "Which page should buyers use first?", answer: "Start with the floorplan library, then compare the project page and request the current buyer packet." },
+    ],
+    sourceNotes: ["Floorplan counts and links come from the existing floorplan library.", "Availability and pricing are intentionally deferred to current project packets."],
+  },
+  {
+    slug: "west-palm-beach-new-construction-condo-fees-verify",
+    shortLabel: "Fees",
+    title: "West Palm Beach New Construction Condo Fees: What Buyers Should Verify",
+    question: "What fees should buyers verify in West Palm Beach new construction condos?",
+    description: "A cautious buyer checklist for West Palm Beach new-construction condo fees, carrying costs, and association questions.",
+    bluf:
+      "Before relying on any public fee estimate, buyers should verify association dues, reserves, insurance assumptions, parking, storage, service charges, utilities, closing costs, deposits, and what is included. Fees change and should be confirmed from current offering or buyer packet materials.",
+    explanation:
+      "Fee comparisons are fragile because buildings differ by service model, staffing, amenities, insurance assumptions, reserves, parking, storage, and what is included in the monthly estimate. Treat public numbers as orientation only.",
+    projectIds: ["olara", "ritz-carlton-wpb", "south-flagler-house", "nora-house", "mr-c", "berkeley"],
+    corridorKeys: ["north-flagler", "downtown", "south-flagler"],
+    tableRows: [
+      { label: "Monthly association dues", bestUse: "Baseline ownership comparison.", links: ["/compare/", "/inquire/"], verify: "Confirm current estimate, included services, reserves, and insurance assumptions." },
+      { label: "Parking and storage", bestUse: "Finding hidden ownership or convenience differences.", links: ["/inquire/"], verify: "Confirm included spaces, optional spaces, storage, valet, and assignment rules." },
+      { label: "Service model", bestUse: "Comparing branded, hotel-style, and boutique operating costs.", links: ["/corridors/downtown-west-palm-beach/", "/corridors/north-flagler/"], verify: "Confirm staffing, hospitality services, amenity rules, and optional charges." },
+    ],
+    faqs: [
+      { question: "Can fees be compared from public marketing pages?", answer: "Only cautiously. Public estimates can lag current documents and may not include all buyer-specific costs." },
+      { question: "What should be requested before touring?", answer: "Ask for current estimated monthly costs, reserves, parking/storage details, deposit schedule, and what services are included." },
+    ],
+    sourceNotes: ["This page is a verification checklist, not a fee quote.", "Current costs should come from offering documents, project packets, or buyer-side confirmation."],
+  },
+  {
+    slug: "preconstruction-vs-completed-new-construction-condos-west-palm-beach",
+    shortLabel: "Pre vs done",
+    title: "Preconstruction vs Completed New Construction Condos in West Palm Beach",
+    question: "How should buyers compare preconstruction vs completed new construction condos in West Palm Beach?",
+    description: "A buyer guide to comparing preconstruction, under-construction, pipeline, and completed/newly delivered West Palm Beach condo options.",
+    bluf:
+      "Preconstruction may offer selection and new-building upside, while completed or recently delivered condos offer more physical certainty. Compare timing, deposit structure, construction risk, available floorplans, fee clarity, resale alternatives, and what can be inspected before making a purchase decision.",
+    explanation:
+      "The right choice depends on the buyer's timeline and risk tolerance. Active projects, pipeline projects, and completed benchmarks should not be treated as the same decision until documents, availability, fees, and delivery assumptions are verified.",
+    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "forte-on-flagler", "la-clara", "maison-dor"],
+    corridorKeys: ["north-flagler", "south-flagler"],
+    tableRows: [
+      { label: "Preconstruction / under construction", bestUse: "Buyers who can wait and want current launch or construction-stage options.", links: ["/compare/", "/projects/olara/", "/projects/ritz-carlton-wpb/"], verify: "Confirm delivery timing, deposits, contract terms, construction status, and current availability." },
+      { label: "Completed / recently delivered", bestUse: "Buyers who want to inspect the building or compare against existing inventory.", links: ["/projects/forte-on-flagler/", "/projects/la-clara/"], verify: "Confirm resale inventory, fees, reserves, condition, and association documents." },
+      { label: "Pipeline watch", bestUse: "Buyers tracking future supply but not ready to rely on unreleased details.", links: ["/market-notes/active-sales-vs-pipeline-watch/", "/corridors/north-flagler/"], verify: "Confirm approvals, launch timing, official packets, and whether buyer-ready materials exist." },
+    ],
+    faqs: [
+      { question: "Is preconstruction safer than resale?", answer: "Not automatically. It may offer selection and new-building appeal, but buyers should verify timing, contracts, deposits, and completion risk." },
+      { question: "When should completed buildings be compared?", answer: "Use completed or recently delivered buildings as reality checks for finishes, fees, building operations, and resale alternatives." },
+    ],
+    sourceNotes: ["Project status comes from the existing project fact layer.", "Contract, deposit, and delivery details require current documents."],
+  },
+  {
+    slug: "strongest-lifestyle-fit-west-palm-beach-new-condos",
+    shortLabel: "Lifestyle fit",
+    title: "Which West Palm Beach New Condos Have the Strongest Lifestyle Fit for Buyers?",
+    question: "Which West Palm Beach new condos have the strongest lifestyle fit for buyers?",
+    description: "A buyer-lifestyle answer for comparing West Palm Beach new-construction condos by corridor, daily routine, service model, and verification needs.",
+    bluf:
+      "The strongest lifestyle fit depends on daily routine: North Flagler for waterfront comparison depth, Downtown for walkability and district energy, and South Flagler for quieter residential positioning. Start with lifestyle lane first, then verify current pricing, availability, fees, floorplans, and service details.",
+    explanation:
+      "Lifestyle fit is not just amenities. It is how the building works with a buyer's commute, dining habits, Palm Beach access, waterfront preference, privacy expectations, parking needs, service model, and tolerance for construction timing.",
+    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "nora-house", "mr-c", "berkeley", "south-flagler-house", "maison-dor", "forte-on-flagler"],
+    corridorKeys: ["north-flagler", "downtown", "south-flagler"],
+    tableRows: [
+      { label: "Waterfront and service-led lifestyle", bestUse: "Buyers comparing Flagler Drive, Palm Beach proximity, and larger luxury project programs.", links: ["/corridors/north-flagler/", "/projects/olara/", "/projects/ritz-carlton-wpb/"], verify: "Confirm actual services, amenity access, fees, and unit exposure." },
+      { label: "Walkability and district lifestyle", bestUse: "Buyers who want restaurants, NORA, The Square, and urban convenience.", links: ["/corridors/downtown-west-palm-beach/", "/projects/nora-house/", "/projects/mr-c/"], verify: "Confirm parking, noise, district phasing, and association costs." },
+      { label: "Quiet waterfront lifestyle", bestUse: "Buyers who prefer a calmer residential waterfront lane.", links: ["/corridors/south-flagler/", "/projects/south-flagler-house/", "/projects/maison-dor/"], verify: "Confirm availability, fees, privacy, view exposure, and delivery timing." },
+    ],
+    faqs: [
+      { question: "Are amenities the same as lifestyle fit?", answer: "No. Amenities matter only if the buyer will use them and the operating costs, rules, and service model fit the ownership plan." },
+      { question: "How should buyers choose the first tour list?", answer: "Pick one corridor lane, compare two or three buildings in that lane, then request current packet details before touring." },
+    ],
+    sourceNotes: ["Lifestyle framing uses existing corridor and project positioning.", "Amenity and service claims should be verified in current project materials."],
   },
 ];
 
@@ -2617,7 +2825,19 @@ app.innerHTML = `
         <section class="section answer-engine-section">
           ${answerEngineFaq.map(renderAnswerBlock).join("")}
         </section>
+        <section class="section buyer-intent-index-section" aria-label="Buyer-intent answer pages">
+          <div class="section-heading">
+            <p class="eyebrow">Buyer-Intent Guides</p>
+            <h2>AI-citable answers for common West Palm Beach condo comparisons.</h2>
+            <p>Each guide starts with the bottom line, links to the relevant project and corridor pages, and keeps changing details in the verification lane.</p>
+          </div>
+          <div class="front-project-grid front-project-grid-static">
+            ${buyerIntentAnswerPages.map(renderBuyerIntentAnswerCard).join("")}
+          </div>
+        </section>
       </div>
+
+      ${buyerIntentAnswerPages.map(renderBuyerIntentAnswerRouteView).join("")}
 
       <div class="route-view route-view-methodology" data-route-view="methodology" hidden>
         <section class="section intelligence-hero">
@@ -3757,16 +3977,17 @@ function applyRoute() {
   const activeCorridor = route.type === "corridor" ? corridorSections.find((section) => section.key === route.corridorKey) : undefined;
   const activeMarketNote = route.type === "market-note-detail" ? marketNoteForSlug(route.articleSlug) : undefined;
   const activeNewsItem = route.type === "news-detail" ? updateForId(route.articleId) : undefined;
+  const activeAnswer = route.type === "answer-detail" ? buyerIntentAnswerForSlug(route.answerSlug) : undefined;
 
   shell?.setAttribute("data-active-route", route.type);
   shell?.setAttribute("data-active-project", route.projectId ?? "");
-  const routeSeo = routeSeoDetails(route, activeProject, activeCorridor, activeMarketNote, activeNewsItem);
+  const routeSeo = routeSeoDetails(route, activeProject, activeCorridor, activeMarketNote, activeNewsItem, activeAnswer);
   document.title = routeSeo.title;
 
-  updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem);
-  updateCanonical(route, activeProject, activeMarketNote, activeNewsItem);
+  updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
+  updateCanonical(route, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
   updateSocialMetadata(routeSeo);
-  updateStructuredData(route.type, activeProject, activeMarketNote, activeNewsItem);
+  updateStructuredData(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
 
   views.forEach((view) => {
     const viewType = view.dataset.routeView;
@@ -3777,6 +3998,8 @@ function applyRoute() {
           ? viewType === "corridor" && view.dataset.corridorRoute === route.corridorKey
           : route.type === "market-note-detail"
             ? viewType === "market-note-detail"
+          : route.type === "answer-detail"
+            ? viewType === "answer-detail" && view.dataset.answerSlug === route.answerSlug
           : route.type === "news-detail"
             ? viewType === "news-detail"
           : route.type === "buildings"
@@ -3825,12 +4048,20 @@ function applyRoute() {
   }
 }
 
-function routeSeoDetails(route: Route, activeProject?: FeaturedProject, activeCorridor?: CorridorSection, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem) {
+function routeSeoDetails(
+  route: Route,
+  activeProject?: FeaturedProject,
+  activeCorridor?: CorridorSection,
+  activeMarketNote?: MarketNote,
+  activeNewsItem?: ExternalNewsItem,
+  activeAnswer?: BuyerIntentAnswerPage,
+) {
   const path =
     activeProject ? projectPath(activeProject) :
     activeCorridor ? corridorPath(activeCorridor.key) :
     activeMarketNote ? `/market-notes/${activeMarketNote.slug}/` :
     activeNewsItem ? updatePath(activeNewsItem) :
+    activeAnswer ? buyerIntentAnswerPath(activeAnswer) :
     ({
       home: "/",
       buildings: "/buildings/",
@@ -3879,8 +4110,10 @@ function routeSeoDetails(route: Route, activeProject?: FeaturedProject, activeCo
         ? activeMarketNote.seo.titleTag
       : activeNewsItem
         ? `${activeNewsItem.title} | WPB Updates`
+      : activeAnswer
+        ? `${activeAnswer.title} | WPB Answers`
       : routeTitles[route.type] ?? siteMeta.title;
-  const description = activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type));
+  const description = activeAnswer?.description ?? (activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
   const image = activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : activeNewsItem ? imageForContentItem(externalNewsImageContext(activeNewsItem)).src : siteMeta.defaultImage);
   return {
     title,
@@ -4038,6 +4271,11 @@ function getCurrentRoute(): Route {
     return { type: pathView } as Route;
   }
 
+  const answerPathMatch = window.location.pathname.match(/^\/answers\/([^/]+)\/?$/);
+  if (answerPathMatch && buyerIntentAnswerForSlug(answerPathMatch[1])) {
+    return { type: "answer-detail", answerSlug: answerPathMatch[1] };
+  }
+
   const corridorKey = corridorRoutePaths[window.location.pathname];
   if (corridorKey) {
     return { type: "corridor", corridorKey };
@@ -4095,7 +4333,7 @@ function canonicalAliasTarget(pathname: string) {
   return "";
 }
 
-function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem) {
+function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem, activeAnswer?: BuyerIntentAnswerPage) {
   const pathByRoute: Record<string, string> = {
     home: "/",
     buildings: "/buildings/",
@@ -4124,6 +4362,9 @@ function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMa
   if (route.type === "news-detail" && activeNewsItem) {
     path = updatePath(activeNewsItem);
   }
+  if (route.type === "answer-detail" && activeAnswer) {
+    path = buyerIntentAnswerPath(activeAnswer);
+  }
   let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!canonical) {
     canonical = document.createElement("link");
@@ -4133,14 +4374,14 @@ function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMa
   canonical.href = `${productionOrigin}${path}`;
 }
 
-function updateMetaDescription(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem) {
+function updateMetaDescription(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem, activeAnswer?: BuyerIntentAnswerPage) {
   let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
   if (!meta) {
     meta = document.createElement("meta");
     meta.name = "description";
     document.head.append(meta);
   }
-  meta.content = activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? metaDescriptionForRoute(routeType);
+  meta.content = activeAnswer?.description ?? (activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? metaDescriptionForRoute(routeType));
 }
 
 function metaDescriptionForRoute(routeType: string) {
@@ -4154,6 +4395,7 @@ function metaDescriptionForRoute(routeType: string) {
     "market-notes": "Read evergreen guidance for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
     floorplans: "Browse released West Palm Beach new-construction condo floor plans and request current sales packets before comparing available residences.",
     answers: "Concise answers to West Palm Beach new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
+    "answer-detail": "Buyer-intent answer for comparing West Palm Beach new-construction condos with source-backed links and verification notes.",
     methodology: "How WPB New Construction separates official sources, reported details, and items buyers should verify before relying on project information.",
     privacy: "Privacy information for WPB New Construction inquiry forms, Douglas Elliman policy references, and buyer lead handling.",
     terms: "Terms and limitations for WPB New Construction buyer guidance, project information, and advisory content.",
@@ -4195,7 +4437,7 @@ function setMetaName(name: string, content: string) {
   meta.content = content;
 }
 
-function updateStructuredData(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem) {
+function updateStructuredData(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem, activeAnswer?: BuyerIntentAnswerPage) {
   const baseGraph = [
     {
       "@type": siteMeta.publisher.type,
@@ -4230,6 +4472,16 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
   const routeGraph =
     routeType === "answers"
       ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Answers", path: "/answers/" }]), buildFaqSchema()]
+      : routeType === "answer-detail" && activeAnswer
+        ? [
+            buildBuyerIntentAnswerPageSchema(activeAnswer),
+            buildBreadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Answers", path: "/answers/" },
+              { name: activeAnswer.title, path: buyerIntentAnswerPath(activeAnswer) },
+            ]),
+            buildBuyerIntentFaqSchema(activeAnswer),
+          ]
       : routeType === "floorplans"
         ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Floor Plans", path: "/floorplans/" }]), buildFloorplanItemListSchema()]
         : routeType === "news"
@@ -4359,6 +4611,35 @@ function buildFaqSchema() {
     reviewedBy: { name: siteMeta.reviewedBy.name },
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
     mainEntity: answerEngineFaq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+function buildBuyerIntentAnswerPageSchema(answer: BuyerIntentAnswerPage) {
+  return {
+    "@type": "WebPage",
+    "@id": `${siteMeta.baseUrl}${buyerIntentAnswerPath(answer)}#webpage`,
+    name: answer.title,
+    url: `${siteMeta.baseUrl}${buyerIntentAnswerPath(answer)}`,
+    description: answer.description,
+    isPartOf: { "@id": `${siteMeta.baseUrl}/#website` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
+  };
+}
+
+function buildBuyerIntentFaqSchema(answer: BuyerIntentAnswerPage) {
+  return {
+    "@type": "FAQPage",
+    "@id": `${siteMeta.baseUrl}${buyerIntentAnswerPath(answer)}#faq`,
+    name: `${answer.title} FAQ`,
+    mainEntity: answer.faqs.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
@@ -6353,6 +6634,159 @@ function answerShortLabel(item: (typeof answerEngineFaq)[number]) {
   return item.shortLabel;
 }
 
+function buyerIntentAnswerPath(answer: BuyerIntentAnswerPage) {
+  return `/answers/${answer.slug}/`;
+}
+
+function buyerIntentAnswerForSlug(slug: string) {
+  return buyerIntentAnswerPages.find((answer) => answer.slug === slug);
+}
+
+function renderBuyerIntentAnswerCard(answer: BuyerIntentAnswerPage) {
+  return `
+    <article class="front-project-card">
+      <div class="front-project-card-body">
+        <span>${publicText(answer.shortLabel)}</span>
+        <h3><a href="${buyerIntentAnswerPath(answer)}">${publicText(answer.question)}</a></h3>
+        <p>${publicText(answer.bluf)}</p>
+        <a href="${buyerIntentAnswerPath(answer)}">Read answer <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  `;
+}
+
+function renderBuyerIntentAnswerRouteView(answer: BuyerIntentAnswerPage) {
+  return `
+    <div class="route-view route-view-answer-detail" data-route-view="answer-detail" data-answer-slug="${escapeHtml(answer.slug)}" hidden>
+      <section class="section intelligence-hero answer-detail-hero">
+        <div>
+          <p class="eyebrow">Buyer Answer</p>
+          <h1>${publicText(answer.question)}</h1>
+          <p>${publicText(answer.bluf)}</p>
+        </div>
+        <aside class="answer-meta-panel">
+          <span>Verification-first</span>
+          <strong>Changing details require current documents.</strong>
+          <small>Use this answer to frame the shortlist, then confirm pricing, availability, fees, and contract terms.</small>
+        </aside>
+      </section>
+      <section class="section answer-detail-section">
+        <div class="section-heading">
+          <p class="eyebrow">Bottom Line</p>
+          <h2>${publicText(answer.title)}</h2>
+          <p>${publicText(answer.explanation)}</p>
+        </div>
+        ${renderBuyerIntentTable(answer)}
+      </section>
+      <section class="section answer-detail-links-section" aria-label="Related West Palm Beach condo pages">
+        <div class="section-heading">
+          <p class="eyebrow">Related Pages</p>
+          <h2>Where to verify the answer.</h2>
+        </div>
+        <div class="market-note-actions">
+          <a href="/compare/">Compare buildings <span aria-hidden="true">→</span></a>
+          <a href="/floorplans/">Review floorplans <span aria-hidden="true">→</span></a>
+          ${answer.corridorKeys.map((key) => `<a href="${corridorPath(key)}">${publicText(corridorSections.find((section) => section.key === key)?.label ?? key)} corridor <span aria-hidden="true">→</span></a>`).join("")}
+          ${answer.projectIds.slice(0, 4).map((projectId) => {
+            const project = featuredProjects.find((item) => item.id === projectId);
+            return project ? `<a href="${projectPath(project)}">${publicText(project.name)} <span aria-hidden="true">→</span></a>` : "";
+          }).join("")}
+        </div>
+      </section>
+      <section class="section answer-detail-source-section" aria-label="Source and verification notes">
+        <div class="section-heading">
+          <p class="eyebrow">Source / Verification Notes</p>
+          <h2>What this answer is based on.</h2>
+        </div>
+        <ul class="answer-source-list">
+          ${answer.sourceNotes.map((note) => `<li>${publicText(note)}</li>`).join("")}
+          <li>Current pricing, incentives, fees, availability, delivery timing, floorplan availability, and contract terms should be verified before making a purchase decision.</li>
+        </ul>
+      </section>
+      <section class="section answer-detail-faq-section" aria-label="${escapeHtml(answer.title)} FAQ">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common follow-up questions.</h2>
+        </div>
+        <div class="answer-list">
+          ${answer.faqs.map((item) => `
+            <article class="answer-block">
+              <h3>${publicText(item.question)}</h3>
+              <p>${publicText(item.answer)}</p>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+function renderBuyerIntentTable(answer: BuyerIntentAnswerPage) {
+  return `
+    <div class="comparison-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Buyer question</th>
+            <th>Best use</th>
+            <th>Related pages</th>
+            <th>What to verify</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${answer.tableRows.map((row) => `
+            <tr>
+              <td>${publicText(row.label)}</td>
+              <td>${publicText(row.bestUse)}</td>
+              <td>${row.links.map((href) => `<a href="${safeHref(href)}">${publicText(linkLabelForAnswer(href))}</a>`).join("<br>")}</td>
+              <td>${publicText(row.verify)}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function linkLabelForAnswer(href: string) {
+  const projectMatch = href.match(/^\/projects\/([^/]+)\//);
+  if (projectMatch) {
+    const projectId = projectMatch[1] === "south-flagler-house-north" ? "south-flagler-house" : projectMatch[1];
+    return featuredProjects.find((project) => project.id === projectId)?.name ?? projectId.replace(/-/g, " ");
+  }
+  if (href === "/compare/") return "Compare";
+  if (href === "/floorplans/") return "Floorplans";
+  if (href === "/inquire/") return "Inquiry";
+  if (href.includes("north-flagler")) return "North Flagler";
+  if (href.includes("downtown-west-palm-beach")) return "Downtown West Palm Beach";
+  if (href.includes("south-flagler")) return "South Flagler";
+  if (href.includes("active-sales-vs-pipeline-watch")) return "Active sales vs pipeline";
+  if (href.includes("why-published-floor-plans-matter")) return "Why floorplans matter";
+  return href.replace(/^\/|\/$/g, "").replace(/-/g, " ");
+}
+
+function renderProjectCorridorCta(project: FeaturedProject) {
+  const section = corridorSections.find((item) => item.key === project.corridorKey);
+  if (!section) return "";
+  const corridorProjects = featuredProjects
+    .filter((item) => item.corridorKey === section.key && item.id !== project.id)
+    .slice(0, 3);
+  return `
+    <section class="section project-corridor-cta" aria-label="${escapeHtml(project.name)} corridor comparison">
+      <div class="section-heading">
+        <p class="eyebrow">Corridor Context</p>
+        <h2>Compare ${publicText(project.name)} within ${publicText(section.label)}.</h2>
+        <p>Use the corridor guide to compare nearby West Palm Beach projects by buyer fit, current status, released floorplans, and what still needs verification before touring.</p>
+      </div>
+      <div class="market-note-actions">
+        <a href="${corridorPath(section.key)}">Review ${publicText(section.label)} corridor <span aria-hidden="true">→</span></a>
+        <a href="/compare/">Compare all buildings <span aria-hidden="true">→</span></a>
+        ${corridorProjects.map((item) => `<a href="${projectPath(item)}">${publicText(item.name)} <span aria-hidden="true">→</span></a>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderAnswerFactMatrix() {
   const primaryProjectIds = new Set([
     "olara",
@@ -6973,6 +7407,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
       ${renderProjectSnapshotPanel(project.id)}
       ${renderProjectEntityBrief(project, floorplanProject, copyPackage)}
+      ${renderProjectCorridorCta(project)}
       ${copyPackage ? renderProjectBuyerLens(copyPackage) : ""}
 
       <section class="brochure-module brochure-residences-module" id="overview-${project.id}">

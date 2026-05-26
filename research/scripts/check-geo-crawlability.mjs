@@ -27,6 +27,7 @@ const requiredRoutePatterns = [
   /^\/compare\/$/,
   /^\/floorplans\/$/,
   /^\/answers\/$/,
+  /^\/answers\/[^/]+\/$/,
   /^\/projects\/[^/]+\/$/,
   /^\/corridors\/[^/]+\/$/,
   /^\/updates\/[^/]+\/$/,
