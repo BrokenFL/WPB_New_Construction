@@ -2,6 +2,10 @@
 
 A Vite site for West Palm Beach new-construction condo research, corridor comparison, floorplan indexing, buyer Q&A, and private advisory inquiries.
 
+## AI / Agent Handoff
+
+Future Codex, Antigravity, Gemini, Claude, or other AI agents must read `docs/AI_PROJECT_GUIDE.md` before making repo, asset, deployment, or data changes.
+
 ## Current Site Areas
 
 - `./` - stylized West Palm Beach corridor map with project cards for North Flagler, Downtown, and South Flagler.
