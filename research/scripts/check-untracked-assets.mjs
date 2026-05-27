@@ -1,8 +1,10 @@
 import { execFileSync } from "node:child_process";
+import fs from "node:fs";
 
 const allowedReviewPattern = /^research\/imported-project-images\/review\/.+\.(?:jpe?g|png|webp|gif|avif|html|md)$/i;
 const imagePattern = /\.(?:jpe?g|png|webp|gif|avif)$/i;
 const ignoredPattern = /(?:^|\/)(?:\.DS_Store|Thumbs\.db)$/i;
+const generatedPublishManifestPath = "data/generated_asset_publish_manifest.json";
 
 function gitOthers() {
   try {
@@ -18,7 +20,8 @@ function gitOthers() {
 
 const untracked = gitOthers().filter((file) => !ignoredPattern.test(file));
 const untrackedImages = untracked.filter((file) => imagePattern.test(file));
-const publicImages = untrackedImages.filter((file) => file.startsWith("public/"));
+const generatedPublishedAssets = readGeneratedPublishedAssets();
+const publicImages = untrackedImages.filter((file) => file.startsWith("public/") && !generatedPublishedAssets.has(file));
 const reviewImages = untrackedImages.filter((file) => allowedReviewPattern.test(file));
 const otherImages = untrackedImages.filter((file) => !file.startsWith("public/") && !allowedReviewPattern.test(file));
 
@@ -47,6 +50,7 @@ console.log(
       untrackedAssets: "pass",
       untrackedImages: untrackedImages.length,
       publicImages: publicImages.length,
+      generatedPublishedAssets: untrackedImages.filter((file) => generatedPublishedAssets.has(file)).length,
       reviewImages: reviewImages.length,
       otherImages: otherImages.length,
     },
@@ -54,3 +58,16 @@ console.log(
     2,
   ),
 );
+
+function readGeneratedPublishedAssets() {
+  if (!fs.existsSync(generatedPublishManifestPath)) return new Set();
+  try {
+    const entries = JSON.parse(fs.readFileSync(generatedPublishManifestPath, "utf8"));
+    if (!Array.isArray(entries)) return new Set();
+    return new Set(entries
+      .map((entry) => entry.websiteAssetPath)
+      .filter((assetPath) => typeof assetPath === "string" && assetPath.startsWith("public/")));
+  } catch {
+    return new Set();
+  }
+}

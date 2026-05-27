@@ -68,6 +68,12 @@
     "assets:duplicates": "node research/scripts/report-duplicate-assets.mjs --write",
     "assets:cleanup-approved": "node research/scripts/apply-approved-asset-cleanup.mjs --write",
     "assets:plan-resize": "npm run research:site-intelligence && node research/scripts/prepare-image-captions-and-sizes.mjs && node research/scripts/plan-authorized-asset-resize.mjs --write",
+    "assets:audit": "node scripts/audit-asset-pipeline.mjs",
+    "assets:audit:strict": "node scripts/audit-asset-pipeline.mjs --strict",
+    "assets:publish:dry": "node scripts/publish-assets-from-asset-repo.mjs --dry-run",
+    "assets:publish": "node scripts/publish-assets-from-asset-repo.mjs --write",
+    "assets:refresh:dry": "node scripts/refresh-website-asset-references.mjs --dry-run",
+    "assets:refresh": "node scripts/refresh-website-asset-references.mjs --write",
     "editor": "node research/scripts/local-content-editor.mjs",
     "editor:sync": "node research/scripts/sync-editor-overrides.mjs",
     "brooke:builder": "node tools/content-studio/server.mjs",
@@ -80,5 +86,8 @@
     "playwright": "^1.60.0",
     "typescript": "~6.0.2",
     "vite": "^8.0.9"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
   }
 }

@@ -1,0 +1,2349 @@
+{
+  "timestamp": "2026-05-27T13:08:54.541Z",
+  "mode": "write",
+  "sourceRoot": "asset-repo:/",
+  "sourceApprovedRoots": [
+    "public-projects/alba-palm-beach/approved-for-website",
+    "public-projects/berkeley/approved-for-website"
+  ],
+  "destinationRoot": "website:public/assets/projects",
+  "projectsProcessed": [
+    "alba-palm-beach",
+    "berkeley"
+  ],
+  "manifestPath": "data/generated_asset_publish_manifest.json",
+  "gitStatus": "## main...origin/main [ahead 3]\n M package-lock.json\n M package.json\n?? data/generated_asset_publish_manifest.json\n?? docs/reports/asset-pipeline-audit-report.json\n?? docs/reports/asset-pipeline-audit-report.md\n?? public/assets/projects/alba-palm-beach/amenities/alba-amenities-pool-deck-v01.webp\n?? public/assets/projects/alba-palm-beach/amenities/alba-amenities-valet-v01.webp\n?? public/assets/projects/alba-palm-beach/floorplans/\n?? public/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp\n?? public/assets/projects/alba-palm-beach/hero/alba-hero-interior-view-v01.webp\n?? public/assets/projects/alba-palm-beach/hero/alba-hero-vertical-exterior-tower-v01.webp\n?? public/assets/projects/alba-palm-beach/hero/alba-hero-wide-aerial-v01.webp\n?? public/assets/projects/alba-palm-beach/logos/alba-architect-spina-orourke-logo-v01.webp\n?? public/assets/projects/alba-palm-beach/logos/alba-developer-bgi-companies-logo-v01.webp\n?? public/assets/projects/alba-palm-beach/neighborhood/alba-neighborhood-clocktower-v01.webp\n?? public/assets/projects/alba-palm-beach/residences/alba-residences-bedroom-01-v01.webp\n?? public/assets/projects/alba-palm-beach/residences/alba-residences-kitchen-with-view-v01.webp\n?? public/assets/projects/alba-palm-beach/residences/alba-residences-living-room-v01.webp\n?? public/assets/projects/alba-palm-beach/residences/alba-residences-patio-v01.webp\n?? public/assets/projects/berkeley/\n?? scripts/audit-asset-pipeline.mjs\n?? scripts/publish-assets-from-asset-repo.mjs",
+  "summary": {
+    "filesScanned": 47,
+    "actions": {
+      "preserved-pdf": 7,
+      "published": 40
+    },
+    "convertedImages": 30,
+    "resizedImages": 4,
+    "finalPublicPaths": [
+      "/assets/projects/alba-palm-beach/amenities/alba-amenities-pool-deck-v01.webp",
+      "/assets/projects/alba-palm-beach/amenities/alba-amenities-valet-v01.webp",
+      "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-a-v01.pdf",
+      "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-b-v01.pdf",
+      "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-c-v01.pdf",
+      "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-d-v01.pdf",
+      "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-lph-a-v01.pdf",
+      "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-lph-b-v01.pdf",
+      "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-townhouse-c-v01.pdf",
+      "/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp",
+      "/assets/projects/alba-palm-beach/hero/alba-hero-interior-view-v01.webp",
+      "/assets/projects/alba-palm-beach/hero/alba-hero-vertical-exterior-tower-v01.webp",
+      "/assets/projects/alba-palm-beach/hero/alba-hero-wide-aerial-v01.webp",
+      "/assets/projects/alba-palm-beach/logos/alba-architect-spina-orourke-logo-v01.webp",
+      "/assets/projects/alba-palm-beach/logos/alba-developer-bgi-companies-logo-v01.webp",
+      "/assets/projects/alba-palm-beach/neighborhood/alba-neighborhood-clocktower-v01.webp",
+      "/assets/projects/alba-palm-beach/residences/alba-residences-bedroom-01-v01.webp",
+      "/assets/projects/alba-palm-beach/residences/alba-residences-kitchen-with-view-v01.webp",
+      "/assets/projects/alba-palm-beach/residences/alba-residences-living-room-v01.webp",
+      "/assets/projects/alba-palm-beach/residences/alba-residences-patio-v01.webp",
+      "/assets/projects/berkeley/amenities/berkeley-amenities-fitness-center-v01.webp",
+      "/assets/projects/berkeley/amenities/berkeley-amenities-lobby-v01.webp",
+      "/assets/projects/berkeley/amenities/berkeley-amenities-private-dining-v01.webp",
+      "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-lounge-v01.webp",
+      "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-overhead-v01.webp",
+      "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-pool-v01.webp",
+      "/assets/projects/berkeley/amenities/berkeley-amenities-spa-v01.webp",
+      "/assets/projects/berkeley/amenities/berkeley-amenities-valet-v01.webp",
+      "/assets/projects/berkeley/amenities/berkeley-amenity-pool-terrace-v01.webp",
+      "/assets/projects/berkeley/floorplans/berkeley-floorplans-penthouse-v01.webp",
+      "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-a-v01.webp",
+      "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-b-v01.webp",
+      "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-c-v01.webp",
+      "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-d-v01.webp",
+      "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-f-v01.webp",
+      "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-g-v01.webp",
+      "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-v01.webp",
+      "/assets/projects/berkeley/hero/berkeley-hero-exterior-intracoastal-view-v01.webp",
+      "/assets/projects/berkeley/hero/berkeley-hero-exterior-lake-view-v01.webp",
+      "/assets/projects/berkeley/hero/berkeley-hero-exterior-lower-view-v01.webp",
+      "/assets/projects/berkeley/hero/berkeley-hero-exterior-roof-v01.webp",
+      "/assets/projects/berkeley/hero/berkeley-hero-exterior-v01.webp",
+      "/assets/projects/berkeley/residences/berkeley-residences-bedroom-with-view-v01.webp",
+      "/assets/projects/berkeley/residences/berkeley-residences-en-suite-bathroom-v01.webp",
+      "/assets/projects/berkeley/residences/berkeley-residences-kitchen-with-view-v01.webp",
+      "/assets/projects/berkeley/residences/berkeley-residences-living-room-with-view-v01.webp",
+      "/assets/projects/berkeley/residences/berkeley-residences-patio-with-view-v01.webp"
+    ]
+  },
+  "publishedFiles": [
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-amenities-pool-deck-v01.jpg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-amenities-pool-deck-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/amenities/alba-amenities-pool-deck-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/amenities/alba-amenities-pool-deck-v01.webp",
+      "sourceHash": "ae956e93f94cadb38af6be57a5753d2f3352f797fae3f21fde789b629abf0375",
+      "outputHash": "99327af45e3b3b49ed95d6f9e1a3de5888b5d4971a5917b26417387a0466aedf",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 157237,
+      "outputSizeBytes": 128330,
+      "sourceDimensions": {
+        "width": 1200,
+        "height": 678
+      },
+      "outputDimensions": {
+        "width": 1200,
+        "height": 678
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-amenities-valet-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-amenities-valet-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/amenities/alba-amenities-valet-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/amenities/alba-amenities-valet-v01.webp",
+      "sourceHash": "c32d62d413cb9c84252da0c2381a0539111caf9f68d9908ebf7a5a6d29af7e4b",
+      "outputHash": "5f96df9d9d435662cf13fbd5ed0f302585d3ad830f14a3b9baaac0b380dc7648",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 192530,
+      "outputSizeBytes": 218048,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-aerial-waterfront-rendering-v01.jpg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-aerial-waterfront-rendering-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp",
+      "sourceHash": "1d48870b8ced87dcb980670f77440b6ffff0293634139ea77425c4b59098fb9a",
+      "outputHash": "c8ead0ec2c5ab35320762868d83ed50c6277e096f62bd53d40339d0d4dd42949",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 986857,
+      "outputSizeBytes": 536688,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1645
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1645
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-interior-view-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-interior-view-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/hero/alba-hero-interior-view-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/hero/alba-hero-interior-view-v01.webp",
+      "sourceHash": "28d2efca230fe2e854d27093785fd53d88411e69864ba7850c28ab2feb3f5680",
+      "outputHash": "8abf40ab29b8e14de37abf5b6578449eb086edcf5079753a552b5e5c5f6aa82b",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 189704,
+      "outputSizeBytes": 214478,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-vertical-exterior-tower-v01.jpg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-vertical-exterior-tower-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/hero/alba-hero-vertical-exterior-tower-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/hero/alba-hero-vertical-exterior-tower-v01.webp",
+      "sourceHash": "ddac0220497d1cd50e6b80fd4a55d041c7b0f5bc14ca583ea9b27376803affb2",
+      "outputHash": "1a22dc55536d4e2b16593a7b71c3d06f63740d85d7ba7c00f8b07bae260df5fd",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 197464,
+      "outputSizeBytes": 196016,
+      "sourceDimensions": {
+        "width": 808,
+        "height": 976
+      },
+      "outputDimensions": {
+        "width": 808,
+        "height": 976
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-wide-aerial-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-wide-aerial-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/hero/alba-hero-wide-aerial-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/hero/alba-hero-wide-aerial-v01.webp",
+      "sourceHash": "eb99c2a2b0f586034825101e2d44e16527819d05ca24b2ad75168fc34a10d79f",
+      "outputHash": "43ea5d414f8e7bbcd1ec7a37d3f5813e616c12d347d617a0c9a5e2136f32e596",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 139328,
+      "outputSizeBytes": 151110,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-neighborhood-clocktower-v01.jpg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-neighborhood-clocktower-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/neighborhood/alba-neighborhood-clocktower-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/neighborhood/alba-neighborhood-clocktower-v01.webp",
+      "sourceHash": "f93e98daa093d262b3d1498e90cae8086f227d441e14977de567754b6a799574",
+      "outputHash": "ab2abce9b297967e2cab98f8282641a3dd73f1f9850b1f869692f09c2d839b58",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 94453,
+      "outputSizeBytes": 87626,
+      "sourceDimensions": {
+        "width": 574,
+        "height": 860
+      },
+      "outputDimensions": {
+        "width": 574,
+        "height": 860
+      },
+      "category": "neighborhood",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-bedroom-01-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-bedroom-01-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/residences/alba-residences-bedroom-01-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/residences/alba-residences-bedroom-01-v01.webp",
+      "sourceHash": "3293f3e19c35c8e84bcb7cee161d58d033fe58d05a6a99003664f46381c3b71c",
+      "outputHash": "2dc4028244e0d1497797fcd04eb4ac1f24129e093e38cc0dd7dfba62eee984c5",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 75606,
+      "outputSizeBytes": 82520,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-kitchen-with-view-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-kitchen-with-view-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/residences/alba-residences-kitchen-with-view-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/residences/alba-residences-kitchen-with-view-v01.webp",
+      "sourceHash": "b77dbb841fb837e533e5bf47038708b2ea56f5b1e755b50fdbfe2bbbb5e0bdcc",
+      "outputHash": "6a82bc567d1145645f7797e7f4d2e2635522a06603bc37b8384b2340221aed2e",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 64072,
+      "outputSizeBytes": 70522,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-living-room-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-living-room-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/residences/alba-residences-living-room-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/residences/alba-residences-living-room-v01.webp",
+      "sourceHash": "eb523d6b414e3b9bf6ce67b2e4ab0bf71c096ffe8dfa2a2acb04508a571ae974",
+      "outputHash": "aaca25e4856eb85ee68317b7159a69ca84662b4b73ef341886bea009662c1cf7",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 106866,
+      "outputSizeBytes": 117330,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-patio-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-patio-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/residences/alba-residences-patio-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/residences/alba-residences-patio-v01.webp",
+      "sourceHash": "486a0b3181e544526351115d940f1e0891bd5be0851c5fbc3722085cec7e5a60",
+      "outputHash": "8826a39de49f7f7283c0f1c6241d0662d3865e857e9db4d321564a7cf4ac3f87",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 75208,
+      "outputSizeBytes": 83230,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/logos/alba-architect-spina-orourke-logo-v01.jpeg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/logos/alba-architect-spina-orourke-logo-v01.jpeg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/logos/alba-architect-spina-orourke-logo-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/logos/alba-architect-spina-orourke-logo-v01.webp",
+      "sourceHash": "62a16b8bc42227cf725379d7dec6f3d44b7a9c12e516e54a43ac3e6eb95e9cc4",
+      "outputHash": "1ce562f7e2333a7e64f5876fd854ffeabcc4cb54fbeea5a93becf6b5da663782",
+      "sourceFormat": ".jpeg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 6426,
+      "outputSizeBytes": 5424,
+      "sourceDimensions": {
+        "width": 450,
+        "height": 112
+      },
+      "outputDimensions": {
+        "width": 450,
+        "height": 112
+      },
+      "category": "logos",
+      "action": "published",
+      "reason": "converted jpeg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/logos/alba-developer-bgi-companies-logo-v01.jpeg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/logos/alba-developer-bgi-companies-logo-v01.jpeg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/logos/alba-developer-bgi-companies-logo-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/logos/alba-developer-bgi-companies-logo-v01.webp",
+      "sourceHash": "cc7e077c62dda88110922ec5918c8083be180cf2c23e476aad91b4cc0f8ff1b7",
+      "outputHash": "440c323276e86d8ed7f4c63107b3d3b500fbbcde8fcf27ff3bc53bfd60bbc3a7",
+      "sourceFormat": ".jpeg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 3730,
+      "outputSizeBytes": 3036,
+      "sourceDimensions": {
+        "width": 200,
+        "height": 200
+      },
+      "outputDimensions": {
+        "width": 200,
+        "height": 200
+      },
+      "category": "logos",
+      "action": "published",
+      "reason": "converted jpeg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-penthouse-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-penthouse-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-penthouse-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-penthouse-v01.webp",
+      "sourceHash": "e11567e9d31229ea2e15dcfc2982881acb2c3b5c2df6b7118e7536b06f57d3b8",
+      "outputHash": "e96620934c2aa87ea2426895c04674bd3a9b40b6ab4c42fbcc9be29572fe3bca",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 481638,
+      "outputSizeBytes": 203772,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-a-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-a-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-a-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-a-v01.webp",
+      "sourceHash": "5722ad8c68d6bc92c12ab5cb66d521d5b4218f13387bd88d34b3819eeac85a2c",
+      "outputHash": "940118a8fa57c4709b481540a2c8558550e72b238836b5fe8e4491261c96e093",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 421409,
+      "outputSizeBytes": 168952,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-b-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-b-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-b-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-b-v01.webp",
+      "sourceHash": "02ac371fab58e7af7881378f9d313ae170bc3d8d7586f6a4de5fd70a43ff45b5",
+      "outputHash": "f1e2f1ed088763ca4e93927dfb578471f6b17b02df003d5776cbae8f1127d841",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 398369,
+      "outputSizeBytes": 159434,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-c-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-c-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-c-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-c-v01.webp",
+      "sourceHash": "bba002c004860feff8fc86cfc3f229dac71d1e8597751347adcee68e2b5ad804",
+      "outputHash": "510cc06a1543896e6c1383ef624fc62c19f6d57729f4b8d4986e21a4d072a99f",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 406737,
+      "outputSizeBytes": 161292,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-d-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-d-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-d-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-d-v01.webp",
+      "sourceHash": "69fecd3b6f28e5e40616c6a9f34d7307ea2e287ab626655ef59f16b0575da323",
+      "outputHash": "22cd98e85c276e87e6f3a7d3ab7c7030957762ec3940a24d92ae992681e21227",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 423157,
+      "outputSizeBytes": 170922,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-f-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-f-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-f-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-f-v01.webp",
+      "sourceHash": "44d1746c21426de189fcbdb50ff4d88034cc3ccbda9607026de5470b561bb81c",
+      "outputHash": "6da206763f801c1d1174579734087b8a6da06de1d17e86d2032885a5868f8123",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 422616,
+      "outputSizeBytes": 174110,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-g-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-g-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-g-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-g-v01.webp",
+      "sourceHash": "afc120637f0076ae0823134f403a8336a8b45f1ebd7f58f6b69c76f3d863c21c",
+      "outputHash": "6926c7dbb56d1c7ea89edf654e5e114a8b7174911de4304319226e80431dff72",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 412788,
+      "outputSizeBytes": 169326,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-v01.webp",
+      "sourceHash": "c5d6c5dd568c1a31ed9d918d6988c10d95cfea062481a820698aa8c36fb3979d",
+      "outputHash": "50361bbf1cc5efc60e1977e8818026a6a485edfa04a517fd2cd3ff559f1976d7",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 450872,
+      "outputSizeBytes": 188528,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-fitness-center-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-fitness-center-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-fitness-center-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-fitness-center-v01.webp",
+      "sourceHash": "4613a5c0f5d57a0774f01c0745f6d6967e56295a8ea0e0652072fdcdfcd19267",
+      "outputHash": "c4fe6160f11ea3e77bd4a5569bb362426b72747ef0f35700a19503ace5b7bb0b",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 479958,
+      "outputSizeBytes": 238222,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-lobby-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-lobby-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-lobby-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-lobby-v01.webp",
+      "sourceHash": "6aa01e9f3192587c06ceefa148536d6968d9af417e3d9f15cddd83774cad7f23",
+      "outputHash": "4a40125d8f8c867e8da61102b96b1eb0810d2d2ced2bc43ab7ae907b5ecec108",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 416968,
+      "outputSizeBytes": 117666,
+      "sourceDimensions": {
+        "width": 2560,
+        "height": 1440
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp; resized to 1800px max width",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-private-dining-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-private-dining-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-private-dining-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-private-dining-v01.webp",
+      "sourceHash": "d5115d9435bc68016ce9f727eb9ec4cfba8edd681ead1b31778926e55383e5a0",
+      "outputHash": "dec4f617751d2b0c3a91fa9bab595a085780fbc88545bb72866bca1ca14206d3",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 400091,
+      "outputSizeBytes": 156346,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-lounge-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-lounge-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-lounge-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-lounge-v01.webp",
+      "sourceHash": "0f98b24bf32675b8fc29958702a16f5b1ee5dcec423551d9052b747385b22217",
+      "outputHash": "df5ea6b8b6040c4904840a0db0a7eac83f6a1ce47dd3aa542e85d2c51e9070da",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 558288,
+      "outputSizeBytes": 251944,
+      "sourceDimensions": {
+        "width": 1386,
+        "height": 776
+      },
+      "outputDimensions": {
+        "width": 1386,
+        "height": 776
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-overhead-v01.png",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-overhead-v01.png",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-overhead-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-overhead-v01.webp",
+      "sourceHash": "b29e9659e64c986b0f93eab56c7ef3ac12b74ba57948dd036f9f904f60efecbb",
+      "outputHash": "2fc004226369123dcda998dba40d49a1ab8cee5f93115afe358de0a452e6d35a",
+      "sourceFormat": ".png",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 3826320,
+      "outputSizeBytes": 478362,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 900
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 900
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted png to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-pool-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-pool-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-pool-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-pool-v01.webp",
+      "sourceHash": "cf5dc68ea47c81b576de6210ca2462e151c4b9b77bc3351550b6f03a539f556a",
+      "outputHash": "a8e042525677cd3e6ac2ab486c6e6b9f0be178527953ebc0db971a3e81d6ecbe",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 405770,
+      "outputSizeBytes": 177782,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-spa-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-spa-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-spa-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-spa-v01.webp",
+      "sourceHash": "d71967296eaf3e9917b542fb3acbaae0f534ddbb756552bdeadeba5386d8fad5",
+      "outputHash": "7c2c8d9291150f1c6fba199e9910bb5711dd47551c7de0d0c305bbef3d5a4cb3",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 453093,
+      "outputSizeBytes": 199746,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-valet-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-valet-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-valet-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-valet-v01.webp",
+      "sourceHash": "08376d1c89750a3453b8bc6b3fc450bb98843f10c0ff9079370fbb217be56e48",
+      "outputHash": "3a977d3591a3d75cdc1e0fd9064b7b966a222c1f819905b3884fe59ccf6430d8",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 552969,
+      "outputSizeBytes": 183560,
+      "sourceDimensions": {
+        "width": 2560,
+        "height": 1441
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp; resized to 1800px max width",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenity-pool-terrace-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenity-pool-terrace-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenity-pool-terrace-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenity-pool-terrace-v01.webp",
+      "sourceHash": "67b3f36c63f87ffa354f512f2f9d1a440c6de56146d5b3290b09563a9733cfa0",
+      "outputHash": "a0be3dc231ab0919153758a694f28c61e9173b0cc7ecf9e39e66f43dc8bc8323",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 728792,
+      "outputSizeBytes": 388042,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-intracoastal-view-v01.webp",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-intracoastal-view-v01.webp",
+      "websiteAssetPath": "public/assets/projects/berkeley/hero/berkeley-hero-exterior-intracoastal-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/hero/berkeley-hero-exterior-intracoastal-view-v01.webp",
+      "sourceHash": "83ed7f6f1ed04e679365890110d243669c9225d6379d37b67e5086cdb25e397b",
+      "outputHash": "125730908fd153e24cb8d5a0d79daa0056391ac0194e9dedfbc326cd95249e27",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 128234,
+      "outputSizeBytes": 124170,
+      "sourceDimensions": {
+        "width": 1240,
+        "height": 620
+      },
+      "outputDimensions": {
+        "width": 1240,
+        "height": 620
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-lake-view-v01.webp",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-lake-view-v01.webp",
+      "websiteAssetPath": "public/assets/projects/berkeley/hero/berkeley-hero-exterior-lake-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/hero/berkeley-hero-exterior-lake-view-v01.webp",
+      "sourceHash": "9d5bbbdc7d2e75aa977115fadb450a6b6973e1446c6ea7823c5f5b2afa18dd73",
+      "outputHash": "bc02bc271350ec04bedd19672fc7635dd4e6693ded6ab979b2ea44f59c804e9e",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 11408721,
+      "outputSizeBytes": 793272,
+      "sourceDimensions": {
+        "width": 4718,
+        "height": 5000
+      },
+      "outputDimensions": {
+        "width": 2400,
+        "height": 2543
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "resized to 2400px max width",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-lower-view-v01.webp",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-lower-view-v01.webp",
+      "websiteAssetPath": "public/assets/projects/berkeley/hero/berkeley-hero-exterior-lower-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/hero/berkeley-hero-exterior-lower-view-v01.webp",
+      "sourceHash": "88daa656fd1fb1cfa3be706f5aae5a4718cac40e38d3ab439e40abac8c105bf7",
+      "outputHash": "43b7e3216c0bf21adbbf5cd11ed52a2d796926cb5cd768e18193d9de1b49b291",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 76140,
+      "outputSizeBytes": 79314,
+      "sourceDimensions": {
+        "width": 850,
+        "height": 478
+      },
+      "outputDimensions": {
+        "width": 850,
+        "height": 478
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-roof-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-roof-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/hero/berkeley-hero-exterior-roof-v01.webp",
+      "publicPath": "/assets/projects/berkeley/hero/berkeley-hero-exterior-roof-v01.webp",
+      "sourceHash": "b55595d89eb34f65edadc5f70a886a186ca251030b0f957f06a9b1c7b8bc4192",
+      "outputHash": "8a09e6667579ad0a1d83ed357b65ce535617e8f30fa3b91501d569b2afe831a8",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 433859,
+      "outputSizeBytes": 207128,
+      "sourceDimensions": {
+        "width": 2560,
+        "height": 1485
+      },
+      "outputDimensions": {
+        "width": 2400,
+        "height": 1392
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "converted jpg to webp; resized to 2400px max width",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/hero/berkeley-hero-exterior-v01.webp",
+      "publicPath": "/assets/projects/berkeley/hero/berkeley-hero-exterior-v01.webp",
+      "sourceHash": "8e7bf9ff9801282b890a6d116f47bc0d2906dda340d959cb48fcb65ba82de4eb",
+      "outputHash": "e941021962ca8a6148f33ada3ff4878b83383dcb134fe85252dd60cd50b4dd2c",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 155853,
+      "outputSizeBytes": 116438,
+      "sourceDimensions": {
+        "width": 777,
+        "height": 824
+      },
+      "outputDimensions": {
+        "width": 777,
+        "height": 824
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-bedroom-with-view-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-bedroom-with-view-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/residences/berkeley-residences-bedroom-with-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/residences/berkeley-residences-bedroom-with-view-v01.webp",
+      "sourceHash": "109e05a4902ae95a740a5b417e531ba5da24387c2ab41984c1e780d292105f0b",
+      "outputHash": "2903bc73f53d7554140b2e3d18b075f727c1e69254fc1f4606095c5182f476ae",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 313373,
+      "outputSizeBytes": 104596,
+      "sourceDimensions": {
+        "width": 1378,
+        "height": 775
+      },
+      "outputDimensions": {
+        "width": 1378,
+        "height": 775
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-en-suite-bathroom-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-en-suite-bathroom-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/residences/berkeley-residences-en-suite-bathroom-v01.webp",
+      "publicPath": "/assets/projects/berkeley/residences/berkeley-residences-en-suite-bathroom-v01.webp",
+      "sourceHash": "6329a51a710ade8fbf35d39a21a71a84d1b0a10648ea0cf05d2e4e9a850fd224",
+      "outputHash": "ac7726ec2ebed6b6e2d77d22af954788beff6bce61a6de42c99eb37aea0f0cc8",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 383600,
+      "outputSizeBytes": 37512,
+      "sourceDimensions": {
+        "width": 1038,
+        "height": 776
+      },
+      "outputDimensions": {
+        "width": 1038,
+        "height": 776
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-kitchen-with-view-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-kitchen-with-view-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/residences/berkeley-residences-kitchen-with-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/residences/berkeley-residences-kitchen-with-view-v01.webp",
+      "sourceHash": "8c12e679f1773e96b69eb9067cee396c2e077735065ce00e04d511cfea52cd39",
+      "outputHash": "3192771bb95d66b879b80e036c6b789b53d90b02836e42a2a8c91b5d382579fb",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 303012,
+      "outputSizeBytes": 98162,
+      "sourceDimensions": {
+        "width": 1378,
+        "height": 775
+      },
+      "outputDimensions": {
+        "width": 1378,
+        "height": 775
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-living-room-with-view-v01.jpeg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-living-room-with-view-v01.jpeg",
+      "websiteAssetPath": "public/assets/projects/berkeley/residences/berkeley-residences-living-room-with-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/residences/berkeley-residences-living-room-with-view-v01.webp",
+      "sourceHash": "10316b3613d232decd1347d73fd36647bad903f6cf6970095214394f5940c6e3",
+      "outputHash": "16139d598cee3a686884d13623db5c992c55e91ece0d039dfbeee5c43d269a69",
+      "sourceFormat": ".jpeg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 7228,
+      "outputSizeBytes": 8562,
+      "sourceDimensions": {
+        "width": 300,
+        "height": 168
+      },
+      "outputDimensions": {
+        "width": 300,
+        "height": 168
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "converted jpeg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-patio-with-view-v01.jpeg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-patio-with-view-v01.jpeg",
+      "websiteAssetPath": "public/assets/projects/berkeley/residences/berkeley-residences-patio-with-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/residences/berkeley-residences-patio-with-view-v01.webp",
+      "sourceHash": "b1e60d5a064985cef142bacc7e7d0b68d9bd04cb16a3cdcdfb07f2777cca6675",
+      "outputHash": "06844eecdf9bc11bb1e40beb858d5e24544185f90d8a5bb889f40e050cc290ad",
+      "sourceFormat": ".jpeg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 9651,
+      "outputSizeBytes": 12168,
+      "sourceDimensions": {
+        "width": 300,
+        "height": 168
+      },
+      "outputDimensions": {
+        "width": 300,
+        "height": 168
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "converted jpeg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    }
+  ],
+  "skippedFiles": [],
+  "preservedPdfs": [
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-a-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-a-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-a-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-a-v01.pdf",
+      "sourceHash": "47e2c66c6b1544b3fdb68db02b5466175e4b50ef71a545fdfba8076f94cccf9e",
+      "outputHash": "47e2c66c6b1544b3fdb68db02b5466175e4b50ef71a545fdfba8076f94cccf9e",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2214794,
+      "outputSizeBytes": 2214794,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-b-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-b-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-b-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-b-v01.pdf",
+      "sourceHash": "da928b42bb21954ae58624053755c2ed0cacf80740ee0528d5eb77912aaa9809",
+      "outputHash": "da928b42bb21954ae58624053755c2ed0cacf80740ee0528d5eb77912aaa9809",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2214907,
+      "outputSizeBytes": 2214907,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-c-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-c-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-c-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-c-v01.pdf",
+      "sourceHash": "02375db8ad38a8c4cd09760ca59d2998b19026d645f8ceffa99e28c78b881db1",
+      "outputHash": "02375db8ad38a8c4cd09760ca59d2998b19026d645f8ceffa99e28c78b881db1",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2207940,
+      "outputSizeBytes": 2207940,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-d-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-d-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-d-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-d-v01.pdf",
+      "sourceHash": "0f6cf9771eaaf8a8231056c70fffac8c6e628f121806815f30db82c22afb8c38",
+      "outputHash": "0f6cf9771eaaf8a8231056c70fffac8c6e628f121806815f30db82c22afb8c38",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2215583,
+      "outputSizeBytes": 2215583,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-lph-a-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-lph-a-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-lph-a-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-lph-a-v01.pdf",
+      "sourceHash": "9bd919994daa49001f3673a7e27cc2c3e5e23fd1b502e1f104c11e314bc95ee4",
+      "outputHash": "9bd919994daa49001f3673a7e27cc2c3e5e23fd1b502e1f104c11e314bc95ee4",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2253234,
+      "outputSizeBytes": 2253234,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-lph-b-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-lph-b-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-lph-b-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-lph-b-v01.pdf",
+      "sourceHash": "25788d12df65ef31e8e90cb5d5f26abcbc0040549b0c0a0b732a573bee188f9a",
+      "outputHash": "25788d12df65ef31e8e90cb5d5f26abcbc0040549b0c0a0b732a573bee188f9a",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2220045,
+      "outputSizeBytes": 2220045,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-townhouse-c-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-townhouse-c-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-townhouse-c-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-townhouse-c-v01.pdf",
+      "sourceHash": "f6708746521abc955167bd228abd30211f958d9877865510ca584ae72f172221",
+      "outputHash": "f6708746521abc955167bd228abd30211f958d9877865510ca584ae72f172221",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2335220,
+      "outputSizeBytes": 2335220,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    }
+  ],
+  "conflicts": [],
+  "unsupportedFiles": [],
+  "entries": [
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-amenities-pool-deck-v01.jpg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-amenities-pool-deck-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/amenities/alba-amenities-pool-deck-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/amenities/alba-amenities-pool-deck-v01.webp",
+      "sourceHash": "ae956e93f94cadb38af6be57a5753d2f3352f797fae3f21fde789b629abf0375",
+      "outputHash": "99327af45e3b3b49ed95d6f9e1a3de5888b5d4971a5917b26417387a0466aedf",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 157237,
+      "outputSizeBytes": 128330,
+      "sourceDimensions": {
+        "width": 1200,
+        "height": 678
+      },
+      "outputDimensions": {
+        "width": 1200,
+        "height": 678
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-amenities-valet-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-amenities-valet-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/amenities/alba-amenities-valet-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/amenities/alba-amenities-valet-v01.webp",
+      "sourceHash": "c32d62d413cb9c84252da0c2381a0539111caf9f68d9908ebf7a5a6d29af7e4b",
+      "outputHash": "5f96df9d9d435662cf13fbd5ed0f302585d3ad830f14a3b9baaac0b380dc7648",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 192530,
+      "outputSizeBytes": 218048,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-a-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-a-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-a-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-a-v01.pdf",
+      "sourceHash": "47e2c66c6b1544b3fdb68db02b5466175e4b50ef71a545fdfba8076f94cccf9e",
+      "outputHash": "47e2c66c6b1544b3fdb68db02b5466175e4b50ef71a545fdfba8076f94cccf9e",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2214794,
+      "outputSizeBytes": 2214794,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-b-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-b-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-b-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-b-v01.pdf",
+      "sourceHash": "da928b42bb21954ae58624053755c2ed0cacf80740ee0528d5eb77912aaa9809",
+      "outputHash": "da928b42bb21954ae58624053755c2ed0cacf80740ee0528d5eb77912aaa9809",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2214907,
+      "outputSizeBytes": 2214907,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-c-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-c-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-c-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-c-v01.pdf",
+      "sourceHash": "02375db8ad38a8c4cd09760ca59d2998b19026d645f8ceffa99e28c78b881db1",
+      "outputHash": "02375db8ad38a8c4cd09760ca59d2998b19026d645f8ceffa99e28c78b881db1",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2207940,
+      "outputSizeBytes": 2207940,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-d-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-d-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-d-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-d-v01.pdf",
+      "sourceHash": "0f6cf9771eaaf8a8231056c70fffac8c6e628f121806815f30db82c22afb8c38",
+      "outputHash": "0f6cf9771eaaf8a8231056c70fffac8c6e628f121806815f30db82c22afb8c38",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2215583,
+      "outputSizeBytes": 2215583,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-lph-a-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-lph-a-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-lph-a-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-lph-a-v01.pdf",
+      "sourceHash": "9bd919994daa49001f3673a7e27cc2c3e5e23fd1b502e1f104c11e314bc95ee4",
+      "outputHash": "9bd919994daa49001f3673a7e27cc2c3e5e23fd1b502e1f104c11e314bc95ee4",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2253234,
+      "outputSizeBytes": 2253234,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-lph-b-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-residence-lph-b-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-lph-b-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-lph-b-v01.pdf",
+      "sourceHash": "25788d12df65ef31e8e90cb5d5f26abcbc0040549b0c0a0b732a573bee188f9a",
+      "outputHash": "25788d12df65ef31e8e90cb5d5f26abcbc0040549b0c0a0b732a573bee188f9a",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2220045,
+      "outputSizeBytes": 2220045,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-townhouse-c-v01.pdf",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/floorplans/alba-floorplans-townhouse-c-v01.pdf",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-townhouse-c-v01.pdf",
+      "publicPath": "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-townhouse-c-v01.pdf",
+      "sourceHash": "f6708746521abc955167bd228abd30211f958d9877865510ca584ae72f172221",
+      "outputHash": "f6708746521abc955167bd228abd30211f958d9877865510ca584ae72f172221",
+      "sourceFormat": ".pdf",
+      "outputFormat": ".pdf",
+      "sourceSizeBytes": 2335220,
+      "outputSizeBytes": 2335220,
+      "sourceDimensions": null,
+      "outputDimensions": null,
+      "category": "floorplans",
+      "action": "preserved-pdf",
+      "reason": "floorplan pdf preserved for website document link",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-aerial-waterfront-rendering-v01.jpg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-aerial-waterfront-rendering-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp",
+      "sourceHash": "1d48870b8ced87dcb980670f77440b6ffff0293634139ea77425c4b59098fb9a",
+      "outputHash": "c8ead0ec2c5ab35320762868d83ed50c6277e096f62bd53d40339d0d4dd42949",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 986857,
+      "outputSizeBytes": 536688,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1645
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1645
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-interior-view-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-interior-view-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/hero/alba-hero-interior-view-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/hero/alba-hero-interior-view-v01.webp",
+      "sourceHash": "28d2efca230fe2e854d27093785fd53d88411e69864ba7850c28ab2feb3f5680",
+      "outputHash": "8abf40ab29b8e14de37abf5b6578449eb086edcf5079753a552b5e5c5f6aa82b",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 189704,
+      "outputSizeBytes": 214478,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-vertical-exterior-tower-v01.jpg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-vertical-exterior-tower-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/hero/alba-hero-vertical-exterior-tower-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/hero/alba-hero-vertical-exterior-tower-v01.webp",
+      "sourceHash": "ddac0220497d1cd50e6b80fd4a55d041c7b0f5bc14ca583ea9b27376803affb2",
+      "outputHash": "1a22dc55536d4e2b16593a7b71c3d06f63740d85d7ba7c00f8b07bae260df5fd",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 197464,
+      "outputSizeBytes": 196016,
+      "sourceDimensions": {
+        "width": 808,
+        "height": 976
+      },
+      "outputDimensions": {
+        "width": 808,
+        "height": 976
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-wide-aerial-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-hero-wide-aerial-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/hero/alba-hero-wide-aerial-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/hero/alba-hero-wide-aerial-v01.webp",
+      "sourceHash": "eb99c2a2b0f586034825101e2d44e16527819d05ca24b2ad75168fc34a10d79f",
+      "outputHash": "43ea5d414f8e7bbcd1ec7a37d3f5813e616c12d347d617a0c9a5e2136f32e596",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 139328,
+      "outputSizeBytes": 151110,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/logos/alba-architect-spina-orourke-logo-v01.jpeg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/logos/alba-architect-spina-orourke-logo-v01.jpeg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/logos/alba-architect-spina-orourke-logo-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/logos/alba-architect-spina-orourke-logo-v01.webp",
+      "sourceHash": "62a16b8bc42227cf725379d7dec6f3d44b7a9c12e516e54a43ac3e6eb95e9cc4",
+      "outputHash": "1ce562f7e2333a7e64f5876fd854ffeabcc4cb54fbeea5a93becf6b5da663782",
+      "sourceFormat": ".jpeg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 6426,
+      "outputSizeBytes": 5424,
+      "sourceDimensions": {
+        "width": 450,
+        "height": 112
+      },
+      "outputDimensions": {
+        "width": 450,
+        "height": 112
+      },
+      "category": "logos",
+      "action": "published",
+      "reason": "converted jpeg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/logos/alba-developer-bgi-companies-logo-v01.jpeg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/logos/alba-developer-bgi-companies-logo-v01.jpeg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/logos/alba-developer-bgi-companies-logo-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/logos/alba-developer-bgi-companies-logo-v01.webp",
+      "sourceHash": "cc7e077c62dda88110922ec5918c8083be180cf2c23e476aad91b4cc0f8ff1b7",
+      "outputHash": "440c323276e86d8ed7f4c63107b3d3b500fbbcde8fcf27ff3bc53bfd60bbc3a7",
+      "sourceFormat": ".jpeg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 3730,
+      "outputSizeBytes": 3036,
+      "sourceDimensions": {
+        "width": 200,
+        "height": 200
+      },
+      "outputDimensions": {
+        "width": 200,
+        "height": 200
+      },
+      "category": "logos",
+      "action": "published",
+      "reason": "converted jpeg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-neighborhood-clocktower-v01.jpg",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-neighborhood-clocktower-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/neighborhood/alba-neighborhood-clocktower-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/neighborhood/alba-neighborhood-clocktower-v01.webp",
+      "sourceHash": "f93e98daa093d262b3d1498e90cae8086f227d441e14977de567754b6a799574",
+      "outputHash": "ab2abce9b297967e2cab98f8282641a3dd73f1f9850b1f869692f09c2d839b58",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 94453,
+      "outputSizeBytes": 87626,
+      "sourceDimensions": {
+        "width": 574,
+        "height": 860
+      },
+      "outputDimensions": {
+        "width": 574,
+        "height": 860
+      },
+      "category": "neighborhood",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-bedroom-01-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-bedroom-01-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/residences/alba-residences-bedroom-01-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/residences/alba-residences-bedroom-01-v01.webp",
+      "sourceHash": "3293f3e19c35c8e84bcb7cee161d58d033fe58d05a6a99003664f46381c3b71c",
+      "outputHash": "2dc4028244e0d1497797fcd04eb4ac1f24129e093e38cc0dd7dfba62eee984c5",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 75606,
+      "outputSizeBytes": 82520,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-kitchen-with-view-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-kitchen-with-view-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/residences/alba-residences-kitchen-with-view-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/residences/alba-residences-kitchen-with-view-v01.webp",
+      "sourceHash": "b77dbb841fb837e533e5bf47038708b2ea56f5b1e755b50fdbfe2bbbb5e0bdcc",
+      "outputHash": "6a82bc567d1145645f7797e7f4d2e2635522a06603bc37b8384b2340221aed2e",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 64072,
+      "outputSizeBytes": 70522,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-living-room-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-living-room-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/residences/alba-residences-living-room-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/residences/alba-residences-living-room-v01.webp",
+      "sourceHash": "eb523d6b414e3b9bf6ce67b2e4ab0bf71c096ffe8dfa2a2acb04508a571ae974",
+      "outputHash": "aaca25e4856eb85ee68317b7159a69ca84662b4b73ef341886bea009662c1cf7",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 106866,
+      "outputSizeBytes": 117330,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "alba-palm-beach",
+      "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-patio-v01.webp",
+      "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-residences-patio-v01.webp",
+      "websiteAssetPath": "public/assets/projects/alba-palm-beach/residences/alba-residences-patio-v01.webp",
+      "publicPath": "/assets/projects/alba-palm-beach/residences/alba-residences-patio-v01.webp",
+      "sourceHash": "486a0b3181e544526351115d940f1e0891bd5be0851c5fbc3722085cec7e5a60",
+      "outputHash": "8826a39de49f7f7283c0f1c6241d0662d3865e857e9db4d321564a7cf4ac3f87",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 75208,
+      "outputSizeBytes": 83230,
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "outputDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-fitness-center-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-fitness-center-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-fitness-center-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-fitness-center-v01.webp",
+      "sourceHash": "4613a5c0f5d57a0774f01c0745f6d6967e56295a8ea0e0652072fdcdfcd19267",
+      "outputHash": "c4fe6160f11ea3e77bd4a5569bb362426b72747ef0f35700a19503ace5b7bb0b",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 479958,
+      "outputSizeBytes": 238222,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-lobby-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-lobby-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-lobby-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-lobby-v01.webp",
+      "sourceHash": "6aa01e9f3192587c06ceefa148536d6968d9af417e3d9f15cddd83774cad7f23",
+      "outputHash": "4a40125d8f8c867e8da61102b96b1eb0810d2d2ced2bc43ab7ae907b5ecec108",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 416968,
+      "outputSizeBytes": 117666,
+      "sourceDimensions": {
+        "width": 2560,
+        "height": 1440
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp; resized to 1800px max width",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-private-dining-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-private-dining-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-private-dining-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-private-dining-v01.webp",
+      "sourceHash": "d5115d9435bc68016ce9f727eb9ec4cfba8edd681ead1b31778926e55383e5a0",
+      "outputHash": "dec4f617751d2b0c3a91fa9bab595a085780fbc88545bb72866bca1ca14206d3",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 400091,
+      "outputSizeBytes": 156346,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-lounge-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-lounge-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-lounge-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-lounge-v01.webp",
+      "sourceHash": "0f98b24bf32675b8fc29958702a16f5b1ee5dcec423551d9052b747385b22217",
+      "outputHash": "df5ea6b8b6040c4904840a0db0a7eac83f6a1ce47dd3aa542e85d2c51e9070da",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 558288,
+      "outputSizeBytes": 251944,
+      "sourceDimensions": {
+        "width": 1386,
+        "height": 776
+      },
+      "outputDimensions": {
+        "width": 1386,
+        "height": 776
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-overhead-v01.png",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-overhead-v01.png",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-overhead-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-overhead-v01.webp",
+      "sourceHash": "b29e9659e64c986b0f93eab56c7ef3ac12b74ba57948dd036f9f904f60efecbb",
+      "outputHash": "2fc004226369123dcda998dba40d49a1ab8cee5f93115afe358de0a452e6d35a",
+      "sourceFormat": ".png",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 3826320,
+      "outputSizeBytes": 478362,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 900
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 900
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted png to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-pool-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-rooftop-pool-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-pool-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-pool-v01.webp",
+      "sourceHash": "cf5dc68ea47c81b576de6210ca2462e151c4b9b77bc3351550b6f03a539f556a",
+      "outputHash": "a8e042525677cd3e6ac2ab486c6e6b9f0be178527953ebc0db971a3e81d6ecbe",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 405770,
+      "outputSizeBytes": 177782,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-spa-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-spa-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-spa-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-spa-v01.webp",
+      "sourceHash": "d71967296eaf3e9917b542fb3acbaae0f534ddbb756552bdeadeba5386d8fad5",
+      "outputHash": "7c2c8d9291150f1c6fba199e9910bb5711dd47551c7de0d0c305bbef3d5a4cb3",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 453093,
+      "outputSizeBytes": 199746,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-valet-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenities-valet-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenities-valet-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenities-valet-v01.webp",
+      "sourceHash": "08376d1c89750a3453b8bc6b3fc450bb98843f10c0ff9079370fbb217be56e48",
+      "outputHash": "3a977d3591a3d75cdc1e0fd9064b7b966a222c1f819905b3884fe59ccf6430d8",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 552969,
+      "outputSizeBytes": 183560,
+      "sourceDimensions": {
+        "width": 2560,
+        "height": 1441
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp; resized to 1800px max width",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-amenity-pool-terrace-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-amenity-pool-terrace-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/amenities/berkeley-amenity-pool-terrace-v01.webp",
+      "publicPath": "/assets/projects/berkeley/amenities/berkeley-amenity-pool-terrace-v01.webp",
+      "sourceHash": "67b3f36c63f87ffa354f512f2f9d1a440c6de56146d5b3290b09563a9733cfa0",
+      "outputHash": "a0be3dc231ab0919153758a694f28c61e9173b0cc7ecf9e39e66f43dc8bc8323",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 728792,
+      "outputSizeBytes": 388042,
+      "sourceDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "outputDimensions": {
+        "width": 1800,
+        "height": 1013
+      },
+      "category": "amenities",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-penthouse-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-penthouse-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-penthouse-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-penthouse-v01.webp",
+      "sourceHash": "e11567e9d31229ea2e15dcfc2982881acb2c3b5c2df6b7118e7536b06f57d3b8",
+      "outputHash": "e96620934c2aa87ea2426895c04674bd3a9b40b6ab4c42fbcc9be29572fe3bca",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 481638,
+      "outputSizeBytes": 203772,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-a-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-a-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-a-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-a-v01.webp",
+      "sourceHash": "5722ad8c68d6bc92c12ab5cb66d521d5b4218f13387bd88d34b3819eeac85a2c",
+      "outputHash": "940118a8fa57c4709b481540a2c8558550e72b238836b5fe8e4491261c96e093",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 421409,
+      "outputSizeBytes": 168952,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-b-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-b-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-b-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-b-v01.webp",
+      "sourceHash": "02ac371fab58e7af7881378f9d313ae170bc3d8d7586f6a4de5fd70a43ff45b5",
+      "outputHash": "f1e2f1ed088763ca4e93927dfb578471f6b17b02df003d5776cbae8f1127d841",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 398369,
+      "outputSizeBytes": 159434,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-c-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-c-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-c-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-c-v01.webp",
+      "sourceHash": "bba002c004860feff8fc86cfc3f229dac71d1e8597751347adcee68e2b5ad804",
+      "outputHash": "510cc06a1543896e6c1383ef624fc62c19f6d57729f4b8d4986e21a4d072a99f",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 406737,
+      "outputSizeBytes": 161292,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-d-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-d-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-d-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-d-v01.webp",
+      "sourceHash": "69fecd3b6f28e5e40616c6a9f34d7307ea2e287ab626655ef59f16b0575da323",
+      "outputHash": "22cd98e85c276e87e6f3a7d3ab7c7030957762ec3940a24d92ae992681e21227",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 423157,
+      "outputSizeBytes": 170922,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-f-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-f-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-f-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-f-v01.webp",
+      "sourceHash": "44d1746c21426de189fcbdb50ff4d88034cc3ccbda9607026de5470b561bb81c",
+      "outputHash": "6da206763f801c1d1174579734087b8a6da06de1d17e86d2032885a5868f8123",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 422616,
+      "outputSizeBytes": 174110,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-g-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-g-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-g-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-g-v01.webp",
+      "sourceHash": "afc120637f0076ae0823134f403a8336a8b45f1ebd7f58f6b69c76f3d863c21c",
+      "outputHash": "6926c7dbb56d1c7ea89edf654e5e114a8b7174911de4304319226e80431dff72",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 412788,
+      "outputSizeBytes": 169326,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/floorplans/berkeley-floorplans-residence-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-v01.webp",
+      "publicPath": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-v01.webp",
+      "sourceHash": "c5d6c5dd568c1a31ed9d918d6988c10d95cfea062481a820698aa8c36fb3979d",
+      "outputHash": "50361bbf1cc5efc60e1977e8818026a6a485edfa04a517fd2cd3ff559f1976d7",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 450872,
+      "outputSizeBytes": 188528,
+      "sourceDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "outputDimensions": {
+        "width": 1700,
+        "height": 2200
+      },
+      "category": "floorplans",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-intracoastal-view-v01.webp",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-intracoastal-view-v01.webp",
+      "websiteAssetPath": "public/assets/projects/berkeley/hero/berkeley-hero-exterior-intracoastal-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/hero/berkeley-hero-exterior-intracoastal-view-v01.webp",
+      "sourceHash": "83ed7f6f1ed04e679365890110d243669c9225d6379d37b67e5086cdb25e397b",
+      "outputHash": "125730908fd153e24cb8d5a0d79daa0056391ac0194e9dedfbc326cd95249e27",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 128234,
+      "outputSizeBytes": 124170,
+      "sourceDimensions": {
+        "width": 1240,
+        "height": 620
+      },
+      "outputDimensions": {
+        "width": 1240,
+        "height": 620
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-lake-view-v01.webp",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-lake-view-v01.webp",
+      "websiteAssetPath": "public/assets/projects/berkeley/hero/berkeley-hero-exterior-lake-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/hero/berkeley-hero-exterior-lake-view-v01.webp",
+      "sourceHash": "9d5bbbdc7d2e75aa977115fadb450a6b6973e1446c6ea7823c5f5b2afa18dd73",
+      "outputHash": "bc02bc271350ec04bedd19672fc7635dd4e6693ded6ab979b2ea44f59c804e9e",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 11408721,
+      "outputSizeBytes": 793272,
+      "sourceDimensions": {
+        "width": 4718,
+        "height": 5000
+      },
+      "outputDimensions": {
+        "width": 2400,
+        "height": 2543
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "resized to 2400px max width",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-lower-view-v01.webp",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-lower-view-v01.webp",
+      "websiteAssetPath": "public/assets/projects/berkeley/hero/berkeley-hero-exterior-lower-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/hero/berkeley-hero-exterior-lower-view-v01.webp",
+      "sourceHash": "88daa656fd1fb1cfa3be706f5aae5a4718cac40e38d3ab439e40abac8c105bf7",
+      "outputHash": "43b7e3216c0bf21adbbf5cd11ed52a2d796926cb5cd768e18193d9de1b49b291",
+      "sourceFormat": ".webp",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 76140,
+      "outputSizeBytes": 79314,
+      "sourceDimensions": {
+        "width": 850,
+        "height": 478
+      },
+      "outputDimensions": {
+        "width": 850,
+        "height": 478
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "recompressed webp for website delivery",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-roof-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-roof-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/hero/berkeley-hero-exterior-roof-v01.webp",
+      "publicPath": "/assets/projects/berkeley/hero/berkeley-hero-exterior-roof-v01.webp",
+      "sourceHash": "b55595d89eb34f65edadc5f70a886a186ca251030b0f957f06a9b1c7b8bc4192",
+      "outputHash": "8a09e6667579ad0a1d83ed357b65ce535617e8f30fa3b91501d569b2afe831a8",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 433859,
+      "outputSizeBytes": 207128,
+      "sourceDimensions": {
+        "width": 2560,
+        "height": 1485
+      },
+      "outputDimensions": {
+        "width": 2400,
+        "height": 1392
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "converted jpg to webp; resized to 2400px max width",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-hero-exterior-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/hero/berkeley-hero-exterior-v01.webp",
+      "publicPath": "/assets/projects/berkeley/hero/berkeley-hero-exterior-v01.webp",
+      "sourceHash": "8e7bf9ff9801282b890a6d116f47bc0d2906dda340d959cb48fcb65ba82de4eb",
+      "outputHash": "e941021962ca8a6148f33ada3ff4878b83383dcb134fe85252dd60cd50b4dd2c",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 155853,
+      "outputSizeBytes": 116438,
+      "sourceDimensions": {
+        "width": 777,
+        "height": 824
+      },
+      "outputDimensions": {
+        "width": 777,
+        "height": 824
+      },
+      "category": "hero",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-bedroom-with-view-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-bedroom-with-view-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/residences/berkeley-residences-bedroom-with-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/residences/berkeley-residences-bedroom-with-view-v01.webp",
+      "sourceHash": "109e05a4902ae95a740a5b417e531ba5da24387c2ab41984c1e780d292105f0b",
+      "outputHash": "2903bc73f53d7554140b2e3d18b075f727c1e69254fc1f4606095c5182f476ae",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 313373,
+      "outputSizeBytes": 104596,
+      "sourceDimensions": {
+        "width": 1378,
+        "height": 775
+      },
+      "outputDimensions": {
+        "width": 1378,
+        "height": 775
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-en-suite-bathroom-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-en-suite-bathroom-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/residences/berkeley-residences-en-suite-bathroom-v01.webp",
+      "publicPath": "/assets/projects/berkeley/residences/berkeley-residences-en-suite-bathroom-v01.webp",
+      "sourceHash": "6329a51a710ade8fbf35d39a21a71a84d1b0a10648ea0cf05d2e4e9a850fd224",
+      "outputHash": "ac7726ec2ebed6b6e2d77d22af954788beff6bce61a6de42c99eb37aea0f0cc8",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 383600,
+      "outputSizeBytes": 37512,
+      "sourceDimensions": {
+        "width": 1038,
+        "height": 776
+      },
+      "outputDimensions": {
+        "width": 1038,
+        "height": 776
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-kitchen-with-view-v01.jpg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-kitchen-with-view-v01.jpg",
+      "websiteAssetPath": "public/assets/projects/berkeley/residences/berkeley-residences-kitchen-with-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/residences/berkeley-residences-kitchen-with-view-v01.webp",
+      "sourceHash": "8c12e679f1773e96b69eb9067cee396c2e077735065ce00e04d511cfea52cd39",
+      "outputHash": "3192771bb95d66b879b80e036c6b789b53d90b02836e42a2a8c91b5d382579fb",
+      "sourceFormat": ".jpg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 303012,
+      "outputSizeBytes": 98162,
+      "sourceDimensions": {
+        "width": 1378,
+        "height": 775
+      },
+      "outputDimensions": {
+        "width": 1378,
+        "height": 775
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "converted jpg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-living-room-with-view-v01.jpeg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-living-room-with-view-v01.jpeg",
+      "websiteAssetPath": "public/assets/projects/berkeley/residences/berkeley-residences-living-room-with-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/residences/berkeley-residences-living-room-with-view-v01.webp",
+      "sourceHash": "10316b3613d232decd1347d73fd36647bad903f6cf6970095214394f5940c6e3",
+      "outputHash": "16139d598cee3a686884d13623db5c992c55e91ece0d039dfbeee5c43d269a69",
+      "sourceFormat": ".jpeg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 7228,
+      "outputSizeBytes": 8562,
+      "sourceDimensions": {
+        "width": 300,
+        "height": 168
+      },
+      "outputDimensions": {
+        "width": 300,
+        "height": 168
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "converted jpeg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    },
+    {
+      "projectSlug": "berkeley",
+      "sourceAssetRepoPath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-patio-with-view-v01.jpeg",
+      "sourceRelativePath": "public-projects/berkeley/approved-for-website/images/berkeley-residences-patio-with-view-v01.jpeg",
+      "websiteAssetPath": "public/assets/projects/berkeley/residences/berkeley-residences-patio-with-view-v01.webp",
+      "publicPath": "/assets/projects/berkeley/residences/berkeley-residences-patio-with-view-v01.webp",
+      "sourceHash": "b1e60d5a064985cef142bacc7e7d0b68d9bd04cb16a3cdcdfb07f2777cca6675",
+      "outputHash": "06844eecdf9bc11bb1e40beb858d5e24544185f90d8a5bb889f40e050cc290ad",
+      "sourceFormat": ".jpeg",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 9651,
+      "outputSizeBytes": 12168,
+      "sourceDimensions": {
+        "width": 300,
+        "height": 168
+      },
+      "outputDimensions": {
+        "width": 300,
+        "height": 168
+      },
+      "category": "residences",
+      "action": "published",
+      "reason": "converted jpeg to webp",
+      "publishedAt": "2026-05-27T13:08:54.541Z"
+    }
+  ]
+}
