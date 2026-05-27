@@ -7381,7 +7381,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const residenceTiles = gallery.filter((asset) => asset.src !== heroImage).slice(0, 3);
   const amenityTiles = projectBrochureAmenityTiles(project, draft);
   const teamTiles = projectBrochureTeamTiles(project, draft);
-  const heroMobileImage = heroImage === project.heroImage ? project.mobileImage : undefined;
+  const verticalHeroAsset = getApprovedProjectAssets(project).find((asset) => asset.placement === "hero" && asset.variant === "vertical-exterior");
+  const heroMobileImage = verticalHeroAsset?.src ?? (heroImage === project.heroImage ? project.mobileImage : undefined);
   const pageType = project.projectPageType ?? pageTypeForProject(project);
   const isCompactWatch = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker";
   const hasGallery = gallery.some((asset) => canShowImage(asset.src));
