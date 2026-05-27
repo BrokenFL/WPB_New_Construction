@@ -470,7 +470,7 @@ function renderProjectRoute(route, payload, slug) {
             <span style="font-size: 0.8rem; opacity: 0.6;">(Click to expand)</span>
           </summary>
           <div class="technical-disclosures-content" style="padding-top: 20px; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6;">
-            <p>This building profile uses source material compiled from public records, developer announcements, and real estate filings. The details below are tracked for internal data verification and buyer risk assessment.</p>
+            <p>This building profile uses published project information compiled from public records, developer announcements, and real estate filings. The details below are tracked for internal data verification and buyer risk assessment.</p>
             
             ${(project.missingInfo && project.missingInfo.length > 0) ? `
               <div style="margin-bottom: 20px;">

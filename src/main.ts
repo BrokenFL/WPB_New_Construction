@@ -7373,7 +7373,7 @@ function renderTechnicalDisclosuresSection(project: FeaturedProject, draft: Proj
           </svg>
         </summary>
         <div class="disclosures-content">
-          <p class="disclosures-intro">This building profile uses source material compiled from public records, developer announcements, and real estate filings. The details below are tracked for internal data verification and buyer risk assessment.</p>
+          <p class="disclosures-intro">This building profile uses published project information compiled from public records, developer announcements, and real estate filings. The details below are tracked for internal data verification and buyer risk assessment.</p>
           <div class="disclosures-grid">
             ${missingInfo.length > 0 ? `
               <div>
