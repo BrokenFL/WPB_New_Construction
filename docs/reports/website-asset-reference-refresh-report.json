@@ -1,5 +1,60 @@
 {
-  "projects": {
+  "timestamp": "2026-05-27T15:37:32.515Z",
+  "mode": "write",
+  "registryFile": "data/project_assets.json",
+  "projectsRefreshed": [
+    "alba-palm-beach",
+    "berkeley"
+  ],
+  "assetRoot": "public/assets/projects",
+  "usedPublishManifest": true,
+  "changedCuratedContent": false,
+  "gitStatus": "## main...origin/main [ahead 3]\n M package-lock.json\n M package.json\n M research/scripts/check-untracked-assets.mjs\n?? data/generated_asset_publish_manifest.json\n?? docs/reports/asset-pipeline-audit-report.json\n?? docs/reports/asset-pipeline-audit-report.md\n?? docs/reports/asset-repo-to-website-publish-report.json\n?? docs/reports/asset-repo-to-website-publish-report.md\n?? public/assets/projects/alba-palm-beach/amenities/alba-amenities-pool-deck-v01.webp\n?? public/assets/projects/alba-palm-beach/amenities/alba-amenities-valet-v01.webp\n?? public/assets/projects/alba-palm-beach/floorplans/\n?? public/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp\n?? public/assets/projects/alba-palm-beach/hero/alba-hero-interior-view-v01.webp\n?? public/assets/projects/alba-palm-beach/hero/alba-hero-vertical-exterior-tower-v01.webp\n?? public/assets/projects/alba-palm-beach/hero/alba-hero-wide-aerial-v01.webp\n?? public/assets/projects/alba-palm-beach/logos/alba-architect-spina-orourke-logo-v01.webp\n?? public/assets/projects/alba-palm-beach/logos/alba-developer-bgi-companies-logo-v01.webp\n?? public/assets/projects/alba-palm-beach/neighborhood/alba-neighborhood-clocktower-v01.webp\n?? public/assets/projects/alba-palm-beach/residences/alba-residences-bedroom-01-v01.webp\n?? public/assets/projects/alba-palm-beach/residences/alba-residences-kitchen-with-view-v01.webp\n?? public/assets/projects/alba-palm-beach/residences/alba-residences-living-room-v01.webp\n?? public/assets/projects/alba-palm-beach/residences/alba-residences-patio-v01.webp\n?? public/assets/projects/berkeley/\n?? scripts/audit-asset-pipeline.mjs\n?? scripts/publish-assets-from-asset-repo.mjs\n?? scripts/refresh-website-asset-references.mjs",
+  "projects": [
+    {
+      "projectSlug": "alba-palm-beach",
+      "assetCount": 33,
+      "assetsByCategory": {
+        "amenities": 4,
+        "floorplans": 7,
+        "hero": 7,
+        "logos": 4,
+        "neighborhood": 2,
+        "residences": 9
+      },
+      "heroSelected": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+      "heroMode": "preserved-existing",
+      "galleryCount": 22,
+      "floorplanCount": 7,
+      "logoCount": 4,
+      "pathsValidated": 33,
+      "skippedAssets": [],
+      "warnings": [],
+      "validationErrors": []
+    },
+    {
+      "projectSlug": "berkeley",
+      "assetCount": 27,
+      "assetsByCategory": {
+        "amenities": 9,
+        "floorplans": 8,
+        "hero": 5,
+        "residences": 5
+      },
+      "heroSelected": "/assets/projects/berkeley/hero/berkeley-hero-exterior-lake-view-v01.webp",
+      "heroMode": "selected-from-public-assets",
+      "galleryCount": 19,
+      "floorplanCount": 8,
+      "logoCount": 0,
+      "pathsValidated": 27,
+      "skippedAssets": [],
+      "warnings": [],
+      "validationErrors": []
+    }
+  ],
+  "validationErrors": [],
+  "warnings": [],
+  "registryPreview": {
     "alba-palm-beach": {
       "projectId": "alba-palm-beach",
       "slug": "alba-palm-beach",

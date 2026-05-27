@@ -1,12 +1,19 @@
 import projectAssetsRaw from "../../data/project_assets.json";
 
-export type ProjectAssetPlacement = "hero" | "residences" | "amenities" | "neighborhood" | "logos" | "team";
+export type ProjectAssetPlacement = "hero" | "residences" | "amenities" | "neighborhood" | "logos" | "team" | "floorplans" | "sitePlans" | "misc";
 export type ProjectAssetStatus = "approved";
 
 export type ProjectAsset = {
   placement: ProjectAssetPlacement;
   variant?: string;
   src: string;
+  publicPath?: string;
+  filename?: string;
+  category?: string;
+  format?: string;
+  sizeBytes?: number;
+  width?: number;
+  height?: number;
   alt: string;
   title: string;
   credit: string;

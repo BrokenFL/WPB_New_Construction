@@ -7673,6 +7673,13 @@ function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraf
   ]
     .filter((asset): asset is ProjectAsset => Boolean(asset))
     .map((asset) => projectAssetToMedia(asset, "Exterior"));
+  const approvedProjectGallery = [
+    approvedHero ? projectAssetToMedia(approvedHero, "Exterior") : undefined,
+    ...approvedAmenityGallery,
+    ...approvedResidenceGallery,
+    ...approvedNeighborhoodGallery,
+    ...approvedContextGallery,
+  ].filter((asset): asset is MediaAsset => Boolean(asset));
   const legacyGallery =
     project.id === "olara"
       ? [...featuredGallery, ...residenceGallery, ...amenityGallery]
@@ -7698,7 +7705,7 @@ function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraf
                 ...shorecrestAmenityGallery,
               ]
       : [];
-  const importedAssets = approvedImportedImagesForProject(project.id).map((image) => ({
+  const importedAssets = approvedProjectGallery.length ? [] : approvedImportedImagesForProject(project.id).map((image) => ({
     src: importedImagePublicPath(image),
     kicker: image.imageType === "interior" ? "Interior Rendering" : image.imageType === "amenity" ? "Amenity Image" : image.imageType === "exterior" ? "Project Rendering" : "Developer Image",
     title: image.caption,
@@ -7706,7 +7713,9 @@ function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraf
   }));
   const assets = uniqueMediaAssets(project.id === "alba-palm-beach"
     ? [...legacyGallery, ...importedAssets]
-    : [...draft.gallery, ...legacyGallery, ...importedAssets]);
+    : approvedProjectGallery.length
+      ? [...approvedProjectGallery, ...legacyGallery]
+      : [...draft.gallery, ...legacyGallery, ...importedAssets]);
   if (project.id !== "alba-palm-beach" && draft.image && !assets.some((asset) => asset.src === draft.image)) {
     assets.unshift({ src: draft.image, kicker: "Project Image", title: draft.title, alt: draft.imageAlt });
   }
@@ -8265,7 +8274,34 @@ function toFilterValue(value: string) {
    ========================================================================== */
 
 function getProjectGalleryCategorized(projectId: string) {
-  const images = approvedImportedImagesForProject(projectId);
+  type GalleryCategorizedImage = {
+    id: string;
+    imageType: string;
+    placement?: string;
+    caption: string;
+    alt: string;
+    publicPath: string;
+  };
+  const approvedAssets: GalleryCategorizedImage[] = getApprovedProjectAssets(projectId)
+    .filter((asset) => ["hero", "amenities", "residences", "neighborhood"].includes(asset.placement))
+    .filter((asset) => /\.(?:jpe?g|png|webp)$/i.test(asset.src))
+    .map((asset) => ({
+      id: asset.variant ?? asset.filename ?? asset.src,
+      imageType: asset.placement === "residences" ? "interior" : asset.placement === "amenities" ? "amenity" : asset.placement === "hero" ? "exterior" : "context",
+      placement: asset.placement,
+      caption: asset.title,
+      alt: asset.alt,
+      publicPath: asset.src,
+    }));
+  const importedAssets: GalleryCategorizedImage[] = approvedAssets.length ? [] : approvedImportedImagesForProject(projectId).map((img) => ({
+    id: img.id,
+    imageType: img.imageType,
+    placement: img.placement,
+    caption: img.caption,
+    alt: img.alt,
+    publicPath: importedImagePublicPath(img),
+  }));
+  const images = uniqueGalleryCategorizedImages([...approvedAssets, ...importedAssets]);
   const categories: Record<string, typeof images> = {
     exterior: [],
     interiors: [],
@@ -8337,7 +8373,7 @@ function renderProjectGallerySection(projectId: string) {
           ${list.map((img) => `
             <div class="gallery-item-card" data-image-id="${img.id}">
               <figure class="gallery-item-frame">
-                <img src="${importedImagePublicPath(img)}" alt="${escapeHtml(img.alt || img.caption || "Project rendering")}" loading="lazy" />
+                <img src="${img.publicPath}" alt="${escapeHtml(img.alt || img.caption || "Project rendering")}" loading="lazy" />
                 <figcaption class="gallery-item-caption">
                   <span class="gallery-item-tag">${escapeHtml(img.imageType)}</span>
                   <span class="gallery-item-desc">${escapeHtml(img.caption || img.alt || "Developer visualization")}</span>
@@ -8367,6 +8403,15 @@ function renderProjectGallerySection(projectId: string) {
       </div>
     </section>
   `;
+}
+
+function uniqueGalleryCategorizedImages<T extends { publicPath: string }>(images: T[]) {
+  const seen = new Set<string>();
+  return images.filter((image) => {
+    if (seen.has(image.publicPath)) return false;
+    seen.add(image.publicPath);
+    return true;
+  });
 }
 
 function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageDraft) {
