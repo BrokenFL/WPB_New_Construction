@@ -412,6 +412,8 @@ function renderProjectRoute(route, payload, slug) {
   const sources = sourceLinksForProject(project).slice(0, 6);
   const comparisons = comparisonProjectsForStatic(payload, project).slice(0, 4);
   const hasSourcedAmenities = sources.some((href) => /amenit/i.test(href));
+  const cleanStatus = facts.status && !facts.status.toLowerCase().includes("candidate") ? facts.status : "Tracked project page";
+
   return pageShell(
     `project-${slug}`,
     project.name,
@@ -419,13 +421,13 @@ function renderProjectRoute(route, payload, slug) {
     `
       <section>
         <h2>Bottom line</h2>
-        <p>${publicText(project.name)} is tracked as a ${publicText(project.area || "West Palm Beach")} project page with ${publicText(project.pageStatus || "buyer-guide")} status. Use this page for orientation, then verify current pricing, availability, incentives, fees, floor-plan release status, square footage, delivery timing, and contract terms before relying on any public summary.</p>
+        <p>${publicText(project.name)} is tracked as a ${publicText(project.area || "West Palm Beach")} project page. Use this page for orientation, then verify current pricing, availability, incentives, fees, floor-plan release status, square footage, delivery timing, and contract terms before relying on any public summary.</p>
       </section>
       <section>
         <h2>Key facts to verify</h2>
         <dl>
           ${factRow("Address", facts.address)}
-          ${factRow("Status", facts.status || project.pageStatus)}
+          ${factRow("Status", facts.status && !facts.status.toLowerCase().includes("candidate") ? facts.status : "Tracked project page")}
           ${factRow("Residences", facts.residences)}
           ${factRow("Stories", facts.stories)}
           ${factRow("Delivery", facts.completion)}
@@ -460,12 +462,47 @@ function renderProjectRoute(route, payload, slug) {
         <h2>Compare against</h2>
         <ul>${comparisons.map((item) => `<li><a href="${projectPath(item)}">${publicText(item.name)}</a> - ${publicText(item.area || "West Palm Beach")}</li>`).join("")}</ul>
       </section>` : ""}
-      <section>
-        <h2>Source basis</h2>
-        <p>Source counts: ${project.sourceCounts?.official ?? 0} official, ${project.sourceCounts?.reporting ?? 0} reporting, ${project.sourceCounts?.other ?? 0} other. Conflicts and gaps are preserved for buyer review.</p>
-        ${sources.length ? `<ul>${sources.map((href) => `<li><a href="${safeHref(href)}">${publicText(sourceLabel(href))}</a></li>`).join("")}</ul>` : "<p>Needs source refresh before adding more detail.</p>"}
+      
+      <section class="section technical-disclosures-accordion" style="margin-top: clamp(80px, 8vw, 120px); border-top: 1px solid rgba(37,42,45,0.08); padding-top: 40px;">
+        <details style="cursor: pointer; outline: none;">
+          <summary style="font-family: Georgia, serif; font-size: 1.15rem; font-weight: 500; color: var(--ink); margin-bottom: 20px; list-style: none; display: flex; align-items: center; gap: 8px;">
+            <span>Sourcing Details & Technical Disclosures</span>
+            <span style="font-size: 0.8rem; opacity: 0.6;">(Click to expand)</span>
+          </summary>
+          <div class="technical-disclosures-content" style="padding-top: 20px; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6;">
+            <p>This building profile uses source material compiled from public records, developer announcements, and real estate filings. The details below are tracked for internal data verification and buyer risk assessment.</p>
+            
+            ${(project.missingInfo && project.missingInfo.length > 0) ? `
+              <div style="margin-bottom: 20px;">
+                <strong>Unconfirmed Details:</strong>
+                <ul style="margin: 10px 0 0 20px; padding: 0;">
+                  ${project.missingInfo.map(item => `<li>${publicText(item)}</li>`).join("")}
+                </ul>
+              </div>
+            ` : ""}
+
+            ${(project.conflicts?.length > 0 || project.gaps?.length > 0) ? `
+              <div style="margin-bottom: 20px;">
+                <strong>Conflicts & Gaps:</strong>
+                <ul style="margin: 10px 0 0 20px; padding: 0;">
+                  ${(project.conflicts || []).map(item => `<li>${publicText(item)}</li>`).join("")}
+                  ${(project.gaps || []).map(item => `<li>${publicText(item)}</li>`).join("")}
+                </ul>
+              </div>
+            ` : ""}
+
+            <div style="margin-bottom: 20px;">
+              <strong>Verification Logs:</strong>
+              <ul style="margin: 10px 0 0 20px; padding: 0;">
+                <li><strong>Database Records:</strong> ${project.sourceCounts?.official ?? 0} official, ${project.sourceCounts?.reporting ?? 0} reporting, ${project.sourceCounts?.other ?? 0} other references.</li>
+                <li><strong>Confidence Level:</strong> ${publicText(project.dataConfidence || "Draft")}</li>
+                ${sources.length ? `<li><strong>Reviewed Sources:</strong><br>${sources.map((href) => `<a href="${safeHref(href)}" style="color: var(--bronze); text-decoration: none;">${publicText(sourceLabel(href))}</a>`).join(" · ")}</li>` : ""}
+              </ul>
+            </div>
+          </div>
+        </details>
       </section>
-      ${renderConflictAndGapSection(project)}
+
       <section>
         <h2>FAQ</h2>
         ${projectFaqForStatic(project, floorplans).map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
@@ -653,7 +690,13 @@ function renderStaticCitations(item) {
 }
 
 function factRow(label, value) {
-  return `<div><dt>${publicText(label)}</dt><dd>${publicText(value || "Needs verification")}</dd></div>`;
+  if (!value) return "";
+  const v = String(value).trim();
+  const lower = v.toLowerCase();
+  if (lower.includes("candidate") || lower === "not publicly confirmed" || lower === "unknown" || lower === "n/a" || lower === "tbd" || lower === "verify" || lower.includes("not released")) {
+    return "";
+  }
+  return `<div><dt>${publicText(label)}</dt><dd>${publicText(v)}</dd></div>`;
 }
 
 function renderConflictAndGapSection(project) {

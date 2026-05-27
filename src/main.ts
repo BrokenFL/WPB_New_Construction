@@ -6967,7 +6967,7 @@ function renderProjectIdentityHeader(project: FeaturedProject, pageType: Project
   `;
 }
 
-function renderProjectMissingInfoPanel(project: FeaturedProject) {
+export function renderProjectMissingInfoPanel(project: FeaturedProject) {
   const items = project.missingInfo ?? missingInfoForProject(project);
   if (!items.length) return "";
   return `
@@ -7325,6 +7325,99 @@ function projectEntityFaq(
   ];
 }
 
+function residenceImageForProject(project: FeaturedProject, heroImage: string | undefined): string | undefined {
+  const assets = getApprovedProjectAssets(project);
+  
+  const resAsset = assets.find((asset) => asset.placement === "residences" && asset.src !== heroImage);
+  if (resAsset?.src) return resAsset.src;
+  
+  const amenityAsset = assets.find((asset) => asset.placement === "amenities" && asset.src !== heroImage);
+  if (amenityAsset?.src) return amenityAsset.src;
+
+  const neighborhoodAsset = assets.find((asset) => asset.placement === "neighborhood" && asset.src !== heroImage);
+  if (neighborhoodAsset?.src) return neighborhoodAsset.src;
+  
+  const anyOtherAsset = assets.find((asset) => asset.src !== heroImage && asset.placement !== "logos");
+  if (anyOtherAsset?.src) return anyOtherAsset.src;
+
+  const importedImages = approvedImportedImagesForProject(project.id);
+  const importedRes = importedImages.find((img) => {
+    const p = importedImagePublicPath(img);
+    return p !== heroImage && img.imageType !== "logo";
+  });
+  if (importedRes) return importedImagePublicPath(importedRes);
+
+  return undefined;
+}
+
+function renderTechnicalDisclosuresSection(project: FeaturedProject, draft: ProjectPageDraft) {
+  const sourceFact = sourceFactForProject(project.id);
+  const missingInfo = project.missingInfo ?? missingInfoForProject(project) ?? [];
+  const conflicts = sourceFact?.conflicts ?? [];
+  const gaps = sourceFact?.gaps ?? [];
+  const needed = draft.needed ?? [];
+  const sourceCounts = sourceFact?.sourceCounts;
+  const pageStatus = sourceFact?.pageStatus || project.projectPageType || "Market watch";
+  const confidence = sourceFact?.dataConfidence || "Draft";
+
+  const hasDisclosures = missingInfo.length > 0 || conflicts.length > 0 || gaps.length > 0 || needed.length > 0 || sourceCounts;
+  if (!hasDisclosures) return "";
+
+  return `
+    <section class="section brochure-disclosures-section" id="disclosures-${project.id}">
+      <details class="disclosures-accordion">
+        <summary class="disclosures-summary">
+          <span>Sourcing Details & Technical Disclosures</span>
+          <svg class="summary-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="disclosures-content">
+          <p class="disclosures-intro">This building profile uses source material compiled from public records, developer announcements, and real estate filings. The details below are tracked for internal data verification and buyer risk assessment.</p>
+          <div class="disclosures-grid">
+            ${missingInfo.length > 0 ? `
+              <div>
+                <h4>Unconfirmed Details</h4>
+                <ul>
+                  ${missingInfo.map((item) => `<li>${publicText(item)}</li>`).join("")}
+                </ul>
+              </div>
+            ` : ""}
+
+            ${(conflicts.length > 0 || gaps.length > 0) ? `
+              <div>
+                <h4>Conflicts & Gaps</h4>
+                <ul>
+                  ${conflicts.map((item) => `<li>${publicText(item)}</li>`).join("")}
+                  ${gaps.map((item) => `<li>${publicText(item)}</li>`).join("")}
+                </ul>
+              </div>
+            ` : ""}
+
+            ${needed.length > 0 ? `
+              <div>
+                <h4>Advisor Review Checklist</h4>
+                <ul>
+                  ${needed.map((item) => `<li>${publicText(item)}</li>`).join("")}
+                </ul>
+              </div>
+            ` : ""}
+
+            <div>
+              <h4>Verification Logs</h4>
+              <ul>
+                ${sourceCounts ? `<li><strong>Source Database:</strong> ${sourceCounts.official ?? 0} official pages, ${sourceCounts.reporting ?? 0} reporting, ${sourceCounts.other ?? 0} other references.</li>` : ""}
+                <li><strong>Entity Class:</strong> ${publicText(pageStatus)}</li>
+                <li><strong>Confidence:</strong> ${publicText(confidence)}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+  `;
+}
+
 function renderDraftProjectPage(project: FeaturedProject) {
   const draft = editorProjectPageDrafts[project.id] ?? projectDraftFromFeatured(project);
   const copyPackage = batch1ProjectCopyByProjectId.get(project.id);
@@ -7345,6 +7438,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const hasAmenities = !isCompactWatch && amenityTiles.some((asset) => canShowImage(asset.src));
   const hasTeam = teamTiles.length > 0;
   const primaryCta = isCompactWatch ? "Get Updates on This Project" : "Request Current Availability";
+  const residencesImage = residenceImageForProject(project, heroImage);
 
   const isWaterfront = project.corridor.toLowerCase().includes("waterfront") || project.address.toLowerCase().includes("flagler") || ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "south-flagler-house", "forte-on-flagler", "maison-dor"].includes(project.id);
   const isWalkable = project.corridor.toLowerCase().includes("downtown") || project.corridor.toLowerCase().includes("cityplace") || ["mr-c", "banyan-tree", "nora-house", "berkeley"].includes(project.id);
@@ -7419,7 +7513,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${renderProjectCorridorCta(project)}
       ${copyPackage ? renderProjectBuyerLens(copyPackage) : ""}
 
-      <section class="brochure-module brochure-residences-module" id="overview-${project.id}">
+      <section class="brochure-module brochure-residences-module ${!residencesImage ? 'no-feature-image' : ''}" id="overview-${project.id}">
         <div class="brochure-module-copy">
           <p class="eyebrow">${isCompactWatch ? "Editorial Brief" : "Residences"}</p>
           <h2>${isCompactWatch ? `${project.name} buyer read` : residenceSectionTitle(project)}</h2>
@@ -7428,9 +7522,11 @@ function renderDraftProjectPage(project: FeaturedProject) {
             <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=residences_section">Request Floor Plans</a>
           </div>
         </div>
+        ${residencesImage ? `
         <figure class="feature-image">
-          <img src="${heroImage}" alt="${project.name} residence visual" style="width: 100%; height: 100%; min-height: 380px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(37,42,45,0.14);" />
+          <img src="${residencesImage}" alt="${project.name} residence visual" style="width: 100%; height: 100%; min-height: 380px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(37,42,45,0.14);" />
         </figure>
+        ` : ""}
       </section>
 
       ${renderProjectFloorplansSection(project, floorplanProject)}
@@ -7475,7 +7571,6 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${renderProjectTeamSection(project, draft)}
 
       ${renderProjectInternalComparison(project)}
-      ${renderProjectMissingInfoPanel(project)}
       ${renderProjectRelatedNews(project)}
 
       <section class="brochure-research-contact" id="project-resources-${project.id}">
@@ -7501,15 +7596,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         </form>`}
       </section>
 
-      <section class="section draft-needed-section">
-        <div class="section-heading">
-          <p class="eyebrow">Advisor Review</p>
-          <h2>Details to confirm before touring or reserving.</h2>
-        </div>
-        <div class="needed-grid">
-          ${draft.needed.map(renderNeededItem).join("")}
-        </div>
-      </section>
+      ${renderTechnicalDisclosuresSection(project, draft)}
 
       <div class="brochure-mobile-cta-sticky">
         <a class="button primary" href="/inquire/?project=${project.id}&interest=availability&lead_capture_context=mobile_sticky">Request Price Sheet</a>
@@ -7989,7 +8076,7 @@ function getFloorplanProject(projectId: string) {
   return floorplanLibrary.find((project) => project.projectId === lookupId);
 }
 
-function renderNeededItem(item: string, index: number) {
+export function renderNeededItem(item: string, index: number) {
   return `
     <article>
       <span>${String(index + 1).padStart(2, "0")}</span>
@@ -8415,31 +8502,74 @@ function uniqueGalleryCategorizedImages<T extends { publicPath: string }>(images
 }
 
 function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageDraft) {
-  const findFactValue = (regex: RegExp, fallback = "Not publicly confirmed") => {
+  const findFactValue = (regex: RegExp, fallback = "") => {
     const fact = draft.facts.find((f) => regex.test(f.label)) || draft.highlights.find((f) => regex.test(f.label));
     return fact?.value ?? fallback;
   };
 
-  const developer = draft.team.find((t) => /developer|sponsor|partner/i.test(t.role))?.name ?? "Not publicly confirmed";
-  const architect = draft.team.find((t) => /architect/i.test(t.role))?.name ?? "Not publicly confirmed";
-  const designer = draft.team.find((t) => /interior/i.test(t.role))?.name ?? "Not publicly confirmed";
+  const developer = draft.team.find((t) => /developer|sponsor|partner/i.test(t.role))?.name ?? "";
+  const architect = draft.team.find((t) => /architect/i.test(t.role))?.name ?? "";
+  const designer = draft.team.find((t) => /interior/i.test(t.role))?.name ?? "";
 
-  const fields = [
+  const sizingResidences = [
+    { label: "Number of Units", value: project.residences },
+    { label: "Number of Floors", value: findFactValue(/stor(y|ies)|floor/i) },
+    { label: "Residence Types", value: findFactValue(/bed/i) },
+    { label: "Square Footage Range", value: findFactValue(/sq|size|foot/i) }
+  ];
+
+  const designDevelopment = [
     { label: "Address", value: project.address },
     { label: "Developer", value: developer },
     { label: "Architect", value: architect },
-    { label: "Interior Designer", value: designer },
-    { label: "Number of Units", value: project.residences },
-    { label: "Number of Floors", value: findFactValue(/stor(y|ies)|floor/i) },
-    { label: "Residence Types", value: findFactValue(/bed/i, "2 to 4 Bedrooms") },
-    { label: "Square Footage Range", value: findFactValue(/sq|size|foot/i) },
+    { label: "Interior Designer", value: designer }
+  ];
+
+  const pricingTiming = [
     { label: "Price Range", value: project.price },
     { label: "Estimated Completion", value: project.delivery },
-    { label: "Maintenance Estimate", value: findFactValue(/maintenance|carrying|fee/i, "Request current estimate") },
-    { label: "Parking Allocation", value: findFactValue(/parking/i, "Not publicly confirmed") },
-    { label: "Pet Policy", value: findFactValue(/pet/i, "Contact advisor for rules") },
+    { label: "Maintenance Estimate", value: findFactValue(/maintenance|carrying|fee/i) },
+    { label: "Parking Allocation", value: findFactValue(/parking/i) },
+    { label: "Pet Policy", value: findFactValue(/pet/i) },
     { label: "Sales Status", value: project.status }
   ];
+
+  const filterValidFields = (fields: { label: string; value: string }[]) => {
+    return fields.filter(f => {
+      const v = (f.value || "").trim();
+      if (!v) return false;
+      const lower = v.toLowerCase();
+      return !(
+        lower === "not publicly confirmed" ||
+        lower === "unknown" ||
+        lower === "n/a" ||
+        lower === "tbd" ||
+        lower === "verify" ||
+        lower.includes("not released")
+      );
+    });
+  };
+
+  const col1 = filterValidFields(sizingResidences);
+  const col2 = filterValidFields(designDevelopment);
+  const col3 = filterValidFields(pricingTiming);
+
+  const renderColHtml = (title: string, items: { label: string; value: string }[]) => {
+    if (items.length === 0) return "";
+    return `
+      <div class="snapshot-column">
+        <h3>${title}</h3>
+        <ul class="snapshot-spec-list">
+          ${items.map(item => `
+            <li class="snapshot-spec-item">
+              <span class="snapshot-spec-label">${escapeHtml(item.label)}</span>
+              <strong class="snapshot-spec-value">${escapeHtml(item.value)}</strong>
+            </li>
+          `).join("")}
+        </ul>
+      </div>
+    `;
+  };
 
   return `
     <section class="section brochure-snapshot-section" id="snapshot-${project.id}">
@@ -8449,13 +8579,10 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
           <h2>Building Specifications</h2>
           <p>Verified project facts compiled from municipal filings and official developer disclosures.</p>
         </div>
-        <div class="snapshot-card-grid">
-          ${fields.map(field => `
-            <div class="snapshot-grid-cell">
-              <span class="cell-label">${escapeHtml(field.label)}</span>
-              <strong class="snapshot-cell-value" style="font-family: Iowan Old Style, Palatino Linotype, Georgia, serif; font-size: clamp(1.05rem, 1.25vw, 1.45rem); font-weight: 400; color: var(--ink); line-height: 1.25;">${escapeHtml(field.value)}</strong>
-            </div>
-          `).join("")}
+        <div class="snapshot-columns">
+          ${renderColHtml("Sizing & Residences", col1)}
+          ${renderColHtml("Design & Development", col2)}
+          ${renderColHtml("Pricing & Timing", col3)}
         </div>
         <div class="snapshot-card-footer">
           <p class="source-attribution">Information last compiled May 2026. Price ranges and residence availability are subject to daily change.</p>
@@ -8544,7 +8671,7 @@ function renderBrookesLocalTakeSection(project: FeaturedProject, intel: any) {
                         } else {
                           return `<span class="competitor-text">${escapeHtml(compId.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" "))}</span>`;
                         }
-                      }).join(", ")}
+                      }).join("")}
                     </p>
                   </div>
                 ` : ""}
@@ -8556,26 +8683,20 @@ function renderBrookesLocalTakeSection(project: FeaturedProject, intel: any) {
           <div class="local-take-main">
             <div class="pros-cons-grid">
               <div class="pros-column">
-                <h3>Why Buyers Like It</h3>
+                <h3>Buyer Considerations</h3>
                 <ul class="pros-list">
                   ${intel.pros.map((pro: string) => `
                     <li>
-                      <svg class="pro-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style="width: 18px; height: 18px; flex-shrink: 0; color: #50665e; margin-top: 2px;">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.8-11.2a1 1 0 00-1.4-1.4L9 8.6 7.6 7.2a1 1 0 00-1.4 1.4l2.1 2.1a1 1 0 001.4 0l4.1-4.1z" clip-rule="evenodd" />
-                      </svg>
                       <span>${escapeHtml(pro)}</span>
                     </li>
                   `).join("")}
                 </ul>
               </div>
               <div class="cons-column">
-                <h3>What to Watch</h3>
+                <h3>Market Factors to Watch</h3>
                 <ul class="cons-list">
                   ${intel.cons.map((con: string) => `
                     <li>
-                      <svg class="con-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style="width: 18px; height: 18px; flex-shrink: 0; color: #a47e6c; margin-top: 2px;">
-                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-                      </svg>
                       <span>${escapeHtml(con)}</span>
                     </li>
                   `).join("")}
@@ -8623,37 +8744,70 @@ function renderProjectFloorplansSection(project: FeaturedProject, floorplanProje
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-|-$/g, "");
 
-    const isLocalPdf = plan.href && plan.href.startsWith("/projects/") && plan.href.endsWith(".pdf");
+    const cleanTitle = plan.title
+      .replace(/\s+Template\b/gi, "")
+      .replace(/\bFloorplan\b/gi, "Floor Plan")
+      .trim();
 
-    if (isLocalPdf) {
-      return `
-        <div class="floorplan-card" data-plan-index="${index}">
-          <div class="floorplan-card-meta">
-            <span class="floorplan-card-tag">Residence Line</span>
-            <h4 class="floorplan-card-title">${escapeHtml(plan.title)}</h4>
-            <code class="floorplan-card-path" title="Verified asset path for local PDFs">${escapeHtml(plan.href)}</code>
-            <p class="floorplan-card-note">Verify exact bed/bath counts, exposure direction, and net vs. outdoor square footage with the current packet.</p>
-          </div>
-          <div class="floorplan-card-actions">
-            <a class="button ghost" href="${escapeHtml(plan.href)}" download>Download PDF Reference</a>
-            <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplan_card_${slugifiedTitle}">Request Availability</a>
-          </div>
-        </div>
+    const isImage = plan.href && /\.(jpe?g|png|webp|gif)(?:$|[?#])/i.test(plan.href);
+    const isPdf = plan.href && /\.pdf(?:$|[?#])/i.test(plan.href);
+
+    let thumbnailHtml = "";
+    if (isImage) {
+      thumbnailHtml = `
+        <button
+          class="floorplan-card-thumbnail"
+          type="button"
+          data-floorplan-open
+          data-floorplan-title="${escapeHtml(cleanTitle)}"
+          data-floorplan-project="${escapeHtml(project.name)}"
+          data-floorplan-caption="Verify exact bed/bath counts, exposure direction, and net vs. outdoor square footage with the current packet."
+          data-floorplan-src="${escapeHtml(plan.href)}"
+          style="border: none; padding: 0; outline: none;"
+          aria-label="View ${escapeHtml(cleanTitle)}"
+        >
+          <img src="${escapeHtml(plan.href)}" alt="${escapeHtml(cleanTitle)} preview" />
+        </button>
       `;
-    } else {
-      return `
-        <div class="floorplan-card" data-plan-index="${index}">
-          <div class="floorplan-card-meta">
-            <span class="floorplan-card-tag">Residence Line</span>
-            <h4 class="floorplan-card-title">${escapeHtml(plan.title)}</h4>
-            <p class="floorplan-card-note">Verify exact bed/bath counts, exposure direction, and net vs. outdoor square footage with the current packet.</p>
-          </div>
-          <div class="floorplan-card-actions">
-            <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplan_card_${slugifiedTitle}">Request Floor Plan</a>
-          </div>
-        </div>
+    } else if (isPdf) {
+      thumbnailHtml = `
+        <button
+          class="floorplan-card-thumbnail floorplan-pdf-placeholder"
+          type="button"
+          data-floorplan-open
+          data-floorplan-title="${escapeHtml(cleanTitle)}"
+          data-floorplan-project="${escapeHtml(project.name)}"
+          data-floorplan-caption="Verify exact bed/bath counts, exposure direction, and net vs. outdoor square footage with the current packet."
+          data-floorplan-src="${escapeHtml(plan.href)}"
+          style="border: none; padding: 0; outline: none;"
+          aria-label="View ${escapeHtml(cleanTitle)}"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--bronze); margin-bottom: 8px;">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--soft-ink);">Document Reference</span>
+        </button>
       `;
     }
+
+    return `
+      <div class="floorplan-card" data-plan-index="${index}">
+        ${thumbnailHtml}
+        <div class="floorplan-card-meta">
+          <span class="floorplan-card-tag">Residence Line</span>
+          <h4 class="floorplan-card-title">${escapeHtml(cleanTitle)}</h4>
+          <p class="floorplan-card-note">Verify exact bed/bath counts, exposure direction, and net vs. outdoor square footage with the current packet.</p>
+        </div>
+        <div class="floorplan-card-actions">
+          ${isPdf ? `<a class="button ghost" href="${escapeHtml(plan.href)}" download>Download PDF Reference</a>` : ""}
+          <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplan_card_${slugifiedTitle}">Request Availability</a>
+        </div>
+      </div>
+    `;
   }).join("");
 
   const extraCount = Math.max(0, plans.length - 8);

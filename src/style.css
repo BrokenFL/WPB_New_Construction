@@ -6385,13 +6385,11 @@ select:focus-visible {
   position: relative;
   display: grid;
   min-height: min(820px, 94vh);
-  grid-template-columns: minmax(340px, 0.72fr) minmax(0, 1fr);
+  grid-template-columns: 45% 55%;
   align-items: stretch;
   overflow: hidden;
   border-bottom: 1px solid rgba(37, 42, 45, 0.1);
-  background:
-    linear-gradient(90deg, rgba(247, 242, 234, 0.96) 0%, rgba(247, 242, 234, 0.9) 34%, rgba(247, 242, 234, 0.16) 62%),
-    #e6ded1;
+  background: var(--ivory);
 }
 
 .brochure-hero figure {
@@ -6405,13 +6403,7 @@ select:focus-visible {
 }
 
 .brochure-hero figure::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background:
-    linear-gradient(90deg, rgba(247, 242, 234, 0.86), rgba(247, 242, 234, 0.12) 32%, rgba(13, 28, 24, 0.08)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(13, 28, 24, 0.24));
-  pointer-events: none;
+  display: none;
 }
 
 .brochure-hero img,
@@ -6434,11 +6426,14 @@ select:focus-visible {
 .brochure-hero-copy {
   position: relative;
   z-index: 2;
-  grid-column: 1 / 3;
+  grid-column: 1;
   grid-row: 1;
   align-self: center;
-  width: min(690px, calc(100vw - 40px));
-  padding: clamp(120px, 16vh, 176px) clamp(20px, 6vw, 86px) clamp(54px, 8vh, 92px);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: clamp(60px, 8vh, 120px) clamp(30px, 5vw, 60px);
+  background: var(--ivory);
 }
 
 .brochure-hero-copy h1 {
@@ -6469,28 +6464,30 @@ select:focus-visible {
   z-index: 8;
   display: flex;
   overflow-x: auto;
-  border-top: 1px solid rgba(37, 42, 45, 0.12);
-  border-bottom: 1px solid rgba(37, 42, 45, 0.16);
-  background: rgba(247, 242, 234, 0.9);
+  border-top: 1px solid rgba(37, 42, 45, 0.06);
+  border-bottom: 1px solid rgba(37, 42, 45, 0.08);
+  background: rgba(244, 239, 229, 0.85);
   backdrop-filter: blur(18px);
 }
 
 .brochure-section-nav a {
   flex: 1 0 150px;
-  border-right: 1px solid rgba(37, 42, 45, 0.12);
-  padding: 18px 12px;
-  color: var(--ink);
-  font-size: 0.69rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  border-right: 1px solid rgba(37, 42, 45, 0.06);
+  padding: 14px 10px;
+  color: var(--soft-ink);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
 .brochure-section-nav a:hover {
-  background: rgba(196, 152, 99, 0.15);
+  background: rgba(196, 152, 99, 0.08);
+  color: var(--ink);
 }
 
 .brochure-stat-rail {
@@ -6588,7 +6585,8 @@ select:focus-visible {
 }
 
 .brochure-tile-grid-six {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 28px !important;
 }
 
 .brochure-image-tile,
@@ -6990,17 +6988,26 @@ select:focus-visible {
   }
 
   .brochure-hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: auto !important;
+    background: #fffaf1 !important;
   }
 
-  .brochure-hero figure,
-  .brochure-hero-copy {
-    grid-column: 1;
+  .brochure-hero figure {
+    width: 100% !important;
+    height: clamp(330px, 58vh, 520px) !important;
+    min-height: 0 !important;
+    order: 2 !important; /* image second */
   }
 
   .brochure-hero-copy {
-    width: min(720px, calc(100vw - 36px));
+    width: 100% !important;
+    max-width: none !important;
+    order: 1 !important; /* text first */
+    align-self: auto !important;
+    padding: clamp(30px, 5vw, 60px) 24px !important;
+    background: #fffaf1 !important;
   }
 
   .brochure-section-nav {
@@ -7770,41 +7777,40 @@ body {
   }
 
   .brochure-hero {
-    display: flex;
-    min-height: 0;
-    flex-direction: column;
-    overflow: visible;
-    background: #fffaf1;
+    display: flex !important;
+    min-height: 0 !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+    background: #fffaf1 !important;
   }
 
   .brochure-hero figure {
-    width: 100%;
-    height: clamp(330px, 58vh, 520px);
-    min-height: 0;
-    order: 1;
+    width: 100% !important;
+    height: clamp(330px, 58vh, 520px) !important;
+    min-height: 0 !important;
+    order: 2 !important; /* image second */
   }
 
   .brochure-hero figure::after {
-    background:
-      linear-gradient(180deg, rgba(5, 10, 12, 0.28), rgba(5, 10, 12, 0.02) 36%, rgba(247, 242, 234, 0.18));
+    display: none !important;
   }
 
   .brochure-hero picture,
   .brochure-hero img {
-    min-height: 0;
+    min-height: 0 !important;
   }
 
   .brochure-hero img {
-    object-position: center center;
+    object-position: center center !important;
   }
 
   .brochure-hero-copy {
-    width: 100%;
-    max-width: none;
-    order: 2;
-    align-self: auto;
-    padding: 30px 22px 34px;
-    background: #fffaf1;
+    width: 100% !important;
+    max-width: none !important;
+    order: 1 !important; /* text first */
+    align-self: auto !important;
+    padding: 30px 22px 34px !important;
+    background: #fffaf1 !important;
   }
 
   .brochure-hero-copy h1 {
@@ -7891,42 +7897,38 @@ body {
 
 /* Hero Redesign Styles */
 .brochure-hero {
-  background: var(--obsidian) !important;
-  color: var(--ivory) !important;
-  grid-template-columns: 1fr !important;
+  background: var(--ivory) !important;
+  color: var(--ink) !important;
+  grid-template-columns: 45% 55% !important;
   position: relative !important;
   min-height: 80vh !important;
 }
 
 .brochure-hero figure {
-  grid-column: 1 !important;
+  grid-column: 2 !important;
+  grid-row: 1 !important;
   width: 100% !important;
   height: 100% !important;
 }
 
 .brochure-hero figure::after {
-  background: linear-gradient(
-    to bottom,
-    rgba(11, 15, 18, 0.15) 0%,
-    rgba(11, 15, 18, 0.45) 50%,
-    rgba(11, 15, 18, 0.85) 100%
-  ) !important;
-  z-index: 1 !important;
+  display: none !important;
 }
 
 .brochure-hero-copy {
   grid-column: 1 !important;
-  align-self: flex-end !important;
-  max-width: 900px !important;
-  width: calc(100% - 80px) !important;
-  padding: 120px 40px 60px !important;
+  grid-row: 1 !important;
+  align-self: center !important;
+  max-width: none !important;
+  width: 100% !important;
+  padding: clamp(60px, 8vh, 120px) clamp(30px, 5vw, 60px) !important;
   position: relative !important;
   z-index: 2 !important;
-  color: var(--ivory) !important;
+  color: var(--ink) !important;
 }
 
 .brochure-hero-copy p.eyebrow {
-  color: #d8c8aa !important;
+  color: var(--bronze) !important;
   letter-spacing: 0.18em !important;
   font-weight: 700 !important;
   margin-bottom: 12px !important;
@@ -7939,7 +7941,7 @@ body {
   font-weight: 400 !important;
   line-height: 1.0 !important;
   margin: 0 0 16px 0 !important;
-  color: var(--ivory) !important;
+  color: var(--ink) !important;
   letter-spacing: -0.02em !important;
 }
 
@@ -7949,13 +7951,13 @@ body {
   font-weight: 300 !important;
   line-height: 1.35 !important;
   margin: 0 0 24px 0 !important;
-  color: rgba(244, 239, 229, 0.9) !important;
+  color: rgba(37, 42, 45, 0.9) !important;
   max-width: 32ch !important;
 }
 
 .brochure-hero-copy p.hero-intro-text {
   font-size: clamp(1.0rem, 1.2vw, 1.15rem) !important;
-  color: rgba(244, 239, 229, 0.75) !important;
+  color: var(--soft-ink) !important;
   line-height: 1.65 !important;
   max-width: 58ch !important;
   margin-bottom: 32px !important;
@@ -7972,19 +7974,17 @@ body {
 .hero-stat-chip {
   display: inline-flex !important;
   flex-direction: column !important;
-  background: rgba(255, 255, 255, 0.07) !important;
-  border: 1px solid rgba(244, 239, 229, 0.14) !important;
+  background: rgba(154, 122, 79, 0.04) !important;
+  border: 1px solid rgba(154, 122, 79, 0.18) !important;
   border-radius: 6px !important;
   padding: 10px 16px !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
   min-width: 110px !important;
 }
 
 .hero-stat-chip .chip-label {
   font-size: 0.62rem !important;
   text-transform: uppercase !important;
-  color: rgba(244, 239, 229, 0.5) !important;
+  color: rgba(37, 42, 45, 0.6) !important;
   letter-spacing: 0.12em !important;
   font-weight: 700 !important;
   margin-bottom: 4px !important;
@@ -7994,7 +7994,7 @@ body {
 .hero-stat-chip .chip-value {
   font-size: 0.95rem !important;
   font-weight: 600 !important;
-  color: var(--ivory) !important;
+  color: var(--ink) !important;
   display: block !important;
 }
 
@@ -8035,7 +8035,7 @@ body {
 .brochure-snapshot-section {
   padding: clamp(56px, 8vw, 98px) 0 !important;
   background: transparent !important;
-  border-bottom: 1px solid rgba(37, 42, 45, 0.1) !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.08) !important;
   width: min(1540px, calc(100% - 72px)) !important;
   margin: 0 auto !important;
 }
@@ -8043,7 +8043,7 @@ body {
 .snapshot-card-container {
   display: grid !important;
   grid-template-columns: 1fr !important;
-  gap: 42px !important;
+  gap: 32px !important;
 }
 
 .snapshot-card-header h2 {
@@ -8062,38 +8062,64 @@ body {
   max-width: 58ch !important;
 }
 
-.snapshot-card-grid {
+.snapshot-columns {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
-  gap: 0 !important;
-  border: 1px solid rgba(37, 42, 45, 0.12) !important;
-  border-radius: 8px !important;
-  overflow: hidden !important;
-  background: rgba(255, 255, 255, 0.15) !important;
+  gap: clamp(24px, 4vw, 56px) !important;
+  margin-top: 32px !important;
 }
 
-.snapshot-grid-cell {
-  border: 0.5px solid rgba(37, 42, 45, 0.08) !important;
-  padding: 24px 28px !important;
+.snapshot-column {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important;
-  min-height: 100px !important;
-  transition: background-color 0.24s ease !important;
 }
 
-.snapshot-grid-cell:hover {
-  background-color: rgba(196, 152, 99, 0.04) !important;
-}
-
-.snapshot-grid-cell .cell-label {
-  font-size: 0.65rem !important;
+.snapshot-column h3 {
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.12em !important;
-  color: #9a7a4f !important;
+  color: var(--bronze) !important;
+  margin: 0 0 24px 0 !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.08) !important;
+  padding-bottom: 12px !important;
+}
+
+.snapshot-spec-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 18px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.snapshot-spec-item {
+  display: flex !important;
+  flex-direction: column !important;
+  border-bottom: 1px dashed rgba(37, 42, 45, 0.06) !important;
+  padding-bottom: 12px !important;
+}
+
+.snapshot-spec-item:last-child {
+  border-bottom: none !important;
+}
+
+.snapshot-spec-label {
+  font-size: 0.65rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--soft-ink) !important;
+  margin-bottom: 4px !important;
   font-weight: 700 !important;
-  margin-bottom: 8px !important;
-  display: block !important;
+}
+
+.snapshot-spec-value {
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif !important;
+  font-size: clamp(1.05rem, 1.25vw, 1.45rem) !important;
+  font-weight: 400 !important;
+  color: var(--ink) !important;
+  line-height: 1.3 !important;
 }
 
 .snapshot-card-footer {
@@ -8103,6 +8129,8 @@ body {
   flex-wrap: wrap !important;
   gap: 20px !important;
   margin-top: 16px !important;
+  border-top: 1px solid rgba(37, 42, 45, 0.06) !important;
+  padding-top: 24px !important;
 }
 
 .snapshot-card-footer .source-attribution {
@@ -8225,8 +8253,9 @@ body {
     padding: 100px 20px 40px !important;
   }
 
-  .snapshot-card-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+  .snapshot-columns {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px !important;
   }
 
   .gallery-grid-layout {
@@ -8243,8 +8272,9 @@ body {
     font-size: 2.8rem !important;
   }
 
-  .snapshot-card-grid {
+  .snapshot-columns {
     grid-template-columns: 1fr !important;
+    gap: 24px !important;
   }
 
   .gallery-grid-layout {
@@ -8517,10 +8547,11 @@ body {
   justify-content: space-between !important;
   border: 1px solid rgba(37, 42, 45, 0.12) !important;
   border-radius: 6px !important;
-  padding: 28px 24px !important;
+  padding: 0 !important; /* Full width thumbnails */
   background: rgba(255, 255, 255, 0.3) !important;
   box-shadow: 0 10px 24px rgba(40, 33, 24, 0.03) !important;
   transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.24s ease, box-shadow 0.24s ease !important;
+  overflow: hidden !important;
 }
 
 .floorplan-card:hover {
@@ -8529,8 +8560,42 @@ body {
   box-shadow: 0 18px 36px rgba(40, 33, 24, 0.06) !important;
 }
 
+.floorplan-card-thumbnail {
+  width: 100% !important;
+  height: 140px !important;
+  background: #ebe2d4 !important;
+  margin: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.08) !important;
+  cursor: pointer !important;
+}
+
+.floorplan-card-thumbnail img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  padding: 12px !important;
+  transition: transform 0.24s ease !important;
+}
+
+.floorplan-card-thumbnail:hover img {
+  transform: scale(1.04) !important;
+}
+
+.floorplan-pdf-placeholder {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(196, 152, 99, 0.03) !important;
+  cursor: pointer !important;
+}
+
 .floorplan-card-meta {
-  margin-bottom: 20px !important;
+  padding: 20px 20px 10px !important;
+  margin-bottom: 10px !important;
 }
 
 .floorplan-card-tag {
@@ -8551,20 +8616,6 @@ body {
   margin: 0 0 10px 0 !important;
 }
 
-.floorplan-card-path {
-  display: block !important;
-  font-family: Courier New, Courier, monospace !important;
-  font-size: 0.62rem !important;
-  color: var(--soft-ink) !important;
-  background: rgba(0, 0, 0, 0.04) !important;
-  padding: 5px 8px !important;
-  border-radius: 3px !important;
-  margin-bottom: 12px !important;
-  overflow-x: auto !important;
-  white-space: nowrap !important;
-  border: 0.5px solid rgba(0, 0, 0, 0.05) !important;
-}
-
 .floorplan-card-note {
   font-size: 0.78rem !important;
   color: var(--soft-ink) !important;
@@ -8576,14 +8627,17 @@ body {
   display: flex !important;
   flex-direction: column !important;
   gap: 8px !important;
+  padding: 0 20px 20px !important;
   margin-top: auto !important;
 }
 
-.floorplan-card-actions a.button {
+.floorplan-card-actions a.button,
+.floorplan-card-actions button.button {
   width: 100% !important;
   font-size: 0.7rem !important;
   padding: 10px 6px !important;
   text-align: center !important;
+  border: 1px solid rgba(154, 122, 79, 0.44) !important;
   border-radius: 4px !important;
   text-transform: uppercase !important;
   font-weight: 700 !important;
@@ -8592,6 +8646,28 @@ body {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  cursor: pointer !important;
+}
+
+.floorplan-card-actions button.button.ghost {
+  background: transparent !important;
+  color: var(--ink) !important;
+  border-color: rgba(37, 42, 45, 0.28) !important;
+}
+
+.floorplan-card-actions button.button.ghost:hover {
+  background: rgba(196, 152, 99, 0.08) !important;
+  border-color: var(--bronze) !important;
+}
+
+.floorplan-card-actions a.button.primary {
+  border-color: #789691 !important;
+  color: #fffaf1 !important;
+  background: #789691 !important;
+}
+
+.floorplan-card-actions a.button.primary:hover {
+  background: #627c78 !important;
 }
 
 .floorplans-extra-note {
@@ -8753,4 +8829,163 @@ body {
   .brochure-team-section {
     width: calc(100% - 40px) !important;
   }
+}
+
+/* Technical Disclosures Accordion */
+.brochure-disclosures-section {
+  width: min(1540px, calc(100% - 72px)) !important;
+  margin: 0 auto clamp(46px, 6vw, 84px) !important;
+  padding: 0 !important;
+}
+
+.disclosures-accordion {
+  border: 1px solid rgba(37, 42, 45, 0.1) !important;
+  border-radius: 6px !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  overflow: hidden !important;
+}
+
+.disclosures-summary {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 22px 28px !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: var(--soft-ink) !important;
+}
+
+.disclosures-summary::-webkit-details-marker {
+  display: none !important;
+}
+
+.summary-arrow {
+  width: 16px !important;
+  height: 16px !important;
+  color: var(--soft-ink) !important;
+  transition: transform 0.28s ease !important;
+}
+
+.disclosures-accordion[open] .summary-arrow {
+  transform: rotate(180deg) !important;
+}
+
+.disclosures-content {
+  padding: 0 28px 28px 28px !important;
+  border-top: 1px solid rgba(37, 42, 45, 0.06) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.disclosures-intro {
+  font-size: 0.78rem !important;
+  color: var(--soft-ink) !important;
+  line-height: 1.5 !important;
+  margin: 20px 0 !important;
+}
+
+.disclosures-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 32px !important;
+}
+
+.disclosures-grid h4 {
+  font-size: 0.65rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--bronze) !important;
+  margin: 0 0 14px 0 !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.06) !important;
+  padding-bottom: 8px !important;
+}
+
+.disclosures-grid ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.disclosures-grid li {
+  font-size: 0.76rem !important;
+  color: var(--soft-ink) !important;
+  line-height: 1.45 !important;
+  position: relative !important;
+  padding-left: 12px !important;
+}
+
+.disclosures-grid li::before {
+  content: "•" !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: var(--bronze) !important;
+}
+
+/* Custom Pros and Cons Bullet List Styles (No SVG icons needed) */
+.pros-list li {
+  position: relative !important;
+  padding-left: 20px !important;
+  display: block !important;
+}
+
+.pros-list li::before {
+  content: "•" !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: var(--sea-glass) !important;
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+  top: -1px !important;
+}
+
+.cons-list li {
+  position: relative !important;
+  padding-left: 20px !important;
+  display: block !important;
+}
+
+.cons-list li::before {
+  content: "—" !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: var(--bronze) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+  top: 0 !important;
+}
+
+.competitor-link {
+  display: inline-block !important;
+  padding: 4px 10px !important;
+  border: 1px solid rgba(154, 122, 79, 0.24) !important;
+  border-radius: 4px !important;
+  color: var(--bronze) !important;
+  background: rgba(154, 122, 79, 0.04) !important;
+  font-size: 0.72rem !important;
+  text-decoration: none !important;
+  margin-right: 6px !important;
+  margin-top: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.competitor-link:hover {
+  border-color: var(--sea-glass) !important;
+  color: #fffaf1 !important;
+  background: var(--sea-glass) !important;
+}
+
+/* Residences Module No-Image Layout Override */
+.brochure-module.brochure-residences-module.no-feature-image {
+  grid-template-columns: 1fr !important;
+}
+
+.brochure-module.brochure-residences-module.no-feature-image .brochure-module-copy {
+  max-width: 800px !important;
 }
