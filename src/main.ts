@@ -11,6 +11,13 @@ import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
 import { homepageExternalNews, newsSortTimestamp, publishedExternalNews, type ExternalNewsItem } from "./data/approvedExternalNews";
 import { editorialImageForId, type EditorialImageId } from "./data/editorialImagery";
 import { homeHeroImages } from "./data/homeHeroImages";
+import {
+  getApprovedProjectAssets,
+  getProjectGalleryAsset,
+  getProjectHeroAsset,
+  type ProjectAsset,
+  type ProjectAssetPlacement,
+} from "./data/projectAssets";
 import { batch1ProjectCopyByProjectId, loadBatch1ProjectCopyPackageSync, type ProjectCopyPackage } from "./data/projectCopyPackage";
 import homepageOverridesRaw from "../content/overrides/homepage-overrides.json";
 import homepageCardOverridesRaw from "../content/overrides/homepage-card-overrides.json";
@@ -5555,8 +5562,24 @@ function renderMediaAsset(asset: MediaAsset, variant = "standard") {
   `;
 }
 
+function projectAssetToMedia(asset: ProjectAsset, kicker?: string): MediaAsset {
+  return {
+    src: asset.src,
+    kicker: kicker ?? asset.placement,
+    title: asset.title,
+    alt: asset.alt,
+  };
+}
+
+function approvedMediaAssetsForProject(project: FeaturedProject, placement: ProjectAssetPlacement) {
+  return getApprovedProjectAssets(project)
+    .filter((asset) => asset.placement === placement)
+    .map((asset) => projectAssetToMedia(asset, placement === "logos" ? "Project Team" : asset.placement));
+}
+
 function projectImageForContent(project: FeaturedProject) {
-  return curatedProjectImage(project)
+  return getProjectHeroAsset(project)?.src
+    ?? curatedProjectImage(project)
     ?? placedImportedImageForProject(project.id, "card")
     ?? project.image
     ?? project.galleryImages?.find((asset) => canShowImage(asset.src))?.src;
@@ -7353,11 +7376,13 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const floorplanCount = floorplanProject?.count ?? 0;
   const brochureStats = projectBrochureStats(project, draft, floorplanCount);
   const gallery = projectBrochureGallery(project, draft);
-  const heroImage = draft.image ?? project.heroImage ?? project.image;
+  const approvedHeroAsset = getProjectHeroAsset(project);
+  const heroImage = approvedHeroAsset?.src ?? draft.image ?? project.heroImage ?? project.image;
   const residenceTiles = gallery.filter((asset) => asset.src !== heroImage).slice(0, 3);
   const amenityTiles = projectBrochureAmenityTiles(project, draft);
   const teamTiles = projectBrochureTeamTiles(project, draft);
-  const heroMobileImage = heroImage === project.heroImage ? project.mobileImage : undefined;
+  const verticalHeroAsset = getApprovedProjectAssets(project).find((asset) => asset.placement === "hero" && asset.variant === "vertical-exterior");
+  const heroMobileImage = verticalHeroAsset?.src ?? (heroImage === project.heroImage ? project.mobileImage : undefined);
   const pageType = project.projectPageType ?? pageTypeForProject(project);
   const isCompactWatch = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker";
   const hasGallery = gallery.some((asset) => canShowImage(asset.src));
@@ -7371,7 +7396,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${renderProjectIdentityHeader(project, pageType)}
       <section class="brochure-hero" id="${project.id}">
         <figure>
-          ${heroImage ? renderMediaAsset({ src: heroImage, mobileSrc: heroMobileImage, alt: draft.imageAlt, kicker: "Project Image", title: draft.title }, "hero") : ""}
+          ${heroImage ? renderMediaAsset({ src: heroImage, mobileSrc: heroMobileImage, alt: approvedHeroAsset?.alt ?? draft.imageAlt, kicker: "Project Image", title: draft.title }, "hero") : ""}
         </figure>
         <div class="brochure-hero-copy">
           <p class="eyebrow">${project.corridor} · West Palm Beach</p>
@@ -7520,7 +7545,8 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
   const residences = conciseResidences(project.id, source?.residences ?? "") || project.residences;
   const delivery = conciseDelivery(source?.completion ?? "") || project.delivery;
   const pricing = concisePricing(source?.pricing ?? "") || project.price;
-  const projectHeroImage = curatedProjectImage(project) ?? placedImportedImageForProject(project.id, "card") ?? project.heroImage ?? project.image;
+  const projectHeroAsset = getProjectHeroAsset(project);
+  const projectHeroImage = projectHeroAsset?.src ?? curatedProjectImage(project) ?? placedImportedImageForProject(project.id, "card") ?? project.heroImage ?? project.image;
   const factFields = [
     { label: "Address", value: address },
     { label: "Stories", value: stories },
@@ -7543,7 +7569,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
     title: project.name,
     intro: `${project.summary} This profile is refreshed from reviewed project materials, public records, and reputable reporting where available.`,
     image: projectHeroImage,
-    imageAlt: `${project.name} project image`,
+    imageAlt: projectHeroAsset?.alt ?? `${project.name} project image`,
     stage: status,
     locationCopy: `${project.name} is tracked in the ${project.corridor} corridor. Compare it by delivery timing, price guidance, view exposure, floorplan depth, and the current buyer packet before touring.`,
     facts: factFields,
@@ -7663,6 +7689,16 @@ function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraf
       },
     ]);
   }
+  const approvedHero = getProjectHeroAsset(project);
+  const approvedResidenceGallery = approvedMediaAssetsForProject(project, "residences");
+  const approvedAmenityGallery = approvedMediaAssetsForProject(project, "amenities");
+  const approvedNeighborhoodGallery = approvedMediaAssetsForProject(project, "neighborhood");
+  const approvedContextGallery = [
+    getProjectGalleryAsset(project, "wide-context"),
+    getProjectGalleryAsset(project, "vertical-exterior"),
+  ]
+    .filter((asset): asset is ProjectAsset => Boolean(asset))
+    .map((asset) => projectAssetToMedia(asset, "Exterior"));
   const legacyGallery =
     project.id === "olara"
       ? [...featuredGallery, ...residenceGallery, ...amenityGallery]
@@ -7675,9 +7711,11 @@ function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraf
           ]
         : project.id === "alba-palm-beach"
           ? [
-              { src: draft.image ?? `${albaMediaBase}alba-hero.jpg`, kicker: "Exterior", title: "Boutique Waterfront", alt: draft.imageAlt },
-              ...albaResidenceGallery,
-              ...albaAmenityGallery,
+              approvedHero ? projectAssetToMedia(approvedHero, "Exterior") : { src: draft.image ?? `${albaMediaBase}alba-hero.jpg`, kicker: "Exterior", title: "Boutique Waterfront", alt: draft.imageAlt },
+              ...approvedResidenceGallery,
+              ...approvedAmenityGallery,
+              ...approvedNeighborhoodGallery,
+              ...approvedContextGallery,
             ]
           : project.id === "shorecrest"
             ? [
@@ -7692,8 +7730,10 @@ function projectBrochureGallery(project: FeaturedProject, draft: ProjectPageDraf
     title: image.caption,
     alt: image.alt,
   }));
-  const assets = uniqueMediaAssets([...draft.gallery, ...legacyGallery, ...importedAssets]);
-  if (draft.image && !assets.some((asset) => asset.src === draft.image)) {
+  const assets = uniqueMediaAssets(project.id === "alba-palm-beach"
+    ? [...legacyGallery, ...importedAssets]
+    : [...draft.gallery, ...legacyGallery, ...importedAssets]);
+  if (project.id !== "alba-palm-beach" && draft.image && !assets.some((asset) => asset.src === draft.image)) {
     assets.unshift({ src: draft.image, kicker: "Project Image", title: draft.title, alt: draft.imageAlt });
   }
   return uniqueMediaAssets(assets);
@@ -7760,6 +7800,14 @@ function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPag
     ];
   }
   if (project.id === "alba-palm-beach") {
+    const approvedAmenityTiles = approvedMediaAssetsForProject(project, "amenities");
+    const approvedResidenceTiles = approvedMediaAssetsForProject(project, "residences");
+    if (approvedAmenityTiles.length || approvedResidenceTiles.length) {
+      return [
+        ...approvedAmenityTiles,
+        ...approvedResidenceTiles.slice(0, 4).map((asset) => ({ ...asset, kicker: "Residence" })),
+      ].slice(0, 6);
+    }
     return [
       { ...albaAmenityGallery[0], title: "Waterfront terrace" },
       { ...albaAmenityGallery[1], title: "Pool and direct water edge" },
@@ -7800,9 +7848,15 @@ function projectBrochureAmenityTiles(project: FeaturedProject, draft: ProjectPag
 
 function projectBrochureTeamTiles(project: FeaturedProject, draft: ProjectPageDraft) {
   if (["ritz-carlton-wpb", "olara", "south-flagler-house", "alba-palm-beach", "shorecrest"].includes(project.id)) {
+    const approvedLogos = project.id === "alba-palm-beach" ? approvedMediaAssetsForProject(project, "logos") : [];
     return draft.team.slice(0, 6).map((credit) => ({
       credit,
-      asset: projectPlaceholderAsset(project, credit.role, "Project Team"),
+      asset: approvedLogos.find((asset) => {
+        const creditName = credit.name.toLowerCase();
+        const assetTitle = asset.title.toLowerCase();
+        return (creditName.includes("bgi") && assetTitle.includes("bgi"))
+          || (creditName.includes("spina") && assetTitle.includes("spina"));
+      }) ?? projectPlaceholderAsset(project, credit.role, "Project Team"),
     }));
   }
   return draft.team.slice(0, 3).map((credit) => ({

@@ -1,0 +1,136 @@
+{
+  "projects": {
+    "alba-palm-beach": {
+      "projectId": "alba-palm-beach",
+      "slug": "alba-palm-beach",
+      "aliases": ["alba-palm-beach"],
+      "assets": [
+        {
+          "placement": "hero",
+          "variant": "primary",
+          "src": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+          "alt": "Wide aerial rendering of Alba Palm Beach on the North Flagler waterfront, showing the Intracoastal Waterway context",
+          "title": "Wide Aerial Context",
+          "credit": "Alba Palm Beach project marketing materials",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved",
+          "notes": "Primary approved landscape hero for desktop views."
+        },
+        {
+          "placement": "hero",
+          "variant": "wide-context",
+          "src": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-aerial-waterfront-rendering-v01.jpg",
+          "alt": "Aerial rendering of the Alba Palm Beach building and waterfront basin",
+          "title": "Aerial Waterfront Rendering",
+          "credit": "Alba Palm Beach project marketing materials",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved",
+          "notes": "Secondary exterior context image."
+        },
+        {
+          "placement": "hero",
+          "variant": "vertical-exterior",
+          "src": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-vertical-exterior-tower-v01.jpg",
+          "alt": "Vertical exterior rendering of Alba Palm Beach showing the tower architecture and waterfront balconies",
+          "title": "Vertical Exterior Tower",
+          "credit": "Alba Palm Beach project marketing materials",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved",
+          "notes": "Approved portrait tower image for secondary or mobile use."
+        },
+        {
+          "placement": "residences",
+          "variant": "living-room",
+          "src": "/assets/projects/alba-palm-beach/residences/alba-palm-beach-residences-living-room-v01.webp",
+          "alt": "Alba Palm Beach residence living room rendering with floor-to-ceiling glass and water views",
+          "title": "Residence Living Room",
+          "credit": "Alba Palm Beach project marketing materials",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved"
+        },
+        {
+          "placement": "residences",
+          "variant": "interior",
+          "src": "/assets/projects/alba-palm-beach/residences/alba-palm-beach-residences-interior-view-v01.webp",
+          "alt": "Dining and living space rendering at Alba Palm Beach with floor-to-ceiling windows and water-facing orientation",
+          "title": "Interior Dining and Living",
+          "credit": "Alba Palm Beach project marketing materials",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved"
+        },
+        {
+          "placement": "residences",
+          "variant": "kitchen",
+          "src": "/assets/projects/alba-palm-beach/residences/alba-palm-beach-residences-kitchen-with-view-v01.webp",
+          "alt": "Alba Palm Beach kitchen rendering with a center island, modern finishes, and water-facing orientation",
+          "title": "Kitchen With View",
+          "credit": "Alba Palm Beach project marketing materials",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved"
+        },
+        {
+          "placement": "residences",
+          "variant": "bedroom",
+          "src": "/assets/projects/alba-palm-beach/residences/alba-palm-beach-residences-bedroom-01-v01.webp",
+          "alt": "Alba Palm Beach bedroom rendering with modern design and water-facing windows",
+          "title": "Bedroom",
+          "credit": "Alba Palm Beach project marketing materials",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved"
+        },
+        {
+          "placement": "residences",
+          "variant": "patio",
+          "src": "/assets/projects/alba-palm-beach/residences/alba-palm-beach-residences-patio-v01.webp",
+          "alt": "Alba Palm Beach private terrace rendering with outdoor seating and waterfront orientation",
+          "title": "Private Terrace",
+          "credit": "Alba Palm Beach project marketing materials",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved"
+        },
+        {
+          "placement": "amenities",
+          "variant": "pool-deck",
+          "src": "/assets/projects/alba-palm-beach/amenities/alba-palm-beach-amenities-pool-deck-v01.jpg",
+          "alt": "Alba Palm Beach pool deck rendering with lounge seating and waterfront views",
+          "title": "Pool Deck",
+          "credit": "Alba Palm Beach project marketing materials",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved"
+        },
+        {
+          "placement": "amenities",
+          "variant": "valet",
+          "src": "/assets/projects/alba-palm-beach/amenities/alba-palm-beach-amenities-valet-v01.webp",
+          "alt": "Alba Palm Beach covered arrival and valet entrance rendering",
+          "title": "Valet Arrival",
+          "credit": "Alba Palm Beach project marketing materials",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved"
+        },
+        {
+          "placement": "logos",
+          "variant": "developer-bgi",
+          "src": "/assets/projects/alba-palm-beach/logos/alba-palm-beach-developer-bgi-logo-v01.jpeg",
+          "alt": "BGI Companies logo",
+          "title": "BGI Companies",
+          "credit": "BGI Companies",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved",
+          "notes": "Approved logo; small source dimensions, use only in compact logo contexts."
+        },
+        {
+          "placement": "logos",
+          "variant": "architect-spina-orourke",
+          "src": "/assets/projects/alba-palm-beach/logos/alba-palm-beach-architect-spina-orourke-logo-v01.jpeg",
+          "alt": "Spina O'Rourke and Partners logo",
+          "title": "Spina O'Rourke + Partners",
+          "credit": "Spina O'Rourke + Partners",
+          "source": "Brooke-approved iCloud approved-for-website asset",
+          "status": "approved",
+          "notes": "Approved architect logo."
+        }
+      ]
+    }
+  }
+}
