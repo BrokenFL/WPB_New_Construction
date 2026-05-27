@@ -26,7 +26,7 @@ import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
 import { advisorProfile } from "./lib/contact";
 import { escapeHtml, safeHref } from "./renderUtils";
-// import { localIntelligence } from "./data/localIntelligence";
+import { localIntelligence } from "./data/localIntelligence";
 
 type MediaAsset = {
   src: string;
@@ -7328,6 +7328,7 @@ function projectEntityFaq(
 function renderDraftProjectPage(project: FeaturedProject) {
   const draft = editorProjectPageDrafts[project.id] ?? projectDraftFromFeatured(project);
   const copyPackage = batch1ProjectCopyByProjectId.get(project.id);
+  const intel = localIntelligence[project.id];
   const floorplanProject = getFloorplanProject(project.id);
   const floorplanCount = floorplanProject?.count ?? 0;
   const brochureStats = projectBrochureStats(project, draft, floorplanCount);
@@ -7364,8 +7365,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
   const heroPrimaryCtaLabel = isCompactWatch ? "Get Availability Updates" : "Request Floor Plans";
   const heroSecondaryCtaLabel = isCompactWatch ? "Ask Brooke What Is Known" : "Ask Brooke About This Building";
-  const heroPrimaryCtaUrl = isCompactWatch 
-    ? `/inquire/?project=${project.id}&interest=updates&lead_capture_context=project_hero` 
+  const heroPrimaryCtaUrl = isCompactWatch
+    ? `/inquire/?project=${project.id}&interest=updates&lead_capture_context=project_hero`
     : `/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=project_hero`;
   const heroSecondaryCtaUrl = `/inquire/?project=${project.id}&interest=availability&lead_capture_context=project_hero`;
 
@@ -7381,7 +7382,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <h1 class="hero-building-name">${escapeHtml(project.name)}</h1>
           <h2 class="hero-headline">${copyPackage ? publicText(copyPackage.introHeadline) : brochureHeadline(project)}</h2>
           <p class="hero-intro-text">${publicText(copyPackage?.introDek ?? project.editorialIntro ?? draft.intro)}</p>
-          
+
           <div class="brochure-hero-stat-chips">
             ${heroTagsHtml}
             ${heroChipsHtml}
@@ -7397,6 +7398,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
       <nav class="brochure-section-nav" aria-label="${project.name} project sections">
         <a href="/#projects">Explore Buildings</a>
         <a href="#snapshot-${project.id}">At a Glance</a>
+        ${intel ? `<a href="#local-take-${project.id}">Brooke's Take</a>` : ""}
+        <a href="#floorplans-${project.id}">Floor Plans</a>
         <a href="#overview-${project.id}">Residences</a>
         ${hasGallery ? `<a href="#gallery-${project.id}">Gallery</a>` : ""}
         ${hasAmenities ? `<a href="#amenities-${project.id}">Amenities</a>` : ""}
@@ -7409,6 +7412,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${renderDeveloperImageDisclaimer()}
 
       ${renderProjectSnapshotCard(project, draft)}
+
+      ${intel ? renderBrookesLocalTakeSection(project, intel) : ""}
 
       ${renderProjectEntityBrief(project, floorplanProject, copyPackage)}
       ${renderProjectCorridorCta(project)}
@@ -7427,6 +7432,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <img src="${heroImage}" alt="${project.name} residence visual" style="width: 100%; height: 100%; min-height: 380px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(37,42,45,0.14);" />
         </figure>
       </section>
+
+      ${renderProjectFloorplansSection(project, floorplanProject)}
 
       ${renderProjectGallerySection(project.id)}
 
@@ -7465,17 +7472,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         </div>
       </section>
 
-      ${hasTeam ? `<section class="brochure-module brochure-team-module" id="team-${project.id}">
-        <div class="brochure-module-copy">
-          <p class="eyebrow">Project Team</p>
-          <h2>${teamSectionTitle(project)}</h2>
-          <p>${publicText(copyPackage?.projectTeamNarrative ?? draft.team[0]?.note ?? "Project and design credits help buyers understand the architectural point of view, operational standard, and long-term ownership confidence behind each residence.")}</p>
-          <a href="#project-resources-${project.id}">View buyer resources <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="brochure-team-grid">
-          ${teamTiles.map(renderBrochureTeamTile).join("")}
-        </div>
-      </section>` : ""}
+      ${renderProjectTeamSection(project, draft)}
 
       ${renderProjectInternalComparison(project)}
       ${renderProjectMissingInfoPanel(project)}
@@ -8310,16 +8307,16 @@ function getProjectGalleryCategorized(projectId: string) {
 function renderProjectGallerySection(projectId: string) {
   const categorized = getProjectGalleryCategorized(projectId);
   const activeCategories = Object.entries(categorized).filter(([_, list]) => list.length > 0);
-  
+
   if (activeCategories.length === 0) return "";
 
   const tabControls = activeCategories.map(([cat, list], idx) => {
     const label = cat.charAt(0).toUpperCase() + cat.slice(1);
     const displayName = label === "Floorplans" ? "Floor Plans" : label === "Siteplan" ? "Site Plan / Map" : label;
     return `
-      <button 
-        class="gallery-filter-btn${idx === 0 ? " active" : ""}" 
-        type="button" 
+      <button
+        class="gallery-filter-btn${idx === 0 ? " active" : ""}"
+        type="button"
         data-gallery-filter="${cat}"
         data-project-id="${projectId}"
       >
@@ -8330,9 +8327,9 @@ function renderProjectGallerySection(projectId: string) {
 
   const tabPanels = activeCategories.map(([cat, list], idx) => {
     return `
-      <div 
-        class="gallery-tab-panel" 
-        data-gallery-panel="${cat}" 
+      <div
+        class="gallery-tab-panel"
+        data-gallery-panel="${cat}"
         data-project-id="${projectId}"
         ${idx === 0 ? "" : "hidden"}
       >
@@ -8394,7 +8391,7 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
     { label: "Price Range", value: project.price },
     { label: "Estimated Completion", value: project.delivery },
     { label: "Maintenance Estimate", value: findFactValue(/maintenance|carrying|fee/i, "Request current estimate") },
-    { label: "Parking Allocation", value: findFactValue(/parking/i, "Available upon request") },
+    { label: "Parking Allocation", value: findFactValue(/parking/i, "Not publicly confirmed") },
     { label: "Pet Policy", value: findFactValue(/pet/i, "Contact advisor for rules") },
     { label: "Sales Status", value: project.status }
   ];
@@ -8446,4 +8443,257 @@ function initProjectGalleryTabs() {
       panel.hidden = panel.dataset.galleryPanel !== category;
     });
   });
+}
+
+function renderBrookesLocalTakeSection(project: FeaturedProject, intel: any) {
+  const titleHtml = `
+    <p class="eyebrow">Advisor Review</p>
+    <h2>Brooke’s Local Take</h2>
+    <p class="brookes-take-lead">${publicText(intel.brookesTake)}</p>
+  `;
+
+  return `
+    <section class="section brochure-local-take-section" id="local-take-${project.id}">
+      <div class="local-take-container">
+        <div class="local-take-header">
+          ${titleHtml}
+        </div>
+
+        <div class="local-take-grid">
+          <!-- Left side: Buyer Fit & Location/Access Notes -->
+          <div class="local-take-sidebar">
+            <!-- Best Fit For (Buyer Fit Panel) -->
+            <div class="local-take-widget buyer-fit-widget">
+              <h3>Best Fit For</h3>
+              <div class="buyer-fit-chips">
+                ${intel.buyerProfile.map((profile: string) => `
+                  <span class="buyer-fit-chip">${escapeHtml(profile)}</span>
+                `).join("")}
+              </div>
+            </div>
+
+            <!-- Access & Location Notes -->
+            <div class="local-take-widget access-location-widget">
+              <h3>Access & Navigation</h3>
+              <div class="access-notes-list">
+                ${intel.palmBeachAccess ? `
+                  <div class="access-note-item">
+                    <strong>Palm Beach Island Access</strong>
+                    <p>${escapeHtml(intel.palmBeachAccess)}</p>
+                  </div>
+                ` : ""}
+                ${intel.trafficNotes ? `
+                  <div class="access-note-item">
+                    <strong>Traffic & Commuting</strong>
+                    <p>${escapeHtml(intel.trafficNotes)}</p>
+                  </div>
+                ` : ""}
+                ${intel.nearbyCompetitors && intel.nearbyCompetitors.length > 0 ? `
+                  <div class="access-note-item competitors-list">
+                    <strong>Nearby Competing Towers</strong>
+                    <p>
+                      ${intel.nearbyCompetitors.map((compId: string) => {
+                        const compProject = featuredProjects.find(p => p.id === compId);
+                        if (compProject) {
+                          return `<a href="?project=${compProject.id}" class="competitor-link">${escapeHtml(compProject.name)}</a>`;
+                        } else {
+                          return `<span class="competitor-text">${escapeHtml(compId.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" "))}</span>`;
+                        }
+                      }).join(", ")}
+                    </p>
+                  </div>
+                ` : ""}
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side: Pros & Tradeoffs -->
+          <div class="local-take-main">
+            <div class="pros-cons-grid">
+              <div class="pros-column">
+                <h3>Why Buyers Like It</h3>
+                <ul class="pros-list">
+                  ${intel.pros.map((pro: string) => `
+                    <li>
+                      <svg class="pro-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style="width: 18px; height: 18px; flex-shrink: 0; color: #50665e; margin-top: 2px;">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.8-11.2a1 1 0 00-1.4-1.4L9 8.6 7.6 7.2a1 1 0 00-1.4 1.4l2.1 2.1a1 1 0 001.4 0l4.1-4.1z" clip-rule="evenodd" />
+                      </svg>
+                      <span>${escapeHtml(pro)}</span>
+                    </li>
+                  `).join("")}
+                </ul>
+              </div>
+              <div class="cons-column">
+                <h3>What to Watch</h3>
+                <ul class="cons-list">
+                  ${intel.cons.map((con: string) => `
+                    <li>
+                      <svg class="con-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style="width: 18px; height: 18px; flex-shrink: 0; color: #a47e6c; margin-top: 2px;">
+                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                      </svg>
+                      <span>${escapeHtml(con)}</span>
+                    </li>
+                  `).join("")}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderProjectFloorplansSection(project: FeaturedProject, floorplanProject: any) {
+  const plans = floorplanProject?.plans ?? [];
+  const hasPlans = plans.length > 0;
+
+  const titleHtml = `
+    <p class="eyebrow">Floor Plans</p>
+    <h2>Residence Layouts & Lines</h2>
+    <p class="section-lead-text">Compare floorplan designs, balcony orientation, and view exposures. Always confirm current line availability and stack details before making a decision.</p>
+  `;
+
+  if (!hasPlans) {
+    return `
+      <section class="section brochure-floorplans-section" id="floorplans-${project.id}">
+        <div class="floorplans-section-container">
+          <div class="section-heading">
+            ${titleHtml}
+          </div>
+          <div class="floorplans-inquiry-box">
+            <div class="inquiry-box-content">
+              <h3>Request Current Floor Plans</h3>
+              <p>Official floor plans, residence stacks, and individual line layouts for ${escapeHtml(project.name)} are available upon request. Connect with Brooke to get the latest developer packet.</p>
+              <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplans_empty">Request Floor Plans</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  const plansGridHtml = plans.slice(0, 8).map((plan: any, index: number) => {
+    const slugifiedTitle = plan.title.toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+
+    const isLocalPdf = plan.href && plan.href.startsWith("/projects/") && plan.href.endsWith(".pdf");
+
+    if (isLocalPdf) {
+      return `
+        <div class="floorplan-card" data-plan-index="${index}">
+          <div class="floorplan-card-meta">
+            <span class="floorplan-card-tag">Residence Line</span>
+            <h4 class="floorplan-card-title">${escapeHtml(plan.title)}</h4>
+            <code class="floorplan-card-path" title="Verified asset path for local PDFs">${escapeHtml(plan.href)}</code>
+            <p class="floorplan-card-note">Verify exact bed/bath counts, exposure direction, and net vs. outdoor square footage with the current packet.</p>
+          </div>
+          <div class="floorplan-card-actions">
+            <a class="button ghost" href="${escapeHtml(plan.href)}" download>Download PDF Reference</a>
+            <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplan_card_${slugifiedTitle}">Request Availability</a>
+          </div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="floorplan-card" data-plan-index="${index}">
+          <div class="floorplan-card-meta">
+            <span class="floorplan-card-tag">Residence Line</span>
+            <h4 class="floorplan-card-title">${escapeHtml(plan.title)}</h4>
+            <p class="floorplan-card-note">Verify exact bed/bath counts, exposure direction, and net vs. outdoor square footage with the current packet.</p>
+          </div>
+          <div class="floorplan-card-actions">
+            <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplan_card_${slugifiedTitle}">Request Floor Plan</a>
+          </div>
+        </div>
+      `;
+    }
+  }).join("");
+
+  const extraCount = Math.max(0, plans.length - 8);
+  const footerHtml = extraCount > 0
+    ? `<p class="floorplans-extra-note">Plus ${extraCount} additional floorplan configurations available in Brooke's direct archive.</p>`
+    : "";
+
+  return `
+    <section class="section brochure-floorplans-section" id="floorplans-${project.id}">
+      <div class="floorplans-section-container">
+        <div class="section-heading">
+          ${titleHtml}
+        </div>
+        <div class="floorplan-cards-grid">
+          ${plansGridHtml}
+        </div>
+        <div class="floorplans-section-footer">
+          ${footerHtml}
+          <div class="floorplans-actions">
+            <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplans_section_footer">Request Full Floor Plan Packet</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDraft) {
+  const teamTiles = projectBrochureTeamTiles(project, draft);
+  if (teamTiles.length === 0) return "";
+
+  const findMemberByRole = (regex: RegExp) => {
+    return teamTiles.find((tile) => regex.test(tile.credit.role));
+  };
+
+  const devTile = findMemberByRole(/developer|sponsor|lead|partner/i);
+  const archTile = findMemberByRole(/architect/i);
+  const designTile = findMemberByRole(/interior|design/i);
+  const landscapeTile = findMemberByRole(/landscape/i);
+
+  const developerName = devTile?.credit.name ?? "Not publicly confirmed";
+  const architectName = archTile?.credit.name ?? "Not publicly confirmed";
+  const designerName = designTile?.credit.name ?? "Not publicly confirmed";
+  const landscapeName = landscapeTile?.credit.name;
+
+  const coreTeamHtml = `
+    <div class="team-pedigree-summary-grid">
+      <div class="team-summary-cell">
+        <span class="cell-role-label">Developer</span>
+        <strong class="cell-member-name">${escapeHtml(developerName)}</strong>
+      </div>
+      <div class="team-summary-cell">
+        <span class="cell-role-label">Architect</span>
+        <strong class="cell-member-name">${escapeHtml(architectName)}</strong>
+      </div>
+      <div class="team-summary-cell">
+        <span class="cell-role-label">Interior Designer</span>
+        <strong class="cell-member-name">${escapeHtml(designerName)}</strong>
+      </div>
+      ${landscapeName ? `
+        <div class="team-summary-cell">
+          <span class="cell-role-label">Landscape Architect</span>
+          <strong class="cell-member-name">${escapeHtml(landscapeName)}</strong>
+        </div>
+      ` : ""}
+    </div>
+  `;
+
+  const cardsHtml = teamTiles.map(renderBrochureTeamTile).join("");
+
+  return `
+    <section class="section brochure-team-section" id="team-${project.id}">
+      <div class="team-section-container">
+        <div class="section-heading">
+          <p class="eyebrow">Project Team</p>
+          <h2>${teamSectionTitle(project)}</h2>
+          <p>The design and development firms behind ${escapeHtml(project.name)}, defining the tower's architectural vision, operational standard, and long-term resale confidence.</p>
+        </div>
+
+        ${coreTeamHtml}
+
+        <div class="team-cards-grid">
+          ${cardsHtml}
+        </div>
+      </div>
+    </section>
+  `;
 }
