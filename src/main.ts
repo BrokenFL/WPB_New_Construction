@@ -3186,7 +3186,7 @@ app.innerHTML = `
             <h3>Residence plan PDFs organized for direct buyer review.</h3>
           </div>
           <div class="floorplan-grid">
-            ${floorplanDownloads.map((plan) => renderFloorplanLink(plan)).join("")}
+            ${floorplanDownloads.map((plan) => renderFloorplanLink(plan, docsBase, "Olara")).join("")}
           </div>
         </div>
       </section>
@@ -3345,7 +3345,7 @@ app.innerHTML = `
             <h3>Residence and lake-home PDFs organized for direct buyer review.</h3>
           </div>
           <div class="floorplan-grid">
-            ${ritzFloorplanDownloads.map((plan) => renderFloorplanLink(plan, ritzDocsBase)).join("")}
+            ${ritzFloorplanDownloads.map((plan) => renderFloorplanLink(plan, ritzDocsBase, "The Ritz-Carlton Residences, West Palm Beach")).join("")}
           </div>
         </div>
       </section>
@@ -8015,7 +8015,7 @@ function renderNeededItem(item: string, index: number) {
   `;
 }
 
-function renderFloorplanLink(plan: { label: string; file: string; note?: string }, basePath = docsBase) {
+function renderFloorplanLink(plan: { label: string; file: string; note?: string }, basePath = docsBase, projectName = "Olara") {
   const href = `${basePath}floorplans/${plan.file}`;
   return `
     <button
@@ -8024,7 +8024,7 @@ function renderFloorplanLink(plan: { label: string; file: string; note?: string 
       data-floorplan-open
       data-floorplan-index="0"
       data-floorplan-title="${escapeHtml(plan.label)}"
-      data-floorplan-project="Olara"
+      data-floorplan-project="${escapeHtml(projectName)}"
       data-floorplan-caption="${escapeHtml(plan.note ?? "Floorplan PDF preview")}"
       data-floorplan-src="${safeHref(href)}"
     >
