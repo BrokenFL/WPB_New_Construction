@@ -121,7 +121,16 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes("/src/data/approvedExternalNews.ts")) {
-            return "news-data";
+            return "index-news-data";
+          }
+          if (id.includes("/src/generated/siteData.ts")) {
+            return "index-site-data";
+          }
+          if (id.includes("/src/data/localIntelligence.ts")) {
+            return "index-local-intel";
+          }
+          if (id.includes("/src/data/marketNotes.ts")) {
+            return "index-market-notes";
           }
         },
       },
