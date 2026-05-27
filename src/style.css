@@ -7884,3 +7884,873 @@ body {
     font-size: 2.1rem;
   }
 }
+
+/* ==========================================================================
+   PHASE 1: DYNAMIC PROJECT PAGE VISUAL OVERHAUL OVERRIDES
+   ========================================================================== */
+
+/* Hero Redesign Styles */
+.brochure-hero {
+  background: var(--obsidian) !important;
+  color: var(--ivory) !important;
+  grid-template-columns: 1fr !important;
+  position: relative !important;
+  min-height: 80vh !important;
+}
+
+.brochure-hero figure {
+  grid-column: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.brochure-hero figure::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 15, 18, 0.15) 0%,
+    rgba(11, 15, 18, 0.45) 50%,
+    rgba(11, 15, 18, 0.85) 100%
+  ) !important;
+  z-index: 1 !important;
+}
+
+.brochure-hero-copy {
+  grid-column: 1 !important;
+  align-self: flex-end !important;
+  max-width: 900px !important;
+  width: calc(100% - 80px) !important;
+  padding: 120px 40px 60px !important;
+  position: relative !important;
+  z-index: 2 !important;
+  color: var(--ivory) !important;
+}
+
+.brochure-hero-copy p.eyebrow {
+  color: #d8c8aa !important;
+  letter-spacing: 0.18em !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+  text-transform: uppercase !important;
+}
+
+.brochure-hero-copy h1.hero-building-name {
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif !important;
+  font-size: clamp(3.2rem, 6.5vw, 6.5rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.0 !important;
+  margin: 0 0 16px 0 !important;
+  color: var(--ivory) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.brochure-hero-copy h2.hero-headline {
+  font-family: Inter, sans-serif !important;
+  font-size: clamp(1.25rem, 2vw, 1.85rem) !important;
+  font-weight: 300 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 24px 0 !important;
+  color: rgba(244, 239, 229, 0.9) !important;
+  max-width: 32ch !important;
+}
+
+.brochure-hero-copy p.hero-intro-text {
+  font-size: clamp(1.0rem, 1.2vw, 1.15rem) !important;
+  color: rgba(244, 239, 229, 0.75) !important;
+  line-height: 1.65 !important;
+  max-width: 58ch !important;
+  margin-bottom: 32px !important;
+}
+
+/* Stat Chips inside Hero */
+.brochure-hero-stat-chips {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-bottom: 32px !important;
+}
+
+.hero-stat-chip {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(244, 239, 229, 0.14) !important;
+  border-radius: 6px !important;
+  padding: 10px 16px !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  min-width: 110px !important;
+}
+
+.hero-stat-chip .chip-label {
+  font-size: 0.62rem !important;
+  text-transform: uppercase !important;
+  color: rgba(244, 239, 229, 0.5) !important;
+  letter-spacing: 0.12em !important;
+  font-weight: 700 !important;
+  margin-bottom: 4px !important;
+  display: block !important;
+}
+
+.hero-stat-chip .chip-value {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: var(--ivory) !important;
+  display: block !important;
+}
+
+.hero-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 0.7rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  font-weight: 800 !important;
+  padding: 8px 14px !important;
+  border-radius: 4px !important;
+  height: fit-content !important;
+  align-self: center !important;
+}
+
+.tag-waterfront {
+  background: rgba(143, 185, 173, 0.18) !important;
+  border: 1px solid rgba(143, 185, 173, 0.4) !important;
+  color: #8fb9ad !important;
+}
+
+.tag-walkable {
+  background: rgba(154, 122, 79, 0.15) !important;
+  border: 1px solid rgba(154, 122, 79, 0.35) !important;
+  color: #9a7a4f !important;
+}
+
+/* Hide the old stat rail since it is now represented as chips inside the hero */
+.project-page-complete-profile .brochure-stat-rail,
+.project-page-advisory-brief .brochure-stat-rail,
+.project-page-planning-watch .brochure-stat-rail,
+.project-page-source-watch .brochure-stat-rail {
+  display: none !important;
+}
+
+/* Redesigned Snapshot Section (Thin-Lined luxury layout) */
+.brochure-snapshot-section {
+  padding: clamp(56px, 8vw, 98px) 0 !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.1) !important;
+  width: min(1540px, calc(100% - 72px)) !important;
+  margin: 0 auto !important;
+}
+
+.snapshot-card-container {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 42px !important;
+}
+
+.snapshot-card-header h2 {
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif !important;
+  font-size: clamp(2rem, 3.2vw, 3.6rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.05 !important;
+  margin: 8px 0 12px !important;
+}
+
+.snapshot-card-header p {
+  color: var(--soft-ink) !important;
+  font-size: 1.02rem !important;
+  line-height: 1.5 !important;
+  max-width: 58ch !important;
+}
+
+.snapshot-card-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0 !important;
+  border: 1px solid rgba(37, 42, 45, 0.12) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.snapshot-grid-cell {
+  border: 0.5px solid rgba(37, 42, 45, 0.08) !important;
+  padding: 24px 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  min-height: 100px !important;
+  transition: background-color 0.24s ease !important;
+}
+
+.snapshot-grid-cell:hover {
+  background-color: rgba(196, 152, 99, 0.04) !important;
+}
+
+.snapshot-grid-cell .cell-label {
+  font-size: 0.65rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: #9a7a4f !important;
+  font-weight: 700 !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
+.snapshot-card-footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+  margin-top: 16px !important;
+}
+
+.snapshot-card-footer .source-attribution {
+  font-size: 0.75rem !important;
+  color: var(--soft-ink) !important;
+  margin: 0 !important;
+}
+
+/* Categorized Gallery Section */
+.brochure-gallery-section {
+  scroll-margin-top: 80px !important;
+  width: min(1540px, calc(100% - 72px)) !important;
+  margin: 0 auto !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.1) !important;
+  padding: clamp(56px, 7vw, 98px) 0 !important;
+}
+
+.gallery-wrapper {
+  margin-top: 32px !important;
+}
+
+.gallery-filter-bar {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-bottom: 28px !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.1) !important;
+  padding-bottom: 12px !important;
+}
+
+.gallery-filter-btn {
+  border: 1px solid rgba(154, 122, 79, 0.22) !important;
+  border-radius: 4px !important;
+  padding: 8px 16px !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--ink) !important;
+  background: rgba(255, 250, 241, 0.6) !important;
+  cursor: pointer !important;
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.gallery-filter-btn:hover {
+  border-color: var(--bronze) !important;
+  background: rgba(196, 152, 99, 0.08) !important;
+}
+
+.gallery-filter-btn.active {
+  border-color: var(--bronze) !important;
+  color: var(--ivory) !important;
+  background: var(--bronze) !important;
+}
+
+.gallery-grid-layout {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+}
+
+.gallery-item-card {
+  border: 1px solid rgba(37, 42, 45, 0.12) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  background: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 12px 30px rgba(40, 33, 24, 0.04) !important;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease !important;
+}
+
+.gallery-item-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 18px 40px rgba(40, 33, 24, 0.08) !important;
+}
+
+.gallery-item-frame {
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+}
+
+.gallery-item-frame img {
+  width: 100% !important;
+  aspect-ratio: 3 / 2 !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.gallery-item-caption {
+  padding: 14px 18px !important;
+  border-top: 1px solid rgba(37, 42, 45, 0.06) !important;
+}
+
+.gallery-item-tag {
+  display: inline-block !important;
+  font-size: 0.58rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  color: var(--bronze) !important;
+  letter-spacing: 0.1em !important;
+  margin-bottom: 6px !important;
+}
+
+.gallery-item-desc {
+  display: block !important;
+  font-size: 0.78rem !important;
+  color: var(--soft-ink) !important;
+  line-height: 1.35 !important;
+}
+
+/* Residences Section Featured Image styling override */
+.brochure-residences-module .feature-image {
+  margin: 0 !important;
+}
+
+/* Responsive Overrides (Mobile Cleanup) */
+@media (max-width: 860px) {
+  .brochure-hero-copy {
+    width: calc(100% - 40px) !important;
+    padding: 100px 20px 40px !important;
+  }
+
+  .snapshot-card-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .gallery-grid-layout {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .brochure-hero {
+    min-height: auto !important;
+  }
+
+  .brochure-hero-copy h1.hero-building-name {
+    font-size: 2.8rem !important;
+  }
+
+  .snapshot-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gallery-grid-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gallery-filter-bar {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding-bottom: 8px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .gallery-filter-bar::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .gallery-filter-btn {
+    white-space: nowrap !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* Mobile bottom sticky CTA bar */
+  .brochure-mobile-cta-sticky {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    padding: 10px 16px !important;
+    background: rgba(11, 15, 18, 0.92) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-top: 1px solid rgba(244, 239, 229, 0.15) !important;
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .brochure-mobile-cta-sticky a.button {
+    font-size: 0.72rem !important;
+    padding: 12px 6px !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    min-height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .route-view-brochure-project {
+    padding-bottom: 72px !important;
+  }
+}
+
+@media (min-width: 621px) {
+  .brochure-mobile-cta-sticky {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   PHASE 2 CONTENT & DETAIL PANELS STYLING
+   ========================================================================== */
+
+/* Brooke's Local Take Section */
+.brochure-local-take-section {
+  scroll-margin-top: 80px !important;
+  width: min(1540px, calc(100% - 72px)) !important;
+  margin: 0 auto !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.1) !important;
+  padding: clamp(56px, 8vw, 98px) 0 !important;
+  background: transparent !important;
+}
+
+.local-take-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 48px !important;
+}
+
+.local-take-header {
+  max-width: 900px !important;
+}
+
+.local-take-header h2 {
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif !important;
+  font-size: clamp(2rem, 3.2vw, 3.6rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.05 !important;
+  margin: 8px 0 16px !important;
+}
+
+.brookes-take-lead {
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif !important;
+  font-size: clamp(1.15rem, 1.4vw, 1.55rem) !important;
+  color: var(--soft-ink) !important;
+  line-height: 1.5 !important;
+  font-style: italic !important;
+  margin: 0 !important;
+}
+
+.local-take-grid {
+  display: grid !important;
+  grid-template-columns: 360px 1fr !important;
+  gap: 64px !important;
+}
+
+.local-take-sidebar {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 32px !important;
+}
+
+.local-take-widget {
+  border-bottom: 1px solid rgba(37, 42, 45, 0.08) !important;
+  padding-bottom: 28px !important;
+}
+
+.local-take-widget:last-child {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+.local-take-widget h3 {
+  font-size: 0.65rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: var(--bronze) !important;
+  font-weight: 700 !important;
+  margin: 0 0 16px !important;
+}
+
+.buyer-fit-chips {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+.buyer-fit-chip {
+  background: rgba(154, 122, 79, 0.06) !important;
+  border: 1px solid rgba(154, 122, 79, 0.2) !important;
+  border-radius: 4px !important;
+  padding: 6px 12px !important;
+  font-size: 0.76rem !important;
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.access-notes-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.access-note-item strong {
+  display: block !important;
+  font-size: 0.8rem !important;
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  margin-bottom: 6px !important;
+}
+
+.access-note-item p {
+  font-size: 0.84rem !important;
+  color: var(--soft-ink) !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
+}
+
+.competitor-link {
+  color: var(--bronze) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid rgba(154, 122, 79, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+
+.competitor-link:hover {
+  border-bottom-color: var(--bronze) !important;
+  color: var(--ink) !important;
+}
+
+.competitor-text {
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+
+.local-take-main {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(37, 42, 45, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 40px !important;
+}
+
+.pros-cons-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 48px !important;
+}
+
+.pros-column h3,
+.cons-column h3 {
+  font-size: 0.72rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+  margin: 0 0 20px 0 !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.08) !important;
+  padding-bottom: 10px !important;
+}
+
+.pros-list,
+.cons-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.pros-list li,
+.cons-list li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  font-size: 0.88rem !important;
+  line-height: 1.45 !important;
+  color: var(--ink) !important;
+}
+
+.pros-list li span,
+.cons-list li span {
+  padding-top: 1px !important;
+}
+
+/* Floor Plans Section */
+.brochure-floorplans-section {
+  scroll-margin-top: 80px !important;
+  width: min(1540px, calc(100% - 72px)) !important;
+  margin: 0 auto !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.1) !important;
+  padding: clamp(56px, 8vw, 98px) 0 !important;
+}
+
+.floorplans-section-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 36px !important;
+}
+
+.floorplan-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+  gap: 24px !important;
+}
+
+.floorplan-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  border: 1px solid rgba(37, 42, 45, 0.12) !important;
+  border-radius: 6px !important;
+  padding: 28px 24px !important;
+  background: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 10px 24px rgba(40, 33, 24, 0.03) !important;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.24s ease, box-shadow 0.24s ease !important;
+}
+
+.floorplan-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: var(--bronze) !important;
+  box-shadow: 0 18px 36px rgba(40, 33, 24, 0.06) !important;
+}
+
+.floorplan-card-meta {
+  margin-bottom: 20px !important;
+}
+
+.floorplan-card-tag {
+  display: inline-block !important;
+  font-size: 0.58rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  color: var(--bronze) !important;
+  letter-spacing: 0.1em !important;
+  margin-bottom: 8px !important;
+}
+
+.floorplan-card-title {
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 400 !important;
+  color: var(--ink) !important;
+  margin: 0 0 10px 0 !important;
+}
+
+.floorplan-card-path {
+  display: block !important;
+  font-family: Courier New, Courier, monospace !important;
+  font-size: 0.62rem !important;
+  color: var(--soft-ink) !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+  padding: 5px 8px !important;
+  border-radius: 3px !important;
+  margin-bottom: 12px !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+  border: 0.5px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.floorplan-card-note {
+  font-size: 0.78rem !important;
+  color: var(--soft-ink) !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+
+.floorplan-card-actions {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  margin-top: auto !important;
+}
+
+.floorplan-card-actions a.button {
+  width: 100% !important;
+  font-size: 0.7rem !important;
+  padding: 10px 6px !important;
+  text-align: center !important;
+  border-radius: 4px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  min-height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.floorplans-extra-note {
+  text-align: center !important;
+  font-size: 0.8rem !important;
+  color: var(--soft-ink) !important;
+  margin-top: 8px !important;
+  font-style: italic !important;
+}
+
+.floorplans-section-footer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-top: 16px !important;
+}
+
+.floorplans-actions {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.floorplans-inquiry-box {
+  border: 1px dashed rgba(154, 122, 79, 0.3) !important;
+  border-radius: 6px !important;
+  padding: 48px 32px !important;
+  background: rgba(196, 152, 99, 0.02) !important;
+  text-align: center !important;
+  max-width: 680px !important;
+  margin: 16px auto 0 !important;
+}
+
+.inquiry-box-content h3 {
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif !important;
+  font-size: 1.45rem !important;
+  font-weight: 400 !important;
+  color: var(--ink) !important;
+  margin: 0 0 10px 0 !important;
+}
+
+.inquiry-box-content p {
+  font-size: 0.86rem !important;
+  color: var(--soft-ink) !important;
+  line-height: 1.5 !important;
+  margin: 0 0 24px 0 !important;
+}
+
+.inquiry-box-content a.button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.72rem !important;
+  padding: 12px 24px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* Team Section Pedigree */
+.brochure-team-section {
+  scroll-margin-top: 80px !important;
+  width: min(1540px, calc(100% - 72px)) !important;
+  margin: 0 auto !important;
+  border-bottom: 1px solid rgba(37, 42, 45, 0.1) !important;
+  padding: clamp(56px, 8vw, 98px) 0 !important;
+}
+
+.team-section-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 36px !important;
+}
+
+.team-pedigree-summary-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1px !important;
+  background: rgba(37, 42, 45, 0.12) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  border: 1.5px solid rgba(37, 42, 45, 0.1) !important;
+  margin-bottom: 16px !important;
+}
+
+.team-summary-cell {
+  padding: 20px 24px !important;
+  background: rgba(255, 255, 250, 0.6) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.team-summary-cell:hover {
+  background: rgba(196, 152, 99, 0.03) !important;
+}
+
+.cell-role-label {
+  font-size: 0.6rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: var(--bronze) !important;
+  font-weight: 700 !important;
+}
+
+.cell-member-name {
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 400 !important;
+  color: var(--ink) !important;
+  line-height: 1.2 !important;
+}
+
+.team-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+}
+
+/* Responsive Overrides for Phase 2 */
+@media (max-width: 1024px) {
+  .local-take-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .team-pedigree-summary-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .team-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .pros-cons-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .local-take-main {
+    padding: 24px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .team-pedigree-summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .team-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .brochure-floorplans-section,
+  .brochure-local-take-section,
+  .brochure-team-section {
+    width: calc(100% - 40px) !important;
+  }
+}
