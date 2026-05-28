@@ -12,7 +12,7 @@ const destinationBase = path.join(websiteRoot, "public/assets/projects");
 const manifestPath = path.join(websiteRoot, "data/generated_asset_publish_manifest.json");
 const reportJsonPath = path.join(websiteRoot, "docs/reports/asset-repo-to-website-publish-report.json");
 const reportMdPath = path.join(websiteRoot, "docs/reports/asset-repo-to-website-publish-report.md");
-const targetProjects = ["alba-palm-beach", "berkeley"];
+const targetProjects = ["alba-palm-beach", "berkeley", "forte-on-flagler", "maison-dor", "mandarin-oriental", "mr-c"];
 const destinationCategories = ["hero", "amenities", "residences", "logos", "floorplans", "site-plans", "neighborhood", "misc"];
 const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".svg"]);
 const rasterExtensions = new Set([".jpg", ".jpeg", ".png", ".webp"]);
@@ -239,6 +239,8 @@ function classifyDestination(sourcePath, sourceFormat) {
 
 function normalizeWebsiteFilename(projectSlug, filename, outputExtension) {
   let base = stripExtensions(path.basename(filename));
+  base = base.replace(/\bmasion\b/g, "maison");
+  base = base.replace(/\bweclome\b/g, "welcome");
   base = base.replace(/([a-z])([A-Z])/g, "$1-$2");
   base = base.replace(/[''']/g, "");
   base = base.replace(/_/g, "-");
@@ -247,6 +249,11 @@ function normalizeWebsiteFilename(projectSlug, filename, outputExtension) {
   base = base.replace(/-+/g, "-").replace(/^-|-$/g, "").toLowerCase();
   base = base.replace(/\bamenties\b/g, "amenities");
   base = base.replace(/\bspar\b/g, "spa");
+  
+  if (projectSlug === "forte-on-flagler" && base.startsWith("forte-") && !base.startsWith("forte-on-flagler-")) {
+    base = base.replace(/^forte-/, "forte-on-flagler-");
+  }
+
   if (!base.startsWith(`${projectSlug}-`) && projectSlug === "alba-palm-beach" && base.startsWith("alba-")) {
     // Existing site assets use the full slug in some files, but the approved warehouse uses the clear short Alba prefix.
   } else if (!base.startsWith(`${projectSlug}-`)) {

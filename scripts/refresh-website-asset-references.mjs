@@ -11,7 +11,7 @@ const registryPath = path.join(websiteRoot, "data/project_assets.json");
 const publishManifestPath = path.join(websiteRoot, "data/generated_asset_publish_manifest.json");
 const reportJsonPath = path.join(websiteRoot, "docs/reports/website-asset-reference-refresh-report.json");
 const reportMdPath = path.join(websiteRoot, "docs/reports/website-asset-reference-refresh-report.md");
-const targetProjects = ["alba-palm-beach", "berkeley"];
+const targetProjects = ["alba-palm-beach", "berkeley", "forte-on-flagler", "maison-dor", "mandarin-oriental", "mr-c"];
 const galleryPlacements = ["hero", "amenities", "residences", "neighborhood"];
 const allowedProjects = new Set(targetProjects);
 const args = process.argv.slice(2);
@@ -340,6 +340,10 @@ function titleFromFilename(filename) {
 function titleProject(projectSlug) {
   if (projectSlug === "alba-palm-beach") return "Alba Palm Beach";
   if (projectSlug === "berkeley") return "The Berkeley";
+  if (projectSlug === "forte-on-flagler") return "Forte on Flagler";
+  if (projectSlug === "maison-dor") return "Maison d'Or";
+  if (projectSlug === "mandarin-oriental") return "Mandarin Oriental";
+  if (projectSlug === "mr-c") return "Mr. C";
   return titleFromFilename(projectSlug);
 }
 
