@@ -7572,6 +7572,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
   return `
+    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css" />
     <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" hidden>
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
@@ -7590,7 +7591,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       </nav>
 
       <section class="berkeley-hero-clean">
-        <img src="${safeHref(heroImage)}" alt="${publicText(`${project.name} hero rendering`)}" loading="eager" decoding="async" fetchpriority="high" />
+        <img src="${safeHref(heroImage)}" alt="${publicText(`${project.name} hero rendering`)}" decoding="async" />
         <div class="berkeley-hero-shade"></div>
         <div class="berkeley-hero-content">
           <div class="berkeley-monogram" aria-hidden="true">${publicText(showcase?.monogram ?? project.name.slice(0, 1))}</div>

@@ -548,7 +548,7 @@
       "heroBlurb": "A Clear Lake / downtown-adjacent luxury condominium for buyers who want space, terraces, services, and practical access without needing direct Intracoastal frontage.",
       "monogram": "B",
       "visualBreak": {
-        "src": "/assets/projects/berkeley/showcase/berkeley-residences-patio-view-v01.png",
+        "src": "/assets/projects/berkeley/residences/berkeley-residences-patio-view-v01.webp",
         "label": "Private Patio",
         "alt": "The Berkeley Palm Beach private patio rendering with water views"
       },
@@ -574,43 +574,43 @@
       ],
       "gallery": [
         {
-          "src": "/assets/projects/berkeley/showcase/berkeley-residences-patio-view-v01.png",
+          "src": "/assets/projects/berkeley/residences/berkeley-residences-patio-view-v01.webp",
           "label": "Private Patio"
         },
         {
-          "src": "/assets/projects/berkeley/showcase/berkeley-residences-bedroom-with-view-v01.jpg",
+          "src": "/assets/projects/berkeley/residences/berkeley-residences-bedroom-with-view-v01.webp",
           "label": "Bedroom View"
         },
         {
-          "src": "/assets/projects/berkeley/showcase/berkeley-residences-kitchen-view-v01.png",
+          "src": "/assets/projects/berkeley/residences/berkeley-residences-kitchen-view-v01.webp",
           "label": "Kitchen View"
         },
         {
-          "src": "/assets/projects/berkeley/showcase/berkeley-residences-bathroom-01-v01.png",
+          "src": "/assets/projects/berkeley/residences/berkeley-residences-bathroom-01-v01.webp",
           "label": "Primary Bath"
         },
         {
-          "src": "/assets/projects/berkeley/showcase/berkeley-amenity-pool-terrace-v01.jpg",
+          "src": "/assets/projects/berkeley/amenities/berkeley-amenity-pool-terrace-v01.webp",
           "label": "Pool Terrace"
         },
         {
-          "src": "/assets/projects/berkeley/showcase/berkeley-amenities-pool-low-viewpoint-v01.png",
+          "src": "/assets/projects/berkeley/amenities/berkeley-amenities-pool-low-viewpoint-v01.webp",
           "label": "Pool Deck"
         },
         {
-          "src": "/assets/projects/berkeley/showcase/berkeley-amenities-rooftop-lounge-v01.jpg",
+          "src": "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-lounge-v01.webp",
           "label": "Rooftop Lounge"
         },
         {
-          "src": "/assets/projects/berkeley/showcase/berkeley-amenities-private-dining-v01.jpg",
+          "src": "/assets/projects/berkeley/amenities/berkeley-amenities-private-dining-v01.webp",
           "label": "Private Dining"
         },
         {
-          "src": "/assets/projects/berkeley/showcase/berkeley-hero-exterior-lake-view-v01.webp",
+          "src": "/assets/projects/berkeley/hero/berkeley-hero-exterior-lake-view-v01.webp",
           "label": "Lake View"
         },
         {
-          "src": "/assets/projects/berkeley/showcase/berkeley-amenities-rooftop-pool-sunset-v01.png",
+          "src": "/assets/projects/berkeley/amenities/berkeley-amenities-rooftop-pool-sunset-v01.webp",
           "label": "Rooftop Pool"
         }
       ],
@@ -657,7 +657,7 @@
         }
       ],
       "neighborhoodImage": {
-        "src": "/assets/projects/berkeley/showcase/berkeley-neighborhood-aerial-night-v01.png",
+        "src": "/assets/projects/berkeley/hero/berkeley-neighborhood-aerial-night-v01.webp",
         "label": "Neighborhood Aerial",
         "alt": "Night aerial rendering of The Berkeley Palm Beach and the surrounding Clear Lake neighborhood"
       },
