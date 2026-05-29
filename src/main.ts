@@ -7585,7 +7585,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
   return `
-    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-overview-polish-20260529" />
+    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-floating-controls-20260529" />
     <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" hidden>
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
