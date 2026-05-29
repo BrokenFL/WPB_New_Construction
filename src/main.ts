@@ -7592,13 +7592,13 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         ]
   ).filter((tag) => isBuyerFacingValue(tag.value));
   const residencePlanThumbnails = [
-    "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-thumb-bw-v01.webp",
-    "/assets/projects/berkeley/floorplans/berkeley-floorplans-estate-thumb-bw-v01.webp",
-    "/assets/projects/berkeley/floorplans/berkeley-floorplans-penthouse-thumb-bw-v01.webp",
+    "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-thumb-bw-v01.webp?v=20260529b",
+    "/assets/projects/berkeley/floorplans/berkeley-floorplans-estate-thumb-bw-v01.webp?v=20260529b",
+    "/assets/projects/berkeley/floorplans/berkeley-floorplans-penthouse-thumb-bw-v01.webp?v=20260529b",
   ];
 
   return `
-    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-mobile-refactor-20260529" />
+    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-mobile-containment-20260529b" />
     <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" hidden>
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
