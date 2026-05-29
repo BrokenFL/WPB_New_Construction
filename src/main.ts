@@ -7532,6 +7532,7 @@ function berkeleyIcon(name: string) {
   const paths: Record<string, string> = {
     residence: '<path d="M4 20h16"/><path d="M6 20V7l8-3 4 2v14"/><path d="M9 10h2"/><path d="M9 14h2"/><path d="M14 10h2"/><path d="M14 14h2"/>',
     stories: '<path d="M5 17h14"/><path d="M7 13h10"/><path d="M9 9h6"/><path d="M11 5h2"/>',
+    sqft: '<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M8 4v16"/><path d="M16 4v16"/><path d="M4 12h16"/><path d="M4 8h4"/><path d="M16 16h4"/>',
     price: '<path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z"/><circle cx="15" cy="8" r="1"/>',
     bed: '<path d="M4 18V7"/><path d="M20 18v-5a3 3 0 0 0-3-3H4"/><path d="M4 13h16"/><path d="M8 10V8h4v2"/>',
     status: '<path d="M4 19V5"/><path d="M4 7h12l-2 4 2 4H4"/><path d="M19 19H3"/>',
@@ -7557,9 +7558,9 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const showcase = copyPackage?.showcase;
   const heroImage = getProjectHeroAsset(project)?.src ?? project.heroImage ?? project.image ?? siteMeta.defaultImage;
   const facts = [
-    { icon: "status", value: copyFactValue(copyPackage, /^status$/i, project.status), label: "Status" },
     { icon: "residence", value: copyFactValue(copyPackage, /residences/i, project.residences), label: "Residences" },
     { icon: "stories", value: copyFactValue(copyPackage, /floors/i, "25"), label: "Stories" },
+    { icon: "sqft", value: copyFactValue(copyPackage, /^showcase size range$/i, "1,780-4,000+ sq ft"), label: "Sq Ft" },
     { icon: "bed", value: copyFactValue(copyPackage, /bedrooms/i, "2-5"), label: "Bedrooms" },
     { icon: "price", value: copyFactValue(copyPackage, /price/i, project.price).replace(" to over ", " to "), label: "Pricing" },
   ].filter((fact) => isBuyerFacingValue(fact.value));
@@ -7585,7 +7586,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
   return `
-    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-floating-controls-20260529" />
+    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-facts-cta-20260529" />
     <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" hidden>
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
@@ -7610,7 +7611,8 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
           <h1>${titleLines.map((line) => publicText(line)).join("<br />")}</h1>
           <p class="berkeley-hero-copy">${publicText(heroBlurb)}</p>
           <div class="berkeley-hero-actions">
-            <a class="button primary compact" href="#berkeley-neighborhood">Schedule a tour <span aria-hidden="true">→</span></a>
+            <a class="button primary compact berkeley-pricing-cta" href="/inquire/?project=${project.id}&interest=pricing">Inquire now <span aria-hidden="true">→</span></a>
+            <a class="button ghost compact berkeley-tour-cta" href="#berkeley-neighborhood">Schedule a tour <span aria-hidden="true">→</span></a>
           </div>
         </div>
         ${heroTags.length ? `<div class="berkeley-hero-tags" aria-label="Project tags">${heroTags.map((tag) => `<article><span>${publicText(tag.label)}</span><strong>${publicText(tag.value)}</strong></article>`).join("")}</div>` : ""}
