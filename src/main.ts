@@ -7544,6 +7544,9 @@ function berkeleyIcon(name: string) {
     work: '<rect x="4" y="5" width="16" height="12" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>',
     golf: '<path d="M6 20h12"/><path d="M9 18c2-2 4-2 6 0"/><path d="M12 4v10"/><path d="M12 4l5 2-5 2"/>',
     plan: '<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M9 4v7"/><path d="M4 11h8"/><path d="M12 11v9"/><path d="M12 15h8"/><path d="M16 15v5"/>',
+    planResidence: '<path d="M4 20V7l8-4 8 4v13"/><path d="M8 20v-7h8v7"/><path d="M10 9h4"/>',
+    planEstate: '<rect x="4" y="5" width="16" height="14" rx="1"/><path d="M10 5v14"/><path d="M4 12h6"/><path d="M10 9h10"/><path d="M15 9v10"/>',
+    planPenthouse: '<path d="M5 20h14"/><path d="M7 20V8h10v12"/><path d="M7 8l3-4 2 4 2-4 3 4"/><path d="M10 12h4"/><path d="M10 16h4"/>',
     valet: '<path d="M12 3a5 5 0 0 1 5 5c0 4-5 10-5 10S7 12 7 8a5 5 0 0 1 5-5Z"/><circle cx="12" cy="8" r="1.5"/>',
     pet: '<circle cx="6" cy="9" r="1.5"/><circle cx="10" cy="6" r="1.5"/><circle cx="14" cy="6" r="1.5"/><circle cx="18" cy="9" r="1.5"/><path d="M8 16c1-3 7-3 8 0 1.2 3-9.2 3-8 0Z"/>',
   };
@@ -7577,6 +7580,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
           { label: "Corridor", value: showcase?.heroEyebrow ?? project.corridor },
         ]
   ).filter((tag) => isBuyerFacingValue(tag.value));
+  const residencePlanIcons = ["planResidence", "planEstate", "planPenthouse"];
   const mapQuery = encodeURIComponent(copyFactValue(copyPackage, /^address$/i, project.address));
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
@@ -7603,15 +7607,11 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         <img src="${safeHref(heroImage)}" alt="${publicText(`${project.name} hero rendering`)}" decoding="async" />
         <div class="berkeley-hero-shade"></div>
         <div class="berkeley-hero-content">
-          <div class="berkeley-monogram" aria-hidden="true">${publicText(showcase?.monogram ?? project.name.slice(0, 1))}</div>
           <p>${publicText(showcase?.heroEyebrow ?? project.corridor)}</p>
           <h1>${titleLines.map((line) => publicText(line)).join("<br />")}</h1>
-          <h2>${publicText(copyPackage?.heroHeadline ?? project.name)}</h2>
           <p class="berkeley-hero-copy">${publicText(heroBlurb)}</p>
           <div class="berkeley-hero-actions">
-            <a class="button primary" href="/inquire/?project=${project.id}&interest=pricing">Request pricing <span aria-hidden="true">→</span></a>
-            <a class="button ghost" href="#berkeley-residences">View residences</a>
-            <a class="button ghost" href="#berkeley-neighborhood">Schedule a tour</a>
+            <a class="button primary compact" href="#berkeley-neighborhood">Schedule a tour <span aria-hidden="true">→</span></a>
           </div>
         </div>
         ${heroTags.length ? `<div class="berkeley-hero-tags" aria-label="Project tags">${heroTags.map((tag) => `<article><span>${publicText(tag.label)}</span><strong>${publicText(tag.value)}</strong></article>`).join("")}</div>` : ""}
@@ -7630,7 +7630,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <section class="berkeley-residence-section" id="berkeley-residences">
         <div class="berkeley-section-heading"><p class="berkeley-kicker">Residences</p><a href="/inquire/?project=${project.id}&interest=floorplans">View all floor plans <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-residence-grid">
-          ${residences.map((item) => `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="/inquire/?project=${project.id}&interest=floorplans">${publicText(item.price)} <span aria-hidden="true">→</span></a></div><div class="berkeley-plan-placeholder" aria-hidden="true">${berkeleyIcon("plan")}</div></article>`).join("")}
+          ${residences.map((item, index) => `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="/inquire/?project=${project.id}&interest=floorplans">${publicText(item.price)} <span aria-hidden="true">→</span></a></div><div class="berkeley-plan-placeholder" aria-hidden="true">${berkeleyIcon(residencePlanIcons[index] ?? "plan")}</div></article>`).join("")}
         </div>
       </section>
 
