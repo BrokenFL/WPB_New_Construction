@@ -7607,7 +7607,6 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         <img src="${safeHref(heroImage)}" alt="${publicText(`${project.name} hero rendering`)}" decoding="async" />
         <div class="berkeley-hero-shade"></div>
         <div class="berkeley-hero-content">
-          <p>${publicText(showcase?.heroEyebrow ?? project.corridor)}</p>
           <h1>${titleLines.map((line) => publicText(line)).join("<br />")}</h1>
           <p class="berkeley-hero-copy">${publicText(heroBlurb)}</p>
           <div class="berkeley-hero-actions">
@@ -7622,6 +7621,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       </section>
 
       <section class="berkeley-intro-section" aria-label="Project introduction">
+        <p class="berkeley-kicker">Overview</p>
         <p>${publicText(intro)}</p>
       </section>
 
