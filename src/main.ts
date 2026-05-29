@@ -7568,6 +7568,15 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const visualBreak = showcase?.visualBreak ?? gallery[0];
   const neighborhoodImage = showcase?.neighborhoodImage;
   const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
+  const intro = showcase?.intro ?? heroBlurb;
+  const heroTags = (
+    showcase?.heroTags?.length
+      ? showcase.heroTags
+      : [
+          { label: "Status", value: copyFactValue(copyPackage, /^status$/i, project.status) },
+          { label: "Corridor", value: showcase?.heroEyebrow ?? project.corridor },
+        ]
+  ).filter((tag) => isBuyerFacingValue(tag.value));
   const mapQuery = encodeURIComponent(copyFactValue(copyPackage, /^address$/i, project.address));
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
@@ -7605,10 +7614,15 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
             <a class="button ghost" href="#berkeley-neighborhood">Schedule a tour</a>
           </div>
         </div>
+        ${heroTags.length ? `<div class="berkeley-hero-tags" aria-label="Project tags">${heroTags.map((tag) => `<article><span>${publicText(tag.label)}</span><strong>${publicText(tag.value)}</strong></article>`).join("")}</div>` : ""}
       </section>
 
       <section class="berkeley-fact-strip" aria-label="Key project facts">
         ${facts.map((fact) => `<article>${berkeleyIcon(fact.icon)}<span>${publicText(fact.label)}</span><strong>${publicText(fact.value)}</strong></article>`).join("")}
+      </section>
+
+      <section class="berkeley-intro-section" aria-label="Project introduction">
+        <p>${publicText(intro)}</p>
       </section>
 
       ${visualBreak ? `<figure class="berkeley-patio-break"><img src="${safeHref(visualBreak.src)}" alt="${publicText(visualBreak.alt ?? `${project.name} ${visualBreak.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}

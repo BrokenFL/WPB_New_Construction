@@ -544,8 +544,23 @@
     "pageTemplate": "editorial-showcase",
     "showcase": {
       "template": "editorial-showcase",
-      "heroEyebrow": "Clear Lake / Downtown",
-      "heroBlurb": "A Clear Lake / downtown-adjacent luxury condominium for buyers who want space, terraces, services, and practical access without needing direct Intracoastal frontage.",
+      "heroEyebrow": "Downtown",
+      "heroBlurb": "Clear Lake Views. Palm Beach Access. West Palm Momentum.",
+      "intro": "The Berkeley offers a sophisticated new standard for West Palm Beach living, pairing permanent Clear Lake views with oversized private terraces, elegant residences, and 40,000 square feet of resort-style amenities. Minutes from Palm Beach, PBI, Brightline, downtown dining, the Kravis Center, Norton Museum, and nearby marinas, it delivers the rare balance buyers want: privacy, access, luxury finishes, and a front-row position in the city's next chapter.",
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Under Construction"
+        },
+        {
+          "label": "Corridor",
+          "value": "Downtown"
+        },
+        {
+          "label": "Sales",
+          "value": "Presales"
+        }
+      ],
       "monogram": "B",
       "visualBreak": {
         "src": "/assets/projects/berkeley/residences/berkeley-residences-patio-view-v01.webp",

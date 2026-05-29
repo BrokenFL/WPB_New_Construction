@@ -28,10 +28,17 @@ export type ProjectShowcaseTeamFact = {
   value: string;
 };
 
+export type ProjectShowcaseTag = {
+  label: string;
+  value: string;
+};
+
 export type ProjectShowcaseConfig = {
   template: "editorial-showcase";
   heroEyebrow?: string;
   heroBlurb?: string;
+  intro?: string;
+  heroTags?: ProjectShowcaseTag[];
   monogram?: string;
   titleLines?: string[];
   visualBreak?: ProjectShowcaseImage;

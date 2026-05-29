@@ -74,7 +74,8 @@ The renderer is `renderEditorialShowcaseProjectPage(...)` in `src/main.ts`. It f
 
 Use this structure when duplicating the template:
 
-- `heroEyebrow`, `heroBlurb`, `monogram`, and `titleLines` control the hero copy.
+- `heroEyebrow`, `heroBlurb`, `heroTags`, `intro`, `monogram`, and `titleLines` control the hero and opening narrative.
+- Use `heroTags` for buyer-filterable labels such as `Status`, `Corridor`, and sales availability.
 - `visualBreak` is the wide image between the fact strip and residence cards.
 - `residenceCollections` controls the three collection cards and links through to floor plan inquiry.
 - `gallery` controls the larger horizontal image band after residences.
