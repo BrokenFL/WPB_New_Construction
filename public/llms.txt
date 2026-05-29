@@ -31,32 +31,34 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Olara: /projects/olara/
 - Ritz-Carlton Residences West Palm Beach: /projects/ritz-carlton-wpb/
 - Shorecrest: /projects/shorecrest/
-- Rosewood Residences WPB: /projects/rosewood/
+- Edgeworth: /projects/edgeworth/
 - NORA House: /projects/nora-house/
 - South Flagler House: /projects/south-flagler-house/
 - Banyan Tree Residences West Palm Beach: /projects/banyan-tree/
 - The Berkeley: /projects/berkeley/
 - Maison d'Or: /projects/maison-dor/
 - Forte on Flagler: /projects/forte-on-flagler/
+- La Clara: /projects/la-clara/
+- Fern & Gardenia / Related Ross Fern Street Project: /projects/fern-and-gardenia-related-ross-fern-street/
+- Rosewood Residences West Palm Beach: /projects/rosewood-residences-west-palm-beach/
+- Rybovich Marina Redevelopment: /projects/rybovich-marina-redevelopment/
 
 ## Floorplan Coverage
 
 - Alba Palm Beach: 10 floorplan records
-- Olara: 55 floorplan records
+- Olara West Palm Beach: 55 floorplan records
 - Shorecrest: 9 floorplan records
 - The Ritz-Carlton Residences, West Palm Beach: 28 floorplan records
-- Mr. C Hotel & Residences West Palm Beach: 64 floorplan records
 - The Berkeley Palm Beach: 9 floorplan records
-- NORA House: 65 floorplan records
+- Nora House: 65 floorplan records
+- South Flagler House: 3 floorplan records
+- Mr. C Residences West Palm Beach: 64 floorplan records
+- Maison d’Or: 2 floorplan records
 - Forté on Flagler: 5 floorplan records
-- Maison d'Or: 2 floorplan records
-- South Flagler House North Tower: 3 floorplan records
-- South Flagler House South Tower: 3 floorplan records
 
 ## Current Updates
 
 - Mandarin Oriental interiors move the North Flagler comparison beyond skyline renderings: Recent reporting highlighted the first interior renderings for Mandarin Oriental Residences, West Palm Beach, giving buyers more to compare than tower massing and brand name alone.
-- Rosewood planning notes add another branded project to North Flagler: Recent project research and local planning review point to Rosewood Residences as another North Flagler branded-residence project, but buyers should treat it as early-stage until public plan details mature.
 - NORA House keeps Downtown's ownership story in the local news cycle: Recent local coverage continues to frame NORA House as the first for-sale residential anchor inside the growing NORA district, shifting the downtown discussion from restaurants only to actual ownership inventory.
 - Shorecrest financing pushes the North Flagler cluster toward construction: Related Ross announced a $157 million construction loan for Shorecrest, adding momentum to the North Flagler waterfront cluster.
 - Banyan Tree locks in 88 branded residences at 400 Hibiscus: Banyan Group announced the launch of Banyan Tree Residences West Palm Beach, adding another branded-residence option to the downtown buyer map.
@@ -103,7 +105,6 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Olara West Palm Beach | New Construction Condo Guide: /projects/olara/
 - Ritz-Carlton WPB | New Construction Condo Guide: /projects/ritz-carlton-wpb/
 - Shorecrest West Palm Beach | Buyer Guide: /projects/shorecrest/
-- Rosewood Residences WPB | Buyer Guide: /projects/rosewood/
 - Mr. C West Palm Beach | Buyer Guide: /projects/mr-c/
 - Alba Palm Beach | New Construction Condo Guide: /projects/alba-palm-beach/
 - Mandarin Oriental WPB | Buyer Guide: /projects/mandarin-oriental/
@@ -112,10 +113,13 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Banyan Tree Residences WPB | Buyer Guide: /projects/banyan-tree/
 - The Berkeley Palm Beach | Buyer Guide: /projects/berkeley/
 - Maison d'Or West Palm Beach | Buyer Guide: /projects/maison-dor/
+- Edgeworth West Palm Beach | Pipeline Buyer Guide: /projects/edgeworth/
+- Alba Reserve West Palm Beach | Pipeline Buyer Guide: /projects/alba-reserve/
 - Forte on Flagler | West Palm Beach Condo Guide: /projects/forte-on-flagler/
 - La Clara West Palm Beach | Condo Benchmark: /projects/la-clara/
-- 10 CityPlace West Palm Beach | Buyer Guide: /projects/10-cityplace/
-- 15 CityPlace West Palm Beach | Buyer Guide: /projects/15-cityplace/
+- Fern & Gardenia / Related Ross Fern Street | Pipeline Watch: /projects/fern-and-gardenia-related-ross-fern-street/
+- Rosewood Residences West Palm Beach | Watchlist: /projects/rosewood-residences-west-palm-beach/
+- Rybovich Marina Redevelopment | Watchlist: /projects/rybovich-marina-redevelopment/
 
 ## Use Guidance
 

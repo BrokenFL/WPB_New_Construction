@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-23T12:05:17.107Z",
+  "generatedAt": "2026-05-28T23:55:42.857Z",
   "updatePolicy": "Buyer-facing development news feed refreshed from reviewed public material. Publish after human review of titles, facts, and source links.",
   "items": [
     {
@@ -23,7 +23,7 @@
           "sourceType": "development news coverage"
         },
         {
-          "label": "Mandarin Oriental Residences, West Palm Beach",
+          "label": "Mandarin Oriental Residences West Palm Beach",
           "href": "https://mandarinorientalwestpalmbeach.com/",
           "sourceType": "official project site"
         }
@@ -32,46 +32,13 @@
       "image": {
         "path": "",
         "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
-        "credit": "Source: Mandarin Oriental Residences, West Palm Beach original project materials"
+        "credit": "Source: Mandarin Oriental Residences West Palm Beach original project materials"
       },
       "citations": [
         "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
         "The article describes the project as a planned 31-story luxury condominium tower at 5400 North Flagler Drive."
       ],
       "status": "Reviewed"
-    },
-    {
-      "id": "rosewood-north-flagler-planning",
-      "title": "Rosewood planning notes add another branded project to North Flagler",
-      "summary": "Recent project research and local planning review point to Rosewood Residences as another North Flagler branded-residence project, but buyers should treat it as early-stage until public plan details mature.",
-      "category": "North Flagler",
-      "datePublished": "2026-05-19",
-      "dateModified": "2026-05-22",
-      "projectIds": [
-        "rosewood",
-        "ritz-carlton-wpb",
-        "mandarin-oriental"
-      ],
-      "sourceName": "West Palm Beach planning materials",
-      "sourceUrl": "https://www.wpb.org/",
-      "sourceLinks": [
-        {
-          "label": "West Palm Beach planning materials reviewed",
-          "href": "https://www.wpb.org/",
-          "sourceType": "city planning material"
-        }
-      ],
-      "rewrittenSummary": "Rosewood belongs on the buyer radar, not in the same decision bucket as projects with deeper released sales material. Track it for future North Flagler supply pressure while continuing to compare available buildings by current packet, timing, and view stack.",
-      "image": {
-        "path": "",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/DSC07993.jpg",
-        "credit": "Source: The Ritz-Carlton Residences, West Palm Beach original project materials"
-      },
-      "citations": [
-        "Local planning materials reviewed in May 2026 identify Rosewood as a North Flagler branded-residence project.",
-        "The buyer use is pipeline awareness, not current pricing or availability reliance."
-      ],
-      "status": "Review before reliance"
     },
     {
       "id": "nora-house-local-coverage",
@@ -99,7 +66,7 @@
           "sourceType": "development news coverage"
         },
         {
-          "label": "NORA House",
+          "label": "Nora House",
           "href": "https://norahouse.com/",
           "sourceType": "official project site"
         }
@@ -223,7 +190,7 @@
           "sourceType": "official project site"
         },
         {
-          "label": "NORA House",
+          "label": "Nora House",
           "href": "https://norahouse.com/",
           "sourceType": "official project site"
         }

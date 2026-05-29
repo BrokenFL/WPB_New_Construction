@@ -20,7 +20,7 @@ const requiredRoutes = [
   "/corridors/downtown-west-palm-beach/",
   "/corridors/south-flagler/",
   "/projects/olara/",
-  "/projects/rosewood/",
+  "/projects/rosewood-residences-west-palm-beach/",
   "/projects/nora-house/",
   "/projects/south-flagler-house/",
 ];

@@ -1,43 +1,7 @@
 {
-  "generatedAt": "2026-05-23T12:05:17.107Z",
+  "generatedAt": "2026-05-28T23:55:42.858Z",
   "usageNote": "Public project credits are derived from reviewed project records. Use these for project/team and original-source attribution blocks.",
   "projects": [
-    {
-      "projectId": "10-cityplace",
-      "name": "10 CityPlace",
-      "officialWebsite": "https://www.relatedross.com/our-company/properties/10-cityplace",
-      "sourceCredit": {
-        "label": "Source: 10 CityPlace original materials",
-        "sourceUrl": "https://www.relatedross.com/our-company/properties/10-cityplace",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
-      },
-      "teamCredit": "Related Ross; Kohn Pedersen Fox; Not publicly confirmed; Not publicly confirmed",
-      "sourceLinks": [
-        {
-          "label": "10 CityPlace",
-          "href": "https://www.relatedross.com/our-company/properties/10-cityplace",
-          "sourceType": "official project site"
-        }
-      ]
-    },
-    {
-      "projectId": "15-cityplace",
-      "name": "15 CityPlace",
-      "officialWebsite": "https://www.relatedross.com/office/15-cityplace",
-      "sourceCredit": {
-        "label": "Source: 15 CityPlace original materials",
-        "sourceUrl": "https://www.relatedross.com/office/15-cityplace",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
-      },
-      "teamCredit": "Related Ross; Arquitectonica; Not publicly confirmed; Kohn Pedersen Fox referenced for sky garden design context",
-      "sourceLinks": [
-        {
-          "label": "15 CityPlace",
-          "href": "https://www.relatedross.com/office/15-cityplace",
-          "sourceType": "official project site"
-        }
-      ]
-    },
     {
       "projectId": "alba-palm-beach",
       "name": "Alba Palm Beach",
@@ -47,7 +11,7 @@
         "sourceUrl": "https://www.albapalmbeach.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "BGI/Kenneth Baboun; Blue Road; Spina O'Rourke + Partners; Schmidt Nichols; Moss Construction; One Sotheby's",
+      "teamCredit": "BGI Companies; Blue Road Group; Spina O’Rourke + Partners; Spina O’Rourke + Partners; Schmidt Nichols",
       "sourceLinks": [
         {
           "label": "Alba Palm Beach",
@@ -62,23 +26,17 @@
       "officialWebsite": "",
       "sourceCredit": {
         "label": "Source: Alba Reserve original materials",
-        "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/01/BGI-Capital-completes-41M-West-Palm-Beach-dev-site-acquisition.jpg",
+        "sourceUrl": "https://www.blueroadgroup.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "BGI Capital; Carlos Ott and Spina O'Rourke + Partners; Not publicly confirmed; Not publicly confirmed",
-      "sourceLinks": []
-    },
-    {
-      "projectId": "apogee-wpb",
-      "name": "Apogee West Palm Beach",
-      "officialWebsite": "",
-      "sourceCredit": {
-        "label": "Source: Apogee West Palm Beach original materials",
-        "sourceUrl": "",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
-      },
-      "teamCredit": "Related Group and BH Group; Kohn Pedersen Fox; Not publicly confirmed; Not publicly confirmed",
-      "sourceLinks": []
+      "teamCredit": "BGI Companies; Blue Road Group; Spina O’Rourke + Partners; Carlos Ott; Schmidt Nichols",
+      "sourceLinks": [
+        {
+          "label": "Alba Reserve",
+          "href": "https://www.blueroadgroup.com/",
+          "sourceType": "reviewed material"
+        }
+      ]
     },
     {
       "projectId": "banyan-tree",
@@ -89,7 +47,7 @@
         "sourceUrl": "https://www.banyantreeresidenceswpb.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Mast Capital; Curated JCZM; Banyan Group; OMA; Yabu Pushelberg; Enzo Enea",
+      "teamCredit": "Mast Capital; Curated JCZM Development; OMA; Yabu Pushelberg; Enzo Enea; Banyan Tree; Banyan Group",
       "sourceLinks": [
         {
           "label": "Banyan Tree Residences West Palm Beach",
@@ -99,58 +57,34 @@
       ]
     },
     {
-      "projectId": "edgeworth-north",
-      "name": "Edgeworth North Tower",
+      "projectId": "edgeworth",
+      "name": "Edgeworth",
       "officialWebsite": "https://www.edgeworthwpb.com/",
       "sourceCredit": {
-        "label": "Source: Edgeworth North Tower original materials",
+        "label": "Source: Edgeworth original materials",
         "sourceUrl": "https://www.edgeworthwpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
+        "note": "Media review pending; use representative visuals or omit imagery until source status is refreshed."
       },
-      "teamCredit": "Related Ross; KPF; MAWD/March and White",
+      "teamCredit": "Related Ross; Kohn Pedersen Fox; MAWD | March and White Design",
       "sourceLinks": [
         {
-          "label": "Edgeworth North Tower",
+          "label": "Edgeworth",
           "href": "https://www.edgeworthwpb.com/",
           "sourceType": "official project site"
         }
       ]
     },
     {
-      "projectId": "edgeworth-south",
-      "name": "Edgeworth South Tower",
-      "officialWebsite": "https://www.edgeworthwpb.com/",
-      "sourceCredit": {
-        "label": "Source: Edgeworth South Tower original materials",
-        "sourceUrl": "https://www.edgeworthwpb.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
-      },
-      "teamCredit": "Related Ross; KPF; MAWD/March and White",
-      "sourceLinks": [
-        {
-          "label": "Edgeworth South Tower",
-          "href": "https://www.edgeworthwpb.com/",
-          "sourceType": "official project site"
-        }
-      ]
-    },
-    {
-      "projectId": "fort-partners-south-flagler",
-      "name": "Fort Partners South Flagler Assemblage",
+      "projectId": "fern-and-gardenia-related-ross-fern-street",
+      "name": "Fern & Gardenia / Related Ross Fern Street Project",
       "officialWebsite": "",
       "sourceCredit": {
-        "label": "Source: Fort Partners South Flagler Assemblage original materials",
-        "sourceUrl": "https://therealdeal.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
+        "label": "Source: Fern & Gardenia / Related Ross Fern Street Project original materials",
+        "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
+        "note": "Media review pending; use representative visuals or omit imagery until source status is refreshed."
       },
-      "teamCredit": "Fort Partners / Nadim Ashi",
-      "sourceLinks": [
-        {
-          "label": "Fort Partners South Flagler Assemblage",
-          "href": "https://therealdeal.com/",
-          "sourceType": "reviewed material"
-        }
-      ]
+      "teamCredit": "Related Ross; Wexford; 13th Floor Investments; L&L Holding",
+      "sourceLinks": []
     },
     {
       "projectId": "forte-on-flagler",
@@ -161,7 +95,7 @@
         "sourceUrl": "https://fortewpb.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Two Roads; Alpha Blue; Arquitectonica; Jean-Louis Deniot",
+      "teamCredit": "Two Roads Development; Alpha Blue Ventures; Arquitectonica; Jean-Louis Deniot; EDSA",
       "sourceLinks": [
         {
           "label": "Forté on Flagler",
@@ -176,25 +110,31 @@
       "officialWebsite": "",
       "sourceCredit": {
         "label": "Source: La Clara original materials",
-        "sourceUrl": "https://www.stantec.com/content/dam/stantec/images/service%20page%20images/climate-solutions-service-1800x1200.jpg",
+        "sourceUrl": "https://www.laclararesales.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Great Gulf and Terrace Mountain; Stantec architect of record; design by Hariri Pontarini Architects; Stantec; Not publicly confirmed",
-      "sourceLinks": []
+      "teamCredit": "Great Gulf; Hariri Pontarini Architects; Stantec",
+      "sourceLinks": [
+        {
+          "label": "La Clara",
+          "href": "https://www.laclararesales.com/",
+          "sourceType": "reviewed material"
+        }
+      ]
     },
     {
       "projectId": "maison-dor",
-      "name": "Maison d'Or",
+      "name": "Maison d’Or",
       "officialWebsite": "https://livemaisondor.com/",
       "sourceCredit": {
-        "label": "Source: Maison d'Or original materials",
+        "label": "Source: Maison d’Or original materials",
         "sourceUrl": "https://livemaisondor.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Kolter Urban; Perko Development; 10 Design with SB Architects language also appearing on the official team page; HBA Residential; EDSA; Maison d'Or Realty",
+      "teamCredit": "Kolter Urban; Perko Development; SB Architects / 10 Design; Hirsch Bedner Associates (HBA); EDSA; Maison d’Or Realty, LLC",
       "sourceLinks": [
         {
-          "label": "Maison d'Or",
+          "label": "Maison d’Or",
           "href": "https://livemaisondor.com/",
           "sourceType": "official project site"
         }
@@ -202,17 +142,17 @@
     },
     {
       "projectId": "mandarin-oriental",
-      "name": "Mandarin Oriental Residences, West Palm Beach",
+      "name": "Mandarin Oriental Residences West Palm Beach",
       "officialWebsite": "https://mandarinorientalwestpalmbeach.com/",
       "sourceCredit": {
-        "label": "Source: Mandarin Oriental Residences, West Palm Beach original materials",
+        "label": "Source: Mandarin Oriental Residences West Palm Beach original materials",
         "sourceUrl": "https://mandarinorientalwestpalmbeach.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Great Gulf; Safdie Architects; Studio Munge; ENEA Landscape Architecture",
+      "teamCredit": "Great Gulf Group; Safdie Architects / Moshe Safdie; Mandarin Oriental",
       "sourceLinks": [
         {
-          "label": "Mandarin Oriental Residences, West Palm Beach",
+          "label": "Mandarin Oriental Residences West Palm Beach",
           "href": "https://mandarinorientalwestpalmbeach.com/",
           "sourceType": "official project site"
         }
@@ -220,17 +160,17 @@
     },
     {
       "projectId": "mr-c",
-      "name": "Mr. C Hotel & Residences West Palm Beach",
+      "name": "Mr. C Residences West Palm Beach",
       "officialWebsite": "https://www.mrcresidenceswpb.com/",
       "sourceCredit": {
-        "label": "Source: Mr. C Hotel & Residences West Palm Beach original materials",
+        "label": "Source: Mr. C Residences West Palm Beach original materials",
         "sourceUrl": "https://www.mrcresidenceswpb.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Terra; Sympatico; Mr. C/Cipriani; Arquitectonica; Meyer Davis; Landscape Design Workshop; Douglas Elliman Development Marketing",
+      "teamCredit": "Lakeview Hospitality Investments, LLC; Terra; Sympatico Real Estate; Arquitectonica; Meyer Davis; Landscape Design Workshop; Mr. C; Ignazio and Maggio Cipriani; Douglas Elliman Development Marketing",
       "sourceLinks": [
         {
-          "label": "Mr. C Hotel & Residences West Palm Beach",
+          "label": "Mr. C Residences West Palm Beach",
           "href": "https://www.mrcresidenceswpb.com/",
           "sourceType": "official project site"
         }
@@ -238,17 +178,17 @@
     },
     {
       "projectId": "nora-house",
-      "name": "NORA House",
+      "name": "Nora House",
       "officialWebsite": "https://norahouse.com/",
       "sourceCredit": {
-        "label": "Source: NORA House original materials",
+        "label": "Source: Nora House original materials",
         "sourceUrl": "https://norahouse.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "The Ronto Group; Wheelock Street Capital; Swedroe Architecture; Lillian Wu Studio; Conner & Gaskins; Design Studio Boca",
+      "teamCredit": "The Ronto Group; Wheelock Street Capital; Swedroe Architecture; Lillian Wu Studio; Design Studio Boca; Douglas Elliman Development Marketing; Connor & Gaskins",
       "sourceLinks": [
         {
-          "label": "NORA House",
+          "label": "Nora House",
           "href": "https://norahouse.com/",
           "sourceType": "official project site"
         }
@@ -256,56 +196,44 @@
     },
     {
       "projectId": "olara",
-      "name": "Olara",
+      "name": "Olara West Palm Beach",
       "officialWebsite": "https://www.olarawestpalmbeach.com/",
       "sourceCredit": {
-        "label": "Source: Olara original materials",
+        "label": "Source: Olara West Palm Beach original materials",
         "sourceUrl": "https://www.olarawestpalmbeach.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Savanna; Arquitectonica; Gabellini Sheppard; EDSA; SavCon/Gilbane; Compass Development Marketing Group",
+      "teamCredit": "Savanna; Arquitectonica; Gabellini Sheppard; EDSA",
       "sourceLinks": [
         {
-          "label": "Olara",
+          "label": "Olara West Palm Beach",
           "href": "https://www.olarawestpalmbeach.com/",
           "sourceType": "official project site"
         }
       ]
     },
     {
-      "projectId": "portofino-flagler-yacht-club",
-      "name": "Portofino South / Flagler Yacht Club Buyout Watch",
+      "projectId": "rosewood-residences-west-palm-beach",
+      "name": "Rosewood Residences West Palm Beach",
       "officialWebsite": "",
       "sourceCredit": {
-        "label": "Source: Portofino South / Flagler Yacht Club Buyout Watch original materials",
-        "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/02/MIA-Immocorp-ups-offer.jpg",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
+        "label": "Source: Rosewood Residences West Palm Beach original materials",
+        "sourceUrl": "",
+        "note": "Media review pending; use representative visuals or omit imagery until source status is refreshed."
       },
-      "teamCredit": "BEKO Equities / Immocorp Capital and O.D. Kobo joint venture reported as buyout bidder; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed",
+      "teamCredit": "Related Group; BH Group; Arquitectonica; Rosewood Hotels & Resorts",
       "sourceLinks": []
     },
     {
-      "projectId": "related-ross-fern-street",
-      "name": "Related Ross Fern Street / South Dixie Condo",
-      "officialWebsite": "",
-      "sourceCredit": {
-        "label": "Source: Related Ross Fern Street / South Dixie Condo original materials",
-        "sourceUrl": "https://static.therealdeal.com/wp-content/uploads/2026/04/MIA_Related-Ross-Blurb.jpg",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
-      },
-      "teamCredit": "Related Ross with Wexford Real Estate Investors, 13th Floor Investments, and L&L Holding Company partnership context; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed",
-      "sourceLinks": []
-    },
-    {
-      "projectId": "rybovich-marina",
+      "projectId": "rybovich-marina-redevelopment",
       "name": "Rybovich Marina Redevelopment",
       "officialWebsite": "",
       "sourceCredit": {
         "label": "Source: Rybovich Marina Redevelopment original materials",
         "sourceUrl": "https://e1.nmcdn.io/assets/kpf2024/wp-content/uploads/2026/04/2124_1_000_N160_cropped_2400x1200-1440x720.webp",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
+        "note": "Media review pending; use representative visuals or omit imagery until source status is refreshed."
       },
-      "teamCredit": "Huizenga Holdings and Integra Investments; Kohn Pedersen Fox; Not publicly confirmed; Not publicly confirmed",
+      "teamCredit": "Huizenga Holdings; Integra Investments",
       "sourceLinks": []
     },
     {
@@ -317,7 +245,7 @@
         "sourceUrl": "https://www.shorecrestwpb.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Related Ross; Roger Ferris + Partners; Revuelta; Rottet Studio; DS Boca; Related Sales/Corcoran Sunshine",
+      "teamCredit": "Related Ross; Roger Ferris + Partners; Rottet Studio; Design Studio Boca; Corcoran Sunshine Marketing Group",
       "sourceLinks": [
         {
           "label": "Shorecrest",
@@ -328,35 +256,17 @@
     },
     {
       "projectId": "south-flagler-house-north",
-      "name": "South Flagler House North Tower",
+      "name": "South Flagler House",
       "officialWebsite": "https://www.southflaglerhouse.com/",
       "sourceCredit": {
-        "label": "Source: South Flagler House North Tower original materials",
+        "label": "Source: South Flagler House original materials",
         "sourceUrl": "https://www.southflaglerhouse.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture",
+      "teamCredit": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture; Adam McPherson / Related Ross; Suzanne Frisbie / The Corcoran Group; Corcoran Sunshine Marketing Group; Rogers by Related Ross; Rogers General Contracting",
       "sourceLinks": [
         {
-          "label": "South Flagler House North Tower",
-          "href": "https://www.southflaglerhouse.com/",
-          "sourceType": "official project site"
-        }
-      ]
-    },
-    {
-      "projectId": "south-flagler-house-south",
-      "name": "South Flagler House South Tower",
-      "officialWebsite": "https://www.southflaglerhouse.com/",
-      "sourceCredit": {
-        "label": "Source: South Flagler House South Tower original materials",
-        "sourceUrl": "https://www.southflaglerhouse.com/",
-        "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
-      },
-      "teamCredit": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture",
-      "sourceLinks": [
-        {
-          "label": "South Flagler House South Tower",
+          "label": "South Flagler House",
           "href": "https://www.southflaglerhouse.com/",
           "sourceType": "official project site"
         }
@@ -371,7 +281,7 @@
         "sourceUrl": "https://www.theberkeleypalmbeach.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Al Adelson development team; verify legal development entity; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed",
+      "teamCredit": "Australian Properties Group; Al Adelson; Sympatico Real Estate; Bernardo Fort-Brescia / Arquitectonica; Arquitectonica Interiors; EDSA; Douglas Elliman Development Marketing",
       "sourceLinks": [
         {
           "label": "The Berkeley Palm Beach",
@@ -389,7 +299,7 @@
         "sourceUrl": "https://theresidenceswestpalmbeach.com/",
         "note": "Project media available for buyer-facing context; no project sponsor or brand affiliation implied."
       },
-      "teamCredit": "Related Group; BH Group; Arquitectonica; Rockwell Group; Naturalficial",
+      "teamCredit": "1717 N Flagler Drive Venture, LLC; Related Group; BH Group; Arquitectonica; Rockwell Group; Naturalficial; The Ritz-Carlton",
       "sourceLinks": [
         {
           "label": "The Ritz-Carlton Residences, West Palm Beach",

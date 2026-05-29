@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-05-23T12:05:12.017Z",
+  "generatedAt": "2026-05-28T23:54:45.391Z",
   "usageNote": "Floorplan inventory from project sources and current packet references. Request the latest sales packet for pricing, availability, and line-by-line guidance.",
   "projects": [
     {
       "projectId": "alba-palm-beach",
       "name": "Alba Palm Beach",
       "area": "North Flagler",
-      "pageStatus": "Primary condo page",
-      "updatedAt": "2026-05-23",
+      "pageStatus": "Active / Sales / Under Construction",
+      "updatedAt": "2026-05-28",
       "count": 10,
       "plans": [
         {
@@ -94,21 +94,11 @@
       "missingNote": ""
     },
     {
-      "projectId": "mandarin-oriental",
-      "name": "Mandarin Oriental Residences, West Palm Beach",
-      "area": "North Flagler",
-      "pageStatus": "Candidate project page",
-      "updatedAt": "2026-05-23",
-      "count": 0,
-      "plans": [],
-      "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
-    },
-    {
       "projectId": "olara",
-      "name": "Olara",
+      "name": "Olara West Palm Beach",
       "area": "North Flagler",
-      "pageStatus": "Primary condo page",
-      "updatedAt": "2026-05-23",
+      "pageStatus": "Active / Sales / Under Construction",
+      "updatedAt": "2026-05-28",
       "count": 55,
       "plans": [
         {
@@ -558,8 +548,8 @@
       "projectId": "shorecrest",
       "name": "Shorecrest",
       "area": "North Flagler",
-      "pageStatus": "Primary condo page",
-      "updatedAt": "2026-05-23",
+      "pageStatus": "Active / Sales / Under Construction",
+      "updatedAt": "2026-05-28",
       "count": 9,
       "plans": [
         {
@@ -641,8 +631,8 @@
       "projectId": "ritz-carlton-wpb",
       "name": "The Ritz-Carlton Residences, West Palm Beach",
       "area": "North Flagler",
-      "pageStatus": "Primary condo page",
-      "updatedAt": "2026-05-23",
+      "pageStatus": "Active / Sales / Under Construction",
+      "updatedAt": "2026-05-28",
       "count": 28,
       "plans": [
         {
@@ -873,544 +863,11 @@
       "missingNote": ""
     },
     {
-      "projectId": "banyan-tree",
-      "name": "Banyan Tree Residences West Palm Beach",
-      "area": "Downtown",
-      "pageStatus": "High-priority emerging condo page",
-      "updatedAt": "2026-05-23",
-      "count": 0,
-      "plans": [],
-      "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
-    },
-    {
-      "projectId": "mr-c",
-      "name": "Mr. C Hotel & Residences West Palm Beach",
-      "area": "Downtown",
-      "pageStatus": "Primary mixed-use/hotel-residence page",
-      "updatedAt": "2026-05-23",
-      "count": 64,
-      "plans": [
-        {
-          "title": "Residence 01",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 01",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 01A",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 01a",
-          "href": "/projects/mr-c/docs/floorplans/residence-01a--4c4e8025.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-01a--4c4e8025.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 02",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 02",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 02A",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 02a",
-          "href": "/projects/mr-c/docs/floorplans/residence-02a--c0b62912.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-02a--c0b62912.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 03",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 03",
-          "href": "/projects/mr-c/docs/floorplans/residence-03--809edf7a.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-03--809edf7a.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 03A",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 03A",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 04",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 04",
-          "href": "/projects/mr-c/docs/floorplans/residence-04--7e2f1920.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-04--7e2f1920.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 04A",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 04A",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 05",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 05",
-          "href": "/projects/mr-c/docs/floorplans/residence-05--a9880839.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-05--a9880839.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 06",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 06",
-          "href": "/projects/mr-c/docs/floorplans/residence-06--5677af6f.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-06--5677af6f.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 06A",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 06A",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 07",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 07",
-          "href": "/projects/mr-c/docs/floorplans/residence-07--438e91d4.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-07--438e91d4.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 07A",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 07A",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 08",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 08",
-          "href": "/projects/mr-c/docs/floorplans/residence-08--0717db7d.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-08--0717db7d.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 08A",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 08A",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 10",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 10",
-          "href": "/projects/mr-c/docs/floorplans/residence-10--c2ea2424.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-10--c2ea2424.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 11",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 11",
-          "href": "/projects/mr-c/docs/floorplans/residence-11--d43deb20.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-11--d43deb20.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 12",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 12",
-          "href": "/projects/mr-c/docs/floorplans/residence-12--a53ea9bd.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-12--a53ea9bd.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 13",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 13",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 14",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 14",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 15",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 15",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 16",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 16",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 17",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 17",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 18",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 18",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 19",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 19",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 211",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 211",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 215",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 215",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 216",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 216",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 217",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 217",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 813",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 813",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 814",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 814",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Residence 815",
-          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
-          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Residence 815",
-          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
-          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        }
-      ],
-      "missingNote": ""
-    },
-    {
       "projectId": "berkeley",
       "name": "The Berkeley Palm Beach",
       "area": "Downtown",
-      "pageStatus": "Candidate project page",
-      "updatedAt": "2026-05-23",
+      "pageStatus": "Active / Sales / Under Construction",
+      "updatedAt": "2026-05-28",
       "count": 9,
       "plans": [
         {
@@ -1490,10 +947,10 @@
     },
     {
       "projectId": "nora-house",
-      "name": "NORA House",
+      "name": "Nora House",
       "area": "Downtown / NORA",
-      "pageStatus": "Primary condo page",
-      "updatedAt": "2026-05-23",
+      "pageStatus": "Active / Sales / Under Construction",
+      "updatedAt": "2026-05-28",
       "count": 65,
       "plans": [
         {
@@ -2020,11 +1477,606 @@
       "missingNote": ""
     },
     {
-      "projectId": "edgeworth-north",
-      "name": "Edgeworth North Tower",
+      "projectId": "south-flagler-house-north",
+      "name": "South Flagler House",
       "area": "South Flagler",
-      "pageStatus": "High-priority pipeline condo page",
-      "updatedAt": "2026-05-23",
+      "pageStatus": "Active / Sales / Under Construction",
+      "updatedAt": "2026-05-28",
+      "count": 3,
+      "plans": [
+        {
+          "title": "Site Plan Floors 5 9",
+          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Site Plan Floors 10 18",
+          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Site Plan Floors 19 20",
+          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "mr-c",
+      "name": "Mr. C Residences West Palm Beach",
+      "area": "Downtown",
+      "pageStatus": "Active / Sales / Under Construction",
+      "updatedAt": "2026-05-28",
+      "count": 64,
+      "plans": [
+        {
+          "title": "Residence 01",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 01",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 01A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 01a",
+          "href": "/projects/mr-c/docs/floorplans/residence-01a--4c4e8025.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-01a--4c4e8025.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 02",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 02",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 02A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 02a",
+          "href": "/projects/mr-c/docs/floorplans/residence-02a--c0b62912.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-02a--c0b62912.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 03",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 03",
+          "href": "/projects/mr-c/docs/floorplans/residence-03--809edf7a.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-03--809edf7a.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 03A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 03A",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 04",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 04",
+          "href": "/projects/mr-c/docs/floorplans/residence-04--7e2f1920.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-04--7e2f1920.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 04A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 04A",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 05",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 05",
+          "href": "/projects/mr-c/docs/floorplans/residence-05--a9880839.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-05--a9880839.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 06",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 06",
+          "href": "/projects/mr-c/docs/floorplans/residence-06--5677af6f.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-06--5677af6f.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 06A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 06A",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 07",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 07",
+          "href": "/projects/mr-c/docs/floorplans/residence-07--438e91d4.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-07--438e91d4.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 07A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 07A",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 08",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 08",
+          "href": "/projects/mr-c/docs/floorplans/residence-08--0717db7d.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-08--0717db7d.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 08A",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 08A",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 10",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 10",
+          "href": "/projects/mr-c/docs/floorplans/residence-10--c2ea2424.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-10--c2ea2424.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 11",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 11",
+          "href": "/projects/mr-c/docs/floorplans/residence-11--d43deb20.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-11--d43deb20.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 12",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 12",
+          "href": "/projects/mr-c/docs/floorplans/residence-12--a53ea9bd.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/residence-12--a53ea9bd.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 13",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 13",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 14",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 14",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 15",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 15",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 16",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 16",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 17",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 17",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 18",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 18",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 19",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 19",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 211",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 211",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 215",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 215",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 216",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 216",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 217",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 217",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 813",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 813",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 814",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 814",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        },
+        {
+          "title": "Residence 815",
+          "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
+          "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Residence 815",
+          "href": "/projects/mr-c/docs/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
+          "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "maison-dor",
+      "name": "Maison d’Or",
+      "area": "South Flagler",
+      "pageStatus": "Active / Sales / Under Construction",
+      "updatedAt": "2026-05-28",
+      "count": 2,
+      "plans": [
+        {
+          "title": "MaisondOr Fact Sheet",
+          "href": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+          "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "official project source",
+          "note": "downloaded"
+        },
+        {
+          "title": "Maisondor Fact Sheet",
+          "href": "/projects/maison-dor/docs/floorplans/maisondor-fact-sheet--f983cc62.pdf",
+          "sourceUrl": "/projects/maison-dor/docs/floorplans/maisondor-fact-sheet--f983cc62.pdf",
+          "status": "Open floorplan",
+          "sourceUse": "canonical public research copy",
+          "note": "captured public floorplan/source asset"
+        }
+      ],
+      "missingNote": ""
+    },
+    {
+      "projectId": "mandarin-oriental",
+      "name": "Mandarin Oriental Residences West Palm Beach",
+      "area": "North Flagler",
+      "pageStatus": "Pipeline / Announced / Watchlist",
+      "updatedAt": "2026-05-28",
+      "count": 0,
+      "plans": [],
+      "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
+    },
+    {
+      "projectId": "banyan-tree",
+      "name": "Banyan Tree Residences West Palm Beach",
+      "area": "Downtown",
+      "pageStatus": "Pipeline / Announced / Watchlist",
+      "updatedAt": "2026-05-28",
       "count": 0,
       "plans": [],
       "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
@@ -2033,8 +2085,8 @@
       "projectId": "forte-on-flagler",
       "name": "Forté on Flagler",
       "area": "South Flagler",
-      "pageStatus": "Completed/recent-delivery condo page",
-      "updatedAt": "2026-05-23",
+      "pageStatus": "Completed Luxury Comp",
+      "updatedAt": "2026-05-28",
       "count": 5,
       "plans": [
         {
@@ -2073,103 +2125,6 @@
           "title": "South Open Kitchen",
           "href": "/projects/forte-on-flagler/docs/floorplans/south-open-kitchen--530e51d2.pdf",
           "sourceUrl": "/projects/forte-on-flagler/docs/floorplans/south-open-kitchen--530e51d2.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        }
-      ],
-      "missingNote": ""
-    },
-    {
-      "projectId": "maison-dor",
-      "name": "Maison d'Or",
-      "area": "South Flagler",
-      "pageStatus": "Candidate project page",
-      "updatedAt": "2026-05-23",
-      "count": 2,
-      "plans": [
-        {
-          "title": "MaisondOr Fact Sheet",
-          "href": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
-          "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "official project source",
-          "note": "downloaded"
-        },
-        {
-          "title": "Maisondor Fact Sheet",
-          "href": "/projects/maison-dor/docs/floorplans/maisondor-fact-sheet--f983cc62.pdf",
-          "sourceUrl": "/projects/maison-dor/docs/floorplans/maisondor-fact-sheet--f983cc62.pdf",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        }
-      ],
-      "missingNote": ""
-    },
-    {
-      "projectId": "south-flagler-house-north",
-      "name": "South Flagler House North Tower",
-      "area": "South Flagler",
-      "pageStatus": "Primary condo page; pair with south tower in copy",
-      "updatedAt": "2026-05-23",
-      "count": 3,
-      "plans": [
-        {
-          "title": "Site Plan Floors 5 9",
-          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Site Plan Floors 10 18",
-          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Site Plan Floors 19 20",
-          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        }
-      ],
-      "missingNote": ""
-    },
-    {
-      "projectId": "south-flagler-house-south",
-      "name": "South Flagler House South Tower",
-      "area": "South Flagler",
-      "pageStatus": "Primary condo page; merge content with north tower unless separate inventory is required",
-      "updatedAt": "2026-05-23",
-      "count": 3,
-      "plans": [
-        {
-          "title": "Site Plan Floors 5 9",
-          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Site Plan Floors 10 18",
-          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-          "status": "Open floorplan",
-          "sourceUse": "canonical public research copy",
-          "note": "captured public floorplan/source asset"
-        },
-        {
-          "title": "Site Plan Floors 19 20",
-          "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-          "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
           "status": "Open floorplan",
           "sourceUse": "canonical public research copy",
           "note": "captured public floorplan/source asset"

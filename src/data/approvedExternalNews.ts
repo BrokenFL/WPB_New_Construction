@@ -279,7 +279,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "query": "West Palm Beach development",
     "category": "planning",
     "relatedProjectIds": [
-      "rosewood"
+      "rosewood-residences-west-palm-beach"
     ],
     "relatedCorridorIds": [
       "north-flagler"
@@ -291,12 +291,12 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "dateDiscovered": "2026-05-22",
     "freshnessLane": "archive_only",
     "relatedProjectSlugs": [
-      "rosewood"
+      "rosewood-residences-west-palm-beach"
     ],
     "relatedCorridors": [
       "north-flagler"
     ],
-    "primaryProjectSlug": "rosewood"
+    "primaryProjectSlug": "rosewood-residences-west-palm-beach"
   },
   {
     "id": "florida-yimby-south-flagler-tops-out-2025-11",

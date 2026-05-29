@@ -611,7 +611,7 @@ const answerBlocks = [
     answer:
       "Olara is the clearest current boating lifestyle story because its official positioning includes a private marina. Maison d'Or also references direct water access, a new private boat dock, and slips, though a buyer should confirm slip details, assignment, cost, and operating rules. For any waterfront project, ask whether boating access is deeded, licensed, reserved, waitlisted, or simply nearby.",
     concept: "Marina and boating access",
-    relatedProjectIds: ["olara", "maison-dor", "rybovich-marina"],
+    relatedProjectIds: ["olara", "maison-dor", "rybovich-marina-redevelopment"],
     sources: ["Olara official site", "Maison d'Or official site"],
     sourceCitations: [
       {
@@ -1057,9 +1057,9 @@ const answerBlocks = [
     shortLabel: "Pipeline",
     question: "Which pipeline projects should buyers keep on the radar without over-relying on them?",
     answer:
-      "Mandarin Oriental, Edgeworth, Alba Reserve, Rybovich, Related Ross Fern Street, and Fort Partners South Flagler are worth tracking, but pipeline projects should not anchor a purchase decision until official plans, pricing, timing, and offering documents are released. Use them to understand future supply pressure, not to replace current due diligence.",
+      "Mandarin Oriental, Edgeworth, Banyan Tree, Alba Reserve, Fern & Gardenia / Related Ross Fern Street, Rybovich Marina Redevelopment, and Rosewood are worth tracking, but pipeline projects should not anchor a purchase decision until official plans, pricing, timing, and offering documents are released. Use them to understand future supply pressure, not to replace current due diligence.",
     concept: "Pipeline watch list",
-    relatedProjectIds: ["mandarin-oriental", "edgeworth-north", "alba-reserve", "rybovich-marina", "related-ross-fern-street"],
+    relatedProjectIds: ["mandarin-oriental", "edgeworth", "banyan-tree", "alba-reserve", "fern-and-gardenia-related-ross-fern-street", "rybovich-marina-redevelopment", "rosewood-residences-west-palm-beach"],
     sources: ["official project announcements", "project-source-catalog"],
     sourceCitations: [
       {
@@ -1102,7 +1102,7 @@ const answerBlocks = [
     answer:
       "The North Flagler buyer set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Alba Palm Beach, Mandarin Oriental Residences, and early-stage projects such as Rosewood Residences. It is the main Intracoastal-facing corridor for buyers comparing Palm Beach proximity, water views, service, amenities, and new-construction timing.",
     concept: "Corridors",
-    relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "rosewood"],
+    relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "rosewood-residences-west-palm-beach"],
     sources: ["official project sites", "project-source-catalog"],
     sourceCitations: [],
   },
@@ -1113,7 +1113,7 @@ const answerBlocks = [
     answer:
       "Active-sales projects usually have enough public or requestable material for current buyer diligence: availability, floor plans, pricing guidance, deposits, timing, and sales-gallery review. Future projects can shape the market but may not yet have final offering details. Treat future projects separately until Brooke can confirm launch timing, plan depth, pricing, and legal offering documents.",
     concept: "Buyer diligence",
-    relatedProjectIds: ["olara", "nora-house", "rosewood", "mandarin-oriental"],
+    relatedProjectIds: ["olara", "nora-house", "rosewood-residences-west-palm-beach", "mandarin-oriental"],
     sources: ["WPB methodology", "project-source-catalog"],
     sourceCitations: [],
   },
@@ -1188,9 +1188,9 @@ const answerBlocks = [
     shortLabel: "Downtown/NORA",
     question: "Which buildings are near The Square or Downtown?",
     answer:
-      "Downtown-oriented buyers should start with Mr. C, NORA House, Banyan Tree, The Berkeley, 10 CityPlace, and 15 CityPlace, then compare walkability to The Square, Rosemary, NORA, offices, restaurants, Brightline, and cultural venues. These are urban-core or district-lifestyle decisions rather than pure waterfront comparisons.",
+      "Downtown-oriented buyers should start with Mr. C, NORA House, Banyan Tree, The Berkeley, and Fern & Gardenia / Related Ross Fern Street, then compare walkability to The Square, Rosemary, NORA, offices, restaurants, Brightline, and cultural venues. These are urban-core or district-lifestyle decisions rather than pure waterfront comparisons.",
     concept: "Downtown fit",
-    relatedProjectIds: ["mr-c", "nora-house", "banyan-tree", "berkeley", "10-cityplace"],
+    relatedProjectIds: ["mr-c", "nora-house", "banyan-tree", "berkeley", "fern-and-gardenia-related-ross-fern-street"],
     sources: ["project-source-catalog", "corridor review"],
     sourceCitations: [],
   },
@@ -1638,35 +1638,6 @@ function buildNewsFeed(projects, floorplans, images) {
         status: "Reviewed",
       },
       {
-        id: "rosewood-north-flagler-planning",
-        title: "Rosewood planning notes add another branded project to North Flagler",
-        summary:
-          "Recent project research and local planning review point to Rosewood Residences as another North Flagler branded-residence project, but buyers should treat it as early-stage until public plan details mature.",
-        category: "North Flagler",
-        datePublished: "2026-05-19",
-        dateModified: "2026-05-22",
-        projectIds: ["rosewood", "ritz-carlton-wpb", "mandarin-oriental"],
-        sourceName: "West Palm Beach planning materials",
-        sourceUrl:
-          "https://www.wpb.org/",
-        sourceLinks: [
-          {
-            label: "West Palm Beach planning materials reviewed",
-            href: "https://www.wpb.org/",
-            sourceType: "city planning material",
-          },
-          sourceLinkForProject(projectById.get("rosewood")),
-        ].filter(Boolean),
-        rewrittenSummary:
-          "Rosewood belongs on the buyer radar, not in the same decision bucket as projects with deeper released sales material. Track it for future North Flagler supply pressure while continuing to compare available buildings by current packet, timing, and view stack.",
-        image: newsImageForProjects(["rosewood", "ritz-carlton-wpb", "mandarin-oriental"], images),
-        citations: [
-          "Local planning materials reviewed in May 2026 identify Rosewood as a North Flagler branded-residence project.",
-          "The buyer use is pipeline awareness, not current pricing or availability reliance.",
-        ],
-        status: "Review before reliance",
-      },
-      {
         id: "nora-house-local-coverage",
         title: "NORA House keeps Downtown's ownership story in the local news cycle",
         summary:
@@ -1894,8 +1865,13 @@ function buildProjectAssetStatus(projects, floorplans, publishedFloorplans, asse
           "mr-c",
           "alba-palm-beach",
           "mandarin-oriental",
-          "10-cityplace",
-          "15-cityplace",
+          "fern-and-gardenia-related-ross-fern-street",
+          "rosewood-residences-west-palm-beach",
+          "rybovich-marina-redevelopment",
+          "edgeworth",
+          "alba-reserve",
+          "forte-on-flagler",
+          "la-clara",
           "south-flagler-house-north",
           "south-flagler-house-south",
           "nora-house",
@@ -2384,13 +2360,17 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Olara: /projects/olara/
 - Ritz-Carlton Residences West Palm Beach: /projects/ritz-carlton-wpb/
 - Shorecrest: /projects/shorecrest/
-- Rosewood Residences WPB: /projects/rosewood/
+- Edgeworth: /projects/edgeworth/
 - NORA House: /projects/nora-house/
 - South Flagler House: /projects/south-flagler-house/
 - Banyan Tree Residences West Palm Beach: /projects/banyan-tree/
 - The Berkeley: /projects/berkeley/
 - Maison d'Or: /projects/maison-dor/
 - Forte on Flagler: /projects/forte-on-flagler/
+- La Clara: /projects/la-clara/
+- Fern & Gardenia / Related Ross Fern Street Project: /projects/fern-and-gardenia-related-ross-fern-street/
+- Rosewood Residences West Palm Beach: /projects/rosewood-residences-west-palm-beach/
+- Rybovich Marina Redevelopment: /projects/rybovich-marina-redevelopment/
 
 ## Floorplan Coverage
 
@@ -2454,7 +2434,6 @@ function buildPrerenderRoutes() {
     ["olara", "Olara West Palm Beach | New Construction Condo Guide", "Olara West Palm Beach buyer guide with North Flagler waterfront context, floor plans, amenities, timing, pricing checks, and current availability next steps.", "/projects/olara/media/olara-hero-exterior-1536x1024.png"],
     ["ritz-carlton-wpb", "Ritz-Carlton WPB | New Construction Condo Guide", "Ritz-Carlton Residences West Palm Beach buyer guide with service model, waterfront position, floor plans, team credits, timing, and availability checks.", "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2880x1800.png"],
     ["shorecrest", "Shorecrest West Palm Beach | Buyer Guide", "Shorecrest West Palm Beach buyer guide for North Flagler waterfront comparison, floor plans, amenities, delivery timing, and current availability questions.", "/projects/shorecrest/media/user-provided-shorecrest-card.jpg"],
-    ["rosewood", "Rosewood Residences WPB | Buyer Guide", "Rosewood Residences West Palm Beach planning-watch guide with North Flagler context, proposed project details, approval status, buyer verification notes, and review context.", "/projects/rosewood/media/user-provided-rosewood-render-01.jpg"],
     ["mr-c", "Mr. C West Palm Beach | Buyer Guide", "Mr. C West Palm Beach buyer guide for downtown walkability, hotel-residence service, floor plans, timing, and current availability checks.", "/projects/mr-c/media/mr-c-waterfront-building-source.jpg"],
     ["alba-palm-beach", "Alba Palm Beach | New Construction Condo Guide", "Alba Palm Beach buyer guide for a boutique North Flagler waterfront building, released floor plans, delivery timing, and current pricing checks.", "/projects/alba-palm-beach/media/card.jpg"],
     ["mandarin-oriental", "Mandarin Oriental WPB | Buyer Guide", "Mandarin Oriental Residences West Palm Beach buyer guide for a future North Flagler branded-residence project, timing, views, and verification notes.", "/projects/mandarin-oriental/media/mandarin-oriental-hero.webp"],
@@ -2463,10 +2442,13 @@ function buildPrerenderRoutes() {
     ["banyan-tree", "Banyan Tree Residences WPB | Buyer Guide", "Banyan Tree Residences West Palm Beach buyer guide with downtown location context, branded-residence positioning, floor plans, and pricing checks.", "/projects/banyan-tree/media/user-provided-banyan-tree-card.jpg"],
     ["berkeley", "The Berkeley Palm Beach | Buyer Guide", "The Berkeley Palm Beach buyer guide for downtown West Palm Beach comparison, floor plans, amenities, pricing range, and current availability checks.", "/projects/berkeley/media/card.jpg"],
     ["maison-dor", "Maison d'Or West Palm Beach | Buyer Guide", "Maison d'Or West Palm Beach buyer guide for boutique South Flagler waterfront living, floor plans, amenities, pricing checks, and availability questions.", "/projects/maison-dor/media/card.jpg"],
+    ["edgeworth", "Edgeworth West Palm Beach | Pipeline Buyer Guide", "Edgeworth buyer guide for the combined South Flagler pipeline project at 1155 S Flagler Drive, timing, pricing checks, and buyer verification notes.", "/projects/edgeworth-north/media/card.webp"],
+    ["alba-reserve", "Alba Reserve West Palm Beach | Pipeline Buyer Guide", "Alba Reserve buyer guide for the reported North Flagler watchlist project, proposed scale, timing, and verification notes.", "/projects/alba-reserve/media/card.jpg"],
     ["forte-on-flagler", "Forte on Flagler | West Palm Beach Condo Guide", "Forte on Flagler buyer guide for delivered South Flagler waterfront comparison, floor plans, amenities, and resale benchmark context.", "/projects/forte-on-flagler/media/card.jpg"],
     ["la-clara", "La Clara West Palm Beach | Condo Benchmark", "La Clara West Palm Beach guide for delivered waterfront benchmark context when comparing South Flagler and new-construction alternatives.", "/projects/la-clara/media/la-clara-hero-3x2.jpg"],
-    ["10-cityplace", "10 CityPlace West Palm Beach | Buyer Guide", "10 CityPlace buyer guide for downtown West Palm Beach walkability, The Square context, and resale benchmark comparison.", "/projects/10-cityplace/media/10-cityplace-hero-1536x1024.jpg"],
-    ["15-cityplace", "15 CityPlace West Palm Beach | Buyer Guide", "15 CityPlace buyer guide for downtown West Palm Beach walkability, The Square context, and resale benchmark comparison.", "/projects/15-cityplace/media/15-cityplace-hero-1536x1024.jpg"],
+    ["fern-and-gardenia-related-ross-fern-street", "Fern & Gardenia / Related Ross Fern Street | Pipeline Watch", "Fern & Gardenia / Related Ross Fern Street watchlist guide for the Downtown condo repositioning while official project details are gathered.", "/projects/related-ross-fern-street/media/card.jpg"],
+    ["rosewood-residences-west-palm-beach", "Rosewood Residences West Palm Beach | Watchlist", "Rosewood Residences West Palm Beach watchlist entry for North Flagler branded-residence tracking while official details are gathered.", "/projects/rosewood/media/user-provided-rosewood-render-01.jpg"],
+    ["rybovich-marina-redevelopment", "Rybovich Marina Redevelopment | Watchlist", "Rybovich Marina Redevelopment watchlist guide for North Flagler and Northwood waterfront context while condo-specific details are clarified.", "/projects/rybovich-marina/media/card.webp"],
   ];
   return [
     {
@@ -2604,8 +2586,11 @@ function projectTitle(projectId) {
     "mr-c": "Mr. C",
     "alba-palm-beach": "Alba Palm Beach",
     "mandarin-oriental": "Mandarin Oriental Residences",
-    "10-cityplace": "10 CityPlace",
-    "15-cityplace": "15 CityPlace",
+    edgeworth: "Edgeworth",
+    "alba-reserve": "Alba Reserve",
+    "fern-and-gardenia-related-ross-fern-street": "Fern & Gardenia / Related Ross Fern Street Project",
+    "rosewood-residences-west-palm-beach": "Rosewood Residences West Palm Beach",
+    "rybovich-marina-redevelopment": "Rybovich Marina Redevelopment",
     "south-flagler-house": "South Flagler House",
     "nora-house": "NORA House",
   }[projectId] ?? projectId;
@@ -2621,14 +2606,16 @@ function renderSitemap(projects) {
     "mr-c",
     "alba-palm-beach",
     "mandarin-oriental",
-    "rosewood",
     "banyan-tree",
     "berkeley",
     "maison-dor",
+    "edgeworth",
+    "alba-reserve",
     "forte-on-flagler",
     "la-clara",
-    "10-cityplace",
-    "15-cityplace",
+    "fern-and-gardenia-related-ross-fern-street",
+    "rosewood-residences-west-palm-beach",
+    "rybovich-marina-redevelopment",
     "south-flagler-house-north",
     "nora-house",
   ]);
@@ -2645,7 +2632,6 @@ function renderSitemap(projects) {
     ["corridors/north-flagler/", "0.8"],
     ["corridors/downtown-west-palm-beach/", "0.8"],
     ["corridors/south-flagler/", "0.8"],
-    ["projects/rosewood/", "0.8"],
     ["updates/", "0.8"],
     ...updateRoutes.map((item) => [`updates/${item.id}/`, "0.8"]),
     ["market-notes/", "0.8"],
