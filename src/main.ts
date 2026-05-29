@@ -7567,10 +7567,19 @@ function berkeleyIcon(name: string) {
 function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackage?: ProjectCopyPackage) {
   const showcase = copyPackage?.showcase;
   const heroImage = getProjectHeroAsset(project)?.src ?? project.heroImage ?? project.image ?? siteMeta.defaultImage;
+  const showcaseFloors = copyFactValue(copyPackage, /floors/i, "25")
+    .replace(/\s+public-facing.*/i, "")
+    .replace(/\s*municipal.*$/i, "")
+    .trim();
+  const showcaseSizeRange = copyFactValue(copyPackage, /^(showcase size range|size range)$/i, "")
+    .replace(/^Approx\.\s*/i, "")
+    .replace(/\s*interior\s+sq\.?\s*ft\.?/i, " sq ft")
+    .replace(/\s*sq\.\s*ft\.?/i, " sq ft")
+    .trim();
   const facts = [
     { icon: "residence", value: copyFactValue(copyPackage, /residences/i, project.residences), label: "Residences" },
-    { icon: "stories", value: copyFactValue(copyPackage, /floors/i, "25"), label: "Stories" },
-    { icon: "sqft", value: copyFactValue(copyPackage, /^showcase size range$/i, "1,780-4,000+ sq ft"), label: "Sq Ft" },
+    { icon: "stories", value: showcaseFloors, label: "Stories" },
+    { icon: "sqft", value: showcaseSizeRange, label: "Sq Ft" },
     { icon: "bed", value: copyFactValue(copyPackage, /bedrooms/i, "2-5"), label: "Bedrooms" },
     { icon: "price", value: copyFactValue(copyPackage, /price/i, project.price).replace(" to over ", " to "), label: "Pricing" },
   ].filter((fact) => isBuyerFacingValue(fact.value));
@@ -7581,6 +7590,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const teamFacts = (showcase?.projectTeam ?? []).filter((fact) => isBuyerFacingValue(fact.value));
   const visualBreak = showcase?.visualBreak ?? gallery[0];
   const neighborhoodImage = showcase?.neighborhoodImage;
+  const neighborhoodHeadline = showcase?.neighborhoodHeadline ?? "Connected to downtown, Palm Beach, and daily convenience.";
   const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
   const intro = showcase?.intro ?? heroBlurb;
   const heroTags = (
@@ -7591,11 +7601,6 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
           { label: "Corridor", value: showcase?.heroEyebrow ?? project.corridor },
         ]
   ).filter((tag) => isBuyerFacingValue(tag.value));
-  const residencePlanThumbnails = [
-    "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-thumb-bw-v01.webp?v=20260529b",
-    "/assets/projects/berkeley/floorplans/berkeley-floorplans-estate-thumb-bw-v01.webp?v=20260529b",
-    "/assets/projects/berkeley/floorplans/berkeley-floorplans-penthouse-thumb-bw-v01.webp?v=20260529b",
-  ];
 
   return `
     <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-mobile-containment-20260529b" />
@@ -7640,7 +7645,13 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <section class="berkeley-residence-section" id="berkeley-residences">
         <div class="berkeley-section-heading"><p class="berkeley-kicker">Residences</p><a href="/inquire/?project=${project.id}&interest=floorplans">View all floor plans <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-residence-grid">
-          ${residences.map((item, index) => `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="/inquire/?project=${project.id}&interest=floorplans">${publicText(item.price)} <span aria-hidden="true">→</span></a></div><figure class="berkeley-plan-thumbnail" aria-hidden="true"><img src="${safeHref(residencePlanThumbnails[index] ?? residencePlanThumbnails[0])}" alt="" loading="lazy" decoding="async" /></figure></article>`).join("")}
+          ${residences.map((item, index) => {
+            const planIcon = ["planResidence", "planEstate", "planPenthouse"][index] ?? "residence";
+            const planVisual = item.thumbnail
+              ? `<figure class="berkeley-plan-thumbnail" aria-hidden="true"><img src="${safeHref(item.thumbnail)}" alt="" loading="lazy" decoding="async" /></figure>`
+              : `<figure class="berkeley-plan-placeholder" aria-hidden="true">${berkeleyIcon(planIcon)}</figure>`;
+            return `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="/inquire/?project=${project.id}&interest=floorplans">${publicText(item.price)} <span aria-hidden="true">→</span></a></div>${planVisual}</article>`;
+          }).join("")}
         </div>
       </section>
 
@@ -7651,7 +7662,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       ${neighborhoodImage ? `<figure class="berkeley-image-break"><img src="${safeHref(neighborhoodImage.src)}" alt="${publicText(neighborhoodImage.alt ?? `${project.name} ${neighborhoodImage.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
       <section class="berkeley-neighborhood-section" id="berkeley-neighborhood">
-        <div><p class="berkeley-kicker">The Neighborhood</p><h2>Connected to downtown, Palm Beach, and daily convenience.</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="/map/">Explore the neighborhood <span aria-hidden="true">→</span></a></div>
+        <div><p class="berkeley-kicker">The Neighborhood</p><h2>${publicText(neighborhoodHeadline)}</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="/map/">Explore the neighborhood <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-google-map berkeley-project-map">
           <aside class="home-hero-map-card berkeley-map-card" data-focus-project-id="${project.id}" aria-label="West Palm Beach development map centered on ${publicText(project.name)}">
             <figure class="hero-map-preview">

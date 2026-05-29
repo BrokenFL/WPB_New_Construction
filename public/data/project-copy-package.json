@@ -322,9 +322,9 @@
   {
     "slug": "ritz-carlton-residences-west-palm-beach",
     "repoProjectId": "ritz-carlton-wpb",
-    "heroHeadline": "Branded Waterfront Living on North Flagler",
-    "heroSubheadline": "The Ritz-Carlton Residences, West Palm Beach brings a branded residential service model to the North Flagler waterfront, with 138 residences and a 2028 delivery target.",
-    "overview": "This is a brand-led luxury waterfront project in the active / under-construction group. It should remain distinct from the Ritz-Carlton Residences Palm Beach Gardens, which is outside the WPB inventory.",
+    "heroHeadline": "Ritz-Carlton Service Meets North Flagler Waterfront Living",
+    "heroSubheadline": "The Ritz-Carlton Residences, West Palm Beach brings branded waterfront living to North Flagler, pairing east-facing Intracoastal and ocean views with refined residences, private terraces, Ritz-Carlton service, valet, concierge, wellness amenities, curated art, and quick access to Palm Beach, Worth Avenue, downtown dining, culture, and the marina district. It is built for buyers who want service, views, and a true lock-and-leave luxury lifestyle.",
+    "overview": "The Ritz-Carlton Residences, West Palm Beach brings branded waterfront living to North Flagler, pairing east-facing Intracoastal and ocean views with refined residences, private terraces, Ritz-Carlton service, valet, concierge, wellness amenities, curated art, and quick access to Palm Beach, Worth Avenue, downtown dining, culture, and the marina district.",
     "quickFacts": [
       {
         "label": "Address",
@@ -352,7 +352,7 @@
       },
       {
         "label": "Floors",
-        "value": "27 public-facing; municipal approval references 26"
+        "value": "27"
       },
       {
         "label": "Price Range",
@@ -364,24 +364,23 @@
       },
       {
         "label": "Size Range",
-        "value": "Approx. 1,532-3,331 interior sq. ft."
+        "value": "1,532-3,331 sq. ft."
       },
       {
         "label": "Bedrooms",
         "value": "2-4"
       }
     ],
-    "residences": "Residences are expected to include 2- to 4-bedroom layouts with spa-like bathrooms, smart home systems, balconies, and open-plan indoor-outdoor layouts. Parking, storage, pet, and fee details remain lightly published.",
+    "residences": "Residences include 2- to 4-bedroom layouts with spa-like bathrooms, smart home systems, private terraces, and open-plan indoor-outdoor layouts.",
     "amenities": "Amenities include pool deck, fitness and wellness center, spa, indoor / outdoor lounges, branded service positioning, concierge, valet, and exclusive beach club membership.",
     "location": "The building is positioned on the North Flagler waterfront, with access to downtown West Palm Beach, Palm Beach Island, and the broader North Flagler development corridor.",
-    "localTake": "This is the building for buyers who trust the brand and want service to be part of the purchase decision. Buyers should compare not just price, but operating costs, service structure, and final deliverables.",
+    "localTake": "This is the branded-service play on North Flagler. Buyers should focus on the east-facing views, Ritz-Carlton service layer, Related/BH pedigree, and access to Palm Beach without Palm Beach pricing. The tradeoff is location: it is waterfront and central, but not directly in the downtown core.",
     "tradeoffs": [
-      "Public address differs from legal / planning references.",
-      "Public floor count is 27; planning approval references 26.",
-      "Parking, storage, fees, and pet policy remain lightly published.",
-      "Brand expectations should be weighed against final operations."
+      "North Flagler gives buyers waterfront access and Palm Beach proximity, but it is not directly in the downtown core.",
+      "Buyers should compare service structure, monthly carrying costs, and view exposure by residence.",
+      "Inventory, pricing, deposits, and release timing should be checked before making a purchase decision."
     ],
-    "confidenceNote": "Confidence is medium-high. Public-facing values are usable, with legal parcel and floor-count caveats preserved.",
+    "confidenceNote": "Ritz-Carlton Residences West Palm Beach is an active North Flagler branded waterfront project with public-facing project facts suitable for buyer-facing display.",
     "seoTitle": "Ritz-Carlton Residences West Palm Beach | Waterfront Condos",
     "metaDescription": "The Ritz-Carlton Residences, West Palm Beach is a branded North Flagler waterfront condominium with 138 residences and 2028 delivery.",
     "badge": "Branded Residences",
@@ -395,9 +394,158 @@
       "service-forward",
       "human-review-required"
     ],
-    "introHeadline": "Branded Waterfront Living on North Flagler",
-    "introDek": "The Ritz-Carlton Residences, West Palm Beach brings a branded residential service model to the North Flagler waterfront, with 138 residences and a 2028 delivery target.",
-    "brookeTake": "This is the building for buyers who trust the brand and want service to be part of the purchase decision. Buyers should compare not just price, but operating costs, service structure, and final deliverables.",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "North Flagler",
+      "heroBlurb": "Ritz-Carlton Service Meets North Flagler Waterfront Living",
+      "intro": "The Ritz-Carlton Residences, West Palm Beach brings branded waterfront living to North Flagler, pairing east-facing Intracoastal and ocean views with refined residences, private terraces, Ritz-Carlton service, valet, concierge, wellness amenities, curated art, and quick access to Palm Beach, Worth Avenue, downtown dining, culture, and the marina district. It is built for buyers who want service, views, and a true lock-and-leave luxury lifestyle.",
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Under Construction"
+        },
+        {
+          "label": "Corridor",
+          "value": "North Flagler"
+        },
+        {
+          "label": "Sales",
+          "value": "Active Sales"
+        }
+      ],
+      "visualBreak": {
+        "src": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+        "label": "North Flagler Waterfront",
+        "alt": "The Ritz-Carlton Residences West Palm Beach evening aerial rendering on North Flagler"
+      },
+      "residenceCollections": [
+        {
+          "title": "Residence Collection",
+          "beds": "2-4 bedrooms",
+          "size": "1,532-3,331 sq ft",
+          "price": "From $3M",
+          "thumbnail": "/projects/ritz-carlton-wpb/media/ritz-residence-living-room-sunrise-2400x1600.png"
+        },
+        {
+          "title": "Waterfront Residences",
+          "beds": "East-facing views",
+          "size": "Private terraces",
+          "price": "Request current pricing",
+          "thumbnail": "/projects/ritz-carlton-wpb/media/ritz-residence-kitchen-entertaining-2400x1600.png"
+        },
+        {
+          "title": "Upper Residences",
+          "beds": "Intracoastal and ocean views",
+          "size": "Elevated tower living",
+          "price": "Request availability",
+          "thumbnail": "/projects/ritz-carlton-wpb/media/ritz-view-balcony-night-2400x1600.png"
+        }
+      ],
+      "gallery": [
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-arrival-porte-cochere-evening-2400x1600.png",
+          "label": "Arrival"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-lobby-lounge-waterfront-2400x1600.png",
+          "label": "Lobby Lounge"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-residence-living-room-sunrise-2400x1600.png",
+          "label": "Residence Living"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-residence-kitchen-entertaining-2400x1600.png",
+          "label": "Kitchen"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-residence-primary-bath-2400x1600.png",
+          "label": "Primary Bath"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-amenity-pool-cabanas-2400x1600.png",
+          "label": "Pool Cabanas"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-amenity-fitness-center-2400x1600.png",
+          "label": "Fitness"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-view-intracoastal-day-2400x1600.png",
+          "label": "Intracoastal View"
+        }
+      ],
+      "amenityHighlights": [
+        {
+          "icon": "pool",
+          "label": "Pool deck"
+        },
+        {
+          "icon": "fitness",
+          "label": "Fitness center"
+        },
+        {
+          "icon": "spa",
+          "label": "Spa & wellness"
+        },
+        {
+          "icon": "dining",
+          "label": "Indoor/outdoor lounges"
+        },
+        {
+          "icon": "valet",
+          "label": "Concierge & valet"
+        },
+        {
+          "icon": "cabana",
+          "label": "Beach club access"
+        },
+        {
+          "icon": "residence",
+          "label": "Branded residences"
+        },
+        {
+          "icon": "waterfront",
+          "label": "Waterfront setting"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/projects/ritz-carlton-wpb/media/ritz-view-intracoastal-day-2400x1600.png",
+        "label": "Intracoastal View",
+        "alt": "Intracoastal view from The Ritz-Carlton Residences West Palm Beach"
+      },
+      "neighborhoodHeadline": "North Flagler waterfront with Palm Beach close by.",
+      "projectTeam": [
+        {
+          "label": "Developer",
+          "value": "1717 N Flagler Drive Venture, LLC; Related Group; BH Group"
+        },
+        {
+          "label": "Architect",
+          "value": "Arquitectonica"
+        },
+        {
+          "label": "Interior Designer",
+          "value": "Rockwell Group"
+        },
+        {
+          "label": "Landscape Designer",
+          "value": "Naturalficial"
+        },
+        {
+          "label": "Brand",
+          "value": "The Ritz-Carlton"
+        }
+      ],
+      "titleLines": [
+        "Ritz-Carlton",
+        "Residences WPB"
+      ]
+    },
+    "introHeadline": "Ritz-Carlton Service Meets North Flagler Waterfront Living",
+    "introDek": "The Ritz-Carlton Residences, West Palm Beach brings branded waterfront living to North Flagler, pairing east-facing Intracoastal and ocean views with refined residences, private terraces, Ritz-Carlton service, valet, concierge, wellness amenities, curated art, and quick access to Palm Beach, Worth Avenue, downtown dining, culture, and the marina district.",
+    "brookeTake": "This is the branded-service play on North Flagler. Buyers should focus on the east-facing views, Ritz-Carlton service layer, Related/BH pedigree, and access to Palm Beach without Palm Beach pricing. The tradeoff is location: it is waterfront and central, but not directly in the downtown core.",
     "bestFor": [
       "Brand-driven luxury buyers",
       "North Flagler waterfront shoppers",
@@ -407,22 +555,19 @@
     "signatureFeatures": [
       "Brand: The Ritz-Carlton",
       "Residences: 138",
-      "Floors: 27 public-facing; municipal approval references 26",
+      "Floors: 27",
       "Price Range: From $3M",
       "Delivery: 2028",
       "Bedrooms: 2-4"
     ],
     "amenityNarrative": "Amenities include pool deck, fitness and wellness center, spa, indoor / outdoor lounges, branded service positioning, concierge, valet, and exclusive beach club membership.",
-    "residenceNarrative": "Residences are expected to include 2- to 4-bedroom layouts with spa-like bathrooms, smart home systems, balconies, and open-plan indoor-outdoor layouts. Parking, storage, pet, and fee details remain lightly published.",
+    "residenceNarrative": "Residences include 2- to 4-bedroom layouts with spa-like bathrooms, smart home systems, private terraces, and open-plan indoor-outdoor layouts.",
     "locationNarrative": "The building is positioned on the North Flagler waterfront, with access to downtown West Palm Beach, Palm Beach Island, and the broader North Flagler development corridor.",
-    "buyerComparisonNotes": "Brand-driven luxury buyers North Flagler waterfront shoppers Service-first buyers Buyers comparing WPB branded residences Public address differs from legal / planning references. Public floor count is 27; planning approval references 26. Parking, storage, fees, and pet policy remain lightly published. Brand expectations should be weighed against final operations.",
+    "buyerComparisonNotes": "Brand-driven luxury buyers North Flagler waterfront shoppers Service-first buyers Buyers comparing WPB branded residences Buyers should focus on east-facing views, Ritz-Carlton service, Palm Beach access, operating costs, and whether North Flagler fits better than the downtown core.",
     "projectTeamNarrative": "Developer: 1717 N Flagler Drive Venture, LLC; Related Group; BH Group Design: Arquitectonica; Rockwell Group interiors; Naturalficial landscape Brand: The Ritz-Carlton",
     "sourceNotes": [
-      "Confidence is medium-high. Public-facing values are usable, with legal parcel and floor-count caveats preserved.",
-      "Public address differs from legal / planning references.",
-      "Public floor count is 27; planning approval references 26.",
-      "Parking, storage, fees, and pet policy remain lightly published.",
-      "Brand expectations should be weighed against final operations."
+      "Ritz-Carlton Residences West Palm Beach is an active North Flagler branded waterfront project.",
+      "Buyer-facing copy uses public-facing project facts and current page disclaimers."
     ],
     "sourceUrls": [
       "https://theresidenceswestpalmbeach.com/"
@@ -576,19 +721,22 @@
           "title": "Residence Collection",
           "beds": "2-3 bedrooms",
           "size": "1,780-2,819 sq ft",
-          "price": "From $2M"
+          "price": "From $2M",
+          "thumbnail": "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-thumb-bw-v01.webp?v=20260529b"
         },
         {
           "title": "Estate Collection",
           "beds": "2-4 bedrooms",
           "size": "2,160-3,500 sq ft",
-          "price": "Request current pricing"
+          "price": "Request current pricing",
+          "thumbnail": "/assets/projects/berkeley/floorplans/berkeley-floorplans-estate-thumb-bw-v01.webp?v=20260529b"
         },
         {
           "title": "Penthouse Collection",
           "beds": "4-5 bedrooms",
           "size": "4,000+ sq ft",
-          "price": "Upper range"
+          "price": "Upper range",
+          "thumbnail": "/assets/projects/berkeley/floorplans/berkeley-floorplans-penthouse-thumb-bw-v01.webp?v=20260529b"
         }
       ],
       "gallery": [

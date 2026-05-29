@@ -1,7 +1,285 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-23T23:39:16.912Z",
+  "updatedAt": "2026-05-28T13:20:05.403Z",
   "items": [
+    {
+      "id": "digest-2026-05-28",
+      "status": "draft",
+      "subject": "West Palm Beach new-construction buyer notes",
+      "intro": "Here are the latest West Palm Beach development notes to help buyers compare timing, corridor fit, and what should be verified before touring.",
+      "storyBlurbs": [
+        {
+          "updateId": "florida-yimby-mandarin-interiors-2026-05-18",
+          "headline": "Mandarin Oriental releases a clearer interior design signal",
+          "blurb": "New Mandarin Oriental renderings give buyers a better read on the project's branded-service and interior-design positioning along North Flagler.",
+          "relatedProjectIds": [
+            "mandarin-oriental"
+          ],
+          "relatedCorridorIds": [
+            "north-flagler"
+          ],
+          "cta": "Compare Mandarin Oriental with North Flagler alternatives",
+          "articlePath": "/updates/florida-yimby-mandarin-interiors-2026-05-18/",
+          "sourceName": "Florida YIMBY",
+          "sourceUrl": "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html"
+        },
+        {
+          "updateId": "wflx-nora-house-2026-04-10",
+          "headline": "NORA House sharpens the downtown/NORA buyer thesis",
+          "blurb": "NORA House gives buyers a walkability-first alternative to Flagler Drive, with the district story becoming as important as the building itself.",
+          "relatedProjectIds": [
+            "nora-house"
+          ],
+          "relatedCorridorIds": [
+            "downtown"
+          ],
+          "cta": "Compare NORA House with downtown and waterfront options",
+          "articlePath": "/updates/wflx-nora-house-2026-04-10/",
+          "sourceName": "WFLX",
+          "sourceUrl": "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/"
+        },
+        {
+          "updateId": "2026-05-23-wpb-vertical-resort-condos",
+          "headline": "In West Palm Beach, luxury condo now means vertical resort",
+          "blurb": "West Palm Beach luxury condo development is shifting from nice building to vertical resort.",
+          "relatedProjectIds": [
+            "ritz-carlton-wpb"
+          ],
+          "relatedCorridorIds": [
+            "south-flagler",
+            "north-flagler",
+            "downtown"
+          ],
+          "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach helps buyers compare West Palm Beach new-construction condos across buildings and corridors.",
+          "articlePath": "/updates/2026-05-23-wpb-vertical-resort-condos/",
+          "sourceName": "New York Post",
+          "sourceUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/"
+        },
+        {
+          "updateId": "2026-05-23-nora-residential-gravity",
+          "headline": "NORA is moving from restaurant buzz to residential gravity",
+          "blurb": "NORA is becoming one of the key lifestyle corridors to watch in West Palm Beach.",
+          "relatedProjectIds": [
+            "nora-house"
+          ],
+          "relatedCorridorIds": [
+            "downtown"
+          ],
+          "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach can help compare NORA, North Flagler, South Flagler, and Downtown based on lifestyle, timing, views, amenities, and long-term fit.",
+          "articlePath": "/updates/2026-05-23-nora-residential-gravity/",
+          "sourceName": "New York Post",
+          "sourceUrl": "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/"
+        },
+        {
+          "updateId": "florida-yimby-ritz-groundbreaking-2026-02-24",
+          "headline": "Ritz-Carlton Residences moves into construction-stage review",
+          "blurb": "The Ritz-Carlton Residences West Palm Beach groundbreaking gives buyers a clearer construction and team signal for the North Flagler shortlist.",
+          "relatedProjectIds": [
+            "ritz-carlton-wpb"
+          ],
+          "relatedCorridorIds": [
+            "north-flagler"
+          ],
+          "cta": "Compare Ritz-Carlton Residences with active North Flagler alternatives",
+          "articlePath": "/updates/florida-yimby-ritz-groundbreaking-2026-02-24/",
+          "sourceName": "Florida YIMBY",
+          "sourceUrl": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html"
+        },
+        {
+          "updateId": "florida-yimby-rosewood-proposal-2026-01",
+          "headline": "Rosewood adds another branded North Flagler signal",
+          "blurb": "Rosewood Residences points to more branded luxury supply on North Flagler, but buyers should treat it as a future project until buyer-ready details are confirmed.",
+          "relatedProjectIds": [
+            "rosewood"
+          ],
+          "relatedCorridorIds": [
+            "north-flagler"
+          ],
+          "cta": "Separate future pipeline from active inventory",
+          "articlePath": "/updates/florida-yimby-rosewood-proposal-2026-01/",
+          "sourceName": "Florida YIMBY",
+          "sourceUrl": "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html"
+        },
+        {
+          "draftId": "2026-05-23-wpb-vertical-resort-condos",
+          "headline": "In West Palm Beach, luxury condo now means vertical resort",
+          "blurb": "West Palm Beach luxury condo development is shifting from nice building to vertical resort.",
+          "relatedProjectIds": [],
+          "relatedCorridorIds": [
+            "south-flagler",
+            "north-flagler",
+            "downtown"
+          ],
+          "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach helps buyers compare West Palm Beach new-construction condos across buildings and corridors.",
+          "sourceName": "New York Post",
+          "sourceUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/"
+        },
+        {
+          "draftId": "2026-05-23-nora-residential-gravity",
+          "headline": "NORA is moving from restaurant buzz to residential gravity",
+          "blurb": "NORA is becoming one of the key lifestyle corridors to watch in West Palm Beach.",
+          "relatedProjectIds": [
+            "nora-house"
+          ],
+          "relatedCorridorIds": [
+            "downtown"
+          ],
+          "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach can help compare NORA, North Flagler, South Flagler, and Downtown based on lifestyle, timing, views, amenities, and long-term fit.",
+          "sourceName": "New York Post",
+          "sourceUrl": "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/"
+        }
+      ],
+      "cta": "Reply with the projects you are watching and we will help separate firm details from early-stage signals.",
+      "sourceLinks": [
+        "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",
+        "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/",
+        "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
+        "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/",
+        "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
+        "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html"
+      ],
+      "createdAt": "2026-05-28T13:20:05.403Z",
+      "updatedAt": "2026-05-28T13:20:05.403Z"
+    },
+    {
+      "id": "digest-2026-05-27",
+      "status": "draft",
+      "subject": "West Palm Beach new-construction buyer notes",
+      "intro": "Here are the latest West Palm Beach development notes to help buyers compare timing, corridor fit, and what should be verified before touring.",
+      "storyBlurbs": [
+        {
+          "updateId": "florida-yimby-mandarin-interiors-2026-05-18",
+          "headline": "Mandarin Oriental releases a clearer interior design signal",
+          "blurb": "New Mandarin Oriental renderings give buyers a better read on the project's branded-service and interior-design positioning along North Flagler.",
+          "relatedProjectIds": [
+            "mandarin-oriental"
+          ],
+          "relatedCorridorIds": [
+            "north-flagler"
+          ],
+          "cta": "Compare Mandarin Oriental with North Flagler alternatives",
+          "articlePath": "/updates/florida-yimby-mandarin-interiors-2026-05-18/",
+          "sourceName": "Florida YIMBY",
+          "sourceUrl": "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html"
+        },
+        {
+          "updateId": "wflx-nora-house-2026-04-10",
+          "headline": "NORA House sharpens the downtown/NORA buyer thesis",
+          "blurb": "NORA House gives buyers a walkability-first alternative to Flagler Drive, with the district story becoming as important as the building itself.",
+          "relatedProjectIds": [
+            "nora-house"
+          ],
+          "relatedCorridorIds": [
+            "downtown"
+          ],
+          "cta": "Compare NORA House with downtown and waterfront options",
+          "articlePath": "/updates/wflx-nora-house-2026-04-10/",
+          "sourceName": "WFLX",
+          "sourceUrl": "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/"
+        },
+        {
+          "updateId": "2026-05-23-wpb-vertical-resort-condos",
+          "headline": "In West Palm Beach, luxury condo now means vertical resort",
+          "blurb": "West Palm Beach luxury condo development is shifting from nice building to vertical resort.",
+          "relatedProjectIds": [
+            "ritz-carlton-wpb"
+          ],
+          "relatedCorridorIds": [
+            "south-flagler",
+            "north-flagler",
+            "downtown"
+          ],
+          "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach helps buyers compare West Palm Beach new-construction condos across buildings and corridors.",
+          "articlePath": "/updates/2026-05-23-wpb-vertical-resort-condos/",
+          "sourceName": "New York Post",
+          "sourceUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/"
+        },
+        {
+          "updateId": "2026-05-23-nora-residential-gravity",
+          "headline": "NORA is moving from restaurant buzz to residential gravity",
+          "blurb": "NORA is becoming one of the key lifestyle corridors to watch in West Palm Beach.",
+          "relatedProjectIds": [
+            "nora-house"
+          ],
+          "relatedCorridorIds": [
+            "downtown"
+          ],
+          "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach can help compare NORA, North Flagler, South Flagler, and Downtown based on lifestyle, timing, views, amenities, and long-term fit.",
+          "articlePath": "/updates/2026-05-23-nora-residential-gravity/",
+          "sourceName": "New York Post",
+          "sourceUrl": "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/"
+        },
+        {
+          "updateId": "florida-yimby-ritz-groundbreaking-2026-02-24",
+          "headline": "Ritz-Carlton Residences moves into construction-stage review",
+          "blurb": "The Ritz-Carlton Residences West Palm Beach groundbreaking gives buyers a clearer construction and team signal for the North Flagler shortlist.",
+          "relatedProjectIds": [
+            "ritz-carlton-wpb"
+          ],
+          "relatedCorridorIds": [
+            "north-flagler"
+          ],
+          "cta": "Compare Ritz-Carlton Residences with active North Flagler alternatives",
+          "articlePath": "/updates/florida-yimby-ritz-groundbreaking-2026-02-24/",
+          "sourceName": "Florida YIMBY",
+          "sourceUrl": "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html"
+        },
+        {
+          "updateId": "florida-yimby-rosewood-proposal-2026-01",
+          "headline": "Rosewood adds another branded North Flagler signal",
+          "blurb": "Rosewood Residences points to more branded luxury supply on North Flagler, but buyers should treat it as a future project until buyer-ready details are confirmed.",
+          "relatedProjectIds": [
+            "rosewood"
+          ],
+          "relatedCorridorIds": [
+            "north-flagler"
+          ],
+          "cta": "Separate future pipeline from active inventory",
+          "articlePath": "/updates/florida-yimby-rosewood-proposal-2026-01/",
+          "sourceName": "Florida YIMBY",
+          "sourceUrl": "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html"
+        },
+        {
+          "draftId": "2026-05-23-wpb-vertical-resort-condos",
+          "headline": "In West Palm Beach, luxury condo now means vertical resort",
+          "blurb": "West Palm Beach luxury condo development is shifting from nice building to vertical resort.",
+          "relatedProjectIds": [],
+          "relatedCorridorIds": [
+            "south-flagler",
+            "north-flagler",
+            "downtown"
+          ],
+          "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach helps buyers compare West Palm Beach new-construction condos across buildings and corridors.",
+          "sourceName": "New York Post",
+          "sourceUrl": "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/"
+        },
+        {
+          "draftId": "2026-05-23-nora-residential-gravity",
+          "headline": "NORA is moving from restaurant buzz to residential gravity",
+          "blurb": "NORA is becoming one of the key lifestyle corridors to watch in West Palm Beach.",
+          "relatedProjectIds": [
+            "nora-house"
+          ],
+          "relatedCorridorIds": [
+            "downtown"
+          ],
+          "cta": "Brooke Snader with the Scott Gordon Group at Douglas Elliman Palm Beach can help compare NORA, North Flagler, South Flagler, and Downtown based on lifestyle, timing, views, amenities, and long-term fit.",
+          "sourceName": "New York Post",
+          "sourceUrl": "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/"
+        }
+      ],
+      "cta": "Reply with the projects you are watching and we will help separate firm details from early-stage signals.",
+      "sourceLinks": [
+        "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html",
+        "https://www.wflx.com/2026/04/10/empty-lots-luxury-living-multimillion-dollar-condos-coming-west-palm-beachs-growing-nora-district/",
+        "https://nypost.com/2026/03/26/real-estate/west-palm-beach-sees-luxury-condo-boom/",
+        "https://nypost.com/2026/03/26/lifestyle/what-to-see-and-do-in-west-palm-beachs-nora-district/",
+        "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html",
+        "https://floridayimby.com/2026/01/developers-propose-luxury-27-story-for-2001-n-flagler-dr-west-palm-beach-fl.html"
+      ],
+      "createdAt": "2026-05-27T13:20:07.304Z",
+      "updatedAt": "2026-05-27T13:20:07.304Z"
+    },
     {
       "id": "digest-2026-05-23",
       "status": "draft",

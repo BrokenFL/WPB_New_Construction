@@ -16,6 +16,7 @@ export type ProjectShowcaseResidence = {
   beds: string;
   size: string;
   price: string;
+  thumbnail?: string;
 };
 
 export type ProjectShowcaseAmenity = {
@@ -43,6 +44,7 @@ export type ProjectShowcaseConfig = {
   titleLines?: string[];
   visualBreak?: ProjectShowcaseImage;
   neighborhoodImage?: ProjectShowcaseImage;
+  neighborhoodHeadline?: string;
   gallery?: ProjectShowcaseImage[];
   residenceCollections?: ProjectShowcaseResidence[];
   amenityHighlights?: ProjectShowcaseAmenity[];
