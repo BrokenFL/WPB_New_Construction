@@ -226,6 +226,8 @@ type ProjectPageDraft = {
 type GoogleMapsNamespace = {
   Map: new (element: HTMLElement, options: Record<string, unknown>) => {
     fitBounds: (bounds: unknown, padding?: number) => void;
+    setCenter: (center: { lat: number; lng: number }) => void;
+    setZoom: (zoom: number) => void;
     addListener: (eventName: string, handler: () => void) => void;
   };
   LatLngBounds: new () => {
@@ -5960,14 +5962,16 @@ function initHeroGoogleMap() {
       card.dataset.mapState = "ready";
       const AdvancedMarkerElement = await loadAdvancedMarkerElement(maps);
       if (!canvas.isConnected) return;
-      const map = new maps.Map(canvas, googleMapBaseOptions({ lat: 26.7134, lng: -80.0564 }, 13));
+      const focusProject = rankedFeaturedProjects.find((project) => project.id === card.dataset.focusProjectId);
+      const focusPosition = focusProject ? { lat: focusProject.latitude, lng: focusProject.longitude } : undefined;
+      const map = new maps.Map(canvas, googleMapBaseOptions(focusPosition ?? { lat: 26.7134, lng: -80.0564 }, focusPosition ? 15 : 13));
       let expanded = false;
       let markers: GoogleMarkerHandle[] = [];
 
       const renderMarkers = () => {
         markers.forEach((marker) => marker.clear());
         markers = [];
-        const projects = validMapProjects(expanded ? rankedFeaturedProjects : rankedFeaturedProjects.slice(0, 7));
+        const projects = validMapProjects(focusProject && !expanded ? [focusProject] : expanded ? rankedFeaturedProjects : rankedFeaturedProjects.slice(0, 7));
         if (!projects.length) {
           setGoogleMapFallback();
           return;
@@ -5982,7 +5986,7 @@ function initHeroGoogleMap() {
             map,
             position,
             `${project.name} · ${project.corridor} project`,
-            index < 7 ? "primary" : "secondary",
+            project.id === focusProject?.id || index < 7 ? "primary" : "secondary",
             () => {
               window.location.assign(projectPath(project));
             },
@@ -5990,6 +5994,12 @@ function initHeroGoogleMap() {
           );
           markers.push(marker);
         });
+
+        if (focusProject && !expanded && focusPosition) {
+          map.setCenter(focusPosition);
+          map.setZoom(15);
+          return;
+        }
 
         map.fitBounds(bounds, expanded ? 44 : 56);
       };
@@ -7639,7 +7649,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <section class="berkeley-neighborhood-section" id="berkeley-neighborhood">
         <div><p class="berkeley-kicker">The Neighborhood</p><h2>Connected to downtown, Palm Beach, and daily convenience.</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="/map/">Explore the neighborhood <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-google-map berkeley-project-map">
-          <aside class="home-hero-map-card berkeley-map-card" aria-label="West Palm Beach development map">
+          <aside class="home-hero-map-card berkeley-map-card" data-focus-project-id="${project.id}" aria-label="West Palm Beach development map centered on ${publicText(project.name)}">
             <figure class="hero-map-preview">
               <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
               <button class="hero-map-expand" type="button" data-map-expand>Show all developments</button>
@@ -7652,6 +7662,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
               <span>tracked West Palm Beach new-construction projects</span>
             </div>
           </aside>
+          <p class="berkeley-map-address">${publicText(copyFactValue(copyPackage, /^address$/i, project.address))}</p>
           <a href="/map/">Open full project map <span aria-hidden="true">→</span></a>
         </div>
       </section>
