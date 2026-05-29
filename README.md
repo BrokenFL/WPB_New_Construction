@@ -57,6 +57,33 @@ Build before publishing:
 npm run build
 ```
 
+## Editorial Showcase Project Template
+
+The Berkeley page is the first approved version of the reusable editorial showcase template. It is enabled from `public/data/project-copy-package.json` with:
+
+```json
+{
+  "pageTemplate": "editorial-showcase",
+  "showcase": {
+    "template": "editorial-showcase"
+  }
+}
+```
+
+The renderer is `renderEditorialShowcaseProjectPage(...)` in `src/main.ts`. It feeds from the normal project record plus the optional `showcase` schema block in `src/data/projectCopyPackage.ts`.
+
+Use this structure when duplicating the template:
+
+- `heroEyebrow`, `heroBlurb`, `monogram`, and `titleLines` control the hero copy.
+- `visualBreak` is the wide image between the fact strip and residence cards.
+- `residenceCollections` controls the three collection cards and links through to floor plan inquiry.
+- `gallery` controls the larger horizontal image band after residences.
+- `amenityHighlights` controls the compact two-row icon amenity grid. Use icon keys already supported by `berkeleyIcon(...)`.
+- `neighborhoodImage` controls the wide image before the map section.
+- `projectTeam` controls the developer / architect / interior / landscape strip below the map.
+
+Template assets should live under `public/assets/projects/<project-id>/showcase/` after they are approved for website use. Keep the image set strong enough for the layout before enabling the template on another project.
+
 ## Live Publishing
 
 Any site change should end with the live publish flow, not just a local build:

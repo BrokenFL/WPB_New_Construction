@@ -1,8 +1,66 @@
-export type ProjectCopyConfidence = "high" | "medium" | "needs-source-confirmation";
+export type ProjectCopyConfidence = "high" | "medium-high" | "medium" | "medium-low" | "low-medium" | "needs-source-confirmation";
+
+export type ProjectQuickFact = {
+  label: string;
+  value: string;
+};
+
+export type ProjectShowcaseImage = {
+  src: string;
+  label: string;
+  alt?: string;
+};
+
+export type ProjectShowcaseResidence = {
+  title: string;
+  beds: string;
+  size: string;
+  price: string;
+};
+
+export type ProjectShowcaseAmenity = {
+  icon: string;
+  label: string;
+};
+
+export type ProjectShowcaseTeamFact = {
+  label: string;
+  value: string;
+};
+
+export type ProjectShowcaseConfig = {
+  template: "editorial-showcase";
+  heroEyebrow?: string;
+  heroBlurb?: string;
+  monogram?: string;
+  titleLines?: string[];
+  visualBreak?: ProjectShowcaseImage;
+  neighborhoodImage?: ProjectShowcaseImage;
+  gallery?: ProjectShowcaseImage[];
+  residenceCollections?: ProjectShowcaseResidence[];
+  amenityHighlights?: ProjectShowcaseAmenity[];
+  projectTeam?: ProjectShowcaseTeamFact[];
+};
 
 export type ProjectCopyPackage = {
   slug: string;
   repoProjectId: string;
+  pageTemplate?: "editorial-showcase";
+  showcase?: ProjectShowcaseConfig;
+  heroHeadline?: string;
+  heroSubheadline?: string;
+  overview?: string;
+  quickFacts?: ProjectQuickFact[];
+  residences?: string;
+  amenities?: string;
+  location?: string;
+  localTake?: string;
+  tradeoffs?: string[];
+  confidenceNote?: string;
+  seoTitle?: string;
+  metaDescription?: string;
+  badge?: string;
+  tags?: string[];
   introHeadline: string;
   introDek: string;
   brookeTake: string;

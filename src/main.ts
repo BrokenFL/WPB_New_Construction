@@ -5627,6 +5627,21 @@ function publicText(value: unknown) {
   return escapeHtml(gatekeeperText(value));
 }
 
+function projectCopyFact(copyPackage: ProjectCopyPackage | undefined, labelPattern: RegExp) {
+  return copyPackage?.quickFacts?.find((fact) => labelPattern.test(fact.label))?.value;
+}
+
+function isBuyerFacingValue(value: unknown) {
+  const text = String(value ?? "").trim();
+  if (!text) return false;
+  return !/^(null|undefined|unknown|n\/a|na|tbd|none)$/i.test(text)
+    && !/not (yet )?publicly confirmed|needs verification|verify$|^verify\b|^request$|request current|available on request|confirm before|confirm with|not released|timing not released|on request/i.test(text);
+}
+
+function copyFactValue(copyPackage: ProjectCopyPackage | undefined, labelPattern: RegExp, fallback = "") {
+  return projectCopyFact(copyPackage, labelPattern) ?? fallback;
+}
+
 function teamLogoForCredit(name: string): MediaAsset | undefined {
   const normalizedName = name.toLowerCase();
   if (normalizedName.includes("related ross")) {
@@ -7513,9 +7528,123 @@ function locationImageForProject(project: FeaturedProject): string | undefined {
   return undefined;
 }
 
+function berkeleyIcon(name: string) {
+  const paths: Record<string, string> = {
+    residence: '<path d="M4 20h16"/><path d="M6 20V7l8-3 4 2v14"/><path d="M9 10h2"/><path d="M9 14h2"/><path d="M14 10h2"/><path d="M14 14h2"/>',
+    stories: '<path d="M5 17h14"/><path d="M7 13h10"/><path d="M9 9h6"/><path d="M11 5h2"/>',
+    price: '<path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z"/><circle cx="15" cy="8" r="1"/>',
+    bed: '<path d="M4 18V7"/><path d="M20 18v-5a3 3 0 0 0-3-3H4"/><path d="M4 13h16"/><path d="M8 10V8h4v2"/>',
+    status: '<path d="M4 19V5"/><path d="M4 7h12l-2 4 2 4H4"/><path d="M19 19H3"/>',
+    pool: '<path d="M4 16c2 0 2 1.5 4 1.5s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><path d="M7 12V5"/><path d="M7 5h6a3 3 0 0 1 3 3v4"/>',
+    cabana: '<path d="M4 11c2.5-4 13.5-4 16 0"/><path d="M12 7v12"/><path d="M6 19h12"/><path d="M8 13h8"/>',
+    fitness: '<path d="M6 8v8"/><path d="M18 8v8"/><path d="M3 10v4"/><path d="M21 10v4"/><path d="M6 12h12"/>',
+    spa: '<path d="M12 19c4-3 6-6 6-10-4 0-6 2-6 6 0-4-2-6-6-6 0 4 2 7 6 10Z"/><path d="M12 19v-6"/>',
+    wellness: '<path d="M12 21s7-4.5 7-11a4 4 0 0 0-7-2.7A4 4 0 0 0 5 10c0 6.5 7 11 7 11Z"/><path d="M9 13h6"/><path d="M12 10v6"/>',
+    dining: '<path d="M6 3v8"/><path d="M10 3v8"/><path d="M8 11v10"/><path d="M18 3v18"/><path d="M14 8h4"/>',
+    work: '<rect x="4" y="5" width="16" height="12" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>',
+    golf: '<path d="M6 20h12"/><path d="M9 18c2-2 4-2 6 0"/><path d="M12 4v10"/><path d="M12 4l5 2-5 2"/>',
+    plan: '<rect x="4" y="4" width="16" height="16" rx="1"/><path d="M9 4v7"/><path d="M4 11h8"/><path d="M12 11v9"/><path d="M12 15h8"/><path d="M16 15v5"/>',
+    valet: '<path d="M12 3a5 5 0 0 1 5 5c0 4-5 10-5 10S7 12 7 8a5 5 0 0 1 5-5Z"/><circle cx="12" cy="8" r="1.5"/>',
+    pet: '<circle cx="6" cy="9" r="1.5"/><circle cx="10" cy="6" r="1.5"/><circle cx="14" cy="6" r="1.5"/><circle cx="18" cy="9" r="1.5"/><path d="M8 16c1-3 7-3 8 0 1.2 3-9.2 3-8 0Z"/>',
+  };
+  return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name] ?? paths.residence}</svg>`;
+}
+
+function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackage?: ProjectCopyPackage) {
+  const showcase = copyPackage?.showcase;
+  const heroImage = getProjectHeroAsset(project)?.src ?? project.heroImage ?? project.image ?? siteMeta.defaultImage;
+  const facts = [
+    { icon: "status", value: copyFactValue(copyPackage, /^status$/i, project.status), label: "Status" },
+    { icon: "residence", value: copyFactValue(copyPackage, /residences/i, project.residences), label: "Residences" },
+    { icon: "stories", value: copyFactValue(copyPackage, /floors/i, "25"), label: "Stories" },
+    { icon: "bed", value: copyFactValue(copyPackage, /bedrooms/i, "2-5"), label: "Bedrooms" },
+    { icon: "price", value: copyFactValue(copyPackage, /price/i, project.price).replace(" to over ", " to "), label: "Pricing" },
+  ].filter((fact) => isBuyerFacingValue(fact.value));
+  const heroBlurb = showcase?.heroBlurb ?? copyPackage?.heroSubheadline ?? project.summary;
+  const gallery = showcase?.gallery ?? [];
+  const residences = showcase?.residenceCollections ?? [];
+  const amenities = showcase?.amenityHighlights ?? [];
+  const teamFacts = (showcase?.projectTeam ?? []).filter((fact) => isBuyerFacingValue(fact.value));
+  const visualBreak = showcase?.visualBreak ?? gallery[0];
+  const neighborhoodImage = showcase?.neighborhoodImage;
+  const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
+  const mapQuery = encodeURIComponent(copyFactValue(copyPackage, /^address$/i, project.address));
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+
+  return `
+    <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" hidden>
+      <nav class="berkeley-topbar" aria-label="Project navigation">
+        <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
+          <span class="berkeley-brand-mark" aria-hidden="true">WPB</span>
+          <span class="berkeley-brand-copy"><strong>WPB</strong><em>New Construction</em></span>
+        </a>
+        <div>
+          <a href="/#projects">Projects</a>
+          <a href="/map/">Neighborhoods</a>
+          <a href="/market-notes/">Buyers</a>
+          <a href="/inquire/">About Brooke</a>
+          <a href="/floorplans/">Resources</a>
+        </div>
+        <a class="berkeley-phone" href="${advisorProfile.mobileHref}" aria-label="Call Brooke">${berkeleyIcon("valet")}</a>
+        <a class="berkeley-inquire" href="/inquire/?project=${project.id}&interest=availability">Inquire now <span aria-hidden="true">→</span></a>
+      </nav>
+
+      <section class="berkeley-hero-clean">
+        <img src="${safeHref(heroImage)}" alt="${publicText(`${project.name} hero rendering`)}" loading="eager" decoding="async" fetchpriority="high" />
+        <div class="berkeley-hero-shade"></div>
+        <div class="berkeley-hero-content">
+          <div class="berkeley-monogram" aria-hidden="true">${publicText(showcase?.monogram ?? project.name.slice(0, 1))}</div>
+          <p>${publicText(showcase?.heroEyebrow ?? project.corridor)}</p>
+          <h1>${titleLines.map((line) => publicText(line)).join("<br />")}</h1>
+          <h2>${publicText(copyPackage?.heroHeadline ?? project.name)}</h2>
+          <p class="berkeley-hero-copy">${publicText(heroBlurb)}</p>
+          <div class="berkeley-hero-actions">
+            <a class="button primary" href="/inquire/?project=${project.id}&interest=pricing">Request pricing <span aria-hidden="true">→</span></a>
+            <a class="button ghost" href="#berkeley-residences">View residences</a>
+            <a class="button ghost" href="#berkeley-neighborhood">Schedule a tour</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="berkeley-fact-strip" aria-label="Key project facts">
+        ${facts.map((fact) => `<article>${berkeleyIcon(fact.icon)}<span>${publicText(fact.label)}</span><strong>${publicText(fact.value)}</strong></article>`).join("")}
+      </section>
+
+      ${visualBreak ? `<figure class="berkeley-patio-break"><img src="${safeHref(visualBreak.src)}" alt="${publicText(visualBreak.alt ?? `${project.name} ${visualBreak.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
+
+      <section class="berkeley-residence-section" id="berkeley-residences">
+        <div class="berkeley-section-heading"><p class="berkeley-kicker">Residences</p><a href="/inquire/?project=${project.id}&interest=floorplans">View all floor plans <span aria-hidden="true">→</span></a></div>
+        <div class="berkeley-residence-grid">
+          ${residences.map((item) => `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="/inquire/?project=${project.id}&interest=floorplans">${publicText(item.price)} <span aria-hidden="true">→</span></a></div><div class="berkeley-plan-placeholder" aria-hidden="true">${berkeleyIcon("plan")}</div></article>`).join("")}
+        </div>
+      </section>
+
+      ${gallery.length ? `<section class="berkeley-gallery-row berkeley-gallery-slideshow" aria-label="Project image gallery"><div class="berkeley-section-heading"><p class="berkeley-kicker">Gallery</p><a href="#berkeley-gallery">View all images <span aria-hidden="true">→</span></a></div><div class="berkeley-image-row" id="berkeley-gallery">${gallery.map((item) => `<figure><img src="${safeHref(item.src)}" alt="${publicText(item.alt ?? `${project.name} ${item.label}`)}" loading="lazy" decoding="async" /><figcaption>${publicText(item.label)}</figcaption></figure>`).join("")}</div></section>` : ""}
+
+      ${amenities.length ? `<section class="berkeley-amenity-rail" aria-label="Highlighted amenities"><div class="berkeley-section-heading"><p class="berkeley-kicker">Amenities</p></div><div class="berkeley-amenity-icon-grid">${amenities.map((amenity) => `<article>${berkeleyIcon(amenity.icon)}<span>${publicText(amenity.label)}</span></article>`).join("")}</div></section>` : ""}
+
+      ${neighborhoodImage ? `<figure class="berkeley-image-break"><img src="${safeHref(neighborhoodImage.src)}" alt="${publicText(neighborhoodImage.alt ?? `${project.name} ${neighborhoodImage.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
+
+      <section class="berkeley-neighborhood-section" id="berkeley-neighborhood">
+        <div><p class="berkeley-kicker">The Neighborhood</p><h2>Connected to downtown, Palm Beach, and daily convenience.</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="/map/">Explore the neighborhood <span aria-hidden="true">→</span></a></div>
+        <div class="berkeley-google-map"><iframe title="Google Map showing ${publicText(project.name)} location" src="https://www.google.com/maps?q=${mapQuery}&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a href="${safeHref(mapUrl)}" target="_blank" rel="noopener">Open in Google Maps <span aria-hidden="true">→</span></a></div>
+      </section>
+
+      ${teamFacts.length ? `<section class="berkeley-team-section" aria-label="Project team"><p>${teamFacts.map((fact) => `<span><small>${escapeHtml(fact.label)}:</small> ${publicText(fact.value)}</span>`).join("")}</p></section>` : ""}
+
+      <section class="berkeley-brooke-card" aria-label="Local take"><div><p class="berkeley-kicker">Local Take</p><p>${publicText(copyPackage?.localTake ?? copyPackage?.brookeTake ?? project.summary)}</p></div><div class="berkeley-brooke-profile"><div><h3>Brooke Snader</h3><p>Douglas Elliman</p></div></div><ul><li>${advisorProfile.mobile}</li><li>${advisorProfile.email}</li><li>wpbnewconstruction.com</li></ul></section>
+
+      <section class="berkeley-final-cta"><div><h2>Let's find your right residence.</h2><p>Get current pricing, floor plans, availability, and buyer notes.</p></div><a class="button primary" href="/inquire/?project=${project.id}&interest=availability">Inquire now <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
+    </div>
+  `;
+}
+
 function renderDraftProjectPage(project: FeaturedProject) {
   const draft = editorProjectPageDrafts[project.id] ?? projectDraftFromFeatured(project);
   const copyPackage = batch1ProjectCopyByProjectId.get(project.id);
+  if (copyPackage?.pageTemplate === "editorial-showcase" || copyPackage?.showcase?.template === "editorial-showcase") {
+    return renderEditorialShowcaseProjectPage(project, copyPackage);
+  }
   const intel = localIntelligence[project.id];
   const floorplanProject = getFloorplanProject(project.id);
   const floorplanCount = floorplanProject?.count ?? 0;

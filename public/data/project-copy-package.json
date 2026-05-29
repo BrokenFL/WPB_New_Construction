@@ -1,180 +1,2127 @@
 [
   {
-    "slug": "south-flagler-house",
-    "repoProjectId": "south-flagler-house",
-    "introHeadline": "A composed South Flagler address with Palm Beach-adjacent scale.",
-    "introDek": "South Flagler House is the formal South Flagler entry in West Palm Beach's condo pipeline: RAMSA architecture, a lake-facing setting, and a private-club amenity program built around long-term residence.",
-    "brookeTake": "South Flagler House is for buyers who want Palm Beach architectural cues translated into a staffed condominium. The draw is the combination of Robert A.M. Stern architecture, Related Ross execution, Pembrooke & Ives interiors, and a quieter South Flagler posture.",
+    "slug": "alba-palm-beach",
+    "repoProjectId": "alba-palm-beach",
+    "heroHeadline": "Boutique Waterfront Living on North Flagler",
+    "heroSubheadline": "Alba Palm Beach is a 55-residence waterfront condominium on North Flagler Drive, offering a smaller-scale alternative to West Palm Beach larger luxury towers.",
+    "overview": "Alba is an under-construction boutique waterfront project with 55 residences. It is best suited for buyers who want new construction, direct waterfront positioning, strong outdoor space, and a quieter building profile.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "4714 N. Flagler Drive, West Palm Beach, FL 33407"
+      },
+      {
+        "label": "Status",
+        "value": "Under Construction"
+      },
+      {
+        "label": "Developer",
+        "value": "BGI Companies; Blue Road Group"
+      },
+      {
+        "label": "Design",
+        "value": "Spina O Rourke + Partners; Schmidt Nichols landscape"
+      },
+      {
+        "label": "Residences",
+        "value": "55"
+      },
+      {
+        "label": "Floors",
+        "value": "22"
+      },
+      {
+        "label": "Price Range",
+        "value": "$2.5M-$7.8M"
+      },
+      {
+        "label": "Delivery",
+        "value": "Spring 2026 estimated"
+      },
+      {
+        "label": "Size Range",
+        "value": "1,778-4,500 sq. ft."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "2-4"
+      }
+    ],
+    "residences": "Residences include 2- to 4-bedroom layouts with oversized glass-framed terraces, impact glass, Italkraft kitchens, Sub-Zero and Wolf appliances, smart-home prewiring, summer kitchens, spa-style baths, and private elevators or vestibules. Select townhomes include private plunge pool / hot tub features.",
+    "amenities": "Amenities include staffed lobby, valet, private dining with wine storage, conference / business center, sunrise and sunset pools, TechnoGym fitness / yoga / Pilates, bocce, lawn chess, pet spa, lounge / library, catering kitchen, simulator, screening room, spa, cold-storage package room, and climate-controlled storage.",
+    "location": "Alba sits on the North Flagler waterfront, north of downtown West Palm Beach. The location fits buyers who want water access without being in the center of downtown.",
+    "localTake": "Alba is for the buyer who wants new waterfront construction without the social volume of a large luxury tower. The tradeoff is inventory: boutique buildings have fewer choices when buyers get serious.",
+    "tradeoffs": [
+      "Smaller inventory may mean limited availability.",
+      "Pricing should be refreshed before publication.",
+      "Delivery timing should be verified close to launch.",
+      "Formal pet policy is not fully verified."
+    ],
+    "confidenceNote": "Confidence is high. Main caveat is timing: one source referenced 2025 delivery, while the recommended value is Spring 2026 estimated.",
+    "seoTitle": "Alba Palm Beach | North Flagler New Construction Condos",
+    "metaDescription": "Explore Alba Palm Beach, a boutique North Flagler waterfront condo with 55 residences, private terraces, amenities, and Spring 2026 delivery.",
+    "badge": "Under Construction",
+    "tags": [
+      "north-flagler",
+      "waterfront",
+      "boutique-condo",
+      "luxury-condo",
+      "under-construction",
+      "new-construction",
+      "valet",
+      "private-terraces"
+    ],
+    "introHeadline": "Boutique Waterfront Living on North Flagler",
+    "introDek": "Alba Palm Beach is a 55-residence waterfront condominium on North Flagler Drive, offering a smaller-scale alternative to West Palm Beach larger luxury towers.",
+    "brookeTake": "Alba is for the buyer who wants new waterfront construction without the social volume of a large luxury tower. The tradeoff is inventory: boutique buildings have fewer choices when buyers get serious.",
     "bestFor": [
-      "Buyers who want a grand but composed waterfront address",
-      "Palm Beach-oriented buyers who want condo service without losing traditional architectural character",
-      "Clients comparing South Flagler calm against North Flagler resort energy",
-      "Buyers who care about architectural pedigree and long-term resale audience"
+      "Boutique waterfront buyers",
+      "North Flagler buyers",
+      "Buyers who value dock / water access",
+      "Buyers wanting newer construction with fewer residences"
     ],
     "signatureFeatures": [
-      "Designed by Robert A.M. Stern Architects",
-      "Developed by Related Ross",
-      "Interiors by Pembrooke & Ives",
-      "108 residences including larger homes, penthouses, and guest-suite options",
-      "Approximately 50,000 square feet of private club amenities",
-      "Lakefront pool, cabanas, spa, hydrotherapy, salon, fitness, dining, and sports simulator lounge"
+      "Residences: 55",
+      "Floors: 22",
+      "Price Range: $2.5M-$7.8M",
+      "Delivery: Spring 2026 estimated",
+      "Bedrooms: 2-4"
     ],
-    "amenityNarrative": "The amenity program is best understood as a private club layered into a residential building. Rather than relying on one headline feature, South Flagler House stacks wellness, dining, pool, salon, fitness, and social spaces into a complete daily-life setting.",
-    "residenceNarrative": "The residences are positioned for buyers who want scale, traditional luxury cues, and a more permanent sense of home. Larger layouts, penthouse offerings, and guest-suite options make the project relevant for buyers replacing a Palm Beach house or adding a West Palm Beach residence with similar formality.",
-    "locationNarrative": "South Flagler is its own lane. It is close to Palm Beach, Worth Avenue, Royal Poinciana Plaza, and the Norton Museum, but it feels more residential than the increasingly active North Flagler and Downtown corridors.",
-    "buyerComparisonNotes": "Compare South Flagler House against Shorecrest and Edgeworth for the Related Ross waterfront pipeline, against Olara for resort/marina lifestyle, and against Ritz-Carlton Residences for branded-service North Flagler living. South Flagler House is the more formal, estate-inspired option in that set.",
-    "projectTeamNarrative": "The team is central to the pitch: Related Ross as developer, Robert A.M. Stern Architects for the architecture, Pembrooke & Ives for interiors, and SMI Landscape Architecture for the outdoor setting. Together, the project leans into permanence and Palm Beach-adjacent formality rather than a glass-tower identity.",
+    "amenityNarrative": "Amenities include staffed lobby, valet, private dining with wine storage, conference / business center, sunrise and sunset pools, TechnoGym fitness / yoga / Pilates, bocce, lawn chess, pet spa, lounge / library, catering kitchen, simulator, screening room, spa, cold-storage package room, and climate-controlled storage.",
+    "residenceNarrative": "Residences include 2- to 4-bedroom layouts with oversized glass-framed terraces, impact glass, Italkraft kitchens, Sub-Zero and Wolf appliances, smart-home prewiring, summer kitchens, spa-style baths, and private elevators or vestibules. Select townhomes include private plunge pool / hot tub features.",
+    "locationNarrative": "Alba sits on the North Flagler waterfront, north of downtown West Palm Beach. The location fits buyers who want water access without being in the center of downtown.",
+    "buyerComparisonNotes": "Boutique waterfront buyers North Flagler buyers Buyers who value dock / water access Buyers wanting newer construction with fewer residences Smaller inventory may mean limited availability. Pricing should be refreshed before publication. Delivery timing should be verified close to launch. Formal pet policy is not fully verified.",
+    "projectTeamNarrative": "Developer: BGI Companies; Blue Road Group Design: Spina O Rourke + Partners; Schmidt Nichols landscape",
     "sourceNotes": [
-      "Developer source positions the project as a legacy-style waterfront address inspired by Palm Beach's grand estates.",
-      "Verify current pricing, availability, and construction status before publishing any time-sensitive details."
+      "Confidence is high. Main caveat is timing: one source referenced 2025 delivery, while the recommended value is Spring 2026 estimated.",
+      "Smaller inventory may mean limited availability.",
+      "Pricing should be refreshed before publication.",
+      "Delivery timing should be verified close to launch.",
+      "Formal pet policy is not fully verified."
     ],
     "sourceUrls": [
-      "https://www.southflaglerhouse.com/"
+      "https://www.albapalmbeach.com/"
     ],
-    "lastCopyResearchDate": "2026-05-23",
+    "lastCopyResearchDate": "2026-05-28",
     "copyConfidence": "high"
   },
   {
     "slug": "olara-west-palm-beach",
     "repoProjectId": "olara",
-    "introHeadline": "North Flagler living with marina, wellness, and culinary energy.",
-    "introDek": "Olara is the active North Flagler choice: expansive amenities, private marina context, wellness programming, and a Jose Andres culinary partnership along the Intracoastal.",
-    "brookeTake": "Olara is for the buyer who wants the building to feel alive. This is not the quiet-estate version of West Palm Beach; it is more social, food-and-wellness driven, and tied to the future of North Flagler as a lifestyle corridor.",
+    "heroHeadline": "A Full-Service Waterfront Tower on North Flagler",
+    "heroSubheadline": "Olara is one of North Flagler larger new waterfront condominium projects, with 275 residences, extensive amenities, and a service-forward residential model.",
+    "overview": "Olara is active / under construction and positioned as an amenity-rich waterfront project. It fits buyers who want services, wellness, guest suites, dockage, and a larger residential community.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "1919 N Flagler Drive, West Palm Beach, FL 33407"
+      },
+      {
+        "label": "Status",
+        "value": "Under Construction"
+      },
+      {
+        "label": "Developer",
+        "value": "Savanna"
+      },
+      {
+        "label": "Design",
+        "value": "Arquitectonica; Gabellini Sheppard interiors; EDSA landscape"
+      },
+      {
+        "label": "Residences",
+        "value": "275"
+      },
+      {
+        "label": "Floors",
+        "value": "26"
+      },
+      {
+        "label": "Price Range",
+        "value": "$2M-$7.5M"
+      },
+      {
+        "label": "Delivery",
+        "value": "2027"
+      },
+      {
+        "label": "Size Range",
+        "value": "1,477-4,097 sq. ft."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "2-4"
+      }
+    ],
+    "residences": "Residences include 2- to 4-bedroom layouts with floor-to-ceiling windows, 10-foot-deep terraces, European kitchens, Calacatta marble counters, professional-grade appliances, gas cooktops, butler closets, spa-style bathrooms, wide-plank oak floors, and Italian porcelain terrace tile.",
+    "amenities": "Amenities include nearly 80,000 sq. ft. of amenity space, a sixth-floor deck, restaurant / epicurean marketplace, 12 guest suites, private five-slip dock, leisure and lap pools, fitness by The Wright Fit, recovery spa, onsen, plunge pools, meditation, sauna / steam, private dining, game room, library / veranda, simulator, private offices, coworking, concierge, valet, house car, and resident app.",
+    "location": "Olara sits on the North Flagler waterfront, north of downtown and within one of West Palm Beach most active luxury development corridors.",
+    "localTake": "Olara is the give me the services building. If a buyer wants big amenities, guest suites, valet, wellness, and water, this belongs in the conversation.",
+    "tradeoffs": [
+      "Larger scale may not suit boutique-building buyers.",
+      "Delivery timing should be rechecked.",
+      "Pricing and availability are subject to change.",
+      "Pet policy still needs final verification."
+    ],
+    "confidenceNote": "Confidence is high. A timing conflict exists between earlier completion language and the recommended 2027 delivery value.",
+    "seoTitle": "Olara West Palm Beach | North Flagler Waterfront Condos",
+    "metaDescription": "Olara West Palm Beach is a large-scale North Flagler waterfront condominium with 275 residences, deep amenities, dockage, and 2027 delivery.",
+    "badge": "Under Construction",
+    "tags": [
+      "north-flagler",
+      "waterfront",
+      "luxury-condo",
+      "under-construction",
+      "amenity-rich",
+      "guest-suites",
+      "dockage",
+      "service-forward",
+      "new-construction"
+    ],
+    "introHeadline": "A Full-Service Waterfront Tower on North Flagler",
+    "introDek": "Olara is one of North Flagler larger new waterfront condominium projects, with 275 residences, extensive amenities, and a service-forward residential model.",
+    "brookeTake": "Olara is the give me the services building. If a buyer wants big amenities, guest suites, valet, wellness, and water, this belongs in the conversation.",
     "bestFor": [
-      "Buyers who want active waterfront living",
-      "Boaters or water-oriented buyers drawn to private marina access",
-      "Clients who value wellness, dining, service, and amenity volume",
-      "Buyers comparing North Flagler momentum against South Flagler composure"
+      "Amenity-driven buyers",
+      "Service-focused buyers",
+      "North Flagler waterfront shoppers",
+      "Buyers wanting guest suites and dockage",
+      "Buyers comfortable with a larger building"
     ],
     "signatureFeatures": [
-      "North Flagler Drive waterfront location along the Intracoastal",
-      "Private marina",
-      "More than 80,000 square feet of wellness and leisure amenities",
-      "Signature dining associated with Chef Jose Andres",
-      "Architecture by Arquitectonica",
-      "Interiors by Gabellini Sheppard",
-      "Lap and leisure pool, spa, fitness, and resort-style service language"
+      "Residences: 275",
+      "Floors: 26",
+      "Price Range: $2M-$7.5M",
+      "Delivery: 2027",
+      "Bedrooms: 2-4"
     ],
-    "amenityNarrative": "Olara's amenity story is broad and lifestyle-driven. The marina, spa, pools, dining, and wellness spaces make the building feel like an active residential club where much of the daily routine is close at hand.",
-    "residenceNarrative": "The residences are positioned around generous scale, waterfront connection, and refined materials. The project is especially relevant for buyers who want new construction with a strong social and wellness identity.",
-    "locationNarrative": "North Flagler is becoming one of West Palm Beach's most important development corridors. Olara benefits from that momentum while offering more privacy than Downtown and a more animated daily rhythm than South Flagler.",
-    "buyerComparisonNotes": "Compare Olara against Ritz-Carlton Residences for staffed residential operations, Alba for boutique scale, and South Flagler House for a more formal South Flagler product. Olara's edge is its marina lifestyle and amenity scale.",
-    "projectTeamNarrative": "The project team reinforces the resort/residential positioning: Arquitectonica brings recognizable South Florida architectural experience, Gabellini Sheppard shapes the interior language, and the Jose Andres dining connection gives the building a stronger culinary identity than most condo projects.",
+    "amenityNarrative": "Amenities include nearly 80,000 sq. ft. of amenity space, a sixth-floor deck, restaurant / epicurean marketplace, 12 guest suites, private five-slip dock, leisure and lap pools, fitness by The Wright Fit, recovery spa, onsen, plunge pools, meditation, sauna / steam, private dining, game room, library / veranda, simulator, private offices, coworking, concierge, valet, house car, and resident app.",
+    "residenceNarrative": "Residences include 2- to 4-bedroom layouts with floor-to-ceiling windows, 10-foot-deep terraces, European kitchens, Calacatta marble counters, professional-grade appliances, gas cooktops, butler closets, spa-style bathrooms, wide-plank oak floors, and Italian porcelain terrace tile.",
+    "locationNarrative": "Olara sits on the North Flagler waterfront, north of downtown and within one of West Palm Beach most active luxury development corridors.",
+    "buyerComparisonNotes": "Amenity-driven buyers Service-focused buyers North Flagler waterfront shoppers Buyers wanting guest suites and dockage Buyers comfortable with a larger building Larger scale may not suit boutique-building buyers. Delivery timing should be rechecked. Pricing and availability are subject to change. Pet policy still needs final verification.",
+    "projectTeamNarrative": "Developer: Savanna Design: Arquitectonica; Gabellini Sheppard interiors; EDSA landscape",
     "sourceNotes": [
-      "Developer source describes a luxury waterfront residential oasis with resort-level service, private marina, and major wellness/leisure amenity program.",
-      "Official site previously listed residences from approximately $1.7M and indicated construction rising at full scale; verify current status before publication."
+      "Confidence is high. A timing conflict exists between earlier completion language and the recommended 2027 delivery value.",
+      "Larger scale may not suit boutique-building buyers.",
+      "Delivery timing should be rechecked.",
+      "Pricing and availability are subject to change.",
+      "Pet policy still needs final verification."
     ],
     "sourceUrls": [
       "https://www.olarawestpalmbeach.com/"
     ],
-    "lastCopyResearchDate": "2026-05-23",
-    "copyConfidence": "high"
-  },
-  {
-    "slug": "alba-palm-beach",
-    "repoProjectId": "alba-palm-beach",
-    "introHeadline": "The boutique North Flagler waterfront alternative.",
-    "introDek": "Alba Palm Beach is a smaller-scale condominium for buyers who want new construction on the Intracoastal without the mega-tower feel. With only 55 residences, townhome options, and a more residential North Flagler setting, Alba sits in a quieter lane than many larger projects nearby.",
-    "brookeTake": "Alba is compelling because it is not trying to be everything to everyone. It is boutique, direct-waterfront, and more neighborhood-scaled. For the right buyer, that smaller footprint may matter more than having the longest amenity list in town.",
-    "bestFor": [
-      "Buyers who prefer boutique buildings over large towers",
-      "Clients who want direct Intracoastal positioning with a quieter residential feel",
-      "Buyers looking for a more intimate North Flagler option",
-      "Clients considering townhome-style living within a luxury waterfront project"
-    ],
-    "signatureFeatures": [
-      "Only 55 total residences",
-      "Direct Intracoastal waterfront setting",
-      "More than 25,000 square feet of dedicated amenity spaces",
-      "Two- and three-bedroom residences plus four-bedroom townhomes",
-      "Located at 4714 North Flagler Drive",
-      "Boutique scale compared with larger West Palm Beach luxury towers"
-    ],
-    "amenityNarrative": "Alba offers a meaningful amenity package, but its strongest differentiator is proportion. The building does not need to compete with the largest amenity programs to make sense; its appeal is a more personal environment with enough lifestyle support to feel complete.",
-    "residenceNarrative": "The residence mix gives Alba a different buyer profile than many towers. The inclusion of larger townhome-style options broadens the appeal for buyers who want new construction and waterfront access but still like the feel of a more grounded home environment.",
-    "locationNarrative": "Alba's North Flagler location is quieter and more residential than Downtown, while still participating in the same broader corridor transformation. It is best understood as a boutique option rather than an amenity mega-project.",
-    "buyerComparisonNotes": "Compare Alba against Olara for North Flagler activity at a larger scale, Ritz-Carlton Residences for branded service, and South Flagler House for formal estate-inspired luxury. Alba's advantage is intimacy, direct waterfront setting, and boutique building size.",
-    "projectTeamNarrative": "The project should be presented through its scale, waterfront siting, and residence mix first. Verified sources support BGI Companies / Kenneth Baboun, Blue Road, Spina O'Rourke + Partners, Schmidt Nichols, Moss Construction, and One Sotheby's International Realty; do not add unsourced team roles.",
-    "sourceNotes": [
-      "Developer source positions Alba as limited-edition boutique waterfront living with 55 residences and dedicated amenity spaces.",
-      "Official site referenced final release timing, closings expected to commence in June 2026, and a limited HOA incentive through May 31, 2026. Verify all timing and incentives before publishing."
-    ],
-    "sourceUrls": [
-      "https://www.albapalmbeach.com/"
-    ],
-    "lastCopyResearchDate": "2026-05-23",
-    "copyConfidence": "high"
-  },
-  {
-    "slug": "ritz-carlton-residences-west-palm-beach",
-    "repoProjectId": "ritz-carlton-wpb",
-    "introHeadline": "Private waterfront residences with a recognized service platform.",
-    "introDek": "The Ritz-Carlton Residences West Palm Beach is a 27-story condominium planned with 138 homes, water-facing views, and residential operations associated with the Ritz-Carlton name. For buyers, the useful read is how the floor plan, exposure, staffing model, and monthly cost structure fit daily life.",
-    "brookeTake": "This building is for a buyer who wants a managed, polished environment without making the residence feel like a hotel stay. The right comparison is line by line: view, balcony, elevator access, service expectations, fees, and how the address will feel as Flagler Drive keeps changing.",
-    "bestFor": [
-      "Buyers who want private ownership with staffed residential operations",
-      "Clients who value brand recognition but still need a practical floor-plan review",
-      "Buyers comparing service-led living against marina, boutique, or estate-style alternatives",
-      "Clients who want concierge, valet, wellness, and a calmer water-facing residence"
-    ],
-    "signatureFeatures": [
-      "Official project sources support 138 residences across 27 stories",
-      "Related Group and BH Group development team",
-      "Architecture by Arquitectonica",
-      "Interiors by Rockwell Group",
-      "Landscape architecture by Naturalficial",
-      "Water-facing homes with private balconies, wellness amenities, concierge, and valet service reported in current materials"
-    ],
-    "amenityNarrative": "The amenity question is operational. Buyers should understand how concierge, valet, wellness, pool, lounge, and staffing work in practice, then compare that daily support against buildings that lead with marina access, larger club programs, or boutique privacy.",
-    "residenceNarrative": "The residences should be evaluated by light, balcony depth, view corridor, elevator access, storage, parking, and how each line lives at different floors. The best unit is the one where the plan and exposure justify the premium, not simply the one attached to the strongest brand name.",
-    "locationNarrative": "The site sits in the active Flagler Drive waterfront corridor, close to Palm Beach access and downtown West Palm Beach. The buyer test is practical: views, bridge pattern, construction context, and how the surrounding pipeline may affect the address by completion.",
-    "buyerComparisonNotes": "Compare Ritz-Carlton Residences against Olara for marina energy, Alba for boutique scale, Mandarin Oriental for another hospitality-branded North Flagler option, and South Flagler House for a more formal product.",
-    "projectTeamNarrative": "The team is part of the underwriting story. Related Group and BH Group supply the development platform, Arquitectonica shapes the tower, Rockwell Group defines the interior atmosphere, Naturalficial handles the landscape layer, and the Ritz-Carlton affiliation sets operational expectations. Each role should be confirmed against the current buyer packet before contract reliance.",
-    "sourceNotes": [
-      "Official project/developer sources support 138 residences, 27 stories, Related Group, BH Group, Arquitectonica, Rockwell Group, Naturalficial, and Ritz-Carlton residential branding.",
-      "Address references vary across official contexts; use 1717 N Flagler as the current developer/legal address until offering documents confirm final street-address language."
-    ],
-    "sourceUrls": [
-      "https://theresidenceswestpalmbeach.com/",
-      "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
-      "https://www.rockwellgroup.com/index.php/projects/the-ritz-carlton-residences",
-      "https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/",
-      "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html"
-    ],
-    "lastCopyResearchDate": "2026-05-23",
+    "lastCopyResearchDate": "2026-05-28",
     "copyConfidence": "high"
   },
   {
     "slug": "shorecrest-west-palm-beach",
     "repoProjectId": "shorecrest",
-    "introHeadline": "A Related Ross waterfront project on North Flagler.",
-    "introDek": "Shorecrest belongs in the West Palm Beach comparison set because official and sponsor sources now support its Related Ross context, North Flagler address, design team, and broad amenity posture. The page should still keep pricing, availability, fees, delivery, and offering terms in a current-packet lane.",
-    "brookeTake": "Shorecrest is an important comparison point for buyers tracking Related Ross on North Flagler. Keep the read measured: separate what is confirmed from what still needs current-packet review, and do not borrow South Flagler House's formal architectural language.",
+    "heroHeadline": "Modern Waterfront Living on North Flagler",
+    "heroSubheadline": "Shorecrest is a North Flagler waterfront condominium with a modern design profile, strong amenity package, and public-facing details that require careful note handling.",
+    "overview": "Shorecrest is active sales / under construction and positioned for buyers who want North Flagler waterfront living with modern architecture and service-oriented amenities.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "1865 N Flagler Drive, West Palm Beach, FL 33407"
+      },
+      {
+        "label": "Status",
+        "value": "Active Sales / Under Construction"
+      },
+      {
+        "label": "Developer",
+        "value": "Related Ross"
+      },
+      {
+        "label": "Design",
+        "value": "Roger Ferris + Partners; Rottet Studio interiors; Design Studio Boca landscape"
+      },
+      {
+        "label": "Residences",
+        "value": "98 public-facing; municipal references show 100"
+      },
+      {
+        "label": "Floors",
+        "value": "27"
+      },
+      {
+        "label": "Price Range",
+        "value": "$3.69M-$5.445M for reviewed available residences"
+      },
+      {
+        "label": "Delivery",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Size Range",
+        "value": "2,015-2,835 interior sq. ft."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "2-3"
+      }
+    ],
+    "residences": "Reviewed floorplans show 2- and 3-bedroom homes with private terraces and modern waterfront layouts. Full finish details are more limited than some competing buildings and should not be overfilled.",
+    "amenities": "Amenities include rooftop pool, fitness / yoga / Pilates studios, spas, steam, sauna, cold plunge, hot tub, private dining, cocktail lounge, card / game lounge, coworking, executive meeting space, golf simulator, refrigerated package storage, concierge, doorman, valet, housekeeping, butler service, laundry / dry cleaning, personal chef service, and transportation assistance.",
+    "location": "Shorecrest is positioned on North Flagler Drive, north of downtown West Palm Beach, in the waterfront corridor near Palm Beach Island access.",
+    "localTake": "Shorecrest has the waterfront address and design pedigree buyers want, but the public-record details need clean handling. It is a focused North Flagler option without the same mega-project feel as Olara.",
+    "tradeoffs": [
+      "Public-facing address differs from municipal / planning references.",
+      "Public-facing residence count is 98; municipal records reference 100.",
+      "Delivery is not yet publicly confirmed.",
+      "Fees, EV details, and full pet policy need verification."
+    ],
+    "confidenceNote": "Confidence is medium. Use 1865 N Flagler and 98 residences publicly while preserving municipal notes for 1901 N Flagler and 100 units.",
+    "seoTitle": "Shorecrest West Palm Beach | North Flagler Waterfront Condos",
+    "metaDescription": "Shorecrest is a North Flagler waterfront condominium with modern residences, rooftop amenities, service features, and key public-record caveats.",
+    "badge": "Active Sales / Under Construction",
+    "tags": [
+      "north-flagler",
+      "waterfront",
+      "luxury-condo",
+      "active-sales",
+      "under-construction",
+      "human-review-required",
+      "address-conflict",
+      "service-forward"
+    ],
+    "introHeadline": "Modern Waterfront Living on North Flagler",
+    "introDek": "Shorecrest is a North Flagler waterfront condominium with a modern design profile, strong amenity package, and public-facing details that require careful note handling.",
+    "brookeTake": "Shorecrest has the waterfront address and design pedigree buyers want, but the public-record details need clean handling. It is a focused North Flagler option without the same mega-project feel as Olara.",
     "bestFor": [
-      "Buyers tracking Related Ross waterfront development in West Palm Beach",
-      "Clients comparing Olara, Ritz-Carlton Residences, Shorecrest, and other North Flagler options",
-      "Buyers who want careful guidance before relying on a sales packet"
+      "Modern-design buyers",
+      "North Flagler waterfront shoppers",
+      "Buyers wanting service without a mega-tower feel",
+      "Buyers comparing newer North Flagler inventory"
     ],
     "signatureFeatures": [
-      "Related Ross waterfront presence on North Flagler",
-      "Roger Ferris + Partners architecture and Rottet Studio interiors are source-supported",
-      "Project-specific pricing, availability, fees, and final offering details still require confirmation"
+      "Residences: 98 public-facing; municipal references show 100",
+      "Floors: 27",
+      "Price Range: $3.69M-$5.445M for reviewed available residences",
+      "Delivery: Not yet publicly confirmed.",
+      "Bedrooms: 2-3"
     ],
-    "amenityNarrative": "Current public information supports a meaningful amenity posture, but final inclusions belong in the current offering packet. Use the amenity section to separate confirmed categories from items that need current confirmation.",
-    "residenceNarrative": "Residence count, address references, size range, pricing, and delivery timing should remain tied to current materials. Avoid filling gaps with assumptions from other Related Ross projects.",
-    "locationNarrative": "Shorecrest should be framed through its North Flagler context. The buyer value depends on how it compares with Olara, Ritz-Carlton Residences, Alba, and the broader West Palm Beach pipeline.",
-    "buyerComparisonNotes": "Use Shorecrest as a carefully verified North Flagler comparison point. Do not imply it has the same architectural language, amenities, or buyer profile as South Flagler House.",
-    "projectTeamNarrative": "Current public information identifies Related Ross, Roger Ferris + Partners, Rottet Studio, DS Boca, and the sales and marketing context. Pricing, line availability, service inclusions, fees, parking, storage, and delivery should be checked against the current buyer packet.",
+    "amenityNarrative": "Amenities include rooftop pool, fitness / yoga / Pilates studios, spas, steam, sauna, cold plunge, hot tub, private dining, cocktail lounge, card / game lounge, coworking, executive meeting space, golf simulator, refrigerated package storage, concierge, doorman, valet, housekeeping, butler service, laundry / dry cleaning, personal chef service, and transportation assistance.",
+    "residenceNarrative": "Reviewed floorplans show 2- and 3-bedroom homes with private terraces and modern waterfront layouts. Full finish details are more limited than some competing buildings and should not be overfilled.",
+    "locationNarrative": "Shorecrest is positioned on North Flagler Drive, north of downtown West Palm Beach, in the waterfront corridor near Palm Beach Island access.",
+    "buyerComparisonNotes": "Modern-design buyers North Flagler waterfront shoppers Buyers wanting service without a mega-tower feel Buyers comparing newer North Flagler inventory Public-facing address differs from municipal / planning references. Public-facing residence count is 98; municipal records reference 100. Delivery is not yet publicly confirmed. Fees, EV details, and full pet policy need verification.",
+    "projectTeamNarrative": "Developer: Related Ross Design: Roger Ferris + Partners; Rottet Studio interiors; Design Studio Boca landscape",
     "sourceNotes": [
-      "Official Shorecrest and Related Ross sources support developer, architect, interior, landscape, and broad amenity context.",
-      "Pricing, availability, line details, service inclusions, fees, parking, storage, and delivery timing still require current buyer-packet confirmation."
+      "Confidence is medium. Use 1865 N Flagler and 98 residences publicly while preserving municipal notes for 1901 N Flagler and 100 units.",
+      "Public-facing address differs from municipal / planning references.",
+      "Public-facing residence count is 98; municipal records reference 100.",
+      "Delivery is not yet publicly confirmed.",
+      "Fees, EV details, and full pet policy need verification."
     ],
     "sourceUrls": [
-      "https://www.shorecrestwpb.com/",
-      "https://www.relatedross.com/our-company/properties/shorecrest",
-      "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm"
+      "https://www.shorecrestwpb.com/"
     ],
-    "lastCopyResearchDate": "2026-05-23",
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "medium"
+  },
+  {
+    "slug": "ritz-carlton-residences-west-palm-beach",
+    "repoProjectId": "ritz-carlton-wpb",
+    "heroHeadline": "Branded Waterfront Living on North Flagler",
+    "heroSubheadline": "The Ritz-Carlton Residences, West Palm Beach brings a branded residential service model to the North Flagler waterfront, with 138 residences and a 2028 delivery target.",
+    "overview": "This is a brand-led luxury waterfront project in the active / under-construction group. It should remain distinct from the Ritz-Carlton Residences Palm Beach Gardens, which is outside the WPB inventory.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "1745 N Flagler Drive, West Palm Beach, FL 33407"
+      },
+      {
+        "label": "Status",
+        "value": "Under Construction"
+      },
+      {
+        "label": "Developer",
+        "value": "1717 N Flagler Drive Venture, LLC; Related Group; BH Group"
+      },
+      {
+        "label": "Design",
+        "value": "Arquitectonica; Rockwell Group interiors; Naturalficial landscape"
+      },
+      {
+        "label": "Brand",
+        "value": "The Ritz-Carlton"
+      },
+      {
+        "label": "Residences",
+        "value": "138"
+      },
+      {
+        "label": "Floors",
+        "value": "27 public-facing; municipal approval references 26"
+      },
+      {
+        "label": "Price Range",
+        "value": "From $3M"
+      },
+      {
+        "label": "Delivery",
+        "value": "2028"
+      },
+      {
+        "label": "Size Range",
+        "value": "Approx. 1,532-3,331 interior sq. ft."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "2-4"
+      }
+    ],
+    "residences": "Residences are expected to include 2- to 4-bedroom layouts with spa-like bathrooms, smart home systems, balconies, and open-plan indoor-outdoor layouts. Parking, storage, pet, and fee details remain lightly published.",
+    "amenities": "Amenities include pool deck, fitness and wellness center, spa, indoor / outdoor lounges, branded service positioning, concierge, valet, and exclusive beach club membership.",
+    "location": "The building is positioned on the North Flagler waterfront, with access to downtown West Palm Beach, Palm Beach Island, and the broader North Flagler development corridor.",
+    "localTake": "This is the building for buyers who trust the brand and want service to be part of the purchase decision. Buyers should compare not just price, but operating costs, service structure, and final deliverables.",
+    "tradeoffs": [
+      "Public address differs from legal / planning references.",
+      "Public floor count is 27; planning approval references 26.",
+      "Parking, storage, fees, and pet policy remain lightly published.",
+      "Brand expectations should be weighed against final operations."
+    ],
+    "confidenceNote": "Confidence is medium-high. Public-facing values are usable, with legal parcel and floor-count caveats preserved.",
+    "seoTitle": "Ritz-Carlton Residences West Palm Beach | Waterfront Condos",
+    "metaDescription": "The Ritz-Carlton Residences, West Palm Beach is a branded North Flagler waterfront condominium with 138 residences and 2028 delivery.",
+    "badge": "Branded Residences",
+    "tags": [
+      "north-flagler",
+      "waterfront",
+      "branded-residences",
+      "ritz-carlton",
+      "luxury-condo",
+      "under-construction",
+      "service-forward",
+      "human-review-required"
+    ],
+    "introHeadline": "Branded Waterfront Living on North Flagler",
+    "introDek": "The Ritz-Carlton Residences, West Palm Beach brings a branded residential service model to the North Flagler waterfront, with 138 residences and a 2028 delivery target.",
+    "brookeTake": "This is the building for buyers who trust the brand and want service to be part of the purchase decision. Buyers should compare not just price, but operating costs, service structure, and final deliverables.",
+    "bestFor": [
+      "Brand-driven luxury buyers",
+      "North Flagler waterfront shoppers",
+      "Service-first buyers",
+      "Buyers comparing WPB branded residences"
+    ],
+    "signatureFeatures": [
+      "Brand: The Ritz-Carlton",
+      "Residences: 138",
+      "Floors: 27 public-facing; municipal approval references 26",
+      "Price Range: From $3M",
+      "Delivery: 2028",
+      "Bedrooms: 2-4"
+    ],
+    "amenityNarrative": "Amenities include pool deck, fitness and wellness center, spa, indoor / outdoor lounges, branded service positioning, concierge, valet, and exclusive beach club membership.",
+    "residenceNarrative": "Residences are expected to include 2- to 4-bedroom layouts with spa-like bathrooms, smart home systems, balconies, and open-plan indoor-outdoor layouts. Parking, storage, pet, and fee details remain lightly published.",
+    "locationNarrative": "The building is positioned on the North Flagler waterfront, with access to downtown West Palm Beach, Palm Beach Island, and the broader North Flagler development corridor.",
+    "buyerComparisonNotes": "Brand-driven luxury buyers North Flagler waterfront shoppers Service-first buyers Buyers comparing WPB branded residences Public address differs from legal / planning references. Public floor count is 27; planning approval references 26. Parking, storage, fees, and pet policy remain lightly published. Brand expectations should be weighed against final operations.",
+    "projectTeamNarrative": "Developer: 1717 N Flagler Drive Venture, LLC; Related Group; BH Group Design: Arquitectonica; Rockwell Group interiors; Naturalficial landscape Brand: The Ritz-Carlton",
+    "sourceNotes": [
+      "Confidence is medium-high. Public-facing values are usable, with legal parcel and floor-count caveats preserved.",
+      "Public address differs from legal / planning references.",
+      "Public floor count is 27; planning approval references 26.",
+      "Parking, storage, fees, and pet policy remain lightly published.",
+      "Brand expectations should be weighed against final operations."
+    ],
+    "sourceUrls": [
+      "https://theresidenceswestpalmbeach.com/"
+    ],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "medium-high"
+  },
+  {
+    "slug": "the-berkeley-palm-beach",
+    "repoProjectId": "berkeley",
+    "heroHeadline": "Practical Luxury Near Clear Lake",
+    "heroSubheadline": "The Berkeley Palm Beach offers new-construction luxury on the west edge of downtown, with large residences, terraces, and strong everyday livability.",
+    "overview": "The Berkeley is active / under construction and should be positioned as Clear Lake / downtown-adjacent, not Intracoastal waterfront. Its angle is livability: layouts, terraces, services, family-friendly amenities, and access.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "601-621 Clearwater Park Road, West Palm Beach, FL 33401"
+      },
+      {
+        "label": "Status",
+        "value": "Under Construction"
+      },
+      {
+        "label": "Developer",
+        "value": "Australian Properties Group; Al Adelson; Sympatico Real Estate"
+      },
+      {
+        "label": "Design",
+        "value": "Bernardo Fort-Brescia / Arquitectonica; Arquitectonica Interiors; EDSA landscape"
+      },
+      {
+        "label": "Sales",
+        "value": "Douglas Elliman Development Marketing"
+      },
+      {
+        "label": "Residences",
+        "value": "193"
+      },
+      {
+        "label": "Floors",
+        "value": "25"
+      },
+      {
+        "label": "Price Range",
+        "value": "$2M to over $10M"
+      },
+      {
+        "label": "Delivery",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Size Range",
+        "value": "1,780-5,000 sq. ft."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "2-5"
+      }
+    ],
+    "residences": "Residences include 2- to 5-bedroom layouts with Snaidero Italian cabinetry, Sub-Zero and Wolf appliances, Waterworks fixtures, European white oak floors, floor-to-ceiling windows, smart building technology, flow-through east and west terraces, large balconies, flex rooms, and private elevator vestibules with butler pantry.",
+    "amenities": "Amenities include rooftop adult pool, family pool, private cabanas, fitness / yoga, spas, sauna, treatment rooms, private dining, chef kitchen, lounges, rooftop party room, board room, coworking, splash pad, dog run, golf simulator, outdoor theatre / event lawn, UPLIN Health concierge medical care, 24/7 concierge, valet, LIVunLtd lifestyle management, on-demand car service, and package delivery.",
+    "location": "The Berkeley is near Clear Lake on the west edge of downtown West Palm Beach. It is not Intracoastal waterfront, but it offers strong access to downtown, CityPlace, the business core, and everyday conveniences.",
+    "localTake": "The Berkeley is the practical-luxury play. It is less about waterfront bragging rights and more about space, terraces, convenience, and livability.",
+    "tradeoffs": [
+      "Not direct Intracoastal waterfront.",
+      "Delivery, maintenance, and deposit structure should be verified.",
+      "Address variants should be handled consistently.",
+      "Residence and floor count conflicts appear across sources; use 193 residences and 25 floors."
+    ],
+    "confidenceNote": "Confidence is high, with human review needed for delivery, fees, deposit structure, and address display preference.",
+    "seoTitle": "The Berkeley Palm Beach | Clear Lake New Construction Condos",
+    "metaDescription": "The Berkeley Palm Beach is a Clear Lake / downtown-adjacent luxury condo with 193 residences, large terraces, amenities, and practical WPB access.",
+    "badge": "Under Construction",
+    "tags": [
+      "clear-lake",
+      "downtown",
+      "luxury-condo",
+      "under-construction",
+      "family-friendly",
+      "terraces",
+      "non-waterfront",
+      "new-construction",
+      "douglas-elliman"
+    ],
+    "introHeadline": "Practical Luxury Near Clear Lake",
+    "introDek": "The Berkeley Palm Beach offers new-construction luxury on the west edge of downtown, with large residences, terraces, and strong everyday livability.",
+    "brookeTake": "The Berkeley is the practical-luxury play. It is less about waterfront bragging rights and more about space, terraces, convenience, and livability.",
+    "bestFor": [
+      "Families",
+      "Buyers prioritizing layout and balcony space",
+      "Downtown / Clear Lake buyers",
+      "Buyers who do not require direct waterfront",
+      "Buyers wanting amenities with practical access"
+    ],
+    "signatureFeatures": [
+      "Residences: 193",
+      "Floors: 25",
+      "Price Range: $2M to over $10M",
+      "Delivery: Not yet publicly confirmed.",
+      "Bedrooms: 2-5"
+    ],
+    "amenityNarrative": "Amenities include rooftop adult pool, family pool, private cabanas, fitness / yoga, spas, sauna, treatment rooms, private dining, chef kitchen, lounges, rooftop party room, board room, coworking, splash pad, dog run, golf simulator, outdoor theatre / event lawn, UPLIN Health concierge medical care, 24/7 concierge, valet, LIVunLtd lifestyle management, on-demand car service, and package delivery.",
+    "residenceNarrative": "Residences include 2- to 5-bedroom layouts with Snaidero Italian cabinetry, Sub-Zero and Wolf appliances, Waterworks fixtures, European white oak floors, floor-to-ceiling windows, smart building technology, flow-through east and west terraces, large balconies, flex rooms, and private elevator vestibules with butler pantry.",
+    "locationNarrative": "The Berkeley is near Clear Lake on the west edge of downtown West Palm Beach. It is not Intracoastal waterfront, but it offers strong access to downtown, CityPlace, the business core, and everyday conveniences.",
+    "buyerComparisonNotes": "Families Buyers prioritizing layout and balcony space Downtown / Clear Lake buyers Buyers who do not require direct waterfront Buyers wanting amenities with practical access Not direct Intracoastal waterfront. Delivery, maintenance, and deposit structure should be verified. Address variants should be handled consistently. Residence and floor count conflicts appear across sources; use 193 residences and 25 floors.",
+    "projectTeamNarrative": "Developer: Australian Properties Group; Al Adelson; Sympatico Real Estate Design: Bernardo Fort-Brescia / Arquitectonica; Arquitectonica Interiors; EDSA landscape Sales: Douglas Elliman Development Marketing",
+    "sourceNotes": [
+      "Confidence is high, with human review needed for delivery, fees, deposit structure, and address display preference.",
+      "Not direct Intracoastal waterfront.",
+      "Delivery, maintenance, and deposit structure should be verified.",
+      "Address variants should be handled consistently.",
+      "Residence and floor count conflicts appear across sources; use 193 residences and 25 floors."
+    ],
+    "sourceUrls": [
+      "https://www.theberkeleypalmbeach.com/"
+    ],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "high",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "Clear Lake / Downtown",
+      "heroBlurb": "A Clear Lake / downtown-adjacent luxury condominium for buyers who want space, terraces, services, and practical access without needing direct Intracoastal frontage.",
+      "monogram": "B",
+      "visualBreak": {
+        "src": "/assets/projects/berkeley/showcase/berkeley-residences-patio-view-v01.png",
+        "label": "Private Patio",
+        "alt": "The Berkeley Palm Beach private patio rendering with water views"
+      },
+      "residenceCollections": [
+        {
+          "title": "Residence Collection",
+          "beds": "2-3 bedrooms",
+          "size": "1,780-2,819 sq ft",
+          "price": "From $2M"
+        },
+        {
+          "title": "Estate Collection",
+          "beds": "2-4 bedrooms",
+          "size": "2,160-3,500 sq ft",
+          "price": "Request current pricing"
+        },
+        {
+          "title": "Penthouse Collection",
+          "beds": "4-5 bedrooms",
+          "size": "4,000+ sq ft",
+          "price": "Upper range"
+        }
+      ],
+      "gallery": [
+        {
+          "src": "/assets/projects/berkeley/showcase/berkeley-residences-patio-view-v01.png",
+          "label": "Private Patio"
+        },
+        {
+          "src": "/assets/projects/berkeley/showcase/berkeley-residences-bedroom-with-view-v01.jpg",
+          "label": "Bedroom View"
+        },
+        {
+          "src": "/assets/projects/berkeley/showcase/berkeley-residences-kitchen-view-v01.png",
+          "label": "Kitchen View"
+        },
+        {
+          "src": "/assets/projects/berkeley/showcase/berkeley-residences-bathroom-01-v01.png",
+          "label": "Primary Bath"
+        },
+        {
+          "src": "/assets/projects/berkeley/showcase/berkeley-amenity-pool-terrace-v01.jpg",
+          "label": "Pool Terrace"
+        },
+        {
+          "src": "/assets/projects/berkeley/showcase/berkeley-amenities-pool-low-viewpoint-v01.png",
+          "label": "Pool Deck"
+        },
+        {
+          "src": "/assets/projects/berkeley/showcase/berkeley-amenities-rooftop-lounge-v01.jpg",
+          "label": "Rooftop Lounge"
+        },
+        {
+          "src": "/assets/projects/berkeley/showcase/berkeley-amenities-private-dining-v01.jpg",
+          "label": "Private Dining"
+        },
+        {
+          "src": "/assets/projects/berkeley/showcase/berkeley-hero-exterior-lake-view-v01.webp",
+          "label": "Lake View"
+        },
+        {
+          "src": "/assets/projects/berkeley/showcase/berkeley-amenities-rooftop-pool-sunset-v01.png",
+          "label": "Rooftop Pool"
+        }
+      ],
+      "amenityHighlights": [
+        {
+          "icon": "pool",
+          "label": "Rooftop & family pools"
+        },
+        {
+          "icon": "cabana",
+          "label": "Private cabanas"
+        },
+        {
+          "icon": "fitness",
+          "label": "Fitness & yoga"
+        },
+        {
+          "icon": "spa",
+          "label": "Spa treatment rooms"
+        },
+        {
+          "icon": "wellness",
+          "label": "UPLIN Health concierge"
+        },
+        {
+          "icon": "dining",
+          "label": "Private dining"
+        },
+        {
+          "icon": "work",
+          "label": "Board room"
+        },
+        {
+          "icon": "golf",
+          "label": "Golf simulator"
+        },
+        {
+          "icon": "valet",
+          "label": "Valet & concierge"
+        },
+        {
+          "icon": "pet",
+          "label": "Dog run"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/assets/projects/berkeley/showcase/berkeley-neighborhood-aerial-night-v01.png",
+        "label": "Neighborhood Aerial",
+        "alt": "Night aerial rendering of The Berkeley Palm Beach and the surrounding Clear Lake neighborhood"
+      },
+      "projectTeam": [
+        {
+          "label": "Developer",
+          "value": "Australian Properties Group; Al Adelson; Sympatico Real Estate"
+        },
+        {
+          "label": "Architect",
+          "value": "Bernardo Fort-Brescia / Arquitectonica"
+        },
+        {
+          "label": "Interior Designer",
+          "value": "Arquitectonica Interiors"
+        },
+        {
+          "label": "Landscape Designer",
+          "value": "EDSA"
+        }
+      ],
+      "titleLines": [
+        "The Berkeley",
+        "Palm Beach"
+      ]
+    }
+  },
+  {
+    "slug": "nora-house",
+    "repoProjectId": "nora-house",
+    "heroHeadline": "New Condominium Living in the Nora District",
+    "heroSubheadline": "Nora House is a sales-launched condominium tied to West Palm Beach emerging Nora District, with a lifestyle-focused amenity package and longer delivery horizon.",
+    "overview": "Nora House is active as a sales-launched / pipeline project. It is not a waterfront play; it is a walkability and district-lifestyle play.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "1105 N Dixie Highway, West Palm Beach, FL 33401"
+      },
+      {
+        "label": "Status",
+        "value": "Sales Launched / Pipeline"
+      },
+      {
+        "label": "Developer",
+        "value": "The Ronto Group; Wheelock Street Capital"
+      },
+      {
+        "label": "Design",
+        "value": "Swedroe Architecture; Lillian Wu Studio; Design Studio Boca"
+      },
+      {
+        "label": "Sales",
+        "value": "Douglas Elliman Development Marketing"
+      },
+      {
+        "label": "Construction",
+        "value": "Connor & Gaskins"
+      },
+      {
+        "label": "Residences",
+        "value": "117"
+      },
+      {
+        "label": "Floors",
+        "value": "11"
+      },
+      {
+        "label": "Price Range",
+        "value": "Low $2Ms to $6.5M"
+      },
+      {
+        "label": "Delivery",
+        "value": "2029 estimated; construction expected to begin 2027 per reporting"
+      },
+      {
+        "label": "Size Range",
+        "value": "1,460-6,700 total living sq. ft."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "2-4"
+      }
+    ],
+    "residences": "Residences include 2- to 4-bedroom layouts with Italkraft cabinetry, quartzite or quartz counters, Wolf and Sub-Zero appliances, Miele dishwasher, Badeloft tub, Kallista fixtures, travertine primary bath surfaces, Toto toilets, wide-plank hardwood or tile, impact glass, 10-foot ceilings, and large terraces.",
+    "amenities": "Amenities include rooftop resort pool, level 4 lap pool, Technogym wellness center, yoga lawn, hot / cold plunges, steam, sauna, spa treatment room, lounges, outdoor bar, hosting room, boardroom, coworking, pet grooming, bicycle storage, six guest suites, pickleball, bowling, golf simulator, games lounge, and bocce. Concierge and valet specifics still need verification.",
+    "location": "Nora House is positioned in the Nora District, one of West Palm Beach most closely watched urban redevelopment areas. The lifestyle is walkable, neighborhood-driven, and tied to the district future retail and dining energy.",
+    "localTake": "Nora House is for the buyer who wants to bet on the neighborhood, not just the building. The upside is walkability and energy; the tradeoff is timing.",
+    "tradeoffs": [
+      "Not direct waterfront.",
+      "Longer construction horizon.",
+      "Maintenance, deposit, and full service details are missing.",
+      "Sales gallery address and building site address should not be confused.",
+      "2029 timing should be verified."
+    ],
+    "confidenceNote": "Confidence is high for core project facts, with human review needed for timeline, fees, deposits, and full service details.",
+    "seoTitle": "Nora House West Palm Beach | Nora District New Condos",
+    "metaDescription": "Nora House is a sales-launched Nora District condominium with 117 residences, walkable lifestyle positioning, guest suites, and 2029 timing.",
+    "badge": "Sales Launched / Pipeline",
+    "tags": [
+      "nora-district",
+      "pipeline",
+      "sales-launched",
+      "downtown",
+      "walkable",
+      "luxury-condo",
+      "non-waterfront",
+      "guest-suites",
+      "new-construction"
+    ],
+    "introHeadline": "New Condominium Living in the Nora District",
+    "introDek": "Nora House is a sales-launched condominium tied to West Palm Beach emerging Nora District, with a lifestyle-focused amenity package and longer delivery horizon.",
+    "brookeTake": "Nora House is for the buyer who wants to bet on the neighborhood, not just the building. The upside is walkability and energy; the tradeoff is timing.",
+    "bestFor": [
+      "Walkable-lifestyle buyers",
+      "Nora District buyers",
+      "Amenity-focused buyers who do not need direct waterfront",
+      "Buyers comfortable with longer delivery timing"
+    ],
+    "signatureFeatures": [
+      "Residences: 117",
+      "Floors: 11",
+      "Price Range: Low $2Ms to $6.5M",
+      "Delivery: 2029 estimated; construction expected to begin 2027 per reporting",
+      "Bedrooms: 2-4"
+    ],
+    "amenityNarrative": "Amenities include rooftop resort pool, level 4 lap pool, Technogym wellness center, yoga lawn, hot / cold plunges, steam, sauna, spa treatment room, lounges, outdoor bar, hosting room, boardroom, coworking, pet grooming, bicycle storage, six guest suites, pickleball, bowling, golf simulator, games lounge, and bocce. Concierge and valet specifics still need verification.",
+    "residenceNarrative": "Residences include 2- to 4-bedroom layouts with Italkraft cabinetry, quartzite or quartz counters, Wolf and Sub-Zero appliances, Miele dishwasher, Badeloft tub, Kallista fixtures, travertine primary bath surfaces, Toto toilets, wide-plank hardwood or tile, impact glass, 10-foot ceilings, and large terraces.",
+    "locationNarrative": "Nora House is positioned in the Nora District, one of West Palm Beach most closely watched urban redevelopment areas. The lifestyle is walkable, neighborhood-driven, and tied to the district future retail and dining energy.",
+    "buyerComparisonNotes": "Walkable-lifestyle buyers Nora District buyers Amenity-focused buyers who do not need direct waterfront Buyers comfortable with longer delivery timing Not direct waterfront. Longer construction horizon. Maintenance, deposit, and full service details are missing. Sales gallery address and building site address should not be confused. 2029 timing should be verified.",
+    "projectTeamNarrative": "Developer: The Ronto Group; Wheelock Street Capital Design: Swedroe Architecture; Lillian Wu Studio; Design Studio Boca Sales: Douglas Elliman Development Marketing Construction: Connor & Gaskins",
+    "sourceNotes": [
+      "Confidence is high for core project facts, with human review needed for timeline, fees, deposits, and full service details.",
+      "Not direct waterfront.",
+      "Longer construction horizon.",
+      "Maintenance, deposit, and full service details are missing.",
+      "Sales gallery address and building site address should not be confused.",
+      "2029 timing should be verified."
+    ],
+    "sourceUrls": [
+      "https://www.norahouse.com/"
+    ],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "high"
+  },
+  {
+    "slug": "south-flagler-house",
+    "repoProjectId": "south-flagler-house",
+    "heroHeadline": "Trophy Waterfront Living on South Flagler",
+    "heroSubheadline": "South Flagler House is one of West Palm Beach highest-profile luxury waterfront projects, with two towers, estate-scale residences, and deep private-club amenities.",
+    "overview": "South Flagler House is active / under construction and positioned at the top end of the West Palm Beach luxury market. It is a trophy South Flagler waterfront project with pricing and scale to match.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "1355 S Flagler Drive, West Palm Beach, FL 33401"
+      },
+      {
+        "label": "Status",
+        "value": "Under Construction"
+      },
+      {
+        "label": "Developer",
+        "value": "Related Ross"
+      },
+      {
+        "label": "Design",
+        "value": "Robert A.M. Stern Architects; Pembrooke & Ives interiors; SMI Landscape Architecture"
+      },
+      {
+        "label": "Residences",
+        "value": "108 public-facing; municipal records reference 109"
+      },
+      {
+        "label": "Floors",
+        "value": "28"
+      },
+      {
+        "label": "Towers",
+        "value": "2"
+      },
+      {
+        "label": "Price Range",
+        "value": "$7.98M to $70M on current official tier pages"
+      },
+      {
+        "label": "Delivery",
+        "value": "2027"
+      },
+      {
+        "label": "Size Range",
+        "value": "854-14,053 sq. ft."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "1-5 including guest-suite inventory"
+      }
+    ],
+    "residences": "Residences include estate-scale layouts, large all-season loggias, select private elevator access, full-floor homes, and duplex penthouse options. Some terraces are noted at 31 feet wide, with select terraces up to 23 feet deep.",
+    "amenities": "Amenities include 50,000 sq. ft. of private-club amenities, lakefront pool / cabanas, private marina, vanishing-edge pool, 25-meter lap pool, spa, treatment rooms, beauty salon, hydrotherapy, fitness / Pilates / yoga, pickleball, restaurant, private dining, wine lounge, private bar, executive conference rooms, children facilities, golf simulator, concierge, valet, and Related Life programming.",
+    "location": "South Flagler House sits along one of West Palm Beach premier waterfront corridors, facing the Intracoastal and Palm Beach beyond.",
+    "localTake": "South Flagler House is the trophy play. Buyers should focus on total cost of ownership, view lines, floor height, and whether the private-club model actually fits how they live.",
+    "tradeoffs": [
+      "Ultra-luxury pricing.",
+      "Public address is 1355 S Flagler; city documents reference 1315 S Flagler.",
+      "Public count is 108 residences; municipal records reference 109 units.",
+      "Fees, deposit, pet, and EV details still need verification."
+    ],
+    "confidenceNote": "Confidence is high, with human review needed because of public / municipal conflicts around address and unit count.",
+    "seoTitle": "South Flagler House | West Palm Beach Luxury Waterfront Condos",
+    "metaDescription": "South Flagler House is a trophy South Flagler waterfront condominium with 108 residences, two towers, club-level amenities, and 2027 delivery.",
+    "badge": "Under Construction",
+    "tags": [
+      "south-flagler",
+      "waterfront",
+      "trophy-condo",
+      "ultra-luxury",
+      "under-construction",
+      "private-club",
+      "two-tower",
+      "human-review-required",
+      "new-construction"
+    ],
+    "introHeadline": "Trophy Waterfront Living on South Flagler",
+    "introDek": "South Flagler House is one of West Palm Beach highest-profile luxury waterfront projects, with two towers, estate-scale residences, and deep private-club amenities.",
+    "brookeTake": "South Flagler House is the trophy play. Buyers should focus on total cost of ownership, view lines, floor height, and whether the private-club model actually fits how they live.",
+    "bestFor": [
+      "Ultra-luxury buyers",
+      "Palm Beach buyers considering mainland convenience",
+      "Buyers wanting club-level amenity depth",
+      "Buyers seeking estate-scale waterfront residences"
+    ],
+    "signatureFeatures": [
+      "Residences: 108 public-facing; municipal records reference 109",
+      "Floors: 28",
+      "Towers: 2",
+      "Price Range: $7.98M to $70M on current official tier pages",
+      "Delivery: 2027",
+      "Bedrooms: 1-5 including guest-suite inventory"
+    ],
+    "amenityNarrative": "Amenities include 50,000 sq. ft. of private-club amenities, lakefront pool / cabanas, private marina, vanishing-edge pool, 25-meter lap pool, spa, treatment rooms, beauty salon, hydrotherapy, fitness / Pilates / yoga, pickleball, restaurant, private dining, wine lounge, private bar, executive conference rooms, children facilities, golf simulator, concierge, valet, and Related Life programming.",
+    "residenceNarrative": "Residences include estate-scale layouts, large all-season loggias, select private elevator access, full-floor homes, and duplex penthouse options. Some terraces are noted at 31 feet wide, with select terraces up to 23 feet deep.",
+    "locationNarrative": "South Flagler House sits along one of West Palm Beach premier waterfront corridors, facing the Intracoastal and Palm Beach beyond.",
+    "buyerComparisonNotes": "Ultra-luxury buyers Palm Beach buyers considering mainland convenience Buyers wanting club-level amenity depth Buyers seeking estate-scale waterfront residences Ultra-luxury pricing. Public address is 1355 S Flagler; city documents reference 1315 S Flagler. Public count is 108 residences; municipal records reference 109 units. Fees, deposit, pet, and EV details still need verification.",
+    "projectTeamNarrative": "Developer: Related Ross Design: Robert A.M. Stern Architects; Pembrooke & Ives interiors; SMI Landscape Architecture",
+    "sourceNotes": [
+      "Confidence is high, with human review needed because of public / municipal conflicts around address and unit count.",
+      "Ultra-luxury pricing.",
+      "Public address is 1355 S Flagler; city documents reference 1315 S Flagler.",
+      "Public count is 108 residences; municipal records reference 109 units.",
+      "Fees, deposit, pet, and EV details still need verification."
+    ],
+    "sourceUrls": [
+      "https://www.southflaglerhouse.com/"
+    ],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "high"
+  },
+  {
+    "slug": "mr-c-residences-west-palm-beach",
+    "repoProjectId": "mr-c",
+    "heroHeadline": "Hospitality-Driven Living in Downtown West Palm Beach",
+    "heroSubheadline": "Mr. C Residences brings a branded hospitality model to downtown West Palm Beach, with dining, service, and amenity programming at the center of the concept.",
+    "overview": "Mr. C is an under-construction branded downtown project, not a quiet waterfront residential building. It is best framed around hospitality, service, dining, and urban access.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "327 Okeechobee Boulevard, West Palm Beach, FL 33401"
+      },
+      {
+        "label": "Status",
+        "value": "Under Construction"
+      },
+      {
+        "label": "Developer",
+        "value": "Lakeview Hospitality Investments, LLC; Terra; Sympatico Real Estate"
+      },
+      {
+        "label": "Design",
+        "value": "Arquitectonica; Meyer Davis interiors; Landscape Design Workshop"
+      },
+      {
+        "label": "Brand",
+        "value": "Mr. C; Ignazio and Maggio Cipriani"
+      },
+      {
+        "label": "Sales",
+        "value": "Douglas Elliman Development Marketing"
+      },
+      {
+        "label": "Residences",
+        "value": "146"
+      },
+      {
+        "label": "Floors",
+        "value": "27"
+      },
+      {
+        "label": "Price Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Delivery",
+        "value": "2027 recommended; conflicts remain"
+      },
+      {
+        "label": "Size Range",
+        "value": "830-2,195 sq. ft."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "1-3"
+      }
+    ],
+    "residences": "Residences include 1- to 3-bedroom layouts with custom kitchens, Italian cabinetry, Wolf and Sub-Zero appliances, porcelain tile floors, floor-to-ceiling glass, internet prewire, motorized shade provisions, custom Mr. C app, private terraces, terrazzo countertops, and solid-core doors.",
+    "amenities": "Amenities include garden-level lap pool, cabanas, pool bar / lounge, hotel rooftop pool / bar, fitness, yoga, Pilates, Peloton, spa, sauna, steam, Bellini Cafe / Restaurant / Rooftop lounge, billiards, outdoor cinema, library / business lounge, Little C playground, bocce, concierge reception, 24-hour valet / security, butler service, in-residence dining, event catering, housekeeping, and poolside food / beverage.",
+    "location": "Mr. C is located along the downtown / Okeechobee corridor, with a more urban, hospitality-oriented lifestyle than the Flagler waterfront projects.",
+    "localTake": "Mr. C is not the quiet waterfront retreat option, and that is the point. This is for buyers who want service, restaurant energy, brand identity, and downtown convenience.",
+    "tradeoffs": [
+      "Not direct waterfront.",
+      "Municipal hard facts remain thin.",
+      "Pricing and fees are not verified.",
+      "Address, floor count, and delivery references conflict across sources.",
+      "Completion references include 2026 and 2027; use 2027 recommended with caution."
+    ],
+    "confidenceNote": "Confidence is medium. Use official fact-sheet values while preserving municipal-verification caveats.",
+    "seoTitle": "Mr. C Residences West Palm Beach | Downtown Branded Condos",
+    "metaDescription": "Mr. C Residences West Palm Beach is a downtown branded condominium with hospitality-driven services, dining, amenities, and 146 residences.",
+    "badge": "Branded Residences",
+    "tags": [
+      "downtown",
+      "okeechobee-corridor",
+      "branded-residences",
+      "mr-c",
+      "hospitality",
+      "luxury-condo",
+      "under-construction",
+      "non-waterfront",
+      "human-review-required"
+    ],
+    "introHeadline": "Hospitality-Driven Living in Downtown West Palm Beach",
+    "introDek": "Mr. C Residences brings a branded hospitality model to downtown West Palm Beach, with dining, service, and amenity programming at the center of the concept.",
+    "brookeTake": "Mr. C is not the quiet waterfront retreat option, and that is the point. This is for buyers who want service, restaurant energy, brand identity, and downtown convenience.",
+    "bestFor": [
+      "Downtown luxury buyers",
+      "Brand-first condo shoppers",
+      "Owners who want hotel-style service and dining",
+      "Buyers who do not require direct waterfront"
+    ],
+    "signatureFeatures": [
+      "Brand: Mr. C; Ignazio and Maggio Cipriani",
+      "Residences: 146",
+      "Floors: 27",
+      "Price Range: Not yet publicly confirmed.",
+      "Delivery: 2027 recommended; conflicts remain",
+      "Bedrooms: 1-3"
+    ],
+    "amenityNarrative": "Amenities include garden-level lap pool, cabanas, pool bar / lounge, hotel rooftop pool / bar, fitness, yoga, Pilates, Peloton, spa, sauna, steam, Bellini Cafe / Restaurant / Rooftop lounge, billiards, outdoor cinema, library / business lounge, Little C playground, bocce, concierge reception, 24-hour valet / security, butler service, in-residence dining, event catering, housekeeping, and poolside food / beverage.",
+    "residenceNarrative": "Residences include 1- to 3-bedroom layouts with custom kitchens, Italian cabinetry, Wolf and Sub-Zero appliances, porcelain tile floors, floor-to-ceiling glass, internet prewire, motorized shade provisions, custom Mr. C app, private terraces, terrazzo countertops, and solid-core doors.",
+    "locationNarrative": "Mr. C is located along the downtown / Okeechobee corridor, with a more urban, hospitality-oriented lifestyle than the Flagler waterfront projects.",
+    "buyerComparisonNotes": "Downtown luxury buyers Brand-first condo shoppers Owners who want hotel-style service and dining Buyers who do not require direct waterfront Not direct waterfront. Municipal hard facts remain thin. Pricing and fees are not verified. Address, floor count, and delivery references conflict across sources. Completion references include 2026 and 2027; use 2027 recommended with caution.",
+    "projectTeamNarrative": "Developer: Lakeview Hospitality Investments, LLC; Terra; Sympatico Real Estate Design: Arquitectonica; Meyer Davis interiors; Landscape Design Workshop Brand: Mr. C; Ignazio and Maggio Cipriani Sales: Douglas Elliman Development Marketing",
+    "sourceNotes": [
+      "Confidence is medium. Use official fact-sheet values while preserving municipal-verification caveats.",
+      "Not direct waterfront.",
+      "Municipal hard facts remain thin.",
+      "Pricing and fees are not verified.",
+      "Address, floor count, and delivery references conflict across sources.",
+      "Completion references include 2026 and 2027; use 2027 recommended with caution."
+    ],
+    "sourceUrls": [
+      "https://www.mrcresidenceswpb.com/"
+    ],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "medium"
+  },
+  {
+    "slug": "maison-dor",
+    "repoProjectId": "maison-dor",
+    "heroHeadline": "Boutique South Flagler Luxury, Details Emerging",
+    "heroSubheadline": "Maison d Or is an early preconstruction South Flagler condominium record with boutique positioning and several important details still awaiting public confirmation.",
+    "overview": "Maison d Or is included as an active / preconstruction public page, but it should be treated cautiously. It is one of the least complete public records in the active group.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "South Flagler Drive, West Palm Beach, FL"
+      },
+      {
+        "label": "Status",
+        "value": "Preconstruction / Details Emerging"
+      },
+      {
+        "label": "Developer",
+        "value": "Kolter Urban; Perko Development"
+      },
+      {
+        "label": "Design",
+        "value": "SB Architects / 10 Design; HBA interiors; EDSA landscape"
+      },
+      {
+        "label": "Sales",
+        "value": "Maison d Or Realty, LLC"
+      },
+      {
+        "label": "Residences",
+        "value": "39"
+      },
+      {
+        "label": "Floors",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Price Range",
+        "value": "Starting at $5.7M"
+      },
+      {
+        "label": "Delivery",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Size Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "Not yet publicly confirmed."
+      }
+    ],
+    "residences": "Residence details are limited. The record supports 39 residences and pricing starting at $5.7M, but layouts, bedroom mix, size ranges, terraces, finishes, penthouses, and private elevator details are not yet publicly confirmed.",
+    "amenities": "Detailed amenity and service programming is not yet verified from official public materials.",
+    "location": "Maison d Or is positioned broadly on South Flagler Drive, one of West Palm Beach most important luxury waterfront corridors. Exact site details should be clarified before making strong claims about views, frontage, or walkability.",
+    "localTake": "Maison d Or is worth watching, but this is where discipline matters. Until the hard details are public, the page should be clean, cautious, and honest.",
+    "tradeoffs": [
+      "Weakest active / early record in the current group.",
+      "Exact address is not fully verified.",
+      "Floor count, unit program, amenities, services, and delivery need verification.",
+      "Likely connected to municipal Flagler House 39-unit approval, but details remain unverified."
+    ],
+    "confidenceNote": "Confidence is medium-low. Include only with details-emerging language and human review before treating as a mature active sales page.",
+    "seoTitle": "Maison d Or West Palm Beach | South Flagler Condo Watch",
+    "metaDescription": "Maison d Or is an early South Flagler luxury condominium record with 39 residences, starting prices from $5.7M, and details still emerging.",
+    "badge": "Details Emerging",
+    "tags": [
+      "south-flagler",
+      "waterfront",
+      "boutique-condo",
+      "luxury-condo",
+      "preconstruction",
+      "details-emerging",
+      "human-review-required",
+      "watchlist"
+    ],
+    "introHeadline": "Boutique South Flagler Luxury, Details Emerging",
+    "introDek": "Maison d Or is an early preconstruction South Flagler condominium record with boutique positioning and several important details still awaiting public confirmation.",
+    "brookeTake": "Maison d Or is worth watching, but this is where discipline matters. Until the hard details are public, the page should be clean, cautious, and honest.",
+    "bestFor": [
+      "Boutique South Flagler buyers",
+      "Buyers tracking smaller-scale ultra-luxury projects",
+      "Pipeline-conscious buyers",
+      "Buyers who want early awareness before details are complete"
+    ],
+    "signatureFeatures": [
+      "Residences: 39",
+      "Floors: Not yet publicly confirmed.",
+      "Price Range: Starting at $5.7M",
+      "Delivery: Not yet publicly confirmed.",
+      "Bedrooms: Not yet publicly confirmed."
+    ],
+    "amenityNarrative": "Detailed amenity and service programming is not yet verified from official public materials.",
+    "residenceNarrative": "Residence details are limited. The record supports 39 residences and pricing starting at $5.7M, but layouts, bedroom mix, size ranges, terraces, finishes, penthouses, and private elevator details are not yet publicly confirmed.",
+    "locationNarrative": "Maison d Or is positioned broadly on South Flagler Drive, one of West Palm Beach most important luxury waterfront corridors. Exact site details should be clarified before making strong claims about views, frontage, or walkability.",
+    "buyerComparisonNotes": "Boutique South Flagler buyers Buyers tracking smaller-scale ultra-luxury projects Pipeline-conscious buyers Buyers who want early awareness before details are complete Weakest active / early record in the current group. Exact address is not fully verified. Floor count, unit program, amenities, services, and delivery need verification. Likely connected to municipal Flagler House 39-unit approval, but details remain unverified.",
+    "projectTeamNarrative": "Developer: Kolter Urban; Perko Development Design: SB Architects / 10 Design; HBA interiors; EDSA landscape Sales: Maison d Or Realty, LLC",
+    "sourceNotes": [
+      "Confidence is medium-low. Include only with details-emerging language and human review before treating as a mature active sales page.",
+      "Weakest active / early record in the current group.",
+      "Exact address is not fully verified.",
+      "Floor count, unit program, amenities, services, and delivery need verification.",
+      "Likely connected to municipal Flagler House 39-unit approval, but details remain unverified."
+    ],
+    "sourceUrls": [],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "medium-low"
+  },
+  {
+    "slug": "edgeworth",
+    "repoProjectId": "edgeworth-north",
+    "heroHeadline": "A Major South Flagler Pipeline Project",
+    "heroSubheadline": "Edgeworth is a planned two-tower South Flagler waterfront condominium project from Related Ross. Details are still emerging, so it should be tracked as pipeline rather than active inventory.",
+    "overview": "Edgeworth belongs in the pipeline / announced / watchlist group. It should be treated as one combined project unless official marketing later splits the towers.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "1155 S Flagler Drive, West Palm Beach, FL"
+      },
+      {
+        "label": "Status",
+        "value": "Announced / Pipeline"
+      },
+      {
+        "label": "Developer",
+        "value": "Related Ross"
+      },
+      {
+        "label": "Design",
+        "value": "Kohn Pedersen Fox; MAWD / March and White Design interiors"
+      },
+      {
+        "label": "Residences",
+        "value": "168"
+      },
+      {
+        "label": "Floors",
+        "value": "28"
+      },
+      {
+        "label": "Towers",
+        "value": "2"
+      },
+      {
+        "label": "Price Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Delivery",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Size Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "1-5 reported"
+      }
+    ],
+    "residences": "Details remain limited. The record references 1- to 5-bedroom residences, private elevator access, and generous balconies, but pricing, floorplans, finishes, and full size ranges are not yet publicly confirmed.",
+    "amenities": "Launch reporting references more than 90,000 sq. ft. of indoor / outdoor amenities. The detailed amenity and service program is not yet verified.",
+    "location": "Edgeworth is positioned on South Flagler Drive, one of West Palm Beach strongest luxury residential corridors.",
+    "localTake": "Edgeworth is worth watching because Related Ross is deeply tied into the South Flagler luxury conversation. The smart move is to track it, not pretend every buyer question has an answer yet.",
+    "tradeoffs": [
+      "Announced-stage data only.",
+      "Pricing, delivery, floorplans, and full amenities remain unverified.",
+      "Municipal approval status remains unclear.",
+      "Keep as one combined project unless official marketing splits the towers."
+    ],
+    "confidenceNote": "Confidence is medium. Human review is required because core sales, pricing, timing, and municipal approval details remain incomplete.",
+    "seoTitle": "Edgeworth West Palm Beach | South Flagler Pipeline Condos",
+    "metaDescription": "Edgeworth is a planned South Flagler waterfront condominium by Related Ross with 168 residences, two towers, and early-stage details still emerging.",
+    "badge": "Announced / Pipeline",
+    "tags": [
+      "south-flagler",
+      "waterfront",
+      "pipeline",
+      "watchlist",
+      "related-ross",
+      "luxury-condo",
+      "two-tower",
+      "human-review-required"
+    ],
+    "introHeadline": "A Major South Flagler Pipeline Project",
+    "introDek": "Edgeworth is a planned two-tower South Flagler waterfront condominium project from Related Ross. Details are still emerging, so it should be tracked as pipeline rather than active inventory.",
+    "brookeTake": "Edgeworth is worth watching because Related Ross is deeply tied into the South Flagler luxury conversation. The smart move is to track it, not pretend every buyer question has an answer yet.",
+    "bestFor": [
+      "Ultra-luxury pipeline watchers",
+      "South Flagler buyers planning ahead",
+      "Buyers tracking Related Ross projects",
+      "Buyers who want early awareness before sales details mature"
+    ],
+    "signatureFeatures": [
+      "Residences: 168",
+      "Floors: 28",
+      "Towers: 2",
+      "Price Range: Not yet publicly confirmed.",
+      "Delivery: Not yet publicly confirmed.",
+      "Bedrooms: 1-5 reported"
+    ],
+    "amenityNarrative": "Launch reporting references more than 90,000 sq. ft. of indoor / outdoor amenities. The detailed amenity and service program is not yet verified.",
+    "residenceNarrative": "Details remain limited. The record references 1- to 5-bedroom residences, private elevator access, and generous balconies, but pricing, floorplans, finishes, and full size ranges are not yet publicly confirmed.",
+    "locationNarrative": "Edgeworth is positioned on South Flagler Drive, one of West Palm Beach strongest luxury residential corridors.",
+    "buyerComparisonNotes": "Ultra-luxury pipeline watchers South Flagler buyers planning ahead Buyers tracking Related Ross projects Buyers who want early awareness before sales details mature Announced-stage data only. Pricing, delivery, floorplans, and full amenities remain unverified. Municipal approval status remains unclear. Keep as one combined project unless official marketing splits the towers.",
+    "projectTeamNarrative": "Developer: Related Ross Design: Kohn Pedersen Fox; MAWD / March and White Design interiors",
+    "sourceNotes": [
+      "Confidence is medium. Human review is required because core sales, pricing, timing, and municipal approval details remain incomplete.",
+      "Announced-stage data only.",
+      "Pricing, delivery, floorplans, and full amenities remain unverified.",
+      "Municipal approval status remains unclear.",
+      "Keep as one combined project unless official marketing splits the towers."
+    ],
+    "sourceUrls": [],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "medium"
+  },
+  {
+    "slug": "mandarin-oriental-residences-west-palm-beach",
+    "repoProjectId": "mandarin-oriental",
+    "heroHeadline": "Branded Waterfront Residences Planned for North Flagler",
+    "heroSubheadline": "Mandarin Oriental Residences West Palm Beach is a branded luxury condominium planned for 5400 N Flagler Drive, with current materials referencing 87 residences.",
+    "overview": "Mandarin Oriental is a branded pipeline / watchlist project. It should remain separate from older 5400 N Flagler approval history and should not be confused with Alba Reserve unless official sources prove a connection.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "5400 N Flagler Drive, West Palm Beach, FL 33407"
+      },
+      {
+        "label": "Status",
+        "value": "Announced / Branded Pipeline"
+      },
+      {
+        "label": "Developer",
+        "value": "Great Gulf Group"
+      },
+      {
+        "label": "Design",
+        "value": "Safdie Architects / Moshe Safdie"
+      },
+      {
+        "label": "Brand",
+        "value": "Mandarin Oriental"
+      },
+      {
+        "label": "Residences",
+        "value": "87 public-facing; prior approval history referenced 97 units"
+      },
+      {
+        "label": "Floors",
+        "value": "31"
+      },
+      {
+        "label": "Price Range",
+        "value": "From $3.5M reported"
+      },
+      {
+        "label": "Delivery",
+        "value": "2031 anticipated"
+      },
+      {
+        "label": "Size Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "Not yet publicly confirmed."
+      }
+    ],
+    "residences": "Current details reference private elevator access, expansive wraparound terraces, and water / skyline views. Final size ranges, bedroom mix, finishes, penthouse details, and parking allocations remain incomplete.",
+    "amenities": "High-level materials reference a rooftop retreat, private waterfront pool, restorative wellness experiences, and Mandarin Oriental service. The full amenity and service program is not yet verified.",
+    "location": "The project is planned for North Flagler Drive, farther north than many active waterfront projects, with a longer development horizon.",
+    "localTake": "This is a brand-and-horizon play. The Mandarin Oriental name will get attention, but the real buyer question is whether someone wants to plan around a 2031-type timeline.",
+    "tradeoffs": [
+      "Long delivery horizon.",
+      "Current branding references 87 residences; prior approval history referenced 97 units.",
+      "Full amenity list, fees, deposits, residence sizes, and sales process remain incomplete.",
+      "Site acreage references should be handled cautiously."
+    ],
+    "confidenceNote": "Confidence is medium-high. Use the 87-residence branded identity publicly while preserving the prior 97-unit approval history as a caveat.",
+    "seoTitle": "Mandarin Oriental Residences West Palm Beach | Pipeline",
+    "metaDescription": "Mandarin Oriental Residences West Palm Beach is a branded North Flagler waterfront pipeline project with 87 residences and anticipated 2031 delivery.",
+    "badge": "Announced / Branded Pipeline",
+    "tags": [
+      "north-flagler",
+      "waterfront",
+      "branded-residences",
+      "mandarin-oriental",
+      "pipeline",
+      "watchlist",
+      "luxury-condo",
+      "long-horizon",
+      "human-review-required"
+    ],
+    "introHeadline": "Branded Waterfront Residences Planned for North Flagler",
+    "introDek": "Mandarin Oriental Residences West Palm Beach is a branded luxury condominium planned for 5400 N Flagler Drive, with current materials referencing 87 residences.",
+    "brookeTake": "This is a brand-and-horizon play. The Mandarin Oriental name will get attention, but the real buyer question is whether someone wants to plan around a 2031-type timeline.",
+    "bestFor": [
+      "Brand-focused ultra-luxury buyers",
+      "Long-horizon pipeline buyers",
+      "North Flagler waterfront watchers",
+      "Buyers comparing branded residence platforms"
+    ],
+    "signatureFeatures": [
+      "Brand: Mandarin Oriental",
+      "Residences: 87 public-facing; prior approval history referenced 97 units",
+      "Floors: 31",
+      "Price Range: From $3.5M reported",
+      "Delivery: 2031 anticipated",
+      "Bedrooms: Not yet publicly confirmed."
+    ],
+    "amenityNarrative": "High-level materials reference a rooftop retreat, private waterfront pool, restorative wellness experiences, and Mandarin Oriental service. The full amenity and service program is not yet verified.",
+    "residenceNarrative": "Current details reference private elevator access, expansive wraparound terraces, and water / skyline views. Final size ranges, bedroom mix, finishes, penthouse details, and parking allocations remain incomplete.",
+    "locationNarrative": "The project is planned for North Flagler Drive, farther north than many active waterfront projects, with a longer development horizon.",
+    "buyerComparisonNotes": "Brand-focused ultra-luxury buyers Long-horizon pipeline buyers North Flagler waterfront watchers Buyers comparing branded residence platforms Long delivery horizon. Current branding references 87 residences; prior approval history referenced 97 units. Full amenity list, fees, deposits, residence sizes, and sales process remain incomplete. Site acreage references should be handled cautiously.",
+    "projectTeamNarrative": "Developer: Great Gulf Group Design: Safdie Architects / Moshe Safdie Brand: Mandarin Oriental",
+    "sourceNotes": [
+      "Confidence is medium-high. Use the 87-residence branded identity publicly while preserving the prior 97-unit approval history as a caveat.",
+      "Long delivery horizon.",
+      "Current branding references 87 residences; prior approval history referenced 97 units.",
+      "Full amenity list, fees, deposits, residence sizes, and sales process remain incomplete.",
+      "Site acreage references should be handled cautiously."
+    ],
+    "sourceUrls": [],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "medium-high"
+  },
+  {
+    "slug": "banyan-tree-residences-west-palm-beach",
+    "repoProjectId": "banyan-tree",
+    "heroHeadline": "An Early Branded Residence Opportunity Downtown",
+    "heroSubheadline": "Banyan Tree Residences West Palm Beach is an announced branded condominium planned for downtown West Palm Beach. The project is public, but several key details remain early-stage.",
+    "overview": "Banyan Tree is a branded pipeline / watchlist project with strong team credentials, but not enough public detail yet to treat as active under-construction inventory.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "Downtown West Palm Beach - exact street address TBD"
+      },
+      {
+        "label": "Status",
+        "value": "Announced"
+      },
+      {
+        "label": "Developer",
+        "value": "Mast Capital; Curated JCZM Development"
+      },
+      {
+        "label": "Design",
+        "value": "OMA; Yabu Pushelberg interiors; Enzo Enea landscape"
+      },
+      {
+        "label": "Brand",
+        "value": "Banyan Tree / Banyan Group"
+      },
+      {
+        "label": "Residences",
+        "value": "88"
+      },
+      {
+        "label": "Floors",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Price Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Delivery",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Size Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "1-4 plus penthouses"
+      }
+    ],
+    "residences": "The record references 1- to 4-bedroom residences plus penthouses. Specific layouts, sizes, terrace dimensions, finishes, private elevator access, and penthouse details are not yet publicly confirmed.",
+    "amenities": "Amenities are expected to include a private porte cochere, fully serviced resort-style pool, curated social and recreation spaces, wellness center, and spa with treatment rooms, cryotherapy, hammam, and meditation spaces. The specific on-site service program still needs verification.",
+    "location": "The project is identified as downtown West Palm Beach, but the exact street address remains TBD. Location claims should stay broad until the site is fully confirmed.",
+    "localTake": "Banyan Tree is a good example of why the watchlist matters. The name and team are strong enough to track now, but buyers should not treat it like a fully priced, fully mapped purchase option yet.",
+    "tradeoffs": [
+      "Exact street address is not yet verified.",
+      "Floor count, pricing, delivery, and municipal approval details need confirmation.",
+      "Construction status is not confirmed.",
+      "Keep language cautious until more sales / construction details are available."
+    ],
+    "confidenceNote": "Confidence is high for the announcement and team, medium for page-readiness. Human review is required before upgrading to active sales or under-construction status.",
+    "seoTitle": "Banyan Tree Residences West Palm Beach | Pipeline Condos",
+    "metaDescription": "Banyan Tree Residences West Palm Beach is an announced branded downtown condominium with 88 residences and early-stage project details.",
+    "badge": "Announced",
+    "tags": [
+      "downtown",
+      "branded-residences",
+      "banyan-tree",
+      "pipeline",
+      "watchlist",
+      "luxury-condo",
+      "wellness",
+      "early-stage",
+      "human-review-required"
+    ],
+    "introHeadline": "An Early Branded Residence Opportunity Downtown",
+    "introDek": "Banyan Tree Residences West Palm Beach is an announced branded condominium planned for downtown West Palm Beach. The project is public, but several key details remain early-stage.",
+    "brookeTake": "Banyan Tree is a good example of why the watchlist matters. The name and team are strong enough to track now, but buyers should not treat it like a fully priced, fully mapped purchase option yet.",
+    "bestFor": [
+      "Brand-focused pipeline buyers",
+      "Downtown West Palm Beach buyers",
+      "Buyers tracking early branded-residence opportunities",
+      "Buyers monitoring future luxury supply"
+    ],
+    "signatureFeatures": [
+      "Brand: Banyan Tree / Banyan Group",
+      "Residences: 88",
+      "Floors: Not yet publicly confirmed.",
+      "Price Range: Not yet publicly confirmed.",
+      "Delivery: Not yet publicly confirmed.",
+      "Bedrooms: 1-4 plus penthouses"
+    ],
+    "amenityNarrative": "Amenities are expected to include a private porte cochere, fully serviced resort-style pool, curated social and recreation spaces, wellness center, and spa with treatment rooms, cryotherapy, hammam, and meditation spaces. The specific on-site service program still needs verification.",
+    "residenceNarrative": "The record references 1- to 4-bedroom residences plus penthouses. Specific layouts, sizes, terrace dimensions, finishes, private elevator access, and penthouse details are not yet publicly confirmed.",
+    "locationNarrative": "The project is identified as downtown West Palm Beach, but the exact street address remains TBD. Location claims should stay broad until the site is fully confirmed.",
+    "buyerComparisonNotes": "Brand-focused pipeline buyers Downtown West Palm Beach buyers Buyers tracking early branded-residence opportunities Buyers monitoring future luxury supply Exact street address is not yet verified. Floor count, pricing, delivery, and municipal approval details need confirmation. Construction status is not confirmed. Keep language cautious until more sales / construction details are available.",
+    "projectTeamNarrative": "Developer: Mast Capital; Curated JCZM Development Design: OMA; Yabu Pushelberg interiors; Enzo Enea landscape Brand: Banyan Tree / Banyan Group",
+    "sourceNotes": [
+      "Confidence is high for the announcement and team, medium for page-readiness. Human review is required before upgrading to active sales or under-construction status.",
+      "Exact street address is not yet verified.",
+      "Floor count, pricing, delivery, and municipal approval details need confirmation.",
+      "Construction status is not confirmed.",
+      "Keep language cautious until more sales / construction details are available."
+    ],
+    "sourceUrls": [],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "medium"
+  },
+  {
+    "slug": "alba-reserve",
+    "repoProjectId": "alba-reserve",
+    "heroHeadline": "A Reported North Flagler Watchlist Project",
+    "heroSubheadline": "Alba Reserve is a reported / proposed North Flagler waterfront project. It should be tracked cautiously and kept separate from Alba Palm Beach and Mandarin Oriental unless official sources say otherwise.",
+    "overview": "Alba Reserve belongs in the pipeline / watchlist group, not active sales. It is useful for tracking possible future North Flagler inventory, but public details remain limited.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "4720 N Flagler Drive, West Palm Beach, FL"
+      },
+      {
+        "label": "Status",
+        "value": "Reported / Proposed"
+      },
+      {
+        "label": "Developer",
+        "value": "BGI Companies; Blue Road Group"
+      },
+      {
+        "label": "Design",
+        "value": "Spina O Rourke + Partners; Carlos Ott; Schmidt Nichols landscape"
+      },
+      {
+        "label": "Residences",
+        "value": "87"
+      },
+      {
+        "label": "Floors",
+        "value": "31"
+      },
+      {
+        "label": "Price Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Delivery",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Size Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "Not yet publicly confirmed."
+      }
+    ],
+    "residences": "Residence details are not yet publicly confirmed. The record supports 87 residences and 31 floors, but layouts, sizes, terraces, finishes, penthouses, and private elevator details are not verified.",
+    "amenities": "Amenity and service details are not verified. This should remain a watchlist page until stronger public materials are available.",
+    "location": "Alba Reserve is tied to North Flagler Drive, a major corridor for waterfront development. Its proximity to other North Flagler projects creates buyer interest but also potential naming and site confusion.",
+    "localTake": "Alba Reserve needs a sober watchlist page. Buyers should know it exists, but the page should not pretend it has the same certainty as Alba Palm Beach or Olara.",
+    "tradeoffs": [
+      "Not active sales inventory.",
+      "Details may change substantially.",
+      "No strong public asset set yet.",
+      "Potential confusion with 5400 N Flagler / Mandarin Oriental should be avoided.",
+      "31 stories vs earlier 30-story concept references should remain a caveat if needed."
+    ],
+    "confidenceNote": "Confidence is low-medium. Use cautious watchlist language and preserve human-review status.",
+    "seoTitle": "Alba Reserve West Palm Beach | North Flagler Watchlist",
+    "metaDescription": "Alba Reserve is a reported / proposed North Flagler waterfront watchlist project that should be tracked separately from Alba Palm Beach.",
+    "badge": "Reported / Proposed",
+    "tags": [
+      "north-flagler",
+      "waterfront",
+      "pipeline",
+      "watchlist",
+      "reported-proposed",
+      "luxury-condo",
+      "early-stage",
+      "human-review-required"
+    ],
+    "introHeadline": "A Reported North Flagler Watchlist Project",
+    "introDek": "Alba Reserve is a reported / proposed North Flagler waterfront project. It should be tracked cautiously and kept separate from Alba Palm Beach and Mandarin Oriental unless official sources say otherwise.",
+    "brookeTake": "Alba Reserve needs a sober watchlist page. Buyers should know it exists, but the page should not pretend it has the same certainty as Alba Palm Beach or Olara.",
+    "bestFor": [
+      "Pipeline tracking",
+      "North Flagler development watchers",
+      "Buyers wanting early awareness of proposed projects",
+      "Buyers comparing potential future waterfront supply"
+    ],
+    "signatureFeatures": [
+      "Residences: 87",
+      "Floors: 31",
+      "Price Range: Not yet publicly confirmed.",
+      "Delivery: Not yet publicly confirmed.",
+      "Bedrooms: Not yet publicly confirmed."
+    ],
+    "amenityNarrative": "Amenity and service details are not verified. This should remain a watchlist page until stronger public materials are available.",
+    "residenceNarrative": "Residence details are not yet publicly confirmed. The record supports 87 residences and 31 floors, but layouts, sizes, terraces, finishes, penthouses, and private elevator details are not verified.",
+    "locationNarrative": "Alba Reserve is tied to North Flagler Drive, a major corridor for waterfront development. Its proximity to other North Flagler projects creates buyer interest but also potential naming and site confusion.",
+    "buyerComparisonNotes": "Pipeline tracking North Flagler development watchers Buyers wanting early awareness of proposed projects Buyers comparing potential future waterfront supply Not active sales inventory. Details may change substantially. No strong public asset set yet. Potential confusion with 5400 N Flagler / Mandarin Oriental should be avoided. 31 stories vs earlier 30-story concept references should remain a caveat if needed.",
+    "projectTeamNarrative": "Developer: BGI Companies; Blue Road Group Design: Spina O Rourke + Partners; Carlos Ott; Schmidt Nichols landscape",
+    "sourceNotes": [
+      "Confidence is low-medium. Use cautious watchlist language and preserve human-review status.",
+      "Not active sales inventory.",
+      "Details may change substantially.",
+      "No strong public asset set yet.",
+      "Potential confusion with 5400 N Flagler / Mandarin Oriental should be avoided.",
+      "31 stories vs earlier 30-story concept references should remain a caveat if needed."
+    ],
+    "sourceUrls": [],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "low-medium"
+  },
+  {
+    "slug": "fern-gardenia-related-ross-fern-street-project",
+    "repoProjectId": "fern-gardenia",
+    "heroHeadline": "A Downtown Pipeline Project Worth Watching",
+    "heroSubheadline": "The Fern & Gardenia / Related Ross Fern Street project is a downtown West Palm Beach pipeline record tied to a possible condo-tower repositioning from an earlier mixed-use apartment plan.",
+    "overview": "This project belongs in the pipeline / announced / watchlist group. It should be described cautiously because the record includes an evolution from a prior apartment-oriented mixed-use plan toward a possible 100-130 unit condominium tower.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "401 S Dixie Highway / 418 & 464 Fern Street, West Palm Beach, FL"
+      },
+      {
+        "label": "Status",
+        "value": "Pipeline / Announced"
+      },
+      {
+        "label": "Developer",
+        "value": "Related Ross; Wexford; 13th Floor Investments; L&L Holding"
+      },
+      {
+        "label": "Design",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Residences",
+        "value": "100-130 condominium units proposed in later repositioning; prior plan referenced 340 apartments"
+      },
+      {
+        "label": "Floors",
+        "value": "25"
+      },
+      {
+        "label": "Price Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Delivery",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Size Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "Not yet publicly confirmed."
+      }
+    ],
+    "residences": "Residence details are not yet publicly confirmed. The record supports a later reported 100-130 unit condominium concept, but layouts, sizes, bedrooms, terrace details, finishes, and penthouse information remain unavailable.",
+    "amenities": "The prior plan referenced a mixed-use program with apartments and commercial space. Current condo-specific amenities and services are not yet public.",
+    "location": "The site is in the downtown West Palm Beach / Fern Street corridor, near the broader CityPlace and South Dixie activity zone. This is a more urban, walkable lifestyle than the Flagler waterfront projects.",
+    "localTake": "This is a watch the repositioning project. If it becomes a true luxury condo tower, it could be very relevant for downtown buyers. Until then, handle it cautiously.",
+    "tradeoffs": [
+      "Early-stage / repositioning details may change.",
+      "Prior plan referenced 340 apartments, not condos.",
+      "Current condo count is reported as 100-130 units.",
+      "Final amenities, pricing, timing, and approvals remain unclear.",
+      "Human review is required."
+    ],
+    "confidenceNote": "Confidence is medium. Include as pipeline / watchlist with cautious language and preserve the apartment-to-condo repositioning history.",
+    "seoTitle": "Fern & Gardenia West Palm Beach | Downtown Pipeline Project",
+    "metaDescription": "Fern & Gardenia / Related Ross Fern Street is a downtown pipeline project reportedly repositioned from apartments toward a condo tower.",
+    "badge": "Pipeline / Announced",
+    "tags": [
+      "downtown",
+      "fern-street",
+      "pipeline",
+      "watchlist",
+      "related-ross",
+      "condo-repositioning",
+      "mixed-use",
+      "cityplace",
+      "human-review-required"
+    ],
+    "introHeadline": "A Downtown Pipeline Project Worth Watching",
+    "introDek": "The Fern & Gardenia / Related Ross Fern Street project is a downtown West Palm Beach pipeline record tied to a possible condo-tower repositioning from an earlier mixed-use apartment plan.",
+    "brookeTake": "This is a watch the repositioning project. If it becomes a true luxury condo tower, it could be very relevant for downtown buyers. Until then, handle it cautiously.",
+    "bestFor": [
+      "Downtown pipeline tracking",
+      "Buyers monitoring future condo inventory near CityPlace and Fern Street",
+      "Buyers interested in walkable urban West Palm Beach",
+      "Investors tracking future downtown luxury supply"
+    ],
+    "signatureFeatures": [
+      "Residences: 100-130 condominium units proposed in later repositioning; prior plan referenced 340 apartments",
+      "Floors: 25",
+      "Price Range: Not yet publicly confirmed.",
+      "Delivery: Not yet publicly confirmed.",
+      "Bedrooms: Not yet publicly confirmed."
+    ],
+    "amenityNarrative": "The prior plan referenced a mixed-use program with apartments and commercial space. Current condo-specific amenities and services are not yet public.",
+    "residenceNarrative": "Residence details are not yet publicly confirmed. The record supports a later reported 100-130 unit condominium concept, but layouts, sizes, bedrooms, terrace details, finishes, and penthouse information remain unavailable.",
+    "locationNarrative": "The site is in the downtown West Palm Beach / Fern Street corridor, near the broader CityPlace and South Dixie activity zone. This is a more urban, walkable lifestyle than the Flagler waterfront projects.",
+    "buyerComparisonNotes": "Downtown pipeline tracking Buyers monitoring future condo inventory near CityPlace and Fern Street Buyers interested in walkable urban West Palm Beach Investors tracking future downtown luxury supply Early-stage / repositioning details may change. Prior plan referenced 340 apartments, not condos. Current condo count is reported as 100-130 units. Final amenities, pricing, timing, and approvals remain unclear. Human review is required.",
+    "projectTeamNarrative": "Developer: Related Ross; Wexford; 13th Floor Investments; L&L Holding Design: Not yet publicly confirmed.",
+    "sourceNotes": [
+      "Confidence is medium. Include as pipeline / watchlist with cautious language and preserve the apartment-to-condo repositioning history.",
+      "Early-stage / repositioning details may change.",
+      "Prior plan referenced 340 apartments, not condos.",
+      "Current condo count is reported as 100-130 units.",
+      "Final amenities, pricing, timing, and approvals remain unclear.",
+      "Human review is required."
+    ],
+    "sourceUrls": [],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "medium"
+  },
+  {
+    "slug": "rybovich-marina-redevelopment",
+    "repoProjectId": "rybovich-marina",
+    "heroHeadline": "A Major Marina Redevelopment on North Flagler",
+    "heroSubheadline": "Rybovich Marina Redevelopment is a large-scale waterfront planning project that may include multiple residential towers within a broader marina redevelopment.",
+    "overview": "Rybovich belongs in the pipeline / planning-approved / watchlist group. It is a broader marina redevelopment with residential components and phased approvals, not one simple condo building.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "4000-4300 N Flagler Drive, West Palm Beach, FL"
+      },
+      {
+        "label": "Status",
+        "value": "Pipeline / Planning Approved"
+      },
+      {
+        "label": "Developer",
+        "value": "Huizenga Holdings; Integra Investments"
+      },
+      {
+        "label": "Design",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Residences",
+        "value": "Up to 660 residential units contemplated; initial approvals cover 259 units across two towers"
+      },
+      {
+        "label": "Floors",
+        "value": "34 and 36 stories for initial two towers; future towers up to 445 ft reported"
+      },
+      {
+        "label": "Towers",
+        "value": "Up to 4 contemplated"
+      },
+      {
+        "label": "Price Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Delivery",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Size Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "Not yet publicly confirmed."
+      }
+    ],
+    "residences": "Residential details remain early. The record references up to 660 residential units overall, with initial approvals covering 259 units across two towers. Final unit mix, residence sizes, views, finishes, terraces, and branding are not yet finalized publicly.",
+    "amenities": "The record describes a 19-acre marina redevelopment with waterfront condominium towers and marina context. Residential amenities, marina access, dockage rules, parking, and service programming are not yet finalized for consumer display.",
+    "location": "The project is tied to the North Flagler / Rybovich waterfront area, farther north and more marina-oriented than downtown or South Flagler.",
+    "localTake": "Rybovich is a market-shaper, not a normal building page. Buyers should watch it because it could change the North Flagler conversation, but it is not a finished condo sales offering.",
+    "tradeoffs": [
+      "Large phased project.",
+      "Timing, tower sequence, pricing, and residential program remain uncertain.",
+      "Initial approval covers two towers / 259 units, not the full possible buildout.",
+      "Do not present individual towers as separate condo pages until official sales / branding materials exist."
+    ],
+    "confidenceNote": "Confidence is medium. Include as pipeline / watchlist and avoid individual tower pages until stronger sales materials exist.",
+    "seoTitle": "Rybovich Marina Redevelopment | WPB Waterfront Watchlist",
+    "metaDescription": "Rybovich Marina Redevelopment is a major North Flagler marina-area pipeline project with planned residential towers and phased approvals.",
+    "badge": "Pipeline / Planning Approved",
+    "tags": [
+      "north-flagler",
+      "rybovich",
+      "marina-redevelopment",
+      "waterfront",
+      "pipeline",
+      "planning-approved",
+      "watchlist",
+      "phased-development",
+      "human-review-required"
+    ],
+    "introHeadline": "A Major Marina Redevelopment on North Flagler",
+    "introDek": "Rybovich Marina Redevelopment is a large-scale waterfront planning project that may include multiple residential towers within a broader marina redevelopment.",
+    "brookeTake": "Rybovich is a market-shaper, not a normal building page. Buyers should watch it because it could change the North Flagler conversation, but it is not a finished condo sales offering.",
+    "bestFor": [
+      "Buyers tracking major North Flagler waterfront pipeline",
+      "Long-horizon marina-oriented condo prospects",
+      "Market watchers studying future supply",
+      "Buyers interested in large redevelopment sites"
+    ],
+    "signatureFeatures": [
+      "Residences: Up to 660 residential units contemplated; initial approvals cover 259 units across two towers",
+      "Floors: 34 and 36 stories for initial two towers; future towers up to 445 ft reported",
+      "Towers: Up to 4 contemplated",
+      "Price Range: Not yet publicly confirmed.",
+      "Delivery: Not yet publicly confirmed.",
+      "Bedrooms: Not yet publicly confirmed."
+    ],
+    "amenityNarrative": "The record describes a 19-acre marina redevelopment with waterfront condominium towers and marina context. Residential amenities, marina access, dockage rules, parking, and service programming are not yet finalized for consumer display.",
+    "residenceNarrative": "Residential details remain early. The record references up to 660 residential units overall, with initial approvals covering 259 units across two towers. Final unit mix, residence sizes, views, finishes, terraces, and branding are not yet finalized publicly.",
+    "locationNarrative": "The project is tied to the North Flagler / Rybovich waterfront area, farther north and more marina-oriented than downtown or South Flagler.",
+    "buyerComparisonNotes": "Buyers tracking major North Flagler waterfront pipeline Long-horizon marina-oriented condo prospects Market watchers studying future supply Buyers interested in large redevelopment sites Large phased project. Timing, tower sequence, pricing, and residential program remain uncertain. Initial approval covers two towers / 259 units, not the full possible buildout. Do not present individual towers as separate condo pages until official sales / branding materials exist.",
+    "projectTeamNarrative": "Developer: Huizenga Holdings; Integra Investments Design: Not yet publicly confirmed.",
+    "sourceNotes": [
+      "Confidence is medium. Include as pipeline / watchlist and avoid individual tower pages until stronger sales materials exist.",
+      "Large phased project.",
+      "Timing, tower sequence, pricing, and residential program remain uncertain.",
+      "Initial approval covers two towers / 259 units, not the full possible buildout.",
+      "Do not present individual towers as separate condo pages until official sales / branding materials exist."
+    ],
+    "sourceUrls": [],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "medium"
+  },
+  {
+    "slug": "rosewood-residences-west-palm-beach",
+    "repoProjectId": "rosewood",
+    "heroHeadline": "A Rosewood-Branded Residence Planned for North Flagler",
+    "heroSubheadline": "Rosewood Residences West Palm Beach is a branded pipeline project planned for North Flagler Drive, with 90 residences and early filed-plan details.",
+    "overview": "Rosewood belongs in the pipeline / branded-residences / watchlist group. It should be handled cautiously until official sales materials, pricing, and final residence details are public.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "2001 N Flagler Drive, West Palm Beach, FL"
+      },
+      {
+        "label": "Status",
+        "value": "Pipeline / Branded Residences"
+      },
+      {
+        "label": "Developer",
+        "value": "Related Group; BH Group"
+      },
+      {
+        "label": "Design",
+        "value": "Arquitectonica"
+      },
+      {
+        "label": "Brand",
+        "value": "Rosewood Hotels & Resorts"
+      },
+      {
+        "label": "Residences",
+        "value": "90"
+      },
+      {
+        "label": "Floors",
+        "value": "27"
+      },
+      {
+        "label": "Parking",
+        "value": "185 parking spaces reported in filed plans"
+      },
+      {
+        "label": "Price Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Delivery",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Size Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "Not yet publicly confirmed."
+      }
+    ],
+    "residences": "Residence-level details remain limited. The record supports 90 planned residences, but size ranges, layouts, bedroom mix, terraces, finishes, penthouses, and private elevator access are not yet publicly confirmed.",
+    "amenities": "The reported plan includes more than 13,000 sq. ft. of indoor amenities and a fifth-floor pool deck. The full Rosewood-branded service program is not yet public.",
+    "location": "The project is planned for 2001 N Flagler Drive in the North Flagler waterfront corridor, making it relevant for buyers comparing Olara, Shorecrest, Ritz-Carlton Residences West Palm Beach, and other North Flagler projects.",
+    "localTake": "Rosewood is a strong brand to watch, but this is not yet the moment to write it like a finished sales offering. It is important, credible, early, and still missing details buyers need.",
+    "tradeoffs": [
+      "Filed-plan stage.",
+      "Sales launch, pricing, delivery, and unit mix remain unverified.",
+      "Final amenities and service model remain incomplete.",
+      "Human review required until official sales materials are public."
+    ],
+    "confidenceNote": "Confidence is medium. Include as a public pipeline / branded-residences record with human review required.",
+    "seoTitle": "Rosewood Residences West Palm Beach | Branded Pipeline",
+    "metaDescription": "Rosewood Residences West Palm Beach is a branded North Flagler pipeline project with 90 planned residences and filed-plan details emerging.",
+    "badge": "Pipeline / Branded Residences",
+    "tags": [
+      "north-flagler",
+      "waterfront",
+      "branded-residences",
+      "rosewood",
+      "pipeline",
+      "watchlist",
+      "luxury-condo",
+      "filed-plans",
+      "human-review-required"
+    ],
+    "introHeadline": "A Rosewood-Branded Residence Planned for North Flagler",
+    "introDek": "Rosewood Residences West Palm Beach is a branded pipeline project planned for North Flagler Drive, with 90 residences and early filed-plan details.",
+    "brookeTake": "Rosewood is a strong brand to watch, but this is not yet the moment to write it like a finished sales offering. It is important, credible, early, and still missing details buyers need.",
+    "bestFor": [
+      "Branded-residence buyers",
+      "North Flagler waterfront pipeline shoppers",
+      "Buyers tracking Related Group / BH Group projects",
+      "Buyers monitoring future service-led luxury inventory"
+    ],
+    "signatureFeatures": [
+      "Brand: Rosewood Hotels & Resorts",
+      "Residences: 90",
+      "Floors: 27",
+      "Parking: 185 parking spaces reported in filed plans",
+      "Price Range: Not yet publicly confirmed.",
+      "Delivery: Not yet publicly confirmed.",
+      "Bedrooms: Not yet publicly confirmed."
+    ],
+    "amenityNarrative": "The reported plan includes more than 13,000 sq. ft. of indoor amenities and a fifth-floor pool deck. The full Rosewood-branded service program is not yet public.",
+    "residenceNarrative": "Residence-level details remain limited. The record supports 90 planned residences, but size ranges, layouts, bedroom mix, terraces, finishes, penthouses, and private elevator access are not yet publicly confirmed.",
+    "locationNarrative": "The project is planned for 2001 N Flagler Drive in the North Flagler waterfront corridor, making it relevant for buyers comparing Olara, Shorecrest, Ritz-Carlton Residences West Palm Beach, and other North Flagler projects.",
+    "buyerComparisonNotes": "Branded-residence buyers North Flagler waterfront pipeline shoppers Buyers tracking Related Group / BH Group projects Buyers monitoring future service-led luxury inventory Filed-plan stage. Sales launch, pricing, delivery, and unit mix remain unverified. Final amenities and service model remain incomplete. Human review required until official sales materials are public.",
+    "projectTeamNarrative": "Developer: Related Group; BH Group Design: Arquitectonica Brand: Rosewood Hotels & Resorts",
+    "sourceNotes": [
+      "Confidence is medium. Include as a public pipeline / branded-residences record with human review required.",
+      "Filed-plan stage.",
+      "Sales launch, pricing, delivery, and unit mix remain unverified.",
+      "Final amenities and service model remain incomplete.",
+      "Human review required until official sales materials are public."
+    ],
+    "sourceUrls": [],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "medium"
+  },
+  {
+    "slug": "forte-on-flagler",
+    "repoProjectId": "forte-on-flagler",
+    "heroHeadline": "A Completed South Flagler Luxury Benchmark",
+    "heroSubheadline": "Forte on Flagler is a completed luxury condominium on South Flagler Drive, useful for comparing newer waterfront projects and resale alternatives.",
+    "overview": "Forte belongs in the completed luxury comps group, not active preconstruction. It helps buyers compare recently delivered South Flagler luxury product against current pipeline and under-construction buildings.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "1309 S Flagler Drive, West Palm Beach, FL"
+      },
+      {
+        "label": "Status",
+        "value": "Completed Comp"
+      },
+      {
+        "label": "Developer",
+        "value": "Two Roads Development; Alpha Blue Ventures"
+      },
+      {
+        "label": "Design",
+        "value": "Arquitectonica; Jean-Louis Deniot interiors; EDSA landscape"
+      },
+      {
+        "label": "Residences",
+        "value": "41 public / design reference; municipal records reference 42 units"
+      },
+      {
+        "label": "Floors",
+        "value": "25 public / design reference; municipal records reference 24 floors"
+      },
+      {
+        "label": "Price Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Delivery",
+        "value": "Completed / recently completed; occupancy / resale status to verify"
+      },
+      {
+        "label": "Size Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Parking",
+        "value": "129-car garage; allocation per residence not verified"
+      }
+    ],
+    "residences": "The record supports luxury waterfront residences and references a full-floor six-bedroom penthouse. Current layouts, resale pricing, and unit-specific features should be refreshed before publication.",
+    "amenities": "Amenities include three levels of amenities, 75-ft lap pool with heated spa, outdoor dining / lounge, private dining for 24, great room, library, evening lounge, his / hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security, lobby attendant, valet, house cars, EV charging, and concierge.",
+    "location": "Forte sits on South Flagler Drive, one of West Palm Beach strongest luxury waterfront corridors, and offers completed-building context for nearby planned and under-construction projects.",
+    "localTake": "Forte is valuable because it is real. Buyers can compare actual building experience, views, services, and resale behavior instead of relying only on renderings.",
+    "tradeoffs": [
+      "Current resale pricing and HOA / maintenance need verification.",
+      "Public / design sources reference 41 residences plus penthouse; municipal records reference 42 units.",
+      "Public / design sources reference 25 stories; municipal records reference 24 floors.",
+      "Completed comp status should not be confused with active preconstruction."
+    ],
+    "confidenceNote": "Confidence is high for completed-comp inclusion, with human review needed for current resale details, fees, and public / municipal count differences.",
+    "seoTitle": "Forte on Flagler | Completed South Flagler Luxury Comp",
+    "metaDescription": "Forte on Flagler is a completed South Flagler luxury condominium useful for comparing newer West Palm Beach waterfront residences and resale context.",
+    "badge": "Completed Comp",
+    "tags": [
+      "south-flagler",
+      "waterfront",
+      "completed-comp",
+      "luxury-condo",
+      "resale-context",
+      "benchmark-building",
+      "human-review-required",
+      "completed-luxury"
+    ],
+    "introHeadline": "A Completed South Flagler Luxury Benchmark",
+    "introDek": "Forte on Flagler is a completed luxury condominium on South Flagler Drive, useful for comparing newer waterfront projects and resale alternatives.",
+    "brookeTake": "Forte is valuable because it is real. Buyers can compare actual building experience, views, services, and resale behavior instead of relying only on renderings.",
+    "bestFor": [
+      "Completed South Flagler luxury comparisons",
+      "Resale-context buyers",
+      "Buyers comparing newer completed product vs pipeline towers",
+      "Buyers who want delivered-product context"
+    ],
+    "signatureFeatures": [
+      "Residences: 41 public / design reference; municipal records reference 42 units",
+      "Floors: 25 public / design reference; municipal records reference 24 floors",
+      "Price Range: Not yet publicly confirmed.",
+      "Delivery: Completed / recently completed; occupancy / resale status to verify",
+      "Bedrooms: Not yet publicly confirmed.",
+      "Parking: 129-car garage; allocation per residence not verified"
+    ],
+    "amenityNarrative": "Amenities include three levels of amenities, 75-ft lap pool with heated spa, outdoor dining / lounge, private dining for 24, great room, library, evening lounge, his / hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security, lobby attendant, valet, house cars, EV charging, and concierge.",
+    "residenceNarrative": "The record supports luxury waterfront residences and references a full-floor six-bedroom penthouse. Current layouts, resale pricing, and unit-specific features should be refreshed before publication.",
+    "locationNarrative": "Forte sits on South Flagler Drive, one of West Palm Beach strongest luxury waterfront corridors, and offers completed-building context for nearby planned and under-construction projects.",
+    "buyerComparisonNotes": "Completed South Flagler luxury comparisons Resale-context buyers Buyers comparing newer completed product vs pipeline towers Buyers who want delivered-product context Current resale pricing and HOA / maintenance need verification. Public / design sources reference 41 residences plus penthouse; municipal records reference 42 units. Public / design sources reference 25 stories; municipal records reference 24 floors. Completed comp status should not be confused with active preconstruction.",
+    "projectTeamNarrative": "Developer: Two Roads Development; Alpha Blue Ventures Design: Arquitectonica; Jean-Louis Deniot interiors; EDSA landscape",
+    "sourceNotes": [
+      "Confidence is high for completed-comp inclusion, with human review needed for current resale details, fees, and public / municipal count differences.",
+      "Current resale pricing and HOA / maintenance need verification.",
+      "Public / design sources reference 41 residences plus penthouse; municipal records reference 42 units.",
+      "Public / design sources reference 25 stories; municipal records reference 24 floors.",
+      "Completed comp status should not be confused with active preconstruction."
+    ],
+    "sourceUrls": [],
+    "lastCopyResearchDate": "2026-05-28",
+    "copyConfidence": "high"
+  },
+  {
+    "slug": "la-clara",
+    "repoProjectId": "la-clara",
+    "heroHeadline": "A Completed South Flagler Resale Benchmark",
+    "heroSubheadline": "La Clara is a completed luxury condominium on South Flagler Drive, helping buyers compare delivered product against West Palm Beach newer pipeline and under-construction projects.",
+    "overview": "La Clara belongs in the completed luxury comps group. Its value is as a delivered building that helps buyers understand pricing, resale dynamics, and the South Flagler luxury standard.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "1515 S Flagler Drive, West Palm Beach, FL"
+      },
+      {
+        "label": "Status",
+        "value": "Completed Comp"
+      },
+      {
+        "label": "Developer",
+        "value": "Great Gulf"
+      },
+      {
+        "label": "Design",
+        "value": "Hariri Pontarini Architects; Stantec"
+      },
+      {
+        "label": "Residences",
+        "value": "83 public / design reference; municipal records may show 84 units"
+      },
+      {
+        "label": "Floors",
+        "value": "25"
+      },
+      {
+        "label": "Price Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Delivery",
+        "value": "Completed / opened to residents in 2023"
+      },
+      {
+        "label": "Size Range",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Bedrooms",
+        "value": "Not yet publicly confirmed."
+      },
+      {
+        "label": "Caveats",
+        "value": "Current resale inventory, fees, amenities, and services need refresh."
+      }
+    ],
+    "residences": "Detailed residence features are not fully refreshed in the reviewed material. The record supports 83 residences in developer / design sources, but current resale inventory, layouts, finishes, sizes, and availability should be verified before publication.",
+    "amenities": "The amenity and service list still needs refresh from resale / association sources. Until updated, this should remain positioned as a completed comp rather than a fully detailed active building page.",
+    "location": "La Clara is located on South Flagler Drive near other luxury waterfront condominium projects and completed comps.",
+    "localTake": "La Clara gives buyers a grounded comparison. When someone is looking at renderings and promises, a completed building helps reset the conversation around what has actually been delivered.",
+    "tradeoffs": [
+      "Current resale inventory needs refresh.",
+      "Fees, amenities, and services need updated verification.",
+      "Developer / design sources support 83 residences; municipal references may show 84.",
+      "Completed comp status should not be confused with active preconstruction."
+    ],
+    "confidenceNote": "Confidence is medium. Include as a completed luxury comp, but current resale details, amenities, fees, and services should be refreshed later.",
+    "seoTitle": "La Clara West Palm Beach | Completed South Flagler Comp",
+    "metaDescription": "La Clara is a completed South Flagler luxury condominium and useful resale comp for buyers comparing West Palm Beach new-development options.",
+    "badge": "Completed Comp",
+    "tags": [
+      "south-flagler",
+      "waterfront",
+      "completed-comp",
+      "luxury-condo",
+      "resale-context",
+      "benchmark-building",
+      "completed-luxury",
+      "human-review-required"
+    ],
+    "introHeadline": "A Completed South Flagler Resale Benchmark",
+    "introDek": "La Clara is a completed luxury condominium on South Flagler Drive, helping buyers compare delivered product against West Palm Beach newer pipeline and under-construction projects.",
+    "brookeTake": "La Clara gives buyers a grounded comparison. When someone is looking at renderings and promises, a completed building helps reset the conversation around what has actually been delivered.",
+    "bestFor": [
+      "Completed South Flagler comp analysis",
+      "Recent luxury resale shoppers",
+      "Buyers comparing completed vs pipeline projects",
+      "Buyers who want delivered-building context"
+    ],
+    "signatureFeatures": [
+      "Residences: 83 public / design reference; municipal records may show 84 units",
+      "Floors: 25",
+      "Price Range: Not yet publicly confirmed.",
+      "Delivery: Completed / opened to residents in 2023",
+      "Bedrooms: Not yet publicly confirmed."
+    ],
+    "amenityNarrative": "The amenity and service list still needs refresh from resale / association sources. Until updated, this should remain positioned as a completed comp rather than a fully detailed active building page.",
+    "residenceNarrative": "Detailed residence features are not fully refreshed in the reviewed material. The record supports 83 residences in developer / design sources, but current resale inventory, layouts, finishes, sizes, and availability should be verified before publication.",
+    "locationNarrative": "La Clara is located on South Flagler Drive near other luxury waterfront condominium projects and completed comps.",
+    "buyerComparisonNotes": "Completed South Flagler comp analysis Recent luxury resale shoppers Buyers comparing completed vs pipeline projects Buyers who want delivered-building context Current resale inventory needs refresh. Fees, amenities, and services need updated verification. Developer / design sources support 83 residences; municipal references may show 84. Completed comp status should not be confused with active preconstruction.",
+    "projectTeamNarrative": "Developer: Great Gulf Design: Hariri Pontarini Architects; Stantec",
+    "sourceNotes": [
+      "Confidence is medium. Include as a completed luxury comp, but current resale details, amenities, fees, and services should be refreshed later.",
+      "Current resale inventory needs refresh.",
+      "Fees, amenities, and services need updated verification.",
+      "Developer / design sources support 83 residences; municipal references may show 84.",
+      "Completed comp status should not be confused with active preconstruction."
+    ],
+    "sourceUrls": [],
+    "lastCopyResearchDate": "2026-05-28",
     "copyConfidence": "medium"
   }
 ]
