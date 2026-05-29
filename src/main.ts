@@ -5930,7 +5930,7 @@ function googleMapBaseOptions(center: { lat: number; lng: number }, zoom: number
 
 function initHeroGoogleMap() {
   const routeType = getCurrentRoute().type;
-  if (routeType !== "home" && routeType !== "map") {
+  if (routeType !== "home" && routeType !== "map" && routeType !== "project") {
     return;
   }
 
@@ -7582,11 +7582,9 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         ]
   ).filter((tag) => isBuyerFacingValue(tag.value));
   const residencePlanIcons = ["planResidence", "planEstate", "planPenthouse"];
-  const mapQuery = encodeURIComponent(copyFactValue(copyPackage, /^address$/i, project.address));
-  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
   return `
-    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-facts-cta-20260529" />
+    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-tags-map-20260529" />
     <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" hidden>
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
@@ -7610,10 +7608,6 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         <div class="berkeley-hero-content">
           <h1>${titleLines.map((line) => publicText(line)).join("<br />")}</h1>
           <p class="berkeley-hero-copy">${publicText(heroBlurb)}</p>
-          <div class="berkeley-hero-actions">
-            <a class="button primary compact berkeley-pricing-cta" href="/inquire/?project=${project.id}&interest=pricing">Inquire now <span aria-hidden="true">→</span></a>
-            <a class="button ghost compact berkeley-tour-cta" href="#berkeley-neighborhood">Schedule a tour <span aria-hidden="true">→</span></a>
-          </div>
         </div>
         ${heroTags.length ? `<div class="berkeley-hero-tags" aria-label="Project tags">${heroTags.map((tag) => `<article><span>${publicText(tag.label)}</span><strong>${publicText(tag.value)}</strong></article>`).join("")}</div>` : ""}
       </section>
@@ -7644,7 +7638,22 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 
       <section class="berkeley-neighborhood-section" id="berkeley-neighborhood">
         <div><p class="berkeley-kicker">The Neighborhood</p><h2>Connected to downtown, Palm Beach, and daily convenience.</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="/map/">Explore the neighborhood <span aria-hidden="true">→</span></a></div>
-        <div class="berkeley-google-map"><iframe title="Google Map showing ${publicText(project.name)} location" src="https://www.google.com/maps?q=${mapQuery}&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a href="${safeHref(mapUrl)}" target="_blank" rel="noopener">Open in Google Maps <span aria-hidden="true">→</span></a></div>
+        <div class="berkeley-google-map berkeley-project-map">
+          <aside class="home-hero-map-card berkeley-map-card" aria-label="West Palm Beach development map">
+            <figure class="hero-map-preview">
+              <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
+              <button class="hero-map-expand" type="button" data-map-expand>Show all developments</button>
+              <div class="hero-map-fallback">
+                ${renderProjectMapFallback()}
+              </div>
+            </figure>
+            <div class="home-map-count" aria-label="Map project count">
+              <strong>${featuredProjects.length}</strong>
+              <span>tracked West Palm Beach new-construction projects</span>
+            </div>
+          </aside>
+          <a href="/map/">Open full project map <span aria-hidden="true">→</span></a>
+        </div>
       </section>
 
       ${teamFacts.length ? `<section class="berkeley-team-section" aria-label="Project team"><p>${teamFacts.map((fact) => `<span><small>${escapeHtml(fact.label)}:</small> ${publicText(fact.value)}</span>`).join("")}</p></section>` : ""}
