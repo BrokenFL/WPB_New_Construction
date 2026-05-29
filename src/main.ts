@@ -7591,7 +7591,11 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
           { label: "Corridor", value: showcase?.heroEyebrow ?? project.corridor },
         ]
   ).filter((tag) => isBuyerFacingValue(tag.value));
-  const residencePlanIcons = ["planResidence", "planEstate", "planPenthouse"];
+  const residencePlanThumbnails = [
+    "/assets/projects/berkeley/floorplans/berkeley-floorplans-residence-thumb-bw-v01.webp",
+    "/assets/projects/berkeley/floorplans/berkeley-floorplans-estate-thumb-bw-v01.webp",
+    "/assets/projects/berkeley/floorplans/berkeley-floorplans-penthouse-thumb-bw-v01.webp",
+  ];
 
   return `
     <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-mobile-refactor-20260529" />
@@ -7636,7 +7640,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <section class="berkeley-residence-section" id="berkeley-residences">
         <div class="berkeley-section-heading"><p class="berkeley-kicker">Residences</p><a href="/inquire/?project=${project.id}&interest=floorplans">View all floor plans <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-residence-grid">
-          ${residences.map((item, index) => `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="/inquire/?project=${project.id}&interest=floorplans">${publicText(item.price)} <span aria-hidden="true">→</span></a></div><div class="berkeley-plan-placeholder" aria-hidden="true">${berkeleyIcon(residencePlanIcons[index] ?? "plan")}</div></article>`).join("")}
+          ${residences.map((item, index) => `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="/inquire/?project=${project.id}&interest=floorplans">${publicText(item.price)} <span aria-hidden="true">→</span></a></div><figure class="berkeley-plan-thumbnail" aria-hidden="true"><img src="${safeHref(residencePlanThumbnails[index] ?? residencePlanThumbnails[0])}" alt="" loading="lazy" decoding="async" /></figure></article>`).join("")}
         </div>
       </section>
 
