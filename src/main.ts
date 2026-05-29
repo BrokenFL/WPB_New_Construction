@@ -7594,7 +7594,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const residencePlanIcons = ["planResidence", "planEstate", "planPenthouse"];
 
   return `
-    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-tags-map-20260529" />
+    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-mobile-refactor-20260529" />
     <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" hidden>
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
