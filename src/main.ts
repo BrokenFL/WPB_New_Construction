@@ -3954,7 +3954,7 @@ function routeSeoDetails(
     inquire: "Request West Palm Beach Condo Availability",
   };
   const title = activeProject
-    ? `${activeProject.name} West Palm Beach | ${activeProject.pageState === "Complete profile" ? "New Construction Condo Guide" : "Buyer Guide"}`
+    ? `${activeProject.name}${/west palm beach/i.test(activeProject.name) ? "" : " West Palm Beach"} | ${activeProject.pageState === "Complete profile" ? "New Construction Condo Guide" : "Buyer Guide"}`
     : activeCorridor
       ? corridorTitles[activeCorridor.key]
       : activeMarketNote
