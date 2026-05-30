@@ -415,31 +415,31 @@
         }
       ],
       "visualBreak": {
-        "src": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
-        "label": "North Flagler Waterfront",
-        "alt": "The Ritz-Carlton Residences West Palm Beach evening aerial rendering on North Flagler"
+        "src": "/projects/ritz-carlton-wpb/media/ritz-carlton-residences-patio-daytime-v01.jpeg",
+        "label": "Private Terrace",
+        "alt": "The Ritz-Carlton Residences West Palm Beach private terrace with daytime waterfront views"
       },
       "residenceCollections": [
         {
-          "title": "Residence Collection",
-          "beds": "2-4 bedrooms",
-          "size": "1,532-3,331 sq ft",
+          "title": "2 Bedrooms",
+          "beds": "2 bedrooms",
+          "size": "1,532-1,566 sq ft",
           "price": "From $3M",
-          "thumbnail": "/projects/ritz-carlton-wpb/media/ritz-residence-living-room-sunrise-2400x1600.png"
+          "thumbnail": "/projects/ritz-carlton-wpb/media/ritz-carlton-residences-2br-a-v01.jpeg"
         },
         {
-          "title": "Waterfront Residences",
-          "beds": "East-facing views",
-          "size": "Private terraces",
+          "title": "3 Bedrooms",
+          "beds": "3 bedrooms",
+          "size": "2,449-3,244 sq ft",
           "price": "Request current pricing",
-          "thumbnail": "/projects/ritz-carlton-wpb/media/ritz-residence-kitchen-entertaining-2400x1600.png"
+          "thumbnail": "/projects/ritz-carlton-wpb/media/ritz-carlton-residences-3br-v01.jpeg"
         },
         {
-          "title": "Upper Residences",
-          "beds": "Intracoastal and ocean views",
-          "size": "Elevated tower living",
+          "title": "Lakehouse",
+          "beds": "2-3 bedrooms",
+          "size": "1,874-2,777 sq ft",
           "price": "Request availability",
-          "thumbnail": "/projects/ritz-carlton-wpb/media/ritz-view-balcony-night-2400x1600.png"
+          "thumbnail": "/projects/ritz-carlton-wpb/media/ritz-carlton-residences-lake-house-v01.jpeg"
         }
       ],
       "gallery": [
@@ -474,6 +474,22 @@
         {
           "src": "/projects/ritz-carlton-wpb/media/ritz-view-intracoastal-day-2400x1600.png",
           "label": "Intracoastal View"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-carlton-residences-living-room-view-v01.jpeg",
+          "label": "Living Room View"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-carlton-amenities-golf-v01.jpeg",
+          "label": "Golf Simulator"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-carlton-amenities-dining-v01.jpeg",
+          "label": "Private Dining"
+        },
+        {
+          "src": "/projects/ritz-carlton-wpb/media/ritz-carlton-hero-yach-v01.jpeg",
+          "label": "Waterfront Living"
         }
       ],
       "amenityHighlights": [
