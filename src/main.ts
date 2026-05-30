@@ -7659,7 +7659,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 
       ${amenities.length ? `<section class="berkeley-amenity-rail" aria-label="Highlighted amenities"><div class="berkeley-section-heading"><p class="berkeley-kicker">Amenities</p></div><div class="berkeley-amenity-icon-grid">${amenities.map((amenity) => `<article>${berkeleyIcon(amenity.icon)}<span>${publicText(amenity.label)}</span></article>`).join("")}</div></section>` : ""}
 
-      ${neighborhoodImage ? `<figure class="berkeley-image-break"><img src="${safeHref(neighborhoodImage.src)}" alt="${publicText(neighborhoodImage.alt ?? `${project.name} ${neighborhoodImage.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
+      ${neighborhoodImage ? `<figure class="berkeley-image-break"><img src="${safeHref(neighborhoodImage.src)}" alt="${publicText(neighborhoodImage.alt ?? `${project.name} ${neighborhoodImage.label}`)}" loading="eager" decoding="async" /></figure>` : ""}
 
       <section class="berkeley-neighborhood-section" id="berkeley-neighborhood">
         <div><p class="berkeley-kicker">The Neighborhood</p><h2>${publicText(neighborhoodHeadline)}</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="/map/">Explore the neighborhood <span aria-hidden="true">→</span></a></div>

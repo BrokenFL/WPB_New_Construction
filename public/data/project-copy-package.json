@@ -1396,9 +1396,9 @@
   {
     "slug": "maison-dor",
     "repoProjectId": "maison-dor",
-    "heroHeadline": "Boutique South Flagler Luxury, Details Emerging",
-    "heroSubheadline": "Maison d Or is an early preconstruction South Flagler condominium with boutique positioning and several important details still awaiting public confirmation.",
-    "overview": "Maison d Or is included as an active / preconstruction public page, but it should be treated cautiously. It is one of the least complete public detail sets in the active group.",
+    "heroHeadline": "Boutique South Flagler Living with Palm Beach Glamour",
+    "heroSubheadline": "Maison d Or brings boutique South Flagler luxury to West Palm Beach with just 39 residences, expansive floor plans, east and west terraces, and sweeping views from the Atlantic Ocean to the Intracoastal.",
+    "overview": "Maison d Or brings boutique South Flagler luxury to West Palm Beach with just 39 residences, expansive floor plans, east and west terraces, and sweeping views from the Atlantic Ocean to the Intracoastal. Designed with Mediterranean and Regency-inspired interiors, the building pairs refined residential scale with resort-style amenities, including a pool deck, wellness center, private dining, wine tasting room, screening theater, guest suites, and boat dock.",
     "quickFacts": [
       {
         "label": "Address",
@@ -1406,7 +1406,7 @@
       },
       {
         "label": "Status",
-        "value": "Preconstruction / Details Emerging"
+        "value": "Preconstruction"
       },
       {
         "label": "Developer",
@@ -1426,7 +1426,7 @@
       },
       {
         "label": "Floors",
-        "value": "Not yet publicly confirmed."
+        "value": "19"
       },
       {
         "label": "Price Range",
@@ -1434,21 +1434,21 @@
       },
       {
         "label": "Delivery",
-        "value": "Not yet publicly confirmed."
+        "value": "2028 projected"
       },
       {
         "label": "Size Range",
-        "value": "Not yet publicly confirmed."
+        "value": "2,991-10,190 sq. ft."
       },
       {
         "label": "Bedrooms",
-        "value": "Not yet publicly confirmed."
+        "value": "2-4"
       }
     ],
-    "residences": "Residence details are limited. Available materials support 39 residences and pricing starting at $5.7M, but layouts, bedroom mix, size ranges, terraces, finishes, penthouses, and private elevator details are not yet publicly confirmed.",
-    "amenities": "Detailed amenity and service programming is not yet verified from official public materials.",
-    "location": "Maison d Or is positioned broadly on South Flagler Drive, one of West Palm Beach most important luxury waterfront corridors. Exact site details should be clarified before making strong claims about views, frontage, or walkability.",
-    "localTake": "Maison d Or is worth watching, but this is where discipline matters. Until the hard details are public, the page should be clean, cautious, and honest.",
+    "residences": "Maison d Or offers flow-through residences with east and west terraces, floor-to-ceiling glass, private elevator lobbies, 10-foot ceilings in typical residences, chef-inspired kitchens with Sub-Zero and Wolf appliances, and waterfront views spanning Palm Beach, the Atlantic Ocean, the Intracoastal, and the West Palm Beach skyline.",
+    "amenities": "Amenities include a waterfront pool and spa, club room, formal dining with catering kitchen, waterfront fitness center, movement studio, private training room, wellness center with treatment room, cold plunges, sauna and steam rooms, swing suite with sports simulator, screening theater, salon, wine storage and tasting lounge, pet grooming, waterfront cafe, boardroom, two guest suites, and a new-construction boat dock for four vessels.",
+    "location": "Maison d Or sits directly on the Intracoastal Waterway in the South Flagler neighborhood, with sweeping views of Palm Beach, the Atlantic Ocean, the Intracoastal, and the West Palm Beach skyline.",
+    "localTake": "Maison d Or is aimed at buyers who want Palm Beach-style polish without older Palm Beach inventory. The draw is privacy, larger floor plans, South Flagler views, and a boutique 39-residence scale. It is still early-stage, with delivery projected for 2028, so buyers should weigh timing against the upside of newer construction.",
     "tradeoffs": [
       "Least complete active / early detail set in the current group.",
       "Exact address is not fully verified.",
@@ -1458,48 +1458,206 @@
     "confidenceNote": "Confidence is medium-low. Include only with details-emerging language and human review before treating as a mature active sales page.",
     "seoTitle": "Maison d Or West Palm Beach | South Flagler Condo Watch",
     "metaDescription": "Maison d Or is an early South Flagler luxury condominium with 39 residences, starting prices from $5.7M, and details still emerging.",
-    "badge": "Details Emerging",
+    "badge": "Preconstruction",
     "tags": [
       "south-flagler",
       "waterfront",
       "boutique-condo",
       "luxury-condo",
       "preconstruction",
-      "details-emerging",
+      "active-sales",
       "human-review-required",
       "watchlist"
     ],
-    "introHeadline": "Boutique South Flagler Luxury, Details Emerging",
-    "introDek": "Maison d Or is an early preconstruction South Flagler condominium with boutique positioning and several important details still awaiting public confirmation.",
-    "brookeTake": "Maison d Or is worth watching, but this is where discipline matters. Until the hard details are public, the page should be clean, cautious, and honest.",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "South Flagler",
+      "heroBlurb": "Boutique South Flagler Living with Palm Beach Glamour",
+      "heroImage": {
+        "src": "/assets/projects/maison-dor/hero/maison-dor-hero-exterior-v01.webp",
+        "label": "South Flagler Waterfront",
+        "alt": "Maison d Or boutique condominium rendering on South Flagler Drive"
+      },
+      "intro": "Maison d Or brings boutique South Flagler luxury to West Palm Beach with just 39 residences, expansive floor plans, east and west terraces, and sweeping views from the Atlantic Ocean to the Intracoastal. Designed with Mediterranean and Regency-inspired interiors, the building pairs refined residential scale with resort-style amenities, including a pool deck, wellness center, private dining, wine tasting room, screening theater, guest suites, and boat dock.",
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Preconstruction"
+        },
+        {
+          "label": "Corridor",
+          "value": "South Flagler"
+        },
+        {
+          "label": "Sales",
+          "value": "Active Sales"
+        }
+      ],
+      "visualBreak": {
+        "src": "/assets/projects/maison-dor/residences/maison-dor-residences-interior-great-room-v01.webp",
+        "label": "Great Room",
+        "alt": "Maison d Or waterfront great room with floor-to-ceiling glass"
+      },
+      "residenceCollections": [
+        {
+          "title": "Residences",
+          "beds": "2-3 bedrooms · den",
+          "size": "2,991-4,430 interior sq ft",
+          "price": "From $5.7M",
+          "thumbnail": "/assets/projects/maison-dor/floorplans/showcase/maison-residence-a.png"
+        },
+        {
+          "title": "Estate Residences",
+          "beds": "4 bedrooms · den",
+          "size": "5,739-5,922 interior sq ft",
+          "price": "Request current pricing",
+          "thumbnail": "/assets/projects/maison-dor/floorplans/showcase/maison-estate-a.png"
+        },
+        {
+          "title": "Penthouse",
+          "beds": "4 bedrooms · staff suite",
+          "size": "10,190 interior · 12,744 total",
+          "price": "Request penthouse details",
+          "thumbnail": "/assets/projects/maison-dor/floorplans/showcase/maison-penthouse.png"
+        }
+      ],
+      "gallery": [
+        {
+          "src": "/assets/projects/maison-dor/residences/maison-dor-residences-patio-v01.webp",
+          "label": "Private Terrace"
+        },
+        {
+          "src": "/assets/projects/maison-dor/residences/maison-dor-residences-living-room-v01.webp",
+          "label": "Waterfront Living Room"
+        },
+        {
+          "src": "/assets/projects/maison-dor/residences/maison-dor-residences-kitchen-v01.webp",
+          "label": "Residence Kitchen"
+        },
+        {
+          "src": "/assets/projects/maison-dor/residences/maison-dor-residences-bedroom-v01.webp",
+          "label": "Owner Suite"
+        },
+        {
+          "src": "/assets/projects/maison-dor/residences/maison-dor-residences-bathroom-v01.webp",
+          "label": "Primary Bath"
+        },
+        {
+          "src": "/assets/projects/maison-dor/amenities/maison-dor-amenities-club-room-v01.webp",
+          "label": "Club Room"
+        },
+        {
+          "src": "/assets/projects/maison-dor/amenities/maison-dor-amenities-owner-lounge-v01.webp",
+          "label": "Owner Lounge"
+        },
+        {
+          "src": "/assets/projects/maison-dor/amenities/maison-dor-amenities-movie-theater-v01.webp",
+          "label": "Screening Theater"
+        },
+        {
+          "src": "/assets/projects/maison-dor/amenities/maison-dor-amenities-indoor-driving-range-v01.webp",
+          "label": "Swing Suite"
+        },
+        {
+          "src": "/assets/projects/maison-dor/hero/maison-dor-hero-exterior-v01.webp",
+          "label": "South Flagler Exterior"
+        }
+      ],
+      "amenityHighlights": [
+        {
+          "icon": "pool",
+          "label": "Waterfront pool & spa"
+        },
+        {
+          "icon": "fitness",
+          "label": "Fitness & movement studio"
+        },
+        {
+          "icon": "spa",
+          "label": "Wellness center"
+        },
+        {
+          "icon": "dining",
+          "label": "Private dining"
+        },
+        {
+          "icon": "golf",
+          "label": "Swing suite"
+        },
+        {
+          "icon": "residence",
+          "label": "Two guest suites"
+        },
+        {
+          "icon": "lounge",
+          "label": "Wine tasting lounge"
+        },
+        {
+          "icon": "waterfront",
+          "label": "Four-vessel boat dock"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/assets/projects/maison-dor/amenities/maison-dor-amenities-pool-deck-v01.webp",
+        "label": "Waterfront Pool Deck",
+        "alt": "Maison d Or waterfront pool deck overlooking the Intracoastal"
+      },
+      "neighborhoodHeadline": "South Flagler privacy with Palm Beach just across the water.",
+      "projectTeam": [
+        {
+          "label": "Developer",
+          "value": "Kolter Urban; Perko Development"
+        },
+        {
+          "label": "Architect",
+          "value": "10 Design"
+        },
+        {
+          "label": "Interior Design",
+          "value": "HBA"
+        },
+        {
+          "label": "Landscape",
+          "value": "EDSA"
+        }
+      ],
+      "titleLines": [
+        "Maison",
+        "d'Or"
+      ]
+    },
+    "introHeadline": "Boutique South Flagler Living with Palm Beach Glamour",
+    "introDek": "Maison d Or brings boutique South Flagler luxury to West Palm Beach with just 39 residences, expansive floor plans, east and west terraces, and sweeping views from the Atlantic Ocean to the Intracoastal.",
+    "brookeTake": "Maison d Or is aimed at buyers who want Palm Beach-style polish without older Palm Beach inventory. The draw is privacy, larger floor plans, South Flagler views, and a boutique 39-residence scale. It is still early-stage, with delivery projected for 2028, so buyers should weigh timing against the upside of newer construction.",
     "bestFor": [
       "Boutique South Flagler buyers",
-      "Buyers tracking smaller-scale ultra-luxury projects",
-      "Pipeline-conscious buyers",
-      "Buyers who want early awareness before details are complete"
+      "Palm Beach buyers seeking new construction",
+      "Buyers prioritizing privacy and larger residences",
+      "Buyers seeking waterfront views and lock-and-leave service"
     ],
     "signatureFeatures": [
       "Residences: 39",
-      "Floors: Not yet publicly confirmed.",
+      "Floors: 19",
       "Price Range: Starting at $5.7M",
-      "Delivery: Not yet publicly confirmed.",
-      "Bedrooms: Not yet publicly confirmed."
+      "Delivery: 2028 projected",
+      "Bedrooms: 2-4"
     ],
-    "amenityNarrative": "Detailed amenity and service programming is not yet verified from official public materials.",
-    "residenceNarrative": "Residence details are limited. Available materials support 39 residences and pricing starting at $5.7M, but layouts, bedroom mix, size ranges, terraces, finishes, penthouses, and private elevator details are not yet publicly confirmed.",
-    "locationNarrative": "Maison d Or is positioned broadly on South Flagler Drive, one of West Palm Beach most important luxury waterfront corridors. Exact site details should be clarified before making strong claims about views, frontage, or walkability.",
-    "buyerComparisonNotes": "Boutique South Flagler buyers Buyers tracking smaller-scale ultra-luxury projects Pipeline-conscious buyers Buyers who want early awareness before details are complete Least complete active / early detail set in the current group. Exact address is not fully verified. Floor count, unit program, amenities, services, and delivery need verification. Likely connected to municipal Flagler House 39-unit approval, but details remain unverified.",
-    "projectTeamNarrative": "Developer: Kolter Urban; Perko Development Design: SB Architects / 10 Design; HBA interiors; EDSA landscape Sales: Maison d Or Realty, LLC",
+    "amenityNarrative": "Amenities include a waterfront pool and spa, club room, formal dining with catering kitchen, waterfront fitness center, movement studio, private training room, wellness center with treatment room, cold plunges, sauna and steam rooms, swing suite with sports simulator, screening theater, salon, wine storage and tasting lounge, pet grooming, waterfront cafe, boardroom, two guest suites, and a new-construction boat dock for four vessels.",
+    "residenceNarrative": "Maison d Or offers flow-through residences with east and west terraces, floor-to-ceiling glass, private elevator lobbies, 10-foot ceilings in typical residences, chef-inspired kitchens with Sub-Zero and Wolf appliances, and waterfront views spanning Palm Beach, the Atlantic Ocean, the Intracoastal, and the West Palm Beach skyline.",
+    "locationNarrative": "Maison d Or sits directly on the Intracoastal Waterway in the South Flagler neighborhood, with sweeping views of Palm Beach, the Atlantic Ocean, the Intracoastal, and the West Palm Beach skyline.",
+    "buyerComparisonNotes": "Boutique South Flagler luxury with 39 residences, expansive floor plans, Intracoastal frontage, Palm Beach views, private terraces, waterfront amenities, guest suites, and a four-vessel dock.",
+    "projectTeamNarrative": "Developer: Kolter Urban; Perko Development Architect: 10 Design Interior Design: HBA Landscape: EDSA",
     "sourceNotes": [
-      "Confidence is medium-low. Include only with details-emerging language and human review before treating as a mature active sales page.",
-      "Least complete active / early detail set in the current group.",
-      "Exact address is not fully verified.",
-      "Floor count, unit program, amenities, services, and delivery need verification.",
-      "Likely connected to municipal Flagler House 39-unit approval, but details remain unverified."
+      "January 2026 official fact sheet supports the 19-story, 39-residence waterfront positioning, residence range, and amenity program.",
+      "Approved floorplans support 2- to 4-bedroom residences with interior areas ranging from 2,991 to 10,190 square feet.",
+      "Delivery is projected for 2028."
     ],
-    "sourceUrls": [],
-    "lastCopyResearchDate": "2026-05-28",
-    "copyConfidence": "medium-low"
+    "sourceUrls": [
+      "https://livemaisondor.com/"
+    ],
+    "lastCopyResearchDate": "2026-05-30",
+    "copyConfidence": "high"
   },
   {
     "slug": "edgeworth",
