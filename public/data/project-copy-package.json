@@ -1170,7 +1170,7 @@
       "heroEyebrow": "Nora District",
       "heroBlurb": "Luxury Living at the Center of the Nora District",
       "heroImage": {
-        "src": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.png",
+        "src": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.jpg",
         "label": "Nora District Exterior",
         "alt": "Daytime rendering of Nora House in the Nora District of West Palm Beach"
       },
@@ -1190,7 +1190,7 @@
         }
       ],
       "visualBreak": {
-        "src": "/assets/projects/nora-house/amenities/nora-house-amenities-pool-deck-v01.png",
+        "src": "/assets/projects/nora-house/amenities/nora-house-amenities-pool-deck-v01.jpg",
         "label": "Rooftop Pool Deck",
         "alt": "Nora House rooftop pool deck at sunset"
       },
@@ -1223,19 +1223,19 @@
           "label": "Living Room"
         },
         {
-          "src": "/assets/projects/nora-house/residences/nora-house-residences-kitchen-v01.png",
+          "src": "/assets/projects/nora-house/residences/nora-house-residences-kitchen-v01.jpg",
           "label": "Kitchen"
         },
         {
-          "src": "/assets/projects/nora-house/residences/nora-house-residences-bathroom-v01.png",
+          "src": "/assets/projects/nora-house/residences/nora-house-residences-bathroom-v01.jpg",
           "label": "Primary Bath"
         },
         {
-          "src": "/assets/projects/nora-house/residences/nora-house-residences-aerial-v01.png",
+          "src": "/assets/projects/nora-house/residences/nora-house-residences-aerial-v01.jpg",
           "label": "Terrace View"
         },
         {
-          "src": "/assets/projects/nora-house/amenities/nora-house-amenities-lounge-v01.png",
+          "src": "/assets/projects/nora-house/amenities/nora-house-amenities-lounge-v01.jpg",
           "label": "Residents Lounge"
         },
         {
@@ -1251,11 +1251,11 @@
           "label": "Rooftop Deck"
         },
         {
-          "src": "/assets/projects/nora-house/hero/nora-house-hero-exterior-night-v01.png",
+          "src": "/assets/projects/nora-house/hero/nora-house-hero-exterior-night-v01.jpg",
           "label": "Evening Exterior"
         },
         {
-          "src": "/assets/projects/nora-house/amenities/nora-house-amenities-pool-roof.png",
+          "src": "/assets/projects/nora-house/amenities/nora-house-amenities-pool-roof.jpg",
           "label": "Rooftop Pool"
         }
       ],
@@ -1302,7 +1302,7 @@
         }
       ],
       "neighborhoodImage": {
-        "src": "/assets/projects/nora-house/residences/nora-house-residences-aerial-v01.png",
+        "src": "/assets/projects/nora-house/residences/nora-house-residences-aerial-v01.jpg",
         "label": "Nora District",
         "alt": "Nora House terrace view across the Nora District and West Palm Beach skyline"
       },
