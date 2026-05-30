@@ -1278,9 +1278,9 @@
   {
     "slug": "mr-c-residences-west-palm-beach",
     "repoProjectId": "mr-c",
-    "heroHeadline": "Hospitality-Driven Living in Downtown West Palm Beach",
-    "heroSubheadline": "Mr. C Residences brings a branded hospitality model to downtown West Palm Beach, with dining, service, and amenity programming at the center of the concept.",
-    "overview": "Mr. C is an under-construction branded downtown project, not a quiet waterfront residential building. It is best framed around hospitality, service, dining, and urban access.",
+    "heroHeadline": "Cipriani-Style Living in the Heart of Downtown West Palm Beach",
+    "heroSubheadline": "Mr. C Residences West Palm Beach brings Cipriani hospitality to the heart of downtown, pairing private residences with hotel-caliber service, Bellini dining, rooftop amenities, wellness spaces, and walkable access to CityPlace, Clematis, the Kravis Center, Flagler waterfront, and Palm Beach.",
+    "overview": "Mr. C Residences West Palm Beach brings Cipriani hospitality to the heart of downtown, pairing private residences with hotel-caliber service, Bellini dining, rooftop amenities, wellness spaces, and walkable access to CityPlace, Clematis, the Kravis Center, Flagler waterfront, and Palm Beach. With architecture by Arquitectonica and interiors by Meyer Davis, it offers a polished lock-and-leave lifestyle built around European ease, service, and city energy.",
     "quickFacts": [
       {
         "label": "Address",
@@ -1320,7 +1320,7 @@
       },
       {
         "label": "Delivery",
-        "value": "2027 recommended; conflicts remain"
+        "value": "2027"
       },
       {
         "label": "Size Range",
@@ -1333,16 +1333,16 @@
     ],
     "residences": "Residences include 1- to 3-bedroom layouts with custom kitchens, Italian cabinetry, Wolf and Sub-Zero appliances, porcelain tile floors, floor-to-ceiling glass, internet prewire, motorized shade provisions, custom Mr. C app, private terraces, terrazzo countertops, and solid-core doors.",
     "amenities": "Amenities include garden-level lap pool, cabanas, pool bar / lounge, hotel rooftop pool / bar, fitness, yoga, Pilates, Peloton, spa, sauna, steam, Bellini Cafe / Restaurant / Rooftop lounge, billiards, outdoor cinema, library / business lounge, Little C playground, bocce, concierge reception, 24-hour valet / security, butler service, in-residence dining, event catering, housekeeping, and poolside food / beverage.",
-    "location": "Mr. C is located along the downtown / Okeechobee corridor, with a more urban, hospitality-oriented lifestyle than the Flagler waterfront projects.",
-    "localTake": "Mr. C is not the quiet waterfront retreat option, and that is the point. This is for buyers who want service, restaurant energy, brand identity, and downtown convenience.",
+    "location": "Mr. C sits in the heart of downtown West Palm Beach, with walkable access to CityPlace, Clematis, the Kravis Center, Flagler waterfront, and a quick connection to Palm Beach.",
+    "localTake": "Mr. C is the downtown lifestyle choice. Buyers get brand recognition, hotel services, restaurants, rooftop energy, and walkability. It is less private and residential-feeling than the smaller waterfront towers, but better for buyers who want convenience, service, and a social, urban West Palm Beach address.",
     "tradeoffs": [
       "Not direct waterfront.",
       "Municipal hard facts remain thin.",
       "Pricing and fees are not verified.",
       "Address, floor count, and delivery references conflict across sources.",
-      "Completion references include 2026 and 2027; use 2027 recommended with caution."
+      "Delivery is scheduled for 2027."
     ],
-    "confidenceNote": "Confidence is medium. Use official fact-sheet values while preserving municipal-verification caveats.",
+    "confidenceNote": "Confidence is medium-high. Official project materials support the published building, residence, and amenity details.",
     "seoTitle": "Mr. C Residences West Palm Beach | Downtown Branded Condos",
     "metaDescription": "Mr. C Residences West Palm Beach is a downtown branded condominium with hospitality-driven services, dining, amenities, and 146 residences.",
     "badge": "Branded Residences",
@@ -1357,9 +1357,172 @@
       "non-waterfront",
       "human-review-required"
     ],
-    "introHeadline": "Hospitality-Driven Living in Downtown West Palm Beach",
-    "introDek": "Mr. C Residences brings a branded hospitality model to downtown West Palm Beach, with dining, service, and amenity programming at the center of the concept.",
-    "brookeTake": "Mr. C is not the quiet waterfront retreat option, and that is the point. This is for buyers who want service, restaurant energy, brand identity, and downtown convenience.",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "Downtown",
+      "heroBlurb": "Cipriani-Style Living in the Heart of Downtown West Palm Beach",
+      "heroImage": {
+        "src": "/assets/projects/mr-c/hero/mr-c-hero-exterior-entrance-v01.webp",
+        "label": "Downtown Arrival",
+        "alt": "Mr. C Residences West Palm Beach exterior rendering on Okeechobee Boulevard"
+      },
+      "intro": "Mr. C Residences West Palm Beach brings Cipriani hospitality to the heart of downtown, pairing private residences with hotel-caliber service, Bellini dining, rooftop amenities, wellness spaces, and walkable access to CityPlace, Clematis, the Kravis Center, Flagler waterfront, and Palm Beach. With architecture by Arquitectonica and interiors by Meyer Davis, it offers a polished lock-and-leave lifestyle built around European ease, service, and city energy.",
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Under Construction"
+        },
+        {
+          "label": "Corridor",
+          "value": "Downtown"
+        },
+        {
+          "label": "Sales",
+          "value": "Active Sales"
+        }
+      ],
+      "visualBreak": {
+        "src": "/assets/projects/mr-c/hero/mr-c-hero-rooftop-exterior-amenities-deck-v01.webp",
+        "label": "Rooftop Amenities",
+        "alt": "Mr. C Residences rooftop pool deck and hospitality amenities"
+      },
+      "residenceCollections": [
+        {
+          "title": "One Bedroom Residences",
+          "beds": "1 bedroom · 1.5 baths",
+          "size": "830-1,088 interior sq ft",
+          "price": "Request current pricing"
+        },
+        {
+          "title": "Two Bedroom Residences",
+          "beds": "2 bedrooms · 2-2.5 baths",
+          "size": "1,149-1,870 interior sq ft",
+          "price": "Request current pricing"
+        },
+        {
+          "title": "Three Bedroom Residences",
+          "beds": "3 bedrooms · 3-3.5 baths",
+          "size": "1,817-2,195 interior sq ft",
+          "price": "Request current pricing"
+        }
+      ],
+      "gallery": [
+        {
+          "src": "/assets/projects/mr-c/residences/mr-c-residences-open-living-room-v01.webp",
+          "label": "Residence Living Room"
+        },
+        {
+          "src": "/assets/projects/mr-c/residences/mr-c-residences-living-room-01-v01.webp",
+          "label": "Downtown View"
+        },
+        {
+          "src": "/assets/projects/mr-c/residences/mr-c-residences-kitchen-counter-v01.webp",
+          "label": "Residence Kitchen"
+        },
+        {
+          "src": "/assets/projects/mr-c/amenities/mr-c-amenities-rooftop-bar-restaurant-v01.webp",
+          "label": "Rooftop Dining"
+        },
+        {
+          "src": "/assets/projects/mr-c/hero/mr-c-amenities-lobby-wide-shot-v01.webp",
+          "label": "Lobby Lounge"
+        },
+        {
+          "src": "/assets/projects/mr-c/amenities/mr-c-amenities-entry-garden-v01.webp",
+          "label": "Entry Garden"
+        },
+        {
+          "src": "/assets/projects/mr-c/amenities/mr-c-amenities-rooftop-bar-v01.webp",
+          "label": "Rooftop Bar"
+        },
+        {
+          "src": "/assets/projects/mr-c/amenities/mr-c-amenities-treatment-room-v01.webp",
+          "label": "Treatment Room"
+        },
+        {
+          "src": "/assets/projects/mr-c/amenities/mr-c-amenities-fitness-room-02-v01.webp",
+          "label": "Fitness Center"
+        },
+        {
+          "src": "/assets/projects/mr-c/amenities/mr-c-amenities-billiards-room-v01.webp",
+          "label": "Billiards Room"
+        },
+        {
+          "src": "/assets/projects/mr-c/hero/mr-c-hero-rooftop-ocean-view-v01.webp",
+          "label": "Rooftop View"
+        },
+        {
+          "src": "/assets/projects/mr-c/amenities/mr-c-amenities-welcome-desk-v01.webp",
+          "label": "Welcome Desk"
+        }
+      ],
+      "amenityHighlights": [
+        {
+          "icon": "dining",
+          "label": "Bellini dining"
+        },
+        {
+          "icon": "pool",
+          "label": "Rooftop pool & bar"
+        },
+        {
+          "icon": "spa",
+          "label": "Spa, sauna & steam"
+        },
+        {
+          "icon": "fitness",
+          "label": "Fitness, yoga & Pilates"
+        },
+        {
+          "icon": "valet",
+          "label": "24-hour valet"
+        },
+        {
+          "icon": "lounge",
+          "label": "Concierge & butler service"
+        },
+        {
+          "icon": "residence",
+          "label": "In-residence dining"
+        },
+        {
+          "icon": "work",
+          "label": "Library & business lounge"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/assets/projects/mr-c/hero/mr-c-neighborhood-aerial-v01.webp",
+        "label": "Downtown West Palm Beach",
+        "alt": "Aerial view of downtown West Palm Beach near Mr. C Residences"
+      },
+      "neighborhoodHeadline": "Walk to CityPlace, Clematis, culture, and downtown dining.",
+      "projectTeam": [
+        {
+          "label": "Developer",
+          "value": "Terra; Sympatico Real Estate"
+        },
+        {
+          "label": "Architect",
+          "value": "Arquitectonica"
+        },
+        {
+          "label": "Interior Design",
+          "value": "Meyer Davis"
+        },
+        {
+          "label": "Landscape",
+          "value": "Landscape Design Workshop"
+        }
+      ],
+      "titleLines": [
+        "Mr. C",
+        "Residences"
+      ]
+    },
+    "introHeadline": "Cipriani-Style Living in the Heart of Downtown West Palm Beach",
+    "introDek": "Mr. C Residences West Palm Beach brings Cipriani hospitality to the heart of downtown, pairing private residences with hotel-caliber service, Bellini dining, rooftop amenities, wellness spaces, and walkable access to CityPlace, Clematis, the Kravis Center, Flagler waterfront, and Palm Beach.",
+    "brookeTake": "Mr. C is the downtown lifestyle choice. Buyers get brand recognition, hotel services, restaurants, rooftop energy, and walkability. It is less private and residential-feeling than the smaller waterfront towers, but better for buyers who want convenience, service, and a social, urban West Palm Beach address.",
     "bestFor": [
       "Downtown luxury buyers",
       "Brand-first condo shoppers",
@@ -1371,26 +1534,23 @@
       "Residences: 146",
       "Floors: 27",
       "Price Range: Not yet publicly confirmed.",
-      "Delivery: 2027 recommended; conflicts remain",
+      "Delivery: 2027",
       "Bedrooms: 1-3"
     ],
     "amenityNarrative": "Amenities include garden-level lap pool, cabanas, pool bar / lounge, hotel rooftop pool / bar, fitness, yoga, Pilates, Peloton, spa, sauna, steam, Bellini Cafe / Restaurant / Rooftop lounge, billiards, outdoor cinema, library / business lounge, Little C playground, bocce, concierge reception, 24-hour valet / security, butler service, in-residence dining, event catering, housekeeping, and poolside food / beverage.",
     "residenceNarrative": "Residences include 1- to 3-bedroom layouts with custom kitchens, Italian cabinetry, Wolf and Sub-Zero appliances, porcelain tile floors, floor-to-ceiling glass, internet prewire, motorized shade provisions, custom Mr. C app, private terraces, terrazzo countertops, and solid-core doors.",
-    "locationNarrative": "Mr. C is located along the downtown / Okeechobee corridor, with a more urban, hospitality-oriented lifestyle than the Flagler waterfront projects.",
-    "buyerComparisonNotes": "Downtown luxury buyers Brand-first condo shoppers Owners who want hotel-style service and dining Buyers who do not require direct waterfront Not direct waterfront. Municipal hard facts remain thin. Pricing and fees are not verified. Address, floor count, and delivery references conflict across sources. Completion references include 2026 and 2027; use 2027 recommended with caution.",
-    "projectTeamNarrative": "Developer: Lakeview Hospitality Investments, LLC; Terra; Sympatico Real Estate Design: Arquitectonica; Meyer Davis interiors; Landscape Design Workshop Brand: Mr. C; Ignazio and Maggio Cipriani Sales: Douglas Elliman Development Marketing",
+    "locationNarrative": "Mr. C sits in the heart of downtown West Palm Beach, with walkable access to CityPlace, Clematis, the Kravis Center, Flagler waterfront, and a quick connection to Palm Beach.",
+    "buyerComparisonNotes": "Downtown Cipriani hospitality with 146 residences, hotel-caliber service, Bellini dining, rooftop amenities, wellness spaces, and walkable access to CityPlace, Clematis, the Kravis Center, Flagler waterfront, and Palm Beach.",
+    "projectTeamNarrative": "Developer: Lakeview Hospitality Investments, LLC; Terra; Sympatico Real Estate Architect: Arquitectonica Interior Design: Meyer Davis Landscape: Landscape Design Workshop Brand: Mr. C; Ignazio and Maggio Cipriani",
     "sourceNotes": [
-      "Confidence is medium. Use official fact-sheet values while preserving municipal-verification caveats.",
-      "Not direct waterfront.",
-      "Municipal hard facts remain thin.",
-      "Pricing and fees are not verified.",
-      "Address, floor count, and delivery references conflict across sources.",
-      "Completion references include 2026 and 2027; use 2027 recommended with caution."
+      "Official project materials support the 27-story, 146-residence downtown positioning and hospitality amenity program.",
+      "Approved floorplans support 1- to 3-bedroom layouts ranging from 830 to 2,195 square feet.",
+      "Current pricing and final delivery timing should be confirmed with the sales team."
     ],
     "sourceUrls": [
       "https://www.mrcresidenceswpb.com/"
     ],
-    "lastCopyResearchDate": "2026-05-28",
+    "lastCopyResearchDate": "2026-05-30",
     "copyConfidence": "medium"
   },
   {
