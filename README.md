@@ -74,7 +74,7 @@ The renderer is `renderEditorialShowcaseProjectPage(...)` in `src/main.ts`. It f
 
 Use this structure when duplicating the template:
 
-- `heroEyebrow`, `heroBlurb`, `heroTags`, `intro`, `monogram`, and `titleLines` control the hero and opening narrative.
+- `heroImage`, `heroEyebrow`, `heroBlurb`, `heroTags`, `intro`, `monogram`, and `titleLines` control the hero and opening narrative. Use `heroImage` when the showcase page needs a dedicated approved hero instead of the older project-card image.
 - Use `heroTags` for buyer-filterable labels such as `Status`, `Corridor`, and sales availability.
 - `visualBreak` is the wide image between the fact strip and residence cards.
 - `residenceCollections` controls the three collection cards and links through to floor plan inquiry. Add an optional `thumbnail` per card when a project has approved visuals or floor-plan previews.
@@ -83,7 +83,7 @@ Use this structure when duplicating the template:
 - `neighborhoodImage` controls the wide image before the map section, and `neighborhoodHeadline` can override the default neighborhood heading.
 - `projectTeam` controls the developer / architect / interior / landscape strip below the map.
 
-Template assets should live under `public/assets/projects/<project-id>/showcase/` after they are approved for website use. Keep the image set strong enough for the layout before enabling the template on another project.
+Template assets should live under `public/assets/projects/<project-id>/showcase/` or `public/projects/<project-id>/media/showcase/` after they are approved for website use. Keep the image set strong enough for the layout before enabling the template on another project.
 
 ## Live Publishing
 

@@ -4,7 +4,7 @@
     "repoProjectId": "alba-palm-beach",
     "heroHeadline": "Boutique Waterfront Living on North Flagler",
     "heroSubheadline": "Alba Palm Beach is a 55-residence waterfront condominium on North Flagler Drive, offering a smaller-scale alternative to West Palm Beach larger luxury towers.",
-    "overview": "Alba is an under-construction boutique waterfront project with 55 residences. It is best suited for buyers who want new construction, direct waterfront positioning, strong outdoor space, and a quieter building profile.",
+    "overview": "Alba Palm Beach brings boutique waterfront living to North Flagler with just 55 luxury residences, sweeping Intracoastal views, oversized terraces, private day docks, and more than 25,000 square feet of resort-style amenities. Residents enjoy sunrise and sunset pools, wellness spaces, private dining, curated culinary access through Chèvre, and a refined lock-and-leave lifestyle minutes from Palm Beach, downtown West Palm Beach, and the marina scene.",
     "quickFacts": [
       {
         "label": "Address",
@@ -50,7 +50,7 @@
     "residences": "Residences include 2- to 4-bedroom layouts with oversized glass-framed terraces, impact glass, Italkraft kitchens, Sub-Zero and Wolf appliances, smart-home prewiring, summer kitchens, spa-style baths, and private elevators or vestibules. Select townhomes include private plunge pool / hot tub features.",
     "amenities": "Amenities include staffed lobby, valet, private dining with wine storage, conference / business center, sunrise and sunset pools, TechnoGym fitness / yoga / Pilates, bocce, lawn chess, pet spa, lounge / library, catering kitchen, simulator, screening room, spa, cold-storage package room, and climate-controlled storage.",
     "location": "Alba sits on the North Flagler waterfront, north of downtown West Palm Beach. The location fits buyers who want water access without being in the center of downtown.",
-    "localTake": "Alba is for the buyer who wants new waterfront construction without the social volume of a large luxury tower. The tradeoff is inventory: boutique buildings have fewer choices when buyers get serious.",
+    "localTake": "Alba is the intimate waterfront option on North Flagler. Buyers should focus on the low residence count, private docks, larger terraces, and direct Intracoastal lifestyle. It is not in the downtown core, but that is part of the appeal: quieter, more residential, and still close to Palm Beach, Northwood, marinas, and PBI.",
     "tradeoffs": [
       "Smaller inventory may mean limited availability.",
       "Pricing should be refreshed before publication.",
@@ -71,9 +71,187 @@
       "valet",
       "private-terraces"
     ],
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "North Flagler",
+      "heroBlurb": "Boutique Waterfront Living on North Flagler",
+      "heroImage": {
+        "src": "/projects/alba-palm-beach/media/showcase/alba-hero-aerial-waterfront-rendering-v01.jpg",
+        "label": "Waterfront Aerial",
+        "alt": "Alba Palm Beach waterfront tower rendering on North Flagler Drive"
+      },
+      "intro": "Alba Palm Beach brings boutique waterfront living to North Flagler with just 55 luxury residences, sweeping Intracoastal views, oversized terraces, private day docks, and more than 25,000 square feet of resort-style amenities. Residents enjoy sunrise and sunset pools, wellness spaces, private dining, curated culinary access through Chèvre, and a refined lock-and-leave lifestyle minutes from Palm Beach, downtown West Palm Beach, and the marina scene.",
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Under Construction"
+        },
+        {
+          "label": "Corridor",
+          "value": "North Flagler"
+        },
+        {
+          "label": "Sales",
+          "value": "Active Sales"
+        }
+      ],
+      "visualBreak": {
+        "src": "/projects/alba-palm-beach/media/showcase/alba-residences-patio-v01.webp",
+        "label": "Private Terrace",
+        "alt": "Alba Palm Beach private terrace with waterfront view"
+      },
+      "residenceCollections": [
+        {
+          "title": "Residences",
+          "beds": "2-4 bedrooms",
+          "size": "1,778-4,500 sq ft",
+          "price": "From $2.5M",
+          "thumbnail": "/projects/alba-palm-beach/media/showcase/floorplans/alba-residence.png"
+        },
+        {
+          "title": "Townhomes",
+          "beds": "Select residences",
+          "size": "Private outdoor living",
+          "price": "Request current pricing",
+          "thumbnail": "/projects/alba-palm-beach/media/showcase/floorplans/alba-townhouse.png"
+        },
+        {
+          "title": "Upper Residences",
+          "beds": "Limited inventory",
+          "size": "Waterfront exposure",
+          "price": "Request availability",
+          "thumbnail": "/projects/alba-palm-beach/media/showcase/floorplans/alba-upper-residence.png"
+        }
+      ],
+      "gallery": [
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-residences-living-room-v01.png",
+          "label": "Waterfront Living Room"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-residences-living-room-kitchen-v01.png",
+          "label": "Living Room & Kitchen"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-residences-bathroom-v01.png",
+          "label": "Primary Bath"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-residences-bedroom-with-view-v01.png",
+          "label": "Bedroom View"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-residences-kitchen-with-view-v01.webp",
+          "label": "Kitchen View"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-residences-living-room-view-v01.png",
+          "label": "Living Room View"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-amenities-pool-deck-v01.jpg",
+          "label": "Pool Deck"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-amenities-pool-deck-dusk-v01.jpg",
+          "label": "Pool Deck at Dusk"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-amenities-gym-v01.png",
+          "label": "Fitness Center"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-amenities-gym-02-v01.webp",
+          "label": "Private Terrace Residence"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-amenities-valet-v01.webp",
+          "label": "Valet Arrival"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-hero-interior-view-v01.webp",
+          "label": "Waterfront View"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-hero-aerial-waterfront-rendering-v01.jpg",
+          "label": "Waterfront Aerial"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-hero-wide-aerial-v01.webp",
+          "label": "North Flagler Aerial"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-residences-patio-v01.webp",
+          "label": "Waterfront Terrace"
+        },
+        {
+          "src": "/projects/alba-palm-beach/media/showcase/alba-residences-patio-02-v01.png",
+          "label": "Private Terrace"
+        }
+      ],
+      "amenityHighlights": [
+        {
+          "icon": "pool",
+          "label": "Sunrise & sunset pools"
+        },
+        {
+          "icon": "fitness",
+          "label": "Fitness, yoga & Pilates"
+        },
+        {
+          "icon": "spa",
+          "label": "Spa & wellness"
+        },
+        {
+          "icon": "dining",
+          "label": "Private dining"
+        },
+        {
+          "icon": "work",
+          "label": "Business center"
+        },
+        {
+          "icon": "golf",
+          "label": "Golf simulator"
+        },
+        {
+          "icon": "pet",
+          "label": "Pet spa"
+        },
+        {
+          "icon": "valet",
+          "label": "Valet service"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/projects/alba-palm-beach/media/showcase/alba-amenities-pool-deck-dusk-v01.jpg",
+        "label": "Pool Deck at Dusk",
+        "alt": "Alba Palm Beach pool deck and lounge seating at dusk"
+      },
+      "neighborhoodHeadline": "A quieter waterfront address, minutes from Palm Beach.",
+      "projectTeam": [
+        {
+          "label": "Developer",
+          "value": "BGI Companies; Blue Road Group"
+        },
+        {
+          "label": "Architect",
+          "value": "Spina O'Rourke + Partners"
+        },
+        {
+          "label": "Landscape Designer",
+          "value": "Schmidt Nichols"
+        }
+      ],
+      "titleLines": [
+        "Alba",
+        "Palm Beach"
+      ]
+    },
     "introHeadline": "Boutique Waterfront Living on North Flagler",
-    "introDek": "Alba Palm Beach is a 55-residence waterfront condominium on North Flagler Drive, offering a smaller-scale alternative to West Palm Beach larger luxury towers.",
-    "brookeTake": "Alba is for the buyer who wants new waterfront construction without the social volume of a large luxury tower. The tradeoff is inventory: boutique buildings have fewer choices when buyers get serious.",
+    "introDek": "Alba Palm Beach brings boutique waterfront living to North Flagler with just 55 luxury residences, sweeping Intracoastal views, oversized terraces, private day docks, and more than 25,000 square feet of resort-style amenities. Residents enjoy sunrise and sunset pools, wellness spaces, private dining, curated culinary access through Chèvre, and a refined lock-and-leave lifestyle minutes from Palm Beach, downtown West Palm Beach, and the marina scene.",
+    "brookeTake": "Alba is the intimate waterfront option on North Flagler. Buyers should focus on the low residence count, private docks, larger terraces, and direct Intracoastal lifestyle. It is not in the downtown core, but that is part of the appeal: quieter, more residential, and still close to Palm Beach, Northwood, marinas, and PBI.",
     "bestFor": [
       "Boutique waterfront buyers",
       "North Flagler buyers",
@@ -2093,9 +2271,9 @@
   {
     "slug": "forte-on-flagler",
     "repoProjectId": "forte-on-flagler",
-    "heroHeadline": "A Completed South Flagler Luxury Benchmark",
-    "heroSubheadline": "Forte on Flagler is a completed luxury condominium on South Flagler Drive, useful for comparing newer waterfront projects and resale alternatives.",
-    "overview": "Forte belongs in the completed luxury comps group, not active preconstruction. It helps buyers compare recently delivered South Flagler luxury product against current pipeline and under-construction buildings.",
+    "heroHeadline": "Grand-Scale Waterfront Living on South Flagler",
+    "heroSubheadline": "Forté on Flagler delivers ultra-luxury waterfront living on South Flagler Drive, with just 41 residences, no more than two per floor, private elevator foyers, expansive terraces, and sweeping views of Palm Beach, the Intracoastal, Worth Avenue, and the Atlantic Ocean.",
+    "overview": "Forté on Flagler delivers ultra-luxury waterfront living on South Flagler Drive, with just 41 residences, no more than two per floor, private elevator foyers, expansive terraces, and sweeping views of Palm Beach, the Intracoastal, Worth Avenue, and the Atlantic Ocean. Designed by Arquitectonica with interiors by Jean-Louis Deniot, Forté pairs grand-scale residences with private-club amenities, 24-hour service, valet, concierge, wellness spaces, and a 75-foot lap pool overlooking the water.",
     "quickFacts": [
       {
         "label": "Address",
@@ -2115,15 +2293,15 @@
       },
       {
         "label": "Residences",
-        "value": "41 public / design reference; municipal references show 42 units"
+        "value": "41"
       },
       {
         "label": "Floors",
-        "value": "25 public / design reference; municipal references show 24 floors"
+        "value": "25"
       },
       {
         "label": "Price Range",
-        "value": "Not yet publicly confirmed."
+        "value": "Resale inventory varies"
       },
       {
         "label": "Delivery",
@@ -2131,11 +2309,11 @@
       },
       {
         "label": "Size Range",
-        "value": "Not yet publicly confirmed."
+        "value": "4,420-10,840 sq. ft."
       },
       {
         "label": "Bedrooms",
-        "value": "Not yet publicly confirmed."
+        "value": "4-8"
       },
       {
         "label": "Parking",
@@ -2145,7 +2323,7 @@
     "residences": "Available materials support luxury waterfront residences and references a full-floor six-bedroom penthouse. Current layouts, resale pricing, and unit-specific features should be refreshed before publication.",
     "amenities": "Amenities include three levels of amenities, 75-ft lap pool with heated spa, outdoor dining / lounge, private dining for 24, great room, library, evening lounge, his / hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security, lobby attendant, valet, house cars, EV charging, and concierge.",
     "location": "Forte sits on South Flagler Drive, one of West Palm Beach strongest luxury waterfront corridors, and offers completed-building context for nearby planned and under-construction projects.",
-    "localTake": "Forte is valuable because it is real. Buyers can compare actual building experience, views, services, and resale behavior instead of relying only on renderings.",
+    "localTake": "Forté is for buyers who want scale, privacy, and South Flagler prestige without crossing the bridge to Palm Beach. The residences are large, the building is low-density, and the views are serious. It is less about scene and more about space, service, architecture, and long-term waterfront positioning.",
     "tradeoffs": [
       "Current resale pricing and HOA / maintenance need verification.",
       "Public / design sources show 41 residences plus penthouse; municipal references show 42 units.",
@@ -2166,9 +2344,171 @@
       "human-review-required",
       "completed-luxury"
     ],
-    "introHeadline": "A Completed South Flagler Luxury Benchmark",
-    "introDek": "Forte on Flagler is a completed luxury condominium on South Flagler Drive, useful for comparing newer waterfront projects and resale alternatives.",
-    "brookeTake": "Forte is valuable because it is real. Buyers can compare actual building experience, views, services, and resale behavior instead of relying only on renderings.",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "South Flagler",
+      "heroBlurb": "Grand-Scale Waterfront Living on South Flagler",
+      "heroImage": {
+        "src": "/assets/projects/forte-on-flagler/hero/forte-on-flagler-hero-exterior-main-v01.webp",
+        "label": "South Flagler Waterfront",
+        "alt": "Forté on Flagler waterfront tower rendering on South Flagler Drive"
+      },
+      "intro": "Forté on Flagler delivers ultra-luxury waterfront living on South Flagler Drive, with just 41 residences, no more than two per floor, private elevator foyers, expansive terraces, and sweeping views of Palm Beach, the Intracoastal, Worth Avenue, and the Atlantic Ocean. Designed by Arquitectonica with interiors by Jean-Louis Deniot, Forté pairs grand-scale residences with private-club amenities, 24-hour service, valet, concierge, wellness spaces, and a 75-foot lap pool overlooking the water.",
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Completed"
+        },
+        {
+          "label": "Corridor",
+          "value": "South Flagler"
+        },
+        {
+          "label": "Sales",
+          "value": "Resales"
+        }
+      ],
+      "visualBreak": {
+        "src": "/assets/projects/forte-on-flagler/residences/forte-on-flagler-residences-grand-living-room-v01.webp",
+        "label": "Grand Living Room",
+        "alt": "Forté on Flagler grand residence living room overlooking the waterfront"
+      },
+      "residenceCollections": [
+        {
+          "title": "North Residence",
+          "beds": "4 bedrooms · 4.5 baths",
+          "size": "4,420 interior · 5,442 total",
+          "price": "Request resale availability",
+          "thumbnail": "/assets/projects/forte-on-flagler/floorplans/showcase/forte-north.png"
+        },
+        {
+          "title": "South Residence",
+          "beds": "4 bedrooms · 4.5 baths",
+          "size": "4,436 interior · 5,458 total",
+          "price": "Request resale availability",
+          "thumbnail": "/assets/projects/forte-on-flagler/floorplans/showcase/forte-south.png"
+        },
+        {
+          "title": "Penthouse Residence",
+          "beds": "4-8 bedrooms · two stories",
+          "size": "9,040 interior · 10,840 total",
+          "price": "Request penthouse details",
+          "thumbnail": "/assets/projects/forte-on-flagler/floorplans/showcase/forte-penthouse-level1.png"
+        }
+      ],
+      "gallery": [
+        {
+          "src": "/assets/projects/forte-on-flagler/residences/forte-on-flagler-residences-living-room-01-v01.webp",
+          "label": "Waterfront Living Room"
+        },
+        {
+          "src": "/assets/projects/forte-on-flagler/residences/forte-on-flagler-residences-kitchen-v01.webp",
+          "label": "Residence Kitchen"
+        },
+        {
+          "src": "/assets/projects/forte-on-flagler/residences/forte-on-flagler-residences-living-room-02-v01.webp",
+          "label": "Residence Interior"
+        },
+        {
+          "src": "/assets/projects/forte-on-flagler/residences/forte-on-flagler-residences-patio-v01.webp",
+          "label": "Private Terrace"
+        },
+        {
+          "src": "/assets/projects/forte-on-flagler/residences/forte-on-flagler-residences-grand-living-room-v01.webp",
+          "label": "Grand Living Room"
+        },
+        {
+          "src": "/assets/projects/forte-on-flagler/amenities/forte-on-flagler-amenities-pool-dusk.webp",
+          "label": "Waterfront Pool at Dusk"
+        },
+        {
+          "src": "/assets/projects/forte-on-flagler/amenities/forte-on-flagler-amenities-lobby-v01.webp",
+          "label": "Lobby"
+        },
+        {
+          "src": "/assets/projects/forte-on-flagler/amenities/forte-on-flagler-amenities-gym-yoga-pose-v01.webp",
+          "label": "Fitness & Yoga"
+        },
+        {
+          "src": "/assets/projects/forte-on-flagler/hero/forte-on-flagler-amenities-waterfront-v01.webp",
+          "label": "Intracoastal Waterfront"
+        },
+        {
+          "src": "/assets/projects/forte-on-flagler/hero/forte-on-flagler-hero-rooftop-exterior-v01.webp",
+          "label": "Rooftop Exterior"
+        },
+        {
+          "src": "/assets/projects/forte-on-flagler/hero/forte-on-flagler-hero-exterior-main-v01.webp",
+          "label": "South Flagler Exterior"
+        }
+      ],
+      "amenityHighlights": [
+        {
+          "icon": "pool",
+          "label": "75-ft lap pool"
+        },
+        {
+          "icon": "fitness",
+          "label": "Fitness & yoga"
+        },
+        {
+          "icon": "spa",
+          "label": "Spa & wellness"
+        },
+        {
+          "icon": "dining",
+          "label": "Private dining"
+        },
+        {
+          "icon": "residence",
+          "label": "Two guest suites"
+        },
+        {
+          "icon": "valet",
+          "label": "24-hour service"
+        },
+        {
+          "icon": "valet",
+          "label": "Valet"
+        },
+        {
+          "icon": "work",
+          "label": "Concierge"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/assets/projects/forte-on-flagler/hero/forte-on-flagler-amenities-waterfront-v01.webp",
+        "label": "Intracoastal Waterfront",
+        "alt": "Intracoastal waterfront view from Forté on Flagler"
+      },
+      "neighborhoodHeadline": "South Flagler privacy, with Palm Beach across the water.",
+      "projectTeam": [
+        {
+          "label": "Developer",
+          "value": "Two Roads Development; Alpha Blue Ventures"
+        },
+        {
+          "label": "Architect",
+          "value": "Arquitectonica"
+        },
+        {
+          "label": "Interior Designer",
+          "value": "Jean-Louis Deniot"
+        },
+        {
+          "label": "Landscape Architect",
+          "value": "EDSA"
+        }
+      ],
+      "titleLines": [
+        "Forté",
+        "on Flagler"
+      ]
+    },
+    "introHeadline": "Grand-Scale Waterfront Living on South Flagler",
+    "introDek": "Forté on Flagler delivers ultra-luxury waterfront living on South Flagler Drive, with just 41 residences, no more than two per floor, private elevator foyers, expansive terraces, and sweeping views of Palm Beach, the Intracoastal, Worth Avenue, and the Atlantic Ocean. Designed by Arquitectonica with interiors by Jean-Louis Deniot, Forté pairs grand-scale residences with private-club amenities, 24-hour service, valet, concierge, wellness spaces, and a 75-foot lap pool overlooking the water.",
+    "brookeTake": "Forté is for buyers who want scale, privacy, and South Flagler prestige without crossing the bridge to Palm Beach. The residences are large, the building is low-density, and the views are serious. It is less about scene and more about space, service, architecture, and long-term waterfront positioning.",
     "bestFor": [
       "Completed South Flagler luxury comparisons",
       "Resale-context buyers",
@@ -2176,11 +2516,11 @@
       "Buyers who want delivered-product context"
     ],
     "signatureFeatures": [
-      "Residences: 41 public / design reference; municipal references show 42 units",
-      "Floors: 25 public / design reference; municipal references show 24 floors",
-      "Price Range: Not yet publicly confirmed.",
+      "Residences: 41",
+      "Floors: 25",
+      "Price Range: Resale inventory varies",
       "Delivery: Completed / recently completed; occupancy / resale status to verify",
-      "Bedrooms: Not yet publicly confirmed.",
+      "Bedrooms: 4-8",
       "Parking: 129-car garage; allocation per residence not verified"
     ],
     "amenityNarrative": "Amenities include three levels of amenities, 75-ft lap pool with heated spa, outdoor dining / lounge, private dining for 24, great room, library, evening lounge, his / hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security, lobby attendant, valet, house cars, EV charging, and concierge.",

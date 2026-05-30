@@ -38,6 +38,7 @@ export type ProjectShowcaseConfig = {
   template: "editorial-showcase";
   heroEyebrow?: string;
   heroBlurb?: string;
+  heroImage?: ProjectShowcaseImage;
   intro?: string;
   heroTags?: ProjectShowcaseTag[];
   monogram?: string;

@@ -7566,7 +7566,7 @@ function berkeleyIcon(name: string) {
 
 function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackage?: ProjectCopyPackage) {
   const showcase = copyPackage?.showcase;
-  const heroImage = getProjectHeroAsset(project)?.src ?? project.heroImage ?? project.image ?? siteMeta.defaultImage;
+  const heroImage = showcase?.heroImage?.src ?? getProjectHeroAsset(project)?.src ?? project.heroImage ?? project.image ?? siteMeta.defaultImage;
   const showcaseFloors = copyFactValue(copyPackage, /floors/i, "25")
     .replace(/\s+public-facing.*/i, "")
     .replace(/\s*municipal.*$/i, "")
@@ -7622,7 +7622,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       </nav>
 
       <section class="berkeley-hero-clean">
-        <img src="${safeHref(heroImage)}" alt="${publicText(`${project.name} hero rendering`)}" decoding="async" />
+        <img src="${safeHref(heroImage)}" alt="${publicText(showcase?.heroImage?.alt ?? `${project.name} hero rendering`)}" decoding="async" />
         <div class="berkeley-hero-shade"></div>
         <div class="berkeley-hero-content">
           <h1>${titleLines.map((line) => publicText(line)).join("<br />")}</h1>
@@ -7655,7 +7655,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         </div>
       </section>
 
-      ${gallery.length ? `<section class="berkeley-gallery-row berkeley-gallery-slideshow" aria-label="Project image gallery"><div class="berkeley-section-heading"><p class="berkeley-kicker">Gallery</p><a href="#berkeley-gallery">View all images <span aria-hidden="true">→</span></a></div><div class="berkeley-image-row" id="berkeley-gallery">${gallery.map((item) => `<figure><img src="${safeHref(item.src)}" alt="${publicText(item.alt ?? `${project.name} ${item.label}`)}" loading="lazy" decoding="async" /><figcaption>${publicText(item.label)}</figcaption></figure>`).join("")}</div></section>` : ""}
+      ${gallery.length ? `<section class="berkeley-gallery-row berkeley-gallery-slideshow" aria-label="Project image gallery"><div class="berkeley-section-heading"><p class="berkeley-kicker">Gallery</p><a href="#berkeley-gallery">View all images <span aria-hidden="true">→</span></a></div><div class="berkeley-image-row" id="berkeley-gallery">${gallery.map((item, index) => `<figure><img src="${safeHref(item.src)}" alt="${publicText(item.alt ?? `${project.name} ${item.label}`)}" loading="${index < 4 ? "eager" : "lazy"}" decoding="async" /><figcaption>${publicText(item.label)}</figcaption></figure>`).join("")}</div></section>` : ""}
 
       ${amenities.length ? `<section class="berkeley-amenity-rail" aria-label="Highlighted amenities"><div class="berkeley-section-heading"><p class="berkeley-kicker">Amenities</p></div><div class="berkeley-amenity-icon-grid">${amenities.map((amenity) => `<article>${berkeleyIcon(amenity.icon)}<span>${publicText(amenity.label)}</span></article>`).join("")}</div></section>` : ""}
 
