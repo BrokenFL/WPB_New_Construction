@@ -419,9 +419,9 @@
         }
       ],
       "visualBreak": {
-        "src": "/projects/olara/media/olara-marina-boat-dock-1600x1067.jpg",
-        "label": "Private Marina",
-        "alt": "Olara private marina and boat dock on the Intracoastal Waterway"
+        "src": "/projects/olara/media/olara-residence-patio-daytime-1600x822.jpg",
+        "label": "Waterfront Patio",
+        "alt": "Olara residence waterfront patio with Intracoastal views"
       },
       "residenceCollections": [
         {
@@ -452,20 +452,40 @@
           "label": "Sunrise Terrace"
         },
         {
+          "src": "/projects/olara/media/olara-residence-patio-daytime-1600x822.jpg",
+          "label": "Waterfront Patio"
+        },
+        {
           "src": "/projects/olara/media/olara-view-balcony-intracoastal-1600x1067.jpg",
           "label": "Intracoastal View"
         },
         {
+          "src": "/projects/olara/media/olara-view-east-intracoastal-ocean-1600x1067.jpg",
+          "label": "Ocean View"
+        },
+        {
+          "src": "/projects/olara/media/olara-residence-living-room-daytime-1600x785.jpg",
+          "label": "Daytime Living Room"
+        },
+        {
           "src": "/projects/olara/media/olara-residence-living-room-moonlight-1600x1067.jpg",
-          "label": "Living Room"
+          "label": "Evening Living Room"
         },
         {
           "src": "/projects/olara/media/olara-residence-kitchen-evening-1600x1067.jpg",
           "label": "Residence Kitchen"
         },
         {
+          "src": "/projects/olara/media/olara-residence-bedroom-1600x1067.jpg",
+          "label": "Primary Bedroom"
+        },
+        {
           "src": "/projects/olara/media/olara-residence-primary-bath-1600x1067.jpg",
           "label": "Primary Bath"
+        },
+        {
+          "src": "/projects/olara/media/olara-residence-primary-bath-detail-864x1024.jpg",
+          "label": "Bath Detail"
         },
         {
           "src": "/projects/olara/media/olara-amenity-pool-veranda-refreshments-1600x1067.jpg",
@@ -474,6 +494,18 @@
         {
           "src": "/projects/olara/media/olara-amenity-rooftop-pool-reading-1600x1067.jpg",
           "label": "Rooftop Pool"
+        },
+        {
+          "src": "/projects/olara/media/olara-gallery-card-pool-1200x1500.jpg",
+          "label": "Pool Deck"
+        },
+        {
+          "src": "/projects/olara/media/olara-pool-roof-1600x633.jpg",
+          "label": "Waterfront Pool"
+        },
+        {
+          "src": "/projects/olara/media/olara-amenity-hot-cold-plunge-1600x1067.jpg",
+          "label": "Hot & Cold Plunge"
         },
         {
           "src": "/projects/olara/media/olara-amenity-spa-relaxation-1600x1067.jpg",
@@ -488,8 +520,24 @@
           "label": "Valet Arrival"
         },
         {
+          "src": "/projects/olara/media/olara-arrival-valet-portrait-864x1024.jpg",
+          "label": "Arrival Detail"
+        },
+        {
+          "src": "/projects/olara/media/olara-lobby-warm-863x1024.jpg",
+          "label": "Lobby Lounge"
+        },
+        {
+          "src": "/projects/olara/media/olara-lobby-entrance-1351x1600.jpg",
+          "label": "Lobby Entrance"
+        },
+        {
           "src": "/projects/olara/media/olara-marina-boat-dock-1600x1067.jpg",
           "label": "Private Marina"
+        },
+        {
+          "src": "/projects/olara/media/olara-exterior-waterfront-1351x1600.jpg",
+          "label": "Waterfront Exterior"
         }
       ],
       "amenityHighlights": [
@@ -535,9 +583,9 @@
         }
       ],
       "neighborhoodImage": {
-        "src": "/projects/olara/media/olara-view-east-intracoastal-ocean-1600x1067.jpg",
-        "label": "Intracoastal View",
-        "alt": "Olara east-facing Intracoastal, Palm Beach, and Atlantic Ocean view"
+        "src": "/projects/olara/media/olara-pool-roof-1600x633.jpg",
+        "label": "Waterfront Pool",
+        "alt": "Olara waterfront pool deck overlooking the Intracoastal Waterway"
       },
       "neighborhoodHeadline": "Live on the water at the center of North Flagler momentum.",
       "projectTeam": [
