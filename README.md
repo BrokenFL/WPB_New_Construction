@@ -85,6 +85,14 @@ Use this structure when duplicating the template:
 
 Template assets should live under `public/assets/projects/<project-id>/showcase/` or `public/projects/<project-id>/media/showcase/` after they are approved for website use. Keep the image set strong enough for the layout before enabling the template on another project.
 
+Before duplicating or refining a showcase page, read:
+
+```text
+docs/editorial-showcase-production-playbook.md
+```
+
+That playbook captures the required project-page workflow: approved asset inspection, contact-sheet review, featured-image sequencing, gallery deduplication, focused floor-plan thumbnails, two visual review rounds, mobile containment proof, scoped commits, Cloudflare publishing, and live readback verification.
+
 ## Live Publishing
 
 Any site change should end with the live publish flow, not just a local build:

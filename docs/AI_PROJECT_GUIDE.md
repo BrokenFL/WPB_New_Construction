@@ -4,6 +4,14 @@ REQUIRED READING FOR CODEX / ANTIGRAVITY / GEMINI / CLAUDE / FUTURE AI AGENTS: R
 
 This guide documents the current operational architecture for WPB New Construction. It exists to prevent future agents from guessing paths, reviving stale repo names, mixing unrelated work, or publishing assets from the wrong layer.
 
+For editorial showcase project-page conversions, also read:
+
+```text
+docs/editorial-showcase-production-playbook.md
+```
+
+That guide is required before duplicating or refining the Berkeley-style project-page template. It documents the shared schema, image-sequencing rules, gallery curation standards, floor-plan thumbnail treatment, two-pass visual review, mobile QA, clean staging, and live verification workflow.
+
 ## 1. Current Source Of Truth
 
 - Active website repo: `BrokenFL/WPB_New_Construction`
