@@ -448,12 +448,8 @@
       ],
       "gallery": [
         {
-          "src": "/projects/olara/media/olara-residence-terrace-sunrise-1600x1067.jpg",
-          "label": "Sunrise Terrace"
-        },
-        {
-          "src": "/projects/olara/media/olara-residence-patio-daytime-1600x822.jpg",
-          "label": "Waterfront Patio"
+          "src": "/projects/olara/media/olara-residence-living-room-daytime-1600x785.jpg",
+          "label": "Daytime Living Room"
         },
         {
           "src": "/projects/olara/media/olara-view-balcony-intracoastal-1600x1067.jpg",
@@ -462,14 +458,6 @@
         {
           "src": "/projects/olara/media/olara-view-east-intracoastal-ocean-1600x1067.jpg",
           "label": "Ocean View"
-        },
-        {
-          "src": "/projects/olara/media/olara-residence-living-room-daytime-1600x785.jpg",
-          "label": "Daytime Living Room"
-        },
-        {
-          "src": "/projects/olara/media/olara-residence-living-room-moonlight-1600x1067.jpg",
-          "label": "Evening Living Room"
         },
         {
           "src": "/projects/olara/media/olara-residence-kitchen-evening-1600x1067.jpg",
@@ -484,24 +472,12 @@
           "label": "Primary Bath"
         },
         {
-          "src": "/projects/olara/media/olara-residence-primary-bath-detail-864x1024.jpg",
-          "label": "Bath Detail"
-        },
-        {
           "src": "/projects/olara/media/olara-amenity-pool-veranda-refreshments-1600x1067.jpg",
           "label": "Pool Veranda"
         },
         {
           "src": "/projects/olara/media/olara-amenity-rooftop-pool-reading-1600x1067.jpg",
           "label": "Rooftop Pool"
-        },
-        {
-          "src": "/projects/olara/media/olara-gallery-card-pool-1200x1500.jpg",
-          "label": "Pool Deck"
-        },
-        {
-          "src": "/projects/olara/media/olara-pool-roof-1600x633.jpg",
-          "label": "Waterfront Pool"
         },
         {
           "src": "/projects/olara/media/olara-amenity-hot-cold-plunge-1600x1067.jpg",
@@ -520,24 +496,12 @@
           "label": "Valet Arrival"
         },
         {
-          "src": "/projects/olara/media/olara-arrival-valet-portrait-864x1024.jpg",
-          "label": "Arrival Detail"
-        },
-        {
-          "src": "/projects/olara/media/olara-lobby-warm-863x1024.jpg",
-          "label": "Lobby Lounge"
-        },
-        {
           "src": "/projects/olara/media/olara-lobby-entrance-1351x1600.jpg",
           "label": "Lobby Entrance"
         },
         {
           "src": "/projects/olara/media/olara-marina-boat-dock-1600x1067.jpg",
           "label": "Private Marina"
-        },
-        {
-          "src": "/projects/olara/media/olara-exterior-waterfront-1351x1600.jpg",
-          "label": "Waterfront Exterior"
         }
       ],
       "amenityHighlights": [
