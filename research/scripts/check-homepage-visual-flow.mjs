@@ -47,7 +47,9 @@ async function inspectHomepage(browser, viewport) {
           && style.visibility !== "hidden"
           && Number(style.opacity || "1") > 0.05
           && !img.closest("[hidden]")
-          && !src.includes("maps.googleapis.com/maps/vt");
+          && !img.closest(".gm-style")
+          && !src.includes("maps.googleapis.com/maps/vt")
+          && !/mapsresources[^/]*\.googleapis\.com\/v1\/tiles/i.test(src);
       })
       .map((img) => ({
         src: img.getAttribute("src") || "",
