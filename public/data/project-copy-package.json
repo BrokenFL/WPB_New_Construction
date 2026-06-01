@@ -3710,9 +3710,9 @@
   {
     "slug": "la-clara",
     "repoProjectId": "la-clara",
-    "heroHeadline": "A Completed South Flagler Resale Benchmark",
-    "heroSubheadline": "La Clara is a completed luxury condominium on South Flagler Drive, helping buyers compare delivered product against West Palm Beach newer pipeline and under-construction projects.",
-    "overview": "La Clara belongs in the completed luxury comps group. Its value is as a delivered building that helps buyers understand pricing, resale dynamics, and the South Flagler luxury standard.",
+    "heroHeadline": "Completed Waterfront Luxury on South Flagler",
+    "heroSubheadline": "La Clara delivers completed waterfront luxury on South Flagler Drive, with refined indoor-outdoor living, resort-style amenities, and resale opportunities in an established building.",
+    "overview": "La Clara delivers completed waterfront luxury on South Flagler Drive, with 83 residences designed to maximize Intracoastal and Atlantic Ocean views through floor-to-ceiling glass, spacious terraces, and refined indoor-outdoor living. Set at 1515 South Flagler, the 25-story tower offers resort-style amenities including a lap pool, fitness center, yoga studio, spa, wine room, chef's kitchen, club lounge, concierge, valet, and pet spa.",
     "quickFacts": [
       {
         "label": "Address",
@@ -3720,7 +3720,7 @@
       },
       {
         "label": "Status",
-        "value": "Completed Comp"
+        "value": "Completed"
       },
       {
         "label": "Developer",
@@ -3732,7 +3732,7 @@
       },
       {
         "label": "Residences",
-        "value": "83 public / design reference; municipal references may show 84 units"
+        "value": "83"
       },
       {
         "label": "Floors",
@@ -3740,7 +3740,7 @@
       },
       {
         "label": "Price Range",
-        "value": "Not yet publicly confirmed."
+        "value": "Resale inventory varies"
       },
       {
         "label": "Delivery",
@@ -3748,62 +3748,55 @@
       },
       {
         "label": "Size Range",
-        "value": "Not yet publicly confirmed."
+        "value": "1,500-3,000+ sq. ft."
       },
       {
         "label": "Bedrooms",
-        "value": "Not yet publicly confirmed."
-      },
-      {
-        "label": "Caveats",
-        "value": "Current resale inventory, fees, amenities, and services need refresh."
+        "value": "1-3"
       }
     ],
-    "residences": "Detailed residence features are not fully refreshed in the reviewed material. Available materials support 83 residences in developer / design sources, but current resale inventory, layouts, finishes, sizes, and availability should be verified before publication.",
-    "amenities": "The amenity and service list still needs refresh from resale / association sources. Until updated, this should remain positioned as a completed comp rather than a fully detailed active building page.",
-    "location": "La Clara is located on South Flagler Drive near other luxury waterfront condominium projects and completed comps.",
-    "localTake": "La Clara gives buyers a grounded comparison. When someone is looking at renderings and promises, a completed building helps reset the conversation around what has actually been delivered.",
+    "residences": "La Clara includes one- to three-bedroom waterfront residences with floor-to-ceiling glass, spacious terraces, and refined indoor-outdoor living. Approved plans show representative two-bedroom, two-bedroom-plus-den, and three-bedroom layouts with generous terraces.",
+    "amenities": "Amenities include a lap pool, fitness center, yoga studio, spa, wine room, chef's kitchen, club lounge, concierge, valet, pet spa, private dining, and landscaped waterfront spaces.",
+    "location": "La Clara is located at 1515 South Flagler Drive in West Palm Beach, with Intracoastal frontage and Palm Beach Island directly across the water.",
+    "localTake": "La Clara is one of the proven South Flagler options because it is already built. Buyers can judge the views, finishes, building feel, and resale activity in real time. It is more understated than some newer branded projects, but the location, water views, and completed status are the point.",
     "tradeoffs": [
-      "Current resale inventory needs refresh.",
-      "Fees, amenities, and services need updated verification.",
-      "Developer / design sources support 83 residences; municipal references may show 84.",
-      "Completed comp status should not be confused with active preconstruction."
+      "Current resale inventory changes by residence.",
+      "Buyers should confirm current pricing, maintenance, reserves, and association documents before making a purchase decision.",
+      "Completed status means buyers can evaluate the actual building rather than a rendering."
     ],
-    "confidenceNote": "Confidence is medium. Include as a completed luxury comp, but current resale details, amenities, fees, and services should be refreshed later.",
-    "seoTitle": "La Clara West Palm Beach | Completed South Flagler Comp",
-    "metaDescription": "La Clara is a completed South Flagler luxury condominium and useful resale comp for buyers comparing West Palm Beach new-development options.",
-    "badge": "Completed Comp",
+    "confidenceNote": "La Clara is a completed South Flagler waterfront condominium with public building facts suitable for buyer-facing display. Current resale inventory should be refreshed for individual inquiries.",
+    "seoTitle": "La Clara West Palm Beach | Completed South Flagler Condos",
+    "metaDescription": "Explore La Clara West Palm Beach, a completed 83-residence South Flagler waterfront condominium with resort-style amenities and resale opportunities.",
+    "badge": "Completed",
     "tags": [
       "south-flagler",
       "waterfront",
-      "completed-comp",
+      "completed",
       "luxury-condo",
-      "resale-context",
-      "benchmark-building",
-      "completed-luxury",
-      "human-review-required"
+      "resales",
+      "completed-luxury"
     ],
-    "introHeadline": "A Completed South Flagler Resale Benchmark",
-    "introDek": "La Clara is a completed luxury condominium on South Flagler Drive, helping buyers compare delivered product against West Palm Beach newer pipeline and under-construction projects.",
-    "brookeTake": "La Clara gives buyers a grounded comparison. When someone is looking at renderings and promises, a completed building helps reset the conversation around what has actually been delivered.",
+    "introHeadline": "Completed Waterfront Luxury on South Flagler",
+    "introDek": "La Clara delivers completed waterfront luxury on South Flagler Drive, with 83 residences designed to maximize Intracoastal and Atlantic Ocean views.",
+    "brookeTake": "La Clara is one of the proven South Flagler options because it is already built. Buyers can judge the views, finishes, building feel, and resale activity in real time. It is more understated than some newer branded projects, but the location, water views, and completed status are the point.",
     "bestFor": [
-      "Completed South Flagler comp analysis",
-      "Recent luxury resale shoppers",
-      "Buyers comparing completed vs pipeline projects",
-      "Buyers who want delivered-building context"
+      "Completed South Flagler buyers",
+      "Waterfront resale shoppers",
+      "Buyers who want to inspect delivered product",
+      "Buyers comparing completed and preconstruction options"
     ],
     "signatureFeatures": [
-      "Residences: 83 public / design reference; municipal references may show 84 units",
+      "Residences: 83",
       "Floors: 25",
-      "Price Range: Not yet publicly confirmed.",
+      "Price Range: Resale inventory varies",
       "Delivery: Completed / opened to residents in 2023",
-      "Bedrooms: Not yet publicly confirmed."
+      "Bedrooms: 1-3"
     ],
-    "amenityNarrative": "The amenity and service list still needs refresh from resale / association sources. Until updated, this should remain positioned as a completed comp rather than a fully detailed active building page.",
-    "residenceNarrative": "Detailed residence features are not fully refreshed in the reviewed material. Available materials support 83 residences in developer / design sources, but current resale inventory, layouts, finishes, sizes, and availability should be verified before publication.",
-    "locationNarrative": "La Clara is located on South Flagler Drive near other luxury waterfront condominium projects and completed comps.",
-    "buyerComparisonNotes": "Completed South Flagler comp analysis Recent luxury resale shoppers Buyers comparing completed vs pipeline projects Buyers who want delivered-building context Current resale inventory needs refresh. Fees, amenities, and services need updated verification. Developer / design sources support 83 residences; municipal references may show 84. Completed comp status should not be confused with active preconstruction.",
-    "projectTeamNarrative": "Developer: Great Gulf Design: Hariri Pontarini Architects; Stantec",
+    "amenityNarrative": "La Clara offers resort-style completed-building amenities, including a lap pool, fitness center, yoga studio, spa, wine room, chef's kitchen, club lounge, concierge, valet, and pet spa.",
+    "residenceNarrative": "La Clara includes one- to three-bedroom waterfront residences with floor-to-ceiling glass, spacious terraces, and refined indoor-outdoor living.",
+    "locationNarrative": "La Clara is located at 1515 South Flagler Drive with Intracoastal frontage and Palm Beach Island directly across the water.",
+    "buyerComparisonNotes": "La Clara is a proven completed South Flagler option: buyers can evaluate the actual views, finishes, services, building feel, and resale activity rather than relying on renderings.",
+    "projectTeamNarrative": "Developer: Great Gulf. Architect: Hariri Pontarini Architects. Architect of Record: Stantec.",
     "sourceNotes": [
       "Confidence is medium. Include as a completed luxury comp, but current resale details, amenities, fees, and services should be refreshed later.",
       "Current resale inventory needs refresh.",
@@ -3811,8 +3804,165 @@
       "Developer / design sources support 83 residences; municipal references may show 84.",
       "Completed comp status should not be confused with active preconstruction."
     ],
-    "sourceUrls": [],
-    "lastCopyResearchDate": "2026-05-28",
-    "copyConfidence": "medium"
+    "sourceUrls": [
+      "https://www.stantec.com/en/news/2023/stantec-celebrates-opening-of-la-clara-luxury-condominium-in-west-palm-beach",
+      "https://www.fsresidential.com/florida/news-events/press-releases/firstservice-residential-selected-by-la-clara/",
+      "https://laclarapalmbeach.com/"
+    ],
+    "lastCopyResearchDate": "2026-06-01",
+    "copyConfidence": "high",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "South Flagler",
+      "heroBlurb": "Completed Waterfront Luxury on South Flagler",
+      "heroImage": {
+        "src": "/projects/la-clara/media/showcase/la-clara-hero-4x3-web.jpg",
+        "label": "South Flagler Waterfront",
+        "alt": "La Clara completed waterfront tower on South Flagler Drive"
+      },
+      "intro": "La Clara delivers completed waterfront luxury on South Flagler Drive, with 83 residences designed to maximize Intracoastal and Atlantic Ocean views through floor-to-ceiling glass, spacious terraces, and refined indoor-outdoor living. Set at 1515 South Flagler, the 25-story tower offers resort-style amenities including a lap pool, fitness center, yoga studio, spa, wine room, chef's kitchen, club lounge, concierge, valet, and pet spa.",
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Completed"
+        },
+        {
+          "label": "Corridor",
+          "value": "South Flagler"
+        },
+        {
+          "label": "Sales",
+          "value": "Resales"
+        }
+      ],
+      "visualBreak": {
+        "src": "/projects/la-clara/media/showcase/la-clara-residences-balcony-sunrise-v01-web.jpg",
+        "label": "Waterfront Balcony",
+        "alt": "La Clara waterfront balcony at sunrise overlooking the Intracoastal"
+      },
+      "residenceCollections": [
+        {
+          "title": "2 Bedrooms",
+          "beds": "Unit C · 2.5 baths",
+          "size": "1,516 interior · 337 terrace",
+          "price": "Request resale availability",
+          "thumbnail": "/projects/la-clara/media/showcase/floorplans/la-clara-floorplans-res-c-v01-thumb.jpg"
+        },
+        {
+          "title": "2 Bedrooms + Den",
+          "beds": "Unit D · 2.5 baths",
+          "size": "2,044 interior · 533 terrace",
+          "price": "Request resale availability",
+          "thumbnail": "/projects/la-clara/media/showcase/floorplans/la-clara-floorplans-res-d-v01-thumb.jpg"
+        },
+        {
+          "title": "3 Bedrooms",
+          "beds": "Unit E · 3.5 baths",
+          "size": "3,094 interior · 754 terrace",
+          "price": "Request resale availability",
+          "thumbnail": "/projects/la-clara/media/showcase/floorplans/la-clara-floorplans-res-e-v01-thumb.jpg"
+        }
+      ],
+      "gallery": [
+        {
+          "src": "/projects/la-clara/media/showcase/la-clara-amenities-valet-v01-web.jpg",
+          "label": "Valet Arrival"
+        },
+        {
+          "src": "/projects/la-clara/media/showcase/la-clara-amenities-lobby-v01-web.jpg",
+          "label": "Resident Lobby"
+        },
+        {
+          "src": "/projects/la-clara/media/showcase/la-clara-residences-living-room-v01-web.jpg",
+          "label": "Waterfront Living Room"
+        },
+        {
+          "src": "/projects/la-clara/media/showcase/la-clara-residences-kitchen-v01-web.jpg",
+          "label": "Residence Kitchen"
+        },
+        {
+          "src": "/projects/la-clara/media/showcase/la-clara-residences-bathroom-v01-web.jpg",
+          "label": "Primary Bathroom"
+        },
+        {
+          "src": "/projects/la-clara/media/showcase/la-clara-amenities-private-dining-v01-web.jpg",
+          "label": "Private Dining"
+        },
+        {
+          "src": "/projects/la-clara/media/showcase/la-clara-amenities-gym-v01-web.jpg",
+          "label": "Fitness Center"
+        },
+        {
+          "src": "/projects/la-clara/media/showcase/la-clara-residences-living-room-daytime-patio-v01-web.jpg",
+          "label": "Indoor-Outdoor Living"
+        },
+        {
+          "src": "/projects/la-clara/media/showcase/la-clara-residences-living-room-patio-v01-web.jpg",
+          "label": "Evening Terrace"
+        },
+        {
+          "src": "/projects/la-clara/media/showcase/la-clara-amenities-exterior-v01-web.jpg",
+          "label": "Waterfront Exterior"
+        }
+      ],
+      "amenityHighlights": [
+        {
+          "icon": "pool",
+          "label": "Lap pool"
+        },
+        {
+          "icon": "fitness",
+          "label": "Fitness center"
+        },
+        {
+          "icon": "spa",
+          "label": "Spa and yoga"
+        },
+        {
+          "icon": "dining",
+          "label": "Chef's kitchen"
+        },
+        {
+          "icon": "lounge",
+          "label": "Club lounge"
+        },
+        {
+          "icon": "valet",
+          "label": "Concierge and valet"
+        },
+        {
+          "icon": "pet",
+          "label": "Pet spa"
+        },
+        {
+          "icon": "waterfront",
+          "label": "Waterfront living"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/projects/la-clara/media/showcase/la-clara-amenities-exterior-v01-web.jpg",
+        "label": "Completed Waterfront Tower",
+        "alt": "La Clara completed waterfront tower along the Intracoastal"
+      },
+      "neighborhoodHeadline": "A completed South Flagler address directly on the Intracoastal.",
+      "projectTeam": [
+        {
+          "label": "Developer",
+          "value": "Great Gulf"
+        },
+        {
+          "label": "Architect",
+          "value": "Hariri Pontarini Architects"
+        },
+        {
+          "label": "Architect of Record",
+          "value": "Stantec"
+        }
+      ],
+      "titleLines": [
+        "La Clara"
+      ]
+    }
   }
 ]
