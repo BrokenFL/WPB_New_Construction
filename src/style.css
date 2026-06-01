@@ -4368,21 +4368,117 @@ select:focus-visible {
   font-size: 0.74rem;
 }
 
+.map-route-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 16px;
+  border: 1px solid rgba(13, 49, 37, 0.12);
+  padding: 16px;
+  background: rgba(255, 250, 241, 0.68);
+}
+
+.map-filter-group {
+  display: grid;
+  gap: 8px;
+}
+
+.map-filter-group > span,
+.map-filter-result {
+  margin: 0;
+  color: rgba(37, 42, 45, 0.64);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.map-filter-group div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.map-filter-chip {
+  border: 1px solid rgba(13, 49, 37, 0.16);
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: #25323a;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.map-filter-chip:hover,
+.map-filter-chip.is-active {
+  border-color: #0d3125;
+  color: #fffaf1;
+  background: #0d3125;
+}
+
+.map-project-detail {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--bronze);
+  padding: 16px 18px;
+  background: rgba(255, 250, 241, 0.76);
+}
+
+.map-project-detail p,
+.map-project-detail span {
+  margin: 0;
+  color: rgba(37, 42, 45, 0.68);
+}
+
+.map-project-detail strong {
+  color: #17202a;
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.map-project-detail a {
+  color: #0d3125;
+  font-weight: 900;
+}
+
+.map-coordinate-note {
+  margin: -4px 0 14px;
+  color: rgba(37, 42, 45, 0.62);
+  font-size: 0.76rem;
+}
+
 .map-advanced-marker {
-  display: block;
-  width: 18px;
-  height: 18px;
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
   border: 2px solid #fffaf1;
   border-radius: 999px;
-  background: #0d3125;
+  background: #17202a;
   box-shadow: 0 6px 18px rgba(20, 25, 24, 0.22);
 }
 
+.map-advanced-marker i {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #d3b88b;
+}
+
 .map-advanced-marker-secondary {
-  width: 13px;
-  height: 13px;
+  width: 16px;
+  height: 16px;
   border-width: 1px;
-  background: #50665e;
+  background: #6c706d;
+}
+
+.map-advanced-marker-secondary i {
+  width: 4px;
+  height: 4px;
 }
 
 .hero-map-expand {
@@ -6913,6 +7009,11 @@ select:focus-visible {
 
   .map-fallback-corridor-list {
     grid-template-columns: 1fr;
+  }
+
+  .map-route-controls {
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .home-map-layout {

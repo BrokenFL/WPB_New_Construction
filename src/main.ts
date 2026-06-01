@@ -262,6 +262,8 @@ type GoogleMarkerHandle = {
   clear: () => void;
 };
 
+type MapStatusFilter = "all" | "active" | "pipeline" | "completed";
+
 type WindowWithGoogleMaps = Window & {
   google?: {
     maps?: GoogleMapsNamespace;
@@ -4862,6 +4864,7 @@ function renderMapRouteView() {
           <p class="eyebrow">Project Map</p>
           <h2>${featuredProjects.length} tracked projects on the ground.</h2>
         </div>
+        ${renderMapControls()}
         <aside class="home-hero-map-card map-route-map-card" aria-label="West Palm Beach project map">
           <figure class="hero-map-preview">
             <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
@@ -5821,6 +5824,68 @@ function validMapProjects(projects: FeaturedProject[]) {
   return projects.filter((project) => Number.isFinite(project.latitude) && Number.isFinite(project.longitude));
 }
 
+function skippedMapProjects(projects: FeaturedProject[]) {
+  return projects.filter((project) => !Number.isFinite(project.latitude) || !Number.isFinite(project.longitude));
+}
+
+function mapStatusFilter(project: FeaturedProject): Exclude<MapStatusFilter, "all"> {
+  if (/completed|delivered/i.test(project.status)) return "completed";
+  if (/pipeline|planning|proposed|announced|emerging/i.test(project.status)) return "pipeline";
+  return "active";
+}
+
+function mapProjectMatchesFilters(project: FeaturedProject, corridor: string, status: MapStatusFilter) {
+  return (corridor === "all" || project.corridorKey === corridor) && (status === "all" || mapStatusFilter(project) === status);
+}
+
+function renderMapFilterButton(group: "corridor" | "status", value: string, label: string, active = false) {
+  return `<button class="map-filter-chip${active ? " is-active" : ""}" type="button" data-map-filter="${group}" data-map-filter-value="${value}" aria-pressed="${active}">${label}</button>`;
+}
+
+function renderMapProjectDetail(project: FeaturedProject) {
+  return `
+    <p class="eyebrow">Selected Project</p>
+    <strong>${escapeHtml(project.name)}</strong>
+    <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
+    <p>${escapeHtml(project.summary)}</p>
+    <a href="${projectPath(project)}">View project guide <span aria-hidden="true">→</span></a>
+  `;
+}
+
+function renderMapControls() {
+  const initialProject = validMapProjects(rankedFeaturedProjects)[0];
+  const skipped = skippedMapProjects(rankedFeaturedProjects);
+  return `
+    <div class="map-route-controls" data-map-controls>
+      <div class="map-filter-group" aria-label="Filter map by corridor">
+        <span>Corridor</span>
+        <div>
+          ${renderMapFilterButton("corridor", "all", "All corridors", true)}
+          ${corridorSections.map((section) => renderMapFilterButton("corridor", section.key, corridorDisplayLabel(section.key))).join("")}
+        </div>
+      </div>
+      <div class="map-filter-group" aria-label="Filter map by project status">
+        <span>Status</span>
+        <div>
+          ${renderMapFilterButton("status", "all", "All stages", true)}
+          ${renderMapFilterButton("status", "active", "Active")}
+          ${renderMapFilterButton("status", "pipeline", "Pipeline")}
+          ${renderMapFilterButton("status", "completed", "Completed")}
+        </div>
+      </div>
+      <p class="map-filter-result" data-map-filter-result>${validMapProjects(rankedFeaturedProjects).length} mapped projects</p>
+    </div>
+    <article class="map-project-detail" data-map-project-detail aria-live="polite">
+      ${initialProject ? renderMapProjectDetail(initialProject) : "<p>No mapped projects are currently available.</p>"}
+    </article>
+    ${
+      skipped.length
+        ? `<p class="map-coordinate-note">${skipped.length} tracked ${skipped.length === 1 ? "project is" : "projects are"} listed below but omitted from the map until coordinates are confirmed.</p>`
+        : ""
+    }
+  `;
+}
+
 function loadAdvancedMarkerElement(maps: GoogleMapsNamespace) {
   if (!googleMapsMapId) {
     return Promise.resolve(undefined);
@@ -5851,6 +5916,7 @@ function markerPinElement(priority: "primary" | "secondary") {
   const pin = document.createElement("span");
   pin.className = `map-advanced-marker map-advanced-marker-${priority}`;
   pin.setAttribute("aria-hidden", "true");
+  pin.innerHTML = "<i></i>";
   return pin;
 }
 
@@ -5911,20 +5977,29 @@ function googleMapBaseOptions(center: { lat: number; lng: number }, zoom: number
     fullscreenControl: false,
     clickableIcons: false,
     gestureHandling: "cooperative",
-    styles: [
-      { elementType: "geometry", stylers: [{ color: "#ebe5da" }] },
-      { elementType: "labels.text.fill", stylers: [{ color: "#3a332d" }] },
-      { elementType: "labels.text.stroke", stylers: [{ color: "#f7f3eb" }] },
-      { featureType: "water", elementType: "geometry.fill", stylers: [{ color: "#a9c0c2" }] },
-      { featureType: "poi", stylers: [{ visibility: "off" }] },
-      { featureType: "transit", stylers: [{ visibility: "off" }] },
-      { featureType: "road", elementType: "geometry", stylers: [{ color: "#fffaf1" }] },
-      { featureType: "road.arterial", elementType: "geometry", stylers: [{ color: "#d7cbb9" }] },
-    ],
   };
 
   if (googleMapsMapId) {
     mapOptions.mapId = googleMapsMapId;
+  } else {
+    mapOptions.styles = [
+      { elementType: "geometry", stylers: [{ color: "#f4efe6" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#17202a" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#f4efe6" }] },
+      { featureType: "administrative", elementType: "geometry.stroke", stylers: [{ color: "#d3c8b8" }] },
+      { featureType: "administrative.neighborhood", elementType: "labels.text.fill", stylers: [{ color: "#6c706d" }] },
+      { featureType: "landscape.man_made", elementType: "geometry.fill", stylers: [{ color: "#ede5d8" }] },
+      { featureType: "water", elementType: "geometry.fill", stylers: [{ color: "#b9cbd2" }] },
+      { featureType: "water", elementType: "geometry.stroke", stylers: [{ color: "#a8bcc5" }] },
+      { featureType: "water", elementType: "labels.text.fill", stylers: [{ color: "#6c706d" }] },
+      { featureType: "poi", stylers: [{ visibility: "off" }] },
+      { featureType: "poi.park", elementType: "geometry.fill", stylers: [{ color: "#d8dfcf" }] },
+      { featureType: "transit", stylers: [{ visibility: "off" }] },
+      { featureType: "road", elementType: "geometry.fill", stylers: [{ color: "#ffffff" }] },
+      { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#d8d2c8" }] },
+      { featureType: "road.arterial", elementType: "geometry.fill", stylers: [{ color: "#e6dccd" }] },
+      { featureType: "road.highway", elementType: "geometry.fill", stylers: [{ color: "#e6dccd" }] },
+    ];
   }
 
   return mapOptions;
@@ -5971,11 +6046,21 @@ function initHeroGoogleMap() {
       const renderMarkers = () => {
         markers.forEach((marker) => marker.clear());
         markers = [];
-        const projects = validMapProjects(focusProject && !expanded ? [focusProject] : expanded ? rankedFeaturedProjects : rankedFeaturedProjects.slice(0, 7));
+        const isMapRoute = Boolean(card.closest("[data-route-view='map']"));
+        const corridorFilter = card.dataset.mapCorridorFilter ?? "all";
+        const statusFilter = (card.dataset.mapStatusFilter ?? "all") as MapStatusFilter;
+        const filteredProjects = rankedFeaturedProjects.filter((project) => mapProjectMatchesFilters(project, corridorFilter, statusFilter));
+        const projects = validMapProjects(
+          focusProject && !expanded ? [focusProject] : isMapRoute || expanded ? filteredProjects : rankedFeaturedProjects.slice(0, 7),
+        );
+        const result = card.parentElement?.querySelector<HTMLElement>("[data-map-filter-result]");
+        if (result) result.textContent = `${projects.length} mapped ${projects.length === 1 ? "project" : "projects"}`;
         if (!projects.length) {
-          setGoogleMapFallback();
+          canvas.setAttribute("aria-label", "No mapped projects match the selected filters");
           return;
         }
+        const detail = card.parentElement?.querySelector<HTMLElement>("[data-map-project-detail]");
+        if (detail) detail.innerHTML = renderMapProjectDetail(projects[0]);
         const bounds = new maps.LatLngBounds();
 
         projects.forEach((project, index) => {
@@ -5988,7 +6073,12 @@ function initHeroGoogleMap() {
             `${project.name} · ${project.corridor} project`,
             project.id === focusProject?.id || index < 7 ? "primary" : "secondary",
             () => {
-              window.location.assign(projectPath(project));
+              const detail = card.parentElement?.querySelector<HTMLElement>("[data-map-project-detail]");
+              if (detail) {
+                detail.innerHTML = renderMapProjectDetail(project);
+              } else {
+                window.location.assign(projectPath(project));
+              }
             },
             AdvancedMarkerElement,
           );
@@ -6018,6 +6108,20 @@ function initHeroGoogleMap() {
 
       expandButtons.forEach((button) => {
         button.addEventListener("click", expandMap);
+      });
+      card.parentElement?.querySelectorAll<HTMLButtonElement>("[data-map-filter]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const group = button.dataset.mapFilter;
+          const value = button.dataset.mapFilterValue ?? "all";
+          if (group === "corridor") card.dataset.mapCorridorFilter = value;
+          if (group === "status") card.dataset.mapStatusFilter = value;
+          card.parentElement?.querySelectorAll<HTMLButtonElement>(`[data-map-filter="${group}"]`).forEach((filterButton) => {
+            const isActive = filterButton === button;
+            filterButton.classList.toggle("is-active", isActive);
+            filterButton.setAttribute("aria-pressed", String(isActive));
+          });
+          renderMarkers();
+        });
       });
       map.addListener("click", expandMap);
       renderMarkers();
