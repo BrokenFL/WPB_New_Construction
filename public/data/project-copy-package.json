@@ -2377,10 +2377,10 @@
   },
   {
     "slug": "edgeworth",
-    "repoProjectId": "edgeworth-north",
-    "heroHeadline": "A Major South Flagler Pipeline Project",
-    "heroSubheadline": "Edgeworth is a planned two-tower South Flagler waterfront condominium project from Related Ross. Details are still emerging, so it should be tracked as pipeline rather than active inventory.",
-    "overview": "Edgeworth belongs in the pipeline / announced / watchlist group. It should be treated as one combined project unless official marketing later splits the towers.",
+    "repoProjectId": "edgeworth",
+    "heroHeadline": "Related Ross’s Next South Flagler Waterfront Address",
+    "heroSubheadline": "Edgeworth pairs two sculptural waterfront towers with Riviera-inspired residences, private elevator access, and more than 90,000 square feet of amenities on South Flagler Drive.",
+    "overview": "Edgeworth brings Related Ross’s next generation of ultra-luxury waterfront living to South Flagler Drive, with two 28-story towers, 168 residences, expansive terraces, private elevator access, and sweeping views of the Intracoastal and Atlantic Ocean. Designed by Kohn Pedersen Fox with interiors by MAWD, the project pairs Riviera-inspired design with more than 90,000 square feet of wellness, lifestyle, and social amenities.",
     "quickFacts": [
       {
         "label": "Address",
@@ -2388,7 +2388,7 @@
       },
       {
         "label": "Status",
-        "value": "Announced / Pipeline"
+        "value": "Priority List Open"
       },
       {
         "label": "Developer",
@@ -2396,7 +2396,7 @@
       },
       {
         "label": "Design",
-        "value": "Kohn Pedersen Fox; MAWD / March and White Design interiors"
+        "value": "Kohn Pedersen Fox; MAWD interiors"
       },
       {
         "label": "Residences",
@@ -2412,67 +2412,62 @@
       },
       {
         "label": "Price Range",
-        "value": "Not yet publicly confirmed."
+        "value": "$2.5M-$35.5M"
       },
       {
         "label": "Delivery",
-        "value": "Not yet publicly confirmed."
-      },
-      {
-        "label": "Size Range",
-        "value": "Not yet publicly confirmed."
+        "value": "2029 projected"
       },
       {
         "label": "Bedrooms",
-        "value": "1-5 reported"
+        "value": "1-5"
       }
     ],
-    "residences": "Details remain limited. Available materials reference 1- to 5-bedroom residences, private elevator access, and generous balconies, but pricing, floorplans, finishes, and full size ranges are not yet publicly confirmed.",
-    "amenities": "Launch reporting references more than 90,000 sq. ft. of indoor / outdoor amenities. The detailed amenity and service program is not yet verified.",
-    "location": "Edgeworth is positioned on South Flagler Drive, one of West Palm Beach strongest luxury residential corridors.",
-    "localTake": "Edgeworth is worth watching because Related Ross is deeply tied into the South Flagler luxury conversation. The smart move is to track it, not pretend every buyer question has an answer yet.",
+    "residences": "Edgeworth will include one- to five-bedroom residences, each with private elevator access and generous private balconies, plus nine penthouses. Interiors by MAWD draw from the towers’ sculptural architecture with contemporary forms and natural materials.",
+    "amenities": "Edgeworth will offer more than 90,000 square feet of indoor and outdoor amenities with a strong emphasis on wellness, including comprehensive spa and fitness programming alongside curated social and lifestyle spaces.",
+    "location": "Edgeworth is planned for 1155 South Flagler Drive, next to South Flagler House in West Palm Beach’s premier waterfront residential corridor, with Intracoastal views and Palm Beach Island directly across the water.",
+    "localTake": "Edgeworth is the South Flagler House follow-up, aimed at buyers who want Related Ross quality, water views, and a bigger amenity platform. It is still early, with completion projected for 2029, but the location, design team, and South Flagler momentum make it one of the major projects to watch.",
     "tradeoffs": [
-      "Announced-stage data only.",
-      "Pricing, delivery, floorplans, and full amenities remain unverified.",
-      "Municipal approval status remains unclear.",
-      "Keep as one combined project unless official marketing splits the towers."
+      "Edgeworth remains an early-stage priority-list project.",
+      "Floor plans and the detailed amenity program are still being released.",
+      "Buyers should confirm current pricing, deposits, release timing, and delivery projections before making a purchase decision."
     ],
-    "confidenceNote": "Confidence is medium. Human review is required because core sales, pricing, timing, and municipal approval details remain incomplete.",
-    "seoTitle": "Edgeworth West Palm Beach | South Flagler Pipeline Condos",
-    "metaDescription": "Edgeworth is a planned South Flagler waterfront condominium by Related Ross with 168 residences, two towers, and early-stage details still emerging.",
-    "badge": "Announced / Pipeline",
+    "confidenceNote": "Edgeworth is an announced South Flagler waterfront condominium by Related Ross with public launch facts suitable for buyer-facing display.",
+    "seoTitle": "Edgeworth West Palm Beach | Related Ross South Flagler Condos",
+    "metaDescription": "Explore Edgeworth West Palm Beach, Related Ross’s two-tower South Flagler waterfront condominium with 168 residences and more than 90,000 square feet of amenities.",
+    "badge": "Priority List Open",
     "tags": [
       "south-flagler",
       "waterfront",
       "pipeline",
-      "watchlist",
+      "priority-list",
       "related-ross",
-      "luxury-condo",
+      "ultra-luxury",
       "two-tower",
-      "human-review-required"
+      "new-construction"
     ],
-    "introHeadline": "A Major South Flagler Pipeline Project",
+    "introHeadline": "Related Ross’s Next South Flagler Waterfront Address",
     "introDek": "Edgeworth is a planned two-tower South Flagler waterfront condominium project from Related Ross. Details are still emerging, so it should be tracked as pipeline rather than active inventory.",
-    "brookeTake": "Edgeworth is worth watching because Related Ross is deeply tied into the South Flagler luxury conversation. The smart move is to track it, not pretend every buyer question has an answer yet.",
+    "brookeTake": "Edgeworth is the South Flagler House follow-up, aimed at buyers who want Related Ross quality, water views, and a bigger amenity platform. It is still early, with completion projected for 2029, but the location, design team, and South Flagler momentum make it one of the major projects to watch.",
     "bestFor": [
+      "South Flagler waterfront buyers",
+      "Related Ross buyers",
       "Ultra-luxury pipeline watchers",
-      "South Flagler buyers planning ahead",
-      "Buyers tracking Related Ross projects",
-      "Buyers who want early awareness before sales details mature"
+      "Buyers seeking a larger amenity platform"
     ],
     "signatureFeatures": [
       "Residences: 168",
       "Floors: 28",
       "Towers: 2",
-      "Price Range: Not yet publicly confirmed.",
-      "Delivery: Not yet publicly confirmed.",
-      "Bedrooms: 1-5 reported"
+      "Price Range: $2.5M-$35.5M",
+      "Delivery: 2029 projected",
+      "Bedrooms: 1-5"
     ],
-    "amenityNarrative": "Launch reporting references more than 90,000 sq. ft. of indoor / outdoor amenities. The detailed amenity and service program is not yet verified.",
-    "residenceNarrative": "Details remain limited. Available materials reference 1- to 5-bedroom residences, private elevator access, and generous balconies, but pricing, floorplans, finishes, and full size ranges are not yet publicly confirmed.",
-    "locationNarrative": "Edgeworth is positioned on South Flagler Drive, one of West Palm Beach strongest luxury residential corridors.",
-    "buyerComparisonNotes": "Ultra-luxury pipeline watchers South Flagler buyers planning ahead Buyers tracking Related Ross projects Buyers who want early awareness before sales details mature Announced-stage data only. Pricing, delivery, floorplans, and full amenities remain unverified. Municipal approval status remains unclear. Keep as one combined project unless official marketing splits the towers.",
-    "projectTeamNarrative": "Developer: Related Ross Design: Kohn Pedersen Fox; MAWD / March and White Design interiors",
+    "amenityNarrative": "Edgeworth will offer more than 90,000 square feet of indoor and outdoor amenities with a strong emphasis on wellness, alongside curated social and lifestyle spaces.",
+    "residenceNarrative": "Edgeworth will include one- to five-bedroom residences, private elevator access, generous private balconies, and nine penthouses.",
+    "locationNarrative": "Edgeworth is planned for 1155 South Flagler Drive beside South Flagler House in West Palm Beach’s premier waterfront residential corridor.",
+    "buyerComparisonNotes": "Edgeworth is Related Ross’s next South Flagler waterfront address, with two towers, a broader amenity platform, and an early priority-list position.",
+    "projectTeamNarrative": "Developer: Related Ross. Architect: Kohn Pedersen Fox. Interior Designer: MAWD | March and White Design.",
     "sourceNotes": [
       "Confidence is medium. Human review is required because core sales, pricing, timing, and municipal approval details remain incomplete.",
       "Announced-stage data only.",
@@ -2480,9 +2475,151 @@
       "Municipal approval status remains unclear.",
       "Keep as one combined project unless official marketing splits the towers."
     ],
-    "sourceUrls": [],
-    "lastCopyResearchDate": "2026-05-28",
-    "copyConfidence": "medium"
+    "sourceUrls": [
+      "https://www.edgeworthwpb.com/",
+      "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
+      "https://mawd.co/projects/residential/edgeworth"
+    ],
+    "lastCopyResearchDate": "2026-05-31",
+    "copyConfidence": "high",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "South Flagler",
+      "heroBlurb": "Related Ross’s Next South Flagler Waterfront Address",
+      "heroImage": {
+        "src": "/projects/edgeworth-north/media/showcase/edgeworth-hero-exterior-v01-web.jpg",
+        "label": "Waterfront Exterior",
+        "alt": "Edgeworth West Palm Beach two-tower waterfront exterior rendering on South Flagler Drive"
+      },
+      "intro": "Edgeworth brings Related Ross’s next generation of ultra-luxury waterfront living to South Flagler Drive, with two 28-story towers, 168 residences, expansive terraces, private elevator access, and sweeping views of the Intracoastal and Atlantic Ocean. Designed by Kohn Pedersen Fox with interiors by MAWD, the project pairs Riviera-inspired design with more than 90,000 square feet of wellness, lifestyle, and social amenities.",
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Announced"
+        },
+        {
+          "label": "Corridor",
+          "value": "South Flagler"
+        },
+        {
+          "label": "Access",
+          "value": "Priority List"
+        }
+      ],
+      "visualBreak": {
+        "src": "/projects/edgeworth-north/media/showcase/edgeworth-residences-living-room-v01-web.jpg",
+        "label": "Waterfront Living Room",
+        "alt": "Edgeworth waterfront residence living room with Intracoastal views"
+      },
+      "residenceCollections": [
+        {
+          "title": "Waterfront Residences",
+          "beds": "1-3 bedrooms",
+          "size": "Private elevator access",
+          "price": "From $2.5M"
+        },
+        {
+          "title": "Estate Residences",
+          "beds": "4-5 bedrooms",
+          "size": "Expansive private terraces",
+          "price": "Join priority list"
+        },
+        {
+          "title": "Penthouses",
+          "beds": "9 penthouses",
+          "size": "Signature waterfront homes",
+          "price": "Join priority list"
+        }
+      ],
+      "gallery": [
+        {
+          "src": "/projects/edgeworth-north/media/showcase/edgeworth-amenities-lobby-v01-web.jpg",
+          "label": "Arrival Lobby"
+        },
+        {
+          "src": "/projects/edgeworth-north/media/showcase/edgeworth-residences-bedroom-v01-web.jpg",
+          "label": "Primary Bedroom"
+        },
+        {
+          "src": "/projects/edgeworth-north/media/showcase/edgeworth-residences-bathroom-v01-web.jpg",
+          "label": "Primary Bath"
+        },
+        {
+          "src": "/projects/edgeworth-north/media/showcase/edgeworth-residences-exterior-02-v01-web.jpg",
+          "label": "Tower Exterior"
+        },
+        {
+          "src": "/projects/edgeworth-north/media/showcase/edgeworth-residences-exterior-v01-web.jpg",
+          "label": "Intracoastal View"
+        },
+        {
+          "src": "/projects/edgeworth-north/media/showcase/edgeworth-residences-living-room-v01-web.jpg",
+          "label": "Waterfront Living Room"
+        },
+        {
+          "src": "/projects/edgeworth-north/media/showcase/edgeworth-hero-exterior-v01-web.jpg",
+          "label": "South Flagler Waterfront"
+        }
+      ],
+      "amenityHighlights": [
+        {
+          "icon": "spa",
+          "label": "Wellness focus"
+        },
+        {
+          "icon": "fitness",
+          "label": "Fitness program"
+        },
+        {
+          "icon": "pool",
+          "label": "Indoor/outdoor amenities"
+        },
+        {
+          "icon": "residence",
+          "label": "Private elevators"
+        },
+        {
+          "icon": "waterfront",
+          "label": "Waterfront views"
+        },
+        {
+          "icon": "dining",
+          "label": "Social spaces"
+        },
+        {
+          "icon": "lounge",
+          "label": "Riviera-inspired design"
+        },
+        {
+          "icon": "valet",
+          "label": "Private arrival"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/projects/edgeworth-north/media/showcase/edgeworth-residences-exterior-v01-web.jpg",
+        "label": "Intracoastal View",
+        "alt": "Intracoastal water view framed by the Edgeworth towers"
+      },
+      "neighborhoodHeadline": "A major new waterfront address on South Flagler Drive.",
+      "projectTeam": [
+        {
+          "label": "Developer",
+          "value": "Related Ross"
+        },
+        {
+          "label": "Architect",
+          "value": "Kohn Pedersen Fox"
+        },
+        {
+          "label": "Interior Designer",
+          "value": "MAWD | March and White Design"
+        }
+      ],
+      "titleLines": [
+        "Edgeworth"
+      ]
+    }
   },
   {
     "slug": "mandarin-oriental-residences-west-palm-beach",
