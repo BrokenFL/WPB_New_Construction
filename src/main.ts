@@ -533,7 +533,7 @@ const baseFeaturedProjects: FeaturedProject[] = [
     name: "Banyan Tree Residences West Palm Beach",
     corridor: "Downtown",
     corridorKey: "downtown",
-    status: "Sales Gallery Open",
+    status: "Sales Open",
     delivery: "Projected 2028",
     deliveryYear: 2028,
     residences: "88",
