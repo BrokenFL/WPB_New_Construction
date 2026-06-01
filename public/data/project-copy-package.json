@@ -3796,7 +3796,7 @@
     "residenceNarrative": "La Clara includes one- to three-bedroom waterfront residences with floor-to-ceiling glass, spacious terraces, and refined indoor-outdoor living.",
     "locationNarrative": "La Clara is located at 1515 South Flagler Drive with Intracoastal frontage and Palm Beach Island directly across the water.",
     "buyerComparisonNotes": "La Clara is a proven completed South Flagler option: buyers can evaluate the actual views, finishes, services, building feel, and resale activity rather than relying on renderings.",
-    "projectTeamNarrative": "Developer: Great Gulf. Architect: Hariri Pontarini Architects. Architect of Record: Stantec.",
+    "projectTeamNarrative": "Developer: Great Gulf. Architect: Hariri Pontarini Architects. Project Architect: Stantec.",
     "sourceNotes": [
       "Confidence is medium. Include as a completed luxury comp, but current resale details, amenities, fees, and services should be refreshed later.",
       "Current resale inventory needs refresh.",
@@ -3956,7 +3956,7 @@
           "value": "Hariri Pontarini Architects"
         },
         {
-          "label": "Architect of Record",
+          "label": "Project Architect",
           "value": "Stantec"
         }
       ],
