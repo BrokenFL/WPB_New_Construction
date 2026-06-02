@@ -2451,12 +2451,12 @@ app.innerHTML = `
       </section>
 
       <section class="home-future-module home-spotlight-module" aria-label="Downtown spotlight: NORA district">
-        <img src="${homepageAssets.lifestyle.nora}" alt="NORA district streetscape in Downtown West Palm Beach" loading="lazy" decoding="async" />
+        <img src="/assets/editorial/nora-district-aerial-evening-hero.jpg" alt="Aerial evening rendering of the NORA District in Downtown West Palm Beach" loading="lazy" decoding="async" />
         <div>
           <p class="eyebrow">Downtown Spotlight</p>
-          <h2>Why NORA matters Downtown.</h2>
-          <p>NORA adds a new lifestyle layer to Downtown West Palm Beach, with walkable streets, retail, dining, and public-facing spaces shaping how buyers think about living near the city core. It is part of Downtown's next chapter.</p>
-          <a href="/corridors/downtown-west-palm-beach/">Explore Downtown <span aria-hidden="true">→</span></a>
+          <h2>Why the NORA District could reshape Downtown.</h2>
+          <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.</p>
+          <a href="/market-notes/nora-district-downtown-transformation/">Read NORA buyer intelligence <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
@@ -4668,6 +4668,7 @@ function homeJumpIcon(name: "projects" | "corridors" | "map" | "compare" | "guid
 
 function renderHomepageAdvisoryResources() {
   const latestUpdate = [...publishedExternalNews].sort((a, b) => newsSortTimestamp(b) - newsSortTimestamp(a))[0];
+  const featuredBuyerNote = marketNoteForSlug("are-branded-residences-worth-it-west-palm-beach");
 
   return `
     <section class="home-advisory-resources" id="resources" aria-label="Brooke advisory and buyer resources">
@@ -4689,13 +4690,7 @@ function renderHomepageAdvisoryResources() {
             <p class="eyebrow">Market Intelligence</p>
             <a href="/market-notes/">View all guides <span aria-hidden="true">→</span></a>
           </div>
-          <a class="home-resource-card home-resource-card-featured" href="/market-notes/">
-            ${renderEditorialImagePanel("buyer-intelligence-interior", { caption: "Buyer advisory", credit: false, className: "home-resource-card-image" })}
-            <span>Buyer Guide</span>
-            <strong>Compare Before You Tour</strong>
-            <p>Understand the location, timing, floorplan, and buyer-fit questions to ask before requesting a buyer appointment.</p>
-            <em>Read buyer guides <b aria-hidden="true">→</b></em>
-          </a>
+          ${featuredBuyerNote ? renderHomepageMarketNoteFeature(featuredBuyerNote) : ""}
         </div>
         <div class="home-resource-feature">
           <div class="home-resource-heading">
@@ -4706,6 +4701,19 @@ function renderHomepageAdvisoryResources() {
         </div>
       </div>
     </section>
+  `;
+}
+
+function renderHomepageMarketNoteFeature(note: MarketNote) {
+  const resolvedImage = imageForContentItem(note);
+  return `
+    <a class="home-resource-card home-resource-card-featured" href="/market-notes/${note.slug}/">
+      ${renderResolvedContentImage(resolvedImage, "home-resource-card-image")}
+      <span>${escapeHtml(note.category)}</span>
+      <strong>${escapeHtml(note.title)}</strong>
+      <p>${escapeHtml(note.excerpt)}</p>
+      <em>Read buyer intelligence <b aria-hidden="true">→</b></em>
+    </a>
   `;
 }
 
@@ -5421,6 +5429,12 @@ function renderMarketNoteArticle(note: MarketNote) {
                 <section>
                   <h2>${escapeHtml(section.heading)}</h2>
                   <p>${escapeHtml(section.body)}</p>
+                  ${
+                    section.bullets?.length
+                      ? `<ul class="market-note-list">${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`
+                      : ""
+                  }
+                  ${section.imageId ? renderEditorialImagePanel(section.imageId, { className: "market-note-inline-image" }) : ""}
                 </section>
               `,
             )
