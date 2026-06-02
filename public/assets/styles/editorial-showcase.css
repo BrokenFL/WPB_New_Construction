@@ -37,6 +37,7 @@ html:has(.route-view-editorial-showcase:not([hidden])){overflow-x:hidden}
 @media (max-width:760px){[data-project-id="mr-c"] .berkeley-hero-clean>img{object-position:44% center}}
 @media (max-width:760px){[data-project-id="nora-house"] .berkeley-hero-clean>img{object-position:50% center}[data-project-id="nora-house"] .berkeley-residence-grid article{grid-template-columns:minmax(0,1fr) 92px}[data-project-id="nora-house"] .berkeley-plan-thumbnail{width:92px;height:70px}}
 [data-project-id="mandarin-oriental"] .berkeley-plan-thumbnail img{filter:grayscale(1) contrast(1.65) brightness(.88)}
+[data-project-id="mandarin-oriental"] .berkeley-image-break img{aspect-ratio:16/9;object-position:center 48%}
 @media (max-width:760px){[data-project-id="mandarin-oriental"] .berkeley-plan-thumbnail img{filter:grayscale(1) contrast(1.85) brightness(.86)}}
 .berkeley-hero-tags article{align-content:center;justify-items:center;text-align:center}.berkeley-hero-tags strong{line-height:1.05;text-align:center}
 @media (max-width:760px){.berkeley-hero-tags article{min-height:56px;padding:7px 4px}.berkeley-hero-tags span{font-size:.42rem;letter-spacing:.05em}.berkeley-hero-tags strong{font-size:.58rem;letter-spacing:0;line-height:1.04}}
