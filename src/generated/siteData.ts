@@ -4819,6 +4819,18 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/market-notes/nora-district-downtown-transformation/",
+    "title": "NORA District's Downtown Impact Explained | Buyer Intelligence",
+    "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/market-notes/are-branded-residences-worth-it-west-palm-beach/",
+    "title": "Are Branded Residences Worth It? West Palm Beach Guide",
+    "description": "Discover how branded residences work, what services they include, and whether the premium is justified in West Palm Beach's growing luxury market.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
     "path": "/market-notes/active-sales-vs-pipeline-watch/",
     "title": "Active Sales vs Pipeline Watch | WPB New Construction",
     "description": "How West Palm Beach condo buyers can separate active sales from pipeline watch projects before comparing pricing, floor plans, and timing.",

@@ -3460,7 +3460,8 @@ body.has-floorplan-viewer {
   background: rgba(255, 250, 241, 0.72);
 }
 
-.verify-box ul {
+.verify-box ul,
+.market-note-list {
   display: grid;
   gap: 10px;
   margin: 14px 0 0;

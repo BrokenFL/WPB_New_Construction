@@ -15,6 +15,8 @@ export type MarketNoteSource = {
 export type MarketNoteSection = {
   heading: string;
   body: string;
+  bullets?: string[];
+  imageId?: string;
 };
 
 export type MarketNote = {
@@ -26,6 +28,10 @@ export type MarketNote = {
   excerpt: string;
   buyerThesis: string;
   buyerTakeaway: string;
+  image?: {
+    path: string;
+    credit: string;
+  };
   imageId?: string;
   primaryProjectId?: string;
   projectIds: string[];
@@ -48,6 +54,222 @@ export type MarketNote = {
 const articleCta = "Want help applying this to your search? Request current availability and private comparison notes.";
 
 export const marketNotes = [
+  {
+    id: "nora-district-downtown-transformation",
+    status: "published",
+    category: "Buyer Intelligence",
+    title: "Why the NORA District Could Reshape Downtown West Palm Beach",
+    slug: "nora-district-downtown-transformation",
+    excerpt:
+      "NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.",
+    buyerThesis:
+      "NORA matters because it adds a neighborhood layer to the condo conversation. Buyers should evaluate how the district changes daily life, walkability, nearby demand, and construction-phase tradeoffs before treating proximity as an automatic premium.",
+    buyerTakeaway:
+      "Compare NORA proximity as a lifestyle advantage, then verify the practical details: walking route, construction exposure, parking, phase timing, nearby inventory, and whether the district experience fits how you expect to use downtown.",
+    image: {
+      path: "/assets/editorial/nora-district-aerial-evening-hero.jpg",
+      credit: "User-provided editorial image, optimized for site use.",
+    },
+    imageId: "nora-district-aerial-evening-hero",
+    primaryProjectId: "nora-house",
+    projectIds: ["nora-house", "mr-c", "banyan-tree", "olara", "ritz-carlton-wpb"],
+    sourceName: "User-provided Buyer Intelligence article brief",
+    sourceLinks: [
+      {
+        label: "NDT Development NORA district overview",
+        href: "https://ndtdevelopment.com/west-palm-beach-nora/",
+        sourceType: "official project site",
+      },
+      {
+        label: "Florida YIMBY NORA House proposal coverage",
+        href: "https://floridayimby.com/2025/08/developers-propose-nora-districts-first-condo-at-1105-n-dixie-highway-west-palm-beach-florida.html",
+        sourceType: "development news coverage",
+      },
+      {
+        label: "Palm Beach County Film and Television Commission NORA district overview",
+        href: "https://www.pbfilm.com/nora-district",
+        sourceType: "local news coverage",
+      },
+    ],
+    datePublished: "2026-06-02",
+    dateModified: "2026-06-02",
+    sections: [
+      {
+        heading: "NORA is becoming a district, not a single destination",
+        body:
+          "Just north of the downtown core, NORA - short for North Railroad Avenue - is turning a former warehouse corridor into a mixed-use district. The plan combines restored industrial buildings with new construction, restaurants, fitness concepts, creative offices, hospitality, rental housing, and a future for-sale condominium. For buyers, the key point is not one opening or one tenant. It is the possibility that downtown's lifestyle map extends northward as the district matures.",
+      },
+      {
+        heading: "Adaptive reuse gives the neighborhood a distinct identity",
+        body:
+          "NORA's first phase uses older warehouse buildings as an organizing idea rather than clearing the district for a conventional shopping center. That creates a lower-rise street experience with restaurants, offices, landscaping, and public gathering space. Buyers comparing Downtown, North Flagler, and NORA-adjacent homes should ask whether that neighborhood texture matters more than a direct waterfront setting.",
+        imageId: "nora-district-main-street-evening",
+      },
+      {
+        heading: "Walkability is the main buyer thesis",
+        body:
+          "The strongest NORA argument is daily-life convenience. A walkable district can make restaurants, fitness, workspaces, and social activity feel like part of the neighborhood rather than a separate drive. That is a different value proposition from Flagler Drive, where water views, marina context, and Palm Beach proximity often lead the decision. Neither is automatically better. They serve different ownership priorities.",
+      },
+      {
+        heading: "Future phases could add a built-in customer base",
+        body:
+          "The broader plan adds hospitality and residential density over time, including a boutique hotel, rental housing, office space, retail, and NORA House as the district's first for-sale condominium project. More residents, visitors, and employees could strengthen the district's retail ecosystem. Buyers should still separate what is open now from what remains phased, proposed, or subject to change.",
+      },
+      {
+        heading: "NORA House makes the district relevant to condo buyers",
+        body:
+          "NORA House is the clearest bridge between the district story and the condo search. It introduces a for-sale ownership option inside the neighborhood rather than simply nearby. That makes it useful to compare with Downtown and waterfront alternatives, but buyers should verify the current sales packet, layouts, pricing, deposit structure, delivery assumptions, and the practical effect of ongoing district construction before relying on early summaries.",
+        imageId: "nora-district-entry-evening",
+      },
+      {
+        heading: "Nearby buildings may benefit in different ways",
+        body:
+          "NORA can matter even for buyers who do not purchase inside the district. Downtown residences may gain another dining and lifestyle anchor. North Flagler buildings may benefit from a stronger nearby amenity base while retaining waterfront positioning. Mr. C and Banyan Tree belong in the broader Downtown comparison, while Olara and Ritz-Carlton remain useful North Flagler contrasts. The right comparison asks how often the buyer expects to use NORA and what tradeoffs they are willing to make for proximity.",
+      },
+      {
+        heading: "What could change the outcome",
+        body:
+          "District-scale redevelopment carries execution risk. Later phases can move. Tenant mixes can change. Construction can affect traffic, noise, parking, and walkability before the finished vision arrives. Outdoor comfort, shade, seasonal use, and the durability of the retail roster also matter in South Florida. Buyers should value the district as a developing signal, not treat every future phase as guaranteed.",
+      },
+      {
+        heading: "Questions to ask before paying for proximity",
+        body:
+          "A NORA-adjacent purchase should be evaluated with the same discipline as a building purchase.",
+        bullets: [
+          "Which NORA phases are open, under construction, approved, or still proposed?",
+          "What is the real walking route from the residence to the district?",
+          "How could construction affect traffic, noise, views, parking, and daily access?",
+          "Which restaurants, offices, hotel components, and residential phases are operating today?",
+          "How does the residence compare with Downtown and Flagler alternatives when fees, floor plans, views, and timing are included?",
+          "Is the buyer choosing NORA for daily use, future upside, or both?",
+        ],
+      },
+      {
+        heading: "The practical buyer move",
+        body:
+          "Use NORA as a corridor decision, not as a slogan. Visit at different times of day, walk the route from the buildings you are considering, separate delivered conditions from future plans, and compare the neighborhood experience against Downtown core convenience and Flagler waterfront living. The goal is to understand whether NORA improves the way you would actually live in West Palm Beach.",
+      },
+    ],
+    ctaText:
+      "The Scott Gordon Group at Douglas Elliman can help buyers compare how NORA, Downtown, North Flagler, and South Flagler differ in lifestyle, timing, walkability, and long-term fit.",
+    factCheckRequired: [
+      "Verify current NORA district phase status, tenant openings, construction timing, and delivered streetscape conditions before relying on a public summary.",
+      "Request the current NORA House buyer packet before relying on early residence counts, pricing, amenity, or delivery guidance.",
+      "Treat value appreciation and neighborhood-impact discussion as buyer context, not as a promise of future investment performance.",
+    ],
+    seo: {
+      primaryQuery: "NORA District West Palm Beach",
+      secondaryQueries: ["NORA House West Palm Beach", "Downtown West Palm Beach condos", "West Palm Beach walkable neighborhoods"],
+      suggestedSlug: "nora-district-downtown-transformation",
+      titleTag: "NORA District's Downtown Impact Explained | Buyer Intelligence",
+      metaDescription:
+        "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
+    },
+  },
+  {
+    id: "are-branded-residences-worth-it-west-palm-beach",
+    status: "published",
+    category: "Buyer Intelligence",
+    title: "Are Branded Residences Worth It? What Buyers Should Know Before Paying the Premium",
+    slug: "are-branded-residences-worth-it-west-palm-beach",
+    excerpt:
+      "Branded residences can deliver real service value, but the name alone is not enough. Buyers should understand the operating model, fees, brand agreement, and resale logic before paying the premium.",
+    buyerThesis:
+      "A branded residence is worth the premium only when the service infrastructure, location, design, governance, and long-term ownership costs work for the buyer independently of the logo.",
+    buyerTakeaway:
+      "Ask what the brand actually controls, which services are included, how fees are structured, how long the agreement lasts, and whether the residence would still be compelling without the name.",
+    image: {
+      path: "/assets/editorial/branded-residences-buyer-review-hero.jpg",
+      credit: "User-provided editorial image, optimized for site use.",
+    },
+    imageId: "branded-residences-buyer-review-hero",
+    primaryProjectId: "ritz-carlton-wpb",
+    projectIds: ["ritz-carlton-wpb", "mr-c", "mandarin-oriental", "banyan-tree", "forte-on-flagler", "alba-palm-beach"],
+    sourceName: "User-provided Buyer Intelligence article brief",
+    sourceLinks: [],
+    datePublished: "2026-06-02",
+    dateModified: "2026-06-02",
+    sections: [
+      {
+        heading: "A sector moving into the mainstream",
+        body:
+          "Branded residences are privately owned condominiums marketed under a hotel, hospitality, designer, or other luxury name. What began as a niche category has grown into a global real-estate segment, with South Florida as one of its most active markets. That matters in West Palm Beach because buyers are no longer choosing between a branded building and a generic alternative. They are comparing different forms of branding, different service promises, and strong independent luxury buildings that may offer a similar daily experience without the same premium.",
+      },
+      {
+        heading: "What the premium is supposed to buy",
+        body:
+          "The core promise is a more consistent, service-led ownership experience. Depending on the building, that can include concierge and front-of-house staffing, valet, security, package handling, housekeeping, maintenance, dining, spa services, fitness programming, owner privileges, digital service platforms, and curated design standards. The useful question is not whether the amenity list sounds impressive. It is which services are included in monthly costs, which are a la carte, and how often the buyer will use them.",
+        imageId: "branded-residences-ritz-carlton-exterior",
+      },
+      {
+        heading: "West Palm Beach now offers several branded interpretations",
+        body:
+          "The local comparison is becoming more nuanced. Ritz-Carlton Residences brings a hospitality-service frame and owner benefits. Mr. C Residences leans into Cipriani-linked service, dining, and a members-club atmosphere. Mandarin Oriental Residences presents a standalone branded-residence model with resort-style amenities and a strong wellness component. Banyan Tree Residences emphasizes sanctuary, privacy, and restorative living. These projects should not be treated as interchangeable simply because each carries a recognizable name.",
+      },
+      {
+        heading: "Brand management, brand licensing, and brand-like luxury are different",
+        body:
+          "A buyer should identify the operating structure before comparing premiums. A hotel-managed residence may apply a hospitality operator's staffing and service culture directly to the building. A licensed brand association may provide standards, design guidance, and oversight while day-to-day operations sit elsewhere. Independent luxury buildings can still offer concierge service, thoughtful amenities, and polished ownership without paying for a global badge. Forte on Flagler and Alba Palm Beach are useful non-branded comparisons when a buyer wants to separate service value from name recognition.",
+      },
+      {
+        heading: "Pricing premiums are a starting point, not a conclusion",
+        body:
+          "Industry research commonly reports a premium for branded residences over comparable non-branded homes, with urban benchmarks often discussed around the 30 percent range. That does not mean every branded condominium deserves the same uplift. The premium should be tested against location, floor plan, terrace usability, view protection, construction quality, reserves, governance, carrying costs, and the depth of future supply. A recognizable brand can support marketing and resale visibility, but it cannot repair a weak residence line or an ownership structure that does not fit the buyer.",
+        imageId: "branded-residences-ritz-carlton-arrival",
+      },
+      {
+        heading: "HOA fees and service charges deserve close attention",
+        body:
+          "Branded residences often carry higher monthly costs because hotel-style staffing, security, valet, maintenance, and programming must be funded. Buyers should request a complete operating-cost breakdown and separate included services from optional services. Full-time residents may place a high value on daily convenience. Part-time owners may appreciate lock-and-leave ease but should still ask whether they are paying for amenities they will seldom use.",
+      },
+      {
+        heading: "The brand agreement is part of the diligence",
+        body:
+          "Brand participation is contractual. Management and licensing agreements can expire, change, or fail to renew. Buyers should ask how long the agreement lasts, who controls renewal, what standards the operator must maintain, and what happens to naming rights if the relationship ends. Resale value should be underwritten using the real estate fundamentals as well as the brand halo.",
+      },
+      {
+        heading: "Who may benefit most",
+        body:
+          "Branded residences can make sense for globally mobile buyers, time-poor professionals, families seeking service integration, part-time owners who value security and maintenance, and buyers drawn to a particular lifestyle philosophy such as wellness or hospitality. Buyers who prefer extensive customization, already have household staff, or do not value brand-driven experiences may find equal or better value in an independent building.",
+      },
+      {
+        heading: "A practical branded-residence checklist",
+        body:
+          "Before paying a premium, compare the brand promise with the documents, budget, and operating structure.",
+        bullets: [
+          "Verify the brand-agreement length, termination provisions, and renewal rights.",
+          "Clarify whether the property is hotel-operated, licensed, or independently managed.",
+          "Review the HOA budget, reserves, insurance, staffing assumptions, and brand-related fees.",
+          "Confirm which amenities are residents-only and whether hotel guests or the public share access.",
+          "Separate services included in monthly dues from a la carte services and ask for pricing.",
+          "Evaluate construction quality and the developer, contractor, and operator track records.",
+          "Review rental rules, resale restrictions, design limitations, and renovation standards.",
+          "Compare competing branded and non-branded buildings by price per square foot and monthly cost.",
+          "Request current buyer materials and calculate long-term ownership costs before relying on marketing.",
+        ],
+      },
+      {
+        heading: "When the premium makes sense - and when to be careful",
+        body:
+          "The premium is easier to justify when the service quality is genuinely useful, the brand has residential operating experience, the site and floor plans are strong independently of the name, and the ongoing costs match the buyer's lifestyle. Be more careful when brand involvement is shallow, service charges are disproportionate, the management agreement is fragile, construction is still early, or nearby supply makes the resale story less distinctive.",
+      },
+    ],
+    ctaText:
+      "The Scott Gordon Group at Douglas Elliman helps buyers compare branded and non-branded West Palm Beach residences with a clear view of what they are actually paying for.",
+    factCheckRequired: [
+      "Request the current offering documents, HOA budget, service schedule, and brand-agreement details before relying on a public summary.",
+      "Verify current amenities, services, fees, availability, pricing, delivery timing, and operating structure directly for each project.",
+      "Treat industry premium benchmarks as market context, not as a valuation conclusion for any individual residence.",
+    ],
+    seo: {
+      primaryQuery: "are branded residences worth it",
+      secondaryQueries: ["West Palm Beach branded residences", "branded residence premium", "Ritz-Carlton Residences West Palm Beach"],
+      suggestedSlug: "are-branded-residences-worth-it-west-palm-beach",
+      titleTag: "Are Branded Residences Worth It? West Palm Beach Guide",
+      metaDescription:
+        "Discover how branded residences work, what services they include, and whether the premium is justified in West Palm Beach's growing luxury market.",
+    },
+  },
   {
     id: "active-sales-vs-pipeline-watch",
     status: "published",

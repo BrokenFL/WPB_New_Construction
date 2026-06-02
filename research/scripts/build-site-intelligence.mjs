@@ -17,6 +17,18 @@ const generatedDate = new Date().toISOString().slice(0, 10);
 const cloudflarePagesSingleFileLimitBytes = 25 * 1024 * 1024;
 const marketNoteRoutes = [
   {
+    slug: "nora-district-downtown-transformation",
+    title: "NORA District's Downtown Impact Explained | Buyer Intelligence",
+    description:
+      "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
+  },
+  {
+    slug: "are-branded-residences-worth-it-west-palm-beach",
+    title: "Are Branded Residences Worth It? West Palm Beach Guide",
+    description:
+      "Discover how branded residences work, what services they include, and whether the premium is justified in West Palm Beach's growing luxury market.",
+  },
+  {
     slug: "active-sales-vs-pipeline-watch",
     title: "Active Sales vs Pipeline Watch | WPB New Construction",
     description:
