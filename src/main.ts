@@ -4690,7 +4690,7 @@ function renderHomepageAdvisoryResources() {
             <a href="/market-notes/">View all guides <span aria-hidden="true">→</span></a>
           </div>
           <a class="home-resource-card home-resource-card-featured" href="/market-notes/">
-            <img src="${homepageAssets.lifestyle.downtown}" alt="" loading="lazy" decoding="async" />
+            ${renderEditorialImagePanel("buyer-intelligence-interior", { caption: "Buyer advisory", credit: false, className: "home-resource-card-image" })}
             <span>Buyer Guide</span>
             <strong>Compare Before You Tour</strong>
             <p>Understand the location, timing, floorplan, and buyer-fit questions to ask before requesting a buyer appointment.</p>
@@ -5039,16 +5039,7 @@ function renderMapRouteView() {
           <h1>Understand the West Palm Beach condo map before comparing buildings.</h1>
           <p>Downtown West Palm Beach sits west of the Intracoastal, with Palm Beach island and the Atlantic beyond. The best comparison starts by understanding the corridors: North Flagler waterfront, Downtown/Rosemary, and South Flagler.</p>
         </div>
-        ${renderEditorialImagePanel("wpb-geography-map-hero", { hero: true, className: "map-orientation-image" })}
-      </section>
-      <section class="section map-corridor-section" aria-label="West Palm Beach condo corridor guide">
-        <div class="section-heading">
-          <p class="eyebrow">Corridor Lens</p>
-          <h2>Three different buyer decisions, not one generic market.</h2>
-        </div>
-        <div class="map-corridor-grid">
-          ${corridorSections.map(renderMapCorridorCard).join("")}
-        </div>
+        ${renderEditorialImagePanel("wpb-geography-map-hero", { hero: true, caption: "West Palm Beach waterfront orientation", credit: false, className: "map-orientation-image" })}
       </section>
       <section class="section map-live-section" aria-label="Interactive West Palm Beach project map">
         <div class="section-heading">
@@ -5071,6 +5062,15 @@ function renderMapRouteView() {
         </aside>
         <a class="home-answer-archive-link" href="/inquire/?lead_capture_context=map_page">Request Current Availability <span aria-hidden="true">↗</span></a>
         ${renderMapFallbackCorridorList()}
+      </section>
+      <section class="section map-corridor-section" aria-label="West Palm Beach condo corridor guide">
+        <div class="section-heading">
+          <p class="eyebrow">Corridor Lens</p>
+          <h2>Three different buyer decisions, not one generic market.</h2>
+        </div>
+        <div class="map-corridor-grid">
+          ${corridorSections.map(renderMapCorridorCard).join("")}
+        </div>
       </section>
     </div>
   `;

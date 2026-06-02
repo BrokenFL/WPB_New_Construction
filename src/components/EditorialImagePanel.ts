@@ -2,7 +2,9 @@ import { editorialImageForId } from "../data/editorialImagery";
 import { escapeHtml, safeHref } from "../renderUtils";
 
 type EditorialImagePanelOptions = {
+  caption?: string;
   className?: string;
+  credit?: string | false;
   hero?: boolean;
   compact?: boolean;
 };
@@ -24,6 +26,8 @@ export function renderEditorialImagePanel(imageId?: string, options: EditorialIm
     .filter(Boolean)
     .join(" ");
   const loading = options.hero ? "eager" : "lazy";
+  const caption = options.caption ?? image.caption;
+  const credit = options.credit === false ? undefined : (options.credit ?? image.credit);
 
   return `
     <figure class="${classes}">
@@ -40,8 +44,8 @@ export function renderEditorialImagePanel(imageId?: string, options: EditorialIm
           `
       }
       <figcaption>
-        <span>${escapeHtml(image.caption)}</span>
-        ${image.credit ? `<small>${escapeHtml(image.credit)}</small>` : ""}
+        <span>${escapeHtml(caption)}</span>
+        ${credit ? `<small>${escapeHtml(credit)}</small>` : ""}
       </figcaption>
     </figure>
   `;
