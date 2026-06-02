@@ -1,14 +1,14 @@
 # Homepage Asset Publish Report
 
-Generated: 2026-06-02T03:40:43.106Z
+Generated: 2026-06-02T14:19:42.410Z
 
 ## Summary
 
 - Source: `/Volumes/ExternalSSD/WPB_NewConstruction_Assets/public-front-page-assets/approved-for-website/images`
 - Destination: `public/assets/home`
-- Approved images scanned: 32
+- Approved images scanned: 33
 - Published or refreshed: 1
-- Existing optimized files skipped: 31
+- Existing optimized files skipped: 32
 - Source warehouse files modified: 0
 
 ## Published Paths
@@ -17,6 +17,7 @@ Generated: 2026-06-02T03:40:43.106Z
 - `/assets/home/alba-reserve-project-card-main-v01.jpg` (skipped-existing)
 - `/assets/home/banyan-tree-project-card-main-v01.jpg` (skipped-existing)
 - `/assets/home/berkeley-project-card-main-v01.jpg` (skipped-existing)
+- `/assets/home/downtown-cityplace-shared-card-v01.jpg` (published)
 - `/assets/home/downtown-corridor-bridge-daytime-v01.jpg` (skipped-existing)
 - `/assets/home/downtown-corridor-bridge-night-v01.jpg` (skipped-existing)
 - `/assets/home/downtown-hero-nighttime-v01.jpg` (skipped-existing)
@@ -44,4 +45,4 @@ Generated: 2026-06-02T03:40:43.106Z
 - `/assets/home/south-flagler-corridor-hero-main-wide-v01.jpg` (skipped-existing)
 - `/assets/home/south-flagler-house-project-card-main-v01.jpg` (skipped-existing)
 - `/assets/home/south-flagler-corridor-vertical-v01.jpg` (skipped-existing)
-- `/assets/home/wpb-waterfront-bridge-hero-v01.jpg` (published)
+- `/assets/home/wpb-waterfront-bridge-hero-v01.jpg` (skipped-existing)

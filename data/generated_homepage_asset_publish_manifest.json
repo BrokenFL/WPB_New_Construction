@@ -15,7 +15,7 @@
     },
     "outputSizeBytes": 554239,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/alba-reserve-project-card-main-v01.png",
@@ -33,7 +33,7 @@
     },
     "outputSizeBytes": 267391,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/banyan-tree-project-card-man-v01.png",
@@ -51,7 +51,7 @@
     },
     "outputSizeBytes": 457788,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/berkeley-project-card-main-v01.png",
@@ -69,7 +69,25 @@
     },
     "outputSizeBytes": 431864,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/downtown-cityplace-shared-card-v01.jpg",
+    "websiteAssetPath": "public/assets/home/downtown-cityplace-shared-card-v01.jpg",
+    "publicPath": "/assets/home/downtown-cityplace-shared-card-v01.jpg",
+    "sourceHash": "efe4fe9ae1eae2a89624869bdbfbcd59f7d80c7bbb4008b20a59a2c7af836768",
+    "outputHash": "7a2987661edb84c5b19eb5976c87e8cdf9c54a656c534ba99a745926629bc7d8",
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 1440
+    },
+    "outputSizeBytes": 890880,
+    "action": "published",
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/downtown-corrdior-bridge-daytime-v01.png",
@@ -87,7 +105,7 @@
     },
     "outputSizeBytes": 743505,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/downtown-corrdior-bridge-night-v01.png",
@@ -105,7 +123,7 @@
     },
     "outputSizeBytes": 778300,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/downtown-hero-nightime-v01.png",
@@ -123,7 +141,7 @@
     },
     "outputSizeBytes": 893482,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/downtown-nora-hero-v01.png",
@@ -141,7 +159,7 @@
     },
     "outputSizeBytes": 716956,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/edgeworth-project-card-main-v01.png",
@@ -159,7 +177,7 @@
     },
     "outputSizeBytes": 395193,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/forte-project-card-main-v01.png",
@@ -177,7 +195,7 @@
     },
     "outputSizeBytes": 368197,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/la-clara-project-card-main-v01.png",
@@ -195,7 +213,7 @@
     },
     "outputSizeBytes": 401196,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/mandarin-oriental-project-card-main-v01.png",
@@ -213,7 +231,7 @@
     },
     "outputSizeBytes": 295020,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/marina-revelopment-hero-wide-v01.png",
@@ -231,7 +249,7 @@
     },
     "outputSizeBytes": 1075647,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/mason-dor-project-card-main-v01.png",
@@ -249,7 +267,7 @@
     },
     "outputSizeBytes": 347387,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/mr-c-project-card-main-v01.png",
@@ -267,7 +285,7 @@
     },
     "outputSizeBytes": 346343,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/nora-house-proiect-card-main-v01.png",
@@ -285,7 +303,7 @@
     },
     "outputSizeBytes": 692794,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-3-buildings-daytime-v01.png",
@@ -303,7 +321,7 @@
     },
     "outputSizeBytes": 724234,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-3-buildings-sunset-v01-4eef1bb7.png",
@@ -321,7 +339,7 @@
     },
     "outputSizeBytes": 671373,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-3-buildings-sunset-v01.png",
@@ -339,7 +357,7 @@
     },
     "outputSizeBytes": 753950,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-corridor-skyline-square-v01.png",
@@ -357,7 +375,7 @@
     },
     "outputSizeBytes": 1012747,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-corridor-skyline-ultra-wide-v01.png",
@@ -375,7 +393,7 @@
     },
     "outputSizeBytes": 567430,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-corridor-skyline-vertical-v01.png",
@@ -393,7 +411,7 @@
     },
     "outputSizeBytes": 910645,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/olara-project-card-main-v01.png",
@@ -411,7 +429,7 @@
     },
     "outputSizeBytes": 439651,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/ritz-carlton-project-card-main-v01.png",
@@ -429,7 +447,7 @@
     },
     "outputSizeBytes": 480301,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/rosewood-project-card-main-v01.png",
@@ -447,7 +465,7 @@
     },
     "outputSizeBytes": 312386,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/rybovich-marina-project-card-main-v01.png",
@@ -465,7 +483,7 @@
     },
     "outputSizeBytes": 357840,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/shorecrest-project-card-main-v01.png",
@@ -483,7 +501,7 @@
     },
     "outputSizeBytes": 261374,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/south-flagler-corridor-hero-main-square-v01.png",
@@ -501,7 +519,7 @@
     },
     "outputSizeBytes": 1032191,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/south-flagler-corridor-hero-main-wide-v01.png",
@@ -519,7 +537,7 @@
     },
     "outputSizeBytes": 671111,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/south-flagler-house-project-card-main-v01.png",
@@ -537,7 +555,7 @@
     },
     "outputSizeBytes": 400619,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/south-flagler0.png",
@@ -555,7 +573,7 @@
     },
     "outputSizeBytes": 971765,
     "action": "skipped-existing",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   },
   {
     "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/wpb-waterfront-bridge-hero-v01.jpg",
@@ -572,7 +590,7 @@
       "height": 1080
     },
     "outputSizeBytes": 630114,
-    "action": "published",
-    "publishedAt": "2026-06-02T03:40:43.106Z"
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T14:19:42.410Z"
   }
 ]

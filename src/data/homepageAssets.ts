@@ -5,7 +5,7 @@ export const homepageAssets = {
   },
   corridors: {
     "north-flagler": "/assets/home/north-flagler-corridor-skyline-square-v01.jpg",
-    downtown: "/assets/home/downtown-nora-hero-v01.jpg",
+    downtown: "/assets/home/downtown-cityplace-shared-card-v01.jpg",
     "south-flagler": "/assets/home/south-flagler-corridor-hero-main-square-v01.jpg",
   },
   lifestyle: {

@@ -234,10 +234,6 @@ type GoogleMapsNamespace = {
   LatLngBounds: new () => {
     extend: (position: { lat: number; lng: number }) => void;
   };
-  Marker: new (options: Record<string, unknown>) => {
-    setMap: (map: unknown | null) => void;
-    addListener: (eventName: string, handler: () => void) => void;
-  };
   importLibrary?: (libraryName: "marker") => Promise<{
     AdvancedMarkerElement?: new (options: Record<string, unknown>) => {
       map: unknown | null;
@@ -251,9 +247,6 @@ type GoogleMapsNamespace = {
       addListener?: (eventName: string, handler: () => void) => void;
       addEventListener?: (eventName: string, handler: () => void) => void;
     };
-  };
-  SymbolPath: {
-    CIRCLE: unknown;
   };
 };
 
@@ -385,6 +378,7 @@ const projectLogoImages: Record<string, { src: string; alt: string }> = {
 };
 const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined;
 const googleMapsMapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID as string | undefined;
+const advancedMarkerMapId = googleMapsMapId || "DEMO_MAP_ID";
 const heroMapScriptId = "wpb-google-map-script";
 const heroMapCallbackName = "__wpbGoogleMapsReady";
 const mapFallbackTitle = "Map temporarily unavailable";
@@ -394,7 +388,7 @@ const buyerFriendlyMapFallback = `${mapFallbackTitle}. ${mapFallbackBody}`;
 const HERO_ROTATION_INTERVAL_MS = 16000;
 const HERO_FADE_DURATION_MS = 1800;
 let googleMapsLoader: Promise<GoogleMapsNamespace> | null = null;
-let googleAdvancedMarkerLoader: Promise<GoogleAdvancedMarkerConstructor | undefined> | null = null;
+let googleAdvancedMarkerLoader: Promise<GoogleAdvancedMarkerConstructor> | null = null;
 
 const staticRoutePaths: Record<string, string> = {
   "/buildings": "buildings",
@@ -957,7 +951,7 @@ const corridorSections: CorridorSection[] = [
     detail: "Alba, Olara, Shorecrest, Ritz-Carlton",
     reviewNote: "Waterfront comparison corridor with the deepest active plan and image inventory.",
     description:
-      "North Flagler is the densest new-construction comparison set in West Palm Beach. Buyers here are usually weighing direct Intracoastal exposure, large amenity programs, branded service, construction timing, and how each tower handles views toward Palm Beach.",
+      "North Flagler is one of West Palm Beach's most active new-construction corridors, with waterfront sites, marina-oriented amenities, and several projects reshaping the area north of downtown. Buyers should compare building scale, view orientation, water access, walkability, and the surrounding redevelopment timeline.",
   },
   {
     key: "downtown",
@@ -965,7 +959,7 @@ const corridorSections: CorridorSection[] = [
     detail: "NORA House, Mr. C",
     reviewNote: "Urban lifestyle corridor where hotel-branded and district projects need current availability checks.",
     description:
-      "Downtown is the walkability play. It is less about a single waterfront view and more about restaurants, rail access, hotel-style service, and the city becoming easier to live in without driving for every errand.",
+      "Downtown is the most walkable new-construction setting in West Palm Beach, appealing to buyers who want restaurants, retail, arts venues, Brightline access, and everyday convenience close by. Buyers should compare privacy, parking, noise, views, and access to the city's cultural and commercial anchors.",
   },
   {
     key: "south-flagler",
@@ -973,7 +967,7 @@ const corridorSections: CorridorSection[] = [
     detail: "South Flagler House",
     reviewNote: "Southern waterfront benchmark for buyers comparing scale, privacy, and Palm Beach proximity.",
     description:
-      "South Flagler reads quieter and more residential. Buyers tend to compare privacy, Palm Beach proximity, larger residences, calmer waterfront rhythm, and whether a delivered building or new launch better fits the ownership plan.",
+      "South Flagler is an established luxury waterfront corridor known for its proximity to Palm Beach Island and broad Intracoastal views. Buyers typically compare architecture, residence size, privacy, service, and whether a completed building or new launch better fits the ownership plan.",
   },
 ];
 
@@ -2378,8 +2372,11 @@ app.innerHTML = `
         <div class="home-hero-layout">
           <div class="home-hero-content">
             <p class="hero-kicker">West Palm Beach New Construction</p>
-            <h1>${escapeHtml(approvedHeroCardOverride?.headline || "West Palm Beach New Construction, Clearly Compared.")}</h1>
-            <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || "Explore new-construction residences by location, readiness, lifestyle, and buyer fit without sorting through scattered sales pages.")}</p>
+            <h1>
+              <span class="home-hero-title-desktop">${escapeHtml(approvedHeroCardOverride?.headline || "West Palm Beach Luxury Condo Developments")}</span>
+              <span class="home-hero-title-mobile">West Palm Beach Luxury Condos</span>
+            </h1>
+            <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || "Explore the city's most important new and upcoming condominium projects with clear details, local insight, floorplans, maps, and buyer-focused guidance before you inquire.")}</p>
             <div class="hero-actions" aria-label="Primary homepage actions">
               <a href="/buildings/" data-hero-cta="explore-buildings">Browse Projects</a>
               <a href="/map/" data-hero-cta="view-map">Explore Map</a>
@@ -2388,10 +2385,19 @@ app.innerHTML = `
         </div>
       </section>
 
-      <section class="home-corridor-guide" aria-label="Choose a West Palm Beach new-construction corridor">
+      <nav class="home-section-jump" aria-label="Explore homepage sections">
+        <a href="#corridors">${homeJumpIcon("corridors")}<span>Corridors</span></a>
+        <a href="#featured-projects">${homeJumpIcon("projects")}<span>Projects</span></a>
+        <a href="#atlas">${homeJumpIcon("map")}<span>Map</span></a>
+        <a href="/compare/">${homeJumpIcon("compare")}<span>Compare</span></a>
+        <a href="#resources">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
+      </nav>
+
+      <section class="home-corridor-guide" id="corridors" aria-label="Choose a West Palm Beach new-construction corridor">
         <div class="section-heading corridor-heading">
           <p class="eyebrow">Explore by Corridor</p>
           <h2>Start by location.</h2>
+          <p class="mobile-rail-hint" aria-hidden="true">Swipe to explore <span>→</span></p>
         </div>
         <div class="corridor-guide-grid">
           ${homepageCorridorKeys.map((key) => corridorSections.find((section) => section.key === key)).filter((section): section is CorridorSection => Boolean(section)).map((section) => {
@@ -2415,32 +2421,30 @@ app.innerHTML = `
 
       <section class="home-status-guide" aria-label="Browse buildings by construction status">
         <div class="section-heading">
-          <p class="eyebrow">Browse by Readiness</p>
+          <p class="eyebrow">Browse by Status</p>
         </div>
-        <div class="home-status-grid">
+        <nav class="home-status-grid" aria-label="Project status filters">
           ${[
-            ["Active Sales", "Currently selling with project information available.", "active-sales"],
-            ["Under Construction", "Buildings moving from plans toward delivery.", "under-construction"],
-            ["Announced / Planned", "Future projects to monitor before launch.", "announced-planned"],
-            ["Completed Opportunities", "Finished buildings with possible resale opportunities.", "completed-opportunities"],
-          ].map(([title, copy, filter]) => `
-            <article>
-              <span aria-hidden="true">WPB</span>
+            ["Active Sales", "active-sales"],
+            ["Under Construction", "under-construction"],
+            ["Announced / Planned", "announced-planned"],
+            ["Completed Opportunities", "completed-opportunities"],
+          ].map(([title, filter]) => `
+            <a href="/buildings/?filter=${filter}">
               <strong>${title}</strong>
-              <p>${copy}</p>
-              <a href="/buildings/?filter=${filter}">View projects <span aria-hidden="true">→</span></a>
-            </article>
+              <span>View projects <b aria-hidden="true">→</b></span>
+            </a>
           `).join("")}
-        </div>
+        </nav>
       </section>
 
       <section class="home-featured-section" id="featured-projects" aria-label="Featured buyer-ready projects">
         <div class="section-heading home-featured-heading">
           <p class="eyebrow">Featured Developments</p>
-          <h2>Featured buyer-ready projects.</h2>
-          <p>A focused starting point for comparing West Palm Beach's most relevant new residences.</p>
+          <p>A focused starting point for comparing relevant new residences.</p>
+          <p class="mobile-rail-hint" aria-hidden="true">Swipe to explore <span>→</span></p>
         </div>
-        <div class="home-featured-grid">
+        <div class="home-featured-grid" role="region" aria-label="Scrollable featured developments" tabindex="0">
           ${homepageFeaturedProjects.map(renderHomepageFeaturedProject).join("")}
         </div>
         <a class="home-answer-archive-link" href="/buildings/">View all projects <span aria-hidden="true">→</span></a>
@@ -2456,20 +2460,15 @@ app.innerHTML = `
         </div>
       </section>
 
-      ${renderHomepageAdvisoryResources()}
-
-      <section class="home-atlas-feature home-atlas-feature-editorial" id="atlas" aria-label="West Palm Beach project atlas">
-        <div class="home-atlas-copy">
-          <p class="eyebrow">Buyer Atlas</p>
-          <h2>${escapeHtml(approvedHomepageOverride("map")?.headline || "See the market by map.")}</h2>
-          <p>${escapeHtml(approvedHomepageOverride("map")?.subhead || "Use the map to compare project locations, corridor context, and the parts of West Palm Beach that matter to your daily life.")}</p>
-          <div class="home-atlas-facts" aria-label="West Palm Beach atlas summary">
-            <span>North Flagler waterfront cluster</span>
-            <span>Downtown and NORA lifestyle district</span>
-            <span>South Flagler privacy corridor</span>
+      <section class="home-atlas-feature home-atlas-feature-editorial home-atlas-compact" id="atlas" aria-label="West Palm Beach project atlas">
+        <div class="home-atlas-compact-heading">
+          <div>
+            <p class="eyebrow">Explore the Map</p>
+            <p>Compare project locations and corridor context across North Flagler, Downtown/NORA, and South Flagler.</p>
           </div>
+          <a href="/map/">View all projects on map <span aria-hidden="true">→</span></a>
         </div>
-        <div class="home-atlas-map-frame">
+        <div class="home-atlas-frame">
           <aside class="home-hero-map-card home-atlas-map-card home-atlas-map-only" aria-label="Featured West Palm Beach project map">
             <figure class="hero-map-preview">
               <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
@@ -2483,24 +2482,18 @@ app.innerHTML = `
               <span>tracked West Palm Beach new-construction projects</span>
             </div>
           </aside>
-          <div class="home-atlas-directory" aria-label="Featured project directory">
-            <span>Featured Directory</span>
-            ${homepageFeaturedProjects.map((project, index) => `
-              <a href="${projectPath(project)}"><b>${index + 1}</b><strong>${project.name}</strong><small>${project.corridor}</small></a>
-            `).join("")}
-            <a class="home-atlas-directory-all" href="/map/">View all projects on map <span aria-hidden="true">→</span></a>
+          <div class="home-atlas-projects">
+            <p>Projects shown on map</p>
+            <div class="home-atlas-project-strip" role="region" aria-label="Projects shown on the homepage map" tabindex="0">
+              ${validMapProjects(rankedFeaturedProjects.slice(0, 7)).map(renderHomepageAtlasProject).join("")}
+            </div>
           </div>
         </div>
+        <a class="home-atlas-mobile-cta" href="/map/">Explore All Projects on Map <span aria-hidden="true">→</span></a>
       </section>
 
-      <section class="home-conversion-band" aria-label="Request current West Palm Beach new-construction guidance">
-        <div>
-          <p class="eyebrow">Private Advisory</p>
-          <h2>${escapeHtml(approvedHomepageCardOverride("cta", "bottom-cta")?.headline || "Compare before you inquire.")}</h2>
-          <p>${escapeHtml(approvedHomepageCardOverride("cta", "bottom-cta")?.deck || approvedHomepageCardOverride("cta", "bottom-cta")?.subhead || "Have questions about a specific building, location, or timeline? Start with a focused conversation.")}</p>
-        </div>
-        <a href="/inquire/">${escapeHtml(approvedHomepageCardOverride("cta", "bottom-cta")?.ctaLabel || "Inquire Now")} <span aria-hidden="true">↗</span></a>
-      </section>
+      ${renderHomepageAdvisoryResources()}
+      ${renderHomepageCompareLauncher()}
       </div>
 
       ${renderBuildingsRouteView()}
@@ -2574,9 +2567,9 @@ app.innerHTML = `
       <div class="route-view route-view-market-notes" data-route-view="market-notes" hidden>
         <section class="section intelligence-hero">
           <div>
-            <p class="eyebrow">Guidance</p>
-            <h1>Evergreen buyer guidance for West Palm Beach new construction.</h1>
-            <p>Short editorial notes that translate local coverage, project milestones, and details to verify into practical buyer questions. Facts stay tied to public sources; pricing and availability still require current confirmation.</p>
+            <p class="eyebrow">Buyer Resources</p>
+            <h1>Buyer Resources and Market Notes</h1>
+            <p>Use these guides to understand the moving pieces behind West Palm Beach new construction. Compare buildings, review floorplans, explore corridors, follow updates, and get practical answers before reaching out to a sales team.</p>
           </div>
           <aside class="answer-meta-panel">
             <span>${marketNotes.length} buyer notes</span>
@@ -2597,21 +2590,21 @@ app.innerHTML = `
         <section class="section intelligence-hero">
           <div>
             <p class="eyebrow">Floorplan Library</p>
-            <h1>Released floorplans, organized for a cleaner first comparison.</h1>
+            <h1>Review Available Floorplans</h1>
             <p>
-              This library gathers public plan links and released PDFs currently captured from project sources.
-              Use it to compare scale, exposure, and residence type, then request the current sales packet before making purchase decisions.
+              Use the floorplan library to compare layouts, residence scale, terrace space, bedroom placement, elevator access, and view orientation.
+              Publicly available plans are a useful starting point, not a substitute for current sales materials.
             </p>
           </div>
           <aside class="answer-meta-panel">
             <span>Updated ${floorplanLibrary[0]?.updatedAt ?? "2026-05-14"}</span>
             <strong>${floorplanLibrary.reduce((total, project) => total + project.count, 0)} floorplan records</strong>
-            <small>${floorplanLibrary.filter((project) => project.count > 0).length} projects have at least one plan link or PDF.</small>
+            <small>Always verify current plans, dimensions, exposure, pricing, and availability before relying on public material.</small>
           </aside>
         </section>
         <section class="section floorplan-index-section">
           ${floorplanLibrary.map(renderFloorplanProject).join("")}
-          <a class="home-answer-archive-link" href="/inquire/?interest=floorplans&lead_capture_context=floorplans_page">Request Current Availability <span aria-hidden="true">↗</span></a>
+          <a class="home-answer-archive-link" href="/inquire/?interest=floorplans&lead_capture_context=floorplans_page">Request Floorplans <span aria-hidden="true">↗</span></a>
         </section>
       </div>
 
@@ -3877,6 +3870,7 @@ function applyRoute() {
   });
 
   syncInquiryContext();
+  initHomeCompareLauncher();
   initCompareShortlist();
   if (activeProject) {
     trackBuildingDetailView(activeProject);
@@ -4021,10 +4015,10 @@ function initCompareShortlist() {
   const route = getCurrentRoute();
   if (route.type !== "compare") return;
 
-  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-compare-toggle]"));
-  const output = document.querySelector<HTMLElement>("[data-compare-shortlist]");
+  const selects = Array.from(document.querySelectorAll<HTMLSelectElement>("[data-compare-route-select]"));
+  const output = document.querySelector<HTMLElement>("[data-compare-results]");
   const inquireLink = document.querySelector<HTMLAnchorElement>("[data-compare-inquire]");
-  if (!buttons.length || !output) return;
+  if (selects.length !== 3 || !output) return;
 
   const storageKey = "wpbCompareShortlist";
   const readSelection = () => {
@@ -4037,45 +4031,28 @@ function initCompareShortlist() {
   };
   const writeSelection = (ids: string[]) => sessionStorage.setItem(storageKey, JSON.stringify(ids.slice(0, 3)));
   let selectedIds = readSelection().filter((id) => featuredProjects.some((project) => project.id === id)).slice(0, 3);
+  if (selectedIds.length < 2) selectedIds = rankedFeaturedProjects.slice(0, 2).map((project) => project.id);
+  selects.forEach((select, index) => {
+    select.value = selectedIds[index] ?? "";
+  });
 
   const render = () => {
-    buttons.forEach((button) => {
-      const isSelected = selectedIds.includes(button.dataset.compareToggle ?? "");
-      button.classList.toggle("is-selected", isSelected);
-      button.setAttribute("aria-pressed", String(isSelected));
-    });
-
     const selectedProjects = selectedIds
       .map((id) => featuredProjects.find((project) => project.id === id))
       .filter((project): project is FeaturedProject => Boolean(project));
 
-    if (!selectedProjects.length) {
-      output.innerHTML = "<p>Select up to three buildings to build a compact buyer comparison.</p>";
+    if (selectedProjects.length < 2) {
+      output.innerHTML = "<p class=\"compare-route-empty\">Choose at least two different buildings to build a comparison.</p>";
       if (inquireLink) {
         inquireLink.href = "/inquire/?lead_capture_context=compare_shortlist";
       }
       return;
     }
 
-    output.innerHTML = selectedProjects
-      .map(
-        (project) => `
-          <article class="compare-shortlist-card">
-            <a href="${projectPath(project)}">${escapeHtml(project.name)}</a>
-            <dl>
-              <div><dt>Corridor</dt><dd>${escapeHtml(project.corridor)}</dd></div>
-              <div><dt>Status</dt><dd>${escapeHtml(project.status)}</dd></div>
-              <div><dt>Delivery</dt><dd>${escapeHtml(project.delivery)}</dd></div>
-              <div><dt>Public floor plans</dt><dd>${project.floorplans ? "Yes" : "Request packet"}</dd></div>
-              <div><dt>Waterfront orientation</dt><dd>${project.corridorKey === "downtown" ? "Urban/walkability first" : "Intracoastal corridor context"}</dd></div>
-              <div><dt>Residence count</dt><dd>${escapeHtml(project.residences)}</dd></div>
-              <div><dt>Buyer fit</dt><dd>${escapeHtml(compareBuyerFit(project))}</dd></div>
-              <div><dt>Verification needed</dt><dd>${escapeHtml(compareVerificationNeed(project))}</dd></div>
-            </dl>
-          </article>
-        `,
-      )
-      .join("");
+    output.innerHTML = `
+      <div class="compare-route-card-grid">${selectedProjects.map(renderCompareWorkspaceCard).join("")}</div>
+      ${renderCompareMatrix(selectedProjects)}
+    `;
 
     const names = selectedProjects.map((project) => project.name).join(", ");
     const message = encodeURIComponent(`I want Brooke to compare these buildings: ${names}.`);
@@ -4084,16 +4061,14 @@ function initCompareShortlist() {
     }
   };
 
-  buttons.forEach((button) => {
-    if (button.dataset.compareReady) return;
-    button.dataset.compareReady = "true";
-    button.addEventListener("click", () => {
-      const projectId = button.dataset.compareToggle;
-      if (!projectId) return;
-      if (selectedIds.includes(projectId)) {
-        selectedIds = selectedIds.filter((id) => id !== projectId);
-      } else if (selectedIds.length < 3) {
-        selectedIds = [...selectedIds, projectId];
+  selects.forEach((select) => {
+    if (select.dataset.compareReady) return;
+    select.dataset.compareReady = "true";
+    select.addEventListener("change", () => {
+      selectedIds = selects.map((item) => item.value).filter(Boolean);
+      if (new Set(selectedIds).size !== selectedIds.length) {
+        select.value = "";
+        selectedIds = selects.map((item) => item.value).filter(Boolean);
       }
       writeSelection(selectedIds);
       render();
@@ -4101,6 +4076,39 @@ function initCompareShortlist() {
   });
 
   render();
+}
+
+function initHomeCompareLauncher() {
+  const form = document.querySelector<HTMLFormElement>("[data-home-compare-form]");
+  if (!form || form.dataset.compareReady) return;
+
+  const selects = Array.from(form.querySelectorAll<HTMLSelectElement>("[data-home-compare-select]"));
+  const previewGrid = form.querySelector<HTMLElement>("[data-home-compare-preview-grid]");
+  const error = form.querySelector<HTMLElement>("[data-home-compare-error]");
+  if (selects.length !== 2 || !previewGrid) return;
+
+  form.dataset.compareReady = "true";
+  const selectedProjects = () => selects
+    .map((select) => featuredProjects.find((project) => project.id === select.value))
+    .filter((project): project is FeaturedProject => Boolean(project));
+
+  const render = () => {
+    const projects = selectedProjects();
+    previewGrid.innerHTML = projects.map(renderHomepageComparePreview).join("");
+    if (error) error.hidden = projects.length === 2 && projects[0].id !== projects[1].id;
+  };
+
+  selects.forEach((select) => select.addEventListener("change", render));
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const projects = selectedProjects();
+    if (projects.length !== 2 || projects[0].id === projects[1].id) {
+      if (error) error.hidden = false;
+      return;
+    }
+    sessionStorage.setItem("wpbCompareShortlist", JSON.stringify(projects.map((project) => project.id)));
+    window.location.assign("/compare/");
+  });
 }
 
 function getCurrentRoute(): Route {
@@ -4641,51 +4649,33 @@ function renderProjectFilter(filter: ProjectFilter) {
 
 function homepageCorridorCopy(key: CorridorKey) {
   return {
-    "north-flagler": "Waterfront energy, marina access, and major redevelopment momentum.",
-    "south-flagler": "Palm Beach views and a quieter residential waterfront.",
-    downtown: "Walkable living near dining, culture, transit, and the NORA District.",
+    "north-flagler": "Waterfront redevelopment, marina access, and a residential feel close to downtown.",
+    "south-flagler": "Palm Beach views, privacy, and a quieter waterfront setting.",
+    downtown: "Walkability, restaurants, culture, and NORA nearby.",
   }[key];
 }
 
+function homeJumpIcon(name: "projects" | "corridors" | "map" | "compare" | "guides") {
+  const paths = {
+    projects: '<path d="M4 20h16"/><path d="M6 20V7l8-3 4 2v14"/><path d="M9 10h2"/><path d="M9 14h2"/><path d="M14 10h2"/><path d="M14 14h2"/>',
+    corridors: '<path d="M3 8c2 0 2-1.5 4-1.5S9 8 11 8s2-1.5 4-1.5S17 8 19 8s2-1.5 2-1.5"/><path d="M3 13c2 0 2-1.5 4-1.5S9 13 11 13s2-1.5 4-1.5S17 13 19 13s2-1.5 2-1.5"/><path d="M3 18c2 0 2-1.5 4-1.5S9 18 11 18s2-1.5 4-1.5S17 18 19 18s2-1.5 2-1.5"/>',
+    map: '<path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/>',
+    compare: '<path d="M5 5v14"/><path d="M19 5v14"/><path d="M9 8h10"/><path d="M5 16h10"/><circle cx="9" cy="8" r="2"/><circle cx="15" cy="16" r="2"/>',
+    guides: '<path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4Z"/><path d="M8 20V7a3 3 0 0 0-3-3"/><path d="M11 9h4"/><path d="M11 13h4"/>',
+  };
+  return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name]}</svg>`;
+}
+
 function renderHomepageAdvisoryResources() {
-  const resourceCards = [
-    {
-      eyebrow: "Project Watch",
-      title: "New-Project Watch",
-      copy: "Track notable launches, planning activity, and emerging opportunities.",
-      href: "/updates/",
-      image: homepageAssets.lifestyle.marina,
-    },
-    {
-      eyebrow: "Buyer Guide",
-      title: "Compare Before You Tour",
-      copy: "Understand the process before visiting a sales gallery.",
-      href: "/market-notes/",
-      image: homepageAssets.lifestyle.downtown,
-    },
-    {
-      eyebrow: "Timing",
-      title: "Delivery Timelines",
-      copy: "Compare planned, under-construction, and completed options.",
-      href: "/market-notes/",
-      image: homepageAssets.corridors["south-flagler"],
-    },
-    {
-      eyebrow: "Neighborhood Note",
-      title: "Why NORA Matters",
-      copy: "Local context for lifestyle, access, and buyer fit.",
-      href: "/corridors/downtown-west-palm-beach/",
-      image: homepageAssets.lifestyle.nora,
-    },
-  ];
+  const latestUpdate = [...publishedExternalNews].sort((a, b) => newsSortTimestamp(b) - newsSortTimestamp(a))[0];
 
   return `
-    <section class="home-advisory-resources" aria-label="Brooke advisory and buyer resources">
+    <section class="home-advisory-resources" id="resources" aria-label="Brooke advisory and buyer resources">
       <article class="home-brooke-panel">
         <div class="home-brooke-mark" aria-hidden="true">BS</div>
         <p class="eyebrow">Why Work With Brooke</p>
         <h2>Local guidance, clearly framed.</h2>
-        <p>Compare buildings, locations, delivery timing, lifestyle fit, and tradeoffs before walking into a sales gallery.</p>
+        <p>Compare buildings, locations, delivery timing, lifestyle fit, and tradeoffs before requesting a buyer appointment.</p>
         <ul>
           <li>Project-by-project comparisons</li>
           <li>Local market context</li>
@@ -4694,23 +4684,94 @@ function renderHomepageAdvisoryResources() {
         <a href="/inquire/">Start a Conversation <span aria-hidden="true">→</span></a>
       </article>
       <div class="home-resource-panel">
-        <div class="home-resource-heading">
-          <p class="eyebrow">Market Intelligence & Buyer Resources</p>
-          <a href="/market-notes/">View all guides <span aria-hidden="true">→</span></a>
+        <div class="home-resource-feature">
+          <div class="home-resource-heading">
+            <p class="eyebrow">Market Intelligence</p>
+            <a href="/market-notes/">View all guides <span aria-hidden="true">→</span></a>
+          </div>
+          <a class="home-resource-card home-resource-card-featured" href="/market-notes/">
+            <img src="${homepageAssets.lifestyle.downtown}" alt="" loading="lazy" decoding="async" />
+            <span>Buyer Guide</span>
+            <strong>Compare Before You Tour</strong>
+            <p>Understand the location, timing, floorplan, and buyer-fit questions to ask before requesting a buyer appointment.</p>
+            <em>Read buyer guides <b aria-hidden="true">→</b></em>
+          </a>
         </div>
-        <div class="home-resource-grid">
-          ${resourceCards.map((card) => `
-            <a class="home-resource-card" href="${card.href}">
-              <img src="${card.image}" alt="" loading="lazy" decoding="async" />
-              <span>${card.eyebrow}</span>
-              <strong>${card.title}</strong>
-              <p>${card.copy}</p>
-              <em>Read more <b aria-hidden="true">→</b></em>
-            </a>
-          `).join("")}
+        <div class="home-resource-feature">
+          <div class="home-resource-heading">
+            <p class="eyebrow">Development Desk</p>
+            <a href="/updates/">View all updates <span aria-hidden="true">→</span></a>
+          </div>
+          ${latestUpdate ? renderHomepageUpdateFeature(latestUpdate) : ""}
         </div>
       </div>
     </section>
+  `;
+}
+
+function renderHomepageUpdateFeature(item: ExternalNewsItem) {
+  const resolvedImage = imageForContentItem(externalNewsImageContext(item));
+  const article = updateArticleContent(item);
+  return `
+    <a class="home-resource-card home-resource-card-featured" href="${updatePath(item)}">
+      ${renderResolvedContentImage(resolvedImage)}
+      <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
+      <strong>${publicText(item.title)}</strong>
+      <p>${publicText(article.excerpt)}</p>
+      <em>Read latest update <b aria-hidden="true">→</b></em>
+    </a>
+  `;
+}
+
+function renderHomepageCompareLauncher() {
+  const defaultProjects = rankedFeaturedProjects.slice(0, 2);
+  const options = rankedFeaturedProjects
+    .map((project) => `<option value="${project.id}">${escapeHtml(project.name)}</option>`)
+    .join("");
+
+  return `
+    <section class="home-compare-launcher" aria-label="Choose two buildings to compare">
+      <div class="home-compare-launcher-copy">
+        <p class="eyebrow">Compare Buildings</p>
+        <h2>Start with two.</h2>
+        <p>Pick two buildings to open a focused side-by-side shortlist. You can add one more project on the full comparison page.</p>
+      </div>
+      <form class="home-compare-form" data-home-compare-form>
+        <div class="home-compare-picker-grid">
+          ${defaultProjects.map((project, index) => `
+            <label>
+              <span>Building ${index + 1}</span>
+              <select data-home-compare-select="${index}">
+                ${options.replace(`value="${project.id}"`, `value="${project.id}" selected`)}
+              </select>
+            </label>
+          `).join("")}
+        </div>
+        <div class="home-compare-preview-grid" data-home-compare-preview-grid>
+          ${defaultProjects.map(renderHomepageComparePreview).join("")}
+        </div>
+        <p class="home-compare-error" data-home-compare-error hidden>Choose two different buildings to compare.</p>
+        <div class="home-compare-actions">
+          <button type="submit">Compare These Buildings <span aria-hidden="true">→</span></button>
+          <a href="/inquire/">Ask Brooke for Guidance <span aria-hidden="true">↗</span></a>
+        </div>
+      </form>
+    </section>
+  `;
+}
+
+function renderHomepageComparePreview(project: FeaturedProject) {
+  const image = homepageProjectCardImage(project.id) || (project.image && canShowImage(project.image) ? project.image : undefined);
+  return `
+    <article class="home-compare-preview" data-home-compare-preview="${project.id}">
+      ${image
+        ? `<img src="${safeHref(image)}" alt="${escapeHtml(`${project.name} project preview`)}" loading="lazy" decoding="async" />`
+        : `<div class="image-placeholder">${escapeHtml(project.corridor)}</div>`}
+      <div>
+        <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
+        <strong>${escapeHtml(project.name)}</strong>
+      </div>
+    </article>
   `;
 }
 
@@ -4719,8 +4780,8 @@ function renderBuildingsRouteView() {
     <div class="route-view route-view-buildings" data-route-view="buildings" hidden>
       <section class="buildings-route-hero">
         <p class="eyebrow">Project Directory</p>
-        <h1>Compare West Palm Beach new construction.</h1>
-        <p>Browse the complete tracked inventory by corridor, readiness, and buyer-relevant project details.</p>
+        <h1>Browse by Project Readiness</h1>
+        <p>Not every new-construction project is at the same stage. Compare actively selling, under-construction, announced or planned, and completed opportunities by timing, available information, and how close each project is to occupancy.</p>
       </section>
       <section class="project-sort-shell buildings-directory" id="projects">
         <div class="project-sort-header">
@@ -4869,11 +4930,11 @@ function corridorCtaLabel(key: CorridorKey) {
 function corridorBuyerThesis(section: CorridorSection) {
   const copy: Record<CorridorKey, string> = {
     "north-flagler":
-      "Waterfront and marina-adjacent towers with Intracoastal orientation, Palm Beach proximity, large amenity programs, and the deepest luxury pipeline.",
+      "Waterfront redevelopment, marina access, and larger-scale residential projects are reshaping the city's northern edge.",
     downtown:
-      "The walkability play: restaurants, The Square, NORA, Kravis Center, Brightline access, hotel-style service, and less day-to-day dependence on a car.",
+      "Walkability, restaurants, culture, Brightline access, and daily convenience define the Downtown comparison.",
     "south-flagler":
-      "Quieter waterfront positioning south of the core, with Palm Beach views, estate-adjacent context, and a more residential feel than the central corridor.",
+      "Quieter waterfront positioning, Palm Beach proximity, larger residences, and privacy define the South Flagler comparison.",
   };
   return copy[section.key];
 }
@@ -4881,23 +4942,49 @@ function corridorBuyerThesis(section: CorridorSection) {
 function corridorBuyerQuestions(key: CorridorKey) {
   const questions: Record<CorridorKey, string[]> = {
     "north-flagler": [
-      "Do you want marina context or pure waterfront exposure?",
-      "How important is Palm Beach proximity?",
-      "Which buildings have deeper floor-plan packets?",
-      "How much construction/delivery risk are you willing to accept?",
+      "How important is direct water access or marina proximity?",
+      "Do you prefer a larger amenity-driven building or a smaller boutique setting?",
+      "How do you feel about buying into an evolving corridor?",
     ],
     downtown: [
-      "Do you prioritize walkability over water views?",
-      "How important is Brightline/dining/office access?",
-      "Are you comparing new construction to delivered urban condos?",
+      "Do you want to walk to dining, retail, and entertainment?",
+      "Is a branded or hospitality-driven residence important?",
+      "How much privacy do you expect in an urban setting?",
     ],
     "south-flagler": [
-      "Are you looking for quieter waterfront positioning?",
-      "How important are views toward Palm Beach?",
-      "Do you prefer residential calm over downtown energy?",
+      "Do you want a quieter waterfront address over urban walkability?",
+      "How important are Palm Beach views and proximity?",
+      "Are you comparing boutique privacy or larger amenity depth?",
     ],
   };
   return questions[key];
+}
+
+function corridorComparisonConsiderations(key: CorridorKey) {
+  const considerations: Record<CorridorKey, string[]> = {
+    "north-flagler": [
+      "Waterfront exposure and view protection",
+      "Distance to downtown, Palm Beach, and PBI",
+      "Building scale, services, and amenity depth",
+    ],
+    downtown: [
+      "Walkability and nearby daily conveniences",
+      "Parking, access, and traffic patterns",
+      "Brand, service model, and building energy",
+    ],
+    "south-flagler": [
+      "View corridors toward Palm Beach and the ocean",
+      "Residence size, layout, and terrace depth",
+      "Service level, privacy, and long-term positioning",
+    ],
+  };
+  return considerations[key];
+}
+
+function corridorPageHeadline(key: CorridorKey) {
+  if (key === "north-flagler") return "North Flagler Waterfront Living";
+  if (key === "south-flagler") return "South Flagler Waterfront Residences";
+  return "Downtown West Palm Beach Living";
 }
 
 function renderProjectMapFallback() {
@@ -5025,64 +5112,63 @@ function compareVerificationNeed(project: FeaturedProject) {
   return "Verify line-specific availability, pricing, fees, parking, and delivery assumptions.";
 }
 
-function comparisonAuthorityProjects() {
-  const priorityIds = [
-    "olara",
-    "south-flagler-house",
-    "ritz-carlton-wpb",
-    "shorecrest",
-    "alba-palm-beach",
-    "berkeley",
-    "nora-house",
-    "forte-on-flagler",
-    "mr-c",
-    "maison-dor",
-  ];
-  const byId = new Map(featuredProjects.map((project) => [project.id, project]));
-  return priorityIds.map((projectId) => byId.get(projectId)).filter((project): project is FeaturedProject => Boolean(project));
+function renderCompareWorkspaceCard(project: FeaturedProject) {
+  const image = homepageProjectCardImage(project.id) || (project.image && canShowImage(project.image) ? project.image : undefined);
+  return `
+    <article class="compare-route-card">
+      ${image
+        ? `<img src="${safeHref(image)}" alt="${escapeHtml(`${project.name} project preview`)}" loading="lazy" decoding="async" />`
+        : `<div class="image-placeholder">${escapeHtml(project.corridor)}</div>`}
+      <div>
+        <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
+        <h2><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></h2>
+        <p>${escapeHtml(compareBuyerFit(project))}</p>
+        <a href="${projectPath(project)}">View building guide <b aria-hidden="true">→</b></a>
+      </div>
+    </article>
+  `;
 }
 
-function renderComparisonAuthoritySections() {
-  const projects = comparisonAuthorityProjects();
+function renderCompareAmenities(project: FeaturedProject) {
+  const copy = batch1ProjectCopyByProjectId.get(project.id);
+  const highlights = copy?.showcase?.amenityHighlights ?? [];
+  if (highlights.length) {
+    return `<ul class="compare-amenity-list">${highlights.map((item) => `<li>${publicText(item.label)}</li>`).join("")}</ul>`;
+  }
+  const fallback = copy?.amenities || copy?.amenityNarrative;
+  return fallback ? `<p class="compare-cell-copy">${publicText(fallback)}</p>` : "Request current amenity packet";
+}
+
+function compareAddress(project: FeaturedProject) {
+  return project.address.length > 64 || /confirm|until|reference|sponsor|legal address|offering docs|fact-sheet|expose/i.test(project.address)
+    ? "Confirm current project address"
+    : project.address;
+}
+
+function renderCompareMatrix(projects: FeaturedProject[]) {
+  const rows = [
+    ["Corridor", (project: FeaturedProject) => project.corridor],
+    ["Status", (project: FeaturedProject) => project.status],
+    ["Delivery", (project: FeaturedProject) => project.delivery],
+    ["Residences", (project: FeaturedProject) => project.residences],
+    ["Pricing guidance", (project: FeaturedProject) => project.price],
+    ["Address", (project: FeaturedProject) => compareAddress(project)],
+    ["Floorplans", (project: FeaturedProject) => getFloorplanProject(project.id)?.count ? `${getFloorplanProject(project.id)?.count} tracked records` : project.floorplans ? "Public plans available" : "Request current packet"],
+    ["Buyer fit", (project: FeaturedProject) => compareBuyerFit(project)],
+    ["Verify next", (project: FeaturedProject) => compareVerificationNeed(project)],
+  ] as Array<[string, (project: FeaturedProject) => string]>;
+
   return `
-    <section class="section compare-answer-section" aria-label="West Palm Beach condo comparison answer">
-      <div class="section-heading">
-        <p class="eyebrow">BLUF</p>
-        <h2>Best first comparison: corridor, timing, floorplans, then current packet.</h2>
-        <p>Start by choosing the buyer lane: North Flagler for the deepest waterfront set, Downtown for walkability and district energy, and South Flagler for quieter waterfront positioning. Then compare only sourced facts: status, delivery language, released floorplan depth, residence scale, and what still needs buyer-side confirmation.</p>
-      </div>
-      ${renderAuthorityComparisonTable(projects)}
-    </section>
-    <section class="section compare-fit-section" aria-label="Best fit explanations for West Palm Beach new construction">
-      <div class="section-heading">
-        <p class="eyebrow">Best Fit</p>
-        <h2>Which lane should a buyer start with?</h2>
-      </div>
-      <div class="profile-grid">
-        ${corridorSections.map((section) => `
-          <article class="profile-card">
-            <span>${publicText(section.label)}</span>
-            <strong>${publicText(corridorBestFit(section.key))}</strong>
-            <p>${publicText(corridorBuyerThesis(section))}</p>
-            <a href="${corridorPath(section.key)}">Review ${publicText(section.label)}</a>
-          </article>
-        `).join("")}
-      </div>
-    </section>
-    <section class="section compare-verification-section" aria-label="Buyer verification notes">
-      <div class="section-heading">
-        <p class="eyebrow">Buyer Verification Notes</p>
-        <h2>What to confirm before comparing buildings as substitutes.</h2>
-      </div>
-      <div class="answer-list">
-        ${comparisonFaq().map((item) => `
-          <article class="answer-block">
-            <h3>${publicText(item.question)}</h3>
-            <p>${publicText(item.answer)}</p>
-          </article>
-        `).join("")}
-      </div>
-    </section>
+    <p class="compare-matrix-hint">Swipe to review every comparison point <span aria-hidden="true">→</span></p>
+    <div class="compare-matrix-wrap">
+      <table>
+        <thead><tr><th>Comparison point</th>${projects.map((project) => `<th><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></th>`).join("")}</tr></thead>
+        <tbody>
+          ${rows.map(([label, value]) => `<tr><th>${label}</th>${projects.map((project) => `<td>${escapeHtml(value(project))}</td>`).join("")}</tr>`).join("")}
+          <tr class="compare-amenity-row"><th>Amenities</th>${projects.map((project) => `<td>${renderCompareAmenities(project)}</td>`).join("")}</tr>
+        </tbody>
+      </table>
+    </div>
   `;
 }
 
@@ -5090,34 +5176,12 @@ function renderAuthorityComparisonTable(projects: FeaturedProject[]) {
   return `
     <div class="comparison-table-wrap">
       <table>
-        <thead>
-          <tr>
-            <th>Building</th>
-            <th>Corridor</th>
-            <th>Status</th>
-            <th>Delivery</th>
-            <th>Floorplans</th>
-            <th>Best fit</th>
-            <th>Buyer verification</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${projects.map((project) => {
-            const source = sourceFactForProject(project.id)?.facts;
-            const floorplanProject = getFloorplanProject(project.id);
-            return `
-              <tr>
-                <td><a href="${projectPath(project)}">${publicText(project.name)}</a></td>
-                <td>${publicText(project.corridor)}</td>
-                <td>${publicText(source?.status || project.status || "Needs verification")}</td>
-                <td>${publicText(source?.completion || project.delivery || "Needs verification")}</td>
-                <td>${floorplanProject?.count ? `${floorplanProject.count} tracked records` : "Request current packet"}</td>
-                <td>${publicText(compareBuyerFit(project))}</td>
-                <td>${publicText(compareVerificationNeed(project))}</td>
-              </tr>
-            `;
-          }).join("")}
-        </tbody>
+        <thead><tr><th>Building</th><th>Status</th><th>Delivery</th><th>Floorplans</th><th>Buyer verification</th></tr></thead>
+        <tbody>${projects.map((project) => {
+          const source = sourceFactForProject(project.id)?.facts;
+          const floorplanProject = getFloorplanProject(project.id);
+          return `<tr><td><a href="${projectPath(project)}">${publicText(project.name)}</a></td><td>${publicText(source?.status || project.status || "Needs verification")}</td><td>${publicText(source?.completion || project.delivery || "Needs verification")}</td><td>${floorplanProject?.count ? `${floorplanProject.count} tracked records` : "Request current packet"}</td><td>${publicText(compareVerificationNeed(project))}</td></tr>`;
+        }).join("")}</tbody>
       </table>
     </div>
   `;
@@ -5129,92 +5193,45 @@ function corridorBestFit(key: CorridorKey) {
   return "Quieter waterfront ownership, privacy, and Palm Beach proximity.";
 }
 
-function comparisonFaq() {
-  return [
-    {
-      question: "What is the fastest way to compare West Palm Beach new-construction condos?",
-      answer: "Pick the corridor first, then compare status, delivery language, released floorplans, residence scale, and the open verification notes for each building. Pricing, incentives, fees, and exact availability should come from the current buyer packet.",
-    },
-    {
-      question: "Should North Flagler, Downtown, and South Flagler be compared directly?",
-      answer: "They can be compared, but they answer different buyer goals. North Flagler is the main waterfront comparison set, Downtown is the walkability lane, and South Flagler is quieter and more residential. A useful shortlist usually includes one or two projects from the lane that fits the buyer's daily life.",
-    },
-    {
-      question: "What should be verified before relying on a comparison table?",
-      answer: "Confirm current pricing, live availability, line and stack, exposure, monthly fees, parking, storage, incentives, delivery timing, contract terms, and whether the public floorplan is still available.",
-    },
-  ];
-}
-
 function renderCompareRouteView() {
-  const categories = [
-    "Corridor",
-    "Status",
-    "Delivery timing",
-    "Public floor plans",
-    "Waterfront orientation",
-    "Residence count",
-    "Buyer fit",
-    "Verification needed",
-  ];
-  const filters = [
-    "Waterfront buyer",
-    "Walkability buyer",
-    "Large residence buyer",
-    "Early pipeline watcher",
-    "Floor-plan-first buyer",
-    "Amenity-depth buyer",
-  ];
+  const options = rankedFeaturedProjects.map((project) => `<option value="${project.id}">${escapeHtml(project.name)}</option>`).join("");
 
   return `
     <div class="route-view route-view-compare" data-route-view="compare" hidden>
-      <section class="section compare-route-hero">
+      <figure class="compare-page-hero">
+        <img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" />
+      </figure>
+      <section class="section compare-page-intro">
         <div>
           <p class="eyebrow">Compare</p>
-          <h1>Compare buildings by the facts that actually change a buyer's decision.</h1>
-          <p>${shortBrookeCtaCopy} Use this page to shortlist up to three West Palm Beach new-construction buildings, then ask Brooke to verify the current moving parts before you rely on older public numbers.</p>
-        </div>
-        ${renderEditorialImagePanel("buyer-intelligence-interior", { compact: true, className: "compare-route-image" })}
-      </section>
-      <section class="section compare-framework-section">
-        <div class="compare-category-grid">
-          ${categories.map((category) => `<span>${category}</span>`).join("")}
-        </div>
-        <div class="compare-fit-grid" aria-label="Buyer fit filters">
-          ${filters.map((filter) => `<button type="button" data-compare-fit="${escapeHtml(filter)}">${escapeHtml(filter)}</button>`).join("")}
+          <h1>Compare West Palm Beach New Construction</h1>
+          <p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p>
         </div>
       </section>
-      <section class="section compare-shortlist-section">
-        <div class="compare-selector-panel">
+      <section class="section compare-workspace">
+        <div class="compare-workspace-head">
           <div>
-            <p class="eyebrow">Shortlist Builder</p>
-            <h2>Select up to three buildings.</h2>
-            <p>Side-by-side comparison is most useful when the buildings share a real buyer question: water, walkability, delivery timing, plan depth, or risk tolerance.</p>
+            <p class="eyebrow">Build Your Comparison</p>
+            <h2>Build a focused shortlist.</h2>
+            <p>Compare the tracked facts and amenity scheme, then verify pricing, availability, fees, and line-specific details before relying on public information.</p>
           </div>
-          <div class="compare-selector-grid">
-            ${rankedFeaturedProjects
-              .map(
-                (project) => `
-                  <button type="button" data-compare-toggle="${project.id}">
-                    <strong>${project.name}</strong>
-                    <span>${project.corridor} · ${project.status}</span>
-                  </button>
-                `,
-              )
-              .join("")}
-          </div>
+          <a href="/inquire/?lead_capture_context=compare_shortlist" data-compare-inquire>Ask Brooke to compare these buildings <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="compare-shortlist-panel">
-          <div class="compare-shortlist-heading">
-            <span>Selected comparison</span>
-            <a href="/inquire/?lead_capture_context=compare_shortlist" data-compare-inquire>Ask Brooke to compare these buildings</a>
-          </div>
-          <div class="compare-shortlist-grid" data-compare-shortlist>
-            <p>Select up to three buildings to build a compact buyer comparison.</p>
-          </div>
+        <div class="compare-route-selectors">
+          ${["Building 1", "Building 2", "Optional third building"].map((label, index) => `
+            <label>
+              <span>${label}</span>
+              <select data-compare-route-select="${index}">
+                <option value="">${index === 2 ? "No third building" : "Choose a building"}</option>
+                ${options}
+              </select>
+            </label>
+          `).join("")}
+        </div>
+        <div class="compare-results" data-compare-results>
+          <p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p>
         </div>
       </section>
-      ${renderComparisonAuthoritySections()}
     </div>
   `;
 }
@@ -5225,10 +5242,9 @@ function renderCorridorRouteView(section: CorridorSection) {
     <div class="route-view route-view-corridor" data-route-view="corridor" data-corridor-route="${section.key}" hidden>
       <section class="section intelligence-hero corridor-route-hero">
         <div>
-          <p class="eyebrow">Choose Your Corridor</p>
-          <h1>${section.label}</h1>
+          <p class="eyebrow">Corridor Guide</p>
+          <h1>${corridorPageHeadline(section.key)}</h1>
           <p>${section.description}</p>
-          <p class="corridor-thesis">${corridorBuyerThesis(section)}</p>
         </div>
         ${renderEditorialImagePanel(corridorImageId(section.key), { compact: true, className: "corridor-route-image" })}
       </section>
@@ -5243,7 +5259,11 @@ function renderCorridorRouteView(section: CorridorSection) {
           <ul>
             ${corridorBuyerQuestions(section.key).map((question) => `<li>${question}</li>`).join("")}
           </ul>
-          <a href="/inquire/?lead_capture_context=corridor&message=${encodeURIComponent(`I want help comparing ${section.label} projects.`)}">Request current ${section.label} availability <span aria-hidden="true">↗</span></a>
+          <p class="eyebrow">Comparison Considerations</p>
+          <ul>
+            ${corridorComparisonConsiderations(section.key).map((consideration) => `<li>${consideration}</li>`).join("")}
+          </ul>
+          <a href="/inquire/?lead_capture_context=corridor&message=${encodeURIComponent(`I want help comparing ${section.label} projects.`)}">Inquire Now for ${section.label} guidance <span aria-hidden="true">↗</span></a>
         </div>
       </section>
       ${renderCorridorAuthoritySections(section, projects)}
@@ -5270,7 +5290,7 @@ function renderCorridorAuthoritySections(section: CorridorSection, projects: Fea
       <div class="section-heading">
         <p class="eyebrow">BLUF</p>
         <h2>How to use ${publicText(section.label)} in a buyer shortlist.</h2>
-        <p>${publicText(section.description)} Use the table below to compare sourced status, delivery language, floorplan depth, and current verification needs before treating any two buildings as interchangeable.</p>
+        <p>Use the table below to compare sourced status, delivery language, floorplan depth, and current verification needs before treating any two buildings as interchangeable.</p>
       </div>
       ${renderAuthorityComparisonTable(projects)}
     </section>
@@ -5875,6 +5895,22 @@ function renderHomepageFeaturedProject(project: FeaturedProject) {
   `;
 }
 
+function renderHomepageAtlasProject(project: FeaturedProject) {
+  const image = homepageProjectCardImage(project.id) || (project.image && canShowImage(project.image) ? project.image : undefined);
+  return `
+    <a class="home-atlas-project-card" href="${projectPath(project)}">
+      ${image
+        ? `<img src="${safeHref(image)}" alt="${escapeHtml(`${project.name} project preview`)}" loading="lazy" decoding="async" />`
+        : `<span class="image-placeholder">${escapeHtml(project.corridor)}</span>`}
+      <span>
+        <small>${escapeHtml(project.corridor)}</small>
+        <strong>${escapeHtml(project.name)}</strong>
+        <em>${escapeHtml(project.delivery)}</em>
+      </span>
+    </a>
+  `;
+}
+
 function projectPath(project: FeaturedProject) {
   return `/projects/${project.id}/`;
 }
@@ -6020,9 +6056,6 @@ function renderMapControls() {
 }
 
 function loadAdvancedMarkerElement(maps: GoogleMapsNamespace) {
-  if (!googleMapsMapId) {
-    return Promise.resolve(undefined);
-  }
   if (googleAdvancedMarkerLoader) {
     return googleAdvancedMarkerLoader;
   }
@@ -6032,13 +6065,16 @@ function loadAdvancedMarkerElement(maps: GoogleMapsNamespace) {
       return maps.marker.AdvancedMarkerElement;
     }
     if (!maps.importLibrary) {
-      return undefined;
+      throw new Error("Google Maps marker library is unavailable");
     }
     try {
       const markerLibrary = await maps.importLibrary("marker");
+      if (!markerLibrary.AdvancedMarkerElement) {
+        throw new Error("Google Maps AdvancedMarkerElement is unavailable");
+      }
       return markerLibrary.AdvancedMarkerElement;
     } catch (error) {
-      return undefined;
+      throw error;
     }
   })();
 
@@ -6054,50 +6090,29 @@ function markerPinElement(priority: "primary" | "secondary") {
 }
 
 function createMapMarker(
-  maps: GoogleMapsNamespace,
   map: unknown,
   position: { lat: number; lng: number },
   title: string,
   priority: "primary" | "secondary",
   onClick: () => void,
-  AdvancedMarkerElement?: GoogleAdvancedMarkerConstructor,
+  AdvancedMarkerElement: GoogleAdvancedMarkerConstructor,
 ): GoogleMarkerHandle {
-  if (AdvancedMarkerElement) {
-    const marker = new AdvancedMarkerElement({
-      map,
-      position,
-      title,
-      content: markerPinElement(priority),
-      gmpClickable: true,
-    });
-    if (marker.addEventListener) {
-      marker.addEventListener("gmp-click", onClick);
-    } else {
-      marker.addListener?.("click", onClick);
-    }
-    return {
-      clear: () => {
-        marker.map = null;
-      },
-    };
-  }
-
-  const marker = new maps.Marker({
+  const marker = new AdvancedMarkerElement({
     map,
     position,
     title,
-    icon: {
-      path: maps.SymbolPath.CIRCLE,
-      scale: priority === "primary" ? 8 : 5,
-      fillColor: priority === "primary" ? "#0d3125" : "#50665e",
-      fillOpacity: 1,
-      strokeColor: "#fffaf1",
-      strokeWeight: priority === "primary" ? 2 : 1,
-    },
+    content: markerPinElement(priority),
+    gmpClickable: true,
   });
-  marker.addListener("click", onClick);
+  if (marker.addEventListener) {
+    marker.addEventListener("gmp-click", onClick);
+  } else {
+    marker.addListener?.("click", onClick);
+  }
   return {
-    clear: () => marker.setMap(null),
+    clear: () => {
+      marker.map = null;
+    },
   };
 }
 
@@ -6112,28 +6127,7 @@ function googleMapBaseOptions(center: { lat: number; lng: number }, zoom: number
     gestureHandling: "cooperative",
   };
 
-  if (googleMapsMapId) {
-    mapOptions.mapId = googleMapsMapId;
-  } else {
-    mapOptions.styles = [
-      { elementType: "geometry", stylers: [{ color: "#f4efe6" }] },
-      { elementType: "labels.text.fill", stylers: [{ color: "#17202a" }] },
-      { elementType: "labels.text.stroke", stylers: [{ color: "#f4efe6" }] },
-      { featureType: "administrative", elementType: "geometry.stroke", stylers: [{ color: "#d3c8b8" }] },
-      { featureType: "administrative.neighborhood", elementType: "labels.text.fill", stylers: [{ color: "#6c706d" }] },
-      { featureType: "landscape.man_made", elementType: "geometry.fill", stylers: [{ color: "#ede5d8" }] },
-      { featureType: "water", elementType: "geometry.fill", stylers: [{ color: "#b9cbd2" }] },
-      { featureType: "water", elementType: "geometry.stroke", stylers: [{ color: "#a8bcc5" }] },
-      { featureType: "water", elementType: "labels.text.fill", stylers: [{ color: "#6c706d" }] },
-      { featureType: "poi", stylers: [{ visibility: "off" }] },
-      { featureType: "poi.park", elementType: "geometry.fill", stylers: [{ color: "#d8dfcf" }] },
-      { featureType: "transit", stylers: [{ visibility: "off" }] },
-      { featureType: "road", elementType: "geometry.fill", stylers: [{ color: "#ffffff" }] },
-      { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#d8d2c8" }] },
-      { featureType: "road.arterial", elementType: "geometry.fill", stylers: [{ color: "#e6dccd" }] },
-      { featureType: "road.highway", elementType: "geometry.fill", stylers: [{ color: "#e6dccd" }] },
-    ];
-  }
+  mapOptions.mapId = advancedMarkerMapId;
 
   return mapOptions;
 }
@@ -6200,7 +6194,6 @@ function initHeroGoogleMap() {
           const position = { lat: project.latitude, lng: project.longitude };
           bounds.extend(position);
           const marker = createMapMarker(
-            maps,
             map,
             position,
             `${project.name} · ${project.corridor} project`,
@@ -6304,7 +6297,6 @@ function initProjectLocationMaps() {
         const position = { lat: latitude, lng: longitude };
         const map = new maps.Map(element, googleMapBaseOptions(position, 15));
         createMapMarker(
-          maps,
           map,
           position,
           projectName,
@@ -6670,7 +6662,7 @@ function renderFloorplanProject(project: (typeof floorplanLibrary)[number]) {
               ${plans.map((plan, index) => renderGeneratedFloorplanLink(plan, project, index)).join("")}
             </div>
             ${extraCount ? `<p class="source-note">${extraCount} additional plan records are available in the buyer catalog.</p>` : ""}`
-          : `<p class="floorplan-gap">${escapeHtml(project.missingNote)}</p>`
+          : `<p class="floorplan-gap">Public floorplans are not currently available for this project. Request current materials to confirm layouts, views, and availability.</p>`
       }
     </article>
   `;
@@ -7975,7 +7967,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       </section>
 
       <nav class="brochure-section-nav" aria-label="${project.name} project sections">
-        <a href="/#projects">Explore Buildings</a>
+        <a href="/buildings/">Explore Buildings</a>
         <a href="#snapshot-${project.id}">At a Glance</a>
         ${intel ? `<a href="#local-take-${project.id}">Brooke's Take</a>` : ""}
         <a href="#floorplans-${project.id}">Floor Plans</a>
@@ -9273,7 +9265,7 @@ function renderProjectFloorplansSection(project: FeaturedProject, floorplanProje
           <div class="floorplans-inquiry-box">
             <div class="inquiry-box-content">
               <h3>Request Current Floor Plans</h3>
-              <p>Official floor plans, residence stacks, and individual line layouts for ${escapeHtml(project.name)} are available upon request. Connect with Brooke to get the latest developer packet.</p>
+              <p>Public floorplans are not currently available for ${escapeHtml(project.name)}. Request current materials to confirm layouts, views, and availability.</p>
               <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplans_empty">Request Floor Plans</a>
             </div>
           </div>
