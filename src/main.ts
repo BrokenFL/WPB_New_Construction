@@ -7808,7 +7808,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   ).filter((tag) => isBuyerFacingValue(tag.value));
 
   return `
-    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=berkeley-mobile-containment-20260529b" />
+    <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=mandarin-waterfront-crop-20260602" />
     <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" hidden>
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
