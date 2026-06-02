@@ -1,0 +1,578 @@
+[
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/alba-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/alba-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/alba-project-card-main-v01.jpg",
+    "sourceHash": "f7192a1fa267dce35a4279ee6910ecb19ce52a2b5bdff7e39886ac19d77c292e",
+    "outputHash": "52000751ae308c3966df3ecf1c75814494a6f70e78f441f072e83422a7c632fd",
+    "sourceDimensions": {
+      "width": 1472,
+      "height": 1352
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 1102
+    },
+    "outputSizeBytes": 554239,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/alba-reserve-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/alba-reserve-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/alba-reserve-project-card-main-v01.jpg",
+    "sourceHash": "263d909b609b1dd720d3a25eb394ea660494471d6c7a0203df4f54c1574ab238",
+    "outputHash": "8a17cbcc94c2cb6ef5f85c7a0b5306d3d586fcd06115708c1f23c5d5f21a94f7",
+    "sourceDimensions": {
+      "width": 1322,
+      "height": 838
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 760
+    },
+    "outputSizeBytes": 267391,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/banyan-tree-project-card-man-v01.png",
+    "websiteAssetPath": "public/assets/home/banyan-tree-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/banyan-tree-project-card-main-v01.jpg",
+    "sourceHash": "9efc49fb842bad1a7abfe755a7f7169b0e6f8880a95e9c62b379f6da8aae5693",
+    "outputHash": "9d18fbb2e985209f40b03a7eaa253c08fe9afcff758aa1596c35619009132ca4",
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 900
+    },
+    "outputSizeBytes": 457788,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/berkeley-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/berkeley-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/berkeley-project-card-main-v01.jpg",
+    "sourceHash": "dce8868f652d55180a7ed4c02dcc587ee6482c497fa209adbe7a2985dce9515b",
+    "outputHash": "17ab587c7c865e5c22521154350d617f4851985d94d59011651215eb4aaa48e0",
+    "sourceDimensions": {
+      "width": 1348,
+      "height": 1410
+    },
+    "outputDimensions": {
+      "width": 1147,
+      "height": 1200
+    },
+    "outputSizeBytes": 431864,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/downtown-corrdior-bridge-daytime-v01.png",
+    "websiteAssetPath": "public/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+    "publicPath": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+    "sourceHash": "eb0f23247959c7441b751643fc62085469ba15070be112e86924b04753a8458a",
+    "outputHash": "b781657090ac7338b3c3f6dae12532adf40f7e84e47ce070ff2f30171bd66d10",
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "outputSizeBytes": 743505,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/downtown-corrdior-bridge-night-v01.png",
+    "websiteAssetPath": "public/assets/home/downtown-corridor-bridge-night-v01.jpg",
+    "publicPath": "/assets/home/downtown-corridor-bridge-night-v01.jpg",
+    "sourceHash": "dfbbe4d53c345978b7a22a08f5c45cf2f4a4a23f29143336700378e09e7aa947",
+    "outputHash": "f3cf087e6a5e23562470df2447faf4f8ddfb2427d9977cc6917132f53dc6e75c",
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "outputSizeBytes": 778300,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/downtown-hero-nightime-v01.png",
+    "websiteAssetPath": "public/assets/home/downtown-hero-nighttime-v01.jpg",
+    "publicPath": "/assets/home/downtown-hero-nighttime-v01.jpg",
+    "sourceHash": "53e48abc2f6d717f3cb20437d81948216189337ecbfa2b7c81bc319c95364ef4",
+    "outputHash": "a6411807c5ce347c3c2d2e258b681d3d6eae302f04270a5e100a1a40c6237270",
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 1440
+    },
+    "outputSizeBytes": 893482,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/downtown-nora-hero-v01.png",
+    "websiteAssetPath": "public/assets/home/downtown-nora-hero-v01.jpg",
+    "publicPath": "/assets/home/downtown-nora-hero-v01.jpg",
+    "sourceHash": "84887c86ac5a9d71b529d0495d9785fb701c8faf48d79dbb2923038b7bb5be0f",
+    "outputHash": "98b35fe4de525fb15c65bb1f650c803b3deb473dc91d473662860863a38c6992",
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "outputSizeBytes": 716956,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/edgeworth-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/edgeworth-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/edgeworth-project-card-main-v01.jpg",
+    "sourceHash": "737a80eab193d887b4535b03cccea2cb24e80b86ceb3cd1eb639cdc3eff69b98",
+    "outputHash": "d633f24f2f14d6f2dadaf6ba339b7b7bfb8dc0b9b3e8f4ed96e08048a929bd51",
+    "sourceDimensions": {
+      "width": 1680,
+      "height": 1184
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 845
+    },
+    "outputSizeBytes": 395193,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/forte-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/forte-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/forte-project-card-main-v01.jpg",
+    "sourceHash": "7f0b7f2535dec35977542fc1d55a81400541cef30c7c0f369ff668d3d7c8e7ec",
+    "outputHash": "9b1414a3082d6c10c563365189ec09fa4fdc147ac265fa892b0eac08a4f9023c",
+    "sourceDimensions": {
+      "width": 1712,
+      "height": 1160
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 813
+    },
+    "outputSizeBytes": 368197,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/la-clara-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/la-clara-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/la-clara-project-card-main-v01.jpg",
+    "sourceHash": "5078fef8eb81d5bd3b6970bd4df3a5207079ff559c7b64e098deab8accea3129",
+    "outputHash": "ee20446bf60d9a560ef8a00898f76bf5c40dfbd83487471b3019c36b37b56918",
+    "sourceDimensions": {
+      "width": 1264,
+      "height": 1576
+    },
+    "outputDimensions": {
+      "width": 962,
+      "height": 1200
+    },
+    "outputSizeBytes": 401196,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/mandarin-oriental-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/mandarin-oriental-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/mandarin-oriental-project-card-main-v01.jpg",
+    "sourceHash": "20195100e26d520d7a85bc90517b154f55076ad04422c876773f50861e6e4448",
+    "outputHash": "e0da719d97504c124ce657a37b538ee9c57a165d3cf5eb54e135ee163ec1a055",
+    "sourceDimensions": {
+      "width": 1824,
+      "height": 1088
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 715
+    },
+    "outputSizeBytes": 295020,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/marina-revelopment-hero-wide-v01.png",
+    "websiteAssetPath": "public/assets/home/marina-redevelopment-hero-wide-v01.jpg",
+    "publicPath": "/assets/home/marina-redevelopment-hero-wide-v01.jpg",
+    "sourceHash": "d259977291b8f41e6a1b0db86c4dae4db5129bba856bc8f4afa35c3cf179bbcf",
+    "outputHash": "204196b7338064f32a943bf180bc1e69fc3e39fd986f8c6a9be72b33e6b0e6f4",
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 1440
+    },
+    "outputSizeBytes": 1075647,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/mason-dor-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/maison-dor-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/maison-dor-project-card-main-v01.jpg",
+    "sourceHash": "9c7df7e76955f83d7add00ba2c61e56f498b72da395ff0401b59d3981d0dcd81",
+    "outputHash": "cae499ec5f1785ac8b1a3888ad8aef452709e90afc3cad89def49f15cbdfc15a",
+    "sourceDimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 800
+    },
+    "outputSizeBytes": 347387,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/mr-c-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/mr-c-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/mr-c-project-card-main-v01.jpg",
+    "sourceHash": "8f5db8c1b17a50eb1a9f6acb1f6ae1b613c64973a20b37512a7d7636780688fe",
+    "outputHash": "fbda11f2c317323274cc63d413ca79f1e61a9ebffac1011f423c16af8257edbf",
+    "sourceDimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 800
+    },
+    "outputSizeBytes": 346343,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/nora-house-proiect-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/nora-house-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/nora-house-project-card-main-v01.jpg",
+    "sourceHash": "db4aaeb6789eef7f057b0e0b493f76be4e630dc3cbc8e8f6aa872e2f7df69b37",
+    "outputHash": "53eaa304f0e4f9ecd6a196d74ac83d99195457718d28a31cac736745748fc741",
+    "sourceDimensions": {
+      "width": 1520,
+      "height": 1034
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 1306
+    },
+    "outputSizeBytes": 692794,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-3-buildings-daytime-v01.png",
+    "websiteAssetPath": "public/assets/home/north-flagler-3-buildings-daytime-v01.jpg",
+    "publicPath": "/assets/home/north-flagler-3-buildings-daytime-v01.jpg",
+    "sourceHash": "1718cacb7183f5295774dcac0076f5a5068294130ce506ba98478ac03a3b9db4",
+    "outputHash": "86fabf9f32d2ccca865ad314aacda10f33c18c4297186347f9e0382b7e97cd22",
+    "sourceDimensions": {
+      "width": 1916,
+      "height": 821
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 822
+    },
+    "outputSizeBytes": 724234,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-3-buildings-sunset-v01-4eef1bb7.png",
+    "websiteAssetPath": "public/assets/home/north-flagler-3-buildings-sunset-v01-alternate.jpg",
+    "publicPath": "/assets/home/north-flagler-3-buildings-sunset-v01-alternate.jpg",
+    "sourceHash": "4eef1bb7ad2bac92479ee6eb072c7e18f730fa5a94c91822941ecd88d37ebd53",
+    "outputHash": "6077c2d52d9035af89a78b8b24f5f31483bce44a54ff7c09b299d4adcf3ae127",
+    "sourceDimensions": {
+      "width": 1916,
+      "height": 821
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 822
+    },
+    "outputSizeBytes": 671373,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-3-buildings-sunset-v01.png",
+    "websiteAssetPath": "public/assets/home/north-flagler-3-buildings-sunset-v01.jpg",
+    "publicPath": "/assets/home/north-flagler-3-buildings-sunset-v01.jpg",
+    "sourceHash": "ea23040db9c39d5e8fa97c77de191480cf255620a8211dd6060389e4e9f6902e",
+    "outputHash": "6b8918b55c463d0ad0b922991a066637d3aa3ada10cff325b3e2fb992282a0f9",
+    "sourceDimensions": {
+      "width": 1916,
+      "height": 821
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 822
+    },
+    "outputSizeBytes": 753950,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-corridor-skyline-square-v01.png",
+    "websiteAssetPath": "public/assets/home/north-flagler-corridor-skyline-square-v01.jpg",
+    "publicPath": "/assets/home/north-flagler-corridor-skyline-square-v01.jpg",
+    "sourceHash": "f15704bf874962d14491123fe867b4f1c72d13f805106dc888947261a9864923",
+    "outputHash": "beb83bfe19c2f67896336d7ed10e3b1930125c644060f0feae172a6f0c651306",
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 1440
+    },
+    "outputSizeBytes": 1012747,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-corridor-skyline-ultra-wide-v01.png",
+    "websiteAssetPath": "public/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg",
+    "publicPath": "/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg",
+    "sourceHash": "ecfebb968edefcd197c1c1a2b77deb72d773bad6efd030d75488f5f5ba6f5e0d",
+    "outputHash": "9b472452e191f3b1bda3f436b9031e611506c057011eb429a2c2ca5fc0c84406",
+    "sourceDimensions": {
+      "width": 1916,
+      "height": 821
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 822
+    },
+    "outputSizeBytes": 567430,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/north-flagler-corridor-skyline-vertical-v01.png",
+    "websiteAssetPath": "public/assets/home/north-flagler-corridor-skyline-vertical-v01.jpg",
+    "publicPath": "/assets/home/north-flagler-corridor-skyline-vertical-v01.jpg",
+    "sourceHash": "3c8d6fe0a41b9da2814f34762f4627c51b2d2803348ca2397cf52d8c2618be8d",
+    "outputHash": "d548600dc004369fb545584e387a16138fc3344c39e8f8dd45fc7b1a7efb92e8",
+    "sourceDimensions": {
+      "width": 1122,
+      "height": 1402
+    },
+    "outputDimensions": {
+      "width": 1536,
+      "height": 1920
+    },
+    "outputSizeBytes": 910645,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/olara-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/olara-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/olara-project-card-main-v01.jpg",
+    "sourceHash": "c72eb191e037b54c44beb909697926a4cd0a9fa7528146021368a008148f6d92",
+    "outputHash": "5ae23b9e3580a57e2997ff96beefd1d5424bad0a53e08c182cfb0d3e858fd141",
+    "sourceDimensions": {
+      "width": 1080,
+      "height": 1350
+    },
+    "outputDimensions": {
+      "width": 960,
+      "height": 1200
+    },
+    "outputSizeBytes": 439651,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/ritz-carlton-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/ritz-carlton-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/ritz-carlton-project-card-main-v01.jpg",
+    "sourceHash": "369d776fb9bdb3cc42c35045c3ef56b7c458ae6e1621ca5a2b63f8ee03861e94",
+    "outputHash": "07828e41c01e6d5cb4c2d609b5aea73fbdadd3e742f8f09fe21a37a2a9cf014e",
+    "sourceDimensions": {
+      "width": 1264,
+      "height": 1576
+    },
+    "outputDimensions": {
+      "width": 962,
+      "height": 1200
+    },
+    "outputSizeBytes": 480301,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/rosewood-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/rosewood-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/rosewood-project-card-main-v01.jpg",
+    "sourceHash": "9f3c510254a5c8747421fcec6bfa1f336b19209d4aaa100d4ee83f013f08d4c8",
+    "outputHash": "f809782a229049174a818194a6f81b902649de3c93afcb92ee260dce013fb3c5",
+    "sourceDimensions": {
+      "width": 1484,
+      "height": 1060
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 857
+    },
+    "outputSizeBytes": 312386,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/rybovich-marina-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/rybovich-marina-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/rybovich-marina-project-card-main-v01.jpg",
+    "sourceHash": "315b84f66b10eac9169127e3fa551955dc226f241374d971592d40af0e6ccf01",
+    "outputHash": "402d72b2e32d16ea45c0bea8752457b889a3fb5c29b4f59a2050af0e70e8aa31",
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 940
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 674
+    },
+    "outputSizeBytes": 357840,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/shorecrest-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/shorecrest-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/shorecrest-project-card-main-v01.jpg",
+    "sourceHash": "42511762a17c7a2d80a1a7806125da1f286251ca3bc5eed6cfc792c2a782a335",
+    "outputHash": "eaf0cf9eb6022398be4ff6291c0aa7085d4f960042d5ba99dc191b030cf5b489",
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 675
+    },
+    "outputSizeBytes": 261374,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/south-flagler-corridor-hero-main-square-v01.png",
+    "websiteAssetPath": "public/assets/home/south-flagler-corridor-hero-main-square-v01.jpg",
+    "publicPath": "/assets/home/south-flagler-corridor-hero-main-square-v01.jpg",
+    "sourceHash": "05d62528f9416eb7e57422f2bd0bde19518432f947cd2b648f43f8ac8eb4b266",
+    "outputHash": "f00e6b48ae1f744cc668b6bf8b9d7188031444c64c13b8fdb99fbacbf4e58b58",
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 1440
+    },
+    "outputSizeBytes": 1032191,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/south-flagler-corridor-hero-main-wide-v01.png",
+    "websiteAssetPath": "public/assets/home/south-flagler-corridor-hero-main-wide-v01.jpg",
+    "publicPath": "/assets/home/south-flagler-corridor-hero-main-wide-v01.jpg",
+    "sourceHash": "4baa2da586b2a768493bdd66ef4236c4c92cdfa92b42119a8d41993f0a30261f",
+    "outputHash": "8973c20cf7478cfb3fd6e5d8296507aa12f397ad1262f5445968500a84bd0da9",
+    "sourceDimensions": {
+      "width": 1916,
+      "height": 821
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 822
+    },
+    "outputSizeBytes": 671111,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/south-flagler-house-project-card-main-v01.png",
+    "websiteAssetPath": "public/assets/home/south-flagler-house-project-card-main-v01.jpg",
+    "publicPath": "/assets/home/south-flagler-house-project-card-main-v01.jpg",
+    "sourceHash": "c16eb99d872f406de58703609a82b5d5251e46f77cc909d357f626bceb06c057",
+    "outputHash": "ec293ea4e79e6bbc9aa94163affad5d813da1672cad713139b72d0eb1461df98",
+    "sourceDimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "outputDimensions": {
+      "width": 1200,
+      "height": 800
+    },
+    "outputSizeBytes": 400619,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/south-flagler0.png",
+    "websiteAssetPath": "public/assets/home/south-flagler-corridor-vertical-v01.jpg",
+    "publicPath": "/assets/home/south-flagler-corridor-vertical-v01.jpg",
+    "sourceHash": "8a936013461bf6f6069edcb944a6edd004bfa63145a7c95fa695390a8147a39d",
+    "outputHash": "fe126cbc4d50acb1b888dff1f33e9e5490d8128496675fdc5f43a5ba15c6cde8",
+    "sourceDimensions": {
+      "width": 1122,
+      "height": 1402
+    },
+    "outputDimensions": {
+      "width": 1536,
+      "height": 1920
+    },
+    "outputSizeBytes": 971765,
+    "action": "skipped-existing",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  },
+  {
+    "sourceAssetRepoPath": "public-front-page-assets/approved-for-website/images/wpb-waterfront-bridge-hero-v01.jpg",
+    "websiteAssetPath": "public/assets/home/wpb-waterfront-bridge-hero-v01.jpg",
+    "publicPath": "/assets/home/wpb-waterfront-bridge-hero-v01.jpg",
+    "sourceHash": "1c0b29405242a26f0da9f9d278a0c0ebd49b06e0e9f00b2473833b63850c3daa",
+    "outputHash": "7c630f14bb72e56e9f0724ddedcd75a8c552a54f3fd0dc184906583d4f83b7aa",
+    "sourceDimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "outputDimensions": {
+      "width": 1920,
+      "height": 1080
+    },
+    "outputSizeBytes": 630114,
+    "action": "published",
+    "publishedAt": "2026-06-02T03:40:43.106Z"
+  }
+]

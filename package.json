@@ -72,6 +72,8 @@
     "assets:audit:strict": "node scripts/audit-asset-pipeline.mjs --strict",
     "assets:publish:dry": "node scripts/publish-assets-from-asset-repo.mjs --dry-run",
     "assets:publish": "node scripts/publish-assets-from-asset-repo.mjs --write",
+    "assets:publish:home:dry": "node scripts/publish-homepage-assets-from-asset-repo.mjs --dry-run",
+    "assets:publish:home": "node scripts/publish-homepage-assets-from-asset-repo.mjs --write",
     "assets:refresh:dry": "node scripts/refresh-website-asset-references.mjs --dry-run",
     "assets:refresh": "node scripts/refresh-website-asset-references.mjs --write",
     "editor": "node research/scripts/local-content-editor.mjs",

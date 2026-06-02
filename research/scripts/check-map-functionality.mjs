@@ -128,7 +128,10 @@ async function checkRoute(browser, route, label) {
   try {
     const response = await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded", timeout: 25000 });
     if ((response?.status() ?? 0) >= 400) failures.push(`${route} returned HTTP ${response?.status() ?? "unknown"}.`);
-    await page.waitForTimeout(label === "map" ? 3500 : 1500);
+    if (label === "home") {
+      await page.locator(".route-view-home:not([hidden]) .home-hero-map-card").scrollIntoViewIfNeeded();
+    }
+    await page.waitForTimeout(label === "map" ? 3500 : 2500);
 
     const state = await page.evaluate(() => {
       const card = [...document.querySelectorAll(".home-hero-map-card")].find(

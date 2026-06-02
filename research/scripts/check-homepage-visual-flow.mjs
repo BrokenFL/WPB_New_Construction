@@ -59,9 +59,12 @@ async function inspectHomepage(browser, viewport) {
     const text = document.body.innerText;
     return {
       order: {
-        updates: sectionTop(".home-news-section"),
-        guidance: sectionTop(".home-blog-section"),
-        featured: sectionTop(".project-sort-shell"),
+        corridors: sectionTop(".home-corridor-guide"),
+        readiness: sectionTop(".home-status-guide"),
+        featured: sectionTop(".home-featured-section"),
+        spotlight: sectionTop(".home-spotlight-module"),
+        resources: sectionTop(".home-advisory-resources"),
+        atlas: sectionTop(".home-atlas-feature"),
         cta: sectionTop(".home-conversion-band"),
       },
       visibleImages,
@@ -74,12 +77,16 @@ async function inspectHomepage(browser, viewport) {
 
   const findings = [];
   const checks = [];
-  const orderOk = data.order.updates !== null && data.order.guidance !== null && data.order.featured !== null && data.order.cta !== null
-    && data.order.updates < data.order.guidance
-    && data.order.guidance < data.order.featured
-    && data.order.featured < data.order.cta;
+  const orderOk = data.order.corridors !== null && data.order.readiness !== null && data.order.featured !== null
+    && data.order.spotlight !== null && data.order.resources !== null && data.order.atlas !== null && data.order.cta !== null
+    && data.order.corridors < data.order.readiness
+    && data.order.readiness < data.order.featured
+    && data.order.featured < data.order.spotlight
+    && data.order.spotlight < data.order.resources
+    && data.order.resources < data.order.atlas
+    && data.order.atlas < data.order.cta;
   checks.push({ viewport: viewport.name, label: "homepage section order", ok: orderOk });
-  if (!orderOk) findings.push(`${viewport.name}: homepage order should be Hero -> Map -> Corridors -> Updates -> Guidance -> Featured Buildings -> CTA.`);
+  if (!orderOk) findings.push(`${viewport.name}: homepage order should be Hero -> Corridors -> Readiness -> Featured Developments -> Spotlight -> Advisory Resources -> Atlas -> CTA.`);
   checks.push({ viewport: viewport.name, label: "CTA visible", ok: data.hasCta });
   if (!data.hasCta) findings.push(`${viewport.name}: homepage CTA block is not visible.`);
   checks.push({ viewport: viewport.name, label: "no horizontal overflow", ok: !data.hasOverflow });

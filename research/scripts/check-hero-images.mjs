@@ -27,8 +27,8 @@ if (imageBlocks.length < 4 || imageBlocks.length > 6) {
   fail(`Homepage hero should use 4-6 curated images; found ${imageBlocks.length}.`);
 }
 
-if (imageBlocks[0]?.id !== "wpb-geography-map-hero") {
-  fail("Homepage hero first image should be the WPB geography orientation image.");
+if (imageBlocks[0]?.id !== "wpb-waterfront-bridge") {
+  fail("Homepage hero first image should be the approved WPB waterfront bridge photograph.");
 }
 
 for (const image of imageBlocks) {
