@@ -5214,7 +5214,7 @@ function renderCorridorsFeatureCard(card: ReturnType<typeof corridorHubCards>[nu
   return `
     <article class="corridors-feature-card">
       <a class="corridors-feature-image" href="${corridorPath(card.key)}" aria-label="Explore ${corridorDisplayLabel(card.key)}">
-        <img src="${safeHref(card.image)}" alt="${escapeHtml(card.alt)}" loading="eager" decoding="async" />
+        <img src="${safeHref(card.image)}" alt="${escapeHtml(card.alt)}" loading="lazy" decoding="async" />
       </a>
       <div>
         <span>${escapeHtml(card.kicker)}</span>
