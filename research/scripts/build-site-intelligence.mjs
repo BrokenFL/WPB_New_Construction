@@ -9,6 +9,7 @@ const workspace = process.cwd();
 const reviewPath = path.join(workspace, "research/source-material-review/project-source-catalog.json");
 const projectsRoot = path.join(workspace, "research/asset-library/projects");
 const reviewRoot = path.join(workspace, "research/source-material-review");
+const canonicalProjectsPath = path.join(reviewRoot, "wpb-projects-canonical-v3-planning-update.json");
 const publicDataRoot = path.join(workspace, "public/data");
 const generatedRoot = path.join(workspace, "src/generated");
 const preferredRoot = path.join(workspace, "research/asset-library/preferred-image-exports");
@@ -2633,6 +2634,10 @@ function renderSitemap(projects) {
   ]);
   const publicProjectPath = (projectId) =>
     projectId === "south-flagler-house-north" ? "south-flagler-house" : projectId;
+  const projectIds = new Set([
+    ...projects.map((project) => project.projectId),
+    ...readCanonicalPublicProjectIds(),
+  ]);
   const urls = [
     ["", "1.0"],
     ["floorplans/", "0.9"],
@@ -2653,9 +2658,9 @@ function renderSitemap(projects) {
     ["privacy/", "0.5"],
     ["terms/", "0.5"],
     ["inquire/", "0.5"],
-    ...projects
-      .filter((project) => routableProjects.has(project.projectId))
-      .map((project) => [`projects/${publicProjectPath(project.projectId)}/`, "0.8"]),
+    ...[...projectIds]
+      .filter((projectId) => routableProjects.has(projectId))
+      .map((projectId) => [`projects/${publicProjectPath(projectId)}/`, "0.8"]),
   ];
   const uniqueUrls = [...new Map(urls.map(([pathPart, priority]) => [pathPart, [pathPart, priority]])).values()];
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -2671,6 +2676,18 @@ ${uniqueUrls
   .join("\n")}
 </urlset>
 `;
+}
+
+function readCanonicalPublicProjectIds() {
+  try {
+    const canonical = JSON.parse(fsSync.readFileSync(canonicalProjectsPath, "utf8"));
+    return (canonical.projects || [])
+      .filter((project) => project.include_on_site === true)
+      .map((project) => project.project_id || project.slug)
+      .filter(Boolean);
+  } catch {
+    return [];
+  }
 }
 
 function toJsonFeed(newsFeed) {
