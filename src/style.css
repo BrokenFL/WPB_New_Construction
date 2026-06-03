@@ -39,11 +39,11 @@
   }
 
   .floorplan-viewer-header {
-    padding: 20px 58px 16px 18px;
+    padding: 16px 58px 12px 18px;
   }
 
   .floorplan-viewer-frame iframe {
-    height: 56vh;
+    height: calc(100vh - 146px);
   }
 
   .floorplan-viewer-actions {
@@ -1108,15 +1108,10 @@ h3 {
   font-size: clamp(1rem, 1.35vw, 1.22rem);
 }
 
-.hero-actions,
 .document-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-}
-
-.hero-actions {
-  margin-top: 34px;
 }
 
 .button {
@@ -2572,10 +2567,65 @@ h3 {
   color: var(--soft-ink);
 }
 
+.floorplan-hub-hero {
+  position: relative;
+  display: grid;
+  align-items: end;
+  min-height: clamp(560px, 78vh, 860px);
+  overflow: hidden;
+  padding: clamp(130px, 16vh, 190px) clamp(18px, 5vw, 72px) clamp(48px, 8vw, 92px);
+  color: var(--ivory);
+}
+
+.floorplan-hub-hero h1 {
+  color: inherit;
+  font-size: clamp(4.4rem, 9vw, 8.6rem);
+  line-height: 0.88;
+}
+
+.floorplan-hub-hero p:not(.eyebrow) {
+  max-width: 66ch;
+  margin-top: clamp(18px, 2.2vw, 28px);
+  font-size: clamp(1.02rem, 1.25vw, 1.24rem);
+}
+
+.floorplan-hub-hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+.floorplan-hero-image {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.floorplan-hero-image img,
+.floorplan-project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floorplan-hero-image::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(11, 15, 18, 0.16), rgba(11, 15, 18, 0.7)),
+    linear-gradient(90deg, rgba(11, 15, 18, 0.64), rgba(11, 15, 18, 0.04));
+}
+
+.floorplan-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
 .floorplan-library {
   display: grid;
-  grid-template-columns: minmax(260px, 0.74fr) minmax(0, 1.26fr);
-  gap: clamp(28px, 5vw, 72px);
+  grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(22px, 4vw, 54px);
   margin-top: 42px;
   padding-top: 42px;
   border-top: 1px solid var(--line);
@@ -2589,19 +2639,15 @@ h3 {
 
 .floorplan-link {
   display: flex;
-  min-height: 82px;
+  min-height: 260px;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 10px;
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 12px;
   color: var(--ink);
   background: rgba(255, 255, 255, 0.26);
   text-decoration: none;
-  transition:
-    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    background 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .floorplan-link-button {
@@ -2609,12 +2655,6 @@ h3 {
   cursor: pointer;
   font: inherit;
   text-align: left;
-}
-
-.floorplan-link:hover {
-  transform: translateY(-2px);
-  border-color: rgba(154, 122, 79, 0.58);
-  background: rgba(255, 255, 255, 0.42);
 }
 
 .floorplan-viewer[hidden] {
@@ -2640,12 +2680,12 @@ h3 {
   position: relative;
   z-index: 1;
   display: grid;
-  width: min(1080px, 100%);
-  max-height: min(860px, 92vh);
+  width: min(1240px, 96vw);
+  max-height: 94vh;
   grid-template-rows: auto minmax(280px, 1fr) auto;
   overflow: hidden;
   border-radius: 8px;
-  background: #fffaf1;
+  background: #fff;
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
 }
 
@@ -2665,36 +2705,32 @@ h3 {
 }
 
 .floorplan-viewer-header {
-  display: grid;
-  gap: 7px;
-  padding: 24px 66px 18px 24px;
+  padding: 16px 66px 12px 20px;
   border-bottom: 1px solid var(--line);
 }
 
-.floorplan-viewer-header span {
-  color: var(--soft-ink);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.floorplan-viewer-header h2,
-.floorplan-viewer-header p {
+.floorplan-viewer-header h2 {
   margin: 0;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  line-height: 1.05;
 }
 
 .floorplan-viewer-frame {
-  min-height: 360px;
-  background: #f7f1e7;
+  min-height: 0;
+  background: #fff;
 }
 
-.floorplan-viewer-frame iframe {
+.floorplan-viewer-frame iframe,
+.floorplan-viewer-frame img {
   display: block;
   width: 100%;
-  height: min(620px, 58vh);
+  height: min(740px, calc(94vh - 142px));
   border: 0;
   background: #fff;
+}
+
+.floorplan-viewer-frame img {
+  object-fit: contain;
 }
 
 .floorplan-viewer-request {
@@ -2717,8 +2753,9 @@ h3 {
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
-  padding: 18px 24px;
+  padding: 12px 20px;
   border-top: 1px solid var(--line);
+  background: #fffaf1;
 }
 
 .floorplan-viewer-actions button,
@@ -2741,18 +2778,42 @@ body.has-floorplan-viewer {
   overflow: hidden;
 }
 
-.floorplan-link-static:hover {
-  transform: none;
-}
-
 .floorplan-link span {
   font-weight: 700;
+}
+
+.floorplan-link-preview {
+  display: grid;
+  min-height: 128px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+  background: rgba(255, 250, 241, 0.72);
+}
+
+.floorplan-link-preview img {
+  width: 100%;
+  height: 148px;
+  object-fit: contain;
+}
+
+.floorplan-link-preview-pdf {
+  color: var(--bronze);
+  font-size: 2.2rem;
 }
 
 .floorplan-link small {
   color: var(--soft-ink);
   font-size: 0.76rem;
   line-height: 1.25;
+}
+
+.floorplan-metrics {
+  margin-top: auto;
+  color: var(--soft-ink);
+  font-size: 0.74rem;
+  font-style: normal;
+  line-height: 1.35;
 }
 
 .intelligence-hero {
@@ -2816,6 +2877,10 @@ body.has-floorplan-viewer {
 .answer-engine-section {
   display: grid;
   gap: 18px;
+}
+
+.floorplan-index-section {
+  display: block;
 }
 
 .answer-fact-matrix-section {
@@ -2901,16 +2966,25 @@ body.has-floorplan-viewer {
 }
 
 .floorplan-project-card {
+  display: grid;
+  gap: clamp(18px, 3vw, 32px);
   border-top: 1px solid var(--line);
-  padding: clamp(28px, 5vw, 58px) 0;
+  padding: clamp(30px, 5vw, 64px) 0;
+}
+
+.floorplan-project-media {
+  height: clamp(300px, 36vw, 500px);
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.34);
 }
 
 .floorplan-project-heading {
-  display: flex;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
   align-items: start;
-  justify-content: space-between;
-  margin-bottom: 22px;
+  margin-bottom: 0;
 }
 
 .floorplan-project-heading h2 {
@@ -2934,14 +3008,6 @@ body.has-floorplan-viewer {
     serif;
   font-size: clamp(1.8rem, 3vw, 3rem);
   font-weight: 400;
-}
-
-.floorplan-grid-wide {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.floorplan-library.compact {
-  grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1.38fr);
 }
 
 .answer-block {
@@ -3605,7 +3671,6 @@ select:focus-visible {
   .residences-grid,
   .amenities-grid,
   .ritz-amenities-grid,
-  .floorplan-grid-wide,
   .front-project-grid,
   .news-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3693,9 +3758,10 @@ select:focus-visible {
   .marina-section,
   .inquiry-section,
   .intelligence-hero,
+  .floorplan-hub-hero,
+  .floorplan-project-card,
   .market-note-body,
   .answer-block,
-  .floorplan-library,
   .asset-status-strip,
   .view-pair,
   .comparison-band {
@@ -3719,8 +3785,6 @@ select:focus-visible {
     grid-column: 1;
   }
 
-  .floorplan-grid,
-  .floorplan-grid-wide,
   .answer-fact-row dl,
   .answer-citation-grid {
     grid-template-columns: 1fr;
@@ -3755,8 +3819,8 @@ select:focus-visible {
     aspect-ratio: 3 / 2;
   }
 
-  .floorplan-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .floorplan-project-media {
+    height: 220px;
   }
 
   .news-card:first-child {
@@ -3861,7 +3925,6 @@ select:focus-visible {
     .front-project-grid,
     .news-grid,
     .project-note-row,
-    .floorplan-grid,
     .inquiry-form {
     grid-template-columns: 1fr;
   }
@@ -8795,46 +8858,13 @@ body {
   width: 100% !important;
   font-size: 0.7rem !important;
   padding: 10px 6px !important;
-  text-align: center !important;
-  border: 1px solid rgba(154, 122, 79, 0.44) !important;
-  border-radius: 4px !important;
-  text-transform: uppercase !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.05em !important;
   min-height: 36px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
   cursor: pointer !important;
 }
 
 .floorplan-card-actions button.button.ghost {
   background: transparent !important;
   color: var(--ink) !important;
-  border-color: rgba(37, 42, 45, 0.28) !important;
-}
-
-.floorplan-card-actions button.button.ghost:hover {
-  background: rgba(196, 152, 99, 0.08) !important;
-  border-color: var(--bronze) !important;
-}
-
-.floorplan-card-actions a.button.primary {
-  border-color: #789691 !important;
-  color: #fffaf1 !important;
-  background: #789691 !important;
-}
-
-.floorplan-card-actions a.button.primary:hover {
-  background: #627c78 !important;
-}
-
-.floorplans-extra-note {
-  text-align: center !important;
-  font-size: 0.8rem !important;
-  color: var(--soft-ink) !important;
-  margin-top: 8px !important;
-  font-style: italic !important;
 }
 
 .floorplans-section-footer {
@@ -8842,12 +8872,6 @@ body {
   flex-direction: column !important;
   align-items: center !important;
   gap: 16px !important;
-  margin-top: 16px !important;
-}
-
-.floorplans-actions {
-  display: flex !important;
-  justify-content: center !important;
 }
 
 .floorplans-inquiry-box {

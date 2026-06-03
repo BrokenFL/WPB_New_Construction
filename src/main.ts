@@ -6,6 +6,7 @@ import {
   researchNewsFeed,
   siteMeta,
 } from "./generated/siteData";
+import { approvedFloorplanLibrary, type ApprovedFloorplanPlan, type ApprovedFloorplanProject } from "./data/floorplanApprovedLibrary";
 import { editorProjectOverrides, type EditorProjectOverrides } from "./generated/editorOverrides";
 import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
 import { newsSortTimestamp, publishedExternalNews, type ExternalNewsItem } from "./data/approvedExternalNews";
@@ -13,6 +14,7 @@ import { editorialImageForId, type EditorialImageId } from "./data/editorialImag
 import { homeHeroImages } from "./data/homeHeroImages";
 import {
   getApprovedProjectAssets,
+  getProjectAsset,
   getProjectGalleryAsset,
   getProjectHeroAsset,
   type ProjectAsset,
@@ -2331,7 +2333,7 @@ app.innerHTML = `
         <a href="/map/" data-nav-item="map">Neighborhoods</a>
         <a href="/market-notes/" data-nav-item="market-notes">Buyers</a>
         <a href="/inquire/" data-nav-item="inquire">About Brooke</a>
-        <a href="/floorplans/" data-nav-item="floorplans">Resources</a>
+        <a href="/floorplans/" data-nav-item="floorplans">Floorplans</a>
       </nav>
       <a class="nav-phone" href="${advisorProfile.mobileHref}" aria-label="Call Brooke">Call</a>
       <a class="nav-cta" href="/inquire/" data-nav-item="inquire">Inquire now <span aria-hidden="true">→</span></a>
@@ -2587,23 +2589,22 @@ app.innerHTML = `
       <div class="route-view route-view-market-note-detail" data-route-view="market-note-detail" hidden></div>
 
       <div class="route-view route-view-floorplans" data-route-view="floorplans" hidden>
-        <section class="section intelligence-hero">
+        <section class="section floorplan-hub-hero">
+          <figure class="floorplan-hero-image">
+            <img src="/assets/editorial/floorplan-library-hero.jpg" alt="Floor plans and residence materials arranged on a design review table" decoding="async" />
+          </figure>
           <div>
             <p class="eyebrow">Floorplan Library</p>
-            <h1>Review Available Floorplans</h1>
-            <p>
-              Use the floorplan library to compare layouts, residence scale, terrace space, bedroom placement, elevator access, and view orientation.
-              Publicly available plans are a useful starting point, not a substitute for current sales materials.
-            </p>
+            <h1>Floorplans</h1>
+            <p>Explore floor plans designed to help you understand each residence before you step inside. From room flow and bedroom placement to outdoor space, views, and everyday livability, these plans offer a clear look at how each home lives—not just how it measures.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#floorplan-library">Browse by building <span aria-hidden="true">↓</span></a>
+              <a class="button ghost" href="/inquire/?interest=floorplans&lead_capture_context=floorplans_page">Request current packet <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
-          <aside class="answer-meta-panel">
-            <span>Updated ${floorplanLibrary[0]?.updatedAt ?? "2026-05-14"}</span>
-            <strong>${floorplanLibrary.reduce((total, project) => total + project.count, 0)} floorplan records</strong>
-            <small>Always verify current plans, dimensions, exposure, pricing, and availability before relying on public material.</small>
-          </aside>
         </section>
-        <section class="section floorplan-index-section">
-          ${floorplanLibrary.map(renderFloorplanProject).join("")}
+        <section class="section floorplan-index-section" id="floorplan-library">
+          ${approvedFloorplanLibrary.map(renderFloorplanProject).join("")}
           <a class="home-answer-archive-link" href="/inquire/?interest=floorplans&lead_capture_context=floorplans_page">Request Floorplans <span aria-hidden="true">↗</span></a>
         </section>
       </div>
@@ -2613,18 +2614,14 @@ app.innerHTML = `
         <section class="floorplan-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="floorplan-viewer-title">
           <button class="floorplan-viewer-close" type="button" data-floorplan-close aria-label="Close floorplan viewer">×</button>
           <div class="floorplan-viewer-header">
-            <span data-floorplan-project></span>
             <h2 id="floorplan-viewer-title" data-floorplan-title>Floor plan</h2>
-            <p data-floorplan-caption></p>
           </div>
           <div class="floorplan-viewer-frame" data-floorplan-frame></div>
           <div class="floorplan-viewer-actions">
             <button type="button" data-floorplan-prev>Previous</button>
             <button type="button" data-floorplan-next>Next</button>
-            <a href="/inquire/?interest=floorplans&lead_capture_context=floorplan_viewer">Request full floorplan packet</a>
-            <a href="/inquire/?interest=floorplans&lead_capture_context=floorplan_viewer">Ask Brooke</a>
+            <a href="/inquire/?interest=floorplans&lead_capture_context=floorplan_viewer">Inquire Now</a>
           </div>
-          <p class="floorplan-viewer-request">${shortBrookeCtaCopy}</p>
         </section>
       </div>
 
@@ -4510,8 +4507,8 @@ function buildFloorplanItemListSchema() {
     "@type": "ItemList",
     "@id": `${siteMeta.baseUrl}/floorplans/#floorplans`,
     name: "West Palm Beach New Construction Floorplans",
-    numberOfItems: floorplanLibrary.reduce((total, project) => total + project.count, 0),
-    itemListElement: floorplanLibrary
+    numberOfItems: approvedFloorplanLibrary.reduce((total, project) => total + project.count, 0),
+    itemListElement: approvedFloorplanLibrary
       .filter((project) => project.count > 0)
       .map((project, index) => ({
         "@type": "ListItem",
@@ -6658,45 +6655,112 @@ function isOlderThanDays(dateValue: string, days: number) {
   return ageMs > days * 24 * 60 * 60 * 1000;
 }
 
-function renderFloorplanProject(project: (typeof floorplanLibrary)[number]) {
-  const plans = project.plans.slice(0, 36);
-  const extraCount = Math.max(0, project.plans.length - plans.length);
+function renderFloorplanProject(project: ApprovedFloorplanProject) {
+  const allPlans = preferredFloorplans(project);
+  const plans = allPlans.slice(0, 48);
+  const image = floorplanProjectImage(project.projectId);
   return `
     <article class="floorplan-project-card" id="floorplans-${escapeHtml(project.projectId)}">
       <div class="floorplan-project-heading">
         <div>
-          <span>${escapeHtml(project.area)} · ${escapeHtml(project.pageStatus)}</span>
+          <span>${escapeHtml(project.area)} · ${plans.length ? `${plans.length} available preview${plans.length === 1 ? "" : "s"}` : "Request current packet"}</span>
           <h2>${escapeHtml(project.name)}</h2>
         </div>
         <strong>${escapeHtml(project.count || "Gap")}</strong>
       </div>
+      <div class="floorplan-project-media">
+        <img src="${image}" alt="${escapeHtml(project.name)} property image" decoding="async" />
+      </div>
       ${
         plans.length
-          ? `<div class="floorplan-grid floorplan-grid-wide">
+          ? `<div class="floorplan-gallery-grid" role="list" aria-label="${escapeHtml(project.name)} floorplan gallery">
               ${plans.map((plan, index) => renderGeneratedFloorplanLink(plan, project, index)).join("")}
-            </div>
-            ${extraCount ? `<p class="source-note">${extraCount} additional plan records are available in the buyer catalog.</p>` : ""}`
+            </div>`
           : `<p class="floorplan-gap">Public floorplans are not currently available for this project. Request current materials to confirm layouts, views, and availability.</p>`
       }
     </article>
   `;
 }
 
+function preferredFloorplans(project: ApprovedFloorplanProject) {
+  const byTitle = new Map<string, ApprovedFloorplanPlan>();
+  for (const plan of project.plans) {
+    const key = cleanFloorplanTitle(plan.title).toLowerCase();
+    const existing = byTitle.get(key);
+    if (!existing) {
+      byTitle.set(key, plan);
+      continue;
+    }
+    const existingIsLocal = existing.href && !/^https?:\/\//i.test(existing.href);
+    const planIsLocal = plan.href && !/^https?:\/\//i.test(plan.href);
+    if (planIsLocal && !existingIsLocal) byTitle.set(key, plan);
+  }
+  return Array.from(byTitle.values());
+}
+
+function floorplanProjectImage(projectId: string) {
+  const imageId = projectImageLookupId(projectId);
+  return floorplanResidenceImage(imageId) || homepageProjectCardImage(imageId) || getProjectHeroAsset(imageId)?.src || homepageAssets.hero.desktop;
+}
+
+function floorplanResidenceImage(projectId: string) {
+  const override = floorplanResidenceImageOverride(projectId);
+  if (override) return override;
+  return getApprovedProjectAssets(projectId)
+    .filter((asset) => asset.placement === "residences")
+    .sort((a, b) => floorplanResidenceImageScore(b) - floorplanResidenceImageScore(a))[0]?.src || getProjectAsset(projectId, "residences")?.src || getProjectGalleryAsset(projectId, "residences")?.src;
+}
+
+function floorplanResidenceImageOverride(projectId: string) {
+  if (projectId === "banyan-tree") return "/assets/projects/banyan-tree/residences/banyan-tree-residences-living-room-v01.jpg";
+  if (projectId === "berkeley") return "/assets/projects/berkeley/residences/berkeley-residences-bedroom-with-view-v01.jpg";
+  if (projectId === "forte-on-flagler") return "/assets/projects/forte-on-flagler/residences/forte-on-flagler-residences-grand-living-room-v01.jpg";
+  if (projectId === "la-clara") return "/projects/la-clara/media/showcase/la-clara-residences-living-room-patio-v01-web.jpg";
+  if (projectId === "nora-house") return "/assets/projects/nora-house/residences/nora-house-residences-living-room-v01.jpg";
+  if (projectId === "olara") return "/assets/projects/olara/residences/olara-residences-luxury-king-bed-balcony-v01.jpg";
+  if (projectId === "ritz-carlton-wpb") return "/assets/projects/ritz-carlton-wpb/residences/ritz-carlton-residences-living-room-view-v01.jpg";
+  if (projectId === "shorecrest") return "/projects/shorecrest/media/showcase/shorecrest-residences-living-room-v01-web.jpg";
+  if (projectId === "south-flagler-house") return "/assets/projects/south-flagler-house/residences/south-flagler-residence-living-room-04-v01.jpg";
+  return "";
+}
+
+function floorplanResidenceImageScore(asset: ProjectAsset) {
+  const label = `${asset.src} ${asset.title} ${asset.alt}`.toLowerCase();
+  const aspect = asset.width && asset.height ? asset.width / asset.height : 1;
+  let score = (asset.width ?? 0) / 100;
+  if (aspect >= 1.45) score += 40;
+  if (/living|great-room|open|interior-view|view|patio|terrace|kitchen/.test(label)) score += 60;
+  if (/bath|bedroom/.test(label)) score -= 80;
+  return score;
+}
+
+function projectImageLookupId(projectId: string) {
+  if (projectId.startsWith("south-flagler-house")) return "south-flagler-house";
+  if (projectId.startsWith("edgeworth")) return "edgeworth";
+  return projectId;
+}
+
 function renderGeneratedFloorplanLink(
-  plan: (typeof floorplanLibrary)[number]["plans"][number],
-  project?: (typeof floorplanLibrary)[number],
+  plan: ApprovedFloorplanPlan,
+  project?: ApprovedFloorplanProject,
   index = 0,
 ) {
-  const title = plan.title;
+  const title = cleanFloorplanTitle(plan.title);
   const projectName = project?.name ?? "Project floorplan";
   const caption = plan.href && !/^https?:\/\//i.test(plan.href)
     ? "Preview this floorplan inside WPB New Construction, then request the current packet before relying on availability or stack details."
     : "This plan is handled through the current packet request path so buyers do not leave the site for a sales-office download.";
+  const planDetail = floorplanPlanDetail(plan.detail);
+  const planDetailMarkup = planDetail ? `<small>${escapeHtml(planDetail)}</small>` : "";
+  const preview = renderFloorplanPreview(plan, title);
+  const metrics = renderFloorplanMetrics(plan);
   if (!plan.href) {
     return `
       <article class="floorplan-link floorplan-link-static">
+        ${preview}
         <span>${escapeHtml(title)}</span>
-        <small>Available through current sales packet</small>
+        ${planDetailMarkup}
+        ${metrics}
       </article>
     `;
   }
@@ -6712,8 +6776,10 @@ function renderGeneratedFloorplanLink(
       data-floorplan-caption="${escapeHtml(caption)}"
       data-floorplan-src=""
     >
+      ${preview}
       <span>${escapeHtml(title)}</span>
-      <small>Request current packet</small>
+      ${planDetailMarkup}
+      ${metrics}
     </button>
   `;
   }
@@ -6729,10 +6795,88 @@ function renderGeneratedFloorplanLink(
       data-floorplan-caption="${escapeHtml(caption)}"
       data-floorplan-src="${safeHref(plan.href)}"
     >
+      ${preview}
       <span>${escapeHtml(title)}</span>
-      <small>Preview floorplan</small>
+      ${planDetailMarkup}
+      ${metrics}
     </button>
   `;
+}
+
+function cleanFloorplanTitle(title: string) {
+  return title
+    .replace(/\bFloorplans?\b/gi, "")
+    .replace(/\bUnbranded\b/gi, "")
+    .replace(/\bDigital\b/gi, "")
+    .replace(/\bIllustrated\b/gi, "")
+    .replace(/\bComplete Collection\b/gi, "Complete Floorplan Collection")
+    .replace(/\b(\d*)lph([a-z])\b/gi, (_, floor: string, stack: string) => `${floor ? `${floor} ` : ""}LPH ${stack.toUpperCase()}`)
+    .replace(/\b(\d*)th([a-z])\b/gi, (_, floor: string, stack: string) => `${floor ? `${floor} ` : ""}TH ${stack.toUpperCase()}`)
+    .replace(/\bres0*(\d+)\b/gi, "Residence $1")
+    .replace(/\s+[0-9a-f]{8}$/i, "")
+    .replace(/\s+/g, " ")
+    .replace(/\bLph\b/gi, "LPH")
+    .replace(/\bPh\b/gi, "PH")
+    .replace(/\bTh\b/gi, "TH")
+    .replace(/\bRes\b/gi, "Residence")
+    .trim()
+    .replace(/^Olara S 31126 ([A-F])$/i, "Residence $1")
+    .replace(/^S 31126 ([A-F])$/i, "Residence $1")
+    .replace(/^(Alba|Olara|Shorecrest|Ritz Carlton|Ritz-Carlton|Mr\. C|NORA House|Nora House|Berkeley|Forte|Forté|Maison d'Or)\s+/i, "");
+}
+
+function floorplanPlanDetail(sourceDetail?: string) {
+  if (sourceDetail) return sourceDetail;
+  return "";
+}
+
+function renderFloorplanPreview(plan: ApprovedFloorplanPlan, title: string) {
+  if (/\.(png|jpe?g|webp)(?:$|[?#])/i.test(plan.href)) {
+    return `<span class="floorplan-link-preview"><img src="${safeHref(plan.href)}" alt="${escapeHtml(title)} floorplan" decoding="async" /></span>`;
+  }
+  const pdfPreview = pdfPreviewImageHref(plan.href);
+  if (pdfPreview) {
+    return `<span class="floorplan-link-preview floorplan-link-preview-pdf-image"><img src="${safeHref(pdfPreview)}" alt="${escapeHtml(title)} floorplan" decoding="async" /></span>`;
+  }
+  return `<span class="floorplan-link-preview floorplan-link-preview-pdf">PDF</span>`;
+}
+
+function pdfPreviewImageHref(href?: string) {
+  if (!href || !/\.pdf(?:$|[?#])/i.test(href) || /^https?:\/\//i.test(href)) return "";
+  const cleanHref = href.split(/[?#]/)[0];
+  return cleanHref.replace(/\/([^/]+)\.pdf$/i, "/previews/$1.jpg");
+}
+
+function renderFloorplanMetrics(plan: ApprovedFloorplanPlan) {
+  const items = [
+    plan.bedrooms ? formatBedroomMetric(plan.bedrooms) : "",
+    plan.bathrooms ? formatBathroomMetric(plan.bathrooms) : "",
+    plan.interiorSqFt ? `${formatNumber(plan.interiorSqFt)} interior sf` : "",
+    plan.terraceSqFt ? `${formatNumber(plan.terraceSqFt)} terrace sf` : "",
+    plan.totalSqFt ? `${formatNumber(plan.totalSqFt)} total sf` : "",
+  ].filter(Boolean);
+  if (!items.length) return `<em class="floorplan-metrics">Details pending current packet</em>`;
+  return `<em class="floorplan-metrics">${items.map(escapeHtml).join(" · ")}</em>`;
+}
+
+function formatBedroomMetric(value: string) {
+  if (/[a-z]/i.test(value)) {
+    const normalized = value.replace(/\s*\+\s*/g, " + ");
+    const match = normalized.match(/^(\d+(?:\.\d+)?)\s*\+\s*(.+)$/);
+    return match ? `${match[1]} bed + ${match[2]}` : normalized;
+  }
+  return `${value} bed`;
+}
+
+function formatBathroomMetric(value: string) {
+  if (/powder/i.test(value)) return value.replace(/\s*\+\s*/g, " bath + ");
+  if (/bath/i.test(value)) return value;
+  return `${value} bath`;
+}
+
+function formatNumber(value: string) {
+  const parsed = Number(value.replace(/,/g, ""));
+  return Number.isFinite(parsed) ? parsed.toLocaleString("en-US") : value;
 }
 
 function answerShortLabel(item: (typeof answerEngineFaq)[number]) {
@@ -7834,7 +7978,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
           <a href="/map/">Neighborhoods</a>
           <a href="/market-notes/">Buyers</a>
           <a href="/inquire/">About Brooke</a>
-          <a href="/floorplans/">Resources</a>
+          <a href="/floorplans/">Floorplans</a>
         </div>
         <a class="berkeley-phone" href="${advisorProfile.mobileHref}" aria-label="Call Brooke">${berkeleyIcon("valet")}</a>
         <a class="berkeley-inquire" href="/inquire/?project=${project.id}&interest=availability">Inquire now <span aria-hidden="true">→</span></a>
@@ -8568,7 +8712,7 @@ function renderProjectSnapshotPanel(projectId: string) {
 
 function getFloorplanProject(projectId: string) {
   const lookupId = projectId === "south-flagler-house" ? "south-flagler-house-north" : projectId;
-  return floorplanLibrary.find((project) => project.projectId === lookupId);
+  return approvedFloorplanLibrary.find((project) => project.projectId === projectId) || floorplanLibrary.find((project) => project.projectId === lookupId);
 }
 
 export function renderNeededItem(item: string, index: number) {
@@ -8604,12 +8748,14 @@ function initFloorplanViewer() {
   if (!viewer || viewer.dataset.ready === "true") return;
   viewer.dataset.ready = "true";
   const title = viewer.querySelector<HTMLElement>("[data-floorplan-title]");
-  const project = viewer.querySelector<HTMLElement>("[data-floorplan-project]");
-  const caption = viewer.querySelector<HTMLElement>("[data-floorplan-caption]");
   const frame = viewer.querySelector<HTMLElement>("[data-floorplan-frame]");
   let activeIndex = 0;
 
-  const openButtons = () => Array.from(document.querySelectorAll<HTMLButtonElement>("[data-floorplan-open]"));
+  const openButtons = () => {
+    const activeFloorplanRoute = document.querySelector<HTMLElement>(".route-view-floorplans:not([hidden])");
+    if (activeFloorplanRoute) return Array.from(activeFloorplanRoute.querySelectorAll<HTMLButtonElement>("[data-floorplan-open]"));
+    return Array.from(document.querySelectorAll<HTMLButtonElement>("[data-floorplan-open]"));
+  };
   const openAt = (index: number) => {
     const buttons = openButtons();
     const button = buttons[index];
@@ -8617,11 +8763,12 @@ function initFloorplanViewer() {
     activeIndex = index;
     const src = button.dataset.floorplanSrc || "";
     title?.replaceChildren(document.createTextNode(button.dataset.floorplanTitle || "Floor plan"));
-    project?.replaceChildren(document.createTextNode(button.dataset.floorplanProject || "Floorplan preview"));
-    caption?.replaceChildren(document.createTextNode(button.dataset.floorplanCaption || "Request the current packet before relying on plan availability."));
+    const frameTitle = escapeHtml(button.dataset.floorplanTitle || "Floorplan preview");
     frame.innerHTML = src
-      ? `<iframe src="${safeHref(src)}" title="${escapeHtml(button.dataset.floorplanTitle || "Floorplan preview")}"></iframe>`
-      : `<div class="floorplan-viewer-request"><strong>Request this plan through Brooke.</strong><p>The public source sends buyers outside the site, so the primary action here is to request the current packet and confirm the latest plan details.</p></div>`;
+      ? /\.(png|jpe?g|webp)(?:$|[?#])/i.test(src)
+        ? `<img src="${safeHref(src)}" alt="${frameTitle}" />`
+        : `<iframe src="${safeHref(src)}" title="${frameTitle}"></iframe>`
+      : `<div class="floorplan-viewer-request"><strong>Request current packet</strong></div>`;
     viewer.hidden = false;
     viewer.setAttribute("aria-hidden", "false");
     document.body.classList.add("has-floorplan-viewer");
