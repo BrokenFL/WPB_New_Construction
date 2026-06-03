@@ -8010,7 +8010,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 
       ${visualBreak ? `<figure class="berkeley-patio-break"><img src="${safeHref(visualBreak.src)}" alt="${publicText(visualBreak.alt ?? `${project.name} ${visualBreak.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
-      <section class="berkeley-residence-section" id="berkeley-residences">
+      ${residences.length ? `<section class="berkeley-residence-section" id="berkeley-residences">
         <div class="berkeley-section-heading"><p class="berkeley-kicker">${publicText(residenceSectionLabel)}</p><a href="${safeHref(residenceSectionLinkHref)}">${publicText(residenceSectionLinkText)} <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-residence-grid">
           ${residences.map((item, index) => {
@@ -8021,7 +8021,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
             return `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="${safeHref(residenceSectionLinkHref)}">${publicText(item.price)} <span aria-hidden="true">→</span></a></div>${planVisual}</article>`;
           }).join("")}
         </div>
-      </section>
+      </section>` : ""}
 
       ${gallery.length ? `<section class="berkeley-gallery-row ${galleryClass}" aria-label="Project image gallery"><div class="berkeley-section-heading"><p class="berkeley-kicker">Gallery</p><a href="#berkeley-gallery">View all images <span aria-hidden="true">→</span></a></div><div class="berkeley-image-row" id="berkeley-gallery">${gallery.map((item, index) => `<figure><img src="${safeHref(item.src)}" alt="${publicText(item.alt ?? `${project.name} ${item.label}`)}" loading="${showcase?.galleryLayout === "grid" || index < 4 ? "eager" : "lazy"}" decoding="async" /><figcaption>${publicText(item.label)}</figcaption></figure>`).join("")}</div></section>` : ""}
 

@@ -3557,7 +3557,7 @@
       "heroTags": [
         {
           "label": "Status",
-          "value": "Planning Approved"
+          "value": "Pipeline / Planning Approved"
         },
         {
           "label": "Corridor",
@@ -3601,29 +3601,6 @@
         "label": "North Flagler district view",
         "alt": "Aerial rendering of the Rybovich Marina district and North Flagler waterfront"
       },
-      "residenceSectionLabel": "District Plan",
-      "residenceSectionLinkText": "Request planning updates",
-      "residenceSectionLinkHref": "/inquire/?project=rybovich-marina-redevelopment&interest=planning-updates",
-      "residenceCollections": [
-        {
-          "title": "Residential Towers",
-          "beds": "Up to 660 planned homes",
-          "size": "Initial phase: 259 units across two towers",
-          "price": "Request planning updates"
-        },
-        {
-          "title": "Marina District",
-          "beds": "Private club, retail, restaurants, and office",
-          "size": "Crew amenities and marine storage planned",
-          "price": "Request planning updates"
-        },
-        {
-          "title": "Intracoastal Promenade",
-          "beds": "Expansive waterfront walking experience",
-          "size": "Public and private marina-oriented spaces",
-          "price": "Request planning updates"
-        }
-      ],
       "galleryLayout": "grid",
       "gallery": [
         {
