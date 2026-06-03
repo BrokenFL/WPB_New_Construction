@@ -3688,6 +3688,11 @@
           "label": "Phased district plan"
         }
       ],
+      "neighborhoodImage": {
+        "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-promenade-v01-web.jpg",
+        "label": "Waterfront promenade",
+        "alt": "Rendering of the Rybovich Marina waterfront promenade and arrival experience"
+      },
       "neighborhoodHeadline": "A future marina district on North Flagler.",
       "projectTeam": [
         {
