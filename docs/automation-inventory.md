@@ -10,6 +10,8 @@
 ## Repo Scripts That Can Be Automated
 
 - `npm run daily:maintenance` runs the safe daily maintenance orchestrator. Scheduled QA report output is redirected to `.runtime/qa/` with `QA_NO_WRITE=1`.
+- `npm run monitor:worktree` writes a clean/dirty branch report to `.runtime/qa/worktree-status.json`.
+- `npm run research:site-intelligence:dry-run` previews source-refresh generated deltas, writes `.runtime/qa/source-refresh-dry-run.json`, and restores generated files so the checkout stays clean.
 - `npm run news:fetch` gathers news candidates into review.
 - `npm run news:promote` publishes only approved news from the review file.
 - `npm run news:daily-publisher` imports GPT issue drafts, validates news drafts, publishes only eligible low-risk queued items, generates the newsletter digest, runs news QA, and writes a publisher report.
@@ -50,14 +52,14 @@
 - 9:00 AM local time: run `npm run daily:maintenance`.
 - 9:20 AM local time: run `npm run news:daily-publisher`.
 - 9:00 AM, 12:00 PM, 3:00 PM, and 6:00 PM local time: run `npm run news:process-gpt-issues` from `com.brooke.wpb-news-issue-importer`.
-- The daily maintenance run is review-first: it imports/reviews candidate images, checks updates, copy, image repetition, performance, and duplicate assets, then writes `research/source-material-review/daily-maintenance-report.md`.
+- The daily maintenance run is review-first: it checks updates, copy, image repetition, performance, and duplicate assets, then writes `.runtime/qa/daily-maintenance-report.md` in scheduled mode.
 - Human review after the daily report: approve or reject news, image, and copy findings before anything medium/high-risk is promoted publicly.
 - Low-risk news can move from GitHub issue intake to `content/news-drafts.json`, then through `news:publish-queued`, `news:promote`, and `newsletter:draft` without Brooke using the Builder UI.
-- Weekly: run the full launch QA stack and review duplicate-asset recommendations before deleting or moving files.
+- Weekly: run `npm run research:site-intelligence:dry-run`, the full launch QA stack, and review duplicate-asset recommendations before deleting or moving files.
 
 ## QA Report Modes
 
-- Automation mode: `QA_NO_WRITE=1 npm run qa:launch` or `npm run qa:launch:no-write`. Generated QA reports go to `.runtime/qa/`, which is gitignored. `npm run test`, `npm run news:process-gpt-issues`, `npm run daily:maintenance`, and deploy preflight use this mode.
+- Automation mode: `QA_NO_WRITE=1 npm run qa:launch` or `npm run qa:launch:no-write`. Generated QA reports go to `.runtime/qa/`, which is gitignored. `npm run test`, `npm run news:process-gpt-issues`, `npm run daily:maintenance`, `npm run monitor:worktree`, `npm run research:site-intelligence:dry-run`, and deploy preflight use this mode.
 - Manual audit mode: `npm run qa:launch:write-reports` refreshes tracked reports under `research/source-material-review/` for a deliberate human review artifact.
 - Scheduled news issue processing uses no-write mode by default so no-change runs do not dirty the worktree with report timestamps.
 

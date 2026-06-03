@@ -281,15 +281,42 @@ Do not print secret values. Secret names and masked values are safe to report.
 Website repo commands:
 
 ```bash
+npm run monitor:worktree
+npm run research:canonical-projects
 npm run assets:audit
 npm run assets:publish:dry
 npm run assets:publish
 npm run assets:refresh:dry
 npm run assets:refresh
+npm run research:site-intelligence:dry-run
 npm run typecheck
 npm run build
 npm test
 ```
+
+## 9A. Canonical Project Schema Guardrail
+
+The tracked canonical planning snapshot is:
+
+```text
+research/source-material-review/wpb-projects-canonical-v3-planning-update.json
+```
+
+It preserves public project records, pipeline/watchlist records, completed comps, and internal hold/exclusion records so routine source refreshes do not silently drop projects.
+
+Validate it with:
+
+```bash
+npm run research:canonical-projects
+```
+
+Importing a new reviewed snapshot is deliberate, never scheduled:
+
+```bash
+npm run research:canonical-projects:import -- --source "/path/to/reviewed-canonical.json"
+```
+
+Do not point normal automation at the CloudDocs website checkout. External/iCloud files are recovery or reviewed intake material only.
 
 Asset repo direct commands:
 
