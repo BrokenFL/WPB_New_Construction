@@ -809,6 +809,19 @@ const baseFeaturedProjects: FeaturedProject[] = [
 
 const projectFactById = new Map(projectFacts.map((project) => [project.projectId, project]));
 const featuredProjects = enhanceProjectIdentity(applyEditorProjectOverrides(applySourceFactsToProjects(baseFeaturedProjects), editorProjectOverrides));
+const approvedFloorplanProjectIds = new Set<string>(approvedFloorplanLibrary.map((project) => project.projectId));
+const floorplanHubProjects: ApprovedFloorplanProject[] = [
+  ...approvedFloorplanLibrary,
+  ...featuredProjects
+    .filter((project) => !approvedFloorplanProjectIds.has(project.id))
+    .map((project) => ({
+      projectId: project.id,
+      name: project.name,
+      area: project.corridor,
+      count: 0,
+      plans: [],
+    })),
+];
 const rankedFeaturedProjects = [...featuredProjects].sort((a, b) => a.rank - b.rank);
 const homepageFeaturedProjectIds = ["alba-palm-beach", "olara", "shorecrest", "ritz-carlton-wpb", "south-flagler-house", "banyan-tree"] as const;
 const homepageFeaturedProjects = homepageFeaturedProjectIds
@@ -2330,7 +2343,7 @@ app.innerHTML = `
       </a>
       <nav aria-label="Primary navigation">
         <a href="/buildings/" data-nav-item="projects">Projects</a>
-        <a href="/map/" data-nav-item="map">Neighborhoods</a>
+        <a href="/map/" data-nav-item="map">Corridors</a>
         <a href="/market-notes/" data-nav-item="market-notes">Buyers</a>
         <a href="/inquire/" data-nav-item="inquire">About Brooke</a>
         <a href="/floorplans/" data-nav-item="floorplans">Floorplans</a>
@@ -2388,11 +2401,11 @@ app.innerHTML = `
       </section>
 
       <nav class="home-section-jump" aria-label="Explore homepage sections">
-        <a href="#corridors">${homeJumpIcon("corridors")}<span>Corridors</span></a>
-        <a href="#featured-projects">${homeJumpIcon("projects")}<span>Projects</span></a>
-        <a href="#atlas">${homeJumpIcon("map")}<span>Map</span></a>
+        <a href="/map/">${homeJumpIcon("corridors")}<span>Corridors</span></a>
+        <a href="/buildings/">${homeJumpIcon("projects")}<span>Projects</span></a>
+        <a href="/map/">${homeJumpIcon("map")}<span>Map</span></a>
         <a href="/compare/">${homeJumpIcon("compare")}<span>Compare</span></a>
-        <a href="#resources">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
+        <a href="/market-notes/">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
       </nav>
 
       <section class="home-corridor-guide" id="corridors" aria-label="Choose a West Palm Beach new-construction corridor">
@@ -2604,7 +2617,7 @@ app.innerHTML = `
           </div>
         </section>
         <section class="section floorplan-index-section" id="floorplan-library">
-          ${approvedFloorplanLibrary.map(renderFloorplanProject).join("")}
+          ${floorplanHubProjects.map(renderFloorplanProject).join("")}
           <a class="home-answer-archive-link" href="/inquire/?interest=floorplans&lead_capture_context=floorplans_page">Request Floorplans <span aria-hidden="true">↗</span></a>
         </section>
       </div>
@@ -3030,7 +3043,7 @@ app.innerHTML = `
           </p>
           <div class="hero-actions">
             <a class="button primary" href="/inquire/?project=ritz-carlton-wpb&interest=availability">Request Current Availability</a>
-            <a class="button ghost" href="#ritz-floorplans">View Floorplans</a>
+            <a class="button ghost" href="/floorplans/#floorplans-ritz-carlton-wpb">View Floorplans</a>
           </div>
         </div>
       </section>
@@ -3962,8 +3975,11 @@ function routeSeoDetails(
 }
 
 function getActiveNavItem(route: Route) {
-  if (route.type === "project" || route.type === "corridor") {
+  if (route.type === "project") {
     return "projects";
+  }
+  if (route.type === "corridor") {
+    return "map";
   }
   if (route.type === "market-note-detail") {
     return "market-notes";
@@ -6803,6 +6819,32 @@ function renderGeneratedFloorplanLink(
   `;
 }
 
+function floorplanLibraryPath(projectId?: string) {
+  const hasProjectSection = projectId
+    ? floorplanHubProjects.some((project) => project.projectId === projectId)
+    : false;
+  return hasProjectSection ? `/floorplans/#floorplans-${projectId}` : "/floorplans/";
+}
+
+function renderProjectFloorplanHubLink(project: FeaturedProject, floorplanProject?: ApprovedFloorplanProject | null) {
+  const planCount = floorplanProject?.plans?.length ?? 0;
+  const href = floorplanLibraryPath(floorplanProject?.projectId ?? project.id);
+  const label = planCount
+    ? `View ${planCount} floorplan${planCount === 1 ? "" : "s"}`
+    : "View floorplans";
+  return `
+    <a class="floorplan-hub-link" href="${href}">
+      <span>Floorplan Library</span>
+      <strong>${label}</strong>
+      <small>Open the ${escapeHtml(project.name)} section in the new floorplan hub.</small>
+    </a>
+  `;
+}
+
+function floorplanProjectIdFromDocsPath(basePath: string) {
+  return basePath.match(/\/projects\/([^/]+)\//)?.[1];
+}
+
 function cleanFloorplanTitle(title: string) {
   return title
     .replace(/\bFloorplans?\b/gi, "")
@@ -7445,7 +7487,7 @@ function renderProjectEntityBrief(
         <h2>What buyers can compare now.</h2>
         <p>${publicText(copyPackage?.residenceNarrative ?? `${project.name} is tracked by corridor, status, residence count, floorplan availability, and source notes. Use public plan material as a starting point, then request the current packet before relying on availability or pricing.`)}</p>
       </div>
-      ${floorplanProject?.plans.length ? `<div class="brochure-download-list">${floorplanProject.plans.slice(0, 4).map((plan, index) => renderGeneratedFloorplanLink(plan, floorplanProject, index)).join("")}</div>` : `<p class="source-note">No complete public floorplan packet is confirmed in the current catalog. Request current floorplans before comparing lines or stacks.</p>`}
+      ${floorplanProject?.plans.length ? renderProjectFloorplanHubLink(project, floorplanProject) : `<p class="source-note">No complete public floorplan packet is confirmed in the current catalog. Request current floorplans before comparing lines or stacks.</p>`}
     </section>
 
     ${hasSourcedAmenities ? `<section class="section project-entity-amenities" aria-label="${project.name} sourced amenity context">
@@ -7474,7 +7516,7 @@ function renderProjectEntityBrief(
         <p>Source counts: ${sourceFact?.sourceCounts?.official ?? 0} official, ${sourceFact?.sourceCounts?.reporting ?? 0} reporting, ${sourceFact?.sourceCounts?.other ?? 0} other. Conflicts and gaps are preserved rather than smoothed away.</p>
       </div>
       <div class="brochure-download-list">
-        ${sourceLinks.length ? sourceLinks.map((href) => `<a class="document-card" href="${safeHref(href)}" target="_blank" rel="noopener noreferrer"><span>Reviewed Source</span><strong>${publicText(sourceLinkLabel(href))}</strong><small>Use for fact orientation; verify current buyer terms before reliance.</small></a>`).join("") : `<article class="document-card is-placeholder"><span>Source Review</span><strong>Needs current source refresh</strong><small>No public source link is attached to this brief.</small></article>`}
+        ${sourceLinks.length ? sourceLinks.map((href) => renderProjectSourceLink(href, floorplanProject?.projectId ?? project.id)).join("") : `<article class="document-card is-placeholder"><span>Source Review</span><strong>Needs current source refresh</strong><small>No public source link is attached to this brief.</small></article>`}
       </div>
     </section>
 
@@ -7542,6 +7584,30 @@ function sourceLinkLabel(href: string) {
   } catch {
     return href;
   }
+}
+
+function isFloorplanSourceHref(href: string) {
+  return /floor\s*plans?|floorplans?|floor-plan|floorplan|downloads|[/-]plans?[._/-]|plans?\.pdf(?:$|[?#])/i.test(href);
+}
+
+function renderProjectSourceLink(href: string, projectId?: string) {
+  if (isFloorplanSourceHref(href)) {
+    return `
+      <a class="document-card" href="${floorplanLibraryPath(projectId)}">
+        <span>Floorplan Library</span>
+        <strong>View floorplans on WPB New Construction</strong>
+        <small>Source material is kept in the review layer; use the on-site library for buyer review.</small>
+      </a>
+    `;
+  }
+
+  return `
+    <a class="document-card" href="${safeHref(href)}" target="_blank" rel="noopener noreferrer">
+      <span>Reviewed Source</span>
+      <strong>${publicText(sourceLinkLabel(href))}</strong>
+      <small>Use for fact orientation; verify current buyer terms before reliance.</small>
+    </a>
+  `;
 }
 
 function projectEntityFaq(
@@ -7959,6 +8025,9 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const residenceSectionLabel = showcase?.residenceSectionLabel ?? "Residences";
   const residenceSectionLinkText = showcase?.residenceSectionLinkText ?? "View all floor plans";
   const residenceSectionLinkHref = showcase?.residenceSectionLinkHref ?? `/inquire/?project=${project.id}&interest=floorplans`;
+  const residenceSectionHeadingHref = /floor\s*plans?|floorplans?/i.test(residenceSectionLinkText)
+    ? floorplanLibraryPath(project.id)
+    : residenceSectionLinkHref;
   const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
   const intro = showcase?.intro ?? heroBlurb;
   const heroTags = (
@@ -7980,10 +8049,10 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         </a>
         <div>
           <a href="/buildings/">Projects</a>
-          <a href="/map/">Neighborhoods</a>
+          <a href="/map/">Corridors</a>
           <a href="/market-notes/">Buyers</a>
           <a href="/inquire/">About Brooke</a>
-          <a href="/floorplans/">Floorplans</a>
+          <a href="${floorplanLibraryPath(project.id)}">Floorplans</a>
         </div>
         <a class="berkeley-phone" href="${advisorProfile.mobileHref}" aria-label="Call Brooke">${berkeleyIcon("valet")}</a>
         <a class="berkeley-inquire" href="/inquire/?project=${project.id}&interest=availability">Inquire now <span aria-hidden="true">→</span></a>
@@ -8006,19 +8075,20 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <section class="berkeley-intro-section" aria-label="Project introduction">
         <p class="berkeley-kicker">Overview</p>
         <p>${publicText(intro)}</p>
+        ${renderProjectFloorplanHubLink(project)}
       </section>
 
       ${visualBreak ? `<figure class="berkeley-patio-break"><img src="${safeHref(visualBreak.src)}" alt="${publicText(visualBreak.alt ?? `${project.name} ${visualBreak.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
       ${residences.length ? `<section class="berkeley-residence-section" id="berkeley-residences">
-        <div class="berkeley-section-heading"><p class="berkeley-kicker">${publicText(residenceSectionLabel)}</p><a href="${safeHref(residenceSectionLinkHref)}">${publicText(residenceSectionLinkText)} <span aria-hidden="true">→</span></a></div>
+        <div class="berkeley-section-heading"><p class="berkeley-kicker">${publicText(residenceSectionLabel)}</p><a href="${safeHref(residenceSectionHeadingHref)}">${publicText(residenceSectionLinkText)} <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-residence-grid">
           ${residences.map((item, index) => {
             const planIcon = ["planResidence", "planEstate", "planPenthouse"][index] ?? "residence";
             const planVisual = item.thumbnail
               ? `<figure class="berkeley-plan-thumbnail" aria-hidden="true"><img src="${safeHref(item.thumbnail)}" alt="" loading="lazy" decoding="async" /></figure>`
               : `<figure class="berkeley-plan-placeholder" aria-hidden="true">${berkeleyIcon(planIcon)}</figure>`;
-            return `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="${safeHref(residenceSectionLinkHref)}">${publicText(item.price)} <span aria-hidden="true">→</span></a></div>${planVisual}</article>`;
+            return `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><span class="berkeley-residence-price">${publicText(item.price)}</span></div>${planVisual}</article>`;
           }).join("")}
         </div>
       </section>` : ""}
@@ -8101,11 +8171,11 @@ function renderDraftProjectPage(project: FeaturedProject) {
       </div>
     `).join("");
 
-  const heroPrimaryCtaLabel = isCompactWatch ? "Get Availability Updates" : "Request Floor Plans";
+  const heroPrimaryCtaLabel = isCompactWatch ? "Get Availability Updates" : "View Floorplans";
   const heroSecondaryCtaLabel = isCompactWatch ? "Ask Brooke What Is Known" : "Ask Brooke About This Building";
   const heroPrimaryCtaUrl = isCompactWatch
     ? `/inquire/?project=${project.id}&interest=updates&lead_capture_context=project_hero`
-    : `/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=project_hero`;
+    : floorplanLibraryPath(floorplanProject?.projectId ?? project.id);
   const heroSecondaryCtaUrl = `/inquire/?project=${project.id}&interest=availability&lead_capture_context=project_hero`;
 
   return `
@@ -8135,7 +8205,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <a href="/buildings/">Explore Buildings</a>
         <a href="#snapshot-${project.id}">At a Glance</a>
         ${intel ? `<a href="#local-take-${project.id}">Brooke's Take</a>` : ""}
-        <a href="#floorplans-${project.id}">Floor Plans</a>
+        <a href="${floorplanLibraryPath(project.id)}">Floor Plans</a>
         <a href="#overview-${project.id}">Residences</a>
         ${hasGallery ? `<a href="#gallery-${project.id}">Gallery</a>` : ""}
         ${hasAmenities ? `<a href="#amenities-${project.id}">Amenities</a>` : ""}
@@ -8162,7 +8232,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <h2>${isCompactWatch ? `${project.name} buyer read` : residenceSectionTitle(project)}</h2>
           <p>${publicText(copyPackage?.residenceNarrative ?? project.summary)}</p>
           <div class="section-actions" style="margin-top: 24px;">
-            <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=residences_section">Request Floor Plans</a>
+            <a class="button primary" href="${floorplanLibraryPath(floorplanProject?.projectId ?? project.id)}">View Floorplans</a>
           </div>
         </div>
         ${residencesImage ? `
@@ -8183,7 +8253,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <p class="eyebrow">The Neighborhood</p>
           <h2>${locationSectionTitle(project)}</h2>
           <p>${publicText(copyPackage?.locationNarrative ?? draft.locationCopy)}</p>
-          <a href="/#atlas">Open full atlas <span aria-hidden="true">→</span></a>
+          <a href="/map/">Open full atlas <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-location-panel-wrapper" style="width: 100%;">
           ${locationImageForProject(project) ? `
@@ -8219,10 +8289,9 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <h2>${isCompactWatch ? "Track what is known, and what is not." : "Compare residences, floorplans, and next steps."}</h2>
           <p>${isCompactWatch ? "Planning and source-watch pages are intentionally lighter. Use them for status, location, sponsor signals, and related news, not as a promise of current availability." : "Access available floorplans, project details, and advisor guidance before you tour or reserve."}</p>
           <div class="brochure-download-list">
-            ${draft.documents.map(renderProjectDocument).join("")}
-            ${!isCompactWatch ? floorplanProject?.plans.slice(0, 4).map((plan, index) => renderGeneratedFloorplanLink(plan, floorplanProject, index)).join("") ?? "" : ""}
+            ${draft.documents.map((document) => renderProjectDocument(document, project.id)).join("")}
+            ${!isCompactWatch && floorplanProject ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
           </div>
-          ${!isCompactWatch && floorplanProject ? `<a href="/floorplans/#floorplans-${floorplanProject.projectId}">View floorplan library <span aria-hidden="true">→</span></a>` : ""}
         </div>
         ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project) : `<form class="brochure-inquiry-card" action="mailto:${advisorProfile.email}" method="post" enctype="text/plain">
           <p class="eyebrow">Inquire</p>
@@ -8664,7 +8733,22 @@ function locationList(project: FeaturedProject) {
   return project.corridorKey === "downtown" ? downtownList : flaglerList;
 }
 
-function renderProjectDocument(document: ProjectDocument) {
+function renderProjectDocument(document: ProjectDocument, projectId?: string) {
+  const isFloorplanDocument = /floor\s*plans?|floorplans?/i.test(`${document.label} ${document.title} ${document.note}`);
+  const content = `
+      <span>${publicText(document.label)}</span>
+    <strong>${publicText(document.title)}</strong>
+    <small>${publicText(isFloorplanDocument ? "Open the on-site floorplan library for current buyer review." : document.note)}</small>
+  `;
+
+  if (isFloorplanDocument) {
+    return `
+      <a class="document-card" href="${floorplanLibraryPath(projectId)}">
+        ${content}
+      </a>
+    `;
+  }
+
   if (document.href && (/^https?:\/\//i.test(document.href) || /\.pdf(?:$|[?#])/i.test(document.href))) {
     return `<article class="document-card is-placeholder">
       <span>${publicText(document.label)}</span>
@@ -8672,12 +8756,6 @@ function renderProjectDocument(document: ProjectDocument) {
       <small>Request the current buyer packet for details.</small>
     </article>`;
   }
-
-  const content = `
-      <span>${publicText(document.label)}</span>
-    <strong>${publicText(document.title)}</strong>
-    <small>${publicText(document.note)}</small>
-  `;
 
   if (!document.href) {
     return `<article class="document-card is-placeholder">${content}</article>`;
@@ -8730,21 +8808,16 @@ export function renderNeededItem(item: string, index: number) {
 }
 
 function renderFloorplanLink(plan: { label: string; file: string; note?: string }, basePath = docsBase, projectName = "Olara") {
-  const href = `${basePath}floorplans/${plan.file}`;
+  const libraryHref = floorplanLibraryPath(floorplanProjectIdFromDocsPath(basePath));
   return `
-    <button
+    <a
       class="floorplan-link floorplan-link-button"
-      type="button"
-      data-floorplan-open
-      data-floorplan-index="0"
-      data-floorplan-title="${escapeHtml(plan.label)}"
-      data-floorplan-project="${escapeHtml(projectName)}"
-      data-floorplan-caption="${escapeHtml(plan.note ?? "Floorplan PDF preview")}"
-      data-floorplan-src="${safeHref(href)}"
+      href="${libraryHref}"
+      aria-label="View ${escapeHtml(plan.label)} for ${escapeHtml(projectName)} in the floorplan library"
     >
       <span>${plan.label}</span>
-      <small>${plan.note ?? "Floorplan PDF"}</small>
-    </button>
+      <small>${plan.note ?? "Floorplan library"}</small>
+    </a>
   `;
 }
 
@@ -9416,6 +9489,7 @@ function renderBrookesLocalTakeSection(project: FeaturedProject, intel: any) {
 function renderProjectFloorplansSection(project: FeaturedProject, floorplanProject: any) {
   const plans = floorplanProject?.plans ?? [];
   const hasPlans = plans.length > 0;
+  const libraryHref = floorplanLibraryPath(floorplanProject?.projectId ?? project.id);
 
   const titleHtml = `
     <p class="eyebrow">Floor Plans</p>
@@ -9432,9 +9506,9 @@ function renderProjectFloorplansSection(project: FeaturedProject, floorplanProje
           </div>
           <div class="floorplans-inquiry-box">
             <div class="inquiry-box-content">
-              <h3>Request Current Floor Plans</h3>
-              <p>Public floorplans are not currently available for ${escapeHtml(project.name)}. Request current materials to confirm layouts, views, and availability.</p>
-              <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplans_empty">Request Floor Plans</a>
+              <h3>View Floorplans</h3>
+              <p>Open the floorplan hub for ${escapeHtml(project.name)}, then request current materials when availability, views, and pricing need confirmation.</p>
+              <a class="button primary" href="${libraryHref}">View Floorplans</a>
             </div>
           </div>
         </div>
@@ -9442,80 +9516,9 @@ function renderProjectFloorplansSection(project: FeaturedProject, floorplanProje
     `;
   }
 
-  const plansGridHtml = plans.slice(0, 8).map((plan: any, index: number) => {
-    const slugifiedTitle = plan.title.toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
-
-    const cleanTitle = plan.title
-      .replace(/\s+Template\b/gi, "")
-      .replace(/\bFloorplan\b/gi, "Floor Plan")
-      .trim();
-
-    const isImage = plan.href && /\.(jpe?g|png|webp|gif)(?:$|[?#])/i.test(plan.href);
-    const isPdf = plan.href && /\.pdf(?:$|[?#])/i.test(plan.href);
-
-    let thumbnailHtml = "";
-    if (isImage) {
-      thumbnailHtml = `
-        <button
-          class="floorplan-card-thumbnail"
-          type="button"
-          data-floorplan-open
-          data-floorplan-title="${escapeHtml(cleanTitle)}"
-          data-floorplan-project="${escapeHtml(project.name)}"
-          data-floorplan-caption="Verify exact bed/bath counts, exposure direction, and net vs. outdoor square footage with the current packet."
-          data-floorplan-src="${escapeHtml(plan.href)}"
-          style="border: none; padding: 0; outline: none;"
-          aria-label="View ${escapeHtml(cleanTitle)}"
-        >
-          <img src="${escapeHtml(plan.href)}" alt="${escapeHtml(cleanTitle)} preview" />
-        </button>
-      `;
-    } else if (isPdf) {
-      thumbnailHtml = `
-        <button
-          class="floorplan-card-thumbnail floorplan-pdf-placeholder"
-          type="button"
-          data-floorplan-open
-          data-floorplan-title="${escapeHtml(cleanTitle)}"
-          data-floorplan-project="${escapeHtml(project.name)}"
-          data-floorplan-caption="Verify exact bed/bath counts, exposure direction, and net vs. outdoor square footage with the current packet."
-          data-floorplan-src="${escapeHtml(plan.href)}"
-          style="border: none; padding: 0; outline: none;"
-          aria-label="View ${escapeHtml(cleanTitle)}"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--bronze); margin-bottom: 8px;">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
-          <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--soft-ink);">Document Reference</span>
-        </button>
-      `;
-    }
-
-    return `
-      <div class="floorplan-card" data-plan-index="${index}">
-        ${thumbnailHtml}
-        <div class="floorplan-card-meta">
-          <span class="floorplan-card-tag">Residence Line</span>
-          <h4 class="floorplan-card-title">${escapeHtml(cleanTitle)}</h4>
-          <p class="floorplan-card-note">Verify exact bed/bath counts, exposure direction, and net vs. outdoor square footage with the current packet.</p>
-        </div>
-        <div class="floorplan-card-actions">
-          ${isPdf ? `<a class="button ghost" href="${escapeHtml(plan.href)}" download>Download PDF Reference</a>` : ""}
-          <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplan_card_${slugifiedTitle}">Request Availability</a>
-        </div>
-      </div>
-    `;
-  }).join("");
-
   const extraCount = Math.max(0, plans.length - 8);
   const footerHtml = extraCount > 0
-    ? `<p class="floorplans-extra-note">Plus ${extraCount} additional floorplan configurations available in Brooke's direct archive.</p>`
+    ? `<p class="floorplans-extra-note">${plans.length} floorplan records are organized in the new floorplan hub.</p>`
     : "";
 
   return `
@@ -9524,13 +9527,11 @@ function renderProjectFloorplansSection(project: FeaturedProject, floorplanProje
         <div class="section-heading">
           ${titleHtml}
         </div>
-        <div class="floorplan-cards-grid">
-          ${plansGridHtml}
-        </div>
-        <div class="floorplans-section-footer">
+        <div class="floorplans-section-footer floorplans-section-footer-single">
           ${footerHtml}
           <div class="floorplans-actions">
-            <a class="button primary" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplans_section_footer">Request Full Floor Plan Packet</a>
+            <a class="button primary" href="${libraryHref}">View Floorplans</a>
+            <a class="button ghost" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplans_section_footer">Request Current Packet</a>
           </div>
         </div>
       </div>

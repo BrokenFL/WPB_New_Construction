@@ -302,8 +302,9 @@ function renderFloorplansRoute(route, payload) {
           <article id="floorplans-${escapeHtml(project.projectId)}">
             <h3>${publicText(project.name)}</h3>
             <p>${project.count} floorplan records currently tracked. ${publicText(project.missingNote || "Request the current buyer packet before relying on any public floorplan record.")}</p>
+            <p><a href="/floorplans/#floorplans-${escapeHtml(project.projectId)}">Open ${publicText(project.name)} in the interactive floorplan library</a></p>
             <ul>
-              ${project.plans.slice(0, 8).map((plan) => `<li><a href="${safeHref(plan.href || plan.sourceUrl || "#")}">${publicText(plan.title)}</a> - ${publicText(plan.status || plan.sourceUse || "Floorplan record")}</li>`).join("")}
+              ${project.plans.slice(0, 8).map((plan) => `<li>${publicText(plan.title)} - ${publicText(plan.status || plan.sourceUse || "Floorplan record")}</li>`).join("")}
             </ul>
           </article>
         `).join("")}
@@ -496,7 +497,7 @@ function renderProjectRoute(route, payload, slug) {
               <ul style="margin: 10px 0 0 20px; padding: 0;">
                 <li><strong>Database Records:</strong> ${project.sourceCounts?.official ?? 0} official, ${project.sourceCounts?.reporting ?? 0} reporting, ${project.sourceCounts?.other ?? 0} other references.</li>
                 <li><strong>Confidence Level:</strong> ${publicText(project.dataConfidence || "Draft")}</li>
-                ${sources.length ? `<li><strong>Reviewed Sources:</strong><br>${sources.map((href) => `<a href="${safeHref(href)}" style="color: var(--bronze); text-decoration: none;">${publicText(sourceLabel(href))}</a>`).join(" · ")}</li>` : ""}
+                ${sources.length ? `<li><strong>Reviewed Sources:</strong><br>${sources.map((href) => renderStaticSourceLink(href, project.projectId)).join(" · ")}</li>` : ""}
               </ul>
             </div>
           </div>
@@ -939,6 +940,17 @@ function sourceLabel(href) {
   } catch {
     return href;
   }
+}
+
+function isFloorplanSourceHref(href) {
+  return /floor\s*plans?|floorplans?|floor-plan|floorplan|downloads|[/-]plans?[._/-]|plans?\.pdf(?:$|[?#])/i.test(href);
+}
+
+function renderStaticSourceLink(href, projectId) {
+  if (isFloorplanSourceHref(href)) {
+    return `<a href="/floorplans/#floorplans-${escapeHtml(projectId)}" style="color: var(--bronze); text-decoration: none;">WPB floorplan library</a>`;
+  }
+  return `<a href="${safeHref(href)}" style="color: var(--bronze); text-decoration: none;">${publicText(sourceLabel(href))}</a>`;
 }
 
 function buildRouteSchema(route, payload, canonical) {

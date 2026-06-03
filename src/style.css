@@ -2667,7 +2667,7 @@ h3 {
   z-index: 80;
   display: grid;
   place-items: center;
-  padding: clamp(14px, 3vw, 34px);
+  padding: max(14px, env(safe-area-inset-top)) clamp(14px, 3vw, 34px) max(14px, env(safe-area-inset-bottom));
 }
 
 .floorplan-viewer-backdrop {
@@ -2776,6 +2776,54 @@ h3 {
 
 body.has-floorplan-viewer {
   overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .floorplan-viewer {
+    align-items: start;
+    padding: max(38px, env(safe-area-inset-top)) 10px max(12px, env(safe-area-inset-bottom));
+  }
+
+  .floorplan-viewer-dialog {
+    width: min(100%, calc(100vw - 20px));
+    height: calc(100vh - 110px);
+    max-height: calc(100vh - 110px);
+    min-height: 0;
+    grid-template-rows: auto minmax(220px, 1fr) auto;
+  }
+
+  .floorplan-viewer-header {
+    min-height: 74px;
+    padding: 24px 58px 16px 16px;
+  }
+
+  .floorplan-viewer-close {
+    top: 16px;
+    right: 12px;
+  }
+
+  .floorplan-viewer-frame iframe,
+  .floorplan-viewer-frame img {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .floorplan-viewer-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+  }
+
+  .floorplan-viewer-actions a {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .floorplan-viewer-actions button,
+  .floorplan-viewer-actions a {
+    min-height: 48px;
+    padding: 10px 12px;
+  }
 }
 
 .floorplan-link span {
@@ -6957,6 +7005,43 @@ select:focus-visible {
   margin-top: 28px;
 }
 
+.floorplan-hub-link {
+  display: grid;
+  gap: 8px;
+  padding: 22px;
+  border: 1px solid rgba(154, 122, 79, 0.26);
+  background: rgba(255, 255, 255, 0.44);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.floorplan-hub-link span {
+  color: var(--bronze);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.floorplan-hub-link strong {
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.floorplan-hub-link small {
+  max-width: 480px;
+  color: var(--soft-ink);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.floorplan-hub-link:hover {
+  border-color: rgba(154, 122, 79, 0.54);
+  background: rgba(255, 255, 255, 0.62);
+}
+
 .brochure-inquiry-card {
   display: grid;
   align-content: center;
@@ -7829,12 +7914,15 @@ body {
 /* Mobile homepage art direction: keep the hero image and text separate. */
 @media (max-width: 720px) {
   .site-nav {
+    left: auto;
     position: relative;
     grid-template-columns: 1fr;
     gap: 12px;
+    width: auto;
     color: var(--ink);
     background: #fffaf1;
     border-bottom: 1px solid rgba(154, 122, 79, 0.16);
+    transform: none;
   }
 
   .site-nav nav {
@@ -8874,6 +8962,20 @@ body {
   gap: 16px !important;
 }
 
+.floorplans-section-footer-single {
+  align-items: flex-start !important;
+  max-width: 720px !important;
+  padding: 28px !important;
+  border: 1px solid rgba(154, 122, 79, 0.22) !important;
+  background: rgba(255, 255, 255, 0.36) !important;
+}
+
+.floorplans-section-footer-single .floorplans-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
 .floorplans-inquiry-box {
   border: 1px dashed rgba(154, 122, 79, 0.3) !important;
   border-radius: 6px !important;
@@ -9512,8 +9614,13 @@ body {
 
 /* Homepage second-draft editorial flow */
 .site-nav {
+  left: 50%;
   grid-template-columns: minmax(210px, 1fr) auto auto auto;
   gap: 18px;
+  width: min(1460px, calc(100% - clamp(48px, 12vw, 208px)));
+  padding-right: 0;
+  padding-left: 0;
+  transform: translateX(-50%);
 }
 
 .brand {
