@@ -9,6 +9,7 @@ const workspace = process.cwd();
 const reviewPath = path.join(workspace, "research/source-material-review/project-source-catalog.json");
 const projectsRoot = path.join(workspace, "research/asset-library/projects");
 const reviewRoot = path.join(workspace, "research/source-material-review");
+const canonicalProjectsPath = path.join(reviewRoot, "wpb-projects-canonical-v3-planning-update.json");
 const publicDataRoot = path.join(workspace, "public/data");
 const generatedRoot = path.join(workspace, "src/generated");
 const preferredRoot = path.join(workspace, "research/asset-library/preferred-image-exports");
@@ -205,7 +206,7 @@ const answerBlocks = [
     shortLabel: "Cost",
     question: "What will these West Palm Beach new-construction condos cost?",
     answer:
-      "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest with current official floorplans showing select residences from about $3.69M while February 2026 financing coverage used from about $3M, Ritz-Carlton from about $3M in current developer material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, Banyan Tree reporting around $1.9M, and South Flagler House with current official inquiry filters starting around $6M while the current residences page shows released homes from about $7.98M to $34.5M. The real answer is always line, floor, view, terrace, parking, and release phase.",
+      "Use public pricing only as a starting frame. Current source notes show Olara from roughly $1.7M in official fact material, Alba starting just under $3M, Shorecrest with current official floorplans showing select residences from about $3.69M while February 2026 financing coverage used from about $3M, Ritz-Carlton from about $3M in current developer material, Mandarin Oriental from $3.5M, Maison d'Or from $5.7M, NORA House from the low $2Ms on the current official site with March 2026 reporting around $2M to $6.5M, The Berkeley from $2M to over $10M on the current official site, Banyan Tree reporting around $1.9M, and South Flagler House with current official inquiry filters starting around $6M while the current residences page spans roughly $7.98M to $70M including penthouses. The real answer is always line, floor, view, terrace, parking, and release phase.",
     concept: "Pricing guidance",
     relatedProjectIds: ["olara", "alba-palm-beach", "shorecrest", "ritz-carlton-wpb", "maison-dor"],
     sources: ["official project sites", "The Real Deal", "Florida YIMBY", "project-source-catalog"],
@@ -2633,6 +2634,10 @@ function renderSitemap(projects) {
   ]);
   const publicProjectPath = (projectId) =>
     projectId === "south-flagler-house-north" ? "south-flagler-house" : projectId;
+  const projectIds = new Set([
+    ...projects.map((project) => project.projectId),
+    ...readCanonicalPublicProjectIds(),
+  ]);
   const urls = [
     ["", "1.0"],
     ["floorplans/", "0.9"],
@@ -2653,9 +2658,9 @@ function renderSitemap(projects) {
     ["privacy/", "0.5"],
     ["terms/", "0.5"],
     ["inquire/", "0.5"],
-    ...projects
-      .filter((project) => routableProjects.has(project.projectId))
-      .map((project) => [`projects/${publicProjectPath(project.projectId)}/`, "0.8"]),
+    ...[...projectIds]
+      .filter((projectId) => routableProjects.has(projectId))
+      .map((projectId) => [`projects/${publicProjectPath(projectId)}/`, "0.8"]),
   ];
   const uniqueUrls = [...new Map(urls.map(([pathPart, priority]) => [pathPart, [pathPart, priority]])).values()];
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -2671,6 +2676,18 @@ ${uniqueUrls
   .join("\n")}
 </urlset>
 `;
+}
+
+function readCanonicalPublicProjectIds() {
+  try {
+    const canonical = JSON.parse(fsSync.readFileSync(canonicalProjectsPath, "utf8"));
+    return (canonical.projects || [])
+      .filter((project) => project.include_on_site === true)
+      .map((project) => project.project_id || project.slug)
+      .filter(Boolean);
+  } catch {
+    return [];
+  }
 }
 
 function toJsonFeed(newsFeed) {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T23:55:42.857Z",
+  "generatedAt": "2026-06-02T21:40:16.728Z",
   "updatePolicy": "Buyer-facing development news feed refreshed from reviewed public material. Publish after human review of titles, facts, and source links.",
   "items": [
     {
@@ -23,7 +23,7 @@
           "sourceType": "development news coverage"
         },
         {
-          "label": "Mandarin Oriental Residences West Palm Beach",
+          "label": "Mandarin Oriental Residences, West Palm Beach",
           "href": "https://mandarinorientalwestpalmbeach.com/",
           "sourceType": "official project site"
         }
@@ -32,7 +32,7 @@
       "image": {
         "path": "",
         "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
-        "credit": "Source: Mandarin Oriental Residences West Palm Beach original project materials"
+        "credit": "Source: Mandarin Oriental Residences, West Palm Beach original project materials"
       },
       "citations": [
         "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
@@ -66,7 +66,7 @@
           "sourceType": "development news coverage"
         },
         {
-          "label": "Nora House",
+          "label": "NORA House",
           "href": "https://norahouse.com/",
           "sourceType": "official project site"
         }
@@ -190,7 +190,7 @@
           "sourceType": "official project site"
         },
         {
-          "label": "Nora House",
+          "label": "NORA House",
           "href": "https://norahouse.com/",
           "sourceType": "official project site"
         }

@@ -1,8 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
+import { qaNoWrite, qaReportPath } from "./qa-report-utils.mjs";
 
 const workspace = process.cwd();
-const outputPath = path.join(workspace, "research/news-review/development-news-candidates.json");
+const outputPath = qaNoWrite
+  ? qaReportPath(workspace, "research/news-review/development-news-candidates.json")
+  : path.join(workspace, "research/news-review/development-news-candidates.json");
 const defaultSourceWindowDays = 14;
 const fallbackSourceWindowDays = 30;
 

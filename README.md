@@ -17,11 +17,19 @@ Future Codex, Antigravity, Gemini, Claude, or other AI agents must read `docs/AI
 
 ## Data Refresh
 
-The generated site data is built from the source-material catalog and asset library:
+The generated site data is built from the source-material catalog, asset library, and tracked canonical planning snapshot:
 
 ```bash
 npm run research:site-intelligence
 ```
+
+Preview refresh deltas without leaving the checkout dirty:
+
+```bash
+npm run research:site-intelligence:dry-run
+```
+
+The dry run writes `.runtime/qa/source-refresh-dry-run.json` and restores generated files before exiting.
 
 That refreshes:
 

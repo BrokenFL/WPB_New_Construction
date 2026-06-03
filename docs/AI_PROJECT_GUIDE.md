@@ -15,15 +15,20 @@ That guide is required before duplicating or refining the Berkeley-style project
 ## 1. Current Source Of Truth
 
 - Active website repo: `BrokenFL/WPB_New_Construction`
-- Local website path: `/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB-New-Construction-Current`
+- Primary local website path: `/Volumes/ExternalSSD/WPB_NewConstruction`
+- Secondary/historical CloudDocs checkout: `/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB-New-Construction-Current`
 - Asset repo: `BrokenFL/WPB_New_Construction_Assets`
 - Local asset repo: `/Volumes/ExternalSSD/WPB_NewConstruction_Assets`
 - iCloud asset intake library: `/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB New Construction Asset Library`
 - Historical/stale repo name: `BrokenFL/WestPalmNewConstruction`
 
+As of 2026-06-03, use `/Volumes/ExternalSSD/WPB_NewConstruction` as the primary local website working checkout. Treat the CloudDocs checkout as secondary/historical unless Brooke explicitly asks you to inspect or recover from it. On 2026-06-03 the CloudDocs checkout was behind `origin/main` and dirty, so do not use it for normal implementation, QA, push, or deploy work without first proving it is intended and clean.
+
 Treat `BrokenFL/WPB_New_Construction` as the active operational website repo unless Brooke explicitly says a repo migration happened. Treat `BrokenFL/WestPalmNewConstruction` as historical, stale, or research metadata only unless current repo files and Brooke both confirm otherwise.
 
 The website repo is the live site code and deployment repo. The asset repo is the approved source warehouse. The iCloud asset library is a local intake/drop zone and is not a Git repo.
+
+Before editing, confirm the local checkout with `pwd`, `git remote -v`, `git branch --show-current`, and `git status --short --branch`. If the path is not `/Volumes/ExternalSSD/WPB_NewConstruction`, stop and explain why you are in another checkout before changing files.
 
 ## 2. Three-Layer Asset Architecture
 
@@ -110,7 +115,7 @@ Use lowercase dash/kebab-case stored filenames. Do not use underscores in final 
 Current website publisher script:
 
 ```bash
-cd "/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB-New-Construction-Current"
+cd "/Volumes/ExternalSSD/WPB_NewConstruction"
 npm run assets:publish:dry
 npm run assets:publish
 ```
@@ -276,15 +281,42 @@ Do not print secret values. Secret names and masked values are safe to report.
 Website repo commands:
 
 ```bash
+npm run monitor:worktree
+npm run research:canonical-projects
 npm run assets:audit
 npm run assets:publish:dry
 npm run assets:publish
 npm run assets:refresh:dry
 npm run assets:refresh
+npm run research:site-intelligence:dry-run
 npm run typecheck
 npm run build
 npm test
 ```
+
+## 9A. Canonical Project Schema Guardrail
+
+The tracked canonical planning snapshot is:
+
+```text
+research/source-material-review/wpb-projects-canonical-v3-planning-update.json
+```
+
+It preserves public project records, pipeline/watchlist records, completed comps, and internal hold/exclusion records so routine source refreshes do not silently drop projects.
+
+Validate it with:
+
+```bash
+npm run research:canonical-projects
+```
+
+Importing a new reviewed snapshot is deliberate, never scheduled:
+
+```bash
+npm run research:canonical-projects:import -- --source "/path/to/reviewed-canonical.json"
+```
+
+Do not point normal automation at the CloudDocs website checkout. External/iCloud files are recovery or reviewed intake material only.
 
 Asset repo direct commands:
 
@@ -304,7 +336,10 @@ gh workflow run deploy-cloudflare-pages.yml --ref main
 
 - Commit and push asset repo changes before dependent website changes.
 - Push the website repo only after the asset repo state it depends on is available.
-- Always verify both working trees are clean before starting and before pushing.
+- Always verify the SSD website repo and the asset repo working trees before starting and before pushing.
+- If the website repo is dirty, classify each path as user work, generated output, report-only output, or your intended edit before running scripts that rewrite files.
+- Do not stage, revert, overwrite, or clean dirty paths you did not create unless Brooke explicitly asks.
+- If a deploy is needed while the primary checkout is dirty with unrelated work, deploy from committed `main` or a fresh clean worktree, not from the dirty local state.
 - Never force-push.
 - Never rewrite history unless Brooke explicitly instructs it and understands the impact.
 - Run full website verification before website push:
@@ -367,11 +402,12 @@ Known good checks:
 Before making changes:
 
 1. Read this guide.
-2. Run git status in both repos.
+2. Confirm you are in `/Volumes/ExternalSSD/WPB_NewConstruction` for website work.
 3. Confirm active website repo is BrokenFL/WPB_New_Construction.
 4. Confirm asset repo is BrokenFL/WPB_New_Construction_Assets.
-5. Run npm run assets:audit before asset work.
-6. Do not proceed if the working tree contains unrelated dirty files.
-7. Ask Brooke before changing repo remotes or deployment workflow.
+5. Run git status in the SSD website repo and the asset repo.
+6. Classify any dirty paths before running generators, QA that writes reports, staging, pushing, or deploying.
+7. Run npm run assets:audit before asset work.
+8. Ask Brooke before changing repo remotes or deployment workflow.
 
 If current files contradict this guide, inspect carefully and report the contradiction before changing behavior.

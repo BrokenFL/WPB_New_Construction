@@ -5,11 +5,16 @@ import {
   readJsonFile,
   writeJsonFile,
 } from "./news-draft-utils.mjs";
+import { qaNoWrite, qaReportPath } from "./qa-report-utils.mjs";
+
+const workspace = process.cwd();
+const noWrite = qaNoWrite;
+const outputPath = noWrite ? qaReportPath(workspace, "content/newsletter-digest-drafts.json") : newsletterDraftsPath;
 
 async function main() {
   const news = await readDraftStore();
   const approvedNews = await readJsonFile(approvedNewsPath, []);
-  const digests = await readJsonFile(newsletterDraftsPath, { version: 1, updatedAt: "", items: [] });
+  const digests = await readJsonFile(noWrite ? outputPath : newsletterDraftsPath, { version: 1, updatedAt: "", items: [] });
   const publishedUpdates = approvedNews
     .filter((item) => item.status === "published")
     .sort((a, b) => String(b.publishedAt || b.sourcePublishedAt || b.fetchedAt).localeCompare(String(a.publishedAt || a.sourcePublishedAt || a.fetchedAt)))
@@ -62,8 +67,8 @@ async function main() {
   else digests.items.unshift(digest);
   digests.version = 1;
   digests.updatedAt = new Date().toISOString();
-  await writeJsonFile(newsletterDraftsPath, digests);
-  console.log(JSON.stringify({ digest: id, stories: digest.storyBlurbs.length, output: "content/newsletter-digest-drafts.json" }, null, 2));
+  await writeJsonFile(outputPath, digests);
+  console.log(JSON.stringify({ digest: id, stories: digest.storyBlurbs.length, output: noWrite ? ".runtime/qa/newsletter-digest-drafts.json" : "content/newsletter-digest-drafts.json", noWrite }, null, 2));
 }
 
 main().catch((error) => {

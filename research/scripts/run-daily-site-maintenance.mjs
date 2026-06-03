@@ -7,18 +7,20 @@ const workspace = process.cwd();
 const reportPath = qaReportPath(workspace, "research/source-material-review/daily-maintenance-report.md");
 const taskTimeoutMs = Number(process.env.DAILY_MAINTENANCE_TASK_TIMEOUT_MS ?? 180_000);
 const tasks = [
-  ["import GPT news issue drafts", "npm", ["run", "news:import-gpt"]],
+  ["import GPT news issue drafts", "npm", ["run", "news:import-gpt", "--", ...(qaNoWrite ? ["--dry-run"] : [])]],
   ["validate news drafts", "npm", ["run", "qa:news"]],
-  ["publish eligible queued low-risk news", "npm", ["run", "news:publish-queued"]],
+  ...qaNoWrite ? [] : [["publish eligible queued low-risk news", "npm", ["run", "news:publish-queued"]]],
   ["generate newsletter digest draft", "npm", ["run", "newsletter:draft"]],
-  ["import developer/project images", "npm", ["run", "import:developer-images"]],
-  ["review imported developer/project images", "npm", ["run", "review:developer-images"]],
+  ...qaNoWrite ? [] : [
+    ["import developer/project images", "npm", ["run", "import:developer-images"]],
+    ["review imported developer/project images", "npm", ["run", "review:developer-images"]],
+  ],
   ["check news/update sources", "npm", ["run", "news:fetch"]],
   ["check imported project updates", "npm", ["run", "check:updates"]],
   ["check stale public copy", "npm", ["run", "qa:copy"]],
   ["check image repetition and placement", "npm", ["run", "qa:image-repetition"]],
   ["check asset/performance budgets", "npm", ["run", "qa:performance"]],
-  ["inventory duplicate assets", "npm", ["run", "assets:duplicates"]],
+  ["inventory duplicate assets", "node", ["research/scripts/report-duplicate-assets.mjs"]],
   ["run launch QA", "npm", ["run", "qa:launch:no-write"]],
 ];
 

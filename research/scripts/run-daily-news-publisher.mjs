@@ -8,9 +8,9 @@ const dryRun = process.argv.includes("--dry-run");
 const reportPath = qaReportPath(workspace, "research/source-material-review/news-publisher-report.md");
 const taskTimeoutMs = Number(process.env.NEWS_PUBLISHER_TASK_TIMEOUT_MS ?? 180_000);
 const tasks = [
-  ["import GPT news issue drafts", "npm", ["run", "news:import-gpt"]],
+  ["import GPT news issue drafts", "npm", ["run", "news:import-gpt", "--", ...(qaNoWrite ? ["--dry-run"] : [])]],
   ["validate news drafts", "npm", ["run", "qa:news"]],
-  ...dryRun ? [] : [["publish eligible queued low-risk news", "npm", ["run", "news:publish-queued"]]],
+  ...dryRun || qaNoWrite ? [] : [["publish eligible queued low-risk news", "npm", ["run", "news:publish-queued"]]],
   ["generate newsletter digest draft", "npm", ["run", "newsletter:draft"]],
   ["check approved news surface", "npm", ["run", "qa:approved-news"]],
   ["check news image mapping", "npm", ["run", "qa:news-images"]],

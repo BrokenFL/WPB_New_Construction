@@ -17,4 +17,4 @@ Recommended refresh task:
 - Draft new feed titles, modified dates, source links, and conflict notes.
 - Require human review before publishing changed copy or new images.
 
-Current feed item count: 6
+Current feed item count: 5
