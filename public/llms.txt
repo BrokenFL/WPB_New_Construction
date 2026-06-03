@@ -46,15 +46,16 @@ The site is built to help buyers understand which West Palm Beach condo building
 ## Floorplan Coverage
 
 - Alba Palm Beach: 10 floorplan records
-- Olara West Palm Beach: 55 floorplan records
+- Olara: 55 floorplan records
 - Shorecrest: 9 floorplan records
 - The Ritz-Carlton Residences, West Palm Beach: 28 floorplan records
+- Mr. C Hotel & Residences West Palm Beach: 64 floorplan records
 - The Berkeley Palm Beach: 9 floorplan records
-- Nora House: 65 floorplan records
-- South Flagler House: 3 floorplan records
-- Mr. C Residences West Palm Beach: 64 floorplan records
-- Maison d’Or: 2 floorplan records
+- NORA House: 65 floorplan records
 - Forté on Flagler: 5 floorplan records
+- Maison d'Or: 2 floorplan records
+- South Flagler House North Tower: 3 floorplan records
+- South Flagler House South Tower: 3 floorplan records
 
 ## Current Updates
 

@@ -1,19 +1,24 @@
 import fs from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
+import { qaNoWrite, qaReportPath } from "./qa-report-utils.mjs";
 
 const workspace = process.cwd();
 const reviewRoot = path.join(workspace, "research/source-material-review");
-const jsonPath = path.join(reviewRoot, "asset-duplicate-inventory.json");
-const mdPath = path.join(reviewRoot, "asset-duplicate-inventory.md");
+const jsonPath = qaNoWrite
+  ? qaReportPath(workspace, "research/source-material-review/asset-duplicate-inventory.json")
+  : path.join(reviewRoot, "asset-duplicate-inventory.json");
+const mdPath = qaNoWrite
+  ? qaReportPath(workspace, "research/source-material-review/asset-duplicate-inventory.md")
+  : path.join(reviewRoot, "asset-duplicate-inventory.md");
 const metricVersion = 2;
 const skipDirs = new Set([".git", "node_modules", "dist"]);
 const sourcePrefixes = ["public/", "research/"];
 
 async function main() {
   const args = new Set(process.argv.slice(2));
-  const shouldWrite = args.has("--write");
-  const previous = await readJsonIfExists(jsonPath);
+  const shouldWrite = args.has("--write") || qaNoWrite;
+  const previous = await readJsonIfExists(path.join(reviewRoot, "asset-duplicate-inventory.json"));
   const files = await listWorkspaceFiles(workspace);
   const groups = await duplicateGroups(files);
   const sourceGroups = projectedGroups(groups, (filePath) => isSourcePath(filePath) && !filePath.startsWith("research/source-repos/"));

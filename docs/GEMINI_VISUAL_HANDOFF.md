@@ -4,6 +4,8 @@ Date: 2026-05-26
 
 ## Current State Snapshot
 
+2026-06-03 update: the primary local website checkout for new work is now `/Volumes/ExternalSSD/WPB_NewConstruction`. The CloudDocs path below is part of this 2026-05-26 historical snapshot and should not be used for new implementation unless Brooke explicitly asks for CloudDocs recovery or comparison work.
+
 - Current repo path: `/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB-New-Construction-Current`
 - Current branch: `main`
 - Inspected HEAD before this handoff doc was added: `1d49b7d6e0f2c9d4b7eb2231ad98b11326e23f84` (`Add Alba approved asset registry test`)
@@ -38,7 +40,7 @@ GitHub `main` is the source of truth:
 
 The active local repo path is:
 
-`/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB-New-Construction-Current`
+`/Volumes/ExternalSSD/WPB_NewConstruction`
 
 The live site is:
 
@@ -272,11 +274,15 @@ Avoid the stale old iCloud repo with the trailing-space name:
 
 `/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/New Construction `
 
-Use only:
+Use the current primary checkout for new work:
+
+`/Volumes/ExternalSSD/WPB_NewConstruction`
+
+Treat this older CloudDocs checkout as secondary/historical unless Brooke explicitly asks for it:
 
 `/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB-New-Construction-Current`
 
-There may be source-refresh, news, or other dirty files in other working copies. Do not mix those into visual work. Inspect the active repo before any implementation.
+There may be source-refresh, news, or other dirty files in other working copies. Do not mix those into visual work. Inspect the active repo before any implementation, and classify dirty paths before running generators, staging, pushing, or deploying.
 
 ## How Gemini Should Provide Output
 

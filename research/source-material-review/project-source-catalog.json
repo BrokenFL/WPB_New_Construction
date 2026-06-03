@@ -890,7 +890,7 @@
         "residences": "Current official fact-sheet/property material points to 100 residences; the February 18, 2026 financing release still says 98",
         "stories": "28",
         "completion": "Expected 2027",
-        "pricing": "From about $3M in current reporting; live official floorplans currently show select residences from $3.05M",
+        "pricing": "From about $3M in current reporting; live official floorplans currently show select residences from $3.69M",
         "team": "Related Ross; Roger Ferris + Partners; Revuelta; Rottet Studio; DS Boca; Related Sales/Corcoran Sunshine"
       },
       "sourceCounts": {
@@ -3151,7 +3151,7 @@
         "residences": "108 in official site/fact material for full project; Related Ross loan release says 105",
         "stories": "Two 28-story towers",
         "completion": "Expected/delivering 2027",
-        "pricing": "Current official inquiry and availability surfaces start at about $6M, with dated live availability ranging materially higher; verify the current sheet by line and tower.",
+        "pricing": "Current official inquiry and availability surfaces start at about $6M, while the current residences page spans roughly $7.98M to $70M including penthouses; verify the current sheet by line and tower.",
         "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture"
       },
       "sourceCounts": {
@@ -3180,7 +3180,7 @@
       ],
       "conflicts": [
         "Residence count conflict: 108 vs 105 depending on official/developer source date.",
-        "Pricing availability varies by date: the current official inquiry and availability surfaces begin at about $6M, while the current residences page shows released homes from about $7.98M to $34.5M."
+        "Pricing availability varies by date: the current official inquiry and availability surfaces begin at about $6M, while the current residences page spans roughly $7.98M to $70M including penthouses."
       ],
       "gaps": [
         "No complete public floor-plan PDF library found beyond site-plan/tier imagery.",
@@ -3257,7 +3257,7 @@
         "residences": "Part of the full South Flagler House residence count",
         "stories": "28",
         "completion": "Expected/delivering 2027",
-        "pricing": "Current official inquiry and availability surfaces start at about $6M, with dated live availability ranging materially higher; verify the current sheet by line and tower.",
+        "pricing": "Current official inquiry and availability surfaces start at about $6M, while the current residences page spans roughly $7.98M to $70M including penthouses; verify the current sheet by line and tower.",
         "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture"
       },
       "sourceCounts": {
@@ -3283,7 +3283,7 @@
         "Use shared South Flagler House materials; avoid duplicating exact same copy on both tower pages."
       ],
       "conflicts": [
-        "Same full-project count conflicts as north tower; pricing availability varies by date, with current official inquiry surfaces beginning at about $6M while the current residences page shows released homes from about $7.98M to $34.5M."
+        "Same full-project count conflicts as north tower; pricing availability varies by date, with current official inquiry surfaces beginning at about $6M while the current residences page spans roughly $7.98M to $70M including penthouses."
       ],
       "gaps": [
         "Need decide whether this remains a separate card or becomes one South Flagler House page.",
