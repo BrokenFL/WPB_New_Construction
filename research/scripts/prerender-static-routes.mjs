@@ -271,7 +271,7 @@ function renderCorridorsIndexRoute(route, payload) {
         <h2>Corridor choices</h2>
         ${corridorRows.map(({ slug, corridor, projects }) => `
           <article>
-            <h3><a href="${corridorPathForKey(slug)}">${publicText(corridor.label)}</a></h3>
+            <h3><a href="${corridorDirectoryPathForKey(slug)}">${publicText(corridor.label)}</a></h3>
             <p>${publicText(corridor.summary)}</p>
             <p>${projects.length} tracked project${projects.length === 1 ? "" : "s"} currently assigned to this corridor.</p>
           </article>
@@ -784,6 +784,11 @@ function corridorKeyForProject(project) {
 
 function corridorPathForKey(key) {
   return key === "downtown" ? "/corridors/downtown-west-palm-beach/" : `/corridors/${key}/`;
+}
+
+function corridorDirectoryPathForKey(key) {
+  const filter = key === "downtown-west-palm-beach" ? "downtown" : key;
+  return `/buildings/?filter=${filter}`;
 }
 
 function corridorLabelForKey(key) {

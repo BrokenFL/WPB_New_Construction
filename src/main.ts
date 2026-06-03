@@ -133,6 +133,12 @@ type ProjectFilter = {
   label: string;
 };
 
+type ProjectFilterSelection = {
+  corridor: string;
+  status: string;
+  floorplans: string;
+};
+
 type CorridorSection = {
   key: CorridorKey;
   label: string;
@@ -949,6 +955,26 @@ const projectFilters: ProjectFilter[] = [
   { key: "announced-planned", label: "Announced / Planned" },
   { key: "completed-opportunities", label: "Completed Opportunities" },
   { key: "floorplans", label: "Floor Plans" },
+];
+
+const projectCorridorFilters: ProjectFilter[] = [
+  { key: "all", label: "All Corridors" },
+  { key: "north-flagler", label: "North Flagler" },
+  { key: "south-flagler", label: "South Flagler" },
+  { key: "downtown", label: "Downtown" },
+];
+
+const projectStatusFilters: ProjectFilter[] = [
+  { key: "all", label: "All Statuses" },
+  { key: "active-sales", label: "Active Sales" },
+  { key: "under-construction", label: "Under Construction" },
+  { key: "announced-planned", label: "Announced / Planned" },
+  { key: "completed-opportunities", label: "Completed Opportunities" },
+];
+
+const projectFloorplanFilters: ProjectFilter[] = [
+  { key: "all", label: "Any Floorplans" },
+  { key: "floorplans", label: "Floorplans Available" },
 ];
 
 const newsFilters: ProjectFilter[] = [
@@ -2420,9 +2446,10 @@ app.innerHTML = `
         <div class="corridor-guide-grid">
           ${homepageCorridorKeys.map((key) => corridorSections.find((section) => section.key === key)).filter((section): section is CorridorSection => Boolean(section)).map((section) => {
             const cardOverride = approvedHomepageCardOverride("corridors", section.key);
+            const directoryPath = corridorDirectoryPath(section.key);
             return `
               <article class="corridor-guide-card">
-                <a class="corridor-guide-image-link" href="${corridorPath(section.key)}" aria-label="View ${section.label} projects">
+                <a class="corridor-guide-image-link" href="${directoryPath}" aria-label="View ${section.label} projects">
                   ${cardOverride?.imagePath ? renderHomepageOverrideImage(cardOverride, section.label, "corridor-guide-image") : `<figure class="corridor-guide-image"><img src="${homepageAssets.corridors[section.key]}" alt="${section.label} West Palm Beach new-construction corridor" loading="lazy" decoding="async" /></figure>`}
                 </a>
                 <div class="corridor-guide-card-body">
@@ -2430,7 +2457,7 @@ app.innerHTML = `
                   <strong>${escapeHtml(cardOverride?.headline || section.label)}</strong>
                   <p>${escapeHtml(cardOverride?.deck || cardOverride?.subhead || homepageCorridorCopy(section.key))}</p>
                 </div>
-                <a href="${corridorPath(section.key)}">${escapeHtml(cardOverride?.ctaLabel || `Explore ${section.label}`)} <span aria-hidden="true">→</span></a>
+                <a href="${directoryPath}">${escapeHtml(cardOverride?.ctaLabel || `Explore ${section.label}`)} <span aria-hidden="true">→</span></a>
               </article>
             `;
           }).join("")}
@@ -4662,12 +4689,14 @@ function buildHomeItemListSchema() {
   };
 }
 
-function renderProjectFilter(filter: ProjectFilter) {
-  const active = filter.key === "all" ? " is-active" : "";
+function renderProjectFilterSelect(group: "corridor" | "status" | "floorplans", label: string, filters: ProjectFilter[]) {
   return `
-    <button class="filter-chip${active}" type="button" data-project-filter="${filter.key}" aria-pressed="${filter.key === "all"}">
-      ${filter.label}
-    </button>
+    <label class="project-filter-control">
+      <span>${label}</span>
+      <select data-project-filter-group="${group}" aria-label="${label}">
+        ${filters.map((filter) => `<option value="${filter.key}">${filter.label}</option>`).join("")}
+      </select>
+    </label>
   `;
 }
 
@@ -4812,17 +4841,19 @@ function renderBuildingsRouteView() {
     <div class="route-view route-view-buildings" data-route-view="buildings" hidden>
       <section class="buildings-route-hero">
         <p class="eyebrow">Project Directory</p>
-        <h1>Browse by Project Readiness</h1>
-        <p>Not every new-construction project is at the same stage. Compare actively selling, under-construction, announced or planned, and completed opportunities by timing, available information, and how close each project is to occupancy.</p>
+        <h1 data-directory-title>Browse West Palm Beach New Construction</h1>
+        <p data-directory-deck>Explore the city’s tracked condo developments by corridor, sales status, floorplan availability, and practical buyer fit.</p>
       </section>
       <section class="project-sort-shell buildings-directory" id="projects">
         <div class="project-sort-header">
           <div>
-            <p class="eyebrow">All Projects</p>
-            <h2>${escapeHtml(approvedHomepageOverride("featured-buildings")?.headline || "Open the complete project directory.")}</h2>
+            <p class="eyebrow" data-directory-kicker>All Projects</p>
+            <h2 data-directory-subtitle>${escapeHtml(approvedHomepageOverride("featured-buildings")?.headline || "Open the complete project directory.")}</h2>
             <p class="selected-filter-summary" data-filter-summary>${escapeHtml(approvedHomepageOverride("featured-buildings")?.subhead || "All tracked projects shown. Filter by corridor, readiness, or floorplan availability.")}</p>
-            <div class="filter-chips" role="list" aria-label="Project filters">
-              ${projectFilters.map(renderProjectFilter).join("")}
+            <div class="project-filter-controls" aria-label="Project filters">
+              ${renderProjectFilterSelect("corridor", "Corridor", projectCorridorFilters)}
+              ${renderProjectFilterSelect("status", "Status", projectStatusFilters)}
+              ${renderProjectFilterSelect("floorplans", "Floorplans", projectFloorplanFilters)}
             </div>
           </div>
           <label class="sort-control">
@@ -4941,6 +4972,10 @@ function corridorPath(key: CorridorKey) {
   return `/corridors/${key}/`;
 }
 
+function corridorDirectoryPath(key: CorridorKey) {
+  return `/buildings/?filter=${key}`;
+}
+
 function corridorImageId(key: CorridorKey) {
   if (key === "north-flagler") return "flagler-waterfront-corridor";
   if (key === "south-flagler") return "south-flagler-corridor";
@@ -4951,12 +4986,6 @@ function corridorDisplayLabel(key: CorridorKey) {
   if (key === "north-flagler") return "NORTH FLAGLER";
   if (key === "south-flagler") return "SOUTH FLAGLER";
   return "DOWNTOWN / ROSEMARY";
-}
-
-function corridorCtaLabel(key: CorridorKey) {
-  if (key === "north-flagler") return "View North Flagler Projects";
-  if (key === "south-flagler") return "View South Flagler Projects";
-  return "View Downtown Projects";
 }
 
 function corridorBuyerThesis(section: CorridorSection) {
@@ -5214,16 +5243,17 @@ function renderCorridorsRouteView() {
 }
 
 function renderCorridorsFeatureCard(card: ReturnType<typeof corridorHubCards>[number]) {
+  const directoryPath = corridorDirectoryPath(card.key);
   return `
     <article class="corridors-feature-card">
-      <a class="corridors-feature-image" href="${corridorPath(card.key)}" aria-label="Explore ${corridorDisplayLabel(card.key)}">
+      <a class="corridors-feature-image" href="${directoryPath}" aria-label="Explore ${corridorDisplayLabel(card.key)} projects">
         <img src="${safeHref(card.image)}" alt="${escapeHtml(card.alt)}" loading="lazy" decoding="async" />
       </a>
       <div>
         <span>${escapeHtml(card.kicker)}</span>
         <h2>${escapeHtml(card.headline)}</h2>
         <p>${escapeHtml(card.body)}</p>
-        <a href="${corridorPath(card.key)}">Explore ${corridorDisplayLabel(card.key)} <span aria-hidden="true">→</span></a>
+        <a href="${directoryPath}">View ${corridorDisplayLabel(card.key)} Projects <span aria-hidden="true">→</span></a>
       </div>
     </article>
   `;
@@ -5234,7 +5264,7 @@ function renderMapCorridorCard(section: CorridorSection) {
   return `
     <article class="map-corridor-card">
       ${renderEditorialImagePanel(corridorImageId(section.key), { compact: true, className: "map-corridor-card-image" })}
-      <a href="${corridorPath(section.key)}">${corridorDisplayLabel(section.key)}</a>
+      <a href="${corridorDirectoryPath(section.key)}">${corridorDisplayLabel(section.key)}</a>
       <p>${corridorBuyerThesis(section)}</p>
       <dl>
         <div>
@@ -5242,7 +5272,7 @@ function renderMapCorridorCard(section: CorridorSection) {
           <dd>${projects.length}</dd>
         </div>
       </dl>
-      <a class="map-corridor-cta" href="${corridorPath(section.key)}">${corridorCtaLabel(section.key)} <span aria-hidden="true">→</span></a>
+      <a class="map-corridor-cta" href="${corridorDirectoryPath(section.key)}">View ${corridorDisplayLabel(section.key)} Projects <span aria-hidden="true">→</span></a>
     </article>
   `;
 }
@@ -9014,12 +9044,16 @@ function initFloorplanViewer() {
 function initProjectBrowser() {
   const grid = document.querySelector<HTMLElement>("[data-project-grid]");
   const sortSelect = document.querySelector<HTMLSelectElement>("[data-project-sort]");
-  const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-project-filter]"));
+  const filterSelects = Array.from(document.querySelectorAll<HTMLSelectElement>("[data-project-filter-group]"));
   const statusShortcuts = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-status-shortcut]"));
   const railButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-project-scroll]"));
   const visibleCount = document.querySelector<HTMLElement>("[data-visible-count]");
   const coordinateDrawer = document.querySelector<HTMLElement>("[data-coordinate-drawer]");
   const filterSummary = document.querySelector<HTMLElement>("[data-filter-summary]");
+  const directoryTitle = document.querySelector<HTMLElement>("[data-directory-title]");
+  const directoryDeck = document.querySelector<HTMLElement>("[data-directory-deck]");
+  const directoryKicker = document.querySelector<HTMLElement>("[data-directory-kicker]");
+  const directorySubtitle = document.querySelector<HTMLElement>("[data-directory-subtitle]");
   const mapPanel = document.querySelector<HTMLElement>(".landing-map-panel");
 
   if (!grid || !sortSelect) {
@@ -9028,18 +9062,18 @@ function initProjectBrowser() {
 
   const cards = Array.from(grid.querySelectorAll<HTMLElement>("[data-project-card]"));
   const pins = Array.from(document.querySelectorAll<HTMLElement>("[data-map-pin]"));
-  const requestedFilter = new URLSearchParams(window.location.search).get("filter") ?? "all";
-  let activeFilter = projectFilters.some((filter) => filter.key === requestedFilter) ? requestedFilter : "all";
+  const filterState = filterSelectionFromUrl(new URLSearchParams(window.location.search));
 
   const applyProjectState = () => {
     const sortedCards = [...cards].sort((a, b) => compareProjectCards(a, b, sortSelect.value));
     sortedCards.forEach((card) => grid.append(card));
 
     let visibleProjects = 0;
-    mapPanel?.setAttribute("data-active-filter", activeFilter);
+    const primaryFilter = primaryProjectFilter(filterState);
+    mapPanel?.setAttribute("data-active-filter", primaryFilter);
 
     cards.forEach((card) => {
-      const matches = projectMatchesFilter(card, activeFilter);
+      const matches = projectMatchesSelection(card, filterState);
       card.hidden = !matches;
       if (matches) {
         visibleProjects += 1;
@@ -9047,9 +9081,9 @@ function initProjectBrowser() {
     });
 
     pins.forEach((pin) => {
-      const matches = projectMatchesFilter(pin, activeFilter);
+      const matches = projectMatchesSelection(pin, filterState);
       pin.hidden = !matches;
-      pin.classList.toggle("is-muted", activeFilter !== "all" && !matches);
+      pin.classList.toggle("is-muted", primaryFilter !== "all" && !matches);
     });
 
     if (visibleCount) {
@@ -9057,34 +9091,34 @@ function initProjectBrowser() {
     }
 
     if (coordinateDrawer) {
-      coordinateDrawer.innerHTML = renderCorridorSummary(activeFilter);
+      coordinateDrawer.innerHTML = renderCorridorSummary(primaryFilter);
     }
 
     if (filterSummary) {
-      filterSummary.textContent = filterSummaryText(activeFilter, visibleProjects);
+      filterSummary.textContent = filterSummaryText(filterState, visibleProjects);
     }
+
+    const heading = directoryHeadingText(filterState, visibleProjects);
+    if (directoryTitle) directoryTitle.textContent = heading.title;
+    if (directoryDeck) directoryDeck.textContent = heading.deck;
+    if (directoryKicker) directoryKicker.textContent = heading.kicker;
+    if (directorySubtitle) directorySubtitle.textContent = heading.subtitle;
   };
 
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      activeFilter = button.dataset.projectFilter ?? "all";
-      filterButtons.forEach((item) => {
-        const isActive = item.dataset.projectFilter === activeFilter;
-        item.classList.toggle("is-active", isActive);
-        item.setAttribute("aria-pressed", String(isActive));
-      });
+  filterSelects.forEach((select) => {
+    select.addEventListener("change", () => {
+      const group = select.dataset.projectFilterGroup as keyof ProjectFilterSelection;
+      filterState[group] = select.value;
+      syncProjectFilterUrl(filterState);
       applyProjectState();
     });
   });
 
   statusShortcuts.forEach((shortcut) => {
     shortcut.addEventListener("click", () => {
-      activeFilter = shortcut.dataset.statusShortcut ?? "all";
-      filterButtons.forEach((item) => {
-        const isActive = item.dataset.projectFilter === activeFilter;
-        item.classList.toggle("is-active", isActive);
-        item.setAttribute("aria-pressed", String(isActive));
-      });
+      applyLegacyProjectFilter(shortcut.dataset.statusShortcut ?? "all", filterState);
+      syncProjectFilterControls(filterSelects, filterState);
+      syncProjectFilterUrl(filterState);
       applyProjectState();
     });
   });
@@ -9096,11 +9130,7 @@ function initProjectBrowser() {
       grid.scrollBy({ left: direction * grid.clientWidth * 0.82, behavior: "smooth" });
     });
   });
-  filterButtons.forEach((button) => {
-    const isActive = button.dataset.projectFilter === activeFilter;
-    button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  });
+  syncProjectFilterControls(filterSelects, filterState);
   applyProjectState();
 }
 
@@ -9122,14 +9152,6 @@ function compareProjectCards(a: HTMLElement, b: HTMLElement, sortValue: string) 
   }
 
   return getNumericDataset(a, "rank") - getNumericDataset(b, "rank");
-}
-
-function projectMatchesFilter(element: HTMLElement, filter: string) {
-  if (filter === "all") {
-    return true;
-  }
-
-  return (element.dataset.filterValues ?? "").split(" ").includes(filter);
 }
 
 function renderCorridorSummary(activeFilter: string) {
@@ -9174,12 +9196,124 @@ function renderCorridorDrawerRow(section: CorridorSection) {
   `;
 }
 
-function filterSummaryText(activeFilter: string, visibleProjects: number) {
-  if (activeFilter === "all") {
+function filterSelectionFromUrl(params: URLSearchParams): ProjectFilterSelection {
+  const selection: ProjectFilterSelection = {
+    corridor: params.get("corridor") ?? "all",
+    status: params.get("status") ?? "all",
+    floorplans: params.get("floorplans") ?? "all",
+  };
+  applyLegacyProjectFilter(params.get("filter") ?? "all", selection);
+  if (!projectCorridorFilters.some((filter) => filter.key === selection.corridor)) selection.corridor = "all";
+  if (!projectStatusFilters.some((filter) => filter.key === selection.status)) selection.status = "all";
+  if (!projectFloorplanFilters.some((filter) => filter.key === selection.floorplans)) selection.floorplans = "all";
+  return selection;
+}
+
+function applyLegacyProjectFilter(filter: string, selection: ProjectFilterSelection) {
+  if (projectCorridorFilters.some((item) => item.key === filter && filter !== "all")) {
+    selection.corridor = filter;
+    return;
+  }
+  if (projectStatusFilters.some((item) => item.key === filter && filter !== "all")) {
+    selection.status = filter;
+    return;
+  }
+  if (filter === "floorplans") {
+    selection.floorplans = "floorplans";
+  }
+}
+
+function syncProjectFilterControls(selects: HTMLSelectElement[], selection: ProjectFilterSelection) {
+  selects.forEach((select) => {
+    const group = select.dataset.projectFilterGroup as keyof ProjectFilterSelection;
+    select.value = selection[group] ?? "all";
+  });
+}
+
+function syncProjectFilterUrl(selection: ProjectFilterSelection) {
+  const params = new URLSearchParams(window.location.search);
+  params.delete("filter");
+  (["corridor", "status", "floorplans"] as const).forEach((group) => {
+    if (selection[group] === "all") {
+      params.delete(group);
+    } else {
+      params.set(group, selection[group]);
+    }
+  });
+  const query = params.toString();
+  const nextUrl = `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`;
+  window.history.replaceState(null, "", nextUrl);
+}
+
+function primaryProjectFilter(selection: ProjectFilterSelection) {
+  return selection.corridor !== "all" ? selection.corridor : selection.status !== "all" ? selection.status : selection.floorplans;
+}
+
+function projectMatchesSelection(element: HTMLElement, selection: ProjectFilterSelection) {
+  const values = (element.dataset.filterValues ?? "").split(" ");
+  return (["corridor", "status", "floorplans"] as const).every((group) => {
+    const value = selection[group];
+    return value === "all" || values.includes(value);
+  });
+}
+
+function filterSummaryText(selection: ProjectFilterSelection, visibleProjects: number) {
+  const activeLabels = activeProjectFilterLabels(selection);
+  if (!activeLabels.length) {
     return `${visibleProjects} tracked projects shown. Select a corridor to focus the atlas and project cards.`;
   }
-  const section = corridorSections.find((item) => item.key === activeFilter);
-  return `${visibleProjects} ${getFilterLabel(activeFilter)} project${visibleProjects === 1 ? "" : "s"} shown${section ? ` · ${section.detail}` : ""}.`;
+  const section = corridorSections.find((item) => item.key === selection.corridor);
+  return `${visibleProjects} project${visibleProjects === 1 ? "" : "s"} shown for ${activeLabels.join(" + ")}${section ? ` · ${section.detail}` : ""}.`;
+}
+
+function activeProjectFilterLabels(selection: ProjectFilterSelection) {
+  return (["corridor", "status", "floorplans"] as const)
+    .map((group) => selection[group])
+    .filter((value) => value !== "all")
+    .map(getFilterLabel);
+}
+
+function directoryHeadingText(selection: ProjectFilterSelection, visibleProjects: number) {
+  if (selection.corridor !== "all") {
+    const label = getFilterLabel(selection.corridor);
+    return {
+      kicker: "Corridor Projects",
+      title: `${label} New Construction Projects`,
+      subtitle: `${label} buildings currently tracked.`,
+      deck: corridorDirectoryDeck(selection.corridor as CorridorKey),
+    };
+  }
+  if (selection.status !== "all") {
+    const label = getFilterLabel(selection.status);
+    return {
+      kicker: "Project Readiness",
+      title: `${label} New Construction Projects`,
+      subtitle: `${label} projects currently tracked.`,
+      deck: "Compare buildings by timing, information depth, current availability signals, and how close each opportunity is to occupancy.",
+    };
+  }
+  if (selection.floorplans !== "all") {
+    return {
+      kicker: "Floorplan Availability",
+      title: "Projects With Floorplans Available",
+      subtitle: "Buildings with floorplan material currently tracked.",
+      deck: "Start with projects where residence layouts are available, then compare view lines, room flow, outdoor space, and current buyer packet details.",
+    };
+  }
+  return {
+    kicker: "All Projects",
+    title: "Browse West Palm Beach New Construction",
+    subtitle: "Open the complete project directory.",
+    deck: `${visibleProjects} tracked condo developments organized by corridor, readiness, floorplans, and buyer fit.`,
+  };
+}
+
+function corridorDirectoryDeck(key: CorridorKey) {
+  return {
+    "north-flagler": "Waterfront and marina-area projects north of Downtown, with the deepest active pipeline and long-term redevelopment story.",
+    "south-flagler": "Quieter waterfront projects with Palm Beach views, prestige positioning, and a more residential daily rhythm.",
+    downtown: "Walkable projects near restaurants, offices, Brightline, CityPlace, Clematis, the Kravis Center, and NORA.",
+  }[key];
 }
 
 function projectDataMatchesFilter(project: FeaturedProject, filter: string) {

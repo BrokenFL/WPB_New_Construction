@@ -6560,12 +6560,14 @@ select:focus-visible {
   line-height: 1.35;
 }
 
-.filter-chips {
+.filter-chips,
+.project-filter-controls {
   gap: 14px;
   justify-content: flex-start;
 }
 
 .filter-chip,
+.project-filter-control select,
 .sort-control select {
   min-height: 42px;
   border: 1px solid rgba(154, 122, 79, 0.42);
@@ -6587,20 +6589,47 @@ select:focus-visible {
   background: #7d9994;
 }
 
+.project-filter-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  max-width: 720px;
+}
+
+.project-filter-control {
+  display: grid;
+  gap: 7px;
+}
+
 .sort-control {
   gap: 10px;
   color: var(--ink);
 }
 
-.sort-control span {
+.sort-control span,
+.project-filter-control span {
   color: var(--ink);
   font-weight: 400;
   text-transform: none;
 }
 
+.project-filter-control span {
+  color: var(--bronze);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-filter-control select,
 .sort-control select {
   min-width: 150px;
   padding: 0 40px 0 14px;
+  cursor: pointer;
+}
+
+.project-filter-control select {
+  width: 100%;
+  min-width: 0;
 }
 
 .project-rail {
@@ -7911,6 +7940,13 @@ select:focus-visible {
 
   .sort-control {
     width: 100%;
+  }
+
+  .project-filter-controls {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: none;
+    gap: 10px;
   }
 
   .sort-control select {
