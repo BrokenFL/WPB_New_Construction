@@ -7949,6 +7949,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const facts = (showcase?.factStrip?.length ? showcase.factStrip : defaultFacts).filter((fact) => isBuyerFacingValue(fact.value));
   const heroBlurb = showcase?.heroBlurb ?? copyPackage?.heroSubheadline ?? project.summary;
   const gallery = showcase?.gallery ?? [];
+  const galleryClass = showcase?.galleryLayout === "grid" ? "berkeley-gallery-grid" : "berkeley-gallery-slideshow";
   const residences = showcase?.residenceCollections ?? [];
   const amenities = showcase?.amenityHighlights ?? [];
   const teamFacts = (showcase?.projectTeam ?? []).filter((fact) => isBuyerFacingValue(fact.value));
@@ -8022,7 +8023,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         </div>
       </section>
 
-      ${gallery.length ? `<section class="berkeley-gallery-row berkeley-gallery-slideshow" aria-label="Project image gallery"><div class="berkeley-section-heading"><p class="berkeley-kicker">Gallery</p><a href="#berkeley-gallery">View all images <span aria-hidden="true">→</span></a></div><div class="berkeley-image-row" id="berkeley-gallery">${gallery.map((item, index) => `<figure><img src="${safeHref(item.src)}" alt="${publicText(item.alt ?? `${project.name} ${item.label}`)}" loading="${index < 4 ? "eager" : "lazy"}" decoding="async" /><figcaption>${publicText(item.label)}</figcaption></figure>`).join("")}</div></section>` : ""}
+      ${gallery.length ? `<section class="berkeley-gallery-row ${galleryClass}" aria-label="Project image gallery"><div class="berkeley-section-heading"><p class="berkeley-kicker">Gallery</p><a href="#berkeley-gallery">View all images <span aria-hidden="true">→</span></a></div><div class="berkeley-image-row" id="berkeley-gallery">${gallery.map((item, index) => `<figure><img src="${safeHref(item.src)}" alt="${publicText(item.alt ?? `${project.name} ${item.label}`)}" loading="${showcase?.galleryLayout === "grid" || index < 4 ? "eager" : "lazy"}" decoding="async" /><figcaption>${publicText(item.label)}</figcaption></figure>`).join("")}</div></section>` : ""}
 
       ${amenities.length ? `<section class="berkeley-amenity-rail" aria-label="Highlighted amenities"><div class="berkeley-section-heading"><p class="berkeley-kicker">Amenities</p></div><div class="berkeley-amenity-icon-grid">${amenities.map((amenity) => `<article>${berkeleyIcon(amenity.icon)}<span>${publicText(amenity.label)}</span></article>`).join("")}</div></section>` : ""}
 

@@ -56,6 +56,7 @@ export type ProjectShowcaseConfig = {
   residenceSectionLabel?: string;
   residenceSectionLinkText?: string;
   residenceSectionLinkHref?: string;
+  galleryLayout?: "carousel" | "grid";
   gallery?: ProjectShowcaseImage[];
   residenceCollections?: ProjectShowcaseResidence[];
   amenityHighlights?: ProjectShowcaseAmenity[];

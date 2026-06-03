@@ -3624,7 +3624,18 @@
           "price": "Request planning updates"
         }
       ],
+      "galleryLayout": "grid",
       "gallery": [
+        {
+          "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-hero-main-v01-web.jpg",
+          "label": "Main redevelopment rendering",
+          "alt": "Main rendering of the Rybovich Marina Redevelopment towers and podium"
+        },
+        {
+          "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-marina-district-v01-web.jpg",
+          "label": "North Flagler district view",
+          "alt": "Aerial rendering of the Rybovich Marina district and North Flagler waterfront"
+        },
         {
           "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-promenade-v01-web.jpg",
           "label": "Promenade arrival",
