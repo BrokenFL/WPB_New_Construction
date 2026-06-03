@@ -82,6 +82,18 @@ export const editorialImagery: readonly EditorialImage[] = [
     status: "available",
   },
   {
+    id: "wpb-corridors-aerial-hero",
+    title: "West Palm Beach corridor aerial",
+    routeUse: ["/corridors/"],
+    assetPath: "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg",
+    fallbackGradient: "geography",
+    alt: "Wide aerial view of West Palm Beach showing the Intracoastal waterfront, downtown towers, and surrounding corridor geography.",
+    caption: "West Palm Beach corridor orientation",
+    credit: "User-provided editorial image, optimized for site use.",
+    status: "available",
+    geographyNote: "Use as the primary corridor hub image for choosing between South Flagler, North Flagler, and Downtown.",
+  },
+  {
     id: "wpb-geography-map-hero",
     title: "West Palm Beach geography orientation",
     routeUse: ["/", "/map/", "/market-notes/downtown-west-palm-beach-condo-corridors-explained/"],

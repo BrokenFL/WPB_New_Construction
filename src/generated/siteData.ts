@@ -4973,6 +4973,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/corridors/",
+    "title": "West Palm Beach Condo Corridors | Buyer Guide",
+    "description": "Choose between South Flagler, North Flagler, and Downtown West Palm Beach new-construction condo corridors by lifestyle, waterfront position, and buyer fit.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
     "path": "/compare/",
     "title": "Compare West Palm Beach New Construction Condos",
     "description": "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",

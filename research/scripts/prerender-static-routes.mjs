@@ -188,6 +188,7 @@ function renderStaticRouteContent(route, payload) {
   if (routeKind.type === "market-note") return renderMarketNoteRoute(route, routeKind.slug);
   if (route.path === "/") return renderHomeRoute(route, payload);
   if (route.path === "/buildings/") return renderBuildingsRoute(route, payload);
+  if (route.path === "/corridors/") return renderCorridorsIndexRoute(route, payload);
   if (route.path === "/compare/") return renderCompareRoute(route, payload);
   if (route.path === "/floorplans/") return renderFloorplansRoute(route, payload);
   if (route.path === "/answers/") return renderAnswersRoute(route, payload);
@@ -246,6 +247,43 @@ function renderBuildingsRoute(route, payload) {
         <h2>Tracked building entities</h2>
         <p>Each project page is the canonical entity page for that building or benchmark. Public details are useful for orientation, but pricing, availability, incentives, fees, square footage, and timing require current buyer-side confirmation.</p>
         ${projectCards(payload.projectFacts)}
+      </section>
+    `,
+  );
+}
+
+function renderCorridorsIndexRoute(route, payload) {
+  const corridorRows = ["south-flagler", "north-flagler", "downtown-west-palm-beach"].map((slug) => {
+    const corridor = corridorDetails[slug];
+    const projects = payload.projectFacts.filter((project) => normalize(project.area).includes(normalize(corridor.label)));
+    return { slug, corridor, projects };
+  });
+  return pageShell(
+    "corridors",
+    "Choose Your West Palm Beach Corridor",
+    route.description,
+    `
+      <section>
+        <h2>West Palm Beach new construction is not one market.</h2>
+        <p>South Flagler, North Flagler, and Downtown each offer a different lifestyle, price point, and long-term value story. Start with where you want to live, then compare the buildings that fit that daily routine.</p>
+      </section>
+      <section>
+        <h2>Corridor choices</h2>
+        ${corridorRows.map(({ slug, corridor, projects }) => `
+          <article>
+            <h3><a href="${corridorPathForKey(slug)}">${publicText(corridor.label)}</a></h3>
+            <p>${publicText(corridor.summary)}</p>
+            <p>${projects.length} tracked project${projects.length === 1 ? "" : "s"} currently assigned to this corridor.</p>
+          </article>
+        `).join("")}
+      </section>
+      <section>
+        <h2>Map and project comparison</h2>
+        <ul>
+          <li><a href="/map/">Open the project map</a></li>
+          <li><a href="/buildings/">Browse all projects</a></li>
+          <li><a href="/compare/">Compare buildings</a></li>
+        </ul>
       </section>
     `,
   );

@@ -88,6 +88,7 @@ type Route =
   | { type: "home"; projectId?: undefined }
   | { type: "buildings"; projectId?: undefined }
   | { type: "map"; projectId?: undefined }
+  | { type: "corridors"; projectId?: undefined }
   | { type: "compare"; projectId?: undefined }
   | { type: "corridor"; corridorKey: CorridorKey; projectId?: undefined }
   | { type: "news"; projectId?: undefined }
@@ -397,6 +398,8 @@ const staticRoutePaths: Record<string, string> = {
   "/buildings/": "buildings",
   "/map": "map",
   "/map/": "map",
+  "/corridors": "corridors",
+  "/corridors/": "corridors",
   "/compare": "compare",
   "/compare/": "compare",
   "/floorplans/": "floorplans",
@@ -2343,7 +2346,7 @@ app.innerHTML = `
       </a>
       <nav aria-label="Primary navigation">
         <a href="/buildings/" data-nav-item="projects">Projects</a>
-        <a href="/map/" data-nav-item="map">Corridors</a>
+        <a href="/corridors/" data-nav-item="corridors">Corridors</a>
         <a href="/market-notes/" data-nav-item="market-notes">Buyers</a>
         <a href="/inquire/" data-nav-item="inquire">About Brooke</a>
         <a href="/floorplans/" data-nav-item="floorplans">Floorplans</a>
@@ -2394,14 +2397,14 @@ app.innerHTML = `
             <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || "Explore the city's most important new and upcoming condominium projects with clear details, local insight, floorplans, maps, and buyer-focused guidance before you inquire.")}</p>
             <div class="hero-actions" aria-label="Primary homepage actions">
               <a href="/buildings/" data-hero-cta="explore-buildings">Browse Projects</a>
-              <a href="/map/" data-hero-cta="view-map">Explore Map</a>
+              <a href="/corridors/" data-hero-cta="view-corridors">Explore Corridors</a>
             </div>
           </div>
         </div>
       </section>
 
       <nav class="home-section-jump" aria-label="Explore homepage sections">
-        <a href="/map/">${homeJumpIcon("corridors")}<span>Corridors</span></a>
+        <a href="/corridors/">${homeJumpIcon("corridors")}<span>Corridors</span></a>
         <a href="/buildings/">${homeJumpIcon("projects")}<span>Projects</span></a>
         <a href="/map/">${homeJumpIcon("map")}<span>Map</span></a>
         <a href="/compare/">${homeJumpIcon("compare")}<span>Compare</span></a>
@@ -2512,6 +2515,8 @@ app.innerHTML = `
       </div>
 
       ${renderBuildingsRouteView()}
+
+      ${renderCorridorsRouteView()}
 
       ${renderMapRouteView()}
 
@@ -3917,6 +3922,7 @@ function routeSeoDetails(
       home: "/",
       buildings: "/buildings/",
       map: "/map/",
+      corridors: "/corridors/",
       compare: "/compare/",
       news: "/updates/",
       "market-notes": "/market-notes/",
@@ -3943,6 +3949,7 @@ function routeSeoDetails(
     news: "West Palm Beach Condo Updates | Construction, Sales & Planning",
     buildings: "West Palm Beach New Construction Buildings | Buyer Guide",
     map: "West Palm Beach Condo Map | New Construction Corridors",
+    corridors: "West Palm Beach Condo Corridors | Buyer Guide",
     compare: "Compare West Palm Beach New Construction Condos",
     "market-notes": "West Palm Beach Condo Guidance | Buyer Intelligence",
     floorplans: "West Palm Beach Condo Floor Plans | New Construction Guide",
@@ -3979,7 +3986,7 @@ function getActiveNavItem(route: Route) {
     return "projects";
   }
   if (route.type === "corridor") {
-    return "map";
+    return "corridors";
   }
   if (route.type === "market-note-detail") {
     return "market-notes";
@@ -3987,7 +3994,7 @@ function getActiveNavItem(route: Route) {
   if (route.type === "news-detail") {
     return "news";
   }
-  if (route.type === "buildings" || route.type === "map" || route.type === "compare") {
+  if (route.type === "buildings" || route.type === "map" || route.type === "corridors" || route.type === "compare") {
     return route.type === "buildings" ? "projects" : route.type;
   }
   if (route.type === "home") {
@@ -4206,6 +4213,7 @@ function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMa
     home: "/",
     buildings: "/buildings/",
     map: "/map/",
+    corridors: "/corridors/",
     compare: "/compare/",
     news: "/updates/",
     "market-notes": "/market-notes/",
@@ -4257,6 +4265,7 @@ function metaDescriptionForRoute(routeType: string) {
     home: siteMeta.description,
     buildings: "Compare West Palm Beach new-construction condos by corridor, pricing checks, floor plans, delivery timing, amenities, and waterfront position.",
     map: "Map West Palm Beach new-construction condo projects by North Flagler, Downtown, and South Flagler corridor context.",
+    corridors: "Choose between South Flagler, North Flagler, and Downtown West Palm Beach new-construction condo corridors by lifestyle, waterfront position, and buyer fit.",
     compare: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
     news: "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
     "news-detail": "Read a West Palm Beach new-construction update with buyer context, related buildings, Brooke's take, and the original source link.",
@@ -4391,6 +4400,7 @@ function buildWebPageSchema(routeType: string) {
     home: "/",
     buildings: "/buildings/",
     map: "/map/",
+    corridors: "/corridors/",
     compare: "/compare/",
     news: "/updates/",
     "market-notes": "/market-notes/",
@@ -4416,6 +4426,7 @@ function pageSchemaName(routeType: string) {
     home: "West Palm Beach New Construction Condos",
     buildings: "West Palm Beach New Construction Buildings",
     map: "West Palm Beach Condo Map",
+    corridors: "West Palm Beach Condo Corridors",
     compare: "Compare West Palm Beach New Construction Condos",
     news: "West Palm Beach Condo Updates",
     "market-notes": "West Palm Beach Condo Guidance",
@@ -5094,6 +5105,124 @@ function renderMapRouteView() {
         </div>
       </section>
     </div>
+  `;
+}
+
+function corridorHubCards() {
+  return [
+    {
+      key: "south-flagler" as CorridorKey,
+      kicker: "Palm Beach Views",
+      headline: "Palm Beach Views, Quieter Waterfront Prestige",
+      body:
+        "South Flagler is the polished waterfront choice for buyers who want larger residences, direct views toward Palm Beach, and a more private residential setting. The appeal is proximity to the island, architectural quality, and a quieter rhythm than Downtown.",
+      image: "/assets/home/south-flagler-corridor-hero-main-wide-v01.jpg",
+      alt: "South Flagler waterfront corridor with Palm Beach and Intracoastal context",
+    },
+    {
+      key: "north-flagler" as CorridorKey,
+      kicker: "Waterfront Growth",
+      headline: "Waterfront Growth, Marina Energy, Long-Term Upside",
+      body:
+        "North Flagler is West Palm Beach's emerging waterfront frontier, with new towers, marina-oriented amenities, and major redevelopment reshaping the corridor. It works best for buyers who want water views, larger amenity packages, boating access, and future upside.",
+      image: "/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg",
+      alt: "North Flagler waterfront skyline and marina corridor in West Palm Beach",
+    },
+    {
+      key: "downtown" as CorridorKey,
+      kicker: "Walkable Living",
+      headline: "Walkable Living Near Dining, Culture, and Transit",
+      body:
+        "Downtown is for buyers who want restaurants, offices, Brightline, CityPlace, Clematis, the Kravis Center, and the NORA District close by. It is the most convenient and urban corridor, with more energy and less reliance on a car.",
+      image: "/assets/home/downtown-cityplace-shared-card-v01.jpg",
+      alt: "Downtown West Palm Beach CityPlace and urban retail district",
+    },
+  ];
+}
+
+function renderCorridorsRouteView() {
+  return `
+    <div class="route-view route-view-corridors" data-route-view="corridors" hidden>
+      <section class="corridors-hero">
+        ${renderEditorialImagePanel("wpb-corridors-aerial-hero", { hero: true, caption: "Choose by geography", credit: false, className: "corridors-hero-image" })}
+        <div class="corridors-hero-copy">
+          <p class="eyebrow">Corridors</p>
+          <h1>Choose Your West Palm Beach Corridor</h1>
+          <p>Each part of West Palm Beach offers a different version of new-construction living: waterfront privacy, downtown energy, marina access, or Palm Beach proximity.</p>
+        </div>
+      </section>
+
+      <section class="section corridors-intro-section" aria-label="Choose your West Palm Beach corridor">
+        <div>
+          <p class="eyebrow">Choose Your West Palm Beach Corridor</p>
+          <h2>West Palm Beach new construction is not one market.</h2>
+        </div>
+        <p>South Flagler, North Flagler, and Downtown each offer a different lifestyle, price point, and long-term value story. Start with where you want to live, then compare the buildings that fit that daily routine.</p>
+      </section>
+
+      <section class="home-atlas-feature home-atlas-feature-editorial home-atlas-compact corridors-atlas-feature" aria-label="West Palm Beach project map">
+        <div class="home-atlas-compact-heading corridors-atlas-heading">
+          <div>
+            <p class="eyebrow">Project Map</p>
+          </div>
+        </div>
+        <div class="home-atlas-frame">
+          <aside class="home-hero-map-card home-atlas-map-card home-atlas-map-only" aria-label="West Palm Beach project map">
+            <figure class="hero-map-preview">
+              <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
+              <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
+              <div class="hero-map-fallback">
+                ${renderProjectMapFallback()}
+              </div>
+            </figure>
+            <div class="home-map-count" aria-label="Map project count">
+              <strong>${featuredProjects.length}</strong>
+              <span>tracked West Palm Beach new-construction projects</span>
+            </div>
+          </aside>
+          <div class="home-atlas-projects">
+            <p>Projects shown on map</p>
+            <div class="home-atlas-project-strip" role="region" aria-label="Projects shown on the corridor map" tabindex="0">
+              ${validMapProjects(rankedFeaturedProjects.slice(0, 7)).map(renderHomepageAtlasProject).join("")}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section corridors-card-section" aria-label="West Palm Beach corridor choices">
+        <div class="section-heading corridor-heading">
+          <p class="eyebrow">Explore Corridors</p>
+        </div>
+        <div class="corridors-feature-grid">
+          ${corridorHubCards().map(renderCorridorsFeatureCard).join("")}
+        </div>
+      </section>
+
+      <section class="corridors-final-cta">
+        <div>
+          <h2>Ready to compare the right buildings?</h2>
+          <p>Start with the corridor, then ask for current availability, floor plans, and buyer notes.</p>
+        </div>
+        <a class="button primary" href="/buildings/">View Projects <span aria-hidden="true">→</span></a>
+        <a class="button ghost" href="/inquire/?lead_capture_context=corridors">Inquire Now</a>
+      </section>
+    </div>
+  `;
+}
+
+function renderCorridorsFeatureCard(card: ReturnType<typeof corridorHubCards>[number]) {
+  return `
+    <article class="corridors-feature-card">
+      <a class="corridors-feature-image" href="${corridorPath(card.key)}" aria-label="Explore ${corridorDisplayLabel(card.key)}">
+        <img src="${safeHref(card.image)}" alt="${escapeHtml(card.alt)}" loading="eager" decoding="async" />
+      </a>
+      <div>
+        <span>${escapeHtml(card.kicker)}</span>
+        <h2>${escapeHtml(card.headline)}</h2>
+        <p>${escapeHtml(card.body)}</p>
+        <a href="${corridorPath(card.key)}">Explore ${corridorDisplayLabel(card.key)} <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
   `;
 }
 
@@ -6161,7 +6290,7 @@ function googleMapBaseOptions(center: { lat: number; lng: number }, zoom: number
 
 function initHeroGoogleMap() {
   const routeType = getCurrentRoute().type;
-  if (routeType !== "home" && routeType !== "map" && routeType !== "project") {
+  if (routeType !== "home" && routeType !== "map" && routeType !== "corridors" && routeType !== "project") {
     return;
   }
 
@@ -8049,7 +8178,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         </a>
         <div>
           <a href="/buildings/">Projects</a>
-          <a href="/map/">Corridors</a>
+          <a href="/corridors/">Corridors</a>
           <a href="/market-notes/">Buyers</a>
           <a href="/inquire/">About Brooke</a>
           <a href="${floorplanLibraryPath(project.id)}">Floorplans</a>
