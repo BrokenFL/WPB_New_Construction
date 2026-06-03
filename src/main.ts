@@ -7725,7 +7725,7 @@ function renderProjectSourceLink(href: string, projectId?: string) {
       <a class="document-card" href="${floorplanLibraryPath(projectId)}">
         <span>Floorplan Library</span>
         <strong>View floorplans on WPB New Construction</strong>
-        <small>Source material is kept in the review layer; use the on-site library for buyer review.</small>
+        <small>Original documents stay in review; use the on-site library for buyer review.</small>
       </a>
     `;
   }
