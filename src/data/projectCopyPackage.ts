@@ -24,6 +24,12 @@ export type ProjectShowcaseAmenity = {
   label: string;
 };
 
+export type ProjectShowcaseFact = {
+  icon: string;
+  label: string;
+  value: string;
+};
+
 export type ProjectShowcaseTeamFact = {
   label: string;
   value: string;
@@ -41,11 +47,15 @@ export type ProjectShowcaseConfig = {
   heroImage?: ProjectShowcaseImage;
   intro?: string;
   heroTags?: ProjectShowcaseTag[];
+  factStrip?: ProjectShowcaseFact[];
   monogram?: string;
   titleLines?: string[];
   visualBreak?: ProjectShowcaseImage;
   neighborhoodImage?: ProjectShowcaseImage;
   neighborhoodHeadline?: string;
+  residenceSectionLabel?: string;
+  residenceSectionLinkText?: string;
+  residenceSectionLinkHref?: string;
   gallery?: ProjectShowcaseImage[];
   residenceCollections?: ProjectShowcaseResidence[];
   amenityHighlights?: ProjectShowcaseAmenity[];

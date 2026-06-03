@@ -793,11 +793,11 @@ const baseFeaturedProjects: FeaturedProject[] = [
     status: "Pipeline / Planning Approved",
     delivery: "Pipeline watch",
     deliveryYear: 2030,
-    residences: "Up to 660 contemplated",
+    residences: "Up to 660 planned",
     price: "Not released",
     href: "?project=rybovich-marina-redevelopment",
-    image: "/projects/rybovich-marina/media/card.webp",
-    summary: "Rybovich Marina Redevelopment is a North Flagler/Northwood waterfront pipeline entry with residential units contemplated and initial planning approval context preserved.",
+    image: "/projects/rybovich-marina/media/showcase/rybovich-marina-hero-main-v01-web.jpg",
+    summary: "Rybovich Marina Redevelopment is a planned 19-acre North Flagler waterfront district with residential towers, marina context, private club space, retail, restaurants, office, crew amenities, and an Intracoastal promenade.",
     floorplans: false,
     pageState: "Pipeline / Announced / Watchlist",
     rank: 19,
@@ -7939,13 +7939,14 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
     .replace(/\s*interior\s+sq\.?\s*ft\.?/i, " sq ft")
     .replace(/\s*sq\.\s*ft\.?/i, " sq ft")
     .trim();
-  const facts = [
+  const defaultFacts = [
     { icon: "residence", value: copyFactValue(copyPackage, /residences/i, project.residences), label: "Residences" },
     { icon: "stories", value: showcaseFloors, label: "Stories" },
     { icon: "sqft", value: showcaseSizeRange, label: "Sq Ft" },
-    { icon: "bed", value: copyFactValue(copyPackage, /bedrooms/i, "2-5"), label: "Bedrooms" },
+    { icon: "bed", value: copyFactValue(copyPackage, /bedrooms/i, ""), label: "Bedrooms" },
     { icon: "price", value: copyFactValue(copyPackage, /price/i, project.price).replace(" to over ", " to "), label: "Pricing" },
-  ].filter((fact) => isBuyerFacingValue(fact.value));
+  ];
+  const facts = (showcase?.factStrip?.length ? showcase.factStrip : defaultFacts).filter((fact) => isBuyerFacingValue(fact.value));
   const heroBlurb = showcase?.heroBlurb ?? copyPackage?.heroSubheadline ?? project.summary;
   const gallery = showcase?.gallery ?? [];
   const residences = showcase?.residenceCollections ?? [];
@@ -7954,6 +7955,9 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const visualBreak = showcase?.visualBreak ?? gallery[0];
   const neighborhoodImage = showcase?.neighborhoodImage;
   const neighborhoodHeadline = showcase?.neighborhoodHeadline ?? "Connected to downtown, Palm Beach, and daily convenience.";
+  const residenceSectionLabel = showcase?.residenceSectionLabel ?? "Residences";
+  const residenceSectionLinkText = showcase?.residenceSectionLinkText ?? "View all floor plans";
+  const residenceSectionLinkHref = showcase?.residenceSectionLinkHref ?? `/inquire/?project=${project.id}&interest=floorplans`;
   const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
   const intro = showcase?.intro ?? heroBlurb;
   const heroTags = (
@@ -8006,14 +8010,14 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       ${visualBreak ? `<figure class="berkeley-patio-break"><img src="${safeHref(visualBreak.src)}" alt="${publicText(visualBreak.alt ?? `${project.name} ${visualBreak.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
       <section class="berkeley-residence-section" id="berkeley-residences">
-        <div class="berkeley-section-heading"><p class="berkeley-kicker">Residences</p><a href="/inquire/?project=${project.id}&interest=floorplans">View all floor plans <span aria-hidden="true">→</span></a></div>
+        <div class="berkeley-section-heading"><p class="berkeley-kicker">${publicText(residenceSectionLabel)}</p><a href="${safeHref(residenceSectionLinkHref)}">${publicText(residenceSectionLinkText)} <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-residence-grid">
           ${residences.map((item, index) => {
             const planIcon = ["planResidence", "planEstate", "planPenthouse"][index] ?? "residence";
             const planVisual = item.thumbnail
               ? `<figure class="berkeley-plan-thumbnail" aria-hidden="true"><img src="${safeHref(item.thumbnail)}" alt="" loading="lazy" decoding="async" /></figure>`
               : `<figure class="berkeley-plan-placeholder" aria-hidden="true">${berkeleyIcon(planIcon)}</figure>`;
-            return `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="/inquire/?project=${project.id}&interest=floorplans">${publicText(item.price)} <span aria-hidden="true">→</span></a></div>${planVisual}</article>`;
+            return `<article><div><h3>${publicText(item.title)}</h3><p>${publicText(item.beds)}</p><p>${publicText(item.size)}</p><a href="${safeHref(residenceSectionLinkHref)}">${publicText(item.price)} <span aria-hidden="true">→</span></a></div>${planVisual}</article>`;
           }).join("")}
         </div>
       </section>

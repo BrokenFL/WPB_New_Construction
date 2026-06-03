@@ -3539,10 +3539,186 @@
   },
   {
     "slug": "rybovich-marina-redevelopment",
-    "repoProjectId": "rybovich-marina",
-    "heroHeadline": "A Major Marina Redevelopment on North Flagler",
-    "heroSubheadline": "Rybovich Marina Redevelopment is a large-scale waterfront planning project that may include multiple residential towers within a broader marina redevelopment.",
-    "overview": "Rybovich belongs in the pipeline / planning-approved / watchlist group. It is a broader marina redevelopment with residential components and phased approvals, not one simple condo building.",
+    "repoProjectId": "rybovich-marina-redevelopment",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "North Flagler",
+      "heroBlurb": "A Future Waterfront District at Rybovich Marina",
+      "titleLines": [
+        "Rybovich Marina",
+        "Redevelopment"
+      ],
+      "heroImage": {
+        "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-hero-main-v01-web.jpg",
+        "label": "Waterfront redevelopment",
+        "alt": "Rendering of the Rybovich Marina Redevelopment on the North Flagler waterfront"
+      },
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Planning Approved"
+        },
+        {
+          "label": "Corridor",
+          "value": "North Flagler"
+        },
+        {
+          "label": "Sales",
+          "value": "Planning Stage"
+        }
+      ],
+      "factStrip": [
+        {
+          "icon": "residence",
+          "label": "Residences",
+          "value": "Up to 660 planned"
+        },
+        {
+          "icon": "stories",
+          "label": "Initial Phase",
+          "value": "259 units"
+        },
+        {
+          "icon": "waterfront",
+          "label": "Site",
+          "value": "19 acres"
+        },
+        {
+          "icon": "planResidence",
+          "label": "Towers",
+          "value": "Up to 4"
+        },
+        {
+          "icon": "lounge",
+          "label": "Private Club",
+          "value": "60,000 sq ft"
+        }
+      ],
+      "intro": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations, reimagining a 19-acre marina site with residential towers, a private club, retail, restaurants, office space, crew amenities, and an expansive Intracoastal promenade. Positioned near the Safe Harbor Rybovich marina corridor, the project could create a major new mixed-use waterfront district for buyers watching North Flagler's next wave.",
+      "visualBreak": {
+        "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-marina-district-v01-web.jpg",
+        "label": "North Flagler district view",
+        "alt": "Aerial rendering of the Rybovich Marina district and North Flagler waterfront"
+      },
+      "residenceSectionLabel": "District Plan",
+      "residenceSectionLinkText": "Request planning updates",
+      "residenceSectionLinkHref": "/inquire/?project=rybovich-marina-redevelopment&interest=planning-updates",
+      "residenceCollections": [
+        {
+          "title": "Residential Towers",
+          "beds": "Up to 660 planned homes",
+          "size": "Initial phase: 259 units across two towers",
+          "price": "Request planning updates"
+        },
+        {
+          "title": "Marina District",
+          "beds": "Private club, retail, restaurants, and office",
+          "size": "Crew amenities and marine storage planned",
+          "price": "Request planning updates"
+        },
+        {
+          "title": "Intracoastal Promenade",
+          "beds": "Expansive waterfront walking experience",
+          "size": "Public and private marina-oriented spaces",
+          "price": "Request planning updates"
+        }
+      ],
+      "gallery": [
+        {
+          "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-promenade-v01-web.jpg",
+          "label": "Promenade arrival",
+          "alt": "Rendering of the Rybovich Marina promenade arrival"
+        },
+        {
+          "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-waterfront-towers-v01-web.jpg",
+          "label": "Waterfront towers",
+          "alt": "Rendering of planned waterfront towers at Rybovich Marina"
+        },
+        {
+          "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-sidewalk-promenade-v01-web.jpg",
+          "label": "Promenade edge",
+          "alt": "Rendering of the landscaped promenade at Rybovich Marina"
+        },
+        {
+          "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-sidewalk-v01-web.jpg",
+          "label": "Landscape path",
+          "alt": "Rendering of a landscaped pedestrian path at Rybovich Marina"
+        },
+        {
+          "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-sidewalk-art-v01-web.jpg",
+          "label": "Public realm",
+          "alt": "Rendering of the public realm and streetscape at Rybovich Marina"
+        },
+        {
+          "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-waterfront-daytime-v01-web.jpg",
+          "label": "Daytime waterfront",
+          "alt": "Daytime waterfront rendering of the Rybovich Marina redevelopment"
+        },
+        {
+          "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-waterfront-wide-v01-web.jpg",
+          "label": "Waterfront view",
+          "alt": "Wide waterfront rendering of the Rybovich Marina redevelopment"
+        },
+        {
+          "src": "/projects/rybovich-marina/media/showcase/rybovich-marina-siteplan-v01-web.jpg",
+          "label": "Site plan",
+          "alt": "Site plan rendering for the Rybovich Marina redevelopment"
+        }
+      ],
+      "amenityHighlights": [
+        {
+          "icon": "waterfront",
+          "label": "Intracoastal promenade"
+        },
+        {
+          "icon": "dining",
+          "label": "Retail and restaurants"
+        },
+        {
+          "icon": "lounge",
+          "label": "Private club"
+        },
+        {
+          "icon": "work",
+          "label": "Office space"
+        },
+        {
+          "icon": "valet",
+          "label": "Crew amenities"
+        },
+        {
+          "icon": "waterfront",
+          "label": "Marina setting"
+        },
+        {
+          "icon": "residence",
+          "label": "Residential towers"
+        },
+        {
+          "icon": "planResidence",
+          "label": "Phased district plan"
+        }
+      ],
+      "neighborhoodHeadline": "A future marina district on North Flagler.",
+      "projectTeam": [
+        {
+          "label": "Developer",
+          "value": "Huizenga Holdings; Integra Investments"
+        },
+        {
+          "label": "Architecture",
+          "value": "Kohn Pedersen Fox"
+        },
+        {
+          "label": "Site",
+          "value": "19-acre Rybovich Marina waterfront"
+        }
+      ]
+    },
+    "heroHeadline": "A Future Waterfront District at Rybovich Marina",
+    "heroSubheadline": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations.",
+    "overview": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations, reimagining a 19-acre marina site with residential towers, a private club, retail, restaurants, office space, crew amenities, and an expansive Intracoastal promenade. Positioned near the Safe Harbor Rybovich marina corridor, the project could create a major new mixed-use waterfront district for buyers watching North Flagler's next wave.",
     "quickFacts": [
       {
         "label": "Address",
@@ -3558,50 +3734,46 @@
       },
       {
         "label": "Design",
-        "value": "Not yet publicly confirmed."
+        "value": "Kohn Pedersen Fox"
+      },
+      {
+        "label": "Site",
+        "value": "19 acres"
       },
       {
         "label": "Residences",
-        "value": "Up to 660 residential units contemplated; initial approvals cover 259 units across two towers"
+        "value": "Up to 660 planned homes"
       },
       {
         "label": "Floors",
-        "value": "34 and 36 stories for initial two towers; future towers up to 445 ft reported"
+        "value": "34/36 initial towers; up to 445 ft"
       },
       {
         "label": "Towers",
-        "value": "Up to 4 contemplated"
+        "value": "Up to 4 planned"
       },
       {
         "label": "Price Range",
-        "value": "Not yet publicly confirmed."
+        "value": "Not released"
       },
       {
         "label": "Delivery",
-        "value": "Not yet publicly confirmed."
-      },
-      {
-        "label": "Size Range",
-        "value": "Not yet publicly confirmed."
-      },
-      {
-        "label": "Bedrooms",
-        "value": "Not yet publicly confirmed."
+        "value": "Not released"
       }
     ],
-    "residences": "Residential details remain early. Available materials reference up to 660 residential units overall, with initial approvals covering 259 units across two towers. Final unit mix, residence sizes, views, finishes, terraces, and branding are not yet finalized publicly.",
-    "amenities": "Available materials describe a 19-acre marina redevelopment with waterfront condominium towers and marina context. Residential amenities, marina access, dockage rules, parking, and service programming are not yet finalized for consumer display.",
-    "location": "The project is tied to the North Flagler / Rybovich waterfront area, farther north and more marina-oriented than downtown or South Flagler.",
-    "localTake": "Rybovich is a market-shaper, not a normal building page. Buyers should watch it because it could change the North Flagler conversation, but it is not a finished condo sales offering.",
+    "residences": "The plan includes up to 660 homes across four residential towers, with an initial phase covering 259 units across two towers.",
+    "amenities": "The district plan includes an Intracoastal promenade, private club, retail, restaurants, office space, crew amenities, marine storage, marina context, and resident-focused outdoor spaces.",
+    "location": "Rybovich sits in the North Flagler marina corridor near Safe Harbor Rybovich, north of downtown West Palm Beach and tied to one of the city's most important waterfront redevelopment areas.",
+    "localTake": "Rybovich is not a normal condo launch - it is a long-range waterfront district play. Buyers should watch approvals, phasing, tower heights, public access, marina operations, and whether the residential offering becomes clearly defined. Huge upside, but still very much a planning-stage story.",
     "tradeoffs": [
       "Large phased project.",
-      "Timing, tower sequence, pricing, and residential program remain uncertain.",
-      "Initial approval covers two towers / 259 units, not the full possible buildout.",
-      "Do not present individual towers as separate condo pages until official sales / branding materials exist."
+      "Pricing, delivery, residence sizes, and floorplans are not released.",
+      "Initial approval covers two towers and 259 units, not the full possible buildout.",
+      "Public access, marina operations, tower sequence, and residential branding should be tracked as approvals advance."
     ],
-    "confidenceNote": "Confidence is medium. Include as pipeline / watchlist and avoid individual tower pages until stronger sales materials exist.",
-    "seoTitle": "Rybovich Marina Redevelopment | WPB Waterfront Watchlist",
-    "metaDescription": "Rybovich Marina Redevelopment is a major North Flagler marina-area pipeline project with planned residential towers and phased approvals.",
+    "confidenceNote": "Confidence is medium-high for the planning-stage facts, with human review needed before treating it as a live condo sales offering.",
+    "seoTitle": "Rybovich Marina Redevelopment | North Flagler Waterfront District",
+    "metaDescription": "Rybovich Marina Redevelopment is a planned North Flagler waterfront district with residential towers, marina context, private club space, retail, restaurants, office, and promenade access.",
     "badge": "Pipeline / Planning Approved",
     "tags": [
       "north-flagler",
@@ -3614,9 +3786,9 @@
       "phased-development",
       "human-review-required"
     ],
-    "introHeadline": "A Major Marina Redevelopment on North Flagler",
-    "introDek": "Rybovich Marina Redevelopment is a large-scale waterfront planning project that may include multiple residential towers within a broader marina redevelopment.",
-    "brookeTake": "Rybovich is a market-shaper, not a normal building page. Buyers should watch it because it could change the North Flagler conversation, but it is not a finished condo sales offering.",
+    "introHeadline": "A Future Waterfront District at Rybovich Marina",
+    "introDek": "The Rybovich Marina Redevelopment is planned as one of West Palm Beach's most ambitious waterfront transformations.",
+    "brookeTake": "Rybovich is not a normal condo launch - it is a long-range waterfront district play. Buyers should watch approvals, phasing, tower heights, public access, marina operations, and whether the residential offering becomes clearly defined.",
     "bestFor": [
       "Buyers tracking major North Flagler waterfront pipeline",
       "Long-horizon marina-oriented condo prospects",
@@ -3624,28 +3796,32 @@
       "Buyers interested in large redevelopment sites"
     ],
     "signatureFeatures": [
-      "Residences: Up to 660 residential units contemplated; initial approvals cover 259 units across two towers",
-      "Floors: 34 and 36 stories for initial two towers; future towers up to 445 ft reported",
-      "Towers: Up to 4 contemplated",
-      "Price Range: Not yet publicly confirmed.",
-      "Delivery: Not yet publicly confirmed.",
-      "Bedrooms: Not yet publicly confirmed."
+      "Site: 19 acres",
+      "Residences: Up to 660 planned homes",
+      "Initial Phase: 259 units across two towers",
+      "Towers: Up to 4 planned",
+      "Price Range: Not released",
+      "Delivery: Not released"
     ],
-    "amenityNarrative": "Available materials describe a 19-acre marina redevelopment with waterfront condominium towers and marina context. Residential amenities, marina access, dockage rules, parking, and service programming are not yet finalized for consumer display.",
-    "residenceNarrative": "Residential details remain early. Available materials reference up to 660 residential units overall, with initial approvals covering 259 units across two towers. Final unit mix, residence sizes, views, finishes, terraces, and branding are not yet finalized publicly.",
-    "locationNarrative": "The project is tied to the North Flagler / Rybovich waterfront area, farther north and more marina-oriented than downtown or South Flagler.",
-    "buyerComparisonNotes": "Buyers tracking major North Flagler waterfront pipeline Long-horizon marina-oriented condo prospects Market watchers studying future supply Buyers interested in large redevelopment sites Large phased project. Timing, tower sequence, pricing, and residential program remain uncertain. Initial approval covers two towers / 259 units, not the full possible buildout. Do not present individual towers as separate condo pages until official sales / branding materials exist.",
-    "projectTeamNarrative": "Developer: Huizenga Holdings; Integra Investments Design: Not yet publicly confirmed.",
+    "amenityNarrative": "The district plan includes an Intracoastal promenade, private club, retail, restaurants, office space, crew amenities, marine storage, marina context, and resident-focused outdoor spaces.",
+    "residenceNarrative": "The plan includes up to 660 homes across four residential towers, with an initial phase covering 259 units across two towers.",
+    "locationNarrative": "Rybovich sits in the North Flagler marina corridor near Safe Harbor Rybovich, north of downtown West Palm Beach and tied to one of the city's most important waterfront redevelopment areas.",
+    "buyerComparisonNotes": "Buyers tracking major North Flagler waterfront pipeline Long-horizon marina-oriented condo prospects Market watchers studying future supply Buyers interested in large redevelopment sites Large phased project. Pricing, delivery, residence sizes, and floorplans are not released. Initial approval covers two towers and 259 units, not the full possible buildout. Public access, marina operations, tower sequence, and residential branding should be tracked as approvals advance.",
+    "projectTeamNarrative": "Developer: Huizenga Holdings; Integra Investments Architecture: Kohn Pedersen Fox Site: 19-acre Rybovich Marina waterfront.",
     "sourceNotes": [
-      "Confidence is medium. Include as pipeline / watchlist and avoid individual tower pages until stronger sales materials exist.",
+      "Confidence is medium-high for the planning-stage facts, with human review needed before treating it as a live condo sales offering.",
       "Large phased project.",
-      "Timing, tower sequence, pricing, and residential program remain uncertain.",
-      "Initial approval covers two towers / 259 units, not the full possible buildout.",
-      "Do not present individual towers as separate condo pages until official sales / branding materials exist."
+      "Pricing, delivery, residence sizes, and floorplans are not released.",
+      "Initial approval covers two towers and 259 units, not the full possible buildout.",
+      "Public access, marina operations, tower sequence, and residential branding should be tracked as approvals advance."
     ],
-    "sourceUrls": [],
-    "lastCopyResearchDate": "2026-05-28",
-    "copyConfidence": "medium"
+    "sourceUrls": [
+      "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida",
+      "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
+      "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2025-pb-agendas/pb-agenda-2025.09.16.pdf"
+    ],
+    "lastCopyResearchDate": "2026-06-02",
+    "copyConfidence": "medium-high"
   },
   {
     "slug": "rosewood-residences-west-palm-beach",
