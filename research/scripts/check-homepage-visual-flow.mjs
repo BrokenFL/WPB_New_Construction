@@ -105,7 +105,7 @@ async function inspectHomepage(browser, viewport) {
     checks.push({ viewport: viewport.name, label: "mobile atlas card strip hidden", ok: data.visibleAtlasProjectCards === 0 });
     if (data.visibleAtlasProjectCards !== 0) findings.push("mobile: homepage atlas project cards should stay hidden.");
   }
-  const jumpTargets = ["#featured-projects", "#corridors", "#atlas", "/compare/", "#resources"];
+  const jumpTargets = ["/corridors/", "/buildings/", "/map/", "/compare/", "/market-notes/"];
   const jumpLinksOk = jumpTargets.every((target) => data.jumpLinks.includes(target));
   checks.push({ viewport: viewport.name, label: "section jump links", ok: jumpLinksOk });
   if (!jumpLinksOk) findings.push(`${viewport.name}: homepage section jump navigation is missing required targets.`);

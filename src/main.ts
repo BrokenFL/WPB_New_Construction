@@ -5112,6 +5112,7 @@ function corridorHubCards() {
   return [
     {
       key: "south-flagler" as CorridorKey,
+      corridorKey: "south-flagler",
       kicker: "Palm Beach Views",
       headline: "Palm Beach Views, Quieter Waterfront Prestige",
       body:
@@ -5121,6 +5122,7 @@ function corridorHubCards() {
     },
     {
       key: "north-flagler" as CorridorKey,
+      corridorKey: "north-flagler",
       kicker: "Waterfront Growth",
       headline: "Waterfront Growth, Marina Energy, Long-Term Upside",
       body:
@@ -5130,6 +5132,7 @@ function corridorHubCards() {
     },
     {
       key: "downtown" as CorridorKey,
+      corridorKey: "downtown",
       kicker: "Walkable Living",
       headline: "Walkable Living Near Dining, Culture, and Transit",
       body:
