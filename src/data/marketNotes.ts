@@ -61,7 +61,7 @@ export const marketNotes = [
   {
     id: "nora-district-downtown-transformation",
     status: "published",
-    category: "Buyer Intelligence",
+    category: "Downtown Spotlight",
     title: "Why the NORA District Could Reshape Downtown West Palm Beach",
     slug: "nora-district-downtown-transformation",
     excerpt:
@@ -165,7 +165,7 @@ export const marketNotes = [
       primaryQuery: "NORA District West Palm Beach",
       secondaryQueries: ["NORA House West Palm Beach", "Downtown West Palm Beach condos", "West Palm Beach walkable neighborhoods"],
       suggestedSlug: "nora-district-downtown-transformation",
-      titleTag: "NORA District's Downtown Impact Explained | Buyer Intelligence",
+      titleTag: "NORA District's Downtown Impact Explained | Downtown Spotlight",
       metaDescription:
         "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
     },

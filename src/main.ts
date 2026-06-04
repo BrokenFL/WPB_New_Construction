@@ -95,6 +95,7 @@ type Route =
   | { type: "news-detail"; articleId: string; projectId?: undefined }
   | { type: "market-notes"; projectId?: undefined }
   | { type: "market-note-detail"; articleSlug: string; projectId?: undefined }
+  | { type: "downtown-spotlight"; projectId?: undefined }
   | { type: "about"; projectId?: undefined }
   | { type: "inquire"; projectId?: undefined }
   | { type: "floorplans"; projectId?: undefined }
@@ -417,6 +418,8 @@ const staticRoutePaths: Record<string, string> = {
   "/updates": "news",
   "/updates/": "news",
   "/market-notes/": "market-notes",
+  "/downtown-spotlight": "downtown-spotlight",
+  "/downtown-spotlight/": "downtown-spotlight",
   "/blog/": "market-notes",
   "/guidance/": "market-notes",
   "/about": "about",
@@ -2367,6 +2370,7 @@ const freshUpdateItems = publishedExternalNews.filter((item) => item.freshnessLa
 const contextUpdateItems = publishedExternalNews.filter((item) => !freshUpdateItems.some((freshItem) => freshItem.id === item.id));
 const approvedNewsFeedRenderReference = "publishedExternalNews.map(renderExternalNewsItem)";
 void approvedNewsFeedRenderReference;
+const buyerResourceNotes = marketNotes.filter((note) => !isDowntownSpotlight(note));
 
 app.innerHTML = `
   <div class="site-shell">
@@ -2505,7 +2509,7 @@ app.innerHTML = `
           <p class="eyebrow">Downtown Spotlight</p>
           <h2>Why the NORA District could reshape Downtown.</h2>
           <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.</p>
-          <a href="/market-notes/nora-district-downtown-transformation/">Read NORA buyer intelligence <span aria-hidden="true">→</span></a>
+          <a href="/downtown-spotlight/nora-district-downtown-transformation/">Read the first Downtown Spotlight <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
@@ -2538,8 +2542,6 @@ app.innerHTML = `
           </div>
         </div>
       </section>
-
-      ${renderHomepageTeamBand()}
 
       ${renderHomepageAdvisoryResources()}
       ${renderHomepageCompareLauncher()}
@@ -2623,19 +2625,23 @@ app.innerHTML = `
             <p>Use these guides to understand the moving pieces behind West Palm Beach new construction. Compare buildings, review floorplans, explore corridors, follow updates, and get practical answers before reaching out to a sales team.</p>
           </div>
           <aside class="answer-meta-panel">
-            <span>${marketNotes.length} buyer notes</span>
+            <span>${buyerResourceNotes.length} buyer notes</span>
             <strong>Built for comparison, not brochure fog.</strong>
             <small>Each note names the buyer angle and the items the team should verify before you make a decision.</small>
           </aside>
         </section>
         <section class="section">
           <div class="home-blog-grid market-note-grid">
-            ${marketNotes.map(renderMarketNoteCard).join("")}
+            ${buyerResourceNotes.map(renderMarketNoteCard).join("")}
           </div>
         </section>
       </div>
 
       <div class="route-view route-view-market-note-detail" data-route-view="market-note-detail" hidden></div>
+
+      <div class="route-view route-view-downtown-spotlight" data-route-view="downtown-spotlight" hidden>
+        ${renderDowntownSpotlightIndex()}
+      </div>
 
       ${renderAboutRouteView()}
 
@@ -3939,7 +3945,7 @@ function routeSeoDetails(
   const path =
     activeProject ? projectPath(activeProject) :
     activeCorridor ? corridorPath(activeCorridor.key) :
-    activeMarketNote ? `/market-notes/${activeMarketNote.slug}/` :
+    activeMarketNote ? marketNotePath(activeMarketNote) :
     activeNewsItem ? updatePath(activeNewsItem) :
     activeAnswer ? buyerIntentAnswerPath(activeAnswer) :
     ({
@@ -3972,6 +3978,7 @@ function routeSeoDetails(
   const routeTitles: Record<string, string> = {
     home: siteMeta.title,
     news: "West Palm Beach Condo Updates | Construction, Sales & Planning",
+    "downtown-spotlight": "Downtown Spotlight | West Palm Beach Condo District Notes",
     buildings: "West Palm Beach New Construction Buildings | Buyer Guide",
     map: "West Palm Beach Condo Map | New Construction Corridors",
     corridors: "West Palm Beach Condo Corridors | Buyer Guide",
@@ -4015,6 +4022,9 @@ function getActiveNavItem(route: Route) {
     return "corridors";
   }
   if (route.type === "market-note-detail") {
+    return "market-notes";
+  }
+  if (route.type === "downtown-spotlight") {
     return "market-notes";
   }
   if (route.type === "about") {
@@ -4199,6 +4209,11 @@ function getCurrentRoute(): Route {
     return { type: "market-note-detail", articleSlug: marketNotePathMatch[1] };
   }
 
+  const downtownSpotlightPathMatch = window.location.pathname.match(/^\/downtown-spotlight\/([^/]+)\/?$/);
+  if (downtownSpotlightPathMatch) {
+    return { type: "market-note-detail", articleSlug: downtownSpotlightPathMatch[1] };
+  }
+
   const projectPathMatch = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/);
   if (projectPathMatch) {
     const staticProjectId = projectRouteAliases[projectPathMatch[1]] ?? projectPathMatch[1];
@@ -4252,6 +4267,7 @@ function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMa
     compare: "/compare/",
     about: "/about/",
     news: "/updates/",
+    "downtown-spotlight": "/downtown-spotlight/",
     "market-notes": "/market-notes/",
     floorplans: "/floorplans/",
     answers: "/answers/",
@@ -4269,7 +4285,7 @@ function updateCanonical(route: Route, activeProject?: FeaturedProject, activeMa
     path = corridorPath(route.corridorKey);
   }
   if (route.type === "market-note-detail" && activeMarketNote) {
-    path = `/market-notes/${activeMarketNote.slug}/`;
+    path = marketNotePath(activeMarketNote);
   }
   if (route.type === "news-detail" && activeNewsItem) {
     path = updatePath(activeNewsItem);
@@ -4305,6 +4321,7 @@ function metaDescriptionForRoute(routeType: string) {
     compare: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
     about: aboutPageDescription,
     news: "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
+    "downtown-spotlight": "Read Downtown West Palm Beach district spotlights, beginning with NORA, and follow the locations shaping condo buyer decisions.",
     "news-detail": "Read a West Palm Beach new-construction update with buyer context, related buildings, team context, and the original source link.",
     "market-notes": "Read evergreen guidance for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
     floorplans: "Browse released West Palm Beach new-construction condo floor plans and request current sales packets before comparing available residences.",
@@ -4410,14 +4427,23 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
                 ]),
                 buildExternalNewsArticleSchema(activeNewsItem),
               ]
+          : routeType === "downtown-spotlight"
+            ? [
+                buildWebPageSchema(routeType),
+                buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Downtown Spotlight", path: "/downtown-spotlight/" }]),
+                ...marketNotes.filter(isDowntownSpotlight).map(buildMarketNoteSchema),
+              ]
           : routeType === "market-notes"
-            ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guidance", path: "/market-notes/" }]), ...marketNotes.map(buildMarketNoteSchema)]
+            ? [buildWebPageSchema(routeType), buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guidance", path: "/market-notes/" }]), ...buyerResourceNotes.map(buildMarketNoteSchema)]
             : routeType === "market-note-detail" && activeMarketNote
               ? [
                   buildBreadcrumbSchema([
                     { name: "Home", path: "/" },
-                    { name: "Guidance", path: "/market-notes/" },
-                    { name: activeMarketNote.title, path: `/market-notes/${activeMarketNote.slug}/` },
+                    {
+                      name: isDowntownSpotlight(activeMarketNote) ? "Downtown Spotlight" : "Guidance",
+                      path: isDowntownSpotlight(activeMarketNote) ? "/downtown-spotlight/" : "/market-notes/",
+                    },
+                    { name: activeMarketNote.title, path: marketNotePath(activeMarketNote) },
                   ]),
                   buildMarketNoteSchema(activeMarketNote),
                 ]
@@ -4447,6 +4473,7 @@ function buildWebPageSchema(routeType: string) {
     compare: "/compare/",
     about: "/about/",
     news: "/updates/",
+    "downtown-spotlight": "/downtown-spotlight/",
     "market-notes": "/market-notes/",
     floorplans: "/floorplans/",
     answers: "/answers/",
@@ -4474,6 +4501,7 @@ function pageSchemaName(routeType: string) {
     compare: "Compare West Palm Beach New Construction Condos",
     about: "About The Scott Gordon Group",
     news: "West Palm Beach Condo Updates",
+    "downtown-spotlight": "Downtown Spotlight",
     "market-notes": "West Palm Beach Condo Guidance",
     floorplans: "West Palm Beach Condo Floor Plans",
     answers: "West Palm Beach New Construction Condo Answers",
@@ -4610,7 +4638,7 @@ function buildMarketNoteSchema(note: MarketNote) {
   const resolvedImage = imageForContentItem(note);
   return {
     "@type": "Article",
-    "@id": `${siteMeta.baseUrl}/market-notes/${note.slug}/#article`,
+    "@id": `${siteMeta.baseUrl}${marketNotePath(note)}#article`,
     headline: note.title,
     description: note.excerpt,
     datePublished: note.datePublished,
@@ -4619,7 +4647,7 @@ function buildMarketNoteSchema(note: MarketNote) {
     author: { "@id": `${siteMeta.baseUrl}/#advisor` },
     publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
     image: resolvedImage.src ? `${siteMeta.baseUrl}${resolvedImage.src}` : `${siteMeta.baseUrl}${siteMeta.defaultImage}`,
-    mainEntityOfPage: `${siteMeta.baseUrl}/market-notes/${note.slug}/`,
+    mainEntityOfPage: `${siteMeta.baseUrl}${marketNotePath(note)}`,
   };
 }
 
@@ -4744,14 +4772,15 @@ function renderHomepageAdvisoryResources() {
   return `
     <section class="home-advisory-resources" id="resources" aria-label="Scott Gordon Group advisory and buyer resources">
       <article class="home-brooke-panel">
-        <div class="home-brooke-mark" aria-hidden="true">SG</div>
+        <img class="home-brooke-logo" src="${teamProfile.logoMark}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
         <p class="eyebrow">Why Work With The Scott Gordon Group</p>
         <h2>Local guidance, clearly framed.</h2>
-        <p>Compare buildings, locations, delivery timing, lifestyle fit, and tradeoffs before requesting a buyer appointment.</p>
+        <p>Backed by Douglas Elliman's global network, the Scott Gordon Group helps buyers compare buildings, locations, delivery timing, lifestyle fit, and tradeoffs before requesting current availability.</p>
         <ul>
+          <li>Waterfront and Downtown condo expertise</li>
           <li>Project-by-project comparisons</li>
-          <li>Local market context</li>
-          <li>Buyer-focused guidance</li>
+          <li>Private availability and floor-plan guidance</li>
+          <li>Concierge-level buyer advocacy</li>
         </ul>
         <a href="/inquire/">Start a Conversation <span aria-hidden="true">→</span></a>
       </article>
@@ -4775,15 +4804,38 @@ function renderHomepageAdvisoryResources() {
   `;
 }
 
+function renderDowntownSpotlightIndex() {
+  const spotlightNotes = marketNotes.filter((note) => note.category === "Downtown Spotlight");
+  return `
+    <section class="section intelligence-hero downtown-spotlight-hero">
+      <div>
+        <p class="eyebrow">Downtown Spotlight</p>
+        <h1>Downtown West Palm Beach, one story at a time.</h1>
+        <p>Follow the districts, buildings, restaurants, streets, and planning signals shaping the Downtown condo decision. NORA is the first article in this growing spotlight series.</p>
+      </div>
+      <aside class="answer-meta-panel">
+        <span>${spotlightNotes.length} article${spotlightNotes.length === 1 ? "" : "s"}</span>
+        <strong>Start with NORA.</strong>
+        <small>More Downtown Spotlight articles can be added here as the series grows.</small>
+      </aside>
+    </section>
+    <section class="section">
+      <div class="home-blog-grid market-note-grid">
+        ${spotlightNotes.map(renderMarketNoteCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderHomepageMarketNoteFeature(note: MarketNote) {
   const resolvedImage = imageForContentItem(note);
   return `
-    <a class="home-resource-card home-resource-card-featured" href="/market-notes/${note.slug}/">
+    <a class="home-resource-card home-resource-card-featured" href="${marketNotePath(note)}">
       ${renderResolvedContentImage(resolvedImage, "home-resource-card-image")}
       <span>${escapeHtml(note.category)}</span>
       <strong>${escapeHtml(note.title)}</strong>
       <p>${escapeHtml(note.excerpt)}</p>
-      <em>Read buyer intelligence <b aria-hidden="true">→</b></em>
+      <em>${isDowntownSpotlight(note) ? "Read Downtown Spotlight" : "Read buyer intelligence"} <b aria-hidden="true">→</b></em>
     </a>
   `;
 }
@@ -5474,13 +5526,22 @@ function renderMarketNoteCard(note: MarketNote) {
       <small>${escapeHtml(note.buyerTakeaway)}</small>
       ${relatedProjects ? `<p class="market-note-related">Related: ${escapeHtml(relatedProjects)}</p>` : ""}
       <div class="market-note-actions">
-        <a href="/market-notes/${note.slug}/">${escapeHtml(cardOverride?.ctaLabel || "Read Guidance")} <span aria-hidden="true">→</span></a>
+        <a href="${marketNotePath(note)}">${escapeHtml(cardOverride?.ctaLabel || (isDowntownSpotlight(note) ? "Read Spotlight" : "Read Guidance"))} <span aria-hidden="true">→</span></a>
       </div>
     </article>
   `;
 }
 
+function isDowntownSpotlight(note: MarketNote) {
+  return note.category === "Downtown Spotlight";
+}
+
+function marketNotePath(note: MarketNote) {
+  return isDowntownSpotlight(note) ? `/downtown-spotlight/${note.slug}/` : `/market-notes/${note.slug}/`;
+}
+
 function publicGuidanceLabel(category: string) {
+  if (/downtown spotlight/i.test(category)) return "Downtown Spotlight";
   if (/floor/i.test(category)) return "Floor Plan Strategy";
   if (/corridor/i.test(category)) return "Corridor Guide";
   if (/market/i.test(category)) return "Market Context";
@@ -5514,7 +5575,7 @@ function renderMarketNoteArticle(note: MarketNote) {
     <article class="market-note-article">
       <header class="section market-note-hero">
         <div>
-          <a class="market-note-back" href="/market-notes/">Guidance</a>
+          <a class="market-note-back" href="${isDowntownSpotlight(note) ? "/downtown-spotlight/" : "/market-notes/"}">${isDowntownSpotlight(note) ? "All Downtown Spotlights" : "Guidance"}</a>
           <p class="eyebrow">${escapeHtml(note.category)}</p>
           <h1>${escapeHtml(note.title)}</h1>
           <p class="market-note-dek">${escapeHtml(note.excerpt)}</p>
@@ -6014,26 +6075,6 @@ function renderFeaturedProject(project: FeaturedProject) {
         </div>
       </div>
     </article>
-  `;
-}
-
-function renderHomepageTeamBand() {
-  return `
-    <section class="home-team-band" aria-label="${teamProfile.displayName}">
-      <figure>
-        <img src="${teamProfile.photo}" alt="${teamProfile.photoAlt}" loading="lazy" decoding="async" />
-      </figure>
-      <div>
-        <img class="team-logo-lockup" src="${teamProfile.logoLockup}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-        <p class="eyebrow">Palm Beach waterfront advisory</p>
-        <h2>Presented by ${teamProfile.displayName} at Douglas Elliman.</h2>
-        <p>For over four decades, the Scott Gordon Group has focused on Palm Beach oceanfront and lakefront condo sales. The boutique team, backed by Douglas Elliman's global network, pairs local waterfront experience with team-supplied recognition including more than $100 million in sales and pending contracts in 2026 and multiple Ellie Awards distinctions.</p>
-        <div class="home-team-actions">
-          <a href="/about/">Meet the team <span aria-hidden="true">→</span></a>
-          <a href="/inquire/?lead_capture_context=homepage_team">Work with us <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </section>
   `;
 }
 
