@@ -59,6 +59,135 @@ const articleCta = "Want help applying this to your search? Request current avai
 
 export const marketNotes = [
   {
+    id: "west-palm-beach-new-dining-map",
+    status: "published",
+    category: "Downtown Spotlight",
+    title: "Downtown Dining Is Becoming a Condo-Buyer Signal",
+    slug: "west-palm-beach-new-dining-map",
+    excerpt:
+      "Eataly, rooftop restaurants, Greek seafood, sushi counters, and a deeper NORA tenant mix are changing how some buyers compare Downtown West Palm Beach. The signal is useful, but it still has to be tested against the building, parking, noise, and daily routine.",
+    buyerThesis:
+      "Downtown's restaurant wave matters when it changes daily use: where buyers walk, entertain, host guests, park, and spend evenings. It is lifestyle context, not a stand-alone reason to pay a premium.",
+    buyerTakeaway:
+      "Use the dining momentum as a practical comparison tool. Verify what is open now, what is still planned, the real walking route, valet and garage friction, night noise, construction exposure, and whether the building still works if the restaurant buzz cools.",
+    image: {
+      path: "/assets/editorial/downtown-dining-rooftop-pool.jpg",
+      credit: "User-provided editorial image, optimized for site use.",
+    },
+    imageId: "downtown-dining-rooftop-pool",
+    projectIds: ["nora-house", "mr-c", "banyan-tree", "ritz-carlton-wpb", "10-cityplace", "15-cityplace"],
+    sourceName: "User-provided dining brief with reviewed restaurant and district sources",
+    sourceLinks: [
+      {
+        label: "Eataly West Palm Beach official location",
+        href: "https://www.eataly.com/us_en/stores/west-palm-beach",
+        sourceType: "official project site",
+      },
+      {
+        label: "NORA West Palm Beach district and tenant directory",
+        href: "https://www.norawpb.com/",
+        sourceType: "official project site",
+      },
+      {
+        label: "Estiatorio Milos West Palm Beach opening announcement",
+        href: "https://www.prnewswire.com/news-releases/estiatorio-milos-to-open-in-west-palm-beach-on-february-7th-bringing-world-class-greek-cuisine-to-the-citys-flagler-waterfront-district-302364983.html",
+        sourceType: "brand/developer announcement",
+      },
+      {
+        label: "DowntownWPB Top of the Rox directory listing",
+        href: "https://downtownwpb.com/directory/top-of-the-rox/",
+        sourceType: "local news coverage",
+      },
+      {
+        label: "Moxies West Palm Beach official location",
+        href: "https://moxies.com/restaurants/west-palm-beach",
+        sourceType: "official project site",
+      },
+    ],
+    datePublished: "2026-06-04",
+    dateModified: "2026-06-04",
+    sections: [
+      {
+        heading: "The restaurant wave is now part of the condo conversation",
+        body:
+          "Downtown West Palm Beach dining has moved beyond a few reliable dinner spots. CityPlace has Eataly and a growing restaurant roster. NORA is adding hospitality and food-and-beverage tenants to an adaptive-reuse district. Clematis and the waterfront keep pushing rooftop, lounge, and destination-dining activity. For buyers, the question is not whether the food scene is more interesting. The question is whether the dining map changes how a residence feels to own Monday through Sunday.",
+      },
+      {
+        heading: "CityPlace is becoming a daily-use anchor",
+        body:
+          "Eataly's West Palm Beach location gives the Rosemary and CityPlace corridor a food hall, market, restaurants, and gathering space inside the historic Harriet Himmel setting. That matters because it is not only a dinner reservation. It can become coffee, groceries, casual lunches, guests-in-town plans, and a reason to walk instead of drive. Buildings near CityPlace should be compared on the real convenience: door-to-door walking route, garage access, valet friction, and whether the surrounding street life feels useful at the times a buyer will actually be there.",
+        imageId: "downtown-dining-eataly-cityplace",
+      },
+      {
+        heading: "NORA makes tenant mix a buyer variable",
+        body:
+          "NORA is the district to watch for repeat-use restaurants, fitness, coffee, hospitality, and neighborhood services north of the core. Its official tenant roster shows the mix changing in real time, with some concepts open and others still marked as opening soon. That distinction matters. Buyers should value what they can use today, then treat announced restaurants and future phases as upside that still needs execution.",
+      },
+      {
+        heading: "Pizza, Italian, and sushi concepts show depth, not guarantees",
+        body:
+          "The broader tenant mix is the useful signal. A district with pizza, Italian, sushi, coffee, bars, and casual repeat-use concepts can support daily life better than one built only around special-occasion dining. Still, buyers should not treat a named tenant as permanent. Restaurant turnover, rent pressure, and phased development are part of South Florida. The stronger question is whether the district has enough variety and foot traffic to remain useful even if individual operators change.",
+        imageId: "downtown-dining-pizza-chef",
+      },
+      {
+        heading: "Small-room dining raises the expectation level",
+        body:
+          "Sushi counters, tasting menus, and chef-driven rooms are part of the same Downtown story: West Palm Beach is attracting diners who want a more curated night out without crossing the bridge or driving to Miami. That can lift the neighborhood's cultural feel, but buyers should separate dining prestige from ownership basics. A beautiful counter does not solve a weak floor plan, high fees, limited parking, or a building that does not match the way someone wants to live.",
+        imageId: "downtown-dining-sushi-counter",
+      },
+      {
+        heading: "Flagler and the waterfront add destination appeal",
+        body:
+          "Estiatorio Milos brought Greek seafood to the Flagler waterfront district, while other coastal and Mediterranean concepts add another reason for visitors and locals to spend an evening downtown or along North Flagler. This is good lifestyle context for buyers who entertain often. It is also where details matter: outdoor comfort, shade, valet routes, seasonal crowds, dining prices, and the gap between being near a destination and living directly inside the activity.",
+        imageId: "downtown-dining-greek-seafood-terrace",
+      },
+      {
+        heading: "Rooftops make evenings more active",
+        body:
+          "Top of the Rox and other rooftop venues give Downtown a more visible night-and-weekend rhythm. That can be a benefit for buyers who want energy, social options, and a city feel. It can be a tradeoff for buyers who want quiet, predictable parking, and a more residential evening environment. When a restaurant or rooftop is part of the buying thesis, visit the area during dinner, late night, and weekend brunch before deciding the lifestyle fits.",
+      },
+      {
+        heading: "What to verify before buying for dining access",
+        body:
+          "Dining momentum should sharpen the buyer's questions, not replace them.",
+        bullets: [
+          "Which restaurants are open today, which are opening soon, and which are only reported or previously announced?",
+          "What is the actual walking route from the building to CityPlace, NORA, Clematis, Flagler, or the waterfront?",
+          "How do valet stands, garages, rideshare zones, and peak dinner traffic affect daily access?",
+          "Will night noise, music, rooftop activity, or late brunch crowds matter from the specific line or balcony?",
+          "Does the buyer want restaurant energy nearby, or would a quieter Flagler waterfront or Palm Beach-adjacent setting fit better?",
+          "How does the building compare on floor plan, views, fees, services, delivery timing, and current availability without relying on restaurant buzz?",
+        ],
+      },
+      {
+        heading: "The practical buyer move",
+        body:
+          "Treat Downtown dining as one more layer in the comparison. It can make a residence feel more useful, social, and year-round, especially for buyers who want a car-light routine and easy guest entertainment. But it is still only context. The best decision starts with the building and the exact residence, then asks whether the dining map makes that ownership experience better enough to matter.",
+      },
+    ],
+    ctaText:
+      "The Scott Gordon Group at Douglas Elliman can help buyers compare Downtown buildings by walkability, parking, noise, service model, restaurant access, and current availability.",
+    factCheckRequired: [
+      "Confirm each restaurant's current open, opening-soon, or announced status before relying on it in a buyer recommendation.",
+      "Use restaurant and district sources for dining context only; do not treat them as evidence of property appreciation or resale performance.",
+      "Verify building-specific pricing, availability, floor plans, fees, parking, delivery timing, and documents directly before advising a buyer.",
+      "Review the area in person at dinner, late-night, weekend brunch, and ordinary weekday times before treating dining access as a lifestyle advantage.",
+    ],
+    seo: {
+      primaryQuery: "West Palm Beach dining boom condo buyers",
+      secondaryQueries: [
+        "Downtown West Palm Beach restaurants",
+        "Eataly West Palm Beach CityPlace",
+        "NORA West Palm Beach restaurants",
+        "Top of the Rox West Palm Beach",
+      ],
+      suggestedSlug: "west-palm-beach-new-dining-map",
+      titleTag: "Downtown WPB Dining and Condo Buyers | Downtown Spotlight",
+      metaDescription:
+        "Downtown West Palm Beach dining is changing how buyers compare buildings. See what Eataly, NORA, rooftops, sushi, and waterfront restaurants really mean.",
+    },
+  },
+  {
     id: "west-palm-beach-institutional-growth",
     status: "published",
     category: "Downtown Spotlight",
