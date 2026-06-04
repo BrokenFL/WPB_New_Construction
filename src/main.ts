@@ -2372,8 +2372,8 @@ app.innerHTML = `
   <div class="site-shell">
     <header class="site-nav">
       <a class="brand" href="/" aria-label="WPB New Construction home">
-        <span class="brand-mark" aria-hidden="true"><img src="/assets/brand/wpb-boxed-logo-v01.png" alt="" /></span>
-        <span class="brand-copy"><strong>WPB</strong><em>New Construction</em></span>
+        <span class="brand-mark" aria-hidden="true">WPB</span>
+        <span class="brand-copy">West Palm Beach New Construction</span>
       </a>
       <nav aria-label="Primary navigation">
         <a href="/buildings/" data-nav-item="projects">Projects</a>

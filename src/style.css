@@ -963,22 +963,15 @@ textarea {
 .brand-mark {
   display: grid;
   width: 58px;
-  height: 72px;
+  height: 58px;
   place-items: center;
-  border: 0;
-  color: #102d43;
-  background: transparent;
-  font-family: Avenir Next, Segoe UI, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 850;
-  letter-spacing: 0.08em;
-  overflow: hidden;
-}
-
-.brand-mark img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  border: 2px solid rgba(244, 239, 229, 0.5);
+  color: #d3b88b;
+  background: rgba(4, 12, 20, 0.18);
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .brand strong,
@@ -9975,44 +9968,29 @@ body {
 .brand-mark {
   display: grid;
   width: 58px;
-  height: 72px;
+  height: 58px;
   place-items: center;
-  border: 0;
-  color: #102d43;
-  background: transparent;
-  font-family: Avenir Next, Segoe UI, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 850;
-  letter-spacing: 0.08em;
-  overflow: hidden;
-}
-
-.brand-mark img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  border: 2px solid rgba(244, 239, 229, 0.5);
+  color: #d3b88b;
+  background: rgba(4, 12, 20, 0.18);
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .brand-copy {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
   align-content: center;
-  gap: 0.42em;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.brand-copy strong {
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-}
-
-.brand-copy em {
-  color: rgba(244, 239, 229, 0.82);
+  color: rgba(244, 239, 229, 0.86);
   font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
   font-size: 1rem;
   font-style: normal;
-  letter-spacing: 0.04em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .nav-phone {
@@ -10205,8 +10183,7 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   transform: translateX(-50%);
 }
 
-.site-shell[data-active-route="inquire"] .brand-copy strong,
-.site-shell[data-active-route="inquire"] .brand-copy em,
+.site-shell[data-active-route="inquire"] .brand-copy,
 .site-shell[data-active-route="inquire"] .nav-phone,
 .site-shell[data-active-route="inquire"] .site-nav nav a,
 .site-shell[data-active-route="inquire"] .nav-cta {
@@ -10255,12 +10232,12 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 
   .brand-mark {
     width: 46px;
-    height: 58px;
-    border: 0;
+    height: 46px;
+    border: 2px solid rgba(37, 42, 45, 0.22);
+    font-size: 0.84rem;
   }
 
-  .brand-copy strong,
-  .brand-copy em,
+  .brand-copy,
   .nav-phone {
     color: var(--ink);
   }
@@ -11409,5 +11386,38 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   .home-compare-preview .image-placeholder {
     width: 96px;
     height: 82px;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-nav .brand {
+    gap: 8px;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .site-nav .brand-mark {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    border: 2px solid rgba(37, 42, 45, 0.22);
+    font-size: 0.78rem;
+  }
+
+  .site-nav .brand-copy {
+    min-width: 0;
+    max-width: 100%;
+    gap: 0.28em;
+    overflow: hidden;
+  }
+
+  .site-nav .brand-copy {
+    font-size: clamp(0.58rem, 2.4vw, 0.72rem);
+    letter-spacing: 0.02em;
+  }
+
+  .site-nav .nav-cta {
+    padding-inline: 10px;
   }
 }
