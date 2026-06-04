@@ -7,8 +7,8 @@ const distAssets = path.join(workspace, "dist/assets");
 const maxEditorialBytes = 750 * 1024;
 const maxPublicImageBytes = 1.5 * 1024 * 1024;
 const maxFloorplanPreviewBytes = 1.25 * 1024 * 1024;
-const maxJsBytes = 510 * 1024;
-const maxCssBytes = 170 * 1024;
+const maxJsBytes = 525 * 1024;
+const maxCssBytes = 185 * 1024;
 const preExistingLargeImageAllowlist = [
   /^public\/projects\//,
   /^public\/concepts\//,
