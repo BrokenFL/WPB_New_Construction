@@ -2500,8 +2500,6 @@ app.innerHTML = `
         <a class="home-answer-archive-link" href="/buildings/">View all projects <span aria-hidden="true">→</span></a>
       </section>
 
-      ${renderHomepageTeamBand()}
-
       <section class="home-future-module home-spotlight-module" aria-label="Downtown spotlight: NORA district">
         <img src="/assets/editorial/nora-district-aerial-evening-hero.jpg" alt="Aerial evening rendering of the NORA District in Downtown West Palm Beach" loading="lazy" decoding="async" />
         <div>
@@ -2543,6 +2541,8 @@ app.innerHTML = `
         </div>
         <a class="home-atlas-mobile-cta" href="/map/">Explore All Projects on Map <span aria-hidden="true">→</span></a>
       </section>
+
+      ${renderHomepageTeamBand()}
 
       ${renderHomepageAdvisoryResources()}
       ${renderHomepageCompareLauncher()}
