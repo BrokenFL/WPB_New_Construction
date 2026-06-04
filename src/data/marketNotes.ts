@@ -71,7 +71,7 @@ export const marketNotes = [
     buyerTakeaway:
       "Treat Vanderbilt, NYU Langone, and Cleveland Clinic as credibility signals, not automatic value guarantees. Verify what is funded, what is open, what is still contingent, and whether the exact residence benefits from the change.",
     image: {
-      path: "/assets/editorial/institutional-cleveland-clinic-campus.png",
+      path: "/assets/editorial/institutional-cleveland-clinic-campus.jpg",
       credit: "User-provided editorial image, optimized for site use.",
     },
     imageId: "institutional-cleveland-clinic-campus",
