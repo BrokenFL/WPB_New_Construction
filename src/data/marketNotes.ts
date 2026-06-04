@@ -246,7 +246,7 @@ export const marketNotes = [
           "Review the HOA budget, reserves, insurance, staffing assumptions, and brand-related fees.",
           "Confirm which amenities are residents-only and whether hotel guests or the public share access.",
           "Separate services included in monthly dues from a la carte services and ask for pricing.",
-          "Evaluate construction quality and the developer, contractor, and operator track records.",
+          "Evaluate construction quality and the developer, contractor, and operator histories.",
           "Review rental rules, resale restrictions, design limitations, and renovation standards.",
           "Compare competing branded and non-branded buildings by price per square foot and monthly cost.",
           "Request current buyer materials and calculate long-term ownership costs before relying on marketing.",
@@ -353,7 +353,7 @@ export const marketNotes = [
       {
         heading: "Budget for the closing table and the post-turnover building",
         body:
-          "New-construction closings may include developer fees, title charges, recording costs, documentary stamps, prepaid assessments, and prorated taxes. After closing, monthly assessments can change as the building moves from developer control to owner control. Buyers should review reserve assumptions, insurance exposure, amenity operating costs, ownership of shared facilities, and whether later phases could affect existing owners.",
+          "New-construction closings may include developer fees, title charges, filing charges, documentary stamps, prepaid assessments, and prorated taxes. After closing, monthly assessments can change as the building moves from developer control to owner control. Buyers should review reserve assumptions, insurance exposure, amenity operating costs, ownership of shared facilities, and whether later phases could affect existing owners.",
       },
       {
         heading: "Review the sponsor team and the turnover process",
@@ -375,7 +375,7 @@ export const marketNotes = [
           "Amenity ownership, maintenance responsibility, and future phase cost exposure.",
           "Construction timeline, outside date, delay remedies, design selections, and punch-list process.",
           "Mortgage contingency, project eligibility, rate risk, and lender review timing.",
-          "Developer, contractor, architect, operator, and prior-project track record.",
+          "Developer, contractor, architect, operator, and prior-project history.",
         ],
       },
       {
