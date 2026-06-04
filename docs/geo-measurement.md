@@ -29,7 +29,8 @@ Inspect and monitor these first in Google Search Console and Bing Webmaster Tool
 - `https://www.wpbnewconstruction.com/projects/south-flagler-house/`
 - `https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/`
 - `https://www.wpbnewconstruction.com/projects/berkeley/`
-- `https://www.wpbnewconstruction.com/projects/rosewood/`
+- `https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/`
+- `https://www.wpbnewconstruction.com/projects/rybovich-marina-redevelopment/`
 
 ## Google Search Console Checklist
 

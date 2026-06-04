@@ -7,11 +7,14 @@ const templatePath = path.join(distRoot, "index.html");
 const siteDataPath = path.join(workspace, "src/generated/siteData.ts");
 const appSourcePath = path.join(workspace, "src/main.ts");
 const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
+const canonicalProjectsPath = path.join(workspace, "research/source-material-review/wpb-projects-canonical-v3-planning-update.json");
+const rosewoodSourceIndexPath = path.join(workspace, "research/rosewood/source-index.json");
 const baseUrl = "https://www.wpbnewconstruction.com";
 
 const projectAliases = new Map([
   ["south-flagler-house", "south-flagler-house-north"],
   ["edgeworth", "edgeworth-north"],
+  ["rybovich-marina-redevelopment", "rybovich-marina"],
 ]);
 
 const corridorDetails = {
@@ -57,6 +60,8 @@ async function main() {
 
 async function loadStaticPayload(siteData) {
   const approvedNews = await readJson(approvedNewsPath, []);
+  const canonicalProjects = await readJson(canonicalProjectsPath, { projects: [] });
+  const rosewoodSourceIndex = await readJson(rosewoodSourceIndexPath, { sources: [] });
   const appSource = await fs.readFile(appSourcePath, "utf8").catch(() => "");
   return {
     siteMeta: parseExport(siteData, "siteMeta"),
@@ -67,6 +72,8 @@ async function loadStaticPayload(siteData) {
     projectFacts: parseExport(siteData, "projectFacts"),
     prerenderRoutes: parseExport(siteData, "prerenderRoutes"),
     approvedNews: approvedNews.filter((item) => item.status === "published"),
+    canonicalProjects: Array.isArray(canonicalProjects.projects) ? canonicalProjects.projects : [],
+    rosewoodSourceIndex: Array.isArray(rosewoodSourceIndex.sources) ? rosewoodSourceIndex.sources : [],
   };
 }
 
@@ -487,6 +494,7 @@ function renderProjectRoute(route, payload, slug) {
         <h2>Bottom line</h2>
         <p>${publicText(project.name)} is tracked as a ${publicText(project.area || "West Palm Beach")} project page. Use this page for orientation, then verify current pricing, availability, incentives, fees, floor-plan release status, square footage, delivery timing, and contract terms before relying on any public summary.</p>
       </section>
+      ${renderPipelineWatchlistStaticNote(project)}
       <section>
         <h2>Key facts to verify</h2>
         <dl>
@@ -605,6 +613,35 @@ function renderCorridorRoute(route, payload, slug) {
       </section>
     `,
   );
+}
+
+function renderPipelineWatchlistStaticNote(project) {
+  const isWatchlist = /pipeline|watch/i.test(`${project.pageStatus || ""} ${project.facts?.status || ""} ${project.canonicalWatchlist?.developmentStage || ""}`);
+  if (!isWatchlist) return "";
+  if (project.projectId === "rosewood-residences-west-palm-beach") {
+    return `
+      <section>
+        <h2>Pipeline watchlist context</h2>
+        <p>Rosewood Residences West Palm Beach is tracked as a proposed North Flagler branded-residence project at 2001 North Flagler Drive, not as a launched public sales offering. The current planning record and reporting point to a 27-story, 90-residence tower with Related Group and BH Group as project sponsors, Arquitectonica as architect, Rosewood branding, 185 parking spaces, more than 13,000 square feet of reported indoor amenities, and a fifth-floor pool deck.</p>
+        <p>Pricing, formal sales launch, complete floorplans, delivery timing, final approval status, construction team, and publishable official media still need current confirmation. Buyers should use this page as early corridor intelligence and compare it separately from active North Flagler projects with current packets.</p>
+      </section>
+    `;
+  }
+  if (project.projectId === "rybovich-marina") {
+    return `
+      <section>
+        <h2>Pipeline watchlist context</h2>
+        <p>Rybovich Marina Redevelopment is tracked as a North Flagler waterfront district plan for the 4000-4300 North Flagler Drive marina area. The current catalog frames it as planning or initial-approval context, with residential towers, marina uses, private club space, retail, restaurant, office, crew-amenity, and Intracoastal promenade components still needing buyer-facing confirmation before they are treated as condo inventory.</p>
+        <p>The broader redevelopment has been reported with up to 660 residential units, while current buyer guidance should focus on what is actually approved, released, and available. Pricing, tower-by-tower residence mix, floorplans, sales launch, association terms, and delivery timing remain verification items.</p>
+      </section>
+    `;
+  }
+  return `
+    <section>
+      <h2>Pipeline watchlist context</h2>
+      <p>${publicText(project.name)} is being tracked as a future or planning-stage West Palm Beach project. Treat the page as market context until current pricing, availability, floorplans, delivery timing, approvals, buyer packet details, and contract terms are confirmed.</p>
+    </section>
+  `;
 }
 
 function renderUpdateRoute(route, payload, slug) {
@@ -788,16 +825,99 @@ function floorplanForProject(payload, projectId) {
   return payload.floorplanLibrary.find((project) => aliases.has(project.projectId));
 }
 
+function canonicalProjectFallbackForSlug(payload, slug) {
+  const canonicalId = slug === "rybovich-marina" ? "rybovich-marina-redevelopment" : slug;
+  const record = payload.canonicalProjects.find((project) => (project.project_id || project.slug) === canonicalId || project.slug === canonicalId);
+  if (!record || record.include_on_site !== true) return undefined;
+  const sourceBuckets = sourceBucketsForCanonicalProject(payload, record);
+  return {
+    projectId: record.project_id || record.slug,
+    name: record.display_name || record.project || record.slug,
+    area: corridorAreaFromCanonical(record),
+    pageStatus: record.status_badge || "Pipeline/watch-list",
+    dataConfidence: record.confidence_level || "Needs verification",
+    officialWebsite: "",
+    facts: {
+      address: record.public_address || "",
+      status: record.status_badge || record.development_stage || "Pipeline/watch-list",
+      residences: record.public_residence_count ? String(record.public_residence_count) : "",
+      stories: record.floor_count_display ? String(record.floor_count_display) : "",
+      completion: record.delivery_display || "Timing not publicly confirmed.",
+      pricing: record.price_display || "Not publicly confirmed",
+      team: [
+        ...asList(record.developer),
+        ...asList(record.architect),
+        ...asList(record.brand_partner),
+      ].filter(Boolean).join("; "),
+    },
+    missingInfo: [
+      !record.price_display ? "Current pricing is not publicly confirmed." : "",
+      !record.delivery_display ? "Delivery timing is not publicly confirmed." : "",
+      !record.size_range_display ? "Residence sizes and public floorplan packets should be verified." : "",
+    ].filter(Boolean),
+    conflicts: record.key_conflicts || [],
+    gaps: [
+      ...(record.tradeoffs || []),
+      record.human_review_required ? "Human review is required before treating this as a current sales offering." : "",
+    ].filter(Boolean),
+    highValueSources: [],
+    sourceCounts: {
+      official: sourceBuckets.official.length,
+      reporting: sourceBuckets.reporting.length,
+      other: sourceBuckets.other.length,
+      sourcePages: sourceBuckets.official.length + sourceBuckets.reporting.length + sourceBuckets.other.length,
+    },
+    sourceBuckets,
+    canonicalWatchlist: {
+      amenitySummary: record.amenity_summary || "",
+      serviceSummary: record.service_summary || "",
+      parkingSummary: record.parking_summary || "",
+      bestFor: record.best_for || [],
+      tradeoffs: record.tradeoffs || [],
+      developmentStage: record.development_stage || "",
+      importRecommendation: record.import_recommendation || "",
+    },
+  };
+}
+
+function sourceBucketsForCanonicalProject(payload, record) {
+  if (record.project_id === "rosewood-residences-west-palm-beach") {
+    return payload.rosewoodSourceIndex.reduce((buckets, source) => {
+      const bucket = source.type === "official_city" || source.type === "state_record"
+        ? "official"
+        : source.type?.includes("reporting")
+          ? "reporting"
+          : "other";
+      if (source.url) buckets[bucket].push(source.url);
+      return buckets;
+    }, { official: [], reporting: [], other: [] });
+  }
+  const urls = asList(record.source_urls);
+  return { official: [], reporting: urls, other: [] };
+}
+
+function corridorAreaFromCanonical(record) {
+  const neighborhood = `${record.neighborhood || ""} ${record.public_address || ""}`.toLowerCase();
+  if (neighborhood.includes("south flagler")) return "South Flagler";
+  if (neighborhood.includes("downtown") || neighborhood.includes("cityplace") || neighborhood.includes("nora")) return "Downtown";
+  return "North Flagler";
+}
+
 function projectForSlug(payload, slug) {
   const id = projectAliases.get(slug) || slug;
-  return payload.projectFacts.find((project) => project.projectId === id || project.projectId === slug);
+  return payload.projectFacts.find((project) => project.projectId === id || project.projectId === slug) ||
+    canonicalProjectFallbackForSlug(payload, slug);
 }
 
 function projectPath(project) {
-  const publicId = project.projectId === "south-flagler-house-north" || project.projectId === "south-flagler-house-south"
-    ? "south-flagler-house"
-    : project.projectId;
+  const publicId = publicProjectId(project.projectId);
   return `/projects/${publicId}/`;
+}
+
+function publicProjectId(projectId) {
+  if (projectId === "south-flagler-house-north" || projectId === "south-flagler-house-south") return "south-flagler-house";
+  if (projectId === "rybovich-marina") return "rybovich-marina-redevelopment";
+  return projectId;
 }
 
 function corridorKeyForProject(project) {
@@ -1205,6 +1325,12 @@ function safeHref(value) {
 
 function normalize(value) {
   return String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
+
+function asList(value) {
+  if (Array.isArray(value)) return value.filter(Boolean);
+  if (value === undefined || value === null || value === "") return [];
+  return [value];
 }
 
 function gatekeeperText(value) {

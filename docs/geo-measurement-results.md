@@ -9,6 +9,10 @@ Follow-up update: later on 2026-05-26, Search Console access became available fo
 
 The recent SEO/GEO files are live and crawlable: `sitemap.xml`, `robots.txt`, and `llms.txt` all returned `200`, and the live sitemap contains 52 URLs including the priority answer, corridor, compare, and project routes.
 
+Follow-up implementation update on 2026-06-04: local SEO and GEO checks now pass after the static prerenderer was updated to hydrate the Rybovich Marina Redevelopment watchlist route from its canonical slug and to render Rosewood Residences West Palm Beach from the canonical planning snapshot plus the Rosewood source index. The two formerly thin static project pages now render as source-framed watchlist pages with one H1, one JSON-LD graph, correct canonical URLs, and more than 4,000 characters of crawlable text each.
+
+Search Console baseline observed on 2026-06-04 in the `sc-domain:wpbnewconstruction.com` Performance report: last 7 days showed 10 clicks, 407 impressions, 2.5% CTR, and 32.2 average position, with the report last updated about 5.5 hours before inspection. Top visible page rows included WPB update pages, North Flagler, Fern & Gardenia, a NORA floorplan document URL, a market-note page, and the homepage.
+
 The biggest remaining blocker is URL-level inspection execution in Google Search Console. Google Search Console is now accessible for Brooke's signed-in Google account and the sitemap has been submitted successfully. However, the URL Inspection bar accepted typed URLs but did not launch inspection results through the automated Chrome session, so priority URL indexing/request-indexing data is still not available. Bing Webmaster Tools ownership is verified, the sitemap is submitted, and Bing URL Inspection/URL Submission are now available.
 
 Public Google discovery is partial. Google shows the homepage and at least one corridor page, but the answer hub did not appear for `site:wpbnewconstruction.com/answers`, the current Downtown canonical did not appear for the expected `/corridors/downtown-west-palm-beach/` path, and the Olara project query surfaced floorplan PDFs instead of the canonical project page. AI answer engines tested so far did not mention or cite `wpbnewconstruction.com`.
@@ -45,7 +49,8 @@ Public Google discovery is partial. Google shows the homepage and at least one c
 | `https://www.wpbnewconstruction.com/corridors/downtown-west-palm-beach/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Public Google showed older `/corridors/downtown/` instead. |
 | `https://www.wpbnewconstruction.com/corridors/south-flagler/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Priority corridor page not observed in public result captures. |
 | `https://www.wpbnewconstruction.com/projects/olara/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Public Google showed Olara PDFs instead of the project page. |
-| `https://www.wpbnewconstruction.com/projects/rosewood/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Public Google showed a Rosewood update, not the project page. |
+| `https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Public Google showed a Rosewood update, not the project page. |
+| `https://www.wpbnewconstruction.com/projects/rybovich-marina-redevelopment/` | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Pending manual check | Added as a priority watchlist page after the static prerender alias was tightened. |
 - Page Indexing report:
   - Still processing data.
   - No indexed/not-indexed reason table was available yet.
@@ -178,7 +183,7 @@ Unable to confirm via GSC URL Inspection because the inspection result screen di
 - `/corridors/downtown-west-palm-beach/` was not observed; Google showed `/corridors/downtown/` instead.
 - `/corridors/south-flagler/` was not observed in the captured public result set.
 - `/projects/olara/` was not observed for the Olara project site query; PDFs appeared instead.
-- `/projects/rosewood/` was not observed as a canonical project page, though a Rosewood update appeared.
+- `/projects/rosewood-residences-west-palm-beach/` was not observed as a canonical project page, though a Rosewood update appeared.
 
 ## Weird URL/Canonical Issues
 
