@@ -245,6 +245,13 @@ type GoogleMapsNamespace = {
   LatLngBounds: new () => {
     extend: (position: { lat: number; lng: number }) => void;
   };
+  SymbolPath: {
+    CIRCLE: unknown;
+  };
+  Marker: new (options: Record<string, unknown>) => {
+    addListener: (eventName: string, handler: () => void) => void;
+    setMap: (map: unknown | null) => void;
+  };
   importLibrary?: (libraryName: "marker") => Promise<{
     AdvancedMarkerElement?: new (options: Record<string, unknown>) => {
       map: unknown | null;
@@ -261,13 +268,39 @@ type GoogleMapsNamespace = {
   };
 };
 
-type GoogleAdvancedMarkerConstructor = NonNullable<NonNullable<GoogleMapsNamespace["marker"]>["AdvancedMarkerElement"]>;
-
 type GoogleMarkerHandle = {
   clear: () => void;
 };
 
 type MapStatusFilter = "all" | "active" | "pipeline" | "completed";
+
+const cleanProjectMapStyles: Record<string, unknown>[] = [
+  { elementType: "geometry", stylers: [{ color: "#f3efe6" }] },
+  { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+  { elementType: "labels.text.fill", stylers: [{ color: "#3b4650" }] },
+  { elementType: "labels.text.stroke", stylers: [{ color: "#f7f2e8" }, { weight: 3 }] },
+  { featureType: "administrative", elementType: "geometry", stylers: [{ visibility: "off" }] },
+  { featureType: "administrative.locality", elementType: "labels.text", stylers: [{ visibility: "on" }] },
+  { featureType: "administrative.neighborhood", elementType: "labels", stylers: [{ visibility: "off" }] },
+  { featureType: "landscape", elementType: "labels", stylers: [{ visibility: "off" }] },
+  { featureType: "landscape.man_made", elementType: "geometry.fill", stylers: [{ color: "#ebe4d8" }] },
+  { featureType: "poi", stylers: [{ visibility: "off" }] },
+  { featureType: "poi.business", stylers: [{ visibility: "off" }] },
+  { featureType: "poi.government", stylers: [{ visibility: "off" }] },
+  { featureType: "poi.medical", stylers: [{ visibility: "off" }] },
+  { featureType: "poi.park", elementType: "geometry.fill", stylers: [{ color: "#dce4d4" }] },
+  { featureType: "poi.park", elementType: "labels", stylers: [{ visibility: "off" }] },
+  { featureType: "road", elementType: "geometry.fill", stylers: [{ color: "#ffffff" }] },
+  { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#d7cec0" }] },
+  { featureType: "road", elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+  { featureType: "road.local", elementType: "labels", stylers: [{ visibility: "off" }] },
+  { featureType: "road.arterial", elementType: "labels.text.fill", stylers: [{ color: "#7b7468" }] },
+  { featureType: "road.highway", elementType: "geometry.fill", stylers: [{ color: "#ded4c3" }] },
+  { featureType: "road.highway", elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+  { featureType: "transit", stylers: [{ visibility: "off" }] },
+  { featureType: "water", elementType: "geometry.fill", stylers: [{ color: "#b8d5df" }] },
+  { featureType: "water", elementType: "labels", stylers: [{ visibility: "off" }] },
+];
 
 type WindowWithGoogleMaps = Window & {
   google?: {
@@ -390,8 +423,6 @@ const projectLogoImages: Record<string, { src: string; alt: string }> = {
   "south-flagler-house": { src: `${southFlaglerMediaBase}logo.svg`, alt: "South Flagler House logo" },
 };
 const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined;
-const googleMapsMapId = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID as string | undefined;
-const advancedMarkerMapId = googleMapsMapId || "DEMO_MAP_ID";
 const heroMapScriptId = "wpb-google-map-script";
 const heroMapCallbackName = "__wpbGoogleMapsReady";
 const mapFallbackTitle = "Map temporarily unavailable";
@@ -401,7 +432,6 @@ const buyerFriendlyMapFallback = `${mapFallbackTitle}. ${mapFallbackBody}`;
 const HERO_ROTATION_INTERVAL_MS = 16000;
 const HERO_FADE_DURATION_MS = 1800;
 let googleMapsLoader: Promise<GoogleMapsNamespace> | null = null;
-let googleAdvancedMarkerLoader: Promise<GoogleAdvancedMarkerConstructor> | null = null;
 
 const staticRoutePaths: Record<string, string> = {
   "/buildings": "buildings",
@@ -5123,26 +5153,30 @@ function renderProjectMapFallback() {
 function renderMapRouteView() {
   return `
     <div class="route-view route-view-map" data-route-view="map" hidden>
-      <section class="section map-live-section map-page-simple" aria-label="Interactive West Palm Beach project map">
-        <div class="section-heading">
+      <section class="map-route-page" aria-label="Interactive West Palm Beach project map">
+        <div class="map-route-intro">
           <p class="eyebrow">Project Map</p>
-          <h2>West Palm Beach project map.</h2>
-          <p>Click a marker to view the building, then open the project page for details.</p>
+          <h1>West Palm Beach project map.</h1>
+          <p>Use the filters to narrow the map, then click a project pin for the building summary and guide link.</p>
         </div>
-        ${renderMapControls()}
-        <aside class="home-hero-map-card map-route-map-card" aria-label="West Palm Beach project map">
-          <figure class="hero-map-preview">
-            <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
-            <button class="hero-map-expand" type="button" data-map-expand>Showing all locations</button>
-            <div class="hero-map-fallback">
-              ${renderProjectMapFallback()}
+        <div class="map-route-workspace">
+          <aside class="map-route-sidebar" aria-label="Map filters and selected project">
+            ${renderMapControls()}
+          </aside>
+          <aside class="home-hero-map-card map-route-map-card" aria-label="West Palm Beach project map">
+            <figure class="hero-map-preview">
+              <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
+              <button class="hero-map-expand" type="button" data-map-expand>Showing all locations</button>
+              <div class="hero-map-fallback">
+                ${renderProjectMapFallback()}
+              </div>
+            </figure>
+            <div class="home-map-count" aria-label="Map project count">
+              <strong>${featuredProjects.length}</strong>
+              <span>tracked West Palm Beach new-construction projects</span>
             </div>
-          </figure>
-          <div class="home-map-count" aria-label="Map project count">
-            <strong>${featuredProjects.length}</strong>
-            <span>tracked West Palm Beach new-construction projects</span>
-          </div>
-        </aside>
+          </aside>
+        </div>
       </section>
     </div>
   `;
@@ -6364,64 +6398,39 @@ function renderMapControls() {
   `;
 }
 
-function loadAdvancedMarkerElement(maps: GoogleMapsNamespace) {
-  if (googleAdvancedMarkerLoader) {
-    return googleAdvancedMarkerLoader;
-  }
-
-  googleAdvancedMarkerLoader = (async () => {
-    if (maps.marker?.AdvancedMarkerElement) {
-      return maps.marker.AdvancedMarkerElement;
-    }
-    if (!maps.importLibrary) {
-      throw new Error("Google Maps marker library is unavailable");
-    }
-    try {
-      const markerLibrary = await maps.importLibrary("marker");
-      if (!markerLibrary.AdvancedMarkerElement) {
-        throw new Error("Google Maps AdvancedMarkerElement is unavailable");
-      }
-      return markerLibrary.AdvancedMarkerElement;
-    } catch (error) {
-      throw error;
-    }
-  })();
-
-  return googleAdvancedMarkerLoader;
-}
-
-function markerPinElement(priority: "primary" | "secondary") {
-  const pin = document.createElement("span");
-  pin.className = `map-advanced-marker map-advanced-marker-${priority}`;
-  pin.setAttribute("aria-hidden", "true");
-  pin.innerHTML = "<i></i>";
-  return pin;
-}
-
 function createMapMarker(
+  maps: GoogleMapsNamespace,
   map: unknown,
   position: { lat: number; lng: number },
   title: string,
   priority: "primary" | "secondary",
   onClick: () => void,
-  AdvancedMarkerElement: GoogleAdvancedMarkerConstructor,
 ): GoogleMarkerHandle {
-  const marker = new AdvancedMarkerElement({
+  const marker = new maps.Marker({
     map,
     position,
     title,
-    content: markerPinElement(priority),
-    gmpClickable: true,
+    clickable: true,
+    optimized: true,
+    icon: projectMapMarkerIcon(maps, priority),
   });
-  if (marker.addEventListener) {
-    marker.addEventListener("gmp-click", onClick);
-  } else {
-    marker.addListener?.("click", onClick);
-  }
+  marker.addListener("click", onClick);
   return {
     clear: () => {
-      marker.map = null;
+      marker.setMap(null);
     },
+  };
+}
+
+function projectMapMarkerIcon(maps: GoogleMapsNamespace, priority: "primary" | "secondary") {
+  return {
+    path: maps.SymbolPath.CIRCLE,
+    scale: priority === "primary" ? 9 : 6,
+    fillColor: priority === "primary" ? "#17202a" : "#4e5962",
+    fillOpacity: 1,
+    strokeColor: "#fffaf1",
+    strokeOpacity: 1,
+    strokeWeight: priority === "primary" ? 2.5 : 1.75,
   };
 }
 
@@ -6429,14 +6438,16 @@ function googleMapBaseOptions(center: { lat: number; lng: number }, zoom: number
   const mapOptions: Record<string, unknown> = {
     center,
     zoom,
+    styles: cleanProjectMapStyles,
+    disableDefaultUI: true,
+    zoomControl: true,
     mapTypeControl: false,
     streetViewControl: false,
     fullscreenControl: false,
     clickableIcons: false,
+    keyboardShortcuts: false,
     gestureHandling: "cooperative",
   };
-
-  mapOptions.mapId = advancedMarkerMapId;
 
   return mapOptions;
 }
@@ -6471,7 +6482,6 @@ function initHeroGoogleMap() {
     loadGoogleMaps()
       .then(async (maps) => {
       card.dataset.mapState = "ready";
-      const AdvancedMarkerElement = await loadAdvancedMarkerElement(maps);
       if (!canvas.isConnected) return;
       const focusProject = rankedFeaturedProjects.find((project) => project.id === card.dataset.focusProjectId);
       const focusPosition = focusProject ? { lat: focusProject.latitude, lng: focusProject.longitude } : undefined;
@@ -6503,6 +6513,7 @@ function initHeroGoogleMap() {
           const position = { lat: project.latitude, lng: project.longitude };
           bounds.extend(position);
           const marker = createMapMarker(
+            maps,
             map,
             position,
             `${project.name} · ${project.corridor} project`,
@@ -6515,7 +6526,6 @@ function initHeroGoogleMap() {
                 window.location.assign(projectPath(project));
               }
             },
-            AdvancedMarkerElement,
           );
           markers.push(marker);
         });
@@ -6563,7 +6573,9 @@ function initHeroGoogleMap() {
           renderMarkers();
         });
       });
-      map.addListener("click", expandMap);
+      map.addListener("click", () => {
+        if (!card.closest("[data-route-view='map']")) expandMap();
+      });
       renderMarkers();
     })
     .catch(() => {
@@ -6596,8 +6608,7 @@ function initProjectLocationMaps() {
   });
 
   loadGoogleMaps()
-    .then(async (maps) => {
-      const AdvancedMarkerElement = await loadAdvancedMarkerElement(maps);
+    .then((maps) => {
       mapsToInit.forEach((element) => {
         const latitude = Number(element.dataset.latitude);
         const longitude = Number(element.dataset.longitude);
@@ -6611,16 +6622,12 @@ function initProjectLocationMaps() {
         const position = { lat: latitude, lng: longitude };
         const map = new maps.Map(element, googleMapBaseOptions(position, 15));
         createMapMarker(
+          maps,
           map,
           position,
           projectName,
           "primary",
-          () => {
-            const projectId = element.closest<HTMLElement>("[data-route-view='project']")?.dataset.projectId;
-            const project = projectId ? featuredProjects.find((item) => item.id === projectId) : undefined;
-            if (project) window.location.assign(projectPath(project));
-          },
-          AdvancedMarkerElement,
+          () => undefined,
         );
         element.dataset.mapInitialized = "true";
         element.dataset.mapState = "ready";
