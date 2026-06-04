@@ -2566,6 +2566,9 @@ app.innerHTML = `
         <a href="/corridors/">${homeJumpIcon("corridors")}<span>Corridors</span></a>
         <a href="/buildings/">${homeJumpIcon("projects")}<span>Projects</span></a>
         <a href="/compare/">${homeJumpIcon("compare")}<span>Compare</span></a>
+        <a href="/answers/">${homeJumpIcon("answers")}<span>Q&A</span></a>
+        <a href="/downtown-spotlight/">${homeJumpIcon("spotlight")}<span>Downtown</span></a>
+        <a href="/updates/">${homeJumpIcon("updates")}<span>Updates</span></a>
         <a href="/market-notes/">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
       </nav>
 
@@ -4914,13 +4917,16 @@ function homepageCorridorCopy(key: CorridorKey) {
   }[key];
 }
 
-function homeJumpIcon(name: "projects" | "corridors" | "map" | "compare" | "guides") {
+function homeJumpIcon(name: "projects" | "corridors" | "map" | "compare" | "guides" | "answers" | "spotlight" | "updates") {
   const paths = {
     projects: '<path d="M4 20h16"/><path d="M6 20V7l8-3 4 2v14"/><path d="M9 10h2"/><path d="M9 14h2"/><path d="M14 10h2"/><path d="M14 14h2"/>',
     corridors: '<path d="M3 8c2 0 2-1.5 4-1.5S9 8 11 8s2-1.5 4-1.5S17 8 19 8s2-1.5 2-1.5"/><path d="M3 13c2 0 2-1.5 4-1.5S9 13 11 13s2-1.5 4-1.5S17 13 19 13s2-1.5 2-1.5"/><path d="M3 18c2 0 2-1.5 4-1.5S9 18 11 18s2-1.5 4-1.5S17 18 19 18s2-1.5 2-1.5"/>',
     map: '<path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/>',
     compare: '<path d="M5 5v14"/><path d="M19 5v14"/><path d="M9 8h10"/><path d="M5 16h10"/><circle cx="9" cy="8" r="2"/><circle cx="15" cy="16" r="2"/>',
     guides: '<path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4Z"/><path d="M8 20V7a3 3 0 0 0-3-3"/><path d="M11 9h4"/><path d="M11 13h4"/>',
+    answers: '<path d="M4 5h16v10H8l-4 4V5Z"/><path d="M8 9h8"/><path d="M8 12h5"/>',
+    spotlight: '<path d="M12 3v3"/><path d="M5.6 5.6l2.1 2.1"/><path d="M18.4 5.6l-2.1 2.1"/><path d="M6 21h12"/><path d="M8 17h8"/><path d="M9 14a3 3 0 0 1 6 0v3H9v-3Z"/>',
+    updates: '<path d="M5 5h10l4 4v10H5V5Z"/><path d="M15 5v4h4"/><path d="M8 13h8"/><path d="M8 16h6"/>',
   };
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name]}</svg>`;
 }

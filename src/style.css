@@ -11062,7 +11062,13 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 
 .home-section-jump {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(132px, 15vw);
+  grid-template-columns: none;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline proximity;
+  scrollbar-width: thin;
   border-top: 1px solid var(--bronze);
   border-bottom: 1px solid var(--bronze);
   background: #fffaf1;
@@ -11076,6 +11082,7 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   gap: 4px;
   border-right: 1px solid rgba(154, 122, 79, 0.24);
   color: var(--bronze);
+  scroll-snap-align: start;
   text-decoration: none;
 }
 
