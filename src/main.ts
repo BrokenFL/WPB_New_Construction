@@ -130,6 +130,18 @@ type BuyerIntentAnswerPage = {
   sourceNotes: string[];
 };
 
+type AnswerTopicCard = {
+  label: string;
+  heading: string;
+  description: string;
+  href: string;
+};
+
+type AnswerTopicSection = AnswerTopicCard & {
+  faqIds: string[];
+  defaultOpen?: boolean;
+};
+
 type ProjectFilter = {
   key: string;
   label: string;
@@ -1217,6 +1229,107 @@ const buyerIntentAnswerPages: BuyerIntentAnswerPage[] = [
     sourceNotes: ["Lifestyle framing uses existing corridor and project positioning.", "Amenity and service claims should be verified in current project materials."],
   },
 ];
+
+const answerTopicSections: AnswerTopicSection[] = [
+  {
+    label: "Buying Process",
+    heading: "What changes when the building is not finished yet?",
+    description: "Start here for timing, active sales, pipeline projects, and what to confirm before a tour.",
+    href: "#qa-buying-process",
+    defaultOpen: true,
+    faqIds: [
+      "where-should-buyers-start",
+      "available-new-construction-condos",
+      "active-sales-vs-future-projects",
+      "when-will-projects-be-ready",
+      "which-are-actually-under-construction",
+      "delivery-timeline-risk",
+      "pipeline-projects-watch-list",
+    ],
+  },
+  {
+    label: "Pricing + Availability",
+    heading: "Which numbers need current confirmation?",
+    description: "Use this lane for public pricing, availability reliability, and the numbers that need current confirmation.",
+    href: "#qa-pricing-deposits",
+    faqIds: [
+      "what-will-it-cost",
+      "pricing-availability-reliability",
+    ],
+  },
+  {
+    label: "Buildings + Services",
+    heading: "How do amenities, brands, and service models compare?",
+    description: "Compare branded residences, service models, amenities, wellness, private dining, and daily ownership features.",
+    href: "#qa-buildings-services",
+    faqIds: [
+      "which-projects-feel-most-service-driven",
+      "branded-residences-worth-it",
+      "wellness-amenity-comparison",
+      "private-dining-and-entertaining",
+      "how-to-read-amenity-lists",
+      "residence-features-that-matter",
+      "guest-suites-family-amenities",
+      "work-from-home-business-spaces",
+      "pet-and-home-management",
+    ],
+  },
+  {
+    label: "Neighborhood Fit",
+    heading: "North Flagler, Downtown, or South Flagler?",
+    description: "Choose a lane by waterfront, walkability, Palm Beach proximity, views, boating, and downtown access.",
+    href: "#qa-neighborhood-fit",
+    faqIds: [
+      "north-flagler-vs-downtown-vs-south-flagler",
+      "north-flagler-projects",
+      "north-flagler-comparison-set",
+      "south-flagler-buyer-profile",
+      "downtown-walkability-buyer",
+      "near-square-downtown-nora",
+      "closest-to-palm-beach",
+      "waterfront-vs-walkable",
+      "which-offer-water-views",
+      "view-corridor-evaluation",
+      "which-projects-have-marina-or-boating",
+      "oceanfront-vs-intracoastal",
+      "waterfront-vs-palm-beach-oceanfront",
+    ],
+  },
+  {
+    label: "Floorplans + Fit",
+    heading: "Which residences are actually worth comparing?",
+    description: "Focus on floorplan depth, stack, exposure, scale, resale benchmarks, and the final shortlist.",
+    href: "#qa-floorplans-fit",
+    faqIds: [
+      "which-projects-have-floorplans",
+      "published-floor-plan-projects",
+      "stories-and-residence-counts",
+      "boutique-vs-large-scale",
+      "resale-benchmark-projects",
+      "compare-olara-and-shorecrest",
+    ],
+  },
+  {
+    label: "Advisor Review",
+    heading: "What should be requested before a serious comparison?",
+    description: "Bring the shortlist back to current documents, team review, and buyer-specific next steps.",
+    href: "#qa-advisor-review",
+    faqIds: [
+      "what-documents-to-request",
+      "request-current-availability",
+      "what-to-confirm-before-touring",
+      "before-sales-gallery",
+      "how-to-choose-final-shortlist",
+    ],
+  },
+];
+
+const answerTopicCards: AnswerTopicCard[] = answerTopicSections.map(({ label, heading, description, href }) => ({
+  label,
+  heading,
+  description,
+  href,
+}));
 
 function pageTypeForProject(project: FeaturedProject): ProjectPageType {
   const state = project.pageState.toLowerCase();
@@ -2694,43 +2807,61 @@ app.innerHTML = `
       </div>
 
       <div class="route-view route-view-answers" data-route-view="answers" hidden>
-        <section class="section intelligence-hero">
+        <section class="section intelligence-hero answer-library-hero">
           <div>
             <p class="eyebrow">Buyer Q&A</p>
-            <h1>${answerEngineFaq.length} direct answers for comparing West Palm Beach projects with discipline.</h1>
+            <h1>West Palm Beach New-Construction Condo Buyer FAQ.</h1>
             <p>
-              Start with readiness dates, pricing, water views, stories, residence counts, and construction status.
-              Then move into service, floorplans, documents, and the subtle tradeoffs that shape ownership.
+              Start with the questions buyers ask before choosing a project: process, deposits, pricing, neighborhoods,
+              ownership costs, service models, floorplans, documents, and current availability.
             </p>
           </div>
-          <aside class="answer-meta-panel">
-            <span>Current library</span>
-            <strong>${answerEngineFaq.length} buyer questions</strong>
-            <small>Source-backed answers for touring, shortlisting, and current availability review.</small>
-          </aside>
+          <figure class="answer-hero-media">
+            <img src="/assets/editorial/preconstruction-condo-document-review.jpg" alt="West Palm Beach condo buyer documents and floor plan materials arranged for review" decoding="async" />
+            <figcaption>
+              <span>Current library</span>
+              <strong>${answerEngineFaq.length} source-backed buyer questions</strong>
+              <small>Use the page to frame the shortlist, then verify changing details through current project documents.</small>
+            </figcaption>
+          </figure>
         </section>
-        <section class="section answer-fact-matrix-section" aria-label="Project fact matrix">
+        <section class="section answer-topic-section" id="answer-topics" aria-label="West Palm Beach condo FAQ topics">
           <div class="section-heading">
-            <p class="eyebrow">Quick Facts</p>
-            <h2>Stories, residences, timing, pricing, and view orientation in one pass.</h2>
+            <p class="eyebrow">Choose A Lane</p>
+            <h2>Start with the kind of decision you are trying to make.</h2>
+            <p>Each topic opens into a focused Q&A set, so buyers can compare the market without reading every answer at once.</p>
           </div>
-          ${renderAnswerFactMatrix()}
+          <div class="answer-topic-grid">
+            ${answerTopicCards.map(renderAnswerTopicCard).join("")}
+          </div>
         </section>
-        <nav class="question-index" aria-label="Buyer question index">
-          ${answerEngineFaq.map((item) => `<a href="#${item.id}" title="${item.question}" aria-label="${item.question}">${answerShortLabel(item)}</a>`).join("")}
-        </nav>
-        <section class="section answer-engine-section">
-          ${answerEngineFaq.map(renderAnswerBlock).join("")}
-        </section>
-        <section class="section buyer-intent-index-section" aria-label="Buyer-intent answer pages">
+        <section class="section answer-accordion-section" aria-label="Grouped West Palm Beach condo buyer questions">
           <div class="section-heading">
-            <p class="eyebrow">Buyer-Intent Guides</p>
-            <h2>AI-citable answers for common West Palm Beach condo comparisons.</h2>
-            <p>Each guide starts with the bottom line, links to the relevant project and corridor pages, and keeps changing details in the verification lane.</p>
+            <p class="eyebrow">Buyer Decision Library</p>
+            <h2>Open only the questions you need.</h2>
+            <p>The first group is open as a starting point. Everything else stays tucked away until it matters.</p>
           </div>
-          <div class="front-project-grid front-project-grid-static">
-            ${buyerIntentAnswerPages.map(renderBuyerIntentAnswerCard).join("")}
+          <div class="answer-accordion-groups">
+            ${answerTopicSections.map(renderAnswerTopicSection).join("")}
           </div>
+        </section>
+        <section class="section answer-research-section" aria-label="Deeper Q&A research tools">
+          <details class="answer-research-drawer">
+            <summary>
+              <span>Project Fact Matrix</span>
+              <strong>Compare stories, residences, timing, pricing, and views.</strong>
+            </summary>
+            ${renderAnswerFactMatrix()}
+          </details>
+          <details class="answer-research-drawer">
+            <summary>
+              <span>Deeper Comparison Guides</span>
+              <strong>Open buyer-intent guides for common West Palm Beach condo comparisons.</strong>
+            </summary>
+            <div class="front-project-grid front-project-grid-static">
+              ${buyerIntentAnswerPages.map(renderBuyerIntentAnswerCard).join("")}
+            </div>
+          </details>
         </section>
       </div>
 
@@ -3940,8 +4071,26 @@ function applyRoute() {
     ...(route.type === "news-detail" ? { articleId: route.articleId } : {}),
   });
 
+  openHashTargetDetails();
   if (!window.location.hash) {
     window.scrollTo({ top: 0, left: 0 });
+  }
+}
+
+function openHashTargetDetails() {
+  const hash = window.location.hash;
+  if (!hash) return;
+  const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+  if (!target) return;
+  let parent = target.parentElement;
+  while (parent) {
+    if (parent instanceof HTMLDetailsElement) {
+      parent.open = true;
+    }
+    parent = parent.parentElement;
+  }
+  if (target instanceof HTMLDetailsElement) {
+    target.open = true;
   }
 }
 
@@ -7161,10 +7310,6 @@ function formatNumber(value: string) {
   return Number.isFinite(parsed) ? parsed.toLocaleString("en-US") : value;
 }
 
-function answerShortLabel(item: (typeof answerEngineFaq)[number]) {
-  return item.shortLabel;
-}
-
 function buyerIntentAnswerPath(answer: BuyerIntentAnswerPage) {
   return `/answers/${answer.slug}/`;
 }
@@ -7276,6 +7421,71 @@ function renderBuyerIntentTable(answer: BuyerIntentAnswerPage) {
         </tbody>
       </table>
     </div>
+  `;
+}
+
+function renderAnswerTopicCard(topic: AnswerTopicCard) {
+  return `
+    <a class="answer-topic-card" href="${safeHref(topic.href)}">
+      <span>${publicText(topic.label)}</span>
+      <strong>${publicText(topic.heading)}</strong>
+      <small>${publicText(topic.description)}</small>
+    </a>
+  `;
+}
+
+function renderAnswerTopicSection(section: AnswerTopicSection) {
+  const answers = section.faqIds
+    .map((id) => answerEngineFaq.find((item) => item.id === id))
+    .filter((item): item is (typeof answerEngineFaq)[number] => Boolean(item));
+  return `
+    <details class="answer-topic-accordion" id="${escapeHtml(section.href.replace("#", ""))}"${section.defaultOpen ? " open" : ""}>
+      <summary>
+        <span>${publicText(section.label)}</span>
+        <strong>${publicText(section.heading)}</strong>
+        <small>${answers.length} questions</small>
+      </summary>
+      <div class="answer-topic-accordion-body">
+        <p>${publicText(section.description)}</p>
+        <div class="answer-question-list">
+          ${answers.map((item, index) => renderAnswerAccordionItem(item, section.defaultOpen && index === 0)).join("")}
+        </div>
+      </div>
+    </details>
+  `;
+}
+
+function renderAnswerAccordionItem(item: (typeof answerEngineFaq)[number], defaultOpen = false) {
+  const relatedProjects = item.relatedProjectIds
+    .map((projectId) => featuredProjects.find((project) => project.id === projectId))
+    .filter((project): project is FeaturedProject => Boolean(project))
+    .slice(0, 3);
+  const sourceCitations = item.sourceCitations.slice(0, 2);
+  return `
+    <details class="answer-question-item" id="${escapeHtml(item.id)}"${defaultOpen ? " open" : ""}>
+      <summary>
+        <span>${escapeHtml(item.concept)}</span>
+        <strong>${publicText(item.question)}</strong>
+      </summary>
+      <div class="answer-question-body">
+        <p>${publicText(item.answer)}</p>
+        ${
+          relatedProjects.length
+            ? `<div class="market-note-actions answer-question-actions">
+                ${relatedProjects.map((project) => `<a href="${projectPath(project)}">${escapeHtml(project.name)} <span aria-hidden="true">→</span></a>`).join("")}
+                <a href="/inquire/?lead_capture_context=answer_block&message=${encodeURIComponent(`I have a question about: ${item.question}`)}">Request Current Availability <span aria-hidden="true">↗</span></a>
+              </div>`
+            : `<div class="market-note-actions answer-question-actions"><a href="/inquire/?lead_capture_context=answer_block">Request Current Availability <span aria-hidden="true">↗</span></a></div>`
+        }
+        ${
+          sourceCitations.length
+            ? `<div class="answer-source-mini">
+                ${sourceCitations.map((source) => `<small><strong>${publicText(source.label)}</strong> ${publicText(source.note)}</small>`).join("")}
+              </div>`
+            : ""
+        }
+      </div>
+    </details>
   `;
 }
 
@@ -7401,52 +7611,6 @@ function sourceFactForProject(projectId: string) {
   };
   const sourceId = sourceFactAliases[projectId] ?? projectId;
   return projectFactById.get(sourceId as (typeof projectFacts)[number]["projectId"]);
-}
-
-function renderAnswerBlock(item: (typeof answerEngineFaq)[number]) {
-  const sourceCitations = item.sourceCitations;
-  const relatedProjects = item.relatedProjectIds
-    .map((projectId) => featuredProjects.find((project) => project.id === projectId))
-    .filter((project): project is FeaturedProject => Boolean(project))
-    .slice(0, 3);
-  return `
-    <article class="answer-block" id="${escapeHtml(item.id)}">
-      <div>
-        <span>${escapeHtml(item.concept)}</span>
-        <h2>${publicText(item.question)}</h2>
-      </div>
-      <p>${publicText(item.answer)}</p>
-      ${
-        sourceCitations.length
-          ? `<div class="answer-citation-grid">
-              ${sourceCitations
-                .map(
-                  (source) => `
-                    <article class="answer-citation">
-                      <strong>${publicText(source.label)}</strong>
-                      <small>${publicText(source.note)}</small>
-                    </article>
-                  `,
-                )
-                .join("")}
-            </div>`
-          : ""
-      }
-      ${
-        relatedProjects.length
-          ? `<div class="market-note-actions">
-              ${relatedProjects.map((project) => `<a href="${projectPath(project)}">${escapeHtml(project.name)} <span aria-hidden="true">→</span></a>`).join("")}
-              <a href="/inquire/?lead_capture_context=answer_block&message=${encodeURIComponent(`I have a question about: ${item.question}`)}">Request Current Availability <span aria-hidden="true">↗</span></a>
-            </div>`
-          : `<div class="market-note-actions"><a href="/inquire/?lead_capture_context=answer_block">Request Current Availability <span aria-hidden="true">↗</span></a></div>`
-      }
-      <footer>
-        <small>Related: ${escapeHtml(item.relatedProjectIds.join(", "))}</small>
-        <small>Reviewed: ${publicText(item.sources.join("; "))}</small>
-        <small>Accessed: ${escapeHtml(item.sourceCitations[0]?.dateAccessed ?? researchNewsFeed[0]?.dateModified ?? "current review")}</small>
-      </footer>
-    </article>
-  `;
 }
 
 function renderProjectFact(fact: ProjectFact) {
