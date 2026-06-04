@@ -281,7 +281,6 @@ function renderCorridorsIndexRoute(route, payload) {
       <section>
         <h2>Map and project comparison</h2>
         <ul>
-          <li><a href="/map/">Open the project map</a></li>
           <li><a href="/buildings/">Browse all projects</a></li>
           <li><a href="/compare/">Compare buildings</a></li>
         </ul>

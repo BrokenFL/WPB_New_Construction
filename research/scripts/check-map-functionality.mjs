@@ -42,14 +42,6 @@ async function startPreview() {
     return "http://127.0.0.1:4173";
   }
 
-  const existingUrl = "http://127.0.0.1:4173";
-  try {
-    const response = await fetch(existingUrl);
-    if (response.ok) return existingUrl;
-  } catch {
-    // No existing preview on the default port; start an isolated one below.
-  }
-
   let lastError;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     const port = String(4173 + Math.floor(Math.random() * 1500));
@@ -151,14 +143,14 @@ async function checkRoute(browser, route, label) {
         googleMapRendered: Boolean(document.querySelector(".gm-style")),
         fallbackRendered: Boolean(fallback && fallbackStyle?.display !== "none" && fallbackStyle?.visibility !== "hidden"),
         fallbackCopy: fallback?.textContent ?? "",
-        corridorListVisible: /North Flagler/i.test(text) && /Downtown/i.test(text) && /South Flagler/i.test(text),
+        mapControlsVisible: document.querySelectorAll(".map-route-controls [data-map-filter]").length >= 6,
         buildingLinks: document.querySelectorAll('a[href^="/projects/"], a[href="/buildings/"], a[href="/compare/"]').length,
       };
     });
 
     if (state.bodyLength < 300 || state.appLength < 700) failures.push(`${route} appears blank or under-rendered.`);
     if (!state.mapContainerAppears) failures.push(`${route} does not render a map container.`);
-    if (label === "map" && !state.corridorListVisible) failures.push("/map/ does not expose the corridor/project text fallback list.");
+    if (label === "map" && !state.mapControlsVisible) failures.push("/map/ does not expose map corridor/status controls.");
     if (!state.googleMapRendered && !state.fallbackRendered) failures.push(`${route} shows neither Google map tiles nor the clean fallback.`);
     if (requireGoogleMapRender && !state.googleMapRendered) {
       const reason = mapRequests.length ? "Google Maps was requested but did not render" : "Google Maps was not requested by the bundle";

@@ -35,10 +35,12 @@ async function main() {
 async function inspectHomepage(browser, viewport) {
   const page = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
   await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await page.waitForSelector(".route-view-home:not([hidden])", { timeout: 30000 });
   await page.waitForTimeout(750);
   const data = await page.evaluate(() => {
-    const sectionTop = (selector) => document.querySelector(selector)?.getBoundingClientRect().top ?? null;
-    const visibleImages = [...document.querySelectorAll("main img")]
+    const scope = document.querySelector(".route-view-home:not([hidden])");
+    const sectionTop = (selector) => scope?.querySelector(selector)?.getBoundingClientRect().top ?? null;
+    const visibleImages = [...(scope?.querySelectorAll("img") ?? [])]
       .filter((img) => {
         const rect = img.getBoundingClientRect();
         const src = img.getAttribute("src") || "";
@@ -62,18 +64,18 @@ async function inspectHomepage(browser, viewport) {
         corridors: sectionTop(".home-corridor-guide"),
         status: sectionTop(".home-status-guide"),
         atlas: sectionTop(".home-atlas-feature"),
+        team: sectionTop(".home-team-band"),
         featured: sectionTop(".home-featured-section"),
         spotlight: sectionTop(".home-spotlight-module"),
         resources: sectionTop(".home-advisory-resources"),
         compare: sectionTop(".home-compare-launcher"),
       },
       visibleImages,
-      jumpLinks: [...document.querySelectorAll(".home-section-jump a")].map((link) => link.getAttribute("href") ?? ""),
-      hasCta: Boolean(document.querySelector(".home-compare-launcher a[href^='/inquire']")),
-      hasAtlasMobileCta: Boolean(document.querySelector(".home-atlas-mobile-cta[href='/map/']")),
-      compareSelectCount: document.querySelectorAll("[data-home-compare-select]").length,
-      hasCompareSubmit: Boolean(document.querySelector("[data-home-compare-form] button[type='submit']")),
-      visibleAtlasProjectCards: [...document.querySelectorAll(".home-atlas-project-card")]
+      jumpLinks: [...(scope?.querySelectorAll(".home-section-jump a") ?? [])].map((link) => link.getAttribute("href") ?? ""),
+      hasCta: Boolean(scope?.querySelector(".home-compare-launcher a[href^='/inquire']")),
+      compareSelectCount: scope?.querySelectorAll("[data-home-compare-select]").length ?? 0,
+      hasCompareSubmit: Boolean(scope?.querySelector("[data-home-compare-form] button[type='submit']")),
+      visibleAtlasProjectCards: [...(scope?.querySelectorAll(".home-atlas-project-card") ?? [])]
         .filter((card) => window.getComputedStyle(card).display !== "none" && card.getBoundingClientRect().height > 0)
         .length,
       hasOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
@@ -85,27 +87,27 @@ async function inspectHomepage(browser, viewport) {
   const findings = [];
   const checks = [];
   const orderOk = data.order.corridors !== null && data.order.status !== null && data.order.featured !== null
-    && data.order.spotlight !== null && data.order.resources !== null && data.order.compare !== null && data.order.atlas !== null
+    && data.order.spotlight !== null && data.order.atlas !== null && data.order.team !== null && data.order.resources !== null && data.order.compare !== null
     && data.order.corridors < data.order.featured
     && data.order.corridors < data.order.status
     && data.order.status < data.order.featured
     && data.order.featured < data.order.spotlight
     && data.order.spotlight < data.order.atlas
+    && data.order.atlas < data.order.team
+    && data.order.team < data.order.resources
     && data.order.atlas < data.order.resources
     && data.order.resources < data.order.compare;
   checks.push({ viewport: viewport.name, label: "homepage section order", ok: orderOk });
-  if (!orderOk) findings.push(`${viewport.name}: homepage order should be Hero -> Corridors -> Browse by Status -> Featured Developments -> Spotlight -> Atlas -> Advisory Resources -> Compare Launcher.`);
+  if (!orderOk) findings.push(`${viewport.name}: homepage order should be Hero -> Corridors -> Browse by Status -> Featured Developments -> Spotlight -> Atlas -> Team -> Advisory Resources -> Compare Launcher.`);
   checks.push({ viewport: viewport.name, label: "CTA visible", ok: data.hasCta });
   if (!data.hasCta) findings.push(`${viewport.name}: homepage CTA block is not visible.`);
   checks.push({ viewport: viewport.name, label: "compare launcher available", ok: data.compareSelectCount === 2 && data.hasCompareSubmit });
   if (data.compareSelectCount !== 2 || !data.hasCompareSubmit) findings.push(`${viewport.name}: homepage compare launcher should offer two building selectors and a submit action.`);
   if (viewport.name === "mobile") {
-    checks.push({ viewport: viewport.name, label: "mobile atlas CTA visible", ok: data.hasAtlasMobileCta });
-    if (!data.hasAtlasMobileCta) findings.push("mobile: homepage atlas CTA is not available.");
     checks.push({ viewport: viewport.name, label: "mobile atlas card strip hidden", ok: data.visibleAtlasProjectCards === 0 });
     if (data.visibleAtlasProjectCards !== 0) findings.push("mobile: homepage atlas project cards should stay hidden.");
   }
-  const jumpTargets = ["/corridors/", "/buildings/", "/map/", "/compare/", "/market-notes/"];
+  const jumpTargets = ["/corridors/", "/buildings/", "/compare/", "/market-notes/"];
   const jumpLinksOk = jumpTargets.every((target) => data.jumpLinks.includes(target));
   checks.push({ viewport: viewport.name, label: "section jump links", ok: jumpLinksOk });
   if (!jumpLinksOk) findings.push(`${viewport.name}: homepage section jump navigation is missing required targets.`);

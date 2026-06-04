@@ -2437,7 +2437,6 @@ app.innerHTML = `
       <nav class="home-section-jump" aria-label="Explore homepage sections">
         <a href="/corridors/">${homeJumpIcon("corridors")}<span>Corridors</span></a>
         <a href="/buildings/">${homeJumpIcon("projects")}<span>Projects</span></a>
-        <a href="/map/">${homeJumpIcon("map")}<span>Map</span></a>
         <a href="/compare/">${homeJumpIcon("compare")}<span>Compare</span></a>
         <a href="/market-notes/">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
       </nav>
@@ -2514,15 +2513,14 @@ app.innerHTML = `
         <div class="home-atlas-compact-heading">
           <div>
             <p class="eyebrow">Explore the Map</p>
-            <p>Compare project locations and corridor context across North Flagler, Downtown/NORA, and South Flagler.</p>
+            <p>Click the map to open a larger project view.</p>
           </div>
-          <a href="/map/">View all projects on map <span aria-hidden="true">→</span></a>
         </div>
         <div class="home-atlas-frame">
           <aside class="home-hero-map-card home-atlas-map-card home-atlas-map-only" aria-label="Featured West Palm Beach project map">
             <figure class="hero-map-preview">
               <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
-              <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
+              <button class="hero-map-expand" type="button" data-map-expand>Open larger map</button>
               <div class="hero-map-fallback">
                 ${renderProjectMapFallback()}
               </div>
@@ -2539,7 +2537,6 @@ app.innerHTML = `
             </div>
           </div>
         </div>
-        <a class="home-atlas-mobile-cta" href="/map/">Explore All Projects on Map <span aria-hidden="true">→</span></a>
       </section>
 
       ${renderHomepageTeamBand()}
@@ -5009,18 +5006,6 @@ function corridorDisplayLabel(key: CorridorKey) {
   return "DOWNTOWN / ROSEMARY";
 }
 
-function corridorBuyerThesis(section: CorridorSection) {
-  const copy: Record<CorridorKey, string> = {
-    "north-flagler":
-      "Waterfront redevelopment, marina access, and larger-scale residential projects are reshaping the city's northern edge.",
-    downtown:
-      "Walkability, restaurants, culture, Brightline access, and daily convenience define the Downtown comparison.",
-    "south-flagler":
-      "Quieter waterfront positioning, Palm Beach proximity, larger residences, and privacy define the South Flagler comparison.",
-  };
-  return copy[section.key];
-}
-
 function corridorBuyerQuestions(key: CorridorKey) {
   const questions: Record<CorridorKey, string[]> = {
     "north-flagler": [
@@ -5083,56 +5068,20 @@ function renderProjectMapFallback() {
   `;
 }
 
-function renderMapFallbackCorridorList() {
-  return `
-    <div class="map-fallback-corridor-list" aria-label="Text project list by corridor">
-      ${corridorSections
-        .map((section) => {
-          const projects = rankedFeaturedProjects.filter((project) => project.corridorKey === section.key);
-          return `
-            <article>
-              <strong>${corridorDisplayLabel(section.key)}</strong>
-              <ul>
-                ${projects
-                  .map(
-                    (project) => `
-                      <li>
-                        <a href="${projectPath(project)}">${escapeHtml(project.name)}</a>
-                        ${project.address ? `<span>${escapeHtml(project.address)}</span>` : ""}
-                      </li>
-                    `,
-                  )
-                  .join("")}
-              </ul>
-            </article>
-          `;
-        })
-        .join("")}
-    </div>
-  `;
-}
-
 function renderMapRouteView() {
   return `
     <div class="route-view route-view-map" data-route-view="map" hidden>
-      <section class="section map-orientation-hero">
-        <div class="map-orientation-copy">
-          <p class="eyebrow">Buyer Map</p>
-          <h1>Understand the West Palm Beach condo map before comparing buildings.</h1>
-          <p>Downtown West Palm Beach sits west of the Intracoastal, with Palm Beach island and the Atlantic beyond. The best comparison starts by understanding the corridors: North Flagler waterfront, Downtown/Rosemary, and South Flagler.</p>
-        </div>
-        ${renderEditorialImagePanel("wpb-geography-map-hero", { hero: true, caption: "West Palm Beach waterfront orientation", credit: false, className: "map-orientation-image" })}
-      </section>
-      <section class="section map-live-section" aria-label="Interactive West Palm Beach project map">
+      <section class="section map-live-section map-page-simple" aria-label="Interactive West Palm Beach project map">
         <div class="section-heading">
           <p class="eyebrow">Project Map</p>
-          <h2>${featuredProjects.length} tracked projects on the ground.</h2>
+          <h2>West Palm Beach project map.</h2>
+          <p>Click a marker to view the building, then open the project page for details.</p>
         </div>
         ${renderMapControls()}
         <aside class="home-hero-map-card map-route-map-card" aria-label="West Palm Beach project map">
           <figure class="hero-map-preview">
             <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
-            <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
+            <button class="hero-map-expand" type="button" data-map-expand>Showing all locations</button>
             <div class="hero-map-fallback">
               ${renderProjectMapFallback()}
             </div>
@@ -5142,17 +5091,6 @@ function renderMapRouteView() {
             <span>tracked West Palm Beach new-construction projects</span>
           </div>
         </aside>
-        <a class="home-answer-archive-link" href="/inquire/?lead_capture_context=map_page">Request Current Availability <span aria-hidden="true">↗</span></a>
-        ${renderMapFallbackCorridorList()}
-      </section>
-      <section class="section map-corridor-section" aria-label="West Palm Beach condo corridor guide">
-        <div class="section-heading">
-          <p class="eyebrow">Corridor Lens</p>
-          <h2>Three different buyer decisions, not one generic market.</h2>
-        </div>
-        <div class="map-corridor-grid">
-          ${corridorSections.map(renderMapCorridorCard).join("")}
-        </div>
       </section>
     </div>
   `;
@@ -5276,24 +5214,6 @@ function renderCorridorsFeatureCard(card: ReturnType<typeof corridorHubCards>[nu
         <p>${escapeHtml(card.body)}</p>
         <a href="${directoryPath}">View ${corridorDisplayLabel(card.key)} Projects <span aria-hidden="true">→</span></a>
       </div>
-    </article>
-  `;
-}
-
-function renderMapCorridorCard(section: CorridorSection) {
-  const projects = rankedFeaturedProjects.filter((project) => project.corridorKey === section.key);
-  return `
-    <article class="map-corridor-card">
-      ${renderEditorialImagePanel(corridorImageId(section.key), { compact: true, className: "map-corridor-card-image" })}
-      <a href="${corridorDirectoryPath(section.key)}">${corridorDisplayLabel(section.key)}</a>
-      <p>${corridorBuyerThesis(section)}</p>
-      <dl>
-        <div>
-          <dt>Tracked projects</dt>
-          <dd>${projects.length}</dd>
-        </div>
-      </dl>
-      <a class="map-corridor-cta" href="${corridorDirectoryPath(section.key)}">View ${corridorDisplayLabel(section.key)} Projects <span aria-hidden="true">→</span></a>
     </article>
   `;
 }
@@ -6551,6 +6471,11 @@ function initHeroGoogleMap() {
       };
 
       const expandMap = () => {
+        const isMapRoute = Boolean(card.closest("[data-route-view='map']"));
+        if (!isMapRoute) {
+          window.location.assign("/map/");
+          return;
+        }
         if (expanded) {
           return;
         }
@@ -8403,7 +8328,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       ${neighborhoodImage ? `<figure class="berkeley-image-break"><img src="${safeHref(neighborhoodImage.src)}" alt="${publicText(neighborhoodImage.alt ?? `${project.name} ${neighborhoodImage.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
       <section class="berkeley-neighborhood-section" id="berkeley-neighborhood">
-        <div><p class="berkeley-kicker">The Neighborhood</p><h2>${publicText(neighborhoodHeadline)}</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="/map/">Explore the neighborhood <span aria-hidden="true">→</span></a></div>
+        <div><p class="berkeley-kicker">The Neighborhood</p><h2>${publicText(neighborhoodHeadline)}</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="${corridorDirectoryPath(project.corridorKey)}">View nearby projects <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-google-map berkeley-project-map">
           <aside class="home-hero-map-card berkeley-map-card" data-focus-project-id="${project.id}" aria-label="West Palm Beach development map centered on ${publicText(project.name)}">
             <figure class="hero-map-preview">
@@ -8419,7 +8344,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
             </div>
           </aside>
           <p class="berkeley-map-address">${publicText(copyFactValue(copyPackage, /^address$/i, project.address))}</p>
-          <a href="/map/">Open full project map <span aria-hidden="true">→</span></a>
+          <a href="${corridorDirectoryPath(project.corridorKey)}">View corridor projects <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
@@ -8556,7 +8481,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <p class="eyebrow">The Neighborhood</p>
           <h2>${locationSectionTitle(project)}</h2>
           <p>${publicText(copyPackage?.locationNarrative ?? draft.locationCopy)}</p>
-          <a href="/map/">Open full atlas <span aria-hidden="true">→</span></a>
+          <a href="/buildings/">Browse all projects <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-location-panel-wrapper" style="width: 100%;">
           ${locationImageForProject(project) ? `
