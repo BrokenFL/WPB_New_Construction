@@ -5657,6 +5657,10 @@ select:focus-visible {
   margin-top: 28px;
 }
 
+.market-note-work-section {
+  margin-top: clamp(34px, 6vw, 84px);
+}
+
 .about-service-section {
   border-top: 1px solid rgba(154, 122, 79, 0.16);
 }

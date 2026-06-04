@@ -149,25 +149,6 @@ type CorridorSection = {
   description: string;
 };
 
-type ResearchNewsItem = {
-  id: string;
-  title: string;
-  summary: string;
-  rewrittenSummary?: string;
-  category: string;
-  datePublished: string;
-  dateModified: string;
-  projectIds: readonly string[];
-  sourceName: string;
-  sourceUrl: string;
-  image?: {
-    path?: string;
-    sourceUrl?: string;
-    credit?: string;
-  };
-  status: string;
-};
-
 type ContentImageContext = {
   image?: {
     path?: string;
@@ -5600,9 +5581,6 @@ function renderMarketNoteArticle(note: MarketNote) {
   const relatedProjects = note.projectIds
     .map((projectId) => featuredProjects.find((project) => project.id === projectId))
     .filter((project): project is FeaturedProject => Boolean(project));
-  const relatedUpdates = researchNewsFeed
-    .filter((item) => item.projectIds.some((projectId) => note.projectIds.includes(projectId)))
-    .slice(0, 3);
   const sourceStatus = note.sourceLinks.length ? "Source-linked buyer note" : "Buyer guidance note";
 
   return `
@@ -5615,7 +5593,7 @@ function renderMarketNoteArticle(note: MarketNote) {
           <p class="market-note-dek">${escapeHtml(note.excerpt)}</p>
           <p class="market-note-hero-thesis">${escapeHtml(note.buyerThesis)}</p>
         </div>
-        ${renderResolvedContentImage(resolvedImage, "market-note-hero-image")}
+        ${renderResolvedContentImage(resolvedImage, "market-note-hero-image", { caption: false })}
       </header>
       <section class="market-note-meta-strip" aria-label="Article metadata">
         <div><span>Category</span><strong>${escapeHtml(note.category)}</strong></div>
@@ -5645,7 +5623,7 @@ function renderMarketNoteArticle(note: MarketNote) {
                       ? `<ul class="market-note-list">${section.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`
                       : ""
                   }
-                  ${section.imageId ? renderEditorialImagePanel(section.imageId, { className: "market-note-inline-image" }) : ""}
+                  ${section.imageId ? renderEditorialImagePanel(section.imageId, { className: "market-note-inline-image", caption: false, credit: false }) : ""}
                 </section>
               `,
             )
@@ -5668,31 +5646,22 @@ function renderMarketNoteArticle(note: MarketNote) {
           ${relatedProjects.slice(0, 4).map(renderRelatedBuildingCard).join("")}
         </div>
       </section>
-      ${
-        relatedUpdates.length
-          ? `
-            <section class="section market-note-related-section">
-              <div class="section-heading">
-                <p class="eyebrow">Related Updates</p>
-                <h2>Recent public signals tied to this note.</h2>
-              </div>
-              <div class="news-grid">
-                ${relatedUpdates.map(renderResearchNewsItem).join("")}
-              </div>
-            </section>
-          `
-          : ""
-      }
-      <section class="section conversion-section market-note-cta">
-        ${renderEditorialImagePanel("buyer-intelligence-interior", { compact: true, className: "market-note-cta-image" })}
-        <div>
-          <p class="eyebrow">Private Comparison Notes</p>
-          <h2>Want help applying this to your search?</h2>
-          <p>Send the buildings you are weighing and The Scott Gordon Group will help verify current availability, floor plans, and timing before you build a shortlist around older public numbers.</p>
-        </div>
-        <a href="/inquire/?lead_capture_context=market_note_article&message=${encodeURIComponent(`I want help applying this note: ${note.title}`)}">Request Current Availability <span aria-hidden="true">↗</span></a>
-      </section>
+      ${renderMarketNoteWorkWithUs(note)}
     </article>
+  `;
+}
+
+function renderMarketNoteWorkWithUs(note: MarketNote) {
+  return `
+    <section class="about-work-section market-note-work-section">
+      <div>
+        <p class="eyebrow">Work With Us - West Palm Beach New Construction</p>
+        <h2>Your advocate from reservation to closing.</h2>
+        <p>Investing in a new-construction residence is not just about floor plans and finishes - it is about securing a lifestyle in one of South Florida's most competitive markets. As Palm Beach waterfront and condo specialists, we track new developments from boutique villa enclaves to full-service high-rises.</p>
+        <p>Our team's deep ties to builders and project insiders mean you get early insights, transparent comparisons and sharp negotiation. We will help you evaluate amenities, understand timelines and protect your interests from reservation to closing.</p>
+        <a class="button primary" href="/inquire/?interest=compare&message=${encodeURIComponent(`I want help applying this article: ${note.title}`)}&lead_capture_context=article_work_with_us">Start a private comparison</a>
+      </div>
+    </section>
   `;
 }
 
@@ -5917,12 +5886,12 @@ function imageForContentItem(item: ContentImageContext): ResolvedContentImage {
   };
 }
 
-function renderResolvedContentImage(image: ResolvedContentImage, className = "") {
+function renderResolvedContentImage(image: ResolvedContentImage, className = "", options: { caption?: boolean } = {}) {
   const caption = image.source === "imported" ? `${image.caption} · ${image.credit}` : image.caption;
   return `
     <figure class="${["content-image-panel", className].filter(Boolean).join(" ")}" data-image-source="${image.source}">
       <img src="${safeHref(image.src)}" alt="${escapeHtml(image.alt)}" loading="lazy" decoding="async" />
-      <figcaption>${publicText(caption)}</figcaption>
+      ${options.caption === false ? "" : `<figcaption>${publicText(caption)}</figcaption>`}
     </figure>
   `;
 }
@@ -6638,22 +6607,6 @@ function initProjectLocationMaps() {
     });
 }
 
-function renderResearchNewsItem(item: ResearchNewsItem) {
-  const resolvedImage = imageForContentItem(item);
-  const isOlderPublicUpdate = isOlderThanDays(item.datePublished || item.dateModified, 90);
-  const relatedProject = resolvedImage.relatedProject ?? item.projectIds.map((projectId) => featuredProjects.find((project) => project.id === projectId)).find(Boolean);
-  return `
-    <article class="news-card intelligence-news-card" id="${escapeHtml(item.id)}">
-      ${renderResolvedContentImage(resolvedImage)}
-      <span>${publicText(item.category)} · ${publicText(item.datePublished)} · Last checked ${publicText(item.dateModified)}${isOlderPublicUpdate ? " · Older public update" : ""}</span>
-      <strong>${publicText(item.title)}</strong>
-      <p>${publicText(item.summary)}</p>
-      <small>${publicText(item.sourceName)}${relatedProject ? ` · Related: ${escapeHtml(relatedProject.name)}` : ""} · ${publicText(item.status)}</small>
-      <a class="home-news-link" href="${relatedProject ? projectPath(relatedProject) : "/inquire/?lead_capture_context=update_card"}">${relatedProject ? "View related building" : "Ask about this update"} <span aria-hidden="true">→</span></a>
-    </article>
-  `;
-}
-
 function externalNewsImageContext(item: ExternalNewsItem): ContentImageContext {
   return {
     title: item.title,
@@ -6956,13 +6909,6 @@ function renderMissingUpdateArticle() {
       <a class="button primary" href="/updates/">View Updates</a>
     </section>
   `;
-}
-
-function isOlderThanDays(dateValue: string, days: number) {
-  const parsed = Date.parse(dateValue);
-  if (Number.isNaN(parsed)) return false;
-  const ageMs = Date.now() - parsed;
-  return ageMs > days * 24 * 60 * 60 * 1000;
 }
 
 function renderFloorplanProject(project: ApprovedFloorplanProject) {
