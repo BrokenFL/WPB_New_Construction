@@ -15,9 +15,25 @@ export const BROOKE_CONTACT = {
   termsUrl: "https://www.elliman.com/terms-of-service",
 } as const;
 
+export const teamProfile = {
+  name: BROOKE_CONTACT.group,
+  displayName: "The Scott Gordon Group",
+  brokerage: BROOKE_CONTACT.brokerage,
+  legalBrokerage: BROOKE_CONTACT.legalBrokerage,
+  brokerageLicense: BROOKE_CONTACT.brokerageLicense,
+  presentedBy: "Presented by The Scott Gordon Group at Douglas Elliman",
+  marketPosition: "Palm Beach waterfront and West Palm Beach new-construction advisory",
+  photo: "/assets/team/scott-gordon-group-team-v01.jpg",
+  photoAlt: "Scott Gordon, Mindy Gordon, and Brooke Snader of The Scott Gordon Group at Douglas Elliman",
+  logoLockup: "/assets/team/scott-gordon-group-logo-lockup-v01.jpg",
+  logoMark: "/assets/team/scott-gordon-group-logo-mark-v01.jpg",
+  logoAlt: "Scott Gordon Group logo",
+} as const;
+
 export const advisorProfile = {
   name: BROOKE_CONTACT.name,
   title: "Broker Associate",
+  group: BROOKE_CONTACT.group,
   brokerage: BROOKE_CONTACT.brokerage,
   brokerageLicense: BROOKE_CONTACT.brokerageLicense,
   mobile: BROOKE_CONTACT.phoneDisplay,

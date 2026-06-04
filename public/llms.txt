@@ -1,8 +1,8 @@
 # WPB New Construction
 
-West Palm Beach new-construction condo buyer guide with project pages, floorplans, corridor comparisons, guidance, source-linked updates, and advisor-reviewed answers.
+West Palm Beach new-construction condo buyer guide presented by The Scott Gordon Group at Douglas Elliman, with project pages, floorplans, corridor comparisons, guidance, source-linked updates, and advisor-reviewed answers.
 
-The site is built to help buyers understand which West Palm Beach condo buildings exist, which are active versus future pipeline, which corridor fits the search, and when to request current pricing, availability, floor plans, and timing from Brooke Matthew Snader / Douglas Elliman.
+The site is built to help buyers understand which West Palm Beach condo buildings exist, which are active versus future pipeline, which corridor fits the search, and when to request current pricing, availability, floor plans, and timing from The Scott Gordon Group at Douglas Elliman.
 
 ## Core Pages
 
@@ -71,7 +71,9 @@ The site is built to help buyers understand which West Palm Beach condo building
 - West Palm Beach Condo Floor Plans | New Construction Guide: /floorplans/
 - West Palm Beach New Construction Buildings | Buyer Guide: /buildings/
 - West Palm Beach Condo Map | New Construction Corridors: /map/
+- West Palm Beach Condo Corridors | Buyer Guide: /corridors/
 - Compare West Palm Beach New Construction Condos: /compare/
+- About The Scott Gordon Group | Douglas Elliman Palm Beach: /about/
 - West Palm Beach New Construction Condo Answers: /answers/
 - Best New Construction Condos in West Palm Beach | WPB Answers: /answers/best-new-construction-condos-west-palm-beach/
 - Which West Palm Beach New Condos Are Closest to Palm Beach? | WPB Answers: /answers/closest-new-condos-to-palm-beach/

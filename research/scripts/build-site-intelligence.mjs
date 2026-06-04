@@ -153,9 +153,9 @@ const siteMeta = {
     brokerageLicense: "CQ1020232",
   },
   expertByline: {
-    name: "Brooke Matthew Snader",
-    title: "Licensed Real Estate Broker Associate",
-    role: "West Palm Beach new-construction advisor",
+    name: "The Scott Gordon Group",
+    title: "Palm Beach waterfront and new-construction advisory team",
+    role: "West Palm Beach new-construction advisory team",
     license: "BK3291335",
     group: "The Scott Gordon Group",
     phone: "561-891-0186",
@@ -1124,7 +1124,7 @@ const answerBlocks = [
     shortLabel: "Active vs future",
     question: "What is the difference between active sales and future projects?",
     answer:
-      "Active-sales projects usually have enough public or requestable material for current buyer diligence: availability, floor plans, pricing guidance, deposits, timing, and sales-gallery review. Future projects can shape the market but may not yet have final offering details. Treat future projects separately until Brooke can confirm launch timing, plan depth, pricing, and legal offering documents.",
+      "Active-sales projects usually have enough public or requestable material for current buyer diligence: availability, floor plans, pricing guidance, deposits, timing, and sales-gallery review. Future projects can shape the market but may not yet have final offering details. Treat future projects separately until The Scott Gordon Group can confirm launch timing, plan depth, pricing, and legal offering documents.",
     concept: "Buyer diligence",
     relatedProjectIds: ["olara", "nora-house", "rosewood-residences-west-palm-beach", "mandarin-oriental"],
     sources: ["WPB methodology", "project-source-catalog"],
@@ -1179,7 +1179,7 @@ const answerBlocks = [
     shortLabel: "Availability",
     question: "How can I request current availability?",
     answer:
-      "Use the inquiry page and name the buildings, corridors, budget range, timing, and whether you need floor plans or a sales-gallery visit. Brooke can help request current availability, pricing, floor-plan packets, view-stack context, and items to verify before you tour.",
+      "Use the inquiry page and name the buildings, corridors, budget range, timing, and whether you need floor plans or a sales-gallery visit. The Scott Gordon Group can help request current availability, pricing, floor-plan packets, view-stack context, and items to verify before you tour.",
     concept: "Next step",
     relatedProjectIds: ["olara", "shorecrest", "nora-house", "south-flagler-house"],
     sources: ["WPB inquiry workflow"],
@@ -2342,9 +2342,9 @@ function renderLlmsTxt(floorplans, newsFeed) {
   const routeLines = buildPrerenderRoutes().map((route) => `- ${route.title}: ${route.path}`);
   return `# WPB New Construction
 
-West Palm Beach new-construction condo buyer guide with project pages, floorplans, corridor comparisons, guidance, source-linked updates, and advisor-reviewed answers.
+West Palm Beach new-construction condo buyer guide presented by The Scott Gordon Group at Douglas Elliman, with project pages, floorplans, corridor comparisons, guidance, source-linked updates, and advisor-reviewed answers.
 
-The site is built to help buyers understand which West Palm Beach condo buildings exist, which are active versus future pipeline, which corridor fits the search, and when to request current pricing, availability, floor plans, and timing from Brooke Matthew Snader / Douglas Elliman.
+The site is built to help buyers understand which West Palm Beach condo buildings exist, which are active versus future pipeline, which corridor fits the search, and when to request current pricing, availability, floor plans, and timing from The Scott Gordon Group at Douglas Elliman.
 
 ## Core Pages
 
@@ -2501,6 +2501,12 @@ function buildPrerenderRoutes() {
       ogImage: siteMeta.defaultImage,
     },
     {
+      path: "/about/",
+      title: "About The Scott Gordon Group | Douglas Elliman Palm Beach",
+      description: "Meet The Scott Gordon Group at Douglas Elliman, Palm Beach waterfront specialists guiding West Palm Beach new-construction buyers with decades of local experience.",
+      ogImage: "/assets/team/scott-gordon-group-team-v01.jpg",
+    },
+    {
       path: "/answers/",
       title: "West Palm Beach New Construction Condo Answers",
       description: "Concise answers to West Palm Beach new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
@@ -2618,6 +2624,8 @@ function projectTitle(projectId) {
 function renderSitemap(projects) {
   const updateRoutes = approvedUpdateRoutes();
   const today = new Date().toISOString().slice(0, 10);
+  const defaultLastmod = "2026-06-03";
+  const rebrandUpdatedRoutes = new Set(["", "about/", "inquire/"]);
   const routableProjects = new Set([
     "olara",
     "ritz-carlton-wpb",
@@ -2649,7 +2657,9 @@ function renderSitemap(projects) {
     ["floorplans/", "0.9"],
     ["buildings/", "0.9"],
     ["map/", "0.8"],
+    ["corridors/", "0.9"],
     ["compare/", "0.8"],
+    ["about/", "0.7"],
     ["answers/", "0.9"],
     ...buyerIntentAnswerRoutes.map((answer) => [`answers/${answer.slug}/`, "0.8"]),
     ["corridors/north-flagler/", "0.8"],
@@ -2675,7 +2685,7 @@ ${uniqueUrls
   .map(
     ([pathPart, priority]) => `  <url>
     <loc>${productionBaseUrl}/${escapeXml(pathPart)}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${rebrandUpdatedRoutes.has(pathPart) ? today : defaultLastmod}</lastmod>
     <priority>${priority}</priority>
   </url>`,
   )

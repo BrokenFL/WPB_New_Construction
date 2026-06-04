@@ -190,6 +190,7 @@ function renderStaticRouteContent(route, payload) {
   if (route.path === "/buildings/") return renderBuildingsRoute(route, payload);
   if (route.path === "/corridors/") return renderCorridorsIndexRoute(route, payload);
   if (route.path === "/compare/") return renderCompareRoute(route, payload);
+  if (route.path === "/about/") return renderAboutRoute(route);
   if (route.path === "/floorplans/") return renderFloorplansRoute(route, payload);
   if (route.path === "/answers/") return renderAnswersRoute(route, payload);
   if (route.path === "/updates/") return renderUpdatesIndex(route, payload);
@@ -321,6 +322,31 @@ function renderCompareRoute(route, payload) {
       <section>
         <h2>Buyer verification FAQ</h2>
         ${comparisonFaqForStatic().map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
+      </section>
+    `,
+  );
+}
+
+function renderAboutRoute(route) {
+  return pageShell(
+    "about",
+    "About The Scott Gordon Group",
+    route.description,
+    `
+      <section>
+        <h2>Decades of waterfront excellence</h2>
+        <p>The Scott Gordon Group at Douglas Elliman combines decades of Palm Beach waterfront experience with boutique, principal-led guidance for buyers comparing West Palm Beach new-construction residences.</p>
+        <p>Since the early 1980s, the team has specialized in luxury oceanfront and lakefront real estate on Palm Beach Island. Scott Gordon has been marketing and selling luxury waterfront condos, townhouses, and single-family residences since 1984, and Mindy Gordon brings marketing and entrepreneurial experience to the team's West Palm Beach new-construction guidance.</p>
+      </section>
+      <section>
+        <h2>Recognized performance with boutique attention</h2>
+        <p>Team-supplied RealTrends 2024 materials report a $1.99 million average home price and $32.89 million in annual volume for the team, including an 8th-place Palm Beach volume ranking. Team-supplied 2026 materials report more than $100 million in sales and pending contracts and four Douglas Elliman Ellie Awards distinctions.</p>
+        <p>Public project summaries are starting points only. Pricing, incentives, fees, and exact availability should be confirmed from the current buyer packet before relying on any public listing or development summary.</p>
+      </section>
+      <section>
+        <h2>Work with us</h2>
+        <p>Use the inquiry route to request current availability, floor plans, pricing guidance, timeline notes, and private comparison context before relying on public project summaries.</p>
+        <p><a href="/inquire/">Request current availability</a></p>
       </section>
     `,
   );
@@ -635,7 +661,7 @@ function renderMarketNoteRoute(route, slug) {
         <h2>Bottom line</h2>
         <p>${publicText(route.description)} This guide is buyer education, not a substitute for current building-specific pricing, availability, fee, or contract verification.</p>
         <h2>How to use this guidance</h2>
-        <p>Use the guidance to frame questions before comparing West Palm Beach buildings. Then check project pages, current floor-plan packets, source-linked updates, and Brooke Snader / Douglas Elliman buyer-side review for the details that can change.</p>
+        <p>Use the guidance to frame questions before comparing West Palm Beach buildings. Then check project pages, current floor-plan packets, source-linked updates, and The Scott Gordon Group at Douglas Elliman for the details that can change.</p>
         <h2>Verification note</h2>
         <p>Before touring or relying on a public summary, verify current availability, incentives, carrying costs, square footage, delivery timing, and whether a building's public packet has changed.</p>
       </article>
@@ -1010,7 +1036,7 @@ function buildRouteSchema(route, payload, canonical) {
     {
       "@type": "Person",
       "@id": `${baseUrl}/#advisor`,
-      name: payload.siteMeta.expertByline?.name || "Brooke Matthew Snader",
+      name: payload.siteMeta.expertByline?.name || "The Scott Gordon Group",
       jobTitle: payload.siteMeta.expertByline?.title || "Licensed Real Estate Broker Associate",
       worksFor: { "@id": `${baseUrl}/#publisher` },
     },
