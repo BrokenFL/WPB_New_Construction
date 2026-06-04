@@ -59,6 +59,136 @@ const articleCta = "Want help applying this to your search? Request current avai
 
 export const marketNotes = [
   {
+    id: "west-palm-beach-institutional-growth",
+    status: "published",
+    category: "Downtown Spotlight",
+    title: "Downtown WPB's Institutional Wave: What Buyers Should Watch",
+    slug: "west-palm-beach-institutional-growth",
+    excerpt:
+      "Vanderbilt, NYU Langone, Cleveland Clinic, and 10 and 15 CityPlace are adding a new layer to Downtown West Palm Beach. Buyers should separate near-term access from long-term institutional signals before treating proximity as a premium.",
+    buyerThesis:
+      "Institutional growth can make Downtown West Palm Beach feel more complete and year-round, but buyers should evaluate timelines, delivered access, traffic, and project-level fit before relying on the broader momentum story.",
+    buyerTakeaway:
+      "Treat Vanderbilt, NYU Langone, and Cleveland Clinic as credibility signals, not automatic value guarantees. Verify what is funded, what is open, what is still contingent, and whether the exact residence benefits from the change.",
+    image: {
+      path: "/assets/editorial/institutional-cleveland-clinic-campus.png",
+      credit: "User-provided editorial image, optimized for site use.",
+    },
+    imageId: "institutional-cleveland-clinic-campus",
+    projectIds: ["10-cityplace", "15-cityplace", "nora-house", "mr-c", "banyan-tree", "ritz-carlton-wpb"],
+    sourceName: "Reviewed institutional announcements and Downtown development sources",
+    sourceLinks: [
+      {
+        label: "Cleveland Clinic Palm Beach County growth announcement",
+        href: "https://newsroom.clevelandclinic.org/2026/02/22/cleveland-clinic-highlights-growth-and-strategic-momentum-in-palm-beach-county",
+        sourceType: "brand/developer announcement",
+      },
+      {
+        label: "Related Ross 10 and 15 CityPlace groundbreaking release",
+        href: "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach",
+        sourceType: "developer press release",
+      },
+      {
+        label: "NYU Langone Julia Koch Family Ambulatory Care Center announcement",
+        href: "https://nyulangone.org/news/julia-koch-family-foundation-gives-transformative-75-million-gift-new-state-art-nyu-langone-health-ambulatory-care-center-west-palm-beach",
+        sourceType: "brand/developer announcement",
+      },
+      {
+        label: "Vanderbilt West Palm Beach campus overview",
+        href: "https://www.vanderbilt.edu/chancellor/initiatives-and-outreach/growth/west-palm-beach/",
+        sourceType: "economic development source",
+      },
+      {
+        label: "Vanderbilt West Palm Beach campus fundraising update",
+        href: "https://news.vanderbilt.edu/2026/01/12/vanderbilt-surges-forward-with-west-palm-beach-campus-launches-broader-fundraising-effort/",
+        sourceType: "economic development source",
+      },
+    ],
+    datePublished: "2026-06-04",
+    dateModified: "2026-06-04",
+    sections: [
+      {
+        heading: "Downtown is gaining institutional anchors",
+        body:
+          "West Palm Beach's luxury story has been led by waterfront condominium towers, Palm Beach adjacency, restaurants, and private-office migration. The next layer is more institutional. Vanderbilt is planning a graduate campus, NYU Langone is expanding ambulatory care, Cleveland Clinic is building a larger downtown healthcare presence, and 10 and 15 CityPlace are adding major office capacity around those uses. For buyers, the signal is not just prestige. It is whether Downtown becomes more useful and resilient year-round.",
+      },
+      {
+        heading: "Cleveland Clinic is the biggest healthcare signal",
+        body:
+          "Cleveland Clinic's 2026 Palm Beach County update describes a 200-bed West Palm Beach hospital plan, site preparation beginning in 2026, a new outpatient and ambulatory surgery center at 15 CityPlace opening in November 2027, and a hospital target toward the end of 2029. That timing matters. The outpatient center is the earlier downtown access point; the hospital is a later, larger catalyst that still depends on execution, permitting, construction, and philanthropy.",
+        imageId: "institutional-cleveland-clinic-campus",
+      },
+      {
+        heading: "10 and 15 CityPlace turn the office story into infrastructure",
+        body:
+          "Related Ross broke ground on 10 and 15 CityPlace in March 2025, describing the pair as nearly one million square feet of Class AA office space within its broader downtown portfolio. Cleveland Clinic's lease at 15 CityPlace gives the towers an institutional anchor rather than only a financial-office story. Buyers comparing Downtown and Flagler residences should watch how these buildings affect weekday population, retail demand, traffic patterns, and the daily usefulness of the CityPlace/Rosemary corridor.",
+        imageId: "cityplace-institutional-growth-hero",
+      },
+      {
+        heading: "NYU Langone adds a near-term care layer",
+        body:
+          "NYU Langone's Julia Koch Family Ambulatory Care Center is planned for 324 Datura Street, with the health system's 2024 announcement describing an eight-story facility, a $75 million gift, room for about 50 physicians, capacity for about 150,000 annual patient visits, and a planned 2026 opening. For residents, this is more immediate than a decade-scale campus thesis: specialty and outpatient care are moving directly into the downtown core.",
+        imageId: "institutional-nyu-langone-center",
+      },
+      {
+        heading: "Vanderbilt is the education signal to track carefully",
+        body:
+          "Vanderbilt's West Palm Beach plan is a different kind of catalyst. The university describes a planned graduate campus after local government support for seven acres of public land, with academic programming still in development and subject to regulatory approval. The opportunity is a talent pipeline for business, technology, computing, and regional employers. The caution is timing: fundraising, approvals, programming, and construction still need to convert the vision into operating classrooms.",
+        imageId: "institutional-vanderbilt-campus",
+      },
+      {
+        heading: "Why this matters to condo buyers",
+        body:
+          "Institutional growth can make a city feel less seasonal. Physicians, faculty, graduate students, executives, researchers, patients, staff, and visitors create recurring demand that is different from weekend dining or winter tourism. That can support restaurants, services, rentals, offices, and a fuller downtown schedule. It also gives high-net-worth owners more confidence that healthcare, education, and professional networks are nearby if they spend more of the year in West Palm Beach.",
+      },
+      {
+        heading: "The benefits will not arrive all at once",
+        body:
+          "The buyer mistake is treating every announcement as a delivered amenity. NYU Langone's ambulatory center is the closest-term downtown healthcare improvement. Cleveland Clinic's 15 CityPlace outpatient center comes next, with the hospital later. Vanderbilt is a major credibility marker, but it remains dependent on regulatory approval, fundraising, programming, and buildout. Meanwhile, 10 and 15 CityPlace will still need tenant absorption, streetscape execution, parking management, and traffic planning to translate into better daily life.",
+      },
+      {
+        heading: "Questions to ask before using this as a buying thesis",
+        body:
+          "Use institutional momentum as context, then bring the decision back to the building, line, timing, and lifestyle fit.",
+        bullets: [
+          "Which institutional facilities are open, under construction, approved, funded, or still planned?",
+          "How close is the residence to Datura Street, CityPlace, the Clear Lake hospital site, and the planned Vanderbilt campus?",
+          "Will weekday office and medical traffic improve the neighborhood's energy, complicate access, or both?",
+          "Does the buyer value near-term healthcare access, long-term education momentum, or the broader credibility signal?",
+          "Are the projected openings relevant to the buyer's expected hold period?",
+          "How does the exact building compare on floor plan, views, fees, delivery risk, parking, and current availability?",
+          "Would the residence still make sense if one institutional timeline moved by several years?",
+        ],
+      },
+      {
+        heading: "The practical buyer move",
+        body:
+          "Track the institutions, but do not buy the headline. A strong Downtown shortlist should compare the buildings that benefit from this momentum with the same discipline used anywhere else: current pricing, active availability, view exposure, walkability, parking, HOA budget, construction timing, and resale competition. Institutional growth is a reason to take Downtown seriously, not a substitute for project-level diligence.",
+      },
+    ],
+    ctaText:
+      "The Scott Gordon Group at Douglas Elliman can help buyers compare Downtown institutional momentum against actual buildings, floor plans, timelines, pricing, and ownership costs.",
+    factCheckRequired: [
+      "Verify current opening dates, permits, fundraising status, and facility scope before relying on Cleveland Clinic, NYU Langone, Vanderbilt, or CityPlace timelines.",
+      "Separate outpatient healthcare access from later inpatient hospital services; they have different timing and buyer impact.",
+      "Confirm project-specific pricing, availability, delivery timing, parking, HOA fees, and documents directly before making a purchase decision.",
+      "Treat institutional growth as market context, not as a promise of property appreciation or future resale performance.",
+    ],
+    seo: {
+      primaryQuery: "West Palm Beach institutional growth",
+      secondaryQueries: [
+        "Cleveland Clinic West Palm Beach hospital",
+        "NYU Langone West Palm Beach ambulatory care center",
+        "Vanderbilt West Palm Beach campus",
+        "10 and 15 CityPlace West Palm Beach",
+      ],
+      suggestedSlug: "west-palm-beach-institutional-growth",
+      titleTag: "Downtown WPB Institutional Growth | Downtown Spotlight",
+      metaDescription:
+        "Vanderbilt, NYU Langone, Cleveland Clinic, and 10 and 15 CityPlace are reshaping Downtown West Palm Beach. Learn what condo buyers should track.",
+    },
+  },
+  {
     id: "nora-district-downtown-transformation",
     status: "published",
     category: "Downtown Spotlight",

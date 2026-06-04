@@ -2633,7 +2633,7 @@ app.innerHTML = `
           <p class="eyebrow">Downtown Spotlight</p>
           <h2>Why the NORA District could reshape Downtown.</h2>
           <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.</p>
-          <a href="/downtown-spotlight/nora-district-downtown-transformation/">Read the first Downtown Spotlight <span aria-hidden="true">→</span></a>
+          <a href="/downtown-spotlight/nora-district-downtown-transformation/">Read Downtown Spotlight <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
@@ -4971,12 +4971,12 @@ function renderDowntownSpotlightIndex() {
       <div>
         <p class="eyebrow">Downtown Spotlight</p>
         <h1>Downtown West Palm Beach, one story at a time.</h1>
-        <p>Follow the districts, buildings, restaurants, streets, and planning signals shaping the Downtown condo decision. NORA is the first article in this growing spotlight series.</p>
+        <p>Follow the institutions, districts, buildings, restaurants, streets, and planning signals shaping the Downtown condo decision.</p>
       </div>
       <aside class="answer-meta-panel">
         <span>${spotlightNotes.length} article${spotlightNotes.length === 1 ? "" : "s"}</span>
-        <strong>Start with NORA.</strong>
-        <small>More Downtown Spotlight articles can be added here as the series grows.</small>
+        <strong>Start with the newest signal.</strong>
+        <small>Institutional anchors, NORA, and future Downtown spotlights live here as the series grows.</small>
       </aside>
     </section>
     <section class="section">
