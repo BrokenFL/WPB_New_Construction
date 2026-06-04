@@ -193,6 +193,7 @@ function renderStaticRouteContent(route, payload) {
   if (routeKind.type === "answer") return renderBuyerIntentAnswerRoute(route, payload, routeKind.slug);
   if (routeKind.type === "update") return renderUpdateRoute(route, payload, routeKind.slug);
   if (routeKind.type === "market-note") return renderMarketNoteRoute(route, routeKind.slug);
+  if (routeKind.type === "downtown-spotlight") return renderMarketNoteRoute(route, routeKind.slug);
   if (route.path === "/") return renderHomeRoute(route, payload);
   if (route.path === "/buildings/") return renderBuildingsRoute(route, payload);
   if (route.path === "/corridors/") return renderCorridorsIndexRoute(route, payload);
@@ -201,6 +202,7 @@ function renderStaticRouteContent(route, payload) {
   if (route.path === "/floorplans/") return renderFloorplansRoute(route, payload);
   if (route.path === "/answers/") return renderAnswersRoute(route, payload);
   if (route.path === "/updates/") return renderUpdatesIndex(route, payload);
+  if (route.path === "/downtown-spotlight/") return renderDowntownSpotlightIndex(route, payload);
   if (route.path === "/market-notes/") return renderMarketNotesIndex(route, payload);
   return renderSimpleRoute(route);
 }
@@ -216,6 +218,8 @@ function routeKindForPath(routePath) {
   if (update) return { type: "update", slug: update[1] };
   const note = routePath.match(/^\/market-notes\/([^/]+)\/$/);
   if (note) return { type: "market-note", slug: note[1] };
+  const spotlight = routePath.match(/^\/downtown-spotlight\/([^/]+)\/$/);
+  if (spotlight) return { type: "downtown-spotlight", slug: spotlight[1] };
   return { type: "page" };
 }
 
@@ -715,6 +719,22 @@ function renderMarketNotesIndex(route, payload) {
       <section>
         <h2>Buyer guidance library</h2>
         <p>These evergreen guides explain how to compare West Palm Beach new-construction condos without relying on brochure language alone.</p>
+        ${notes.map((note) => `<article><h3><a href="${safeHref(note.path)}">${publicText(note.title)}</a></h3><p>${publicText(note.description)}</p></article>`).join("")}
+      </section>
+    `,
+  );
+}
+
+function renderDowntownSpotlightIndex(route, payload) {
+  const notes = payload.prerenderRoutes.filter((item) => item.path.startsWith("/downtown-spotlight/") && item.path !== "/downtown-spotlight/");
+  return pageShell(
+    "downtown-spotlight",
+    "Downtown Spotlight",
+    route.description,
+    `
+      <section>
+        <h2>Downtown series</h2>
+        <p>Follow the districts, buildings, restaurants, streets, and planning signals shaping the Downtown West Palm Beach condo decision.</p>
         ${notes.map((note) => `<article><h3><a href="${safeHref(note.path)}">${publicText(note.title)}</a></h3><p>${publicText(note.description)}</p></article>`).join("")}
       </section>
     `,

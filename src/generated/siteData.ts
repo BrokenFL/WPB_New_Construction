@@ -5099,8 +5099,20 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/downtown-spotlight/",
+    "title": "Downtown Spotlight | West Palm Beach Condo District Notes",
+    "description": "Read Downtown West Palm Beach district spotlights, beginning with NORA, and follow the locations shaping condo buyer decisions.",
+    "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
+  },
+  {
+    "path": "/downtown-spotlight/nora-district-downtown-transformation/",
+    "title": "NORA District's Downtown Impact Explained | Downtown Spotlight",
+    "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
+    "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
+  },
+  {
     "path": "/market-notes/nora-district-downtown-transformation/",
-    "title": "NORA District's Downtown Impact Explained | Buyer Intelligence",
+    "title": "NORA District's Downtown Impact Explained | Downtown Spotlight",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
