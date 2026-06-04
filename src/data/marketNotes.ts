@@ -9,7 +9,11 @@ export type MarketNoteSource = {
     | "local news coverage"
     | "developer press release"
     | "official project site"
-    | "brand/developer announcement";
+    | "brand/developer announcement"
+    | "official legal source"
+    | "financing guideline"
+    | "economic development source"
+    | "market report";
 };
 
 export type MarketNoteSection = {
@@ -268,6 +272,261 @@ export const marketNotes = [
       titleTag: "Are Branded Residences Worth It? West Palm Beach Guide",
       metaDescription:
         "Discover how branded residences work, what services they include, and whether the premium is justified in West Palm Beach's growing luxury market.",
+    },
+  },
+  {
+    id: "pre-construction-condo-due-diligence",
+    status: "published",
+    category: "Buyer Intelligence",
+    title: "Pre-Construction Condo Due Diligence: What to Review Before Signing",
+    slug: "pre-construction-condo-due-diligence",
+    excerpt:
+      "A West Palm Beach buyer checklist for reviewing deposits, disclosures, timelines, budgets, financing, and contract flexibility before signing a pre-construction condominium agreement.",
+    buyerThesis:
+      "A pre-construction condo contract is not a brochure. Buyers should understand the reservation path, statutory review window, escrow treatment, disclosure package, assignment rights, rental rules, financing risk, and long-term carrying costs before deposit exposure increases.",
+    buyerTakeaway:
+      "Before signing, request the full document package, calendar the rescission deadline, confirm the staged deposit schedule, and review the agreement with a Florida real estate attorney and lender.",
+    image: {
+      path: "/assets/editorial/preconstruction-condo-deposit-schedule-hero.jpg",
+      credit: "User-provided editorial image, optimized for site use.",
+    },
+    imageId: "preconstruction-condo-deposit-schedule-hero",
+    projectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "mr-c", "alba-palm-beach"],
+    sourceName: "User-provided Buyer Intelligence article brief, checked against Florida condominium statutes and Fannie Mae project guidance",
+    sourceLinks: [
+      {
+        label: "Florida Statute 718.503 developer disclosure and 15-day voidability",
+        href: "https://www.flsenate.gov/Laws/Statutes/2025/718.503",
+        sourceType: "official legal source",
+      },
+      {
+        label: "Florida Statute 718.202 sales or reservation deposits prior to closing",
+        href: "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799%2F0718%2FSections%2F0718.202.html",
+        sourceType: "official legal source",
+      },
+      {
+        label: "Fannie Mae new and newly converted condo project requirements",
+        href: "https://selling-guide.fanniemae.com/sel/b4-2.2-03/full-review-additional-eligibility-requirements-units-new-and-newly-converted-condo-projects",
+        sourceType: "financing guideline",
+      },
+      {
+        label: "Fannie Mae Project Eligibility Review Service",
+        href: "https://selling-guide.fanniemae.com/sel/b4-2.2-06/project-eligibility-review-service-pers",
+        sourceType: "financing guideline",
+      },
+    ],
+    datePublished: "2026-06-04",
+    dateModified: "2026-06-04",
+    sections: [
+      {
+        heading: "Start by separating a reservation from a purchase contract",
+        body:
+          "Pre-construction sales often begin with a reservation agreement that holds a unit or unit line for a limited period. That is different from signing the purchase agreement. The purchase contract locks in the unit, deposit schedule, and many of the rights and obligations that will govern the transaction. In Florida developer sales, buyers generally receive a 15-day voidability window after contract execution and receipt of the required disclosure documents, so the timing and completeness of the document package matter.",
+      },
+      {
+        heading: "Map the deposit schedule before liquidity is committed",
+        body:
+          "Many West Palm Beach pre-construction projects use staged deposits tied to milestones such as reservation, contract, groundbreaking, topping off, and closing. Florida law requires the first 10 percent of the purchase price to be handled through escrow protections, while additional deposits may be treated differently if the contract and statutory conditions allow it. Buyers should confirm who holds escrow, when funds become non-refundable, whether interest is credited, and under what conditions deposits can be released to the developer.",
+      },
+      {
+        heading: "The prospectus is where the binding details live",
+        body:
+          "The full disclosure package should be reviewed before the rescission period expires. It can include the declaration, bylaws, articles, rules, budget, floor plans, plot plans, management agreements, lease or ground-lease material if applicable, and reserve or structural-study information. Remote buyers should not rely only on a presentation-room summary because the documents are where rental rules, pet policies, common-area ownership, amendment thresholds, and operating assumptions usually appear.",
+        imageId: "preconstruction-condo-document-review",
+      },
+      {
+        heading: "Assignment rights deserve a separate conversation",
+        body:
+          "Assignment provisions can vary widely. Some contracts prohibit assignment, some require developer consent and a fee, and others allow transfers to trusts, family entities, or affiliates under limited conditions. Buyers using estate-planning entities or expecting exit flexibility before closing should ask whether assignment is allowed, when consent is required, whether the developer has discretion to deny it, and whether the original buyer remains liable after assignment.",
+      },
+      {
+        heading: "Rental rules can change the value of the unit",
+        body:
+          "Rental, occupancy, guest, and pet restrictions should be reviewed early. Minimum lease terms, approval requirements, subleasing limits, blackout periods, and municipal short-term-rental rules can affect both investors and personal-use buyers. A building can have strong amenities and still be a poor fit if the declaration does not support the owner's intended use.",
+      },
+      {
+        heading: "Construction timing creates contract and financing risk",
+        body:
+          "Pre-construction delivery can move because of permitting, labor, materials, financing, weather, and phasing. Buyers should identify the outside date or long-stop date, any delay remedies, the design-selection timeline, upgrade allowances, inspection process, and warranty path. Financing adds another layer because permanent loans are usually evaluated closer to substantial completion, and lender project eligibility can depend on reserves, insurance, completion status, and buyer mix.",
+        imageId: "preconstruction-condo-contract-signing",
+      },
+      {
+        heading: "Budget for the closing table and the post-turnover building",
+        body:
+          "New-construction closings may include developer fees, title charges, recording costs, documentary stamps, prepaid assessments, and prorated taxes. After closing, monthly assessments can change as the building moves from developer control to owner control. Buyers should review reserve assumptions, insurance exposure, amenity operating costs, ownership of shared facilities, and whether later phases could affect existing owners.",
+      },
+      {
+        heading: "Review the sponsor team and the turnover process",
+        body:
+          "Developer, contractor, architect, operator, and financing history all affect risk. Buyers should research prior Florida projects, review litigation or delivery history where available, and ask what documents owners receive at turnover. The turnover package can include governing documents, financial records, service contracts, plans, warranties, inspection materials, and structural reserve study information.",
+      },
+      {
+        heading: "Buyer checklist before signing",
+        body:
+          "Use this list to organize the first diligence pass before deposit exposure grows.",
+        bullets: [
+          "Reservation terms, refundability, escrow holder, and expiration date.",
+          "Staged deposit percentages, release conditions, interest treatment, and wire verification process.",
+          "15-day rescission deadline and what could trigger a new review window.",
+          "Material adverse change language and buyer remedies.",
+          "Assignment rights, consent requirements, transfer fees, and continuing liability.",
+          "Rental, occupancy, guest, pet, and house-rule restrictions.",
+          "Estimated budget, reserves, insurance, SIRS timing, and post-turnover assessment risk.",
+          "Amenity ownership, maintenance responsibility, and future phase cost exposure.",
+          "Construction timeline, outside date, delay remedies, design selections, and punch-list process.",
+          "Mortgage contingency, project eligibility, rate risk, and lender review timing.",
+          "Developer, contractor, architect, operator, and prior-project track record.",
+        ],
+      },
+      {
+        heading: "What to review with counsel",
+        body:
+          "A Florida real estate attorney should review the purchase agreement, riders, condominium declaration, bylaws, escrow agreement, prospectus, budget, reserve information, financing contingency, warranty language, dispute-resolution provisions, closing-cost estimate, and any verbal promise that needs to appear in writing. This article is buyer guidance, not legal advice, and the final answer should come from the signed documents and professional review.",
+      },
+    ],
+    ctaText:
+      "The Scott Gordon Group at Douglas Elliman helps West Palm Beach pre-construction buyers organize the right questions, compare projects clearly, and coordinate with legal and financial professionals before signing.",
+    factCheckRequired: [
+      "Confirm the current signed purchase agreement, prospectus, disclosure package, deposit schedule, and rescission deadline with a Florida real estate attorney.",
+      "Verify current Florida condominium law, reserve/SIRS requirements, and lender project-eligibility guidance before relying on this public summary.",
+      "Confirm project-specific availability, pricing, fees, incentives, assignment rights, rental rules, delivery timing, and closing costs directly from current buyer materials.",
+    ],
+    seo: {
+      primaryQuery: "pre construction condo due diligence",
+      secondaryQueries: [
+        "West Palm Beach pre construction condo checklist",
+        "Florida condo deposit escrow 10 percent",
+        "pre construction condo rescission period Florida",
+      ],
+      suggestedSlug: "pre-construction-condo-due-diligence",
+      titleTag: "Pre-Construction Condo Due Diligence | WPB",
+      metaDescription:
+        "Review deposits, disclosures, timelines, budgets, financing, assignment rights, and buyer protections before signing a West Palm Beach pre-construction condo contract.",
+    },
+  },
+  {
+    id: "west-palm-beach-wall-street-south-condos",
+    status: "published",
+    category: "Buyer Intelligence",
+    title: "The Money Is Moving South: How West Palm Beach Became a New Luxury Real Estate Power Center",
+    slug: "west-palm-beach-wall-street-south-condos",
+    excerpt:
+      "West Palm Beach's Wall Street South momentum is reshaping office demand, Palm Beach adjacency, and the luxury condo pipeline. Buyers should understand what is real, what is still developing, and what to verify before betting on the boom.",
+    buyerThesis:
+      "Corporate relocation and Palm Beach wealth are real demand signals, but they do not make every new-construction condo an automatic winner. The better buyer move is to connect office leasing, bridge access, project timing, supply risk, and carrying costs before choosing a building.",
+    buyerTakeaway:
+      "Treat Wall Street South as a market tailwind, not a shortcut. Verify which companies are actually leasing nearby, how each condo project is financed and timed, and whether the residence works without assuming future appreciation.",
+    image: {
+      path: "/assets/editorial/wall-street-south-flagler-drive-hero.jpg",
+      credit: "User-provided editorial image, optimized for site use.",
+    },
+    imageId: "wall-street-south-flagler-drive-hero",
+    projectIds: ["south-flagler-house", "ritz-carlton-wpb", "olara", "shorecrest", "mr-c", "mandarin-oriental", "alba-palm-beach", "nora-house"],
+    sourceName: "User-provided Buyer Intelligence article brief, checked against current economic-development, market-report, and city development sources",
+    sourceLinks: [
+      {
+        label: "Business Development Board Wall Street South migration overview",
+        href: "https://bdb.org/news/wall-street-south-migration-enters-next-wave-of-new-york-to-florida-relocations-2/",
+        sourceType: "economic development source",
+      },
+      {
+        label: "Business Development Board financial services profile",
+        href: "https://bdb.org/industries/financial-services/",
+        sourceType: "economic development source",
+      },
+      {
+        label: "City of West Palm Beach developer outreach presentations",
+        href: "https://www.wpb.org/Departments/Development-Services/Developer-Outreach",
+        sourceType: "city planning material",
+      },
+      {
+        label: "Cushman & Wakefield Palm Beach office MarketBeat Q4 2025",
+        href: "https://assets.cushmanwakefield.com/-/media/cw/marketbeat-pdfs/2025/q4/us-reports/office/palmbeach_americas_marketbeat_office_q42025.pdf?rev=65887a3386794f93a9bd5f4ee6213d6a",
+        sourceType: "market report",
+      },
+      {
+        label: "Commercial Observer report on Wells Fargo at One Flagler",
+        href: "https://commercialobserver.com/2026/01/wells-fargo-west-palm-one-flagler-stephen-ross-related/",
+        sourceType: "development news coverage",
+      },
+    ],
+    datePublished: "2026-06-04",
+    dateModified: "2026-06-04",
+    sections: [
+      {
+        heading: "Sunshine is no longer the whole story",
+        body:
+          "West Palm Beach is attracting spreadsheets as much as sunshine. The Business Development Board has promoted Palm Beach County's Wall Street South migration around more than 250 financial-firm relocations or expansions over the past decade, while the county's finance and wealth ecosystem continues to pull executives closer to Palm Beach clients. For condo buyers, the point is not the nickname. It is whether high-income office demand, family-office activity, and Palm Beach adjacency are changing the depth of the local luxury market.",
+      },
+      {
+        heading: "The office signal is strongest at the trophy end",
+        body:
+          "The highest-profile demand has clustered around premium downtown office space. One Flagler became the clearest symbol, with finance and wealth-management tenants drawn to a waterfront-adjacent tower near Palm Beach. Wells Fargo's reported 50,000-square-foot wealth-management lease at One Flagler added another headline signal in 2026. Buyers should still separate trophy-building leasing from the broader office market, where newer supply can push vacancy and competition higher even while the best addresses perform.",
+        imageId: "wall-street-south-office-arrival",
+      },
+      {
+        heading: "The office pipeline is a demand story and a supply test",
+        body:
+          "The city has spent several years tracking major office and mixed-use development through its developer-outreach materials, including projects around Rosemary, Banyan, One Flagler, The Square, and other downtown sites. Cushman & Wakefield's Q4 2025 Palm Beach office report showed the West Palm Beach CBD with substantial space under construction and high Class A asking rents, but also real vacancy to monitor. That combination matters for residential buyers: job growth can support demand, while too much simultaneous delivery can test assumptions.",
+      },
+      {
+        heading: "Palm Beach adjacency explains the mainland premium",
+        body:
+          "West Palm Beach is not Palm Beach Island, and that difference is exactly why the mainland has become more interesting. Palm Beach remains supply-constrained and extremely expensive. West Palm Beach can offer newer waterfront towers, larger amenity programs, office proximity, and faster access to downtown restaurants while still sitting one bridge from the island. The buyer question is whether that bridge access, water exposure, and newer-building experience justify the premium in a specific line.",
+        imageId: "wall-street-south-palm-beach-bridge",
+      },
+      {
+        heading: "The condo pipeline is not one product type",
+        body:
+          "The residential response spans several buyer profiles. South Flagler House leans formal, estate-inspired, and highly serviced on the South Flagler waterfront. The Ritz-Carlton Residences and Mr. C introduce different branded-service models. Olara emphasizes amenity depth, marina context, and a larger wellness-and-leisure program. Shorecrest adds another North Flagler waterfront option that still deserves current packet verification. Mandarin Oriental, Alba, NORA House, and other pipeline or active projects broaden the comparison beyond one corridor.",
+      },
+      {
+        heading: "Hospitality and mixed-use projects make the city feel more complete",
+        body:
+          "The Wall Street South thesis is not only about office leases. Hotels, restaurants, district retail, rooftop bars, conference activity, and mixed-use projects can make West Palm Beach feel more like a year-round live-work-play market. That matters for part-time buyers who want services and energy when they arrive, and for full-time buyers who want the city to function beyond season. The diligence question is which pieces are open now, under construction, approved, or still aspirational.",
+      },
+      {
+        heading: "The risks are real enough to underwrite",
+        body:
+          "A strong migration story does not remove market cycles. Buyers should watch office absorption, interest rates, construction financing, insurance costs, HOA budgets, climate-resiliency expenses, and the amount of luxury inventory delivering in the same window. Several towers have multi-year delivery timelines, which means deposits, rates, and personal liquidity need to be tested against a future closing environment rather than today's headline momentum.",
+      },
+      {
+        heading: "Questions buyers should ask",
+        body:
+          "Use the corporate-migration story as context, then bring the decision back to project-level diligence.",
+        bullets: [
+          "Which financial, technology, or corporate tenants are actually leasing near the building, and are those leases long-term?",
+          "How much new office and residential supply is scheduled to deliver before or near the condo's closing date?",
+          "How does the residence compare with Palm Beach and Miami alternatives by price per square foot, fees, view quality, and service model?",
+          "What is the project deposit schedule, outside date, construction financing posture, and cancellation language?",
+          "What are the projected HOA fees, reserve assumptions, insurance requirements, and likely post-turnover obligations?",
+          "Would the exact residence still make sense if the Wall Street South story cooled for a few years?",
+        ],
+      },
+      {
+        heading: "The practical buyer move",
+        body:
+          "Wall Street South can be a useful tailwind, especially for buyers who want Palm Beach proximity with newer mainland inventory. But the final decision should still be line-specific and document-specific. Compare the project, floor plan, exposure, bridge access, service model, budget, delivery timing, and resale competition before treating the migration story as proof of future value.",
+      },
+    ],
+    ctaText:
+      "The Scott Gordon Group at Douglas Elliman helps buyers compare West Palm Beach's Wall Street South momentum against actual project documents, pricing, floor plans, timelines, and long-term ownership costs.",
+    factCheckRequired: [
+      "Verify current office leasing, corporate relocation, and tenant information before relying on public migration claims.",
+      "Refresh city development pipeline, office vacancy, and Class A rent data before making market-timing conclusions.",
+      "Confirm project-specific pricing, availability, delivery timing, fees, financing, and contract terms directly from current buyer materials.",
+    ],
+    seo: {
+      primaryQuery: "West Palm Beach Wall Street South condos",
+      secondaryQueries: [
+        "West Palm Beach luxury real estate finance migration",
+        "Wall Street South West Palm Beach",
+        "West Palm Beach new construction condos Palm Beach",
+      ],
+      suggestedSlug: "west-palm-beach-wall-street-south-condos",
+      titleTag: "West Palm Beach Wall Street South Condo Insight",
+      metaDescription:
+        "West Palm Beach is drawing finance, wealth, and new luxury condo development. Learn what Wall Street South means for buyers and what to verify.",
     },
   },
   {

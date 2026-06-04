@@ -30,6 +30,18 @@ const marketNoteRoutes = [
       "Discover how branded residences work, what services they include, and whether the premium is justified in West Palm Beach's growing luxury market.",
   },
   {
+    slug: "pre-construction-condo-due-diligence",
+    title: "Pre-Construction Condo Due Diligence | WPB",
+    description:
+      "Review deposits, disclosures, timelines, budgets, financing, assignment rights, and buyer protections before signing a West Palm Beach pre-construction condo contract.",
+  },
+  {
+    slug: "west-palm-beach-wall-street-south-condos",
+    title: "West Palm Beach Wall Street South Condo Insight",
+    description:
+      "West Palm Beach is drawing finance, wealth, and new luxury condo development. Learn what Wall Street South means for buyers and what to verify.",
+  },
+  {
     slug: "active-sales-vs-pipeline-watch",
     title: "Active Sales vs Pipeline Watch | WPB New Construction",
     description:

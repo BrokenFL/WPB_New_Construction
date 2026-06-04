@@ -5561,6 +5561,7 @@ function renderMarketNoteArticle(note: MarketNote) {
               ${note.factCheckRequired.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
             </ul>
           </aside>
+          ${renderMarketNoteSourceLinks(note)}
         </div>
       </section>
       <section class="section market-note-related-section">
@@ -5597,6 +5598,23 @@ function renderMarketNoteArticle(note: MarketNote) {
         <a href="/inquire/?lead_capture_context=market_note_article&message=${encodeURIComponent(`I want help applying this note: ${note.title}`)}">Request Current Availability <span aria-hidden="true">↗</span></a>
       </section>
     </article>
+  `;
+}
+
+function renderMarketNoteSourceLinks(note: MarketNote) {
+  if (!note.sourceLinks.length) return "";
+  return `
+    <aside class="market-note-source-box">
+      <span>Reviewed sources</span>
+      <ul>
+        ${note.sourceLinks
+          .map((source) => {
+            const isExternal = /^https?:\/\//i.test(source.href);
+            return `<li><a href="${safeHref(source.href)}"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ""}>${escapeHtml(source.label)}</a><small>${escapeHtml(source.sourceType)}</small></li>`;
+          })
+          .join("")}
+      </ul>
+    </aside>
   `;
 }
 

@@ -831,6 +831,10 @@
     grid-template-columns: 1fr;
   }
 
+  .market-note-source-box ul {
+    grid-template-columns: 1fr;
+  }
+
   .compare-route-selectors,
   .compare-route-card-grid {
     grid-template-columns: 1fr;
@@ -3693,6 +3697,7 @@ body.has-floorplan-viewer {
 .market-note-meta-strip span,
 .buyer-takeaway-box span,
 .verify-box span,
+.market-note-source-box span,
 .related-building-card span {
   color: var(--bronze);
   font-size: 0.68rem;
@@ -3787,6 +3792,51 @@ body.has-floorplan-viewer {
 .verify-box {
   border-color: rgba(154, 122, 79, 0.28);
   background: rgba(255, 250, 241, 0.72);
+}
+
+.market-note-source-box {
+  border-top: 1px solid rgba(37, 42, 45, 0.12);
+  padding-top: clamp(18px, 2.4vw, 28px);
+}
+
+.market-note-source-box ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.market-note-source-box li {
+  display: grid;
+  gap: 6px;
+  min-height: 82px;
+  align-content: start;
+  border: 1px solid rgba(35, 48, 59, 0.12);
+  border-radius: 8px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.market-note-source-box a {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.32;
+  text-decoration: none;
+}
+
+.market-note-source-box small {
+  color: var(--soft-ink);
+  font-size: 0.72rem;
+  text-transform: capitalize;
+}
+
+@media (max-width: 980px) {
+  .market-note-source-box ul {
+    grid-template-columns: 1fr;
+  }
 }
 
 .verify-box ul,
