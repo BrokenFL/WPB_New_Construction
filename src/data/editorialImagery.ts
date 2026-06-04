@@ -43,7 +43,7 @@ export const editorialImagery: readonly EditorialImage[] = [
     assetPath: "/assets/editorial/institutional-vanderbilt-campus.jpg",
     fallbackGradient: "downtown",
     alt: "Rendering of a landscaped Vanderbilt campus courtyard in West Palm Beach with academic buildings, trees, and people gathering on the lawn.",
-    caption: "Vanderbilt's planned campus is an education and talent-pipeline signal to watch carefully.",
+    caption: "Vanderbilt's planned campus is an education and talent-development signal to watch carefully.",
     credit: "User-provided editorial image, optimized for site use.",
     status: "available",
     geographyNote: "Use as a planned-campus rendering and keep regulatory-approval caveats with the article text.",
