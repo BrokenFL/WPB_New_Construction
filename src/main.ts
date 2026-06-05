@@ -150,7 +150,7 @@ type ProjectFilter = {
 type ProjectFilterSelection = {
   corridor: string;
   status: string;
-  floorplans: string;
+  sales: string;
 };
 
 type CorridorSection = {
@@ -987,7 +987,9 @@ const projectFilters: ProjectFilter[] = [
   { key: "under-construction", label: "Under Construction" },
   { key: "announced-planned", label: "Announced / Planned" },
   { key: "completed-opportunities", label: "Completed Opportunities" },
-  { key: "floorplans", label: "Floor Plans" },
+  { key: "sales-office-open", label: "Open" },
+  { key: "sales-office-closed", label: "Sales Office Not Open" },
+  { key: "resales", label: "Resale" },
 ];
 
 const projectCorridorFilters: ProjectFilter[] = [
@@ -1005,9 +1007,11 @@ const projectStatusFilters: ProjectFilter[] = [
   { key: "completed-opportunities", label: "Completed Opportunities" },
 ];
 
-const projectFloorplanFilters: ProjectFilter[] = [
-  { key: "all", label: "Any Floorplans" },
-  { key: "floorplans", label: "Floorplans Available" },
+const projectSalesOfficeFilters: ProjectFilter[] = [
+  { key: "all", label: "Any" },
+  { key: "sales-office-open", label: "Open" },
+  { key: "sales-office-closed", label: "Not Open" },
+  { key: "resales", label: "Resales" },
 ];
 
 const newsFilters: ProjectFilter[] = [
@@ -4900,7 +4904,7 @@ function buildHomeItemListSchema() {
   };
 }
 
-function renderProjectFilterSelect(group: "corridor" | "status" | "floorplans", label: string, filters: ProjectFilter[]) {
+function renderProjectFilterSelect(group: "corridor" | "status" | "sales", label: string, filters: ProjectFilter[]) {
   return `
     <label class="project-filter-control">
       <span>${label}</span>
@@ -5078,20 +5082,20 @@ function renderBuildingsRouteView() {
   return `
     <div class="route-view route-view-buildings" data-route-view="buildings" hidden>
       <section class="buildings-route-hero">
-        <p class="eyebrow">Project Directory</p>
-        <h1 data-directory-title>Browse West Palm Beach New Construction</h1>
-        <p data-directory-deck>Explore the city’s tracked condo developments by corridor, sales status, floorplan availability, and practical buyer fit.</p>
+        <p class="eyebrow">West Palm Beach New Construction</p>
+        <h1 data-directory-title>Project Directory</h1>
+        <p data-directory-deck>Developments organized by corridor, status, and sales office.</p>
       </section>
       <section class="project-sort-shell buildings-directory" id="projects">
         <div class="project-sort-header">
           <div>
             <p class="eyebrow" data-directory-kicker>All Projects</p>
-            <h2 data-directory-subtitle>${escapeHtml(approvedHomepageOverride("featured-buildings")?.headline || "Open the complete project directory.")}</h2>
-            <p class="selected-filter-summary" data-filter-summary>${escapeHtml(approvedHomepageOverride("featured-buildings")?.subhead || "All tracked projects shown. Filter by corridor, readiness, or floorplan availability.")}</p>
+            <h2 data-directory-subtitle>${escapeHtml(approvedHomepageOverride("featured-buildings")?.headline || "All Projects")}</h2>
+            <p class="selected-filter-summary" data-filter-summary>${escapeHtml(approvedHomepageOverride("featured-buildings")?.subhead || "Filter by corridor, status, or sales office.")}</p>
             <div class="project-filter-controls" aria-label="Project filters">
               ${renderProjectFilterSelect("corridor", "Corridor", projectCorridorFilters)}
               ${renderProjectFilterSelect("status", "Status", projectStatusFilters)}
-              ${renderProjectFilterSelect("floorplans", "Floorplans", projectFloorplanFilters)}
+              ${renderProjectFilterSelect("sales", "Sales Office", projectSalesOfficeFilters)}
             </div>
           </div>
           <label class="sort-control">
@@ -6173,7 +6177,7 @@ function renderFeaturedProject(project: FeaturedProject) {
     ? `<img src="${project.image}" alt="${project.name} project preview" loading="lazy" decoding="async" />`
     : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${displayName}</strong></div>`;
   const cardStatus = project.status;
-  const salesOffice = "Yes";
+  const salesOffice = salesOfficeLabel(project);
   const completionYear = Number.isFinite(project.deliveryYear) && project.deliveryYear > 2000 ? String(project.deliveryYear) : "TBD";
   const cardCopy = project.summary;
 
@@ -9422,12 +9426,12 @@ function filterSelectionFromUrl(params: URLSearchParams): ProjectFilterSelection
   const selection: ProjectFilterSelection = {
     corridor: params.get("corridor") ?? "all",
     status: params.get("status") ?? "all",
-    floorplans: params.get("floorplans") ?? "all",
+    sales: params.get("sales") ?? "all",
   };
   applyLegacyProjectFilter(params.get("filter") ?? "all", selection);
   if (!projectCorridorFilters.some((filter) => filter.key === selection.corridor)) selection.corridor = "all";
   if (!projectStatusFilters.some((filter) => filter.key === selection.status)) selection.status = "all";
-  if (!projectFloorplanFilters.some((filter) => filter.key === selection.floorplans)) selection.floorplans = "all";
+  if (!projectSalesOfficeFilters.some((filter) => filter.key === selection.sales)) selection.sales = "all";
   return selection;
 }
 
@@ -9439,9 +9443,6 @@ function applyLegacyProjectFilter(filter: string, selection: ProjectFilterSelect
   if (projectStatusFilters.some((item) => item.key === filter && filter !== "all")) {
     selection.status = filter;
     return;
-  }
-  if (filter === "floorplans") {
-    selection.floorplans = "floorplans";
   }
 }
 
@@ -9455,7 +9456,7 @@ function syncProjectFilterControls(selects: HTMLSelectElement[], selection: Proj
 function syncProjectFilterUrl(selection: ProjectFilterSelection) {
   const params = new URLSearchParams(window.location.search);
   params.delete("filter");
-  (["corridor", "status", "floorplans"] as const).forEach((group) => {
+  (["corridor", "status", "sales"] as const).forEach((group) => {
     if (selection[group] === "all") {
       params.delete(group);
     } else {
@@ -9468,12 +9469,12 @@ function syncProjectFilterUrl(selection: ProjectFilterSelection) {
 }
 
 function primaryProjectFilter(selection: ProjectFilterSelection) {
-  return selection.corridor !== "all" ? selection.corridor : selection.status !== "all" ? selection.status : selection.floorplans;
+  return selection.corridor !== "all" ? selection.corridor : selection.status !== "all" ? selection.status : selection.sales;
 }
 
 function projectMatchesSelection(element: HTMLElement, selection: ProjectFilterSelection) {
   const values = (element.dataset.fv ?? element.dataset.filterValues ?? "").split(" ");
-  return (["corridor", "status", "floorplans"] as const).every((group) => {
+  return (["corridor", "status", "sales"] as const).every((group) => {
     const value = selection[group];
     return value === "all" || values.includes(value);
   });
@@ -9482,14 +9483,14 @@ function projectMatchesSelection(element: HTMLElement, selection: ProjectFilterS
 function filterSummaryText(selection: ProjectFilterSelection, visibleProjects: number) {
   const activeLabels = activeProjectFilterLabels(selection);
   if (!activeLabels.length) {
-    return `${visibleProjects} tracked projects shown. Select a corridor to focus the atlas and project cards.`;
+    return `${visibleProjects} tracked projects. Filter by corridor, status, or sales office.`;
   }
   const section = corridorSections.find((item) => item.key === selection.corridor);
   return `${visibleProjects} project${visibleProjects === 1 ? "" : "s"} shown for ${activeLabels.join(" + ")}${section ? ` · ${section.detail}` : ""}.`;
 }
 
 function activeProjectFilterLabels(selection: ProjectFilterSelection) {
-  return (["corridor", "status", "floorplans"] as const)
+  return (["corridor", "status", "sales"] as const)
     .map((group) => selection[group])
     .filter((value) => value !== "all")
     .map(getFilterLabel);
@@ -9514,19 +9515,20 @@ function directoryHeadingText(selection: ProjectFilterSelection, visibleProjects
       deck: "Compare buildings by timing, information depth, current availability signals, and how close each opportunity is to occupancy.",
     };
   }
-  if (selection.floorplans !== "all") {
+  if (selection.sales !== "all") {
+    const label = getFilterLabel(selection.sales);
     return {
-      kicker: "Floorplan Availability",
-      title: "Projects With Floorplans Available",
-      subtitle: "Buildings with floorplan material currently tracked.",
-      deck: "Start with projects where residence layouts are available, then compare view lines, room flow, outdoor space, and current buyer packet details.",
+      kicker: "Sales Office",
+      title: `${label} Projects`,
+      subtitle: `${label} projects currently tracked.`,
+      deck: "Filter by sales-office posture.",
     };
   }
   return {
     kicker: "All Projects",
-    title: "Browse West Palm Beach New Construction",
-    subtitle: "Open the complete project directory.",
-    deck: `${visibleProjects} tracked condo developments organized by corridor, readiness, floorplans, and buyer fit.`,
+    title: "Project Directory",
+    subtitle: "All Projects",
+    deck: `${visibleProjects} tracked developments organized by corridor, status, and sales office.`,
   };
 }
 
@@ -9564,10 +9566,24 @@ function getProjectFilterValues(project: FeaturedProject) {
     /under construction|topped out/.test(status) ? "under-construction" : "",
     /pipeline|planning|proposed|announced|watchlist|emerging/.test(status) ? "announced-planned" : "",
     /completed|delivered|closings underway|resale/.test(status) ? "completed-opportunities" : "",
-    project.floorplans ? "floorplans" : "",
+    salesOfficeFilterValue(project),
   ]
     .filter(Boolean)
     .join(" ");
+}
+
+function salesOfficeLabel(project: FeaturedProject) {
+  const filterValue = salesOfficeFilterValue(project);
+  if (filterValue === "resales") return "Resales";
+  if (filterValue === "sales-office-closed") return "No";
+  return "Yes";
+}
+
+function salesOfficeFilterValue(project: FeaturedProject) {
+  const status = project.status.toLowerCase();
+  if (/completed|delivered|resale/.test(status)) return "resales";
+  if (/planning/.test(status) || project.id === "edgeworth" || project.id === "rybovich-marina-redevelopment") return "sales-office-closed";
+  return "sales-office-open";
 }
 
 function getResidenceSortValue(project: FeaturedProject) {
