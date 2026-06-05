@@ -52,8 +52,6 @@ type ProjectFact = {
 };
 
 type CorridorKey = "north-flagler" | "downtown" | "south-flagler";
-type ProjectCardStatus = "Planning" | "Approved" | "Under Construction" | "Completed";
-type ProjectCardSalesOffice = "Yes" | "No" | "Resales";
 
 type FeaturedProject = {
   id: string;
@@ -977,142 +975,7 @@ function cleanOverrideText(value: string | undefined) {
   return text || undefined;
 }
 
-const projectCardCopyById: Record<string, string> = {
-  "alba-palm-beach": "Boutique North Flagler waterfront living with just 55 residences, oversized terraces, private elevators, and a quieter luxury profile for buyers who want new construction without mega-tower scale.",
-  olara: "A full-service North Flagler waterfront tower with 275 residences, deep amenities, guest suites, dockage, wellness, dining, valet, and the scale buyers expect from a true luxury address.",
-  shorecrest: "Modern North Flagler waterfront living with 98 residences, rooftop amenities, strong service, private terraces, and a sleek tower profile for buyers who want new construction with edge.",
-  "ritz-carlton-wpb": "Ritz-Carlton branded waterfront living on North Flagler with 138 residences, concierge service, beach club access, wellness amenities, and the confidence of a globally recognized luxury name.",
-  berkeley: "Clear Lake luxury with 193 residences, large terraces, family-friendly amenities, downtown access, and practical elegance for buyers who want space without needing direct Intracoastal frontage.",
-  "nora-house": "A sales-launched Nora District condominium with 117 residences, guest suites, rooftop amenities, walkable energy, and front-row access to one of West Palm Beach's most watched neighborhoods.",
-  "south-flagler-house": "Trophy South Flagler waterfront living with 108 residences, two towers, estate-scale layouts, private-club amenities, marina access, and one of the most prestigious addresses in West Palm Beach.",
-  "mr-c": "Downtown branded living with 146 residences, Cipriani-backed hospitality, dining, valet, butler-style service, rooftop energy, and the urban luxury buyers want near the center of West Palm Beach.",
-  "maison-dor": "Boutique South Flagler luxury with 39 residences, pricing from $5.7M, and a rare smaller-scale profile for buyers watching the next wave of waterfront new construction.",
-  edgeworth: "A major Related Ross South Flagler pipeline project with 168 planned residences, two towers, waterfront positioning, and the potential to become one of WPB's next trophy luxury addresses.",
-  "mandarin-oriental": "Mandarin Oriental branded waterfront living planned for North Flagler with 87 residences, private elevators, wraparound terraces, and a long-horizon luxury play for brand-focused buyers.",
-  "banyan-tree": "Banyan Tree's planned downtown WPB residence brings 88 homes, branded hospitality, wellness-driven amenities, and major design credentials to the city's growing luxury pipeline.",
-  "alba-reserve": "A reported North Flagler waterfront proposal with 87 residences and 31 floors, worth tracking for buyers who want early access to the next wave of luxury condo inventory.",
-  "fern-and-gardenia-related-ross-fern-street": "A downtown Fern Street pipeline project that could bring 100-130 condos near CityPlace, adding future luxury inventory to one of WPB's most walkable urban corridors.",
-  "rybovich-marina-redevelopment": "A major North Flagler marina redevelopment with up to 660 residential units contemplated, phased waterfront towers, and the potential to reshape WPB's northern waterfront.",
-  "rosewood-residences-west-palm-beach": "Rosewood-branded North Flagler pipeline living with 90 planned residences, 27 floors, filed-plan momentum, and a hospitality name that serious luxury buyers will watch closely.",
-  "forte-on-flagler": "A completed South Flagler luxury benchmark with waterfront residences, deep amenities, guest suites, valet, house cars, and real delivered product buyers can compare today.",
-  "la-clara": "A completed South Flagler luxury comp with 83 residences, strong resale relevance, and the delivered-building context buyers need when comparing WPB's newest towers.",
-};
-
-const projectCardStatusById: Record<string, ProjectCardStatus> = {
-  "alba-palm-beach": "Under Construction",
-  olara: "Under Construction",
-  shorecrest: "Under Construction",
-  "ritz-carlton-wpb": "Under Construction",
-  berkeley: "Under Construction",
-  "nora-house": "Approved",
-  "south-flagler-house": "Under Construction",
-  "mr-c": "Under Construction",
-  "maison-dor": "Approved",
-  edgeworth: "Approved",
-  "mandarin-oriental": "Approved",
-  "banyan-tree": "Approved",
-  "alba-reserve": "Planning",
-  "fern-and-gardenia-related-ross-fern-street": "Planning",
-  "rybovich-marina-redevelopment": "Approved",
-  "rosewood-residences-west-palm-beach": "Planning",
-  "forte-on-flagler": "Completed",
-  "la-clara": "Completed",
-};
-
-const projectCardSalesOfficeById: Record<string, ProjectCardSalesOffice> = {
-  "alba-palm-beach": "Yes",
-  olara: "Yes",
-  shorecrest: "Yes",
-  "ritz-carlton-wpb": "Yes",
-  berkeley: "Yes",
-  "nora-house": "Yes",
-  "south-flagler-house": "Yes",
-  "mr-c": "Yes",
-  "maison-dor": "Yes",
-  edgeworth: "No",
-  "mandarin-oriental": "Yes",
-  "banyan-tree": "Yes",
-  "alba-reserve": "No",
-  "fern-and-gardenia-related-ross-fern-street": "No",
-  "rybovich-marina-redevelopment": "No",
-  "rosewood-residences-west-palm-beach": "No",
-  "forte-on-flagler": "Resales",
-  "la-clara": "Resales",
-};
-
-const projectCardCompletionYearById: Record<string, string> = {
-  "alba-palm-beach": "2026",
-  olara: "2027",
-  shorecrest: "2027",
-  "ritz-carlton-wpb": "2028",
-  berkeley: "2027",
-  "nora-house": "2029",
-  "south-flagler-house": "2027",
-  "mr-c": "2027",
-  "maison-dor": "2028",
-  edgeworth: "2029",
-  "mandarin-oriental": "2031",
-  "banyan-tree": "2028",
-  "alba-reserve": "2029",
-  "fern-and-gardenia-related-ross-fern-street": "2029",
-  "rybovich-marina-redevelopment": "2030",
-  "rosewood-residences-west-palm-beach": "2029",
-  "forte-on-flagler": "2024",
-  "la-clara": "2023",
-};
-
-const projectCardDisplayNameById: Record<string, string> = {
-  "alba-palm-beach": "Alba",
-  olara: "Olara",
-  shorecrest: "Shorecrest",
-  "ritz-carlton-wpb": "Ritz-Carlton Residences",
-  berkeley: "The Berkeley",
-  "nora-house": "Nora House",
-  "south-flagler-house": "South Flagler House",
-  "mr-c": "Mr. C Residences",
-  "maison-dor": "Maison d'Or",
-  edgeworth: "Edgeworth",
-  "mandarin-oriental": "Mandarin Oriental Residences",
-  "banyan-tree": "Banyan Tree Residences",
-  "alba-reserve": "Alba Reserve",
-  "fern-and-gardenia-related-ross-fern-street": "Fern & Gardenia",
-  "rybovich-marina-redevelopment": "Rybovich Marina",
-  "rosewood-residences-west-palm-beach": "Rosewood Residences",
-  "forte-on-flagler": "Forte on Flagler",
-  "la-clara": "La Clara",
-};
-
-function projectCardDisplayName(project: FeaturedProject) {
-  return projectCardDisplayNameById[project.id] || project.name.replace(/\s*(West Palm Beach|WPB|Palm Beach)\s*/gi, " ").replace(/\s+/g, " ").trim();
-}
-
-function projectCardCorridorLabel(project: FeaturedProject) {
-  return {
-    downtown: "DOWNTOWN",
-    "north-flagler": "NORTH FLAGLER",
-    "south-flagler": "SOUTH FLAGLER",
-  }[project.corridorKey];
-}
-
-function projectCardStatus(project: FeaturedProject): ProjectCardStatus {
-  if (projectCardStatusById[project.id]) return projectCardStatusById[project.id];
-  const status = project.status.toLowerCase();
-  if (/completed|delivered|resale/.test(status)) return "Completed";
-  if (/under construction|topped out|construction/.test(status)) return "Under Construction";
-  if (/approved|sales open|sales launched|preconstruction/.test(status)) return "Approved";
-  return "Planning";
-}
-
-function projectCardSalesOffice(project: FeaturedProject): ProjectCardSalesOffice {
-  if (projectCardSalesOfficeById[project.id]) return projectCardSalesOfficeById[project.id];
-  if (projectCardStatus(project) === "Completed") return "Resales";
-  return /sales|selling|preconstruction|under construction/.test(project.status.toLowerCase()) ? "Yes" : "No";
-}
-
-function projectCardCompletionYear(project: FeaturedProject) {
-  if (projectCardCompletionYearById[project.id]) return projectCardCompletionYearById[project.id];
-  return Number.isFinite(project.deliveryYear) && project.deliveryYear > 2000 ? String(project.deliveryYear) : "TBD";
-}
+void import("./data/projectCardData").then((m) => m.hydrateProjectCards());
 
 const projectFilters: ProjectFilter[] = [
   { key: "all", label: "All" },
@@ -6301,7 +6164,7 @@ function teamLogoForCredit(name: string): MediaAsset | undefined {
 function renderFeaturedProject(project: FeaturedProject) {
   const cardOverride = approvedHomepageCardOverride("featuredBuildings", project.id);
   const homepageCardImage = homepageProjectCardImage(project.id);
-  const displayName = projectCardDisplayName(project);
+  const displayName = project.name;
   const media = cardOverride?.imagePath
     ? `<img src="${safeHref(cardOverride.imagePath)}" alt="${escapeHtml(cardOverride.alt || `${project.name} project preview`)}" loading="lazy" decoding="async" />`
     : homepageCardImage
@@ -6309,41 +6172,38 @@ function renderFeaturedProject(project: FeaturedProject) {
     : project.image && canShowImage(project.image)
     ? `<img src="${project.image}" alt="${project.name} project preview" loading="lazy" decoding="async" />`
     : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${displayName}</strong></div>`;
-  const cardStatus = projectCardStatus(project);
-  const salesOffice = projectCardSalesOffice(project);
-  const completionYear = projectCardCompletionYear(project);
-  const cardCopy = cardOverride?.deck || cardOverride?.subhead || projectCardCopyById[project.id] || project.summary;
+  const cardStatus = project.status;
+  const salesOffice = "Yes";
+  const completionYear = Number.isFinite(project.deliveryYear) && project.deliveryYear > 2000 ? String(project.deliveryYear) : "TBD";
+  const cardCopy = project.summary;
 
   return `
     <article
       class="front-project-card"
-      data-project-card
-      data-project-id="${project.id}"
-      data-project-name="${project.name}"
-      data-filter-values="${getProjectFilterValues(project)}"
-      data-corridor="${project.corridorKey}"
-      data-status="${toFilterValue(project.status)}"
-      data-floorplans="${project.floorplans}"
-      data-delivery="${project.deliveryYear}"
-      data-residences="${getResidenceSortValue(project)}"
+      data-project-card="${project.id}"
+      data-pn="${project.name}"
+      data-fv="${getProjectFilterValues(project)}"
+      data-c="${project.corridorKey}"
+      data-d="${project.deliveryYear}"
+      data-r="${getResidenceSortValue(project)}"
       data-rank="${project.rank}"
     >
       <figure>
         ${media}
       </figure>
       <div class="front-project-card-body">
-        <strong>${escapeHtml(displayName)}</strong>
-        <div class="project-card-kicker" aria-label="${project.name} corridor and status">
-          <span>${projectCardCorridorLabel(project)}</span>
-          <span>${cardStatus}</span>
+        <strong data-pc-title>${escapeHtml(displayName)}</strong>
+        <div class="project-card-kicker">
+          <span data-pc-corridor>${project.corridor.toUpperCase()}</span>
+          <span data-pc-status>${cardStatus}</span>
         </div>
-        <div class="project-card-intel" aria-label="${project.name} project facts">
-          <span><small>Sales Office</small><b>${salesOffice}</b></span>
-          <span><small>Completion</small><b>${completionYear}</b></span>
+        <div class="project-card-intel">
+          <span><small>Sales Office</small><b data-pc-sales>${salesOffice}</b></span>
+          <span><small>Completion</small><b data-pc-year>${completionYear}</b></span>
         </div>
-        <p>${escapeHtml(cardCopy)}</p>
+        <p data-pc-copy>${escapeHtml(cardCopy)}</p>
         <div class="project-card-actions">
-          <a href="${projectPath(project)}">${escapeHtml(cardOverride?.ctaLabel || "VIEW PROJECT")} <span aria-hidden="true">→</span></a>
+          <a href="${projectPath(project)}">VIEW PROJECT →</a>
         </div>
       </div>
     </article>
@@ -9498,19 +9358,19 @@ function initProjectBrowser() {
 
 function compareProjectCards(a: HTMLElement, b: HTMLElement, sortValue: string) {
   if (sortValue === "az") {
-    return String(a.dataset.projectName ?? "").localeCompare(String(b.dataset.projectName ?? ""));
+    return String(a.dataset.pn ?? "").localeCompare(String(b.dataset.pn ?? ""));
   }
 
   if (sortValue === "delivery") {
-    return getNumericDataset(a, "delivery") - getNumericDataset(b, "delivery");
+    return getNumericDataset(a, "d") - getNumericDataset(b, "d");
   }
 
   if (sortValue === "residences") {
-    return getNumericDataset(b, "residences") - getNumericDataset(a, "residences");
+    return getNumericDataset(b, "r") - getNumericDataset(a, "r");
   }
 
   if (sortValue === "corridor") {
-    return String(a.dataset.corridor ?? "").localeCompare(String(b.dataset.corridor ?? ""));
+    return String(a.dataset.c ?? "").localeCompare(String(b.dataset.c ?? ""));
   }
 
   return getNumericDataset(a, "rank") - getNumericDataset(b, "rank");
@@ -9612,7 +9472,7 @@ function primaryProjectFilter(selection: ProjectFilterSelection) {
 }
 
 function projectMatchesSelection(element: HTMLElement, selection: ProjectFilterSelection) {
-  const values = (element.dataset.filterValues ?? "").split(" ");
+  const values = (element.dataset.fv ?? element.dataset.filterValues ?? "").split(" ");
   return (["corridor", "status", "floorplans"] as const).every((group) => {
     const value = selection[group];
     return value === "all" || values.includes(value);
