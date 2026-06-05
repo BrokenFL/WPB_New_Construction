@@ -4,6 +4,14 @@ WPB New Construction is a public buyer-information website. Public pages, `llms.
 
 The site does not currently expose a protected public API, remote MCP server, payment endpoint, or automated agent account-registration flow.
 
+## Agent registration
+
+Agent registration is not currently available because the site only publishes public buyer-information resources. There is no `register_uri`, client credential flow, token endpoint, claim endpoint, or revocation endpoint for automated agent accounts.
+
+Supported agent identity type: anonymous public web access.
+
+Supported credential types: none required for public resources.
+
 Agents may access public discovery resources without credentials:
 
 - `https://www.wpbnewconstruction.com/llms.txt`
