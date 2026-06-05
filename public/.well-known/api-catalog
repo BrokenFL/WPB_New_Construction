@@ -1,0 +1,43 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.wpbnewconstruction.com/",
+      "service-doc": [
+        {
+          "href": "https://www.wpbnewconstruction.com/llms.txt",
+          "type": "text/plain",
+          "title": "LLM and crawler guide"
+        },
+        {
+          "href": "https://www.wpbnewconstruction.com/methodology/",
+          "type": "text/html",
+          "title": "Source methodology"
+        }
+      ],
+      "service-desc": [
+        {
+          "href": "https://www.wpbnewconstruction.com/.well-known/agent-skills/index.json",
+          "type": "application/json",
+          "title": "Agent skills index"
+        }
+      ],
+      "item": [
+        {
+          "href": "https://www.wpbnewconstruction.com/sitemap.xml",
+          "type": "application/xml",
+          "title": "Sitemap"
+        },
+        {
+          "href": "https://www.wpbnewconstruction.com/feed.json",
+          "type": "application/feed+json",
+          "title": "Market updates JSON feed"
+        },
+        {
+          "href": "https://www.wpbnewconstruction.com/rss.xml",
+          "type": "application/rss+xml",
+          "title": "Market updates RSS feed"
+        }
+      ]
+    }
+  ]
+}

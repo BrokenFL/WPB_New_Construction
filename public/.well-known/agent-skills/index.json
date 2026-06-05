@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agentskills.io/schemas/agent-skills-index-v0.2.json",
+  "skills": [
+    {
+      "name": "WPB New Construction Buyer Research",
+      "type": "skill",
+      "description": "Guide agents through public West Palm Beach new-construction condo project, corridor, floor-plan, update, and inquiry routes without inventing current pricing or availability.",
+      "url": "https://www.wpbnewconstruction.com/.well-known/agent-skills/wpb-new-construction-buyer-research/SKILL.md",
+      "sha256": "dcfd0c3466870cb3bb59b3aafca1f24f8bb9a80c585778b509bf4e2d67e5994e"
+    }
+  ]
+}
