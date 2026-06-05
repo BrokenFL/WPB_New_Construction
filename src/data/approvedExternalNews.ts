@@ -95,7 +95,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
       },
       {
         "heading": "What it means for downtown",
-        "body": "If the plan advances, it would add a workforce-housing component to a downtown core that is increasingly defined by office, medical, and high-end residential investment. Public city records also show the broader 120 South Dixie and Datura assemblage has carried prior formal site-plan activity, making this a meaningful reset point for a site that has been watched for years."
+        "body": "If the plan advances, it would add a workforce-housing component to a downtown core that is increasingly defined by office, medical, and high-end residential investment. City filing history also shows the broader 120 South Dixie and Datura assemblage has carried prior formal site-plan activity, making this a meaningful reset point for a site that has been watched for years."
       }
     ],
     "whyItMatters": "This is one of the clearer signs that downtown West Palm Beach’s next wave may include more than luxury condos. A large Live Local filing here would bring affordability policy, preservation, and construction speed into the same redevelopment conversation.",
@@ -124,7 +124,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
       {
         "label": "City of West Palm Beach eGov file for 120 S Dixie and Datura assemblage",
         "url": "https://onestopshop.wpbgov.com/eGovPlus/zoning/zd_account_dtl.aspx?appl_no=Z22090015",
-        "type": "public-record"
+        "type": "city-link"
       }
     ],
     "paywallStatus": "free",
@@ -188,7 +188,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
       {
         "label": "West Palm Beach Planning Board agenda, May 19 2026",
         "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf",
-        "type": "public-record"
+        "type": "city-link"
       },
       {
         "label": "The Real Deal report on Rosewood branding",
