@@ -72,6 +72,14 @@ const marketNoteRoutes = [
       "A buyer guide to Downtown West Palm Beach condo corridors, including North Flagler, the core, The Square/Rosemary, and NORA.",
   },
 ];
+const downtownSpotlightRoutes = [
+  {
+    slug: "nora-district-downtown-transformation",
+    title: "NORA District's Downtown Impact Explained | Downtown Spotlight",
+    description:
+      "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
+  },
+];
 const buyerIntentAnswerRoutes = loadBuyerIntentAnswerRoutes();
 
 function loadBuyerIntentAnswerRoutes() {
@@ -2543,6 +2551,18 @@ function buildPrerenderRoutes() {
       ogImage: siteMeta.defaultImage,
     })),
     {
+      path: "/downtown-spotlight/",
+      title: "Downtown Spotlight | West Palm Beach Condo District Notes",
+      description: "Read Downtown West Palm Beach district spotlights, beginning with NORA, and follow the locations shaping condo buyer decisions.",
+      ogImage: siteMeta.defaultImage,
+    },
+    ...downtownSpotlightRoutes.map((note) => ({
+      path: `/downtown-spotlight/${note.slug}/`,
+      title: note.title,
+      description: note.description,
+      ogImage: siteMeta.defaultImage,
+    })),
+    {
       path: "/market-notes/",
       title: "West Palm Beach Condo Guidance | Buyer Intelligence",
       description: "Read evergreen guidance for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
@@ -2679,6 +2699,8 @@ function renderSitemap(projects) {
     ["corridors/south-flagler/", "0.8"],
     ["updates/", "0.8"],
     ...updateRoutes.map((item) => [`updates/${item.id}/`, "0.8"]),
+    ["downtown-spotlight/", "0.8"],
+    ...downtownSpotlightRoutes.map((note) => [`downtown-spotlight/${note.slug}/`, "0.8"]),
     ["market-notes/", "0.8"],
     ...marketNoteRoutes.map((note) => [`market-notes/${note.slug}/`, "0.8"]),
     ["methodology/", "0.7"],
