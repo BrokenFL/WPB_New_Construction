@@ -9579,13 +9579,6 @@ function getNumericDataset(element: HTMLElement, key: string) {
   return Number.parseInt(element.dataset[key] ?? "0", 10) || 0;
 }
 
-function toFilterValue(value: string) {
-  return value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-}
-
 /* ==========================================================================
    PHASE 1 VISUAL OVERHAUL HELPER FUNCTIONS
    ========================================================================== */
