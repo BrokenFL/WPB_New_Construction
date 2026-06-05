@@ -66,7 +66,7 @@ export async function writeDraftStore(store) {
 
 export async function readAutomationConfig() {
   return readJsonFile(newsAutomationConfigPath, {
-    autoPublishEnabled: true,
+    autoPublishEnabled: false,
     autoPublishDelayHours: 6,
     maxAutoPublishedPerDay: 3,
     highRiskRequiresReview: true,
@@ -234,6 +234,7 @@ export async function resolveNewsImage(candidate) {
 }
 
 export function eligibleForAutoPublish(item, config, now = new Date()) {
+  if (!item.approvedForPublication || item.approvedBy !== "Brooke" || !item.approvedAt) return false;
   if (item.status !== "queued") return false;
   if (item.riskLevel !== "low") return false;
   if (!config.autoPublishEnabled) return false;

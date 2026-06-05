@@ -55,6 +55,7 @@
     "maps:home": "node research/scripts/generate-home-coordinate-map.mjs",
     "news:refresh": "npm run research:site-intelligence",
     "news:fetch": "node research/scripts/fetch-development-news.mjs",
+    "news:prepare-review": "node research/scripts/run-news-review-queue.mjs",
     "news:promote": "node research/scripts/promote-approved-news.mjs",
     "news:import-gpt": "node research/scripts/import-gpt-news-issues.mjs",
     "news:import-gpt-issues": "node research/scripts/import-gpt-news-issues.mjs",

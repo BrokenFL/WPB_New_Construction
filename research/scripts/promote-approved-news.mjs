@@ -47,6 +47,7 @@ const rendered = `export type ExternalNewsItem = {
   sourceName: string;
   sourceUrl: string;
   canonicalUrl: string;
+  sourceTitle?: string;
   publishedAt: string;
   sourcePublishedAt?: string;
   sourcePublishedDate: string;
@@ -76,6 +77,7 @@ const rendered = `export type ExternalNewsItem = {
   imageUrl?: string;
   imagePath?: string;
   resolvedLocalImageId?: string;
+  sourceLinks?: { label: string; url: string; type?: string }[];
   paywallStatus: "free" | "unknown" | "likely-paywalled";
   status: "needs-review" | "published" | "archived" | "duplicate";
   riskLevel?: "low" | "medium" | "high";
@@ -99,10 +101,19 @@ export function isHomepageFreshnessLane(item: ExternalNewsItem): boolean {
   return item.freshnessLane === "breaking_14d" || item.freshnessLane === "recent_30d";
 }
 
+export function isHomepageContextLane(item: ExternalNewsItem): boolean {
+  return item.freshnessLane === "evergreen_analysis" ||
+    item.freshnessLane === "evergreen_context" ||
+    item.freshnessLane === "archive_only";
+}
+
 export const approvedExternalNews: readonly ExternalNewsItem[] = ${JSON.stringify(normalizedItems, null, 2)} as const;
 
 export const publishedExternalNews = sortNewsItems(approvedExternalNews.filter((item) => item.status === "published"));
-export const homepageExternalNews = publishedExternalNews.filter(isHomepageFreshnessLane);
+export const homepageExternalNews = [
+  ...publishedExternalNews.filter(isHomepageFreshnessLane),
+  ...publishedExternalNews.filter(isHomepageContextLane),
+].filter((item, index, items) => items.findIndex((candidate) => candidate.id === item.id) === index).slice(0, 3);
 `;
 
 fs.writeFileSync(approvedPath, `${JSON.stringify(normalizedItems, null, 2)}\n`);

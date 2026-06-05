@@ -1,6 +1,6 @@
 # News Update Pipeline
 
-This pipeline turns West Palm Beach development news into on-site buyer-facing updates without fabricating building facts or pushing readers toward sponsor pages. Brooke can keep giving guidance through ChatGPT/Codex; the Builder console is not required for the newsroom workflow.
+This pipeline turns West Palm Beach development, real estate, and luxury-market news into on-site buyer-facing updates without fabricating building facts or pushing readers toward sponsor pages. Brooke can keep giving guidance through ChatGPT/Codex; the Builder console is not required for the newsroom workflow.
 
 ## Inputs
 
@@ -8,12 +8,12 @@ This pipeline turns West Palm Beach development news into on-site buyer-facing u
 - Existing agent briefs:
   - `research/source-material-review/live-news-agent-brief.md`
   - `research/source-material-review/biweekly-development-blog-agent-brief.md`
-- Preferred sources: city records, planning materials, permits, public notices, The Real Deal, Florida YIMBY, South Florida Business Journal, Palm Beach Post, WFLX, World Red Eye, official project sites, official brochures, and direct project announcements.
+- Preferred sources: city records, planning materials, permits, public notices, Markets of Tomorrow/OFTMW, The Real Deal, Florida YIMBY, South Florida Business Journal, Palm Beach Post, Palm Beach Daily News, WFLX, World Red Eye, official project sites, official brochures, and direct project announcements.
 - Secondary leads: brokerage posts, SEO pages, social posts, and sponsor announcements. Use these as leads to confirm, not as the whole story.
 
 ## Decision Standard
 
-Publish only when the item changes a buyer decision:
+Publish only when the item changes a buyer decision, explains the luxury-market map, or gives useful local context:
 
 - Construction milestone
 - Financing or approval milestone
@@ -22,25 +22,31 @@ Publish only when the item changes a buyer decision:
 - Delivery timing change
 - Team or brand change
 - Corridor supply pressure or district infrastructure context
+- Developer deal, assemblage, land sale, buyout, loan, lawsuit, or ownership dispute
+- Planning, zoning, code, public meeting, permit, or city-record movement
+- Major restaurant, private club, hotel, wellness, culture, retail, or lifestyle opening that affects a buyer’s view of a corridor
+- New luxury-market signal around Palm Beach, downtown West Palm Beach, North Flagler, South Flagler, NORA, El Cid, Flamingo Park, or CityPlace
 
 Skip or hold when the lead is mostly promotional, duplicates existing guidance, lacks a reputable source, or depends on unverified live availability.
 
 ## Workflow
 
-1. GPT/automation gathers 2-3 relevant West Palm Beach new-construction or development leads per day.
+1. GPT/automation gathers enough leads to draft two review-ready West Palm Beach updates per day.
 2. Drafts arrive through GitHub issues and `npm run news:process-gpt-issues`, or are entered directly into `content/news-drafts.json`.
 3. Confirm each factual claim against source material.
-4. Add or update source evidence in the research catalog or relevant research note.
-5. Draft the buyer angle:
+4. For every publishable article lead, search for more context before drafting. A good article should usually have the original report plus one or more support sources: official project site, developer release, city/planning record, earlier reporting, or a related market-context article.
+5. Add or update source evidence in the research catalog or relevant research note.
+6. Draft the article in the voice of the WPB Development Desk:
    - What changed?
-   - Which buyer comparison does it affect?
+   - Why would a serious buyer, seller, developer, investor, or Palm Beach local care?
+   - Which corridor, project, or lifestyle pattern does it affect?
    - What should be confirmed before relying on it?
-6. Low-risk queued drafts can be promoted by `npm run news:publish-eligible`; medium/high-risk drafts stay reviewable until Codex or Brooke approves the wording.
-7. Approved public updates live in `research/news-review/approved-development-news.json` and are promoted into `src/data/approvedExternalNews.ts` with `npm run news:promote`.
-8. The public reading path is always on-site:
+7. Low-risk queued drafts can be promoted by `npm run news:publish-eligible`; medium/high-risk drafts stay reviewable until Codex or Brooke approves the wording.
+8. Approved public updates live in `research/news-review/approved-development-news.json` and are promoted into `src/data/approvedExternalNews.ts` with `npm run news:promote`.
+9. The public reading path is always on-site:
    `Homepage Updates -> /updates/ archive -> /updates/:slug/ article -> inquiry or newsletter CTA`.
-9. Keep archive cards and homepage cards free of direct source links. Original source links belong at the bottom of each article page as attribution.
-10. Run validation:
+10. Keep archive cards and homepage cards free of direct source links. Source links belong at the bottom of each article page as attribution.
+11. Run validation:
 
 ```bash
 npm run news:refresh
@@ -51,8 +57,43 @@ npm run qa:gatekeeper
 
 For a deliberate manual audit artifact, run `npm run qa:launch:write-reports` instead. No-write QA writes generated reports to `.runtime/qa/`; tracked reports stay unchanged unless the write-reports command is used.
 
-11. Check the homepage update module, `/updates/`, and at least two `/updates/:slug/` article pages.
-12. Record changed stories, skipped leads, source conflicts, route checks, and blockers in the handoff notes.
+12. Check the homepage update module, `/updates/`, and at least two `/updates/:slug/` article pages.
+13. Record changed stories, skipped leads, source conflicts, route checks, and blockers in the handoff notes.
+
+## Editorial Voice
+
+Articles should feel like WPB New Construction reporting, not a clipping service. The writer posture is:
+
+- Palm Beach/West Palm Beach local news editor with taste.
+- Luxury real-estate reporter who understands developers, land, lawsuits, financing, planning, and construction.
+- Culture and hospitality scout who can spot restaurants, private clubs, hotels, wellness, retail, and lifestyle openings that change the map.
+- Buyer advisor who knows condos, corridors, timing, approvals, lifestyle fit, and tradeoffs.
+- SEO-aware without sounding like generic SEO copy.
+
+Good public copy should be concise, polished, newsy, and useful. Lead with what happened. Then explain why it matters, where it fits in the local map, and what still needs direct verification. Avoid stiff phrases like "the useful takeaway," "buyer lane," and "sharpens the comparison" on public cards. It is fine to name sources in the source footer and in factual attribution where needed.
+
+## Daily Morning Review Package
+
+The morning workflow should prepare a review package, not publish automatically.
+
+- Target: two review-ready article drafts per morning.
+- Include: headline, homepage card summary, article deck, body sections, source links, confidence/risk note, and suggested route/category.
+- Include image direction for each draft:
+  - best existing local image candidate from the approved library,
+  - suggested generated-image prompt if a new asset would help,
+  - source references used for visual direction,
+  - rights/provenance note.
+- End with a clear approval checklist: publish as-is, revise copy, generate/select image, hold, or discard.
+- Do not add drafts to the public feed, commit, push, or deploy without Brooke approval.
+
+## Article Images
+
+Use images only when rights and provenance are clear:
+
+- Prefer the site’s approved local library first.
+- Use article imagery only as visual reference for a new generated asset, not as a direct copied asset, unless reuse rights are explicit.
+- Generated assets should be labeled internally with the prompt, source references, date, and review status before being promoted.
+- Public imagery should match the article’s buyer use: building, corridor, skyline, plan-review, construction, or lifestyle context. Avoid generic stock-like filler.
 
 ## Record Shape
 
@@ -118,21 +159,23 @@ Rules:
 - If a public update is older than 90 days, label it as `Older public update`.
 - Never imply older information is current.
 
-## GPT Issue Automation
+## Review-Only Automation
 
 Manual command:
 
 ```bash
-npm run news:process-gpt-issues
+npm run news:prepare-review
 ```
 
-The scheduled command runs from `com.brooke.wpb-news-issue-importer` at 9:00 AM, 12:00 PM, 3:00 PM, and 6:00 PM local time. It checks open GitHub issues in `BrokenFL/WPB_New_Construction` where the title starts with `Daily WPB News Drafts` or labels include `gpt-draft`, `news-candidate`, or `needs-codex-draft`. Issues already labeled `codex-imported` are skipped unless `force-reimport` is present.
+The desired scheduled behavior is a Codex morning review packet. It should scan the named source set, prepare up to two article drafts, suggest image direction, and wait for Brooke approval. It should not call publish, promote, deploy, or live QA.
 
-`news:process-gpt-issues` imports source-backed candidates, publishes only low-risk/high-confidence drafts that pass the auto-publish guardrails, updates the newsletter digest, runs news and launch QA in `QA_NO_WRITE=1` mode, deploys only after QA passes and publishable files changed, then runs live QA. Medium/high-risk, unclear, paywalled-only, unsupported, unmapped, or judgment-heavy items stay held for review and receive `needs-review` on the issue.
+`news:prepare-review` is local support for that morning workflow. It refreshes candidates, updates the newsletter digest, runs news QA, and writes `.runtime/qa/news-review-queue-report.md`. It is intentionally review-only.
+
+Legacy commands such as `news:daily-publisher`, `news:process-gpt-issues`, and `news:publish-eligible` are manual-only unless Brooke explicitly restores auto-publishing. Publish scripts require explicit Brooke approval fields before a draft can move into the public approved feed.
 
 Scheduled/no-change runs write runtime reports to `.runtime/qa/` and should not rewrite tracked QA Markdown. Manual launch-report refreshes should use `npm run qa:launch:write-reports`. Deploy preflight also uses no-write launch QA; the deploy itself remains gated by build, launch QA, gatekeeper, and live QA.
 
-Disable the schedule:
+Disable any old local schedule:
 
 ```bash
 launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.brooke.wpb-news-issue-importer.plist

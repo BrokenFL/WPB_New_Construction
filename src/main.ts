@@ -1016,9 +1016,10 @@ const projectSalesOfficeFilters: ProjectFilter[] = [
 
 const newsFilters: ProjectFilter[] = [
   { key: "all", label: "All" },
-  { key: "development", label: "Development" },
-  { key: "construction", label: "Construction" },
+  { key: "city", label: "City Records" },
   { key: "planning", label: "Planning" },
+  { key: "construction", label: "Construction" },
+  { key: "development", label: "Press Links" },
   { key: "sales", label: "Sales" },
   { key: "north-flagler", label: "North Flagler" },
   { key: "downtown", label: "Downtown / NORA" },
@@ -2498,6 +2499,8 @@ loadBatch1ProjectCopyPackageSync();
 
 const freshUpdateItems = publishedExternalNews.filter((item) => item.freshnessLane === "breaking_14d" || item.freshnessLane === "recent_30d");
 const contextUpdateItems = publishedExternalNews.filter((item) => !freshUpdateItems.some((freshItem) => freshItem.id === item.id));
+const primaryUpdateItems = freshUpdateItems.length ? freshUpdateItems : contextUpdateItems;
+const secondaryContextUpdateItems = freshUpdateItems.length ? contextUpdateItems : [];
 const approvedNewsFeedRenderReference = "publishedExternalNews.map(renderExternalNewsItem)";
 void approvedNewsFeedRenderReference;
 const buyerResourceNotes = marketNotes.filter((note) => !isDowntownSpotlight(note));
@@ -2696,12 +2699,12 @@ app.innerHTML = `
             <div>
               <p class="eyebrow">WPB Development Desk</p>
               <h1>West Palm Beach Development Desk</h1>
-              <p>Construction milestones, planning movement, project announcements, and buyer-relevant signals from the new-construction pipeline. Fresh items sit first; older reporting is kept as context when it still helps buyers compare timing, corridor momentum, or project fit.</p>
+              <p>Source-linked reporting, city-record changes, planning movement, and project attachments that help buyers understand what is moving in West Palm Beach development. Reported stories are curated here when they add useful public context.</p>
             </div>
             <aside class="answer-meta-panel">
               <span>Updated ${publishedExternalNews[0]?.fetchedAt ?? floorplanLibrary[0]?.updatedAt ?? "2026-05-22"}</span>
-              <strong>${publishedExternalNews.length} on-site update${publishedExternalNews.length === 1 ? "" : "s"} with original sources at the bottom of each article.</strong>
-              <small>The Scott Gordon Group can help compare what is reported, what is actually available, and what belongs on your shortlist.</small>
+              <strong>${publishedExternalNews.length ? `${publishedExternalNews.length} source-backed signal${publishedExternalNews.length === 1 ? "" : "s"} with city or publisher links at the bottom of each article.` : "City records and publisher links are being reviewed before anything is promoted."}</strong>
+              <small>The Scott Gordon Group can help compare what is recorded, what is reported, and what belongs on your shortlist.</small>
             </aside>
           </div>
           ${freshUpdateItems[0] ? `
@@ -2713,7 +2716,7 @@ app.innerHTML = `
               ${renderFeaturedExternalNewsItem(freshUpdateItems[0])}
             </div>
           ` : ""}
-          <div class="newsroom-controls" aria-label="Filter West Palm Beach updates">
+          ${publishedExternalNews.length ? `<div class="newsroom-controls" aria-label="Filter West Palm Beach updates">
             <div class="filter-chips news-filter-chips" role="list" aria-label="Update filters">
               ${newsFilters.map(renderNewsFilter).join("")}
             </div>
@@ -2721,25 +2724,33 @@ app.innerHTML = `
               <span>Search updates</span>
               <input type="search" data-news-search placeholder="Search project, corridor, or topic" />
             </label>
-          </div>
+          </div>` : `
           <div class="newsroom-section-block">
             <div class="section-heading">
-              <p class="eyebrow">Fresh Updates</p>
-              <h2>Current and recent development signals.</h2>
+              <p class="eyebrow">Monitoring Before We Publish</p>
+              <h2>Development signals are being reviewed before they become public updates.</h2>
+              <p>The desk is watching city records, planning attachments, and local reporting. Only meaningful changes with enough context will be promoted here.</p>
+            </div>
+          </div>
+          `}
+          ${publishedExternalNews.length ? `<div class="newsroom-section-block">
+            <div class="section-heading">
+              <p class="eyebrow">Latest Links</p>
+              <h2>${freshUpdateItems.length ? "Current reporting and development signals." : "Reported stories that still clarify the buyer map."}</h2>
             </div>
             <div class="news-grid" data-news-grid>
-              ${freshUpdateItems.map(renderExternalNewsItem).join("")}
+              ${primaryUpdateItems.map(renderExternalNewsItem).join("")}
             </div>
-          </div>
-          <div class="newsroom-section-block">
+          </div>` : `<div class="news-grid" data-news-grid hidden></div>`}
+          ${secondaryContextUpdateItems.length ? `<div class="newsroom-section-block">
             <div class="section-heading">
-              <p class="eyebrow">Context Archive</p>
-              <h2>Older reporting that still clarifies the buyer map.</h2>
+              <p class="eyebrow">Press Links</p>
+              <h2>Reported stories that still clarify the buyer map.</h2>
             </div>
             <div class="news-grid">
-              ${contextUpdateItems.map(renderExternalNewsItem).join("")}
+              ${secondaryContextUpdateItems.map(renderExternalNewsItem).join("")}
             </div>
-          </div>
+          </div>` : ""}
           <p class="news-empty-state" data-news-empty hidden>No updates match that filter yet.</p>
           <div class="newsroom-cta-row">
             ${renderEmailSignup("updates_archive", "Get the WPB new-construction update digest", true)}
@@ -6764,7 +6775,7 @@ function relatedNewsLabel(item: ExternalNewsItem) {
 }
 
 function formatNewsDate(value: string) {
-  const parsed = Date.parse(value);
+  const parsed = /^\d{4}-\d{2}-\d{2}$/.test(value) ? Date.parse(`${value}T12:00:00`) : Date.parse(value);
   if (Number.isNaN(parsed)) return value;
   return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date(parsed));
 }
@@ -6772,6 +6783,10 @@ function formatNewsDate(value: string) {
 function renderExternalNewsItem(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
   const article = updateArticleContent(item);
+  const categoryTokens = [
+    item.category,
+    /arcgis|city of west palm beach/i.test(item.sourceName) ? "city" : "",
+  ].filter(Boolean).join(" ");
   const searchText = [
     item.title,
     article.excerpt,
@@ -6781,7 +6796,7 @@ function renderExternalNewsItem(item: ExternalNewsItem) {
     ...item.relatedCorridorIds,
   ].join(" ");
   return `
-    <article class="news-card intelligence-news-card external-news-card" id="${escapeHtml(item.id)}" data-news-card data-news-category="${escapeHtml(item.category)}" data-news-corridors="${escapeHtml(item.relatedCorridorIds.join(" "))}" data-news-projects="${escapeHtml(item.relatedProjectIds.join(" "))}" data-news-search="${escapeHtml(searchText.toLowerCase())}">
+    <article class="news-card intelligence-news-card external-news-card" id="${escapeHtml(item.id)}" data-news-card data-news-category="${escapeHtml(categoryTokens)}" data-news-corridors="${escapeHtml(item.relatedCorridorIds.join(" "))}" data-news-projects="${escapeHtml(item.relatedProjectIds.join(" "))}" data-news-search="${escapeHtml(searchText.toLowerCase())}">
       ${renderResolvedContentImage(resolvedImage)}
       <div>
         <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
@@ -6847,7 +6862,7 @@ function initNewsArchive() {
       const category = card.dataset.newsCategory ?? "";
       const corridors = card.dataset.newsCorridors ?? "";
       const searchText = card.dataset.newsSearch ?? "";
-      const matchesFilter = activeFilter === "all" || category === activeFilter || corridors.split(" ").includes(activeFilter);
+      const matchesFilter = activeFilter === "all" || category.split(" ").includes(activeFilter) || corridors.split(" ").includes(activeFilter);
       const matchesSearch = !query || searchText.includes(query);
       const isVisible = matchesFilter && matchesSearch;
       card.hidden = !isVisible;
@@ -7015,11 +7030,25 @@ function renderUpdateArticle(item: ExternalNewsItem) {
           : ""
       }
       <footer class="section update-source-footer">
-        <span>Original source: ${publicText(item.sourceName)}${item.sourcePublishedAt ? ` · ${publicText(formatNewsDate(item.sourcePublishedAt))}` : ""}</span>
-        <a href="${safeHref(item.canonicalUrl)}" target="_blank" rel="noopener noreferrer">Read the original source</a>
+        <span>Sources used${item.sourcePublishedAt ? ` · Primary story ${publicText(formatNewsDate(item.sourcePublishedAt))}` : ""}</span>
+        <div class="update-source-link-list">
+          ${sourcesForUpdateArticle(item).map((source) => `<a href="${safeHref(source.url)}" target="_blank" rel="noopener noreferrer">${publicText(source.label)}</a>`).join("")}
+        </div>
       </footer>
     </article>
   `;
+}
+
+function sourcesForUpdateArticle(item: ExternalNewsItem) {
+  const sourceLinks = item.sourceLinks?.length
+    ? item.sourceLinks
+    : [{ label: `Original source: ${item.sourceName}`, url: item.canonicalUrl, type: "news" }];
+  const seen = new Set<string>();
+  return sourceLinks.filter((source) => {
+    if (!source.url || seen.has(source.url)) return false;
+    seen.add(source.url);
+    return true;
+  });
 }
 
 function relatedProjectsForArticle(item: ExternalNewsItem) {

@@ -2,10 +2,8 @@
 
 ## Confirmed Active Automations
 
-- `com.brooke.wpb-condo-scan` is loaded in `launchctl` and has a matching file in `~/Library/LaunchAgents/com.brooke.wpb-condo-scan.plist`.
-- `com.brooke.wpb-daily-site-maintenance` is installed in `~/Library/LaunchAgents` and loaded with `launchctl`.
-- `com.brooke.wpb-news-publisher` is installed in `~/Library/LaunchAgents` and loaded with `launchctl`.
-- `com.brooke.wpb-news-issue-importer` is installed in `~/Library/LaunchAgents` and loaded with `launchctl`.
+- Codex automation `WPB Site Health Check` is the broad safety net. It runs build, launch QA, news QA, and live QA, then reports blockers only.
+- The desired news automation is a review-only morning Codex job that prepares up to two article drafts and image recommendations for Brooke approval.
 
 ## Repo Scripts That Can Be Automated
 
@@ -13,11 +11,12 @@
 - `npm run monitor:worktree` writes a clean/dirty branch report to `.runtime/qa/worktree-status.json`.
 - `npm run research:site-intelligence:dry-run` previews source-refresh generated deltas, writes `.runtime/qa/source-refresh-dry-run.json`, and restores generated files so the checkout stays clean.
 - `npm run news:fetch` gathers news candidates into review.
+- `npm run news:prepare-review` runs the review-only morning support path: fetch candidates, refresh newsletter draft, run news QA, and write `.runtime/qa/news-review-queue-report.md`.
 - `npm run news:promote` publishes only approved news from the review file.
-- `npm run news:daily-publisher` imports GPT issue drafts, validates news drafts, publishes only eligible low-risk queued items, generates the newsletter digest, runs news QA, and writes a publisher report.
-- `npm run news:process-gpt-issues` is the safe scheduled GPT issue processor: import matching GitHub issues, publish eligible low-risk items, hold review items, comment/label issues, run no-write QA, and deploy only after passing gates.
+- `npm run news:daily-publisher` is legacy/manual-only. Do not schedule it unless Brooke explicitly restores auto-publishing.
+- `npm run news:process-gpt-issues` is legacy/manual-only. Do not schedule it unless Brooke explicitly restores GitHub issue importing.
 - `npm run news:import-gpt-issues` imports matching GPT/news-candidate GitHub issues into `content/news-drafts.json`.
-- `npm run news:publish-eligible` publishes only drafts that pass `eligibleForAutoPublish`.
+- `npm run news:publish-eligible` publishes only drafts that pass the hard Brooke approval gate. It is manual-only.
 - `npm run newsletter:draft` builds a newsletter-ready digest from published `/updates/` articles plus published/queued intake drafts.
 - `npm run import:developer-images` imports candidate project imagery.
 - `npm run review:developer-images` generates the review report for imported imagery.
@@ -35,11 +34,8 @@
 
 ## LaunchAgents Found
 
-- `launchd/com.brooke.wpb-developer-image-import.plist` exists in the repo, but it was not confirmed as loaded by `launchctl`.
-- `launchd/com.brooke.wpb-daily-site-maintenance.plist` exists in the repo and is installed locally.
-- `launchd/com.brooke.wpb-news-publisher.plist` exists in the repo and is installed locally.
-- `launchd/com.brooke.wpb-news-issue-importer.plist` exists in the repo and is installed locally.
-- `~/Library/LaunchAgents/com.brooke.wpb-condo-scan.plist` exists locally and is loaded.
+- Old local LaunchAgents may exist in historical checkouts or user Library folders, but they are not the desired current control surface.
+- Prefer Codex automations for the morning news review and weekly site health jobs.
 
 ## Automations Missing
 
@@ -47,15 +43,11 @@
 - Cloudflare deploy recovery is scripted, but live deploy still depends on Cloudflare API health and valid Cloudflare credentials in the shell or CI environment.
 - Brooke Content Studio shows a read-only automation status panel. It reports known scripts and local LaunchAgent presence only; it does not mark automation as installed unless local files or `launchctl` confirm it.
 
-## Recommended Daily Maintenance Schedule
+## Recommended Schedule
 
-- 9:00 AM local time: run `npm run daily:maintenance`.
-- 9:20 AM local time: run `npm run news:daily-publisher`.
-- 9:00 AM, 12:00 PM, 3:00 PM, and 6:00 PM local time: run `npm run news:process-gpt-issues` from `com.brooke.wpb-news-issue-importer`.
-- The daily maintenance run is review-first: it checks updates, copy, image repetition, performance, and duplicate assets, then writes `.runtime/qa/daily-maintenance-report.md` in scheduled mode.
-- Human review after the daily report: approve or reject news, image, and copy findings before anything medium/high-risk is promoted publicly.
-- Low-risk news can move from GitHub issue intake to `content/news-drafts.json`, then through `news:publish-queued`, `news:promote`, and `newsletter:draft` without Brooke using the Builder UI.
-- Weekly: run `npm run research:site-intelligence:dry-run`, the full launch QA stack, and review duplicate-asset recommendations before deleting or moving files.
+- Morning, local time: run the review-only WPB Development Desk automation. It should prepare two article drafts, source links, image direction, and approval choices.
+- Friday 9:00 AM local time: run `WPB Site Health Check`.
+- No scheduled news job should publish, promote, commit, push, deploy, or generate live site changes without Brooke approval.
 
 ## QA Report Modes
 

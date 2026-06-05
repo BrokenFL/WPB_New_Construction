@@ -21,7 +21,7 @@ async function main() {
   const alreadyPublishedToday = store.items.filter((item) => item.publishedAt?.startsWith(today)).length;
   const limit = Math.max(0, Number(config.maxAutoPublishedPerDay ?? 3) - alreadyPublishedToday);
   const selected = manualIds.size
-    ? store.items.filter((item) => manualIds.has(item.id) && item.riskLevel === "low" && item.status !== "published")
+    ? store.items.filter((item) => manualIds.has(item.id) && item.approvedForPublication && item.approvedBy === "Brooke" && item.approvedAt && item.status !== "published")
     : store.items.filter((item) => eligibleForAutoPublish(item, config)).slice(0, limit);
 
   if (!selected.length) {

@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "dailyTarget": 2,
+  "reviewOnly": true,
+  "primarySources": [
+    {
+      "name": "Markets of Tomorrow / OFTMW Florida",
+      "url": "https://www.oftmw.com/?market=florida",
+      "topics": ["development", "luxury hospitality", "restaurants", "clubs", "culture", "citywide projects"]
+    },
+    {
+      "name": "Florida YIMBY",
+      "url": "https://floridayimby.com/",
+      "topics": ["planning", "construction", "renderings", "approvals", "development"]
+    },
+    {
+      "name": "The Real Deal South Florida",
+      "url": "https://therealdeal.com/miami/",
+      "topics": ["developer deals", "financing", "lawsuits", "land sales", "condos", "market context"]
+    },
+    {
+      "name": "Palm Beach Post real estate",
+      "url": "https://www.palmbeachpost.com/news/real-estate/",
+      "topics": ["local real estate", "planning", "development", "Palm Beach County"]
+    },
+    {
+      "name": "Palm Beach Daily News real estate",
+      "url": "https://www.palmbeachdailynews.com/news/real-estate/",
+      "topics": ["Palm Beach real estate", "luxury market", "culture", "local ownership"]
+    }
+  ],
+  "leadFamilies": [
+    "West Palm Beach condo development",
+    "West Palm Beach planning zoning approval",
+    "West Palm Beach developer land sale assemblage",
+    "West Palm Beach construction loan financing",
+    "West Palm Beach lawsuit developer condo",
+    "Palm Beach luxury restaurant club hotel opening",
+    "NORA West Palm Beach restaurant retail hotel",
+    "North Flagler South Flagler CityPlace development"
+  ],
+  "reviewPackageRequirements": [
+    "two review-ready article drafts when enough credible leads exist",
+    "supporting sources for each draft",
+    "source conflict notes",
+    "risk and confidence note",
+    "approved local image candidate or generated-image prompt",
+    "rights/provenance note",
+    "clear publish/hold recommendation"
+  ]
+}
