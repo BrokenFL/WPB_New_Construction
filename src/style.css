@@ -725,6 +725,15 @@
   text-transform: uppercase;
 }
 
+.compare-matrix-wrap .compare-section-row th {
+  width: auto;
+  border-left: 0;
+  background: #efe7d7;
+  color: #16392e;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+}
+
 .compare-amenity-row td {
   min-width: 220px;
 }

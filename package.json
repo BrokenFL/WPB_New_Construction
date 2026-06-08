@@ -50,7 +50,7 @@
     "monitor:worktree": "node research/scripts/check-worktree-clean.mjs",
     "research:canonical-projects": "node research/scripts/reconcile-canonical-projects.mjs",
     "research:canonical-projects:import": "node research/scripts/reconcile-canonical-projects.mjs --write",
-    "research:site-intelligence": "npm run research:canonical-projects && node research/scripts/build-site-intelligence.mjs",
+    "research:site-intelligence": "npm run research:canonical-projects && node research/scripts/parse-building-database.mjs && node research/scripts/build-site-intelligence.mjs",
     "research:site-intelligence:dry-run": "node research/scripts/run-source-refresh-dry-run.mjs",
     "maps:home": "node research/scripts/generate-home-coordinate-map.mjs",
     "news:refresh": "npm run research:site-intelligence",
@@ -95,6 +95,7 @@
     "vite": "^8.0.9"
   },
   "dependencies": {
+    "csv-parse": "^6.2.1",
     "sharp": "^0.34.5"
   }
 }

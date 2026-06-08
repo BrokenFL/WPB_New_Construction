@@ -26,6 +26,8 @@ import homepageCardOverridesRaw from "../content/overrides/homepage-card-overrid
 import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
+import type { BuildingDatabaseField } from "./lib/buildingDatabase";
+import type { CompareSection } from "./lib/buildingCompareSections";
 import { advisorProfile, teamProfile } from "./lib/contact";
 import { escapeHtml, safeHref } from "./renderUtils";
 import { localIntelligence } from "./data/localIntelligence";
@@ -890,6 +892,15 @@ const homepageFeaturedProjects = homepageFeaturedProjectIds
   .filter((project): project is FeaturedProject => Boolean(project));
 const homepageCorridorKeys: CorridorKey[] = ["north-flagler", "south-flagler", "downtown"];
 const importedProjectImages = approvedImportedProjectImagesRaw as ImportedProjectImage[];
+
+type BuildingDatabaseHelpers = typeof import("./lib/buildingDatabase");
+let buildingDatabaseHelpers: BuildingDatabaseHelpers | undefined;
+
+async function loadBuildingDatabaseHelpers() {
+  buildingDatabaseHelpers ??= await import("./lib/buildingDatabase");
+  await buildingDatabaseHelpers.loadBuildingDatabase();
+  return buildingDatabaseHelpers;
+}
 
 function enhanceProjectIdentity(projects: FeaturedProject[]): FeaturedProject[] {
   return projects.map((project) => {
@@ -4393,7 +4404,7 @@ function syncInquiryContext() {
   document.querySelector<HTMLInputElement>('.inquiry-form input[name="lead_capture_context"]')?.setAttribute("value", leadCaptureContext ?? "contact_page");
 }
 
-function initCompareShortlist() {
+async function initCompareShortlist() {
   const route = getCurrentRoute();
   if (route.type !== "compare") return;
 
@@ -4401,6 +4412,10 @@ function initCompareShortlist() {
   const output = document.querySelector<HTMLElement>("[data-compare-results]");
   const inquireLink = document.querySelector<HTMLAnchorElement>("[data-compare-inquire]");
   if (selects.length !== 3 || !output) return;
+
+  output.innerHTML = "<p class=\"compare-route-empty\">Loading...</p>";
+  const [helpers] = await Promise.all([loadBuildingDatabaseHelpers(), loadCompareSections()]);
+  if (import.meta.env.DEV) void helpers.warnForMissingBuildingEnrichment(featuredProjects);
 
   const storageKey = "wpbCompareShortlist";
   const readSelection = () => {
@@ -5616,29 +5631,7 @@ function compareVerificationNeed(project: FeaturedProject) {
 
 function renderCompareWorkspaceCard(project: FeaturedProject) {
   const image = homepageProjectCardImage(project.id) || (project.image && canShowImage(project.image) ? project.image : undefined);
-  return `
-    <article class="compare-route-card">
-      ${image
-        ? `<img src="${safeHref(image)}" alt="${escapeHtml(`${project.name} project preview`)}" loading="lazy" decoding="async" />`
-        : `<div class="image-placeholder">${escapeHtml(project.corridor)}</div>`}
-      <div>
-        <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
-        <h2><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></h2>
-        <p>${escapeHtml(compareBuyerFit(project))}</p>
-        <a href="${projectPath(project)}">View building guide <b aria-hidden="true">→</b></a>
-      </div>
-    </article>
-  `;
-}
-
-function renderCompareAmenities(project: FeaturedProject) {
-  const copy = batch1ProjectCopyByProjectId.get(project.id);
-  const highlights = copy?.showcase?.amenityHighlights ?? [];
-  if (highlights.length) {
-    return `<ul class="compare-amenity-list">${highlights.map((item) => `<li>${publicText(item.label)}</li>`).join("")}</ul>`;
-  }
-  const fallback = copy?.amenities || copy?.amenityNarrative;
-  return fallback ? `<p class="compare-cell-copy">${publicText(fallback)}</p>` : "Request current amenity packet";
+  return `<article class="compare-route-card">${image ? `<img src="${safeHref(image)}" alt="${escapeHtml(`${project.name} project preview`)}" loading="lazy" decoding="async" />` : `<div class="image-placeholder">${escapeHtml(project.corridor)}</div>`}<div><span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span><h2><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></h2><p>${escapeHtml(compareBuyerFit(project))}</p><a href="${projectPath(project)}">View building guide <b aria-hidden="true">→</b></a></div></article>`;
 }
 
 function compareAddress(project: FeaturedProject) {
@@ -5647,31 +5640,59 @@ function compareAddress(project: FeaturedProject) {
     : project.address;
 }
 
-function renderCompareMatrix(projects: FeaturedProject[]) {
-  const rows = [
-    ["Corridor", (project: FeaturedProject) => project.corridor],
-    ["Status", (project: FeaturedProject) => project.status],
-    ["Delivery", (project: FeaturedProject) => project.delivery],
-    ["Residences", (project: FeaturedProject) => project.residences],
-    ["Pricing guidance", (project: FeaturedProject) => project.price],
-    ["Address", (project: FeaturedProject) => compareAddress(project)],
-    ["Floorplans", (project: FeaturedProject) => getFloorplanProject(project.id)?.count ? `${getFloorplanProject(project.id)?.count} tracked records` : project.floorplans ? "Public plans available" : "Request current packet"],
-    ["Buyer fit", (project: FeaturedProject) => compareBuyerFit(project)],
-    ["Verify next", (project: FeaturedProject) => compareVerificationNeed(project)],
-  ] as Array<[string, (project: FeaturedProject) => string]>;
+let compareSections: CompareSection[] | undefined;
 
-  return `
-    <p class="compare-matrix-hint">Swipe to review every comparison point <span aria-hidden="true">→</span></p>
-    <div class="compare-matrix-wrap">
-      <table>
-        <thead><tr><th>Comparison point</th>${projects.map((project) => `<th><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></th>`).join("")}</tr></thead>
-        <tbody>
-          ${rows.map(([label, value]) => `<tr><th>${label}</th>${projects.map((project) => `<td>${escapeHtml(value(project))}</td>`).join("")}</tr>`).join("")}
-          <tr class="compare-amenity-row"><th>Amenities</th>${projects.map((project) => `<td>${renderCompareAmenities(project)}</td>`).join("")}</tr>
-        </tbody>
-      </table>
-    </div>
-  `;
+async function loadCompareSections() {
+  if (compareSections) return compareSections;
+  compareSections = (await import("./lib/buildingCompareSections")).compareSections;
+  return compareSections;
+}
+
+function canonicalCompareValue(project: FeaturedProject, field: BuildingDatabaseField) {
+  if (field === "corridor") return project.corridor;
+  if (field === "development_stage" || field === "status_badge" || field === "construction_status") return project.status;
+  if (field === "completion_or_delivery") return project.delivery;
+  if (field === "price_display") return project.price;
+  if (field === "residence_count") return project.residences;
+  if (field === "public_address") return compareAddress(project);
+  if (field === "floorplan_status") {
+    const floorplanProject = getFloorplanProject(project.id);
+    if (floorplanProject?.count) return `${floorplanProject.count} tracked records`;
+    return project.floorplans ? "Public plans available" : "Request current packet";
+  }
+  if (field === "amenity_summary") {
+    const copy = batch1ProjectCopyByProjectId.get(project.id);
+    return copy?.amenities || copy?.amenityNarrative || "";
+  }
+  if (field === "best_for") return compareBuyerFit(project);
+  if (field === "buyer_questions_to_verify") return compareVerificationNeed(project);
+  return "";
+}
+
+function compareFieldHasPublicValue(projects: FeaturedProject[], field: BuildingDatabaseField) {
+  return projects.some((project) => {
+    const enrichment = buildingDatabaseHelpers?.getBuildingEnrichmentForProject(project);
+    return Boolean(enrichment?.[field]?.trim() || canonicalCompareValue(project, field).trim());
+  });
+}
+
+function compareBuildingValue(project: FeaturedProject, field: BuildingDatabaseField) {
+  const enrichment = buildingDatabaseHelpers?.getBuildingEnrichmentForProject(project);
+  const enrichedValue = enrichment?.[field];
+  if (enrichedValue?.trim()) return enrichedValue.trim();
+  const canonicalValue = canonicalCompareValue(project, field);
+  if (canonicalValue.trim()) return canonicalValue.trim();
+  return buildingDatabaseHelpers?.formatBuildingFieldValue(field, "") ?? "Verify";
+}
+
+function renderCompareSection(section: CompareSection, projects: FeaturedProject[]) {
+  const rows = section.rows.filter(([, field]) => compareFieldHasPublicValue(projects, field));
+  if (!rows.length) return "";
+  return `<tbody><tr class="compare-section-row"><th colspan="${projects.length + 1}">${escapeHtml(section.title)}</th></tr>${rows.map(([label, field]) => `<tr><th>${escapeHtml(label)}</th>${projects.map((project) => `<td>${escapeHtml(compareBuildingValue(project, field))}</td>`).join("")}</tr>`).join("")}</tbody>`;
+}
+
+function renderCompareMatrix(projects: FeaturedProject[]) {
+  return `<div class="compare-matrix-wrap"><table><thead><tr><th>Comparison point</th>${projects.map((project) => `<th><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></th>`).join("")}</tr></thead>${(compareSections ?? []).map((section) => renderCompareSection(section, projects)).join("")}</table></div>`;
 }
 
 function renderAuthorityComparisonTable(projects: FeaturedProject[]) {
@@ -5698,44 +5719,7 @@ function corridorBestFit(key: CorridorKey) {
 function renderCompareRouteView() {
   const options = rankedFeaturedProjects.map((project) => `<option value="${project.id}">${escapeHtml(project.name)}</option>`).join("");
 
-  return `
-    <div class="route-view route-view-compare" data-route-view="compare" hidden>
-      <figure class="compare-page-hero">
-        <img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" />
-      </figure>
-      <section class="section compare-page-intro">
-        <div>
-          <p class="eyebrow">Compare</p>
-          <h1>Compare West Palm Beach New Construction</h1>
-          <p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p>
-        </div>
-      </section>
-      <section class="section compare-workspace">
-        <div class="compare-workspace-head">
-          <div>
-            <p class="eyebrow">Build Your Comparison</p>
-            <h2>Build a focused shortlist.</h2>
-            <p>Compare the tracked facts and amenity scheme, then verify pricing, availability, fees, and line-specific details before relying on public information.</p>
-          </div>
-          <a href="/inquire/?lead_capture_context=compare_shortlist" data-compare-inquire>Ask The Scott Gordon Group to compare these buildings <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="compare-route-selectors">
-          ${["Building 1", "Building 2", "Optional third building"].map((label, index) => `
-            <label>
-              <span>${label}</span>
-              <select data-compare-route-select="${index}">
-                <option value="">${index === 2 ? "No third building" : "Choose a building"}</option>
-                ${options}
-              </select>
-            </label>
-          `).join("")}
-        </div>
-        <div class="compare-results" data-compare-results>
-          <p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p>
-        </div>
-      </section>
-    </div>
-  `;
+  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare West Palm Beach New Construction</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Build a focused shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/?lead_capture_context=compare_shortlist" data-compare-inquire>Ask The Scott Gordon Group to compare these buildings <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section></div>`;
 }
 
 function renderCorridorRouteView(section: CorridorSection) {
