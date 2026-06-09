@@ -21,6 +21,7 @@ export type MarketNoteSection = {
   body: string;
   bullets?: string[];
   imageId?: string;
+  image?: string;
 };
 
 export type MarketNote = {

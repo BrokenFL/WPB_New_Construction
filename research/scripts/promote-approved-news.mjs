@@ -59,7 +59,7 @@ const rendered = `export type ExternalNewsItem = {
   description?: string;
   summary?: string;
   story?: string[];
-  bodySections?: { heading: string; body: string }[];
+  bodySections?: { heading: string; body: string; image?: string }[];
   whyItMatters?: string;
   brookeTake?: string;
   buyerContext?: string;

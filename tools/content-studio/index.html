@@ -33,6 +33,7 @@
           <button class="active" data-tab="site" data-section="homepage" type="button">Visual Editor</button>
           <button data-tab="site" data-section="pages" type="button">Pages</button>
           <button data-tab="site" data-section="images" type="button">Images</button>
+          <button data-tab="article" type="button">Article Publisher</button>
           <button data-tab="news" type="button">News Desk</button>
           <button data-tab="reports" type="button">Reports</button>
           <button data-tab="site" data-section="automation" type="button">Operations</button>
@@ -402,6 +403,65 @@
             <label class="checkbox-row"><input id="confirmRemote" type="checkbox" /> Remote mode only: I understand the desktop must stay on and publishing is final.</label>
           </div>
         </section>
+      </section>
+
+      <section id="articlePanel" class="workspace panel">
+        <h1>Article Publisher</h1>
+        <form id="manualArticleForm" class="tool-panel article-publisher-panel">
+          <div class="publisher-layout">
+            <section>
+              <h2>Article</h2>
+              <div class="grid">
+                <label>Where should it go?
+                  <select name="destination">
+                    <option value="news">News Updates</option>
+                    <option value="buyer">Buyer Intelligence</option>
+                    <option value="downtown">Downtown Spotlight</option>
+                  </select>
+                </label>
+                <label>Category
+                  <select name="category">
+                    <option value="general">General</option>
+                    <option value="development">Development</option>
+                    <option value="planning">Planning</option>
+                    <option value="construction">Construction</option>
+                    <option value="sales">Sales</option>
+                    <option value="financing">Financing</option>
+                    <option value="city">City / Lifestyle</option>
+                    <option value="Buyer Intelligence">Buyer Intelligence</option>
+                    <option value="Downtown Spotlight">Downtown Spotlight</option>
+                  </select>
+                </label>
+              </div>
+              <label>Headline<input name="title" required placeholder="What changed, in plain English" /></label>
+              <label>Short summary<textarea name="deck" required placeholder="Two or three sentences that explain why this matters to buyers."></textarea></label>
+              <label>Article body<textarea name="body" required class="article-body-input" placeholder="Use blank lines between sections. If the first line of a section is short, it becomes that section heading."></textarea></label>
+              <div class="grid">
+                <label>Related projects<input name="relatedProjectIds" placeholder="nora-house, mr-c" /></label>
+                <label>Related corridors<input name="relatedCorridorIds" placeholder="downtown, north-flagler" /></label>
+              </div>
+            </section>
+            <section>
+              <h2>Sources</h2>
+              <label>Source name<input name="sourceName" placeholder="Palm Beach Post, city agenda, your own note..." /></label>
+              <label>Source URL<input name="sourceUrl" type="url" placeholder="https://..." /></label>
+              <label>Source published date<input name="sourcePublishedDate" type="date" /></label>
+              <label>Why it matters<textarea name="whyItMatters" placeholder="Optional. Used mostly for News Updates."></textarea></label>
+              <label>Buyer context<textarea name="buyerContext" placeholder="Optional. Used mostly for News Updates."></textarea></label>
+            </section>
+            <section>
+              <h2>Photos</h2>
+              <label>Header photo<input name="heroImage" type="file" accept="image/*" /></label>
+              <label>Body photo 1<input name="bodyImage1" type="file" accept="image/*" /></label>
+              <label>Body photo 2<input name="bodyImage2" type="file" accept="image/*" /></label>
+              <label>Body photo 3<input name="bodyImage3" type="file" accept="image/*" /></label>
+              <p class="muted">Photos are optimized into site-safe editorial images before publishing.</p>
+              <label class="checkbox-row"><input name="confirmPublish" type="checkbox" /> Publish this article: run QA, commit, push, deploy, and live check.</label>
+              <label class="checkbox-row"><input name="confirmRemote" type="checkbox" /> Remote mode only: I understand publishing is final.</label>
+              <button class="primary publish-button" type="submit">Publish Article</button>
+            </section>
+          </div>
+        </form>
       </section>
 
       <section id="newsPanel" class="workspace panel">

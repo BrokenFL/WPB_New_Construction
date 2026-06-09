@@ -232,6 +232,11 @@ dd { margin: 3px 0 0; overflow-wrap: anywhere; }
 .project-preview-block { border: 1px dashed var(--line); border-radius: 8px; padding: 18px; color: var(--muted); background: var(--wash); }
 .news-edit-form { display: grid; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
 .news-edit-form textarea[name="bodySectionsText"] { min-height: 180px; }
+.publisher-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.85fr) minmax(260px, 0.7fr); gap: 18px; align-items: start; }
+.publisher-layout section { display: grid; gap: 12px; }
+.publisher-layout h2 { margin: 0; font-size: 18px; }
+.article-body-input { min-height: 320px; }
+.publish-button { width: 100%; min-height: 48px; font-weight: 800; }
 .risk-note { color: var(--danger); font-weight: 700; }
 button:disabled { cursor: not-allowed; opacity: 0.46; }
 .reports-shell { display: grid; grid-template-columns: minmax(240px, 340px) minmax(0, 1fr); gap: 16px; align-items: start; }
@@ -254,7 +259,7 @@ button:disabled { cursor: not-allowed; opacity: 0.46; }
   .sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
   .grid { grid-template-columns: 1fr; }
   .automation-grid, .news-meta { grid-template-columns: 1fr; }
-  .visual-editor-toolbar, .visual-editor-shell, .card-editor-shell, .card-preview-grid, .reports-shell, .image-picker-grid, .snapshot-grid, .news-visual, .project-context-preview, .visual-map-section, .visual-corridor-grid, .visual-news-grid, .visual-guidance-grid, .visual-building-grid, .page-choice-grid, .advanced-editor-grid { grid-template-columns: 1fr; }
+  .visual-editor-toolbar, .visual-editor-shell, .card-editor-shell, .card-preview-grid, .reports-shell, .image-picker-grid, .snapshot-grid, .news-visual, .project-context-preview, .visual-map-section, .visual-corridor-grid, .visual-news-grid, .visual-guidance-grid, .visual-building-grid, .page-choice-grid, .advanced-editor-grid, .publisher-layout { grid-template-columns: 1fr; }
   .live-preview-panel, .visual-editor-toolbar { position: static; max-height: none; }
   .draft-card-row { grid-template-columns: 1fr; }
   .visual-hero-section .visual-hotspot { min-height: 460px; }

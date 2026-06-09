@@ -81,6 +81,13 @@ function updateProjectPreview() {
 document.querySelector("#refresh").addEventListener("click", loadState);
 document.querySelector("#runQa").addEventListener("click", () => runWorkflow("qa"));
 document.querySelector("#updateSite").addEventListener("click", () => runWorkflow("update"));
+document.querySelector("#manualArticleForm")?.addEventListener("submit", publishManualArticle);
+document.querySelector("#manualArticleForm [name=destination]")?.addEventListener("change", (event) => {
+  const form = event.target.form;
+  if (event.target.value === "buyer") form.elements.category.value = "Buyer Intelligence";
+  if (event.target.value === "downtown") form.elements.category.value = "Downtown Spotlight";
+  if (event.target.value === "news" && ["Buyer Intelligence", "Downtown Spotlight"].includes(form.elements.category.value)) form.elements.category.value = "general";
+});
 projectSelect.addEventListener("change", () => {
   fillCopyForm();
   updateProjectPreview();
@@ -112,6 +119,10 @@ document.querySelectorAll(".section-tabs button").forEach((button) => {
 document.querySelectorAll("[data-go-tab]").forEach((button) => {
   button.addEventListener("click", () => goTo(button.dataset.goTab, button.dataset.goSection));
 });
+
+if (window.location.hash === "#article") {
+  window.setTimeout(() => goTo("article"), 0);
+}
 
 document.querySelector("#editModeButton")?.addEventListener("click", () => setVisualMode("edit"));
 document.querySelector("#previewModeButton")?.addEventListener("click", () => setVisualMode("preview"));
@@ -1063,6 +1074,34 @@ async function runWorkflow(workflow) {
   if (state.remote?.isRemote) payload.confirmRemote = document.querySelector("#confirmRemote")?.checked === true;
   show(await postJson("/api/run-workflow", payload));
   await loadState();
+}
+
+async function publishManualArticle(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const payload = formPayload(form);
+  payload.confirmPublish = form.elements.confirmPublish.checked;
+  payload.confirmRemote = form.elements.confirmRemote.checked;
+  payload.heroImage = await imagePayload(form.elements.heroImage.files?.[0]);
+  payload.bodyImages = (await Promise.all([
+    imagePayload(form.elements.bodyImage1.files?.[0]),
+    imagePayload(form.elements.bodyImage2.files?.[0]),
+    imagePayload(form.elements.bodyImage3.files?.[0]),
+  ])).filter(Boolean);
+  show({ ok: true, running: "Publishing article. This will build, QA, commit, push, deploy, and verify live." });
+  const response = await postJson("/api/manual-article", payload);
+  show(response);
+  if (response.ok) {
+    await loadState();
+  }
+}
+
+async function imagePayload(file) {
+  if (!file) return null;
+  return {
+    fileName: file.name,
+    dataUrl: await fileAsDataUrl(file),
+  };
 }
 
 async function setSelectedFile(file) {

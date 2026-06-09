@@ -5919,6 +5919,7 @@ function renderMarketNoteArticle(note: MarketNote) {
                       : ""
                   }
                   ${section.imageId ? renderEditorialImagePanel(section.imageId, { className: "market-note-inline-image", caption: false, credit: false }) : ""}
+                  ${inlineImg(section.image)}
                 </section>
               `,
             )
@@ -6262,6 +6263,8 @@ function gatekeeperText(value: unknown) {
 function publicText(value: unknown) {
   return escapeHtml(gatekeeperText(value));
 }
+
+const inlineImg = (path?: string) => path ? `<img src="${path}">` : "";
 
 function projectCopyFact(copyPackage: ProjectCopyPackage | undefined, labelPattern: RegExp) {
   return copyPackage?.quickFacts?.find((fact) => labelPattern.test(fact.label))?.value;
@@ -7021,8 +7024,8 @@ function updateArticleContent(item: ExternalNewsItem) {
   const story = [
     ...(item.story?.length ? item.story : bodyStory.length ? bodyStory : [deck]),
     relatedProjects.length
-      ? `What to verify next: current availability, view exposure, residence lines, timing, and the latest buyer packet for ${relatedProjectNames}.`
-      : "What to verify next: current project status, corridor momentum, timing, and any released buyer materials.",
+      ? `Verify next: availability, views, residence lines, timing, and buyer packet for ${relatedProjectNames}.`
+      : "Verify next: project status, corridor momentum, timing, and released buyer materials.",
   ];
   return {
     deck,
@@ -7071,7 +7074,9 @@ function renderUpdateArticle(item: ExternalNewsItem) {
         <div class="market-note-sections">
           <section>
             <h2>The story</h2>
-            ${content.story.map((paragraph) => `<p>${publicText(paragraph)}</p>`).join("")}
+            ${content.story.map((paragraph, index) => {
+              return `<p>${publicText(paragraph)}</p>${inlineImg(item.bodySections?.[index]?.image)}`;
+            }).join("")}
           </section>
           <section>
             <h2>Why it matters</h2>

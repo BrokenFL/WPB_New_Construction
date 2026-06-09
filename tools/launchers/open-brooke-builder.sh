@@ -3,6 +3,7 @@ set -euo pipefail
 
 WORKSPACE="/Volumes/ExternalSSD/WPB_NewConstruction"
 URL="http://127.0.0.1:8787"
+OPEN_URL="${WPB_BUILDER_OPEN_URL:-$URL}"
 
 echo "Opening Brooke Builder..."
 
@@ -26,12 +27,12 @@ fi
 
 if curl --silent --max-time 2 "$URL/api/state" >/dev/null 2>&1; then
   echo "Brooke Builder is already running."
-  echo "Local URL: $URL"
-  open "$URL" >/dev/null 2>&1 || true
+  echo "Local URL: $OPEN_URL"
+  open "$OPEN_URL" >/dev/null 2>&1 || true
   exit 0
 fi
 
-(sleep 2 && open "$URL") >/dev/null 2>&1 &
-echo "Local URL: $URL"
+(sleep 2 && open "$OPEN_URL") >/dev/null 2>&1 &
+echo "Local URL: $OPEN_URL"
 echo "Stop Brooke Builder with Control-C in this Terminal window."
 npm run brooke:builder

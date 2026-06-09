@@ -79,6 +79,7 @@ async function main() {
       if (request.method === "POST" && url.pathname === "/api/project-update") return saveProjectUpdate(request, response);
       if (request.method === "POST" && url.pathname === "/api/team-resource") return saveTeamResource(request, response);
       if (request.method === "POST" && url.pathname === "/api/news-draft") return saveNewsDraft(request, response);
+      if (request.method === "POST" && url.pathname === "/api/manual-article") return publishManualArticle(request, response);
       if (request.method === "POST" && url.pathname === "/api/run-workflow") return runWorkflow(request, response);
       return sendText(response, "Not found", 404);
     } catch (error) {
@@ -388,6 +389,47 @@ async function saveNewsDraft(request, response) {
   await writeDraftStore(store);
   await logChange("news-draft", { id: draft.id, status: draft.status, newsletterStatus: draft.newsletterStatus });
   return sendJson(response, { ok: true, draft, changedFiles: await changedFiles(), nextStep: nextStepForNewsDraft(draft) });
+}
+
+async function publishManualArticle(request, response) {
+  const body = await readJson(request, 60 * 1024 * 1024);
+  const remote = remoteContext(request);
+  if (remote.isRemote && body.confirmRemote !== true) {
+    return sendJson(response, { ok: false, error: "Remote Builder Mode requires the remote confirmation checkbox before publishing." }, 400);
+  }
+  if (body.confirmPublish !== true) {
+    return sendJson(response, { ok: false, error: "Check the publish confirmation box before running commit, push, and deploy." }, 400);
+  }
+  const dirty = await run("git", ["status", "--short"]);
+  if (dirty.stdout.trim()) {
+    return sendJson(response, { ok: false, error: `The repo has existing changes. Review or clear them first: ${dirty.stdout.trim()}` }, 400);
+  }
+  const inputDir = path.join(workspace, ".runtime", "manual-article-publisher");
+  await fs.mkdir(inputDir, { recursive: true });
+  const inputPath = path.join(inputDir, `article-${Date.now()}.json`);
+  await fs.writeFile(inputPath, `${JSON.stringify(body, null, 2)}\n`);
+  const result = await run("node", ["research/scripts/manual-article-publisher.mjs", "--input", path.relative(workspace, inputPath), "--ship"]);
+  await logChange(result.code === 0 ? "manual-article-published" : "manual-article-failed", {
+    destination: body.destination,
+    title: body.title,
+    code: result.code,
+  });
+  let parsed = null;
+  const jsonStart = result.stdout.lastIndexOf("{\n");
+  if (jsonStart >= 0) {
+    try {
+      parsed = JSON.parse(result.stdout.slice(jsonStart));
+    } catch {
+      parsed = null;
+    }
+  }
+  return sendJson(response, {
+    ok: result.code === 0,
+    result: parsed,
+    stdout: result.stdout.slice(-12000),
+    stderr: result.stderr.slice(-12000),
+    changedFiles: await changedFiles(),
+  }, result.code === 0 ? 200 : 500);
 }
 
 async function runWorkflow(request, response) {
