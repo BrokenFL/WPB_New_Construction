@@ -67,6 +67,88 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "pine-crest-west-palm-beach-campus-2026-06-08",
+    "slug": "pine-crest-west-palm-beach-campus-2026-06-08",
+    "title": "Pine Crest's West Palm Beach campus adds another family-infrastructure signal",
+    "sourceName": "Palm Beach Post and Pine Crest School",
+    "sourceUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/03/south-floridas-pine-crest-private-school-will-open-a-west-palm-campus/90391865007/",
+    "canonicalUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/03/south-floridas-pine-crest-private-school-will-open-a-west-palm-campus/90391865007/",
+    "sourceTitle": "South Florida's Pine Crest private school will open a West Palm campus",
+    "publishedAt": "2026-06-08T09:00:00-04:00",
+    "sourcePublishedAt": "2026-06-03",
+    "sourcePublishedDate": "2026-06-03",
+    "eventDate": "2026-06-03",
+    "dateDiscovered": "2026-06-08",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-06-08",
+    "deck": "Pine Crest School's planned West Palm Beach campus strengthens the city's shift from seasonal luxury market to full-time executive family destination.",
+    "description": "Pine Crest's planned West Palm Beach campus adds another family-infrastructure signal for buyers tracking the city's long-term residential demand.",
+    "summary": "For West Palm Beach buyers, Pine Crest's planned campus is not just school news. It is another sign that the city is building the full-time infrastructure needed to support relocating families, executives, and long-term residential demand.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Pine Crest announced plans for a West Palm Beach campus in June 2026, supported by a philanthropic commitment from the Stephen M. Ross Foundation. The Palm Beach Post also covered the planned campus as part of the school's South Florida expansion."
+      },
+      {
+        "heading": "Why buyers should watch it",
+        "body": "Private-school access is one of the practical signals that can turn a luxury condo market from a seasonal destination into a stronger full-time relocation market. A Pine Crest presence in West Palm Beach would add another family-infrastructure point alongside the city's office, dining, medical, and waterfront residential growth."
+      },
+      {
+        "heading": "What is still unknown",
+        "body": "Public details such as exact location, grade levels, admissions timing, and opening date have not yet been finalized. Buyers should treat this as a long-term infrastructure signal rather than a near-term guarantee for any specific building or corridor."
+      }
+    ],
+    "whyItMatters": "The announcement helps explain why West Palm Beach's luxury-condo demand is increasingly tied to full-time living infrastructure, not only waterfront views and seasonal migration.",
+    "buyerContext": "This is most useful for relocating families and buyers comparing West Palm Beach with Palm Beach, Miami, or Fort Lauderdale. It does not change current building pricing, but it adds context to long-term demand around family-friendly luxury living.",
+    "newsletterHeadline": "Pine Crest plans a West Palm campus",
+    "newsletterBlurb": "The planned campus gives West Palm Beach another family-infrastructure signal as the city continues shifting toward full-time executive and family demand.",
+    "newsletterCta": "See what it means for buyers",
+    "query": "Pine Crest West Palm Beach campus Stephen M. Ross Foundation",
+    "category": "city",
+    "relatedProjectIds": [
+      "south-flagler-house",
+      "la-clara",
+      "forte",
+      "mr-c",
+      "nora-house"
+    ],
+    "relatedCorridorIds": [
+      "downtown",
+      "south-flagler",
+      "north-flagler"
+    ],
+    "relatedProjectSlugs": [
+      "south-flagler-house",
+      "la-clara",
+      "forte",
+      "mr-c",
+      "nora-house"
+    ],
+    "relatedCorridors": [
+      "downtown",
+      "south-flagler",
+      "north-flagler"
+    ],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/pine-crest-west-palm-beach-campus-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "Palm Beach Post Pine Crest West Palm Beach campus coverage",
+        "url": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/03/south-floridas-pine-crest-private-school-will-open-a-west-palm-campus/90391865007/",
+        "type": "news"
+      },
+      {
+        "label": "Pine Crest Growing Together announcement",
+        "url": "https://www.pinecrest.edu/growing-together",
+        "type": "official"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium",
+    "primaryProjectSlug": "south-flagler-house"
+  },
+  {
     "id": "trd-jeff-greene-live-local-120-s-dixie-2026-06-05",
     "slug": "trd-jeff-greene-live-local-120-s-dixie-2026-06-05",
     "title": "Jeff Greene’s latest downtown West Palm proposal would bring workforce housing and mass-timber construction to Dixie and Datura",
