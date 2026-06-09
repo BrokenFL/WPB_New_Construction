@@ -5081,6 +5081,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/downtown-spotlight/the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city/",
+    "title": "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City | Downtown Spotlight",
+    "description": "West Palm Beach’s restaurant scene has moved from convenient dining to destination dining. New chef-driven concepts, national hospitality groups, and walkable mixed-use districts are reshaping how buyers think about downtown living.",
+    "ogImage": "/assets/editorial/the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city-2026-06-09-hero.jpg"
+  },
+  {
     "path": "/downtown-spotlight/nora-district-downtown-transformation/",
     "title": "NORA District's Downtown Impact Explained | Downtown Spotlight",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",

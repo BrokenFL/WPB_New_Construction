@@ -2,6 +2,15 @@
   "version": 1,
   "entries": [
     {
+      "at": "2026-06-09T15:19:49.380Z",
+      "action": "manual-article-failed",
+      "detail": {
+        "destination": "downtown",
+        "title": "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City",
+        "code": 1
+      }
+    },
+    {
       "at": "2026-05-23T03:05:32.029Z",
       "action": "homepage-card-override",
       "detail": {

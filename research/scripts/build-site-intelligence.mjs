@@ -74,6 +74,12 @@ const marketNoteRoutes = [
 ];
 const downtownSpotlightRoutes = [
   {
+    slug: "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city",
+    title: "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City | Downtown Spotlight",
+    description:
+      "West Palm Beach’s restaurant scene has moved from convenient dining to destination dining. New chef-driven concepts, national hospitality groups, and walkable mixed-use districts are reshaping how buyers think about downtown living.",
+  },
+  {
     slug: "nora-district-downtown-transformation",
     title: "NORA District's Downtown Impact Explained | Downtown Spotlight",
     description:

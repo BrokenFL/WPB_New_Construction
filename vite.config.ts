@@ -132,6 +132,9 @@ export default defineConfig({
           if (id.includes("/src/data/marketNotes.ts")) {
             return "index-market-notes";
           }
+          if (id.includes("/src/data/floorplanApprovedLibrary.ts")) {
+            return "index-floorplan-library";
+          }
         },
       },
     },

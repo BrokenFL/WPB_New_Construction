@@ -2674,7 +2674,10 @@ app.innerHTML = `
       <section class="home-future-module home-spotlight-module" aria-label="Downtown spotlight: NORA district">
         <img src="/assets/editorial/nora-district-aerial-evening-hero.jpg" alt="Aerial evening rendering of the NORA District in Downtown West Palm Beach" loading="lazy" decoding="async" />
         <div>
-          <p class="eyebrow">Downtown Spotlight</p>
+          <div class="home-resource-heading" style="width: 100%; align-self: stretch;">
+            <p class="eyebrow">Downtown Spotlight</p>
+            <a class="home-spotlight-parent-link" href="/downtown-spotlight/">View all Downtown Spotlights <span aria-hidden="true">→</span></a>
+          </div>
           <h2>Why the NORA District could reshape Downtown.</h2>
           <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.</p>
           <a href="/downtown-spotlight/nora-district-downtown-transformation/">Read Downtown Spotlight <span aria-hidden="true">→</span></a>
@@ -4166,8 +4169,61 @@ initWebMcpTools();
 initProjectBrowser();
 initProjectGalleryTabs();
 initHeroSlideshows();
+initSpaLinks();
 window.addEventListener("hashchange", applyRoute);
 window.addEventListener("popstate", applyRoute);
+
+function initSpaLinks() {
+  if (document.body.dataset.spaLinksReady === "true") return;
+  document.body.dataset.spaLinksReady = "true";
+
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement | null;
+    const link = target?.closest<HTMLAnchorElement>("a[href]");
+    if (!link) return;
+
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    if (link.target && link.target !== "_self") return;
+    if (link.hasAttribute("download")) return;
+
+    const href = link.getAttribute("href") || "";
+
+    if (
+      !href ||
+      href.startsWith("#") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:") ||
+      href.startsWith("javascript:") ||
+      href.startsWith("//")
+    ) {
+      return;
+    }
+
+    const url = new URL(href, window.location.origin);
+    if (url.origin !== window.location.origin) return;
+
+    const nextPath = `${url.pathname}${url.search}${url.hash}`;
+    const currentPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+    if (nextPath === currentPath) return;
+
+    event.preventDefault();
+    window.history.pushState({}, "", nextPath);
+    applyRoute();
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  });
+}
+
 
 function applyRoute() {
   const route = getCurrentRoute();

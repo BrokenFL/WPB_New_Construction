@@ -10643,6 +10643,12 @@ body {
   text-transform: uppercase;
 }
 
+.home-spotlight-module a.home-spotlight-parent-link {
+  margin-top: 0;
+  border: none;
+  padding: 0;
+}
+
 body:has(.route-view-home:not([hidden])) .floating-availability-cta,
 body:has(.route-view-home:not([hidden])) .mobile-cta-bar,
 body:has(.route-view-home:not([hidden])) .site-chat-assistant,

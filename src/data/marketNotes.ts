@@ -60,6 +60,225 @@ const articleCta = "Want help applying this to your search? Request current avai
 
 export const marketNotes = [
   {
+    id: "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city",
+    status: "published",
+    category: "Downtown Spotlight",
+    title: "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City",
+    slug: "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city",
+    excerpt: "West Palm Beach’s restaurant scene has moved from convenient dining to destination dining. New chef-driven concepts, national hospitality groups, and walkable mixed-use districts are reshaping how buyers think about downtown living.",
+    buyerThesis: "West Palm Beach’s restaurant scene has moved from convenient dining to destination dining. New chef-driven concepts, national hospitality groups, and walkable mixed-use districts are reshaping how buyers think about downtown living.",
+    buyerTakeaway: "For buyers comparing downtown West Palm Beach, CityPlace, Flagler Drive, Nora, and nearby new construction, restaurants now matter as much as views, finishes, and amenities. Dining helps define daily convenience, evening activity, resale perception, and the overall maturity of each neighborhood.",
+    image: {
+      path: "/assets/editorial/the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city-2026-06-09-hero.jpg",
+      credit: "User-provided editorial image, optimized for site use."
+    },
+    primaryProjectId: "nora-house",
+    projectIds: [
+      "nora-house",
+      "mr-c",
+      "one-flagler",
+      "south-flagler-house",
+      "shorecrest",
+      "la-clara",
+      "olara"
+    ],
+    sourceName: "Nora District updates, Modern Luxury, Michelin Guide, WPBF, Verdict Foodservice, local restaurant coverage, economic reports, and market notes",
+    sourceLinks: [
+      {
+        label: "Nora District updates, Modern Luxury, Michelin Guide, WPBF, Verdict Foodservice, local restaurant coverage, economic reports, and market notes",
+        href: "https://www.wpbnewconstruction.com/market-notes/",
+        sourceType: "local news coverage"
+      }
+    ],
+    datePublished: "2026-06-09",
+    dateModified: "2026-06-09",
+    sections: [
+      {
+        heading: "What happened",
+        body: "For years, downtown West Palm Beach was where Palm Beachers grabbed a quick bite on the way to the island. Today, the conversation has flipped.",
+        image: "/assets/editorial/the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city-2026-06-09-body-1.jpg"
+      },
+      {
+        heading: "Why it matters",
+        body: "Michelin-recognized chef’s counters, imported New York bistros, Italian food halls, waterfront seafood rooms, and ambitious mixed-use districts are now helping define the city’s next chapter. The dining surge is not just restaurant gossip. It reflects the same forces reshaping downtown real estate: wealth migration, office growth, boutique hotels, and buyers who want an urban home with culture, energy, and a proper dinner reservation.",
+        image: "/assets/editorial/the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city-2026-06-09-body-2.jpg"
+      },
+      {
+        heading: "Buyer context",
+        body: "From convenience dining to destination dining",
+        image: "/assets/editorial/the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city-2026-06-09-body-3.jpg"
+      },
+      {
+        heading: "Buyer context",
+        body: "West Palm’s old reputation as Palm Beach’s “step-sister” is fading fast. Legacy spots like Avocado Grill, E.R. Bradley’s, and Pistache helped establish downtown as a reliable night-out option. But the newer wave is different."
+      },
+      {
+        heading: "Buyer context",
+        body: "Over the last few years, national hospitality groups, chef-led operators, and polished restaurant brands have entered the market with concepts designed for people who plan the evening around the restaurant — not the other way around."
+      },
+      {
+        heading: "Buyer context",
+        body: "CityPlace’s evolution"
+      },
+      {
+        heading: "Buyer context",
+        body: "CityPlace has been reworked from a retail-heavy shopping center into a more complete lifestyle district. Felice brought a New York Tuscan restaurant and wine bar to 360 Rosemary, adding Italian classics, a polished cocktail program, and a more sophisticated dining rhythm to the area."
+      },
+      {
+        heading: "Buyer context",
+        body: "Moxies followed with a large indoor-outdoor restaurant, statement bar, private dining, and a broad upscale-casual menu. Eataly’s arrival at the restored Harriet Himmel Hall is the bigger signal: a 23,000-square-foot Italian marketplace with restaurants, retail, cooking classes, and live programming. That is not a filler tenant. That is an anchor."
+      },
+      {
+        heading: "Buyer context",
+        body: "Flagler waterfront’s transformation"
+      },
+      {
+        heading: "Buyer context",
+        body: "The Flagler waterfront is also becoming a serious dining corridor. Estiatorio Milos opened at One Flagler, bringing a globally recognized Greek seafood concept to one of the most prominent office addresses in the city. Its fish-market-style dining room, whole-fish service, and large-format restaurant model speak directly to the city’s new business and luxury audience."
+      },
+      {
+        heading: "Buyer context",
+        body: "Nearby, Lamarina adds another waterfront option with Latin, Mediterranean, and coastal influences, plus a raw bar and marina-facing setting. Together, these restaurants help turn Flagler Drive into more than a scenic office corridor. They make it a place where business lunch, dinner, and lifestyle all overlap."
+      },
+      {
+        heading: "Buyer context",
+        body: "Flamingo Park and the chef-driven counter"
+      },
+      {
+        heading: "Buyer context",
+        body: "Some of the most interesting momentum is happening away from the obvious corridors. Flamingo Park has become an incubator for smaller, chef-driven dining."
+      },
+      {
+        heading: "Buyer context",
+        body: "Midorie is planned as an intimate Japanese restaurant built around omakase, carefully sourced fish, and a quieter, more focused experience. Emelina, a small Cuban chef’s counter, has already drawn major attention by bringing a more refined, story-driven approach to Cuban cuisine. This matters because not every important restaurant has to be huge. Sometimes the smallest rooms do the loudest reputation work."
+      },
+      {
+        heading: "Buyer context",
+        body: "Nora, CityPlace, Clematis, and the new restaurant geography"
+      },
+      {
+        heading: "Buyer context",
+        body: "Downtown dining is no longer one single strip. It is becoming a map of distinct districts."
+      },
+      {
+        heading: "Buyer context",
+        body: "Nora is the most ambitious example. The district is converting old warehouse blocks north of downtown into a large mixed-use destination with restaurants, retail, fitness, public space, and hotel components. Its tenant mix leans heavily into proven New York and national operators, including Pastis, Juliana’s Pizza, H&H Bagels, Nami Nori, Del Mar, Indaco, Van Leeuwen, and Loco Taqueria & Oyster Bar."
+      },
+      {
+        heading: "Buyer context",
+        body: "That roster tells you exactly who Nora is chasing: residents, office workers, visitors, and relocated buyers who recognize those brands and already understand the lifestyle they represent."
+      },
+      {
+        heading: "Buyer context",
+        body: "CityPlace is becoming the Italian-market-and-casual-glamour district. Clematis remains the nightlife artery, with rooftops, taverns, cocktail lounges, and late-night energy. Flagler is becoming the polished waterfront dining corridor. Flamingo Park is emerging as the chef-counter and neighborhood discovery zone."
+      },
+      {
+        heading: "Buyer context",
+        body: "That is how a real city eats. Not one restaurant row. Multiple personalities."
+      },
+      {
+        heading: "Buyer context",
+        body: "Why chefs and hospitality groups are paying attention"
+      },
+      {
+        heading: "Buyer context",
+        body: "The restaurant boom is not accidental. West Palm Beach has become part of the “Wall Street South” conversation, with financial firms, corporate relocations, private wealth, and new office towers reshaping the city’s daytime population."
+      },
+      {
+        heading: "Buyer context",
+        body: "That creates something restaurants need: year-round customers with money to spend."
+      },
+      {
+        heading: "Buyer context",
+        body: "Hospitality groups are looking at West Palm the way many looked at Miami’s Brickell years ago: dense new residential development, stronger office traffic, major wealth migration, and a growing audience of New York and Northeast transplants who expect serious restaurants close to home."
+      },
+      {
+        heading: "Buyer context",
+        body: "The result is a dining scene with more confidence. Not just another taco place with neon wings on the wall. Actual operators. Actual capital. Actual staying power."
+      },
+      {
+        heading: "Buyer context",
+        body: "What this means for buyers"
+      },
+      {
+        heading: "Buyer context",
+        body: "For luxury condo and townhouse buyers, restaurants are not just lifestyle extras. They are neighborhood infrastructure."
+      },
+      {
+        heading: "Buyer context",
+        body: "Walkability matters. A buyer near CityPlace, Flagler, or eventually Nora is not just buying square footage. They are buying the ability to walk to dinner, coffee, cocktails, fitness, and work. That changes daily life and can support long-term resale perception."
+      },
+      {
+        heading: "Buyer context",
+        body: "Evening activity matters. Restaurants keep streets active after office hours. That makes downtown feel less sleepy and more complete. Buyers who once saw West Palm as quiet after 6 p.m. are now looking at a city with rooftops, lounges, supper clubs, chef counters, and waterfront dining."
+      },
+      {
+        heading: "Buyer context",
+        body: "Year-round demand matters. National restaurant groups do not spend heavily in a market they believe disappears every summer. Their investment suggests confidence in West Palm as a more permanent, year-round luxury market."
+      },
+      {
+        heading: "Buyer context",
+        body: "Price matters too. Buyers should expect many of these restaurants to charge Miami or New York prices. That is not a complaint. It is a signal. The market is being priced for the audience now arriving."
+      },
+      {
+        heading: "Buyer context",
+        body: "Turnover still matters. South Florida restaurants open and close quickly. The key is knowing whether closures reflect weak demand or redevelopment pressure. In a growing downtown, some turnover is not a red flag. It can be part of the reset."
+      },
+      {
+        heading: "Buyer context",
+        body: "The difference between hype and staying power"
+      },
+      {
+        heading: "Buyer context",
+        body: "Not every opening will last. South Florida has never met a velvet rope it did not eventually trip over."
+      },
+      {
+        heading: "Buyer context",
+        body: "The strongest concepts usually share a few traits: experienced hospitality groups, unique offerings, strong locations, mixed-use foot traffic, and a reason to exist beyond Instagram."
+      },
+      {
+        heading: "Buyer context",
+        body: "Eataly is not just another Italian restaurant. Milos is not just another seafood place. Nami Nori is not just sushi. Emelina is not just a tasting counter. These concepts bring identity, operational depth, and a reason for buyers and visitors to talk about West Palm differently."
+      },
+      {
+        heading: "Buyer context",
+        body: "The restaurants most likely to last will be the ones that feel connected to the city’s next chapter rather than simply dropped into it."
+      },
+      {
+        heading: "Buyer context",
+        body: "Closing"
+      },
+      {
+        heading: "Buyer context",
+        body: "Downtown West Palm Beach is entering the kind of culinary phase that usually signals a city growing up."
+      },
+      {
+        heading: "Buyer context",
+        body: "What began as a handful of reliable local spots has become a layered dining ecosystem: Greek seafood rooms, Italian marketplaces, Cuban chef counters, Japanese hand rolls, rooftop bars, Mediterranean terraces, and New York imports all within a relatively compact urban core."
+      },
+      {
+        heading: "Buyer context",
+        body: "For buyers considering downtown West Palm, the dining map is more than a list of places to eat. It is a proxy for economic vitality, walkability, cultural ambition, and the everyday pleasure of living in a city that finally knows what it wants to be."
+      },
+      {
+        heading: "Buyer context",
+        body: "The reservation is now part of the real estate story."
+      }
+    ],
+    ctaText: "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    factCheckRequired: [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    seo: {
+      primaryQuery: "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City",
+      secondaryQueries: [],
+      suggestedSlug: "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city",
+      titleTag: "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City | Downtown Spotlight",
+      metaDescription: "West Palm Beach’s restaurant scene has moved from convenient dining to destination dining. New chef-driven concepts, national hospitality groups, and walkable mixed-use districts are reshaping how buyers think about downtown living."
+    }
+  },
+  {
     id: "west-palm-beach-new-dining-map",
     status: "published",
     category: "Downtown Spotlight",
