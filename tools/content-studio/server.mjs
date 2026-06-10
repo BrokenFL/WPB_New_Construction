@@ -14,6 +14,7 @@ const builderChangeLogPath = path.join(overridesRoot, "content-studio-change-log
 const port = Number(process.env.WPB_CONTENT_STUDIO_PORT ?? 8787);
 const launchAgentRoot = path.join(process.env.HOME ?? "", "Library/LaunchAgents");
 const articleDraftsRoot = path.join(workspace, ".runtime", "article-drafts");
+const articlePreviewLogPath = path.join(workspace, ".runtime", "article-preview-log.json");
 const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
 const remoteHostnames = ["builder.wpbnewconstruction.com", "brooke-builder.wpbnewconstruction.com"];
 const reportDefinitions = [
@@ -439,11 +440,19 @@ async function runArticleWorkflow(body, request, response) {
   else if (mode === "publish") args.push("--publish");
   else if (mode === "ship") args.push("--publish", "--ship");
   const result = await run("node", args);
-  await logChange(result.code === 0 ? "article-published" : "article-publish-failed", {
-    destination: body.destination,
-    title: body.title,
-    code: result.code,
-  });
+  if (mode === "preview") {
+    await logPreviewRun(result.code === 0 ? "article-preview" : "article-preview-failed", {
+      destination: body.destination,
+      title: body.title,
+      code: result.code,
+    });
+  } else {
+    await logChange(result.code === 0 ? "article-published" : "article-publish-failed", {
+      destination: body.destination,
+      title: body.title,
+      code: result.code,
+    });
+  }
   const parsed = parseTrailingJson(result.stdout);
   return sendJson(response, {
     ok: result.code === 0,
@@ -907,6 +916,17 @@ async function logChange(action, detail) {
   const builderLog = await readJsonFile(builderChangeLogPath, { version: 1, entries: [] });
   builderLog.entries.unshift({ at: new Date().toISOString(), action, detail });
   await fs.writeFile(builderChangeLogPath, `${JSON.stringify(builderLog, null, 2)}\n`);
+}
+
+async function logPreviewRun(action, detail) {
+  try {
+    await fs.mkdir(path.dirname(articlePreviewLogPath), { recursive: true });
+    const log = await readJsonFile(articlePreviewLogPath, { version: 1, entries: [] });
+    log.entries.unshift({ at: new Date().toISOString(), action, detail });
+    await fs.writeFile(articlePreviewLogPath, `${JSON.stringify(log, null, 2)}\n`);
+  } catch {
+    // preview log is best-effort; never fail the preview run over a log write
+  }
 }
 
 async function automationStatus() {
