@@ -146,10 +146,20 @@ function approvedUpdateRoutes() {
         id: item.id,
         title: `${item.title} | WPB Updates`,
         description: item.description || "West Palm Beach new-construction update with buyer context and original source attribution.",
+        ogImage: updateRouteOgImage(item),
       }));
   } catch {
     return [];
   }
+}
+
+function updateRouteOgImage(item) {
+  const candidate = typeof item.imagePath === "string" && item.imagePath
+    ? item.imagePath
+    : typeof item.image?.path === "string"
+      ? item.image.path
+      : "";
+  return candidate && candidate.startsWith("/") ? candidate : siteMeta.defaultImage;
 }
 
 const priorityProjects = new Set([
@@ -2554,7 +2564,7 @@ function buildPrerenderRoutes() {
       path: `/updates/${item.id}/`,
       title: item.title,
       description: item.description,
-      ogImage: siteMeta.defaultImage,
+      ogImage: item.ogImage || siteMeta.defaultImage,
     })),
     {
       path: "/downtown-spotlight/",

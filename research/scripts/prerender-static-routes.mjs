@@ -653,6 +653,12 @@ function renderUpdateRoute(route, payload, slug) {
     payload.researchNewsFeed.find((news) => news.id === slug);
   if (!item) return renderSimpleRoute(route);
   const sections = Array.isArray(item.bodySections) ? item.bodySections : [];
+  const deckEchoes = new Set(
+    [item.deck, item.summary, item.rewrittenSummary, item.description, route.description]
+      .map((value) => String(value ?? "").trim().toLowerCase())
+      .filter(Boolean),
+  );
+  const isDeckEcho = (value) => deckEchoes.has(String(value ?? "").trim().toLowerCase());
   return pageShell(
     `update-${slug}`,
     item.title,
@@ -661,9 +667,9 @@ function renderUpdateRoute(route, payload, slug) {
       <article>
         <p>Published ${publicText(item.publishedAt || item.datePublished || "current review")} from ${publicText(item.sourceName || "reviewed source")}.</p>
         <p>${publicText(item.deck || item.summary || item.rewrittenSummary || route.description)}</p>
-        ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(section.body)}</p></section>`).join("")}
-        ${item.whyItMatters ? `<section><h2>Why it matters</h2><p>${publicText(item.whyItMatters)}</p></section>` : ""}
-        ${item.buyerContext ? `<section><h2>Buyer context</h2><p>${publicText(item.buyerContext)}</p></section>` : ""}
+        ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(stripImageTokens(section.body))}</p></section>`).join("")}
+        ${item.whyItMatters && !isDeckEcho(item.whyItMatters) ? `<section><h2>Why it matters</h2><p>${publicText(stripImageTokens(item.whyItMatters))}</p></section>` : ""}
+        ${item.buyerContext && !isDeckEcho(item.buyerContext) ? `<section><h2>Buyer context</h2><p>${publicText(stripImageTokens(item.buyerContext))}</p></section>` : ""}
         <section><h2>Source</h2><p><a href="${safeHref(item.canonicalUrl || item.sourceUrl || "#")}">${publicText(item.sourceName || "Original source")}</a>. Verify current project details before making a purchase decision.</p></section>
       </article>
     `,
@@ -1327,6 +1333,14 @@ function articleSchema(route, canonical) {
     publisher: { "@id": `${baseUrl}/#publisher` },
     mainEntityOfPage: canonical,
   };
+}
+
+function stripImageTokens(value) {
+  return String(value ?? "")
+    .replace(/\[\[image:[a-zA-Z0-9_-]+\]\]/g, " ")
+    .replace(/[ \t]{2,}/g, " ")
+    .replace(/ +\n/g, "\n")
+    .trim();
 }
 
 function escapeHtml(value) {

@@ -82,6 +82,9 @@ document.querySelector("#refresh").addEventListener("click", loadState);
 document.querySelector("#runQa").addEventListener("click", () => runWorkflow("qa"));
 document.querySelector("#updateSite").addEventListener("click", () => runWorkflow("update"));
 document.querySelector("#manualArticleForm")?.addEventListener("submit", publishManualArticle);
+document.querySelectorAll("[data-insert-placeholder]").forEach((button) => {
+  button.addEventListener("click", () => insertPlaceholder(button.dataset.insertPlaceholder));
+});
 document.querySelector("#manualArticleForm [name=destination]")?.addEventListener("change", (event) => {
   const form = event.target.form;
   if (event.target.value === "buyer") form.elements.category.value = "Buyer Intelligence";
@@ -1080,15 +1083,38 @@ async function publishManualArticle(event) {
   event.preventDefault();
   const form = event.currentTarget;
   const payload = formPayload(form);
+  payload.mode = event.submitter?.dataset.submitMode || form.elements.mode?.value || "stage";
   payload.confirmPublish = form.elements.confirmPublish.checked;
+  payload.confirmDeploy = form.elements.confirmDeploy.checked;
   payload.confirmRemote = form.elements.confirmRemote.checked;
-  payload.heroImage = await imagePayload(form.elements.heroImage.files?.[0]);
+  payload.heroImage = await imagePayload(form.elements.heroImage.files?.[0], {
+    key: "hero",
+    alt: payload.heroAlt,
+    caption: payload.heroCaption,
+    credit: payload.heroCredit,
+  });
   payload.bodyImages = (await Promise.all([
-    imagePayload(form.elements.bodyImage1.files?.[0]),
-    imagePayload(form.elements.bodyImage2.files?.[0]),
-    imagePayload(form.elements.bodyImage3.files?.[0]),
+    imagePayload(form.elements.bodyImage1.files?.[0], {
+      key: payload.bodyImage1Key || "image1",
+      alt: payload.bodyImage1Alt,
+      caption: payload.bodyImage1Caption,
+      credit: payload.bodyImage1Credit,
+    }),
+    imagePayload(form.elements.bodyImage2.files?.[0], {
+      key: payload.bodyImage2Key || "image2",
+      alt: payload.bodyImage2Alt,
+      caption: payload.bodyImage2Caption,
+      credit: payload.bodyImage2Credit,
+    }),
+    imagePayload(form.elements.bodyImage3.files?.[0], {
+      key: payload.bodyImage3Key || "map",
+      alt: payload.bodyImage3Alt,
+      caption: payload.bodyImage3Caption,
+      credit: payload.bodyImage3Credit,
+    }),
   ])).filter(Boolean);
-  show({ ok: true, running: "Publishing article. This will build, QA, commit, push, deploy, and verify live." });
+  payload.sections = parseSectionsInput(payload.sections);
+  show({ ok: true, running: `Running ${payload.mode} for the article workflow.` });
   const response = await postJson("/api/manual-article", payload);
   show(response);
   if (response.ok) {
@@ -1096,12 +1122,34 @@ async function publishManualArticle(event) {
   }
 }
 
-async function imagePayload(file) {
+function insertPlaceholder(key) {
+  const body = document.querySelector("#manualArticleForm textarea[name=body]");
+  if (!body) return;
+  const token = `[[image:${key}]]`;
+  const start = body.selectionStart ?? body.value.length;
+  const end = body.selectionEnd ?? body.value.length;
+  body.setRangeText(token, start, end, "end");
+  body.focus();
+}
+
+async function imagePayload(file, metadata = {}) {
   if (!file) return null;
   return {
     fileName: file.name,
     dataUrl: await fileAsDataUrl(file),
+    ...Object.fromEntries(Object.entries(metadata).filter(([, value]) => value !== undefined && value !== "")),
   };
+}
+
+function parseSectionsInput(value) {
+  const text = String(value || "").trim();
+  if (!text) return [];
+  try {
+    const parsed = JSON.parse(text);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
 }
 
 async function setSelectedFile(file) {
