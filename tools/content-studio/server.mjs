@@ -596,22 +596,29 @@ async function createSitePreview(request, response) {
   await fs.mkdir(articleSitePreviewsRoot, { recursive: true });
   const previewPath = path.join(articleSitePreviewsRoot, `${previewId}.json`);
   await fs.writeFile(previewPath, `${JSON.stringify({ previewId, createdAt: new Date().toISOString(), item }, null, 2)}\n`);
-  const previewUrl = `http://127.0.0.1:5173/updates/__preview__/?previewId=${encodeURIComponent(previewId)}`;
+  const previewUrl = `http://localhost:5173/updates/__preview__/?previewId=${encodeURIComponent(previewId)}`;
   return sendJson(response, { ok: true, previewId, previewUrl });
 }
 
 async function getSitePreview(request, response, url) {
+  const origin = allowedPreviewOrigin(request);
   const rawId = clean(url.searchParams.get("id") || "");
   const safeId = rawId.replace(/[^a-z0-9_\-]/gi, "-").slice(0, 120);
-  if (!safeId) return sendJsonCors(response, { ok: false, error: "id is required" }, 400);
+  if (!safeId) return sendJsonCors(response, { ok: false, error: "id is required" }, 400, origin);
   const previewPath = path.join(articleSitePreviewsRoot, `${safeId}.json`);
   if (!previewPath.startsWith(articleSitePreviewsRoot + path.sep)) {
-    return sendJsonCors(response, { ok: false, error: "Invalid preview id." }, 400);
+    return sendJsonCors(response, { ok: false, error: "Invalid preview id." }, 400, origin);
   }
   const raw = await fs.readFile(previewPath, "utf8").catch(() => null);
-  if (!raw) return sendJsonCors(response, { ok: false, error: "Preview not found." }, 404);
+  if (!raw) return sendJsonCors(response, { ok: false, error: "Preview not found." }, 404, origin);
   const parsed = JSON.parse(raw);
-  return sendJsonCors(response, { ok: true, item: parsed.item });
+  return sendJsonCors(response, { ok: true, item: parsed.item }, 200, origin);
+}
+
+function allowedPreviewOrigin(request) {
+  const origin = String(request.headers["origin"] || "").trim();
+  const allowed = new Set(["http://localhost:5173", "http://127.0.0.1:5173"]);
+  return allowed.has(origin) ? origin : "http://localhost:5173";
 }
 
 function normalizeArticlePreview(body) {
@@ -1262,11 +1269,11 @@ function sendJson(response, payload, status = 200) {
   response.end(`${JSON.stringify(payload, null, 2)}\n`);
 }
 
-function sendJsonCors(response, payload, status = 200) {
+function sendJsonCors(response, payload, status = 200, origin = "http://localhost:5173") {
   response.writeHead(status, {
     "content-type": "application/json; charset=utf-8",
     "cache-control": "no-store",
-    "access-control-allow-origin": "http://127.0.0.1:5173",
+    "access-control-allow-origin": origin,
   });
   response.end(`${JSON.stringify(payload, null, 2)}\n`);
 }

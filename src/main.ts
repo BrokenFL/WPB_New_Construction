@@ -7067,7 +7067,9 @@ async function syncNewsPreviewDraft() {
   }
   detailView.innerHTML = `<div class="section"><p class="muted">Loading preview\u2026</p></div>`;
   try {
-    const res = await fetch(`http://127.0.0.1:8787/api/article/site-preview?id=${encodeURIComponent(previewId)}`);
+    const fetchPreview = (host: string) =>
+      fetch(`http://${host}:8787/api/article/site-preview?id=${encodeURIComponent(previewId)}`);
+    const res = await fetchPreview("127.0.0.1").catch(() => fetchPreview("localhost"));
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json() as { ok: boolean; item?: ExternalNewsItem };
     if (data.ok && data.item) {
