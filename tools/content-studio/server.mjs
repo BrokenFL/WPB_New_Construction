@@ -597,7 +597,6 @@ async function deleteArticleDraft(request, response) {
   const fileExists = await exists(draftPath);
   if (!fileExists) return sendJson(response, { ok: false, error: "Draft not found." }, 404);
   await fs.unlink(draftPath);
-  await logChange("article-draft-deleted", { draftId: safeDraftId, destination });
   return sendJson(response, { ok: true, draftId: safeDraftId, deleted: true });
 }
 
