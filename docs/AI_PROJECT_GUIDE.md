@@ -411,3 +411,39 @@ Before making changes:
 8. Ask Brooke before changing repo remotes or deployment workflow.
 
 If current files contradict this guide, inspect carefully and report the contradiction before changing behavior.
+
+---
+
+## 13. Content Studio / Article Manager Addendum
+
+Article Manager lives inside `tools/content-studio/`. The UI is served by `tools/content-studio/server.mjs`; app files are `tools/content-studio/app.js`, `tools/content-studio/index.html`, and `tools/content-studio/style.css`.
+
+**Publishing must reuse `research/scripts/article-publish-workflow.mjs`.** Do not create a second publishing pipeline. The existing `/api/manual-article` behavior must remain backward-compatible.
+
+**`.runtime/article-drafts/` must never be committed.** Save Draft must not dirty git. Published articles should be archived, not hard-deleted.
+
+**`diagnostic preview.html` is not real-template preview.** Real-template article preview is a separate feature from the static diagnostic file.
+
+**Content Studio changelog files may dirty the repo.** Content Studio may write to:
+
+- `content/overrides/change-log.json`
+- `content/overrides/content-studio-change-log.json`
+
+Inspect them with:
+
+```bash
+git diff -- content/overrides/change-log.json content/overrides/content-studio-change-log.json
+```
+
+If they contain only routine operational log entries, ask Brooke before restoring or committing.
+
+**Builder GitHub auth may fail.** The Builder process may show `GitHub auth status: FAILED`. A local commit is not proof that `origin/main` was updated. Before claiming work is on GitHub, verify:
+
+```bash
+git rev-parse HEAD
+git ls-remote origin main
+git log --oneline -5
+git status --short
+```
+
+If `git push origin main` fails, report the exact auth error. Do not pretend the push succeeded.
