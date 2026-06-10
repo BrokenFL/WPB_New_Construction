@@ -447,3 +447,38 @@ git status --short
 ```
 
 If `git push origin main` fails, report the exact auth error. Do not pretend the push succeeded.
+
+---
+
+### 2026-06-10 Article Manager Phase 1 Verification
+
+Phase 1 Article Manager is installed inside `tools/content-studio/`.
+
+**Pushed commits:**
+
+- `1fd5457` Add Phase 1 Article Manager to Content Studio
+- `2d19924` Fix Article Manager diagnostic preview logging
+- `e124b22` Keep Article Manager draft deletion from dirtying changelogs
+
+**Manual smoke test confirmed:**
+
+- Article Manager loads locally
+- All Articles list loads
+- Existing draft opens in editor
+- New News/Updates draft can be created
+- Save Draft writes only to `.runtime/article-drafts/` and keeps git clean
+- Diagnostic Preview succeeds and keeps git clean after restarting Content Studio
+- Delete Draft removes only `.runtime/` draft files and keeps git clean after restarting Content Studio
+
+**Important operational note:**
+
+After server-side Content Studio changes, restart `npm run content:studio`. The running server process does not automatically reload `server.mjs`.
+
+**Still deferred:**
+
+- Buyer/Downtown existing article listing and editing
+- `marketNotes.ts` source migration
+- Real-template preview through `src/main.ts`
+- Full Media Manager
+
+**Do not click Update Site just for draft smoke tests.** Draft-only tests do not require a site update or deploy.
