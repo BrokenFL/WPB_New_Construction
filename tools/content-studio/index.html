@@ -33,7 +33,7 @@
           <button class="active" data-tab="site" data-section="homepage" type="button">Visual Editor</button>
           <button data-tab="site" data-section="pages" type="button">Pages</button>
           <button data-tab="site" data-section="images" type="button">Images</button>
-          <button data-tab="article" type="button">Article Publisher</button>
+          <button data-tab="article" type="button">Article Manager</button>
           <button data-tab="news" type="button">News Desk</button>
           <button data-tab="reports" type="button">Reports</button>
           <button data-tab="site" data-section="automation" type="button">Operations</button>
@@ -406,107 +406,184 @@
       </section>
 
       <section id="articlePanel" class="workspace panel">
-        <h1>Article Publisher</h1>
-        <form id="manualArticleForm" class="tool-panel article-publisher-panel">
-          <div class="publisher-layout">
-            <section>
-              <h2>Article</h2>
-              <div class="grid">
-                <label>Where should it go?
-                  <select name="destination">
-                    <option value="news">News Updates</option>
-                    <option value="buyer">Buyer Intelligence</option>
-                    <option value="downtown">Downtown Spotlight</option>
-                  </select>
-                </label>
-                <label>Workflow mode
-                  <select name="mode">
-                    <option value="preview">Preview</option>
-                    <option value="stage" selected>Stage</option>
-                    <option value="publish">Publish</option>
-                    <option value="ship">Ship</option>
-                  </select>
-                </label>
-                <label>Category
-                  <select name="category">
-                    <option value="general">General</option>
-                    <option value="development">Development</option>
-                    <option value="planning">Planning</option>
-                    <option value="construction">Construction</option>
-                    <option value="sales">Sales</option>
-                    <option value="financing">Financing</option>
-                    <option value="city">City / Lifestyle</option>
-                    <option value="Buyer Intelligence">Buyer Intelligence</option>
-                    <option value="Downtown Spotlight">Downtown Spotlight</option>
-                  </select>
-                </label>
-              </div>
-              <label>Slug<input name="slug" placeholder="custom-route-slug" /></label>
-              <label>Headline<input name="title" required placeholder="What changed, in plain English" /></label>
-              <label>Short summary<textarea name="deck" required placeholder="Two or three sentences that explain why this matters to buyers."></textarea></label>
-              <label>Sections JSON<textarea name="sections" class="article-body-input" placeholder='[{"heading":"What happened","body":"...","imageKey":"image1"}]'></textarea></label>
-              <label>Article body<textarea name="body" class="article-body-input" placeholder="Use blank lines between sections. If the first line of a section is short, it becomes that section heading."></textarea></label>
-              <div class="placeholder-toolbar">
-                <button type="button" data-insert-placeholder="image1">Insert `[[image:image1]]`</button>
-                <button type="button" data-insert-placeholder="image2">Insert `[[image:image2]]`</button>
-                <button type="button" data-insert-placeholder="map">Insert `[[image:map]]`</button>
-              </div>
-              <div class="grid">
-                <label>Related projects<input name="relatedProjectIds" placeholder="nora-house, mr-c" /></label>
-                <label>Related corridors<input name="relatedCorridorIds" placeholder="downtown, north-flagler" /></label>
-              </div>
-            </section>
-            <section>
-              <h2>Sources</h2>
-              <label>Source name<input name="sourceName" placeholder="Palm Beach Post, city agenda, your own note..." /></label>
-              <label>Source URL<input name="sourceUrl" type="url" placeholder="https://..." /></label>
-              <label>Source published date<input name="sourcePublishedDate" type="date" /></label>
-              <label>Why it matters<textarea name="whyItMatters" placeholder="Optional. Used mostly for News Updates."></textarea></label>
-              <label>Buyer context<textarea name="buyerContext" placeholder="Optional. Used mostly for News Updates."></textarea></label>
-              <label>Commit message<input name="commitMessage" placeholder="Publish article: West Palm update" /></label>
-            </section>
-            <section>
-              <h2>Photos</h2>
-              <label>Header photo<input name="heroImage" type="file" accept="image/*" /></label>
-              <div class="grid">
-                <label>Header alt<input name="heroAlt" placeholder="Describe the hero image" /></label>
-                <label>Header credit<input name="heroCredit" placeholder="Photo credit" /></label>
-              </div>
-              <label>Header caption<textarea name="heroCaption" placeholder="Optional caption shown under the hero image."></textarea></label>
-              <label>Body photo 1<input name="bodyImage1" type="file" accept="image/*" /></label>
-              <div class="grid">
-                <label>Body photo 1 key<input name="bodyImage1Key" placeholder="image1" /></label>
-                <label>Body photo 1 alt<input name="bodyImage1Alt" placeholder="Describe this image" /></label>
-              </div>
-              <label>Body photo 1 caption<textarea name="bodyImage1Caption" placeholder="Optional caption."></textarea></label>
-              <label>Body photo 1 credit<input name="bodyImage1Credit" placeholder="Photo credit" /></label>
-              <label>Body photo 2<input name="bodyImage2" type="file" accept="image/*" /></label>
-              <div class="grid">
-                <label>Body photo 2 key<input name="bodyImage2Key" placeholder="image2" /></label>
-                <label>Body photo 2 alt<input name="bodyImage2Alt" placeholder="Describe this image" /></label>
-              </div>
-              <label>Body photo 2 caption<textarea name="bodyImage2Caption" placeholder="Optional caption."></textarea></label>
-              <label>Body photo 2 credit<input name="bodyImage2Credit" placeholder="Photo credit" /></label>
-              <label>Body photo 3<input name="bodyImage3" type="file" accept="image/*" /></label>
-              <div class="grid">
-                <label>Body photo 3 key<input name="bodyImage3Key" placeholder="map" /></label>
-                <label>Body photo 3 alt<input name="bodyImage3Alt" placeholder="Describe this image" /></label>
-              </div>
-              <label>Body photo 3 caption<textarea name="bodyImage3Caption" placeholder="Optional caption."></textarea></label>
-              <label>Body photo 3 credit<input name="bodyImage3Credit" placeholder="Photo credit" /></label>
-              <p class="muted">Photos are optimized into site-safe editorial images before publishing.</p>
-              <label class="checkbox-row"><input name="confirmPublish" type="checkbox" /> Publish this article: run QA, commit, and push.</label>
-              <label class="checkbox-row"><input name="confirmDeploy" type="checkbox" /> Ship this article live after publish.</label>
-              <label class="checkbox-row"><input name="confirmRemote" type="checkbox" /> Remote mode only: I understand publishing is final.</label>
-              <div class="workflow-buttons">
-                <button class="primary publish-button" type="submit" data-submit-mode="stage">Stage Article</button>
-                <button class="publish-button" type="submit" data-submit-mode="preview">Preview</button>
-                <button class="publish-button" type="submit" data-submit-mode="publish">Publish</button>
-                <button class="publish-button" type="submit" data-submit-mode="ship">Ship</button>
-              </div>
-            </section>
+        <div class="am-header">
+          <h1>Article Manager</h1>
+          <nav class="am-tabs" aria-label="Article Manager views">
+            <button class="am-tab am-tab-active" data-am-tab="list" type="button">All Articles</button>
+            <button class="am-tab" data-am-tab="new" type="button">New Article</button>
+            <button class="am-tab" id="amEditTab" data-am-tab="edit" type="button" disabled>Edit Article</button>
+            <button class="am-tab" data-am-tab="media" type="button">Media / Images</button>
+          </nav>
+        </div>
+
+        <!-- All Articles list view -->
+        <div id="amListView" class="am-view am-view-active">
+          <div class="am-list-toolbar">
+            <label class="am-filter-label">Destination
+              <select id="amFilterDest">
+                <option value="">All destinations</option>
+                <option value="news">News</option>
+                <option value="buyer">Buyer</option>
+                <option value="downtown">Downtown</option>
+              </select>
+            </label>
+            <label class="am-filter-label">Status
+              <select id="amFilterStatus">
+                <option value="">All statuses</option>
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+                <option value="archived">Archived</option>
+                <option value="needs-review">Needs Review</option>
+              </select>
+            </label>
+            <button type="button" id="amRefreshList">Refresh List</button>
           </div>
-        </form>
+          <p class="am-phase-note muted">Buyer and Downtown published articles are not yet listed here — coming in Phase 2. Drafts for all destinations appear above published news.</p>
+          <div id="amArticleList" class="am-article-list"></div>
+        </div>
+
+        <!-- New / Edit Article editor (shared view) -->
+        <div id="amEditorView" class="am-view">
+          <div class="am-editor-toolbar">
+            <button type="button" id="amBackBtn" class="am-back-btn">← All Articles</button>
+            <strong id="amEditorLabel">New Article</strong>
+            <span id="amSaveStatus" class="am-save-status"></span>
+          </div>
+          <form id="amArticleForm" class="am-editor-form" autocomplete="off">
+            <input type="hidden" id="amDraftId" name="draftId" />
+            <input type="hidden" id="amSourceId" name="sourceId" />
+            <input type="hidden" id="amSourceRecord" name="source" />
+            <div class="am-editor-columns">
+
+              <!-- LEFT: metadata + source -->
+              <div class="am-editor-left">
+                <section class="am-card">
+                  <h2>Article Details</h2>
+                  <div class="grid">
+                    <label>Destination
+                      <select name="destination" id="amDestination">
+                        <option value="news">News Updates</option>
+                        <option value="buyer">Buyer Intelligence</option>
+                        <option value="downtown">Downtown Spotlight</option>
+                      </select>
+                    </label>
+                    <label>Category
+                      <select name="category" id="amCategory">
+                        <option value="general">General</option>
+                        <option value="development">Development</option>
+                        <option value="planning">Planning</option>
+                        <option value="construction">Construction</option>
+                        <option value="sales">Sales</option>
+                        <option value="financing">Financing</option>
+                        <option value="city">City / Lifestyle</option>
+                        <option value="Buyer Intelligence">Buyer Intelligence</option>
+                        <option value="Downtown Spotlight">Downtown Spotlight</option>
+                      </select>
+                    </label>
+                  </div>
+                  <label>Headline
+                    <input name="title" id="amTitle" required placeholder="What changed, in plain English" />
+                  </label>
+                  <label>Slug
+                    <input name="slug" id="amSlug" placeholder="Leave blank to auto-generate from title" />
+                  </label>
+                  <label>Deck
+                    <textarea name="deck" id="amDeck" required placeholder="Two or three sentences that explain why this matters to buyers."></textarea>
+                  </label>
+                  <div class="grid">
+                    <label>Related projects
+                      <input name="relatedProjectIds" id="amRelatedProjects" placeholder="nora-house, mr-c" />
+                    </label>
+                    <label>Related corridors
+                      <input name="relatedCorridorIds" id="amRelatedCorridors" placeholder="downtown, north-flagler" />
+                    </label>
+                  </div>
+                </section>
+
+                <section class="am-card">
+                  <h2>Source</h2>
+                  <label>Source name
+                    <input name="sourceName" id="amSourceName" placeholder="Palm Beach Post, city agenda..." />
+                  </label>
+                  <div class="grid">
+                    <label>Source URL
+                      <input name="sourceUrl" id="amSourceUrl" type="url" placeholder="https://..." />
+                    </label>
+                    <label>Source published date
+                      <input name="sourcePublishedDate" id="amSourceDate" type="date" />
+                    </label>
+                  </div>
+                  <label>Why it matters
+                    <textarea name="whyItMatters" id="amWhyItMatters" placeholder="Optional. Used mostly for News Updates."></textarea>
+                  </label>
+                  <label>Buyer context
+                    <textarea name="buyerContext" id="amBuyerContext" placeholder="Optional."></textarea>
+                  </label>
+                  <label>Commit message
+                    <input name="commitMessage" id="amCommitMessage" placeholder="Publish article: West Palm update" />
+                  </label>
+                </section>
+              </div>
+
+              <!-- RIGHT: hero + sections + actions -->
+              <div class="am-editor-right">
+                <section class="am-card">
+                  <h2>Hero Image</h2>
+                  <div class="am-hero-wrap">
+                    <img id="amHeroThumb" class="am-hero-thumb" src="" alt="" hidden />
+                    <p id="amHeroNone" class="muted am-hero-none">No hero image set.</p>
+                  </div>
+                  <label>Replace hero image
+                    <input name="heroImageFile" id="amHeroFile" type="file" accept="image/*" />
+                  </label>
+                  <div class="grid">
+                    <label>Alt text
+                      <input name="heroAlt" id="amHeroAlt" placeholder="Describe the hero image" />
+                    </label>
+                    <label>Photo credit
+                      <input name="heroCredit" id="amHeroCredit" placeholder="Photo credit" />
+                    </label>
+                  </div>
+                  <label>Caption
+                    <textarea name="heroCaption" id="amHeroCaption" placeholder="Optional caption shown under the hero image."></textarea>
+                  </label>
+                </section>
+
+                <section class="am-card">
+                  <h2>Body Sections</h2>
+                  <div id="amSectionsContainer" class="am-sections-list"></div>
+                  <button type="button" id="amAddSection" class="am-add-section-btn">+ Add Section</button>
+                </section>
+
+                <section class="am-card am-publish-card">
+                  <h2>Publish Actions</h2>
+                  <p class="muted">Photos are optimized into site-safe editorial images before publishing.</p>
+                  <div class="am-confirm-group">
+                    <label class="checkbox-row"><input name="confirmPublish" id="amConfirmPublish" type="checkbox" /> Run QA, commit, and push this article.</label>
+                    <label class="checkbox-row"><input name="confirmDeploy" id="amConfirmDeploy" type="checkbox" /> Ship this article live after publish.</label>
+                    <label class="checkbox-row"><input name="confirmRemote" id="amConfirmRemote" type="checkbox" /> Remote mode: I understand publishing is final.</label>
+                  </div>
+                  <div class="workflow-buttons am-action-bar">
+                    <button type="button" id="amSaveDraftBtn">Save Draft</button>
+                    <button type="button" id="amPreviewBtn">Preview</button>
+                    <button type="button" id="amStageBtn" class="primary">Stage</button>
+                    <button type="button" id="amPublishBtn">Publish</button>
+                    <button type="button" id="amShipBtn">Ship</button>
+                  </div>
+                  <p class="am-preview-note muted">Preview creates a diagnostic artifact only — not the final live layout. After staging, open the article URL in the dev server for visual confirmation.</p>
+                </section>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Media / Images placeholder -->
+        <div id="amMediaView" class="am-view">
+          <section class="am-card">
+            <h2>Media / Images</h2>
+            <p class="muted">Full media manager coming in Phase 3. To upload and manage editorial images now, use the <strong>Images</strong> tab in the Visual Editor section.</p>
+          </section>
+        </div>
       </section>
 
       <section id="newsPanel" class="workspace panel">

@@ -13,6 +13,8 @@ const changeLogPath = path.join(overridesRoot, "change-log.json");
 const builderChangeLogPath = path.join(overridesRoot, "content-studio-change-log.json");
 const port = Number(process.env.WPB_CONTENT_STUDIO_PORT ?? 8787);
 const launchAgentRoot = path.join(process.env.HOME ?? "", "Library/LaunchAgents");
+const articleDraftsRoot = path.join(workspace, ".runtime", "article-drafts");
+const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
 const remoteHostnames = ["builder.wpbnewconstruction.com", "brooke-builder.wpbnewconstruction.com"];
 const reportDefinitions = [
   { category: "Visual Audits", path: "research/source-material-review/card-level-visual-polish-audit.md" },
@@ -81,6 +83,13 @@ async function main() {
       if (request.method === "POST" && url.pathname === "/api/news-draft") return saveNewsDraft(request, response);
       if (request.method === "POST" && url.pathname === "/api/manual-article") return publishManualArticle(request, response);
       if (request.method === "POST" && url.pathname === "/api/run-workflow") return runWorkflow(request, response);
+      if (request.method === "GET" && url.pathname === "/api/articles") return listArticles(request, response, url);
+      if (request.method === "GET" && url.pathname === "/api/article") return getArticle(request, response, url);
+      if (request.method === "POST" && url.pathname === "/api/article/save-draft") return saveArticleDraft(request, response);
+      if (request.method === "POST" && url.pathname === "/api/article/archive") return archiveArticle(request, response);
+      if (request.method === "POST" && url.pathname === "/api/article/delete-draft") return deleteArticleDraft(request, response);
+      if (request.method === "POST" && url.pathname === "/api/article/preview") return previewArticle(request, response);
+      if (request.method === "POST" && url.pathname === "/api/article/publish") return publishManualArticle(request, response);
       return sendText(response, "Not found", 404);
     } catch (error) {
       return sendJson(response, { ok: false, error: error.message }, 500);
@@ -393,6 +402,16 @@ async function saveNewsDraft(request, response) {
 
 async function publishManualArticle(request, response) {
   const body = await readJson(request, 60 * 1024 * 1024);
+  return runArticleWorkflow(body, request, response);
+}
+
+async function previewArticle(request, response) {
+  const body = await readJson(request, 60 * 1024 * 1024);
+  body.mode = "preview";
+  return runArticleWorkflow(body, request, response);
+}
+
+async function runArticleWorkflow(body, request, response) {
   const remote = remoteContext(request);
   const mode = clean(body.mode || body.workflowMode || body.publishMode || "stage");
   if (remote.isRemote && body.confirmRemote !== true) {
@@ -434,6 +453,143 @@ async function publishManualArticle(request, response) {
     stderr: result.stderr.slice(-12000),
     changedFiles: await changedFiles(),
   }, result.code === 0 ? 200 : 500);
+}
+
+async function listArticles(request, response, url) {
+  const newsRaw = await readJsonFile(approvedNewsPath, []);
+  const newsList = Array.isArray(newsRaw) ? newsRaw.map((item) => ({
+    id: item.id,
+    slug: item.slug || item.id,
+    title: item.title || "(Untitled)",
+    destination: "news",
+    category: item.category || "general",
+    status: item.status || "published",
+    publishedAt: item.publishedAt || "",
+    modifiedAt: item.fetchedAt || item.publishedAt || "",
+    imagePath: item.imagePath || "",
+    isDraft: false,
+    draftId: null,
+  })) : [];
+  const draftsList = await readAllArticleDrafts();
+  const articles = [...draftsList, ...newsList];
+  return sendJson(response, { ok: true, articles, buyerDowntownNote: "Buyer and Downtown published article listing is deferred to Phase 2. Drafts for all destinations appear here." });
+}
+
+async function readAllArticleDrafts() {
+  const results = [];
+  for (const dest of ["news", "buyer", "downtown"]) {
+    const destDir = path.join(articleDraftsRoot, dest);
+    const files = await fs.readdir(destDir).catch(() => []);
+    for (const file of files.filter((f) => f.endsWith(".json"))) {
+      const filePath = path.join(destDir, file);
+      try {
+        const content = JSON.parse(await fs.readFile(filePath, "utf8"));
+        results.push({
+          id: content.id || file.replace(".json", ""),
+          slug: content.slug || "",
+          title: content.title || "(Untitled draft)",
+          destination: dest,
+          category: content.category || "general",
+          status: "draft",
+          publishedAt: "",
+          modifiedAt: content.savedAt || "",
+          imagePath: "",
+          isDraft: true,
+          draftId: file.replace(".json", ""),
+        });
+      } catch {
+        // skip corrupt draft files
+      }
+    }
+  }
+  return results;
+}
+
+async function getArticle(request, response, url) {
+  const id = clean(url.searchParams.get("id") || "");
+  const destination = clean(url.searchParams.get("destination") || "news");
+  const draftId = clean(url.searchParams.get("draftId") || "");
+  if (!id && !draftId) return sendJson(response, { ok: false, error: "id or draftId query parameter is required" }, 400);
+  if (draftId) {
+    const safeDraftId = draftId.replace(/[^a-z0-9_\-]/gi, "-").slice(0, 120);
+    const draftPath = path.join(articleDraftsRoot, destination, `${safeDraftId}.json`);
+    if (!draftPath.startsWith(articleDraftsRoot)) return sendJson(response, { ok: false, error: "Invalid draftId" }, 400);
+    const raw = await fs.readFile(draftPath, "utf8").catch(() => null);
+    if (!raw) return sendJson(response, { ok: false, error: "Draft not found" }, 404);
+    return sendJson(response, { ok: true, article: JSON.parse(raw), source: "draft" });
+  }
+  if (destination === "news") {
+    const newsRaw = await readJsonFile(approvedNewsPath, []);
+    const article = Array.isArray(newsRaw) ? newsRaw.find((item) => item.id === id || item.slug === id) : null;
+    if (!article) return sendJson(response, { ok: false, error: `Article not found: ${id}` }, 404);
+    return sendJson(response, { ok: true, article, source: "approved-development-news" });
+  }
+  return sendJson(response, { ok: false, error: "Load and edit for buyer and downtown articles is deferred to Phase 2. Use New Article to create new buyer or downtown content." }, 422);
+}
+
+async function saveArticleDraft(request, response) {
+  const body = await readJson(request, 60 * 1024 * 1024);
+  const destination = clean(body.destination || "news");
+  if (!["news", "buyer", "downtown"].includes(destination)) {
+    return sendJson(response, { ok: false, error: `Invalid destination: ${destination}` }, 400);
+  }
+  const rawId = clean(body.draftId || body.id || `draft-${Date.now()}`);
+  const safeDraftId = rawId.replace(/[^a-z0-9_\-]/gi, "-").slice(0, 120);
+  const destDir = path.join(articleDraftsRoot, destination);
+  await fs.mkdir(destDir, { recursive: true });
+  const draftPath = path.join(destDir, `${safeDraftId}.json`);
+  if (!draftPath.startsWith(articleDraftsRoot)) {
+    return sendJson(response, { ok: false, error: "Invalid draft path" }, 400);
+  }
+  const draft = { ...body, draftId: safeDraftId, savedAt: new Date().toISOString() };
+  await fs.writeFile(draftPath, `${JSON.stringify(draft, null, 2)}\n`);
+  return sendJson(response, { ok: true, draftId: safeDraftId, savedAt: draft.savedAt });
+}
+
+async function archiveArticle(request, response) {
+  const body = await readJson(request);
+  const remote = remoteContext(request);
+  if (!body.confirmArchive) {
+    return sendJson(response, { ok: false, error: "confirmArchive: true is required to archive an article." }, 400);
+  }
+  if (remote.isRemote && body.confirmRemote !== true) {
+    return sendJson(response, { ok: false, error: "Remote Builder Mode requires the remote confirmation checkbox before archiving." }, 400);
+  }
+  const destination = clean(body.destination || "news");
+  const id = clean(body.id || "");
+  if (!id) return sendJson(response, { ok: false, error: "id is required" }, 400);
+  if (destination !== "news") {
+    return sendJson(response, { ok: false, error: "Archive for buyer and downtown articles is deferred to Phase 2." }, 422);
+  }
+  const newsRaw = await readJsonFile(approvedNewsPath, []);
+  if (!Array.isArray(newsRaw)) return sendJson(response, { ok: false, error: "Could not read news articles" }, 500);
+  const index = newsRaw.findIndex((item) => item.id === id);
+  if (index === -1) return sendJson(response, { ok: false, error: `Article not found: ${id}` }, 404);
+  const title = newsRaw[index].title;
+  newsRaw[index] = { ...newsRaw[index], status: "archived" };
+  await fs.writeFile(approvedNewsPath, `${JSON.stringify(newsRaw, null, 2)}\n`);
+  await logChange("article-archived", { id, destination, title });
+  return sendJson(response, { ok: true, id, status: "archived", changedFiles: await changedFiles() });
+}
+
+async function deleteArticleDraft(request, response) {
+  const body = await readJson(request);
+  if (!body.confirmDelete) {
+    return sendJson(response, { ok: false, error: "confirmDelete: true is required to delete a draft." }, 400);
+  }
+  const destination = clean(body.destination || "news");
+  const rawId = clean(body.draftId || body.id || "");
+  if (!rawId) return sendJson(response, { ok: false, error: "draftId is required" }, 400);
+  const safeDraftId = rawId.replace(/[^a-z0-9_\-]/gi, "-").slice(0, 120);
+  const draftPath = path.join(articleDraftsRoot, destination, `${safeDraftId}.json`);
+  if (!draftPath.startsWith(articleDraftsRoot + path.sep)) {
+    return sendJson(response, { ok: false, error: "Invalid draftId — path rejected." }, 400);
+  }
+  const fileExists = await exists(draftPath);
+  if (!fileExists) return sendJson(response, { ok: false, error: "Draft not found." }, 404);
+  await fs.unlink(draftPath);
+  await logChange("article-draft-deleted", { draftId: safeDraftId, destination });
+  return sendJson(response, { ok: true, draftId: safeDraftId, deleted: true });
 }
 
 async function runWorkflow(request, response) {

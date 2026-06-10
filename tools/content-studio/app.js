@@ -81,16 +81,7 @@ function updateProjectPreview() {
 document.querySelector("#refresh").addEventListener("click", loadState);
 document.querySelector("#runQa").addEventListener("click", () => runWorkflow("qa"));
 document.querySelector("#updateSite").addEventListener("click", () => runWorkflow("update"));
-document.querySelector("#manualArticleForm")?.addEventListener("submit", publishManualArticle);
-document.querySelectorAll("[data-insert-placeholder]").forEach((button) => {
-  button.addEventListener("click", () => insertPlaceholder(button.dataset.insertPlaceholder));
-});
-document.querySelector("#manualArticleForm [name=destination]")?.addEventListener("change", (event) => {
-  const form = event.target.form;
-  if (event.target.value === "buyer") form.elements.category.value = "Buyer Intelligence";
-  if (event.target.value === "downtown") form.elements.category.value = "Downtown Spotlight";
-  if (event.target.value === "news" && ["Buyer Intelligence", "Downtown Spotlight"].includes(form.elements.category.value)) form.elements.category.value = "general";
-});
+// Article Manager is initialized after DOM setup below
 projectSelect.addEventListener("change", () => {
   fillCopyForm();
   updateProjectPreview();
@@ -1079,58 +1070,505 @@ async function runWorkflow(workflow) {
   await loadState();
 }
 
-async function publishManualArticle(event) {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const payload = formPayload(form);
-  payload.mode = event.submitter?.dataset.submitMode || form.elements.mode?.value || "stage";
-  payload.confirmPublish = form.elements.confirmPublish.checked;
-  payload.confirmDeploy = form.elements.confirmDeploy.checked;
-  payload.confirmRemote = form.elements.confirmRemote.checked;
-  payload.heroImage = await imagePayload(form.elements.heroImage.files?.[0], {
-    key: "hero",
-    alt: payload.heroAlt,
-    caption: payload.heroCaption,
-    credit: payload.heroCredit,
+// ─── Article Manager ───────────────────────────────────────────────────────
+
+let amArticles = [];
+let amCurrentDraftId = null;
+let amCurrentSourceId = null;
+let amCurrentSource = null;
+
+function initArticleManager() {
+  // Tab switching
+  document.querySelectorAll(".am-tab").forEach((btn) => {
+    btn.addEventListener("click", () => amSetTab(btn.dataset.amTab));
   });
-  payload.bodyImages = (await Promise.all([
-    imagePayload(form.elements.bodyImage1.files?.[0], {
-      key: payload.bodyImage1Key || "image1",
-      alt: payload.bodyImage1Alt,
-      caption: payload.bodyImage1Caption,
-      credit: payload.bodyImage1Credit,
-    }),
-    imagePayload(form.elements.bodyImage2.files?.[0], {
-      key: payload.bodyImage2Key || "image2",
-      alt: payload.bodyImage2Alt,
-      caption: payload.bodyImage2Caption,
-      credit: payload.bodyImage2Credit,
-    }),
-    imagePayload(form.elements.bodyImage3.files?.[0], {
-      key: payload.bodyImage3Key || "map",
-      alt: payload.bodyImage3Alt,
-      caption: payload.bodyImage3Caption,
-      credit: payload.bodyImage3Credit,
-    }),
-  ])).filter(Boolean);
-  payload.sections = parseSectionsInput(payload.sections);
-  show({ ok: true, running: `Running ${payload.mode} for the article workflow.` });
-  const response = await postJson("/api/manual-article", payload);
-  show(response);
-  if (response.ok) {
-    await loadState();
+
+  // Back button
+  document.querySelector("#amBackBtn")?.addEventListener("click", () => amSetTab("list"));
+
+  // Refresh list button
+  document.querySelector("#amRefreshList")?.addEventListener("click", () => amLoadList());
+
+  // Filter selects
+  document.querySelector("#amFilterDest")?.addEventListener("change", () => amRenderFilteredList());
+  document.querySelector("#amFilterStatus")?.addEventListener("change", () => amRenderFilteredList());
+
+  // Destination → category auto-set
+  document.querySelector("#amDestination")?.addEventListener("change", (event) => {
+    const cat = document.querySelector("#amCategory");
+    if (!cat) return;
+    if (event.target.value === "buyer") cat.value = "Buyer Intelligence";
+    else if (event.target.value === "downtown") cat.value = "Downtown Spotlight";
+    else if (["Buyer Intelligence", "Downtown Spotlight"].includes(cat.value)) cat.value = "general";
+  });
+
+  // Hero file preview
+  document.querySelector("#amHeroFile")?.addEventListener("change", async (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const thumb = document.querySelector("#amHeroThumb");
+    const none = document.querySelector("#amHeroNone");
+    thumb.src = await fileAsDataUrl(file);
+    thumb.hidden = false;
+    if (none) none.hidden = true;
+  });
+
+  // Add section button
+  document.querySelector("#amAddSection")?.addEventListener("click", () => amAddSectionBlock());
+
+  // Action buttons
+  document.querySelector("#amSaveDraftBtn")?.addEventListener("click", () => amSaveDraft());
+  document.querySelector("#amPreviewBtn")?.addEventListener("click", () => amPublish("preview"));
+  document.querySelector("#amStageBtn")?.addEventListener("click", () => amPublish("stage"));
+  document.querySelector("#amPublishBtn")?.addEventListener("click", () => amPublish("publish"));
+  document.querySelector("#amShipBtn")?.addEventListener("click", () => amPublish("ship"));
+
+  // New Article tab: open blank editor
+  document.querySelector("[data-am-tab='new']")?.addEventListener("click", () => amOpenNewEditor());
+
+  // Activate list when article tab is first opened
+  document.querySelector("[data-tab='article']")?.addEventListener("click", () => {
+    if (amArticles.length === 0) amLoadList();
+  });
+}
+
+function amSetTab(tabName) {
+  document.querySelectorAll(".am-tab").forEach((btn) => {
+    btn.classList.toggle("am-tab-active", btn.dataset.amTab === tabName);
+  });
+  const views = { list: "#amListView", new: "#amEditorView", edit: "#amEditorView", media: "#amMediaView" };
+  document.querySelectorAll(".am-view").forEach((view) => {
+    view.classList.remove("am-view-active");
+  });
+  const target = document.querySelector(views[tabName] || "#amListView");
+  if (target) target.classList.add("am-view-active");
+  if (tabName === "list") amLoadList();
+}
+
+async function amLoadList() {
+  const el = document.querySelector("#amArticleList");
+  if (el) el.innerHTML = "<p class='muted'>Loading…</p>";
+  const data = await fetchJson("/api/articles");
+  if (!data.ok) {
+    if (el) el.innerHTML = `<p class='muted'>Error loading articles: ${escapeHtml(data.error || "unknown")}</p>`;
+    return;
+  }
+  amArticles = data.articles || [];
+  amRenderFilteredList();
+}
+
+function amRenderFilteredList() {
+  const destFilter = document.querySelector("#amFilterDest")?.value || "";
+  const statusFilter = document.querySelector("#amFilterStatus")?.value || "";
+  const filtered = amArticles.filter((a) => {
+    if (destFilter && a.destination !== destFilter) return false;
+    if (statusFilter && a.status !== statusFilter) return false;
+    return true;
+  });
+  const el = document.querySelector("#amArticleList");
+  if (!el) return;
+  if (filtered.length === 0) {
+    el.innerHTML = "<p class='muted'>No articles match the current filters.</p>";
+    return;
+  }
+  el.innerHTML = filtered.map((a) => amRenderArticleRow(a)).join("");
+  // Bind actions
+  el.querySelectorAll("[data-am-edit]").forEach((btn) => {
+    btn.addEventListener("click", () => amOpenEditor({ id: btn.dataset.amEdit, destination: btn.dataset.dest, draftId: btn.dataset.draftId || null }));
+  });
+  el.querySelectorAll("[data-am-archive]").forEach((btn) => {
+    btn.addEventListener("click", () => amConfirmArchive(btn));
+  });
+  el.querySelectorAll("[data-am-delete-draft]").forEach((btn) => {
+    btn.addEventListener("click", () => amConfirmDeleteDraft(btn));
+  });
+}
+
+function amRenderArticleRow(a) {
+  const statusClass = { published: "status-published", draft: "status-draft", archived: "status-not-run-yet", "needs-review": "status-warning" }[a.status] || "status-not-run-yet";
+  const destLabel = { news: "News", buyer: "Buyer", downtown: "Downtown" }[a.destination] || a.destination;
+  const thumbHtml = a.imagePath
+    ? `<img class="am-row-thumb" src="${escapeHtml(a.imagePath)}" alt="" onerror="this.style.display='none'" />`
+    : `<span class="am-row-thumb-placeholder"></span>`;
+  const editDataAttr = a.isDraft
+    ? `data-am-edit="${escapeHtml(a.id)}" data-dest="${escapeHtml(a.destination)}" data-draft-id="${escapeHtml(a.draftId || "")}"`
+    : `data-am-edit="${escapeHtml(a.id)}" data-dest="${escapeHtml(a.destination)}"`;
+  const archiveBtn = (!a.isDraft && a.status === "published" && a.destination === "news")
+    ? `<button class="am-row-action am-danger-action" data-am-archive="${escapeHtml(a.id)}" data-dest="${escapeHtml(a.destination)}" type="button">Archive</button>`
+    : "";
+  const deleteBtn = a.isDraft
+    ? `<button class="am-row-action am-danger-action" data-am-delete-draft="${escapeHtml(a.draftId || a.id)}" data-dest="${escapeHtml(a.destination)}" type="button">Delete</button>`
+    : "";
+  const date = a.publishedAt || a.modifiedAt;
+  const dateStr = date ? new Date(date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "—";
+  return `
+    <div class="am-article-row" data-dest="${escapeHtml(a.destination)}" data-status="${escapeHtml(a.status)}">
+      <div class="am-row-thumb-wrap">${thumbHtml}</div>
+      <div class="am-row-info">
+        <div class="am-row-badges">
+          <span class="status-pill ${statusClass}">${escapeHtml(a.status)}</span>
+          <span class="am-dest-chip">${escapeHtml(destLabel)}</span>
+        </div>
+        <strong class="am-row-title">${escapeHtml(a.title)}</strong>
+        <span class="am-row-meta muted">${escapeHtml(a.slug || a.id)} · ${escapeHtml(a.category)} · ${escapeHtml(dateStr)}</span>
+      </div>
+      <div class="am-row-actions">
+        <button class="am-row-action" ${editDataAttr} type="button">Edit</button>
+        ${archiveBtn}
+        ${deleteBtn}
+      </div>
+    </div>`;
+}
+
+async function amOpenEditor({ id, destination, draftId }) {
+  const editTab = document.querySelector("#amEditTab");
+  if (editTab) editTab.disabled = false;
+  amSetTab("edit");
+  document.querySelector("[data-am-tab='edit']")?.classList.add("am-tab-active");
+  amSetSaveStatus("Loading…", null);
+
+  const params = new URLSearchParams();
+  params.set("destination", destination || "news");
+  if (draftId) params.set("draftId", draftId);
+  else params.set("id", id);
+
+  const data = await fetchJson(`/api/article?${params}`);
+  if (!data.ok) {
+    amSetSaveStatus(`Error: ${data.error || "Could not load article"}`, false);
+    return;
+  }
+  amPopulateEditor(data.article, data.source);
+  document.querySelector("#amEditorLabel").textContent = "Edit Article";
+  amSetSaveStatus("Loaded", true);
+}
+
+function amOpenNewEditor() {
+  const editTab = document.querySelector("#amEditTab");
+  if (editTab) editTab.disabled = false;
+  amResetEditor();
+  amCurrentDraftId = `draft-${Date.now()}`;
+  amCurrentSourceId = null;
+  amCurrentSource = null;
+  document.querySelector("#amDraftId").value = amCurrentDraftId;
+  document.querySelector("#amSourceId").value = "";
+  document.querySelector("#amSourceRecord").value = "";
+  document.querySelector("#amEditorLabel").textContent = "New Article";
+  amSetSaveStatus("", null);
+}
+
+function amResetEditor() {
+  const form = document.querySelector("#amArticleForm");
+  if (!form) return;
+  form.reset();
+  document.querySelector("#amHeroThumb").hidden = true;
+  document.querySelector("#amHeroNone").hidden = false;
+  document.querySelector("#amSectionsContainer").innerHTML = "";
+  amSetSaveStatus("", null);
+}
+
+function amPopulateEditor(article, source) {
+  amCurrentDraftId = article.draftId || null;
+  amCurrentSourceId = article.id || null;
+  amCurrentSource = source || null;
+
+  const set = (id, val) => { const el = document.querySelector(`#${id}`); if (el) el.value = val || ""; };
+  set("amDraftId", article.draftId || "");
+  set("amSourceId", article.id || "");
+  set("amSourceRecord", source || "");
+  set("amDestination", article.destination || "news");
+  set("amCategory", article.category || "general");
+  set("amTitle", article.title || "");
+  set("amSlug", article.slug || "");
+  set("amDeck", article.deck || article.description || "");
+  set("amRelatedProjects", (article.relatedProjectIds || []).join(", "));
+  set("amRelatedCorridors", (article.relatedCorridorIds || []).join(", "));
+  set("amSourceName", article.sourceName || "");
+  set("amSourceUrl", article.sourceUrl || article.canonicalUrl || "");
+  set("amSourceDate", article.sourcePublishedDate || "");
+  set("amWhyItMatters", article.whyItMatters || "");
+  set("amBuyerContext", article.buyerContext || "");
+  set("amCommitMessage", "");
+  set("amHeroAlt", article.heroAlt || "");
+  set("amHeroCredit", article.heroCredit || "");
+  set("amHeroCaption", article.heroCaption || "");
+
+  // Hero image thumbnail
+  const thumb = document.querySelector("#amHeroThumb");
+  const none = document.querySelector("#amHeroNone");
+  if (article.imagePath) {
+    thumb.src = article.imagePath;
+    thumb.hidden = false;
+    if (none) none.hidden = true;
+  } else {
+    thumb.hidden = true;
+    if (none) none.hidden = false;
+  }
+
+  // Body sections
+  const container = document.querySelector("#amSectionsContainer");
+  if (container) {
+    container.innerHTML = "";
+    const sections = article.bodySections || [];
+    sections.forEach((section) => amAddSectionBlock(section));
+    if (sections.length === 0) amAddSectionBlock();
   }
 }
 
-function insertPlaceholder(key) {
-  const body = document.querySelector("#manualArticleForm textarea[name=body]");
-  if (!body) return;
-  const token = `[[image:${key}]]`;
-  const start = body.selectionStart ?? body.value.length;
-  const end = body.selectionEnd ?? body.value.length;
-  body.setRangeText(token, start, end, "end");
-  body.focus();
+function amAddSectionBlock(opts = {}) {
+  const container = document.querySelector("#amSectionsContainer");
+  if (!container) return;
+  const index = container.children.length + 1;
+  const block = document.createElement("div");
+  block.className = "am-section-block";
+  block.innerHTML = `
+    <div class="am-section-block-header">
+      <span class="am-section-num">${index}</span>
+      <div class="am-section-block-controls">
+        <button type="button" class="am-move-up" title="Move section up">↑</button>
+        <button type="button" class="am-move-down" title="Move section down">↓</button>
+        <button type="button" class="am-remove-block" title="Remove section">✕</button>
+      </div>
+    </div>
+    <label>Heading <span class="am-optional">(optional)</span>
+      <input class="am-section-heading" placeholder="Section heading" value="${escapeHtml(opts.heading || "")}" />
+    </label>
+    <label>Body text
+      <textarea class="am-section-body" placeholder="Section content...">${escapeHtml(opts.body || "")}</textarea>
+    </label>
+    <details class="am-section-image-wrap"${opts.imageKey || opts.image ? " open" : ""}>
+      <summary>Attach image to this section</summary>
+      <div class="am-section-image-fields">
+        <div class="am-section-img-preview-wrap">
+          <img class="am-section-img" src="" alt="" hidden />
+        </div>
+        <label>Image file
+          <input class="am-section-image-file" type="file" accept="image/*" />
+        </label>
+        <div class="grid">
+          <label>Image key
+            <input class="am-section-image-key" placeholder="image1" value="${escapeHtml(opts.imageKey || opts.image || "")}" />
+          </label>
+          <label>Alt text
+            <input class="am-section-image-alt" placeholder="Describe this image" value="${escapeHtml(opts.imageAlt || "")}" />
+          </label>
+        </div>
+        <label>Caption
+          <textarea class="am-section-image-caption" placeholder="Optional caption">${escapeHtml(opts.imageCaption || "")}</textarea>
+        </label>
+        <label>Credit
+          <input class="am-section-image-credit" placeholder="Photo credit" value="${escapeHtml(opts.imageCredit || "")}" />
+        </label>
+      </div>
+    </details>`;
+  container.appendChild(block);
+
+  // Section image file preview
+  block.querySelector(".am-section-image-file")?.addEventListener("change", async (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const img = block.querySelector(".am-section-img");
+    img.src = await fileAsDataUrl(file);
+    img.hidden = false;
+  });
+
+  // Move up
+  block.querySelector(".am-move-up")?.addEventListener("click", () => {
+    const prev = block.previousElementSibling;
+    if (prev) container.insertBefore(block, prev);
+    amRenumberSections();
+  });
+
+  // Move down
+  block.querySelector(".am-move-down")?.addEventListener("click", () => {
+    const next = block.nextElementSibling;
+    if (next) container.insertBefore(next, block);
+    amRenumberSections();
+  });
+
+  // Remove
+  block.querySelector(".am-remove-block")?.addEventListener("click", () => {
+    const heading = block.querySelector(".am-section-heading")?.value || "";
+    const body = block.querySelector(".am-section-body")?.value || "";
+    if ((heading || body) && !window.confirm("Remove this section? Its content will be lost.")) return;
+    block.remove();
+    amRenumberSections();
+  });
+
+  amRenumberSections();
 }
+
+function amRenumberSections() {
+  document.querySelectorAll("#amSectionsContainer .am-section-block").forEach((block, i) => {
+    const num = block.querySelector(".am-section-num");
+    if (num) num.textContent = i + 1;
+  });
+}
+
+async function amBuildPayload() {
+  const form = document.querySelector("#amArticleForm");
+  if (!form) return null;
+
+  const val = (id) => document.querySelector(`#${id}`)?.value?.trim() || "";
+  const checked = (id) => document.querySelector(`#${id}`)?.checked === true;
+
+  const payload = {
+    id: val("amSourceId") || null,
+    draftId: val("amDraftId") || amCurrentDraftId,
+    source: val("amSourceRecord") || null,
+    title: val("amTitle"),
+    slug: val("amSlug"),
+    deck: val("amDeck"),
+    destination: val("amDestination") || "news",
+    category: val("amCategory") || "general",
+    relatedProjectIds: val("amRelatedProjects"),
+    relatedCorridorIds: val("amRelatedCorridors"),
+    sourceName: val("amSourceName"),
+    sourceUrl: val("amSourceUrl"),
+    sourcePublishedDate: val("amSourceDate"),
+    whyItMatters: val("amWhyItMatters"),
+    buyerContext: val("amBuyerContext"),
+    commitMessage: val("amCommitMessage"),
+    heroAlt: val("amHeroAlt"),
+    heroCredit: val("amHeroCredit"),
+    heroCaption: val("amHeroCaption"),
+    confirmPublish: checked("amConfirmPublish"),
+    confirmDeploy: checked("amConfirmDeploy"),
+    confirmRemote: checked("amConfirmRemote"),
+  };
+
+  // Hero image
+  const heroFile = document.querySelector("#amHeroFile")?.files?.[0];
+  payload.heroImage = await imagePayload(heroFile, { key: "hero", alt: payload.heroAlt, caption: payload.heroCaption, credit: payload.heroCredit });
+
+  // Body sections + body images
+  const sectionBlocks = document.querySelectorAll("#amSectionsContainer .am-section-block");
+  const bodySections = [];
+  const bodyImages = [];
+  let imgIndex = 1;
+
+  for (const block of sectionBlocks) {
+    const heading = block.querySelector(".am-section-heading")?.value?.trim() || "";
+    const body = block.querySelector(".am-section-body")?.value?.trim() || "";
+    if (!heading && !body) continue;
+
+    const imageFile = block.querySelector(".am-section-image-file")?.files?.[0];
+    const imageKey = block.querySelector(".am-section-image-key")?.value?.trim() || (imageFile ? `image${imgIndex}` : "");
+    const imageAlt = block.querySelector(".am-section-image-alt")?.value?.trim() || "";
+    const imageCaption = block.querySelector(".am-section-image-caption")?.value?.trim() || "";
+    const imageCredit = block.querySelector(".am-section-image-credit")?.value?.trim() || "";
+
+    const section = { heading, body };
+    if (imageKey) section.imageKey = imageKey;
+    bodySections.push(section);
+
+    if (imageFile) {
+      const img = await imagePayload(imageFile, { key: imageKey, alt: imageAlt, caption: imageCaption, credit: imageCredit });
+      if (img) bodyImages.push(img);
+      imgIndex++;
+    }
+  }
+
+  payload.bodySections = bodySections;
+  payload.bodyImages = bodyImages;
+  return payload;
+}
+
+async function amSaveDraft() {
+  const payload = await amBuildPayload();
+  if (!payload) return;
+  amSetSaveStatus("Saving…", null);
+  const result = await postJson("/api/article/save-draft", payload);
+  if (result.ok) {
+    amCurrentDraftId = result.draftId;
+    document.querySelector("#amDraftId").value = result.draftId;
+    amSetSaveStatus(`Draft saved at ${new Date(result.savedAt).toLocaleTimeString()}`, true);
+  } else {
+    amSetSaveStatus(`Save failed: ${result.error || "unknown error"}`, false);
+  }
+  show(result);
+}
+
+async function amPublish(mode) {
+  const payload = await amBuildPayload();
+  if (!payload) return;
+  if (!payload.title) { amSetSaveStatus("Title is required.", false); return; }
+  if (!payload.deck) { amSetSaveStatus("Deck is required.", false); return; }
+  payload.mode = mode;
+  const endpoint = mode === "preview" ? "/api/article/preview" : "/api/article/publish";
+  amSetSaveStatus(`Running ${mode}…`, null);
+  show({ ok: true, running: `Running ${mode} for article workflow.` });
+  const result = await postJson(endpoint, payload);
+  show(result);
+  if (result.ok) {
+    amSetSaveStatus(`${mode} complete`, true);
+    if (["stage", "publish", "ship"].includes(mode)) await loadState();
+  } else {
+    amSetSaveStatus(`${mode} failed: ${result.error || "see result panel"}`, false);
+  }
+}
+
+function amSetSaveStatus(message, ok) {
+  const el = document.querySelector("#amSaveStatus");
+  if (!el) return;
+  el.textContent = message;
+  el.className = "am-save-status" + (ok === true ? " am-status-ok" : ok === false ? " am-status-error" : "");
+}
+
+function amConfirmArchive(btn) {
+  const id = btn.dataset.amArchive;
+  const dest = btn.dataset.dest;
+  const row = btn.closest(".am-article-row");
+  if (!row) return;
+  const existing = row.querySelector(".am-inline-confirm");
+  if (existing) { existing.remove(); return; }
+  const confirm = document.createElement("div");
+  confirm.className = "am-inline-confirm";
+  confirm.innerHTML = `<span>Archive this article? It will remain live until the next build.</span>
+    <button type="button" class="am-confirm-yes">Archive</button>
+    <button type="button" class="am-confirm-cancel">Cancel</button>`;
+  row.querySelector(".am-row-actions")?.appendChild(confirm);
+  confirm.querySelector(".am-confirm-cancel")?.addEventListener("click", () => confirm.remove());
+  confirm.querySelector(".am-confirm-yes")?.addEventListener("click", async () => {
+    confirm.innerHTML = "<span>Archiving…</span>";
+    const result = await postJson("/api/article/archive", { id, destination: dest, confirmArchive: true, confirmRemote: state?.remote?.isRemote === true });
+    show(result);
+    if (result.ok) {
+      amSetSaveStatus("Article archived", true);
+      await amLoadList();
+    } else {
+      confirm.innerHTML = `<span class="am-status-error">Error: ${escapeHtml(result.error || "failed")}</span>`;
+    }
+  });
+}
+
+function amConfirmDeleteDraft(btn) {
+  const draftId = btn.dataset.amDeleteDraft;
+  const dest = btn.dataset.dest;
+  const row = btn.closest(".am-article-row");
+  if (!row) return;
+  const existing = row.querySelector(".am-inline-confirm");
+  if (existing) { existing.remove(); return; }
+  const confirm = document.createElement("div");
+  confirm.className = "am-inline-confirm";
+  confirm.innerHTML = `<span>Delete this draft permanently?</span>
+    <button type="button" class="am-confirm-yes">Delete</button>
+    <button type="button" class="am-confirm-cancel">Cancel</button>`;
+  row.querySelector(".am-row-actions")?.appendChild(confirm);
+  confirm.querySelector(".am-confirm-cancel")?.addEventListener("click", () => confirm.remove());
+  confirm.querySelector(".am-confirm-yes")?.addEventListener("click", async () => {
+    confirm.innerHTML = "<span>Deleting…</span>";
+    const result = await postJson("/api/article/delete-draft", { draftId, destination: dest, confirmDelete: true });
+    show(result);
+    if (result.ok) {
+      amSetSaveStatus("Draft deleted", true);
+      await amLoadList();
+    } else {
+      confirm.innerHTML = `<span class="am-status-error">Error: ${escapeHtml(result.error || "failed")}</span>`;
+    }
+  });
+}
+
+initArticleManager();
 
 async function imagePayload(file, metadata = {}) {
   if (!file) return null;
