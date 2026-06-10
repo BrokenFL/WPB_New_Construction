@@ -85,6 +85,10 @@
     "editor:sync": "node research/scripts/sync-editor-overrides.mjs",
     "brooke:builder": "node tools/content-studio/server.mjs",
     "content:studio": "node tools/content-studio/server.mjs",
+    "article:preview": "node research/scripts/article-publish-cli.mjs --preview",
+    "article:stage": "node research/scripts/article-publish-cli.mjs --stage",
+    "article:publish": "node research/scripts/article-publish-cli.mjs --publish",
+    "article:ship": "node research/scripts/article-publish-cli.mjs --publish --ship",
     "test": "npm run qa:launch:no-write && npm run qa:gatekeeper",
     "lint": "node research/scripts/lint-public-surface.mjs",
     "check:updates": "node research/scripts/check-imported-updates.mjs"

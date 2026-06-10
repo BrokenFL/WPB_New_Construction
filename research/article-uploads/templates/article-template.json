@@ -1,0 +1,40 @@
+{
+  "destination": "news",
+  "title": "",
+  "deck": "",
+  "slug": "",
+  "sections": [
+    {
+      "heading": "What happened",
+      "body": ""
+    }
+  ],
+  "body": "",
+  "sourceName": "",
+  "sourceUrl": "",
+  "sourceLinks": [
+    {
+      "label": "",
+      "url": "",
+      "type": ""
+    }
+  ],
+  "relatedProjectIds": [],
+  "relatedCorridorIds": [],
+  "heroImage": {
+    "file": "",
+    "alt": "",
+    "caption": "",
+    "credit": ""
+  },
+  "bodyImages": [
+    {
+      "key": "image1",
+      "file": "",
+      "alt": "",
+      "caption": "",
+      "credit": ""
+    }
+  ],
+  "commitMessage": ""
+}

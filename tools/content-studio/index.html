@@ -419,6 +419,14 @@
                     <option value="downtown">Downtown Spotlight</option>
                   </select>
                 </label>
+                <label>Workflow mode
+                  <select name="mode">
+                    <option value="preview">Preview</option>
+                    <option value="stage" selected>Stage</option>
+                    <option value="publish">Publish</option>
+                    <option value="ship">Ship</option>
+                  </select>
+                </label>
                 <label>Category
                   <select name="category">
                     <option value="general">General</option>
@@ -433,9 +441,16 @@
                   </select>
                 </label>
               </div>
+              <label>Slug<input name="slug" placeholder="custom-route-slug" /></label>
               <label>Headline<input name="title" required placeholder="What changed, in plain English" /></label>
               <label>Short summary<textarea name="deck" required placeholder="Two or three sentences that explain why this matters to buyers."></textarea></label>
-              <label>Article body<textarea name="body" required class="article-body-input" placeholder="Use blank lines between sections. If the first line of a section is short, it becomes that section heading."></textarea></label>
+              <label>Sections JSON<textarea name="sections" class="article-body-input" placeholder='[{"heading":"What happened","body":"...","imageKey":"image1"}]'></textarea></label>
+              <label>Article body<textarea name="body" class="article-body-input" placeholder="Use blank lines between sections. If the first line of a section is short, it becomes that section heading."></textarea></label>
+              <div class="placeholder-toolbar">
+                <button type="button" data-insert-placeholder="image1">Insert `[[image:image1]]`</button>
+                <button type="button" data-insert-placeholder="image2">Insert `[[image:image2]]`</button>
+                <button type="button" data-insert-placeholder="map">Insert `[[image:map]]`</button>
+              </div>
               <div class="grid">
                 <label>Related projects<input name="relatedProjectIds" placeholder="nora-house, mr-c" /></label>
                 <label>Related corridors<input name="relatedCorridorIds" placeholder="downtown, north-flagler" /></label>
@@ -448,17 +463,47 @@
               <label>Source published date<input name="sourcePublishedDate" type="date" /></label>
               <label>Why it matters<textarea name="whyItMatters" placeholder="Optional. Used mostly for News Updates."></textarea></label>
               <label>Buyer context<textarea name="buyerContext" placeholder="Optional. Used mostly for News Updates."></textarea></label>
+              <label>Commit message<input name="commitMessage" placeholder="Publish article: West Palm update" /></label>
             </section>
             <section>
               <h2>Photos</h2>
               <label>Header photo<input name="heroImage" type="file" accept="image/*" /></label>
+              <div class="grid">
+                <label>Header alt<input name="heroAlt" placeholder="Describe the hero image" /></label>
+                <label>Header credit<input name="heroCredit" placeholder="Photo credit" /></label>
+              </div>
+              <label>Header caption<textarea name="heroCaption" placeholder="Optional caption shown under the hero image."></textarea></label>
               <label>Body photo 1<input name="bodyImage1" type="file" accept="image/*" /></label>
+              <div class="grid">
+                <label>Body photo 1 key<input name="bodyImage1Key" placeholder="image1" /></label>
+                <label>Body photo 1 alt<input name="bodyImage1Alt" placeholder="Describe this image" /></label>
+              </div>
+              <label>Body photo 1 caption<textarea name="bodyImage1Caption" placeholder="Optional caption."></textarea></label>
+              <label>Body photo 1 credit<input name="bodyImage1Credit" placeholder="Photo credit" /></label>
               <label>Body photo 2<input name="bodyImage2" type="file" accept="image/*" /></label>
+              <div class="grid">
+                <label>Body photo 2 key<input name="bodyImage2Key" placeholder="image2" /></label>
+                <label>Body photo 2 alt<input name="bodyImage2Alt" placeholder="Describe this image" /></label>
+              </div>
+              <label>Body photo 2 caption<textarea name="bodyImage2Caption" placeholder="Optional caption."></textarea></label>
+              <label>Body photo 2 credit<input name="bodyImage2Credit" placeholder="Photo credit" /></label>
               <label>Body photo 3<input name="bodyImage3" type="file" accept="image/*" /></label>
+              <div class="grid">
+                <label>Body photo 3 key<input name="bodyImage3Key" placeholder="map" /></label>
+                <label>Body photo 3 alt<input name="bodyImage3Alt" placeholder="Describe this image" /></label>
+              </div>
+              <label>Body photo 3 caption<textarea name="bodyImage3Caption" placeholder="Optional caption."></textarea></label>
+              <label>Body photo 3 credit<input name="bodyImage3Credit" placeholder="Photo credit" /></label>
               <p class="muted">Photos are optimized into site-safe editorial images before publishing.</p>
-              <label class="checkbox-row"><input name="confirmPublish" type="checkbox" /> Publish this article: run QA, commit, push, deploy, and live check.</label>
+              <label class="checkbox-row"><input name="confirmPublish" type="checkbox" /> Publish this article: run QA, commit, and push.</label>
+              <label class="checkbox-row"><input name="confirmDeploy" type="checkbox" /> Ship this article live after publish.</label>
               <label class="checkbox-row"><input name="confirmRemote" type="checkbox" /> Remote mode only: I understand publishing is final.</label>
-              <button class="primary publish-button" type="submit">Publish Article</button>
+              <div class="workflow-buttons">
+                <button class="primary publish-button" type="submit" data-submit-mode="stage">Stage Article</button>
+                <button class="publish-button" type="submit" data-submit-mode="preview">Preview</button>
+                <button class="publish-button" type="submit" data-submit-mode="publish">Publish</button>
+                <button class="publish-button" type="submit" data-submit-mode="ship">Ship</button>
+              </div>
             </section>
           </div>
         </form>

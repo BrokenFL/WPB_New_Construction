@@ -381,6 +381,31 @@ function renderHomepageOverrideImage(override: HomepageCardOverride, fallbackTit
   `;
 }
 
+function articleBodySections(item: ExternalNewsItem) {
+  const sourceSections = (item.bodySections ?? []) as Array<{ heading?: string; body?: string; image?: string; imageId?: string; imageKey?: string }>;
+  return sourceSections.map((section, index) => ({
+    heading: section.heading || `Section ${index + 1}`,
+    body: section.body || "",
+    image: section.image || "",
+    imageId: section.imageId || "",
+    imageKey: section.imageKey || "",
+  }));
+}
+
+function renderNewsArticleSection(section: { heading: string; body: string; image?: string; imageId?: string; imageKey?: string }) {
+  const bodyHtml = renderNewsArticleBody(section.body, section.image || section.imageId || section.imageKey);
+  return `<section><h3>${publicText(section.heading)}</h3>${bodyHtml}</section>`;
+}
+
+function renderNewsArticleBody(body: string, imagePath?: string) {
+  const paragraphs = String(body ?? "").split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
+  return paragraphs.map((paragraph) => `<p>${renderNewsParagraph(paragraph, imagePath)}</p>`).join("");
+}
+
+function renderNewsParagraph(paragraph: string, imagePath?: string) {
+  return escapeHtml(paragraph).replace(/\[\[image:([a-zA-Z0-9_-]+)\]\]/g, () => imagePath ? inlineImg(imagePath) : "");
+}
+
 function imageStyle(override?: HomepageCardOverride) {
   const position = override?.imagePosition || (override?.focalPoint ? `${override.focalPoint.x ?? 50}% ${override.focalPoint.y ?? 50}%` : "");
   const fit = override?.objectFit && ["cover", "contain"].includes(override.objectFit) ? override.objectFit : "";
@@ -7076,9 +7101,14 @@ function updateArticleContent(item: ExternalNewsItem) {
   const relatedProjectNames = relatedProjects.map((project) => project.name).join(", ");
   const relatedLabel = relatedProjectNames || relatedNewsLabel(item).replace(/^Related:\s*/i, "");
   const deck = item.deck || item.description || `${item.sourceName} reported a West Palm Beach development update tied to ${relatedLabel}.`;
-  const bodyStory = item.bodySections?.map((section) => `${section.heading}: ${section.body}`) ?? [];
+  const bodySections = articleBodySections(item);
+  const baseStory = bodySections.length
+    ? bodySections.map((section) => section.body).filter(Boolean)
+    : item.story?.length
+      ? item.story
+      : [deck];
   const story = [
-    ...(item.story?.length ? item.story : bodyStory.length ? bodyStory : [deck]),
+    ...baseStory,
     relatedProjects.length
       ? `Verify next: availability, views, residence lines, timing, and buyer packet for ${relatedProjectNames}.`
       : "Verify next: project status, corridor momentum, timing, and released buyer materials.",
@@ -7087,6 +7117,7 @@ function updateArticleContent(item: ExternalNewsItem) {
     deck,
     excerpt: item.summary || deck,
     story,
+    bodySections,
     whyItMatters: item.whyItMatters || (relatedProjects.length
         ? `A public update can change how ${relatedProjectNames} should be compared, but it does not replace current pricing, availability, floorplan, and contract verification.`
         : "A public update can change corridor context, but it does not replace current pricing, availability, floorplan, and contract verification."),
@@ -7130,9 +7161,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
         <div class="market-note-sections">
           <section>
             <h2>The story</h2>
-            ${content.story.map((paragraph, index) => {
-              return `<p>${publicText(paragraph)}</p>${inlineImg(item.bodySections?.[index]?.image)}`;
-            }).join("")}
+            ${content.bodySections.length ? content.bodySections.map((section) => renderNewsArticleSection(section)).join("") : content.story.map((paragraph) => `<p>${publicText(paragraph)}</p>`).join("")}
           </section>
           <section>
             <h2>Why it matters</h2>

@@ -394,11 +394,17 @@ async function saveNewsDraft(request, response) {
 async function publishManualArticle(request, response) {
   const body = await readJson(request, 60 * 1024 * 1024);
   const remote = remoteContext(request);
+  const mode = clean(body.mode || body.workflowMode || body.publishMode || "stage");
   if (remote.isRemote && body.confirmRemote !== true) {
     return sendJson(response, { ok: false, error: "Remote Builder Mode requires the remote confirmation checkbox before publishing." }, 400);
   }
-  if (body.confirmPublish !== true) {
-    return sendJson(response, { ok: false, error: "Check the publish confirmation box before running commit, push, and deploy." }, 400);
+  if (mode === "publish" || mode === "ship") {
+    if (body.confirmPublish !== true) {
+      return sendJson(response, { ok: false, error: "Check the publish confirmation box before running commit, push, and deploy." }, 400);
+    }
+  }
+  if (mode === "ship" && body.confirmDeploy !== true) {
+    return sendJson(response, { ok: false, error: "Check the deploy confirmation box before shipping live." }, 400);
   }
   const dirty = await run("git", ["status", "--short"]);
   if (dirty.stdout.trim()) {
@@ -408,24 +414,22 @@ async function publishManualArticle(request, response) {
   await fs.mkdir(inputDir, { recursive: true });
   const inputPath = path.join(inputDir, `article-${Date.now()}.json`);
   await fs.writeFile(inputPath, `${JSON.stringify(body, null, 2)}\n`);
-  const result = await run("node", ["research/scripts/manual-article-publisher.mjs", "--input", path.relative(workspace, inputPath), "--ship"]);
-  await logChange(result.code === 0 ? "manual-article-published" : "manual-article-failed", {
+  const args = ["research/scripts/article-publish-cli.mjs", "--input", path.relative(workspace, inputPath)];
+  if (mode === "preview") args.push("--preview");
+  else if (mode === "stage") args.push("--stage");
+  else if (mode === "publish") args.push("--publish");
+  else if (mode === "ship") args.push("--publish", "--ship");
+  const result = await run("node", args);
+  await logChange(result.code === 0 ? "article-published" : "article-publish-failed", {
     destination: body.destination,
     title: body.title,
     code: result.code,
   });
-  let parsed = null;
-  const jsonStart = result.stdout.lastIndexOf("{\n");
-  if (jsonStart >= 0) {
-    try {
-      parsed = JSON.parse(result.stdout.slice(jsonStart));
-    } catch {
-      parsed = null;
-    }
-  }
+  const parsed = parseTrailingJson(result.stdout);
   return sendJson(response, {
     ok: result.code === 0,
     result: parsed,
+    warnings: parsed?.warnings ?? [],
     stdout: result.stdout.slice(-12000),
     stderr: result.stderr.slice(-12000),
     changedFiles: await changedFiles(),
@@ -483,6 +487,22 @@ async function runWorkflow(request, response) {
   }
   await logChange("workflow", { workflow, commands: results.length });
   return sendJson(response, { ok: true, workflow, results, changedFiles: await changedFiles(), nextStep: nextStepForWorkflow(workflow) });
+}
+
+function parseTrailingJson(stdout) {
+  const text = String(stdout || "").trimEnd();
+  if (!text) return null;
+  const end = text.lastIndexOf("}");
+  if (end === -1) return null;
+  for (let start = text.lastIndexOf("{", end); start >= 0; start = text.lastIndexOf("{", start - 1)) {
+    const candidate = text.slice(start, end + 1);
+    try {
+      return JSON.parse(candidate);
+    } catch {
+      continue;
+    }
+  }
+  return null;
 }
 
 async function syncLegacyProjectOverrides(overrides) {
