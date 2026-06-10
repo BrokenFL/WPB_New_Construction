@@ -1,47 +1,7 @@
 {
-  "generatedAt": "2026-06-08T16:58:27.168Z",
+  "generatedAt": "2026-06-10T04:18:42.444Z",
   "updatePolicy": "Buyer-facing development news feed refreshed from reviewed public material. Publish after human review of titles, facts, and source links.",
   "items": [
-    {
-      "id": "pine-crest-west-palm-beach-campus",
-      "title": "Pine Crest’s West Palm Beach campus adds another family-infrastructure signal",
-      "summary": "Pine Crest School’s planned West Palm Beach campus strengthens the city’s shift from seasonal luxury market to full-time executive family destination.",
-      "category": "Education",
-      "datePublished": "2026-06-03",
-      "dateModified": "2026-06-08",
-      "projectIds": [
-        "south-flagler-house",
-        "la-clara",
-        "forte",
-        "mr-c",
-        "nora-house"
-      ],
-      "sourceName": "Palm Beach Post and Pine Crest School",
-      "sourceUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/03/south-floridas-pine-crest-private-school-will-open-a-west-palm-campus/90391865007/",
-      "sourceLinks": [
-        {
-          "label": "Palm Beach Post Pine Crest West Palm Beach campus coverage",
-          "href": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/03/south-floridas-pine-crest-private-school-will-open-a-west-palm-campus/90391865007/",
-          "sourceType": "local news coverage"
-        },
-        {
-          "label": "Pine Crest Growing Together announcement",
-          "href": "https://www.pinecrest.edu/growing-together",
-          "sourceType": "official school announcement"
-        }
-      ],
-      "rewrittenSummary": "For West Palm Beach buyers, Pine Crest’s planned campus is not just school news. It is another sign that the city is building the full-time infrastructure needed to support relocating families, executives, and long-term residential demand.",
-      "image": {
-        "path": "/assets/editorial/pine-crest-west-palm-beach-campus-hero.jpg",
-        "sourceUrl": "/assets/editorial/pine-crest-west-palm-beach-campus-hero.jpg",
-        "credit": "AI-generated editorial aerial inspired by West Palm Beach growth corridor imagery"
-      },
-      "citations": [
-        "Pine Crest announced plans for a West Palm Beach campus in June 2026, supported by a philanthropic commitment from the Stephen M. Ross Foundation.",
-        "Public details such as exact location, grade levels, admissions timing, and opening date have not yet been finalized."
-      ],
-      "status": "Reviewed"
-    },
     {
       "id": "mandarin-oriental-interiors-revealed",
       "title": "Mandarin Oriental interiors move the North Flagler comparison beyond skyline renderings",
