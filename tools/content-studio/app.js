@@ -1119,6 +1119,7 @@ function initArticleManager() {
   // Action buttons
   document.querySelector("#amSaveDraftBtn")?.addEventListener("click", () => amSaveDraft());
   document.querySelector("#amPreviewBtn")?.addEventListener("click", () => amPublish("preview"));
+  document.querySelector("#amPreviewInSiteBtn")?.addEventListener("click", () => amPreviewInSite());
   document.querySelector("#amStageBtn")?.addEventListener("click", () => amPublish("stage"));
   document.querySelector("#amPublishBtn")?.addEventListener("click", () => amPublish("publish"));
   document.querySelector("#amShipBtn")?.addEventListener("click", () => amPublish("ship"));
@@ -1486,6 +1487,21 @@ async function amSaveDraft() {
     amSetSaveStatus(`Save failed: ${result.error || "unknown error"}`, false);
   }
   show(result);
+}
+
+async function amPreviewInSite() {
+  const payload = await amBuildPayload();
+  if (!payload) return;
+  if (!payload.title) { amSetSaveStatus("Title is required for Preview in Site.", false); return; }
+  amSetSaveStatus("Creating site preview…", null);
+  const result = await postJson("/api/article/site-preview", payload);
+  if (result.ok && result.previewUrl) {
+    amSetSaveStatus("Preview in Site opened. Vite dev server must be running (npm run dev).", true);
+    window.open(result.previewUrl, "_blank");
+  } else {
+    amSetSaveStatus(`Preview in Site failed: ${result.error || "see result panel"}`, false);
+    show(result);
+  }
 }
 
 async function amPublish(mode) {

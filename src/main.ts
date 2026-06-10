@@ -4290,7 +4290,11 @@ function applyRoute() {
     view.hidden = !isActive;
   });
   syncMarketNoteDetail(activeMarketNote);
-  syncNewsDetail(activeNewsItem);
+  if (import.meta.env.DEV && route.type === "news-detail" && route.articleId === "__preview__") {
+    void syncNewsPreviewDraft();
+  } else {
+    syncNewsDetail(activeNewsItem);
+  }
   initNewsArchive();
   initFloorplanViewer();
 
@@ -7050,6 +7054,38 @@ function syncNewsDetail(item?: ExternalNewsItem) {
       sourceName: item.sourceName,
     });
   }
+}
+
+async function syncNewsPreviewDraft() {
+  if (!import.meta.env.DEV) return;
+  const detailView = document.querySelector<HTMLElement>('[data-route-view="news-detail"]');
+  if (!detailView) return;
+  const previewId = new URLSearchParams(window.location.search).get("previewId") ?? "";
+  if (!previewId) {
+    detailView.innerHTML = renderDevPreviewMessage("No previewId in URL. Click 'Preview in Site' in Article Manager to open a valid preview.");
+    return;
+  }
+  detailView.innerHTML = `<div class="section"><p class="muted">Loading preview\u2026</p></div>`;
+  try {
+    const res = await fetch(`http://127.0.0.1:8787/api/article/site-preview?id=${encodeURIComponent(previewId)}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json() as { ok: boolean; item?: ExternalNewsItem };
+    if (data.ok && data.item) {
+      detailView.innerHTML = renderUpdateArticle(data.item);
+    } else {
+      detailView.innerHTML = renderDevPreviewMessage("Preview not found. Click 'Preview in Site' in Article Manager again.");
+    }
+  } catch {
+    detailView.innerHTML = renderDevPreviewMessage("Could not reach the preview server on port 8787. Make sure npm run content:studio is running, then click 'Preview in Site' again.");
+  }
+}
+
+function renderDevPreviewMessage(message: string) {
+  return `
+    <div class="section">
+      <p class="market-note-dek">[Dev preview] ${escapeHtml(message)}</p>
+    </div>
+  `;
 }
 
 function initNewsArchive() {

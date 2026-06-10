@@ -15,6 +15,7 @@ const port = Number(process.env.WPB_CONTENT_STUDIO_PORT ?? 8787);
 const launchAgentRoot = path.join(process.env.HOME ?? "", "Library/LaunchAgents");
 const articleDraftsRoot = path.join(workspace, ".runtime", "article-drafts");
 const articlePreviewLogPath = path.join(workspace, ".runtime", "article-preview-log.json");
+const articleSitePreviewsRoot = path.join(workspace, ".runtime", "article-site-previews");
 const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
 const remoteHostnames = ["builder.wpbnewconstruction.com", "brooke-builder.wpbnewconstruction.com"];
 const reportDefinitions = [
@@ -91,6 +92,8 @@ async function main() {
       if (request.method === "POST" && url.pathname === "/api/article/delete-draft") return deleteArticleDraft(request, response);
       if (request.method === "POST" && url.pathname === "/api/article/preview") return previewArticle(request, response);
       if (request.method === "POST" && url.pathname === "/api/article/publish") return publishManualArticle(request, response);
+      if (request.method === "POST" && url.pathname === "/api/article/site-preview") return createSitePreview(request, response);
+      if (request.method === "GET" && url.pathname === "/api/article/site-preview") return getSitePreview(request, response, url);
       return sendText(response, "Not found", 404);
     } catch (error) {
       return sendJson(response, { ok: false, error: error.message }, 500);
@@ -579,6 +582,82 @@ async function archiveArticle(request, response) {
   await fs.writeFile(approvedNewsPath, `${JSON.stringify(newsRaw, null, 2)}\n`);
   await logChange("article-archived", { id, destination, title });
   return sendJson(response, { ok: true, id, status: "archived", changedFiles: await changedFiles() });
+}
+
+async function createSitePreview(request, response) {
+  const body = await readJson(request, 60 * 1024 * 1024);
+  const destination = clean(body.destination || "news");
+  if (destination !== "news") {
+    return sendJson(response, { ok: false, error: "Preview in Site is currently supported for News/Updates articles only." }, 400);
+  }
+  const item = normalizeArticlePreview(body);
+  if (!item.title) return sendJson(response, { ok: false, error: "Title is required for Preview in Site." }, 400);
+  const previewId = `preview-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  await fs.mkdir(articleSitePreviewsRoot, { recursive: true });
+  const previewPath = path.join(articleSitePreviewsRoot, `${previewId}.json`);
+  await fs.writeFile(previewPath, `${JSON.stringify({ previewId, createdAt: new Date().toISOString(), item }, null, 2)}\n`);
+  const previewUrl = `http://127.0.0.1:5173/updates/__preview__/?previewId=${encodeURIComponent(previewId)}`;
+  return sendJson(response, { ok: true, previewId, previewUrl });
+}
+
+async function getSitePreview(request, response, url) {
+  const rawId = clean(url.searchParams.get("id") || "");
+  const safeId = rawId.replace(/[^a-z0-9_\-]/gi, "-").slice(0, 120);
+  if (!safeId) return sendJsonCors(response, { ok: false, error: "id is required" }, 400);
+  const previewPath = path.join(articleSitePreviewsRoot, `${safeId}.json`);
+  if (!previewPath.startsWith(articleSitePreviewsRoot + path.sep)) {
+    return sendJsonCors(response, { ok: false, error: "Invalid preview id." }, 400);
+  }
+  const raw = await fs.readFile(previewPath, "utf8").catch(() => null);
+  if (!raw) return sendJsonCors(response, { ok: false, error: "Preview not found." }, 404);
+  const parsed = JSON.parse(raw);
+  return sendJsonCors(response, { ok: true, item: parsed.item });
+}
+
+function normalizeArticlePreview(body) {
+  const today = new Date().toISOString().slice(0, 10);
+  const now = new Date().toISOString();
+  const splitToArray = (value) => {
+    if (Array.isArray(value)) return value.map((v) => clean(String(v))).filter(Boolean);
+    const str = clean(String(value ?? ""));
+    return str ? str.split(",").map(clean).filter(Boolean) : [];
+  };
+  const validCategories = new Set(["development", "construction", "planning", "sales", "financing", "city", "press-release", "general"]);
+  const category = validCategories.has(clean(body.category)) ? clean(body.category) : "general";
+  const relatedProjectIds = splitToArray(body.relatedProjectIds);
+  const relatedCorridorIds = splitToArray(body.relatedCorridorIds);
+  const sourceUrl = clean(body.sourceUrl || "");
+  return {
+    id: clean(body.id || body.draftId || `preview-${Date.now()}`),
+    slug: clean(body.slug || body.id || body.draftId || "preview-draft"),
+    title: clean(body.title || ""),
+    deck: clean(body.deck || body.description || ""),
+    category,
+    sourceName: clean(body.sourceName || "Draft Preview"),
+    sourceUrl,
+    canonicalUrl: clean(body.canonicalUrl || sourceUrl),
+    publishedAt: clean(body.publishedAt || body.sourcePublishedDate || today),
+    sourcePublishedDate: clean(body.sourcePublishedDate || today),
+    sourcePublishedAt: clean(body.sourcePublishedAt || body.sourcePublishedDate || today),
+    dateDiscovered: clean(body.dateDiscovered || today),
+    fetchedAt: now,
+    freshnessLane: "breaking_14d",
+    paywallStatus: "free",
+    status: "published",
+    relatedProjectIds,
+    relatedProjectSlugs: relatedProjectIds,
+    relatedCorridorIds,
+    relatedCorridors: [],
+    bodySections: Array.isArray(body.bodySections) ? body.bodySections : [],
+    whyItMatters: clean(body.whyItMatters || ""),
+    buyerContext: clean(body.buyerContext || ""),
+    brookeTake: clean(body.brookeTake || ""),
+    newsletterBlurb: clean(body.newsletterBlurb || ""),
+    imagePath: clean(body.imagePath || ""),
+    sourceLinks: Array.isArray(body.sourceLinks) && body.sourceLinks.length
+      ? body.sourceLinks
+      : sourceUrl ? [{ label: clean(body.sourceName || "Source"), url: sourceUrl, type: "news" }] : [],
+  };
 }
 
 async function deleteArticleDraft(request, response) {
@@ -1180,6 +1259,15 @@ async function readJson(request, limit = 1024 * 1024) {
 
 function sendJson(response, payload, status = 200) {
   response.writeHead(status, { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" });
+  response.end(`${JSON.stringify(payload, null, 2)}\n`);
+}
+
+function sendJsonCors(response, payload, status = 200) {
+  response.writeHead(status, {
+    "content-type": "application/json; charset=utf-8",
+    "cache-control": "no-store",
+    "access-control-allow-origin": "http://127.0.0.1:5173",
+  });
   response.end(`${JSON.stringify(payload, null, 2)}\n`);
 }
 
