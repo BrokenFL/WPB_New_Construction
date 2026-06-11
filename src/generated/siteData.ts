@@ -5051,12 +5051,6 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
-    "path": "/updates/test-staging-2026-06-11/",
-    "title": "Test Staging | WPB Updates",
-    "description": "Test deck for staging",
-    "ogImage": "/assets/editorial/flagler-waterfront-corridor.jpg"
-  },
-  {
     "path": "/updates/frisbie-group-palm-beach-county-setbacks-investment-fund-2026-06-08/",
     "title": "Frisbie Group Hits Turbulence as Palm Beach County Ambitions Keep Growing | WPB Updates",
     "description": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",

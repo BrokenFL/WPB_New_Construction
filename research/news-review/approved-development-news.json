@@ -1,47 +1,5 @@
 [
   {
-    "id": "test-staging-2026-06-11",
-    "slug": "test-staging-2026-06-11",
-    "title": "Test Staging",
-    "sourceName": "West Palm Beach New Construction",
-    "sourceUrl": "https://www.wpbnewconstruction.com/updates/",
-    "canonicalUrl": "https://www.wpbnewconstruction.com/updates/",
-    "sourceTitle": "Test Staging",
-    "publishedAt": "2026-06-11T04:03:27.388Z",
-    "sourcePublishedAt": "2026-06-11",
-    "sourcePublishedDate": "2026-06-11",
-    "eventDate": "2026-06-11",
-    "dateDiscovered": "2026-06-11",
-    "freshnessLane": "breaking_14d",
-    "fetchedAt": "2026-06-11T04:03:27.388Z",
-    "deck": "Test deck for staging",
-    "description": "Test deck for staging",
-    "summary": "Test deck for staging",
-    "bodySections": [
-      {
-        "heading": "What happened",
-        "body": "Something happened."
-      }
-    ],
-    "whyItMatters": "",
-    "buyerContext": "",
-    "newsletterHeadline": "Test Staging",
-    "newsletterBlurb": "Test deck for staging",
-    "newsletterCta": "Read the article",
-    "query": "Test Staging",
-    "category": "general",
-    "relatedProjectIds": [],
-    "relatedCorridorIds": [],
-    "relatedProjectSlugs": [],
-    "relatedCorridors": [],
-    "corridorLabel": "West Palm Beach",
-    "imagePath": "/assets/editorial/flagler-waterfront-corridor.jpg",
-    "sourceLinks": [],
-    "paywallStatus": "free",
-    "status": "published",
-    "riskLevel": "medium"
-  },
-  {
     "id": "frisbie-group-palm-beach-county-setbacks-investment-fund-2026-06-08",
     "slug": "frisbie-group-palm-beach-county-setbacks-investment-fund-2026-06-08",
     "title": "Frisbie Group Hits Turbulence as Palm Beach County Ambitions Keep Growing",
