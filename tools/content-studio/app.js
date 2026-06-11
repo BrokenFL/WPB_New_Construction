@@ -1076,6 +1076,8 @@ let amArticles = [];
 let amCurrentDraftId = null;
 let amCurrentSourceId = null;
 let amCurrentSource = null;
+let amCurrentHeroImage = null;
+let amCurrentImagePath = "";
 
 function initArticleManager() {
   // Tab switching
@@ -1264,6 +1266,8 @@ function amResetEditor() {
   document.querySelector("#amHeroThumb").hidden = true;
   document.querySelector("#amHeroNone").hidden = false;
   document.querySelector("#amSectionsContainer").innerHTML = "";
+  amCurrentHeroImage = null;
+  amCurrentImagePath = "";
   amSetSaveStatus("", null);
 }
 
@@ -1296,14 +1300,22 @@ function amPopulateEditor(article, source) {
   // Hero image thumbnail
   const thumb = document.querySelector("#amHeroThumb");
   const none = document.querySelector("#amHeroNone");
-  if (article.imagePath) {
+  if (article.heroImage?.dataUrl) {
+    thumb.src = article.heroImage.dataUrl;
+    thumb.hidden = false;
+    if (none) none.hidden = true;
+    amCurrentHeroImage = article.heroImage;
+  } else if (article.imagePath) {
     thumb.src = article.imagePath;
     thumb.hidden = false;
     if (none) none.hidden = true;
+    amCurrentHeroImage = null;
   } else {
     thumb.hidden = true;
     if (none) none.hidden = false;
+    amCurrentHeroImage = null;
   }
+  amCurrentImagePath = article.imagePath || "";
 
   // Body sections
   const container = document.querySelector("#amSectionsContainer");
@@ -1439,7 +1451,14 @@ async function amBuildPayload() {
 
   // Hero image
   const heroFile = document.querySelector("#amHeroFile")?.files?.[0];
-  payload.heroImage = await imagePayload(heroFile, { key: "hero", alt: payload.heroAlt, caption: payload.heroCaption, credit: payload.heroCredit });
+  if (heroFile) {
+    payload.heroImage = await imagePayload(heroFile, { key: "hero", alt: payload.heroAlt, caption: payload.heroCaption, credit: payload.heroCredit });
+    amCurrentHeroImage = payload.heroImage;
+  } else if (amCurrentHeroImage) {
+    payload.heroImage = amCurrentHeroImage;
+  } else if (amCurrentImagePath) {
+    payload.imagePath = amCurrentImagePath;
+  }
 
   // Body sections + body images
   const sectionBlocks = document.querySelectorAll("#amSectionsContainer .am-section-block");
