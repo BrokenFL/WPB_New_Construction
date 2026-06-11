@@ -80,13 +80,13 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "eventDate": "2026-06-10",
     "dateDiscovered": "2026-06-10",
     "freshnessLane": "breaking_14d",
-    "fetchedAt": "2026-06-11T02:50:42.023Z",
+    "fetchedAt": "2026-06-11T04:14:46.168Z",
     "deck": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",
     "description": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",
     "summary": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",
     "bodySections": [
       {
-        "heading": "A rare public stumble for a powerful Palm Beach name",
+        "heading": "A rare public stumble for a powerful Palm Beach Name",
         "body": "Frisbie Group has spent years building a reputation as one of Palm Beach County’s most influential private real estate families. But the latest reporting from The Real Deal shows a more complicated moment for the firm: ambitious projects, public pushback, and a market where even well-capitalized local players do not automatically get a green light.\n\nThe headline is not that Frisbie Group is slowing down. It is that the firm is moving into bigger, more public-facing projects — and those projects are running into the kind of civic resistance that now defines much of South Florida development."
       },
       {
