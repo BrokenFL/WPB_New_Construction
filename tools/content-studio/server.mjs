@@ -580,7 +580,7 @@ async function saveArticleDraft(request, response) {
 }
 
 async function validateImportPackage(request, response) {
-  const body = await readJson(request, 60 * 1024 * 1024);
+  const body = await readJson(request, 2 * 1024 * 1024);
   const pkg = body.package || {};
   const images = body.images || {};
   const errors = [];
@@ -597,9 +597,9 @@ async function validateImportPackage(request, response) {
   if (!clean(pkg.summary)) warnings.push("summary is missing.");
   if (!clean(pkg.description)) warnings.push("description is missing.");
 
-  // Hero image check
+  // Hero image check (metadata presence, not dataUrl)
   const heroKey = clean(pkg.heroImage?.uploadKey || "hero");
-  if (pkg.heroImage && !images[heroKey]?.dataUrl) {
+  if (pkg.heroImage && !images[heroKey]) {
     warnings.push(`heroImage.uploadKey "${heroKey}" does not match an uploaded image.`);
   }
 
@@ -612,9 +612,17 @@ async function validateImportPackage(request, response) {
       const placementId = clean(img?.placementId);
       if (uploadKey) imageUploadKeys.add(uploadKey);
       if (placementId) placementIds.add(placementId);
-      if (uploadKey && !images[uploadKey]?.dataUrl) {
+      if (uploadKey && !images[uploadKey]) {
         warnings.push(`images[].uploadKey "${uploadKey}" does not match an uploaded image.`);
       }
+    }
+  }
+
+  // Large image warnings
+  const LARGE_THRESHOLD = 5 * 1024 * 1024;
+  for (const meta of Object.values(images)) {
+    if (meta.size > LARGE_THRESHOLD) {
+      warnings.push(`Image "${meta.fileName || meta.key}" (${(meta.size / 1024 / 1024).toFixed(1)} MB) is large. It will work, but may slow draft creation.`);
     }
   }
 

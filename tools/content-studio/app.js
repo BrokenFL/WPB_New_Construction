@@ -1721,6 +1721,34 @@ function amAddInlineImageSlot() {
   container.appendChild(row);
 }
 
+function amGatherImageMetadata() {
+  const images = {};
+  const heroFile = document.querySelector("#amImportHeroFile")?.files?.[0];
+  if (heroFile) {
+    const heroKey = clean(document.querySelector("#amImportJsonText")?.value?.trim() ? JSON.parse(document.querySelector("#amImportJsonText").value.trim())?.heroImage?.uploadKey : "") || "hero";
+    images[heroKey] = { key: heroKey, fileName: heroFile.name, type: heroFile.type, size: heroFile.size };
+  }
+  const inlineInputs = document.querySelectorAll(".am-import-inline-file");
+  for (const input of inlineInputs) {
+    const file = input.files?.[0];
+    if (!file) continue;
+    const uploadKey = clean(input.dataset.uploadKey) || input.dataset.uploadKey;
+    images[uploadKey] = { key: uploadKey, fileName: file.name, type: file.type, size: file.size };
+  }
+  return images;
+}
+
+async function amBuildValidationPayload() {
+  const jsonText = document.querySelector("#amImportJsonText")?.value?.trim() || "";
+  let pkg = null;
+  try {
+    pkg = JSON.parse(jsonText);
+  } catch {
+    return { error: "Invalid JSON: could not parse." };
+  }
+  return { package: pkg, images: amGatherImageMetadata() };
+}
+
 async function amBuildImportPayload() {
   const jsonText = document.querySelector("#amImportJsonText")?.value?.trim() || "";
   let pkg = null;
@@ -1730,7 +1758,7 @@ async function amBuildImportPayload() {
     return { error: "Invalid JSON: could not parse." };
   }
 
-  // Gather uploaded images by uploadKey
+  // Gather uploaded images by uploadKey with full data URLs
   const images = {};
 
   // Hero
@@ -1785,24 +1813,69 @@ function amUpdateImportKeyTable() {
 }
 
 async function amValidateImport() {
-  amSetImportStatus("Validating…", null);
-  const payload = await amBuildImportPayload();
+  const validateBtn = document.querySelector("#amImportValidateBtn");
+  const createBtn = document.querySelector("#amImportCreateDraftBtn");
+  validateBtn.disabled = true;
+  createBtn.disabled = true;
+  amRenderValidation([], []);
+  amSetImportStatus("Validating package…", null);
+
+  const payload = await amBuildValidationPayload();
   if (payload.error) {
     amRenderValidation([payload.error], []);
     amSetImportStatus("Validation failed", false);
-    document.querySelector("#amImportCreateDraftBtn").disabled = true;
+    validateBtn.disabled = false;
     return;
   }
-  const result = await postJson("/api/article/import-package/validate", payload);
-  amRenderValidation(result.errors || [], result.warnings || []);
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+  let result;
+  try {
+    result = await fetch("/api/article/import-package/validate", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
+    }).then((r) => r.json());
+  } catch (err) {
+    if (err.name === "AbortError") {
+      amRenderValidation(["Validation timed out after 15 seconds. The server may be busy or the package is too large."], []);
+    } else {
+      amRenderValidation([`Validation request failed: ${err.message || "unknown error"}`], []);
+    }
+    amSetImportStatus("Validation failed", false);
+    validateBtn.disabled = false;
+    return;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+
+  const clientWarnings = amImageSizeWarnings(payload.images);
+  const allWarnings = [...(result.warnings || []), ...clientWarnings];
+  amRenderValidation(result.errors || [], allWarnings);
   const hasErrors = (result.errors || []).length > 0;
-  document.querySelector("#amImportCreateDraftBtn").disabled = hasErrors;
+  createBtn.disabled = hasErrors;
+  validateBtn.disabled = false;
   amSetImportStatus(hasErrors ? "Validation failed — fix errors before creating draft" : "Validation passed", !hasErrors);
+}
+
+function amImageSizeWarnings(images) {
+  const warnings = [];
+  const LARGE_THRESHOLD = 5 * 1024 * 1024; // 5 MB
+  for (const meta of Object.values(images || {})) {
+    if (meta.size > LARGE_THRESHOLD) {
+      warnings.push(`Image "${meta.fileName}" (${(meta.size / 1024 / 1024).toFixed(1)} MB) is large. It will work, but may slow draft creation.`);
+    }
+  }
+  return warnings;
 }
 
 function amRenderValidation(errors, warnings) {
   const el = document.querySelector("#amImportValidation");
   if (!el) return;
+  el.innerHTML = "";
   const items = [];
   for (const err of errors) items.push(`<li class="am-val-error">Error: ${escapeHtml(err)}</li>`);
   for (const warn of warnings) items.push(`<li class="am-val-warn">Warning: ${escapeHtml(warn)}</li>`);
