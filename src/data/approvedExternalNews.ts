@@ -80,7 +80,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "eventDate": "2026-06-10",
     "dateDiscovered": "2026-06-10",
     "freshnessLane": "breaking_14d",
-    "fetchedAt": "2026-06-10T04:19:30.173Z",
+    "fetchedAt": "2026-06-11T02:50:42.023Z",
     "deck": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",
     "description": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",
     "summary": "After a rejected Boca Raton redevelopment plan and a Palm Beach assemblage sale, Frisbie Group is navigating a tougher public-development climate — even as the family firm lines up a major South Florida investment push.",
