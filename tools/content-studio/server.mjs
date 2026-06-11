@@ -16,6 +16,7 @@ const launchAgentRoot = path.join(process.env.HOME ?? "", "Library/LaunchAgents"
 const articleDraftsRoot = path.join(workspace, ".runtime", "article-drafts");
 const articlePreviewLogPath = path.join(workspace, ".runtime", "article-preview-log.json");
 const articleSitePreviewsRoot = path.join(workspace, ".runtime", "article-site-previews");
+const articleSitePreviewAssetsRoot = path.join(articleSitePreviewsRoot, "assets");
 const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
 const remoteHostnames = ["builder.wpbnewconstruction.com", "brooke-builder.wpbnewconstruction.com"];
 const reportDefinitions = [
@@ -94,6 +95,7 @@ async function main() {
       if (request.method === "POST" && url.pathname === "/api/article/publish") return publishManualArticle(request, response);
       if (request.method === "POST" && url.pathname === "/api/article/site-preview") return createSitePreview(request, response);
       if (request.method === "GET" && url.pathname === "/api/article/site-preview") return getSitePreview(request, response, url);
+      if (request.method === "GET" && url.pathname.startsWith("/api/article/site-preview-asset/")) return serveSitePreviewAsset(request, response, url);
       return sendText(response, "Not found", 404);
     } catch (error) {
       return sendJson(response, { ok: false, error: error.message }, 500);
@@ -590,9 +592,13 @@ async function createSitePreview(request, response) {
   if (destination !== "news") {
     return sendJson(response, { ok: false, error: "Preview in Site is currently supported for News/Updates articles only." }, 400);
   }
+  const previewId = `preview-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  const assetFilename = await writePreviewHeroAsset(body, previewId);
+  if (assetFilename) {
+    body.imagePath = `http://localhost:${port}/api/article/site-preview-asset/${assetFilename}`;
+  }
   const item = normalizeArticlePreview(body);
   if (!item.title) return sendJson(response, { ok: false, error: "Title is required for Preview in Site." }, 400);
-  const previewId = `preview-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   await fs.mkdir(articleSitePreviewsRoot, { recursive: true });
   const previewPath = path.join(articleSitePreviewsRoot, `${previewId}.json`);
   await fs.writeFile(previewPath, `${JSON.stringify({ previewId, createdAt: new Date().toISOString(), item }, null, 2)}\n`);
@@ -665,6 +671,76 @@ function normalizeArticlePreview(body) {
       ? body.sourceLinks
       : sourceUrl ? [{ label: clean(body.sourceName || "Source"), url: sourceUrl, type: "news" }] : [],
   };
+}
+
+const PREVIEW_ASSET_MIME_TO_EXT = {
+  "image/jpeg": "jpg",
+  "image/png": "png",
+  "image/webp": "webp",
+  "image/gif": "gif",
+};
+
+function safePreviewAssetFilename(filename) {
+  const safe = String(filename).replace(/[^a-zA-Z0-9_.-]/g, "");
+  if (!safe || safe.includes("..") || safe.startsWith(".")) return null;
+  return safe;
+}
+
+async function writePreviewHeroAsset(body, previewId) {
+  const dataUrl = body.heroImage?.dataUrl;
+  if (!dataUrl || typeof dataUrl !== "string") return null;
+  if (!dataUrl.startsWith("data:")) return null;
+
+  const match = dataUrl.match(/^data:([^;,]+)?(?:;base64)?,(.+)$/);
+  if (!match) return null;
+
+  const mime = match[1] || "application/octet-stream";
+  if (!PREVIEW_ASSET_MIME_TO_EXT[mime]) return null;
+
+  const base64Data = match[2];
+  const buffer = Buffer.from(base64Data, "base64");
+  if (buffer.length > 10 * 1024 * 1024) return null;
+
+  const ext = PREVIEW_ASSET_MIME_TO_EXT[mime];
+  const filename = `${previewId}-hero.${ext}`;
+  await fs.mkdir(articleSitePreviewAssetsRoot, { recursive: true });
+  const filePath = path.join(articleSitePreviewAssetsRoot, filename);
+  await fs.writeFile(filePath, buffer);
+  return filename;
+}
+
+async function serveSitePreviewAsset(request, response, url) {
+  const origin = allowedPreviewOrigin(request);
+  const rawFilename = url.pathname.slice("/api/article/site-preview-asset/".length);
+  const safeFilename = safePreviewAssetFilename(rawFilename);
+  if (!safeFilename) {
+    response.writeHead(400, { "content-type": "text/plain; charset=utf-8", "access-control-allow-origin": origin });
+    return response.end("Invalid filename");
+  }
+  const filePath = path.join(articleSitePreviewAssetsRoot, safeFilename);
+  if (!filePath.startsWith(articleSitePreviewAssetsRoot + path.sep)) {
+    response.writeHead(400, { "content-type": "text/plain; charset=utf-8", "access-control-allow-origin": origin });
+    return response.end("Invalid path");
+  }
+  const buffer = await fs.readFile(filePath).catch(() => null);
+  if (!buffer) {
+    response.writeHead(404, { "content-type": "text/plain; charset=utf-8", "access-control-allow-origin": origin });
+    return response.end("Not found");
+  }
+  const ext = path.extname(safeFilename).slice(1).toLowerCase();
+  const mimeType = {
+    jpg: "image/jpeg",
+    jpeg: "image/jpeg",
+    png: "image/png",
+    webp: "image/webp",
+    gif: "image/gif",
+  }[ext] || "application/octet-stream";
+  response.writeHead(200, {
+    "content-type": mimeType,
+    "cache-control": "no-store",
+    "access-control-allow-origin": origin,
+  });
+  response.end(buffer);
 }
 
 async function deleteArticleDraft(request, response) {
