@@ -1130,6 +1130,38 @@ function initArticleManager() {
   // New Article tab: open blank editor
   document.querySelector("[data-am-tab='new']")?.addEventListener("click", () => amOpenNewEditor());
 
+  // Import Package tab
+  document.querySelector("[data-am-tab='import']")?.addEventListener("click", () => amInitImportPanel());
+  document.querySelector("#amImportBackBtn")?.addEventListener("click", () => amSetTab("list"));
+  document.querySelector("#amImportValidateBtn")?.addEventListener("click", () => amValidateImport());
+  document.querySelector("#amImportCreateDraftBtn")?.addEventListener("click", () => amCreateImportDraft());
+  document.querySelector("#amImportClearBtn")?.addEventListener("click", () => amClearImport());
+  document.querySelector("#amImportAddInlineBtn")?.addEventListener("click", () => amAddInlineImageSlot());
+  document.querySelector("#amImportJsonFile")?.addEventListener("change", async (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const text = await file.text();
+    document.querySelector("#amImportJsonText").value = text;
+    amUpdateImportKeyTable();
+  });
+  document.querySelector("#amImportHeroFile")?.addEventListener("change", async (event) => {
+    const file = event.target.files?.[0];
+    const preview = document.querySelector("#amImportHeroPreview");
+    if (!file || !preview) return;
+    preview.innerHTML = `<img src="${await fileAsDataUrl(file)}" alt="" />`;
+    preview.hidden = false;
+    amUpdateImportKeyTable();
+  });
+  document.querySelector("#amImportInlineImages")?.addEventListener("change", async (event) => {
+    if (!event.target.classList.contains("am-import-inline-file")) return;
+    const file = event.target.files?.[0];
+    const preview = event.target.closest(".am-import-inline-row")?.querySelector(".am-import-inline-preview");
+    if (!file || !preview) return;
+    preview.innerHTML = `<img src="${await fileAsDataUrl(file)}" alt="" />`;
+    preview.hidden = false;
+    amUpdateImportKeyTable();
+  });
+
   // Activate list when article tab is first opened
   document.querySelector("[data-tab='article']")?.addEventListener("click", () => {
     if (amArticles.length === 0) amLoadList();
@@ -1140,7 +1172,7 @@ function amSetTab(tabName) {
   document.querySelectorAll(".am-tab").forEach((btn) => {
     btn.classList.toggle("am-tab-active", btn.dataset.amTab === tabName);
   });
-  const views = { list: "#amListView", new: "#amEditorView", edit: "#amEditorView", media: "#amMediaView" };
+  const views = { list: "#amListView", new: "#amEditorView", edit: "#amEditorView", import: "#amImportView", media: "#amMediaView" };
   document.querySelectorAll(".am-view").forEach((view) => {
     view.classList.remove("am-view-active");
   });
@@ -1667,6 +1699,168 @@ function amConfirmDeleteDraft(btn) {
 }
 
 initArticleManager();
+
+// ─── Import Article Package ────────────────────────────────────────────────
+
+function amInitImportPanel() {
+  amSetImportStatus("", null);
+}
+
+function amAddInlineImageSlot() {
+  const container = document.querySelector("#amImportInlineImages");
+  if (!container) return;
+  const index = container.children.length + 1;
+  const row = document.createElement("div");
+  row.className = "am-import-inline-row";
+  row.innerHTML = `
+    <label>Inline image ${index}
+      <input class="am-import-inline-file" type="file" accept="image/*" data-upload-key="image_${index}" />
+    </label>
+    <div class="am-import-inline-preview" hidden></div>
+  `;
+  container.appendChild(row);
+}
+
+async function amBuildImportPayload() {
+  const jsonText = document.querySelector("#amImportJsonText")?.value?.trim() || "";
+  let pkg = null;
+  try {
+    pkg = JSON.parse(jsonText);
+  } catch {
+    return { error: "Invalid JSON: could not parse." };
+  }
+
+  // Gather uploaded images by uploadKey
+  const images = {};
+
+  // Hero
+  const heroFile = document.querySelector("#amImportHeroFile")?.files?.[0];
+  if (heroFile) {
+    const heroKey = clean(pkg?.heroImage?.uploadKey) || "hero";
+    images[heroKey] = await imagePayload(heroFile, { key: heroKey });
+  }
+
+  // Inline images
+  const inlineInputs = document.querySelectorAll(".am-import-inline-file");
+  for (const input of inlineInputs) {
+    const file = input.files?.[0];
+    if (!file) continue;
+    const uploadKey = clean(input.dataset.uploadKey) || input.dataset.uploadKey;
+    images[uploadKey] = await imagePayload(file, { key: uploadKey });
+  }
+
+  return { package: pkg, images };
+}
+
+function amUpdateImportKeyTable() {
+  const tbody = document.querySelector("#amImportKeyTable");
+  if (!tbody) return;
+  const heroFile = document.querySelector("#amImportHeroFile")?.files?.[0];
+  const rows = [];
+
+  // Hero
+  rows.push(`
+    <tr>
+      <td>hero</td>
+      <td>${heroFile ? escapeHtml(heroFile.name) : "—"}</td>
+      <td class="${heroFile ? "am-key-ready" : "am-key-missing"}">${heroFile ? "Ready" : "Missing"}</td>
+    </tr>
+  `);
+
+  // Inline
+  const inlineInputs = document.querySelectorAll(".am-import-inline-file");
+  for (const input of inlineInputs) {
+    const file = input.files?.[0];
+    const key = input.dataset.uploadKey;
+    rows.push(`
+      <tr>
+        <td>${escapeHtml(key)}</td>
+        <td>${file ? escapeHtml(file.name) : "—"}</td>
+        <td class="${file ? "am-key-ready" : "am-key-missing"}">${file ? "Ready" : "Missing"}</td>
+      </tr>
+    `);
+  }
+
+  tbody.innerHTML = rows.join("");
+}
+
+async function amValidateImport() {
+  amSetImportStatus("Validating…", null);
+  const payload = await amBuildImportPayload();
+  if (payload.error) {
+    amRenderValidation([payload.error], []);
+    amSetImportStatus("Validation failed", false);
+    document.querySelector("#amImportCreateDraftBtn").disabled = true;
+    return;
+  }
+  const result = await postJson("/api/article/import-package/validate", payload);
+  amRenderValidation(result.errors || [], result.warnings || []);
+  const hasErrors = (result.errors || []).length > 0;
+  document.querySelector("#amImportCreateDraftBtn").disabled = hasErrors;
+  amSetImportStatus(hasErrors ? "Validation failed — fix errors before creating draft" : "Validation passed", !hasErrors);
+}
+
+function amRenderValidation(errors, warnings) {
+  const el = document.querySelector("#amImportValidation");
+  if (!el) return;
+  const items = [];
+  for (const err of errors) items.push(`<li class="am-val-error">Error: ${escapeHtml(err)}</li>`);
+  for (const warn of warnings) items.push(`<li class="am-val-warn">Warning: ${escapeHtml(warn)}</li>`);
+  if (items.length === 0) items.push(`<li class="am-val-ok">No issues found.</li>`);
+  el.innerHTML = `<ul>${items.join("")}</ul>`;
+}
+
+async function amCreateImportDraft() {
+  amSetImportStatus("Creating draft…", null);
+  const payload = await amBuildImportPayload();
+  if (payload.error) {
+    amSetImportStatus(`Failed: ${payload.error}`, false);
+    return;
+  }
+  const result = await postJson("/api/article/import-package/create-draft", payload);
+  show(result);
+  if (!result.ok) {
+    amSetImportStatus(`Draft creation failed: ${result.error || "unknown error"}`, false);
+    return;
+  }
+
+  // Open the new draft in the editor
+  amSetImportStatus("Draft created. Opening editor…", true);
+  await amOpenEditor({ id: result.draftId, destination: result.destination, draftId: result.draftId });
+}
+
+function amClearImport() {
+  document.querySelector("#amImportJsonText").value = "";
+  document.querySelector("#amImportJsonFile").value = "";
+  document.querySelector("#amImportHeroFile").value = "";
+  document.querySelector("#amImportHeroPreview").innerHTML = "";
+  document.querySelector("#amImportHeroPreview").hidden = true;
+  document.querySelector("#amImportInlineImages").innerHTML = `
+    <div class="am-import-inline-row">
+      <label>Inline image 1
+        <input class="am-import-inline-file" type="file" accept="image/*" data-upload-key="image_1" />
+      </label>
+      <div class="am-import-inline-preview" hidden></div>
+    </div>
+    <div class="am-import-inline-row">
+      <label>Inline image 2
+        <input class="am-import-inline-file" type="file" accept="image/*" data-upload-key="image_2" />
+      </label>
+      <div class="am-import-inline-preview" hidden></div>
+    </div>
+  `;
+  document.querySelector("#amImportValidation").innerHTML = "";
+  document.querySelector("#amImportCreateDraftBtn").disabled = true;
+  amUpdateImportKeyTable();
+  amSetImportStatus("", null);
+}
+
+function amSetImportStatus(message, ok) {
+  const el = document.querySelector("#amImportStatus");
+  if (!el) return;
+  el.textContent = message;
+  el.className = "am-save-status" + (ok === true ? " am-status-ok" : ok === false ? " am-status-error" : "");
+}
 
 async function imagePayload(file, metadata = {}) {
   if (!file) return null;

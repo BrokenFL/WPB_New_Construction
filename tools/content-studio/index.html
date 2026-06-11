@@ -412,6 +412,7 @@
             <button class="am-tab am-tab-active" data-am-tab="list" type="button">All Articles</button>
             <button class="am-tab" data-am-tab="new" type="button">New Article</button>
             <button class="am-tab" id="amEditTab" data-am-tab="edit" type="button" disabled>Edit Article</button>
+            <button class="am-tab" data-am-tab="import" type="button">Import Package</button>
             <button class="am-tab" data-am-tab="media" type="button">Media / Images</button>
           </nav>
         </div>
@@ -583,6 +584,72 @@
               </div>
             </div>
           </form>
+        </div>
+
+        <!-- Import Article Package view -->
+        <div id="amImportView" class="am-view">
+          <div class="am-editor-toolbar">
+            <button type="button" id="amImportBackBtn" class="am-back-btn">← All Articles</button>
+            <strong>Import Article Package</strong>
+            <span id="amImportStatus" class="am-save-status"></span>
+          </div>
+          <div class="am-import-grid">
+            <div class="am-import-left">
+              <section class="am-card">
+                <h2>Article JSON</h2>
+                <p class="muted">Paste the structured article JSON below, or choose a JSON file.</p>
+                <label>JSON file (optional)
+                  <input id="amImportJsonFile" type="file" accept="application/json,.json" />
+                </label>
+                <label>Article JSON
+                  <textarea id="amImportJsonText" placeholder='Paste article package JSON here…'></textarea>
+                </label>
+              </section>
+
+              <section class="am-card">
+                <h2>Validation</h2>
+                <div id="amImportValidation" class="am-import-validation"></div>
+                <div class="workflow-buttons">
+                  <button type="button" id="amImportValidateBtn">Validate Package</button>
+                  <button type="button" id="amImportCreateDraftBtn" class="primary" disabled>Create Draft</button>
+                  <button type="button" id="amImportClearBtn">Clear Import</button>
+                </div>
+              </section>
+            </div>
+
+            <div class="am-import-right">
+              <section class="am-card">
+                <h2>Images</h2>
+                <p class="muted">Upload images referenced by uploadKey in the JSON. The hero image uploadKey is usually "hero". Inline images use keys like "image_1", "image_2".</p>
+                <label>Hero / Header image
+                  <input id="amImportHeroFile" type="file" accept="image/*" />
+                </label>
+                <div id="amImportHeroPreview" class="am-import-img-preview" hidden></div>
+
+                <div id="amImportInlineImages">
+                  <div class="am-import-inline-row">
+                    <label>Inline image 1
+                      <input class="am-import-inline-file" type="file" accept="image/*" data-upload-key="image_1" />
+                    </label>
+                    <div class="am-import-inline-preview" hidden></div>
+                  </div>
+                  <div class="am-import-inline-row">
+                    <label>Inline image 2
+                      <input class="am-import-inline-file" type="file" accept="image/*" data-upload-key="image_2" />
+                    </label>
+                    <div class="am-import-inline-preview" hidden></div>
+                  </div>
+                </div>
+                <button type="button" id="amImportAddInlineBtn" class="am-add-section-btn">+ Add Inline Image Slot</button>
+
+                <h3 style="margin-top: 16px;">Uploaded image keys</h3>
+                <table class="am-import-key-table">
+                  <thead><tr><th>Upload key</th><th>File name</th><th>Status</th></tr></thead>
+                  <tbody id="amImportKeyTable"></tbody>
+                </table>
+              </section>
+            </div>
+          </div>
         </div>
 
         <!-- Media / Images placeholder -->

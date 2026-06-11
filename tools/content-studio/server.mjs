@@ -95,6 +95,8 @@ async function main() {
       if (request.method === "POST" && url.pathname === "/api/article/delete-draft") return deleteArticleDraft(request, response);
       if (request.method === "POST" && url.pathname === "/api/article/preview") return previewArticle(request, response);
       if (request.method === "POST" && url.pathname === "/api/article/publish") return publishManualArticle(request, response);
+      if (request.method === "POST" && url.pathname === "/api/article/import-package/validate") return validateImportPackage(request, response);
+      if (request.method === "POST" && url.pathname === "/api/article/import-package/create-draft") return createImportDraft(request, response);
       if (request.method === "POST" && url.pathname === "/api/article/site-preview") return createSitePreview(request, response);
       if (request.method === "GET" && url.pathname === "/api/article/site-preview") return getSitePreview(request, response, url);
       if (request.method === "GET" && url.pathname.startsWith("/api/article/site-preview-asset/")) return serveSitePreviewAsset(request, response, url);
@@ -577,6 +579,199 @@ async function saveArticleDraft(request, response) {
   return sendJson(response, { ok: true, draftId: safeDraftId, savedAt: draft.savedAt });
 }
 
+async function validateImportPackage(request, response) {
+  const body = await readJson(request, 60 * 1024 * 1024);
+  const pkg = body.package || {};
+  const images = body.images || {};
+  const errors = [];
+  const warnings = [];
+
+  // Required fields
+  if (!clean(pkg.destination)) errors.push("destination is required.");
+  if (!clean(pkg.title)) errors.push("title is required.");
+  if (!clean(pkg.slug) && !clean(pkg.title)) errors.push("slug is required or must be generated from title.");
+
+  // JSON parse check already done by readJson
+  // Warn on missing fields
+  if (!clean(pkg.deck)) warnings.push("deck is missing.");
+  if (!clean(pkg.summary)) warnings.push("summary is missing.");
+  if (!clean(pkg.description)) warnings.push("description is missing.");
+
+  // Hero image check
+  const heroKey = clean(pkg.heroImage?.uploadKey || "hero");
+  if (pkg.heroImage && !images[heroKey]?.dataUrl) {
+    warnings.push(`heroImage.uploadKey "${heroKey}" does not match an uploaded image.`);
+  }
+
+  // Inline images consistency
+  const placementIds = new Set();
+  const imageUploadKeys = new Set();
+  if (Array.isArray(pkg.images)) {
+    for (const img of pkg.images) {
+      const uploadKey = clean(img?.uploadKey);
+      const placementId = clean(img?.placementId);
+      if (uploadKey) imageUploadKeys.add(uploadKey);
+      if (placementId) placementIds.add(placementId);
+      if (uploadKey && !images[uploadKey]?.dataUrl) {
+        warnings.push(`images[].uploadKey "${uploadKey}" does not match an uploaded image.`);
+      }
+    }
+  }
+
+  // Section image placement checks
+  if (pkg.body?.sections && Array.isArray(pkg.body.sections)) {
+    for (const section of pkg.body.sections) {
+      const placement = clean(section?.imagePlacement);
+      if (placement && !placementIds.has(placement)) {
+        errors.push(`Section "${clean(section.heading) || "(untitled)"}" references imagePlacement "${placement}" not defined in images[].placementId.`);
+      }
+    }
+  }
+
+  // Duplicate slug / id detection
+  const checkSlug = slug(pkg.slug || pkg.title || "draft");
+  const checkId = clean(pkg.id || checkSlug);
+  const newsRaw = await readJsonFile(approvedNewsPath, []);
+  const publishedBySlug = new Map((Array.isArray(newsRaw) ? newsRaw : []).map((item) => [slug(item.slug || item.id), item]));
+  const publishedById = new Map((Array.isArray(newsRaw) ? newsRaw : []).map((item) => [item.id, item]));
+  const drafts = await readAllArticleDrafts();
+
+  if (publishedBySlug.has(checkSlug)) warnings.push(`Slug "${checkSlug}" matches a published article: "${publishedBySlug.get(checkSlug).title}".`);
+  if (publishedById.has(checkId)) warnings.push(`ID "${checkId}" matches a published article: "${publishedById.get(checkId).title}".`);
+  const draftSlugMatch = drafts.find((d) => slug(d.slug || d.id) === checkSlug);
+  const draftIdMatch = drafts.find((d) => d.id === checkId);
+  if (draftSlugMatch) warnings.push(`Slug "${checkSlug}" matches an existing draft: "${draftSlugMatch.title}".`);
+  if (draftIdMatch) warnings.push(`ID "${checkId}" matches an existing draft: "${draftIdMatch.title}".`);
+
+  return sendJson(response, { ok: errors.length === 0, errors, warnings, slug: checkSlug, id: checkId });
+}
+
+async function createImportDraft(request, response) {
+  const body = await readJson(request, 60 * 1024 * 1024);
+  const pkg = body.package || {};
+  const images = body.images || {};
+  const destination = clean(pkg.destination || "news");
+  if (!["news", "buyer", "downtown"].includes(destination)) {
+    return sendJson(response, { ok: false, error: `Invalid destination: ${destination}` }, 400);
+  }
+
+  const rawId = clean(pkg.id || pkg.slug || `draft-${Date.now()}`);
+  const safeDraftId = rawId.replace(/[^a-z0-9_\-]/gi, "-").slice(0, 120);
+  const destDir = path.join(articleDraftsRoot, destination);
+  await fs.mkdir(destDir, { recursive: true });
+  const draftPath = path.join(destDir, `${safeDraftId}.json`);
+  if (!draftPath.startsWith(articleDraftsRoot)) {
+    return sendJson(response, { ok: false, error: "Invalid draft path" }, 400);
+  }
+
+  // Build bodySections from package body
+  const bodySections = [];
+  const intro = clean(pkg.body?.intro);
+  if (intro) {
+    bodySections.push({ heading: "Introduction", body: intro });
+  }
+  if (Array.isArray(pkg.body?.sections)) {
+    for (const section of pkg.body.sections) {
+      const paragraphs = Array.isArray(section?.paragraphs) ? section.paragraphs.filter(Boolean).join("\n\n") : "";
+      const sec = {
+        heading: clean(section?.heading) || "",
+        body: paragraphs,
+      };
+      if (clean(section?.imagePlacement)) sec.imageKey = clean(section.imagePlacement);
+      if (sec.heading || sec.body) bodySections.push(sec);
+    }
+  }
+
+  // Build source links
+  const sourceLinks = [];
+  const sourceName = clean((pkg.sources || [])[0]?.publisher || (pkg.sources || [])[0]?.title || "");
+  const sourceUrl = clean((pkg.sources || [])[0]?.url || "");
+  if (Array.isArray(pkg.sources)) {
+    for (const src of pkg.sources) {
+      if (clean(src?.url)) {
+        sourceLinks.push({ label: clean(src?.title) || clean(src?.publisher) || "Source", url: clean(src.url), type: "source" });
+      }
+    }
+  }
+
+  // Build hero image
+  const heroKey = clean(pkg.heroImage?.uploadKey || "hero");
+  const heroImg = images[heroKey];
+  let heroImage = null;
+  if (heroImg?.dataUrl) {
+    heroImage = {
+      dataUrl: heroImg.dataUrl,
+      key: heroKey,
+      alt: clean(pkg.heroImage?.alt) || clean(pkg.title),
+      caption: clean(pkg.heroImage?.caption) || "",
+      credit: "",
+    };
+  }
+
+  // Build body images
+  const bodyImages = [];
+  const imageMap = new Map();
+  if (Array.isArray(pkg.images)) {
+    for (const img of pkg.images) {
+      const uploadKey = clean(img?.uploadKey);
+      const placementId = clean(img?.placementId) || uploadKey;
+      const uploaded = images[uploadKey];
+      if (uploaded?.dataUrl) {
+        const bodyImg = {
+          dataUrl: uploaded.dataUrl,
+          key: placementId,
+          alt: clean(img?.alt) || "",
+          caption: clean(img?.caption) || "",
+          credit: "",
+        };
+        bodyImages.push(bodyImg);
+        imageMap.set(uploadKey, bodyImg);
+      }
+    }
+  }
+
+  // Map neighborhoods / projects to related ids
+  const relatedProjectIds = Array.isArray(pkg.projects) ? pkg.projects.map((p) => slug(p)).filter(Boolean) : [];
+  const relatedCorridorIds = Array.isArray(pkg.neighborhoods) ? pkg.neighborhoods.map((n) => slug(n)).filter(Boolean) : [];
+
+  // Determine category from tags
+  const tags = Array.isArray(pkg.tags) ? pkg.tags : [];
+  const validCategories = new Set(["development", "construction", "planning", "sales", "financing", "city", "press-release", "general", "Buyer Intelligence", "Downtown Spotlight"]);
+  const category = validCategories.has(clean(tags[0])) ? clean(tags[0]) : "general";
+
+  const draft = {
+    id: safeDraftId,
+    draftId: safeDraftId,
+    destination,
+    title: clean(pkg.title),
+    slug: slug(pkg.slug || pkg.title),
+    deck: clean(pkg.deck),
+    description: clean(pkg.description || pkg.deck),
+    summary: clean(pkg.summary || pkg.deck),
+    category,
+    relatedProjectIds,
+    relatedCorridorIds,
+    sourceName,
+    sourceUrl,
+    sourcePublishedDate: clean(pkg.eventDate) || new Date().toISOString().slice(0, 10),
+    whyItMatters: "",
+    buyerContext: "",
+    bodySections,
+    bodyImages,
+    heroImage,
+    imagePath: "",
+    sourceLinks,
+    newsletterHeadline: clean(pkg.newsletterHeadline) || clean(pkg.title),
+    newsletterBlurb: clean(pkg.summary || pkg.deck),
+    query: clean(pkg.query) || "",
+    freshnessLane: clean(pkg.freshnessLane) || "breaking_14d",
+    savedAt: new Date().toISOString(),
+  };
+
+  await fs.writeFile(draftPath, `${JSON.stringify(draft, null, 2)}\n`);
+  return sendJson(response, { ok: true, draftId: safeDraftId, destination, savedAt: draft.savedAt });
+}
+
 async function archiveArticle(request, response) {
   const body = await readJson(request);
   const remote = remoteContext(request);
@@ -613,6 +808,20 @@ async function createSitePreview(request, response) {
   const assetFilename = await writePreviewHeroAsset(body, previewId);
   if (assetFilename) {
     body.imagePath = `http://localhost:${port}/api/article/site-preview-asset/${assetFilename}`;
+  }
+  // Phase 2: write body image assets and inject URLs into sections
+  const bodyAssetMap = await writePreviewBodyAssets(body, previewId);
+  if (bodyAssetMap && Array.isArray(body.bodySections)) {
+    for (const section of body.bodySections) {
+      if (section.imageKey && bodyAssetMap[section.imageKey]) {
+        section.image = bodyAssetMap[section.imageKey];
+      }
+      // Also support direct imageKey matching on bodyImages key
+      if (section.imageKey && !section.image) {
+        const matched = (body.bodyImages || []).find((img) => img.key === section.imageKey);
+        if (matched?.path) section.image = matched.path;
+      }
+    }
   }
   const item = normalizeArticlePreview(body);
   if (!item.title) return sendJson(response, { ok: false, error: "Title is required for Preview in Site." }, 400);
@@ -724,6 +933,44 @@ async function writePreviewHeroAsset(body, previewId) {
   const filePath = path.join(articleSitePreviewAssetsRoot, filename);
   await fs.writeFile(filePath, buffer);
   return filename;
+}
+
+async function writePreviewBodyAssets(body, previewId) {
+  const bodyImages = body.bodyImages || [];
+  const assetMap = {};
+  let index = 0;
+  for (const img of bodyImages) {
+    const dataUrl = img?.dataUrl;
+    const key = clean(img?.key) || `image-${index + 1}`;
+    if (!dataUrl || typeof dataUrl !== "string" || !dataUrl.startsWith("data:")) {
+      index++;
+      continue;
+    }
+    const match = dataUrl.match(/^data:([^;,]+)?(?:;base64)?,(.+)$/);
+    if (!match) {
+      index++;
+      continue;
+    }
+    const mime = match[1] || "application/octet-stream";
+    if (!PREVIEW_ASSET_MIME_TO_EXT[mime]) {
+      index++;
+      continue;
+    }
+    const base64Data = match[2];
+    const buffer = Buffer.from(base64Data, "base64");
+    if (buffer.length > 10 * 1024 * 1024) {
+      index++;
+      continue;
+    }
+    const ext = PREVIEW_ASSET_MIME_TO_EXT[mime];
+    const filename = `${previewId}-body-${index + 1}.${ext}`;
+    await fs.mkdir(articleSitePreviewAssetsRoot, { recursive: true });
+    const filePath = path.join(articleSitePreviewAssetsRoot, filename);
+    await fs.writeFile(filePath, buffer);
+    assetMap[key] = `http://localhost:${port}/api/article/site-preview-asset/${filename}`;
+    index++;
+  }
+  return assetMap;
 }
 
 async function serveSitePreviewAsset(request, response, url) {

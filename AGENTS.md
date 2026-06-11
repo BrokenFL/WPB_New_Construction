@@ -79,6 +79,27 @@ Rules:
 - Published articles should be archived, not hard-deleted.
 - Real-template article preview is separate from diagnostic `preview.html`.
 
+### Article Package Import
+
+Article Manager now supports an Import Package workflow for creating drafts from structured JSON + uploaded images.
+
+**Workflow:**
+1. Open Article Manager → Import Package.
+2. Paste/upload article JSON.
+3. Upload hero/header image and optional inline images.
+4. Validate Package → checks JSON shape, image key consistency, placement references, duplicate slug/id detection.
+5. Create Draft → saves to `.runtime/article-drafts/` only, then opens in the editor.
+6. Continue with Preview in Site, Stage, Commit, and Deploy as normal.
+
+**Safety:**
+- Import creates drafts only. Never publishes, commits, pushes, or deploys.
+- Draft/import actions must not dirty `content/overrides/change-log.json` or `content/overrides/content-studio-change-log.json`.
+- Commit Staged Article Changes must only commit allowlisted article output files.
+
+**Inline image mapping:** uploaded file key (`images[].uploadKey`) → article placement (`images[].placementId`) → section reference (`body.sections[].imagePlacement`). The server maps `placementId` to `bodyImages[].key` and `imagePlacement` to `bodySections[].imageKey` for the existing renderer pipeline.
+
+See `docs/AI_PROJECT_GUIDE.md` section 13 for full JSON shape, example, and troubleshooting.
+
 ---
 
 ## GitHub auth / local commit warning

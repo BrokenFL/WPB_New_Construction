@@ -450,6 +450,111 @@ If `git push origin main` fails, report the exact auth error. Do not pretend the
 
 ---
 
+### Article Manager Workflows
+
+#### Standard manual article workflow
+
+1. Open Article Manager → New Article (or Edit an existing draft).
+2. Fill article fields (title, slug, deck, sections, hero image).
+3. Save Draft — writes only to `.runtime/article-drafts/`.
+4. Preview in Site — renders the real article page locally.
+5. Stage Files Locally — writes generated files for review.
+6. Commit Staged Article Changes — commits allowlisted article output files.
+7. Deploy Live — triggers a live deploy after publish.
+
+#### Article Package Import workflow
+
+1. Open Article Manager → Import Package.
+2. Paste article JSON into the textarea, or choose a JSON file.
+3. Upload the hero/header image.
+4. Upload optional inline body images.
+5. Click Validate Package — checks JSON shape, image key matches, placement references, and duplicate slug/id detection.
+6. Click Create Draft — saves an Article Manager draft only.
+7. The draft opens automatically in the Edit Article view.
+8. Continue with Preview in Site, Stage Files Locally, Commit Staged Article Changes, and Deploy Live as above.
+
+**Safety rules:**
+
+- Import Package creates drafts only.
+- Import never publishes, commits, pushes, or deploys.
+- Draft-only actions should only write to `.runtime/`.
+- Draft/import actions must not dirty:
+  - `content/overrides/change-log.json`
+  - `content/overrides/content-studio-change-log.json`
+- Commit Staged Article Changes must only commit allowlisted article output files.
+- Do not manually commit unrelated dirty files.
+
+#### Supported Article Package JSON shape
+
+```json
+{
+  "destination": "news",
+  "id": "optional-stable-id",
+  "slug": "example-article-slug",
+  "title": "Article Title",
+  "deck": "Short buyer-facing deck / subheadline.",
+  "description": "SEO/meta description.",
+  "summary": "Short summary.",
+  "eventDate": "2026-06-11",
+  "freshnessLane": "breaking_14d",
+  "neighborhoods": ["Downtown West Palm Beach", "Palm Beach"],
+  "projects": ["Project Name"],
+  "tags": ["development", "new construction"],
+  "heroImage": {
+    "uploadKey": "hero",
+    "alt": "Alt text for hero image",
+    "caption": "Optional hero caption"
+  },
+  "images": [
+    {
+      "uploadKey": "image_1",
+      "placementId": "inline-rendering-1",
+      "alt": "Alt text for inline image",
+      "caption": "Optional inline image caption"
+    }
+  ],
+  "body": {
+    "intro": "Opening article intro.",
+    "sections": [
+      {
+        "heading": "Section Heading",
+        "paragraphs": ["Paragraph one.", "Paragraph two."]
+      },
+      {
+        "heading": "Section With Image",
+        "paragraphs": ["Paragraph before image."],
+        "imagePlacement": "inline-rendering-1"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Source title",
+      "publisher": "Publisher Name",
+      "url": "https://example.com/source"
+    }
+  ],
+  "newsletterHeadline": "Optional newsletter headline",
+  "query": "Optional research/query string"
+}
+```
+
+**Inline image mapping:**
+
+- Uploaded file key → `images[].uploadKey`
+- Article placement → `images[].placementId`
+- Section reference → `body.sections[].imagePlacement`
+
+The server maps `placementId` to the `key` field in `bodyImages`, and `imagePlacement` to the `imageKey` field in `bodySections`, so the existing renderer pipeline shows inline images correctly.
+
+**Troubleshooting:**
+
+- If Preview in Site does not show an image, first check that the upload key and placement ID match the JSON.
+- If git gets dirty after draft-only actions, that is a bug and should be fixed before committing.
+- If Stage Files Locally makes changes, use Commit Staged Article Changes rather than manual terminal commits unless debugging.
+
+---
+
 ### 2026-06-10 Article Manager Phase 1 Verification
 
 Phase 1 Article Manager is installed inside `tools/content-studio/`.
