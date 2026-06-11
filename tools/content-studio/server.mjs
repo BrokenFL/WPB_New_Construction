@@ -15,6 +15,8 @@ const port = Number(process.env.WPB_CONTENT_STUDIO_PORT ?? 8787);
 const launchAgentRoot = path.join(process.env.HOME ?? "", "Library/LaunchAgents");
 const articleDraftsRoot = path.join(workspace, ".runtime", "article-drafts");
 const articlePreviewLogPath = path.join(workspace, ".runtime", "article-preview-log.json");
+const articleWorkflowLogPath = path.join(workspace, ".runtime", "article-workflow-log.json");
+const newsDraftActionLogPath = path.join(workspace, ".runtime", "news-draft-action-log.json");
 const articleSitePreviewsRoot = path.join(workspace, ".runtime", "article-site-previews");
 const articleSitePreviewAssetsRoot = path.join(articleSitePreviewsRoot, "assets");
 const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
@@ -96,6 +98,7 @@ async function main() {
       if (request.method === "POST" && url.pathname === "/api/article/site-preview") return createSitePreview(request, response);
       if (request.method === "GET" && url.pathname === "/api/article/site-preview") return getSitePreview(request, response, url);
       if (request.method === "GET" && url.pathname.startsWith("/api/article/site-preview-asset/")) return serveSitePreviewAsset(request, response, url);
+      if (request.method === "POST" && url.pathname === "/api/article/commit-staged") return commitStagedArticle(request, response);
       return sendText(response, "Not found", 404);
     } catch (error) {
       return sendJson(response, { ok: false, error: error.message }, 500);
@@ -402,7 +405,7 @@ async function saveNewsDraft(request, response) {
   draft.status = nextStatus;
   draft.updatedAt = new Date().toISOString();
   await writeDraftStore(store);
-  await logChange("news-draft", { id: draft.id, status: draft.status, newsletterStatus: draft.newsletterStatus });
+  await logNewsDraftAction("news-draft", { id: draft.id, status: draft.status, newsletterStatus: draft.newsletterStatus });
   return sendJson(response, { ok: true, draft, changedFiles: await changedFiles(), nextStep: nextStepForNewsDraft(draft) });
 }
 
@@ -433,7 +436,21 @@ async function runArticleWorkflow(body, request, response) {
   }
   const dirty = await run("git", ["status", "--short"]);
   if (dirty.stdout.trim()) {
-    return sendJson(response, { ok: false, error: `The repo has existing changes. Review or clear them first: ${dirty.stdout.trim()}` }, 400);
+    const dirtyLines = dirty.stdout.trim().split("\n").filter(Boolean);
+    const dirtyFiles = dirtyLines.map((line) => {
+      const match = line.match(/^(..?)\s+(.*)$/);
+      return match ? match[2].trim() : line.trim();
+    });
+    const disallowed = dirtyFiles.filter((f) => !isInArticleAllowlist(f));
+    if (disallowed.length) {
+      return sendJson(response, { ok: false, error: `The repo has unrelated changes. Review or clear them first: ${disallowed.join("; ")}` }, 400);
+    }
+    return sendJson(response, {
+      ok: false,
+      error: "Stage has already generated article output files. Review them, then click 'Commit Staged Article Changes' to commit and push, or clear the changes to run Publish From Clean State.",
+      stagedFiles: dirtyFiles,
+      nextStep: "commit-staged",
+    }, 400);
   }
   const inputDir = path.join(workspace, ".runtime", "manual-article-publisher");
   await fs.mkdir(inputDir, { recursive: true });
@@ -452,7 +469,7 @@ async function runArticleWorkflow(body, request, response) {
       code: result.code,
     });
   } else {
-    await logChange(result.code === 0 ? "article-published" : "article-publish-failed", {
+    await logArticleWorkflow(result.code === 0 ? "article-published" : "article-publish-failed", {
       destination: body.destination,
       title: body.title,
       code: result.code,
@@ -1088,6 +1105,118 @@ async function logPreviewRun(action, detail) {
   } catch {
     // preview log is best-effort; never fail the preview run over a log write
   }
+}
+
+async function logArticleWorkflow(action, detail) {
+  try {
+    await fs.mkdir(path.dirname(articleWorkflowLogPath), { recursive: true });
+    const log = await readJsonFile(articleWorkflowLogPath, { version: 1, entries: [] });
+    log.entries.unshift({ at: new Date().toISOString(), action, detail });
+    await fs.writeFile(articleWorkflowLogPath, `${JSON.stringify(log, null, 2)}\n`);
+  } catch {
+    // workflow log is best-effort; never fail the run over a log write
+  }
+}
+
+async function logNewsDraftAction(action, detail) {
+  try {
+    await fs.mkdir(path.dirname(newsDraftActionLogPath), { recursive: true });
+    const log = await readJsonFile(newsDraftActionLogPath, { version: 1, entries: [] });
+    log.entries.unshift({ at: new Date().toISOString(), action, detail });
+    await fs.writeFile(newsDraftActionLogPath, `${JSON.stringify(log, null, 2)}\n`);
+  } catch {
+    // draft action log is best-effort
+  }
+}
+
+const articleCommitAllowlist = [
+  "research/news-review/approved-development-news.json",
+  "src/data/approvedExternalNews.ts",
+  "src/generated/siteData.ts",
+  "public/data/news-feed.json",
+  "public/feed.json",
+  "public/rss.xml",
+  "public/llms.txt",
+  "public/sitemap.xml",
+  "public/assets/editorial",
+];
+
+function isInArticleAllowlist(filePath) {
+  for (const allowed of articleCommitAllowlist) {
+    if (filePath === allowed) return true;
+    if (allowed.endsWith("/")) {
+      if (filePath.startsWith(allowed)) return true;
+      continue;
+    }
+    if (allowed.includes("/")) {
+      if (filePath.startsWith(`${allowed}/`)) return true;
+    }
+  }
+  return false;
+}
+
+async function commitStagedArticle(request, response) {
+  const body = await readJson(request);
+  const remote = remoteContext(request);
+  const status = await run("git", ["status", "--short"]);
+  const dirtyLines = status.stdout.split("\n").filter(Boolean);
+  const dirtyFiles = dirtyLines.map((line) => {
+    const match = line.match(/^(..?)\s+(.*)$/);
+    return match ? match[2].trim() : line.trim();
+  });
+
+  if (!dirtyFiles.length) {
+    return sendJson(response, { ok: false, error: "No staged changes to commit. Stage an article first." }, 400);
+  }
+
+  const disallowed = dirtyFiles.filter((f) => !isInArticleAllowlist(f));
+  if (disallowed.length) {
+    return sendJson(response, {
+      ok: false,
+      error: `Cannot commit because unrelated files are dirty: ${disallowed.join(", ")}. Clear them first.`,
+      disallowed,
+    }, 400);
+  }
+
+  const commitMessage = clean(body.commitMessage || body.title || body.slug || "Commit staged article changes");
+  const filesToCommit = dirtyFiles.filter((f) => isInArticleAllowlist(f));
+
+  if (body.confirmCommit !== true) {
+    return sendJson(response, {
+      ok: true,
+      preview: true,
+      files: filesToCommit,
+      commitMessage,
+      nextStep: "Review the files above, check the confirmation box, then click Commit Staged Article Changes again.",
+    });
+  }
+
+  if (remote.isRemote && body.confirmRemote !== true) {
+    return sendJson(response, { ok: false, error: "Remote Builder Mode requires the remote confirmation checkbox before committing." }, 400);
+  }
+
+  for (const file of filesToCommit) {
+    await run("git", ["add", "--", file]);
+  }
+  const commitResult = await run("git", ["commit", "-m", commitMessage]);
+  if (commitResult.code !== 0) {
+    return sendJson(response, { ok: false, error: `git commit failed: ${commitResult.stderr || commitResult.stdout}` }, 500);
+  }
+  const commitHash = (await run("git", ["rev-parse", "HEAD"])).stdout.trim();
+  const branchResult = await run("git", ["branch", "--show-current"]);
+  const branch = clean(branchResult.stdout) || "main";
+  const pushResult = await run("git", ["push", "origin", branch]);
+  if (pushResult.code !== 0) {
+    return sendJson(response, { ok: false, error: `git push failed: ${pushResult.stderr || pushResult.stdout}`, commitHash }, 500);
+  }
+
+  return sendJson(response, {
+    ok: true,
+    commitHash,
+    pushed: true,
+    changedFiles: filesToCommit,
+    commitMessage,
+  });
 }
 
 async function automationStatus() {

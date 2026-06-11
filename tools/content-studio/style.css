@@ -352,6 +352,10 @@ button:disabled { cursor: not-allowed; opacity: 0.46; }
 .am-confirm-group { display: grid; gap: 6px; margin-bottom: 14px; }
 .am-action-bar { margin-bottom: 12px; }
 .am-preview-note { font-size: 12px; margin: 0; }
+.am-commit-preview { margin-bottom: 14px; padding: 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--wash); }
+.am-commit-preview h3 { margin: 0 0 8px; font-size: 13px; font-weight: 700; color: var(--accent-dark); }
+.am-commit-preview ul { margin: 0 0 8px; padding-left: 18px; font-size: 13px; }
+.am-commit-preview li { margin-bottom: 4px; }
 
 @media (max-width: 1100px) {
   .am-editor-columns { grid-template-columns: 1fr; }

@@ -1123,6 +1123,7 @@ function initArticleManager() {
   document.querySelector("#amPreviewBtn")?.addEventListener("click", () => amPublish("preview"));
   document.querySelector("#amPreviewInSiteBtn")?.addEventListener("click", () => amPreviewInSite());
   document.querySelector("#amStageBtn")?.addEventListener("click", () => amPublish("stage"));
+  document.querySelector("#amCommitStagedBtn")?.addEventListener("click", () => amCommitStaged());
   document.querySelector("#amPublishBtn")?.addEventListener("click", () => amPublish("publish"));
   document.querySelector("#amShipBtn")?.addEventListener("click", () => amPublish("ship"));
 
@@ -1493,6 +1494,54 @@ async function amBuildPayload() {
   return payload;
 }
 
+async function amCommitStaged() {
+  const payload = await amBuildPayload();
+  if (!payload) return;
+  const confirmCommit = document.querySelector("#amConfirmCommit")?.checked || false;
+  const commitPayload = {
+    destination: payload.destination,
+    title: payload.title,
+    slug: payload.slug,
+    commitMessage: payload.commitMessage || `Publish article: ${payload.title}`,
+    confirmCommit,
+    confirmRemote: state?.remote?.isRemote === true,
+  };
+  amSetSaveStatus("Checking staged files…", null);
+  const result = await postJson("/api/article/commit-staged", commitPayload);
+  show(result);
+  if (!result.ok) {
+    amSetSaveStatus(`Commit failed: ${result.error || "see result panel"}`, false);
+    amHideCommitPreview();
+    return;
+  }
+  if (result.preview) {
+    const previewEl = document.querySelector("#amCommitPreview");
+    const filesEl = document.querySelector("#amCommitFiles");
+    const confirmLabel = document.querySelector("#amConfirmCommit")?.closest("label");
+    if (previewEl) previewEl.hidden = false;
+    if (confirmLabel) confirmLabel.hidden = false;
+    if (filesEl) {
+      filesEl.innerHTML = result.files.map((f) => `<li><code>${escapeHtml(f)}</code></li>`).join("");
+    }
+    amSetSaveStatus("Review files above, check the box, then click Commit Staged Article Changes again.", null);
+    return;
+  }
+  amSetSaveStatus(`Committed ${result.commitHash?.slice(0, 7) || ""} and pushed.`, true);
+  amHideCommitPreview();
+  await loadState();
+}
+
+function amHideCommitPreview() {
+  const previewEl = document.querySelector("#amCommitPreview");
+  const confirmEl = document.querySelector("#amConfirmCommit");
+  const confirmLabel = confirmEl?.closest("label");
+  if (previewEl) previewEl.hidden = true;
+  if (confirmLabel) confirmLabel.hidden = true;
+  if (confirmEl) confirmEl.checked = false;
+  const heading = previewEl?.querySelector("h3");
+  if (heading) heading.textContent = "Files ready to commit";
+}
+
 async function amSaveDraft() {
   const payload = await amBuildPayload();
   if (!payload) return;
@@ -1539,6 +1588,20 @@ async function amPublish(mode) {
     if (["stage", "publish", "ship"].includes(mode)) await loadState();
   } else {
     amSetSaveStatus(`${mode} failed: ${result.error || "see result panel"}`, false);
+    if (result.nextStep === "commit-staged") {
+      const previewEl = document.querySelector("#amCommitPreview");
+      const filesEl = document.querySelector("#amCommitFiles");
+      const confirmLabel = document.querySelector("#amConfirmCommit")?.closest("label");
+      if (previewEl) {
+        previewEl.hidden = false;
+        const heading = previewEl.querySelector("h3");
+        if (heading) heading.textContent = "Staged files detected";
+      }
+      if (filesEl) {
+        filesEl.innerHTML = (result.stagedFiles || []).map((f) => `<li><code>${escapeHtml(f)}</code></li>`).join("");
+      }
+      if (confirmLabel) confirmLabel.hidden = false;
+    }
   }
 }
 
