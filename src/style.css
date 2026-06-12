@@ -4826,7 +4826,7 @@ select:focus-visible {
   display: grid;
   align-items: end;
   min-height: clamp(690px, 94vh, 880px);
-  padding: clamp(118px, 13vh, 156px) clamp(24px, 6vw, 104px) clamp(58px, 7vw, 92px);
+  padding: clamp(132px, 15vh, 172px) clamp(24px, 6vw, 104px) clamp(28px, 4vw, 48px);
   color: var(--ivory);
   background: #0b1418;
   isolation: isolate;
@@ -4858,7 +4858,7 @@ select:focus-visible {
   height: 100%;
   object-fit: cover;
   object-position: var(--image-position, center 45%);
-  filter: saturate(1.08) contrast(1.05) brightness(0.92);
+  filter: saturate(1.05) contrast(1.02) brightness(1.04);
   opacity: 0;
   transition: opacity 1800ms ease;
   will-change: opacity;
@@ -4883,9 +4883,9 @@ select:focus-visible {
 .home-hero-scrim {
   z-index: 1;
   background:
-    radial-gradient(circle at 78% 18%, rgba(180, 137, 74, 0.16), transparent 34%),
-    linear-gradient(90deg, rgba(5, 10, 12, 0.9) 0%, rgba(5, 10, 12, 0.68) 32%, rgba(5, 10, 12, 0.22) 58%, rgba(5, 10, 12, 0.02) 100%),
-    linear-gradient(180deg, rgba(5, 10, 12, 0.34) 0%, rgba(5, 10, 12, 0.04) 44%, rgba(5, 10, 12, 0.68) 100%);
+    radial-gradient(circle at 78% 18%, rgba(180, 137, 74, 0.12), transparent 34%),
+    linear-gradient(90deg, rgba(5, 10, 12, 0.74) 0%, rgba(5, 10, 12, 0.5) 32%, rgba(5, 10, 12, 0.14) 58%, rgba(5, 10, 12, 0.02) 100%),
+    linear-gradient(180deg, rgba(5, 10, 12, 0.22) 0%, rgba(5, 10, 12, 0.03) 44%, rgba(5, 10, 12, 0.52) 100%);
 }
 
 .home-hero-layout {
@@ -5504,15 +5504,16 @@ select:focus-visible {
 .corridor-heading {
   display: grid;
   justify-content: start;
-  max-width: 620px;
-  margin-bottom: clamp(24px, 4vw, 46px);
+  width: fit-content;
+  max-width: none;
+  margin-bottom: clamp(16px, 2.4vw, 24px);
   border-bottom: 0;
   padding-bottom: 0;
 }
 
 .corridor-heading .eyebrow {
   margin-bottom: 0;
-  color: var(--deep-green);
+  color: var(--bronze);
   font-family:
     "Canela",
     "Cormorant Garamond",
@@ -5522,11 +5523,6 @@ select:focus-visible {
   font-weight: 500;
   line-height: 0.95;
   text-transform: none;
-}
-
-.corridor-heading h2 {
-  max-width: 11ch;
-  margin: 10px 0 0;
 }
 
 .corridor-guide-grid {
@@ -11458,12 +11454,6 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   margin-bottom: 16px;
   border-bottom: 1px solid var(--bronze);
   padding-bottom: 14px;
-}
-
-.corridor-heading h2 {
-  margin: 8px 0 0;
-  color: #18201f;
-  font-size: clamp(1.8rem, 2.6vw, 2.8rem);
 }
 
 .home-featured-heading > p:last-child {

@@ -2622,10 +2622,6 @@ app.innerHTML = `
               <span class="home-hero-title-mobile">West Palm Beach Luxury Condos</span>
             </h1>
             <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || "Explore the city's most important new and upcoming condominium projects with clear details, local insight, floorplans, maps, and buyer-focused guidance before you inquire.")}</p>
-            <div class="hero-actions" aria-label="Primary homepage actions">
-              <a href="/buildings/" data-hero-cta="explore-buildings">Browse Projects</a>
-              <a href="/corridors/" data-hero-cta="view-corridors">Explore Corridors</a>
-            </div>
           </div>
         </div>
       </section>
@@ -2642,9 +2638,7 @@ app.innerHTML = `
 
       <section class="home-corridor-guide" id="corridors" aria-label="Choose a West Palm Beach new-construction corridor">
         <div class="section-heading corridor-heading">
-          <p class="eyebrow">Explore by Corridor</p>
-          <h2>Start by location.</h2>
-          <p class="mobile-rail-hint" aria-hidden="true">Swipe to explore <span>→</span></p>
+          <p class="eyebrow">Browse by Corridor</p>
         </div>
         <div class="corridor-guide-grid">
           ${homepageCorridorKeys.map((key) => corridorSections.find((section) => section.key === key)).filter((section): section is CorridorSection => Boolean(section)).map((section) => {
