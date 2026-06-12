@@ -33,6 +33,13 @@ export type MarketNote = {
   excerpt: string;
   buyerThesis: string;
   buyerTakeaway: string;
+  marketSignal?: string;
+  bestFor?: string;
+  watchPoints?: string;
+  buyerQuestions?: string;
+  relatedBuildings?: string[];
+  relatedNeighborhoods?: string[];
+  relatedCorridor?: string;
   image?: {
     path: string;
     credit: string;

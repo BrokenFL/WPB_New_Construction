@@ -63,6 +63,14 @@ const rendered = `export type ExternalNewsItem = {
   whyItMatters?: string;
   brookeTake?: string;
   buyerContext?: string;
+  buyerTakeaway?: string;
+  marketSignal?: string;
+  bestFor?: string;
+  watchPoints?: string;
+  relatedBuildings?: string[];
+  relatedNeighborhoods?: string[];
+  relatedCorridor?: string;
+  buyerQuestions?: string;
   newsletterHeadline?: string;
   newsletterBlurb?: string;
   newsletterCta?: string;
