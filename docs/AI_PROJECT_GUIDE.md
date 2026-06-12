@@ -593,6 +593,14 @@ Buyer Intelligence uses the same Article Manager workflow and publishing pipelin
 
 **Live route rendering** uses `renderUpdateArticle` for `/updates/` and `renderMarketNoteArticle` for `/market-notes/` and `/downtown-spotlight/`. Both renderers now share `renderBuyerIntelligenceBox`, which shows the same meaningful buyer fields (`buyerTakeaway`, `marketSignal`, `bestFor`, `watchPoints`, `buyerQuestions`, `relatedBuildings`, `relatedNeighborhoods`, `relatedCorridor`) when present. In Market Note articles, `buyerTakeaway` continues to render in its existing location to avoid duplication.
 
+**Package fields:** Downloadable templates now mirror the manual Article Manager form. Supported top-level fields include `destination`, `category`, `title`, `slug`, `deck`, `description`, `summary`, `eventDate`, `freshnessLane`, `sourceName`, `sourceUrl`, `sourcePublishedDate`, `whyItMatters`, `buyerContext`, `commitMessage`, `relatedProjects`, `relatedCorridors`, `relatedNeighborhoods`, `relatedBuildings`, `heroImage`, `images`, `body`, `sources`, `newsletterHeadline`, `query`, and all flat buyer intelligence fields (`buyerTakeaway`, `marketSignal`, `bestFor`, `watchPoints`, `buyerQuestions`, `relatedCorridor`).
+
+**Nested buyerIntelligence:** The `buyerIntelligence` grouped object is accepted as a convenience. Import normalizes nested values into the same flat fields used by the pipeline. Flat fields take precedence over nested values.
+
+**Source fields:** `sourceName`, `sourceUrl`, and `sourcePublishedDate` are supported directly at the top level. If missing, the importer falls back to `sources[0]`. The `sources[]` array remains supported for multiple sources.
+
+**Destination values:** Internal values are `news` (News Updates), `buyer` (Buyer Intelligence), `downtown` (Downtown Spotlight). `devwatch` / `development-watch` and `buyer-intelligence` are accepted aliases for preview but normalize to `news` or `buyer` for publishing.
+
 **Templates** include a `siteContext.relationshipGuidance` object that explains corridor definitions, project tagging rules, and buyer-context writing guidance. Related fields are optional but recommended. Buyer context should be practical and buyer-facing.
 
 ---

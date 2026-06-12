@@ -713,10 +713,22 @@ async function createImportDraft(request, response) {
     }
   }
 
-  // Build source links
+  // Normalize nested buyerIntelligence to flat fields (prefer flat, fallback to nested)
+  const bi = pkg.buyerIntelligence || {};
+  const buyerTakeaway = clean(pkg.buyerTakeaway || bi.buyerTakeaway || "");
+  const marketSignal = clean(pkg.marketSignal || bi.marketSignal || "");
+  const bestFor = clean(pkg.bestFor || bi.bestFor || "");
+  const watchPoints = clean(pkg.watchPoints || bi.watchPoints || "");
+  const buyerQuestions = clean(pkg.buyerQuestions || bi.buyerQuestions || "");
+  const relatedCorridor = clean(pkg.relatedCorridor || bi.relatedCorridor || "");
+  const relatedNeighborhoods = Array.isArray(pkg.relatedNeighborhoods) ? pkg.relatedNeighborhoods : (Array.isArray(bi.relatedNeighborhoods) ? bi.relatedNeighborhoods : []);
+  const relatedBuildings = Array.isArray(pkg.relatedBuildings) ? pkg.relatedBuildings : (Array.isArray(bi.relatedBuildings) ? bi.relatedBuildings : []);
+
+  // Build source links (prefer top-level sourceName/sourceUrl, fallback to sources[0])
   const sourceLinks = [];
-  const sourceName = clean((pkg.sources || [])[0]?.publisher || (pkg.sources || [])[0]?.title || "");
-  const sourceUrl = clean((pkg.sources || [])[0]?.url || "");
+  const pkgSourceName = clean(pkg.sourceName || (pkg.sources || [])[0]?.publisher || (pkg.sources || [])[0]?.title || "");
+  const pkgSourceUrl = clean(pkg.sourceUrl || (pkg.sources || [])[0]?.url || "");
+  const pkgSourcePublishedDate = clean(pkg.sourcePublishedDate || pkg.eventDate || (pkg.sources || [])[0]?.publishedDate || new Date().toISOString().slice(0, 10));
   if (Array.isArray(pkg.sources)) {
     for (const src of pkg.sources) {
       if (clean(src?.url)) {
@@ -761,15 +773,19 @@ async function createImportDraft(request, response) {
     }
   }
 
-  // Article Package Import: do not derive visible Related blocks from generic tags/neighborhoods/projects.
-  // Keep metadata empty unless the package explicitly provides a dedicated related field.
-  const relatedProjectIds = [];
-  const relatedCorridorIds = [];
+  // Determine related IDs from explicit package fields
+  const splitToArray = (value) => {
+    if (Array.isArray(value)) return value.map((v) => clean(String(v))).filter(Boolean);
+    const str = clean(String(value ?? ""));
+    return str ? str.split(",").map(clean).filter(Boolean) : [];
+  };
+  const relatedProjectIds = splitToArray(pkg.relatedProjects || pkg.projects || pkg.relatedProjectIds);
+  const relatedCorridorIds = splitToArray(pkg.relatedCorridors || pkg.relatedCorridorIds);
 
-  // Determine category from tags
+  // Determine category from pkg.category, then tags, then destination
   const tags = Array.isArray(pkg.tags) ? pkg.tags : [];
   const validCategories = new Set(["development", "construction", "planning", "sales", "financing", "city", "press-release", "general", "Buyer Intelligence", "Downtown Spotlight"]);
-  const category = validCategories.has(clean(tags[0])) ? clean(tags[0]) : "general";
+  const category = validCategories.has(clean(pkg.category)) ? clean(pkg.category) : (validCategories.has(clean(tags[0])) ? clean(tags[0]) : "general");
 
   const draft = {
     id: safeDraftId,
@@ -783,11 +799,20 @@ async function createImportDraft(request, response) {
     category,
     relatedProjectIds,
     relatedCorridorIds,
-    sourceName,
-    sourceUrl,
-    sourcePublishedDate: clean(pkg.eventDate) || new Date().toISOString().slice(0, 10),
-    whyItMatters: "",
-    buyerContext: "",
+    sourceName: pkgSourceName,
+    sourceUrl: pkgSourceUrl,
+    sourcePublishedDate: pkgSourcePublishedDate,
+    whyItMatters: clean(pkg.whyItMatters || ""),
+    buyerContext: clean(pkg.buyerContext || ""),
+    buyerTakeaway,
+    marketSignal,
+    bestFor,
+    watchPoints,
+    buyerQuestions,
+    relatedCorridor,
+    relatedNeighborhoods,
+    relatedBuildings,
+    commitMessage: clean(pkg.commitMessage || ""),
     bodySections,
     bodyImages,
     heroImage,

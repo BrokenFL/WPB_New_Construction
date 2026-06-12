@@ -1766,7 +1766,7 @@ function amEvaluatePublishQuality() {
   const hasRelated = Boolean(relatedProjects) || Boolean(relatedCorridors) || Boolean(relatedNeighborhoods) || Boolean(relatedBuildings) || Boolean(relatedCorridor);
   const hasNewsletterHeadline = Boolean(amCurrentNewsletterHeadline);
   const hasSourceDate = Boolean(val("amSourceDate"));
-  const hasBuyerContext = Boolean(val("amWhyItMatters")) || Boolean(val("amBuyerContext")) || Boolean(val("amBuyerTakeaway")) || Boolean(val("amMarketSignal"));
+  const hasBuyerContext = Boolean(val("amWhyItMatters")) || Boolean(val("amBuyerContext")) || Boolean(val("amBuyerTakeaway")) || Boolean(val("amMarketSignal")) || Boolean(val("amBestFor")) || Boolean(val("amWatchPoints")) || Boolean(val("amBuyerQuestions"));
 
   return [
     { label: "Title", hint: "Add a headline.", level: val("amTitle") ? "pass" : "fail" },
@@ -2164,6 +2164,7 @@ function amDownloadTemplate(type) {
   const today = new Date().toISOString().slice(0, 10);
   const base = {
     destination: "news",
+    category: "general",
     id: `template-${type}-${Date.now()}`,
     slug: `template-${type}-${today}`,
     title: "Template Article",
@@ -2174,13 +2175,23 @@ function amDownloadTemplate(type) {
     freshnessLane: "breaking_14d",
     neighborhoods: ["Downtown West Palm Beach", "Palm Beach"],
     projects: ["Project Name"],
+    relatedProjects: [],
+    relatedCorridors: [],
+    relatedNeighborhoods: [],
+    relatedBuildings: [],
     tags: ["development", "new construction"],
-    heroImage: { uploadKey: "hero", alt: "Alt text for hero image", caption: "Optional hero caption" },
+    sourceName: "Publisher Name",
+    sourceUrl: "https://example.com/source",
+    sourcePublishedDate: today,
+    whyItMatters: "",
+    buyerContext: "",
+    commitMessage: "",
+    heroImage: { uploadKey: "hero", alt: "Alt text for hero image", caption: "Optional hero caption", credit: "" },
     images: [
-      { uploadKey: "image_1", placementId: "inline-image-1", alt: "Alt text for inline image 1", caption: "Optional inline image 1 caption" },
-      { uploadKey: "image_2", placementId: "inline-image-2", alt: "Alt text for inline image 2", caption: "Optional inline image 2 caption" },
-      { uploadKey: "image_3", placementId: "inline-image-3", alt: "Alt text for inline image 3", caption: "Optional inline image 3 caption" },
-      { uploadKey: "image_4", placementId: "inline-image-4", alt: "Alt text for inline image 4", caption: "Optional inline image 4 caption" },
+      { uploadKey: "image_1", placementId: "inline-image-1", alt: "Alt text for inline image 1", caption: "Optional inline image 1 caption", credit: "" },
+      { uploadKey: "image_2", placementId: "inline-image-2", alt: "Alt text for inline image 2", caption: "Optional inline image 2 caption", credit: "" },
+      { uploadKey: "image_3", placementId: "inline-image-3", alt: "Alt text for inline image 3", caption: "Optional inline image 3 caption", credit: "" },
+      { uploadKey: "image_4", placementId: "inline-image-4", alt: "Alt text for inline image 4", caption: "Optional inline image 4 caption", credit: "" },
     ],
     body: {
       intro: "Opening article intro.",
@@ -2192,7 +2203,13 @@ function amDownloadTemplate(type) {
         { heading: "Section With Image 4", paragraphs: ["Paragraph before image."], imagePlacement: "inline-image-4" },
       ],
     },
-    sources: [{ title: "Source title", publisher: "Publisher Name", url: "https://example.com/source" }],
+    sources: [{ title: "Source title", publisher: "Publisher Name", url: "https://example.com/source", publishedDate: today }],
+    buyerTakeaway: "",
+    marketSignal: "",
+    bestFor: "",
+    watchPoints: "",
+    buyerQuestions: "",
+    relatedCorridor: "",
     newsletterHeadline: "Optional newsletter headline",
     query: "Optional research/query string",
     siteContext: {
@@ -2209,15 +2226,44 @@ function amDownloadTemplate(type) {
   };
 
   const templates = {
-    news: { ...base, destination: "news", title: "News Update Template", tags: ["development", "new construction"], newsletterHeadline: "News Update: what changed this week" },
-    downtown: { ...base, destination: "downtown", title: "Downtown Spotlight Template", tags: ["Downtown Spotlight", "city"], newsletterHeadline: "Downtown Spotlight: what buyers should know" },
-    devwatch: { ...base, destination: "news", title: "Development Watch Template", tags: ["development", "planning", "construction"], newsletterHeadline: "Development Watch: project movement" },
+    news: {
+      ...base,
+      destination: "news",
+      title: "News Update Template",
+      tags: ["development", "new construction"],
+      newsletterHeadline: "News Update: what changed this week",
+      whyItMatters: "Explain why this story is relevant to the site's overall market narrative, not just one buyer.",
+      buyerContext: "Explain practical buyer impact: lifestyle, walkability, neighborhood maturity, amenities, pricing power, inventory, resale demand, timing, risk, or construction momentum. Do not write generic hype.",
+    },
+    downtown: {
+      ...base,
+      destination: "downtown",
+      category: "general",
+      title: "Downtown Spotlight Template",
+      tags: ["Downtown Spotlight", "city"],
+      newsletterHeadline: "Downtown Spotlight: what buyers should know",
+      whyItMatters: "Explain why this downtown story matters to buyers comparing buildings in the urban core.",
+      buyerContext: "Explain practical buyer impact for downtown shoppers: walkability, transit, dining, entertainment, office conversion timing, or residential inventory.",
+    },
+    devwatch: {
+      ...base,
+      destination: "news",
+      category: "development",
+      title: "Development Watch Template",
+      tags: ["development", "planning", "construction"],
+      newsletterHeadline: "Development Watch: project movement",
+      whyItMatters: "Explain why this development or planning update changes the buyer landscape for West Palm Beach.",
+      buyerContext: "Explain what buyers should watch: permitting timelines, construction starts, delivery dates, and how those affect inventory and pricing power.",
+    },
     buyer: {
       ...base,
       destination: "buyer",
+      category: "general",
       title: "Buyer Intelligence Draft Template",
       tags: ["Buyer Intelligence", "sales", "financing"],
       newsletterHeadline: "Buyer Intelligence: market note for active shoppers",
+      whyItMatters: "Explain why this story is relevant to the site's overall market narrative, not just one buyer. Example: This is the first confirmed waterfront dining operator on North Flagler, filling a gap that buyers have consistently raised during building comparisons.",
+      buyerContext: "Explain practical buyer impact: lifestyle, walkability, neighborhood maturity, amenities, pricing power, inventory, resale demand, timing, risk, or construction momentum. Do not write generic hype.",
       buyerTakeaway: "Write one sentence that captures what a buyer should actually do or know after reading this. Example: If you are comparing Olara and Shorecrest, the new Currie Park restaurant operator changes the evening amenity balance on North Flagler.",
       marketSignal: "Describe what changed in the market, the policy, or the project pipeline, and why it matters now rather than later. Example: West Palm Beach is selecting an operator for Currie Park, which would be the first waterfront restaurant on this stretch of North Flagler.",
       bestFor: "List the buyer profiles this insight serves. Example: Full-time residents comparing North Flagler buildings; relocation buyers who want walkable dining; investors tracking neighborhood maturity.",
@@ -2226,8 +2272,16 @@ function amDownloadTemplate(type) {
       relatedNeighborhoods: ["North Flagler", "Currie Park"],
       relatedCorridor: "north-flagler",
       buyerQuestions: "List common questions buyers ask after reading this. Example: When will the restaurant actually open? Does this change foot traffic or noise near the building I am considering? How does this affect resale demand on North Flagler?",
-      buyerContext: "Explain practical buyer impact: lifestyle, walkability, neighborhood maturity, amenities, pricing power, inventory, resale demand, timing, risk, or construction momentum. Do not write generic hype.",
-      whyItMatters: "Explain why this story is relevant to the site's overall market narrative, not just one buyer. Example: This is the first confirmed waterfront dining operator on North Flagler, filling a gap that buyers have consistently raised during building comparisons.",
+      buyerIntelligence: {
+        buyerTakeaway: "Write one sentence that captures what a buyer should actually do or know after reading this.",
+        marketSignal: "Describe what changed in the market, the policy, or the project pipeline, and why it matters now rather than later.",
+        bestFor: "List the buyer profiles this insight serves.",
+        watchPoints: "Add timelines, risks, or verification steps buyers should track.",
+        buyerQuestions: "List common questions buyers ask after reading this.",
+        relatedCorridor: "north-flagler",
+        relatedNeighborhoods: ["North Flagler", "Currie Park"],
+        relatedBuildings: ["olara", "shorecrest", "ritz-carlton-residences-west-palm-beach"],
+      },
     },
   };
 
