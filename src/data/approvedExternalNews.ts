@@ -80,7 +80,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "eventDate": "2026-06-12",
     "dateDiscovered": "2026-06-12",
     "freshnessLane": "breaking_14d",
-    "fetchedAt": "2026-06-12T02:27:13.323Z",
+    "fetchedAt": "2026-06-12T02:28:12.488Z",
     "deck": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
     "description": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
     "summary": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
