@@ -5051,6 +5051,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/currie-park-waterfront-restaurant-west-palm-beach-2026-06-10/",
+    "title": "Currie Park Restaurant Proposals Add Another Lifestyle Layer to North Flagler | WPB Updates",
+    "description": "West Palm Beach is reviewing proposals for the first waterfront restaurant at Currie Park, a move that could turn the renovated park into a stronger lifestyle anchor for the North Flagler corridor near Olara, Shorecrest, and the planned Ritz-Carlton Residences.",
+    "ogImage": "/assets/editorial/currie-park-waterfront-restaurant-west-palm-beach-2026-06-10-hero.jpg"
+  },
+  {
     "path": "/updates/court-club-private-racquet-club-west-palm-beach-2026-06-09/",
     "title": "Private Racquet Club Near West Palm Beach Signals the Next Wave of Lifestyle Demand | WPB Updates",
     "description": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
