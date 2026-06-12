@@ -502,6 +502,7 @@ If `git push origin main` fails, report the exact auth error. Do not pretend the
 
 **Safety rules:**
 
+- Publish Live requires both the Publish and Deploy confirmation boxes to be checked.
 - Import Package creates drafts only.
 - Import never publishes, commits, pushes, or deploys.
 - Draft-only actions should only write to `.runtime/`.

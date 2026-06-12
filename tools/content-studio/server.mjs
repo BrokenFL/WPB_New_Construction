@@ -433,8 +433,8 @@ async function runArticleWorkflow(body, request, response) {
       return sendJson(response, { ok: false, error: "Check the publish confirmation box before running commit, push, and deploy." }, 400);
     }
   }
-  if (mode === "ship" && body.confirmDeploy !== true) {
-    return sendJson(response, { ok: false, error: "Check the deploy confirmation box before shipping live." }, 400);
+  if (body.triggerDeploy === true && body.confirmDeploy !== true) {
+    return sendJson(response, { ok: false, error: "Check the deploy confirmation box before triggering a live deploy." }, 400);
   }
   const dirty = await run("git", ["status", "--short"]);
   if (dirty.stdout.trim()) {

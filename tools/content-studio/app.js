@@ -1625,7 +1625,7 @@ async function amPublish(mode, options = {}) {
   if (result.ok) {
     if (result.deployTriggered === true) {
       const runLink = result.deployRunUrl ? `<a href="${escapeHtml(result.deployRunUrl)}" target="_blank" rel="noopener">GitHub Actions run ${escapeHtml(String(result.deployRunId || ""))}</a>` : "GitHub Actions run queued";
-      amSetSaveStatus(`Published & deploy triggered. ${runLink}`, true);
+      amSetSaveStatusHtml(`Published & deploy triggered. ${runLink}`, true);
     } else if (result.deployTriggered === false) {
       amSetSaveStatus("Published, but deploy trigger failed. See result panel.", false);
     } else {
@@ -1652,6 +1652,14 @@ async function amPublish(mode, options = {}) {
 }
 
 async function amPublishLive() {
+  if (!document.querySelector("#amConfirmPublish")?.checked) {
+    amSetSaveStatus("Check the Publish confirmation box before Publish Live.", false);
+    return;
+  }
+  if (!document.querySelector("#amConfirmDeploy")?.checked) {
+    amSetSaveStatus("Check the Deploy confirmation box before Publish Live.", false);
+    return;
+  }
   return amPublish("publish", { triggerDeploy: true });
 }
 
@@ -1659,6 +1667,13 @@ function amSetSaveStatus(message, ok) {
   const el = document.querySelector("#amSaveStatus");
   if (!el) return;
   el.textContent = message;
+  el.className = "am-save-status" + (ok === true ? " am-status-ok" : ok === false ? " am-status-error" : "");
+}
+
+function amSetSaveStatusHtml(message, ok) {
+  const el = document.querySelector("#amSaveStatus");
+  if (!el) return;
+  el.innerHTML = message;
   el.className = "am-save-status" + (ok === true ? " am-status-ok" : ok === false ? " am-status-error" : "");
 }
 

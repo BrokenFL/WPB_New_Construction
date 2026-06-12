@@ -123,6 +123,7 @@ This should remove the need for manual terminal deploy commands after publishing
 - **Publish From Clean State** — commits and pushes without triggering deploy.
 
 **Safety rules:**
+- Publish Live requires both the Publish and Deploy confirmation boxes to be checked.
 - Publish Live must not run if unrelated files are dirty.
 - Publish Live must not commit unrelated files (allowlist enforced).
 - Publish Live must not deploy if publish or push fails.
