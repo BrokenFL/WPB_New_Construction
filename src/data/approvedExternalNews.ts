@@ -67,6 +67,48 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "test-publish-live-deploy-trigger-2026-06-11",
+    "slug": "test-publish-live-deploy-trigger-2026-06-11",
+    "title": "Test Publish Live Deploy Trigger",
+    "sourceName": "West Palm Beach New Construction",
+    "sourceUrl": "https://www.wpbnewconstruction.com/updates/",
+    "canonicalUrl": "https://www.wpbnewconstruction.com/updates/",
+    "sourceTitle": "Test Publish Live Deploy Trigger",
+    "publishedAt": "2026-06-12T02:48:22.721Z",
+    "sourcePublishedAt": "2026-06-12",
+    "sourcePublishedDate": "2026-06-12",
+    "eventDate": "2026-06-12",
+    "dateDiscovered": "2026-06-12",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-06-12T02:48:22.721Z",
+    "deck": "Minimal test to verify deploy trigger after publish.",
+    "description": "Minimal test to verify deploy trigger after publish.",
+    "summary": "Minimal test to verify deploy trigger after publish.",
+    "bodySections": [
+      {
+        "heading": "Test",
+        "body": "This article verifies the Publish Live workflow triggers Cloudflare deploy."
+      }
+    ],
+    "whyItMatters": "",
+    "buyerContext": "",
+    "newsletterHeadline": "Test Publish Live Deploy Trigger",
+    "newsletterBlurb": "Minimal test to verify deploy trigger after publish.",
+    "newsletterCta": "Read the article",
+    "query": "Test Publish Live Deploy Trigger",
+    "category": "general",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/flagler-waterfront-corridor.jpg",
+    "sourceLinks": [],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "court-club-private-racquet-club-west-palm-beach-2026-06-09",
     "slug": "court-club-private-racquet-club-west-palm-beach-2026-06-09",
     "title": "Private Racquet Club Near West Palm Beach Signals the Next Wave of Lifestyle Demand",
