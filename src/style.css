@@ -4141,6 +4141,35 @@ body.has-floorplan-viewer {
   line-height: 1.24;
 }
 
+.buyer-intelligence-box {
+  border: 1px solid rgba(107, 148, 171, 0.42);
+  border-radius: 8px;
+  padding: clamp(20px, 2.4vw, 30px);
+  background: rgba(232, 242, 248, 0.72);
+  margin-bottom: clamp(28px, 4vw, 54px);
+}
+
+.buyer-intelligence-box span {
+  display: block;
+  margin-bottom: 12px;
+  color: #2a5a6f;
+  font-size: clamp(0.68rem, 1.1vw, 0.82rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.buyer-intelligence-box p {
+  margin: 6px 0 0;
+  color: var(--ink);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  line-height: 1.42;
+}
+
+.buyer-intelligence-box p strong {
+  color: #2a5a6f;
+}
+
 .verify-box {
   border-color: rgba(154, 122, 79, 0.28);
   background: rgba(255, 250, 241, 0.72);

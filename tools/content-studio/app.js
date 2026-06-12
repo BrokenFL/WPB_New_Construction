@@ -1081,6 +1081,7 @@ let amCurrentImagePath = "";
 let amCurrentBodyImages = [];
 let amPreviewReadyInSession = false;
 let amCurrentNewsletterHeadline = "";
+let amCurrentBuyerTakeaway = "";
 
 function initArticleManager() {
   // Tab switching
@@ -1339,6 +1340,7 @@ function amResetEditor() {
   amCurrentImagePath = "";
   amCurrentBodyImages = [];
   amCurrentNewsletterHeadline = "";
+  amCurrentBuyerTakeaway = "";
   amResetPreviewReady();
   amSetSaveStatus("", null);
 }
@@ -1364,11 +1366,20 @@ function amPopulateEditor(article, source) {
   set("amSourceDate", article.sourcePublishedDate || "");
   set("amWhyItMatters", article.whyItMatters || "");
   set("amBuyerContext", article.buyerContext || "");
+  set("amBuyerTakeaway", article.buyerTakeaway || "");
+  set("amMarketSignal", article.marketSignal || "");
+  set("amBestFor", article.bestFor || "");
+  set("amWatchPoints", article.watchPoints || "");
+  set("amBuyerQuestions", article.buyerQuestions || "");
+  set("amRelatedCorridor", article.relatedCorridor || "");
+  set("amRelatedNeighborhoods", (article.relatedNeighborhoods || []).join(", "));
+  set("amRelatedBuildings", (article.relatedBuildings || []).join(", "));
   set("amCommitMessage", "");
   set("amHeroAlt", article.heroAlt || "");
   set("amHeroCredit", article.heroCredit || "");
   set("amHeroCaption", article.heroCaption || "");
   amCurrentNewsletterHeadline = article.newsletterHeadline || "";
+  amCurrentBuyerTakeaway = article.buyerTakeaway || "";
   amResetPreviewReady();
 
   // Hero image thumbnail
@@ -1516,6 +1527,14 @@ async function amBuildPayload() {
     sourcePublishedDate: val("amSourceDate"),
     whyItMatters: val("amWhyItMatters"),
     buyerContext: val("amBuyerContext"),
+    buyerTakeaway: val("amBuyerTakeaway"),
+    marketSignal: val("amMarketSignal"),
+    bestFor: val("amBestFor"),
+    watchPoints: val("amWatchPoints"),
+    buyerQuestions: val("amBuyerQuestions"),
+    relatedCorridor: val("amRelatedCorridor"),
+    relatedNeighborhoods: val("amRelatedNeighborhoods"),
+    relatedBuildings: val("amRelatedBuildings"),
     commitMessage: val("amCommitMessage"),
     heroAlt: val("amHeroAlt"),
     heroCredit: val("amHeroCredit"),
@@ -2179,7 +2198,21 @@ function amDownloadTemplate(type) {
     news: { ...base, destination: "news", title: "News Update Template", tags: ["development", "new construction"], newsletterHeadline: "News Update: what changed this week" },
     downtown: { ...base, destination: "downtown", title: "Downtown Spotlight Template", tags: ["Downtown Spotlight", "city"], newsletterHeadline: "Downtown Spotlight: what buyers should know" },
     devwatch: { ...base, destination: "news", title: "Development Watch Template", tags: ["development", "planning", "construction"], newsletterHeadline: "Development Watch: project movement" },
-    buyer: { ...base, destination: "buyer", title: "Buyer Intelligence Draft Template", tags: ["Buyer Intelligence", "sales", "financing"], newsletterHeadline: "Buyer Intelligence: market note for active shoppers" },
+    buyer: {
+      ...base,
+      destination: "buyer",
+      title: "Buyer Intelligence Draft Template",
+      tags: ["Buyer Intelligence", "sales", "financing"],
+      newsletterHeadline: "Buyer Intelligence: market note for active shoppers",
+      buyerTakeaway: "What buyers should know in one sentence.",
+      marketSignal: "What changed in the market and why it matters now.",
+      bestFor: "Which buyer profiles this insight serves best.",
+      watchPoints: "Timelines, risks, or verification steps to track.",
+      relatedBuildings: ["Project A", "Project B"],
+      relatedNeighborhoods: ["Downtown West Palm Beach"],
+      relatedCorridor: "north-flagler",
+      buyerQuestions: "Common questions buyers ask after reading this.",
+    },
   };
 
   const selected = templates[type] || templates.news;

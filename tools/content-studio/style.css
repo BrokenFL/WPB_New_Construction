@@ -378,6 +378,7 @@ button:disabled { cursor: not-allowed; opacity: 0.46; }
 
 /* Quality gate */
 .am-quality-card { border-left: 4px solid var(--gold); }
+.am-buyer-card { border-left: 4px solid #2a5a6f; }
 .am-quality-list { display: grid; gap: 8px; margin-bottom: 10px; }
 .am-quality-row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; background: var(--wash); }
 .am-quality-row.am-q-pass { border-color: #b0d4c2; background: #f0f7f2; }

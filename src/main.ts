@@ -7164,6 +7164,14 @@ function updateArticleContent(item: ExternalNewsItem) {
     brookeTake: item.brookeTake ||
       "Use this as a signal, not a decision by itself. The next step is to verify what is current today, then compare the buildings that actually fit the buyer's goals.",
     buyerContext: item.buyerContext || item.summary || deck,
+    buyerTakeaway: item.buyerTakeaway || "",
+    marketSignal: item.marketSignal || "",
+    bestFor: item.bestFor || "",
+    watchPoints: item.watchPoints || "",
+    buyerQuestions: item.buyerQuestions || "",
+    relatedCorridor: item.relatedCorridor || "",
+    relatedBuildings: item.relatedBuildings || [],
+    relatedNeighborhoods: item.relatedNeighborhoods || [],
     newsletterBlurb: item.newsletterBlurb || item.summary || deck,
     newsletterCta: item.newsletterCta || "Request current availability",
     cta:
@@ -7199,6 +7207,19 @@ function renderUpdateArticle(item: ExternalNewsItem) {
           <span>Deck</span>
           <strong>${publicText(content.deck)}</strong>
         </aside>
+        ${content.buyerTakeaway || content.marketSignal || content.bestFor || content.watchPoints
+          ? `<aside class="buyer-intelligence-box">
+              <span>Buyer Intelligence</span>
+              ${content.buyerTakeaway ? `<p><strong>Takeaway:</strong> ${publicText(content.buyerTakeaway)}</p>` : ""}
+              ${content.marketSignal ? `<p><strong>Market signal:</strong> ${publicText(content.marketSignal)}</p>` : ""}
+              ${content.bestFor ? `<p><strong>Best for:</strong> ${publicText(content.bestFor)}</p>` : ""}
+              ${content.watchPoints ? `<p><strong>Watch points:</strong> ${publicText(content.watchPoints)}</p>` : ""}
+              ${content.buyerQuestions ? `<p><strong>Buyer questions:</strong> ${publicText(content.buyerQuestions)}</p>` : ""}
+              ${content.relatedBuildings?.length ? `<p><strong>Related buildings:</strong> ${publicText(content.relatedBuildings.join(", "))}</p>` : ""}
+              ${content.relatedNeighborhoods?.length ? `<p><strong>Related neighborhoods:</strong> ${publicText(content.relatedNeighborhoods.join(", "))}</p>` : ""}
+              ${content.relatedCorridor ? `<p><strong>Related corridor:</strong> ${publicText(content.relatedCorridor)}</p>` : ""}
+            </aside>`
+          : ""}
         <div class="market-note-sections">
           <section>
             <h2>The story</h2>

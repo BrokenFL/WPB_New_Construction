@@ -585,6 +585,12 @@ The server maps `placementId` to the `key` field in `bodyImages`, and `imagePlac
 
 ---
 
+### Buyer Intelligence v1 (2026-06-12)
+
+Buyer Intelligence uses the same Article Manager workflow and publishing pipeline as news updates. Optional buyer-oriented fields (`buyerTakeaway`, `marketSignal`, `bestFor`, `watchPoints`, `relatedBuildings`, `relatedNeighborhoods`, `relatedCorridor`, `buyerQuestions`) are preserved in drafts and published articles. The Buyer Intelligence box renders on the article page only when at least one of these fields exists. Normal news articles remain unchanged. Buyer Intelligence fields are optional and do not block normal article publishing.
+
+---
+
 ### 2026-06-10 Article Manager Phase 1 Verification
 
 Phase 1 Article Manager is installed inside `tools/content-studio/`.
