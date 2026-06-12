@@ -80,7 +80,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "eventDate": "2026-06-12",
     "dateDiscovered": "2026-06-12",
     "freshnessLane": "breaking_14d",
-    "fetchedAt": "2026-06-12T02:48:22.721Z",
+    "fetchedAt": "2026-06-12T02:50:52.977Z",
     "deck": "Minimal test to verify deploy trigger after publish.",
     "description": "Minimal test to verify deploy trigger after publish.",
     "summary": "Minimal test to verify deploy trigger after publish.",
@@ -103,7 +103,13 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "relatedCorridors": [],
     "corridorLabel": "West Palm Beach",
     "imagePath": "/assets/editorial/flagler-waterfront-corridor.jpg",
-    "sourceLinks": [],
+    "sourceLinks": [
+      {
+        "label": "West Palm Beach New Construction",
+        "url": "https://www.wpbnewconstruction.com/updates/",
+        "type": "news"
+      }
+    ],
     "paywallStatus": "free",
     "status": "published",
     "riskLevel": "medium"
