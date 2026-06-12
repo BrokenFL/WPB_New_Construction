@@ -67,6 +67,82 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "court-club-private-racquet-club-west-palm-beach-2026-06-09",
+    "slug": "court-club-private-racquet-club-west-palm-beach-2026-06-09",
+    "title": "Private Racquet Club Near West Palm Beach Signals the Next Wave of Lifestyle Demand",
+    "sourceName": "Palm Beach Post",
+    "sourceUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/09/court-club-near-west-palm-beach-courts-members-as-wait-list-hits-700/90360392007/",
+    "canonicalUrl": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/09/court-club-near-west-palm-beach-courts-members-as-wait-list-hits-700/90360392007/",
+    "sourceTitle": "Private Racquet Club Near West Palm Beach Signals the Next Wave of Lifestyle Demand",
+    "publishedAt": "2026-06-12T02:27:13.323Z",
+    "sourcePublishedAt": "2026-06-09",
+    "sourcePublishedDate": "2026-06-09",
+    "eventDate": "2026-06-12",
+    "dateDiscovered": "2026-06-12",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-06-12T02:27:13.323Z",
+    "deck": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
+    "description": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
+    "summary": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
+    "bodySections": [
+      {
+        "heading": "Introduction",
+        "body": "A private racquet club rising just south of Trump International Golf Club is becoming one of the clearest examples of how West Palm Beach’s growth story is expanding beyond offices, restaurants, and residential towers. The Court Club, under construction at 1591 Kirk Road in Palm Springs, is being positioned as a members-only destination built around racquet sports, wellness, dining, and family programming.",
+        "image": "/assets/editorial/court-club-private-racquet-club-west-palm-beach-2026-06-09-body-1.jpg"
+      },
+      {
+        "heading": "A Club Built Around the New Social Demand",
+        "body": "According to the Palm Beach Post, the Court Club is planned with six padel courts, six tennis courts, and at least two pickleball courts, along with a clubhouse, dining, fitness, spa, pool, and a schedule of athletic, cultural, and family events.\n\nThe demand appears to be arriving before the doors open. The project reportedly already has 100 founding families and a wait list of roughly 700 applicants, a notable signal in a market where private clubs, wellness, and curated social spaces are becoming part of the broader real estate conversation.",
+        "image": "/assets/editorial/court-club-private-racquet-club-west-palm-beach-2026-06-09-body-2.jpg"
+      },
+      {
+        "heading": "Why This Matters for the West Palm Beach Market",
+        "body": "For buyers looking at West Palm Beach, Palm Beach, and the surrounding neighborhoods, the Court Club is not just another amenity project. It reflects a larger lifestyle shift: affluent residents want access to places that feel social, polished, active, and family-friendly without relying only on traditional country club models.\n\nThat matters because the next phase of demand in Palm Beach County is increasingly tied to how people actually live once they arrive. New restaurants, private clubs, wellness concepts, walkable districts, and youth programming all help turn population growth into a more complete lifestyle ecosystem.",
+        "image": "/assets/editorial/court-club-private-racquet-club-west-palm-beach-2026-06-09-body-1.jpg"
+      },
+      {
+        "heading": "The NDT and Hospitality Connection",
+        "body": "The project also connects to several familiar names in the local development and hospitality world. NDT Development, the West Palm Beach-based firm behind Nora and the Cove Club, is one of the partners involved in the Court Club. Nick Coniglio, known locally for Cucina in Palm Beach as well as E.R. Bradley’s and Lamarina in West Palm Beach, is also part of the club’s hospitality side.\n\nThat mix is important. The most successful private clubs in today’s market are not just athletic facilities. They operate more like lifestyle platforms, combining design, food and beverage, programming, wellness, and social identity."
+      },
+      {
+        "heading": "A Family-Friendly Alternative to the Traditional Club Model",
+        "body": "The Court Club is also being framed around family use, not just adult socializing. Plans include Court Kids, with camps, clinics, supervised play, and youth activities. That gives the project a different angle than an adults-only social club or a purely athletic racquet facility.\n\nThe idea is especially relevant in a market seeing continued in-migration from families, executives, and high-net-worth households who want structured activities for children, fitness for adults, and a social environment that does not require a full residential country club commitment.",
+        "image": "/assets/editorial/court-club-private-racquet-club-west-palm-beach-2026-06-09-body-2.jpg"
+      },
+      {
+        "heading": "Membership Pricing and Timing",
+        "body": "Membership is being positioned at the high end of the local private club market. The Palm Beach Post reported an initiation fee of $45,000 and annual dues of $9,500.\n\nThe full club is expected to open by March 1, 2027, with tennis courts potentially opening earlier, around December. If the wait list is any indication, the project is arriving into a market already primed for more private, highly programmed lifestyle spaces."
+      },
+      {
+        "heading": "The Bottom Line",
+        "body": "The Court Club adds another layer to the West Palm Beach lifestyle story. Alongside new residential development, private clubs, chef-driven restaurants, wellness concepts, and mixed-use districts are helping define what the next generation of Palm Beach County living looks like.\n\nFor buyers, the takeaway is simple: the area’s appeal is no longer just about proximity to Palm Beach or downtown West Palm Beach. It is increasingly about the private and semi-private lifestyle infrastructure forming around them."
+      }
+    ],
+    "whyItMatters": "",
+    "buyerContext": "",
+    "newsletterHeadline": "Private Racquet Club Near West Palm Beach Signals the Next Wave of Lifestyle Demand",
+    "newsletterBlurb": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
+    "newsletterCta": "Read the article",
+    "query": "Private Racquet Club Near West Palm Beach Signals the Next Wave of Lifestyle Demand",
+    "category": "general",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/court-club-private-racquet-club-west-palm-beach-2026-06-09-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "Palm Beach Post",
+        "url": "https://www.palmbeachpost.com/story/business/real-estate/2026/06/09/court-club-near-west-palm-beach-courts-members-as-wait-list-hits-700/90360392007/",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "frisbie-group-palm-beach-county-setbacks-investment-fund-2026-06-08",
     "slug": "frisbie-group-palm-beach-county-setbacks-investment-fund-2026-06-08",
     "title": "Frisbie Group Hits Turbulence as Palm Beach County Ambitions Keep Growing",
