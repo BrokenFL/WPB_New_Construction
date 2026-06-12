@@ -2623,8 +2623,14 @@ app.innerHTML = `
             </h1>
             <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || "Explore the city's most important new and upcoming condominium projects with clear details, local insight, floorplans, maps, and buyer-focused guidance before you inquire.")}</p>
             <div class="hero-actions" aria-label="Primary homepage actions">
+              <a href="/inquire/?interest=availability&lead_capture_context=home_hero" data-hero-cta="request-availability">Request Availability</a>
               <a href="/buildings/" data-hero-cta="explore-buildings">Browse Projects</a>
-              <a href="/corridors/" data-hero-cta="view-corridors">Explore Corridors</a>
+              <a href="/compare/" data-hero-cta="compare-buildings">Compare Buildings</a>
+            </div>
+            <div class="home-hero-trust">
+              <span>Douglas Elliman</span>
+              <span>Private buyer-side guidance</span>
+              <span>Current pricing and floor-plan review</span>
             </div>
           </div>
         </div>
@@ -2642,9 +2648,8 @@ app.innerHTML = `
 
       <section class="home-corridor-guide" id="corridors" aria-label="Choose a West Palm Beach new-construction corridor">
         <div class="section-heading corridor-heading">
-          <p class="eyebrow">Explore by Corridor</p>
-          <h2>Start by location.</h2>
-          <p class="mobile-rail-hint" aria-hidden="true">Swipe to explore <span>→</span></p>
+          <p class="eyebrow">Explore by Geography</p>
+          <h2>Three buying lanes, each with a different rhythm.</h2>
         </div>
         <div class="corridor-guide-grid">
           ${homepageCorridorKeys.map((key) => corridorSections.find((section) => section.key === key)).filter((section): section is CorridorSection => Boolean(section)).map((section) => {
@@ -2688,9 +2693,8 @@ app.innerHTML = `
 
       <section class="home-featured-section" id="featured-projects" aria-label="Featured buyer-ready projects">
         <div class="section-heading home-featured-heading">
-          <p class="eyebrow">Featured Developments</p>
-          <p>A focused starting point for comparing relevant new residences.</p>
-          <p class="mobile-rail-hint" aria-hidden="true">Swipe to explore <span>→</span></p>
+          <p class="eyebrow">Selected Projects</p>
+          <p>A curated starting point for active comparisons, delivery timing, and buyer-fit tradeoffs.</p>
         </div>
         <div class="home-featured-grid" role="region" aria-label="Scrollable featured developments" tabindex="0">
           ${homepageFeaturedProjects.map(renderHomepageFeaturedProject).join("")}
@@ -3568,8 +3572,10 @@ app.innerHTML = `
     <aside class="floating-availability-cta" data-floating-cta aria-label="Request current availability">
       <a href="/inquire/?lead_capture_context=floating_cta">Inquire Now</a>
     </aside>
-    <nav class="mobile-cta-bar" aria-label="Quick contact actions">
-      <a href="/inquire/?lead_capture_context=mobile_cta" data-quick-cta="request">Inquire Now</a>
+    <nav class="mobile-cta-bar" aria-label="Quick contact actions" data-home-cta-state="hidden">
+      <a href="${advisorProfile.mobileHref}" data-quick-cta="call">Call</a>
+      <a href="${advisorProfile.mobileHref.replace("tel:", "sms:")}" data-quick-cta="text">Text</a>
+      <a href="/inquire/?interest=availability&lead_capture_context=mobile_cta" data-quick-cta="request">Request Availability</a>
     </nav>
     <div class="lead-modal-backdrop" data-lead-modal hidden>
       <section class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" aria-describedby="lead-modal-body">
@@ -3759,6 +3765,7 @@ initBuyerAssistant();
 initLeadCaptureModal();
 initQuickCtas();
 initHomeHero();
+initHomeMobileCta();
 
 function queueLeadLocally(leadRecord: Record<string, string>) {
   try {
@@ -3972,6 +3979,25 @@ function initHomeHero() {
   window.setInterval(() => {
     void rotate();
   }, HERO_ROTATION_INTERVAL_MS);
+}
+
+function initHomeMobileCta() {
+  const ctaBar = document.querySelector<HTMLElement>(".mobile-cta-bar");
+  const hero = document.querySelector<HTMLElement>(".route-view-home:not([hidden]) .home-hero");
+  if (!ctaBar || !hero) return;
+
+  const updateState = () => {
+    if (window.innerWidth > 860) {
+      ctaBar.dataset.homeCtaState = "hidden";
+      return;
+    }
+    const revealPoint = Math.min(Math.max(hero.offsetHeight * 0.35, 160), 320);
+    ctaBar.dataset.homeCtaState = window.scrollY > revealPoint ? "visible" : "hidden";
+  };
+
+  updateState();
+  window.addEventListener("scroll", updateState, { passive: true });
+  window.addEventListener("resize", updateState);
 }
 
 function heroImagePosition(image: object) {
@@ -5270,7 +5296,7 @@ function renderHomepageUpdateFeature(item: ExternalNewsItem) {
   return `
     <a class="home-resource-card home-resource-card-featured" href="${updatePath(item)}">
       ${renderResolvedContentImage(resolvedImage)}
-      <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
+      <span>${publicText(item.category)} · ${publicText(formatNewsCardDate(newsDisplayDate(item)))}</span>
       <strong>${publicText(item.title)}</strong>
       <p>${publicText(article.excerpt)}</p>
       <em>Read latest update <b aria-hidden="true">→</b></em>
@@ -5288,8 +5314,8 @@ function renderHomepageCompareLauncher() {
     <section class="home-compare-launcher" aria-label="Choose two buildings to compare">
       <div class="home-compare-launcher-copy">
         <p class="eyebrow">Compare Buildings</p>
-        <h2>Start with two.</h2>
-        <p>Pick two buildings to open a focused side-by-side shortlist. You can add one more project on the full comparison page.</p>
+        <h2>Open a private-grade shortlist in two clicks.</h2>
+        <p>Choose two buildings first, compare the essentials, then expand into a deeper side-by-side review when the shortlist is worth the time.</p>
       </div>
       <form class="home-compare-form" data-home-compare-form>
         <div class="home-compare-picker-grid">
@@ -6409,9 +6435,9 @@ function renderFeaturedProject(project: FeaturedProject) {
     : project.image && canShowImage(project.image)
     ? `<img src="${project.image}" alt="${project.name} project preview" loading="lazy" decoding="async" />`
     : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${displayName}</strong></div>`;
-  const cardStatus = project.status;
   const salesOffice = salesOfficeLabel(project);
-  const completionYear = Number.isFinite(project.deliveryYear) && project.deliveryYear > 2000 ? String(project.deliveryYear) : "TBD";
+  const cardStatus = projectStatusChipLabel(project);
+  const completionYear = projectDeliveryChipLabel(project);
   const cardCopy = project.summary;
 
   return `
@@ -6431,12 +6457,12 @@ function renderFeaturedProject(project: FeaturedProject) {
       <div class="front-project-card-body">
         <strong data-pc-title>${escapeHtml(displayName)}</strong>
         <div class="project-card-kicker">
-          <span data-pc-corridor>${project.corridor.toUpperCase()}</span>
+          <span data-pc-corridor>${project.corridor}</span>
           <span data-pc-status>${cardStatus}</span>
         </div>
         <div class="project-card-intel">
-          <span><small>Sales Office</small><b data-pc-sales>${salesOffice}</b></span>
-          <span><small>Completion</small><b data-pc-year>${completionYear}</b></span>
+          <span><small>Availability</small><b data-pc-sales>${salesOffice}</b></span>
+          <span><small>Timing</small><b data-pc-year>${completionYear}</b></span>
         </div>
         <p data-pc-copy>${escapeHtml(cardCopy)}</p>
         <div class="project-card-actions">
@@ -6563,9 +6589,9 @@ function renderHomepageFeaturedProject(project: FeaturedProject) {
             : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${project.name}</strong></div>`}
         </figure>
         <div>
-          <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
+          <span>${escapeHtml(project.corridor)} · ${escapeHtml(projectStatusChipLabel(project))}</span>
           <strong>${escapeHtml(cardOverride?.headline || project.name)}</strong>
-          <small>${escapeHtml(project.delivery)}</small>
+          <small>${escapeHtml(projectDeliveryChipLabel(project))}</small>
           <em>View project <b aria-hidden="true">→</b></em>
         </div>
       </a>
@@ -7002,6 +7028,12 @@ function formatNewsDate(value: string) {
   return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date(parsed));
 }
 
+function formatNewsCardDate(value: string) {
+  const parsed = /^\d{4}-\d{2}-\d{2}$/.test(value) ? Date.parse(`${value}T12:00:00`) : Date.parse(value);
+  if (Number.isNaN(parsed)) return value;
+  return new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric" }).format(new Date(parsed));
+}
+
 function renderExternalNewsItem(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
   const article = updateArticleContent(item);
@@ -7021,7 +7053,7 @@ function renderExternalNewsItem(item: ExternalNewsItem) {
     <article class="news-card intelligence-news-card external-news-card" id="${escapeHtml(item.id)}" data-news-card data-news-category="${escapeHtml(categoryTokens)}" data-news-corridors="${escapeHtml(item.relatedCorridorIds.join(" "))}" data-news-projects="${escapeHtml(item.relatedProjectIds.join(" "))}" data-news-search="${escapeHtml(searchText.toLowerCase())}">
       ${renderResolvedContentImage(resolvedImage)}
       <div>
-        <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
+        <span>${publicText(item.category)} · ${publicText(formatNewsCardDate(newsDisplayDate(item)))}</span>
         <strong>${publicText(item.title)}</strong>
         <p>${publicText(article.excerpt)}</p>
         <small>${publicText(relatedNewsLabel(item))}</small>
@@ -7038,7 +7070,7 @@ function renderFeaturedExternalNewsItem(item: ExternalNewsItem) {
     <article class="featured-update-card">
       ${renderResolvedContentImage(resolvedImage)}
       <div>
-        <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))} · ${publicText(relatedNewsLabel(item).replace(/^Related:\s*/, ""))}</span>
+        <span>${publicText(item.category)} · ${publicText(formatNewsCardDate(newsDisplayDate(item)))} · ${publicText(relatedNewsLabel(item).replace(/^Related:\s*/, ""))}</span>
         <h2>${publicText(item.title)}</h2>
         <p>${publicText(article.deck)}</p>
         <a class="button primary" href="${updatePath(item)}">Read Latest Update <span aria-hidden="true">→</span></a>
@@ -9871,9 +9903,9 @@ function getProjectFilterValues(project: FeaturedProject) {
 
 function salesOfficeLabel(project: FeaturedProject) {
   const filterValue = salesOfficeFilterValue(project);
-  if (filterValue === "resales") return "Resales";
-  if (filterValue === "sales-office-closed") return "No";
-  return "Yes";
+  if (filterValue === "resales") return "Private Resale";
+  if (filterValue === "sales-office-closed") return "Sales Gallery Pending";
+  return "Sales Gallery Open";
 }
 
 function salesOfficeFilterValue(project: FeaturedProject) {
@@ -9881,6 +9913,24 @@ function salesOfficeFilterValue(project: FeaturedProject) {
   if (/completed|delivered|resale/.test(status)) return "resales";
   if (/planning/.test(status) || project.id === "edgeworth" || project.id === "rybovich-marina-redevelopment") return "sales-office-closed";
   return "sales-office-open";
+}
+
+function projectStatusChipLabel(project: FeaturedProject) {
+  const salesValue = salesOfficeFilterValue(project);
+  if (salesValue === "resales") return "Private Resales";
+  if (salesValue === "sales-office-open") return "Now Selling";
+  if (/planning/i.test(project.status)) return "Planning Watch";
+  if (/approved/i.test(project.status)) return "Approved";
+  if (/completed|delivered/i.test(project.status)) return "Delivered";
+  return project.status;
+}
+
+function projectDeliveryChipLabel(project: FeaturedProject) {
+  if (Number.isFinite(project.deliveryYear) && project.deliveryYear > 2000) {
+    if (/completed|delivered/i.test(project.status)) return `Delivered ${project.deliveryYear}`;
+    return `${project.deliveryYear} Delivery`;
+  }
+  return "Timing To Verify";
 }
 
 function getResidenceSortValue(project: FeaturedProject) {
