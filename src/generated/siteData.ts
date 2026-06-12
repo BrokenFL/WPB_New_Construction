@@ -5051,6 +5051,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/test-publish-live-flow-2026-06-11/",
+    "title": "Test Publish Live Flow | WPB Updates",
+    "description": "Minimal test article to verify publish+deploy trigger.",
+    "ogImage": "/assets/editorial/flagler-waterfront-corridor.jpg"
+  },
+  {
     "path": "/updates/court-club-private-racquet-club-west-palm-beach-2026-06-09/",
     "title": "Private Racquet Club Near West Palm Beach Signals the Next Wave of Lifestyle Demand | WPB Updates",
     "description": "The Court Club, a private members-only racquet and wellness club rising near West Palm Beach, points to a broader shift in Palm Beach County’s luxury lifestyle market: buyers are not just looking for homes, but for curated social, athletic, and family-oriented environments around them.",
