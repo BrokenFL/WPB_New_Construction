@@ -1138,6 +1138,10 @@ function initArticleManager() {
   document.querySelector("#amImportCreateDraftBtn")?.addEventListener("click", () => amCreateImportDraft());
   document.querySelector("#amImportClearBtn")?.addEventListener("click", () => amClearImport());
   document.querySelector("#amImportAddInlineBtn")?.addEventListener("click", () => amAddInlineImageSlot());
+  document.querySelector("#amTemplateNews")?.addEventListener("click", () => amDownloadTemplate("news"));
+  document.querySelector("#amTemplateDowntown")?.addEventListener("click", () => amDownloadTemplate("downtown"));
+  document.querySelector("#amTemplateDevWatch")?.addEventListener("click", () => amDownloadTemplate("devwatch"));
+  document.querySelector("#amTemplateBuyer")?.addEventListener("click", () => amDownloadTemplate("buyer"));
   document.querySelector("#amImportJsonFile")?.addEventListener("change", async (event) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -1965,6 +1969,18 @@ function amClearImport() {
       </label>
       <div class="am-import-inline-preview" hidden></div>
     </div>
+    <div class="am-import-inline-row">
+      <label>Inline image 3
+        <input class="am-import-inline-file" type="file" accept="image/*" data-upload-key="image_3" />
+      </label>
+      <div class="am-import-inline-preview" hidden></div>
+    </div>
+    <div class="am-import-inline-row">
+      <label>Inline image 4
+        <input class="am-import-inline-file" type="file" accept="image/*" data-upload-key="image_4" />
+      </label>
+      <div class="am-import-inline-preview" hidden></div>
+    </div>
   `;
   document.querySelector("#amImportValidation").innerHTML = "";
   document.querySelector("#amImportCreateDraftBtn").disabled = true;
@@ -1977,6 +1993,60 @@ function amSetImportStatus(message, ok) {
   if (!el) return;
   el.textContent = message;
   el.className = "am-save-status" + (ok === true ? " am-status-ok" : ok === false ? " am-status-error" : "");
+}
+
+function amDownloadTemplate(type) {
+  const today = new Date().toISOString().slice(0, 10);
+  const base = {
+    destination: "news",
+    id: `template-${type}-${Date.now()}`,
+    slug: `template-${type}-${today}`,
+    title: "Template Article",
+    deck: "Short buyer-facing deck / subheadline.",
+    description: "SEO/meta description.",
+    summary: "Short summary.",
+    eventDate: today,
+    freshnessLane: "breaking_14d",
+    neighborhoods: ["Downtown West Palm Beach", "Palm Beach"],
+    projects: ["Project Name"],
+    tags: ["development", "new construction"],
+    heroImage: { uploadKey: "hero", alt: "Alt text for hero image", caption: "Optional hero caption" },
+    images: [
+      { uploadKey: "image_1", placementId: "inline-image-1", alt: "Alt text for inline image 1", caption: "Optional inline image 1 caption" },
+      { uploadKey: "image_2", placementId: "inline-image-2", alt: "Alt text for inline image 2", caption: "Optional inline image 2 caption" },
+      { uploadKey: "image_3", placementId: "inline-image-3", alt: "Alt text for inline image 3", caption: "Optional inline image 3 caption" },
+      { uploadKey: "image_4", placementId: "inline-image-4", alt: "Alt text for inline image 4", caption: "Optional inline image 4 caption" },
+    ],
+    body: {
+      intro: "Opening article intro.",
+      sections: [
+        { heading: "Section Heading", paragraphs: ["Paragraph one.", "Paragraph two."] },
+        { heading: "Section With Image 1", paragraphs: ["Paragraph before image."], imagePlacement: "inline-image-1" },
+        { heading: "Section With Image 2", paragraphs: ["Paragraph before image."], imagePlacement: "inline-image-2" },
+        { heading: "Section With Image 3", paragraphs: ["Paragraph before image."], imagePlacement: "inline-image-3" },
+        { heading: "Section With Image 4", paragraphs: ["Paragraph before image."], imagePlacement: "inline-image-4" },
+      ],
+    },
+    sources: [{ title: "Source title", publisher: "Publisher Name", url: "https://example.com/source" }],
+    newsletterHeadline: "Optional newsletter headline",
+    query: "Optional research/query string",
+  };
+
+  const templates = {
+    news: { ...base, destination: "news", title: "News Update Template", tags: ["development", "new construction"], newsletterHeadline: "News Update: what changed this week" },
+    downtown: { ...base, destination: "downtown", title: "Downtown Spotlight Template", tags: ["Downtown Spotlight", "city"], newsletterHeadline: "Downtown Spotlight: what buyers should know" },
+    devwatch: { ...base, destination: "news", title: "Development Watch Template", tags: ["development", "planning", "construction"], newsletterHeadline: "Development Watch: project movement" },
+    buyer: { ...base, destination: "buyer", title: "Buyer Intelligence Draft Template", tags: ["Buyer Intelligence", "sales", "financing"], newsletterHeadline: "Buyer Intelligence: market note for active shoppers" },
+  };
+
+  const selected = templates[type] || templates.news;
+  const blob = new Blob([JSON.stringify(selected, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${type}-article-package.json`;
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 async function imagePayload(file, metadata = {}) {

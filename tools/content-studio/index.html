@@ -607,6 +607,17 @@
               </section>
 
               <section class="am-card">
+                <h2>Templates</h2>
+                <p class="muted">Download a starter package JSON for each article type.</p>
+                <div class="workflow-buttons">
+                  <button type="button" id="amTemplateNews">News Update</button>
+                  <button type="button" id="amTemplateDowntown">Downtown Spotlight</button>
+                  <button type="button" id="amTemplateDevWatch">Development Watch</button>
+                  <button type="button" id="amTemplateBuyer">Buyer Intelligence Draft</button>
+                </div>
+              </section>
+
+              <section class="am-card">
                 <h2>Validation</h2>
                 <div id="amImportValidation" class="am-import-validation"></div>
                 <div class="workflow-buttons">
@@ -615,12 +626,27 @@
                   <button type="button" id="amImportClearBtn">Clear Import</button>
                 </div>
               </section>
+
+              <section class="am-card">
+                <h2>Image Mapping Guide</h2>
+                <table class="am-import-key-table">
+                  <thead><tr><th>Upload key</th><th>Placement</th><th>Section reference</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>hero</code></td><td>Main / header image</td><td><code>heroImage.uploadKey</code></td></tr>
+                    <tr><td><code>image_1</code></td><td>inline-image-1</td><td><code>body.sections[].imagePlacement = "inline-image-1"</code></td></tr>
+                    <tr><td><code>image_2</code></td><td>inline-image-2</td><td><code>body.sections[].imagePlacement = "inline-image-2"</code></td></tr>
+                    <tr><td><code>image_3</code></td><td>inline-image-3</td><td><code>body.sections[].imagePlacement = "inline-image-3"</code></td></tr>
+                    <tr><td><code>image_4</code></td><td>inline-image-4</td><td><code>body.sections[].imagePlacement = "inline-image-4"</code></td></tr>
+                  </tbody>
+                </table>
+                <p class="muted" style="margin-top: 10px; font-size: 13px;">The <code>imagePlacement</code> value in a body section must exactly match the <code>placementId</code> defined in the corresponding <code>images[]</code> entry.</p>
+              </section>
             </div>
 
             <div class="am-import-right">
               <section class="am-card">
                 <h2>Images</h2>
-                <p class="muted">Upload images referenced by uploadKey in the JSON. The hero image uploadKey is usually "hero". Inline images use keys like "image_1", "image_2".</p>
+                <p class="muted">Upload images referenced by uploadKey in the JSON. The hero image uploadKey is usually "hero". Inline images use keys like "image_1" through "image_4".</p>
                 <label>Hero / Header image
                   <input id="amImportHeroFile" type="file" accept="image/*" />
                 </label>
@@ -636,6 +662,18 @@
                   <div class="am-import-inline-row">
                     <label>Inline image 2
                       <input class="am-import-inline-file" type="file" accept="image/*" data-upload-key="image_2" />
+                    </label>
+                    <div class="am-import-inline-preview" hidden></div>
+                  </div>
+                  <div class="am-import-inline-row">
+                    <label>Inline image 3
+                      <input class="am-import-inline-file" type="file" accept="image/*" data-upload-key="image_3" />
+                    </label>
+                    <div class="am-import-inline-preview" hidden></div>
+                  </div>
+                  <div class="am-import-inline-row">
+                    <label>Inline image 4
+                      <input class="am-import-inline-file" type="file" accept="image/*" data-upload-key="image_4" />
                     </label>
                     <div class="am-import-inline-preview" hidden></div>
                   </div>
