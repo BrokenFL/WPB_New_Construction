@@ -5994,6 +5994,15 @@ function renderMarketNoteArticle(note: MarketNote) {
             <span>Buyer Takeaway</span>
             <p>${escapeHtml(note.buyerTakeaway)}</p>
           </aside>
+          ${renderBuyerIntelligenceBox({
+            marketSignal: note.marketSignal,
+            bestFor: note.bestFor,
+            watchPoints: note.watchPoints,
+            buyerQuestions: note.buyerQuestions,
+            relatedBuildings: note.relatedBuildings,
+            relatedNeighborhoods: note.relatedNeighborhoods,
+            relatedCorridor: note.relatedCorridor,
+          })}
           ${note.sections
             .map(
               (section) => `
@@ -7179,6 +7188,36 @@ function updateArticleContent(item: ExternalNewsItem) {
   };
 }
 
+function renderBuyerIntelligenceBox(fields: {
+  buyerTakeaway?: string;
+  marketSignal?: string;
+  bestFor?: string;
+  watchPoints?: string;
+  buyerQuestions?: string;
+  relatedBuildings?: string[];
+  relatedNeighborhoods?: string[];
+  relatedCorridor?: string;
+}) {
+  const hasAny = Boolean(
+    fields.buyerTakeaway || fields.marketSignal || fields.bestFor || fields.watchPoints ||
+    fields.buyerQuestions || fields.relatedBuildings?.length || fields.relatedNeighborhoods?.length || fields.relatedCorridor,
+  );
+  if (!hasAny) return "";
+  return `
+    <aside class="buyer-intelligence-box">
+      <span>Buyer Intelligence</span>
+      ${fields.buyerTakeaway ? `<p><strong>Takeaway:</strong> ${publicText(fields.buyerTakeaway)}</p>` : ""}
+      ${fields.marketSignal ? `<p><strong>Market signal:</strong> ${publicText(fields.marketSignal)}</p>` : ""}
+      ${fields.bestFor ? `<p><strong>Best for:</strong> ${publicText(fields.bestFor)}</p>` : ""}
+      ${fields.watchPoints ? `<p><strong>Watch points:</strong> ${publicText(fields.watchPoints)}</p>` : ""}
+      ${fields.buyerQuestions ? `<p><strong>Buyer questions:</strong> ${publicText(fields.buyerQuestions)}</p>` : ""}
+      ${fields.relatedBuildings?.length ? `<p><strong>Related buildings:</strong> ${publicText(fields.relatedBuildings.join(", "))}</p>` : ""}
+      ${fields.relatedNeighborhoods?.length ? `<p><strong>Related neighborhoods:</strong> ${publicText(fields.relatedNeighborhoods.join(", "))}</p>` : ""}
+      ${fields.relatedCorridor ? `<p><strong>Related corridor:</strong> ${publicText(fields.relatedCorridor)}</p>` : ""}
+    </aside>
+  `;
+}
+
 function renderUpdateArticle(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
   const content = updateArticleContent(item);
@@ -7207,19 +7246,16 @@ function renderUpdateArticle(item: ExternalNewsItem) {
           <span>Deck</span>
           <strong>${publicText(content.deck)}</strong>
         </aside>
-        ${content.buyerTakeaway || content.marketSignal || content.bestFor || content.watchPoints
-          ? `<aside class="buyer-intelligence-box">
-              <span>Buyer Intelligence</span>
-              ${content.buyerTakeaway ? `<p><strong>Takeaway:</strong> ${publicText(content.buyerTakeaway)}</p>` : ""}
-              ${content.marketSignal ? `<p><strong>Market signal:</strong> ${publicText(content.marketSignal)}</p>` : ""}
-              ${content.bestFor ? `<p><strong>Best for:</strong> ${publicText(content.bestFor)}</p>` : ""}
-              ${content.watchPoints ? `<p><strong>Watch points:</strong> ${publicText(content.watchPoints)}</p>` : ""}
-              ${content.buyerQuestions ? `<p><strong>Buyer questions:</strong> ${publicText(content.buyerQuestions)}</p>` : ""}
-              ${content.relatedBuildings?.length ? `<p><strong>Related buildings:</strong> ${publicText(content.relatedBuildings.join(", "))}</p>` : ""}
-              ${content.relatedNeighborhoods?.length ? `<p><strong>Related neighborhoods:</strong> ${publicText(content.relatedNeighborhoods.join(", "))}</p>` : ""}
-              ${content.relatedCorridor ? `<p><strong>Related corridor:</strong> ${publicText(content.relatedCorridor)}</p>` : ""}
-            </aside>`
-          : ""}
+        ${renderBuyerIntelligenceBox({
+          buyerTakeaway: content.buyerTakeaway,
+          marketSignal: content.marketSignal,
+          bestFor: content.bestFor,
+          watchPoints: content.watchPoints,
+          buyerQuestions: content.buyerQuestions,
+          relatedBuildings: content.relatedBuildings,
+          relatedNeighborhoods: content.relatedNeighborhoods,
+          relatedCorridor: content.relatedCorridor,
+        })}
         <div class="market-note-sections">
           <section>
             <h2>The story</h2>

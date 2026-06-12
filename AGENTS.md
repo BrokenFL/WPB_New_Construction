@@ -106,6 +106,8 @@ Buyer Intelligence uses the same Article Manager workflow and publishing pipelin
 
 **Preview in Site** supports all Article Manager template destinations (`news`, `updates`, `downtown-spotlight`, `development-watch`, `buyer-intelligence`). All destinations currently render through the same Updates/article renderer; true route previews are aliased for now.
 
+**Live route rendering** uses `renderUpdateArticle` for `/updates/` and `renderMarketNoteArticle` for `/market-notes/` and `/downtown-spotlight/`. Both renderers now share `renderBuyerIntelligenceBox`, which shows the same meaningful buyer fields (`buyerTakeaway`, `marketSignal`, `bestFor`, `watchPoints`, `buyerQuestions`, `relatedBuildings`, `relatedNeighborhoods`, `relatedCorridor`) when present. In Market Note articles, `buyerTakeaway` continues to render in its existing location to avoid duplication.
+
 **Templates** include a `siteContext.relationshipGuidance` object that explains corridor definitions, project tagging rules, and buyer-context writing guidance.
 
 ### Publish Live (One-Click Deploy)
