@@ -1078,6 +1078,7 @@ let amCurrentSourceId = null;
 let amCurrentSource = null;
 let amCurrentHeroImage = null;
 let amCurrentImagePath = "";
+let amCurrentBodyImages = [];
 
 function initArticleManager() {
   // Tab switching
@@ -1301,6 +1302,7 @@ function amResetEditor() {
   document.querySelector("#amSectionsContainer").innerHTML = "";
   amCurrentHeroImage = null;
   amCurrentImagePath = "";
+  amCurrentBodyImages = [];
   amSetSaveStatus("", null);
 }
 
@@ -1349,6 +1351,7 @@ function amPopulateEditor(article, source) {
     amCurrentHeroImage = null;
   }
   amCurrentImagePath = article.imagePath || "";
+  amCurrentBodyImages = article.bodyImages || [];
 
   // Body sections
   const container = document.querySelector("#amSectionsContainer");
@@ -1518,6 +1521,9 @@ async function amBuildPayload() {
       const img = await imagePayload(imageFile, { key: imageKey, alt: imageAlt, caption: imageCaption, credit: imageCredit });
       if (img) bodyImages.push(img);
       imgIndex++;
+    } else if (imageKey) {
+      const existing = (amCurrentBodyImages || []).find((img) => img.key === imageKey);
+      if (existing) bodyImages.push(existing);
     }
   }
 

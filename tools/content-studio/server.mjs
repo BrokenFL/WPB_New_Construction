@@ -738,9 +738,10 @@ async function createImportDraft(request, response) {
     }
   }
 
-  // Map neighborhoods / projects to related ids
-  const relatedProjectIds = Array.isArray(pkg.projects) ? pkg.projects.map((p) => slug(p)).filter(Boolean) : [];
-  const relatedCorridorIds = Array.isArray(pkg.neighborhoods) ? pkg.neighborhoods.map((n) => slug(n)).filter(Boolean) : [];
+  // Article Package Import: do not derive visible Related blocks from generic tags/neighborhoods/projects.
+  // Keep metadata empty unless the package explicitly provides a dedicated related field.
+  const relatedProjectIds = [];
+  const relatedCorridorIds = [];
 
   // Determine category from tags
   const tags = Array.isArray(pkg.tags) ? pkg.tags : [];
