@@ -376,6 +376,21 @@ button:disabled { cursor: not-allowed; opacity: 0.46; }
 .am-import-key-table .am-key-missing { color: var(--danger); font-weight: 700; }
 .am-import-key-table .am-key-ready { color: var(--sage); font-weight: 700; }
 
+/* Quality gate */
+.am-quality-card { border-left: 4px solid var(--gold); }
+.am-quality-list { display: grid; gap: 8px; margin-bottom: 10px; }
+.am-quality-row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; background: var(--wash); }
+.am-quality-row.am-q-pass { border-color: #b0d4c2; background: #f0f7f2; }
+.am-quality-row.am-q-warn { border-color: #ecd98d; background: #fffbf0; }
+.am-quality-row.am-q-fail { border-color: #e0a69c; background: #fdf3f1; }
+.am-quality-icon { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+.am-q-pass .am-quality-icon { background: var(--sage); color: #fff; }
+.am-q-warn .am-quality-icon { background: var(--gold); color: #fff; }
+.am-q-fail .am-quality-icon { background: var(--danger); color: #fff; }
+.am-quality-label { font-weight: 700; font-size: 13px; }
+.am-quality-hint { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.am-quality-summary { margin: 0; font-size: 13px; font-weight: 700; }
+
 @media (max-width: 1100px) {
   .am-editor-columns { grid-template-columns: 1fr; }
   .am-import-grid { grid-template-columns: 1fr; }

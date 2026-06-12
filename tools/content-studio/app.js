@@ -1079,6 +1079,8 @@ let amCurrentSource = null;
 let amCurrentHeroImage = null;
 let amCurrentImagePath = "";
 let amCurrentBodyImages = [];
+let amPreviewReadyInSession = false;
+let amCurrentNewsletterHeadline = "";
 
 function initArticleManager() {
   // Tab switching
@@ -1117,7 +1119,35 @@ function initArticleManager() {
   });
 
   // Add section button
-  document.querySelector("#amAddSection")?.addEventListener("click", () => amAddSectionBlock());
+  document.querySelector("#amAddSection")?.addEventListener("click", () => {
+    amAddSectionBlock();
+    amResetPreviewReady();
+    amRenderPublishQuality();
+  });
+
+  // Recompute quality gate on form changes; reset preview on content changes
+  const amForm = document.querySelector("#amArticleForm");
+  if (amForm) {
+    amForm.addEventListener("input", (event) => {
+      const target = event.target;
+      const id = target.id || "";
+      const name = target.name || "";
+      // Recompute gate on any input
+      amRenderPublishQuality();
+      // Reset preview on content field changes (skip confirmation checkboxes)
+      if (amPreviewReadyInSession && !["amConfirmPublish", "amConfirmDeploy", "amConfirmRemote"].includes(id)) {
+        amResetPreviewReady();
+      }
+    });
+    amForm.addEventListener("change", (event) => {
+      const target = event.target;
+      const id = target.id || "";
+      amRenderPublishQuality();
+      if (amPreviewReadyInSession && !["amConfirmPublish", "amConfirmDeploy", "amConfirmRemote"].includes(id)) {
+        amResetPreviewReady();
+      }
+    });
+  }
 
   // Action buttons
   document.querySelector("#amSaveDraftBtn")?.addEventListener("click", () => amSaveDraft());
@@ -1295,6 +1325,7 @@ function amOpenNewEditor() {
   document.querySelector("#amSourceRecord").value = "";
   document.querySelector("#amEditorLabel").textContent = "New Article";
   amSetSaveStatus("", null);
+  amRenderPublishQuality();
 }
 
 function amResetEditor() {
@@ -1307,6 +1338,8 @@ function amResetEditor() {
   amCurrentHeroImage = null;
   amCurrentImagePath = "";
   amCurrentBodyImages = [];
+  amCurrentNewsletterHeadline = "";
+  amResetPreviewReady();
   amSetSaveStatus("", null);
 }
 
@@ -1335,6 +1368,8 @@ function amPopulateEditor(article, source) {
   set("amHeroAlt", article.heroAlt || "");
   set("amHeroCredit", article.heroCredit || "");
   set("amHeroCaption", article.heroCaption || "");
+  amCurrentNewsletterHeadline = article.newsletterHeadline || "";
+  amResetPreviewReady();
 
   // Hero image thumbnail
   const thumb = document.querySelector("#amHeroThumb");
@@ -1365,6 +1400,7 @@ function amPopulateEditor(article, source) {
     sections.forEach((section) => amAddSectionBlock(section));
     if (sections.length === 0) amAddSectionBlock();
   }
+  amRenderPublishQuality();
 }
 
 function amAddSectionBlock(opts = {}) {
@@ -1606,6 +1642,7 @@ async function amPreviewInSite() {
   amSetSaveStatus("Creating site preview…", null);
   const result = await postJson("/api/article/site-preview", payload);
   if (result.ok && result.previewUrl) {
+    amMarkPreviewReady();
     amSetSaveStatus("Preview in Site opened. Vite dev server must be running (npm run dev).", true);
     window.open(result.previewUrl, "_blank");
   } else {
@@ -1656,6 +1693,13 @@ async function amPublish(mode, options = {}) {
 }
 
 async function amPublishLive() {
+  const quality = amEvaluatePublishQuality();
+  if (amHasBlockingPublishQualityIssues(quality)) {
+    amRenderPublishQuality(quality);
+    const blocking = quality.filter((q) => q.level === "fail");
+    amSetSaveStatus(`Publish blocked: ${blocking.map((b) => b.label).join("; ")}`, false);
+    return;
+  }
   if (!document.querySelector("#amConfirmPublish")?.checked) {
     amSetSaveStatus("Check the Publish confirmation box before Publish Live.", false);
     return;
@@ -1665,6 +1709,105 @@ async function amPublishLive() {
     return;
   }
   return amPublish("publish", { triggerDeploy: true });
+}
+
+function amMarkPreviewReady() {
+  amPreviewReadyInSession = true;
+  amRenderPublishQuality();
+}
+
+function amResetPreviewReady() {
+  amPreviewReadyInSession = false;
+  amRenderPublishQuality();
+}
+
+function amEvaluatePublishQuality() {
+  const val = (id) => document.querySelector(`#${id}`)?.value?.trim() || "";
+  const checked = (id) => document.querySelector(`#${id}`)?.checked === true;
+  const hasHeroFile = Boolean(document.querySelector("#amHeroFile")?.files?.[0]);
+  const hasHeroImage = hasHeroFile || Boolean(amCurrentHeroImage) || Boolean(amCurrentImagePath);
+
+  const sectionBlocks = document.querySelectorAll("#amSectionsContainer .am-section-block");
+  let hasBodyContent = false;
+  let hasInlineBodyImage = false;
+  for (const block of sectionBlocks) {
+    const heading = block.querySelector(".am-section-heading")?.value?.trim() || "";
+    const body = block.querySelector(".am-section-body")?.value?.trim() || "";
+    if (heading || body) hasBodyContent = true;
+    const imageKey = block.querySelector(".am-section-image-key")?.value?.trim() || "";
+    const imageFile = block.querySelector(".am-section-image-file")?.files?.[0];
+    if (imageKey || imageFile) hasInlineBodyImage = true;
+  }
+
+  const relatedProjects = val("amRelatedProjects");
+  const relatedCorridors = val("amRelatedCorridors");
+  const hasRelated = Boolean(relatedProjects) || Boolean(relatedCorridors);
+  const hasNewsletterHeadline = Boolean(amCurrentNewsletterHeadline);
+  const hasSourceDate = Boolean(val("amSourceDate"));
+  const hasBuyerContext = Boolean(val("amWhyItMatters")) || Boolean(val("amBuyerContext"));
+
+  return [
+    { label: "Title", hint: "Add a headline.", level: val("amTitle") ? "pass" : "fail" },
+    { label: "Deck", hint: "Add a buyer-facing deck.", level: val("amDeck") ? "pass" : "fail" },
+    { label: "Slug", hint: "Add a slug or fill the title to auto-generate.", level: val("amSlug") ? "pass" : "fail" },
+    { label: "Description", hint: "Deck also serves as the SEO description.", level: val("amDeck") ? "pass" : "fail" },
+    { label: "Source URL", hint: "Add a source URL.", level: val("amSourceUrl") ? "pass" : "fail" },
+    { label: "Hero image", hint: "Upload a hero image or the draft must have an existing image path.", level: hasHeroImage ? "pass" : "fail" },
+    { label: "Body content", hint: "Add at least one section with a heading or body text.", level: hasBodyContent ? "pass" : "fail" },
+    { label: "Preview in Site", hint: "Run Preview in Site during this editor session.", level: amPreviewReadyInSession ? "pass" : "fail" },
+    { label: "Publish confirmation", hint: "Check the Publish confirmation box.", level: checked("amConfirmPublish") ? "pass" : "fail" },
+    { label: "Deploy confirmation", hint: "Check the Deploy confirmation box.", level: checked("amConfirmDeploy") ? "pass" : "fail" },
+    { label: "Inline body images", hint: "Consider adding inline images for richer articles.", level: hasInlineBodyImage ? "pass" : "warn" },
+    { label: "Newsletter headline", hint: "Consider adding a newsletter headline.", level: hasNewsletterHeadline ? "pass" : "warn" },
+    { label: "Related projects / corridors", hint: "Consider adding related projects or corridors.", level: hasRelated ? "pass" : "warn" },
+    { label: "Source published date", hint: "Consider adding the source published date.", level: hasSourceDate ? "pass" : "warn" },
+    { label: "Buyer context / why it matters", hint: "Consider adding buyer context or why it matters.", level: hasBuyerContext ? "pass" : "warn" },
+  ];
+}
+
+function amHasBlockingPublishQualityIssues(quality) {
+  const requiredLabels = new Set(["Title", "Deck", "Slug", "Description", "Source URL", "Hero image", "Body content", "Preview in Site", "Publish confirmation", "Deploy confirmation"]);
+  return quality.some((q) => requiredLabels.has(q.label) && q.level === "fail");
+}
+
+function amRenderPublishQuality(quality) {
+  const container = document.querySelector("#amQualityGate");
+  const summary = document.querySelector("#amQualitySummary");
+  if (!container) return;
+  const items = quality || amEvaluatePublishQuality();
+  const blocking = items.filter((q) => q.level === "fail");
+  const warnings = items.filter((q) => q.level === "warn");
+
+  const icon = (level) => {
+    if (level === "pass") return "✓";
+    if (level === "warn") return "!";
+    return "✕";
+  };
+
+  const rows = items.map((q) => `
+    <div class="am-quality-row am-q-${q.level}">
+      <span class="am-quality-icon">${icon(q.level)}</span>
+      <div>
+        <div class="am-quality-label">${escapeHtml(q.label)}</div>
+        ${q.level !== "pass" ? `<div class="am-quality-hint">${escapeHtml(q.hint)}</div>` : ""}
+      </div>
+    </div>
+  `).join("");
+
+  container.innerHTML = rows;
+
+  if (summary) {
+    if (blocking.length > 0) {
+      summary.textContent = `${blocking.length} required item(s) blocking publish: ${blocking.map((b) => b.label).join(", ")}`;
+      summary.className = "am-quality-summary am-status-error";
+    } else if (warnings.length > 0) {
+      summary.textContent = `All required checks pass. ${warnings.length} recommendation(s).`;
+      summary.className = "am-quality-summary am-status-ok";
+    } else {
+      summary.textContent = "All checks pass. Ready to publish.";
+      summary.className = "am-quality-summary am-status-ok";
+    }
+  }
 }
 
 function amSetSaveStatus(message, ok) {
