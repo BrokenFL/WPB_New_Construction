@@ -561,7 +561,7 @@
                   <p class="muted">Photos are optimized into site-safe editorial images before publishing.</p>
                   <div class="am-confirm-group">
                     <label class="checkbox-row"><input name="confirmPublish" id="amConfirmPublish" type="checkbox" /> Run QA, commit, and push this article.</label>
-                    <label class="checkbox-row"><input name="confirmDeploy" id="amConfirmDeploy" type="checkbox" /> Deploy this article live after publish.</label>
+                    <label class="checkbox-row"><input name="confirmDeploy" id="amConfirmDeploy" type="checkbox" /> Confirm: I want to publish and trigger a live deploy in one step.</label>
                     <label class="checkbox-row"><input name="confirmRemote" id="amConfirmRemote" type="checkbox" /> Remote mode: I understand publishing is final.</label>
                     <label class="checkbox-row" hidden><input name="confirmCommit" id="amConfirmCommit" type="checkbox" /> I reviewed the staged files and want to commit and push them.</label>
                   </div>
@@ -574,12 +574,12 @@
                     <button type="button" id="amSaveDraftBtn">Save Draft</button>
                     <button type="button" id="amPreviewBtn">Diagnostic Preview</button>
                     <button type="button" id="amPreviewInSiteBtn">Preview in Site</button>
-                    <button type="button" id="amStageBtn" class="primary">Stage Files Locally</button>
+                    <button type="button" id="amStageBtn">Stage Files Locally</button>
                     <button type="button" id="amCommitStagedBtn">Commit Staged Article Changes</button>
                     <button type="button" id="amPublishBtn">Publish From Clean State</button>
-                    <button type="button" id="amShipBtn">Deploy Live</button>
+                    <button type="button" id="amShipBtn" class="primary">Publish Live</button>
                   </div>
-                  <p class="am-preview-note muted"><strong>Diagnostic Preview</strong> checks workflow output. <strong>Preview in Site</strong> shows the real local article page. <strong>Stage Files Locally</strong> writes generated files for review. After Stage, use <strong>Commit Staged Article Changes</strong> to commit and push. <strong>Publish From Clean State</strong> runs the full workflow only when the repo is clean. <strong>Deploy Live</strong> triggers a live deploy after publish.</p>
+                  <p class="am-preview-note muted"><strong>Diagnostic Preview</strong> checks workflow output. <strong>Preview in Site</strong> shows the real local article page. <strong>Stage Files Locally</strong> writes generated files for review. After Stage, use <strong>Commit Staged Article Changes</strong> to commit and push. <strong>Publish From Clean State</strong> commits and pushes only. <strong>Publish Live</strong> commits, pushes, and triggers the Cloudflare Pages deploy workflow.</p>
                 </section>
               </div>
             </div>

@@ -89,7 +89,7 @@ Article Manager now supports an Import Package workflow for creating drafts from
 3. Upload hero/header image and optional inline images.
 4. Validate Package → checks JSON shape, image key consistency, placement references, duplicate slug/id detection.
 5. Create Draft → saves to `.runtime/article-drafts/` only, then opens in the editor.
-6. Continue with Preview in Site, Stage, Commit, and Deploy as normal.
+6. Continue with Preview in Site, then click **Publish Live** to publish, commit, push, and trigger deploy in one step.
 
 **Safety:**
 - Import creates drafts only. Never publishes, commits, pushes, or deploys.
@@ -99,6 +99,35 @@ Article Manager now supports an Import Package workflow for creating drafts from
 **Inline image mapping:** uploaded file key (`images[].uploadKey`) → article placement (`images[].placementId`) → section reference (`body.sections[].imagePlacement`). The server maps `placementId` to `bodyImages[].key` and `imagePlacement` to `bodySections[].imageKey` for the existing renderer pipeline.
 
 See `docs/AI_PROJECT_GUIDE.md` section 13 for full JSON shape, example, and troubleshooting.
+
+### Publish Live (One-Click Deploy)
+
+**Publish Live** is the preferred one-click flow for ready articles:
+
+1. Review the article in **Preview in Site**.
+2. Check the confirmation boxes (Publish, Deploy).
+3. Click **Publish Live**.
+
+The system will:
+- Run the article publish workflow (`article-publish-workflow.mjs`).
+- Commit only allowlisted article output files.
+- Push to `origin main`.
+- Trigger the GitHub Actions Cloudflare Pages deploy workflow (`deploy-cloudflare-pages.yml`).
+- Return the commit hash, GitHub Actions run URL, deploy status, and live article URL.
+
+This should remove the need for manual terminal deploy commands after publishing.
+
+**Safer/debug workflow still exists:**
+- **Stage Files Locally** — writes generated files for review without committing.
+- **Commit Staged Article Changes** — commits and pushes allowlisted files only.
+- **Publish From Clean State** — commits and pushes without triggering deploy.
+
+**Safety rules:**
+- Publish Live must not run if unrelated files are dirty.
+- Publish Live must not commit unrelated files (allowlist enforced).
+- Publish Live must not deploy if publish or push fails.
+- Draft/import/preview actions must never publish, commit, push, deploy, or dirty tracked changelogs.
+- Draft-only actions should write only to `.runtime/`.
 
 ---
 

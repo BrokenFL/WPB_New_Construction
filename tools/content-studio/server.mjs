@@ -478,14 +478,37 @@ async function runArticleWorkflow(body, request, response) {
     });
   }
   const parsed = parseTrailingJson(result.stdout);
-  return sendJson(response, {
+  const responseBody = {
     ok: result.code === 0,
     result: parsed,
     warnings: parsed?.warnings ?? [],
     stdout: result.stdout.slice(-12000),
     stderr: result.stderr.slice(-12000),
     changedFiles: await changedFiles(),
-  }, result.code === 0 ? 200 : 500);
+  };
+
+  if (result.code === 0 && body.triggerDeploy === true && (mode === "publish" || mode === "ship")) {
+    const deployResult = await run("gh", ["workflow", "run", "deploy-cloudflare-pages.yml", "--ref", "main"]);
+    if (deployResult.code !== 0) {
+      responseBody.deployTriggered = false;
+      responseBody.deployError = deployResult.stderr || deployResult.stdout || "gh workflow run returned a non-zero exit code.";
+    } else {
+      responseBody.deployTriggered = true;
+      const runListResult = await run("gh", ["run", "list", "--workflow=deploy-cloudflare-pages.yml", "--limit", "1", "--json", "databaseId,url,status"]);
+      let deployRunInfo = null;
+      try {
+        const runs = JSON.parse(runListResult.stdout);
+        if (Array.isArray(runs) && runs.length > 0) deployRunInfo = runs[0];
+      } catch { /* ignore JSON parse errors */ }
+      if (deployRunInfo) {
+        responseBody.deployRunId = deployRunInfo.databaseId;
+        responseBody.deployRunUrl = deployRunInfo.url;
+        responseBody.deployStatus = deployRunInfo.status;
+      }
+    }
+  }
+
+  return sendJson(response, responseBody, result.code === 0 ? 200 : 500);
 }
 
 async function listArticles(request, response, url) {

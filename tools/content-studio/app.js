@@ -1126,7 +1126,7 @@ function initArticleManager() {
   document.querySelector("#amStageBtn")?.addEventListener("click", () => amPublish("stage"));
   document.querySelector("#amCommitStagedBtn")?.addEventListener("click", () => amCommitStaged());
   document.querySelector("#amPublishBtn")?.addEventListener("click", () => amPublish("publish"));
-  document.querySelector("#amShipBtn")?.addEventListener("click", () => amPublish("ship"));
+  document.querySelector("#amShipBtn")?.addEventListener("click", () => amPublishLive());
 
   // New Article tab: open blank editor
   document.querySelector("[data-am-tab='new']")?.addEventListener("click", () => amOpenNewEditor());
@@ -1610,19 +1610,27 @@ async function amPreviewInSite() {
   }
 }
 
-async function amPublish(mode) {
+async function amPublish(mode, options = {}) {
   const payload = await amBuildPayload();
   if (!payload) return;
   if (!payload.title) { amSetSaveStatus("Title is required.", false); return; }
   if (!payload.deck) { amSetSaveStatus("Deck is required.", false); return; }
   payload.mode = mode;
+  if (options.triggerDeploy) payload.triggerDeploy = true;
   const endpoint = mode === "preview" ? "/api/article/preview" : "/api/article/publish";
   amSetSaveStatus(`Running ${mode}…`, null);
   show({ ok: true, running: `Running ${mode} for article workflow.` });
   const result = await postJson(endpoint, payload);
   show(result);
   if (result.ok) {
-    amSetSaveStatus(`${mode} complete`, true);
+    if (result.deployTriggered === true) {
+      const runLink = result.deployRunUrl ? `<a href="${escapeHtml(result.deployRunUrl)}" target="_blank" rel="noopener">GitHub Actions run ${escapeHtml(String(result.deployRunId || ""))}</a>` : "GitHub Actions run queued";
+      amSetSaveStatus(`Published & deploy triggered. ${runLink}`, true);
+    } else if (result.deployTriggered === false) {
+      amSetSaveStatus("Published, but deploy trigger failed. See result panel.", false);
+    } else {
+      amSetSaveStatus(`${mode} complete`, true);
+    }
     if (["stage", "publish", "ship"].includes(mode)) await loadState();
   } else {
     amSetSaveStatus(`${mode} failed: ${result.error || "see result panel"}`, false);
@@ -1641,6 +1649,10 @@ async function amPublish(mode) {
       if (confirmLabel) confirmLabel.hidden = false;
     }
   }
+}
+
+async function amPublishLive() {
+  return amPublish("publish", { triggerDeploy: true });
 }
 
 function amSetSaveStatus(message, ok) {

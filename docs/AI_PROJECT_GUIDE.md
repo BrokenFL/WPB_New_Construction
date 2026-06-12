@@ -458,9 +458,14 @@ If `git push origin main` fails, report the exact auth error. Do not pretend the
 2. Fill article fields (title, slug, deck, sections, hero image).
 3. Save Draft — writes only to `.runtime/article-drafts/`.
 4. Preview in Site — renders the real article page locally.
-5. Stage Files Locally — writes generated files for review.
-6. Commit Staged Article Changes — commits allowlisted article output files.
-7. Deploy Live — triggers a live deploy after publish.
+5. **Publish Live** — publishes, commits allowlisted files, pushes, and triggers Cloudflare deploy in one step.
+
+#### Safer / debug workflow (still available)
+
+- **Stage Files Locally** — writes generated files for review without committing.
+- **Commit Staged Article Changes** — commits and pushes allowlisted article output files.
+- **Publish From Clean State** — commits and pushes without triggering deploy.
+- Use these when you need to inspect diffs or debug before deploying.
 
 #### Article Package Import workflow
 
@@ -471,7 +476,29 @@ If `git push origin main` fails, report the exact auth error. Do not pretend the
 5. Click Validate Package — checks JSON shape, image key matches, placement references, and duplicate slug/id detection.
 6. Click Create Draft — saves an Article Manager draft only.
 7. The draft opens automatically in the Edit Article view.
-8. Continue with Preview in Site, Stage Files Locally, Commit Staged Article Changes, and Deploy Live as above.
+8. Continue with Preview in Site, then click **Publish Live** as above.
+
+#### Publish Live details
+
+**Publish Live** runs the full article publish workflow and then triggers the GitHub Actions deploy:
+
+- Runs `research/scripts/article-publish-workflow.mjs` with `--publish`
+- Commits only allowlisted article output files:
+  - `research/news-review/approved-development-news.json`
+  - `src/data/approvedExternalNews.ts`
+  - `public/data/news-feed.json`
+  - `public/feed.json`
+  - `public/rss.xml`
+  - `public/llms.txt`
+  - `public/sitemap.xml`
+  - `src/generated/siteData.ts`
+  - `public/assets/editorial/` (hero/body images)
+- Pushes to `origin main`
+- Triggers `.github/workflows/deploy-cloudflare-pages.yml` via `gh workflow run`
+- Captures the GitHub Actions run ID and URL
+- Returns commit hash, deploy run URL, deploy status, and live article URL
+
+**Sitemap / robots continuity:** The workflow regenerates `public/sitemap.xml` during build. `public/robots.txt` is static and already references the sitemap. No manual edits to robots.txt are required for normal article publishing.
 
 **Safety rules:**
 
@@ -481,7 +508,9 @@ If `git push origin main` fails, report the exact auth error. Do not pretend the
 - Draft/import actions must not dirty:
   - `content/overrides/change-log.json`
   - `content/overrides/content-studio-change-log.json`
-- Commit Staged Article Changes must only commit allowlisted article output files.
+- Publish Live must not run if unrelated files are dirty.
+- Publish Live must not commit unrelated files (allowlist enforced).
+- Publish Live must not deploy if publish or push fails.
 - Do not manually commit unrelated dirty files.
 
 #### Supported Article Package JSON shape
