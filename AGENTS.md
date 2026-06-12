@@ -104,6 +104,10 @@ See `docs/AI_PROJECT_GUIDE.md` section 13 for full JSON shape, example, and trou
 
 Buyer Intelligence uses the same Article Manager workflow and publishing pipeline as news updates. Optional buyer-oriented fields (`buyerTakeaway`, `marketSignal`, `bestFor`, `watchPoints`, `relatedBuildings`, `relatedNeighborhoods`, `relatedCorridor`, `buyerQuestions`) are preserved in drafts and published articles. The Buyer Intelligence box renders on the article page only when at least one of these fields exists. Normal news articles remain unchanged.
 
+**Preview in Site** supports all Article Manager template destinations (`news`, `updates`, `downtown-spotlight`, `development-watch`, `buyer-intelligence`). All destinations currently render through the same Updates/article renderer; true route previews are aliased for now.
+
+**Templates** include a `siteContext.relationshipGuidance` object that explains corridor definitions, project tagging rules, and buyer-context writing guidance.
+
 ### Publish Live (One-Click Deploy)
 
 **Publish Live** is the preferred one-click flow for ready articles:

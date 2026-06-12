@@ -379,6 +379,11 @@ button:disabled { cursor: not-allowed; opacity: 0.46; }
 /* Quality gate */
 .am-quality-card { border-left: 4px solid var(--gold); }
 .am-buyer-card { border-left: 4px solid #2a5a6f; }
+.am-guidance-card { border-left: 4px solid var(--sage); }
+.am-guidance-card details summary { cursor: pointer; font-weight: 700; font-size: 13px; color: var(--muted); }
+.am-guidance-body { margin-top: 10px; font-size: 13px; line-height: 1.5; color: var(--ink); }
+.am-guidance-body p { margin: 6px 0; }
+.am-guidance-body hr { border: 0; border-top: 1px solid var(--line); margin: 10px 0; }
 .am-quality-list { display: grid; gap: 8px; margin-bottom: 10px; }
 .am-quality-row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; background: var(--wash); }
 .am-quality-row.am-q-pass { border-color: #b0d4c2; background: #f0f7f2; }

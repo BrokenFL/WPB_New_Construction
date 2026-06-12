@@ -832,10 +832,18 @@ async function archiveArticle(request, response) {
 
 async function createSitePreview(request, response) {
   const body = await readJson(request, 60 * 1024 * 1024);
-  const destination = clean(body.destination || "news");
-  if (destination !== "news") {
-    return sendJson(response, { ok: false, error: "Preview in Site is currently supported for News/Updates articles only." }, 400);
+  const rawDestination = clean(body.destination || "news");
+  const supportedDestinations = new Set([
+    "news", "updates",
+    "downtown", "downtown-spotlight",
+    "development-watch", "devwatch",
+    "buyer", "buyer-intelligence",
+  ]);
+  if (!supportedDestinations.has(rawDestination)) {
+    return sendJson(response, { ok: false, error: `Preview in Site destination "${rawDestination}" is not supported. Supported: news, updates, downtown-spotlight, development-watch, buyer-intelligence.` }, 400);
   }
+  // All destinations currently render through the same update/article renderer.
+  const previewDestination = rawDestination;
   const previewId = `preview-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   const assetFilename = await writePreviewHeroAsset(body, previewId);
   if (assetFilename) {
@@ -859,9 +867,9 @@ async function createSitePreview(request, response) {
   if (!item.title) return sendJson(response, { ok: false, error: "Title is required for Preview in Site." }, 400);
   await fs.mkdir(articleSitePreviewsRoot, { recursive: true });
   const previewPath = path.join(articleSitePreviewsRoot, `${previewId}.json`);
-  await fs.writeFile(previewPath, `${JSON.stringify({ previewId, createdAt: new Date().toISOString(), item }, null, 2)}\n`);
+  await fs.writeFile(previewPath, `${JSON.stringify({ previewId, createdAt: new Date().toISOString(), destination: previewDestination, item }, null, 2)}\n`);
   const previewUrl = `http://localhost:5173/updates/__preview__/?previewId=${encodeURIComponent(previewId)}`;
-  return sendJson(response, { ok: true, previewId, previewUrl });
+  return sendJson(response, { ok: true, previewId, previewUrl, destination: previewDestination, destinationNote: "All destinations currently render through the Updates/article renderer. True route previews are aliased for now." });
 }
 
 async function getSitePreview(request, response, url) {
@@ -898,6 +906,11 @@ function normalizeArticlePreview(body) {
   const relatedProjectIds = splitToArray(body.relatedProjectIds);
   const relatedCorridorIds = splitToArray(body.relatedCorridorIds);
   const sourceUrl = clean(body.sourceUrl || "");
+  const splitToArrayOrStr = (value) => {
+    if (Array.isArray(value)) return value.map((v) => clean(String(v))).filter(Boolean);
+    const str = clean(String(value ?? ""));
+    return str ? str.split(",").map(clean).filter(Boolean) : [];
+  };
   return {
     id: clean(body.id || body.draftId || `preview-${Date.now()}`),
     slug: clean(body.slug || body.id || body.draftId || "preview-draft"),
@@ -925,6 +938,14 @@ function normalizeArticlePreview(body) {
     brookeTake: clean(body.brookeTake || ""),
     newsletterBlurb: clean(body.newsletterBlurb || ""),
     imagePath: clean(body.imagePath || ""),
+    buyerTakeaway: clean(body.buyerTakeaway || ""),
+    marketSignal: clean(body.marketSignal || ""),
+    bestFor: clean(body.bestFor || ""),
+    watchPoints: clean(body.watchPoints || ""),
+    buyerQuestions: clean(body.buyerQuestions || ""),
+    relatedBuildings: splitToArrayOrStr(body.relatedBuildings),
+    relatedNeighborhoods: splitToArrayOrStr(body.relatedNeighborhoods),
+    relatedCorridor: clean(body.relatedCorridor || ""),
     sourceLinks: Array.isArray(body.sourceLinks) && body.sourceLinks.length
       ? body.sourceLinks
       : sourceUrl ? [{ label: clean(body.sourceName || "Source"), url: sourceUrl, type: "news" }] : [],

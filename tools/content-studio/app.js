@@ -1760,10 +1760,13 @@ function amEvaluatePublishQuality() {
 
   const relatedProjects = val("amRelatedProjects");
   const relatedCorridors = val("amRelatedCorridors");
-  const hasRelated = Boolean(relatedProjects) || Boolean(relatedCorridors);
+  const relatedNeighborhoods = val("amRelatedNeighborhoods");
+  const relatedBuildings = val("amRelatedBuildings");
+  const relatedCorridor = val("amRelatedCorridor");
+  const hasRelated = Boolean(relatedProjects) || Boolean(relatedCorridors) || Boolean(relatedNeighborhoods) || Boolean(relatedBuildings) || Boolean(relatedCorridor);
   const hasNewsletterHeadline = Boolean(amCurrentNewsletterHeadline);
   const hasSourceDate = Boolean(val("amSourceDate"));
-  const hasBuyerContext = Boolean(val("amWhyItMatters")) || Boolean(val("amBuyerContext"));
+  const hasBuyerContext = Boolean(val("amWhyItMatters")) || Boolean(val("amBuyerContext")) || Boolean(val("amBuyerTakeaway")) || Boolean(val("amMarketSignal"));
 
   return [
     { label: "Title", hint: "Add a headline.", level: val("amTitle") ? "pass" : "fail" },
@@ -1778,9 +1781,9 @@ function amEvaluatePublishQuality() {
     { label: "Deploy confirmation", hint: "Check the Deploy confirmation box.", level: checked("amConfirmDeploy") ? "pass" : "fail" },
     { label: "Inline body images", hint: "Consider adding inline images for richer articles.", level: hasInlineBodyImage ? "pass" : "warn" },
     { label: "Newsletter headline", hint: "Consider adding a newsletter headline.", level: hasNewsletterHeadline ? "pass" : "warn" },
-    { label: "Related projects / corridors", hint: "Consider adding related projects or corridors.", level: hasRelated ? "pass" : "warn" },
+    { label: "Related projects / corridors", hint: "Consider adding related projects, corridors, neighborhoods, or buildings.", level: hasRelated ? "pass" : "warn" },
     { label: "Source published date", hint: "Consider adding the source published date.", level: hasSourceDate ? "pass" : "warn" },
-    { label: "Buyer context / why it matters", hint: "Consider adding buyer context or why it matters.", level: hasBuyerContext ? "pass" : "warn" },
+    { label: "Buyer context / why it matters", hint: "Consider adding buyer context, why it matters, or buyer takeaway.", level: hasBuyerContext ? "pass" : "warn" },
   ];
 }
 
@@ -2192,6 +2195,17 @@ function amDownloadTemplate(type) {
     sources: [{ title: "Source title", publisher: "Publisher Name", url: "https://example.com/source" }],
     newsletterHeadline: "Optional newsletter headline",
     query: "Optional research/query string",
+    siteContext: {
+      relationshipGuidance: {
+        corridors: {
+          downtown: "CityPlace, Clematis, Flagler waterfront, Nora, downtown office/hospitality/residential core.",
+          "north-flagler": "Currie Park, Northwood, Olara, Shorecrest, Ritz-Carlton Residences West Palm Beach, waterfront redevelopment north of downtown.",
+          "south-flagler": "South Flagler House, La Clara, Forte, Mr. C, luxury waterfront condo corridor south of downtown.",
+        },
+        projectTagRule: "Tag projects only when they are directly mentioned, physically nearby, competitively relevant, or materially affected by the story. Do not tag every luxury project just because it is nearby.",
+        buyerContextRule: "Explain why the story matters to a buyer in practical terms: lifestyle, walkability, neighborhood maturity, public/private amenities, pricing power, inventory, resale demand, timing, risk, construction/development momentum.",
+      },
+    },
   };
 
   const templates = {
@@ -2204,14 +2218,16 @@ function amDownloadTemplate(type) {
       title: "Buyer Intelligence Draft Template",
       tags: ["Buyer Intelligence", "sales", "financing"],
       newsletterHeadline: "Buyer Intelligence: market note for active shoppers",
-      buyerTakeaway: "What buyers should know in one sentence.",
-      marketSignal: "What changed in the market and why it matters now.",
-      bestFor: "Which buyer profiles this insight serves best.",
-      watchPoints: "Timelines, risks, or verification steps to track.",
-      relatedBuildings: ["Project A", "Project B"],
-      relatedNeighborhoods: ["Downtown West Palm Beach"],
+      buyerTakeaway: "Write one sentence that captures what a buyer should actually do or know after reading this. Example: If you are comparing Olara and Shorecrest, the new Currie Park restaurant operator changes the evening amenity balance on North Flagler.",
+      marketSignal: "Describe what changed in the market, the policy, or the project pipeline, and why it matters now rather than later. Example: West Palm Beach is selecting an operator for Currie Park, which would be the first waterfront restaurant on this stretch of North Flagler.",
+      bestFor: "List the buyer profiles this insight serves. Example: Full-time residents comparing North Flagler buildings; relocation buyers who want walkable dining; investors tracking neighborhood maturity.",
+      watchPoints: "Add timelines, risks, or verification steps buyers should track. Example: Operator selection timeline is summer 2026; park construction is ongoing; verify opening date before using this as a timing signal in a purchase decision.",
+      relatedBuildings: ["olara", "shorecrest", "ritz-carlton-residences-west-palm-beach"],
+      relatedNeighborhoods: ["North Flagler", "Currie Park"],
       relatedCorridor: "north-flagler",
-      buyerQuestions: "Common questions buyers ask after reading this.",
+      buyerQuestions: "List common questions buyers ask after reading this. Example: When will the restaurant actually open? Does this change foot traffic or noise near the building I am considering? How does this affect resale demand on North Flagler?",
+      buyerContext: "Explain practical buyer impact: lifestyle, walkability, neighborhood maturity, amenities, pricing power, inventory, resale demand, timing, risk, or construction momentum. Do not write generic hype.",
+      whyItMatters: "Explain why this story is relevant to the site's overall market narrative, not just one buyer. Example: This is the first confirmed waterfront dining operator on North Flagler, filling a gap that buyers have consistently raised during building comparisons.",
     },
   };
 
