@@ -1725,14 +1725,14 @@ function amGatherImageMetadata(pkg) {
   const images = {};
   const heroFile = document.querySelector("#amImportHeroFile")?.files?.[0];
   if (heroFile) {
-    const heroKey = clean(pkg?.heroImage?.uploadKey) || "hero";
+    const heroKey = String(pkg?.heroImage?.uploadKey || "").trim() || "hero";
     images[heroKey] = { key: heroKey, fileName: heroFile.name, type: heroFile.type, size: heroFile.size };
   }
   const inlineInputs = document.querySelectorAll(".am-import-inline-file");
   for (const input of inlineInputs) {
     const file = input.files?.[0];
     if (!file) continue;
-    const uploadKey = clean(input.dataset.uploadKey) || input.dataset.uploadKey;
+    const uploadKey = String(input.dataset.uploadKey || "").trim() || input.dataset.uploadKey;
     images[uploadKey] = { key: uploadKey, fileName: file.name, type: file.type, size: file.size };
   }
   return images;
@@ -1764,7 +1764,7 @@ async function amBuildImportPayload() {
   // Hero
   const heroFile = document.querySelector("#amImportHeroFile")?.files?.[0];
   if (heroFile) {
-    const heroKey = clean(pkg?.heroImage?.uploadKey) || "hero";
+    const heroKey = String(pkg?.heroImage?.uploadKey || "").trim() || "hero";
     images[heroKey] = await imagePayload(heroFile, { key: heroKey });
   }
 
@@ -1773,7 +1773,7 @@ async function amBuildImportPayload() {
   for (const input of inlineInputs) {
     const file = input.files?.[0];
     if (!file) continue;
-    const uploadKey = clean(input.dataset.uploadKey) || input.dataset.uploadKey;
+    const uploadKey = String(input.dataset.uploadKey || "").trim() || input.dataset.uploadKey;
     images[uploadKey] = await imagePayload(file, { key: uploadKey });
   }
 
@@ -1821,6 +1821,7 @@ async function amValidateImport() {
   amSetImportStatus("Validating package…", null);
 
   let hasErrors = true;
+  let validationPassed = false;
 
   try {
     const payload = await amBuildValidationPayload();
@@ -1858,13 +1859,16 @@ async function amValidateImport() {
     const allWarnings = [...(result.warnings || []), ...clientWarnings];
     amRenderValidation(result.errors || [], allWarnings);
     hasErrors = (result.errors || []).length > 0;
-    amSetImportStatus(hasErrors ? "Validation failed — fix errors before creating draft" : "Package validation passed.", !hasErrors);
+    validationPassed = !hasErrors;
+    amSetImportStatus(hasErrors ? "Validation failed — fix errors before creating draft" : "Package validation passed.", validationPassed);
   } catch (err) {
     amRenderValidation([`Unexpected error during validation: ${err.message || "unknown error"}`], []);
     amSetImportStatus("Validation failed", false);
+    hasErrors = true;
+    validationPassed = false;
   } finally {
     validateBtn.disabled = false;
-    createBtn.disabled = hasErrors;
+    createBtn.disabled = !validationPassed;
   }
 }
 
