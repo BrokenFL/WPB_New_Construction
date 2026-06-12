@@ -1721,11 +1721,11 @@ function amAddInlineImageSlot() {
   container.appendChild(row);
 }
 
-function amGatherImageMetadata() {
+function amGatherImageMetadata(pkg) {
   const images = {};
   const heroFile = document.querySelector("#amImportHeroFile")?.files?.[0];
   if (heroFile) {
-    const heroKey = clean(document.querySelector("#amImportJsonText")?.value?.trim() ? JSON.parse(document.querySelector("#amImportJsonText").value.trim())?.heroImage?.uploadKey : "") || "hero";
+    const heroKey = clean(pkg?.heroImage?.uploadKey) || "hero";
     images[heroKey] = { key: heroKey, fileName: heroFile.name, type: heroFile.type, size: heroFile.size };
   }
   const inlineInputs = document.querySelectorAll(".am-import-inline-file");
@@ -1746,7 +1746,7 @@ async function amBuildValidationPayload() {
   } catch {
     return { error: "Invalid JSON: could not parse." };
   }
-  return { package: pkg, images: amGatherImageMetadata() };
+  return { package: pkg, images: amGatherImageMetadata(pkg) };
 }
 
 async function amBuildImportPayload() {
@@ -1820,45 +1820,52 @@ async function amValidateImport() {
   amRenderValidation([], []);
   amSetImportStatus("Validating package…", null);
 
-  const payload = await amBuildValidationPayload();
-  if (payload.error) {
-    amRenderValidation([payload.error], []);
-    amSetImportStatus("Validation failed", false);
-    validateBtn.disabled = false;
-    return;
-  }
+  let hasErrors = true;
 
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 15000);
-
-  let result;
   try {
-    result = await fetch("/api/article/import-package/validate", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(payload),
-      signal: controller.signal,
-    }).then((r) => r.json());
-  } catch (err) {
-    if (err.name === "AbortError") {
-      amRenderValidation(["Validation timed out after 15 seconds. The server may be busy or the package is too large."], []);
-    } else {
-      amRenderValidation([`Validation request failed: ${err.message || "unknown error"}`], []);
+    const payload = await amBuildValidationPayload();
+    if (payload.error) {
+      amRenderValidation([payload.error], []);
+      amSetImportStatus("Validation failed", false);
+      return;
     }
-    amSetImportStatus("Validation failed", false);
-    validateBtn.disabled = false;
-    return;
-  } finally {
-    clearTimeout(timeoutId);
-  }
 
-  const clientWarnings = amImageSizeWarnings(payload.images);
-  const allWarnings = [...(result.warnings || []), ...clientWarnings];
-  amRenderValidation(result.errors || [], allWarnings);
-  const hasErrors = (result.errors || []).length > 0;
-  createBtn.disabled = hasErrors;
-  validateBtn.disabled = false;
-  amSetImportStatus(hasErrors ? "Validation failed — fix errors before creating draft" : "Validation passed", !hasErrors);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+    let result;
+    try {
+      const response = await fetch("/api/article/import-package/validate", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      result = await response.json();
+    } catch (err) {
+      if (err.name === "AbortError") {
+        amRenderValidation(["Validation timed out after 15 seconds. The server may be busy or the package is too large."], []);
+      } else {
+        amRenderValidation([`Validation request failed: ${err.message || "unknown error"}`], []);
+      }
+      amSetImportStatus("Validation failed", false);
+      return;
+    } finally {
+      clearTimeout(timeoutId);
+    }
+
+    const clientWarnings = amImageSizeWarnings(payload.images);
+    const allWarnings = [...(result.warnings || []), ...clientWarnings];
+    amRenderValidation(result.errors || [], allWarnings);
+    hasErrors = (result.errors || []).length > 0;
+    amSetImportStatus(hasErrors ? "Validation failed — fix errors before creating draft" : "Package validation passed.", !hasErrors);
+  } catch (err) {
+    amRenderValidation([`Unexpected error during validation: ${err.message || "unknown error"}`], []);
+    amSetImportStatus("Validation failed", false);
+  } finally {
+    validateBtn.disabled = false;
+    createBtn.disabled = hasErrors;
+  }
 }
 
 function amImageSizeWarnings(images) {
