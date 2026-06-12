@@ -67,48 +67,6 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
-    "id": "test-publish-live-flow-2026-06-11",
-    "slug": "test-publish-live-flow-2026-06-11",
-    "title": "Test Publish Live Flow",
-    "sourceName": "West Palm Beach New Construction",
-    "sourceUrl": "https://www.wpbnewconstruction.com/updates/",
-    "canonicalUrl": "https://www.wpbnewconstruction.com/updates/",
-    "sourceTitle": "Test Publish Live Flow",
-    "publishedAt": "2026-06-12T02:40:35.240Z",
-    "sourcePublishedAt": "2026-06-12",
-    "sourcePublishedDate": "2026-06-12",
-    "eventDate": "2026-06-12",
-    "dateDiscovered": "2026-06-12",
-    "freshnessLane": "breaking_14d",
-    "fetchedAt": "2026-06-12T02:40:35.240Z",
-    "deck": "Minimal test article to verify publish+deploy trigger.",
-    "description": "Minimal test article to verify publish+deploy trigger.",
-    "summary": "Minimal test article to verify publish+deploy trigger.",
-    "bodySections": [
-      {
-        "heading": "Test",
-        "body": "This is a test article used to verify the Publish Live workflow."
-      }
-    ],
-    "whyItMatters": "",
-    "buyerContext": "",
-    "newsletterHeadline": "Test Publish Live Flow",
-    "newsletterBlurb": "Minimal test article to verify publish+deploy trigger.",
-    "newsletterCta": "Read the article",
-    "query": "Test Publish Live Flow",
-    "category": "general",
-    "relatedProjectIds": [],
-    "relatedCorridorIds": [],
-    "relatedProjectSlugs": [],
-    "relatedCorridors": [],
-    "corridorLabel": "West Palm Beach",
-    "imagePath": "/assets/editorial/flagler-waterfront-corridor.jpg",
-    "sourceLinks": [],
-    "paywallStatus": "free",
-    "status": "published",
-    "riskLevel": "medium"
-  },
-  {
     "id": "court-club-private-racquet-club-west-palm-beach-2026-06-09",
     "slug": "court-club-private-racquet-club-west-palm-beach-2026-06-09",
     "title": "Private Racquet Club Near West Palm Beach Signals the Next Wave of Lifestyle Demand",
