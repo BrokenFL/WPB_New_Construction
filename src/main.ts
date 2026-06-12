@@ -399,7 +399,9 @@ function renderNewsArticleSection(section: { heading: string; body: string; imag
 
 function renderNewsArticleBody(body: string, imagePath?: string) {
   const paragraphs = String(body ?? "").split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
-  return paragraphs.map((paragraph) => `<p>${renderNewsParagraph(paragraph, imagePath)}</p>`).join("");
+  const hasImageToken = /\[\[image:[a-zA-Z0-9_-]+\]\]/.test(body);
+  const html = paragraphs.map((paragraph) => `<p>${renderNewsParagraph(paragraph, imagePath)}</p>`).join("");
+  return imagePath && !hasImageToken ? html + inlineImg(imagePath) : html;
 }
 
 function renderNewsParagraph(paragraph: string, imagePath?: string) {
@@ -6982,7 +6984,7 @@ function relatedNewsLabel(item: ExternalNewsItem) {
   const corridorLabels = item.relatedCorridorIds
     .map((corridorId) => corridorSections.find((section) => section.key === corridorId)?.label)
     .filter(Boolean);
-  return corridorLabels.length ? `Related: ${corridorLabels.join(", ")}` : "Related: West Palm Beach development";
+  return corridorLabels.length ? `Related: ${corridorLabels.join(", ")}` : "";
 }
 
 function formatNewsDate(value: string) {
@@ -7173,6 +7175,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
   const resolvedImage = imageForContentItem(externalNewsImageContext(item));
   const content = updateArticleContent(item);
   const relatedProjects = relatedProjectsForArticle(item);
+  const relatedLabel = relatedNewsLabel(item);
   return `
     <article class="market-note-article update-article">
       <header class="section market-note-hero">
@@ -7181,7 +7184,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
           <p class="eyebrow">${publicText(item.category)} Update</p>
           <h1>${publicText(item.title)}</h1>
           <p class="market-note-dek">${publicText(content.deck)}</p>
-          <p class="market-note-hero-thesis">${publicText(relatedNewsLabel(item))}</p>
+          ${relatedLabel ? `<p class="market-note-hero-thesis">${publicText(relatedLabel)}</p>` : ""}
         </div>
         ${renderResolvedContentImage(resolvedImage, "market-note-hero-image")}
       </header>
