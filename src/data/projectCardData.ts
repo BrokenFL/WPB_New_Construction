@@ -22,32 +22,10 @@ export const projectCardDataById = Object.fromEntries([
 ] as Array<[string, ProjectCardData]>) as Record<string, ProjectCardData>;
 
 const corridorLabels: Record<string, string> = {
-  downtown: "Downtown",
-  "north-flagler": "North Flagler",
-  "south-flagler": "South Flagler",
+  downtown: "DOWNTOWN",
+  "north-flagler": "NORTH FLAGLER",
+  "south-flagler": "SOUTH FLAGLER",
 };
-
-function formatProjectCardStatus(status: string, sales: string) {
-  if (sales === "Resales") return "Private Resales";
-  if (sales === "Yes") return "Now Selling";
-  if (/planning/i.test(status)) return "Planning Watch";
-  if (/approved/i.test(status)) return "Approved";
-  if (/completed/i.test(status)) return "Delivered";
-  return status;
-}
-
-function formatProjectCardSales(value: string) {
-  if (value === "Yes") return "Sales Gallery Open";
-  if (value === "No") return "Sales Gallery Pending";
-  if (value === "Resales") return "Private Resale";
-  return value;
-}
-
-function formatProjectCardDelivery(value: string, status: string) {
-  if (!/^\d{4}$/.test(value)) return value;
-  if (/completed/i.test(status)) return `Delivered ${value}`;
-  return `${value} Delivery`;
-}
 
 export function hydrateProjectCards() {
   document.querySelectorAll<HTMLElement>("[data-project-card]").forEach((card) => {
@@ -55,9 +33,9 @@ export function hydrateProjectCards() {
     if (!data) return;
     card.querySelector<HTMLElement>("[data-pc-title]")?.replaceChildren(document.createTextNode(data[0]));
     card.querySelector<HTMLElement>("[data-pc-corridor]")?.replaceChildren(document.createTextNode(corridorLabels[card.dataset.c || card.dataset.corridor || ""] || ""));
-    card.querySelector<HTMLElement>("[data-pc-status]")?.replaceChildren(document.createTextNode(formatProjectCardStatus(data[1], data[2])));
-    card.querySelector<HTMLElement>("[data-pc-sales]")?.replaceChildren(document.createTextNode(formatProjectCardSales(data[2])));
-    card.querySelector<HTMLElement>("[data-pc-year]")?.replaceChildren(document.createTextNode(formatProjectCardDelivery(data[3], data[1])));
+    card.querySelector<HTMLElement>("[data-pc-status]")?.replaceChildren(document.createTextNode(data[1]));
+    card.querySelector<HTMLElement>("[data-pc-sales]")?.replaceChildren(document.createTextNode(data[2]));
+    card.querySelector<HTMLElement>("[data-pc-year]")?.replaceChildren(document.createTextNode(data[3]));
     card.querySelector<HTMLElement>("[data-pc-copy]")?.replaceChildren(document.createTextNode(data[4]));
   });
 }
