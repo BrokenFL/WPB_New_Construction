@@ -2661,46 +2661,39 @@ app.innerHTML = `
         </div>
       </section>
 
-      <section class="home-status-guide" aria-label="Browse buildings by construction status">
-        <div class="section-heading">
-          <p class="eyebrow">Browse by Status</p>
-        </div>
-        <nav class="home-status-grid" aria-label="Project status filters">
-          ${[
-            ["Active Sales", "active-sales"],
-            ["Under Construction", "under-construction"],
-            ["Announced / Planned", "announced-planned"],
-            ["Completed Opportunities", "completed-opportunities"],
-          ].map(([title, filter]) => `
-            <a href="/buildings/?filter=${filter}">
-              <strong>${title}</strong>
-              <span>View projects <b aria-hidden="true">→</b></span>
-            </a>
-          `).join("")}
-        </nav>
+      <section class="home-status-image" aria-label="West Palm Beach construction skyline image">
+        <figure class="home-status-image-frame">
+          <img
+            src="/assets/home/wpb-construction-skyline-wide-v01.jpg"
+            alt="Wide aerial of West Palm Beach new construction projects and cranes under a bright blue sky."
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </section>
 
       <section class="home-featured-section" id="featured-projects" aria-label="Featured buyer-ready projects">
         <div class="section-heading home-featured-heading">
           <p class="eyebrow">Featured Developments</p>
-          <p>A focused starting point for comparing relevant new residences.</p>
+          <a class="home-featured-heading-link" href="/buildings/">View All Projects <span aria-hidden="true">→</span></a>
           <p class="mobile-rail-hint" aria-hidden="true">Swipe to explore <span>→</span></p>
         </div>
         <div class="home-featured-grid" role="region" aria-label="Scrollable featured developments" tabindex="0">
           ${homepageFeaturedProjects.map(renderHomepageFeaturedProject).join("")}
         </div>
-        <a class="home-answer-archive-link" href="/buildings/">View all projects <span aria-hidden="true">→</span></a>
       </section>
 
       <section class="home-future-module home-spotlight-module" aria-label="Downtown spotlight: NORA district">
-        <img src="/assets/editorial/nora-district-aerial-evening-hero.jpg" alt="Aerial evening rendering of the NORA District in Downtown West Palm Beach" loading="lazy" decoding="async" />
-        <div>
-          <div class="home-resource-heading" style="width: 100%; align-self: stretch;">
+        <img src="/assets/editorial/nora-district-aerial-evening-hero.jpg" alt="Aerial evening rendering of the NORA District in Downtown West Palm Beach" loading="eager" decoding="async" fetchpriority="high" />
+        <div class="home-spotlight-content">
+          <div class="home-spotlight-meta">
             <p class="eyebrow">Downtown Spotlight</p>
             <a class="home-spotlight-parent-link" href="/downtown-spotlight/">View all Downtown Spotlights <span aria-hidden="true">→</span></a>
           </div>
-          <h2>Why the NORA District could reshape Downtown.</h2>
-          <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.</p>
+          <div class="home-spotlight-copy">
+            <h2><span>Why the NORA District</span><span>could reshape Downtown.</span></h2>
+            <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.</p>
+          </div>
           <a href="/downtown-spotlight/nora-district-downtown-transformation/">Read Downtown Spotlight <span aria-hidden="true">→</span></a>
         </div>
       </section>
