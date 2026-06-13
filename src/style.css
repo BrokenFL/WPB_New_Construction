@@ -11798,6 +11798,29 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
     scroll-snap-align: start;
   }
 
+  .section-heading.home-featured-heading {
+    display: grid;
+    align-items: start;
+    justify-content: start;
+    gap: 4px;
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 2px;
+    justify-items: start;
+  }
+
+  .home-featured-heading .eyebrow {
+    grid-row: auto;
+  }
+
+  .home-featured-heading-link {
+    margin-top: 0;
+  }
+
+  .home-featured-heading > p:last-child {
+    margin-top: 2px;
+  }
+
   .home-status-image {
     width: 100vw;
     margin-left: calc(50% - 50vw);
