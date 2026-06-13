@@ -3596,6 +3596,11 @@ app.innerHTML = `
         </form>
       </div>
     </aside>
+    <aside class="mobile-cta-bar" data-mobile-cta-bar hidden aria-label="Contact The Scott Gordon Group">
+      <a href="${advisorProfile.mobileHref}" class="mobile-cta-action mobile-cta-action-secondary" aria-label="Call The Scott Gordon Group">Call</a>
+      <a href="sms:${advisorProfile.mobileHref.replace('tel:', '')}" class="mobile-cta-action mobile-cta-action-secondary" aria-label="Text The Scott Gordon Group">Text</a>
+      <a href="/inquire/?lead_capture_context=mobile_sticky_cta" class="mobile-cta-action mobile-cta-action-primary">Request Availability</a>
+    </aside>
     <footer class="site-footer">
       <div>
         <strong>WPB New Construction</strong>
@@ -4191,6 +4196,7 @@ initProjectBrowser();
 initProjectGalleryTabs();
 initHeroSlideshows();
 initSpaLinks();
+initMobileCtaBar();
 window.addEventListener("hashchange", applyRoute);
 window.addEventListener("popstate", applyRoute);
 
@@ -4245,6 +4251,37 @@ function initSpaLinks() {
   });
 }
 
+function initMobileCtaBar() {
+  const ctaBar = document.querySelector<HTMLElement>("[data-mobile-cta-bar]");
+  if (!ctaBar) return;
+
+  let ticking = false;
+
+  const updateCtaBarVisibility = () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const shouldShow = scrollY > 400;
+
+    if (shouldShow && ctaBar.hidden) {
+      ctaBar.hidden = false;
+    } else if (!shouldShow && !ctaBar.hidden) {
+      ctaBar.hidden = true;
+    }
+
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateCtaBarVisibility);
+      ticking = true;
+    }
+  };
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!prefersReducedMotion) {
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+}
 
 function applyRoute() {
   const route = getCurrentRoute();
@@ -5311,14 +5348,16 @@ function renderHomepageCompareLauncher() {
 
 function renderHomepageComparePreview(project: FeaturedProject) {
   const image = homepageProjectCardImage(project.id) || (project.image && canShowImage(project.image) ? project.image : undefined);
+  const statusLabel = projectSalesStatusLabel(project.status);
   return `
     <article class="home-compare-preview" data-home-compare-preview="${project.id}">
       ${image
         ? `<img src="${safeHref(image)}" alt="${escapeHtml(`${project.name} project preview`)}" loading="lazy" decoding="async" />`
         : `<div class="image-placeholder">${escapeHtml(project.corridor)}</div>`}
       <div>
-        <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
+        <span>${escapeHtml(project.corridor)}</span>
         <strong>${escapeHtml(project.name)}</strong>
+        ${statusLabel ? `<small>${escapeHtml(statusLabel)}</small>` : ""}
       </div>
     </article>
   `;
@@ -6541,6 +6580,48 @@ function renderAboutRouteView() {
   `;
 }
 
+function projectSalesStatusLabel(status: string): string {
+  const statusLower = status.toLowerCase();
+  if (statusLower.includes("sales gallery") || statusLower.includes("sales office")) return "Sales Gallery Open";
+  if (statusLower.includes("active sales") || statusLower.includes("now selling")) return "Active Sales";
+  if (statusLower.includes("pre-sales") || statusLower.includes("presales")) return "Pre-Sales";
+  if (statusLower.includes("pipeline") || statusLower.includes("proposed")) return "Pipeline Watch";
+  if (statusLower.includes("planned") || statusLower.includes("planning")) return "Planned";
+  if (statusLower.includes("delivered") || statusLower.includes("complete")) return "Delivered";
+  if (statusLower.includes("construction")) return "Under Construction";
+  return status;
+}
+
+function projectDeliveryDisplay(delivery: string): string {
+  if (!delivery || delivery.toLowerCase() === "unknown" || delivery.toLowerCase() === "tbd") return "";
+  if (/^\d{4}$/.test(delivery)) return `${delivery} Delivery`;
+  return delivery;
+}
+
+function projectStatusTone(status: string): "active" | "pipeline" | "delivered" | "neutral" {
+  const statusLower = status.toLowerCase();
+  if (statusLower.includes("sales") || statusLower.includes("selling") || statusLower.includes("construction")) return "active";
+  if (statusLower.includes("pipeline") || statusLower.includes("proposed") || statusLower.includes("planned")) return "pipeline";
+  if (statusLower.includes("delivered") || statusLower.includes("complete")) return "delivered";
+  return "neutral";
+}
+
+function renderProjectStatusChips(project: FeaturedProject): string {
+  const statusLabel = projectSalesStatusLabel(project.status);
+  const deliveryLabel = projectDeliveryDisplay(project.delivery);
+  const tone = projectStatusTone(project.status);
+  
+  const chips: string[] = [];
+  if (statusLabel) {
+    chips.push(`<span class="project-status-chip project-status-chip-${tone}"><i aria-hidden="true"></i>${escapeHtml(statusLabel)}</span>`);
+  }
+  if (deliveryLabel) {
+    chips.push(`<span class="project-status-chip project-status-chip-delivery">${escapeHtml(deliveryLabel)}</span>`);
+  }
+  
+  return chips.length > 0 ? `<div class="project-status-chips">${chips.join("")}</div>` : "";
+}
+
 function renderHomepageFeaturedProject(project: FeaturedProject) {
   const cardOverride = approvedHomepageCardOverride("featuredBuildings", project.id);
   const homepageCardImage = homepageProjectCardImage(project.id);
@@ -6557,9 +6638,9 @@ function renderHomepageFeaturedProject(project: FeaturedProject) {
             : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${project.name}</strong></div>`}
         </figure>
         <div>
-          <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
+          <span class="project-card-corridor">${escapeHtml(project.corridor)}</span>
+          ${renderProjectStatusChips(project)}
           <strong>${escapeHtml(cardOverride?.headline || project.name)}</strong>
-          <small>${escapeHtml(project.delivery)}</small>
           <em>View project <b aria-hidden="true">→</b></em>
         </div>
       </a>
@@ -6569,6 +6650,7 @@ function renderHomepageFeaturedProject(project: FeaturedProject) {
 
 function renderHomepageAtlasProject(project: FeaturedProject) {
   const image = homepageProjectCardImage(project.id) || (project.image && canShowImage(project.image) ? project.image : undefined);
+  const deliveryLabel = projectDeliveryDisplay(project.delivery);
   return `
     <a class="home-atlas-project-card" href="${projectPath(project)}">
       ${image
@@ -6577,7 +6659,7 @@ function renderHomepageAtlasProject(project: FeaturedProject) {
       <span>
         <small>${escapeHtml(project.corridor)}</small>
         <strong>${escapeHtml(project.name)}</strong>
-        <em>${escapeHtml(project.delivery)}</em>
+        ${deliveryLabel ? `<em>${escapeHtml(deliveryLabel)}</em>` : ""}
       </span>
     </a>
   `;
