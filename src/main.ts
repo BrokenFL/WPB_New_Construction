@@ -2684,7 +2684,7 @@ app.innerHTML = `
       </section>
 
       <section class="home-future-module home-spotlight-module" aria-label="Downtown spotlight: NORA district">
-        <img src="/assets/editorial/nora-district-aerial-evening-hero.jpg" alt="Aerial evening rendering of the NORA District in Downtown West Palm Beach" loading="eager" decoding="async" fetchpriority="high" />
+        <img src="/assets/editorial/nora-district-aerial-evening-hero.jpg" alt="Aerial evening rendering of the NORA District in Downtown West Palm Beach" loading="lazy" decoding="async" fetchpriority="low" />
         <div class="home-spotlight-content">
           <div class="home-spotlight-meta">
             <p class="eyebrow">Downtown Spotlight</p>
