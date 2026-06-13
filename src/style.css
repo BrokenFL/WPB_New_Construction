@@ -11271,6 +11271,7 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 }
 
 .home-status-image-frame {
+  margin: 0;
   overflow: hidden;
   border: 0;
   box-shadow: none;
