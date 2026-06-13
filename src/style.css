@@ -11830,7 +11830,7 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   }
 
   .home-status-image-frame img {
-    aspect-ratio: 1916 / 821;
+    aspect-ratio: 16 / 9;
   }
 
   .home-atlas-compact-heading {
