@@ -10964,7 +10964,7 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   justify-content: space-between;
   gap: 18px;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .home-resource-card {
@@ -10989,12 +10989,12 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 .home-resource-card strong,
 .home-resource-card p,
 .home-resource-card em {
-  margin-right: 14px;
-  margin-left: 14px;
+  margin-right: 12px;
+  margin-left: 12px;
 }
 
 .home-resource-card span {
-  margin-top: 7px;
+  margin-top: 10px;
   color: var(--bronze);
   font-size: 0.62rem;
   font-weight: 800;
@@ -11019,7 +11019,14 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 }
 
 .home-resource-card em {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
   color: #164768;
+}
+
+.home-resource-card em b {
+  display: inline;
 }
 
 .buildings-route-hero {
@@ -11117,11 +11124,11 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   }
 
   .home-resource-card span {
-    margin-top: 12px;
+    margin-top: 10px;
   }
 
   .home-resource-card em {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
 }
@@ -11492,12 +11499,12 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 }
 
 .home-resource-card-featured {
-  grid-template-rows: 258px auto auto 1fr auto;
+  grid-template-rows: 258px auto auto auto auto;
   height: 100%;
 }
 
 .home-resource-card-featured figure {
-  height: 258px;
+  height: 240px;
   margin: 0;
   overflow: hidden;
 }
@@ -11883,9 +11890,21 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
     grid-template-columns: 1fr;
   }
 
+  .home-resource-feature {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-resource-heading {
+    order: 2;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+
   .home-resource-card-featured {
+    order: 1;
     grid-template-columns: 112px minmax(0, 1fr);
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: auto auto auto auto;
   }
 
   .home-resource-card-featured figure {
