@@ -12159,10 +12159,14 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
     width: 100%;
     height: 144px;
     min-height: 144px;
+    padding: 8px;
+    background: #fffdf8;
+    box-sizing: border-box;
   }
 
   .home-resource-card-featured figure img {
-    min-height: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .home-compare-picker-grid,
