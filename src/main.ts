@@ -2626,15 +2626,18 @@ app.innerHTML = `
         </div>
       </section>
 
-      <nav class="home-section-jump" aria-label="Explore homepage sections">
-        <a href="/corridors/">${homeJumpIcon("corridors")}<span>Corridors</span></a>
-        <a href="/buildings/">${homeJumpIcon("projects")}<span>Projects</span></a>
-        <a href="/compare/">${homeJumpIcon("compare")}<span>Compare</span></a>
-        <a href="/answers/">${homeJumpIcon("answers")}<span>Q&A</span></a>
-        <a href="/downtown-spotlight/">${homeJumpIcon("spotlight")}<span>Downtown</span></a>
-        <a href="/updates/">${homeJumpIcon("updates")}<span>Updates</span></a>
-        <a href="/market-notes/">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
-      </nav>
+      <div class="home-section-jump-shell">
+        ${renderHomeSectionJumpControls()}
+        <nav class="home-section-jump" aria-label="Explore homepage sections">
+          <a href="/corridors/">${homeJumpIcon("corridors")}<span>Corridors</span></a>
+          <a href="/buildings/">${homeJumpIcon("projects")}<span>Projects</span></a>
+          <a href="/compare/">${homeJumpIcon("compare")}<span>Compare</span></a>
+          <a href="/answers/">${homeJumpIcon("answers")}<span>Q&A</span></a>
+          <a href="/downtown-spotlight/">${homeJumpIcon("spotlight")}<span>Downtown</span></a>
+          <a href="/updates/">${homeJumpIcon("updates")}<span>Updates</span></a>
+          <a href="/market-notes/">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
+        </nav>
+      </div>
 
       <section class="home-corridor-guide" id="corridors" aria-label="Choose a West Palm Beach new-construction corridor">
         <div class="section-heading corridor-heading">
@@ -4191,6 +4194,7 @@ const projectRouteAliases: Record<string, string> = {
 
 applyRoute();
 initWebMcpTools();
+initHomeSectionJumpControls();
 initHomeCarouselControls();
 initProjectBrowser();
 initProjectGalleryTabs();
@@ -5227,7 +5231,10 @@ function renderHomepageAdvisoryResources() {
   return `
     <section class="home-advisory-resources" id="resources" aria-label="Scott Gordon Group advisory and buyer resources">
       <article class="home-brooke-panel">
-        <img class="home-brooke-logo" src="${teamProfile.logoMark}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <div class="home-brooke-partner-logos" aria-label="The Scott Gordon Group and Douglas Elliman">
+          <img class="home-brooke-partner-logo home-brooke-partner-logo-scott" src="/assets/home/scott-gordon-group-logo.png" alt="The Scott Gordon Group" loading="lazy" decoding="async" />
+          <img class="home-brooke-partner-logo home-brooke-partner-logo-elliman" src="/assets/home/douglas-elliman-logo.webp" alt="Douglas Elliman" loading="lazy" decoding="async" />
+        </div>
         <p class="eyebrow">Why Work With The Scott Gordon Group</p>
         <h2>Local guidance, clearly framed.</h2>
         <p>Backed by Douglas Elliman's global network, the Scott Gordon Group helps buyers compare buildings, locations, delivery timing, lifestyle fit, and tradeoffs before requesting current availability.</p>
@@ -5265,6 +5272,17 @@ function renderHomeCarouselControls(label: string) {
       <span aria-hidden="true">‹</span>
     </button>
     <button class="home-carousel-arrow home-carousel-arrow-next" type="button" data-home-carousel-scroll="next" aria-label="Scroll ${escapeHtml(label)} right">
+      <span aria-hidden="true">›</span>
+    </button>
+  `;
+}
+
+function renderHomeSectionJumpControls() {
+  return `
+    <button class="home-section-jump-arrow home-section-jump-arrow-prev" type="button" data-home-jump-scroll="prev" aria-label="Scroll homepage sections left">
+      <span aria-hidden="true">‹</span>
+    </button>
+    <button class="home-section-jump-arrow home-section-jump-arrow-next" type="button" data-home-jump-scroll="next" aria-label="Scroll homepage sections right">
       <span aria-hidden="true">›</span>
     </button>
   `;
@@ -9834,6 +9852,32 @@ function initHomeCarouselControls() {
 
       const direction = button.dataset.homeCarouselScroll === "prev" ? -1 : 1;
       const distance = Math.max(160, Math.round(rail.clientWidth * 0.82));
+
+      rail.scrollBy({
+        left: direction * distance,
+        behavior: "smooth",
+      });
+    });
+  });
+}
+
+function initHomeSectionJumpControls() {
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-home-jump-scroll]"));
+  if (!buttons.length) {
+    return;
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const shell = button.closest<HTMLElement>(".home-section-jump-shell");
+      const rail = shell?.querySelector<HTMLElement>(".home-section-jump");
+
+      if (!rail) {
+        return;
+      }
+
+      const direction = button.dataset.homeJumpScroll === "prev" ? -1 : 1;
+      const distance = Math.max(180, Math.round(rail.clientWidth * 0.78));
 
       rail.scrollBy({
         left: direction * distance,
