@@ -10955,10 +10955,10 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 
 .home-brooke-partner-logo {
   display: block;
-  width: min(100%, 280px);
+  width: min(100%, 300px);
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
 }
 
 .home-brooke-panel h2 {
