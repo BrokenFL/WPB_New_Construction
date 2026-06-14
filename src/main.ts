@@ -2640,24 +2640,27 @@ app.innerHTML = `
         <div class="section-heading corridor-heading">
           <p class="eyebrow">Browse by Corridor</p>
         </div>
-        <div class="corridor-guide-grid">
-          ${homepageCorridorKeys.map((key) => corridorSections.find((section) => section.key === key)).filter((section): section is CorridorSection => Boolean(section)).map((section) => {
-            const cardOverride = approvedHomepageCardOverride("corridors", section.key);
-            const directoryPath = corridorDirectoryPath(section.key);
-            return `
-              <article class="corridor-guide-card">
-                <a class="corridor-guide-image-link" href="${directoryPath}" aria-label="View ${section.label} projects">
-                  ${cardOverride?.imagePath ? renderHomepageOverrideImage(cardOverride, section.label, "corridor-guide-image") : `<figure class="corridor-guide-image"><img src="${homepageAssets.corridors[section.key]}" alt="${section.label} West Palm Beach new-construction corridor" loading="lazy" decoding="async" /></figure>`}
-                </a>
-                <div class="corridor-guide-card-body">
-                  <span>${corridorDisplayLabel(section.key)}</span>
-                  <strong>${escapeHtml(cardOverride?.headline || section.label)}</strong>
-                  <p>${escapeHtml(cardOverride?.deck || cardOverride?.subhead || homepageCorridorCopy(section.key))}</p>
-                </div>
-                <a href="${directoryPath}">${escapeHtml(cardOverride?.ctaLabel || `Explore ${section.label}`)} <span aria-hidden="true">→</span></a>
-              </article>
-            `;
-          }).join("")}
+        <div class="home-carousel-shell">
+          ${renderHomeCarouselControls("corridor")}
+          <div class="corridor-guide-grid">
+            ${homepageCorridorKeys.map((key) => corridorSections.find((section) => section.key === key)).filter((section): section is CorridorSection => Boolean(section)).map((section) => {
+              const cardOverride = approvedHomepageCardOverride("corridors", section.key);
+              const directoryPath = corridorDirectoryPath(section.key);
+              return `
+                <article class="corridor-guide-card">
+                  <a class="corridor-guide-image-link" href="${directoryPath}" aria-label="View ${section.label} projects">
+                    ${cardOverride?.imagePath ? renderHomepageOverrideImage(cardOverride, section.label, "corridor-guide-image") : `<figure class="corridor-guide-image"><img src="${homepageAssets.corridors[section.key]}" alt="${section.label} West Palm Beach new-construction corridor" loading="lazy" decoding="async" /></figure>`}
+                  </a>
+                  <div class="corridor-guide-card-body">
+                    <span>${corridorDisplayLabel(section.key)}</span>
+                    <strong>${escapeHtml(cardOverride?.headline || section.label)}</strong>
+                    <p>${escapeHtml(cardOverride?.deck || cardOverride?.subhead || homepageCorridorCopy(section.key))}</p>
+                  </div>
+                  <a href="${directoryPath}">${escapeHtml(cardOverride?.ctaLabel || `Explore ${section.label}`)} <span aria-hidden="true">→</span></a>
+                </article>
+              `;
+            }).join("")}
+          </div>
         </div>
       </section>
 
@@ -2676,10 +2679,12 @@ app.innerHTML = `
         <div class="section-heading home-featured-heading">
           <p class="eyebrow">Featured Developments</p>
           <a class="home-featured-heading-link" href="/buildings/">View All Projects <span aria-hidden="true">→</span></a>
-          <p class="mobile-rail-hint" aria-hidden="true">Swipe to explore <span>→</span></p>
         </div>
-        <div class="home-featured-grid" role="region" aria-label="Scrollable featured developments" tabindex="0">
-          ${homepageFeaturedProjects.map(renderHomepageFeaturedProject).join("")}
+        <div class="home-carousel-shell">
+          ${renderHomeCarouselControls("featured developments")}
+          <div class="home-featured-grid" role="region" aria-label="Scrollable featured developments" tabindex="0">
+            ${homepageFeaturedProjects.map(renderHomepageFeaturedProject).join("")}
+          </div>
         </div>
       </section>
 
@@ -2730,6 +2735,7 @@ app.innerHTML = `
 
       ${renderHomepageAdvisoryResources()}
       ${renderHomepageCompareLauncher()}
+      ${renderHomepageEndBridge()}
       </div>
 
       ${renderBuildingsRouteView()}
@@ -4185,6 +4191,7 @@ const projectRouteAliases: Record<string, string> = {
 
 applyRoute();
 initWebMcpTools();
+initHomeCarouselControls();
 initProjectBrowser();
 initProjectGalleryTabs();
 initHeroSlideshows();
@@ -5252,6 +5259,17 @@ function renderHomepageAdvisoryResources() {
   `;
 }
 
+function renderHomeCarouselControls(label: string) {
+  return `
+    <button class="home-carousel-arrow home-carousel-arrow-prev" type="button" data-home-carousel-scroll="prev" aria-label="Scroll ${escapeHtml(label)} left">
+      <span aria-hidden="true">‹</span>
+    </button>
+    <button class="home-carousel-arrow home-carousel-arrow-next" type="button" data-home-carousel-scroll="next" aria-label="Scroll ${escapeHtml(label)} right">
+      <span aria-hidden="true">›</span>
+    </button>
+  `;
+}
+
 function renderDowntownSpotlightIndex() {
   const spotlightNotes = marketNotes.filter((note) => note.category === "Downtown Spotlight");
   return `
@@ -5335,6 +5353,21 @@ function renderHomepageCompareLauncher() {
           <a href="/inquire/">Ask The Scott Gordon Group for Guidance <span aria-hidden="true">↗</span></a>
         </div>
       </form>
+    </section>
+  `;
+}
+
+function renderHomepageEndBridge() {
+  return `
+    <section class="home-end-bridge" aria-label="West Palm Beach skyline and bridge illustration">
+      <figure class="home-end-bridge-frame">
+        <img
+          src="/assets/home/wpb-end-cap-bridge-v01.png"
+          alt="Stylized West Palm Beach skyline and bridge illustration under a pale sky."
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
     </section>
   `;
 }
@@ -6428,8 +6461,19 @@ function renderFeaturedProject(project: FeaturedProject) {
   const cardOverride = approvedHomepageCardOverride("featuredBuildings", project.id);
   const homepageCardImage = homepageProjectCardImage(project.id);
   const displayName = project.name;
+  const albaProjectCardImage = project.id === "alba-palm-beach" ? `${albaMediaBase}alba-hero.jpg` : "";
+  const ritzProjectCardImage = project.id === "ritz-carlton-wpb" ? "/assets/home/ritz-carlton-project-card-main-v01.jpg" : "";
+  const imageStyle = project.id === "alba-palm-beach"
+    ? ' style="object-position: center 26%;"'
+    : project.id === "ritz-carlton-wpb"
+      ? ' style="object-position: center 24%;"'
+      : "";
   const media = cardOverride?.imagePath
     ? `<img src="${safeHref(cardOverride.imagePath)}" alt="${escapeHtml(cardOverride.alt || `${project.name} project preview`)}" loading="lazy" decoding="async" />`
+    : albaProjectCardImage
+    ? `<img src="${albaProjectCardImage}" alt="${project.name} project preview" loading="lazy" decoding="async"${imageStyle} />`
+    : ritzProjectCardImage
+    ? `<img src="${ritzProjectCardImage}" alt="${project.name} project preview" loading="lazy" decoding="async"${imageStyle} />`
     : homepageCardImage
     ? `<img src="${homepageCardImage}" alt="${project.name} project preview" loading="lazy" decoding="async" />`
     : project.image && canShowImage(project.image)
@@ -6591,54 +6635,8 @@ function projectDeliveryDisplay(delivery: string): string {
   return delivery;
 }
 
-function projectStatusTone(status: string): "active" | "pipeline" | "delivered" | "neutral" {
-  const statusLower = status.toLowerCase();
-  if (statusLower.includes("sales") || statusLower.includes("selling") || statusLower.includes("construction")) return "active";
-  if (statusLower.includes("pipeline") || statusLower.includes("proposed") || statusLower.includes("planned")) return "pipeline";
-  if (statusLower.includes("delivered") || statusLower.includes("complete")) return "delivered";
-  return "neutral";
-}
-
-function renderProjectStatusChips(project: FeaturedProject): string {
-  const statusLabel = projectSalesStatusLabel(project.status);
-  const deliveryLabel = projectDeliveryDisplay(project.delivery);
-  const tone = projectStatusTone(project.status);
-  
-  const chips: string[] = [];
-  if (statusLabel) {
-    chips.push(`<span class="project-status-chip project-status-chip-${tone}"><i aria-hidden="true"></i>${escapeHtml(statusLabel)}</span>`);
-  }
-  if (deliveryLabel) {
-    chips.push(`<span class="project-status-chip project-status-chip-delivery">${escapeHtml(deliveryLabel)}</span>`);
-  }
-  
-  return chips.length > 0 ? `<div class="project-status-chips">${chips.join("")}</div>` : "";
-}
-
 function renderHomepageFeaturedProject(project: FeaturedProject) {
-  const cardOverride = approvedHomepageCardOverride("featuredBuildings", project.id);
-  const homepageCardImage = homepageProjectCardImage(project.id);
-  const image = cardOverride?.imagePath
-    ? safeHref(cardOverride.imagePath)
-    : homepageCardImage || (project.image && canShowImage(project.image) ? project.image : undefined);
-
-  return `
-    <article class="home-featured-card">
-      <a href="${projectPath(project)}" aria-label="View ${escapeHtml(project.name)}">
-        <figure>
-          ${image
-            ? `<img src="${image}" alt="${escapeHtml(cardOverride?.alt || `${project.name} project preview`)}" loading="lazy" decoding="async" />`
-            : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${project.name}</strong></div>`}
-        </figure>
-        <div>
-          <span class="project-card-corridor">${escapeHtml(project.corridor)}</span>
-          ${renderProjectStatusChips(project)}
-          <strong>${escapeHtml(cardOverride?.headline || project.name)}</strong>
-          <em>View project <b aria-hidden="true">→</b></em>
-        </div>
-      </a>
-    </article>
-  `;
+  return renderFeaturedProject(project);
 }
 
 function renderHomepageAtlasProject(project: FeaturedProject) {
@@ -9816,6 +9814,32 @@ function syncProjectFilterControls(selects: HTMLSelectElement[], selection: Proj
   selects.forEach((select) => {
     const group = select.dataset.projectFilterGroup as keyof ProjectFilterSelection;
     select.value = selection[group] ?? "all";
+  });
+}
+
+function initHomeCarouselControls() {
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-home-carousel-scroll]"));
+  if (!buttons.length) {
+    return;
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const shell = button.closest<HTMLElement>(".home-carousel-shell");
+      const rail = shell?.querySelector<HTMLElement>(".corridor-guide-grid, .home-featured-grid");
+
+      if (!rail) {
+        return;
+      }
+
+      const direction = button.dataset.homeCarouselScroll === "prev" ? -1 : 1;
+      const distance = Math.max(160, Math.round(rail.clientWidth * 0.82));
+
+      rail.scrollBy({
+        left: direction * distance,
+        behavior: "smooth",
+      });
+    });
   });
 }
 
