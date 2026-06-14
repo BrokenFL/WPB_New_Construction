@@ -10950,19 +10950,15 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 .home-brooke-partner-logos {
   display: grid;
   place-items: center;
-  margin-bottom: 24px;
-  padding: 12px 14px;
-  border: 1px solid rgba(211, 184, 139, 0.18);
-  border-radius: 8px;
-  background: rgba(255, 250, 241, 0.96);
+  margin-bottom: 16px;
 }
 
 .home-brooke-partner-logo {
   display: block;
-  width: min(100%, 540px);
+  width: min(100%, 280px);
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.16));
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
 }
 
 .home-brooke-panel h2 {
