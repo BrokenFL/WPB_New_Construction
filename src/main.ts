@@ -5232,12 +5232,7 @@ function renderHomepageAdvisoryResources() {
     <section class="home-advisory-resources" id="resources" aria-label="Scott Gordon Group advisory and buyer resources">
       <article class="home-brooke-panel">
         <div class="home-brooke-partner-logos" aria-label="The Scott Gordon Group and Douglas Elliman">
-          <div class="home-brooke-partner-logo-card home-brooke-partner-logo-card-scott">
-            <img class="home-brooke-partner-logo home-brooke-partner-logo-scott" src="/assets/home/scott-gordon-group-logo.png" alt="The Scott Gordon Group" loading="lazy" decoding="async" />
-          </div>
-          <div class="home-brooke-partner-logo-card home-brooke-partner-logo-card-elliman">
-            <img class="home-brooke-partner-logo home-brooke-partner-logo-elliman" src="/assets/home/douglas-elliman-logo.webp" alt="Douglas Elliman" loading="lazy" decoding="async" />
-          </div>
+          <img class="home-brooke-partner-logo" src="/assets/home/dual-logo.png" alt="The Scott Gordon Group and Douglas Elliman" loading="lazy" decoding="async" />
         </div>
         <p class="eyebrow">Why Work With The Scott Gordon Group</p>
         <h2>Local guidance, clearly framed.</h2>
