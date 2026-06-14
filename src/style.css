@@ -10949,28 +10949,49 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 
 .home-brooke-partner-logos {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   gap: 16px;
   align-items: center;
   margin-bottom: 24px;
 }
 
+.home-brooke-partner-logo-card {
+  display: grid;
+  min-height: 94px;
+  align-items: center;
+}
+
+.home-brooke-partner-logo-card-scott {
+  justify-items: start;
+  padding: 10px 12px;
+  border: 1px solid rgba(211, 184, 139, 0.24);
+  border-radius: 6px;
+  background: rgba(255, 250, 241, 0.08);
+}
+
+.home-brooke-partner-logo-card-elliman {
+  justify-items: end;
+  padding: 10px 12px;
+  border: 1px solid rgba(211, 184, 139, 0.16);
+  border-radius: 6px;
+  background: rgba(255, 250, 241, 0.96);
+}
+
 .home-brooke-partner-logo {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.2));
 }
 
 .home-brooke-partner-logo-scott {
-  max-width: 270px;
-  justify-self: start;
+  width: min(340px, 100%);
+  margin-left: -2px;
 }
 
 .home-brooke-partner-logo-elliman {
-  max-width: 280px;
-  justify-self: end;
+  width: min(260px, 100%);
 }
 
 .home-brooke-panel h2 {
