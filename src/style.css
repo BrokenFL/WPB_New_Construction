@@ -3158,103 +3158,12 @@ body.has-floorplan-viewer {
   font-size: clamp(1.02rem, 1.3vw, 1.28rem);
 }
 
-.downtown-spotlight-hero {
-  position: relative;
-  display: block;
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  min-height: clamp(640px, 78vh, 900px);
-  padding: 0;
-  overflow: hidden;
-  border-bottom: 1px solid var(--line);
-  background: var(--obsidian);
-}
-
-.downtown-spotlight-hero-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-}
-
 .downtown-spotlight-hero-image img {
   width: 100%;
   height: 100%;
   min-height: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.downtown-spotlight-hero::before {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  content: "";
-  background:
-    linear-gradient(90deg, rgba(6, 12, 18, 0.78), rgba(6, 12, 18, 0.42) 48%, rgba(6, 12, 18, 0.08)),
-    linear-gradient(180deg, rgba(11, 15, 18, 0.26), transparent 40%, rgba(11, 15, 18, 0.5));
-}
-
-.downtown-spotlight-hero-copy {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  align-content: end;
-  gap: 18px;
-  width: min(760px, calc(100% - 36px));
-  min-height: clamp(640px, 78vh, 900px);
-  padding: clamp(126px, 15vh, 190px) 0 clamp(64px, 9vw, 110px);
-  margin: 0 auto;
-  color: #fffaf1;
-}
-
-.downtown-spotlight-hero-text {
-  display: grid;
-  gap: 10px;
-}
-
-.downtown-spotlight-hero-copy .eyebrow {
-  color: rgba(255, 250, 241, 0.76);
-}
-
-.downtown-spotlight-hero-copy h1 {
-  max-width: 13ch;
-  margin: 0;
-  color: #fffaf1;
-  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
-  font-size: clamp(3.8rem, 7vw, 7.4rem);
-  font-weight: 400;
-  letter-spacing: -0.06em;
-  line-height: 0.9;
-  text-wrap: balance;
-}
-
-.downtown-spotlight-hero-copy p:not(.eyebrow) {
-  max-width: 66ch;
-  margin-top: 12px;
-  color: rgba(255, 250, 241, 0.86);
-  font-size: clamp(1.02rem, 1.3vw, 1.28rem);
-}
-
-.downtown-spotlight-hero-copy .answer-meta-panel {
-  width: min(100%, 420px);
-  border-color: rgba(255, 250, 241, 0.22);
-  background: rgba(255, 250, 241, 0.08);
-  backdrop-filter: blur(12px);
-}
-
-.downtown-spotlight-hero-copy .answer-meta-panel span,
-.downtown-spotlight-hero-copy .answer-meta-panel strong {
-  color: #fffaf1;
-}
-
-.downtown-spotlight-hero-copy .answer-meta-panel small {
-  color: rgba(255, 250, 241, 0.72);
 }
 
 .answer-library-hero {

@@ -5293,18 +5293,18 @@ function renderHomeSectionJumpControls() {
 function renderDowntownSpotlightIndex() {
   const spotlightNotes = marketNotes.filter((note) => note.category === "Downtown Spotlight");
   return `
-    <section class="section intelligence-hero downtown-spotlight-hero">
-      ${renderEditorialImagePanel("downtown-spotlight-night-skyline-hero", { hero: true, caption: false, credit: false, className: "downtown-spotlight-hero-image" })}
-      <div class="downtown-spotlight-hero-copy">
-        <div class="downtown-spotlight-hero-text">
-          <p class="eyebrow">Downtown Spotlight</p>
-          <h1>Downtown West Palm Beach, one story at a time.</h1>
-          <p>Follow the institutions, districts, buildings, restaurants, streets, and planning signals shaping the Downtown condo decision.</p>
+    <section class="section intelligence-hero downtown-spotlight-hero" style="position:relative;display:block;width:100%;max-width:none;margin:0;min-height:clamp(640px,78vh,900px);padding:0;overflow:hidden;border-bottom:1px solid var(--line);background:var(--obsidian);">
+      ${renderEditorialImagePanel("downtown-spotlight-night-skyline-hero", { hero: true, caption: false, credit: false, className: "downtown-spotlight-hero-image", style: "position:absolute;inset:0;width:100%;height:100%;margin:0;border:0;border-radius:0;box-shadow:none;" })}
+      <div class="downtown-spotlight-hero-copy" style="position:relative;z-index:2;display:grid;align-content:end;gap:18px;width:min(760px, calc(100% - 36px));min-height:clamp(640px,78vh,900px);padding:clamp(126px,15vh,190px) 0 clamp(64px,9vw,110px);margin:0 auto;color:#fffaf1;">
+        <div>
+          <p class="eyebrow" style="color:rgba(255,250,241,0.76);">Downtown Spotlight</p>
+          <h1 style="max-width:13ch;margin:0;color:#fffaf1;font-family:Iowan Old Style,Palatino Linotype,Georgia,serif;font-size:clamp(3.8rem,7vw,7.4rem);font-weight:400;letter-spacing:-0.06em;line-height:0.9;text-wrap:balance;">Downtown West Palm Beach, one story at a time.</h1>
+          <p style="max-width:66ch;margin-top:12px;color:rgba(255,250,241,0.86);font-size:clamp(1.02rem,1.3vw,1.28rem);">Follow the institutions, districts, buildings, restaurants, streets, and planning signals shaping the Downtown condo decision.</p>
         </div>
-        <aside class="answer-meta-panel">
-          <span>${spotlightNotes.length} article${spotlightNotes.length === 1 ? "" : "s"}</span>
-          <strong>Start with the newest signal.</strong>
-          <small>Institutional anchors, NORA, and future Downtown spotlights live here as the series grows.</small>
+        <aside class="answer-meta-panel" style="width:min(100%,420px);border-color:rgba(255,250,241,0.22);background:rgba(255,250,241,0.08);backdrop-filter:blur(12px);">
+          <span style="color:#fffaf1;">${spotlightNotes.length} article${spotlightNotes.length === 1 ? "" : "s"}</span>
+          <strong style="color:#fffaf1;">Start with the newest signal.</strong>
+          <small style="color:rgba(255,250,241,0.72);">Institutional anchors, NORA, and future Downtown spotlights live here as the series grows.</small>
         </aside>
       </div>
     </section>

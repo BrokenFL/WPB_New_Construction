@@ -7,6 +7,7 @@ type EditorialImagePanelOptions = {
   credit?: string | false;
   hero?: boolean;
   compact?: boolean;
+  style?: string;
 };
 
 export function renderEditorialImagePanel(imageId?: string, options: EditorialImagePanelOptions = {}) {
@@ -39,7 +40,7 @@ export function renderEditorialImagePanel(imageId?: string, options: EditorialIm
       : "";
 
   return `
-    <figure class="${classes}">
+    <figure class="${classes}"${options.style ? ` style="${escapeHtml(options.style)}"` : ""}>
       ${
         image.status === "available"
           ? `<img src="${safeHref(image.assetPath)}" alt="${escapeHtml(image.alt)}" loading="${loading}" decoding="async" />`
