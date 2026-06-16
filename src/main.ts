@@ -2563,6 +2563,9 @@ const secondaryContextUpdateItems = freshUpdateItems.length ? contextUpdateItems
 const approvedNewsFeedRenderReference = "publishedExternalNews.map(renderExternalNewsItem)";
 void approvedNewsFeedRenderReference;
 const buyerResourceNotes = marketNotes.filter((note) => !isDowntownSpotlight(note));
+const shortContactCtaLabel = "Contact the Team";
+const longContactCtaHeadline = "Contact the Scott Gordon Group";
+const longContactCtaBody = "Request current availability, pricing context, floor plan guidance, and buyer insight for West Palm Beach, Palm Beach, and Wellington luxury new developments.";
 
 app.innerHTML = `
   <div class="site-shell">
@@ -2579,7 +2582,7 @@ app.innerHTML = `
         <a href="/floorplans/" data-nav-item="floorplans">Floorplans</a>
       </nav>
       <a class="nav-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">Call</a>
-      <a class="nav-cta" href="/inquire/" data-nav-item="inquire">Inquire now <span aria-hidden="true">→</span></a>
+      <a class="nav-cta" href="/inquire/" data-nav-item="inquire">${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
     </header>
 
     <main>
@@ -2812,7 +2815,7 @@ app.innerHTML = `
           <p class="news-empty-state" data-news-empty hidden>No updates match that filter yet.</p>
           <div class="newsroom-cta-row">
             ${renderEmailSignup("updates_archive", "Get the WPB new-construction update digest", true)}
-            <a class="button primary" href="/inquire/?lead_capture_context=updates_page">Request Current Availability <span aria-hidden="true">↗</span></a>
+            <a class="button primary" href="/inquire/?lead_capture_context=updates_page">${shortContactCtaLabel} <span aria-hidden="true">↗</span></a>
           </div>
         </section>
       </div>
@@ -2879,7 +2882,7 @@ app.innerHTML = `
           <div class="floorplan-viewer-actions">
             <button type="button" data-floorplan-prev>Previous</button>
             <button type="button" data-floorplan-next>Next</button>
-            <a href="/inquire/?interest=floorplans&lead_capture_context=floorplan_viewer">Inquire Now</a>
+            <a href="/inquire/?interest=floorplans&lead_capture_context=floorplan_viewer">${shortContactCtaLabel}</a>
           </div>
         </section>
       </div>
@@ -3454,8 +3457,8 @@ app.innerHTML = `
       <section class="section inquiry-section" id="inquire">
         <div class="inquiry-copy-panel">
           <p class="eyebrow">Contact The Scott Gordon Group</p>
-          <h1>Request current availability and pricing</h1>
-          <p>Tell us what you are considering. The Scott Gordon Group will send current availability, released floor plans, pricing guidance, fees and parking notes, and a short comparison of buildings that fit your timing, budget, and lifestyle.</p>
+          <h1>${longContactCtaHeadline}</h1>
+          <p>${longContactCtaBody}</p>
           <div class="inquiry-proof-strip" aria-label="What the team will review">
             <span>Availability</span>
             <span>Floor plans</span>
@@ -3545,7 +3548,7 @@ app.innerHTML = `
             <input type="checkbox" name="consent" required />
             <span>By submitting, I consent to be contacted by ${teamProfile.displayName} at ${advisorProfile.brokerage} at the email address or phone number I provided about this real-estate inquiry. This request is for a manual response and is not consent to autodialed, prerecorded, or automated marketing calls or texts. Pricing, availability, incentives, square footage, fees, and delivery dates require current written confirmation.</span>
           </label>
-          <button class="button primary" type="submit">Request Current Availability</button>
+          <button class="button primary" type="submit">${shortContactCtaLabel}</button>
           <div class="brooke-identity-block">
             <img src="${teamProfile.logoMark}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
             <strong>${teamProfile.displayName}</strong>
@@ -3562,10 +3565,10 @@ app.innerHTML = `
       </div>
       </main>
     <aside class="floating-availability-cta" data-floating-cta aria-label="Request current availability">
-      <a href="/inquire/?lead_capture_context=floating_cta">Inquire Now</a>
-    </aside>
-    <nav class="mobile-cta-bar" aria-label="Quick contact actions">
-      <a href="/inquire/?lead_capture_context=mobile_cta" data-quick-cta="request">Inquire Now</a>
+    <a href="/inquire/?lead_capture_context=floating_cta">${shortContactCtaLabel}</a>
+  </aside>
+  <nav class="mobile-cta-bar" aria-label="Quick contact actions">
+      <a href="/inquire/?lead_capture_context=mobile_cta" data-quick-cta="request">${shortContactCtaLabel}</a>
     </nav>
     <div class="lead-modal-backdrop" data-lead-modal hidden>
       <section class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" aria-describedby="lead-modal-body">
@@ -3601,7 +3604,7 @@ app.innerHTML = `
     <aside class="mobile-cta-bar" data-mobile-cta-bar hidden aria-label="Contact The Scott Gordon Group">
       <a href="${advisorProfile.mobileHref}" class="mobile-cta-action mobile-cta-action-secondary" aria-label="Call The Scott Gordon Group">Call</a>
       <a href="sms:${advisorProfile.mobileHref.replace('tel:', '')}" class="mobile-cta-action mobile-cta-action-secondary" aria-label="Text The Scott Gordon Group">Text</a>
-      <a href="/inquire/?lead_capture_context=mobile_sticky_cta" class="mobile-cta-action mobile-cta-action-primary">Request Availability</a>
+      <a href="/inquire/?lead_capture_context=mobile_sticky_cta" class="mobile-cta-action mobile-cta-action-primary">${shortContactCtaLabel}</a>
     </aside>
     <footer class="site-footer">
       <div>
@@ -4429,21 +4432,21 @@ function routeSeoDetails(
   };
   const routeTitles: Record<string, string> = {
     home: siteMeta.title,
-    news: "West Palm Beach Condo Updates | Construction, Sales & Planning",
+    news: "West Palm Beach Luxury Condo Updates | Construction, Sales & Planning",
     "downtown-spotlight": "Downtown Spotlight | West Palm Beach Condo District Notes",
-    buildings: "West Palm Beach New Construction Buildings | Buyer Guide",
+    buildings: "West Palm Beach Luxury New Construction Buildings | Buyer Guide",
     map: "West Palm Beach Condo Map | New Construction Corridors",
-    corridors: "West Palm Beach Condo Corridors | Buyer Guide",
-    compare: "Compare West Palm Beach New Construction Condos",
+    corridors: "West Palm Beach Luxury Condo Corridors | Buyer Guide",
+    compare: "Compare West Palm Beach Luxury New Construction Condos",
     about: "About The Scott Gordon Group | Douglas Elliman Palm Beach",
-    "market-notes": "West Palm Beach Condo Guidance | Buyer Intelligence",
-    floorplans: "West Palm Beach Condo Floor Plans | New Construction Guide",
-    answers: "West Palm Beach New Construction Condo Answers",
+    "market-notes": "West Palm Beach Luxury Condo Guidance | Buyer Intelligence",
+    floorplans: "West Palm Beach Luxury Condo Floor Plans | New Construction Guide",
+    answers: "West Palm Beach Luxury New Construction Condo Answers",
     methodology: "How We Verify West Palm Beach Condo Project Facts",
     privacy: "Privacy | WPB New Construction",
     terms: "Terms | WPB New Construction",
     "fair-housing": "Fair Housing | WPB New Construction",
-    inquire: "Request West Palm Beach Condo Availability",
+    inquire: "Contact the Scott Gordon Group | West Palm Beach Luxury New Construction",
   };
   const title = activeProject
     ? `${activeProject.name}${/west palm beach/i.test(activeProject.name) ? "" : " West Palm Beach"} | ${activeProject.pageState === "Complete profile" ? "New Construction Condo Guide" : "Buyer Guide"}`
@@ -4770,25 +4773,25 @@ function updateMetaDescription(routeType: string, activeProject?: FeaturedProjec
 
 function metaDescriptionForRoute(routeType: string) {
   const descriptions: Record<string, string> = {
-    home: siteMeta.description,
-    buildings: "Compare West Palm Beach new-construction condos by corridor, pricing checks, floor plans, delivery timing, amenities, and waterfront position.",
+    home: "Browse West Palm Beach luxury new-construction condos across Palm Beach, West Palm Beach, and Wellington with corridor guides, floor plans, and buyer comparison notes.",
+    buildings: "Compare West Palm Beach luxury new-construction condos by corridor, pricing checks, floor plans, delivery timing, amenities, and waterfront position.",
     map: "Map West Palm Beach new-construction condo projects by North Flagler, Downtown, and South Flagler corridor context.",
-    corridors: "Choose between South Flagler, North Flagler, and Downtown West Palm Beach new-construction condo corridors by lifestyle, waterfront position, and buyer fit.",
-    compare: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
+    corridors: "Choose between South Flagler, North Flagler, and Downtown West Palm Beach luxury new-construction condo corridors by lifestyle, waterfront position, and buyer fit.",
+    compare: "Compare West Palm Beach luxury new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
     about: aboutPageDescription,
-    news: "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
+    news: "Track West Palm Beach luxury condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
     "downtown-spotlight": "Read Downtown West Palm Beach district spotlights, beginning with NORA, and follow the locations shaping condo buyer decisions.",
-    "news-detail": "Read a West Palm Beach new-construction update with buyer context, related buildings, team context, and the original source link.",
-    "market-notes": "Read evergreen guidance for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
-    floorplans: "Browse released West Palm Beach new-construction condo floor plans and request current sales packets before comparing available residences.",
-    answers: "Concise answers to West Palm Beach new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
-    "answer-detail": "Buyer-intent answer for comparing West Palm Beach new-construction condos with source-backed links and verification notes.",
+    "news-detail": "Read a West Palm Beach luxury new-construction update with buyer context, related buildings, team context, and the original source link.",
+    "market-notes": "Read evergreen guidance for West Palm Beach luxury new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
+    floorplans: "Browse released West Palm Beach luxury new-construction condo floor plans and request current sales packets before comparing available residences.",
+    answers: "Concise answers to West Palm Beach luxury new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
+    "answer-detail": "Buyer-intent answer for comparing West Palm Beach luxury new-construction condos with source-backed links and verification notes.",
     methodology: "How WPB New Construction separates official sources, reported details, and items buyers should verify before relying on project information.",
     privacy: "Privacy information for WPB New Construction inquiry forms, Douglas Elliman policy references, and buyer lead handling.",
     terms: "Terms and limitations for WPB New Construction buyer guidance, project information, and advisory content.",
     "fair-housing": "Equal Housing Opportunity and fair housing disclosure for WPB New Construction buyer advisory content.",
-    inquire: "Request current West Palm Beach new-construction condo availability, floor plans, pricing guidance, and private buyer comparison notes.",
-    project: "West Palm Beach new-construction project profile with facts, floor plans, source links, and buyer guidance.",
+    inquire: "Contact The Scott Gordon Group for current West Palm Beach luxury new-construction availability, floor plans, pricing guidance, and private buyer comparison notes.",
+    project: "West Palm Beach luxury new-construction project profile with facts, floor plans, source links, and buyer guidance.",
   };
   return descriptions[routeType] ?? siteMeta.description;
 }
@@ -4965,7 +4968,7 @@ function pageSchemaName(routeType: string) {
     privacy: "Privacy",
     terms: "Terms",
     "fair-housing": "Fair Housing",
-    inquire: "Request Current Availability",
+    inquire: "Contact The Scott Gordon Group",
   };
   return labels[routeType] ?? "WPB New Construction";
 }
@@ -5243,7 +5246,7 @@ function renderHomepageAdvisoryResources() {
           <li>Private availability and floor-plan guidance</li>
           <li>Concierge-level buyer advocacy</li>
         </ul>
-        <a href="/inquire/">Start a Conversation <span aria-hidden="true">→</span></a>
+        <a href="/inquire/">${longContactCtaHeadline} <span aria-hidden="true">→</span></a>
       </article>
       <div class="home-resource-panel">
         <div class="home-resource-feature">
@@ -5367,7 +5370,7 @@ function renderHomepageCompareLauncher() {
         <p class="home-compare-error" data-home-compare-error hidden>Choose two different buildings to compare.</p>
         <div class="home-compare-actions">
           <button type="submit">Compare These Buildings <span aria-hidden="true">→</span></button>
-          <a href="/inquire/">Ask The Scott Gordon Group for Guidance <span aria-hidden="true">↗</span></a>
+          <a href="/inquire/">${shortContactCtaLabel} <span aria-hidden="true">↗</span></a>
         </div>
       </form>
     </section>
@@ -5747,11 +5750,11 @@ function renderCorridorsRouteView() {
 
       <section class="corridors-final-cta">
         <div>
-          <h2>Ready to compare the right buildings?</h2>
-          <p>Start with the corridor, then ask for current availability, floor plans, and buyer notes.</p>
+          <h2>${longContactCtaHeadline}</h2>
+          <p>${longContactCtaBody}</p>
         </div>
-        <a class="button primary" href="/buildings/">View Projects <span aria-hidden="true">→</span></a>
-        <a class="button ghost" href="/inquire/?lead_capture_context=corridors">Inquire Now</a>
+        <a class="button primary" href="/inquire/?lead_capture_context=corridors">${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+        <a class="button ghost" href="/buildings/">View Projects</a>
       </section>
     </div>
   `;
@@ -5803,7 +5806,7 @@ function compareAddress(project: FeaturedProject) {
     : project.address;
 }
 
-let compareSections: CompareSection[] | undefined;
+var compareSections: CompareSection[] | undefined;
 
 async function loadCompareSections() {
   if (compareSections) return compareSections;
@@ -5882,7 +5885,7 @@ function corridorBestFit(key: CorridorKey) {
 function renderCompareRouteView() {
   const options = rankedFeaturedProjects.map((project) => `<option value="${project.id}">${escapeHtml(project.name)}</option>`).join("");
 
-  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare West Palm Beach New Construction</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Build a focused shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/?lead_capture_context=compare_shortlist" data-compare-inquire>Ask The Scott Gordon Group to compare these buildings <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section></div>`;
+  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare West Palm Beach New Construction</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Build a focused shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/?lead_capture_context=compare_shortlist" data-compare-inquire>Ask The Scott Gordon Group to compare these buildings <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section><section class="corridors-final-cta compare-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/?lead_capture_context=compare_shortlist">${shortContactCtaLabel} <span aria-hidden="true">→</span></a></section></div>`;
 }
 
 function renderCorridorRouteView(section: CorridorSection) {
@@ -5912,10 +5915,17 @@ function renderCorridorRouteView(section: CorridorSection) {
           <ul>
             ${corridorComparisonConsiderations(section.key).map((consideration) => `<li>${consideration}</li>`).join("")}
           </ul>
-          <a href="/inquire/?lead_capture_context=corridor&message=${encodeURIComponent(`I want help comparing ${section.label} projects.`)}">Inquire Now for ${section.label} guidance <span aria-hidden="true">↗</span></a>
+          <a href="/inquire/?lead_capture_context=corridor&message=${encodeURIComponent(`I want help comparing ${section.label} projects.`)}">${shortContactCtaLabel} for ${section.label} guidance <span aria-hidden="true">↗</span></a>
         </div>
       </section>
       ${renderCorridorAuthoritySections(section, projects)}
+      <section class="corridors-final-cta corridor-final-cta">
+        <div>
+          <h2>${longContactCtaHeadline}</h2>
+          <p>${longContactCtaBody}</p>
+        </div>
+        <a class="button primary" href="/inquire/?lead_capture_context=corridor">${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+      </section>
       <section class="project-sort-shell corridor-project-shell">
         <div class="project-sort-header">
           <div>
@@ -6123,11 +6133,10 @@ function renderMarketNoteWorkWithUs(note: MarketNote) {
   return `
     <section class="about-work-section market-note-work-section">
       <div>
-        <p class="eyebrow">Work With Us - West Palm Beach New Construction</p>
-        <h2>Your advocate from reservation to closing.</h2>
-        <p>Investing in a new-construction residence is not just about floor plans and finishes - it is about securing a lifestyle in one of South Florida's most competitive markets. As Palm Beach waterfront and condo specialists, we track new developments from boutique villa enclaves to full-service high-rises.</p>
-        <p>Our team's deep ties to builders and project insiders mean you get early insights, transparent comparisons and sharp negotiation. We will help you evaluate amenities, understand timelines and protect your interests from reservation to closing.</p>
-        <a class="button primary" href="/inquire/?interest=compare&message=${encodeURIComponent(`I want help applying this article: ${note.title}`)}&lead_capture_context=article_work_with_us">Start a private comparison</a>
+        <p class="eyebrow">Contact The Scott Gordon Group</p>
+        <h2>${longContactCtaHeadline}</h2>
+        <p>${longContactCtaBody}</p>
+        <a class="button primary" href="/inquire/?interest=compare&message=${encodeURIComponent(`I want help applying this article: ${note.title}`)}&lead_capture_context=article_work_with_us">${shortContactCtaLabel}</a>
       </div>
     </section>
   `;
@@ -7364,7 +7373,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
           <aside class="buyer-takeaway-box">
             <span>Next step</span>
             <p>${publicText(content.cta)}</p>
-            <a href="/inquire/?lead_capture_context=update_article&update=${encodeURIComponent(item.id)}">Contact the team <span aria-hidden="true">→</span></a>
+            <a href="/inquire/?lead_capture_context=update_article&update=${encodeURIComponent(item.id)}">${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
           </aside>
         </div>
       </section>
@@ -8017,7 +8026,7 @@ function renderProjectIdentityHeader(project: FeaturedProject, pageType: Project
         <h1>${publicText(project.name)}</h1>
         <p>${publicText(project.corridor)} · ${publicText(project.status)} · ${publicText(project.address)}</p>
       </div>
-      <a class="button primary" href="${pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker" ? `#project-updates-${project.id}` : `/inquire/?project=${project.id}&interest=availability`}">${pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker" ? "Get Updates" : "Request Current Availability"}</a>
+      <a class="button primary" href="${pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker" ? `#project-updates-${project.id}` : `/inquire/?project=${project.id}&interest=availability`}">${pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker" ? "Get Updates" : shortContactCtaLabel}</a>
     </header>
   `;
 }
@@ -8824,7 +8833,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
           <a href="${floorplanLibraryPath(project.id)}">Floorplans</a>
         </div>
         <a class="berkeley-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">${berkeleyIcon("valet")}</a>
-        <a class="berkeley-inquire" href="/inquire/?project=${project.id}&interest=availability">Inquire now <span aria-hidden="true">→</span></a>
+        <a class="berkeley-inquire" href="/inquire/?project=${project.id}&interest=availability">${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
       </nav>
 
       <section class="berkeley-hero-clean">
@@ -8893,7 +8902,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 
       <section class="berkeley-brooke-card" aria-label="Local take"><div><p class="berkeley-kicker">Local Take</p><p>${publicText(copyPackage?.localTake ?? copyPackage?.brookeTake ?? project.summary)}</p></div><div class="berkeley-brooke-profile"><div><h3>The Scott Gordon Group</h3><p>Douglas Elliman</p></div></div><ul><li>${advisorProfile.mobile}</li><li>${advisorProfile.email}</li><li>wpbnewconstruction.com</li></ul></section>
 
-      <section class="berkeley-final-cta"><div><h2>Let's find your right residence.</h2><p>Get current pricing, floor plans, availability, and buyer notes.</p></div><a class="button primary" href="/inquire/?project=${project.id}&interest=availability">Inquire now <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
+      <section class="berkeley-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/?project=${project.id}&interest=availability">${shortContactCtaLabel} <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
     </div>
   `;
 }
@@ -8920,7 +8929,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const hasGallery = gallery.some((asset) => canShowImage(asset.src));
   const hasAmenities = !isCompactWatch && amenityTiles.some((asset) => canShowImage(asset.src));
   const hasTeam = teamTiles.length > 0;
-  const primaryCta = isCompactWatch ? "Get Updates on This Project" : "Request Current Availability";
+  const primaryCta = isCompactWatch ? "Get Updates on This Project" : shortContactCtaLabel;
   const residencesImage = residenceImageForProject(project, heroImage);
 
   const isWaterfront = project.corridor.toLowerCase().includes("waterfront") || project.address.toLowerCase().includes("flagler") || ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "south-flagler-house", "forte-on-flagler", "maison-dor"].includes(project.id);
@@ -9055,29 +9064,29 @@ function renderDraftProjectPage(project: FeaturedProject) {
       <section class="brochure-research-contact" id="project-resources-${project.id}">
         <div class="brochure-research-panel">
           <p class="eyebrow">Buyer Resources</p>
-          <h2>${isCompactWatch ? "Track what is known, and what is not." : "Compare residences, floorplans, and next steps."}</h2>
-          <p>${isCompactWatch ? "Planning and source-watch pages are intentionally lighter. Use them for status, location, sponsor signals, and related news, not as a promise of current availability." : "Access available floorplans, project details, and advisor guidance before you tour or reserve."}</p>
+          <h2>${isCompactWatch ? "Track what is known, and what is not." : longContactCtaHeadline}</h2>
+          <p>${isCompactWatch ? "Planning and source-watch pages are intentionally lighter. Use them for status, location, sponsor signals, and related news, not as a promise of current availability." : longContactCtaBody}</p>
           <div class="brochure-download-list">
             ${draft.documents.map((document) => renderProjectDocument(document, project.id)).join("")}
             ${!isCompactWatch && floorplanProject ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
           </div>
         </div>
         ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project) : `<form class="brochure-inquiry-card" action="mailto:${advisorProfile.email}" method="post" enctype="text/plain">
-          <p class="eyebrow">Inquire</p>
-          <h2>Request current availability</h2>
+          <p class="eyebrow">Contact The Scott Gordon Group</p>
+          <h2>${shortContactCtaLabel}</h2>
           <p>${shortTeamCtaCopy}</p>
           <label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Full name" required /></label>
           <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="Email address" required /></label>
           <label><span>Phone</span><input name="phone" type="tel" autocomplete="tel" placeholder="Phone number" /></label>
           <label><span>Message</span><textarea name="message" placeholder="How can The Scott Gordon Group help?">${project.name} inquiry</textarea></label>
-          <button type="submit">Request Current Availability</button>
+          <button type="submit">${shortContactCtaLabel}</button>
         </form>`}
       </section>
 
       ${renderTechnicalDisclosuresSection(project, draft)}
 
       <div class="brochure-mobile-cta-sticky">
-        <a class="button primary" href="/inquire/?project=${project.id}&interest=availability&lead_capture_context=mobile_sticky">Request Price Sheet</a>
+        <a class="button primary" href="/inquire/?project=${project.id}&interest=availability&lead_capture_context=mobile_sticky">${shortContactCtaLabel}</a>
         <a class="button ghost" href="${advisorProfile.mobileHref.replace("tel:", "sms:")}" style="color: var(--ivory); border-color: rgba(244, 239, 229, 0.4); background: rgba(255,255,255,0.05);">Text The Scott Gordon Group</a>
       </div>
     </div>
