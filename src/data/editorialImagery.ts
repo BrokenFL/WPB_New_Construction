@@ -16,7 +16,7 @@ export const editorialImagery: readonly EditorialImage[] = [
     id: "downtown-spotlight-night-skyline-hero",
     title: "Downtown West Palm Beach skyline at night",
     routeUse: ["/downtown-spotlight/"],
-    assetPath: "/assets/editorial/downtown-spotlight-night-skyline-hero.png",
+    assetPath: "/assets/editorial/downtown-spotlight-night-skyline-hero.jpg",
     fallbackGradient: "downtown",
     alt: "Night skyline of Downtown West Palm Beach with illuminated towers, bridge spans, and water reflections across the Intracoastal.",
     caption: "Downtown at night is the visual shorthand for the district's skyline, bridge access, and waterfront energy.",
