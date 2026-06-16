@@ -8929,7 +8929,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const hasGallery = gallery.some((asset) => canShowImage(asset.src));
   const hasAmenities = !isCompactWatch && amenityTiles.some((asset) => canShowImage(asset.src));
   const hasTeam = teamTiles.length > 0;
-  const primaryCta = isCompactWatch ? "Get Updates on This Project" : shortContactCtaLabel;
+  const primaryCta = isCompactWatch ? "Get Updates on This Project" : "Request Current Availability";
   const residencesImage = residenceImageForProject(project, heroImage);
 
   const isWaterfront = project.corridor.toLowerCase().includes("waterfront") || project.address.toLowerCase().includes("flagler") || ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "south-flagler-house", "forte-on-flagler", "maison-dor"].includes(project.id);
