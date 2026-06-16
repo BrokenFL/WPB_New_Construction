@@ -3158,6 +3158,28 @@ body.has-floorplan-viewer {
   font-size: clamp(1.02rem, 1.3vw, 1.28rem);
 }
 
+.downtown-spotlight-hero {
+  align-items: center;
+}
+
+.downtown-spotlight-hero-image {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+}
+
+.downtown-spotlight-hero-copy {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  align-content: end;
+  gap: 18px;
+}
+
+.downtown-spotlight-hero-copy .answer-meta-panel {
+  width: min(100%, 420px);
+}
+
 .answer-library-hero {
   grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.86fr);
   align-items: center;
@@ -8731,6 +8753,12 @@ body {
     min-height: auto;
     padding-top: 104px;
     padding-bottom: 28px;
+  }
+
+  .downtown-spotlight-hero-image,
+  .downtown-spotlight-hero-copy {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .intelligence-hero h1 {

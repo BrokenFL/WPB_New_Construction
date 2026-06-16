@@ -5294,16 +5294,19 @@ function renderDowntownSpotlightIndex() {
   const spotlightNotes = marketNotes.filter((note) => note.category === "Downtown Spotlight");
   return `
     <section class="section intelligence-hero downtown-spotlight-hero">
-      <div>
-        <p class="eyebrow">Downtown Spotlight</p>
-        <h1>Downtown West Palm Beach, one story at a time.</h1>
-        <p>Follow the institutions, districts, buildings, restaurants, streets, and planning signals shaping the Downtown condo decision.</p>
+      ${renderEditorialImagePanel("downtown-spotlight-night-skyline-hero", { hero: true, caption: false, credit: false, className: "downtown-spotlight-hero-image" })}
+      <div class="downtown-spotlight-hero-copy">
+        <div>
+          <p class="eyebrow">Downtown Spotlight</p>
+          <h1>Downtown West Palm Beach, one story at a time.</h1>
+          <p>Follow the institutions, districts, buildings, restaurants, streets, and planning signals shaping the Downtown condo decision.</p>
+        </div>
+        <aside class="answer-meta-panel">
+          <span>${spotlightNotes.length} article${spotlightNotes.length === 1 ? "" : "s"}</span>
+          <strong>Start with the newest signal.</strong>
+          <small>Institutional anchors, NORA, and future Downtown spotlights live here as the series grows.</small>
+        </aside>
       </div>
-      <aside class="answer-meta-panel">
-        <span>${spotlightNotes.length} article${spotlightNotes.length === 1 ? "" : "s"}</span>
-        <strong>Start with the newest signal.</strong>
-        <small>Institutional anchors, NORA, and future Downtown spotlights live here as the series grows.</small>
-      </aside>
     </section>
     <section class="section">
       <div class="home-blog-grid market-note-grid">

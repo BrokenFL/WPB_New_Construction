@@ -13,6 +13,18 @@ export type EditorialImage = {
 
 export const editorialImagery: readonly EditorialImage[] = [
   {
+    id: "downtown-spotlight-night-skyline-hero",
+    title: "Downtown West Palm Beach skyline at night",
+    routeUse: ["/downtown-spotlight/"],
+    assetPath: "/assets/editorial/downtown-spotlight-night-skyline-hero.png",
+    fallbackGradient: "downtown",
+    alt: "Night skyline of Downtown West Palm Beach with illuminated towers, bridge spans, and water reflections across the Intracoastal.",
+    caption: "Downtown at night is the visual shorthand for the district's skyline, bridge access, and waterfront energy.",
+    credit: "User-provided editorial image, optimized for site use.",
+    status: "available",
+    geographyNote: "Use as the Downtown Spotlight hero image and keep the caption tied to the district overview.",
+  },
+  {
     id: "downtown-dining-rooftop-pool",
     title: "Downtown rooftop dining and pool deck",
     routeUse: ["/downtown-spotlight/", "/downtown-spotlight/west-palm-beach-new-dining-map/"],
