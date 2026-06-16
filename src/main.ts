@@ -5296,7 +5296,7 @@ function renderDowntownSpotlightIndex() {
     <section class="section intelligence-hero downtown-spotlight-hero">
       ${renderEditorialImagePanel("downtown-spotlight-night-skyline-hero", { hero: true, caption: false, credit: false, className: "downtown-spotlight-hero-image" })}
       <div class="downtown-spotlight-hero-copy">
-        <div>
+        <div class="downtown-spotlight-hero-text">
           <p class="eyebrow">Downtown Spotlight</p>
           <h1>Downtown West Palm Beach, one story at a time.</h1>
           <p>Follow the institutions, districts, buildings, restaurants, streets, and planning signals shaping the Downtown condo decision.</p>
