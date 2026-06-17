@@ -9,15 +9,15 @@ No event should include names, emails, phone numbers, sensitive financial detail
 | `page_view` | Route changes | `route`, `path`, optional `projectId`, optional `corridorKey` | Basic route engagement |
 | `building_view` | Building detail route | `buildingSlug`, `buildingName`, `category`, `salesStatus` | Building interest |
 | `second_building_view` | Second distinct building in one session | `buildingSlug`, `buildingName`, `viewedBuildings` | Lead-intent threshold |
-| `lead_modal_shown` | Soft lead modal display | `viewedBuildingCount`, `viewedBuildings` | Modal exposure |
-| `lead_modal_dismissed` | Keep Browsing click | `viewedBuildingCount` | Respectful dismissal |
-| `lead_modal_submitted` | Modal primary CTA or accepted inquiry | `viewedBuildingCount`, optional `project`, optional `interest`, optional `leadCaptureContext` | Lead-intent CTA |
-| `inquiry_cta_click` | Inquiry links/buttons | `source`, optional `buildingSlug` | CTA engagement |
-| `contact_form_open` | Inquiry route | `path`, `viewedCount` | Form reach |
-| `lead_form_submit_success` | Inquiry endpoint accepts the submission | `project`, `interest` | App-side submission success |
-| `lead_form_submit_fallback` | Endpoint is unavailable and email fallback is shown | `project`, `interest` | Delivery fallback |
-| `lead_queue_local_save` | Failed endpoint submission is saved in this browser | `project`, `interest` | Manual recovery path without sending PII to analytics |
-| `contact_form_submit` | Inquiry form submit begins after browser validation | `project`, `interest`, `hasPhone`, `hasMessage`, `leadCaptureContext`, `viewedBuildingCount` | Lead submission intent without PII |
+| `cta_click` | Buyer-facing CTAs across header, mobile nav, home, compare, corridor, project, and article flows | `location`, `pageType`, `path`, optional `projectSlug`, optional `projectName`, optional `corridor`, optional `ctaText`, optional `leadCaptureContext` | Standard intent click |
+| `lead_capture_shown` | Timed building-watch modal display | `viewedBuildingCount`, `viewedBuildings`, `location`, `pageType`, `path` | Modal exposure |
+| `lead_capture_dismissed` | Timed building-watch modal dismissal | `viewedBuildingCount`, `location`, `pageType`, `path` | Respectful dismissal |
+| `lead_capture_cta_click` | Timed building-watch modal CTA or email signup submit intent | `location`, `pageType`, `path`, optional `projectSlug`, optional `projectName`, optional `corridor`, optional `ctaText`, optional `leadCaptureContext` | Lead-capture intent click |
+| `contact_form_start` | Inquiry form first focus/interaction | `location`, `pageType`, `path`, optional `projectSlug`, optional `projectName`, optional `corridor`, optional `leadCaptureContext` | Form reach |
+| `contact_form_submit` | Inquiry form submit begins after browser validation | `location`, `pageType`, `path`, optional `projectSlug`, optional `projectName`, optional `corridor`, `interest`, `hasPhone`, `hasMessage`, `leadCaptureContext`, `viewedBuildingCount` | Lead submission intent without PII |
+| `lead_form_submit_success` | Inquiry endpoint accepts the submission | `location`, `pageType`, `path`, optional `projectSlug`, optional `projectName`, optional `corridor`, `interest`, `leadCaptureContext` | App-side submission success |
+| `lead_form_submit_fallback` | Endpoint is unavailable and email fallback is shown | `location`, `pageType`, `path`, optional `projectSlug`, optional `projectName`, optional `corridor`, `interest`, `leadCaptureContext` | Delivery fallback |
+| `lead_queue_local_save` | Failed endpoint submission is saved in this browser | `location`, `pageType`, `path`, optional `projectSlug`, optional `projectName`, optional `corridor`, `interest` | Manual recovery path without sending PII to analytics |
 | `phone_click` | Phone links | `source` | Direct contact intent |
 | `email_click` | Email links | `source` | Direct contact intent |
 | `map_opened` | Atlas route/hash | `path` | Map engagement |

@@ -2568,6 +2568,114 @@ const shortContactCtaLabel = "Contact the Team";
 const longContactCtaHeadline = "Contact the Scott Gordon Group";
 const longContactCtaBody = "Request current availability, pricing context, floor plan guidance, and buyer insight for West Palm Beach, Palm Beach, and Wellington luxury new developments.";
 
+type BuyerIntentCtaLocation =
+  | "header"
+  | "mobile_nav"
+  | "home_page"
+  | "project_page"
+  | "compare_page"
+  | "corridor_page"
+  | "article_page"
+  | "lead_capture";
+
+function analyticsPath() {
+  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
+}
+
+function analyticsPageType(routeType: Route["type"]) {
+  if (routeType === "news-detail" || routeType === "market-note-detail") return "article";
+  return routeType;
+}
+
+function analyticsRouteContext(route = getCurrentRoute()) {
+  const project = route.type === "project"
+    ? featuredProjects.find((item) => item.id === route.projectId)
+    : undefined;
+  const corridor = route.type === "corridor"
+    ? corridorSections.find((item) => item.key === route.corridorKey)
+    : undefined;
+
+  return {
+    pageType: analyticsPageType(route.type),
+    path: analyticsPath(),
+    projectSlug: project?.id,
+    projectName: project?.name,
+    corridor: corridor?.label ?? project?.corridor,
+  };
+}
+
+function cleanCtaText(value: string) {
+  return value
+    .replace(/[→↗↖↘‹›]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function renderCtaTrackingAttrs(location: BuyerIntentCtaLocation, ctaText: string, extras: {
+  projectSlug?: string;
+  projectName?: string;
+  corridor?: string;
+  leadCaptureContext?: string;
+} = {}) {
+  const attrs = [
+    `data-track-cta="true"`,
+    `data-cta-location="${escapeHtml(location)}"`,
+    `data-cta-text="${escapeHtml(ctaText)}"`,
+  ];
+  if (extras.projectSlug) attrs.push(`data-project-slug="${escapeHtml(extras.projectSlug)}"`);
+  if (extras.projectName) attrs.push(`data-project-name="${escapeHtml(extras.projectName)}"`);
+  if (extras.corridor) attrs.push(`data-corridor="${escapeHtml(extras.corridor)}"`);
+  if (extras.leadCaptureContext) attrs.push(`data-lead-capture-context="${escapeHtml(extras.leadCaptureContext)}"`);
+  return attrs.join(" ");
+}
+
+function renderLeadCaptureTrackingAttrs(ctaText: string, extras: {
+  projectSlug?: string;
+  projectName?: string;
+  corridor?: string;
+  leadCaptureContext?: string;
+} = {}) {
+  const attrs = [
+    `data-track-lead-capture-cta="true"`,
+    `data-cta-text="${escapeHtml(ctaText)}"`,
+  ];
+  if (extras.projectSlug) attrs.push(`data-project-slug="${escapeHtml(extras.projectSlug)}"`);
+  if (extras.projectName) attrs.push(`data-project-name="${escapeHtml(extras.projectName)}"`);
+  if (extras.corridor) attrs.push(`data-corridor="${escapeHtml(extras.corridor)}"`);
+  if (extras.leadCaptureContext) attrs.push(`data-lead-capture-context="${escapeHtml(extras.leadCaptureContext)}"`);
+  return attrs.join(" ");
+}
+
+function trackBuyerIntentCta(element: HTMLElement) {
+  const routeContext = analyticsRouteContext();
+  const ctaText = cleanCtaText(element.dataset.ctaText ?? element.textContent ?? "");
+  track("cta_click", {
+    location: element.dataset.ctaLocation ?? "unknown",
+    pageType: element.dataset.pageType ?? routeContext.pageType,
+    path: routeContext.path,
+    projectSlug: element.dataset.projectSlug ?? routeContext.projectSlug,
+    projectName: element.dataset.projectName ?? routeContext.projectName,
+    corridor: element.dataset.corridor ?? routeContext.corridor,
+    ctaText,
+    leadCaptureContext: element.dataset.leadCaptureContext,
+  });
+}
+
+function trackLeadCaptureCta(element: HTMLElement) {
+  const routeContext = analyticsRouteContext();
+  const ctaText = cleanCtaText(element.dataset.ctaText ?? element.textContent ?? "");
+  track("lead_capture_cta_click", {
+    location: "lead_capture",
+    pageType: element.dataset.pageType ?? routeContext.pageType,
+    path: routeContext.path,
+    projectSlug: element.dataset.projectSlug ?? routeContext.projectSlug,
+    projectName: element.dataset.projectName ?? routeContext.projectName,
+    corridor: element.dataset.corridor ?? routeContext.corridor,
+    ctaText,
+    leadCaptureContext: element.dataset.leadCaptureContext,
+  });
+}
+
 app.innerHTML = `
   <div class="site-shell">
     <header class="site-nav">
@@ -2583,7 +2691,7 @@ app.innerHTML = `
         <a href="/floorplans/" data-nav-item="floorplans">Floorplans</a>
       </nav>
       <a class="nav-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">Call</a>
-      <a class="nav-cta" href="/inquire/" data-nav-item="inquire">${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+      <a class="nav-cta" href="/inquire/" data-nav-item="inquire" ${renderCtaTrackingAttrs("header", shortContactCtaLabel)}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
     </header>
 
     <main>
@@ -2816,7 +2924,7 @@ app.innerHTML = `
           </div>` : ""}
           <p class="news-empty-state" data-news-empty hidden>No updates match that filter yet.</p>
           <div class="newsroom-cta-row">
-            ${renderEmailSignup("updates_archive", "Get the WPB new-construction update digest", true)}
+            ${renderEmailSignup("updates_archive", "Get the WPB new-construction update digest", true, undefined, "article_page")}
             <a class="button primary" href="/inquire/?lead_capture_context=updates_page">${shortContactCtaLabel} <span aria-hidden="true">↗</span></a>
           </div>
         </section>
@@ -3567,10 +3675,10 @@ app.innerHTML = `
       </div>
       </main>
     <aside class="floating-availability-cta" data-floating-cta aria-label="Request current availability">
-    <a href="/inquire/?lead_capture_context=floating_cta">${shortContactCtaLabel}</a>
+    <a href="/inquire/?lead_capture_context=floating_cta" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel)}>Contact the Team</a>
   </aside>
   <nav class="mobile-cta-bar" aria-label="Quick contact actions">
-      <a href="/inquire/?lead_capture_context=mobile_cta" data-quick-cta="request">${shortContactCtaLabel}</a>
+      <a href="/inquire/?lead_capture_context=mobile_cta" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel)}>${shortContactCtaLabel}</a>
     </nav>
     <div class="lead-modal-backdrop" data-lead-modal hidden>
       <section class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" aria-describedby="lead-modal-body">
@@ -3578,10 +3686,10 @@ app.innerHTML = `
         <p class="eyebrow">Building Watch</p>
         <h2 id="lead-modal-title">Want updates on these buildings?</h2>
         <p id="lead-modal-body">Get new West Palm Beach development updates, pricing-watch notes, and project changes without filling out a full inquiry form.</p>
-        ${renderEmailSignup("second_building_view", "Send Me Updates", true)}
+        ${renderEmailSignup("second_building_view", "Send Me Updates", true, undefined, "lead_capture")}
         <div class="lead-modal-actions">
           <button class="button ghost" type="button" data-lead-modal-dismiss>Keep Browsing</button>
-          <a class="button text-link" href="/inquire/?lead_capture_context=second_building_view" data-full-inquiry-started>Need current pricing now? Request availability.</a>
+          <a class="button text-link" href="/inquire/?lead_capture_context=second_building_view" ${renderLeadCaptureTrackingAttrs("Need current pricing now? Request availability.", { leadCaptureContext: "second_building_view" })}>Need current pricing now? Request availability.</a>
         </div>
       </section>
     </div>
@@ -3606,7 +3714,7 @@ app.innerHTML = `
     <aside class="mobile-cta-bar" data-mobile-cta-bar hidden aria-label="Contact The Scott Gordon Group">
       <a href="${advisorProfile.mobileHref}" class="mobile-cta-action mobile-cta-action-secondary" aria-label="Call The Scott Gordon Group">Call</a>
       <a href="sms:${advisorProfile.mobileHref.replace('tel:', '')}" class="mobile-cta-action mobile-cta-action-secondary" aria-label="Text The Scott Gordon Group">Text</a>
-      <a href="/inquire/?lead_capture_context=mobile_sticky_cta" class="mobile-cta-action mobile-cta-action-primary">${shortContactCtaLabel}</a>
+      <a href="/inquire/?lead_capture_context=mobile_sticky_cta" class="mobile-cta-action mobile-cta-action-primary" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel, { leadCaptureContext: "mobile_sticky_cta" })}>${shortContactCtaLabel}</a>
     </aside>
     <footer class="site-footer">
       <div>
@@ -3628,6 +3736,13 @@ app.innerHTML = `
   </div>
 `;
 
+document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("focusin", (event) => {
+  const target = event.currentTarget;
+  if (target instanceof HTMLFormElement) {
+    markInquiryFormStarted(target);
+  }
+});
+
 document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("submit", async (event) => {
   event.preventDefault();
   const target = event.currentTarget;
@@ -3636,6 +3751,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
   }
 
   const form = new FormData(target);
+  markInquiryFormStarted(target);
   if (!target.reportValidity()) {
     return;
   }
@@ -3654,6 +3770,8 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
   const submittedAt = new Date().toISOString();
   const viewedBuildings = getViewedBuildings();
   const context = String(form.get("lead_capture_context") ?? "").trim() || new URLSearchParams(window.location.search).get("lead_capture_context") || "contact_page";
+  const selectedProject = project || undefined;
+  const selectedProjectRecord = selectedProject ? featuredProjects.find((item) => item.id === selectedProject) : undefined;
 
   target.querySelector<HTMLInputElement>('input[name="source_page"]')?.setAttribute("value", window.location.href);
   target.querySelector<HTMLInputElement>('input[name="viewed_buildings"]')?.setAttribute("value", JSON.stringify(viewedBuildings));
@@ -3685,7 +3803,12 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     source: window.location.href,
   };
   track("contact_form_submit", {
-    project: project || "not-sure-yet",
+    location: "inquiry_page",
+    pageType: analyticsPageType(getCurrentRoute().type),
+    path: analyticsPath(),
+    projectSlug: selectedProjectRecord?.id ?? "not-sure-yet",
+    projectName: selectedProjectRecord?.name,
+    corridor: selectedProjectRecord?.corridor,
     interest,
     hasPhone: Boolean(phone),
     hasMessage: Boolean(message),
@@ -3703,8 +3826,13 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
 
   const sentToFormEndpoint = await submitLeadForm(form);
   if (sentToFormEndpoint) {
-    track("lead_modal_submitted", {
-      project: project || "not-sure-yet",
+    track("lead_form_submit_success", {
+      location: "inquiry_page",
+      pageType: analyticsPageType(getCurrentRoute().type),
+      path: analyticsPath(),
+      projectSlug: selectedProjectRecord?.id ?? "not-sure-yet",
+      projectName: selectedProjectRecord?.name,
+      corridor: selectedProjectRecord?.corridor,
       interest,
       leadCaptureContext: context,
     });
@@ -3718,11 +3846,21 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
   if (status) {
     queueLeadLocally(leadRecord);
     track("lead_queue_local_save", {
-      project: project || "not-sure-yet",
+      location: "inquiry_page",
+      pageType: analyticsPageType(getCurrentRoute().type),
+      path: analyticsPath(),
+      projectSlug: selectedProjectRecord?.id ?? "not-sure-yet",
+      projectName: selectedProjectRecord?.name,
+      corridor: selectedProjectRecord?.corridor,
       interest,
     });
     track("lead_form_submit_fallback", {
-      project: project || "not-sure-yet",
+      location: "inquiry_page",
+      pageType: analyticsPageType(getCurrentRoute().type),
+      path: analyticsPath(),
+      projectSlug: selectedProjectRecord?.id ?? "not-sure-yet",
+      projectName: selectedProjectRecord?.name,
+      corridor: selectedProjectRecord?.corridor,
       interest,
       leadCaptureContext: context,
     });
@@ -3744,16 +3882,28 @@ document.querySelectorAll<HTMLFormElement>("[data-email-signup]").forEach((signu
     form.set("source_page", window.location.href);
     form.set("submitted_at", new Date().toISOString());
     if (status) status.textContent = "Saving update request...";
-    const submitted = await submitLeadForm(form);
     const context = String(form.get("lead_capture_context") ?? "email_signup");
+    const location = String(target.dataset.emailSignupLocation ?? "lead_capture");
+    const projectSlug = target.dataset.emailSignupProjectSlug || undefined;
+    const projectName = target.dataset.emailSignupProjectName || undefined;
+    const corridor = target.dataset.emailSignupCorridor || undefined;
+    track("lead_capture_cta_click", {
+      location,
+      pageType: analyticsPageType(getCurrentRoute().type),
+      path: analyticsPath(),
+      projectSlug,
+      projectName,
+      corridor,
+      ctaText: cleanCtaText("Send Me Updates"),
+      leadCaptureContext: context,
+    });
+    const submitted = await submitLeadForm(form);
     if (submitted) {
-      track("email_signup_submitted", { leadCaptureContext: context });
       if (status) status.textContent = "You're on the list.";
       target.reset();
       dismissLeadModal();
       return;
     }
-    track("email_signup_submitted", { leadCaptureContext: context, fallback: "mailto" });
     if (status) {
       const email = encodeURIComponent(String(form.get("email") ?? ""));
       status.innerHTML = `Open email to finish signup: <a href="mailto:${advisorProfile.email}?subject=WPB%20new-construction%20updates&body=Please%20add%20${email}%20to%20WPB%20new-construction%20updates.">send it by email</a>.`;
@@ -3763,7 +3913,7 @@ document.querySelectorAll<HTMLFormElement>("[data-email-signup]").forEach((signu
 
 initBuyerAssistant();
 initLeadCaptureModal();
-initQuickCtas();
+initTrackableCtas();
 initHomeHero();
 
 function queueLeadLocally(leadRecord: Record<string, string>) {
@@ -3835,18 +3985,6 @@ function initLeadCaptureModal() {
   document.querySelectorAll<HTMLElement>("[data-lead-modal-dismiss]").forEach((element) => {
     element.addEventListener("click", () => dismissLeadModal());
   });
-  document.querySelector<HTMLElement>("[data-lead-modal-submit]")?.addEventListener("click", () => {
-    window.sessionStorage.setItem(leadModalDismissedKey, "submitted");
-    track("full_inquiry_started", {
-      viewedBuildingCount: getViewedBuildings().length,
-    });
-  });
-  document.querySelector<HTMLElement>("[data-full-inquiry-started]")?.addEventListener("click", () => {
-    window.sessionStorage.setItem(leadModalDismissedKey, "full-inquiry");
-    track("full_inquiry_started", {
-      viewedBuildingCount: getViewedBuildings().length,
-    });
-  });
 }
 
 function showLeadModal(viewedBuildings = getViewedBuildings()) {
@@ -3854,9 +3992,12 @@ function showLeadModal(viewedBuildings = getViewedBuildings()) {
   const modal = document.querySelector<HTMLElement>("[data-lead-modal]");
   if (!modal) return;
   modal.hidden = false;
-  track("email_signup_shown", {
+  track("lead_capture_shown", {
     viewedBuildingCount: viewedBuildings.length,
     viewedBuildings: viewedBuildings.map((building) => building.slug).join(","),
+    location: "lead_capture",
+    pageType: analyticsPageType(getCurrentRoute().type),
+    path: analyticsPath(),
   });
 }
 
@@ -3864,21 +4005,43 @@ function dismissLeadModal() {
   const modal = document.querySelector<HTMLElement>("[data-lead-modal]");
   if (modal) modal.hidden = true;
   window.sessionStorage.setItem(leadModalDismissedKey, "dismissed");
-  track("email_signup_dismissed", {
+  track("lead_capture_dismissed", {
     viewedBuildingCount: getViewedBuildings().length,
+    location: "lead_capture",
+    pageType: analyticsPageType(getCurrentRoute().type),
+    path: analyticsPath(),
   });
 }
 
-function initQuickCtas() {
-  document.querySelectorAll<HTMLElement>("[data-quick-cta]").forEach((element) => {
-    element.addEventListener("click", () => {
-      const action = element.dataset.quickCta ?? "request";
-      track(action === "call" ? "phone_click" : action === "email" ? "email_click" : "inquiry_cta_click", {
-        action,
-        source: "persistent_cta",
-      });
-    });
+function markInquiryFormStarted(form: HTMLFormElement) {
+  if (form.dataset.contactFormStarted === "true") return;
+  form.dataset.contactFormStarted = "true";
+  const projectId = String(new FormData(form).get("project") ?? "").trim();
+  const project = featuredProjects.find((item) => item.id === projectId);
+  track("contact_form_start", {
+    location: "inquiry_page",
+    pageType: analyticsPageType(getCurrentRoute().type),
+    path: analyticsPath(),
+    projectSlug: project?.id ?? "not-sure-yet",
+    projectName: project?.name,
+    corridor: project?.corridor,
+    leadCaptureContext: String(new FormData(form).get("lead_capture_context") ?? "").trim() || new URLSearchParams(window.location.search).get("lead_capture_context") || "contact_page",
   });
+}
+
+function initTrackableCtas() {
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement | null;
+    const tracked = target?.closest<HTMLElement>("[data-track-cta='true']");
+    if (!tracked) return;
+    trackBuyerIntentCta(tracked);
+  }, true);
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement | null;
+    const tracked = target?.closest<HTMLElement>("[data-track-lead-capture-cta='true']");
+    if (!tracked) return;
+    trackLeadCaptureCta(tracked);
+  }, true);
 }
 
 function initHomeHero() {
@@ -3890,15 +4053,6 @@ function initHomeHero() {
   const nextLayer = hero.querySelector<HTMLImageElement>("[data-home-hero-layer='next']");
   const caption = hero.querySelector<HTMLElement>("[data-home-hero-caption]");
   if (!activeLayer || !nextLayer) return;
-
-  hero.querySelectorAll<HTMLElement>("[data-hero-cta]").forEach((element) => {
-    element.addEventListener("click", () => {
-      track("homepage_hero_cta_click", {
-        action: element.dataset.heroCta,
-        href: element.getAttribute("href"),
-      });
-    });
-  });
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     return;
@@ -5248,7 +5402,7 @@ function renderHomepageAdvisoryResources() {
           <li>Private availability and floor-plan guidance</li>
           <li>Concierge-level buyer advocacy</li>
         </ul>
-        <a href="/inquire/">${longContactCtaHeadline} <span aria-hidden="true">→</span></a>
+        <a href="/inquire/" ${renderCtaTrackingAttrs("home_page", longContactCtaHeadline)}>${longContactCtaHeadline} <span aria-hidden="true">→</span></a>
       </article>
       <div class="home-resource-panel">
         <div class="home-resource-feature">
@@ -5375,7 +5529,7 @@ function renderHomepageCompareLauncher() {
         <p class="home-compare-error" data-home-compare-error hidden>Choose two different buildings to compare.</p>
         <div class="home-compare-actions">
           <button type="submit">Compare These Buildings <span aria-hidden="true">→</span></button>
-          <a href="/inquire/">${shortContactCtaLabel} <span aria-hidden="true">↗</span></a>
+          <a href="/inquire/" ${renderCtaTrackingAttrs("home_page", shortContactCtaLabel)}>${shortContactCtaLabel} <span aria-hidden="true">↗</span></a>
         </div>
       </form>
     </section>
@@ -5466,9 +5620,26 @@ function renderNewsFilter(filter: ProjectFilter) {
   `;
 }
 
-function renderEmailSignup(context: string, title = "Get WPB new-construction updates", compact = false, project?: FeaturedProject) {
+function renderEmailSignup(
+  context: string,
+  title = "Get WPB new-construction updates",
+  compact = false,
+  project?: FeaturedProject,
+  trackingLocation: BuyerIntentCtaLocation = "lead_capture",
+) {
   return `
-    <form class="email-signup-card${compact ? " is-compact" : ""}" name="wpb-email-updates" method="POST" data-netlify="true" netlify-honeypot="company" data-email-signup>
+    <form
+      class="email-signup-card${compact ? " is-compact" : ""}"
+      name="wpb-email-updates"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="company"
+      data-email-signup
+      data-email-signup-location="${escapeHtml(trackingLocation)}"
+      data-email-signup-project-slug="${escapeHtml(project?.id ?? "")}"
+      data-email-signup-project-name="${escapeHtml(project?.name ?? "")}"
+      data-email-signup-corridor="${escapeHtml(project?.corridor ?? "")}"
+    >
       <input type="hidden" name="form-name" value="wpb-email-updates" />
       <input type="hidden" name="lead_capture_context" value="${escapeHtml(context)}" />
       <input type="hidden" name="project" value="${project ? escapeHtml(project.id) : ""}" />
@@ -5890,7 +6061,7 @@ function corridorBestFit(key: CorridorKey) {
 function renderCompareRouteView() {
   const options = rankedFeaturedProjects.map((project) => `<option value="${project.id}">${escapeHtml(project.name)}</option>`).join("");
 
-  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare West Palm Beach New Construction</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Build a focused shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/?lead_capture_context=compare_shortlist" data-compare-inquire>Ask The Scott Gordon Group to compare these buildings <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section><section class="corridors-final-cta compare-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/?lead_capture_context=compare_shortlist">${shortContactCtaLabel} <span aria-hidden="true">→</span></a></section></div>`;
+  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare West Palm Beach New Construction</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Build a focused shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/?lead_capture_context=compare_shortlist" data-compare-inquire ${renderCtaTrackingAttrs("compare_page", "Ask The Scott Gordon Group to compare these buildings", { leadCaptureContext: "compare_shortlist" })}>Ask The Scott Gordon Group to compare these buildings <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section><section class="corridors-final-cta compare-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/?lead_capture_context=compare_shortlist" ${renderCtaTrackingAttrs("compare_page", shortContactCtaLabel, { leadCaptureContext: "compare_shortlist" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a></section></div>`;
 }
 
 function renderCorridorRouteView(section: CorridorSection) {
@@ -5920,7 +6091,7 @@ function renderCorridorRouteView(section: CorridorSection) {
           <ul>
             ${corridorComparisonConsiderations(section.key).map((consideration) => `<li>${consideration}</li>`).join("")}
           </ul>
-          <a href="/inquire/?lead_capture_context=corridor&message=${encodeURIComponent(`I want help comparing ${section.label} projects.`)}">${shortContactCtaLabel} for ${section.label} guidance <span aria-hidden="true">↗</span></a>
+          <a href="/inquire/?lead_capture_context=corridor&message=${encodeURIComponent(`I want help comparing ${section.label} projects.`)}" ${renderCtaTrackingAttrs("corridor_page", `${shortContactCtaLabel} for ${section.label} guidance`, { corridor: section.label, leadCaptureContext: "corridor" })}>${shortContactCtaLabel} for ${section.label} guidance <span aria-hidden="true">↗</span></a>
         </div>
       </section>
       ${renderCorridorAuthoritySections(section, projects)}
@@ -5929,7 +6100,7 @@ function renderCorridorRouteView(section: CorridorSection) {
           <h2>${longContactCtaHeadline}</h2>
           <p>${longContactCtaBody}</p>
         </div>
-        <a class="button primary" href="/inquire/?lead_capture_context=corridor">${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+        <a class="button primary" href="/inquire/?lead_capture_context=corridor" ${renderCtaTrackingAttrs("corridor_page", shortContactCtaLabel, { corridor: section.label, leadCaptureContext: "corridor" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
       </section>
       <section class="project-sort-shell corridor-project-shell">
         <div class="project-sort-header">
@@ -6141,7 +6312,7 @@ function renderMarketNoteWorkWithUs(note: MarketNote) {
         <p class="eyebrow">Contact The Scott Gordon Group</p>
         <h2>${longContactCtaHeadline}</h2>
         <p>${longContactCtaBody}</p>
-        <a class="button primary" href="/inquire/?interest=compare&message=${encodeURIComponent(`I want help applying this article: ${note.title}`)}&lead_capture_context=article_work_with_us">${shortContactCtaLabel}</a>
+        <a class="button primary" href="/inquire/?interest=compare&message=${encodeURIComponent(`I want help applying this article: ${note.title}`)}&lead_capture_context=article_work_with_us" ${renderCtaTrackingAttrs("article_page", shortContactCtaLabel, { leadCaptureContext: "article_work_with_us" })}>${shortContactCtaLabel}</a>
       </div>
     </section>
   `;
@@ -7378,7 +7549,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
           <aside class="buyer-takeaway-box">
             <span>Next step</span>
             <p>${publicText(content.cta)}</p>
-            <a href="/inquire/?lead_capture_context=update_article&update=${encodeURIComponent(item.id)}">${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+            <a href="/inquire/?lead_capture_context=update_article&update=${encodeURIComponent(item.id)}" ${renderCtaTrackingAttrs("article_page", shortContactCtaLabel, { leadCaptureContext: "update_article" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
           </aside>
         </div>
       </section>
@@ -8023,6 +8194,10 @@ function renderProjectIdentityHeader(project: FeaturedProject, pageType: Project
   const logo = project.logoImage && canShowImage(project.logoImage)
     ? `<img src="${safeHref(project.logoImage)}" alt="${escapeHtml(project.logoAlt ?? `${project.name} logo`)}" loading="lazy" decoding="async" />`
     : `<strong>${publicText(project.name)}</strong>`;
+  const heroCtaLabel = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker" ? "Get Updates" : shortContactCtaLabel;
+  const heroCtaHref = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker"
+    ? `#project-updates-${project.id}`
+    : `/inquire/?project=${project.id}&interest=availability`;
   return `
     <header class="project-identity-header">
       <div class="project-identity-mark">${logo}</div>
@@ -8031,7 +8206,7 @@ function renderProjectIdentityHeader(project: FeaturedProject, pageType: Project
         <h1>${publicText(project.name)}</h1>
         <p>${publicText(project.corridor)} · ${publicText(project.status)} · ${publicText(project.address)}</p>
       </div>
-      <a class="button primary" href="${pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker" ? `#project-updates-${project.id}` : `/inquire/?project=${project.id}&interest=availability`}">${pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker" ? "Get Updates" : shortContactCtaLabel}</a>
+      <a class="button primary" href="${heroCtaHref}" ${renderCtaTrackingAttrs("project_page", heroCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${heroCtaLabel}</a>
     </header>
   `;
 }
@@ -8838,7 +9013,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
           <a href="${floorplanLibraryPath(project.id)}">Floorplans</a>
         </div>
         <a class="berkeley-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">${berkeleyIcon("valet")}</a>
-        <a class="berkeley-inquire" href="/inquire/?project=${project.id}&interest=availability">${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+        <a class="berkeley-inquire" href="/inquire/?project=${project.id}&interest=availability" ${renderCtaTrackingAttrs("project_page", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
       </nav>
 
       <section class="berkeley-hero-clean">
@@ -8907,7 +9082,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 
       <section class="berkeley-brooke-card" aria-label="Local take"><div><p class="berkeley-kicker">Local Take</p><p>${publicText(copyPackage?.localTake ?? copyPackage?.brookeTake ?? project.summary)}</p></div><div class="berkeley-brooke-profile"><div><h3>The Scott Gordon Group</h3><p>Douglas Elliman</p></div></div><ul><li>${advisorProfile.mobile}</li><li>${advisorProfile.email}</li><li>wpbnewconstruction.com</li></ul></section>
 
-      <section class="berkeley-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/?project=${project.id}&interest=availability">${shortContactCtaLabel} <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
+      <section class="berkeley-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/?project=${project.id}&interest=availability" ${renderCtaTrackingAttrs("project_page", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
     </div>
   `;
 }
@@ -8960,6 +9135,10 @@ function renderDraftProjectPage(project: FeaturedProject) {
     ? `/inquire/?project=${project.id}&interest=updates&lead_capture_context=project_hero`
     : floorplanLibraryPath(floorplanProject?.projectId ?? project.id);
   const heroSecondaryCtaUrl = `/inquire/?project=${project.id}&interest=availability&lead_capture_context=project_hero`;
+  const sectionNavPrimaryCtaHref = isCompactWatch ? `#project-updates-${project.id}` : `/inquire/?project=${project.id}&interest=floorplans`;
+  const sectionNavPrimaryCtaTracking = sectionNavPrimaryCtaHref.startsWith("/inquire/")
+    ? renderCtaTrackingAttrs("project_page", primaryCta, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_section_nav" })
+    : "";
 
   return `
     <div class="route-view route-view-project route-view-draft-project route-view-brochure-project project-page-${pageType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="${pageType}" hidden>
@@ -8978,8 +9157,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
           </div>
 
           <div class="hero-actions">
-            <a class="button primary" href="${heroPrimaryCtaUrl}">${heroPrimaryCtaLabel}</a>
-            <a class="button ghost" href="${heroSecondaryCtaUrl}">${heroSecondaryCtaLabel}</a>
+            <a class="button primary" href="${heroPrimaryCtaUrl}" ${heroPrimaryCtaUrl.includes("/inquire/") ? renderCtaTrackingAttrs("project_page", heroPrimaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_hero" }) : ""}>${heroPrimaryCtaLabel}</a>
+            <a class="button ghost" href="${heroSecondaryCtaUrl}" ${renderCtaTrackingAttrs("project_page", heroSecondaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_hero" })}>${heroSecondaryCtaLabel}</a>
           </div>
         </div>
       </section>
@@ -8995,7 +9174,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <a href="#location-${project.id}">Location</a>
         ${hasTeam ? `<a href="#team-${project.id}">Design Team</a>` : ""}
         <a href="#project-updates-${project.id}">Latest Coverage</a>
-        <a href="${isCompactWatch ? `#project-updates-${project.id}` : `/inquire/?project=${project.id}&interest=floorplans`}">${primaryCta}</a>
+        <a href="${sectionNavPrimaryCtaHref}" ${sectionNavPrimaryCtaTracking}>${primaryCta}</a>
       </nav>
 
       ${renderDeveloperImageDisclaimer()}
@@ -9076,7 +9255,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
             ${!isCompactWatch && floorplanProject ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
           </div>
         </div>
-        ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project) : `<form class="brochure-inquiry-card" action="mailto:${advisorProfile.email}" method="post" enctype="text/plain">
+        ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project, "project_page") : `<form class="brochure-inquiry-card" action="mailto:${advisorProfile.email}" method="post" enctype="text/plain">
           <p class="eyebrow">Contact The Scott Gordon Group</p>
           <h2>${shortContactCtaLabel}</h2>
           <p>${shortTeamCtaCopy}</p>
@@ -9091,7 +9270,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${renderTechnicalDisclosuresSection(project, draft)}
 
       <div class="brochure-mobile-cta-sticky">
-        <a class="button primary" href="/inquire/?project=${project.id}&interest=availability&lead_capture_context=mobile_sticky">${shortContactCtaLabel}</a>
+        <a class="button primary" href="/inquire/?project=${project.id}&interest=availability&lead_capture_context=mobile_sticky" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "mobile_sticky" })}>${shortContactCtaLabel}</a>
         <a class="button ghost" href="${advisorProfile.mobileHref.replace("tel:", "sms:")}" style="color: var(--ivory); border-color: rgba(244, 239, 229, 0.4); background: rgba(255,255,255,0.05);">Text The Scott Gordon Group</a>
       </div>
     </div>
@@ -10306,7 +10485,7 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
         </div>
         <div class="snapshot-card-footer">
           <p class="source-attribution">Information last compiled May 2026. Price ranges and residence availability are subject to daily change.</p>
-          <a class="button primary" href="/inquire/?project=${project.id}&interest=pricing&lead_capture_context=project_snapshot">Request Current Pricing</a>
+          <a class="button primary" href="/inquire/?project=${project.id}&interest=pricing&lead_capture_context=project_snapshot" ${renderCtaTrackingAttrs("project_page", "Request Current Pricing", { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_snapshot" })}>Request Current Pricing</a>
         </div>
       </div>
     </section>
@@ -10452,7 +10631,7 @@ function renderProjectFloorplansSection(project: FeaturedProject, floorplanProje
             <div class="inquiry-box-content">
               <h3>View Floorplans</h3>
               <p>Open the floorplan hub for ${escapeHtml(project.name)}, then request current materials when availability, views, and pricing need confirmation.</p>
-              <a class="button primary" href="${libraryHref}">View Floorplans</a>
+              <a class="button primary" href="${libraryHref}" ${renderCtaTrackingAttrs("project_page", "View Floorplans", { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>View Floorplans</a>
             </div>
           </div>
         </div>
@@ -10471,16 +10650,16 @@ function renderProjectFloorplansSection(project: FeaturedProject, floorplanProje
         <div class="section-heading">
           ${titleHtml}
         </div>
-        <div class="floorplans-section-footer floorplans-section-footer-single">
-          ${footerHtml}
-          <div class="floorplans-actions">
-            <a class="button primary" href="${libraryHref}">View Floorplans</a>
-            <a class="button ghost" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplans_section_footer">Request Current Packet</a>
+          <div class="floorplans-section-footer floorplans-section-footer-single">
+            ${footerHtml}
+            <div class="floorplans-actions">
+              <a class="button primary" href="${libraryHref}" ${renderCtaTrackingAttrs("project_page", "View Floorplans", { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>View Floorplans</a>
+            <a class="button ghost" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplans_section_footer" ${renderCtaTrackingAttrs("project_page", "Request Current Packet", { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "floorplans_section_footer" })}>Request Current Packet</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  `;
+      </section>
+    `;
 }
 
 function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDraft) {
