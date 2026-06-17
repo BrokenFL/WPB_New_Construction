@@ -12,6 +12,7 @@ import { renderEditorialImagePanel } from "./components/EditorialImagePanel";
 import { newsSortTimestamp, publishedExternalNews, type ExternalNewsItem } from "./data/approvedExternalNews";
 import { editorialImageForId, type EditorialImageId } from "./data/editorialImagery";
 import { homeHeroImages } from "./data/homeHeroImages";
+import { renderHomepageScopedStyles } from "./homepageScopedStyles";
 import {
   getApprovedProjectAssets,
   getProjectAsset,
@@ -2587,6 +2588,7 @@ app.innerHTML = `
 
     <main>
       <div class="route-view route-view-home" data-route-view="home">
+      ${renderHomepageScopedStyles()}
       <section class="home-hero" id="top">
         <figure class="home-hero-media" aria-label="Curated West Palm Beach new-construction editorial imagery">
           <picture>
