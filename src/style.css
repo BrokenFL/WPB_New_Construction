@@ -5652,25 +5652,26 @@ select:focus-visible {
 
 .home-future-module {
   display: grid;
-  grid-template-columns: minmax(300px, 0.92fr) minmax(320px, 1.08fr);
+  grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
   min-height: 332px;
   color: #fffaf1;
   background: var(--editorial-navy);
+  overflow: hidden;
 }
 
 .home-future-module img {
   width: 100%;
   height: 100%;
-  min-height: 332px;
+  min-height: 388px;
   object-fit: cover;
 }
 
 .home-spotlight-content {
   display: grid;
-  align-content: start;
+  align-content: center;
   justify-items: start;
-  gap: 12px;
-  padding: clamp(22px, 4vw, 56px);
+  gap: 14px;
+  padding: clamp(24px, 4vw, 56px) clamp(22px, 3vw, 44px);
 }
 
 .home-spotlight-meta {
@@ -5688,10 +5689,10 @@ select:focus-visible {
 }
 
 .home-future-module h2 {
-  max-width: 18ch;
+  max-width: 16ch;
   margin: 0;
   font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
-  font-size: clamp(1.55rem, 2.2vw, 2.45rem);
+  font-size: clamp(1.45rem, 2.05vw, 2.2rem);
   font-weight: 400;
   line-height: 0.98;
 }
@@ -5702,7 +5703,7 @@ select:focus-visible {
 }
 
 .home-future-module p:not(.eyebrow) {
-  max-width: 40ch;
+  max-width: 26ch;
   margin: 0;
   color: rgba(255, 250, 241, 0.72);
   font-size: 0.92rem;
@@ -10970,29 +10971,34 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 
 .home-brooke-partner-logos {
   display: grid;
-  place-items: center;
-  margin-bottom: 16px;
+  justify-items: start;
+  margin-bottom: 14px;
+  padding: 12px 12px 10px;
+  border: 1px solid rgba(255, 250, 241, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 250, 241, 0.025);
 }
 
 .home-brooke-partner-logo {
   display: block;
-  width: min(100%, 300px);
+  width: min(100%, 350px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
 }
 
 .home-brooke-panel h2 {
-  max-width: 9ch;
-  margin: 8px 0 0;
+  max-width: 16ch;
+  margin: 4px 0 0;
   font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
-  font-size: clamp(2rem, 3.2vw, 3.7rem);
+  font-size: clamp(1.32rem, 1.95vw, 2.6rem);
   font-weight: 400;
-  line-height: 0.96;
+  line-height: 0.94;
+  white-space: nowrap;
 }
 
 .home-brooke-panel p:not(.eyebrow) {
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   color: rgba(255, 250, 241, 0.76);
   font-size: 0.9rem;
   line-height: 1.58;
@@ -11001,7 +11007,7 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 .home-brooke-panel ul {
   display: grid;
   gap: 8px;
-  margin: 20px 0 0;
+  margin: 16px 0 0;
   padding: 0;
   color: rgba(255, 250, 241, 0.8);
   font-size: 0.78rem;
@@ -11207,6 +11213,11 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 
   .home-resource-card em {
     margin-bottom: 10px;
+  }
+
+  .home-brooke-partner-logos {
+    justify-items: center;
+    padding: 16px 14px 14px;
   }
 
 }

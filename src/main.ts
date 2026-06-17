@@ -5235,7 +5235,7 @@ function renderHomepageAdvisoryResources() {
     <section class="home-advisory-resources" id="resources" aria-label="Scott Gordon Group advisory and buyer resources">
       <article class="home-brooke-panel">
         <div class="home-brooke-partner-logos" aria-label="The Scott Gordon Group and Douglas Elliman">
-          <img class="home-brooke-partner-logo" src="/assets/home/scott-gordon-dual-logo-cropped.jpg" alt="The Scott Gordon Group and Douglas Elliman" loading="lazy" decoding="async" />
+          <img class="home-brooke-partner-logo" src="/assets/home/elliman-gordon-whitebox.png" alt="The Scott Gordon Group and Douglas Elliman" loading="lazy" decoding="async" />
         </div>
         <p class="eyebrow">Why Work With The Scott Gordon Group</p>
         <h2>Local guidance, clearly framed.</h2>
