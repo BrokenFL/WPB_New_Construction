@@ -2661,6 +2661,15 @@ function trackBuyerIntentCta(element: HTMLElement) {
   });
 }
 
+function trackHomepageHeroCta(element: HTMLElement) {
+  track("homepage_hero_cta_click", {
+    action: element.dataset.heroCta ?? cleanCtaText(element.textContent ?? ""),
+    location: "home_page",
+    pageType: analyticsPageType(getCurrentRoute().type),
+    path: analyticsPath(),
+  });
+}
+
 function trackLeadCaptureCta(element: HTMLElement) {
   const routeContext = analyticsRouteContext();
   const ctaText = cleanCtaText(element.dataset.ctaText ?? element.textContent ?? "");
@@ -2742,13 +2751,13 @@ app.innerHTML = `
       <div class="home-section-jump-shell">
         ${renderHomeSectionJumpControls()}
         <nav class="home-section-jump" aria-label="Explore homepage sections">
-          <a href="/corridors/">${homeJumpIcon("corridors")}<span>Corridors</span></a>
-          <a href="/buildings/">${homeJumpIcon("projects")}<span>Projects</span></a>
-          <a href="/compare/">${homeJumpIcon("compare")}<span>Compare</span></a>
-          <a href="/answers/">${homeJumpIcon("answers")}<span>Q&A</span></a>
-          <a href="/downtown-spotlight/">${homeJumpIcon("spotlight")}<span>Downtown</span></a>
-          <a href="/updates/">${homeJumpIcon("updates")}<span>Updates</span></a>
-          <a href="/market-notes/">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
+          <a href="/corridors/" data-hero-cta="corridors">${homeJumpIcon("corridors")}<span>Corridors</span></a>
+          <a href="/buildings/" data-hero-cta="projects">${homeJumpIcon("projects")}<span>Projects</span></a>
+          <a href="/compare/" data-hero-cta="compare">${homeJumpIcon("compare")}<span>Compare</span></a>
+          <a href="/answers/" data-hero-cta="answers">${homeJumpIcon("answers")}<span>Q&A</span></a>
+          <a href="/downtown-spotlight/" data-hero-cta="spotlight">${homeJumpIcon("spotlight")}<span>Downtown</span></a>
+          <a href="/updates/" data-hero-cta="updates">${homeJumpIcon("updates")}<span>Updates</span></a>
+          <a href="/market-notes/" data-hero-cta="guides">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
         </nav>
       </div>
 
@@ -4126,6 +4135,11 @@ function initHomeHero() {
   });
   hero.addEventListener("focusout", () => {
     paused = false;
+  });
+  hero.querySelectorAll<HTMLElement>("[data-hero-cta]").forEach((element) => {
+    element.addEventListener("click", () => {
+      trackHomepageHeroCta(element);
+    });
   });
 
   void preloadNext();
