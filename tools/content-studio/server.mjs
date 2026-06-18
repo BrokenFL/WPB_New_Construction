@@ -4,7 +4,7 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { syncEditorOverrides } from "../../research/scripts/sync-editor-overrides.mjs";
 import { newsletterDraftsPath, readDraftStore, readJsonFile as readNewsJsonFile, writeDraftStore } from "../../research/scripts/news-draft-utils.mjs";
-import { getProjectIntelligence } from "../../src/lib/projectIntelligence.ts";
+import { buildProjectIntelligenceReviewQueue, getProjectIntelligence } from "../../src/lib/projectIntelligence.ts";
 import { projectIntelligenceRegistryEntries } from "../../src/lib/projectIntelligenceRegistry.ts";
 
 const workspace = process.cwd();
@@ -1731,8 +1731,10 @@ async function reportBody(relativePath) {
 
 async function projectIntelligenceReview() {
   const projects = [];
+  const intelligences = [];
   for (const entry of projectIntelligenceRegistryEntries) {
     const intelligence = await getProjectIntelligence(entry.publicSlug);
+    intelligences.push(intelligence);
     const schemaEmittedFields = Object.entries(intelligence.schemaSafety.safeFields)
       .map(([field, value]) => ({ field, value }))
       .sort((a, b) => a.field.localeCompare(b.field));
@@ -1757,6 +1759,7 @@ async function projectIntelligenceReview() {
     });
   }
   projects.sort((a, b) => b.conflictCount - a.conflictCount || a.name.localeCompare(b.name));
+  const queue = buildProjectIntelligenceReviewQueue(intelligences);
   return {
     ok: true,
     updatedAt: new Date().toISOString(),
@@ -1765,8 +1768,16 @@ async function projectIntelligenceReview() {
       withCompareRows: projects.filter((item) => item.hasCompareRow).length,
       withSourceMappings: projects.filter((item) => item.hasSourceMapping).length,
       withIssues: projects.filter((item) => item.conflictCount > 0 || item.schemaOmittedFields.length > 0).length,
+      totalIssues: queue.summary.totalIssues,
+      priority1Issues: queue.summary.priority1Issues,
+      priority2Issues: queue.summary.priority2Issues,
+      missingCompareRows: queue.summary.missingCompareRows,
+      missingSourceMappings: queue.summary.missingSourceMappings,
+      projectsWithMostConflicts: queue.summary.projectsWithMostConflicts,
     },
     projects,
+    queueRows: queue.rows,
+    queueSummary: queue.summary,
   };
 }
 

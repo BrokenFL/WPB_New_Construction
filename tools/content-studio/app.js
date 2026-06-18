@@ -9,6 +9,8 @@ let activeVisualMode = "edit";
 let activeVisualPage = "homepage";
 let activeProjectIntelligenceSlug = "";
 let activeProjectIntelligenceField = "";
+let activeProjectIntelligenceFilter = "all";
+let activeProjectIntelligenceQueueId = "";
 
 const projectSelect = document.querySelector("#projectSelect");
 const result = document.querySelector("#result");
@@ -92,6 +94,9 @@ projectSelect.addEventListener("change", () => {
   renderProjectPageContext();
   activeProjectIntelligenceSlug = projectSelect.value;
   renderProjectIntelligenceReview();
+});
+document.querySelectorAll("[data-export-format]").forEach((button) => {
+  button.addEventListener("click", () => exportProjectIntelligenceReview(button.dataset.exportFormat || "json"));
 });
 
 document.querySelectorAll(".tabs button").forEach((button) => {
@@ -804,113 +809,177 @@ function renderProjectIntelligenceReview() {
   const detailRoot = document.querySelector("#projectIntelligenceDetail");
   const titleRoot = document.querySelector("#projectIntelligenceTitle");
   const metaRoot = document.querySelector("#projectIntelligenceMeta");
+  const filtersRoot = document.querySelector("#projectIntelligenceFilters");
+  const policyRoot = document.querySelector("#projectIntelligencePolicy");
   const copyButton = document.querySelector("#copyProjectIntelligence");
-  if (!review || !listRoot || !summaryRoot || !detailRoot || !titleRoot || !metaRoot) return;
+  if (!review || !listRoot || !summaryRoot || !detailRoot || !titleRoot || !metaRoot || !filtersRoot || !policyRoot) return;
 
   const projects = review.projects || [];
-  const selected = projects.find((item) => item.slug === activeProjectIntelligenceSlug)
-    || projects.find((item) => item.slug === projectSelect.value)
-    || projects[0];
-  if (!selected) {
+  const queue = review.queueRows || [];
+  const filter = activeProjectIntelligenceFilter || "all";
+  const visibleQueue = filterProjectIntelligenceRows(queue, filter);
+  const selected = findSelectedQueueRow(visibleQueue, queue);
+  const selectedProject = selected
+    ? projects.find((item) => item.slug === selected.projectSlug) || projects.find((item) => item.slug === activeProjectIntelligenceSlug) || projects[0]
+    : projects.find((item) => item.slug === activeProjectIntelligenceSlug) || projects.find((item) => item.slug === projectSelect.value) || projects[0];
+
+  if (!selectedProject) {
     listRoot.innerHTML = `<p class="muted">No project intelligence data loaded.</p>`;
     summaryRoot.innerHTML = "";
     detailRoot.innerHTML = `<p class="muted">No project selected.</p>`;
     titleRoot.textContent = "Choose a project";
     metaRoot.textContent = "";
+    filtersRoot.innerHTML = "";
+    policyRoot.innerHTML = "";
     return;
   }
 
-  activeProjectIntelligenceSlug = selected.slug;
-  const defaultField = selected.fieldReviews?.find((field) => field.reviewStatus !== "clear")?.field || selected.fieldReviews?.[0]?.field || "";
-  if (!activeProjectIntelligenceField || !selected.fieldReviews.some((field) => field.field === activeProjectIntelligenceField)) {
-    activeProjectIntelligenceField = defaultField;
+  const selectedProjectRows = queue.filter((item) => item.projectSlug === selectedProject.slug);
+  const selectedFieldReview = selectedProject.fieldReviews?.find((field) => field.field === selected?.field)
+    || selectedProject.fieldReviews?.find((field) => field.reviewStatus !== "clear")
+    || selectedProject.fieldReviews?.[0];
+
+  if (selected) {
+    activeProjectIntelligenceQueueId = selected.id;
+    activeProjectIntelligenceSlug = selected.projectSlug;
+    activeProjectIntelligenceField = selected.field;
+  } else {
+    activeProjectIntelligenceSlug = selectedProject.slug;
+    activeProjectIntelligenceField = selectedFieldReview?.field || "";
   }
-  const activeField = selected.fieldReviews.find((field) => field.field === activeProjectIntelligenceField) || selected.fieldReviews[0];
-  if (copyButton) {
-    copyButton.onclick = async () => {
-      await navigator.clipboard.writeText(buildProjectIntelligenceClipboard(selected));
-      show({ ok: true, copied: selected.slug });
-    };
-  }
+
+  renderProjectIntelligenceFilters(filtersRoot, review, filter);
+  renderProjectIntelligencePolicy(policyRoot);
 
   summaryRoot.innerHTML = [
-    ["Projects", review.summary?.projects ?? projects.length],
-    ["With compare rows", review.summary?.withCompareRows ?? projects.filter((item) => item.hasCompareRow).length],
-    ["With source mapping", review.summary?.withSourceMappings ?? projects.filter((item) => item.hasSourceMapping).length],
-    ["With issues", review.summary?.withIssues ?? projects.filter((item) => item.conflictCount > 0 || item.schemaOmittedFields.length > 0).length],
+    ["Total issues", review.queueSummary?.totalIssues ?? queue.length],
+    ["Priority 1", review.queueSummary?.priority1Issues ?? queue.filter((item) => item.priority === 1).length],
+    ["Priority 2", review.queueSummary?.priority2Issues ?? queue.filter((item) => item.priority === 2).length],
+    ["Missing compare rows", review.queueSummary?.missingCompareRows ?? queue.filter((item) => item.issueKind === "missing-compare-row").length],
+    ["Missing source mappings", review.queueSummary?.missingSourceMappings ?? queue.filter((item) => item.issueKind === "missing-source-mapping").length],
   ].map(([label, value]) => `<span class="status-pill status-healthy">${escapeHtml(label)}: ${escapeHtml(String(value))}</span>`).join("");
 
-  listRoot.innerHTML = projects.map((project) => `
-    <button type="button" class="project-intelligence-card ${project.slug === selected.slug ? "active" : ""}" data-project-intelligence-card="${escapeHtml(project.slug)}">
-      <strong>${escapeHtml(project.name)}</strong>
-      <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
-      <small>${escapeHtml(project.slug)} · compare ${project.hasCompareRow ? "yes" : "no"} · source ${project.hasSourceMapping ? "yes" : "no"}</small>
-      <small>Review rows ${escapeHtml(String(project.conflictCount))} · schema emitted ${escapeHtml(String(project.schemaEmittedFields.length))} · schema omitted ${escapeHtml(String(project.schemaOmittedFields.length))}</small>
-    </button>
-  `).join("");
-  listRoot.querySelectorAll("[data-project-intelligence-card]").forEach((button) => {
+  listRoot.innerHTML = visibleQueue.length
+    ? visibleQueue.map((item) => `
+        <button type="button" class="project-intelligence-card ${item.id === selected?.id ? "active" : ""}" data-project-intelligence-queue-id="${escapeHtml(item.id)}">
+          <div class="project-intelligence-card-head">
+            <span class="priority-pill priority-${item.priority}">${escapeHtml(item.priorityLabel)}</span>
+            <strong>${escapeHtml(item.projectName)}</strong>
+          </div>
+          <span>${escapeHtml(item.projectSlug)} · ${escapeHtml(item.fieldLabel)}</span>
+          <small>${escapeHtml(item.reason)}</small>
+          <div class="project-intelligence-card-values">
+            <span>Public: ${escapeHtml(item.publicValue || "—")}</span>
+            <span>Compare: ${escapeHtml(item.compareValue || "—")}</span>
+            <span>Source: ${escapeHtml(item.sourceValue || "—")}</span>
+          </div>
+          <div class="project-intelligence-card-values">
+            <span>Winner: ${escapeHtml(item.currentWinner)}</span>
+            <span>Schema: ${escapeHtml(item.schemaBehavior)}</span>
+            <span>Action: ${escapeHtml(item.recommendedAction)}</span>
+          </div>
+        </button>
+      `).join("")
+    : `<p class="muted">No queue rows match this filter.</p>`;
+
+  listRoot.querySelectorAll("[data-project-intelligence-queue-id]").forEach((button) => {
     button.addEventListener("click", () => {
-      activeProjectIntelligenceSlug = button.dataset.projectIntelligenceCard || selected.slug;
-      activeProjectIntelligenceField = "";
+      activeProjectIntelligenceQueueId = button.dataset.projectIntelligenceQueueId || "";
+      const row = queue.find((item) => item.id === activeProjectIntelligenceQueueId);
+      if (row) {
+        activeProjectIntelligenceSlug = row.projectSlug;
+        activeProjectIntelligenceField = row.field;
+      }
       renderProjectIntelligenceReview();
     });
   });
 
-  titleRoot.textContent = selected.name;
-  metaRoot.textContent = `${selected.slug} · ${selected.corridor} · ${selected.conflictCount} review rows`;
+  titleRoot.textContent = selectedProjectRows.length
+    ? `${selectedProject.name} · ${selectedProjectRows.length} queue items`
+    : selectedProject.name;
+  metaRoot.textContent = `${selectedProject.slug} · ${selectedProject.corridor} · ${selectedProject.conflictCount} review rows`;
 
-  const schemaEmitted = selected.schemaEmittedFields.map((item) => `<span class="status-pill status-healthy">${escapeHtml(item.field)}</span>`).join("");
-  const schemaOmitted = selected.schemaOmittedFields.map((item) => `<span class="status-pill status-warning">${escapeHtml(item)}</span>`).join("");
-  const fieldRows = (selected.fieldReviews || []).map((field) => `
-    <tr class="${field.reviewStatus === "clear" ? "" : "is-review"} ${field.field === activeField?.field ? "is-active" : ""}" data-review-field-row="${escapeHtml(field.field)}">
-      <td><button type="button" class="link-button" data-review-field="${escapeHtml(field.field)}">${escapeHtml(field.label)}</button></td>
-      <td>${escapeHtml(field.publicValue || "—")}</td>
-      <td>${escapeHtml(field.compareValue || "—")}</td>
-      <td>${escapeHtml(field.sourceValue || "—")}</td>
-      <td>${escapeHtml(field.currentWinner)}</td>
-      <td>${escapeHtml(field.currentValue || "—")}</td>
-      <td>${escapeHtml(field.schemaState)}</td>
-      <td>${escapeHtml(field.reviewStatus)}</td>
+  if (copyButton) {
+    copyButton.onclick = async () => {
+      if (!selected) return show({ ok: false, error: "Choose a queue item first." });
+      await navigator.clipboard.writeText(buildProjectIntelligenceClipboard(selected, selectedProject, selectedProjectRows));
+      show({ ok: true, copied: selected.id });
+    };
+  }
+
+  const schemaEmitted = selectedProject.schemaEmittedFields.map((item) => `<span class="status-pill status-healthy">${escapeHtml(item.field)}</span>`).join("");
+  const schemaOmitted = selectedProject.schemaOmittedFields.map((item) => `<span class="status-pill status-warning">${escapeHtml(item)}</span>`).join("");
+  const selectedProjectRowTable = selectedProjectRows.map((item) => `
+    <tr class="${item.id === selected?.id ? "is-active" : ""} is-review">
+      <td><span class="priority-pill priority-${item.priority}">${escapeHtml(item.priorityLabel)}</span></td>
+      <td>${escapeHtml(item.fieldLabel)}</td>
+      <td>${escapeHtml(item.reason)}</td>
+      <td>${escapeHtml(item.publicValue || "—")}</td>
+      <td>${escapeHtml(item.compareValue || "—")}</td>
+      <td>${escapeHtml(item.sourceValue || "—")}</td>
+      <td>${escapeHtml(item.currentWinner)}</td>
+      <td>${escapeHtml(item.schemaBehavior)}</td>
+      <td>${escapeHtml(item.recommendedAction)}</td>
     </tr>
   `).join("");
 
   detailRoot.innerHTML = `
     <section class="project-intelligence-summary-grid">
       <dl class="project-intelligence-meta-grid">
-        <div><dt>Compare row</dt><dd>${selected.hasCompareRow ? "Yes" : "No"}</dd></div>
-        <div><dt>Source mapping</dt><dd>${selected.hasSourceMapping ? "Yes" : "No"}</dd></div>
-        <div><dt>Compare ID</dt><dd>${escapeHtml(selected.compareDatabaseId || "—")}</dd></div>
-        <div><dt>Compare slug</dt><dd>${escapeHtml(selected.compareDatabaseSlug || "—")}</dd></div>
-        <div><dt>Source catalog IDs</dt><dd>${escapeHtml((selected.sourceCatalogIds || []).join(", ") || "—")}</dd></div>
-        <div><dt>Missing flags</dt><dd>${escapeHtml((selected.missingDataFlags || []).join(", ") || "—")}</dd></div>
+        <div><dt>Compare row</dt><dd>${selectedProject.hasCompareRow ? "Yes" : "No"}</dd></div>
+        <div><dt>Source mapping</dt><dd>${selectedProject.hasSourceMapping ? "Yes" : "No"}</dd></div>
+        <div><dt>Compare ID</dt><dd>${escapeHtml(selectedProject.compareDatabaseId || "—")}</dd></div>
+        <div><dt>Compare slug</dt><dd>${escapeHtml(selectedProject.compareDatabaseSlug || "—")}</dd></div>
+        <div><dt>Source catalog IDs</dt><dd>${escapeHtml((selectedProject.sourceCatalogIds || []).join(", ") || "—")}</dd></div>
+        <div><dt>Missing flags</dt><dd>${escapeHtml((selectedProject.missingDataFlags || []).join(", ") || "—")}</dd></div>
       </dl>
       <div class="project-intelligence-schema-box">
-        <strong>Schema-emitted fields</strong>
-        <div>${schemaEmitted || `<span class="muted">None</span>`}</div>
-        <strong>Schema-omitted fields</strong>
-        <div>${schemaOmitted || `<span class="muted">None</span>`}</div>
+        <strong>Selected queue item</strong>
+        ${selected ? `
+          <div class="project-intelligence-legend">
+            <p><span class="priority-pill priority-${selected.priority}">${escapeHtml(selected.priorityLabel)}</span> ${escapeHtml(selected.fieldLabel)}</p>
+            <p>${escapeHtml(selected.reason)}</p>
+            <p><strong>Current winner:</strong> ${escapeHtml(selected.currentWinner)} · <strong>Schema:</strong> ${escapeHtml(selected.schemaBehavior)}</p>
+            <p><strong>Recommended action:</strong> ${escapeHtml(selected.recommendedAction)}</p>
+          </div>
+        ` : `<p class="muted">Choose a queue item to inspect its current winner and recommended action.</p>`}
+      </div>
+    </section>
+    <section class="project-intelligence-values">
+      <div class="value-grid">
+        <div><dt>Public value</dt><dd>${escapeHtml(selected?.publicValue || selectedProject.name || "—")}</dd></div>
+        <div><dt>Compare value</dt><dd>${escapeHtml(selected?.compareValue || selectedProject.compare.slug || selectedProject.compare.id || "—")}</dd></div>
+        <div><dt>Source-catalog value</dt><dd>${escapeHtml(selected?.sourceValue || (selectedProject.sourceCatalog.ids || []).join(", ") || "—")}</dd></div>
+        <div><dt>Resolver winner</dt><dd>${escapeHtml(selected?.currentWinner || "—")}</dd></div>
+      </div>
+      <div class="project-intelligence-legend">
+        <p>Overrides beat compare, source, and public values.</p>
+        <p>Compare is the preferred buyer-fact source unless Brooke changes it with a manual override.</p>
+        <p>JSON-LD only emits fields that are safe or manually reviewed as safe.</p>
+        <p>Conflicts stay visible after overrides so Brooke can still audit the choice.</p>
       </div>
     </section>
     <table class="project-intelligence-table">
       <thead>
         <tr>
+          <th>Priority</th>
           <th>Field</th>
+          <th>Reason</th>
           <th>Public</th>
           <th>Compare</th>
           <th>Source</th>
-          <th>Current winner</th>
-          <th>Current value</th>
+          <th>Winner</th>
           <th>Schema</th>
-          <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
-      <tbody>${fieldRows}</tbody>
+      <tbody>${selectedProjectRowTable}</tbody>
     </table>
     <form id="projectFactOverrideForm" class="tool-panel project-intelligence-override">
       <div class="grid">
         <label>Field
           <select name="field">
-            ${(selected.fieldReviews || []).map((field) => `<option value="${escapeHtml(field.field)}">${escapeHtml(field.label)}</option>`).join("")}
+            ${(selectedProject.fieldReviews || []).map((field) => `<option value="${escapeHtml(field.field)}">${escapeHtml(field.label)}</option>`).join("")}
           </select>
         </label>
         <label>Value<input name="value" placeholder="Enter Brooke-reviewed value" /></label>
@@ -924,58 +993,181 @@ function renderProjectIntelligenceReview() {
 
   const form = document.querySelector("#projectFactOverrideForm");
   if (form) {
-    form.elements.field.value = activeField?.field || selected.fieldReviews?.[0]?.field || "";
-    const field = selected.fieldReviews.find((item) => item.field === form.elements.field.value) || selected.fieldReviews?.[0];
-    if (field) {
-      form.elements.value.value = field.overrideValue || field.currentValue || field.compareValue || field.publicValue || "";
-      form.elements.note.value = field.notes?.join(" ") || "";
-      form.elements.schemaSafe.value = field.schemaSafe ? "true" : "false";
-    }
+    form.elements.field.value = selectedFieldReview?.field || selectedProject.fieldReviews?.[0]?.field || "";
+    form.elements.value.value = "";
+    form.elements.note.value = "";
+    form.elements.schemaSafe.value = "false";
     form.querySelectorAll("input, select, textarea").forEach((element) => {
       element.addEventListener("change", () => {
-        const selectedField = selected.fieldReviews.find((item) => item.field === form.elements.field.value) || selected.fieldReviews?.[0];
+        const selectedField = selectedProject.fieldReviews.find((item) => item.field === form.elements.field.value) || selectedProject.fieldReviews?.[0];
         if (!selectedField) return;
         if (element.name === "field") {
           activeProjectIntelligenceField = form.elements.field.value;
-          form.elements.value.value = selectedField.overrideValue || selectedField.currentValue || selectedField.compareValue || selectedField.publicValue || "";
-          form.elements.note.value = selectedField.notes?.join(" ") || "";
-          form.elements.schemaSafe.value = selectedField.schemaSafe ? "true" : "false";
+          form.elements.value.value = "";
+          form.elements.note.value = "";
+          form.elements.schemaSafe.value = "false";
         }
       });
     });
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const payload = formPayload(form);
-      payload.projectSlug = selected.slug;
+      payload.projectSlug = selectedProject.slug;
       show(await postJson("/api/project-fact-override", payload));
       await loadState();
-      activeProjectIntelligenceSlug = selected.slug;
+      activeProjectIntelligenceSlug = selectedProject.slug;
       activeProjectIntelligenceField = payload.field;
       renderProjectIntelligenceReview();
     }, { once: true });
   }
+}
 
-  detailRoot.querySelectorAll("[data-review-field]").forEach((button) => {
+function renderProjectIntelligenceFilters(root, review, activeFilter) {
+  const filters = [
+    { key: "all", label: "All" },
+    { key: "priority-1", label: "Priority 1 only" },
+    { key: "schema-impacting", label: "Schema-impacting" },
+    { key: "buyer-facing", label: "Buyer-facing" },
+    { key: "missing-compare-row", label: "Missing compare row" },
+    { key: "missing-source-mapping", label: "Missing source mapping" },
+    { key: "has-manual-override", label: "Has manual override" },
+    { key: "needs-brooke-review", label: "Needs Brooke review" },
+  ];
+  root.innerHTML = filters.map((item) => {
+    const value = filterCountForQueue(review.queueRows || [], item.key);
+    return `<button type="button" class="${item.key === activeFilter ? "active" : ""}" data-project-intelligence-filter="${escapeHtml(item.key)}">${escapeHtml(item.label)}${value !== undefined ? ` (${escapeHtml(String(value))})` : ""}</button>`;
+  }).join("");
+  root.querySelectorAll("[data-project-intelligence-filter]").forEach((button) => {
     button.addEventListener("click", () => {
-      activeProjectIntelligenceField = button.dataset.reviewField || "";
+      activeProjectIntelligenceFilter = button.dataset.projectIntelligenceFilter || "all";
+      activeProjectIntelligenceQueueId = "";
       renderProjectIntelligenceReview();
     });
   });
 }
 
-function buildProjectIntelligenceClipboard(project) {
+function renderProjectIntelligencePolicy(root) {
+  root.innerHTML = `
+    <strong>Review rules</strong>
+    <ul>
+      <li>Overrides beat compare, source, and public values.</li>
+      <li>Compare is the preferred buyer-fact source unless Brooke changes it with a manual override.</li>
+      <li>JSON-LD only emits fields that are safe or manually reviewed as safe.</li>
+      <li>Conflicts remain visible after overrides so Brooke can still audit the choice.</li>
+    </ul>
+  `;
+}
+
+function findSelectedQueueRow(visibleRows, allRows) {
+  return allRows.find((item) => item.id === activeProjectIntelligenceQueueId)
+    || visibleRows.find((item) => item.projectSlug === activeProjectIntelligenceSlug && item.field === activeProjectIntelligenceField)
+    || visibleRows.find((item) => item.projectSlug === activeProjectIntelligenceSlug)
+    || visibleRows[0]
+    || allRows[0];
+}
+
+function filterProjectIntelligenceRows(rows, filter) {
+  switch (filter) {
+    case "priority-1":
+      return rows.filter((row) => row.priority === 1);
+    case "schema-impacting":
+      return rows.filter((row) => row.priority === 1);
+    case "buyer-facing":
+      return rows.filter((row) => row.priority === 2);
+    case "missing-compare-row":
+      return rows.filter((row) => row.issueKind === "missing-compare-row");
+    case "missing-source-mapping":
+      return rows.filter((row) => row.issueKind === "missing-source-mapping");
+    case "has-manual-override":
+      return rows.filter((row) => row.hasManualOverride);
+    case "needs-brooke-review":
+      return rows.filter((row) => row.priority <= 3);
+    default:
+      return rows;
+  }
+}
+
+function filterCountForQueue(rows, filter) {
+  return filterProjectIntelligenceRows(rows, filter).length;
+}
+
+async function exportProjectIntelligenceReview(format) {
+  const review = state?.projectIntelligence;
+  if (!review) return;
+  const rows = filterProjectIntelligenceRows(review.queueRows || [], activeProjectIntelligenceFilter || "all");
+  const payload = buildProjectIntelligenceExport(rows, review, format);
+  await navigator.clipboard.writeText(payload);
+  show({ ok: true, copied: `${format} export` });
+}
+
+function buildProjectIntelligenceClipboard(selected, project, projectRows) {
   const lines = [
     `# ${project.name}`,
     `- Slug: ${project.slug}`,
     `- Corridor: ${project.corridor}`,
-    `- Compare row: ${project.hasCompareRow ? "Yes" : "No"}`,
-    `- Source mapping: ${project.hasSourceMapping ? "Yes" : "No"}`,
+    `- Selected priority: ${selected.priorityLabel}`,
+    `- Selected field: ${selected.fieldLabel}`,
+    `- Reason: ${selected.reason}`,
     "",
-    "| Field | Public | Compare | Source | Current winner | Current value | Schema | Status |",
+    "| Priority | Field | Public | Compare | Source | Winner | Schema | Action |",
     "| --- | --- | --- | --- | --- | --- | --- | --- |",
-    ...(project.fieldReviews || []).map((field) => `| ${[field.label, field.publicValue || "—", field.compareValue || "—", field.sourceValue || "—", field.currentWinner, field.currentValue || "—", field.schemaState, field.reviewStatus].map((value) => String(value).replace(/\|/g, "\\|")).join(" | ")} |`),
+    ...projectRows.map((row) => `| ${[row.priorityLabel, row.fieldLabel, row.publicValue || "—", row.compareValue || "—", row.sourceValue || "—", row.currentWinner, row.schemaBehavior, row.recommendedAction].map((value) => String(value).replace(/\|/g, "\\|")).join(" | ")} |`),
   ];
   return lines.join("\n");
+}
+
+function buildProjectIntelligenceExport(rows, review, format) {
+  const headers = ["priority", "project", "slug", "field", "public value", "compare value", "source value", "schema behavior", "recommended action"];
+  if (format === "json") {
+    return JSON.stringify({
+      updatedAt: review.updatedAt,
+      summary: review.queueSummary,
+      items: rows.map((row) => ({
+        priority: row.priorityLabel,
+        project: row.projectName,
+        slug: row.projectSlug,
+        field: row.fieldLabel,
+        publicValue: row.publicValue,
+        compareValue: row.compareValue,
+        sourceValue: row.sourceValue,
+        currentWinner: row.currentWinner,
+        schemaBehavior: row.schemaBehavior,
+        recommendedAction: row.recommendedAction,
+        reason: row.reason,
+      })),
+    }, null, 2);
+  }
+  if (format === "markdown") {
+    return [
+      "| " + headers.map((header) => header.replace(/\|/g, "\\|")).join(" | ") + " |",
+      "| " + headers.map(() => "---").join(" | ") + " |",
+      ...rows.map((row) => [
+        row.priorityLabel,
+        row.projectName,
+        row.projectSlug,
+        row.fieldLabel,
+        row.publicValue || "—",
+        row.compareValue || "—",
+        row.sourceValue || "—",
+        row.schemaBehavior,
+        row.recommendedAction,
+      ].map((value) => String(value).replace(/\|/g, "\\|")).join(" | ")),
+    ].map((line) => line.startsWith("|") ? line : `| ${line} |`).join("\n");
+  }
+  return [
+    headers.join(","),
+    ...rows.map((row) => [
+      row.priorityLabel,
+      row.projectName,
+      row.projectSlug,
+      row.fieldLabel,
+      row.publicValue || "—",
+      row.compareValue || "—",
+      row.sourceValue || "—",
+      row.schemaBehavior,
+      row.recommendedAction,
+    ].map((value) => `"${String(value).replace(/"/g, '""')}"`).join(",")),
+  ].join("\n");
 }
 
 function updateRepetitionWarning() {

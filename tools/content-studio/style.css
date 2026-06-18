@@ -83,7 +83,14 @@ dd { margin: 3px 0 0; overflow-wrap: anywhere; }
 .project-selector[hidden] { display: none; }
 .project-intelligence-layout { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: 16px; align-items: start; }
 .project-intelligence-list { display: grid; gap: 10px; max-height: calc(100vh - 260px); overflow: auto; padding-right: 4px; }
-.project-intelligence-card { display: grid; gap: 5px; text-align: left; }
+.project-intelligence-toolbar { display: grid; gap: 10px; margin: 0 0 14px; }
+.project-intelligence-filters, .project-intelligence-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.project-intelligence-filters button.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); color: var(--accent-dark); }
+.project-intelligence-policy { display: grid; gap: 8px; margin-bottom: 14px; padding: 12px 14px; border: 1px solid #d7dfdb; border-radius: 8px; background: #f7faf8; }
+.project-intelligence-policy strong { font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); }
+.project-intelligence-policy ul { margin: 0; padding-left: 18px; color: var(--ink); }
+.project-intelligence-policy li + li { margin-top: 4px; }
+.project-intelligence-card { display: grid; gap: 6px; text-align: left; }
 .project-intelligence-card strong { font-size: 16px; line-height: 1.15; }
 .project-intelligence-card span, .project-intelligence-card small { color: var(--muted); }
 .project-intelligence-card.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
@@ -98,6 +105,19 @@ dd { margin: 3px 0 0; overflow-wrap: anywhere; }
 .project-intelligence-table th { position: sticky; top: 0; background: #f8faf9; z-index: 1; font-size: 12px; color: var(--muted); text-transform: uppercase; }
 .project-intelligence-table tr.is-review { background: #fff9f0; }
 .project-intelligence-table tr.is-active { outline: 2px solid rgba(11, 111, 120, 0.35); outline-offset: -2px; }
+.project-intelligence-card .project-intelligence-card-head, .project-intelligence-card .project-intelligence-card-values { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.project-intelligence-card .project-intelligence-card-values { color: var(--muted); font-size: 12px; }
+.project-intelligence-card .project-intelligence-card-values span { color: inherit; }
+.priority-pill { display: inline-flex; align-items: center; padding: 3px 8px; border-radius: 999px; color: #fff; font-size: 11px; font-weight: 850; text-transform: uppercase; }
+.priority-1 { background: var(--danger); }
+.priority-2 { background: #b47a24; }
+.priority-3 { background: #6d7f4f; }
+.priority-4 { background: #6c7375; }
+.project-intelligence-values { display: grid; gap: 10px; }
+.project-intelligence-values .value-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.project-intelligence-values .value-grid div, .project-intelligence-legend { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: #fff; }
+.project-intelligence-legend { display: grid; gap: 8px; }
+.project-intelligence-legend p { margin: 0; }
 .link-button { border: 0; padding: 0; background: transparent; color: var(--accent-dark); font-weight: 800; }
 .project-intelligence-override { margin-top: 10px; }
 .visual-editor-toolbar { position: sticky; top: 0; z-index: 10; display: grid; grid-template-columns: minmax(160px, 220px) minmax(180px, 1fr) minmax(180px, 1fr) auto auto; align-items: center; gap: 12px; margin: 0 0 16px; padding: 12px 14px; border: 1px solid #cfd9d5; border-left: 5px solid var(--accent); border-radius: 8px; background: #f7faf8; box-shadow: 0 10px 20px rgba(24, 35, 38, 0.04); }
