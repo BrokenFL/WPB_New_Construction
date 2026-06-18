@@ -16,19 +16,20 @@ That guide is required before duplicating or refining the Berkeley-style project
 
 - Active website repo: `BrokenFL/WPB_New_Construction`
 - Primary local website path: `/Volumes/ExternalSSD/WPB_NewConstruction`
+- Approved laptop fallback checkout: `/Users/brookesnader/Documents/WPB_New_Consrtuction_Git`
 - Secondary/historical CloudDocs checkout: `/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB-New-Construction-Current`
 - Asset repo: `BrokenFL/WPB_New_Construction_Assets`
 - Local asset repo: `/Volumes/ExternalSSD/WPB_NewConstruction_Assets`
 - iCloud asset intake library: `/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB New Construction Asset Library`
 - Historical/stale repo name: `BrokenFL/WestPalmNewConstruction`
 
-As of 2026-06-03, use `/Volumes/ExternalSSD/WPB_NewConstruction` as the primary local website working checkout. Treat the CloudDocs checkout as secondary/historical unless Brooke explicitly asks you to inspect or recover from it. On 2026-06-03 the CloudDocs checkout was behind `origin/main` and dirty, so do not use it for normal implementation, QA, push, or deploy work without first proving it is intended and clean.
+As of 2026-06-18, use `/Volumes/ExternalSSD/WPB_NewConstruction` as the primary local website working checkout when the SSD is available. The approved laptop fallback is `/Users/brookesnader/Documents/WPB_New_Consrtuction_Git`; use it when working on a machine without the SSD checkout, but still confirm `pwd`, `git remote -v`, `git branch --show-current`, and `git status --short --branch` before editing so it stays aligned with `BrokenFL/WPB_New_Construction`. Treat the CloudDocs checkout as secondary/historical unless Brooke explicitly asks you to inspect or recover from it. On 2026-06-03 the CloudDocs checkout was behind `origin/main` and dirty, so do not use it for normal implementation, QA, push, or deploy work without first proving it is intended and clean.
 
 Treat `BrokenFL/WPB_New_Construction` as the active operational website repo unless Brooke explicitly says a repo migration happened. Treat `BrokenFL/WestPalmNewConstruction` as historical, stale, or research metadata only unless current repo files and Brooke both confirm otherwise.
 
 The website repo is the live site code and deployment repo. The asset repo is the approved source warehouse. The iCloud asset library is a local intake/drop zone and is not a Git repo.
 
-Before editing, confirm the local checkout with `pwd`, `git remote -v`, `git branch --show-current`, and `git status --short --branch`. If the path is not `/Volumes/ExternalSSD/WPB_NewConstruction`, stop and explain why you are in another checkout before changing files.
+Before editing, confirm the local checkout with `pwd`, `git remote -v`, `git branch --show-current`, and `git status --short --branch`. Approved website work paths are `/Volumes/ExternalSSD/WPB_NewConstruction` and `/Users/brookesnader/Documents/WPB_New_Consrtuction_Git`. If the path is not one of those approved checkouts, stop and explain why you are in another checkout before changing files.
 
 ## 2. Three-Layer Asset Architecture
 
@@ -402,10 +403,10 @@ Known good checks:
 Before making changes:
 
 1. Read this guide.
-2. Confirm you are in `/Volumes/ExternalSSD/WPB_NewConstruction` for website work.
+2. Confirm you are in `/Volumes/ExternalSSD/WPB_NewConstruction` or the approved laptop fallback `/Users/brookesnader/Documents/WPB_New_Consrtuction_Git` for website work.
 3. Confirm active website repo is BrokenFL/WPB_New_Construction.
 4. Confirm asset repo is BrokenFL/WPB_New_Construction_Assets.
-5. Run git status in the SSD website repo and the asset repo.
+5. Run git status in the active website repo checkout you are using and the asset repo.
 6. Classify any dirty paths before running generators, QA that writes reports, staging, pushing, or deploying.
 7. Run npm run assets:audit before asset work.
 8. Ask Brooke before changing repo remotes or deployment workflow.

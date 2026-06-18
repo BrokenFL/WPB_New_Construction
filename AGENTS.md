@@ -11,11 +11,14 @@ This file is the first-stop handoff for coding agents. It does **not** replace t
 
 ## Required checkout
 
-Website work must happen in:
+Website work should use one of these approved checkouts:
 
 ```
 /Volumes/ExternalSSD/WPB_NewConstruction
+/Users/brookesnader/Documents/WPB_New_Consrtuction_Git
 ```
+
+Use `/Volumes/ExternalSSD/WPB_NewConstruction` as the primary checkout when the SSD is available. Use `/Users/brookesnader/Documents/WPB_New_Consrtuction_Git` as the approved laptop fallback when the SSD checkout is unavailable.
 
 Before editing, run:
 
@@ -26,7 +29,7 @@ git branch --show-current
 git status --short --branch
 ```
 
-If the checkout is **not** `/Volumes/ExternalSSD/WPB_NewConstruction`, stop and explain before changing files.
+If the checkout is **not** one of the approved paths above, stop and explain before changing files. If you are using the laptop fallback checkout, say so clearly before editing and verify it is pointed at `BrokenFL/WPB_New_Construction`.
 
 ---
 

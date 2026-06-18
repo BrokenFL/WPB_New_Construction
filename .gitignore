@@ -45,3 +45,4 @@ public/projects/ritz-carlton-wpb/docs/ritz-carlton-wpb-brochure.pdf
 *.njsproj
 *.sln
 *.sw?
+.qodo
