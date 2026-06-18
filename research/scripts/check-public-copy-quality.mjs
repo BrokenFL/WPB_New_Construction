@@ -53,7 +53,10 @@ const ignoreFragments = [
 
 async function main() {
   const files = (await Promise.all(scanRoots.map(collect))).flat();
-  const targets = files.filter((file) => /\.(?:ts|js|html|json|txt|xml)$/i.test(file));
+  const targets = files.filter((file) => {
+    if (file.startsWith(path.join(workspace, "dist"))) return /\.(?:html|json|txt|xml)$/i.test(file);
+    return /\.(?:ts|js|html|json|txt|xml)$/i.test(file);
+  });
   const findings = [];
 
   for (const file of targets) {
