@@ -19,6 +19,7 @@ export type ProjectFactFieldKey =
 export type ProjectFactOverride = {
   value: string;
   source: "manual_review";
+  preferredFrom?: "public" | "compare" | "source" | "custom";
   reviewedBy: string;
   reviewedAt: string;
   note?: string;
@@ -33,4 +34,4 @@ export type ProjectFactOverrides = {
 
 import projectFactOverridesData from "../../content/overrides/project-fact-overrides.json" with { type: "json" };
 
-export const projectFactOverrides: ProjectFactOverrides = projectFactOverridesData;
+export const projectFactOverrides: ProjectFactOverrides = projectFactOverridesData as ProjectFactOverrides;

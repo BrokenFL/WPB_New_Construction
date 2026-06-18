@@ -139,6 +139,9 @@ dd { margin: 3px 0 0; overflow-wrap: anywhere; }
 .pi-existing-override-note { padding: 8px 12px; background: #fff9e6; border: 1px solid #f5d87b; border-radius: 6px; font-size: 13px; margin-bottom: 8px; }
 .pi-card-overridden { background: #f4fdf7; border-color: #a8ddc0; }
 .pi-override-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: #c8f0d8; color: #1a6b3a; letter-spacing: .02em; }
+.fact-updater-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+.fact-updater-current { margin-bottom: 18px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; display: grid; gap: 10px; }
+.fact-updater-current strong { font-size: 13px; }
 .visual-editor-toolbar { position: sticky; top: 0; z-index: 10; display: grid; grid-template-columns: minmax(160px, 220px) minmax(180px, 1fr) minmax(180px, 1fr) auto auto; align-items: center; gap: 12px; margin: 0 0 16px; padding: 12px 14px; border: 1px solid #cfd9d5; border-left: 5px solid var(--accent); border-radius: 8px; background: #f7faf8; box-shadow: 0 10px 20px rgba(24, 35, 38, 0.04); }
 .visual-editor-toolbar strong { display: block; font-size: 16px; line-height: 1.2; }
 .visual-editor-toolbar label, .visual-editor-toolbar select { margin: 0; }

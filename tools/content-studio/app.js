@@ -11,6 +11,8 @@ let activeProjectIntelligenceSlug = "";
 let activeProjectIntelligenceField = "";
 let activeProjectIntelligenceFilter = "all";
 let activeProjectIntelligenceQueueId = "";
+let activeFactUpdaterSlug = "";
+let activeFactUpdaterField = "";
 
 const projectSelect = document.querySelector("#projectSelect");
 const result = document.querySelector("#result");
@@ -53,6 +55,7 @@ async function loadState() {
   renderProjectPageContext();
   activeProjectIntelligenceSlug = activeProjectIntelligenceSlug || projectSelect.value;
   renderProjectIntelligenceReview();
+  renderFactUpdater();
   updateBuilderContext();
 }
 
@@ -1129,6 +1132,112 @@ function renderProjectIntelligenceReview() {
         if (saveBtn) saveBtn.disabled = !customInput.value.trim();
       }
     });
+  }
+}
+
+function renderFactUpdater() {
+  const root = document.querySelector("#factUpdaterPanel");
+  if (!root) return;
+  const review = state?.projectIntelligence;
+  if (!review?.projects?.length) {
+    root.innerHTML = `<p class="muted">Project data not loaded yet. Click Refresh.</p>`;
+    return;
+  }
+
+  const projects = review.projects;
+  const slug = activeFactUpdaterSlug || projectSelect.value || projects[0]?.slug || "";
+  const selectedProject = projects.find((p) => p.slug === slug) || projects[0];
+  const fieldOptions = selectedProject?.fieldReviews || [];
+  const field = activeFactUpdaterField || fieldOptions[0]?.field || "";
+  const selectedField = fieldOptions.find((fr) => fr.field === field) || fieldOptions[0];
+
+  root.innerHTML = `
+    <div class="fact-updater-controls">
+      <label>Building
+        <select id="factUpdaterProject">
+          ${projects.map((p) => `<option value="${escapeHtml(p.slug)}"${p.slug === selectedProject?.slug ? " selected" : ""}>${escapeHtml(p.name)}</option>`).join("")}
+        </select>
+      </label>
+      <label>Field
+        <select id="factUpdaterField">
+          ${fieldOptions.map((fr) => `<option value="${escapeHtml(fr.field)}"${fr.field === selectedField?.field ? " selected" : ""}>${escapeHtml(fr.label)}</option>`).join("")}
+        </select>
+      </label>
+    </div>
+
+    ${selectedField ? `
+      <div class="fact-updater-current">
+        <strong>Current values — ${escapeHtml(selectedField.label)} · ${escapeHtml(selectedProject.name)}</strong>
+        <div class="value-grid">
+          <div><dt>Public site</dt><dd>${escapeHtml(selectedField.publicValue || "—")}</dd></div>
+          <div><dt>Compare database</dt><dd>${escapeHtml(selectedField.compareValue || "—")}</dd></div>
+          <div><dt>Source catalog</dt><dd>${escapeHtml(selectedField.sourceValue || "—")}</dd></div>
+          <div><dt>Current winner</dt><dd>${escapeHtml(selectedField.currentWinner || "—")}</dd></div>
+          <div><dt>Schema state</dt><dd>${escapeHtml(selectedField.schemaState || "—")}</dd></div>
+          ${selectedField.overrideValue ? `<div class="pi-override-cell"><dt>Existing override</dt><dd>${escapeHtml(selectedField.overrideValue)}</dd></div>` : ""}
+        </div>
+      </div>
+
+      <form id="factUpdaterForm" class="tool-panel project-intelligence-override">
+        <p class="pi-review-instruction"><strong>Enter new Brooke-confirmed value</strong>
+          <span>Type the correct value for <strong>${escapeHtml(selectedField.label)}</strong> on <strong>${escapeHtml(selectedProject.name)}</strong>. Leave a note explaining the source (e.g. developer email, site visit, updated listing).</span>
+        </p>
+        <div class="grid">
+          <label>New confirmed value
+            <input name="value" placeholder="Enter Brooke-confirmed value for ${escapeHtml(selectedField.label)}" />
+          </label>
+          <label>Mark schema safe
+            <select name="schemaSafe">
+              <option value="false">No — do not emit in JSON-LD</option>
+              <option value="true">Yes — safe to emit in JSON-LD</option>
+            </select>
+          </label>
+          <label>Reviewed by<input name="reviewedBy" value="Brooke" /></label>
+        </div>
+        <label>Review note
+          <textarea name="note" placeholder="Source of this value — what Brooke confirmed and when (e.g. 'Confirmed via developer email 2026-06-18, 47 units announced')."></textarea>
+        </label>
+        <input type="hidden" name="preferredFrom" value="custom" />
+        <input type="hidden" name="field" value="${escapeHtml(selectedField.field)}" />
+        <button class="primary" type="submit" id="factUpdaterSave" disabled>Save Override for ${escapeHtml(selectedField.label)}</button>
+      </form>
+    ` : `<p class="muted">No fields available for this project.</p>`}
+  `;
+
+  // Wire building selector
+  document.querySelector("#factUpdaterProject")?.addEventListener("change", (e) => {
+    activeFactUpdaterSlug = e.target.value;
+    activeFactUpdaterField = ""; // reset field when project changes
+    renderFactUpdater();
+  });
+
+  // Wire field selector
+  document.querySelector("#factUpdaterField")?.addEventListener("change", (e) => {
+    activeFactUpdaterField = e.target.value;
+    renderFactUpdater();
+  });
+
+  // Wire value input → enable save button
+  const form = document.querySelector("#factUpdaterForm");
+  if (form) {
+    form.elements.value.addEventListener("input", () => {
+      const saveBtn = document.querySelector("#factUpdaterSave");
+      if (saveBtn) saveBtn.disabled = !form.elements.value.value.trim();
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const saveBtn = document.querySelector("#factUpdaterSave");
+      if (saveBtn) saveBtn.disabled = true;
+      const payload = formPayload(form);
+      payload.projectSlug = selectedProject.slug;
+      show(await postJson("/api/project-fact-override", payload));
+      await loadState();
+      activeFactUpdaterSlug = selectedProject.slug;
+      activeFactUpdaterField = selectedField.field;
+      renderFactUpdater();
+      renderProjectIntelligenceReview(); // keep PI queue in sync
+    }, { once: true });
   }
 }
 
