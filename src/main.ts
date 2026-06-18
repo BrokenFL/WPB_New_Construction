@@ -385,19 +385,23 @@ function renderHomepageOverrideImage(override: HomepageCardOverride, fallbackTit
 }
 
 function articleBodySections(item: ExternalNewsItem) {
-  const sourceSections = (item.bodySections ?? []) as Array<{ heading?: string; body?: string; image?: string; imageId?: string; imageKey?: string }>;
+  const sourceSections = (item.bodySections ?? []) as Array<{ heading?: string; body?: string; bullets?: string[]; image?: string; imageId?: string; imageKey?: string }>;
   return sourceSections.map((section, index) => ({
     heading: section.heading || `Section ${index + 1}`,
     body: section.body || "",
+    bullets: Array.isArray(section.bullets) ? section.bullets : [],
     image: section.image || "",
     imageId: section.imageId || "",
     imageKey: section.imageKey || "",
   }));
 }
 
-function renderNewsArticleSection(section: { heading: string; body: string; image?: string; imageId?: string; imageKey?: string }) {
+function renderNewsArticleSection(section: { heading: string; body: string; bullets?: string[]; image?: string; imageId?: string; imageKey?: string }) {
   const bodyHtml = renderNewsArticleBody(section.body, section.image || section.imageId || section.imageKey);
-  return `<section><h3>${publicText(section.heading)}</h3>${bodyHtml}</section>`;
+  const bulletsHtml = Array.isArray(section.bullets) && section.bullets.length
+    ? `<ul>${section.bullets.map((bullet) => `<li>${publicText(bullet)}</li>`).join("")}</ul>`
+    : "";
+  return `<section><h3>${publicText(section.heading)}</h3>${bodyHtml}${bulletsHtml}</section>`;
 }
 
 function renderNewsArticleBody(body: string, imagePath?: string) {

@@ -35,15 +35,18 @@ if (!destinationConfig[destination]) fail(`Unsupported destination: ${destinatio
 const title = clean(input.title);
 const deck = clean(input.deck || input.excerpt || input.summary);
 const articleBody = clean(input.body);
+const structuredSections = Array.isArray(input.bodySections) ? input.bodySections.filter(Boolean) : [];
 if (!title) fail("Title is required.");
 if (!deck) fail("Deck / summary is required.");
-if (!articleBody) fail("Article body is required.");
+if (!articleBody && !structuredSections.length) fail("Article body is required.");
 
 const slugBase = slug(input.slug || title);
 const slugValue = uniqueSlug(`${slugBase}-${today}`, destination);
 const articleId = destination === "news" ? slugValue : slugBaseForNote(slugValue);
 const imagePaths = await writeImages(input, slugValue, destination);
-const bodySections = articleSections(articleBody, imagePaths.body);
+const bodySections = structuredSections.length
+  ? structuredBodySections(structuredSections, imagePaths.body, input.bodyImages)
+  : articleSections(articleBody, imagePaths.body);
 
 if (destination === "news") {
   await publishNewsUpdate({
@@ -205,6 +208,7 @@ async function publishMarketNote({ id, slug, title, deck, bodySections, imagePat
     sections: bodySections.map((section) => ({
       heading: section.heading,
       body: section.body,
+      ...(Array.isArray(section.bullets) && section.bullets.length ? { bullets: section.bullets } : {}),
       ...(section.image ? { image: section.image } : {}),
     })),
     ctaText: clean(input.ctaText || "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options."),
@@ -325,6 +329,24 @@ function articleSections(body, bodyImages) {
     };
   });
   return sections.length ? sections : [{ heading: "What happened", body }];
+}
+
+function structuredBodySections(sections, bodyImagePaths, bodyImages = []) {
+  const imageMap = new Map();
+  bodyImages.filter(Boolean).forEach((item, index) => {
+    const key = clean(item.key || item.label || `image-${index + 1}`);
+    imageMap.set(key, bodyImagePaths[index] || "");
+  });
+  return sections.map((section, index) => {
+    const imageKey = clean(section.imageKey || section.imageId || section.image || "");
+    const image = imageMap.get(imageKey) || bodyImagePaths[index] || "";
+    return {
+      heading: clean(section.heading || `Section ${index + 1}`),
+      body: clean(section.body || ""),
+      ...(Array.isArray(section.bullets) && section.bullets.length ? { bullets: section.bullets.map((bullet) => clean(bullet)).filter(Boolean) } : {}),
+      ...(image ? { image } : {}),
+    };
+  });
 }
 
 function sourceLinks(input, sourceName, sourceUrl) {

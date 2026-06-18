@@ -304,7 +304,8 @@ function normalizeSection(section, index, bodyImages, warnings) {
   const imageRef = clean(section.imageKey || section.image || section.imageId || extractFirstImageKey(body) || "");
   const image = imageRef ? bodyImages.values.find((item) => item.key === imageRef || item.path === imageRef) : bodyImages.values[index] || null;
   if (imageRef && !image) warnings.push(`Body image placeholder '${imageRef}' could not be resolved.`);
-  return { heading, body, ...(image ? { image: image.path } : {}) };
+  const bullets = Array.isArray(section.bullets) ? section.bullets.map((bullet) => clean(bullet)).filter(Boolean) : [];
+  return { heading, body, ...(bullets.length ? { bullets } : {}), ...(image ? { image: image.path } : {}) };
 }
 
 function parseSectionInput({ input, existing, bodySectionsInput, bodyText, warnings }) {
@@ -313,13 +314,15 @@ function parseSectionInput({ input, existing, bodySectionsInput, bodyText, warni
       heading: clean(section.heading || section.title || defaultHeading(index)),
       body: clean(section.body || section.text || section.copy || ""),
       imageKey: clean(section.imageKey || section.imageId || section.image || ""),
-    })).filter((section) => section.body || section.imageKey);
+      bullets: Array.isArray(section.bullets) ? section.bullets.map((bullet) => clean(bullet)).filter(Boolean) : [],
+    })).filter((section) => section.body || section.imageKey || (section.bullets?.length ?? 0));
   }
   if (Array.isArray(bodySectionsInput) && bodySectionsInput.length) {
     return bodySectionsInput.map((section, index) => ({
       heading: clean(section.heading || section.title || defaultHeading(index)),
       body: clean(section.body || section.text || section.copy || ""),
       imageKey: clean(section.imageKey || section.imageId || section.image || ""),
+      bullets: Array.isArray(section.bullets) ? section.bullets.map((bullet) => clean(bullet)).filter(Boolean) : [],
     }));
   }
   const parsed = parseMarkdownBody(bodyText);
@@ -468,10 +471,14 @@ async function requireCleanPushedCommit() {
 function renderPreviewSection(section, imageMap) {
   const hasPlaceholder = /\[\[image:[a-zA-Z0-9_-]+\]\]/.test(section.body);
   const paragraphs = String(section.body ?? "").split(/\n{2,}/).map((paragraph) => renderPreviewParagraph(paragraph, imageMap)).filter(Boolean);
+  const bullets = Array.isArray(section.bullets) && section.bullets.length
+    ? `<ul>${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}</ul>`
+    : "";
   return `
     <section class="section">
       <h2>${escapeHtml(section.heading)}</h2>
       ${paragraphs.join("")}
+      ${bullets}
       ${section.image && !hasPlaceholder ? renderPreviewImage(imageMap.get(section.image) || { path: section.image, alt: section.heading, caption: "", credit: "", placementMode: "manual" }) : ""}
     </section>
   `;

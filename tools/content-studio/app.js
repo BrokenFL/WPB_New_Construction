@@ -1856,8 +1856,16 @@ function amRenderFilteredList() {
 }
 
 function amRenderArticleRow(a) {
-  const statusClass = { published: "status-published", draft: "status-draft", archived: "status-not-run-yet", "needs-review": "status-warning" }[a.status] || "status-not-run-yet";
-  const destLabel = { news: "News", buyer: "Buyer", downtown: "Downtown" }[a.destination] || a.destination;
+  const statusClass = {
+    published: "status-published",
+    draft: "status-draft",
+    archived: "status-not-run-yet",
+    needs_review: "status-warning",
+    "needs-review": "status-warning",
+    "ready-for-review": "status-warning",
+    "needs-refresh": "status-warning",
+  }[a.status] || "status-not-run-yet";
+  const destLabel = { news: "News", buyer: "Buyer Intelligence", downtown: "Downtown Spotlight" }[a.destination] || a.destination;
   const thumbHtml = a.imagePath
     ? `<img class="am-row-thumb" src="${escapeHtml(a.imagePath)}" alt="" onerror="this.style.display='none'" />`
     : `<span class="am-row-thumb-placeholder"></span>`;
@@ -1909,7 +1917,11 @@ async function amOpenEditor({ id, destination, draftId }) {
     return;
   }
   amPopulateEditor(data.article, data.source);
-  document.querySelector("#amEditorLabel").textContent = "Edit Article";
+  document.querySelector("#amEditorLabel").textContent = {
+    news: "Edit News Update",
+    buyer: "Edit Buyer Intelligence",
+    downtown: "Edit Downtown Spotlight",
+  }[data.article.destination] || "Edit Article";
   amSetSaveStatus("Loaded", true);
 }
 
@@ -2034,11 +2046,14 @@ function amAddSectionBlock(opts = {}) {
     <label>Body text
       <textarea class="am-section-body" placeholder="Section content...">${escapeHtml(opts.body || "")}</textarea>
     </label>
+    <label>Bullets <span class="am-optional">(one per line)</span>
+      <textarea class="am-section-bullets" placeholder="Optional bullet list, one item per line.">${escapeHtml((opts.bullets || []).join("\n"))}</textarea>
+    </label>
     <details class="am-section-image-wrap"${opts.imageKey || opts.image ? " open" : ""}>
       <summary>Attach image to this section</summary>
       <div class="am-section-image-fields">
         <div class="am-section-img-preview-wrap">
-          <img class="am-section-img" src="" alt="" hidden />
+          <img class="am-section-img" src="${escapeHtml(opts.image || "")}" alt=""${opts.image ? "" : " hidden"} />
         </div>
         <label>Image file
           <input class="am-section-image-file" type="file" accept="image/*" />
@@ -2088,7 +2103,8 @@ function amAddSectionBlock(opts = {}) {
   block.querySelector(".am-remove-block")?.addEventListener("click", () => {
     const heading = block.querySelector(".am-section-heading")?.value || "";
     const body = block.querySelector(".am-section-body")?.value || "";
-    if ((heading || body) && !window.confirm("Remove this section? Its content will be lost.")) return;
+    const bullets = block.querySelector(".am-section-bullets")?.value || "";
+    if ((heading || body || bullets) && !window.confirm("Remove this section? Its content will be lost.")) return;
     block.remove();
     amRenumberSections();
   });
@@ -2163,7 +2179,11 @@ async function amBuildPayload() {
   for (const block of sectionBlocks) {
     const heading = block.querySelector(".am-section-heading")?.value?.trim() || "";
     const body = block.querySelector(".am-section-body")?.value?.trim() || "";
-    if (!heading && !body) continue;
+    const bullets = (block.querySelector(".am-section-bullets")?.value || "")
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean);
+    if (!heading && !body && bullets.length === 0) continue;
 
     const imageFile = block.querySelector(".am-section-image-file")?.files?.[0];
     const imageKey = block.querySelector(".am-section-image-key")?.value?.trim() || (imageFile ? `image${imgIndex}` : "");
@@ -2173,6 +2193,7 @@ async function amBuildPayload() {
 
     const section = { heading, body };
     if (imageKey) section.imageKey = imageKey;
+    if (bullets.length) section.bullets = bullets;
     bodySections.push(section);
 
     if (imageFile) {
@@ -2351,7 +2372,8 @@ function amEvaluatePublishQuality() {
   for (const block of sectionBlocks) {
     const heading = block.querySelector(".am-section-heading")?.value?.trim() || "";
     const body = block.querySelector(".am-section-body")?.value?.trim() || "";
-    if (heading || body) hasBodyContent = true;
+    const bullets = block.querySelector(".am-section-bullets")?.value?.trim() || "";
+    if (heading || body || bullets) hasBodyContent = true;
     const imageKey = block.querySelector(".am-section-image-key")?.value?.trim() || "";
     const imageFile = block.querySelector(".am-section-image-file")?.files?.[0];
     if (imageKey || imageFile) hasInlineBodyImage = true;

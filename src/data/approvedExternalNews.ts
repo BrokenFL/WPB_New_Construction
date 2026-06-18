@@ -17,7 +17,7 @@ export type ExternalNewsItem = {
   description?: string;
   summary?: string;
   story?: string[];
-  bodySections?: { heading: string; body: string; image?: string }[];
+  bodySections?: { heading: string; body: string; bullets?: string[]; image?: string; imageId?: string; imageKey?: string }[];
   whyItMatters?: string;
   brookeTake?: string;
   buyerContext?: string;

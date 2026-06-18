@@ -22,6 +22,7 @@ const newsDraftActionLogPath = path.join(workspace, ".runtime", "news-draft-acti
 const articleSitePreviewsRoot = path.join(workspace, ".runtime", "article-site-previews");
 const articleSitePreviewAssetsRoot = path.join(articleSitePreviewsRoot, "assets");
 const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
+const marketNotesSourcePath = path.join(workspace, "src/data/marketNotes.ts");
 const remoteHostnames = ["builder.wpbnewconstruction.com", "brooke-builder.wpbnewconstruction.com"];
 const reportDefinitions = [
   { category: "Visual Audits", path: "research/source-material-review/card-level-visual-polish-audit.md" },
@@ -555,10 +556,21 @@ async function listArticles(request, response, url) {
     imagePath: item.imagePath || "",
     isDraft: false,
     draftId: null,
+    source: "news",
   })) : [];
+  const marketNotes = await readMarketNotes();
+  const marketNotesList = marketNotes.map((note) => marketNoteToArticleListItem(note));
   const draftsList = await readAllArticleDrafts();
-  const articles = [...draftsList, ...newsList];
-  return sendJson(response, { ok: true, articles, buyerDowntownNote: "Buyer and Downtown published article listing is deferred to Phase 2. Drafts for all destinations appear here." });
+  const articles = [...draftsList, ...newsList, ...marketNotesList].sort((a, b) => {
+    const dateDelta = articleListTimestamp(b) - articleListTimestamp(a);
+    if (dateDelta !== 0) return dateDelta;
+    return a.title.localeCompare(b.title);
+  });
+  return sendJson(response, {
+    ok: true,
+    articles,
+    buyerDowntownNote: "Published News, Buyer Intelligence, and Downtown Spotlight articles are listed together with drafts.",
+  });
 }
 
 async function readAllArticleDrafts() {
@@ -582,6 +594,7 @@ async function readAllArticleDrafts() {
           imagePath: "",
           isDraft: true,
           draftId: file.replace(".json", ""),
+          source: "draft",
         });
       } catch {
         // skip corrupt draft files
@@ -610,7 +623,13 @@ async function getArticle(request, response, url) {
     if (!article) return sendJson(response, { ok: false, error: `Article not found: ${id}` }, 404);
     return sendJson(response, { ok: true, article, source: "approved-development-news" });
   }
-  return sendJson(response, { ok: false, error: "Load and edit for buyer and downtown articles is deferred to Phase 2. Use New Article to create new buyer or downtown content." }, 422);
+  if (destination === "buyer" || destination === "downtown") {
+    const marketNotes = await readMarketNotes();
+    const article = marketNotes.find((item) => item.id === id || item.slug === id || item.seo?.suggestedSlug === id);
+    if (!article) return sendJson(response, { ok: false, error: `Article not found: ${id}` }, 404);
+    return sendJson(response, { ok: true, article: marketNoteToEditorArticle(article, destination), source: "market-notes" });
+  }
+  return sendJson(response, { ok: false, error: `Unsupported destination: ${destination}` }, 422);
 }
 
 async function saveArticleDraft(request, response) {
@@ -695,6 +714,12 @@ async function validateImportPackage(request, response) {
   const newsRaw = await readJsonFile(approvedNewsPath, []);
   const publishedBySlug = new Map((Array.isArray(newsRaw) ? newsRaw : []).map((item) => [slug(item.slug || item.id), item]));
   const publishedById = new Map((Array.isArray(newsRaw) ? newsRaw : []).map((item) => [item.id, item]));
+  const marketNoteRaw = await readMarketNotes();
+  for (const note of marketNoteRaw) {
+    const noteSlug = slug(note.slug || note.seo?.suggestedSlug || note.id);
+    publishedBySlug.set(noteSlug, note);
+    publishedById.set(note.id, note);
+  }
   const drafts = await readAllArticleDrafts();
 
   if (publishedBySlug.has(checkSlug)) warnings.push(`Slug "${checkSlug}" matches a published article: "${publishedBySlug.get(checkSlug).title}".`);
@@ -738,8 +763,11 @@ async function createImportDraft(request, response) {
         heading: clean(section?.heading) || "",
         body: paragraphs,
       };
+      if (Array.isArray(section?.bullets) && section.bullets.length) {
+        sec.bullets = section.bullets.map((bullet) => clean(bullet)).filter(Boolean);
+      }
       if (clean(section?.imagePlacement)) sec.imageKey = clean(section.imagePlacement);
-      if (sec.heading || sec.body) bodySections.push(sec);
+      if (sec.heading || sec.body || (sec.bullets?.length ?? 0)) bodySections.push(sec);
     }
   }
 
@@ -1185,6 +1213,122 @@ async function runWorkflow(request, response) {
   }
   await logChange("workflow", { workflow, commands: results.length });
   return sendJson(response, { ok: true, workflow, results, changedFiles: await changedFiles(), nextStep: nextStepForWorkflow(workflow) });
+}
+
+async function readMarketNotes() {
+  const source = await fs.readFile(marketNotesSourcePath, "utf8").catch(() => "");
+  if (!source) return [];
+  return readTsArray(source, "marketNotes");
+}
+
+function marketNoteDestination(note) {
+  return note.category === "Downtown Spotlight" ? "downtown" : "buyer";
+}
+
+function marketNoteToArticleListItem(note) {
+  return {
+    id: note.id,
+    slug: note.slug || note.seo?.suggestedSlug || note.id,
+    title: note.title || "(Untitled)",
+    destination: marketNoteDestination(note),
+    category: note.category || "general",
+    status: note.status || "published",
+    publishedAt: note.datePublished || "",
+    modifiedAt: note.dateModified || note.datePublished || "",
+    imagePath: note.image?.path || "",
+    isDraft: false,
+    draftId: null,
+    source: "market-notes",
+  };
+}
+
+function marketNoteToEditorArticle(note, destination = marketNoteDestination(note)) {
+  const bodySections = Array.isArray(note.sections)
+    ? note.sections.map((section, index) => ({
+        heading: clean(section.heading || `Section ${index + 1}`),
+        body: clean(section.body || ""),
+        bullets: Array.isArray(section.bullets) ? section.bullets.map((bullet) => clean(bullet)).filter(Boolean) : [],
+        imageKey: section.image ? `image-${index + 1}` : "",
+        image: section.image || "",
+      }))
+    : [];
+  const bodyImages = [];
+  if (note.image?.path) {
+    bodyImages.push({
+      key: "hero",
+      path: note.image.path,
+      alt: clean(note.title),
+      caption: "",
+      credit: clean(note.image.credit || ""),
+    });
+  }
+  if (Array.isArray(note.sections)) {
+    note.sections.forEach((section, index) => {
+      if (!section.image) return;
+      bodyImages.push({
+        key: `image-${index + 1}`,
+        path: section.image,
+        alt: clean(section.heading || note.title),
+        caption: "",
+        credit: "",
+      });
+    });
+  }
+  return {
+    id: note.id,
+    draftId: "",
+    destination,
+    category: note.category || "general",
+    title: note.title || "",
+    slug: note.slug || note.seo?.suggestedSlug || note.id,
+    deck: note.excerpt || note.buyerThesis || "",
+    description: note.excerpt || note.buyerThesis || "",
+    summary: note.excerpt || note.buyerThesis || "",
+    relatedProjectIds: note.projectIds || [],
+    relatedCorridorIds: note.relatedCorridor ? [note.relatedCorridor] : [],
+    sourceName: note.sourceName || "",
+    sourceUrl: note.sourceLinks?.[0]?.href || "",
+    sourcePublishedDate: note.datePublished || "",
+    whyItMatters: note.buyerThesis || "",
+    buyerContext: note.buyerTakeaway || "",
+    buyerTakeaway: note.buyerTakeaway || "",
+    marketSignal: note.marketSignal || "",
+    bestFor: note.bestFor || "",
+    watchPoints: note.watchPoints || "",
+    buyerQuestions: note.buyerQuestions || "",
+    relatedCorridor: note.relatedCorridor || "",
+    relatedNeighborhoods: note.relatedNeighborhoods || [],
+    relatedBuildings: note.relatedBuildings || [],
+    commitMessage: "",
+    bodySections,
+    bodyImages,
+    heroImage: note.image?.path
+      ? {
+          dataUrl: "",
+          key: "hero",
+          alt: clean(note.title),
+          caption: "",
+          credit: clean(note.image.credit || ""),
+        }
+      : null,
+    imagePath: note.image?.path || "",
+    sourceLinks: Array.isArray(note.sourceLinks)
+      ? note.sourceLinks.map((link) => ({ label: link.label, url: link.href, type: link.sourceType || "source" }))
+      : [],
+    newsletterHeadline: note.title || "",
+    newsletterBlurb: note.excerpt || note.buyerThesis || "",
+    query: note.title || "",
+    freshnessLane: "breaking_14d",
+    savedAt: note.dateModified || note.datePublished || new Date().toISOString(),
+    source: "market-notes",
+    status: note.status || "published",
+  };
+}
+
+function articleListTimestamp(item) {
+  const value = item.publishedAt || item.modifiedAt || "";
+  const timestamp = Date.parse(value);
+  return Number.isNaN(timestamp) ? 0 : timestamp;
 }
 
 function parseTrailingJson(stdout) {
