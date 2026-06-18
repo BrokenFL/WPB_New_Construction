@@ -1,0 +1,8 @@
+# Copy this file to `config.toml` to enable codebase-memory-mcp locally.
+# Replace the paths below with machine-specific local paths.
+# Do not commit `config.toml`.
+
+[mcp_servers.codebase_memory]
+command = "/path/to/codebase-memory-mcp"
+cwd = "/path/to/WPB_NewConstruction"
+startup_timeout_sec = 120

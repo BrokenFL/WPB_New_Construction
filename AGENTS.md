@@ -53,6 +53,32 @@ Do not directly edit:
 
 **Buyer/downtown notes** currently live in `src/data/marketNotes.ts`. Do not migrate `marketNotes.ts` to a JSON source without Brooke's explicit approval.
 
+## Codebase Memory MCP
+
+This repository uses `codebase-memory-mcp` as a local MCP knowledge graph for structural code understanding.
+
+Before making any of these changes:
+
+- routing or page changes
+- generated data changes
+- project slug or alias changes
+- compare page changes
+- build script changes
+- QA or deploy workflow changes
+- broad refactors
+
+Use the codebase-memory MCP tools first to:
+
+- get an architecture overview
+- locate relevant files
+- trace dependencies and impact paths
+- identify generated files versus source-of-truth files
+- check whether aliases, slugs, or generated artifacts are involved
+
+Then confirm findings with direct file reads, grep or search, tests, and build checks.
+
+Do not rely only on MCP memory. The MCP graph is a map, not the territory.
+
 ---
 
 ## Content Studio / Article Manager
