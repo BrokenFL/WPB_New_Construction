@@ -913,8 +913,7 @@ function renderProjectIntelligenceReview() {
     };
   }
 
-  const schemaEmitted = selectedProject.schemaEmittedFields.map((item) => `<span class="status-pill status-healthy">${escapeHtml(item.field)}</span>`).join("");
-  const schemaOmitted = selectedProject.schemaOmittedFields.map((item) => `<span class="status-pill status-warning">${escapeHtml(item)}</span>`).join("");
+
   const selectedProjectRowTable = selectedProjectRows.map((item) => `
     <tr class="${item.id === selected?.id ? "is-active" : ""} is-review">
       <td><span class="priority-pill priority-${item.priority}">${escapeHtml(item.priorityLabel)}</span></td>
