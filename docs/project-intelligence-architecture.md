@@ -1,6 +1,6 @@
 # Project Intelligence Architecture
 
-This note captures the current Phase 1 source-of-truth layout for public project identity, source-catalog facts, compare/building intelligence, and the shared resolver that ties them together.
+This note captures the current source-of-truth layout for public project identity, source-catalog facts, compare/building intelligence, and the shared resolver that ties them together.
 
 ## Current Strategy
 
@@ -15,6 +15,7 @@ This note captures the current Phase 1 source-of-truth layout for public project
 - `src/lib/projectIntelligence.ts`
 - `src/lib/buildingDatabase.ts`
 - `src/main.ts`
+- `research/scripts/check-project-intelligence.ts`
 
 ## Registry And Resolver
 
@@ -42,6 +43,13 @@ The resolver returns a merged object with:
 - missing-data flags
 - schema-safe facts and review fields
 
+## Schema And SEO Usage
+
+- Project-page SEO titles and JSON-LD now read from the shared resolver where safe.
+- JSON-LD only uses resolver fields that remain conflict-free and review-cleared.
+- Status, delivery timing, residence count, and address are omitted from schema when the resolver marks them for review.
+- The schema helper exposes omitted fields so QA can catch accidental leaks without publishing review-only claims.
+
 ## What Is Now Connected
 
 - `src/main.ts` now resolves source-catalog IDs through the shared registry instead of a separate one-off alias map.
@@ -57,6 +65,7 @@ These are the current high-signal conflicts or gaps surfaced by the resolver.
 - `olara`: public residence count and delivery timing do not match the compare row.
 - `banyan-tree`: public delivery timing does not match the compare row.
 - `alba-palm-beach`: public status and compare status diverge.
+- Any field listed in the resolver's schema review set must stay out of JSON-LD until the source layer is reconciled.
 
 ### Public Projects Without Compare Rows
 
@@ -85,9 +94,11 @@ Safe for future JSON-LD generation when no conflict exists:
 - public status
 - delivery
 - residence count
+- canonical URL
 
 Fields requiring manual review when the resolver reports conflicts:
 
+- address
 - status
 - delivery
 - residence count

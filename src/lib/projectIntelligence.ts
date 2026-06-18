@@ -1,15 +1,17 @@
-import { projectFacts } from "../generated/siteData.ts";
+import { projectFacts, siteMeta } from "../generated/siteData.ts";
 import { marketNotes, type MarketNote } from "../data/marketNotes.ts";
 import {
   listProjectIntelligenceAliases,
-  resolveCompareDatabaseProjectId,
-  resolveCompareDatabaseProjectSlug,
   resolveProjectIntelligenceRegistryEntry,
   resolveSourceCatalogProjectId,
   type ProjectIntelligenceRegistryEntry,
 } from "./projectIntelligenceRegistry.ts";
-import { getBuildingDatabaseRecord, loadBuildingDatabase, type BuildingDatabaseRecord } from "./buildingDatabase.ts";
 import { newsSortTimestamp, publishedExternalNews } from "../data/approvedExternalNews.ts";
+import {
+  publicBuildingDatabaseByProjectId,
+  publicBuildingDatabaseBySlug,
+  type PublicBuildingDatabaseItem,
+} from "../generated/buildingDatabasePublic.ts";
 
 type SourceFactRecord = (typeof projectFacts)[number];
 
@@ -57,7 +59,7 @@ export type ProjectIntelligence = {
   compare: {
     id?: string;
     slug?: string;
-    record?: BuildingDatabaseRecord;
+    record?: PublicBuildingDatabaseItem;
   };
   relatedContent: {
     news: RelatedContentMatch[];
@@ -72,6 +74,32 @@ export type ProjectIntelligence = {
   registryEntry?: ProjectIntelligenceRegistryEntry;
 };
 
+export type SchemaSafeProjectFacts = {
+  identity: {
+    slug: string;
+    route: string;
+    displayName: string;
+    corridor: string;
+    url: string;
+  };
+  safeFields: {
+    name: string;
+    route: string;
+    url: string;
+    corridor: string;
+    address?: string;
+    status?: string;
+    delivery?: string;
+    residenceCount?: string;
+    compareDatabaseId?: string;
+    compareDatabaseSlug?: string;
+    sourceCatalogId?: string;
+  };
+  omittedFields: string[];
+  conflictCount: number;
+  reviewFields: string[];
+};
+
 const sourceFactById = new Map<string, SourceFactRecord>(projectFacts.map((project) => [project.projectId, project]));
 
 function firstNumber(value: string | undefined) {
@@ -81,6 +109,14 @@ function firstNumber(value: string | undefined) {
 
 function toMutableStrings(values: readonly string[] | undefined) {
   return values ? [...values] : [];
+}
+
+function normalizeComparableText(value: string | undefined) {
+  return (value ?? "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ");
 }
 
 function firstYear(value: string | undefined) {
@@ -156,7 +192,7 @@ function matchMarketNotes(entry: ProjectIntelligenceRegistryEntry) {
 function buildConflictList(
   publicIdentity: ProjectIntelligence["publicIdentity"],
   sourceFacts: SourceFactRecord[],
-  compareRecord: BuildingDatabaseRecord | undefined,
+  compareRecord: PublicBuildingDatabaseItem | undefined,
 ): ProjectIntelligenceConflict[] {
   const sourceFact = sourceFacts[0];
   const source = sourceFact?.facts;
@@ -223,7 +259,7 @@ function buildConflictList(
 function buildSchemaSafety(
   entry: ProjectIntelligenceRegistryEntry,
   sourceFacts: SourceFactRecord[],
-  compareRecord: BuildingDatabaseRecord | undefined,
+  compareRecord: PublicBuildingDatabaseItem | undefined,
   conflicts: ProjectIntelligenceConflict[],
 ) {
   const safeFields: Record<string, string> = {
@@ -245,6 +281,13 @@ function buildSchemaSafety(
 
   if (conflictFields.has("residenceCount")) reviewFields.add("residenceCount");
   else safeFields.residenceCount = entry.publicResidenceCount;
+
+  const compareAddress = compareRecord?.public_address;
+  const sourceAddress = sourceFacts[0]?.facts?.address;
+  const addressCandidates = [entry.publicAddress, sourceAddress, compareAddress].filter((value): value is string => Boolean(value && value.trim()));
+  const addressMatches = addressCandidates.length <= 1 || addressCandidates.every((value) => normalizeComparableText(value) === normalizeComparableText(addressCandidates[0]));
+  if (addressMatches) safeFields.address = entry.publicAddress;
+  else reviewFields.add("address");
 
   if (!sourceFacts.length) reviewFields.add("sourceCatalog");
   if (!compareRecord) reviewFields.add("compareDatabase");
@@ -268,6 +311,85 @@ function buildSourceCatalogSummary(entry: ProjectIntelligenceRegistryEntry) {
     conflicts: toMutableStrings(primaryFact?.conflicts as readonly string[] | undefined),
     gaps: toMutableStrings(primaryFact?.gaps as readonly string[] | undefined),
     notes: primaryFact?.highValueSources ? toMutableStrings(primaryFact.highValueSources as readonly string[] | undefined) : undefined,
+  };
+}
+
+function resolveStaticCompareRecord(identifier: string) {
+  const normalized = identifier.trim();
+  if (!normalized) return undefined;
+  const registryEntry = resolveProjectIntelligenceRegistryEntry(normalized);
+  const compareId = registryEntry?.compareDatabaseId ?? normalized;
+  const compareSlug = registryEntry?.compareDatabaseSlug ?? normalized;
+  return (
+    publicBuildingDatabaseByProjectId[compareId] ??
+    publicBuildingDatabaseBySlug[compareSlug] ??
+    publicBuildingDatabaseByProjectId[normalized] ??
+    publicBuildingDatabaseBySlug[normalized] ??
+    publicBuildingDatabaseByProjectId[registryEntry?.publicSlug ?? ""] ??
+    publicBuildingDatabaseBySlug[registryEntry?.publicSlug ?? ""]
+  );
+}
+
+function buildSchemaSafeProjectFacts(
+  registryEntry: ProjectIntelligenceRegistryEntry,
+  sourceFacts: SourceFactRecord[],
+  compareRecord: PublicBuildingDatabaseItem | undefined,
+  conflicts: ProjectIntelligenceConflict[],
+): SchemaSafeProjectFacts {
+  const safeFields: SchemaSafeProjectFacts["safeFields"] = {
+    name: registryEntry.publicDisplayName,
+    route: registryEntry.publicRoute,
+    url: `${siteMeta.baseUrl}${registryEntry.publicRoute}`,
+    corridor: registryEntry.corridor,
+  };
+  const omittedFields = new Set<string>();
+  const reviewFields = new Set<string>(conflicts.map((conflict) => conflict.field));
+
+  if (!reviewFields.has("status")) {
+    safeFields.status = registryEntry.publicStatus;
+  } else {
+    omittedFields.add("status");
+  }
+
+  if (!reviewFields.has("delivery")) {
+    safeFields.delivery = registryEntry.publicDelivery;
+  } else {
+    omittedFields.add("delivery");
+  }
+
+  if (!reviewFields.has("residenceCount")) {
+    safeFields.residenceCount = registryEntry.publicResidenceCount;
+  } else {
+    omittedFields.add("residenceCount");
+  }
+
+  const compareAddress = compareRecord?.public_address;
+  const sourceAddress = sourceFacts[0]?.facts?.address;
+  const addressCandidates = [registryEntry.publicAddress, sourceAddress, compareAddress].filter((value): value is string => Boolean(value && value.trim()));
+  const addressMatches = addressCandidates.length <= 1 || addressCandidates.every((value) => normalizeComparableText(value) === normalizeComparableText(addressCandidates[0]));
+  if (addressMatches) {
+    safeFields.address = registryEntry.publicAddress;
+  } else {
+    reviewFields.add("address");
+    omittedFields.add("address");
+  }
+
+  if (registryEntry.compareDatabaseId) safeFields.compareDatabaseId = registryEntry.compareDatabaseId;
+  if (registryEntry.compareDatabaseSlug) safeFields.compareDatabaseSlug = registryEntry.compareDatabaseSlug;
+  if (registryEntry.sourceCatalogIds[0]) safeFields.sourceCatalogId = registryEntry.sourceCatalogIds[0];
+
+  return {
+    identity: {
+      slug: registryEntry.publicSlug,
+      route: registryEntry.publicRoute,
+      displayName: registryEntry.publicDisplayName,
+      corridor: registryEntry.corridor,
+      url: `${siteMeta.baseUrl}${registryEntry.publicRoute}`,
+    },
+    safeFields,
+    omittedFields: [...omittedFields],
+    conflictCount: conflicts.length,
+    reviewFields: [...reviewFields],
   };
 }
 
@@ -297,14 +419,7 @@ export async function getProjectIntelligence(identifier: string): Promise<Projec
         aliases: [identifier.trim()].filter(Boolean),
       };
 
-  await loadBuildingDatabase();
-
-  const compareId = registryEntry ? resolveCompareDatabaseProjectId(identifier) : identifier.trim();
-  const compareSlug = registryEntry ? resolveCompareDatabaseProjectSlug(identifier) : identifier.trim();
-  const compareRecord =
-    getBuildingDatabaseRecord(compareId) ??
-    getBuildingDatabaseRecord(compareSlug) ??
-    getBuildingDatabaseRecord(identifier.trim());
+  const compareRecord = resolveStaticCompareRecord(identifier);
 
   const sourceCatalog = registryEntry ? buildSourceCatalogSummary(registryEntry) : buildSourceCatalogSummary({
     publicSlug: identifier.trim(),
@@ -373,4 +488,52 @@ export async function getProjectIntelligence(identifier: string): Promise<Projec
 
 export function getProjectIntelligenceSync(identifier: string) {
   return resolveProjectIntelligenceRegistryEntry(identifier);
+}
+
+export function getSchemaSafeProjectFacts(identifier: string): SchemaSafeProjectFacts {
+  const registryEntry = resolveProjectIntelligenceRegistryEntry(identifier);
+  if (!registryEntry) {
+    const slug = identifier.trim();
+    return {
+      identity: {
+        slug,
+        route: `/projects/${slug}/`,
+        displayName: slug,
+        corridor: "Verify",
+        url: `${siteMeta.baseUrl}/projects/${slug}/`,
+      },
+      safeFields: {
+        name: slug,
+        route: `/projects/${slug}/`,
+        url: `${siteMeta.baseUrl}/projects/${slug}/`,
+        corridor: "Verify",
+      },
+      omittedFields: ["registry"],
+      conflictCount: 0,
+      reviewFields: ["registry"],
+    };
+  }
+
+  const compareRecord = resolveStaticCompareRecord(identifier);
+  const sourceFacts = registryEntry.sourceCatalogIds
+    .map((projectId) => sourceFactById.get(projectId))
+    .filter((fact): fact is SourceFactRecord => Boolean(fact));
+
+  const conflicts = buildConflictList(
+    {
+      slug: registryEntry.publicSlug,
+      route: registryEntry.publicRoute,
+      displayName: registryEntry.publicDisplayName,
+      corridor: registryEntry.corridor,
+      status: registryEntry.publicStatus,
+      delivery: registryEntry.publicDelivery,
+      residenceCount: registryEntry.publicResidenceCount,
+      address: registryEntry.publicAddress,
+      aliases: listProjectIntelligenceAliases(identifier),
+    },
+    sourceFacts,
+    compareRecord,
+  );
+
+  return buildSchemaSafeProjectFacts(registryEntry, sourceFacts, compareRecord, conflicts);
 }

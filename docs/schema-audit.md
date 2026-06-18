@@ -11,7 +11,7 @@
 - Route-level WebPage schema for core routes.
 - BreadcrumbList schema for answers, floor plans, updates, market notes, legal/methodology pages, and project pages.
 - RealEstateAgent data now includes URL, phone, and locality-level address context.
-- Project ApartmentComplex schema now includes areaServed, locality containment, ImageObject where a project image is available, and buyer-resource references.
+- Project ApartmentComplex schema now includes areaServed, locality containment, ImageObject where a project image is available, buyer-resource references, and resolver-gated safe identity/status/address fields.
 - Runtime social metadata is now synchronized with route title, description, URL, and image.
 
 ## Intentionally Avoided
@@ -19,6 +19,7 @@
 - No overclaiming of offers, live inventory, guaranteed pricing, investment performance, legal advice, or direct project sponsorship.
 - Organization schema for project sponsors is not expanded unless safely represented in reviewed project/team data.
 - Residence detail is not asserted for pipeline pages without official public evidence.
+- Conflicted project status, delivery, residence count, and address facts are omitted from JSON-LD instead of downgraded into misleading claims.
 
 ## Validation Notes
 

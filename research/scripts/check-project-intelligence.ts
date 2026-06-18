@@ -42,6 +42,14 @@ async function main() {
   const schemaReview = [...intelligenceByPublicSlug.values()]
     .flatMap((item) => item.schemaSafety.reviewFields.map((field) => ({ slug: item.publicIdentity.slug, field })))
     .filter((item, index, list) => list.findIndex((candidate) => candidate.slug === item.slug && candidate.field === item.field) === index);
+  const schemaLeaks = [...intelligenceByPublicSlug.values()].flatMap((item) =>
+    item.conflicts
+      .filter((conflict) => item.schemaSafety.safeFields[conflict.field] !== undefined)
+      .map((conflict) => ({
+        slug: item.publicIdentity.slug,
+        field: conflict.field,
+      })),
+  );
 
   const report = buildReport({
     compareRows,
@@ -51,6 +59,7 @@ async function main() {
     aliasCollisions,
     conflicts,
     schemaReview,
+    schemaLeaks,
     intelligenceByPublicSlug,
   });
 
@@ -109,6 +118,7 @@ function buildReport({
   aliasCollisions,
   conflicts,
   schemaReview,
+  schemaLeaks,
   intelligenceByPublicSlug,
 }: {
   compareRows: Record<string, string>[];
@@ -125,6 +135,7 @@ function buildReport({
     recommendation: string;
   }>;
   schemaReview: Array<{ slug: string; field: string }>;
+  schemaLeaks: Array<{ slug: string; field: string }>;
   intelligenceByPublicSlug: Map<string, Awaited<ReturnType<typeof getProjectIntelligence>>>;
 }) {
   const lines: string[] = [];
@@ -192,6 +203,15 @@ function buildReport({
     for (const item of schemaReview) {
       lines.push(`- ${item.slug}: ${item.field}`);
       issues.push(`schema review flag ${item.slug}:${item.field}`);
+    }
+    lines.push("");
+  }
+
+  if (schemaLeaks.length) {
+    lines.push("## Schema Leak Checks");
+    for (const item of schemaLeaks) {
+      lines.push(`- ${item.slug}: ${item.field}`);
+      issues.push(`schema leak ${item.slug}:${item.field}`);
     }
     lines.push("");
   }

@@ -30,6 +30,7 @@ import { track } from "./lib/analytics";
 import type { BuildingDatabaseField } from "./lib/buildingDatabase";
 import type { CompareSection } from "./lib/buildingCompareSections";
 import { advisorProfile, teamProfile } from "./lib/contact";
+import { getSchemaSafeProjectFacts } from "./lib/projectIntelligence";
 import { resolveSourceCatalogProjectId } from "./lib/projectIntelligenceRegistry";
 import { escapeHtml, safeHref } from "./renderUtils";
 import { localIntelligence } from "./data/localIntelligence";
@@ -4619,8 +4620,9 @@ function routeSeoDetails(
     "fair-housing": "Fair Housing | WPB New Construction",
     inquire: "Contact the Scott Gordon Group | West Palm Beach Luxury New Construction",
   };
+  const projectSchemaFacts = activeProject ? getSchemaSafeProjectFacts(activeProject.id) : undefined;
   const title = activeProject
-    ? `${activeProject.name}${/west palm beach/i.test(activeProject.name) ? "" : " West Palm Beach"} | ${activeProject.pageState === "Complete profile" ? "New Construction Condo Guide" : "Buyer Guide"}`
+    ? `${projectSchemaFacts?.identity.displayName ?? activeProject.name}${/west palm beach/i.test(projectSchemaFacts?.identity.displayName ?? activeProject.name) ? "" : " West Palm Beach"} | ${activeProject.pageState === "Complete profile" ? "New Construction Condo Guide" : "Buyer Guide"}`
     : activeCorridor
       ? corridorTitles[activeCorridor.key]
       : activeMarketNote
@@ -5157,10 +5159,11 @@ function buildBreadcrumbSchema(items: { name: string; path: string }[]) {
 }
 
 function buildProjectBreadcrumbSchema(project: FeaturedProject) {
+  const schemaFacts = getSchemaSafeProjectFacts(project.id);
   return buildBreadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Buildings", path: "/buildings/" },
-    { name: project.name, path: projectPath(project) },
+    { name: schemaFacts.identity.displayName, path: projectPath(project) },
   ]);
 }
 
@@ -5282,22 +5285,27 @@ function buildMarketNoteSchema(note: MarketNote) {
 }
 
 function buildProjectSchema(project: FeaturedProject) {
-  const unitCount = Number(project.residences.match(/\d+/)?.[0] ?? 0) || undefined;
+  const schemaFacts = getSchemaSafeProjectFacts(project.id);
+  const unitCount = Number(schemaFacts.safeFields.residenceCount?.match(/\d+/)?.[0] ?? 0) || undefined;
   return {
     "@type": "ApartmentComplex",
     "@id": `${siteMeta.baseUrl}${projectPath(project)}#project`,
-    name: project.name,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: project.address,
-      addressLocality: "West Palm Beach",
-      addressRegion: "FL",
-      addressCountry: "US",
-    },
+    name: schemaFacts.safeFields.name,
+    ...(schemaFacts.safeFields.address
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: schemaFacts.safeFields.address,
+            addressLocality: "West Palm Beach",
+            addressRegion: "FL",
+            addressCountry: "US",
+          },
+        }
+      : {}),
     latitude: project.latitude,
     longitude: project.longitude,
     description: project.summary,
-    url: `${siteMeta.baseUrl}${projectPath(project)}`,
+    url: schemaFacts.safeFields.url,
     image: project.image ? `${siteMeta.baseUrl}${project.image}` : undefined,
     areaServed: "West Palm Beach, Florida",
     containedInPlace: {
@@ -5306,7 +5314,7 @@ function buildProjectSchema(project: FeaturedProject) {
     },
     numberOfAccommodationUnits: unitCount,
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
-    status: project.status,
+    ...(schemaFacts.safeFields.status ? { status: schemaFacts.safeFields.status } : {}),
     subjectOf: [
       {
         "@type": "WebPage",
