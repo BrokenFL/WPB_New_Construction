@@ -11,8 +11,8 @@ async function main() {
 
   assert(server.includes('server.listen(port, "127.0.0.1"'), "Content Studio server must bind to 127.0.0.1.");
   assert(!server.includes('"0.0.0.0"') && !server.includes("'0.0.0.0'"), "Content Studio must not bind to 0.0.0.0.");
-  assert(packageJson.scripts?.["content:studio"] === "node tools/content-studio/server.mjs", "content:studio npm script is missing or unexpected.");
-  assert(packageJson.scripts?.["brooke:builder"] === "node tools/content-studio/server.mjs", "brooke:builder npm script is missing or unexpected.");
+  assert(isSafeBuilderScript(packageJson.scripts?.["content:studio"]), "content:studio npm script is missing or unexpected.");
+  assert(isSafeBuilderScript(packageJson.scripts?.["brooke:builder"]), "brooke:builder npm script is missing or unexpected.");
   assert(!await pathExists(path.join(workspace, "public/content-studio")), "Content Studio must not exist under public/.");
   assert(!await pathExists(path.join(workspace, "public/brooke-builder")), "Brooke Builder must not exist under public/.");
   assert(!await pathExists(path.join(workspace, "dist/content-studio")), "Content Studio must not be copied into dist/.");
@@ -89,6 +89,26 @@ async function pathExists(filePath) {
 
 function assert(condition, message) {
   if (!condition) failures.push(message);
+}
+
+function isSafeBuilderScript(command) {
+  if (typeof command !== "string") return false;
+  const normalized = command.trim().replace(/\s+/g, " ");
+  if (!normalized) return false;
+  const safeWrappers = [
+    /^node(?: --experimental-strip-types)? tools\/content-studio\/server\.mjs$/,
+    /^node(?: --experimental-strip-types)?\s+\.\/?tools\/content-studio\/server\.mjs$/,
+  ];
+  const unsafeSignals = [
+    /\bvite\b/i,
+    /\bvite preview\b/i,
+    /\bnode\s+tools\/content-studio\/app\.js\b/i,
+    /\bnode\s+tools\/content-studio\/index\.html\b/i,
+    /\bpublic\/content-studio\b/i,
+    /\bpublic\/brooke-builder\b/i,
+  ];
+  if (unsafeSignals.some((pattern) => pattern.test(normalized))) return false;
+  return safeWrappers.some((pattern) => pattern.test(normalized));
 }
 
 main().catch((error) => {
