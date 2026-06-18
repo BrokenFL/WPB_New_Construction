@@ -448,6 +448,20 @@ git status --short
 
 If `git push origin main` fails, report the exact auth error. Do not pretend the push succeeded.
 
+### Project Intelligence Review Cockpit
+
+Brooke Builder now includes a local-only Project Intelligence Review cockpit for compare/source/schema conflict review. Use it to review public identity, compare-row conflicts, and schema-safe field gating before any public-facing change is made.
+
+**Access:** open the local Builder at `http://127.0.0.1:8787/` and choose the Project Intelligence workflow. The cockpit is unlinked, noindex, and must not be added to public navigation or sitemap output.
+
+**Manual overrides:** Brooke-reviewed overrides live in `content/overrides/project-fact-overrides.json` and are surfaced through the shared project-intelligence resolver without hiding conflicts.
+
+**Buyer-fact priority:** for buyer-facing fields, the compare database is the preferred source unless Brooke overrides a value manually.
+
+**Safety QA:** `npm run qa:content-studio` validates local-only builder exposure and accepts safe wrappers that still point to `tools/content-studio/server.mjs`, including `node tools/content-studio/server.mjs` and `node --experimental-strip-types tools/content-studio/server.mjs`.
+
+**Alignment QA:** `npm run qa:project-intelligence` is a warning-only audit that reports public-project, compare-row, and source-catalog mismatches for Brooke review.
+
 ---
 
 ### Article Manager Workflows

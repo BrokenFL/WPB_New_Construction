@@ -64,6 +64,13 @@ Content Studio files:
 - `tools/content-studio/app.js`
 - `tools/content-studio/style.css`
 
+Project Intelligence Review:
+
+- Brooke Builder includes a local-only Project Intelligence Review cockpit for compare/source/schema conflict review.
+- It is unlinked, noindex, and must stay out of public navigation and sitemap output.
+- The shared resolver exposes Brooke-reviewed manual overrides from `content/overrides/project-fact-overrides.json` without hiding conflicts.
+- `qa:content-studio` is a safety check for builder exposure and accepts safe wrappers such as `node tools/content-studio/server.mjs` and `node --experimental-strip-types tools/content-studio/server.mjs`.
+
 Article publishing engine:
 
 - `research/scripts/article-publish-cli.mjs`
@@ -220,6 +227,7 @@ Use the right subset for the task:
 ```bash
 npm run typecheck
 npm run build
+npm run qa:project-intelligence
 npm run qa:content-studio
 npm run qa:approved-news
 npm run qa:news

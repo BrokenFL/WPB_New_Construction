@@ -374,3 +374,12 @@ Before making changes:
 8. Ask Brooke before changing repo remotes or deployment workflow.
 
 If current files contradict this guide, inspect carefully and report the contradiction before changing behavior.
+
+## 13. Project Intelligence And Builder Update
+
+- Brooke Builder now includes a local-only Project Intelligence Review cockpit for compare/source/schema conflict review.
+- The cockpit is unlinked, noindex, and must not be added to public navigation or sitemap output.
+- The shared resolver exposes Brooke-reviewed manual overrides from `content/overrides/project-fact-overrides.json` without hiding conflicts.
+- For buyer-facing fields, the compare database is the preferred source unless Brooke overrides a value manually.
+- `qa:content-studio` is a safety check for builder exposure and accepts safe wrappers such as `node tools/content-studio/server.mjs` and `node --experimental-strip-types tools/content-studio/server.mjs`.
+- `qa:project-intelligence` is the warning-only alignment audit that reports public-project, compare-row, and source-catalog mismatches for Brooke review.
