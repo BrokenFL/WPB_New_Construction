@@ -11,10 +11,11 @@ This file is the first-stop handoff for coding agents. It does **not** replace t
 
 ## Required checkout
 
-Website work must happen in:
+Website work may happen in either approved local checkout:
 
 ```
 /Volumes/ExternalSSD/WPB_NewConstruction
+/Users/brookesnader/Documents/WPB_New_Consrtuction_Git
 ```
 
 Before editing, run:
@@ -26,7 +27,7 @@ git branch --show-current
 git status --short --branch
 ```
 
-If the checkout is **not** `/Volumes/ExternalSSD/WPB_NewConstruction`, stop and explain before changing files.
+Agents may work from either approved checkout as long as the remote is `BrokenFL/WPB_New_Construction`, the branch is `main`, the working tree is clean or any dirty files are summarized before editing, and the latest `origin/main` has been pulled before work begins.
 
 ---
 
