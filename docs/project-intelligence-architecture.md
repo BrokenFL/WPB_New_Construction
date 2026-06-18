@@ -66,6 +66,7 @@ The resolver returns a merged object with:
 - `src/lib/buildingDatabase.ts` now resolves compare aliases through the shared registry.
 - `research/scripts/check-project-intelligence.ts` now reads the same registry and resolver output for a warning-only alignment audit.
 - Brooke Builder now exposes an internal Project Intelligence Review section for manual conflict review and override capture.
+- The Project Intelligence Review section now treats conflicts as a Brooke queue with priority labels, compare/source/public side-by-side values, exportable review rows, and a no-autofill override form.
 
 ## Known Review Items
 
@@ -136,4 +137,5 @@ Add `--write` to emit a markdown snapshot at `docs/project-intelligence-audit.md
 - Feed compare-page rows and related insights from the same merged object.
 - Generate conservative SEO and JSON-LD output from the resolver, with conflict-aware field gating.
 - Keep the Builder review cockpit as the manual review surface for conflicts and schema-safe overrides.
+- Keep the priority queue and warning-only audit aligned so Brooke sees the same issue ordering in the cockpit and QA output.
 - Add a lightweight regression check for new alias collisions and compare/source drift.

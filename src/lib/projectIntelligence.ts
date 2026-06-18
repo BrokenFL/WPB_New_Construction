@@ -43,6 +43,48 @@ export type ProjectIntelligenceConflict = {
   recommendation: "manual_review";
 };
 
+export type ProjectIntelligencePriority = 1 | 2 | 3 | 4;
+
+export type ProjectIntelligenceQueueRow = {
+  id: string;
+  priority: ProjectIntelligencePriority;
+  priorityLabel: `Priority ${ProjectIntelligencePriority}`;
+  projectSlug: string;
+  projectName: string;
+  projectRoute: string;
+  corridor: string;
+  field: string;
+  fieldLabel: string;
+  issueKind: "schema-impacting" | "buyer-facing" | "missing-compare-row" | "missing-source-mapping" | "split-source-project" | "editorial-drift";
+  reason: string;
+  publicValue: string;
+  compareValue: string;
+  sourceValue: string;
+  currentWinner: "override" | "compare" | "source" | "public" | "omitted";
+  schemaBehavior: "emitted" | "omitted" | "review-only";
+  recommendedAction: "review and choose winner" | "add manual override" | "add compare row" | "add source mapping" | "document split-source handling";
+  reviewStatus: "clear" | "needs-review" | "manual-override" | "missing-compare" | "missing-source" | "project-level";
+  hasManualOverride: boolean;
+  hasCompareRow: boolean;
+  hasSourceMapping: boolean;
+  notes: string[];
+};
+
+export type ProjectIntelligenceQueueSummary = {
+  totalIssues: number;
+  priority1Issues: number;
+  priority2Issues: number;
+  priority3Issues: number;
+  priority4Issues: number;
+  missingCompareRows: number;
+  missingSourceMappings: number;
+  projectsWithMostConflicts: Array<{
+    slug: string;
+    name: string;
+    issueCount: number;
+  }>;
+};
+
 export type ProjectIntelligenceFieldReview = {
   field: ProjectFactFieldKey;
   label: string;
@@ -151,6 +193,20 @@ export type SchemaSafeProjectFacts = {
 };
 
 const sourceFactById = new Map<string, SourceFactRecord>(projectFacts.map((project) => [project.projectId, project]));
+const schemaImpactFields = new Set<ProjectFactFieldKey>(["status", "deliveryTiming", "residenceCount", "address"]);
+const buyerFacingFields = new Set<ProjectFactFieldKey>([
+  "priceDisplay",
+  "bedroomRange",
+  "sizeRange",
+  "fees",
+  "parking",
+  "storage",
+  "rentals",
+  "pets",
+  "amenities",
+  "waterfront",
+  "dockage",
+]);
 
 function firstNumber(value: string | undefined) {
   const match = value?.match(/\d+(?:,\d{3})*/);
@@ -461,6 +517,215 @@ function buildReviewSummary(fieldReviews: ProjectIntelligenceFieldReview[]): Pro
     schemaOmitted: fieldReviews.filter((field) => field.schemaState === "omitted").length,
     schemaNotEmitted: fieldReviews.filter((field) => field.schemaState === "not-emitted").length,
   };
+}
+
+function queuePriorityLabel(priority: ProjectIntelligencePriority) {
+  return `Priority ${priority}` as const;
+}
+
+function queueSchemaBehavior(field: ProjectIntelligenceFieldReview) {
+  return field.schemaState === "emitted" ? "emitted" : field.schemaState === "omitted" ? "omitted" : "review-only";
+}
+
+function queuePriorityForField(field: ProjectIntelligenceFieldReview): ProjectIntelligencePriority {
+  if (schemaImpactFields.has(field.field)) return 1;
+  if (buyerFacingFields.has(field.field)) return 2;
+  return 4;
+}
+
+function queueIssueKindForField(field: ProjectIntelligenceFieldReview): ProjectIntelligenceQueueRow["issueKind"] {
+  if (schemaImpactFields.has(field.field)) return "schema-impacting";
+  if (buyerFacingFields.has(field.field)) return "buyer-facing";
+  return "editorial-drift";
+}
+
+function queueRecommendedActionForField(field: ProjectIntelligenceFieldReview, priority: ProjectIntelligencePriority) {
+  if (priority === 1) return field.overrideValue ? "review and choose winner" : "add manual override";
+  return "review and choose winner";
+}
+
+function queueReasonForField(field: ProjectIntelligenceFieldReview) {
+  const notes = [...field.notes];
+  if (field.reviewStatus === "manual-override") notes.unshift("Brooke override is set.");
+  else if (field.reviewStatus === "needs-review") notes.unshift("Values differ across layers.");
+  if (schemaImpactFields.has(field.field) && field.schemaState !== "emitted") notes.push("Omitted from JSON-LD until Brooke marks it safe.");
+  if (buyerFacingFields.has(field.field) && field.compareValue) notes.push("Compare remains the preferred buyer-fact source.");
+  return [...new Set(notes)].join(" ");
+}
+
+function queueRowsForProject(project: ProjectIntelligence): ProjectIntelligenceQueueRow[] {
+  const rows: ProjectIntelligenceQueueRow[] = [];
+  const hasCompareRow = Boolean(project.compare.record);
+  const hasSourceMapping = Boolean(project.sourceCatalog.ids.length);
+
+  for (const field of project.fieldReviews) {
+    if (field.reviewStatus === "clear") continue;
+    const priority = queuePriorityForField(field);
+    rows.push({
+      id: `${project.publicIdentity.slug}:${field.field}`,
+      priority,
+      priorityLabel: queuePriorityLabel(priority),
+      projectSlug: project.publicIdentity.slug,
+      projectName: project.publicIdentity.displayName,
+      projectRoute: project.publicIdentity.route,
+      corridor: project.publicIdentity.corridor,
+      field: field.field,
+      fieldLabel: field.label,
+      issueKind: queueIssueKindForField(field),
+      reason: queueReasonForField(field),
+      publicValue: field.publicValue || "—",
+      compareValue: field.compareValue || "—",
+      sourceValue: field.sourceValue || "—",
+      currentWinner: field.currentWinner,
+      schemaBehavior: queueSchemaBehavior(field),
+      recommendedAction: queueRecommendedActionForField(field, priority),
+      reviewStatus: field.reviewStatus,
+      hasManualOverride: field.reviewStatus === "manual-override",
+      hasCompareRow,
+      hasSourceMapping,
+      notes: field.notes,
+    });
+  }
+
+  if (!hasCompareRow) {
+    rows.push({
+      id: `${project.publicIdentity.slug}:missing-compare-row`,
+      priority: 3,
+      priorityLabel: queuePriorityLabel(3),
+      projectSlug: project.publicIdentity.slug,
+      projectName: project.publicIdentity.displayName,
+      projectRoute: project.publicIdentity.route,
+      corridor: project.publicIdentity.corridor,
+      field: "compare-row",
+      fieldLabel: "Compare row",
+      issueKind: "missing-compare-row",
+      reason: "Public project has no compare row.",
+      publicValue: project.publicIdentity.displayName,
+      compareValue: "Missing compare row",
+      sourceValue: project.sourceCatalog.ids.join(", ") || "—",
+      currentWinner: "omitted",
+      schemaBehavior: "review-only",
+      recommendedAction: "add compare row",
+      reviewStatus: "project-level",
+      hasManualOverride: false,
+      hasCompareRow,
+      hasSourceMapping,
+      notes: ["Compare database row is missing for this public project."],
+    });
+  }
+
+  if (!hasSourceMapping) {
+    rows.push({
+      id: `${project.publicIdentity.slug}:missing-source-mapping`,
+      priority: 3,
+      priorityLabel: queuePriorityLabel(3),
+      projectSlug: project.publicIdentity.slug,
+      projectName: project.publicIdentity.displayName,
+      projectRoute: project.publicIdentity.route,
+      corridor: project.publicIdentity.corridor,
+      field: "source-mapping",
+      fieldLabel: "Source mapping",
+      issueKind: "missing-source-mapping",
+      reason: "Public project has no source-catalog mapping.",
+      publicValue: project.publicIdentity.displayName,
+      compareValue: project.compare.slug || project.compare.id || "—",
+      sourceValue: "Missing source mapping",
+      currentWinner: "omitted",
+      schemaBehavior: "review-only",
+      recommendedAction: "add source mapping",
+      reviewStatus: "project-level",
+      hasManualOverride: false,
+      hasCompareRow,
+      hasSourceMapping,
+      notes: ["Source catalog mapping is missing for this public project."],
+    });
+  }
+
+  if (project.registryEntry?.collapsedSourceCatalogIds?.length || project.sourceCatalog.ids.length > 1) {
+    rows.push({
+      id: `${project.publicIdentity.slug}:split-source-handling`,
+      priority: 3,
+      priorityLabel: queuePriorityLabel(3),
+      projectSlug: project.publicIdentity.slug,
+      projectName: project.publicIdentity.displayName,
+      projectRoute: project.publicIdentity.route,
+      corridor: project.publicIdentity.corridor,
+      field: "split-source-handling",
+      fieldLabel: "Split-source handling",
+      issueKind: "split-source-project",
+      reason: "Multiple source-catalog records are collapsed into one public page.",
+      publicValue: project.publicIdentity.displayName,
+      compareValue: project.compare.slug || project.compare.id || "—",
+      sourceValue: project.sourceCatalog.ids.join(", "),
+      currentWinner: "omitted",
+      schemaBehavior: "review-only",
+      recommendedAction: "document split-source handling",
+      reviewStatus: "project-level",
+      hasManualOverride: false,
+      hasCompareRow,
+      hasSourceMapping,
+      notes: ["Collapsed source-catalog records need documented handling."],
+    });
+  }
+
+  if (!project.relatedContent.news.length && !project.relatedContent.marketNotes.length) {
+    rows.push({
+      id: `${project.publicIdentity.slug}:related-content-gap`,
+      priority: 4,
+      priorityLabel: queuePriorityLabel(4),
+      projectSlug: project.publicIdentity.slug,
+      projectName: project.publicIdentity.displayName,
+      projectRoute: project.publicIdentity.route,
+      corridor: project.publicIdentity.corridor,
+      field: "related-content",
+      fieldLabel: "Related content",
+      issueKind: "editorial-drift",
+      reason: "No related news or market-note matches yet.",
+      publicValue: project.publicIdentity.displayName,
+      compareValue: "0 related items",
+      sourceValue: [...(project.sourceCatalog.notes ?? []), ...(project.sourceCatalog.gaps ?? [])].join(", ") || "No source notes",
+      currentWinner: "omitted",
+      schemaBehavior: "review-only",
+      recommendedAction: "review and choose winner",
+      reviewStatus: "project-level",
+      hasManualOverride: false,
+      hasCompareRow,
+      hasSourceMapping,
+      notes: ["Project has no related content matches in the current resolver."],
+    });
+  }
+
+  return rows;
+}
+
+export function buildProjectIntelligenceReviewQueue(items: ProjectIntelligence[]): {
+  rows: ProjectIntelligenceQueueRow[];
+  summary: ProjectIntelligenceQueueSummary;
+} {
+  const rows = items.flatMap((item) => queueRowsForProject(item));
+  rows.sort((a, b) => a.priority - b.priority || a.projectName.localeCompare(b.projectName) || a.fieldLabel.localeCompare(b.fieldLabel));
+
+  const issueCounts = new Map<string, { slug: string; name: string; issueCount: number }>();
+  for (const row of rows) {
+    const existing = issueCounts.get(row.projectSlug);
+    if (existing) existing.issueCount += 1;
+    else issueCounts.set(row.projectSlug, { slug: row.projectSlug, name: row.projectName, issueCount: 1 });
+  }
+
+  const summary: ProjectIntelligenceQueueSummary = {
+    totalIssues: rows.length,
+    priority1Issues: rows.filter((row) => row.priority === 1).length,
+    priority2Issues: rows.filter((row) => row.priority === 2).length,
+    priority3Issues: rows.filter((row) => row.priority === 3).length,
+    priority4Issues: rows.filter((row) => row.priority === 4).length,
+    missingCompareRows: rows.filter((row) => row.issueKind === "missing-compare-row").length,
+    missingSourceMappings: rows.filter((row) => row.issueKind === "missing-source-mapping").length,
+    projectsWithMostConflicts: [...issueCounts.values()]
+      .sort((a, b) => b.issueCount - a.issueCount || a.name.localeCompare(b.name))
+      .slice(0, 5),
+  };
+
+  return { rows, summary };
 }
 
 function buildAliasSet(entry: ProjectIntelligenceRegistryEntry) {

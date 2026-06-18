@@ -348,6 +348,16 @@
           <h1>Project Intelligence Review</h1>
           <p class="muted">Compare the public project layer, source-catalog facts, compare database fields, and Brooke-reviewed overrides before schema or buyer guidance changes land.</p>
           <div id="projectIntelligenceSummary" class="status-strip"></div>
+          <div class="project-intelligence-toolbar">
+            <div id="projectIntelligenceFilters" class="project-intelligence-filters" aria-label="Project intelligence filters"></div>
+            <div class="project-intelligence-actions">
+              <button id="copyProjectIntelligence" type="button">Copy selected review</button>
+              <button data-export-format="csv" type="button">Copy CSV</button>
+              <button data-export-format="markdown" type="button">Copy Markdown</button>
+              <button data-export-format="json" type="button">Copy JSON</button>
+            </div>
+          </div>
+          <div id="projectIntelligencePolicy" class="project-intelligence-policy"></div>
           <div class="project-intelligence-layout">
             <aside class="card-list-panel">
               <div class="live-preview-head">
@@ -355,7 +365,6 @@
                   <span class="muted">Projects</span>
                   <strong>Review queue</strong>
                 </div>
-                <button id="copyProjectIntelligence" type="button">Copy selected review</button>
               </div>
               <div id="projectIntelligenceList" class="project-intelligence-list"></div>
             </aside>

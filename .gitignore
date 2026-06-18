@@ -21,6 +21,7 @@ dist-ssr
 .qodo/
 output/
 .runtime/
+.codex/config.toml
 
 # Imported reference repositories are not part of the app source.
 research/source-repos/

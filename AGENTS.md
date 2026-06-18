@@ -11,7 +11,7 @@ This file is the first-stop handoff for coding agents. It does **not** replace t
 
 ## Required checkout
 
-Website work should use one of these approved checkouts:
+Website work may happen in either approved local checkout:
 
 ```
 /Volumes/ExternalSSD/WPB_NewConstruction
@@ -29,7 +29,7 @@ git branch --show-current
 git status --short --branch
 ```
 
-If the checkout is **not** one of the approved paths above, stop and explain before changing files. If you are using the laptop fallback checkout, say so clearly before editing and verify it is pointed at `BrokenFL/WPB_New_Construction`.
+Agents may work from either approved checkout as long as the remote is `BrokenFL/WPB_New_Construction`, the branch is `main`, the working tree is clean or any dirty files are summarized before editing, and the latest `origin/main` has been pulled before work begins.
 
 ---
 
@@ -55,6 +55,32 @@ Do not directly edit:
 **News/update source of truth:** `research/news-review/approved-development-news.json`
 
 **Buyer/downtown notes** currently live in `src/data/marketNotes.ts`. Do not migrate `marketNotes.ts` to a JSON source without Brooke's explicit approval.
+
+## Codebase Memory MCP
+
+This repository uses `codebase-memory-mcp` as a local MCP knowledge graph for structural code understanding.
+
+Before making any of these changes:
+
+- routing or page changes
+- generated data changes
+- project slug or alias changes
+- compare page changes
+- build script changes
+- QA or deploy workflow changes
+- broad refactors
+
+Use the codebase-memory MCP tools first to:
+
+- get an architecture overview
+- locate relevant files
+- trace dependencies and impact paths
+- identify generated files versus source-of-truth files
+- check whether aliases, slugs, or generated artifacts are involved
+
+Then confirm findings with direct file reads, grep or search, tests, and build checks.
+
+Do not rely only on MCP memory. The MCP graph is a map, not the territory.
 
 ---
 
