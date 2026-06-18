@@ -1,4 +1,9 @@
 import type { PublicBuildingDatabaseField, PublicBuildingDatabaseItem } from "../generated/buildingDatabasePublic";
+import {
+  projectIntelligenceRegistryEntries,
+  resolveCompareDatabaseProjectId,
+  resolveCompareDatabaseProjectSlug,
+} from "./projectIntelligenceRegistry.ts";
 
 export type BuildingDatabaseField = PublicBuildingDatabaseField;
 export type BuildingDatabaseRecord = PublicBuildingDatabaseItem;
@@ -12,23 +17,21 @@ type BuildingDatabaseRuntime = {
 let runtimeDatabase: BuildingDatabaseRuntime | undefined;
 let runtimeDatabasePromise: Promise<BuildingDatabaseRuntime> | undefined;
 
-export const buildingDatabaseProjectAliases: Record<string, string> = {
-  "alba-palm-beach": "alba-palm-beach",
-  "banyan-tree": "banyan-tree-residences-wpb",
-  "edgeworth": "edgeworth-wpb",
-  "forte-on-flagler": "forte-on-flagler",
-  "maison-dor": "maison-dor-south-flagler",
-  "mandarin-oriental": "mandarin-oriental-residences-wpb",
-  "mr-c": "mr-c-residences-wpb",
-  "nora-house": "nora-house-wpb",
-  "olara": "olara-wpb",
-  "rosewood-residences-west-palm-beach": "rosewood-residences-west-palm-beach",
-  "shorecrest": "shorecrest-wpb",
-  "berkeley": "berkeley-wpb",
-  "ritz-carlton-wpb": "ritz-carlton-residences-west-palm-beach",
-  "la-clara": "la-clara-wpb",
-  "south-flagler-house": "south-flagler-house",
-};
+export const buildingDatabaseProjectAliases = Object.fromEntries(
+  projectIntelligenceRegistryEntries.flatMap((entry) => {
+    const compareId = entry.compareDatabaseId ?? entry.publicSlug;
+    const aliases = new Set<string>([
+      entry.publicSlug,
+      entry.publicRoute,
+      compareId,
+      entry.compareDatabaseSlug,
+      ...(entry.alternateAliases ?? []),
+      ...(entry.sourceCatalogIds ?? []),
+      ...(entry.collapsedSourceCatalogIds ?? []),
+    ].filter((value): value is string => Boolean(value && value.trim())));
+    return [...aliases].map((alias) => [alias, compareId] as const);
+  }),
+) as Record<string, string>;
 
 const policyFields = new Set<BuildingDatabaseField>([
   "deposit_structure",
@@ -78,7 +81,7 @@ export function formatBuildingFieldValue(field: BuildingDatabaseField, value: st
 }
 
 export async function loadBuildingDatabase() {
-  runtimeDatabasePromise ??= import("../generated/buildingDatabasePublic").then((module) => ({
+  runtimeDatabasePromise ??= import("../generated/buildingDatabasePublic.ts").then((module) => ({
     publicBuildingDatabaseByProjectId: module.publicBuildingDatabaseByProjectId,
     publicBuildingDatabaseBySlug: module.publicBuildingDatabaseBySlug,
     publicBuildingDatabaseItems: module.publicBuildingDatabaseItems,
@@ -92,10 +95,12 @@ export function getBuildingDatabaseRecord(projectIdOrSlug: string) {
   if (!normalized) return undefined;
   if (!runtimeDatabase) return undefined;
 
-  const aliasedProjectId = buildingDatabaseProjectAliases[normalized] ?? normalized;
+  const aliasedProjectId = buildingDatabaseProjectAliases[normalized] ?? resolveCompareDatabaseProjectId(normalized);
+  const aliasedProjectSlug = resolveCompareDatabaseProjectSlug(normalized);
   return (
     runtimeDatabase.publicBuildingDatabaseByProjectId[aliasedProjectId] ??
     runtimeDatabase.publicBuildingDatabaseByProjectId[normalized] ??
+    runtimeDatabase.publicBuildingDatabaseBySlug[aliasedProjectSlug] ??
     runtimeDatabase.publicBuildingDatabaseBySlug[normalized] ??
     runtimeDatabase.publicBuildingDatabaseItems.find((item) => item.slug === normalized || item.project_id === normalized)
   );

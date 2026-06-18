@@ -30,6 +30,7 @@ import { track } from "./lib/analytics";
 import type { BuildingDatabaseField } from "./lib/buildingDatabase";
 import type { CompareSection } from "./lib/buildingCompareSections";
 import { advisorProfile, teamProfile } from "./lib/contact";
+import { resolveSourceCatalogProjectId } from "./lib/projectIntelligenceRegistry";
 import { escapeHtml, safeHref } from "./renderUtils";
 import { localIntelligence } from "./data/localIntelligence";
 import { homepageAssets, homepageProjectCardImage } from "./data/homepageAssets";
@@ -8161,19 +8162,7 @@ function projectViewSummary(project: FeaturedProject) {
 }
 
 function sourceFactForProject(projectId: string) {
-  const sourceFactAliases: Record<string, string> = {
-    "south-flagler-house": "south-flagler-house-north",
-    "olara-west-palm-beach": "olara",
-    "ritz-carlton-residences-west-palm-beach": "ritz-carlton-wpb",
-    "berkeley-palm-beach": "berkeley",
-    "mr-c-residences-west-palm-beach": "mr-c",
-    "banyan-tree-residences-west-palm-beach": "banyan-tree",
-    "mandarin-oriental-residences-west-palm-beach": "mandarin-oriental",
-    "related-ross-fern-street": "fern-and-gardenia-related-ross-fern-street",
-    "rybovich-marina": "rybovich-marina-redevelopment",
-    "rosewood": "rosewood-residences-west-palm-beach",
-  };
-  const sourceId = sourceFactAliases[projectId] ?? projectId;
+  const sourceId = resolveSourceCatalogProjectId(projectId);
   return projectFactById.get(sourceId as (typeof projectFacts)[number]["projectId"]);
 }
 
