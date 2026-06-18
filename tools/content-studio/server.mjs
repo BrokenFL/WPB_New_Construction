@@ -4,6 +4,8 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { syncEditorOverrides } from "../../research/scripts/sync-editor-overrides.mjs";
 import { newsletterDraftsPath, readDraftStore, readJsonFile as readNewsJsonFile, writeDraftStore } from "../../research/scripts/news-draft-utils.mjs";
+import { getProjectIntelligence } from "../../src/lib/projectIntelligence.ts";
+import { projectIntelligenceRegistryEntries } from "../../src/lib/projectIntelligenceRegistry.ts";
 
 const workspace = process.cwd();
 const studioRoot = path.join(workspace, "tools/content-studio");
@@ -44,6 +46,7 @@ const overrideFiles = {
   projectCopy: "project-copy-overrides.json",
   pageCopy: "page-copy-overrides.json",
   projectImages: "project-image-overrides.json",
+  projectFactOverrides: "project-fact-overrides.json",
   homepage: "homepage-overrides.json",
   homepageCards: "homepage-card-overrides.json",
   imageCaptions: "image-caption-overrides.json",
@@ -77,6 +80,8 @@ async function main() {
       if (request.method === "GET" && url.pathname === "/api/state") return sendJson(response, await state(request));
       if (request.method === "GET" && url.pathname === "/api/reports") return sendJson(response, await reportsIndex());
       if (request.method === "GET" && url.pathname === "/api/report") return sendJson(response, await reportBody(url.searchParams.get("path")));
+      if (request.method === "GET" && url.pathname === "/api/project-intelligence") return sendJson(response, await projectIntelligenceReview());
+      if (request.method === "POST" && url.pathname === "/api/project-fact-override") return saveProjectFactOverride(request, response);
       if (request.method === "POST" && url.pathname === "/api/project-copy") return saveProjectCopy(request, response);
       if (request.method === "POST" && url.pathname === "/api/page-copy") return savePageCopy(request, response);
       if (request.method === "POST" && url.pathname === "/api/homepage-overrides") return saveHomepageOverrides(request, response);
@@ -135,6 +140,7 @@ async function state(request) {
     news: await readDraftStore(),
     newsletter: await readNewsJsonFile(newsletterDraftsPath, { version: 1, updatedAt: "", items: [] }),
     automation: await automationStatus(),
+    projectIntelligence: await projectIntelligenceReview(),
     statusCards: await statusCards(remote),
     warning: remote.isRemote
       ? "Remote Builder Mode - connected through Cloudflare Access. Extra confirmation required before publishing."
@@ -250,6 +256,29 @@ async function saveProjectCopy(request, response) {
   await syncLegacyProjectOverrides(overrides);
   await logChange("project-copy", { projectId, status: overrides.projects[projectId].status });
   return sendJson(response, { ok: true, overrides });
+}
+
+async function saveProjectFactOverride(request, response) {
+  const body = await readJson(request);
+  const projectSlug = slug(body.projectSlug || body.projectId || "");
+  const field = clean(body.field);
+  const value = clean(body.value);
+  if (!projectSlug) return sendJson(response, { ok: false, error: "projectSlug is required" }, 400);
+  if (!field) return sendJson(response, { ok: false, error: "field is required" }, 400);
+  if (!value) return sendJson(response, { ok: false, error: "value is required" }, 400);
+  const overrides = await readOverride("projectFactOverrides");
+  overrides.projects[projectSlug] = overrides.projects[projectSlug] ?? {};
+  overrides.projects[projectSlug][field] = {
+    value,
+    source: "manual_review",
+    reviewedBy: clean(body.reviewedBy || "Brooke") || "Brooke",
+    reviewedAt: new Date().toISOString(),
+    note: clean(body.note),
+    schemaSafe: body.schemaSafe === true || body.schemaSafe === "true",
+  };
+  await writeOverride("projectFactOverrides", overrides);
+  await logChange("project-fact-override", { projectSlug, field, schemaSafe: overrides.projects[projectSlug][field].schemaSafe });
+  return sendJson(response, { ok: true, overrides, item: overrides.projects[projectSlug][field] });
 }
 
 async function savePageCopy(request, response) {
@@ -1209,6 +1238,7 @@ async function readOverride(key) {
     projectCopy: { version: 1, updatedAt: "", projects: {} },
     pageCopy: { version: 1, updatedAt: "", pages: {} },
     projectImages: { version: 1, updatedAt: "", images: [] },
+    projectFactOverrides: { version: 1, updatedAt: "", projects: {} },
     homepage: { version: 1, updatedAt: "", sections: {} },
     homepageCards: { version: 1, updatedAt: "", sections: defaultHomepageCardSections() },
     imageCaptions: { version: 1, updatedAt: "", items: [] },
@@ -1697,6 +1727,47 @@ async function reportBody(relativePath) {
   const filePath = path.join(workspace, definition.path);
   const text = await fs.readFile(filePath, "utf8").catch(() => "");
   return { ok: Boolean(text), ...definition, text };
+}
+
+async function projectIntelligenceReview() {
+  const projects = [];
+  for (const entry of projectIntelligenceRegistryEntries) {
+    const intelligence = await getProjectIntelligence(entry.publicSlug);
+    const schemaEmittedFields = Object.entries(intelligence.schemaSafety.safeFields)
+      .map(([field, value]) => ({ field, value }))
+      .sort((a, b) => a.field.localeCompare(b.field));
+    projects.push({
+      slug: intelligence.publicIdentity.slug,
+      name: intelligence.publicIdentity.displayName,
+      route: intelligence.publicIdentity.route,
+      corridor: intelligence.publicIdentity.corridor,
+      status: intelligence.publicIdentity.status,
+      compareDatabaseId: intelligence.compare.id || "",
+      compareDatabaseSlug: intelligence.compare.slug || "",
+      sourceCatalogIds: intelligence.sourceCatalog.ids,
+      hasCompareRow: Boolean(intelligence.compare.record),
+      hasSourceMapping: intelligence.sourceCatalog.ids.length > 0,
+      conflictCount: intelligence.reviewSummary.reviewFields,
+      reviewSummary: intelligence.reviewSummary,
+      missingDataFlags: intelligence.missingDataFlags,
+      schemaEmittedFields,
+      schemaOmittedFields: intelligence.schemaSafety.omittedFields,
+      fieldReviews: intelligence.fieldReviews,
+      conflicts: intelligence.conflicts,
+    });
+  }
+  projects.sort((a, b) => b.conflictCount - a.conflictCount || a.name.localeCompare(b.name));
+  return {
+    ok: true,
+    updatedAt: new Date().toISOString(),
+    summary: {
+      projects: projects.length,
+      withCompareRows: projects.filter((item) => item.hasCompareRow).length,
+      withSourceMappings: projects.filter((item) => item.hasSourceMapping).length,
+      withIssues: projects.filter((item) => item.conflictCount > 0 || item.schemaOmittedFields.length > 0).length,
+    },
+    projects,
+  };
 }
 
 function normalizeFocalPoint(body) {

@@ -1,6 +1,10 @@
 import { projectFacts, siteMeta } from "../generated/siteData.ts";
 import { marketNotes, type MarketNote } from "../data/marketNotes.ts";
 import {
+  projectFactOverrides,
+  type ProjectFactFieldKey,
+} from "../data/projectFactOverrides.ts";
+import {
   listProjectIntelligenceAliases,
   resolveProjectIntelligenceRegistryEntry,
   resolveSourceCatalogProjectId,
@@ -16,11 +20,55 @@ import {
 type SourceFactRecord = (typeof projectFacts)[number];
 
 export type ProjectIntelligenceConflict = {
-  field: "status" | "delivery" | "residenceCount";
+  field:
+    | "status"
+    | "delivery"
+    | "residenceCount"
+    | "address"
+    | "priceDisplay"
+    | "bedroomRange"
+    | "sizeRange"
+    | "floorCount"
+    | "parking"
+    | "storage"
+    | "pets"
+    | "rentals"
+    | "fees"
+    | "amenities"
+    | "waterfront"
+    | "dockage";
   publicValue: string;
   sourceValue?: string;
   compareValue?: string;
   recommendation: "manual_review";
+};
+
+export type ProjectIntelligenceFieldReview = {
+  field: ProjectFactFieldKey;
+  label: string;
+  scope: "identity" | "buyer";
+  publicValue: string;
+  sourceValue?: string;
+  compareValue?: string;
+  overrideValue?: string;
+  currentValue: string;
+  currentWinner: "override" | "compare" | "source" | "public" | "omitted";
+  recommendedWinner: "override" | "compare" | "source" | "public";
+  schemaState: "emitted" | "omitted" | "not-emitted";
+  schemaSafe: boolean;
+  reviewStatus: "clear" | "needs-review" | "manual-override" | "missing-compare" | "missing-source";
+  notes: string[];
+};
+
+export type ProjectIntelligenceReviewSummary = {
+  totalFields: number;
+  reviewFields: number;
+  buyerFieldReviews: number;
+  identityFieldReviews: number;
+  manualOverrides: number;
+  schemaEmitted: number;
+  schemaOmitted: number;
+  schemaNotEmitted: number;
 };
 
 export type RelatedContentMatch = {
@@ -67,6 +115,8 @@ export type ProjectIntelligence = {
   };
   conflicts: ProjectIntelligenceConflict[];
   missingDataFlags: string[];
+  fieldReviews: ProjectIntelligenceFieldReview[];
+  reviewSummary: ProjectIntelligenceReviewSummary;
   schemaSafety: {
     safeFields: Record<string, string>;
     reviewFields: string[];
@@ -111,14 +161,6 @@ function toMutableStrings(values: readonly string[] | undefined) {
   return values ? [...values] : [];
 }
 
-function normalizeComparableText(value: string | undefined) {
-  return (value ?? "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim()
-    .replace(/\s+/g, " ");
-}
-
 function firstYear(value: string | undefined) {
   return value?.match(/20\d{2}/)?.[0];
 }
@@ -130,6 +172,295 @@ function normalizeStatus(value: string | undefined) {
   if (/under construction/.test(text)) return "under-construction";
   if (/pre-?construction|sales open|sales office open|sales launched|active sales|pipeline|watchlist|announced|planned|planning|proposed|reported/.test(text)) return "pipeline";
   return text.replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function normalizeValue(value: string | undefined) {
+  const text = value?.trim();
+  return text ? text : "";
+}
+
+function distinctValues(values: Array<string | undefined>) {
+  return [...new Set(values.map((value) => normalizeValue(value)).filter(Boolean))];
+}
+
+function firstDefined(...values: Array<string | undefined>) {
+  return values.map((value) => normalizeValue(value)).find(Boolean) ?? "";
+}
+
+type FieldReviewConfig = {
+  field: ProjectFactFieldKey;
+  label: string;
+  scope: "identity" | "buyer";
+  schemaCandidate: boolean;
+  publicValue: (entry: ProjectIntelligenceRegistryEntry) => string;
+  sourceValue: (source: SourceFactRecord | undefined) => string;
+  compareValue: (compare: PublicBuildingDatabaseItem | undefined) => string;
+};
+
+const fieldReviewConfigs: FieldReviewConfig[] = [
+  {
+    field: "status",
+    label: "Status",
+    scope: "identity",
+    schemaCandidate: true,
+    publicValue: (entry) => entry.publicStatus,
+    sourceValue: (source) => firstDefined(source?.facts?.status, source?.pageStatus),
+    compareValue: (compare) => firstDefined(compare?.status_badge, compare?.construction_status, compare?.development_stage),
+  },
+  {
+    field: "deliveryTiming",
+    label: "Delivery timing",
+    scope: "identity",
+    schemaCandidate: true,
+    publicValue: (entry) => entry.publicDelivery,
+    sourceValue: (source) => firstDefined(source?.facts?.completion),
+    compareValue: (compare) => firstDefined(compare?.completion_or_delivery),
+  },
+  {
+    field: "residenceCount",
+    label: "Residence count",
+    scope: "identity",
+    schemaCandidate: true,
+    publicValue: (entry) => entry.publicResidenceCount,
+    sourceValue: (source) => firstDefined(source?.facts?.residences),
+    compareValue: (compare) => firstDefined(compare?.residence_count),
+  },
+  {
+    field: "address",
+    label: "Address",
+    scope: "identity",
+    schemaCandidate: true,
+    publicValue: (entry) => entry.publicAddress,
+    sourceValue: (source) => firstDefined(source?.facts?.address),
+    compareValue: (compare) => firstDefined(compare?.public_address),
+  },
+  {
+    field: "priceDisplay",
+    label: "Price display",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.price_display),
+  },
+  {
+    field: "bedroomRange",
+    label: "Bedroom range",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.bedroom_range_display),
+  },
+  {
+    field: "sizeRange",
+    label: "Square footage range",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.size_range_display),
+  },
+  {
+    field: "floorCount",
+    label: "Floor count",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: (source) => firstDefined(source?.facts?.stories),
+    compareValue: (compare) => firstDefined(compare?.floor_count),
+  },
+  {
+    field: "parking",
+    label: "Parking",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.parking_summary),
+  },
+  {
+    field: "storage",
+    label: "Storage",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.storage_summary),
+  },
+  {
+    field: "pets",
+    label: "Pets",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.pet_summary),
+  },
+  {
+    field: "rentals",
+    label: "Rental policy",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.rental_policy_summary),
+  },
+  {
+    field: "fees",
+    label: "Fees / maintenance",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.maintenance_per_sqft, compare?.buyer_cost_notes),
+  },
+  {
+    field: "amenities",
+    label: "Amenities",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.amenity_summary, compare?.amenity_highlights),
+  },
+  {
+    field: "waterfront",
+    label: "Waterfront",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.waterfront_status),
+  },
+  {
+    field: "dockage",
+    label: "Dockage / marina",
+    scope: "buyer",
+    schemaCandidate: false,
+    publicValue: () => "",
+    sourceValue: () => "",
+    compareValue: (compare) => firstDefined(compare?.boating_or_marina_summary),
+  },
+];
+
+function getProjectFactOverride(identifier: string, field: ProjectFactFieldKey) {
+  const registryEntry = resolveProjectIntelligenceRegistryEntry(identifier);
+  const slug = registryEntry?.publicSlug ?? identifier.trim();
+  return projectFactOverrides.projects[slug]?.[field];
+}
+
+function buildFieldReviews(
+  registryEntry: ProjectIntelligenceRegistryEntry,
+  sourceFacts: SourceFactRecord[],
+  compareRecord: PublicBuildingDatabaseItem | undefined,
+): ProjectIntelligenceFieldReview[] {
+  const sourceFact = sourceFacts[0];
+  return fieldReviewConfigs.map((config) => {
+    const override = getProjectFactOverride(registryEntry.publicSlug, config.field);
+    const publicValue = normalizeValue(config.publicValue(registryEntry));
+    const sourceValue = normalizeValue(config.sourceValue(sourceFact));
+    const compareValue = normalizeValue(config.compareValue(compareRecord));
+    const distinct = distinctValues([override?.value, compareValue, sourceValue, publicValue]);
+    const hasConflict = distinct.length > 1;
+    const isIdentity = config.scope === "identity";
+    const currentWinner = override?.value
+      ? "override"
+      : config.scope === "buyer"
+        ? compareValue
+          ? "compare"
+          : sourceValue
+            ? "source"
+            : publicValue
+              ? "public"
+              : "omitted"
+        : publicValue
+          ? "public"
+          : sourceValue
+            ? "source"
+            : compareValue
+              ? "compare"
+              : "omitted";
+    const currentValue = normalizeValue(
+      currentWinner === "override"
+        ? override?.value
+        : currentWinner === "compare"
+          ? compareValue
+          : currentWinner === "source"
+            ? sourceValue
+            : currentWinner === "public"
+              ? publicValue
+              : "",
+    );
+    const recommendedWinner = override?.value
+      ? "override"
+      : config.scope === "buyer"
+        ? compareValue
+          ? "compare"
+          : sourceValue
+            ? "source"
+            : publicValue
+              ? "public"
+              : "public"
+        : publicValue
+          ? "public"
+          : sourceValue
+            ? "source"
+            : compareValue
+              ? "compare"
+              : "public";
+    const schemaSafe = Boolean(
+      override?.schemaSafe ||
+        (config.schemaCandidate &&
+          currentWinner === "public" &&
+          !hasConflict &&
+          Boolean(publicValue)),
+    );
+    const schemaState: ProjectIntelligenceFieldReview["schemaState"] = config.schemaCandidate
+      ? schemaSafe
+        ? "emitted"
+        : "omitted"
+      : "not-emitted";
+    const reviewStatus: ProjectIntelligenceFieldReview["reviewStatus"] = override?.value
+      ? "manual-override"
+      : hasConflict
+        ? "needs-review"
+        : "clear";
+
+    return {
+      field: config.field,
+      label: config.label,
+      scope: config.scope,
+      publicValue,
+      sourceValue: sourceValue || undefined,
+      compareValue: compareValue || undefined,
+      overrideValue: override?.value,
+      currentValue,
+      currentWinner,
+      recommendedWinner,
+      schemaState,
+      schemaSafe,
+      reviewStatus,
+      notes: [
+        hasConflict ? "Values differ across layers." : "",
+        isIdentity && !compareValue ? "Compare row does not provide this field." : "",
+        override?.note ?? "",
+      ].filter(Boolean),
+    };
+  });
+}
+
+function buildReviewSummary(fieldReviews: ProjectIntelligenceFieldReview[]): ProjectIntelligenceReviewSummary {
+  return {
+    totalFields: fieldReviews.length,
+    reviewFields: fieldReviews.filter((field) => field.reviewStatus !== "clear").length,
+    buyerFieldReviews: fieldReviews.filter((field) => field.scope === "buyer" && field.reviewStatus !== "clear").length,
+    identityFieldReviews: fieldReviews.filter((field) => field.scope === "identity" && field.reviewStatus !== "clear").length,
+    manualOverrides: fieldReviews.filter((field) => field.reviewStatus === "manual-override").length,
+    schemaEmitted: fieldReviews.filter((field) => field.schemaState === "emitted").length,
+    schemaOmitted: fieldReviews.filter((field) => field.schemaState === "omitted").length,
+    schemaNotEmitted: fieldReviews.filter((field) => field.schemaState === "not-emitted").length,
+  };
 }
 
 function buildAliasSet(entry: ProjectIntelligenceRegistryEntry) {
@@ -190,6 +521,7 @@ function matchMarketNotes(entry: ProjectIntelligenceRegistryEntry) {
 }
 
 function buildConflictList(
+  registryEntry: ProjectIntelligenceRegistryEntry,
   publicIdentity: ProjectIntelligence["publicIdentity"],
   sourceFacts: SourceFactRecord[],
   compareRecord: PublicBuildingDatabaseItem | undefined,
@@ -202,10 +534,12 @@ function buildConflictList(
   const compareStatus = compareRecord?.status_badge;
   const compareDelivery = compareRecord?.completion_or_delivery;
   const compareResidences = compareRecord?.residence_count;
+  const compareAddress = compareRecord?.public_address;
+  const hasOverride = (field: ProjectFactFieldKey) => Boolean(getProjectFactOverride(registryEntry.publicSlug, field)?.value);
 
   const conflicts: ProjectIntelligenceConflict[] = [];
 
-  if (sourceStatus && normalizeStatus(sourceStatus) && normalizeStatus(sourceStatus) !== normalizeStatus(publicIdentity.status)) {
+  if (!hasOverride("status") && sourceStatus && normalizeStatus(sourceStatus) && normalizeStatus(sourceStatus) !== normalizeStatus(publicIdentity.status)) {
     conflicts.push({
       field: "status",
       publicValue: publicIdentity.status,
@@ -213,7 +547,7 @@ function buildConflictList(
       compareValue: compareStatus,
       recommendation: "manual_review",
     });
-  } else if (compareStatus && normalizeStatus(compareStatus) && normalizeStatus(compareStatus) !== normalizeStatus(publicIdentity.status)) {
+  } else if (!hasOverride("status") && compareStatus && normalizeStatus(compareStatus) && normalizeStatus(compareStatus) !== normalizeStatus(publicIdentity.status)) {
     conflicts.push({
       field: "status",
       publicValue: publicIdentity.status,
@@ -226,7 +560,7 @@ function buildConflictList(
   const publicYear = firstYear(publicIdentity.delivery);
   const sourceYear = firstYear(sourceDelivery);
   const compareYear = firstYear(compareDelivery);
-  if (publicYear && [sourceYear, compareYear].filter((value): value is string => Boolean(value)).some((year) => year !== publicYear)) {
+  if (!hasOverride("deliveryTiming") && publicYear && [sourceYear, compareYear].filter((value): value is string => Boolean(value)).some((year) => year !== publicYear)) {
     conflicts.push({
       field: "delivery",
       publicValue: publicIdentity.delivery,
@@ -240,6 +574,7 @@ function buildConflictList(
   const sourceResidencesNumber = firstNumber(sourceResidences);
   const compareResidencesNumber = firstNumber(compareResidences);
   if (
+    !hasOverride("residenceCount") &&
     publicResidences !== undefined &&
     ((sourceResidencesNumber !== undefined && sourceResidencesNumber !== publicResidences) ||
       (compareResidencesNumber !== undefined && compareResidencesNumber !== publicResidences))
@@ -253,6 +588,21 @@ function buildConflictList(
     });
   }
 
+  const sourceAddress = source?.address;
+  if (
+    !hasOverride("address") &&
+    publicIdentity.address &&
+    distinctValues([publicIdentity.address, sourceAddress, compareAddress]).length > 1
+  ) {
+    conflicts.push({
+      field: "address",
+      publicValue: publicIdentity.address,
+      sourceValue: sourceAddress,
+      compareValue: compareAddress,
+      recommendation: "manual_review",
+    });
+  }
+
   return conflicts;
 }
 
@@ -260,35 +610,41 @@ function buildSchemaSafety(
   entry: ProjectIntelligenceRegistryEntry,
   sourceFacts: SourceFactRecord[],
   compareRecord: PublicBuildingDatabaseItem | undefined,
-  conflicts: ProjectIntelligenceConflict[],
+  fieldReviews: ProjectIntelligenceFieldReview[],
 ) {
   const safeFields: Record<string, string> = {
     name: entry.publicDisplayName,
     route: entry.publicRoute,
     url: `https://www.wpbnewconstruction.com${entry.publicRoute}`,
     corridor: entry.corridor,
-    address: entry.publicAddress,
     pageStatus: entry.publicStatus,
   };
+  const schemaFields = new Map(fieldReviews.map((field) => [field.field, field] as const));
+  const schemaReviewFields = ["status", "deliveryTiming", "residenceCount", "address"] as const;
   const reviewFields = new Set<string>();
-  const conflictFields = new Set(conflicts.map((conflict) => conflict.field));
 
-  if (conflictFields.has("status")) reviewFields.add("status");
-  else safeFields.status = entry.publicStatus;
+  const statusReview = schemaFields.get("status");
+  if (statusReview?.schemaState === "emitted") safeFields.status = statusReview.currentValue;
+  else reviewFields.add("status");
 
-  if (conflictFields.has("delivery")) reviewFields.add("delivery");
-  else safeFields.delivery = entry.publicDelivery;
+  const deliveryReview = schemaFields.get("deliveryTiming");
+  if (deliveryReview?.schemaState === "emitted") safeFields.delivery = deliveryReview.currentValue;
+  else reviewFields.add("delivery");
 
-  if (conflictFields.has("residenceCount")) reviewFields.add("residenceCount");
-  else safeFields.residenceCount = entry.publicResidenceCount;
+  const residenceReview = schemaFields.get("residenceCount");
+  if (residenceReview?.schemaState === "emitted") safeFields.residenceCount = residenceReview.currentValue;
+  else reviewFields.add("residenceCount");
 
-  const compareAddress = compareRecord?.public_address;
-  const sourceAddress = sourceFacts[0]?.facts?.address;
-  const addressCandidates = [entry.publicAddress, sourceAddress, compareAddress].filter((value): value is string => Boolean(value && value.trim()));
-  const addressMatches = addressCandidates.length <= 1 || addressCandidates.every((value) => normalizeComparableText(value) === normalizeComparableText(addressCandidates[0]));
-  if (addressMatches) safeFields.address = entry.publicAddress;
+  const addressReview = schemaFields.get("address");
+  if (addressReview?.schemaState === "emitted") safeFields.address = addressReview.currentValue;
   else reviewFields.add("address");
 
+  for (const item of schemaReviewFields) {
+    const review = schemaFields.get(item);
+    if (!review || review.schemaState !== "emitted") {
+      reviewFields.add(item === "deliveryTiming" ? "delivery" : item);
+    }
+  }
   if (!sourceFacts.length) reviewFields.add("sourceCatalog");
   if (!compareRecord) reviewFields.add("compareDatabase");
 
@@ -332,9 +688,7 @@ function resolveStaticCompareRecord(identifier: string) {
 
 function buildSchemaSafeProjectFacts(
   registryEntry: ProjectIntelligenceRegistryEntry,
-  sourceFacts: SourceFactRecord[],
-  compareRecord: PublicBuildingDatabaseItem | undefined,
-  conflicts: ProjectIntelligenceConflict[],
+  fieldReviews: ProjectIntelligenceFieldReview[],
 ): SchemaSafeProjectFacts {
   const safeFields: SchemaSafeProjectFacts["safeFields"] = {
     name: registryEntry.publicDisplayName,
@@ -343,36 +697,29 @@ function buildSchemaSafeProjectFacts(
     corridor: registryEntry.corridor,
   };
   const omittedFields = new Set<string>();
-  const reviewFields = new Set<string>(conflicts.map((conflict) => conflict.field));
+  const schemaFields = new Map(fieldReviews.map((field) => [field.field, field] as const));
+  const schemaReviewFields = new Set(["status", "deliveryTiming", "residenceCount", "address"]);
+  const reviewFields = new Set<string>(
+    fieldReviews
+      .filter((field) => schemaReviewFields.has(field.field) && field.schemaState !== "emitted")
+      .map((field) => field.field),
+  );
 
-  if (!reviewFields.has("status")) {
-    safeFields.status = registryEntry.publicStatus;
-  } else {
-    omittedFields.add("status");
-  }
+  const emittedStatus = schemaFields.get("status");
+  if (emittedStatus?.schemaState === "emitted") safeFields.status = emittedStatus.currentValue;
+  else omittedFields.add("status");
 
-  if (!reviewFields.has("delivery")) {
-    safeFields.delivery = registryEntry.publicDelivery;
-  } else {
-    omittedFields.add("delivery");
-  }
+  const emittedDelivery = schemaFields.get("deliveryTiming");
+  if (emittedDelivery?.schemaState === "emitted") safeFields.delivery = emittedDelivery.currentValue;
+  else omittedFields.add("delivery");
 
-  if (!reviewFields.has("residenceCount")) {
-    safeFields.residenceCount = registryEntry.publicResidenceCount;
-  } else {
-    omittedFields.add("residenceCount");
-  }
+  const emittedResidences = schemaFields.get("residenceCount");
+  if (emittedResidences?.schemaState === "emitted") safeFields.residenceCount = emittedResidences.currentValue;
+  else omittedFields.add("residenceCount");
 
-  const compareAddress = compareRecord?.public_address;
-  const sourceAddress = sourceFacts[0]?.facts?.address;
-  const addressCandidates = [registryEntry.publicAddress, sourceAddress, compareAddress].filter((value): value is string => Boolean(value && value.trim()));
-  const addressMatches = addressCandidates.length <= 1 || addressCandidates.every((value) => normalizeComparableText(value) === normalizeComparableText(addressCandidates[0]));
-  if (addressMatches) {
-    safeFields.address = registryEntry.publicAddress;
-  } else {
-    reviewFields.add("address");
-    omittedFields.add("address");
-  }
+  const emittedAddress = schemaFields.get("address");
+  if (emittedAddress?.schemaState === "emitted") safeFields.address = emittedAddress.currentValue;
+  else omittedFields.add("address");
 
   if (registryEntry.compareDatabaseId) safeFields.compareDatabaseId = registryEntry.compareDatabaseId;
   if (registryEntry.compareDatabaseSlug) safeFields.compareDatabaseSlug = registryEntry.compareDatabaseSlug;
@@ -388,7 +735,7 @@ function buildSchemaSafeProjectFacts(
     },
     safeFields,
     omittedFields: [...omittedFields],
-    conflictCount: conflicts.length,
+    conflictCount: fieldReviews.filter((field) => field.reviewStatus === "needs-review").length,
     reviewFields: [...reviewFields],
   };
 }
@@ -437,8 +784,9 @@ export async function getProjectIntelligence(identifier: string): Promise<Projec
     .map((projectId) => sourceFactById.get(projectId))
     .filter((fact): fact is SourceFactRecord => Boolean(fact));
   const primarySourceFact = sourceFacts[0];
-  const conflicts = buildConflictList(publicIdentity, sourceFacts, compareRecord);
-  const schemaSafety = buildSchemaSafety(registryEntry ?? {
+  const fieldReviews = registryEntry ? buildFieldReviews(registryEntry, sourceFacts, compareRecord) : [];
+  const conflicts = registryEntry ? buildConflictList(registryEntry, publicIdentity, sourceFacts, compareRecord) : [];
+  const schemaSafety = registryEntry ? buildSchemaSafety(registryEntry, sourceFacts, compareRecord, fieldReviews) : buildSchemaSafeProjectFacts({
     publicSlug: publicIdentity.slug,
     publicRoute: publicIdentity.route,
     publicDisplayName: publicIdentity.displayName,
@@ -448,7 +796,7 @@ export async function getProjectIntelligence(identifier: string): Promise<Projec
     publicResidenceCount: publicIdentity.residenceCount,
     publicAddress: publicIdentity.address,
     sourceCatalogIds: sourceCatalog.ids,
-  }, sourceFacts, compareRecord, conflicts);
+  }, fieldReviews);
 
   return {
     publicIdentity,
@@ -478,6 +826,8 @@ export async function getProjectIntelligence(identifier: string): Promise<Projec
       !sourceFacts.length ? "missing-source-catalog-match" : "",
       !compareRecord ? "missing-compare-row" : "",
     ].filter(Boolean),
+    fieldReviews,
+    reviewSummary: buildReviewSummary(fieldReviews),
     schemaSafety,
     registryEntry: registryEntry ? {
       ...registryEntry,
@@ -518,22 +868,6 @@ export function getSchemaSafeProjectFacts(identifier: string): SchemaSafeProject
   const sourceFacts = registryEntry.sourceCatalogIds
     .map((projectId) => sourceFactById.get(projectId))
     .filter((fact): fact is SourceFactRecord => Boolean(fact));
-
-  const conflicts = buildConflictList(
-    {
-      slug: registryEntry.publicSlug,
-      route: registryEntry.publicRoute,
-      displayName: registryEntry.publicDisplayName,
-      corridor: registryEntry.corridor,
-      status: registryEntry.publicStatus,
-      delivery: registryEntry.publicDelivery,
-      residenceCount: registryEntry.publicResidenceCount,
-      address: registryEntry.publicAddress,
-      aliases: listProjectIntelligenceAliases(identifier),
-    },
-    sourceFacts,
-    compareRecord,
-  );
-
-  return buildSchemaSafeProjectFacts(registryEntry, sourceFacts, compareRecord, conflicts);
+  const fieldReviews = buildFieldReviews(registryEntry, sourceFacts, compareRecord);
+  return buildSchemaSafeProjectFacts(registryEntry, fieldReviews);
 }

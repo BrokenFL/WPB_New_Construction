@@ -13,9 +13,12 @@ This note captures the current source-of-truth layout for public project identit
 
 - `src/lib/projectIntelligenceRegistry.ts`
 - `src/lib/projectIntelligence.ts`
+- `src/data/projectFactOverrides.ts`
 - `src/lib/buildingDatabase.ts`
 - `src/main.ts`
 - `research/scripts/check-project-intelligence.ts`
+- `tools/content-studio/server.mjs`
+- `tools/content-studio/app.js`
 
 ## Registry And Resolver
 
@@ -38,10 +41,17 @@ The resolver returns a merged object with:
 - public identity
 - source-catalog summary
 - compare row, when present
+- Brooke-reviewed manual overrides, when present
 - related news and market-note matches
 - conflict flags
 - missing-data flags
 - schema-safe facts and review fields
+
+## Source Priority
+
+- Public identity: manual override, then public project layer, then source catalog, then compare data.
+- Buyer facts: manual override, then compare data, then source catalog, then public project layer.
+- Schema output: manual override only when marked schema safe, then resolver-safe non-conflicting fields, otherwise omit.
 
 ## Schema And SEO Usage
 
@@ -55,6 +65,7 @@ The resolver returns a merged object with:
 - `src/main.ts` now resolves source-catalog IDs through the shared registry instead of a separate one-off alias map.
 - `src/lib/buildingDatabase.ts` now resolves compare aliases through the shared registry.
 - `research/scripts/check-project-intelligence.ts` now reads the same registry and resolver output for a warning-only alignment audit.
+- Brooke Builder now exposes an internal Project Intelligence Review section for manual conflict review and override capture.
 
 ## Known Review Items
 
@@ -82,6 +93,12 @@ These are the current high-signal conflicts or gaps surfaced by the resolver.
 - `south-flagler-house-north` and `south-flagler-house-south` collapse into the public `south-flagler-house` page.
 - `edgeworth-north` and `edgeworth-south` collapse into the public `edgeworth` page.
 - `rybovich-marina` remains the source-catalog ID behind the public `rybovich-marina-redevelopment` page.
+
+### Manual Override Layer
+
+- `content/overrides/project-fact-overrides.json` stores Brooke-reviewed overrides.
+- `src/data/projectFactOverrides.ts` exposes the override map to the resolver.
+- Brooke Builder writes overrides through its internal Project Intelligence Review cockpit.
 
 ## Schema Safety
 
@@ -118,4 +135,5 @@ Add `--write` to emit a markdown snapshot at `docs/project-intelligence-audit.md
 - Use the shared resolver directly in project-page data assembly.
 - Feed compare-page rows and related insights from the same merged object.
 - Generate conservative SEO and JSON-LD output from the resolver, with conflict-aware field gating.
+- Keep the Builder review cockpit as the manual review surface for conflicts and schema-safe overrides.
 - Add a lightweight regression check for new alias collisions and compare/source drift.

@@ -33,23 +33,7 @@ async function main() {
   const compareWithoutPublic = compareRows.filter((row) => !resolveProjectIntelligenceRegistryEntry(row.project_id));
 
   const aliasCollisions = findAliasCollisions();
-  const conflicts = [...intelligenceByPublicSlug.values()].flatMap((item) =>
-    item.conflicts.map((conflict) => ({
-      slug: item.publicIdentity.slug,
-      ...conflict,
-    })),
-  );
-  const schemaReview = [...intelligenceByPublicSlug.values()]
-    .flatMap((item) => item.schemaSafety.reviewFields.map((field) => ({ slug: item.publicIdentity.slug, field })))
-    .filter((item, index, list) => list.findIndex((candidate) => candidate.slug === item.slug && candidate.field === item.field) === index);
-  const schemaLeaks = [...intelligenceByPublicSlug.values()].flatMap((item) =>
-    item.conflicts
-      .filter((conflict) => item.schemaSafety.safeFields[conflict.field] !== undefined)
-      .map((conflict) => ({
-        slug: item.publicIdentity.slug,
-        field: conflict.field,
-      })),
-  );
+  const projectReviewRows = buildProjectReviewRows([...intelligenceByPublicSlug.values()]);
 
   const report = buildReport({
     compareRows,
@@ -57,9 +41,7 @@ async function main() {
     publicWithoutSource,
     compareWithoutPublic,
     aliasCollisions,
-    conflicts,
-    schemaReview,
-    schemaLeaks,
+    projectReviewRows,
     intelligenceByPublicSlug,
   });
 
@@ -116,9 +98,7 @@ function buildReport({
   publicWithoutSource,
   compareWithoutPublic,
   aliasCollisions,
-  conflicts,
-  schemaReview,
-  schemaLeaks,
+  projectReviewRows,
   intelligenceByPublicSlug,
 }: {
   compareRows: Record<string, string>[];
@@ -126,16 +106,21 @@ function buildReport({
   publicWithoutSource: Awaited<ReturnType<typeof getProjectIntelligence>>[];
   compareWithoutPublic: Record<string, string>[];
   aliasCollisions: { alias: string; publicSlugs: string[] }[];
-  conflicts: Array<{
+  projectReviewRows: Array<{
     slug: string;
-    field: string;
-    publicValue: string;
-    sourceValue?: string;
-    compareValue?: string;
-    recommendation: string;
+    project: string;
+    corridor: string;
+    compareRowExists: boolean;
+    sourceCatalogIds: string[];
+    fieldSummary: string;
+    publicSummary: string;
+    compareSummary: string;
+    sourceSummary: string;
+    currentWinnerSummary: string;
+    recommendedSummary: string;
+    schemaSummary: string;
+    reviewStatusSummary: string;
   }>;
-  schemaReview: Array<{ slug: string; field: string }>;
-  schemaLeaks: Array<{ slug: string; field: string }>;
   intelligenceByPublicSlug: Map<string, Awaited<ReturnType<typeof getProjectIntelligence>>>;
 }) {
   const lines: string[] = [];
@@ -148,6 +133,7 @@ function buildReport({
   lines.push(`- Public projects without compare rows: ${publicWithoutCompare.length}`);
   lines.push(`- Public projects without source-catalog matches: ${publicWithoutSource.length}`);
   lines.push(`- Compare rows without public pages: ${compareWithoutPublic.length}`);
+  lines.push(`- Review projects: ${projectReviewRows.length}`);
   lines.push("");
 
   if (aliasCollisions.length) {
@@ -159,14 +145,25 @@ function buildReport({
     lines.push("");
   }
 
-  if (conflicts.length) {
-    lines.push("## Conflicts");
-    for (const conflict of conflicts) {
-      const detail = `${conflict.slug} ${conflict.field}: public=${conflict.publicValue}` +
-        `${conflict.sourceValue ? ` | source=${conflict.sourceValue}` : ""}` +
-        `${conflict.compareValue ? ` | compare=${conflict.compareValue}` : ""}`;
-      lines.push(`- ${detail}`);
-      issues.push(detail);
+  if (projectReviewRows.length) {
+    lines.push("## Brooke Review Queue");
+    lines.push("");
+    lines.push("| Project | Fields | Public | Compare | Source | Current winner | Schema output | Recommended winner | Review status |");
+    lines.push("| --- | --- | --- | --- | --- | --- | --- | --- | --- |");
+    for (const row of projectReviewRows) {
+      const detail = [
+        row.slug,
+        row.fieldSummary || "—",
+        row.publicSummary || "—",
+        row.compareSummary || "—",
+        row.sourceSummary || "—",
+        row.currentWinnerSummary || "—",
+        row.schemaSummary || "—",
+        row.recommendedSummary || "—",
+        row.reviewStatusSummary || "—",
+      ];
+      lines.push(`| ${detail.map((value) => escapeTable(String(value))).join(" | ")} |`);
+      issues.push(`${row.slug} => ${row.reviewStatusSummary}`);
     }
     lines.push("");
   }
@@ -198,24 +195,6 @@ function buildReport({
     lines.push("");
   }
 
-  if (schemaReview.length) {
-    lines.push("## Schema Review Flags");
-    for (const item of schemaReview) {
-      lines.push(`- ${item.slug}: ${item.field}`);
-      issues.push(`schema review flag ${item.slug}:${item.field}`);
-    }
-    lines.push("");
-  }
-
-  if (schemaLeaks.length) {
-    lines.push("## Schema Leak Checks");
-    for (const item of schemaLeaks) {
-      lines.push(`- ${item.slug}: ${item.field}`);
-      issues.push(`schema leak ${item.slug}:${item.field}`);
-    }
-    lines.push("");
-  }
-
   const summary = [
     "Project intelligence alignment summary:",
     `- public projects: ${intelligenceByPublicSlug.size}`,
@@ -225,6 +204,58 @@ function buildReport({
 
   const markdown = lines.join("\n");
   return { summary, markdown, issues };
+}
+
+function buildProjectReviewRows(items: Awaited<ReturnType<typeof getProjectIntelligence>>[]) {
+  const rows = new Map<string, {
+    slug: string;
+    project: string;
+    corridor: string;
+    compareRowExists: boolean;
+    sourceCatalogIds: string[];
+    fieldSummary: string;
+    publicSummary: string;
+    compareSummary: string;
+    sourceSummary: string;
+    currentWinnerSummary: string;
+    recommendedSummary: string;
+    schemaSummary: string;
+    reviewStatusSummary: string;
+  }>();
+
+  for (const item of items) {
+    const issueFields = item.fieldReviews.filter((field) => field.reviewStatus !== "clear");
+    if (!issueFields.length) continue;
+    const fieldSummary = [...new Set(issueFields.map((field) => field.label))].join(", ");
+    const publicSummary = [...new Set(issueFields.map((field) => field.publicValue).filter(Boolean))].join(" | ");
+    const compareSummary = [...new Set(issueFields.map((field) => field.compareValue).filter(Boolean))].join(" | ");
+    const sourceSummary = [...new Set(issueFields.map((field) => field.sourceValue).filter(Boolean))].join(" | ");
+    const currentWinnerSummary = [...new Set(issueFields.map((field) => field.currentWinner))].join(", ");
+    const recommendedSummary = [...new Set(issueFields.map((field) => field.recommendedWinner))].join(", ");
+    const schemaSummary = [...new Set(issueFields.map((field) => field.schemaState))].join(", ");
+    const reviewStatusSummary = [...new Set(issueFields.map((field) => field.reviewStatus))].join(", ");
+    rows.set(item.publicIdentity.slug, {
+      slug: item.publicIdentity.slug,
+      project: item.publicIdentity.displayName,
+      corridor: item.publicIdentity.corridor,
+      compareRowExists: Boolean(item.compare.record),
+      sourceCatalogIds: item.sourceCatalog.ids,
+      fieldSummary,
+      publicSummary,
+      compareSummary,
+      sourceSummary,
+      currentWinnerSummary,
+      recommendedSummary,
+      schemaSummary,
+      reviewStatusSummary,
+    });
+  }
+
+  return [...rows.values()].sort((a, b) => a.project.localeCompare(b.project));
+}
+
+function escapeTable(value: string) {
+  return value.replace(/\|/g, "\\|").replace(/\n/g, "<br />");
 }
 
 await main().catch((error) => {

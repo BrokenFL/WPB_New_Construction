@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
     <title>Brooke Builder</title>
     <link rel="stylesheet" href="/style.css?v=visual-overlay-editor" />
   </head>
@@ -33,6 +34,7 @@
           <button class="active" data-tab="site" data-section="homepage" type="button">Visual Editor</button>
           <button data-tab="site" data-section="pages" type="button">Pages</button>
           <button data-tab="site" data-section="images" type="button">Images</button>
+          <button data-tab="site" data-section="project-intelligence" type="button">Project Intelligence</button>
           <button data-tab="article" type="button">Article Manager</button>
           <button data-tab="news" type="button">News Desk</button>
           <button data-tab="reports" type="button">Reports</button>
@@ -44,6 +46,7 @@
           <button class="active" data-section="homepage" type="button">Homepage Editor</button>
           <button data-section="images" type="button">Images</button>
           <button data-section="projects" type="button">Projects</button>
+          <button data-section="project-intelligence" type="button">Project Intelligence</button>
           <button data-section="market" type="button">Market Notes</button>
           <button data-section="updates" type="button">Project Updates</button>
           <button data-section="team" type="button">Team Resources</button>
@@ -59,6 +62,7 @@
             <button data-go-tab="site" data-go-section="updates" type="button">Edit Updates</button>
             <button data-go-tab="site" data-go-section="market" type="button">Edit Guidance</button>
             <button data-go-tab="site" data-go-section="projects" type="button">Edit Projects</button>
+            <button data-go-tab="site" data-go-section="project-intelligence" type="button">Review Project Intelligence</button>
             <button data-go-tab="site" data-go-section="images" type="button">Review Images</button>
             <button data-go-tab="news" type="button">News Desk</button>
             <button data-go-tab="reports" type="button">Reports</button>
@@ -338,6 +342,34 @@
             <label>Body copy<textarea name="bodyCopy"></textarea></label>
             <button class="primary" type="submit">Save Page Copy Draft</button>
           </form>
+        </section>
+
+        <section id="project-intelligenceSection" class="section">
+          <h1>Project Intelligence Review</h1>
+          <p class="muted">Compare the public project layer, source-catalog facts, compare database fields, and Brooke-reviewed overrides before schema or buyer guidance changes land.</p>
+          <div id="projectIntelligenceSummary" class="status-strip"></div>
+          <div class="project-intelligence-layout">
+            <aside class="card-list-panel">
+              <div class="live-preview-head">
+                <div>
+                  <span class="muted">Projects</span>
+                  <strong>Review queue</strong>
+                </div>
+                <button id="copyProjectIntelligence" type="button">Copy selected review</button>
+              </div>
+              <div id="projectIntelligenceList" class="project-intelligence-list"></div>
+            </aside>
+            <article class="live-preview-panel project-intelligence-detail">
+              <div class="live-preview-head">
+                <div>
+                  <span class="muted">Selected project</span>
+                  <strong id="projectIntelligenceTitle">Choose a project</strong>
+                </div>
+                <span id="projectIntelligenceMeta" class="muted"></span>
+              </div>
+              <div id="projectIntelligenceDetail"></div>
+            </article>
+          </div>
         </section>
 
         <section id="marketSection" class="section">

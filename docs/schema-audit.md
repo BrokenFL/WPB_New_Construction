@@ -12,6 +12,7 @@
 - BreadcrumbList schema for answers, floor plans, updates, market notes, legal/methodology pages, and project pages.
 - RealEstateAgent data now includes URL, phone, and locality-level address context.
 - Project ApartmentComplex schema now includes areaServed, locality containment, ImageObject where a project image is available, buyer-resource references, and resolver-gated safe identity/status/address fields.
+- The Builder now includes an internal Project Intelligence Review cockpit for resolving compare/source/schema conflicts before they reach JSON-LD.
 - Runtime social metadata is now synchronized with route title, description, URL, and image.
 
 ## Intentionally Avoided

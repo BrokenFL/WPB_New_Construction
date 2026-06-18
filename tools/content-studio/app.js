@@ -7,6 +7,8 @@ let activeBuilderSection = "homepage";
 let activePreviewDevice = "desktop";
 let activeVisualMode = "edit";
 let activeVisualPage = "homepage";
+let activeProjectIntelligenceSlug = "";
+let activeProjectIntelligenceField = "";
 
 const projectSelect = document.querySelector("#projectSelect");
 const result = document.querySelector("#result");
@@ -47,6 +49,8 @@ async function loadState() {
   renderImagePicker();
   updateProjectPreview();
   renderProjectPageContext();
+  activeProjectIntelligenceSlug = activeProjectIntelligenceSlug || projectSelect.value;
+  renderProjectIntelligenceReview();
   updateBuilderContext();
 }
 
@@ -86,6 +90,8 @@ projectSelect.addEventListener("change", () => {
   fillCopyForm();
   updateProjectPreview();
   renderProjectPageContext();
+  activeProjectIntelligenceSlug = projectSelect.value;
+  renderProjectIntelligenceReview();
 });
 
 document.querySelectorAll(".tabs button").forEach((button) => {
@@ -731,9 +737,9 @@ function previewCardLabel(sectionId, card, index) {
 }
 
 function updateBuilderContext() {
-  document.body.classList.toggle("is-project-editing", activeBuilderSection === "projects");
+  document.body.classList.toggle("is-project-editing", activeBuilderSection === "projects" || activeBuilderSection === "project-intelligence");
   const wrapper = document.querySelector("#projectSelectorWrap");
-  if (wrapper) wrapper.hidden = activeBuilderSection !== "projects";
+  if (wrapper) wrapper.hidden = !(activeBuilderSection === "projects" || activeBuilderSection === "project-intelligence");
 }
 
 async function handleVisualImageDrop(file, sectionId, cardId) {
@@ -789,6 +795,187 @@ function renderProjectPageContext() {
       `).join("")}
     </div>
   `;
+}
+
+function renderProjectIntelligenceReview() {
+  const review = state?.projectIntelligence;
+  const listRoot = document.querySelector("#projectIntelligenceList");
+  const summaryRoot = document.querySelector("#projectIntelligenceSummary");
+  const detailRoot = document.querySelector("#projectIntelligenceDetail");
+  const titleRoot = document.querySelector("#projectIntelligenceTitle");
+  const metaRoot = document.querySelector("#projectIntelligenceMeta");
+  const copyButton = document.querySelector("#copyProjectIntelligence");
+  if (!review || !listRoot || !summaryRoot || !detailRoot || !titleRoot || !metaRoot) return;
+
+  const projects = review.projects || [];
+  const selected = projects.find((item) => item.slug === activeProjectIntelligenceSlug)
+    || projects.find((item) => item.slug === projectSelect.value)
+    || projects[0];
+  if (!selected) {
+    listRoot.innerHTML = `<p class="muted">No project intelligence data loaded.</p>`;
+    summaryRoot.innerHTML = "";
+    detailRoot.innerHTML = `<p class="muted">No project selected.</p>`;
+    titleRoot.textContent = "Choose a project";
+    metaRoot.textContent = "";
+    return;
+  }
+
+  activeProjectIntelligenceSlug = selected.slug;
+  const defaultField = selected.fieldReviews?.find((field) => field.reviewStatus !== "clear")?.field || selected.fieldReviews?.[0]?.field || "";
+  if (!activeProjectIntelligenceField || !selected.fieldReviews.some((field) => field.field === activeProjectIntelligenceField)) {
+    activeProjectIntelligenceField = defaultField;
+  }
+  const activeField = selected.fieldReviews.find((field) => field.field === activeProjectIntelligenceField) || selected.fieldReviews[0];
+  if (copyButton) {
+    copyButton.onclick = async () => {
+      await navigator.clipboard.writeText(buildProjectIntelligenceClipboard(selected));
+      show({ ok: true, copied: selected.slug });
+    };
+  }
+
+  summaryRoot.innerHTML = [
+    ["Projects", review.summary?.projects ?? projects.length],
+    ["With compare rows", review.summary?.withCompareRows ?? projects.filter((item) => item.hasCompareRow).length],
+    ["With source mapping", review.summary?.withSourceMappings ?? projects.filter((item) => item.hasSourceMapping).length],
+    ["With issues", review.summary?.withIssues ?? projects.filter((item) => item.conflictCount > 0 || item.schemaOmittedFields.length > 0).length],
+  ].map(([label, value]) => `<span class="status-pill status-healthy">${escapeHtml(label)}: ${escapeHtml(String(value))}</span>`).join("");
+
+  listRoot.innerHTML = projects.map((project) => `
+    <button type="button" class="project-intelligence-card ${project.slug === selected.slug ? "active" : ""}" data-project-intelligence-card="${escapeHtml(project.slug)}">
+      <strong>${escapeHtml(project.name)}</strong>
+      <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
+      <small>${escapeHtml(project.slug)} · compare ${project.hasCompareRow ? "yes" : "no"} · source ${project.hasSourceMapping ? "yes" : "no"}</small>
+      <small>Review rows ${escapeHtml(String(project.conflictCount))} · schema emitted ${escapeHtml(String(project.schemaEmittedFields.length))} · schema omitted ${escapeHtml(String(project.schemaOmittedFields.length))}</small>
+    </button>
+  `).join("");
+  listRoot.querySelectorAll("[data-project-intelligence-card]").forEach((button) => {
+    button.addEventListener("click", () => {
+      activeProjectIntelligenceSlug = button.dataset.projectIntelligenceCard || selected.slug;
+      activeProjectIntelligenceField = "";
+      renderProjectIntelligenceReview();
+    });
+  });
+
+  titleRoot.textContent = selected.name;
+  metaRoot.textContent = `${selected.slug} · ${selected.corridor} · ${selected.conflictCount} review rows`;
+
+  const schemaEmitted = selected.schemaEmittedFields.map((item) => `<span class="status-pill status-healthy">${escapeHtml(item.field)}</span>`).join("");
+  const schemaOmitted = selected.schemaOmittedFields.map((item) => `<span class="status-pill status-warning">${escapeHtml(item)}</span>`).join("");
+  const fieldRows = (selected.fieldReviews || []).map((field) => `
+    <tr class="${field.reviewStatus === "clear" ? "" : "is-review"} ${field.field === activeField?.field ? "is-active" : ""}" data-review-field-row="${escapeHtml(field.field)}">
+      <td><button type="button" class="link-button" data-review-field="${escapeHtml(field.field)}">${escapeHtml(field.label)}</button></td>
+      <td>${escapeHtml(field.publicValue || "—")}</td>
+      <td>${escapeHtml(field.compareValue || "—")}</td>
+      <td>${escapeHtml(field.sourceValue || "—")}</td>
+      <td>${escapeHtml(field.currentWinner)}</td>
+      <td>${escapeHtml(field.currentValue || "—")}</td>
+      <td>${escapeHtml(field.schemaState)}</td>
+      <td>${escapeHtml(field.reviewStatus)}</td>
+    </tr>
+  `).join("");
+
+  detailRoot.innerHTML = `
+    <section class="project-intelligence-summary-grid">
+      <dl class="project-intelligence-meta-grid">
+        <div><dt>Compare row</dt><dd>${selected.hasCompareRow ? "Yes" : "No"}</dd></div>
+        <div><dt>Source mapping</dt><dd>${selected.hasSourceMapping ? "Yes" : "No"}</dd></div>
+        <div><dt>Compare ID</dt><dd>${escapeHtml(selected.compareDatabaseId || "—")}</dd></div>
+        <div><dt>Compare slug</dt><dd>${escapeHtml(selected.compareDatabaseSlug || "—")}</dd></div>
+        <div><dt>Source catalog IDs</dt><dd>${escapeHtml((selected.sourceCatalogIds || []).join(", ") || "—")}</dd></div>
+        <div><dt>Missing flags</dt><dd>${escapeHtml((selected.missingDataFlags || []).join(", ") || "—")}</dd></div>
+      </dl>
+      <div class="project-intelligence-schema-box">
+        <strong>Schema-emitted fields</strong>
+        <div>${schemaEmitted || `<span class="muted">None</span>`}</div>
+        <strong>Schema-omitted fields</strong>
+        <div>${schemaOmitted || `<span class="muted">None</span>`}</div>
+      </div>
+    </section>
+    <table class="project-intelligence-table">
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Public</th>
+          <th>Compare</th>
+          <th>Source</th>
+          <th>Current winner</th>
+          <th>Current value</th>
+          <th>Schema</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>${fieldRows}</tbody>
+    </table>
+    <form id="projectFactOverrideForm" class="tool-panel project-intelligence-override">
+      <div class="grid">
+        <label>Field
+          <select name="field">
+            ${(selected.fieldReviews || []).map((field) => `<option value="${escapeHtml(field.field)}">${escapeHtml(field.label)}</option>`).join("")}
+          </select>
+        </label>
+        <label>Value<input name="value" placeholder="Enter Brooke-reviewed value" /></label>
+        <label>Reviewed by<input name="reviewedBy" value="Brooke" /></label>
+        <label>Schema safe<select name="schemaSafe"><option value="false">No</option><option value="true">Yes</option></select></label>
+      </div>
+      <label>Note<textarea name="note" placeholder="Why this value wins and what Brooke confirmed."></textarea></label>
+      <button class="primary" type="submit">Save Manual Override</button>
+    </form>
+  `;
+
+  const form = document.querySelector("#projectFactOverrideForm");
+  if (form) {
+    form.elements.field.value = activeField?.field || selected.fieldReviews?.[0]?.field || "";
+    const field = selected.fieldReviews.find((item) => item.field === form.elements.field.value) || selected.fieldReviews?.[0];
+    if (field) {
+      form.elements.value.value = field.overrideValue || field.currentValue || field.compareValue || field.publicValue || "";
+      form.elements.note.value = field.notes?.join(" ") || "";
+      form.elements.schemaSafe.value = field.schemaSafe ? "true" : "false";
+    }
+    form.querySelectorAll("input, select, textarea").forEach((element) => {
+      element.addEventListener("change", () => {
+        const selectedField = selected.fieldReviews.find((item) => item.field === form.elements.field.value) || selected.fieldReviews?.[0];
+        if (!selectedField) return;
+        if (element.name === "field") {
+          activeProjectIntelligenceField = form.elements.field.value;
+          form.elements.value.value = selectedField.overrideValue || selectedField.currentValue || selectedField.compareValue || selectedField.publicValue || "";
+          form.elements.note.value = selectedField.notes?.join(" ") || "";
+          form.elements.schemaSafe.value = selectedField.schemaSafe ? "true" : "false";
+        }
+      });
+    });
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const payload = formPayload(form);
+      payload.projectSlug = selected.slug;
+      show(await postJson("/api/project-fact-override", payload));
+      await loadState();
+      activeProjectIntelligenceSlug = selected.slug;
+      activeProjectIntelligenceField = payload.field;
+      renderProjectIntelligenceReview();
+    }, { once: true });
+  }
+
+  detailRoot.querySelectorAll("[data-review-field]").forEach((button) => {
+    button.addEventListener("click", () => {
+      activeProjectIntelligenceField = button.dataset.reviewField || "";
+      renderProjectIntelligenceReview();
+    });
+  });
+}
+
+function buildProjectIntelligenceClipboard(project) {
+  const lines = [
+    `# ${project.name}`,
+    `- Slug: ${project.slug}`,
+    `- Corridor: ${project.corridor}`,
+    `- Compare row: ${project.hasCompareRow ? "Yes" : "No"}`,
+    `- Source mapping: ${project.hasSourceMapping ? "Yes" : "No"}`,
+    "",
+    "| Field | Public | Compare | Source | Current winner | Current value | Schema | Status |",
+    "| --- | --- | --- | --- | --- | --- | --- | --- |",
+    ...(project.fieldReviews || []).map((field) => `| ${[field.label, field.publicValue || "—", field.compareValue || "—", field.sourceValue || "—", field.currentWinner, field.currentValue || "—", field.schemaState, field.reviewStatus].map((value) => String(value).replace(/\|/g, "\\|")).join(" | ")} |`),
+  ];
+  return lines.join("\n");
 }
 
 function updateRepetitionWarning() {
