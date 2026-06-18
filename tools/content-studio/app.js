@@ -867,9 +867,11 @@ function renderProjectIntelligenceReview() {
 
   listRoot.innerHTML = visibleQueue.length
     ? visibleQueue.map((item) => `
-        <button type="button" class="project-intelligence-card ${item.id === selected?.id ? "active" : ""}" data-project-intelligence-queue-id="${escapeHtml(item.id)}">
+        <button type="button" class="project-intelligence-card ${item.id === selected?.id ? "active" : ""}${item.hasManualOverride ? " pi-card-overridden" : ""}" data-project-intelligence-queue-id="${escapeHtml(item.id)}">
           <div class="project-intelligence-card-head">
-            <span class="priority-pill priority-${item.priority}">${escapeHtml(item.priorityLabel)}</span>
+            ${item.hasManualOverride
+              ? `<span class="pi-override-badge">Override set</span>`
+              : `<span class="priority-pill priority-${item.priority}">${escapeHtml(item.priorityLabel)}</span>`}
             <strong>${escapeHtml(item.projectName)}</strong>
           </div>
           <span>${escapeHtml(item.projectSlug)} · ${escapeHtml(item.fieldLabel)}</span>
@@ -1191,7 +1193,8 @@ function filterProjectIntelligenceRows(rows, filter) {
     case "needs-brooke-review":
       return rows.filter((row) => row.priority <= 3);
     default:
-      return rows;
+      // "all" excludes already-overridden items — those live under "Has manual override"
+      return rows.filter((row) => !row.hasManualOverride);
   }
 }
 
