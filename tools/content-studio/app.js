@@ -848,6 +848,12 @@ function renderProjectIntelligenceReview() {
     activeProjectIntelligenceField = selectedFieldReview?.field || "";
   }
 
+  // activeFieldReview: the field being shown in the override panel — follows the active field
+  // (which is set by queue-item click or field-selector change)
+  const activeFieldKey = activeProjectIntelligenceField || selected?.field || selectedFieldReview?.field || "";
+  const activeFieldReview = selectedProject.fieldReviews?.find((fr) => fr.field === activeFieldKey)
+    || selectedFieldReview;
+
   renderProjectIntelligenceFilters(filtersRoot, review, filter);
   renderProjectIntelligencePolicy(policyRoot);
 
@@ -923,94 +929,146 @@ function renderProjectIntelligenceReview() {
     </tr>
   `).join("");
 
+  const afr = activeFieldReview; // shorthand for template use
+
   detailRoot.innerHTML = `
     <section class="project-intelligence-summary-grid">
       <dl class="project-intelligence-meta-grid">
+        <div><dt>Project</dt><dd>${escapeHtml(selectedProject.name)}</dd></div>
+        <div><dt>Slug</dt><dd>${escapeHtml(selectedProject.slug)}</dd></div>
         <div><dt>Compare row</dt><dd>${selectedProject.hasCompareRow ? "Yes" : "No"}</dd></div>
         <div><dt>Source mapping</dt><dd>${selectedProject.hasSourceMapping ? "Yes" : "No"}</dd></div>
         <div><dt>Compare ID</dt><dd>${escapeHtml(selectedProject.compareDatabaseId || "—")}</dd></div>
-        <div><dt>Compare slug</dt><dd>${escapeHtml(selectedProject.compareDatabaseSlug || "—")}</dd></div>
         <div><dt>Source catalog IDs</dt><dd>${escapeHtml((selectedProject.sourceCatalogIds || []).join(", ") || "—")}</dd></div>
-        <div><dt>Missing flags</dt><dd>${escapeHtml((selectedProject.missingDataFlags || []).join(", ") || "—")}</dd></div>
       </dl>
       <div class="project-intelligence-schema-box">
         <strong>Selected queue item</strong>
         ${selected ? `
           <div class="project-intelligence-legend">
-            <p><span class="priority-pill priority-${selected.priority}">${escapeHtml(selected.priorityLabel)}</span> ${escapeHtml(selected.fieldLabel)}</p>
-            <p>${escapeHtml(selected.reason)}</p>
-            <p><strong>Current winner:</strong> ${escapeHtml(selected.currentWinner)} · <strong>Schema:</strong> ${escapeHtml(selected.schemaBehavior)}</p>
-            <p><strong>Recommended action:</strong> ${escapeHtml(selected.recommendedAction)}</p>
+            <p><span class="priority-pill priority-${selected.priority}">${escapeHtml(selected.priorityLabel)}</span> <strong>${escapeHtml(selected.fieldLabel)}</strong></p>
+            <p class="muted">${escapeHtml(selected.reason)}</p>
+            <p><strong>Current winner:</strong> ${escapeHtml(selected.currentWinner)}</p>
+            <p><strong>Schema:</strong> ${escapeHtml(selected.schemaBehavior)} · <strong>Recommended:</strong> ${escapeHtml(selected.recommendedAction)}</p>
+            ${selected.hasManualOverride ? `<p><span class="status-pill status-healthy">Manual override set</span></p>` : ""}
           </div>
         ` : `<p class="muted">Choose a queue item to inspect its current winner and recommended action.</p>`}
       </div>
     </section>
     <section class="project-intelligence-values">
       <div class="value-grid">
-        <div><dt>Public value</dt><dd>${escapeHtml(selected?.publicValue || selectedProject.name || "—")}</dd></div>
-        <div><dt>Compare value</dt><dd>${escapeHtml(selected?.compareValue || selectedProject.compare.slug || selectedProject.compare.id || "—")}</dd></div>
-        <div><dt>Source-catalog value</dt><dd>${escapeHtml(selected?.sourceValue || (selectedProject.sourceCatalog.ids || []).join(", ") || "—")}</dd></div>
-        <div><dt>Resolver winner</dt><dd>${escapeHtml(selected?.currentWinner || "—")}</dd></div>
-      </div>
-      <div class="project-intelligence-legend">
-        <p>Overrides beat compare, source, and public values.</p>
-        <p>Compare is the preferred buyer-fact source unless Brooke changes it with a manual override.</p>
-        <p>JSON-LD only emits fields that are safe or manually reviewed as safe.</p>
-        <p>Conflicts stay visible after overrides so Brooke can still audit the choice.</p>
+        <div><dt>Public value</dt><dd>${escapeHtml(afr?.publicValue || selected?.publicValue || "—")}</dd></div>
+        <div><dt>Compare DB value</dt><dd>${escapeHtml(afr?.compareValue || selected?.compareValue || "—")}</dd></div>
+        <div><dt>Source-catalog value</dt><dd>${escapeHtml(afr?.sourceValue || selected?.sourceValue || "—")}</dd></div>
+        <div><dt>Resolver winner</dt><dd>${escapeHtml(afr?.currentWinner || selected?.currentWinner || "—")}</dd></div>
+        <div><dt>Schema state</dt><dd>${escapeHtml(afr?.schemaState || selected?.schemaBehavior || "—")}</dd></div>
+        ${afr?.overrideValue ? `<div class="pi-override-cell"><dt>Current override</dt><dd>${escapeHtml(afr.overrideValue)}</dd></div>` : ""}
       </div>
     </section>
     <table class="project-intelligence-table">
       <thead>
         <tr>
-          <th>Priority</th>
-          <th>Field</th>
-          <th>Reason</th>
-          <th>Public</th>
-          <th>Compare</th>
-          <th>Source</th>
-          <th>Winner</th>
-          <th>Schema</th>
-          <th>Action</th>
+          <th>Priority</th><th>Field</th><th>Reason</th><th>Public</th><th>Compare</th><th>Source</th><th>Winner</th><th>Schema</th><th>Action</th>
         </tr>
       </thead>
       <tbody>${selectedProjectRowTable}</tbody>
     </table>
+
+    <div class="pi-review-instruction">
+      <strong>Resolve this field</strong>
+      <p>Choose the value Brooke wants the site to trust. Overrides beat compare, source, and public values. Compare is preferred for buyer facts by default, but schema only emits fields marked schema safe.</p>
+      ${afr ? `<p>Reviewing: <strong>${escapeHtml(afr.label || activeFieldKey)}</strong> — choose a source below, then click Save Manual Override.</p>` : `<p class="muted">Select a queue item on the left to begin reviewing a field.</p>`}
+    </div>
+
+    ${afr ? `
+    <div class="pi-source-chooser">
+      <div class="pi-source-option${afr.publicValue ? "" : " pi-no-value"}">
+        <div class="pi-source-meta">
+          <span class="pi-source-badge">Public site</span>
+          <span class="pi-source-data">${afr.publicValue ? escapeHtml(afr.publicValue) : `<em class="muted">No value available</em>`}</span>
+        </div>
+        <button type="button" class="pi-approve-btn" data-pi-approve-source="public" data-pi-approve-value="${escapeHtml(afr.publicValue || "")}"${afr.publicValue ? "" : " disabled"}>Approve Public Value</button>
+      </div>
+      <div class="pi-source-option${afr.compareValue ? "" : " pi-no-value"}">
+        <div class="pi-source-meta">
+          <span class="pi-source-badge">Compare database</span>
+          <span class="pi-source-data">${afr.compareValue ? escapeHtml(afr.compareValue) : `<em class="muted">No value available</em>`}</span>
+        </div>
+        <button type="button" class="pi-approve-btn" data-pi-approve-source="compare" data-pi-approve-value="${escapeHtml(afr.compareValue || "")}"${afr.compareValue ? "" : " disabled"}>Approve Compare Value</button>
+      </div>
+      <div class="pi-source-option${afr.sourceValue ? "" : " pi-no-value"}">
+        <div class="pi-source-meta">
+          <span class="pi-source-badge">Source catalog</span>
+          <span class="pi-source-data">${afr.sourceValue ? escapeHtml(afr.sourceValue) : `<em class="muted">No value available</em>`}</span>
+        </div>
+        <button type="button" class="pi-approve-btn" data-pi-approve-source="source" data-pi-approve-value="${escapeHtml(afr.sourceValue || "")}"${afr.sourceValue ? "" : " disabled"}>Approve Source Value</button>
+      </div>
+      <div class="pi-source-option">
+        <div class="pi-source-meta">
+          <span class="pi-source-badge">Custom</span>
+          <span class="pi-source-data muted">Type a Brooke-confirmed value</span>
+        </div>
+        <button type="button" class="pi-approve-btn" data-pi-approve-source="custom">Use Custom Value</button>
+      </div>
+    </div>
+    ` : ""}
+
     <form id="projectFactOverrideForm" class="tool-panel project-intelligence-override">
+      <div class="pi-selected-source-banner" id="piSelectedSourceBanner" hidden>
+        Source selected: <strong id="piSelectedSourceLabel">—</strong>
+      </div>
       <div class="grid">
         <label>Field
           <select name="field">
-            ${(selectedProject.fieldReviews || []).map((field) => `<option value="${escapeHtml(field.field)}">${escapeHtml(field.label)}</option>`).join("")}
+            ${(selectedProject.fieldReviews || []).map((fr) => `<option value="${escapeHtml(fr.field)}"${fr.field === activeFieldKey ? " selected" : ""}>${escapeHtml(fr.label)}</option>`).join("")}
           </select>
         </label>
-        <label>Value<input name="value" placeholder="Enter Brooke-reviewed value" /></label>
+        <label>Reviewed value
+          <input name="value" placeholder="Select a source above to populate this field" readonly />
+        </label>
+        <label>Mark schema safe
+          <select name="schemaSafe">
+            <option value="false">No — do not emit in JSON-LD</option>
+            <option value="true">Yes — safe to emit in JSON-LD</option>
+          </select>
+        </label>
         <label>Reviewed by<input name="reviewedBy" value="Brooke" /></label>
-        <label>Schema safe<select name="schemaSafe"><option value="false">No</option><option value="true">Yes</option></select></label>
       </div>
-      <label>Note<textarea name="note" placeholder="Why this value wins and what Brooke confirmed."></textarea></label>
-      <button class="primary" type="submit">Save Manual Override</button>
+      <div id="piCustomValueRow" class="pi-custom-value-row" hidden>
+        <label>Custom value
+          <input id="piCustomValueInput" type="text" placeholder="Enter Brooke-confirmed value" />
+        </label>
+      </div>
+      <label>Review note<textarea name="note" placeholder="Why this value wins and what Brooke confirmed."></textarea></label>
+      <input type="hidden" name="preferredFrom" value="" />
+      ${afr?.overrideValue ? `
+        <div class="pi-existing-override-note">
+          <strong>Existing override:</strong> ${escapeHtml(afr.overrideValue)}
+          <span class="muted"> — saving will replace this value</span>
+        </div>
+      ` : ""}
+      <button class="primary" type="submit" id="piSaveBtn" disabled>Save Manual Override</button>
     </form>
   `;
 
+  // Wire field selector: changing field updates the active field and re-renders source chooser
   const form = document.querySelector("#projectFactOverrideForm");
   if (form) {
-    form.elements.field.value = selectedFieldReview?.field || selectedProject.fieldReviews?.[0]?.field || "";
-    form.elements.value.value = "";
-    form.elements.note.value = "";
-    form.elements.schemaSafe.value = "false";
-    form.querySelectorAll("input, select, textarea").forEach((element) => {
-      element.addEventListener("change", () => {
-        const selectedField = selectedProject.fieldReviews.find((item) => item.field === form.elements.field.value) || selectedProject.fieldReviews?.[0];
-        if (!selectedField) return;
-        if (element.name === "field") {
-          activeProjectIntelligenceField = form.elements.field.value;
-          form.elements.value.value = "";
-          form.elements.note.value = "";
-          form.elements.schemaSafe.value = "false";
-        }
-      });
+    form.elements.field.addEventListener("change", () => {
+      activeProjectIntelligenceField = form.elements.field.value;
+      renderProjectIntelligenceReview();
     });
+
+    // Wire value input: enable save button when a value is present
+    form.elements.value.addEventListener("input", () => {
+      const saveBtn = document.querySelector("#piSaveBtn");
+      if (saveBtn) saveBtn.disabled = !form.elements.value.value.trim();
+    });
+
+    // Wire form submit
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+      const saveBtn = document.querySelector("#piSaveBtn");
+      if (saveBtn) saveBtn.disabled = true;
       const payload = formPayload(form);
       payload.projectSlug = selectedProject.slug;
       show(await postJson("/api/project-fact-override", payload));
@@ -1019,6 +1077,57 @@ function renderProjectIntelligenceReview() {
       activeProjectIntelligenceField = payload.field;
       renderProjectIntelligenceReview();
     }, { once: true });
+  }
+
+  // Wire approve-source buttons
+  detailRoot.querySelectorAll("[data-pi-approve-source]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const source = btn.dataset.piApproveSource;
+      const value = btn.dataset.piApproveValue || "";
+      const approveForm = document.querySelector("#projectFactOverrideForm");
+      const banner = document.querySelector("#piSelectedSourceBanner");
+      const sourceLabel = document.querySelector("#piSelectedSourceLabel");
+      const customRow = document.querySelector("#piCustomValueRow");
+      const customInput = document.querySelector("#piCustomValueInput");
+      const saveBtn = document.querySelector("#piSaveBtn");
+      if (!approveForm) return;
+
+      if (source === "custom") {
+        if (customRow) customRow.hidden = false;
+        approveForm.elements.value.value = "";
+        approveForm.elements.value.readOnly = false;
+        approveForm.elements.value.placeholder = "Enter Brooke-confirmed value";
+        if (customInput) { customInput.value = ""; customInput.focus(); }
+        if (banner) banner.hidden = false;
+        if (sourceLabel) sourceLabel.textContent = "Custom — type value below";
+        if (saveBtn) saveBtn.disabled = true; // wait for user to type
+      } else {
+        if (customRow) customRow.hidden = true;
+        approveForm.elements.value.value = value;
+        approveForm.elements.value.readOnly = true;
+        if (banner) banner.hidden = false;
+        if (sourceLabel) sourceLabel.textContent = source === "public" ? "Public site" : source === "compare" ? "Compare database" : "Source catalog";
+        if (saveBtn) saveBtn.disabled = !value;
+      }
+      approveForm.elements.preferredFrom.value = source;
+
+      // Highlight active approve button
+      detailRoot.querySelectorAll("[data-pi-approve-source]").forEach((b) => b.classList.remove("pi-approve-active"));
+      btn.classList.add("pi-approve-active");
+    });
+  });
+
+  // Wire custom value input → sync to reviewed-value field
+  const customInput = detailRoot.querySelector("#piCustomValueInput");
+  if (customInput) {
+    customInput.addEventListener("input", () => {
+      const approveForm = document.querySelector("#projectFactOverrideForm");
+      const saveBtn = document.querySelector("#piSaveBtn");
+      if (approveForm) {
+        approveForm.elements.value.value = customInput.value;
+        if (saveBtn) saveBtn.disabled = !customInput.value.trim();
+      }
+    });
   }
 }
 

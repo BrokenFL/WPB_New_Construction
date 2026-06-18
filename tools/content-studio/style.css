@@ -120,6 +120,23 @@ dd { margin: 3px 0 0; overflow-wrap: anywhere; }
 .project-intelligence-legend p { margin: 0; }
 .link-button { border: 0; padding: 0; background: transparent; color: var(--accent-dark); font-weight: 800; }
 .project-intelligence-override { margin-top: 10px; }
+.pi-override-cell { background: #f0fff4; border-color: #a8e6ba; }
+.pi-review-instruction { margin: 18px 0 10px; padding: 14px 16px; background: #eef7ff; border: 1px solid #b3d4f0; border-radius: 8px; display: grid; gap: 6px; }
+.pi-review-instruction strong { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: #1a5276; }
+.pi-review-instruction p { margin: 0; font-size: 14px; color: var(--ink); }
+.pi-source-chooser { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 0 0 14px; }
+.pi-source-option { display: grid; gap: 8px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.pi-source-option.pi-no-value { background: #fafafa; opacity: .8; }
+.pi-source-meta { display: grid; gap: 4px; }
+.pi-source-badge { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.pi-source-data { font-size: 14px; color: var(--ink); word-break: break-word; }
+.pi-approve-btn { padding: 7px 12px; font-size: 13px; font-weight: 500; border-radius: 6px; border: 1px solid var(--accent); background: #fff; color: var(--accent-dark); cursor: pointer; transition: background .15s, color .15s; }
+.pi-approve-btn:hover:not(:disabled) { background: var(--accent); color: #fff; }
+.pi-approve-btn:disabled { opacity: .4; cursor: not-allowed; border-color: var(--line); color: var(--muted); }
+.pi-approve-btn.pi-approve-active { background: var(--accent); color: #fff; }
+.pi-selected-source-banner { padding: 8px 12px; background: #e8f8f5; border: 1px solid #a8ddd0; border-radius: 6px; font-size: 13px; margin-bottom: 10px; }
+.pi-custom-value-row { margin: 4px 0 8px; }
+.pi-existing-override-note { padding: 8px 12px; background: #fff9e6; border: 1px solid #f5d87b; border-radius: 6px; font-size: 13px; margin-bottom: 8px; }
 .visual-editor-toolbar { position: sticky; top: 0; z-index: 10; display: grid; grid-template-columns: minmax(160px, 220px) minmax(180px, 1fr) minmax(180px, 1fr) auto auto; align-items: center; gap: 12px; margin: 0 0 16px; padding: 12px 14px; border: 1px solid #cfd9d5; border-left: 5px solid var(--accent); border-radius: 8px; background: #f7faf8; box-shadow: 0 10px 20px rgba(24, 35, 38, 0.04); }
 .visual-editor-toolbar strong { display: block; font-size: 16px; line-height: 1.2; }
 .visual-editor-toolbar label, .visual-editor-toolbar select { margin: 0; }

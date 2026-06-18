@@ -271,6 +271,7 @@ async function saveProjectFactOverride(request, response) {
   overrides.projects[projectSlug][field] = {
     value,
     source: "manual_review",
+    preferredFrom: clean(body.preferredFrom) || "custom",
     reviewedBy: clean(body.reviewedBy || "Brooke") || "Brooke",
     reviewedAt: new Date().toISOString(),
     note: clean(body.note),
