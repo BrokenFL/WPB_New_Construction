@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-18T18:55:12.554Z",
+  "updatedAt": "2026-06-18T19:25:08.173Z",
   "projects": {
     "alba-palm-beach": {
       "address": {
@@ -9,6 +9,15 @@
         "preferredFrom": "public",
         "reviewedBy": "Brooke",
         "reviewedAt": "2026-06-18T18:55:12.554Z",
+        "note": "",
+        "schemaSafe": false
+      },
+      "deliveryTiming": {
+        "value": "2Q 2026",
+        "source": "manual_review",
+        "preferredFrom": "compare",
+        "reviewedBy": "Brooke",
+        "reviewedAt": "2026-06-18T19:25:08.173Z",
         "note": "",
         "schemaSafe": false
       }

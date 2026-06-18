@@ -2,6 +2,15 @@
   "version": 1,
   "entries": [
     {
+      "at": "2026-06-18T19:25:08.177Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "alba-palm-beach",
+        "field": "deliveryTiming",
+        "schemaSafe": false
+      }
+    },
+    {
       "at": "2026-06-18T18:55:12.556Z",
       "action": "project-fact-override",
       "detail": {

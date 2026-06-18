@@ -451,17 +451,45 @@ If `git push origin main` fails, report the exact auth error. Do not pretend the
 
 ### Project Intelligence Review Cockpit
 
-Brooke Builder now includes a local-only Project Intelligence Review cockpit for compare/source/schema conflict review. Use it to review public identity, compare-row conflicts, and schema-safe field gating before any public-facing change is made.
+Brooke Builder includes a local-only Project Intelligence Review cockpit for compare/source/schema conflict review. Use it to review public identity, compare-row conflicts, and schema-safe field gating before any public-facing change is made.
 
-**Access:** open the local Builder at `http://127.0.0.1:8787/` and choose the Project Intelligence workflow. The cockpit is unlinked, noindex, and must not be added to public navigation or sitemap output.
+**Access:** start the local Builder:
 
-**Manual overrides:** Brooke-reviewed overrides live in `content/overrides/project-fact-overrides.json` and are surfaced through the shared project-intelligence resolver without hiding conflicts.
+```bash
+node tools/content-studio/server.mjs
+```
+
+Then open `http://127.0.0.1:8787/` and click **Project Intelligence** in the sidebar. The cockpit is unlinked, noindex, and must not be added to public navigation or sitemap output.
+
+**Server restart rule:** changes to `server.mjs` require restarting the server. Changes to `app.js` and `style.css` are served fresh on every page load — a hard refresh (Cmd+Shift+R) is enough.
+
+**Manual overrides:** Brooke-reviewed overrides live in `content/overrides/project-fact-overrides.json`. The file is written by the Builder's `/api/project-fact-override` endpoint and committed to the repo. Each override records `value`, `source: "manual_review"`, `preferredFrom` (which source Brooke selected), `reviewedBy`, `reviewedAt`, `note`, and `schemaSafe`.
+
+**How to resolve a queue item:**
+
+1. Click any item in the review queue on the left.
+2. The right panel shows the current winner, schema behavior, and recommended action.
+3. Under the conflict table, the **source chooser** shows what every source says for that field.
+4. Click **Approve Public Value**, **Approve Compare Value**, **Approve Source Value**, or **Use Custom Value**.
+5. Disabled buttons mean that source has no value — do not infer a value to fill the gap.
+6. Set **Schema safe** to `Yes` only if Brooke confirms this value is safe for JSON-LD. Default is `No`.
+7. Add a **Review note** (e.g. `"Confirmed via developer email 2026-06-18"`).
+8. Click **Save Manual Override**. The button stays disabled until a value is selected.
+9. After saving, the item disappears from the **All** view and moves to the **Has manual override** filter tab.
+
+**Project Facts — direct update panel:** click **Project Facts** in the sidebar to update any building field without going through the review queue. Use this when Brooke has new information from an external source. Select building, select field, see current source values, type the confirmed value, add a note, save.
+
+**What should never be auto-resolved:**
+- Never fill an override value from AI inference, scraped data, or guesses.
+- Never set `schemaSafe: true` without explicit Brooke confirmation.
+- The compare database is preferred for buyer facts but Brooke must choose it explicitly.
+- Conflicts stay visible after saving an override so Brooke can audit the choice at any time.
 
 **Buyer-fact priority:** for buyer-facing fields, the compare database is the preferred source unless Brooke overrides a value manually.
 
-**Safety QA:** `npm run qa:content-studio` validates local-only builder exposure and accepts safe wrappers that still point to `tools/content-studio/server.mjs`, including `node tools/content-studio/server.mjs` and `node --experimental-strip-types tools/content-studio/server.mjs`.
+**Safety QA:** `npm run qa:content-studio` validates local-only builder exposure.
 
-**Alignment QA:** `npm run qa:project-intelligence` is a warning-only audit that reports public-project, compare-row, and source-catalog mismatches for Brooke review.
+**Alignment QA:** `npm run qa:project-intelligence` is a warning-only audit that reports public-project, compare-row, and source-catalog mismatches for Brooke review. It is expected to report open items — these are real conflicts for Brooke to resolve through the Builder.
 
 ---
 

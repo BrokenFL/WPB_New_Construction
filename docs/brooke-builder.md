@@ -29,8 +29,10 @@ Stop the server with `Control-C` in the Terminal window.
 
 ## Main Tabs
 
-- Site Editor: images, captions, alt text, copy, project updates, team resources, automation status, and build/deploy checks.
-- News Desk: GPT-created article drafts, source links, buyer-facing rewrite fields, publishing queue, review lanes, and newsletter drafts.
+- **Site Editor:** images, captions, alt text, copy, project updates, team resources, automation status, and build/deploy checks.
+- **Project Intelligence:** review queue for compare/source/public-layer conflicts. Click any queue item to see side-by-side source values and approve the correct value as a manual override.
+- **Project Facts:** direct field update — pick any building and any field, see what every source says, and save a Brooke-confirmed override when new information arrives.
+- **News Desk:** GPT-created article drafts, source links, buyer-facing rewrite fields, publishing queue, review lanes, and newsletter drafts.
 
 ## Where Edits Are Saved
 
@@ -44,6 +46,7 @@ Brooke Builder writes structured repo files only:
 - `content/overrides/project-update-overrides.json`
 - `content/overrides/team-resource-overrides.json`
 - `content/overrides/content-studio-change-log.json`
+- `content/overrides/project-fact-overrides.json` (written by Project Intelligence and Project Facts panels)
 - `content/news-drafts.json`
 - `content/newsletter-digest-drafts.json`
 

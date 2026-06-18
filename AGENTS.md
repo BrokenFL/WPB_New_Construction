@@ -93,12 +93,33 @@ Content Studio files:
 - `tools/content-studio/app.js`
 - `tools/content-studio/style.css`
 
-Project Intelligence Review:
+### Brooke Builder — How to open
+
+```bash
+node tools/content-studio/server.mjs
+# then open http://127.0.0.1:8787/
+```
+
+Restart the server after any change to `server.mjs`. `app.js` / `style.css` changes are served fresh on every page load — a hard refresh (Cmd+Shift+R) is enough.
+
+### Project Intelligence Review
 
 - Brooke Builder includes a local-only Project Intelligence Review cockpit for compare/source/schema conflict review.
 - It is unlinked, noindex, and must stay out of public navigation and sitemap output.
 - The shared resolver exposes Brooke-reviewed manual overrides from `content/overrides/project-fact-overrides.json` without hiding conflicts.
-- `qa:content-studio` is a safety check for builder exposure and accepts safe wrappers such as `node tools/content-studio/server.mjs` and `node --experimental-strip-types tools/content-studio/server.mjs`.
+- `qa:content-studio` is a safety check for builder exposure.
+- Full architecture: `docs/project-intelligence-architecture.md`
+
+**Agent rules for PI work:**
+- Do not invent project facts or override values.
+- Do not set `schemaSafe: true` without explicit Brooke confirmation.
+- The compare database is preferred for buyer facts but Brooke must choose it explicitly in the Builder.
+- Overrides are committed to the repo; changelog files are also written and should be committed together with the override file.
+- `qa:project-intelligence` reports open issues as warnings — these are real conflicts for Brooke to resolve. A non-zero issue count is expected and not a code bug.
+
+### Project Facts — Direct Update Panel
+
+A second Builder section (**Project Facts** in the sidebar) lets Brooke update any building field directly when she has new information, without needing to find the item in the review queue. Same `/api/project-fact-override` endpoint, same `project-fact-overrides.json` write target.
 
 Article publishing engine:
 
