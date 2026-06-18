@@ -2,6 +2,24 @@
   "version": 1,
   "entries": [
     {
+      "at": "2026-06-18T18:55:12.556Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "alba-palm-beach",
+        "field": "address",
+        "schemaSafe": false
+      }
+    },
+    {
+      "at": "2026-06-18T18:54:36.595Z",
+      "action": "project-fact-override",
+      "detail": {
+        "projectSlug": "alba-palm-beach",
+        "field": "address",
+        "schemaSafe": false
+      }
+    },
+    {
       "at": "2026-06-09T15:19:49.380Z",
       "action": "manual-article-failed",
       "detail": {
