@@ -384,3 +384,5 @@ If current files contradict this guide, inspect carefully and report the contrad
 - For buyer-facing fields, the compare database is the preferred source unless Brooke overrides a value manually.
 - `qa:content-studio` is a safety check for builder exposure and accepts safe wrappers such as `node tools/content-studio/server.mjs` and `node --experimental-strip-types tools/content-studio/server.mjs`.
 - `qa:project-intelligence` is the warning-only alignment audit that reports public-project, compare-row, and source-catalog mismatches for Brooke review.
+- Article Manager round-trips structured article content for News Updates, Buyer Intelligence, and Downtown Spotlight, preserving sections, bullets, and image placements through load/edit/save/publish/reload.
+- The All Articles view shows published and draft items together for the supported article destinations so Brooke can review every article type from one queue.

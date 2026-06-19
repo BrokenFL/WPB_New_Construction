@@ -419,6 +419,10 @@ If current files contradict this guide, inspect carefully and report the contrad
 
 Article Manager lives inside `tools/content-studio/`. The UI is served by `tools/content-studio/server.mjs`; app files are `tools/content-studio/app.js`, `tools/content-studio/index.html`, and `tools/content-studio/style.css`.
 
+Article Manager now round-trips structured article content across News Updates, Buyer Intelligence, and Downtown Spotlight. That means the Builder can load, review, edit, save, publish, and reload those articles without dropping section structure, bullets, or image placements.
+
+The All Articles view lists published and draft items together for all supported article destinations so Brooke can review News, Buyer Intelligence, and Downtown Spotlight from the same queue.
+
 **Publishing must reuse `research/scripts/article-publish-workflow.mjs`.** Do not create a second publishing pipeline. The existing `/api/manual-article` behavior must remain backward-compatible.
 
 **`.runtime/article-drafts/` must never be committed.** Save Draft must not dirty git. Published articles should be archived, not hard-deleted.
@@ -502,6 +506,8 @@ Then open `http://127.0.0.1:8787/` and click **Project Intelligence** in the sid
 3. Save Draft — writes only to `.runtime/article-drafts/`.
 4. Preview in Site — renders the real article page locally.
 5. **Publish Live** — publishes, commits allowlisted files, pushes, and triggers Cloudflare deploy in one step.
+
+Round-trip behavior applies to all three supported destinations: News Updates, Buyer Intelligence, and Downtown Spotlight.
 
 #### Safer / debug workflow (still available)
 

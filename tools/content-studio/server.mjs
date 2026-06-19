@@ -1215,6 +1215,37 @@ async function runWorkflow(request, response) {
   return sendJson(response, { ok: true, workflow, results, changedFiles: await changedFiles(), nextStep: nextStepForWorkflow(workflow) });
 }
 
+function readTsArray(source, varName) {
+  // Find `export const <varName>[: SomeType] = [`
+  const re = new RegExp(`export\\s+const\\s+${varName}\\s*(?::[^=]+)?=\\s*\\[`);
+  const match = re.exec(source);
+  if (!match) return [];
+  // The match ends with '[', so bracketStart is the last char of the match
+  const bracketStart = match.index + match[0].length - 1;
+  // Walk forward balancing [ { ] } to find the closing ]
+  let depth = 0, end = -1;
+  for (let i = bracketStart; i < source.length; i++) {
+    const ch = source[i];
+    if (ch === "[" || ch === "{") depth++;
+    else if (ch === "]" || ch === "}") { depth--; if (depth === 0) { end = i; break; } }
+  }
+  if (end === -1) return [];
+  // Collect any simple `const X = "..."` or `const X = number` declarations
+  // that appear before the array — the array may reference them by name
+  const preambleLines = [];
+  for (const m of source.slice(0, bracketStart).matchAll(/^(?:export\s+)?const\s+(\w+)\s*=\s*("[^"]*"|'[^']*'|\d[\d.]*)\s*;/gm)) {
+    if (m[1] !== varName) preambleLines.push(`const ${m[1]} = ${m[2]};`);
+  }
+  const arrayText = source.slice(bracketStart, end + 1)
+    .replace(/\s+as\s+const\b/g, "");  // strip "as const" type assertions
+  try {
+    return (new Function(preambleLines.join("\n") + `\nreturn ${arrayText}`))();
+  } catch (e) {
+    console.error(`readTsArray(${varName}) parse error:`, e.message?.slice(0, 160));
+    return [];
+  }
+}
+
 async function readMarketNotes() {
   const source = await fs.readFile(marketNotesSourcePath, "utf8").catch(() => "");
   if (!source) return [];
