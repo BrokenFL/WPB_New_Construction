@@ -1,4 +1,4 @@
-export type MarketNoteStatus = "draft" | "ready-for-review" | "published" | "needs-refresh";
+export type MarketNoteStatus = "draft" | "ready-for-review" | "published" | "needs-refresh" | "archived";
 
 export type MarketNoteSource = {
   label: string;

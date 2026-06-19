@@ -2489,7 +2489,8 @@ function amConfirmArchive(btn) {
     const result = await postJson("/api/article/archive", { id, destination: dest, confirmArchive: true, confirmRemote: state?.remote?.isRemote === true });
     show(result);
     if (result.ok) {
-      amSetSaveStatus("Article archived", true);
+      const note = result.deployNote || (result.deployed ? "Committed, pushed, deploying…" : "Archived locally");
+      amSetSaveStatus(`Archived · ${note}`, true);
       await amLoadList();
     } else {
       confirm.innerHTML = `<span class="am-status-error">Error: ${escapeHtml(result.error || "failed")}</span>`;
@@ -2551,7 +2552,8 @@ function amConfirmDeletePublished(btn) {
     });
     show(result);
     if (result.ok) {
-      amSetSaveStatus("Article deleted", true);
+      const note = result.deployNote || (result.deployed ? "Committed, pushed, deploying…" : "Deleted locally");
+      amSetSaveStatus(`Deleted · ${note}`, true);
       await amLoadList();
     } else {
       confirm.innerHTML = `<span class="am-status-error">Error: ${escapeHtml(result.error || "failed")}</span>`;

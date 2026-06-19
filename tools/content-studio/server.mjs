@@ -911,7 +911,11 @@ async function archiveArticle(request, response) {
   newsRaw[index] = { ...newsRaw[index], status: "archived" };
   await fs.writeFile(approvedNewsPath, `${JSON.stringify(newsRaw, null, 2)}\n`);
   await logChange("article-archived", { id, destination, title });
-  return sendJson(response, { ok: true, id, status: "archived", changedFiles: await changedFiles() });
+  const deployResult = await autoCommitAndPush(
+    `Archive news article: ${title}\n\nGenerated with Devin\n\nCo-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>`,
+    [approvedNewsPath, path.join(workspace, "content/overrides/content-studio-change-log.json")],
+  );
+  return sendJson(response, { ok: true, id, status: "archived", deployed: deployResult.ok, deployNote: deployResult.reason || (deployResult.pushed ? "Committed and pushed — deploy triggered" : deployResult.error), changedFiles: await changedFiles() });
 }
 
 async function deletePublishedArticle(request, response) {
@@ -940,7 +944,11 @@ async function deletePublishedArticle(request, response) {
     newsRaw.splice(index, 1);
     await fs.writeFile(approvedNewsPath, `${JSON.stringify(newsRaw, null, 2)}\n`);
     await logChange("article-deleted", { id, destination, title });
-    return sendJson(response, { ok: true, id, deleted: true, changedFiles: await changedFiles() });
+    const deployResult = await autoCommitAndPush(
+      `Delete news article: ${title}\n\nGenerated with Devin\n\nCo-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>`,
+      [approvedNewsPath, path.join(workspace, "content/overrides/content-studio-change-log.json")],
+    );
+    return sendJson(response, { ok: true, id, deleted: true, deployed: deployResult.ok, deployNote: deployResult.pushed ? "Committed and pushed — deploy triggered" : (deployResult.error || deployResult.reason), changedFiles: await changedFiles() });
   }
 
   // Buyer / Downtown Spotlight: set status: "archived" in marketNotes.ts
@@ -970,7 +978,11 @@ async function deletePublishedArticle(request, response) {
   const updatedSource = source.slice(0, objStart) + updatedObj + source.slice(objEnd + 1);
   await fs.writeFile(marketNotesSourcePath, updatedSource);
   await logChange("article-deleted", { id, destination, title, method: "archived-in-source" });
-  return sendJson(response, { ok: true, id, deleted: true, archived: true, changedFiles: await changedFiles() });
+  const deployResult = await autoCommitAndPush(
+    `Delete ${destination} article: ${title}\n\nGenerated with Devin\n\nCo-Authored-By: Devin <158243242+devin-ai-integration[bot]@users.noreply.github.com>`,
+    [marketNotesSourcePath, path.join(workspace, "content/overrides/content-studio-change-log.json")],
+  );
+  return sendJson(response, { ok: true, id, deleted: true, archived: true, deployed: deployResult.ok, deployNote: deployResult.pushed ? "Committed and pushed — deploy triggered" : (deployResult.error || deployResult.reason), changedFiles: await changedFiles() });
 }
 
 async function createSitePreview(request, response) {
@@ -1723,6 +1735,7 @@ async function logNewsDraftAction(action, detail) {
 const articleCommitAllowlist = [
   "research/news-review/approved-development-news.json",
   "src/data/approvedExternalNews.ts",
+  "src/data/marketNotes.ts",
   "src/generated/siteData.ts",
   "public/data/news-feed.json",
   "public/feed.json",
@@ -1730,7 +1743,21 @@ const articleCommitAllowlist = [
   "public/llms.txt",
   "public/sitemap.xml",
   "public/assets/editorial",
+  "content/overrides/change-log.json",
+  "content/overrides/content-studio-change-log.json",
 ];
+
+async function autoCommitAndPush(commitMessage, filesToCommit) {
+  const addResult = await run("git", ["add", "--", ...filesToCommit]);
+  if (addResult.code !== 0) return { ok: false, error: `git add failed: ${addResult.stderr.slice(0, 200)}` };
+  const staged = await run("git", ["diff", "--cached", "--name-only"]);
+  if (!staged.stdout.trim()) return { ok: true, committed: false, pushed: false, reason: "Nothing changed" };
+  const commitResult = await run("git", ["commit", "-m", commitMessage]);
+  if (commitResult.code !== 0) return { ok: false, error: `git commit failed: ${commitResult.stderr.slice(0, 200)}` };
+  const pushResult = await run("git", ["push", "origin", "main"]);
+  if (pushResult.code !== 0) return { ok: false, error: `git push failed: ${pushResult.stderr.slice(0, 200)}` };
+  return { ok: true, committed: true, pushed: true };
+}
 
 function isInArticleAllowlist(filePath) {
   for (const allowed of articleCommitAllowlist) {
