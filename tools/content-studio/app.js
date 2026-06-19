@@ -41,6 +41,7 @@ const uploadTargetBySection = {
 async function loadState() {
   state = await fetchJson("/api/state");
   projectSelect.innerHTML = state.projects.map((project) => `<option value="${project.id}">${escapeHtml(project.name)}</option>`).join("");
+  populatePageSelector();
   fillCopyForm();
   renderTopStatus();
   renderStatusCards();
@@ -57,6 +58,7 @@ async function loadState() {
   renderProjectIntelligenceReview();
   renderFactUpdater();
   updateBuilderContext();
+  syncEditorPanels();
 }
 
 function activeProjectId() {
@@ -168,6 +170,8 @@ bindForm("#copyPanel", "/api/project-copy", (payload) => ({ ...payload, projectI
 bindForm("#pageCopyPanel", "/api/page-copy", (payload) => ({ ...payload, projectId: activeProjectId() }));
 bindForm("#homepagePanel", "/api/homepage-overrides");
 bindHomepageCardForm();
+bindProjectEditorForm();
+waitForViteAndLoad();
 bindForm("#captionPanel", "/api/image-caption", (payload) => ({ ...payload, projectId: activeProjectId() }));
 bindForm("#updatePanel", "/api/project-update", (payload) => ({ ...payload, projectId: activeProjectId() }));
 bindForm("#teamPanel", "/api/team-resource", (payload) => ({ ...payload, projectId: activeProjectId() }));
@@ -417,7 +421,9 @@ function setVisualMode(mode) {
   activeVisualMode = mode === "preview" ? "preview" : "edit";
   document.querySelector("#editModeButton")?.classList.toggle("active", activeVisualMode === "edit");
   document.querySelector("#previewModeButton")?.classList.toggle("active", activeVisualMode === "preview");
-  renderLivePagePreview();
+  // In preview mode, expand the iframe to fill the full canvas width; in edit mode restore side panel
+  document.querySelector("#visualEditorShell")?.classList.toggle("preview-only-mode", activeVisualMode === "preview");
+  syncEditorPanels();
 }
 
 document.querySelectorAll("[data-position-preset]").forEach((button) => {
@@ -544,169 +550,263 @@ document.querySelectorAll("[data-device-preview]").forEach((button) => {
   });
 });
 
+// ─── Real-site iframe preview ─────────────────────────────────────────────────
+
+/** Navigate the site preview iframe to the URL matching the current visual page. */
 function renderLivePagePreview() {
-  if (!state?.homepageCards) return;
-  const previewRoot = document.querySelector("#pagePreview");
-  if (!previewRoot) return;
-  const notice = document.querySelector("#visualPageNotice");
-  if (notice) notice.hidden = activeVisualPage === "homepage";
-  previewRoot.className = `page-preview-shell visual-page-preview device-${activePreviewDevice} mode-${activeVisualMode}`;
-  if (activeVisualPage !== "homepage") {
-    previewRoot.innerHTML = comingNextPreview(activeVisualPage);
+  const iframe = document.querySelector("#sitePreviewIframe");
+  if (!iframe) return;
+  const url = visualPageUrl();
+  if (iframe.src !== url) iframe.src = url;
+  updateOpenLivePageLink(url);
+  syncEditorPanels();
+}
+
+/** Return the Vite dev server URL for the currently selected visual page. */
+function visualPageUrl() {
+  const base = state?.viteDevUrl || "http://localhost:5174";
+  if (activeVisualPage === "homepage") return `${base}/`;
+  if (activeVisualPage === "updates") return `${base}/updates/`;
+  if (activeVisualPage === "guidance") return `${base}/answers/`;
+  if (activeVisualPage === "floorplans") return `${base}/floorplans/`;
+  if (activeVisualPage === "corridors") return `${base}/corridors/north-flagler/`;
+  if (activeVisualPage.startsWith("project:")) return `${base}/projects/${activeVisualPage.slice(8)}/`;
+  return `${base}/`;
+}
+
+function updateOpenLivePageLink(url) {
+  const link = document.querySelector("#openLivePage, #previewHomepage");
+  if (link) link.href = url;
+  const cardLink = document.querySelector("#homepagePreviewLink");
+  if (cardLink) cardLink.href = url;
+}
+
+/** Show the correct editor side panel for the active visual page. */
+function syncEditorPanels() {
+  const isHomepage = activeVisualPage === "homepage";
+  const isProject = activeVisualPage.startsWith("project:");
+  document.querySelector("#homepageCardPanel")?.toggleAttribute("hidden", !isHomepage);
+  document.querySelector("#projectEditorPanel")?.toggleAttribute("hidden", !isProject);
+  document.querySelector("#previewOnlyPanel")?.toggleAttribute("hidden", isHomepage || isProject);
+  if (isProject) renderProjectEditor(activeVisualPage.slice(8));
+}
+
+/** Poll Vite readiness and hide the loading overlay once the iframe responds. */
+async function waitForViteAndLoad() {
+  const overlay = document.querySelector("#viteLoadingOverlay");
+  const iframe = document.querySelector("#sitePreviewIframe");
+  if (!overlay || !iframe) return;
+
+  const viteStatus = await fetchJson("/api/vite-status").catch(() => ({ ready: false }));
+  if (viteStatus.ready) {
+    overlay.hidden = true;
+    renderLivePagePreview();
     return;
   }
-  previewRoot.innerHTML = `<div class="site-preview-frame">${sitePreviewMarkup()}</div>`;
-  previewRoot.querySelectorAll("[data-preview-section]").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      if (activeVisualMode !== "edit") return;
-      const focusField = event.target?.dataset?.inlineField || "";
-      activeHomepageCard = { sectionId: button.dataset.previewSection, cardId: button.dataset.previewCard };
-      renderHomepageCardEditor();
-      if (focusField) document.querySelector(`#homepageCardPanel [name="${focusField}"]`)?.focus();
-    });
-    button.addEventListener("dragover", (event) => {
-      if (activeVisualMode !== "edit") return;
-      event.preventDefault();
-      button.classList.add("is-drop-target");
-    });
-    button.addEventListener("dragleave", () => button.classList.remove("is-drop-target"));
-    button.addEventListener("drop", async (event) => {
-      event.preventDefault();
-      button.classList.remove("is-drop-target");
-      if (activeVisualMode !== "edit") return;
-      await handleVisualImageDrop(event.dataTransfer.files[0], button.dataset.previewSection, button.dataset.previewCard);
-    });
+  // Poll until ready (max 45 s)
+  let attempts = 0;
+  const poll = setInterval(async () => {
+    attempts++;
+    if (attempts > 22) { clearInterval(poll); overlay.querySelector("span").textContent = "Site preview failed to start. Restart Content Studio."; return; }
+    const s = await fetchJson("/api/vite-status").catch(() => ({ ready: false }));
+    if (s.ready) {
+      clearInterval(poll);
+      overlay.hidden = true;
+      renderLivePagePreview();
+    }
+  }, 2000);
+}
+
+/** Dynamically add project page options into the page selector. */
+function populatePageSelector() {
+  const select = document.querySelector("#visualPageSelect");
+  if (!select || !state?.projects?.length) return;
+  // Remove any previously added project options
+  select.querySelectorAll("optgroup[data-projects]").forEach((g) => g.remove());
+  const group = document.createElement("optgroup");
+  group.label = "Project pages";
+  group.dataset.projects = "1";
+  for (const project of state.projects) {
+    const opt = document.createElement("option");
+    opt.value = `project:${project.id}`;
+    opt.textContent = project.name;
+    group.append(opt);
+  }
+  select.append(group);
+}
+
+// ─── Project page editor ──────────────────────────────────────────────────────
+
+/** Fill the project editor form from the current state for a given projectId. */
+function renderProjectEditor(projectId) {
+  const project = (state.projects ?? []).find((p) => p.id === projectId);
+  if (!project) return;
+  const overrides = state.overrides?.editorProjectOverrides?.[projectId] ?? {};
+  const form = document.querySelector("#projectEditorPanel");
+  if (!form) return;
+  form.elements.projectId.value = projectId;
+  document.querySelector("#projectEditorTitle").textContent = project.name;
+  // Populate image picker
+  populateImageSelect(document.querySelector("#projectImageSelect"), overrides.image || project.image || "");
+  // Fill text fields — blank means "use source default"
+  const fields = ["name", "status", "delivery", "deliveryYear", "residences", "price", "address", "summary"];
+  for (const field of fields) {
+    if (form.elements[field]) form.elements[field].value = overrides[field] ?? "";
+  }
+  document.querySelector("#projectEditorStatus").textContent = "";
+  document.querySelector("#commitVisualChanges").disabled = true;
+  document.querySelector("#preCommitResults").hidden = true;
+}
+
+function bindProjectEditorForm() {
+  const form = document.querySelector("#projectEditorPanel");
+  if (!form) return;
+
+  // Save override
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const status = document.querySelector("#projectEditorStatus");
+    status.textContent = "Saving…";
+    const payload = {
+      projectId: form.elements.projectId.value,
+      name: form.elements.name.value,
+      status: form.elements.status.value,
+      delivery: form.elements.delivery.value,
+      deliveryYear: form.elements.deliveryYear.value ? Number(form.elements.deliveryYear.value) : undefined,
+      residences: form.elements.residences.value,
+      price: form.elements.price.value,
+      address: form.elements.address.value,
+      summary: form.elements.summary.value,
+      image: document.querySelector("#projectImageSelect")?.value || "",
+    };
+    const result = await postJson("/api/visual-editor/save-project-override", payload);
+    if (result.ok) {
+      status.textContent = "Saved. Vite will hot-reload the preview in a moment.";
+      await loadState();
+    } else {
+      status.textContent = `Error: ${result.error}`;
+    }
   });
+
+  // Revert override
+  document.querySelector("#revertProjectOverride")?.addEventListener("click", async () => {
+    const projectId = form.elements.projectId.value;
+    if (!projectId) return;
+    const status = document.querySelector("#projectEditorStatus");
+    status.textContent = "Reverting…";
+    const result = await postJson("/api/visual-editor/save-project-override", { projectId, revert: true });
+    if (result.ok) {
+      status.textContent = "Reverted to source defaults.";
+      await loadState();
+      renderProjectEditor(projectId);
+    } else {
+      status.textContent = `Error: ${result.error}`;
+    }
+  });
+
+  // Hero image drop zone
+  const dropZone = document.querySelector("#projectImageDropZone");
+  const dropFile = document.querySelector("#projectImageDropFile");
+  if (dropZone) {
+    dropZone.addEventListener("dragover", (e) => { e.preventDefault(); dropZone.classList.add("is-drop-target"); });
+    dropZone.addEventListener("dragleave", () => dropZone.classList.remove("is-drop-target"));
+    dropZone.addEventListener("drop", async (e) => {
+      e.preventDefault(); dropZone.classList.remove("is-drop-target");
+      const file = e.dataTransfer.files[0];
+      if (file) await uploadProjectHeroImage(file, form.elements.projectId.value);
+    });
+  }
+  if (dropFile) dropFile.addEventListener("change", async (e) => {
+    const file = e.target.files[0];
+    if (file) await uploadProjectHeroImage(file, form.elements.projectId.value);
+  });
+
+  // Pre-commit check
+  document.querySelector("#runPreCommitCheck")?.addEventListener("click", runPreCommitChecks);
+
+  // Commit
+  document.querySelector("#commitVisualChanges")?.addEventListener("click", commitVisualEditorChanges);
 }
 
-function sitePreviewMarkup() {
-  return `
-    ${visualHeroSection()}
-    ${visualMapSection()}
-    ${visualCardSection("corridors", "Choose a corridor", "Compare the locations that shape the buyer experience.", "visual-corridor-grid")}
-    ${visualCardSection("updates", "Latest development updates", "Source-backed movement across West Palm Beach new construction.", "visual-news-grid")}
-    ${visualCardSection("guidance", "Buyer guidance", "Practical notes for comparing buildings, timelines, and tradeoffs.", "visual-guidance-grid")}
-    ${visualCardSection("featuredBuildings", "Featured buildings", "A curated look at the projects buyers ask about first.", "visual-building-grid")}
-    ${visualCtaSection()}
-  `;
+async function uploadProjectHeroImage(file, projectId) {
+  if (!file) return;
+  const statusEl = document.querySelector("#projectEditorStatus");
+  statusEl.textContent = "Uploading and optimizing image…";
+  const reader = new FileReader();
+  reader.onload = async (e) => {
+    const dataUrl = e.target.result;
+    const result = await postJson("/api/upload-image", {
+      dataUrl,
+      targetType: "projectHero",
+      projectId,
+      slug: `${projectId}-hero-${Date.now()}`,
+    });
+    if (result.ok) {
+      // Update form image selector to new path
+      const select = document.querySelector("#projectImageSelect");
+      if (select) {
+        const opt = document.createElement("option");
+        opt.value = result.entry.path;
+        opt.textContent = result.entry.path;
+        select.append(opt);
+        select.value = result.entry.path;
+      }
+      statusEl.textContent = `Image uploaded: ${result.entry.path}`;
+    } else {
+      statusEl.textContent = `Upload error: ${result.error}`;
+    }
+  };
+  reader.readAsDataURL(file);
 }
 
-function comingNextPreview(pageId) {
-  const label = pageId.charAt(0).toUpperCase() + pageId.slice(1);
-  return `
-    <div class="site-preview-frame">
-      <section class="visual-coming-next-page">
-        <strong>${escapeHtml(label)}</strong>
-        <p>Visual editing for this page is coming next. Homepage is ready for direct visual editing now.</p>
-        <button data-go-tab="site" data-go-section="advanced" type="button">Open Advanced Editor</button>
-      </section>
+// ─── Pre-commit check + commit ────────────────────────────────────────────────
+
+async function runPreCommitChecks() {
+  const resultsEl = document.querySelector("#preCommitResults");
+  const commitBtn = document.querySelector("#commitVisualChanges");
+  const statusEl = document.querySelector("#projectEditorStatus");
+  if (!resultsEl) return;
+  statusEl.textContent = "Running checks…";
+  resultsEl.hidden = false;
+  resultsEl.innerHTML = `<p class="muted">Running checks&hellip;</p>`;
+  commitBtn.disabled = true;
+
+  const result = await postJson("/api/visual-editor/pre-commit-check", {});
+  if (!result.ok) {
+    resultsEl.innerHTML = `<p class="error">Check failed: ${escapeHtml(result.error || "Unknown error")}</p>`;
+    statusEl.textContent = "";
+    return;
+  }
+
+  const rows = result.checks.map((c) => `
+    <div class="pre-commit-check-row ${c.pass ? "pass" : "fail"}">
+      <span class="check-status">${c.pass ? "✓" : "✗"}</span>
+      <span class="check-name">${escapeHtml(c.name)}</span>
+      <span class="check-detail">${escapeHtml(c.detail || "")}</span>
     </div>
-  `;
+  `).join("");
+  resultsEl.innerHTML = rows;
+  statusEl.textContent = result.allPass ? "All checks passed — ready to commit." : "Fix issues above before committing.";
+  commitBtn.disabled = !result.allPass;
 }
 
-function visualHeroSection() {
-  const card = (state.homepageCards?.hero ?? [])[0] || {};
-  const item = previewItem("hero", card);
-  const imagePosition = item.imagePosition || "center center";
-  const objectFit = item.objectFit || "cover";
-  return `
-    <section class="site-section visual-hero-section">
-      <button class="${hotspotClass("hero", card.id)}" data-preview-section="hero" data-preview-card="${escapeHtml(card.id || "hero")}" type="button">
-        <span class="hotspot-label">Hero image</span>
-        ${builderImage(item.imagePath || heroFallbackImage(), item.alt || item.headline || "West Palm Beach waterfront skyline", { style: `object-position:${imagePosition};object-fit:${objectFit}` })}
-        <span class="visual-hero-copy">
-          <small>WPB New Construction</small>
-          <strong data-inline-field="headline">${escapeHtml(item.headline || card.title || "West Palm Beach new construction, compared carefully")}</strong>
-          <em data-inline-field="deck">${escapeHtml(item.deck || item.subhead || card.deck || "Compare buildings, corridors, timing, and buyer-fit notes before you tour.")}</em>
-        </span>
-      </button>
-    </section>
-  `;
-}
-
-function visualMapSection() {
-  const card = (state.homepageCards?.map ?? [])[0] || {};
-  const item = previewItem("map", card);
-  return `
-    <section class="site-section visual-map-section">
-      <div>
-        <span class="section-kicker">Map</span>
-        <h2>Where the new buildings are clustering</h2>
-        <p>Use the map as the orientation point before comparing individual buildings and corridors.</p>
-      </div>
-      <button class="${hotspotClass("map", card.id)}" data-preview-section="map" data-preview-card="${escapeHtml(card.id || "homepage-map")}" type="button">
-        <span class="hotspot-label">Map preview</span>
-        ${builderImage(item.imagePath || "/assets/editorial/wpb-geography-map-hero.jpg", item.alt || "West Palm Beach new construction map preview", {})}
-      </button>
-    </section>
-  `;
-}
-
-function visualCardSection(sectionId, heading, subhead, gridClass) {
-  const cards = state.homepageCards?.[sectionId] ?? [];
-  return `
-    <section class="site-section visual-list-section visual-${escapeHtml(sectionId)}">
-      <div class="visual-section-head">
-        <span class="section-kicker">${escapeHtml(homepageSectionLabels[sectionId] || sectionId)}</span>
-        <h2>${escapeHtml(heading)}</h2>
-        <p>${escapeHtml(subhead)}</p>
-      </div>
-      <div class="${escapeHtml(gridClass)}">
-        ${cards.slice(0, sectionId === "featuredBuildings" ? 6 : 4).map((card, index) => visualCard(sectionId, card, index)).join("")}
-      </div>
-    </section>
-  `;
-}
-
-function visualCard(sectionId, card, index) {
-  const item = previewItem(sectionId, card);
-  const label = previewCardLabel(sectionId, card, index);
-  const imagePosition = item.imagePosition || "center center";
-  const objectFit = item.objectFit || "cover";
-  const imagePath = item.imagePath || sectionFallbackImage(sectionId, index);
-  return `
-    <button class="${hotspotClass(sectionId, card.id)}" data-preview-section="${escapeHtml(sectionId)}" data-preview-card="${escapeHtml(card.id)}" type="button">
-      <span class="hotspot-label">${escapeHtml(label)}</span>
-      ${builderImage(imagePath, item.alt || item.headline || item.title || label, { style: `object-position:${imagePosition};object-fit:${objectFit}` })}
-      <span class="visual-card-copy">
-        <strong data-inline-field="headline">${escapeHtml(item.headline || item.title || label)}</strong>
-        <em data-inline-field="deck">${escapeHtml(item.deck || item.subhead || card.deck || "Draft preview")}</em>
-        <small>${escapeHtml(item.caption || item.ctaLabel || defaultCtaLabel(sectionId))}</small>
-      </span>
-    </button>
-  `;
-}
-
-function visualCtaSection() {
-  const card = (state.homepageCards?.cta ?? [])[0] || {};
-  const item = previewItem("cta", card);
-  return `
-    <section class="site-section visual-cta-section">
-      <button class="${hotspotClass("cta", card.id)}" data-preview-section="cta" data-preview-card="${escapeHtml(card.id || "bottom-cta")}" type="button">
-        <span class="hotspot-label">CTA</span>
-        <strong data-inline-field="headline">${escapeHtml(item.headline || "Want the shortlist before you tour?")}</strong>
-        <span data-inline-field="deck">${escapeHtml(item.deck || item.subhead || card.deck || "Send Brooke your criteria and get a focused read on the buildings that actually fit.")}</span>
-        <em>${escapeHtml(item.ctaLabel || "Compare my options")}</em>
-      </button>
-    </section>
-  `;
-}
-
-function previewItem(sectionId, card) {
-  const form = document.querySelector("#homepageCardPanel");
-  const savedOverride = state.overrides.homepageCards?.sections?.[sectionId]?.cards?.[card.id] ?? {};
-  const isSelected = activeHomepageCard.sectionId === sectionId && activeHomepageCard.cardId === card.id;
-  const liveDraft = isSelected && form ? draftFromForm(card, savedOverride) : {};
-  return { ...card, ...savedOverride, ...liveDraft };
-}
-
-function hotspotClass(sectionId, cardId) {
-  const selected = activeHomepageCard.sectionId === sectionId && activeHomepageCard.cardId === cardId;
-  return `visual-hotspot ${selected ? "is-selected" : ""}`;
-}
-
-function heroFallbackImage() {
-  return (state.homepageCards?.featuredBuildings ?? []).find((card) => card.imagePath)?.imagePath || "/assets/editorial/flagler-waterfront-corridor.jpg";
+async function commitVisualEditorChanges() {
+  const statusEl = document.querySelector("#projectEditorStatus");
+  const commitBtn = document.querySelector("#commitVisualChanges");
+  statusEl.textContent = "Committing and pushing…";
+  commitBtn.disabled = true;
+  const result = await postJson("/api/visual-editor/commit", {
+    commitMessage: "Visual Editor: update site content via Content Studio",
+  });
+  if (result.ok) {
+    statusEl.textContent = result.pushed
+      ? "Committed and pushed — deploy triggered."
+      : "Committed locally (push skipped — no changes staged).";
+    document.querySelector("#preCommitResults").hidden = true;
+  } else {
+    statusEl.textContent = `Commit error: ${result.error}`;
+    commitBtn.disabled = false;
+  }
 }
 
 function sectionFallbackImage(sectionId, index = 0) {

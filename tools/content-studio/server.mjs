@@ -2,6 +2,7 @@ import http from "node:http";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { spawn } from "node:child_process";
+import sharp from "sharp";
 import { syncEditorOverrides } from "../../research/scripts/sync-editor-overrides.mjs";
 import { newsletterDraftsPath, readDraftStore, readJsonFile as readNewsJsonFile, writeDraftStore } from "../../research/scripts/news-draft-utils.mjs";
 import { buildProjectIntelligenceReviewQueue, getProjectIntelligence } from "../../src/lib/projectIntelligence.ts";
@@ -14,6 +15,10 @@ const legacyEditorOverridesPath = path.join(workspace, "research/content-editor/
 const changeLogPath = path.join(overridesRoot, "change-log.json");
 const builderChangeLogPath = path.join(overridesRoot, "content-studio-change-log.json");
 const port = Number(process.env.WPB_CONTENT_STUDIO_PORT ?? 8787);
+const viteDevPort = Number(process.env.WPB_VITE_PORT ?? 5174);
+const viteDevUrl = `http://localhost:${viteDevPort}`;
+let viteReady = false;
+let viteProcess = null;
 const launchAgentRoot = path.join(process.env.HOME ?? "", "Library/LaunchAgents");
 const articleDraftsRoot = path.join(workspace, ".runtime", "article-drafts");
 const articlePreviewLogPath = path.join(workspace, ".runtime", "article-preview-log.json");
@@ -108,6 +113,10 @@ async function main() {
       if (request.method === "GET" && url.pathname === "/api/article/site-preview") return getSitePreview(request, response, url);
       if (request.method === "GET" && url.pathname.startsWith("/api/article/site-preview-asset/")) return serveSitePreviewAsset(request, response, url);
       if (request.method === "POST" && url.pathname === "/api/article/commit-staged") return commitStagedArticle(request, response);
+      if (request.method === "GET" && url.pathname === "/api/vite-status") return sendJson(response, { ok: true, ready: viteReady, url: viteDevUrl, port: viteDevPort });
+      if (request.method === "POST" && url.pathname === "/api/visual-editor/save-project-override") return saveVisualProjectOverride(request, response);
+      if (request.method === "POST" && url.pathname === "/api/visual-editor/pre-commit-check") return visualEditorPreCommitCheck(request, response);
+      if (request.method === "POST" && url.pathname === "/api/visual-editor/commit") return visualEditorCommit(request, response);
       return sendText(response, "Not found", 404);
     } catch (error) {
       return sendJson(response, { ok: false, error: error.message }, 500);
@@ -117,22 +126,66 @@ async function main() {
   server.listen(port, "127.0.0.1", () => {
     console.log(`Brooke Builder running at http://127.0.0.1:${port}`);
     console.log("Local editorial tool only. Review Git diff before publishing.");
+    startViteDev();
   });
+
+  function startViteDev() {
+    const viteBin = path.resolve(workspace, "node_modules/vite/bin/vite.js");
+    viteProcess = spawn(process.execPath, [viteBin, "--port", String(viteDevPort), "--strictPort"], {
+      cwd: workspace,
+      env: { ...process.env },
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    viteProcess.stdout?.on("data", (chunk) => {
+      const text = String(chunk);
+      if (text.includes("ready") || text.includes("localhost")) {
+        viteReady = true;
+        console.log(`Vite dev server ready at ${viteDevUrl}`);
+      }
+    });
+    viteProcess.stderr?.on("data", () => {});
+    viteProcess.on("error", (err) => console.error("Vite dev server error:", err.message));
+    viteProcess.on("close", (code) => {
+      viteReady = false;
+      if (code !== 0 && code !== null) console.error(`Vite dev server exited (code ${code})`);
+    });
+    // Poll until Vite responds (up to 30 s), then mark ready even if stdout didn't confirm
+    const startTime = Date.now();
+    const pollVite = () => {
+      if (viteReady || Date.now() - startTime > 30000) return;
+      http.get(`${viteDevUrl}/`, (res) => {
+        if (res.statusCode && res.statusCode < 500) { viteReady = true; console.log(`Vite dev server ready at ${viteDevUrl}`); }
+        else setTimeout(pollVite, 2000);
+      }).on("error", () => setTimeout(pollVite, 2000));
+    };
+    setTimeout(pollVite, 3000);
+  }
+
+  const shutdown = () => {
+    if (viteProcess) { viteProcess.kill(); viteProcess = null; }
+    process.exit(0);
+  };
+  process.on("SIGINT", shutdown);
+  process.on("SIGTERM", shutdown);
 }
 
 async function state(request) {
   const remote = remoteContext(request);
+  const liveBase = "https://www.wpbnewconstruction.com";
+  const localBase = remote.isRemote ? liveBase : viteDevUrl;
   return {
     ok: true,
     remote,
-    assetBaseUrl: remote.isRemote ? "https://www.wpbnewconstruction.com" : "",
+    viteDevUrl: remote.isRemote ? null : viteDevUrl,
+    viteReady,
+    assetBaseUrl: remote.isRemote ? liveBase : "",
     previewUrls: {
-      homepage: remote.isRemote ? "https://www.wpbnewconstruction.com/" : "http://127.0.0.1:5173/",
-      updates: remote.isRemote ? "https://www.wpbnewconstruction.com/updates/" : "http://127.0.0.1:5173/updates/",
-      guidance: remote.isRemote ? "https://www.wpbnewconstruction.com/answers/" : "http://127.0.0.1:5173/answers/",
-      market: remote.isRemote ? "https://www.wpbnewconstruction.com/market-notes/" : "http://127.0.0.1:5173/market-notes/",
-      floorplans: remote.isRemote ? "https://www.wpbnewconstruction.com/floorplans/" : "http://127.0.0.1:5173/floorplans/",
-      projectBase: remote.isRemote ? "https://www.wpbnewconstruction.com/projects/" : "http://127.0.0.1:5173/projects/",
+      homepage: `${localBase}/`,
+      updates: `${localBase}/updates/`,
+      guidance: `${localBase}/answers/`,
+      market: `${localBase}/market-notes/`,
+      floorplans: `${localBase}/floorplans/`,
+      projectBase: `${localBase}/projects/`,
     },
     projects: await readProjects(),
     overrides: await readAllOverrides(),
@@ -1554,11 +1607,12 @@ async function imageUsageCounts(imagePaths) {
 
 async function imageDimensions(filePath) {
   if (/\.svg$/i.test(filePath)) return "";
-  const result = await run("sips", ["-g", "pixelWidth", "-g", "pixelHeight", filePath]);
-  if (result.code !== 0) return "";
-  const width = result.stdout.match(/pixelWidth:\s*(\d+)/)?.[1];
-  const height = result.stdout.match(/pixelHeight:\s*(\d+)/)?.[1];
-  return width && height ? `${width}x${height}` : "";
+  try {
+    const meta = await sharp(filePath).metadata();
+    return meta.width && meta.height ? `${meta.width}x${meta.height}` : "";
+  } catch {
+    return "";
+  }
 }
 
 function imageMetadata(imagePath, uploadedEntry) {
@@ -1731,6 +1785,137 @@ async function logNewsDraftAction(action, detail) {
     // draft action log is best-effort
   }
 }
+
+// ─── Visual Editor endpoints ──────────────────────────────────────────────────
+
+const visualEditorCommitAllowlist = [
+  "research/content-editor/site-overrides.json",
+  "src/generated/editorOverrides.ts",
+  "content/overrides/homepage-card-overrides.json",
+  "content/overrides/homepage-overrides.json",
+  "content/overrides/content-studio-change-log.json",
+  "public/assets/editorial",
+  "public/projects",
+];
+
+/** Save a single project override and regenerate editorOverrides.ts. */
+async function saveVisualProjectOverride(request, response) {
+  const body = await readJson(request);
+  const projectId = slug(body.projectId);
+  if (!projectId) return sendJson(response, { ok: false, error: "projectId is required" }, 400);
+
+  const allowedFields = ["name", "status", "delivery", "deliveryYear", "residences", "price", "image", "summary", "pageState", "address"];
+  const override = {};
+  for (const field of allowedFields) {
+    if (body[field] !== undefined && body[field] !== "") {
+      override[field] = field === "deliveryYear" ? Number(body[field]) : clean(body[field]);
+    }
+  }
+
+  // Read current overrides, update this project, write back
+  const { readEditorOverrides, writeEditorOverrides } = await import("../../research/scripts/sync-editor-overrides.mjs");
+  const current = await readEditorOverrides();
+  current.projects = current.projects ?? {};
+  if (body.revert) {
+    delete current.projects[projectId];
+  } else {
+    current.projects[projectId] = { ...(current.projects[projectId] ?? {}), ...override };
+  }
+  await writeEditorOverrides(current);
+  await logChange("visual-editor-project-override", { projectId, fields: Object.keys(override) });
+  return sendJson(response, { ok: true, projectId, override: current.projects[projectId] ?? null });
+}
+
+/** Run typecheck + qa:content-studio + image size checks. */
+async function visualEditorPreCommitCheck(request, response) {
+  const checks = [];
+
+  // Check 1: typecheck
+  const tsCheck = await run("npm", ["run", "typecheck", "--silent"]);
+  checks.push({
+    name: "TypeScript typecheck",
+    pass: tsCheck.code === 0,
+    detail: tsCheck.code !== 0 ? tsCheck.stdout.slice(0, 600) + tsCheck.stderr.slice(0, 200) : "No errors",
+  });
+
+  // Check 2: qa:content-studio
+  const qaCheck = await run("npm", ["run", "qa:content-studio", "--silent"]);
+  let qaPass = qaCheck.code === 0;
+  let qaDetail = "pass";
+  try {
+    const parsed = JSON.parse(qaCheck.stdout.trim().split("\n").pop() ?? "{}");
+    qaPass = parsed.contentStudioSafety === "pass";
+    qaDetail = parsed.contentStudioSafety ?? qaCheck.stdout.slice(0, 300);
+  } catch { qaDetail = qaCheck.stdout.slice(0, 300); }
+  checks.push({ name: "Content studio safety (qa:content-studio)", pass: qaPass, detail: qaDetail });
+
+  // Check 3: image file size — scan all images in visual editor allowlist paths
+  const imagePaths = [];
+  for (const allow of visualEditorCommitAllowlist) {
+    if (!allow.startsWith("public/")) continue;
+    const dir = path.join(workspace, allow);
+    const dirStat = await fs.stat(dir).catch(() => null);
+    if (!dirStat?.isDirectory()) continue;
+    const entries = await fs.readdir(dir, { recursive: true }).catch(() => []);
+    for (const entry of entries) {
+      if (/\.(jpe?g|png|webp)$/i.test(entry)) imagePaths.push(path.join(dir, entry));
+    }
+  }
+  const oversized = [];
+  for (const imgPath of imagePaths) {
+    const stat = await fs.stat(imgPath).catch(() => null);
+    if (stat && stat.size > IMAGE_MAX_BYTES) {
+      oversized.push({ path: path.relative(workspace, imgPath), sizeKB: Math.round(stat.size / 1024) });
+    }
+  }
+  checks.push({
+    name: "Image file sizes (≤750 KB each)",
+    pass: oversized.length === 0,
+    detail: oversized.length === 0 ? "All images within limit" : oversized.map((f) => `${f.path} (${f.sizeKB} KB)`).join(", "),
+  });
+
+  const allPass = checks.every((c) => c.pass);
+  return sendJson(response, { ok: true, allPass, checks });
+}
+
+/** Commit and push visual editor changes after pre-commit check passes. */
+async function visualEditorCommit(request, response) {
+  const body = await readJson(request);
+  const remote = remoteContext(request);
+  if (remote.isRemote && !body.confirmRemote) {
+    return sendJson(response, { ok: false, error: "Remote commit requires confirmRemote: true" }, 400);
+  }
+
+  // Verify nothing outside the allowlist is dirty
+  const status = await run("git", ["status", "--short"]);
+  const dirtyFiles = status.stdout.split("\n")
+    .filter(Boolean)
+    .map((line) => { const m = line.match(/^..\s+(.*)/); return m ? m[1].trim() : line.trim(); });
+
+  const disallowed = dirtyFiles.filter((f) => !visualEditorCommitAllowlist.some((allow) =>
+    allow.endsWith("/") ? f.startsWith(allow) : (f === allow || f.startsWith(`${allow}/`))
+  ));
+  if (disallowed.length > 0) {
+    return sendJson(response, {
+      ok: false,
+      error: `Cannot commit — unrelated dirty files: ${disallowed.join(", ")}. Clean them first.`,
+      disallowed,
+    }, 400);
+  }
+
+  const filesToCommit = dirtyFiles.filter((f) => visualEditorCommitAllowlist.some((allow) =>
+    allow.endsWith("/") ? f.startsWith(allow) : (f === allow || f.startsWith(`${allow}/`))
+  ));
+  if (!filesToCommit.length) return sendJson(response, { ok: false, error: "No visual editor changes to commit." }, 400);
+
+  const commitMessage = clean(body.commitMessage) || "Visual Editor: update site content via Content Studio";
+  const result = await autoCommitAndPush(commitMessage, filesToCommit);
+  if (!result.ok) return sendJson(response, result, 500);
+  await logChange("visual-editor-commit", { files: filesToCommit, message: commitMessage });
+  return sendJson(response, { ok: true, committed: result.committed, pushed: result.pushed, files: filesToCommit });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 const articleCommitAllowlist = [
   "research/news-review/approved-development-news.json",
@@ -2089,11 +2274,22 @@ function validatePublicFields(body, fields) {
   return fields.flatMap((field) => forbidden.test(clean(body[field])) ? [`${field} contains a backend/admin phrase.`] : []);
 }
 
+const IMAGE_MAX_BYTES = 750 * 1024; // 750 KB hard limit
+
 async function optimizeImage(inputPath, outputPath, maxWidth) {
-  const result = await run("sips", ["-s", "format", "jpeg", "-Z", String(maxWidth), inputPath, "--out", outputPath]);
-  if (result.code !== 0) {
-    await fs.copyFile(inputPath, outputPath);
+  const inputBuf = await fs.readFile(inputPath);
+  const outputBuf = await sharp(inputBuf)
+    .rotate()
+    .resize({ width: maxWidth, withoutEnlargement: true, fit: "inside" })
+    .jpeg({ quality: 82, mozjpeg: true })
+    .toBuffer();
+  if (outputBuf.length > IMAGE_MAX_BYTES) {
+    throw new Error(
+      `Optimized image is ${Math.round(outputBuf.length / 1024)} KB, which exceeds the 750 KB limit. ` +
+      `Try a smaller source image, reduce resolution, or crop tighter.`
+    );
   }
+  await fs.writeFile(outputPath, outputBuf);
 }
 
 function maxWidthFor(targetType) {

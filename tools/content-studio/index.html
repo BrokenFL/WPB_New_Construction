@@ -101,11 +101,13 @@
               <span class="muted">Editing page</span>
               <select id="visualPageSelect" aria-label="Editing page">
                 <option value="homepage">Homepage</option>
-                <option value="updates">Updates</option>
-                <option value="guidance">Guidance</option>
-                <option value="projects">Projects</option>
-                <option value="floorplans">Floorplans</option>
-                <option value="corridors">Corridors</option>
+                <optgroup label="Page types">
+                  <option value="updates">Updates feed</option>
+                  <option value="guidance">Buyer guidance / Answers</option>
+                  <option value="floorplans">Floorplans</option>
+                  <option value="corridors">Corridors</option>
+                </optgroup>
+                <!-- Project options injected by app.js after state loads -->
               </select>
             </div>
             <div>
@@ -123,17 +125,25 @@
                 <button id="previewModeButton" type="button">Preview</button>
               </div>
             </div>
-            <a id="previewHomepage" href="http://127.0.0.1:5173/" target="_blank" rel="noreferrer">Open live page</a>
+            <a id="previewHomepage" href="#" id="openLivePage" target="_blank" rel="noreferrer">Open live page</a>
           </div>
 
           <div id="visualEditorShell" class="visual-editor-shell">
-            <section class="visual-canvas-wrap" aria-label="Homepage visual editor">
-              <div id="visualPageNotice" class="coming-next" hidden>
-                <strong>Visual editing coming next</strong>
-                <span>Homepage is fully visual today. Use Advanced Editor for detailed edits on this page.</span>
+            <!-- Real site iframe preview -->
+            <section class="visual-canvas-wrap" aria-label="Visual editor site preview">
+              <div id="viteLoadingOverlay" class="vite-loading-overlay">
+                <span>Starting site preview&hellip;</span>
+                <small>Vite dev server is warming up. This takes a few seconds on first load.</small>
               </div>
-              <div id="pagePreview" class="page-preview-shell visual-page-preview"></div>
+              <iframe
+                id="sitePreviewIframe"
+                class="site-preview-iframe"
+                title="Live site preview"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+              ></iframe>
             </section>
+
+            <!-- Homepage card editor (shown when editing homepage) -->
             <form id="homepageCardPanel" class="tool-panel card-edit-panel">
               <input name="sectionId" type="hidden" />
               <input name="cardId" type="hidden" />
@@ -195,10 +205,58 @@
               <div class="card-actions">
                 <button data-card-action="draft" type="submit">Save Draft</button>
                 <button data-card-action="approved" class="primary" type="submit">Approve Override</button>
-                <a class="button-link" href="http://127.0.0.1:5173/" target="_blank" rel="noreferrer">Preview Page</a>
+                <a class="button-link" id="homepagePreviewLink" href="#" target="_blank" rel="noreferrer">Preview Page</a>
                 <button data-go-tab="site" data-go-section="automation" type="button">Update Site</button>
               </div>
             </form>
+
+            <!-- Project page editor (shown when editing a project) -->
+            <form id="projectEditorPanel" class="tool-panel project-edit-panel" hidden>
+              <input name="projectId" type="hidden" />
+              <div class="selected-card-heading">
+                <div>
+                  <span class="muted">Editing project</span>
+                  <strong id="projectEditorTitle">Select a project</strong>
+                </div>
+                <button id="revertProjectOverride" type="button">Revert to Source</button>
+              </div>
+              <div class="visual-drop-box" id="projectImageDropZone">
+                <span>Replace hero image</span>
+                <strong>Drag image here</strong>
+                <small>Auto-converted to JPEG, max 2200px wide, 750 KB limit.</small>
+                <input id="projectImageDropFile" type="file" accept="image/*" />
+              </div>
+              <div class="grid">
+                <label>Choose existing image<select name="image" id="projectImageSelect"></select></label>
+                <label>Status<select name="status">
+                  <option value="">— source default —</option>
+                  <option value="Active Sales">Active Sales</option>
+                  <option value="Under Construction">Under Construction</option>
+                  <option value="Announced / Planned">Announced / Planned</option>
+                  <option value="Completed">Completed</option>
+                </select></label>
+                <label>Delivery<input name="delivery" placeholder="e.g. Q3 2026" /></label>
+                <label>Delivery year<input name="deliveryYear" type="number" min="2020" max="2040" placeholder="2026" /></label>
+                <label>Residences<input name="residences" placeholder="e.g. 194 units" /></label>
+                <label>Price from<input name="price" placeholder="e.g. $850K" /></label>
+                <label>Address<input name="address" placeholder="e.g. 1 N Flagler Dr" /></label>
+              </div>
+              <label>Display name<input name="name" placeholder="Override project display name" /></label>
+              <label>Summary (card deck)<textarea name="summary" rows="3" placeholder="Short buyer-facing summary shown on homepage and building cards."></textarea></label>
+              <div id="projectEditorStatus" class="save-status" aria-live="polite"></div>
+              <div class="card-actions">
+                <button id="saveProjectOverride" class="primary" type="submit">Save Override</button>
+                <button id="runPreCommitCheck" type="button">Run Checks</button>
+                <button id="commitVisualChanges" type="button" disabled>Commit &amp; Push</button>
+              </div>
+              <div id="preCommitResults" class="pre-commit-results" hidden></div>
+            </form>
+
+            <!-- Generic "preview only" panel for non-editable pages -->
+            <div id="previewOnlyPanel" class="tool-panel preview-only-panel" hidden>
+              <p class="muted">This page is view-only in the Visual Editor. Select <strong>Homepage</strong> or a <strong>Project</strong> to edit content.</p>
+              <p class="muted">To edit articles, use the <strong>Article Manager</strong> tab.</p>
+            </div>
           </div>
         </section>
 
