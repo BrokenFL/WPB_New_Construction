@@ -1850,6 +1850,9 @@ function amRenderFilteredList() {
   el.querySelectorAll("[data-am-archive]").forEach((btn) => {
     btn.addEventListener("click", () => amConfirmArchive(btn));
   });
+  el.querySelectorAll("[data-am-delete-published]").forEach((btn) => {
+    btn.addEventListener("click", () => amConfirmDeletePublished(btn));
+  });
   el.querySelectorAll("[data-am-delete-draft]").forEach((btn) => {
     btn.addEventListener("click", () => amConfirmDeleteDraft(btn));
   });
@@ -1872,8 +1875,8 @@ function amRenderArticleRow(a) {
   const editDataAttr = a.isDraft
     ? `data-am-edit="${escapeHtml(a.id)}" data-dest="${escapeHtml(a.destination)}" data-draft-id="${escapeHtml(a.draftId || "")}"`
     : `data-am-edit="${escapeHtml(a.id)}" data-dest="${escapeHtml(a.destination)}"`;
-  const archiveBtn = (!a.isDraft && a.status === "published" && a.destination === "news")
-    ? `<button class="am-row-action am-danger-action" data-am-archive="${escapeHtml(a.id)}" data-dest="${escapeHtml(a.destination)}" type="button">Archive</button>`
+  const archiveBtn = (!a.isDraft && a.status === "published")
+    ? `<button class="am-row-action am-danger-action" data-am-delete-published="${escapeHtml(a.id)}" data-dest="${escapeHtml(a.destination)}" type="button">Delete</button>`
     : "";
   const deleteBtn = a.isDraft
     ? `<button class="am-row-action am-danger-action" data-am-delete-draft="${escapeHtml(a.draftId || a.id)}" data-dest="${escapeHtml(a.destination)}" type="button">Delete</button>`
@@ -2514,6 +2517,41 @@ function amConfirmDeleteDraft(btn) {
     show(result);
     if (result.ok) {
       amSetSaveStatus("Draft deleted", true);
+      await amLoadList();
+    } else {
+      confirm.innerHTML = `<span class="am-status-error">Error: ${escapeHtml(result.error || "failed")}</span>`;
+    }
+  });
+}
+
+function amConfirmDeletePublished(btn) {
+  const id = btn.dataset.amDeletePublished;
+  const dest = btn.dataset.dest;
+  const row = btn.closest(".am-article-row");
+  if (!row) return;
+  const existing = row.querySelector(".am-inline-confirm");
+  if (existing) { existing.remove(); return; }
+  const confirm = document.createElement("div");
+  confirm.className = "am-inline-confirm";
+  const destNote = (dest === "news")
+    ? "This news article will be permanently removed."
+    : "This article will be archived and hidden from the site.";
+  confirm.innerHTML = `<span>${escapeHtml(destNote)}</span>
+    <button type="button" class="am-confirm-yes">Delete</button>
+    <button type="button" class="am-confirm-cancel">Cancel</button>`;
+  row.querySelector(".am-row-actions")?.appendChild(confirm);
+  confirm.querySelector(".am-confirm-cancel")?.addEventListener("click", () => confirm.remove());
+  confirm.querySelector(".am-confirm-yes")?.addEventListener("click", async () => {
+    confirm.innerHTML = "<span>Deleting…</span>";
+    const result = await postJson("/api/article/delete", {
+      id,
+      destination: dest,
+      confirmDelete: true,
+      confirmRemote: state?.remote?.isRemote === true,
+    });
+    show(result);
+    if (result.ok) {
+      amSetSaveStatus("Article deleted", true);
       await amLoadList();
     } else {
       confirm.innerHTML = `<span class="am-status-error">Error: ${escapeHtml(result.error || "failed")}</span>`;

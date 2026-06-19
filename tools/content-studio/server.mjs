@@ -98,6 +98,7 @@ async function main() {
       if (request.method === "GET" && url.pathname === "/api/article") return getArticle(request, response, url);
       if (request.method === "POST" && url.pathname === "/api/article/save-draft") return saveArticleDraft(request, response);
       if (request.method === "POST" && url.pathname === "/api/article/archive") return archiveArticle(request, response);
+      if (request.method === "POST" && url.pathname === "/api/article/delete") return deletePublishedArticle(request, response);
       if (request.method === "POST" && url.pathname === "/api/article/delete-draft") return deleteArticleDraft(request, response);
       if (request.method === "POST" && url.pathname === "/api/article/preview") return previewArticle(request, response);
       if (request.method === "POST" && url.pathname === "/api/article/publish") return publishManualArticle(request, response);
@@ -911,6 +912,65 @@ async function archiveArticle(request, response) {
   await fs.writeFile(approvedNewsPath, `${JSON.stringify(newsRaw, null, 2)}\n`);
   await logChange("article-archived", { id, destination, title });
   return sendJson(response, { ok: true, id, status: "archived", changedFiles: await changedFiles() });
+}
+
+async function deletePublishedArticle(request, response) {
+  const body = await readJson(request);
+  const remote = remoteContext(request);
+  if (!body.confirmDelete) {
+    return sendJson(response, { ok: false, error: "confirmDelete: true is required to delete an article." }, 400);
+  }
+  if (remote.isRemote && body.confirmRemote !== true) {
+    return sendJson(response, { ok: false, error: "Remote Builder Mode requires the remote confirmation checkbox before deleting." }, 400);
+  }
+  const destination = clean(body.destination || "news");
+  const id = clean(body.id || "");
+  if (!id) return sendJson(response, { ok: false, error: "id is required" }, 400);
+  if (!["news", "buyer", "downtown"].includes(destination)) {
+    return sendJson(response, { ok: false, error: `Unsupported destination: ${destination}` }, 422);
+  }
+
+  // News articles: hard-delete from approved-development-news.json
+  if (destination === "news") {
+    const newsRaw = await readJsonFile(approvedNewsPath, []);
+    if (!Array.isArray(newsRaw)) return sendJson(response, { ok: false, error: "Could not read news articles" }, 500);
+    const index = newsRaw.findIndex((item) => item.id === id || item.slug === id);
+    if (index === -1) return sendJson(response, { ok: false, error: `Article not found: ${id}` }, 404);
+    const title = newsRaw[index].title;
+    newsRaw.splice(index, 1);
+    await fs.writeFile(approvedNewsPath, `${JSON.stringify(newsRaw, null, 2)}\n`);
+    await logChange("article-deleted", { id, destination, title });
+    return sendJson(response, { ok: true, id, deleted: true, changedFiles: await changedFiles() });
+  }
+
+  // Buyer / Downtown Spotlight: set status: "archived" in marketNotes.ts
+  const source = await fs.readFile(marketNotesSourcePath, "utf8").catch(() => "");
+  if (!source) return sendJson(response, { ok: false, error: "Could not read marketNotes.ts" }, 500);
+  // Find the object containing this id
+  const safeId = id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const idMatch = new RegExp(`id:\\s*"${safeId}"`).exec(source);
+  if (!idMatch) return sendJson(response, { ok: false, error: `Article not found in market notes: ${id}` }, 404);
+  // Walk back to the enclosing {
+  let objStart = idMatch.index;
+  while (objStart > 0 && source[objStart] !== "{") objStart--;
+  // Walk forward to the matching }
+  let depth = 0, objEnd = objStart;
+  for (let i = objStart; i < source.length; i++) {
+    if (source[i] === "{") depth++;
+    else if (source[i] === "}") { depth--; if (depth === 0) { objEnd = i; break; } }
+  }
+  const objText = source.slice(objStart, objEnd + 1);
+  const titleMatch = /title:\s*"([^"]+)"/.exec(objText);
+  const title = titleMatch?.[1] || id;
+  // Replace the status value within this object only
+  const updatedObj = objText.replace(/\bstatus:\s*"[^"]*"/, 'status: "archived"');
+  if (updatedObj === objText) {
+    return sendJson(response, { ok: false, error: `Could not update status for article: ${id} (status field not found or already archived)` }, 422);
+  }
+  const updatedSource = source.slice(0, objStart) + updatedObj + source.slice(objEnd + 1);
+  await fs.writeFile(marketNotesSourcePath, updatedSource);
+  await logChange("article-deleted", { id, destination, title, method: "archived-in-source" });
+  return sendJson(response, { ok: true, id, deleted: true, archived: true, changedFiles: await changedFiles() });
 }
 
 async function createSitePreview(request, response) {
