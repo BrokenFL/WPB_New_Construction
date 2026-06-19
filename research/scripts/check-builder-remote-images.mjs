@@ -16,8 +16,9 @@ async function main() {
   assert(app.includes("console.warn('Builder thumbnail failed'"), "Broken Builder thumbnails must log a warning.");
   assert(app.includes("placeholderImageSvg"), "Empty image paths must render a placeholder instead of a broken src.");
   assert(app.includes("mode === \"remote\"") && app.includes("assetBaseUrl.replace"), "Remote image mode must prefix public-site image URLs.");
-  assert(app.includes("visualHeroSection") && app.includes("sitePreviewMarkup"), "Remote image QA must cover the Visual Editor homepage renderer.");
-  assert(app.includes("sectionFallbackImage"), "Visual Editor must provide fallback images for cards without explicit imagery.");
+  // Visual Editor now uses a real Vite dev server iframe — no client-side HTML rendering or fallback images needed.
+  // Assert the iframe approach is in place instead.
+  assert(app.includes("sitePreviewIframe") && app.includes("visualPageUrl"), "Visual Editor must use the real-site iframe (sitePreviewIframe + visualPageUrl).");
   assert(!app.includes('src="${escapeHtml(imagePath)}"'), "Builder must not render raw image paths into img src.");
   assert(!/\/(?:Users|Volumes)\//.test(html), "Builder HTML must not contain local filesystem image paths.");
   assert(pkg.scripts?.["qa:builder-remote-images"] === "node research/scripts/check-builder-remote-images.mjs", "qa:builder-remote-images script is missing.");
