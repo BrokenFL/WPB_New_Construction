@@ -376,13 +376,65 @@ Before making changes:
 
 If current files contradict this guide, inspect carefully and report the contradiction before changing behavior.
 
-## 13. Project Intelligence And Builder Update
+## 13. Content Studio / Builder — Current State (updated 2026-06-19)
 
-- Brooke Builder now includes a local-only Project Intelligence Review cockpit for compare/source/schema conflict review.
+This section mirrors `docs/AI_PROJECT_GUIDE.md` section 13. Read that file for full workflow detail.
+
+### Project Intelligence and Project Facts
+
+- Brooke Builder includes a local-only Project Intelligence Review cockpit for compare/source/schema conflict review.
 - The cockpit is unlinked, noindex, and must not be added to public navigation or sitemap output.
-- The shared resolver exposes Brooke-reviewed manual overrides from `content/overrides/project-fact-overrides.json` without hiding conflicts.
+- Manual overrides live in `content/overrides/project-fact-overrides.json` (written by `/api/project-fact-override`).
 - For buyer-facing fields, the compare database is the preferred source unless Brooke overrides a value manually.
-- `qa:content-studio` is a safety check for builder exposure and accepts safe wrappers such as `node tools/content-studio/server.mjs` and `node --experimental-strip-types tools/content-studio/server.mjs`.
-- `qa:project-intelligence` is the warning-only alignment audit that reports public-project, compare-row, and source-catalog mismatches for Brooke review.
-- Article Manager round-trips structured article content for News Updates, Buyer Intelligence, and Downtown Spotlight, preserving sections, bullets, and image placements through load/edit/save/publish/reload.
-- The All Articles view shows published and draft items together for the supported article destinations so Brooke can review every article type from one queue.
+- `qa:content-studio` is a safety check for builder exposure.
+- `qa:project-intelligence` is a warning-only audit that reports real conflicts for Brooke review. A non-zero issue count is not a code bug.
+- **Project Facts** panel in the sidebar lets Brooke update any building field directly without the review queue.
+
+### Article Manager — All Articles View
+
+Article Manager round-trips structured content for News Updates, Buyer Intelligence, and Downtown Spotlight. The All Articles view shows all three destinations together (18 articles as of 2026-06-19: 6 news, 8 buyer, 4 downtown).
+
+Market notes (`src/data/marketNotes.ts`) are loaded by `readTsArray()` in `server.mjs`. Do not add comment-stripping logic that removes `//` globally — it would corrupt URL strings inside the data.
+
+### Article Manager — Delete Published Articles
+
+A **Delete** button now appears on every published article row.
+
+- **News** → hard-deletes from `research/news-review/approved-development-news.json`
+- **Buyer / Downtown** → sets `status: "archived"` in `src/data/marketNotes.ts` via targeted string replace
+
+`MarketNoteStatus` includes `"archived"`. Typecheck is clean.
+
+### Auto-Deploy on Delete / Archive / Publish
+
+| Action | Auto-commit+push | Deploy |
+|---|---|---|
+| Delete article (any destination) | Yes | Yes |
+| Archive article (news) | Yes | Yes |
+| New / edited article → Publish Live | Yes | Yes |
+| Save Draft / Import Draft | Never | Never |
+
+Deploy is triggered by `git push` → GitHub Actions `deploy-cloudflare-pages.yml`. No `gh` CLI required.
+
+### Article Commit Allowlist (current)
+
+```
+research/news-review/approved-development-news.json
+src/data/approvedExternalNews.ts
+src/data/marketNotes.ts
+src/generated/siteData.ts
+public/data/news-feed.json
+public/feed.json / public/rss.xml / public/llms.txt / public/sitemap.xml
+public/assets/editorial/
+content/overrides/change-log.json
+content/overrides/content-studio-change-log.json
+```
+
+### Recent confirmed commits
+
+```
+2d91cde  Auto-commit+push on delete/archive; add MarketNoteStatus archived
+cd04625  Add Delete button for all published articles in Article Manager
+dd9b516  Fix All Articles view crash: implement readTsArray for market notes
+094cb12  (prior) Project Facts panel + PI docs update
+```

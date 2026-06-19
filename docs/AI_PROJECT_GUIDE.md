@@ -654,6 +654,99 @@ Buyer Intelligence uses the same Article Manager workflow and publishing pipelin
 
 ---
 
+### Article Manager Updates (2026-06-19)
+
+#### All Articles view — market notes now load
+
+The All Articles view previously crashed the server with `ReferenceError: readTsArray is not defined`. This is fixed.
+
+The server now reads `src/data/marketNotes.ts` using a `readTsArray(source, varName)` function:
+
+1. Finds the exported array by name using a regex (`export const <varName>[: Type] = [`).
+2. Extracts the balanced `[...]` block by walking the source character-by-character.
+3. Collects any simple top-level `const X = "..."` declarations before the array that the array references by name (e.g. `articleCta`).
+4. Evaluates the result as a JavaScript expression via `new Function()`.
+
+**Critical implementation rule:** `readTsArray` must NOT strip `// line comments` with a naive `replace(/\/\/[^\n]*/g, "")` regex. That regex also matches the `//` inside URLs (`https://...`) inside string literals, corrupting the parse. The current implementation strips only `as const` type assertions, which is safe.
+
+All 3 article destinations now appear in the All Articles queue:
+- News: 6 articles (from `research/news-review/approved-development-news.json`)
+- Buyer Intelligence: 8 articles (from `src/data/marketNotes.ts`)
+- Downtown Spotlight: 4 articles (from `src/data/marketNotes.ts`)
+
+#### Delete Published Articles (2026-06-19)
+
+A **Delete** button now appears on every published article row in the All Articles view.
+
+| Destination | What Delete does | Reversible? |
+|---|---|---|
+| News | Removes entry from `research/news-review/approved-development-news.json` | Yes — re-import from GitHub issues |
+| Buyer Intelligence | Sets `status: "archived"` in `src/data/marketNotes.ts` via targeted string replace | Yes — change status back |
+| Downtown Spotlight | Same as Buyer Intelligence | Yes |
+
+Server endpoint: `POST /api/article/delete`
+
+Required body fields: `{ id, destination, confirmDelete: true }`. Remote Builder Mode also requires `confirmRemote: true`.
+
+The targeted string replace for market notes finds the object by `id`, walks to its enclosing `{...}`, and replaces only the `status: "..."` within that object — file structure and formatting are fully preserved.
+
+`MarketNoteStatus` type union includes `"archived"` as of 2026-06-19. Typecheck is clean.
+
+**On the "archive not hard-delete" rule:** This still applies to `marketNotes.ts` because hard-deleting a TypeScript array entry reliably would require serializing the whole file from scratch. The archive-in-source approach is safe and reversible. News articles use hard-delete because they can be re-imported from their GitHub issue source.
+
+#### Auto-commit, push, and deploy on delete/archive (2026-06-19)
+
+After a successful delete or archive the server automatically calls `autoCommitAndPush()`:
+
+1. Stages only the specific files that were modified.
+2. Commits with a descriptive message.
+3. Pushes to `origin main`.
+4. The push triggers `.github/workflows/deploy-cloudflare-pages.yml` automatically — **no `gh` CLI is required**.
+
+The status bar in the Article Manager shows `Deleted · Committed and pushed — deploy triggered` on success, or the specific error if any step fails.
+
+**Complete action → deploy table:**
+
+| Action | Auto-commit+push | Deploy triggered |
+|---|---|---|
+| Delete article (any destination) | Yes | Yes |
+| Archive article (news) | Yes | Yes |
+| New article → Publish Live | Yes | Yes |
+| Edit article → Publish Live | Yes | Yes |
+| Save Draft | Never | Never |
+| Import Package → Create Draft | Never | Never |
+
+#### Expanded article commit allowlist (as of 2026-06-19)
+
+```
+research/news-review/approved-development-news.json
+src/data/approvedExternalNews.ts
+src/data/marketNotes.ts                               ← added 2026-06-19
+src/generated/siteData.ts
+public/data/news-feed.json
+public/feed.json
+public/rss.xml
+public/llms.txt
+public/sitemap.xml
+public/assets/editorial/
+content/overrides/change-log.json                     ← added 2026-06-19
+content/overrides/content-studio-change-log.json      ← added 2026-06-19
+```
+
+Publish Live refuses if any dirty file is not in this list.
+
+#### Recent confirmed commits (2026-06-19)
+
+```
+2d91cde  Auto-commit+push on delete/archive; add MarketNoteStatus archived
+cd04625  Add Delete button for all published articles in Article Manager
+dd9b516  Fix All Articles view crash: implement readTsArray for market notes
+```
+
+All three deployed successfully via GitHub Actions → Cloudflare Pages.
+
+---
+
 ### 2026-06-10 Article Manager Phase 1 Verification
 
 Phase 1 Article Manager is installed inside `tools/content-studio/`.
@@ -678,10 +771,15 @@ Phase 1 Article Manager is installed inside `tools/content-studio/`.
 
 After server-side Content Studio changes, restart `npm run content:studio`. The running server process does not automatically reload `server.mjs`.
 
+**Previously deferred — now complete (as of 2026-06-19):**
+
+- Buyer/Downtown existing article listing and editing ✓
+- Delete published articles for all destinations ✓
+- Auto-commit+push+deploy on delete/archive ✓
+
 **Still deferred:**
 
-- Buyer/Downtown existing article listing and editing
-- `marketNotes.ts` source migration
+- `marketNotes.ts` source migration to JSON
 - Real-template preview through `src/main.ts`
 - Full Media Manager
 

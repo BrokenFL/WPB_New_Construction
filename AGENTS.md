@@ -177,9 +177,35 @@ Article Manager now round-trips structured article content for News Updates, Buy
 
 **Templates** include a `siteContext.relationshipGuidance` object that explains corridor definitions, project tagging rules, and buyer-context writing guidance.
 
+### All Articles View — market notes
+
+The All Articles view shows published and draft items for all three destinations: News Updates, Buyer Intelligence, and Downtown Spotlight. Market notes (`src/data/marketNotes.ts`) are loaded by the `readTsArray()` function in `server.mjs`.
+
+**`readTsArray` implementation rules:**
+- Extracts the balanced `[...]` block for a named export from a TypeScript source file.
+- Collects simple top-level `const` declarations before the array (e.g. `articleCta`) and injects them into the eval scope.
+- Strips only `as const` type assertions — safe to remove.
+- **Must NOT strip `//` comments with a naive regex** — that would also cut URLs (`https://...`) inside string literals, corrupting the parse. The comment-stripping line was removed for this reason.
+
+### Delete Published Articles
+
+A **Delete** button appears on every published article row in All Articles.
+
+| Destination | What Delete does |
+|---|---|
+| News | Hard-deletes from `research/news-review/approved-development-news.json` |
+| Buyer Intelligence | Sets `status: "archived"` in `src/data/marketNotes.ts` via targeted string replace |
+| Downtown Spotlight | Same as Buyer Intelligence |
+
+The UI shows an inline confirmation with a destination-specific message before any write occurs. Both actions require `confirmDelete: true` in the POST body.
+
+`MarketNoteStatus` includes `"archived"` as a valid value — typecheck is clean.
+
+Note on the "archive, not hard-delete" rule: this applies to the TypeScript source (`marketNotes.ts`) where hard-delete would require rewriting the entire file. News articles use hard-delete because they can be re-imported from GitHub issues. Both behaviors are correct.
+
 ### Publish Live (One-Click Deploy)
 
-**Publish Live** is the preferred one-click flow for ready articles:
+**Publish Live** is the preferred one-click flow for new and edited articles:
 
 1. Review the article in **Preview in Site**.
 2. Check the confirmation boxes (Publish, Deploy).
@@ -189,15 +215,56 @@ The system will:
 - Run the article publish workflow (`article-publish-workflow.mjs`).
 - Commit only allowlisted article output files.
 - Push to `origin main`.
-- Trigger the GitHub Actions Cloudflare Pages deploy workflow (`deploy-cloudflare-pages.yml`).
-- Return the commit hash, GitHub Actions run URL, deploy status, and live article URL.
-
-This should remove the need for manual terminal deploy commands after publishing.
+- Trigger the GitHub Actions Cloudflare Pages deploy workflow via `git push` (no `gh` CLI required).
+- Return the commit hash, deploy status, and live article URL.
 
 **Safer/debug workflow still exists:**
 - **Stage Files Locally** — writes generated files for review without committing.
 - **Commit Staged Article Changes** — commits and pushes allowlisted files only.
 - **Publish From Clean State** — commits and pushes without triggering deploy.
+
+### Auto-Deploy on Delete / Archive
+
+Delete and Archive actions automatically commit, push, and deploy — no terminal needed.
+
+After a successful delete or archive, `autoCommitAndPush()` in `server.mjs`:
+1. Stages only the affected files.
+2. Commits with a descriptive message.
+3. Pushes to `origin main`.
+4. Push triggers `.github/workflows/deploy-cloudflare-pages.yml` automatically (workflow fires on every push to `main`).
+
+The status bar shows `Deleted · Committed and pushed — deploy triggered` on success.
+
+**Action summary:**
+
+| Action | Auto-commit+push | Deploy |
+|---|---|---|
+| Delete (any destination) | Yes | Yes |
+| Archive (news) | Yes | Yes |
+| New article → Publish Live | Yes | Yes |
+| Edit article → Publish Live | Yes | Yes |
+| Save Draft | Never | Never |
+
+### Article Commit Allowlist (current)
+
+Files that may be committed by the Article Manager (Publish Live, Delete, Archive):
+
+```
+research/news-review/approved-development-news.json
+src/data/approvedExternalNews.ts
+src/data/marketNotes.ts
+src/generated/siteData.ts
+public/data/news-feed.json
+public/feed.json
+public/rss.xml
+public/llms.txt
+public/sitemap.xml
+public/assets/editorial/
+content/overrides/change-log.json
+content/overrides/content-studio-change-log.json
+```
+
+Publish Live will refuse if any dirty file is **not** in this list.
 
 **Safety rules:**
 - Publish Live requires both the Publish and Deploy confirmation boxes to be checked.
