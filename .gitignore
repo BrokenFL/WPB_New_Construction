@@ -22,6 +22,7 @@ dist-ssr
 output/
 .runtime/
 .codex/config.toml
+.devin/config.local.json
 
 # Imported reference repositories are not part of the app source.
 research/source-repos/
