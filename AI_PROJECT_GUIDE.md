@@ -430,9 +430,39 @@ content/overrides/change-log.json
 content/overrides/content-studio-change-log.json
 ```
 
+### Visual Editor — Real-Site Iframe + Project Editor (2026-06-19)
+
+The Visual Editor now loads the actual Vite dev server (`http://localhost:5174`) in an `<iframe>` instead of rendering a custom HTML approximation client-side.
+
+**Key facts for agents:**
+- Content Studio spawns `vite dev --port 5174` on startup. `GET /api/vite-status` exposes ready state.
+- Page selector navigates the iframe to the correct live route (homepage, updates, guidance, floorplans, corridors, any of the 18 project pages).
+- Project page editor (`#projectEditorPanel`) saves to `research/content-editor/site-overrides.json` → `syncEditorOverrides()` regenerates `src/generated/editorOverrides.ts` → Vite HMR hot-reloads the iframe.
+- All image processing uses **Sharp** (replaces macOS-only `sips`). Hard 750 KB output limit enforced before writing.
+- `POST /api/visual-editor/pre-commit-check` gates commits: typecheck + qa:content-studio + image size scan must all pass.
+- `POST /api/visual-editor/commit` stages only the Visual Editor allowlist and pushes, triggering a deploy.
+- Old client-side renderer functions (`sitePreviewMarkup`, `visualHeroSection`, `visualCardSection`, etc.) have been **removed**. Do not re-add them.
+- QA scripts `check-builder-visual-editor.mjs` and `check-builder-remote-images.mjs` have been updated to assert the iframe architecture instead.
+
+**Visual Editor commit allowlist:**
+```
+research/content-editor/site-overrides.json
+src/generated/editorOverrides.ts
+content/overrides/homepage-card-overrides.json
+content/overrides/homepage-overrides.json
+content/overrides/content-studio-change-log.json
+public/assets/editorial/
+public/projects/
+```
+
+Full details: `docs/AI_PROJECT_GUIDE.md` → "Visual Editor — Real-Site Iframe + Project Editor (2026-06-19)".
+
 ### Recent confirmed commits
 
 ```
+be27a0b  Update visual editor QA scripts for real-site iframe architecture
+0d72510  Raise JS performance budget to 650 KB (main chunk ~613 KB)
+8525184  Wire Visual Editor to real Vite site, add project editor + image pipeline
 2d91cde  Auto-commit+push on delete/archive; add MarketNoteStatus archived
 cd04625  Add Delete button for all published articles in Article Manager
 dd9b516  Fix All Articles view crash: implement readTsArray for market notes

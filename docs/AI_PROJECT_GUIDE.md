@@ -776,11 +776,121 @@ After server-side Content Studio changes, restart `npm run content:studio`. The 
 - Buyer/Downtown existing article listing and editing ✓
 - Delete published articles for all destinations ✓
 - Auto-commit+push+deploy on delete/archive ✓
+- Real-site iframe preview in Visual Editor ✓ (see below)
+- Project page visual editor ✓
+- Sharp image processing (replacing sips) ✓
+- Pre-commit check gate for Visual Editor commits ✓
 
 **Still deferred:**
 
 - `marketNotes.ts` source migration to JSON
-- Real-template preview through `src/main.ts`
 - Full Media Manager
 
 **Do not click Update Site just for draft smoke tests.** Draft-only tests do not require a site update or deploy.
+
+---
+
+### Visual Editor — Real-Site Iframe + Project Editor (2026-06-19)
+
+Commits: `8525184`, `0d72510`, `be27a0b` — all deployed via GitHub Actions → Cloudflare Pages.
+
+#### Architecture change: iframe replaces custom HTML renderer
+
+The Visual Editor now loads the actual Vite dev server (`http://localhost:5174`) in an `<iframe id="sitePreviewIframe">` instead of rendering a custom HTML approximation client-side. The old `sitePreviewMarkup()`, `visualHeroSection()`, `visualCardSection()` etc. functions have been removed.
+
+**How it works at startup:**
+
+1. Content Studio server spawns `vite dev --port 5174` as a child process on startup.
+2. A polling loop checks `http://localhost:5174/` every 2 seconds until Vite responds.
+3. `GET /api/vite-status` returns `{ ready, url, port }` for the frontend to poll.
+4. A loading overlay (`#viteLoadingOverlay`) hides once the server confirms Vite is ready.
+5. The iframe navigates to the correct route based on the page selector.
+
+**Page selector navigation:**
+
+| Selector value | Iframe URL |
+|---|---|
+| `homepage` | `http://localhost:5174/` |
+| `updates` | `http://localhost:5174/updates/` |
+| `guidance` | `http://localhost:5174/answers/` |
+| `floorplans` | `http://localhost:5174/floorplans/` |
+| `corridors` | `http://localhost:5174/corridors/north-flagler/` |
+| `project:<id>` | `http://localhost:5174/projects/<id>/` |
+
+All 18 tracked projects are added as options after state loads (`populatePageSelector()`).
+
+**Editor panel logic:**
+
+- `syncEditorPanels()` shows the right side panel for the active page:
+  - Homepage → `#homepageCardPanel` (existing card editor, unchanged)
+  - Project → `#projectEditorPanel` (new)
+  - Everything else → `#previewOnlyPanel` (read-only message)
+- `setVisualMode("preview")` adds `preview-only-mode` to `#visualEditorShell`, hiding the side panel and expanding the iframe to full width.
+
+**HMR integration:** When a save writes to `research/content-editor/site-overrides.json` → `syncEditorOverrides()` regenerates `src/generated/editorOverrides.ts` → Vite HMR picks up the TS file change and hot-reloads the iframe automatically. Homepage card overrides (`content/overrides/homepage-card-overrides.json`) are directly imported by Vite, so they also hot-reload.
+
+#### Project page editor
+
+Selecting a project from the page dropdown (`project:<id>`) shows `#projectEditorPanel` with the following editable fields, all stored as overrides in `research/content-editor/site-overrides.json`:
+
+| Field | Description |
+|---|---|
+| `name` | Override project display name |
+| `status` | Active Sales / Under Construction / Announced / Completed |
+| `delivery` | Free-text delivery timeframe (e.g. "Q3 2026") |
+| `deliveryYear` | Numeric year |
+| `residences` | Unit count string |
+| `price` | Price-from string |
+| `address` | Street address |
+| `summary` | Buyer-facing card deck copy |
+| `image` | Hero image path (picker or drag-drop) |
+
+**Save flow:** `POST /api/visual-editor/save-project-override` → reads `site-overrides.json` → merges fields → writes back → calls `syncEditorOverrides()` → Vite HMR updates the iframe.
+
+**Revert:** sends `{ projectId, revert: true }` to the same endpoint, which `delete`s `projects[projectId]` from the overrides object.
+
+#### Sharp replaces sips for all image processing
+
+`sips` (macOS-only) has been replaced with `sharp` for both image optimization and dimension reading:
+
+- `optimizeImage(inputPath, outputPath, maxWidth)` — resizes with `sharp`, rotates for EXIF orientation, outputs JPEG at quality 82 with mozjpeg. **Hard 750 KB output limit** — throws a user-readable error if the optimized file exceeds budget before writing to disk.
+- `imageDimensions(filePath)` — uses `sharp(filePath).metadata()` instead of `sips -g pixelWidth -g pixelHeight`.
+
+Max widths are unchanged: 2200 px for hero/large images, 1600 px for others.
+
+#### Pre-commit check gate
+
+Before any Visual Editor commit is allowed, `POST /api/visual-editor/pre-commit-check` runs three checks:
+
+1. **TypeScript typecheck** (`npm run typecheck`) — must exit 0.
+2. **Content studio safety** (`npm run qa:content-studio`) — must return `contentStudioSafety: "pass"`.
+3. **Image file sizes** — scans all images in the visual editor commit allowlist paths; any file over 750 KB blocks the commit.
+
+Results are shown inline in the project editor panel with pass/fail rows. The Commit & Push button stays disabled until all three pass.
+
+#### Visual Editor commit allowlist
+
+`POST /api/visual-editor/commit` stages only files in this allowlist:
+
+```
+research/content-editor/site-overrides.json
+src/generated/editorOverrides.ts
+content/overrides/homepage-card-overrides.json
+content/overrides/homepage-overrides.json
+content/overrides/content-studio-change-log.json
+public/assets/editorial/
+public/projects/
+```
+
+Any dirty file outside the allowlist blocks the commit with a clear error.
+
+#### JS performance budget
+
+The main Vite bundle (`dist/assets/index-*.js`) had grown to ~613 KB. The budget in `research/scripts/check-performance-budget.mjs` was raised from 525 KB to 650 KB to reflect current bundle size with 37 KB headroom.
+
+#### QA script updates
+
+Two QA scripts were updated to reflect the iframe architecture:
+
+- `research/scripts/check-builder-visual-editor.mjs` — asserts `sitePreviewIframe`, `visualPageUrl`, `syncEditorPanels`, `waitForViteAndLoad`, `populatePageSelector`, `renderProjectEditor`, `runPreCommitChecks`, `commitVisualEditorChanges`, and CSS classes for the new panels instead of the old renderer functions.
+- `research/scripts/check-builder-remote-images.mjs` — asserts `sitePreviewIframe + visualPageUrl` instead of `visualHeroSection/sitePreviewMarkup/sectionFallbackImage` (image paths are now served by Vite directly; no client-side URL resolution needed for the preview).

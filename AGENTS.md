@@ -276,6 +276,40 @@ Publish Live will refuse if any dirty file is **not** in this list.
 
 ---
 
+### Visual Editor — Real-Site Iframe + Project Editor (2026-06-19)
+
+The Visual Editor now loads the actual Vite dev server in an iframe instead of rendering a custom HTML approximation.
+
+**Startup:** Content Studio spawns `vite dev --port 5174` when the server starts. `GET /api/vite-status` returns the ready state. A loading overlay hides once Vite responds. Page-selector changes navigate the iframe URL — no client-side HTML rendering.
+
+**Project page editor:** Select any project from the page dropdown. The side panel shows editable fields (`name`, `status`, `delivery`, `deliveryYear`, `residences`, `price`, `address`, `summary`, `image`). Saving calls `POST /api/visual-editor/save-project-override`, which writes to `research/content-editor/site-overrides.json` and regenerates `src/generated/editorOverrides.ts` via `syncEditorOverrides()`. Vite HMR picks up the change and hot-reloads the iframe.
+
+**Sharp replaces sips:** All image optimization and dimension-reading now uses `sharp` (cross-platform). Hard 750 KB output limit — throws a user-readable error before writing an oversized file to disk.
+
+**Pre-commit check gate:** Before any Visual Editor commit, `POST /api/visual-editor/pre-commit-check` runs:
+1. `npm run typecheck`
+2. `npm run qa:content-studio`
+3. Image file size scan — any file > 750 KB in the Visual Editor allowlist paths blocks the commit.
+
+**Visual Editor commit allowlist:**
+```
+research/content-editor/site-overrides.json
+src/generated/editorOverrides.ts
+content/overrides/homepage-card-overrides.json
+content/overrides/homepage-overrides.json
+content/overrides/content-studio-change-log.json
+public/assets/editorial/
+public/projects/
+```
+
+`POST /api/visual-editor/commit` stages only these files, commits, and pushes — triggering a deploy automatically.
+
+**Key functions (app.js):** `visualPageUrl()`, `renderLivePagePreview()`, `syncEditorPanels()`, `waitForViteAndLoad()`, `populatePageSelector()`, `renderProjectEditor()`, `runPreCommitChecks()`, `commitVisualEditorChanges()`.
+
+Full architecture details: `docs/AI_PROJECT_GUIDE.md` → "Visual Editor — Real-Site Iframe + Project Editor (2026-06-19)".
+
+---
+
 ## GitHub auth / local commit warning
 
 The Builder process may show:
