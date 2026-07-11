@@ -1,5 +1,83 @@
 [
   {
+    "id": "west-palm-point-back-in-motion-2026-07-11",
+    "slug": "west-palm-point-back-in-motion-2026-07-11",
+    "title": "West Palm Point Is Back in Motion on Downtown West Palm's Okeechobee Corridor",
+    "sourceName": "The Real Deal",
+    "sourceUrl": "https://therealdeal.com/miami/2026/07/10/charles-cohen-restarts-downtown-west-palm-office-project/",
+    "canonicalUrl": "https://therealdeal.com/miami/2026/07/10/charles-cohen-restarts-downtown-west-palm-office-project/",
+    "sourceTitle": "Charles Cohen revives West Palm office project after resolving site foreclosure",
+    "publishedAt": "2026-07-11T13:20:10.169Z",
+    "sourcePublishedAt": "2026-07-10",
+    "sourcePublishedDate": "2026-07-10",
+    "eventDate": "2026-07-10",
+    "dateDiscovered": "2026-07-11",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-07-11T13:20:10.169Z",
+    "deck": "After a foreclosure suit was dismissed and permitting resumed, the long-planned office tower at 801 S. Dixie Highway is moving again, with the project website listing occupancy in Q1 2028.",
+    "description": "After a foreclosure suit was dismissed and permitting resumed, the long-planned office tower at 801 S. Dixie Highway is moving again, with the project website listing occupancy in Q1 2028.",
+    "summary": "After a foreclosure suit was dismissed and permitting resumed, the long-planned office tower at 801 S. Dixie Highway is moving again, with the project website listing occupancy in Q1 2028.",
+    "bodySections": [
+      {
+        "heading": "Introduction",
+        "body": "West Palm Point is back in motion as a downtown office project rather than a long-stalled concept. The Real Deal reported on July 10 that Charles Cohen had set the project back on track after a foreclosure suit on a $10 million loan was resolved, and the project website now lists occupancy for Q1 2028."
+      },
+      {
+        "heading": "What Changed",
+        "body": "According to The Real Deal, Cohen Brothers Realty has started the permitting process again and is still planning a 25-story tower with roughly 400,000 square feet of office space, ground-floor retail, and an 11-story garage with a rooftop amenity deck.\n\nThe city’s CRA page places West Palm Point on the old Tent Site at 801 S. Dixie Highway and says the project secured final site plan approval years ago. That page also describes construction as underway, which makes this less a brand-new launch than a return to active execution after a financing pause."
+      },
+      {
+        "heading": "Why It Matters For Downtown",
+        "body": "This is not a condo story, but it still matters for nearby buyers. An office tower in motion adds another piece of weekday demand to the Okeechobee and Quadrille corridor, supporting lunch traffic, retail energy, and the broader case for downtown as a working district rather than only a residential one.\n\nFor buyers comparing downtown and Flagler-adjacent addresses, that matters because office activity shapes how active a neighborhood feels during the week. It also affects how much confidence the market has in the surrounding development pipeline."
+      },
+      {
+        "heading": "Timing And Caution",
+        "body": "The project website’s Q1 2028 occupancy target gives the market a current marker, but it is still a target, not a guarantee. West Palm Point first surfaced years ago, and the city page shows how much of the entitlement work was already in place before this latest restart.\n\nThe clean read for buyers is simple: the site is active again, the tower remains on the map, and downtown West Palm Beach continues to absorb new office development rather than giving the district over entirely to residential use."
+      }
+    ],
+    "whyItMatters": "A restarted office tower keeps another downtown block in play and reinforces weekday demand around the Okeechobee and Quadrille corridor.",
+    "buyerContext": "For nearby buyers, the practical effect is more office activity, stronger weekday foot traffic, and another sign that the Okeechobee corridor is still being carried forward as a working downtown district.",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "newsletterHeadline": "West Palm Point Is Back in Motion on Downtown West Palm's Okeechobee Corridor",
+    "newsletterBlurb": "After a foreclosure suit was dismissed and permitting resumed, the long-planned office tower at 801 S. Dixie Highway is moving again, with the project website listing occupancy in Q1 2028.",
+    "newsletterCta": "Read the article",
+    "query": "West Palm Point Is Back in Motion on Downtown West Palm's Okeechobee Corridor",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/wall-street-south-office-arrival.jpg",
+    "sourceLinks": [
+      {
+        "label": "The Real Deal",
+        "url": "https://therealdeal.com/miami/2026/07/10/charles-cohen-restarts-downtown-west-palm-office-project/",
+        "type": "news"
+      },
+      {
+        "label": "West Palm Point official site",
+        "url": "https://www.westpalmpoint.com/",
+        "type": "official project site"
+      },
+      {
+        "label": "City of West Palm Beach CRA Okeechobee Corridor",
+        "url": "https://www.wpb.org/Departments/Community-Redevelopment-Agency/DowntownCity-Center/Okeechobee-Corridor",
+        "type": "city planning material"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "currie-park-waterfront-restaurant-west-palm-beach-2026-06-10",
     "slug": "currie-park-waterfront-restaurant-west-palm-beach-2026-06-10",
     "title": "Currie Park Restaurant Proposals Add Another Lifestyle Layer to North Flagler",
