@@ -75,6 +75,94 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "sound-apartments-right-of-way-maintenance-2026-07-12",
+    "slug": "sound-apartments-right-of-way-maintenance-2026-07-12",
+    "title": "West Palm Beach approves maintenance agreements for The Sound Apartments on South Dixie",
+    "sourceName": "City of West Palm Beach",
+    "sourceUrl": "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions",
+    "canonicalUrl": "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions",
+    "sourceTitle": "Mayor, City Commission, CRA Approvals and Decisions from July 6, 2026",
+    "publishedAt": "2026-07-12T13:20:47.956Z",
+    "sourcePublishedAt": "2026-07-07",
+    "sourcePublishedDate": "2026-07-07",
+    "eventDate": "2026-07-06",
+    "dateDiscovered": "2026-07-12",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-07-12T13:21:39.008Z",
+    "deck": "The city commission approved FDOT right-of-way maintenance tied to the 8111 South Dixie Highway project, where Woodfield and Flagler Realty say delivery is still targeted for later this year.",
+    "description": "West Palm Beach approved right-of-way maintenance agreements for The Sound Apartments, the mixed-use South Dixie project with 358 apartments, workforce housing, and a Trader Joe’s lease.",
+    "summary": "The city commission approved FDOT right-of-way maintenance tied to the 8111 South Dixie Highway project, where Woodfield and Flagler Realty say delivery is still targeted for later this year.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "West Palm Beach’s latest City Commission approvals include a resolution that authorizes maintenance responsibility for part of the South Dixie Highway right-of-way tied to The Sound Apartments at 8111 South Dixie Highway. The same summary says the city approved the maintenance memorandum with FDOT and a right-of-way maintenance agreement with Woodfield-Flagler 8111 Retail Owner, LLC.\n\nThis is not a flashy headline item, but it is a real project step. The city is formalizing the public-side maintenance responsibilities around a development that is already under construction in the South End."
+      },
+      {
+        "heading": "What the project is",
+        "body": "The Sound Apartments is an eight-story mixed-use project developed by Woodfield Development with Flagler Realty & Development and built by Verdex Construction. Verdex says the project will deliver 358 apartments, including 90 workforce housing units, plus about 19,000 square feet of retail.\n\nTrader Joe’s has already signed for 15,000 square feet of that commercial space, with the remaining retail space left divisible for one or two tenants. The project page and recent construction coverage both point to a later-2026 delivery window, with move-ins expected in the third quarter."
+      },
+      {
+        "heading": "Why nearby buyers should care",
+        "body": "For nearby buyers, the practical signal is simple: South Dixie is not just a pass-through corridor anymore. The project adds a meaningful chunk of housing, daily-use retail, and workforce units in a part of West Palm Beach that has been steadily absorbing more development pressure.\n\nThat does not make it a condo comp. It does, however, shape the neighborhood context around South End and downtown-adjacent addresses, especially for buyers who care about traffic patterns, walkable errands, and how much new supply is arriving around them."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The next meaningful check is execution: whether the project stays on its current delivery path and how the retail tenant lineup lands around Trader Joe’s. For now, the important part is that the city has cleared another formal step and the project remains in active construction rather than in limbo.\n\nFor West Palm Beach, that keeps The Sound Apartments in the same category as the city’s other working development sites: not a concept, but a project moving through the final public-side pieces."
+      }
+    ],
+    "whyItMatters": "The approval formalizes the public-side pieces around a large South End project that adds housing, workforce units, and neighborhood retail near South Dixie Highway.",
+    "buyerContext": "Most relevant for nearby South End, South Dixie, and downtown-adjacent buyers comparing daily-use retail, roadwork exposure, and the pace of nearby supply.",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "newsletterHeadline": "The Sound Apartments picks up a city approval on South Dixie",
+    "newsletterBlurb": "West Palm Beach approved maintenance agreements tied to the 8111 South Dixie Highway project as the mixed-use development nears delivery.",
+    "newsletterCta": "Read the article",
+    "query": "West Palm Beach approves maintenance agreements for The Sound Apartments on South Dixie",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/preconstruction-condo-document-review.jpg",
+    "sourceLinks": [
+      {
+        "label": "City of West Palm Beach approvals summary",
+        "url": "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions",
+        "type": "official"
+      },
+      {
+        "label": "City of West Palm Beach July 6 commission agenda",
+        "url": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-pass-fail-agendas-pfa/2026-07-jul-pfa/pf-07_06_26_city-commission-agenda.pdf",
+        "type": "official"
+      },
+      {
+        "label": "Verdex Construction project page",
+        "url": "https://verdex.com/the-sound-apartments/",
+        "type": "official project site"
+      },
+      {
+        "label": "citybiz construction update",
+        "url": "https://www.citybiz.co/article/813518/woodfield-development-and-flagler-realty-development-advance-construction-on-the-sound-apartments-and-trader-joes-in-west-palm-beach/",
+        "type": "news"
+      },
+      {
+        "label": "Florida YIMBY progress update",
+        "url": "https://floridayimby.com/2026/03/construction-nears-completion-on-the-sound-apartments-at-8111-south-dixie-highway-in-west-palm-beach.html",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "west-palm-point-back-in-motion-2026-07-11",
     "slug": "west-palm-point-back-in-motion-2026-07-11",
     "title": "West Palm Point Is Back in Motion on Downtown West Palm's Okeechobee Corridor",
