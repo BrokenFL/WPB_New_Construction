@@ -5770,6 +5770,12 @@ function renderEmailSignup(
           </select>
         </label>
       `}
+      <label class="lead-consent-row">
+        <input type="checkbox" name="consent" required />
+        <span>By submitting, I consent to receive WPB New Construction updates and to be contacted about my request. I can unsubscribe at any time.</span>
+      </label>
+      <div class="turnstile-slot" data-turnstile-slot aria-label="Spam protection"></div>
+      <p class="form-security-note">Protected by Cloudflare Turnstile.</p>
       <button class="button primary" type="submit">Send Me Updates</button>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
