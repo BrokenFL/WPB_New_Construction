@@ -9170,9 +9170,40 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 
       <section class="berkeley-brooke-card" aria-label="Local take"><div><p class="berkeley-kicker">Local Take</p><p>${publicText(copyPackage?.localTake ?? copyPackage?.brookeTake ?? project.summary)}</p></div><div class="berkeley-brooke-profile"><div><h3>The Scott Gordon Group</h3><p>Douglas Elliman</p></div></div><ul><li>${advisorProfile.mobile}</li><li>${advisorProfile.email}</li><li>wpbnewconstruction.com</li></ul></section>
 
+      <section class="brochure-research-contact" id="project-contact-${project.id}">
+        <div class="brochure-research-panel"><p class="berkeley-kicker">Buyer Inquiry</p><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div>
+        ${renderProjectInquiryForm(project)}
+      </section>
+
       <section class="berkeley-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/?project=${project.id}&interest=availability" ${renderCtaTrackingAttrs("project_page", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
     </div>
   `;
+}
+
+function renderProjectInquiryForm(project: FeaturedProject) {
+  return `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(shortContactCtaLabel)}">
+    <input type="hidden" name="form-name" value="wpb-project-inquiry" />
+    <input type="hidden" name="form_type" value="project_inquiry" />
+    <input type="hidden" name="submission_id" value="" />
+    <input type="hidden" name="project" value="${escapeHtml(project.id)}" />
+    <input type="hidden" name="project_name" value="${escapeHtml(project.name)}" />
+    <input type="hidden" name="interest" value="Request current availability" />
+    <input type="hidden" name="lead_capture_context" value="project_page_contact" />
+    <input type="hidden" name="turnstile_token" value="" />
+    <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <p class="eyebrow">Contact The Scott Gordon Group</p>
+    <h2>${shortContactCtaLabel}</h2>
+    <p>${shortTeamCtaCopy}</p>
+    <label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Full name" required /></label>
+    <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="Email address" required /></label>
+    <label><span>Phone</span><input name="phone" type="tel" autocomplete="tel" placeholder="Phone number" /></label>
+    <label><span>Message</span><textarea name="message" placeholder="How can The Scott Gordon Group help?">${escapeHtml(project.name)} inquiry</textarea></label>
+    <label class="lead-consent-row"><input type="checkbox" name="consent" required /><span>By submitting, I consent to be contacted about this real-estate inquiry. This is a request for a manual response, not consent to autodialed or prerecorded marketing calls or texts.</span></label>
+    <div class="turnstile-slot" data-turnstile-slot aria-label="Spam protection"></div>
+    <p class="form-security-note">Protected by Cloudflare Turnstile.</p>
+    <button type="submit">${shortContactCtaLabel}</button>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>`;
 }
 
 function renderDraftProjectPage(project: FeaturedProject) {
@@ -9343,29 +9374,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
             ${!isCompactWatch && floorplanProject ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
           </div>
         </div>
-        ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project, "project_page") : `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(shortContactCtaLabel)}">
-          <input type="hidden" name="form-name" value="wpb-project-inquiry" />
-          <input type="hidden" name="form_type" value="project_inquiry" />
-          <input type="hidden" name="submission_id" value="" />
-          <input type="hidden" name="project" value="${escapeHtml(project.id)}" />
-          <input type="hidden" name="project_name" value="${escapeHtml(project.name)}" />
-          <input type="hidden" name="interest" value="Request current availability" />
-          <input type="hidden" name="lead_capture_context" value="project_page_contact" />
-          <input type="hidden" name="turnstile_token" value="" />
-          <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <p class="eyebrow">Contact The Scott Gordon Group</p>
-          <h2>${shortContactCtaLabel}</h2>
-          <p>${shortTeamCtaCopy}</p>
-          <label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Full name" required /></label>
-          <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="Email address" required /></label>
-          <label><span>Phone</span><input name="phone" type="tel" autocomplete="tel" placeholder="Phone number" /></label>
-          <label><span>Message</span><textarea name="message" placeholder="How can The Scott Gordon Group help?">${project.name} inquiry</textarea></label>
-          <label class="lead-consent-row"><input type="checkbox" name="consent" required /><span>By submitting, I consent to be contacted about this real-estate inquiry. This is a request for a manual response, not consent to autodialed or prerecorded marketing calls or texts.</span></label>
-          <div class="turnstile-slot" data-turnstile-slot aria-label="Spam protection"></div>
-          <p class="form-security-note">Protected by Cloudflare Turnstile.</p>
-          <button type="submit">${shortContactCtaLabel}</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>`}
+        ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project, "project_page") : renderProjectInquiryForm(project)}
       </section>
 
       ${renderTechnicalDisclosuresSection(project, draft)}
