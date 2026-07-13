@@ -194,6 +194,7 @@ async function publishMarketNote({ id, slug, title, deck, bodySections, imagePat
     relatedBuildings: slugs(input.relatedBuildings || []),
     relatedNeighborhoods: slugs(input.relatedNeighborhoods || []),
     relatedCorridor: clean(input.relatedCorridor || ""),
+    relatedArticleIds: slugs(input.relatedArticleIds || []),
     ...(imagePath ? { image: { path: imagePath, credit: "User-provided editorial image, optimized for site use." } } : {}),
     primaryProjectId: relatedProjectIds[0] || undefined,
     projectIds: relatedProjectIds,

@@ -28,6 +28,7 @@ export type ExternalNewsItem = {
   relatedBuildings?: string[];
   relatedNeighborhoods?: string[];
   relatedCorridor?: string;
+  relatedArticleIds?: string[];
   buyerQuestions?: string;
   newsletterHeadline?: string;
   newsletterBlurb?: string;

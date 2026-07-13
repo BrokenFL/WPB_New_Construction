@@ -8,14 +8,26 @@ const outputPath = qaNoWrite
   : path.join(workspace, "research/news-review/development-news-candidates.json");
 const defaultSourceWindowDays = 14;
 const fallbackSourceWindowDays = 30;
+const sourceConfigPath = path.join(workspace, "content/news-source-config.json");
+const sourceConfig = JSON.parse(fs.readFileSync(sourceConfigPath, "utf8"));
 
-const queries = [
-  "West Palm Beach development",
-  "West Palm Beach new construction",
-  "West Palm Beach condo development",
-  "Downtown West Palm Beach development",
-  "West Palm Beach real estate development",
+const legacyQueries = [
+  { query: "West Palm Beach development", route: "Development Watch", destination: "news", category: "development", searchFamily: "project-development" },
+  { query: "West Palm Beach new construction", route: "Development Watch", destination: "news", category: "development", searchFamily: "project-development" },
+  { query: "West Palm Beach condo development", route: "Development Watch", destination: "news", category: "development", searchFamily: "project-development" },
+  { query: "Downtown West Palm Beach development", route: "Downtown Spotlight", destination: "downtown", category: "general", searchFamily: "downtown-lifestyle" },
+  { query: "West Palm Beach real estate development", route: "Buyer Intelligence", destination: "buyer", category: "general", searchFamily: "new-construction-sales" },
 ];
+const configuredQueries = (sourceConfig.routeSearchPlans ?? []).flatMap((plan) =>
+  (plan.queries ?? []).map((query) => ({
+    query,
+    route: plan.route,
+    destination: plan.destination,
+    category: plan.category,
+    searchFamily: plan.searchFamily,
+  })),
+);
+const queries = configuredQueries.length ? configuredQueries : legacyQueries;
 
 const likelyPaywalledHosts = ["palmbeachpost.com", "bizjournals.com", "therealdeal.com"];
 const projectMatchers = [
@@ -28,8 +40,8 @@ const projectMatchers = [
   ["ritz-carlton-wpb", /ritz-carlton|ritz carlton|1717 n flagler|1745 n flagler/i],
 ];
 const corridorMatchers = [
-  ["north-flagler", /north flagler|n flagler|intracoastal|rybovich/i],
-  ["downtown", /downtown|nora|cityplace|rosemary|the square|kravis/i],
+  ["north-flagler", /north flagler|n flagler|intracoastal|rybovich|currie park/i],
+  ["downtown", /downtown|nora|cityplace|rosemary|the square|kravis|clematis|datura|dixie|hibiscus|flamingo park/i],
   ["south-flagler", /south flagler|s flagler/i],
 ];
 
@@ -57,15 +69,16 @@ function sourceFromTitle(title) {
   return parts.length > 1 ? parts.at(-1).trim() : "";
 }
 
-function categoryFor(query, title) {
+function categoryFor(query, title, preferredCategory = "") {
   const combined = `${query} ${title}`.toLowerCase();
   if (/planning|propose|approval|zoning|board|cra/.test(combined)) return "planning";
   if (/construction|groundbreaking|goes vertical|topped/.test(combined)) return "construction";
-  if (/sales|launch|pricing|condo/.test(combined)) return "sales";
+  if (/sales|sale|sold|closing|contract|inventory|pricing|price|condo/.test(combined)) return "sales";
   if (/loan|financing|debt/.test(combined)) return "financing";
+  if (/restaurant|dining|chef|hospitality|hotel|retail|opening|culture|office|business|venue/.test(combined)) return "city";
   if (/city|cra|commission/.test(combined)) return "city";
   if (/press release|pr newswire|business wire/.test(combined)) return "press-release";
-  return "development";
+  return preferredCategory || "development";
 }
 
 function hostFor(url) {
@@ -91,13 +104,19 @@ function freshnessLaneFor(sourcePublishedDate, dateDiscovered = new Date()) {
 }
 
 function isCredibleCandidate(item) {
-  return item.relatedProjectSlugs.length > 0 || item.relatedCorridors.length > 0 || /condo|development|construction|planning|waterfront|residence|tower/i.test(`${item.title} ${item.description}`);
+  const text = `${item.title} ${item.description} ${item.query}`;
+  const routeRelevant = item.destination === "downtown"
+    ? /restaurant|dining|chef|hospitality|hotel|retail|opening|culture|office|business|venue|downtown|nora|cityplace/i.test(text)
+    : item.destination === "buyer"
+      ? /sales|sale|sold|closing|contract|inventory|pricing|price|demand|buyer|condo|residence|development/i.test(text)
+      : /condo|development|construction|planning|waterfront|residence|tower|approval|permit|financing|office/i.test(text);
+  return item.relatedProjectSlugs.length > 0 || item.relatedCorridors.length > 0 || routeRelevant;
 }
 
-async function fetchQuery(query) {
-  const url = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
+async function fetchQuery(querySpec) {
+  const url = `https://news.google.com/rss/search?q=${encodeURIComponent(querySpec.query)}&hl=en-US&gl=US&ceid=US:en`;
   const response = await fetch(url, { headers: { "User-Agent": "WPB New Construction news review" } });
-  if (!response.ok) throw new Error(`Google News RSS failed for ${query}: ${response.status}`);
+  if (!response.ok) throw new Error(`Google News RSS failed for ${querySpec.query}: ${response.status}`);
   const xml = await response.text();
   const itemBlocks = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/gi)].map((match) => match[1]);
   return itemBlocks.map((block) => {
@@ -105,21 +124,22 @@ async function fetchQuery(query) {
     const title = normalizeTitle(rawTitle);
     const link = tagValue(block, "link");
     const sourceName = tagValue(block, "source") || sourceFromTitle(rawTitle) || hostFor(link) || "Unknown source";
-    const sourceUrl = block.match(/<source[^>]*url="([^"]+)"/i)?.[1] ?? link;
+    const publisherUrl = block.match(/<source[^>]*url="([^"]+)"/i)?.[1] ?? "";
     const publishedAt = new Date(tagValue(block, "pubDate") || Date.now()).toISOString();
     const sourcePublishedDate = publishedAt.slice(0, 10);
     const dateDiscovered = new Date().toISOString().slice(0, 10);
     const description = tagValue(block, "description").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
     const matchText = `${title} ${description}`;
-    const host = hostFor(sourceUrl || link);
+    const host = hostFor(publisherUrl || link);
     const relatedProjectSlugs = matchIds(matchText, projectMatchers);
     const relatedCorridors = matchIds(matchText, corridorMatchers);
     return {
       id: `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 72)}-${publishedAt.slice(0, 10)}`,
       title,
       sourceName,
-      sourceUrl,
-      canonicalUrl: sourceUrl || link,
+      sourceUrl: publisherUrl || link,
+      canonicalUrl: publisherUrl || link,
+      publisherUrl,
       googleNewsUrl: link,
       publishedAt,
       sourcePublishedAt: sourcePublishedDate,
@@ -128,8 +148,11 @@ async function fetchQuery(query) {
       freshnessLane: freshnessLaneFor(sourcePublishedDate, dateDiscovered),
       fetchedAt: dateDiscovered,
       description,
-      query,
-      category: categoryFor(query, title),
+      query: querySpec.query,
+      route: querySpec.route,
+      destination: querySpec.destination,
+      searchFamily: querySpec.searchFamily,
+      category: categoryFor(querySpec.query, title, querySpec.category),
       relatedProjectIds: relatedProjectSlugs,
       relatedCorridorIds: relatedCorridors,
       relatedProjectSlugs,
@@ -143,14 +166,14 @@ async function fetchQuery(query) {
 }
 
 const byKey = new Map();
-for (const query of queries) {
-  for (const item of await fetchQuery(query)) {
+for (const querySpec of queries) {
+  for (const item of await fetchQuery(querySpec)) {
     const key = `${item.canonicalUrl}|${item.title.toLowerCase()}`;
     if (!byKey.has(key)) byKey.set(key, item);
   }
 }
 
-const allCandidates = [...byKey.values()].filter((item) => /west palm|wpb|flagler|nora|cityplace|rosewood|mandarin|shorecrest|olara/i.test(`${item.title} ${item.description}`));
+const allCandidates = [...byKey.values()].filter((item) => /west palm|wpb|north flagler|south flagler|nora|cityplace|rosewood|mandarin|shorecrest|olara|clematis|rosemary|dixie|currie park|flamingo park/i.test(`${item.title} ${item.description}`));
 const breakingCandidates = allCandidates.filter((item) => item.freshnessLane === "breaking_14d");
 const recentCandidates = allCandidates.filter((item) => item.freshnessLane === "recent_30d");
 const credibleBreaking = breakingCandidates.filter(isCredibleCandidate);
@@ -164,4 +187,4 @@ const candidates = allCandidates
   });
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, `${JSON.stringify(candidates, null, 2)}\n`);
-console.log(`Wrote ${candidates.length} news candidate${candidates.length === 1 ? "" : "s"} to ${outputPath} (${breakingCandidates.length} within 14d, ${recentCandidates.length} within 30d).`);
+console.log(`Wrote ${candidates.length} news candidate${candidates.length === 1 ? "" : "s"} to ${outputPath} from ${queries.length} route-specific queries (${breakingCandidates.length} within 14d, ${recentCandidates.length} within 30d).`);

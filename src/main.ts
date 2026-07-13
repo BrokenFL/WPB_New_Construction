@@ -6395,6 +6395,7 @@ function renderMarketNoteArticle(note: MarketNote) {
             </ul>
           </aside>
           ${renderMarketNoteSourceLinks(note)}
+          ${renderRelatedArticleLinks(note.relatedArticleIds)}
         </div>
       </section>
       <section class="section market-note-related-section">
@@ -7672,6 +7673,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
             </section>`
           : ""
       }
+      ${renderRelatedArticleLinks(item.relatedArticleIds)}
       <footer class="section update-source-footer">
         <span>Sources used${item.sourcePublishedAt ? ` · Primary story ${publicText(formatNewsDate(item.sourcePublishedAt))}` : ""}</span>
         <div class="update-source-link-list">
@@ -7692,6 +7694,26 @@ function sourcesForUpdateArticle(item: ExternalNewsItem) {
     seen.add(source.url);
     return true;
   });
+}
+
+function renderRelatedArticleLinks(ids?: string[]) {
+  const seen = new Set<string>();
+  const links = (ids ?? []).map((id) => {
+    const news = publishedExternalNews.find((item) => item.id === id || item.slug === id);
+    if (news) return { title: news.title, href: updatePath(news), label: "Updates" };
+    const note = marketNotes.find((item) => item.id === id || item.slug === id || item.seo.suggestedSlug === id);
+    if (note) return { title: note.title, href: marketNotePath(note), label: note.category };
+    return null;
+  }).filter((item): item is { title: string; href: string; label: string } => {
+    if (!item || seen.has(item.href)) return false;
+    seen.add(item.href);
+    return true;
+  }).slice(0, 3);
+  if (!links.length) return "";
+  return "<aside class=\"market-note-source-box related-article-links\">" +
+    "<span>Related coverage</span><ul>" +
+    links.map((link) => "<li><a href=\"" + safeHref(link.href) + "\">" + escapeHtml(link.title) + "</a><small>" + escapeHtml(link.label) + "</small></li>").join("") +
+    "</ul></aside>";
 }
 
 function relatedProjectsForArticle(item: ExternalNewsItem) {

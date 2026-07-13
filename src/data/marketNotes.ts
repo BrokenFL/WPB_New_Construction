@@ -40,6 +40,7 @@ export type MarketNote = {
   relatedBuildings?: string[];
   relatedNeighborhoods?: string[];
   relatedCorridor?: string;
+  relatedArticleIds?: string[];
   image?: {
     path: string;
     credit: string;

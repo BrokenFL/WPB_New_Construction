@@ -1,7 +1,74 @@
 {
   "version": 1,
-  "dailyTarget": 2,
+  "dailyTarget": 1,
   "reviewOnly": true,
+  "routeSearchPlans": [
+    {
+      "route": "Development Watch",
+      "destination": "news",
+      "category": "development",
+      "searchFamily": "project-development",
+      "cadence": ["monday", "thursday"],
+      "queries": [
+        "West Palm Beach new development condo approval planning board",
+        "West Palm Beach construction groundbreaking tower residences",
+        "West Palm Beach development permit site plan zoning",
+        "West Palm Beach developer land sale assemblage condo",
+        "West Palm Beach office residential project downtown"
+      ]
+    },
+    {
+      "route": "Downtown Spotlight",
+      "destination": "downtown",
+      "category": "general",
+      "searchFamily": "downtown-lifestyle",
+      "cadence": ["tuesday", "friday"],
+      "queries": [
+        "Downtown West Palm Beach new restaurant opening",
+        "Downtown West Palm Beach restaurant chef hospitality opening",
+        "NORA West Palm Beach restaurant retail hotel opening",
+        "CityPlace West Palm Beach dining business opening",
+        "West Palm Beach downtown retail cultural venue opening"
+      ]
+    },
+    {
+      "route": "Buyer Intelligence",
+      "destination": "buyer",
+      "category": "general",
+      "searchFamily": "new-construction-sales",
+      "cadence": ["wednesday"],
+      "queries": [
+        "West Palm Beach condo sales new construction closings inventory",
+        "West Palm Beach luxury condo contracts sales pace",
+        "West Palm Beach new construction condo pricing sales market",
+        "West Palm Beach condo buyer demand deposits inventory",
+        "West Palm Beach waterfront condo sales"
+      ]
+    }
+  ],
+  "weeklyRotation": [
+    { "day": "monday", "route": "Development Watch", "focus": "new approvals, filings, construction milestones, and project restarts" },
+    { "day": "tuesday", "route": "Downtown Spotlight", "focus": "new restaurants, chefs, hospitality, retail, culture, and public-realm changes" },
+    { "day": "wednesday", "route": "Buyer Intelligence", "focus": "new-construction sales, contracts, closings, inventory, and buyer tradeoffs" },
+    { "day": "thursday", "route": "Development Watch", "focus": "planning, financing, land, office, residential, and construction follow-ups" },
+    { "day": "friday", "route": "Downtown Spotlight", "focus": "weekend-facing dining, business, hospitality, and neighborhood momentum" },
+    { "day": "saturday", "route": "Development Watch", "focus": "only a genuinely new local development event; otherwise skip" },
+    { "day": "sunday", "route": "No scheduled article", "focus": "skip by default; only publish an urgent, materially new story" }
+  ],
+  "sourcePolicy": {
+    "minimumIndependentSources": 2,
+    "distinctSourceHosts": true,
+    "directPrimarySourcePreferred": true,
+    "searchSnippetsAreLeadsOnly": true,
+    "doNotWriteAttributionLedCopy": true
+  },
+  "imagePolicy": {
+    "approvedLocalPreferred": true,
+    "generatedEditorialAllowed": true,
+    "generatedProjectRenderingsAllowed": false,
+    "generatedImageCredit": "AI-generated editorial illustration",
+    "generatedImageRule": "Generate a place-neutral editorial illustration or atmosphere image when no appropriate approved local image exists. Do not depict a real project, logo, named business, exact building, or invented architectural fact."
+  },
   "primarySources": [
     {
       "name": "Markets of Tomorrow / OFTMW Florida",
@@ -34,10 +101,10 @@
     "West Palm Beach planning zoning approval",
     "West Palm Beach developer land sale assemblage",
     "West Palm Beach construction loan financing",
-    "West Palm Beach lawsuit developer condo",
-    "Palm Beach luxury restaurant club hotel opening",
-    "NORA West Palm Beach restaurant retail hotel",
-    "North Flagler South Flagler CityPlace development"
+    "West Palm Beach new restaurant chef hospitality opening downtown",
+    "NORA CityPlace downtown West Palm Beach retail dining business",
+    "West Palm Beach new construction condo sales closings inventory",
+    "North Flagler South Flagler Downtown development"
   ],
   "reviewPackageRequirements": [
     "two review-ready article drafts when enough credible leads exist",

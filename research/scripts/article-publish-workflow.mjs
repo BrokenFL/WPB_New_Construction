@@ -150,6 +150,11 @@ async function normalizeArticle({ destination, sourceFile, articleId, routeSlug,
   const sourceLinks = normalizeSourceLinks(input, existing, destination);
   if (destination === "news" && !clean(input.sourceUrl || existing?.sourceUrl)) warnings.push("News items should include a sourceUrl.");
   if (!sourceLinks.length) warnings.push("No source links were provided.");
+  if (input.sourcePolicy === "two-source" || input.requireMultipleSources === true) {
+    const sourceHosts = new Set(sourceLinks.map((link) => hostForSourceLink(link.url)).filter(Boolean));
+    if (sourceLinks.length < 2) errors.push("Automated articles require at least two source links.");
+    else if (sourceHosts.size < 2) errors.push("Automated articles require source links from at least two independent hosts.");
+  }
 
   const bodyImagesBudgetChecks = [...bodyImages.values, heroImage].filter(Boolean).filter((image) => image.sizeBytes > imageBudgetBytes);
   for (const image of bodyImagesBudgetChecks) warnings.push(`Image ${image.path} exceeds the ${Math.round(imageBudgetBytes / 1024)} KB editorial budget.`);
@@ -206,6 +211,7 @@ async function publishNewsArticle({ sourceFile, normalized, articleId, routeSlug
     relatedBuildings: asArray(input.relatedBuildings || existing?.relatedBuildings || []),
     relatedNeighborhoods: asArray(input.relatedNeighborhoods || existing?.relatedNeighborhoods || []),
     relatedCorridor: clean(input.relatedCorridor || existing?.relatedCorridor || ""),
+    relatedArticleIds: asArray(input.relatedArticleIds || existing?.relatedArticleIds || []),
     newsletterHeadline: clean(input.newsletterHeadline || existing?.newsletterHeadline || normalized.article.title),
     newsletterBlurb: clean(input.newsletterBlurb || existing?.newsletterBlurb || normalized.article.deck),
     newsletterCta: clean(input.newsletterCta || existing?.newsletterCta || "Read the article"),
@@ -503,7 +509,7 @@ function extractFirstImageKey(body) {
 }
 
 function normalizeSourceLinks(input, existing, destination) {
-  const raw = Array.isArray(input.sourceLinks) ? input.sourceLinks : Array.isArray(existing?.sourceLinks) ? existing.sourceLinks : [];
+  const raw = [input.sourceLinks, input.sources, existing?.sourceLinks].find(Array.isArray) || [];
   const links = raw.map((item) => ({
     label: clean(item.label || item.sourceName || item.title || item.url || item.href),
     url: clean(item.url || item.href || item.link || item.sourceUrl),
@@ -513,6 +519,14 @@ function normalizeSourceLinks(input, existing, destination) {
     links.push({ label: clean(input.sourceName || existing?.sourceName || "Source"), url: clean(input.sourceUrl || existing?.sourceUrl), type: destination === "news" ? "news" : "official project site" });
   }
   return dedupe(links);
+}
+
+function hostForSourceLink(value) {
+  try {
+    return new URL(value).hostname.replace(/^www\./i, "").toLowerCase();
+  } catch {
+    return "";
+  }
 }
 
 function buildPreview({ destination, articleId, routeSlug, routePath, title, deck, normalized, existing }) {
