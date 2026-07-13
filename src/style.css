@@ -3838,6 +3838,37 @@ body.has-floorplan-viewer {
   margin-top: 2px;
 }
 
+.lead-consent-row {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--soft-ink);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.lead-consent-row input {
+  flex: 0 0 18px;
+  width: 18px;
+  min-height: 18px;
+  margin-top: 2px;
+}
+
+.turnstile-slot {
+  min-height: 0;
+  grid-column: 1 / -1;
+}
+
+.form-security-note {
+  grid-column: 1 / -1;
+  margin: -6px 0 0;
+  color: var(--soft-ink);
+  font-size: 0.72rem;
+}
+
 .inquiry-form .button.primary {
   color: var(--ivory);
   background: var(--editorial-navy);
@@ -6089,6 +6120,14 @@ select:focus-visible {
   letter-spacing: 0;
   text-transform: none;
   background: #fff;
+}
+
+.email-signup-card .lead-consent-row {
+  color: rgba(37, 42, 45, 0.68);
+}
+
+.email-signup-card .form-security-note {
+  color: rgba(37, 42, 45, 0.62);
 }
 
 .project-identity-header {

@@ -27,6 +27,8 @@ import homepageCardOverridesRaw from "../content/overrides/homepage-card-overrid
 import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
+import { applyLeadAttribution, captureLeadLandingContext, ensureSubmissionId, rememberLeadAttribution } from "./lib/leadCapture";
+import { getTurnstileToken, resetTurnstile } from "./lib/turnstile";
 import type { BuildingDatabaseField } from "./lib/buildingDatabase";
 import type { CompareSection } from "./lib/buildingCompareSections";
 import { advisorProfile, teamProfile } from "./lib/contact";
@@ -35,6 +37,8 @@ import { resolveSourceCatalogProjectId } from "./lib/projectIntelligenceRegistry
 import { escapeHtml, safeHref } from "./renderUtils";
 import { localIntelligence } from "./data/localIntelligence";
 import { homepageAssets, homepageProjectCardImage } from "./data/homepageAssets";
+
+captureLeadLandingContext();
 
 type MediaAsset = {
   src: string;
@@ -2653,8 +2657,16 @@ function renderLeadCaptureTrackingAttrs(ctaText: string, extras: {
 }
 
 function trackBuyerIntentCta(element: HTMLElement) {
+  const route = getCurrentRoute();
   const routeContext = analyticsRouteContext();
   const ctaText = cleanCtaText(element.dataset.ctaText ?? element.textContent ?? "");
+  rememberLeadAttribution({
+    cta_label: ctaText,
+    cta_location: element.dataset.ctaLocation ?? "unknown",
+    cta_context: element.dataset.leadCaptureContext,
+    corridor: element.dataset.corridor ?? routeContext.corridor,
+    article_id: element.dataset.articleId ?? (route.type === "news-detail" ? route.articleId : route.type === "market-note-detail" ? route.articleSlug : undefined),
+  });
   track("cta_click", {
     location: element.dataset.ctaLocation ?? "unknown",
     pageType: element.dataset.pageType ?? routeContext.pageType,
@@ -2677,8 +2689,16 @@ function trackHomepageHeroCta(element: HTMLElement) {
 }
 
 function trackLeadCaptureCta(element: HTMLElement) {
+  const route = getCurrentRoute();
   const routeContext = analyticsRouteContext();
   const ctaText = cleanCtaText(element.dataset.ctaText ?? element.textContent ?? "");
+  rememberLeadAttribution({
+    cta_label: ctaText,
+    cta_location: "lead_capture",
+    cta_context: element.dataset.leadCaptureContext,
+    corridor: element.dataset.corridor ?? routeContext.corridor,
+    article_id: element.dataset.articleId ?? (route.type === "news-detail" ? route.articleId : route.type === "market-note-detail" ? route.articleSlug : undefined),
+  });
   track("lead_capture_cta_click", {
     location: "lead_capture",
     pageType: element.dataset.pageType ?? routeContext.pageType,
@@ -3190,7 +3210,7 @@ app.innerHTML = `
             <article class="profile-card">
               <span>Site Handling</span>
               <strong>Lead submissions may be stored only to respond to the inquiry.</strong>
-              <p>Submissions may be stored by the form host, retained temporarily in this browser's local backup queue, and/or forwarded by email solely to respond to the inquiry. Do not submit sensitive financial records, identification documents, or confidential transaction documents through this form.</p>
+              <p>Submissions are stored in the site's lead database and routed through transactional email only to respond to the inquiry. The browser does not keep a backup copy of submitted personal information. Anti-abuse checks retain hashed request signals for rate limiting and delivery status records may include provider response details. Do not submit sensitive financial records, identification documents, or confidential transaction documents through this form.</p>
             </article>
             <article class="profile-card">
               <span>Brokerage Policy</span>
@@ -3608,12 +3628,15 @@ app.innerHTML = `
             </article>
           </div>
         </div>
-        <form class="inquiry-form" name="wpb-lead-intake" method="POST" data-netlify="true" netlify-honeypot="company">
+        <form class="inquiry-form" name="wpb-lead-intake" method="POST" data-lead-form="inquiry" data-lead-form-type="inquiry" data-lead-cta-location="inquiry_page" data-lead-cta-label="${escapeHtml(shortContactCtaLabel)}">
           <input type="hidden" name="form-name" value="wpb-lead-intake" />
+          <input type="hidden" name="form_type" value="inquiry" />
+          <input type="hidden" name="submission_id" value="" />
           <input type="hidden" name="source_page" value="" />
           <input type="hidden" name="viewed_buildings" value="" />
           <input type="hidden" name="submitted_at" value="" />
           <input type="hidden" name="lead_capture_context" value="" />
+          <input type="hidden" name="turnstile_token" value="" />
           <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label>
             <span>Name</span>
@@ -3673,6 +3696,8 @@ app.innerHTML = `
             <input type="checkbox" name="consent" required />
             <span>By submitting, I consent to be contacted by ${teamProfile.displayName} at ${advisorProfile.brokerage} at the email address or phone number I provided about this real-estate inquiry. This request is for a manual response and is not consent to autodialed, prerecorded, or automated marketing calls or texts. Pricing, availability, incentives, square footage, fees, and delivery dates require current written confirmation.</span>
           </label>
+          <div class="turnstile-slot" data-turnstile-slot aria-label="Spam protection"></div>
+          <p class="form-security-note">Protected by Cloudflare Turnstile.</p>
           <button class="button primary" type="submit">${shortContactCtaLabel}</button>
           <div class="brooke-identity-block">
             <img src="${teamProfile.logoMark}" alt="" aria-hidden="true" loading="lazy" decoding="async" />
@@ -3770,16 +3795,12 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
   if (!target.reportValidity()) {
     return;
   }
+  if (target.dataset.submitting === "true") return;
+  target.dataset.submitting = "true";
 
-  const name = String(form.get("name") ?? "").trim();
-  const email = String(form.get("email") ?? "").trim();
   const phone = String(form.get("phone") ?? "").trim();
   const project = String(form.get("project") ?? "").trim();
   const interest = String(form.get("interest") ?? "Request current availability");
-  const budget = String(form.get("budget") ?? "").trim();
-  const residenceSize = String(form.get("residence_size") ?? "").trim();
-  const timeline = String(form.get("timeline") ?? "").trim();
-  const representedByAgent = String(form.get("represented_by_agent") ?? "").trim();
   const message = String(form.get("message") ?? "").trim();
   const status = target.querySelector<HTMLElement>(".form-status");
   const submittedAt = new Date().toISOString();
@@ -3800,23 +3821,6 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     return;
   }
 
-  const leadRecord = {
-    submittedAt,
-    name,
-    email,
-    phone,
-    project,
-    interest,
-    budget,
-    residenceSize,
-    timeline,
-    representedByAgent,
-    message,
-    viewedBuildings: JSON.stringify(viewedBuildings),
-    leadCaptureContext: context,
-    consent: "yes",
-    source: window.location.href,
-  };
   track("contact_form_submit", {
     location: "inquiry_page",
     pageType: analyticsPageType(getCurrentRoute().type),
@@ -3830,17 +3834,17 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     leadCaptureContext: context,
     viewedBuildingCount: viewedBuildings.length,
   });
-  const subject = encodeURIComponent(`WPB New Construction inquiry: ${interest}`);
-  const body = encodeURIComponent(
-    `Submitted: ${submittedAt}\nName: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\nProject: ${project || "Not sure yet"}\nInterest: ${interest}\nBudget: ${budget || "Not provided"}\nResidence size: ${residenceSize || "Not provided"}\nTimeline: ${timeline || "Not provided"}\nRepresented by agent: ${representedByAgent || "Not provided"}\nViewed buildings: ${viewedBuildings.map((building) => building.name).join(", ") || "None tracked"}\nMessage: ${message || "Please send current availability, floor plans, and advisor notes."}\n\nConsent: Buyer understands pricing, availability, and delivery dates require current confirmation.`,
-  );
-
   if (status) {
     status.textContent = "Saving inquiry...";
   }
 
-  const sentToFormEndpoint = await submitLeadForm(form);
-  if (sentToFormEndpoint) {
+  const submission = await buildLeadSubmission(target, "inquiry");
+  if (!submission) {
+    target.dataset.submitting = "false";
+    return;
+  }
+  const result = await submitLeadForm(submission);
+  if (result.ok) {
     track("lead_form_submit_success", {
       location: "inquiry_page",
       pageType: analyticsPageType(getCurrentRoute().type),
@@ -3852,24 +3856,16 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
       leadCaptureContext: context,
     });
     if (status) {
-      status.textContent = "Thanks — your request is ready to send. The Scott Gordon Group will follow up with current availability and floor plan guidance.";
+      status.textContent = "Thanks — your request was received. The Scott Gordon Group will follow up with current availability and floor plan guidance.";
     }
+    resetTurnstile(target);
     target.reset();
+    target.dataset.submitting = "false";
     return;
   }
 
   if (status) {
-    queueLeadLocally(leadRecord);
-    track("lead_queue_local_save", {
-      location: "inquiry_page",
-      pageType: analyticsPageType(getCurrentRoute().type),
-      path: analyticsPath(),
-      projectSlug: selectedProjectRecord?.id ?? "not-sure-yet",
-      projectName: selectedProjectRecord?.name,
-      corridor: selectedProjectRecord?.corridor,
-      interest,
-    });
-    track("lead_form_submit_fallback", {
+    track("lead_form_submit_failure", {
       location: "inquiry_page",
       pageType: analyticsPageType(getCurrentRoute().type),
       path: analyticsPath(),
@@ -3878,20 +3874,19 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
       corridor: selectedProjectRecord?.corridor,
       interest,
       leadCaptureContext: context,
+      errorCode: result.code,
     });
-    status.textContent = "Thanks — your request is ready to send. Your email client will open so you can send it directly; ";
-    const link = document.createElement("a");
-    link.href = `mailto:${advisorProfile.email}?subject=${subject}&body=${body}`;
-    link.textContent = "send it by email";
-    status.append(link, ".");
+    status.textContent = result.message ?? "We could not securely save your request. Please try again.";
   }
+  target.dataset.submitting = "false";
 });
 
 document.querySelectorAll<HTMLFormElement>("[data-email-signup]").forEach((signupForm) => {
   signupForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const target = event.currentTarget;
-    if (!(target instanceof HTMLFormElement) || !target.reportValidity()) return;
+    if (!(target instanceof HTMLFormElement) || !target.reportValidity() || target.dataset.submitting === "true") return;
+    target.dataset.submitting = "true";
     const form = new FormData(target);
     const status = target.querySelector<HTMLElement>(".form-status");
     form.set("source_page", window.location.href);
@@ -3912,17 +3907,48 @@ document.querySelectorAll<HTMLFormElement>("[data-email-signup]").forEach((signu
       ctaText: cleanCtaText("Send Me Updates"),
       leadCaptureContext: context,
     });
-    const submitted = await submitLeadForm(form);
-    if (submitted) {
-      if (status) status.textContent = "You're on the list.";
+    const submission = await buildLeadSubmission(target, "email_updates");
+    if (!submission) {
+      target.dataset.submitting = "false";
+      return;
+    }
+    const result = await submitLeadForm(submission);
+    if (result.ok) {
+      if (status) status.textContent = "You're on the list. We received your request.";
+      resetTurnstile(target);
       target.reset();
+      target.dataset.submitting = "false";
       dismissLeadModal();
       return;
     }
     if (status) {
-      const email = encodeURIComponent(String(form.get("email") ?? ""));
-      status.innerHTML = `Open email to finish signup: <a href="mailto:${advisorProfile.email}?subject=WPB%20new-construction%20updates&body=Please%20add%20${email}%20to%20WPB%20new-construction%20updates.">send it by email</a>.`;
+      status.textContent = result.message ?? "We could not securely save your request. Please try again.";
     }
+    target.dataset.submitting = "false";
+  });
+});
+
+document.querySelectorAll<HTMLFormElement>('[data-lead-form="project_inquiry"]').forEach((projectForm) => {
+  projectForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (projectForm.dataset.submitting === "true" || !projectForm.reportValidity()) return;
+    projectForm.dataset.submitting = "true";
+    const status = projectForm.querySelector<HTMLElement>(".form-status");
+    if (status) status.textContent = "Saving inquiry...";
+    const submission = await buildLeadSubmission(projectForm, "project_inquiry");
+    if (!submission) {
+      projectForm.dataset.submitting = "false";
+      return;
+    }
+    const result = await submitLeadForm(submission);
+    if (result.ok) {
+      if (status) status.textContent = "Thanks — your request was received. Brooke will follow up with current information.";
+      resetTurnstile(projectForm);
+      projectForm.reset();
+    } else if (status) {
+      status.textContent = result.message ?? "We could not securely save your request. Please try again.";
+    }
+    projectForm.dataset.submitting = "false";
   });
 });
 
@@ -3930,17 +3956,6 @@ initBuyerAssistant();
 initLeadCaptureModal();
 initTrackableCtas();
 initHomeHero();
-
-function queueLeadLocally(leadRecord: Record<string, string>) {
-  try {
-    const existing = JSON.parse(window.localStorage.getItem("wpbLeadQueue") ?? "[]");
-    const queue = Array.isArray(existing) ? existing : [];
-    queue.push(leadRecord);
-    window.localStorage.setItem("wpbLeadQueue", JSON.stringify(queue.slice(-100)));
-  } catch {
-    // Lead capture still continues through the form endpoint or mailto fallback.
-  }
-}
 
 type ViewedBuilding = {
   slug: string;
@@ -4342,16 +4357,61 @@ function initWebMcpTools() {
   }
 }
 
-async function submitLeadForm(form: FormData) {
+type LeadSubmissionResult = {
+  ok: boolean;
+  message?: string;
+  code?: string;
+  leadId?: string;
+};
+
+async function buildLeadSubmission(target: HTMLFormElement, formType: string): Promise<FormData | null> {
+  const form = new FormData(target);
+  const context = String(form.get("lead_capture_context") ?? "").trim() || new URLSearchParams(window.location.search).get("lead_capture_context") || "contact_page";
+  applyLeadAttribution(form, {
+    cta_context: context,
+    cta_label: target.dataset.leadCtaLabel,
+    cta_location: target.dataset.leadCtaLocation || target.dataset.emailSignupLocation,
+    article_id: target.dataset.leadArticleId,
+    corridor: target.dataset.leadCorridor || target.dataset.emailSignupCorridor,
+  });
+  ensureSubmissionId(form);
+  form.set("form_type", formType);
+  if (target.dataset.leadProjectSlug) form.set("project", target.dataset.leadProjectSlug);
+  if (target.dataset.leadProjectName) form.set("project_name", target.dataset.leadProjectName);
+  form.set("submission_page", window.location.href);
+  form.set("source_page", window.location.href);
+  form.set("client_submitted_at", new Date().toISOString());
+  form.set("consent_version", "2026-07-12");
+  if (form.get("consent")) form.set("consent_at", new Date().toISOString());
+  form.set("viewed_buildings", JSON.stringify(getViewedBuildings()));
+
+  const token = await getTurnstileToken(target);
+  if (token === null) {
+    target.querySelector<HTMLElement>(".form-status")?.replaceChildren(document.createTextNode("Please complete the spam-protection check, then try again."));
+    return null;
+  }
+  form.set("turnstile_token", token);
+  return form;
+}
+
+async function submitLeadForm(form: FormData): Promise<LeadSubmissionResult> {
   try {
-    const response = await fetch("/", {
+    const response = await fetch("/api/leads", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(form as unknown as Record<string, string>).toString(),
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(Object.fromEntries(form.entries())),
     });
-    return response.ok;
+    const result = await response.json().catch(() => ({})) as LeadSubmissionResult;
+    if (!response.ok || !result.ok) {
+      return {
+        ok: false,
+        code: result.code ?? "lead_capture_failed",
+        message: result.message ?? "We could not securely save your request. Please try again.",
+      };
+    }
+    return result;
   } catch {
-    return false;
+    return { ok: false, code: "network_error", message: "We could not securely save your request. Please try again." };
   }
 }
 
@@ -4682,11 +4742,18 @@ function syncInquiryContext() {
   const message = params.get("message");
   const leadCaptureContext = params.get("lead_capture_context");
   const projectSelect = document.querySelector<HTMLSelectElement>('.inquiry-form select[name="project"]');
+  const inquiryForm = document.querySelector<HTMLFormElement>(".inquiry-form");
   const interestSelect = document.querySelector<HTMLSelectElement>('.inquiry-form select[name="interest"]');
   const messageField = document.querySelector<HTMLTextAreaElement>('.inquiry-form textarea[name="message"]');
 
   if (projectSelect && projectId && featuredProjects.some((project) => project.id === projectId)) {
     projectSelect.value = projectId;
+    const selectedProject = featuredProjects.find((project) => project.id === projectId);
+    if (inquiryForm && selectedProject) {
+      inquiryForm.dataset.leadProjectName = selectedProject.name;
+      inquiryForm.dataset.leadCorridor = selectedProject.corridor;
+      inquiryForm.querySelector<HTMLInputElement>('input[name="project_name"]')?.setAttribute("value", selectedProject.name);
+    }
   }
 
   if (interestSelect && interest === "floorplans") {
@@ -4701,7 +4768,7 @@ function syncInquiryContext() {
     messageField.value = message;
   }
 
-  document.querySelector<HTMLInputElement>('.inquiry-form input[name="source_page"]')?.setAttribute("value", window.location.href);
+  inquiryForm?.querySelector<HTMLInputElement>('input[name="source_page"]')?.setAttribute("value", window.location.href);
   document.querySelector<HTMLInputElement>('.inquiry-form input[name="viewed_buildings"]')?.setAttribute("value", JSON.stringify(getViewedBuildings()));
   document.querySelector<HTMLInputElement>('.inquiry-form input[name="lead_capture_context"]')?.setAttribute("value", leadCaptureContext ?? "contact_page");
 }
@@ -5659,8 +5726,10 @@ function renderEmailSignup(
       class="email-signup-card${compact ? " is-compact" : ""}"
       name="wpb-email-updates"
       method="POST"
-      data-netlify="true"
-      netlify-honeypot="company"
+      data-lead-form="email_updates"
+      data-lead-form-type="email_updates"
+      data-lead-cta-label="Send Me Updates"
+      data-lead-cta-location="${escapeHtml(trackingLocation)}"
       data-email-signup
       data-email-signup-location="${escapeHtml(trackingLocation)}"
       data-email-signup-project-slug="${escapeHtml(project?.id ?? "")}"
@@ -5668,8 +5737,12 @@ function renderEmailSignup(
       data-email-signup-corridor="${escapeHtml(project?.corridor ?? "")}"
     >
       <input type="hidden" name="form-name" value="wpb-email-updates" />
+      <input type="hidden" name="form_type" value="email_updates" />
+      <input type="hidden" name="submission_id" value="" />
       <input type="hidden" name="lead_capture_context" value="${escapeHtml(context)}" />
       <input type="hidden" name="project" value="${project ? escapeHtml(project.id) : ""}" />
+      <input type="hidden" name="project_name" value="${project ? escapeHtml(project.name) : ""}" />
+      <input type="hidden" name="turnstile_token" value="" />
       <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <div>
         <p class="eyebrow">Email Updates</p>
@@ -9270,7 +9343,16 @@ function renderDraftProjectPage(project: FeaturedProject) {
             ${!isCompactWatch && floorplanProject ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
           </div>
         </div>
-        ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project, "project_page") : `<form class="brochure-inquiry-card" action="mailto:${advisorProfile.email}" method="post" enctype="text/plain">
+        ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project, "project_page") : `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(shortContactCtaLabel)}">
+          <input type="hidden" name="form-name" value="wpb-project-inquiry" />
+          <input type="hidden" name="form_type" value="project_inquiry" />
+          <input type="hidden" name="submission_id" value="" />
+          <input type="hidden" name="project" value="${escapeHtml(project.id)}" />
+          <input type="hidden" name="project_name" value="${escapeHtml(project.name)}" />
+          <input type="hidden" name="interest" value="Request current availability" />
+          <input type="hidden" name="lead_capture_context" value="project_page_contact" />
+          <input type="hidden" name="turnstile_token" value="" />
+          <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <p class="eyebrow">Contact The Scott Gordon Group</p>
           <h2>${shortContactCtaLabel}</h2>
           <p>${shortTeamCtaCopy}</p>
@@ -9278,7 +9360,11 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="Email address" required /></label>
           <label><span>Phone</span><input name="phone" type="tel" autocomplete="tel" placeholder="Phone number" /></label>
           <label><span>Message</span><textarea name="message" placeholder="How can The Scott Gordon Group help?">${project.name} inquiry</textarea></label>
+          <label class="lead-consent-row"><input type="checkbox" name="consent" required /><span>By submitting, I consent to be contacted about this real-estate inquiry. This is a request for a manual response, not consent to autodialed or prerecorded marketing calls or texts.</span></label>
+          <div class="turnstile-slot" data-turnstile-slot aria-label="Spam protection"></div>
+          <p class="form-security-note">Protected by Cloudflare Turnstile.</p>
           <button type="submit">${shortContactCtaLabel}</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>`}
       </section>
 

@@ -139,12 +139,14 @@ async function main() {
   checks.push({ label: "Floorplan href coverage", ok: missingHref === 0, detail: `${floorplanTotal - missingHref}/${floorplanTotal}` });
   checks.push({ label: "Local floorplan file coverage", ok: missingPublicFile === 0, detail: `${missingPublicFile} missing public files` });
 
-  const homeHtml = await fs.readFile(routeFile("/"), "utf8");
-  const leadFormOk = homeHtml.includes('form name="wpb-lead-intake"') && homeHtml.includes('netlify-honeypot="company"');
-  checks.push({ label: "Lead intake static form", ok: leadFormOk, detail: "wpb-lead-intake" });
-  if (!leadFormOk) findings.push("Lead intake static form is missing from prerender shell.");
-
   const builtJavaScript = await readBuiltAssetText(".js");
+  const leadFormOk = builtJavaScript.includes('data-lead-form="inquiry"')
+    && builtJavaScript.includes("/api/leads")
+    && !builtJavaScript.includes("data-netlify")
+    && !builtJavaScript.includes("netlify-honeypot");
+  checks.push({ label: "Lead intake static form", ok: leadFormOk, detail: "wpb-lead-intake -> /api/leads" });
+  if (!leadFormOk) findings.push("Lead intake form is missing the shared /api/leads transport or still references Netlify.");
+
   const googleMapsLoaderOk = builtJavaScript.includes("maps.googleapis.com/maps/api/js");
   const requireGoogleMaps = process.env.REQUIRE_GOOGLE_MAPS === "true";
   checks.push({
