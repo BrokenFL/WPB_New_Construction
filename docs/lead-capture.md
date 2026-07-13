@@ -23,4 +23,8 @@ Use `wrangler.toml.example` as the sanitized template. `wrangler.toml` contains 
 
 Resend sends a notification to Brooke and a visitor acknowledgment from `WPB New Construction Concierge <concierge@wpbnewconstruction.com>`. Both deliveries are recorded on `leads`, with each attempt recorded in `lead_delivery_attempts`. A failed email does not erase the durable lead or produce a false browser success; `/api/leads/retry` can retry pending/failed deliveries with `Authorization: Bearer $LEAD_RETRY_TOKEN`, up to five attempts per delivery type.
 
+The `wpb-lead-maintenance` Worker runs every 15 minutes. It invokes the protected retry endpoint, which retries only pending or failed delivery types, uses increasing delays based on the previous attempt, and never retries a delivery already marked `sent`. Each retry and result is recorded in `lead_maintenance_runs`; individual delivery attempts remain in `lead_delivery_attempts`.
+
+Lead PII is retained for 24 months from `received_at`. The scheduled retention purge deletes only leads whose delivery work is complete and that have no pending or sending delivery attempt. It deletes their delivery-attempt rows first, retains non-identifying counts by form type in the purge run's `summary_json`, and records the affected count and outcome in `lead_maintenance_runs`. Current leads and active delivery attempts are not purged.
+
 Production verification should submit a real test lead, confirm the D1 row, Brooke's notification, the visitor acknowledgment, provider IDs, and a forced Resend failure before any live deployment is approved.

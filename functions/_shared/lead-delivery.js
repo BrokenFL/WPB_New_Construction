@@ -159,14 +159,30 @@ export async function deliverLead(env, db, lead) {
 
 export async function retryPendingDeliveries(env, db, limit = 25) {
   const rows = await db.prepare(`
-    SELECT * FROM leads
+    SELECT leads.*,
+      (SELECT attempted_at FROM lead_delivery_attempts
+        WHERE lead_id = leads.id AND delivery_type = 'notification'
+        ORDER BY attempted_at DESC LIMIT 1) AS notification_last_attempt_at,
+      (SELECT attempted_at FROM lead_delivery_attempts
+        WHERE lead_id = leads.id AND delivery_type = 'acknowledgment'
+        ORDER BY attempted_at DESC LIMIT 1) AS acknowledgment_last_attempt_at
+    FROM leads
     WHERE (notification_status IN ('pending', 'failed') AND notification_attempts < 5)
        OR (acknowledgment_status IN ('pending', 'failed') AND acknowledgment_attempts < 5)
     ORDER BY received_at ASC
-    LIMIT ?
-  `).bind(Math.min(Math.max(Number(limit) || 25, 1), 50)).all();
+    LIMIT 100
+  `).bind().all();
+  const now = Date.now();
+  const maxResults = Math.min(Math.max(Number(limit) || 25, 1), 50);
+  const retryDelayMs = (attempts) => 15 * 60 * 1000 * (2 ** Math.max(Number(attempts || 1) - 1, 0));
+  const deliveryDue = (status, attempts, lastAttemptAt) => ["pending", "failed"].includes(status)
+    && Number(attempts || 0) < 5
+    && (!lastAttemptAt || now - Date.parse(lastAttemptAt) >= retryDelayMs(attempts));
   const results = [];
-  for (const lead of rows.results ?? []) {
+  for (const lead of (rows.results ?? []).filter((candidate) => {
+    return deliveryDue(candidate.notification_status, candidate.notification_attempts, candidate.notification_last_attempt_at)
+      || deliveryDue(candidate.acknowledgment_status, candidate.acknowledgment_attempts, candidate.acknowledgment_last_attempt_at);
+  }).slice(0, maxResults)) {
     const delivery = await deliverLead(env, db, lead);
     results.push({ leadId: lead.id, ...delivery });
   }

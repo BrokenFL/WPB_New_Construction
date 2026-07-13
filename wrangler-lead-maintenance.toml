@@ -1,0 +1,16 @@
+name = "wpb-lead-maintenance"
+main = "workers/lead-maintenance.js"
+compatibility_date = "2026-05-18"
+workers_dev = false
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[vars]
+LEAD_RETRY_ORIGIN = "https://www.wpbnewconstruction.com"
+
+[[d1_databases]]
+binding = "LEADS_DB"
+database_name = "wpb-leads"
+database_id = "9c202a7f-2b20-477c-b970-cb60c8cf1cb9"
+migrations_dir = "migrations"
