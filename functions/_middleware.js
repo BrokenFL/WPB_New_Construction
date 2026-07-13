@@ -226,6 +226,12 @@ export async function onRequest(context) {
   const url = new URL(context.request.url);
   const accept = context.request.headers.get("Accept")?.toLowerCase() ?? "";
 
+  if (url.hostname === "wpbnewconstruction.com") {
+    url.hostname = "www.wpbnewconstruction.com";
+    url.protocol = "https:";
+    return Response.redirect(url.toString(), 301);
+  }
+
   if (url.pathname === "/.well-known/mcp/server-card.json") {
     return mcpServerCard();
   }
