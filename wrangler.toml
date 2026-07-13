@@ -1,0 +1,9 @@
+name = "wpbnewconstruction"
+compatibility_date = "2026-05-18"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "LEADS_DB"
+database_name = "wpb-leads"
+database_id = "9c202a7f-2b20-477c-b970-cb60c8cf1cb9"
+migrations_dir = "migrations"
