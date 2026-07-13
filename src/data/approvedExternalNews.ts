@@ -76,6 +76,89 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "project-tango-july-15-zoning-decision-2026-2026-07-13",
+    "slug": "project-tango-july-15-zoning-decision-2026-2026-07-13",
+    "title": "Project Tango heads to a July 15 decision as Palm Beach County weighs a larger AI campus",
+    "sourceName": "Palm Beach County Zoning Division",
+    "sourceUrl": "https://discover.pbc.gov/pzb/zoning/Pages/Project_Tango.aspx",
+    "canonicalUrl": "https://discover.pbc.gov/pzb/zoning/Pages/Project_Tango.aspx",
+    "sourceTitle": "Project Tango (Central Park Commerce Center)",
+    "publishedAt": "2026-07-13T13:31:31.981Z",
+    "sourcePublishedAt": "2026-07-08",
+    "sourcePublishedDate": "2026-07-08",
+    "eventDate": "2026-07-15",
+    "dateDiscovered": "2026-07-13",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-07-13T13:31:31.981Z",
+    "deck": "The proposed Central Park Commerce Center expansion is facing a zoning denial recommendation as the county moves toward new rules for large-scale AI data centers.",
+    "description": "Project Tango heads to a July 15 Palm Beach County decision after a zoning denial recommendation and a new freeze on future large-scale AI data-center applications.",
+    "summary": "Project Tango heads to a July 15 Palm Beach County decision after a zoning denial recommendation and a new freeze on future large-scale AI data-center applications.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "Project Tango is heading into a consequential July 15 hearing with the Palm Beach County Commission after the county's Planning and Zoning Commission recommended denial of the proposed AI data-center campus. The project is planned within the Central Park Commerce Center in the western county, near the Arden community and Saddle View Elementary School.\n\nThe recommendation does not end the application. County commissioners will make the final land-use decision, and the project now arrives with two competing signals: county planning staff have recommended approval with changes, while the zoning board has recommended denial after a lengthy public hearing."
+      },
+      {
+        "heading": "The plan before the county",
+        "body": "Palm Beach County records describe a 202.67-acre site on the north side of Southern Boulevard, west of the L-8 Canal and about 3.4 miles west of Seminole Pratt Whitney Road. The currently approved Central Park Commerce Center plan includes two 100,000-square-foot data-center buildings, a 1.2 million-square-foot warehouse, and a smaller office component.\n\nThe preliminary site plan tied to the larger request shows three phases totaling 3,594,564 square feet. It combines warehouse space with data-information-processing buildings, offices, and utility buildings. That scale is central to the debate: the application is an expansion and reconfiguration of an already approved commerce-center framework, but the proposed mix would materially increase the data-center component and change the character of the site."
+      },
+      {
+        "heading": "Why the zoning board said no",
+        "body": "The July 2 zoning hearing turned on more than the project's size. Board members questioned whether a hyperscale AI data center belongs within the county's light-industrial and data-information-processing categories, or whether its power, cooling, noise, and other operating impacts make it a heavy-industrial use.\n\nThe proposed campus would sit about 1,100 feet from Arden and Saddle View Elementary School, according to WFLX. The board's denial recommendation followed a public hearing that drew more than 100 attendees and more than 40 speakers, with concerns focused on the project's proximity to homes and a school as well as its infrastructure demands."
+      },
+      {
+        "heading": "A separate county response",
+        "body": "The county has also started writing a broader policy response. On July 7, commissioners directed staff to draft a moratorium ordinance for new large-scale AI data centers and imposed an immediate zoning-in-progress freeze on new applications. The freeze passed 5-2, according to Boca Post.\n\nThat action does not stop Project Tango. The existing application remains scheduled under the rules already in place, which is why the July 15 decision carries more weight than a routine zoning vote. The county is trying to decide this project while also deciding how future projects of the same type should be reviewed."
+      },
+      {
+        "heading": "What happens next",
+        "body": "The Board of County Commissioners is scheduled to hear Project Tango on Wednesday, July 15, at 9:30 a.m. at the county government center on North Olive Avenue in West Palm Beach. The county's project page lists the application as the only item scheduled for that zoning hearing and notes that interested speakers may receive limited time if turnout exceeds 20 people.\n\nThe immediate question is whether commissioners approve the requested changes, deny them, or require a different path. The larger question is whether Palm Beach County treats hyperscale AI facilities as a conventional extension of a commerce center or as a land-use category that needs a new set of standards."
+      }
+    ],
+    "whyItMatters": "Project Tango puts a major western Palm Beach County land-use decision in front of commissioners while the county is also writing new rules for future large-scale AI data centers.",
+    "buyerContext": "This is a western-county infrastructure and land-use story, not a downtown or waterfront housing project. It matters to buyers tracking major employment, utility, traffic, and development decisions around the outer West Palm Beach market.",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Project Tango faces a July 15 county decision",
+    "newsletterBlurb": "A zoning denial recommendation and a new AI data-center freeze set up a consequential Palm Beach County hearing.",
+    "newsletterCta": "Read the Development Watch",
+    "query": "West Palm Beach development permit site plan zoning; Project Tango",
+    "category": "planning",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/project-tango-july-15-zoning-decision-2026-2026-07-13-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "Palm Beach County Zoning Division project page",
+        "url": "https://discover.pbc.gov/pzb/zoning/Pages/Project_Tango.aspx",
+        "type": "official"
+      },
+      {
+        "label": "WFLX: zoning commission recommends denial",
+        "url": "https://www.wflx.com/2026/07/02/palm-beach-county-zoning-commission-recommends-denial-controversial-data-center-near-arden/",
+        "type": "news"
+      },
+      {
+        "label": "Boca Post: county advances AI data-center moratorium",
+        "url": "https://bocapost.com/palm-beach-county-news/palm-beach-county-ai-data-center-moratorium-project-tango/",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "sound-apartments-right-of-way-maintenance-2026-07-12",
     "slug": "sound-apartments-right-of-way-maintenance-2026-07-12",
     "title": "West Palm Beach approves maintenance agreements for The Sound Apartments on South Dixie",
