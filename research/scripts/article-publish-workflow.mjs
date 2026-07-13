@@ -89,7 +89,7 @@ if (previewOnly) {
       await runChecked("node", ["research/scripts/manual-article-publisher.mjs", "--input", path.relative(workspace, payloadPath), "--ship"]);
     }
 
-    if (stageOnly) {
+    if (stageOnly || publishMode) {
       await markStageOutputsAsIntentToAdd({ destination, normalized });
     }
 
