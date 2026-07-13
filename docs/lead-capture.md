@@ -8,18 +8,16 @@ Lead forms use the same same-origin `POST /api/leads` endpoint:
 
 The endpoint validates the request, consent, origin, Turnstile, honeypot, and a short IP-hash rate limit. It inserts the lead into D1 before attempting either email. The browser never stores a failed lead in `localStorage`; attribution is limited to non-PII `sessionStorage` context.
 
-## Required Cloudflare Pages configuration
+## Cloudflare Pages configuration
 
-The current Cloudflare account has no D1 database, Turnstile widget, Pages variables, or Pages bindings configured for this project. Production setup is therefore still a separate operator step.
+The production D1 database has been created as `wpb-leads`, migrated with `migrations/0001_leads.sql`, and is defined in the repository's `wrangler.toml` as the `LEADS_DB` Pages binding. The Turnstile widget, Pages variables/secrets, Resend sender, and email-routing state still require verification before production lead testing.
 
-1. Create a D1 database named `wpbnewconstruction-leads`.
-2. Apply `migrations/0001_leads.sql`.
-3. Bind it to Pages Production as `LEADS_DB`.
-4. Create a Turnstile widget for `wpbnewconstruction.com` and set the public build variable `VITE_TURNSTILE_SITE_KEY`.
-5. Verify `wpbnewconstruction.com` in Resend and set the Pages secrets `RESEND_API_KEY`, `TURNSTILE_SECRET_KEY`, and `LEAD_RETRY_TOKEN`.
-6. Set `LEAD_HASH_SALT` to a random secret. Optional overrides are `LEAD_NOTIFICATION_EMAIL`, `LEAD_FROM_EMAIL`, `LEAD_REPLY_TO_EMAIL`, and `LEAD_ALLOWED_ORIGINS`.
+1. Keep `wrangler.toml` aligned with the Pages project and `LEADS_DB` binding.
+2. Create a Turnstile widget for `wpbnewconstruction.com` and `www.wpbnewconstruction.com`, then set the public build variable `VITE_TURNSTILE_SITE_KEY`.
+3. Verify `wpbnewconstruction.com` in Resend and set the Pages secrets `RESEND_API_KEY`, `TURNSTILE_SECRET_KEY`, and `LEAD_RETRY_TOKEN`.
+4. Set `LEAD_HASH_SALT` to a random secret. Optional overrides are `LEAD_NOTIFICATION_EMAIL`, `LEAD_FROM_EMAIL`, `LEAD_REPLY_TO_EMAIL`, and `LEAD_ALLOWED_ORIGINS`.
 
-Use `wrangler.toml.example` as the binding shape. It intentionally contains a placeholder database ID and is not a production configuration.
+Use `wrangler.toml.example` as the sanitized template. `wrangler.toml` contains the non-secret production D1 identifier and is the Pages binding source of truth.
 
 ## Email delivery and retries
 

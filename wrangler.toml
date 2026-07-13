@@ -5,5 +5,5 @@ pages_build_output_dir = "dist"
 [[d1_databases]]
 binding = "LEADS_DB"
 database_name = "wpb-leads"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "9c202a7f-2b20-477c-b970-cb60c8cf1cb9"
 migrations_dir = "migrations"
