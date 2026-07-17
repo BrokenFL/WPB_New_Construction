@@ -63,7 +63,7 @@ Template: `research/article-uploads/templates/article-template.json`.
   ],
   "relatedProjectIds": ["nora-house"],
   "relatedCorridorIds": ["downtown"],
-  "heroImage": { "file": "hero.jpg", "alt": "", "caption": "", "credit": "" },
+  "heroImage": { "file": "hero.jpg", "path": "/assets/editorial/hero.jpg", "alt": "", "caption": "", "credit": "" },
   "bodyImages": [
     { "key": "image1", "file": "body.jpg", "alt": "", "caption": "", "credit": "" }
   ],
@@ -73,7 +73,10 @@ Template: `research/article-uploads/templates/article-template.json`.
 
 Images accept `file` (path), `dataUrl` (base64), or an existing public `path`
 (e.g. `/assets/editorial/...`). File/dataUrl images are optimized to JPEG (hero
-max 2400px, body max 1600px, q82) under the 750 KB editorial budget.
+max 2400px, body max 1600px, q82) under the 750 KB editorial budget. The
+publisher does not call an image-generation API; if you want a new editorial
+image, generate it with the chat-native image tool first, then attach the
+result as `heroImage.file`, `heroImage.path`, or `heroImage.dataUrl`.
 
 ## Image placement rules
 
