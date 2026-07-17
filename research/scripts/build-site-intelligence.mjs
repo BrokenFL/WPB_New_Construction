@@ -18,6 +18,12 @@ const generatedDate = new Date().toISOString().slice(0, 10);
 const cloudflarePagesSingleFileLimitBytes = 25 * 1024 * 1024;
 const marketNoteRoutes = [
   {
+    slug: "ritz-carlton-penthouse-resets-north-flagler-ceiling",
+    title: "A Ritz-Carlton penthouse resets the North Flagler ceiling | Buyer Intelligence",
+    description:
+      "Penthouse A went under contract for $16.95 million, and the remaining Ritz-Carlton residences still start at $3 million, keeping North Flagler focused on line, view, and service.",
+  },
+  {
     slug: "ritz-carlton-record-penthouse-north-flagler-ceiling",
     title: "A record Ritz-Carlton penthouse raises the North Flagler ceiling | Buyer Intelligence",
     description:

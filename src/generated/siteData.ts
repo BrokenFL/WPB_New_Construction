@@ -5141,6 +5141,12 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/wpb-geography-map-hero.jpg"
   },
   {
+    "path": "/market-notes/ritz-carlton-penthouse-resets-north-flagler-ceiling/",
+    "title": "A Ritz-Carlton penthouse resets the North Flagler ceiling | Buyer Intelligence",
+    "description": "Penthouse A went under contract for $16.95 million, and the remaining Ritz-Carlton residences still start at $3 million, keeping North Flagler focused on line, view, and service.",
+    "ogImage": "/assets/editorial/wpb-geography-map-hero.jpg"
+  },
+  {
     "path": "/market-notes/nora-district-downtown-transformation/",
     "title": "NORA District's Downtown Impact Explained | Buyer Intelligence",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
