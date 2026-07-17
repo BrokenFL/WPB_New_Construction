@@ -66,6 +66,95 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    id: "nora-hotel-countdown",
+    status: "published",
+    category: "Downtown Spotlight",
+    title: "The Nora Hotel gives NORA a real opening date",
+    slug: "nora-hotel-countdown",
+    excerpt: "NORA's homepage now shows the district's first wave of tenants as open, and Reuters Connect captions say the 201-key hotel is scheduled to welcome guests on Oct. 19. North Railroad Avenue is moving from promise to calendar.",
+    buyerThesis: "NORA's homepage now shows the district's first wave of tenants as open, and Reuters Connect captions say the 201-key hotel is scheduled to welcome guests on Oct. 19. North Railroad Avenue is moving from promise to calendar.",
+    buyerTakeaway: "Use this note as buyer context, then verify building-specific availability, pricing, fees, documents, and timing.",
+    marketSignal: "",
+    bestFor: "",
+    watchPoints: "",
+    buyerQuestions: "",
+    relatedBuildings: [],
+    relatedNeighborhoods: [
+      "nora-district",
+      "downtown-west-palm-beach"
+    ],
+    relatedCorridor: "",
+    relatedArticleIds: [],
+    image: {
+      path: "/assets/editorial/rosemary-square-corridor.jpg",
+      credit: "User-provided editorial image, optimized for site use."
+    },
+    primaryProjectId: "nora-house",
+    projectIds: [
+      "nora-house"
+    ],
+    sourceName: "NORA West Palm",
+    sourceLinks: [
+      {
+        label: "NORA West Palm",
+        href: "https://norawpb.com/the-nora-hotel/",
+        sourceType: "local news coverage"
+      },
+      {
+        label: "The Nora Hotel official page",
+        href: "https://norawpb.com/the-nora-hotel/",
+        sourceType: "official project site"
+      },
+      {
+        label: "NORA homepage",
+        href: "https://norawpb.com/",
+        sourceType: "official project site"
+      },
+      {
+        label: "Reuters Connect caption for The Nora Hotel opening date",
+        href: "https://www.reutersconnect.com/item/the-nora-hotel-seen-here-on-july-1-2026-in-west-palm-beach-florida-is-scheduled-to-open-to-guests-on-oct-19-it-is-the/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMVVTQVRPREFZMjkzNTgyMTg",
+        sourceType: "local news coverage"
+      },
+      {
+        label: "Markets of Tomorrow on Nami Nori at NORA",
+        href: "https://www.oftmw.com/post/nami-nori-is-officially-coming-to-west-palm-beach-s-nora-district/",
+        sourceType: "local news coverage"
+      }
+    ],
+    datePublished: "2026-07-17",
+    dateModified: "2026-07-17",
+    sections: [
+      {
+        heading: "What changed",
+        body: "The Nora Hotel page still describes the property as a fall 2026 arrival, but Reuters Connect captions tied to a July 1 photo set put a sharper point on it: the 201-key hotel is scheduled to open to guests on Oct. 19. That is a different kind of signal than the usual \"coming soon\" language. It gives the district a date.\n\nThe rest of NORA is already behaving like a live neighborhood rather than a master plan. The homepage now carries a \"now open\" roster that includes Del Mar, Loco Taco & Oyster Bar, H&H Bagels, Sunday Motor Co., Van Leeuwen, solidcore, Celis Juice Bar, IGK Salons, Sana Skin Studio, mint, Pompanos and Le Labo. The district has moved past the point where every update is only a promise."
+      },
+      {
+        heading: "What is actually new",
+        body: "The meaningful change is not just that another luxury hotel is on the way. It is that NORA now has a hospitality clock attached to it. That matters because hotels do more than add rooms. They change the rhythm of a district. They create check-in traffic, breakfast traffic, bar traffic, and the kind of weekend spillover that a restaurant row alone does not always produce.\n\nNami Nori is still marked opening soon on the official site, and Pastis is being built into the hotel as part of the district's next phase. Those pieces turn NORA from a tenant list into a layered place with multiple reasons to visit, linger and come back. The market reads that shift quickly."
+      },
+      {
+        heading: "Why this part of the city matters",
+        body: "NORA sits just north of downtown's traditional center of gravity, so every confirmed opening changes the practical walking map. A district like this is not only about headlines. It is about whether a resident or visitor can walk from a condo, office or parking garage into a place that feels active after dinner and still has something going on the next morning.\n\nThat is why the hotel date matters more than a generic lease announcement. It makes North Railroad Avenue feel less like an adjacent project zone and more like an extension of downtown's daily life. For people comparing addresses, that can be the difference between \"near downtown\" and \"inside the part of downtown that people actually use.\""
+      },
+      {
+        heading: "What to watch next",
+        body: "The next markers are straightforward. Watch whether Nami Nori keeps its current timeline, how quickly Pastis and the hotel interior finish, and whether the district can keep filling in without losing the walkable feel that made the first phase appealing.\n\nIf the Oct. 19 opening holds, NORA stops being framed mainly as a dining and retail story. It becomes a place where people can stay, meet, eat, and drift into the street without planning the whole night around a single reservation. That is the sort of texture downtown West Palm Beach has been building toward for years, and NORA is now close enough to make that feel real."
+      }
+    ],
+    ctaText: "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    factCheckRequired: [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    seo: {
+      primaryQuery: "The Nora Hotel gives NORA a real opening date",
+      secondaryQueries: [],
+      suggestedSlug: "nora-hotel-countdown",
+      titleTag: "The Nora Hotel gives NORA a real opening date | Downtown Spotlight",
+      metaDescription: "NORA's homepage now shows the district's first wave of tenants as open, and Reuters Connect captions say the 201-key hotel is scheduled to welcome guests on Oct. 19. North Railroad Avenue is moving from promise to calendar."
+    }
+  },
+  {
     id: "ritz-carlton-penthouse-resets-north-flagler-ceiling",
     status: "published",
     category: "general",

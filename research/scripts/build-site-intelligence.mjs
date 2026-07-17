@@ -80,6 +80,12 @@ const marketNoteRoutes = [
 ];
 const downtownSpotlightRoutes = [
   {
+    slug: "nora-hotel-countdown",
+    title: "The Nora Hotel gives NORA a real opening date | Downtown Spotlight",
+    description:
+      "NORA's homepage now shows the district's first wave of tenants as open, and Reuters Connect captions say the 201-key hotel is scheduled to welcome guests on Oct. 19. North Railroad Avenue is moving from promise to calendar.",
+  },
+  {
     slug: "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city",
     title: "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City | Downtown Spotlight",
     description:

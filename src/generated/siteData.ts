@@ -5123,6 +5123,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/downtown-spotlight/nora-hotel-countdown/",
+    "title": "The Nora Hotel gives NORA a real opening date | Downtown Spotlight",
+    "description": "NORA's homepage now shows the district's first wave of tenants as open, and Reuters Connect captions say the 201-key hotel is scheduled to welcome guests on Oct. 19. North Railroad Avenue is moving from promise to calendar.",
+    "ogImage": "/assets/editorial/rosemary-square-corridor.jpg"
+  },
+  {
     "path": "/downtown-spotlight/nora-district-downtown-transformation/",
     "title": "NORA District's Downtown Impact Explained | Downtown Spotlight",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
