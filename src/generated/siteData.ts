@@ -5135,12 +5135,6 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
-    "path": "/market-notes/ritz-carlton-record-penthouse-north-flagler-ceiling/",
-    "title": "A record Ritz-Carlton penthouse raises the North Flagler ceiling | Buyer Intelligence",
-    "description": "Penthouse A went under contract for $16.95 million, the remaining Ritz-Carlton residences still start at $3 million, and the buyer question is whether North Flagler is still being priced line by line.",
-    "ogImage": "/assets/editorial/wpb-geography-map-hero.jpg"
-  },
-  {
     "path": "/market-notes/ritz-carlton-penthouse-resets-north-flagler-ceiling/",
     "title": "A Ritz-Carlton penthouse resets the North Flagler ceiling | Buyer Intelligence",
     "description": "Penthouse A went under contract for $16.95 million, and the remaining Ritz-Carlton residences still start at $3 million, keeping North Flagler focused on line, view, and service.",
