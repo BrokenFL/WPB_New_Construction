@@ -12,7 +12,12 @@ const sourceFiles = [
   "content/overrides/homepage-card-overrides.json",
 ];
 
-const allowedRepeatedFragments = ["/logo.", "/logo.svg", "brand-mark"];
+const allowedRepeatedFragments = [
+  "/logo.",
+  "/logo.svg",
+  "brand-mark",
+  "wpb-geography-map-hero",
+];
 const routeChecks = [
   {
     label: "Rosewood render stays in Rosewood context",

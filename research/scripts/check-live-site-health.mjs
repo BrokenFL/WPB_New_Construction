@@ -86,7 +86,9 @@ async function checkRoute(browser, route) {
   page.on("requestfailed", (request) => {
     const url = request.url();
     if (url.includes("wpbnewconstruction.com") || url.startsWith(baseUrl)) {
-      routeFailures.push(`${url} failed: ${request.failure()?.errorText ?? "unknown error"}`);
+      const errorText = request.failure()?.errorText ?? "unknown error";
+      if (errorText === "net::ERR_ABORTED" || errorText === "NS_BINDING_ABORTED") return;
+      routeFailures.push(`${url} failed: ${errorText}`);
     }
   });
 

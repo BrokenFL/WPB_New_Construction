@@ -59,7 +59,7 @@ if (destination === "news") {
   });
   await runChecked("npm", ["run", "news:promote"]);
 } else {
-  await publishMarketNote({
+  const removedSlugs = await publishMarketNote({
     id: articleId,
     slug: slugBaseForNote(slugValue),
     title,
@@ -68,15 +68,25 @@ if (destination === "news") {
     imagePath: imagePaths.hero,
     destination,
   });
+  await updateGeneratedRoutes({
+    destination,
+    slug: slugBaseForNote(slugValue),
+    title,
+    description: deck,
+    imagePath: imagePaths.hero,
+    removedSlugs,
+  });
 }
 
-await updateGeneratedRoutes({
-  destination,
-  slug: destination === "news" ? slugValue : slugBaseForNote(slugValue),
-  title,
-  description: deck,
-  imagePath: imagePaths.hero,
-});
+if (destination === "news") {
+  await updateGeneratedRoutes({
+    destination,
+    slug: slugValue,
+    title,
+    description: deck,
+    imagePath: imagePaths.hero,
+  });
+}
 
 await runChecked("npm", ["run", "build"]);
 await runChecked("npm", ["run", "qa:launch"]);
@@ -225,14 +235,21 @@ async function publishMarketNote({ id, slug, title, deck, bodySections, imagePat
       metaDescription: clean(input.metaDescription || deck),
     },
   };
-  const inserted = source.replace("export const marketNotes = [", `export const marketNotes = [\n  ${objectLiteral(note)},`);
-  if (inserted === source) fail("Could not find marketNotes export.");
-  await fs.writeFile(filePath, inserted);
+  const { source: nextSource, removedSlugs } = upsertMarketNote(source, note);
+  await fs.writeFile(filePath, nextSource);
+  return removedSlugs;
 }
 
-async function updateGeneratedRoutes({ destination, slug, title, description, imagePath }) {
+async function updateGeneratedRoutes({ destination, slug, title, description, imagePath, removedSlugs = [] }) {
   const routeBase = destinationConfig[destination].routeBase;
   const routePath = `${routeBase}${slug}/`;
+  for (const removedSlug of removedSlugs) {
+    const removedRoutePath = `${routeBase}${removedSlug}/`;
+    if (removedRoutePath !== routePath) {
+      await removeGeneratedRoute(removedRoutePath);
+      await removeSitemapRoute(removedRoutePath);
+    }
+  }
   await insertGeneratedRoute(routePath, routeTitle(destination, title), description, imagePath);
   await insertSitemapRoute(routePath);
   if (destination === "buyer" || destination === "downtown") {
@@ -257,6 +274,28 @@ async function insertGeneratedRoute(routePath, title, description, imagePath) {
   if (index === -1) fail(`Could not find generated route anchor for ${routePath}`);
   const next = `${source.slice(0, index)}  ${JSON.stringify(route, null, 2).replace(/\n/g, "\n  ")},\n${source.slice(index)}`;
   await fs.writeFile(filePath, next);
+}
+
+async function removeGeneratedRoute(routePath) {
+  const filePath = path.join(workspace, "src/generated/siteData.ts");
+  const source = await fs.readFile(filePath, "utf8");
+  const marker = '"path": "';
+  const index = source.indexOf(`  {\n    ${marker}${routePath}"`);
+  if (index === -1) return;
+  const nextIndex = source.indexOf("\n  },", index);
+  if (nextIndex === -1) fail(`Could not find generated route end for ${routePath}`);
+  await fs.writeFile(filePath, `${source.slice(0, index)}${source.slice(nextIndex + 6)}`);
+}
+
+async function removeSitemapRoute(routePath) {
+  const filePath = path.join(workspace, "public/sitemap.xml");
+  const source = await fs.readFile(filePath, "utf8");
+  const loc = `https://www.wpbnewconstruction.com${routePath}`;
+  const blockStart = source.indexOf(`  <url>\n    <loc>${loc}</loc>`);
+  if (blockStart === -1) return;
+  const blockEnd = source.indexOf("  </url>\n", blockStart);
+  if (blockEnd === -1) fail(`Could not find sitemap route end for ${routePath}`);
+  await fs.writeFile(filePath, `${source.slice(0, blockStart)}${source.slice(blockEnd + 9)}`);
 }
 
 async function insertSitemapRoute(routePath) {
@@ -367,6 +406,81 @@ function objectLiteral(value) {
   return JSON.stringify(value, null, 2)
     .replace(/"([^"]+)":/g, "$1:")
     .replace(/\n/g, "\n  ");
+}
+
+function upsertMarketNote(source, note) {
+  const marker = "export const marketNotes = [";
+  const markerIndex = source.indexOf(marker);
+  if (markerIndex === -1) fail("Could not find marketNotes export.");
+  const arrayStart = source.indexOf("[", markerIndex);
+  if (arrayStart === -1) fail("Could not find marketNotes array start.");
+  const arrayEnd = findMatchingBracket(source, arrayStart);
+  if (arrayEnd === -1) fail("Could not find marketNotes array end.");
+  const articleCtaMatch = source.match(/const articleCta = ("(?:\\.|[^"])*");/);
+  const scope = articleCtaMatch ? `const articleCta = ${articleCtaMatch[1]};\n` : "";
+  const existing = Function(`"use strict"; ${scope}return ([${source.slice(arrayStart + 1, arrayEnd)}]);`)();
+  const filtered = existing.filter((item) => {
+    return !shouldReplaceExistingMarketNote(item, note);
+  });
+  const removedSlugs = existing
+    .filter((item) => !filtered.includes(item))
+    .map((item) => item.slug)
+    .filter(Boolean);
+  const rendered = [note, ...filtered].map((item) => objectLiteral(item)).join(",\n  ");
+  const prefix = source
+    .slice(0, arrayStart + 1)
+    .replace(/const articleCta = ".*?";\n\n/, "");
+  return {
+    source: `${prefix}\n  ${rendered}\n${source.slice(arrayEnd)}`,
+    removedSlugs,
+  };
+}
+
+function shouldReplaceExistingMarketNote(existing, note) {
+  if (!existing || typeof existing !== "object") return false;
+  if (existing.id === note.id || existing.slug === note.slug) return true;
+  const sameCorridor = clean(existing.relatedCorridor || "") === clean(note.relatedCorridor || "");
+  const sameBuildings = arraySignature(existing.relatedBuildings) === arraySignature(note.relatedBuildings);
+  const sameArticles = arraySignature(existing.relatedArticleIds) === arraySignature(note.relatedArticleIds);
+  const sameNeighborhoods = arraySignature(existing.relatedNeighborhoods) === arraySignature(note.relatedNeighborhoods);
+  const sameCategory = clean(existing.category || "") === clean(note.category || "");
+  return sameCorridor && sameBuildings && sameArticles && sameNeighborhoods && sameCategory;
+}
+
+function arraySignature(value) {
+  if (!Array.isArray(value)) return "";
+  return value.map((item) => clean(item)).join("|");
+}
+
+function findMatchingBracket(source, start) {
+  let depth = 0;
+  let quote = "";
+  let escaping = false;
+  for (let index = start; index < source.length; index += 1) {
+    const char = source[index];
+    if (quote) {
+      if (escaping) {
+        escaping = false;
+        continue;
+      }
+      if (char === "\\") {
+        escaping = true;
+        continue;
+      }
+      if (char === quote) quote = "";
+      continue;
+    }
+    if (char === "\"" || char === "'" || char === "`") {
+      quote = char;
+      continue;
+    }
+    if (char === "[") depth += 1;
+    if (char === "]") {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
 }
 
 function uniqueSlug(base, destination) {
