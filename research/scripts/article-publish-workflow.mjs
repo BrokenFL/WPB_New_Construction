@@ -24,6 +24,8 @@ const imageBudgetBytes = 750 * 1024;
 if (!inputPath) fail("--input is required.");
 
 const input = JSON.parse(await fs.readFile(resolveWorkspacePath(inputPath), "utf8"));
+const openAiApiKey = clean(process.env.OPENAI_API_KEY || "");
+const openAiImageModel = clean(process.env.WPB_IMAGE_REFRAME_MODEL || "gpt-5.6");
 const destination = normalizeDestination(input.destination || "news");
 const sourceFile = destination === "news"
   ? path.join(workspace, "research/news-review/approved-development-news.json")
@@ -85,7 +87,7 @@ if (previewOnly) {
       // Keep the legacy market-note publish path for now, but feed it the normalized payload.
       const payloadPath = path.join(workspace, ".runtime", "article-publish-workflow", `${routeSlug}.json`);
       await fs.mkdir(path.dirname(payloadPath), { recursive: true });
-      await fs.writeFile(payloadPath, `${JSON.stringify({ ...input, destination, title, deck, slug: routeSlug, id: articleId, bodySections: normalized.bodySections, heroImage: normalized.heroImage, bodyImages: normalized.bodyImages, sourceLinks: normalized.sourceLinks }, null, 2)}\n`);
+      await fs.writeFile(payloadPath, `${JSON.stringify({ ...input, destination, title, deck, slug: routeSlug, id: articleId, bodySections: normalized.bodySections, heroImage: normalized.heroImage, bodyImages: normalized.bodyImages?.values || [], sourceLinks: normalized.sourceLinks }, null, 2)}\n`);
       await runChecked("node", ["research/scripts/manual-article-publisher.mjs", "--input", path.relative(workspace, payloadPath), "--ship"]);
     }
 
@@ -141,7 +143,7 @@ if (previewOnly) {
 async function normalizeArticle({ destination, sourceFile, articleId, routeSlug, title, deck, input, existing, bodyText, bodySectionsInput, mode }) {
   const warnings = [];
   const errors = [];
-  const heroImage = await resolveHeroImage({ destination, routeSlug, title, input, existing, warnings, errors, mode });
+  const heroImage = await resolveHeroImage({ destination, routeSlug, title, input, existing, warnings, errors, mode, sourceLinksInput: input.sourceLinks || existing?.sourceLinks || [] });
   const bodyImages = await resolveBodyImages({ destination, routeSlug, title, input, existing, mode });
   const sectionInput = parseSectionInput({ input, existing, bodySectionsInput, bodyText, warnings });
   const bodySections = sectionInput.map((section, index) => normalizeSection(section, index, bodyImages, warnings));
@@ -243,7 +245,15 @@ async function loadExistingArticle(destination, sourceFile, editKey) {
   return items.find((item) => item.id === editKey || item.slug === editKey) || null;
 }
 
-async function resolveHeroImage({ destination, routeSlug, title, input, existing, warnings, mode }) {
+async function resolveHeroImage({ destination, routeSlug, title, input, existing, warnings, mode, sourceLinksInput }) {
+  const imageMode = clean(input.imageMode || input.heroImage?.mode || input.heroImage?.strategy).toLowerCase();
+  if (imageMode === "source-reframe" || imageMode === "generated-editorial") {
+    try {
+      return await generateOpenAiHeroImage({ destination, routeSlug, title, input, existing, warnings, mode, sourceLinksInput, imageMode });
+    } catch (error) {
+      warnings.push(`OpenAI editorial image generation failed: ${error.message}`);
+    }
+  }
   const heroInput = input.heroImage?.dataUrl || input.heroImage?.file || input.image?.path || existing?.image?.path || existing?.imagePath || "";
   if (heroInput) {
     if (!input.heroImage?.dataUrl && !input.heroImage?.file && isPublicImagePath(heroInput)) {
@@ -265,6 +275,188 @@ async function resolveHeroImage({ destination, routeSlug, title, input, existing
       : "/assets/editorial/flagler-waterfront-corridor.jpg";
   warnings.push("Hero image fallback was used.");
   return { path: fallback, alt: `${title} hero image`, caption: "", credit: "", sizeBytes: await publicSize(fallback) };
+}
+
+async function generateOpenAiHeroImage({ destination, routeSlug, title, input, existing, warnings, mode, sourceLinksInput, imageMode }) {
+  if (!openAiApiKey) throw new Error("OPENAI_API_KEY is not configured.");
+  const sourceCandidate = imageMode === "source-reframe"
+    ? await findBestSourceImageCandidate({ sourceLinksInput, warnings })
+    : null;
+  const prompt = buildEditorialHeroPrompt({ title, input, sourceCandidate, imageMode });
+  const inputContent = [{ type: "input_text", text: prompt }];
+  if (sourceCandidate?.imageUrl) {
+    inputContent.push({ type: "input_image", image_url: await imageUrlToDataUrl(sourceCandidate.imageUrl) });
+  }
+  const response = await fetch("https://api.openai.com/v1/responses", {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${openAiApiKey}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      model: openAiImageModel,
+      input: [{ role: "user", content: inputContent }],
+      tools: [{ type: "image_generation" }],
+    }),
+  });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(`status ${response.status}${payload?.error?.message ? `: ${payload.error.message}` : ""}`);
+  }
+  const imageCall = Array.isArray(payload.output)
+    ? payload.output.find((item) => item?.type === "image_generation_call" && item?.status === "completed" && typeof item?.result === "string")
+    : null;
+  if (!imageCall?.result) throw new Error("OpenAI returned no generated image.");
+  const buffer = Buffer.from(imageCall.result, "base64");
+  const outputDir = assetOutputDir(mode, destination, routeSlug);
+  const fileName = `${routeSlug}-hero.webp`;
+  const outputPath = path.join(outputDir, fileName);
+  await fs.mkdir(outputDir, { recursive: true });
+  await sharp(buffer).rotate().resize({ width: 1536, height: 1024, fit: "cover", withoutEnlargement: true }).webp({ quality: 84 }).toFile(outputPath);
+  const stat = await fs.stat(outputPath);
+  return {
+    path: assetPublicPath(mode, fileName),
+    alt: clean(input.heroImage?.alt || existing?.image?.alt || `${title} hero image`),
+    caption: clean(input.heroImage?.caption || existing?.image?.caption || ""),
+    credit: clean(input.heroImage?.credit || "AI-generated editorial illustration"),
+    sizeBytes: stat.size,
+  };
+}
+
+function buildEditorialHeroPrompt({ title, input, sourceCandidate, imageMode }) {
+  const sourceClause = sourceCandidate?.sourcePageUrl
+    ? `Use the reference image as a loose visual starting point, but reframe it into a fresh editorial composition rather than a republished stock look.`
+    : `Create a fresh editorial image from scratch.`;
+  const topic = clean(input.buyerTakeaway || input.marketSignal || input.deck || input.summary || title);
+  return [
+    `Create a neutral editorial hero image for a West Palm Beach new-construction article.`,
+    `Article title: ${title}.`,
+    `Article context: ${topic}.`,
+    sourceClause,
+    `Keep it local, calm, and realistic.`,
+    `Do not include logos, signage, watermarks, or exact branded architecture.`,
+    `Do not invent unsupported building details or text.`,
+    `Avoid a brochure or marketing-rendering look.`,
+    `Use a polished composition suitable for a news article hero.`,
+    imageMode === "source-reframe" ? `Preserve the general mood and composition of the reference image while making it feel newly photographed.` : `The image should stand on its own without any reference photo.`,
+  ].join(" ");
+}
+
+async function findBestSourceImageCandidate({ sourceLinksInput, warnings }) {
+  const links = Array.isArray(sourceLinksInput) ? sourceLinksInput : [];
+  const uniquePages = dedupe(links.map((link) => clean(link?.url)).filter((url) => /^https?:\/\//i.test(url)));
+  const candidates = [];
+  for (const pageUrl of uniquePages.slice(0, 4)) {
+    try {
+      const response = await fetch(pageUrl, {
+        headers: {
+          "user-agent": "WPBNewConstructionArticleImageScout/1.0 (+https://www.wpbnewconstruction.com/)",
+          accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/jpeg,*/*;q=0.8",
+        },
+      });
+      if (!response.ok) continue;
+      const html = await response.text();
+      for (const candidate of collectImageCandidates(html, pageUrl)) {
+        candidates.push({ ...candidate, sourcePageUrl: pageUrl });
+      }
+    } catch (error) {
+      warnings.push(`Source image scan failed for ${pageUrl}: ${error.message}`);
+    }
+  }
+  candidates.sort((a, b) => scoreSourceImageCandidate(b) - scoreSourceImageCandidate(a));
+  return candidates[0] || null;
+}
+
+function collectImageCandidates(html, pageUrl) {
+  const candidates = new Map();
+  const add = (url, source) => {
+    const normalized = normalizeCandidateImageUrl(url, pageUrl);
+    if (!normalized || rejectImageCandidate(normalized)) return;
+    candidates.set(normalized, { imageUrl: normalized, source });
+  };
+
+  for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
+    const tag = match[0];
+    for (const attr of ["src", "data-src", "data-lazy-src", "data-original"]) {
+      const value = tag.match(new RegExp(`${attr}=["']([^"']+)["']`, "i"))?.[1];
+      if (value) add(value, attr);
+    }
+    for (const attr of ["srcset", "data-srcset"]) {
+      const value = tag.match(new RegExp(`${attr}=["']([^"']+)["']`, "i"))?.[1];
+      if (value) srcsetUrls(value).forEach((url) => add(url, attr));
+    }
+  }
+
+  for (const match of html.matchAll(/background(?:-image)?:\s*url\((["']?)([^"')]+)\1\)/gi)) {
+    add(match[2], "css-background");
+  }
+
+  for (const match of html.matchAll(/<meta\b[^>]*(?:property|name)=["']og:image(?::secure_url)?["'][^>]*content=["']([^"']+)["'][^>]*>/gi)) {
+    add(match[1], "open-graph");
+  }
+
+  for (const match of html.matchAll(/"image"\s*:\s*(?:"([^"]+)"|\[([^\]]+)\])/gi)) {
+    if (match[1]) add(match[1], "json-ld");
+    if (match[2]) {
+      for (const urlMatch of match[2].matchAll(/"([^"]+)"/g)) add(urlMatch[1], "json-ld");
+    }
+  }
+
+  return [...candidates.values()];
+}
+
+function scoreSourceImageCandidate(candidate) {
+  let score = 0;
+  if (/og:image|open-graph/i.test(candidate.source)) score += 30;
+  if (/interior|residence|kitchen|living|bedroom|bath|dining|penthouse|lobby|lounge|waterfront|aerial|exterior|tower|building|hero|feature|cover/i.test(candidate.imageUrl)) score += 20;
+  if (/\.(jpe?g|png|webp)(\?|$)/i.test(candidate.imageUrl)) score += 8;
+  if (/logo|icon|favicon|sprite|placeholder|social|avatar|badge|map|floor.?plan/i.test(candidate.imageUrl)) score -= 50;
+  return score;
+}
+
+function normalizeCandidateImageUrl(rawUrl, pageUrl) {
+  const cleanUrl = decodeHtml(String(rawUrl ?? "").trim());
+  if (!cleanUrl || cleanUrl.startsWith("data:") || cleanUrl.startsWith("blob:")) return "";
+  try {
+    return new URL(cleanUrl, pageUrl).href.split("#")[0];
+  } catch {
+    return "";
+  }
+}
+
+function rejectImageCandidate(url) {
+  return /logo|icon|favicon|sprite|placeholder|tracking|pixel|avatar|badge|social|facebook|instagram|linkedin|youtube|twitter|x\.com|floor.?plan|map|marker/i.test(url);
+}
+
+function srcsetUrls(value) {
+  return String(value || "")
+    .split(",")
+    .map((part) => part.trim().split(/\s+/)[0])
+    .filter(Boolean);
+}
+
+function decodeHtml(value) {
+  return String(value ?? "")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
+}
+
+async function imageUrlToDataUrl(url) {
+  const response = await fetch(url, {
+    headers: {
+      "user-agent": "WPBNewConstructionArticleImageScout/1.0 (+https://www.wpbnewconstruction.com/)",
+      accept: "image/avif,image/webp,image/png,image/jpeg,*/*;q=0.8",
+    },
+  });
+  if (!response.ok) throw new Error(`source image HTTP ${response.status}`);
+  const contentType = response.headers.get("content-type") || "image/jpeg";
+  if (!/^image\/(jpeg|jpg|png|webp|avif)/i.test(contentType)) throw new Error(`source image is not a usable image (${contentType})`);
+  const buffer = Buffer.from(await response.arrayBuffer());
+  if (!buffer.length) throw new Error("source image is empty");
+  return `data:${contentType};base64,${buffer.toString("base64")}`;
 }
 
 async function resolveBodyImages({ destination, routeSlug, title, input, existing, mode }) {
