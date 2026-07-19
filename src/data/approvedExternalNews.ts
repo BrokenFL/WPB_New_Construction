@@ -76,6 +76,88 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "west-palm-beach-waterfront-development-freeze-2026-07-19",
+    "slug": "west-palm-beach-waterfront-development-freeze-2026-07-19",
+    "title": "West Palm Beach Moves to Freeze Waterfront Development Applications for Six Months",
+    "sourceName": "City of West Palm Beach",
+    "sourceUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-city-commission-agendas/07-jul-2026-final-cca/07_20_26_fnal-city-commission-agenda.pdf",
+    "canonicalUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-city-commission-agendas/07-jul-2026-final-cca/07_20_26_fnal-city-commission-agenda.pdf",
+    "sourceTitle": "City Commission Agenda, July 20, 2026",
+    "publishedAt": "2026-07-19T03:42:04.222Z",
+    "sourcePublishedAt": "2026-07-19",
+    "sourcePublishedDate": "2026-07-19",
+    "eventDate": "2026-07-19",
+    "dateDiscovered": "2026-07-19",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-07-19T03:44:26.827Z",
+    "deck": "The city has moved a South Flagler waterfront zoning pause into the final hearing process, creating a six-month window to study whether the corridor needs new rules before more planned development applications land.",
+    "description": "West Palm Beach has moved a six-month waterfront zoning pause into the final hearing process for the South Flagler corridor, signaling a deliberate reset before more planned development applications move forward.",
+    "summary": "West Palm Beach is moving toward a six-month freeze on new planned development applications in a South Flagler waterfront zone while it studies whether the corridor needs new zoning rules.",
+    "bodySections": [
+      {
+        "heading": "The city is moving a waterfront freeze into the final hearing stage",
+        "body": "West Palm Beach has pushed a six-month zoning pause for a defined stretch of its South Flagler waterfront into the final hearing process, a step that could slow new planned development applications in one of the city's most closely watched corridors.\n\nThe ordinance targets properties south of Monroe Drive, north of Southern Boulevard, west of Flagler Drive and east of Washington Road. In practical terms, it is a temporary stop on new planned development filings while the city studies whether the waterfront district needs a different zoning framework."
+      },
+      {
+        "heading": "What the ordinance would actually do",
+        "body": "The city said the measure would create a six-month zoning in progress for multifamily high-density land in the area. The goal is not to freeze every project already on the map. It is to keep additional planned development applications from entering the pipeline while the city hires Zyscovich to complete a zoning and economic analysis and recommend possible code changes.\n\nThe City of West Palm Beach's July 6 summary says commissioners approved the ordinance on first reading after a public hearing. The Real Deal reported that a second reading vote is scheduled for July 20, which means the pause is still moving through the city's process rather than sitting as a finished policy."
+      },
+      {
+        "heading": "Why the waterfront is getting this kind of attention",
+        "body": "West Palm Beach has spent years absorbing a heavy wave of downtown and waterfront development. That has brought towers, land assemblies, condo proposals, and repeated debates over scale and neighborhood character.\n\nA zoning pause is a blunt tool, but it is also a revealing one. When a city uses it, the message is usually that the existing rules are no longer seen as enough to manage the next round of growth. In this case, the waterfront edge is being asked to wait while the city studies the problem more deliberately."
+      },
+      {
+        "heading": "What this means for developers and buyers",
+        "body": "For developers, the immediate effect is simple: the filing path gets narrower in the targeted zone. For buyers watching the market, the larger signal is that West Palm Beach is not treating the South Flagler waterfront as a place where density can keep rising without another look at the rules.\n\nThat matters because waterfront supply, even when it is still only proposed, shapes expectations. If more projects are paused or slowed, existing luxury towers, branded residences, and nearby redevelopment sites can look even more scarce by comparison."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The next checkpoint is the July 20 second reading. If commissioners approve the ordinance, the pause would run for six months unless the city extends it.\n\nThe deeper question is what comes after the pause. A zoning study can lead to smaller technical edits, or it can become the opening move in a broader rewrite of how the city wants its waterfront to grow. Either way, the current vote shows West Palm Beach is no longer letting the corridor expand on autopilot."
+      },
+      {
+        "heading": "The bottom line",
+        "body": "This is not a construction story in the usual sense. It is a timing story, and timing changes the market.\n\nWest Palm Beach is telling the waterfront to wait while it redraws the rules. For a corridor that has become one of the city's most visible growth frontiers, that pause may matter as much as any new tower announcement."
+      }
+    ],
+    "whyItMatters": "The pause would slow the next wave of waterfront filings in one of the city's most watched development corridors. For buyers and developers, it is a sign that West Palm Beach wants to test the limits of the district before more density is added.",
+    "buyerContext": "",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "West Palm Beach moves to freeze waterfront applications",
+    "newsletterBlurb": "The city has moved a six-month South Flagler zoning pause toward final vote while it studies whether the waterfront corridor needs new rules.",
+    "newsletterCta": "Read the article",
+    "query": "West Palm Beach waterfront development freeze six months South Flagler July 2026",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/west-palm-beach-waterfront-development-freeze-2026-07-19-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "City Commission Agenda, July 20, 2026",
+        "url": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-city-commission-agendas/07-jul-2026-final-cca/07_20_26_fnal-city-commission-agenda.pdf",
+        "type": "news"
+      },
+      {
+        "label": "Moratorium on waterfront project applications in downtown West Palm heads to final vote",
+        "url": "https://therealdeal.com/miami/2026/07/15/west-palm-beach-development-moratorium-heads-to-final-vote/",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "project-tango-july-15-zoning-decision-2026-2026-07-13",
     "slug": "project-tango-july-15-zoning-decision-2026-2026-07-13",
     "title": "Project Tango heads to a July 15 decision as Palm Beach County weighs a larger AI campus",
