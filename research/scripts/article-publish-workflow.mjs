@@ -95,6 +95,7 @@ if (previewOnly) {
 
     await runChecked("npm", ["run", "build"]);
     await runChecked("npm", ["run", "qa:launch:no-write"]);
+    await runChecked("npm", ["run", "qa:gatekeeper"]);
     await cleanupUnexpectedGeneratedFiles({
       baselinePaths: changedFilesBeforeCleanup,
       keepPaths: new Set(articleOutputPaths({ destination, normalized })),
