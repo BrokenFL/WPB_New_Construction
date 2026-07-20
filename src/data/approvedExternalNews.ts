@@ -76,6 +76,94 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "alida-breaks-ground-beside-brightline-downtown-west-palm-beach-2026-07-20",
+    "slug": "alida-breaks-ground-beside-brightline-downtown-west-palm-beach-2026-07-20",
+    "title": "Alida breaks ground beside Brightline in downtown West Palm Beach",
+    "sourceName": "City of West Palm Beach",
+    "sourceUrl": "https://experience.arcgis.com/experience/874aaf576de9400499141ec424802dde/page/Under-Construction",
+    "canonicalUrl": "https://experience.arcgis.com/experience/874aaf576de9400499141ec424802dde/page/Under-Construction",
+    "sourceTitle": "Alida breaks ground beside Brightline in downtown West Palm Beach",
+    "publishedAt": "2026-07-20T13:22:51.260Z",
+    "sourcePublishedAt": "2026-07-20",
+    "sourcePublishedDate": "2026-07-20",
+    "eventDate": "2026-07-17",
+    "dateDiscovered": "2026-07-20",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-07-20T13:22:51.260Z",
+    "deck": "After years of assemblage, rezoning, a pandemic pause and a redesign, the Datura Street site has moved from paper to construction on one of downtown's most watched blocks.",
+    "description": "Construction has started at 506 Datura Street, where Alida Residences and a Tribute Portfolio hotel are rising beside the Brightline station in downtown West Palm Beach.",
+    "summary": "A long-delayed Datura Street project has moved into construction, adding another rail-adjacent mixed-use block to downtown West Palm Beach.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "The Datura Street site is no longer just another downtown plan on a board. The city now lists Datura Hotel & Residences under construction, and local coverage says the project broke ground on July 17 beside the Brightline station. That is the real change: a long-studied transit-adjacent block has finally shifted into the building phase.\n\nFor downtown West Palm Beach, the significance is less about ceremony than momentum. Sites this close to the station tend to carry outsized importance because they sit at the overlap of rail access, office traffic, restaurant activity, and the daily habits that make a district feel full rather than merely tall."
+      },
+      {
+        "heading": "What is actually new",
+        "body": "The project at 506 Datura Street is being built as a residential building and a separate hotel rather than one wrapped hybrid tower. That split matters. It lets each use work on its own terms instead of forcing apartments and hotel operations into a single stack.\n\nThat kind of program mix usually tells you something about the site itself. The best transit-edge parcels are the ones that can do more than one job: house residents, absorb visitors, and still hold their ground on the street. This block is being asked to do all three."
+      },
+      {
+        "heading": "Why this block matters",
+        "body": "The site sits in the narrow band between the Brightline station and the rest of downtown, which makes it one of the most visible pieces of infill in the city. It is close enough to the platform to matter for people arriving by train, and close enough to CityPlace and Clematis Street to feed off the evening economy.\n\nThat is why a project like this reads as more than another luxury announcement. It adds weight to the corridor that already carries the city's strongest downtown arguments: transit, walkability, and a steady buildup of daytime and nighttime use."
+      },
+      {
+        "heading": "Why the delay matters",
+        "body": "This was not a quick-hit project. LD&D's project page dates the acquisition to early 2022, and the public record around the site points to a longer path that included assemblage, rezoning, a pandemic pause and redesign. That slow burn matters because it shows how much friction still sits between a good piece of land and a project that can actually start.\n\nThe point is not that every delay is good. It is that a project that survives that much friction is usually tied to a corridor with real staying power. West Palm Beach did not get here by accident; it got here because the station district kept proving it could support more density."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The next question is not whether the ground has been broken. It has. The question is whether this start becomes part of a broader pattern around the station or remains a single heavy lift on a difficult parcel.\n\nIf more rail-adjacent sites keep moving, downtown's next chapter will look less like a handful of isolated towers and more like a connected urban fabric. That is the real test for West Palm Beach now, and Datura Street is one of the first places to watch."
+      }
+    ],
+    "whyItMatters": "This is one of the clearer signs that the Brightline edge of downtown still has real development gravity. The project took years to assemble and rework, but it is now moving, which matters because every successful start along Datura Street makes the station area feel less speculative and more complete.",
+    "buyerContext": "For buyers, the signal is not the brand name alone. It is the fact that downtown's rail-adjacent supply is still growing, but slowly enough that well-located blocks near transit, CityPlace, and Clematis keep their edge. That usually keeps the best-connected product in a tighter lane than the broader market around it.",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Development Watch: Alida finally breaks ground",
+    "newsletterBlurb": "After years of assemblage, rezoning, a pandemic pause and a redesign, the Datura Street site has moved from paper to construction on one of downtown's most watched blocks.",
+    "newsletterCta": "Read the article",
+    "query": "West Palm Beach Datura Street Alida groundbreaking July 2026 Brightline station development",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/alida-breaks-ground-beside-brightline-downtown-west-palm-beach-2026-07-20-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "City of West Palm Beach: Under Construction | Citywide Planning Projects",
+        "url": "https://experience.arcgis.com/experience/874aaf576de9400499141ec424802dde/page/Under-Construction",
+        "type": "official city source"
+      },
+      {
+        "label": "LD&D: Datura Hotel & Residences",
+        "url": "https://ldnd.com/projects/datura-hotel-residences/",
+        "type": "official project source"
+      },
+      {
+        "label": "Florida YIMBY: Construction Begins on Alida Residences and Tribute Portfolio by Marriott Hotel in Downtown West Palm Beach",
+        "url": "https://floridayimby.com/2026/07/construction-begins-on-alida-residences-and-tribute-portfolio-by-marriott-hotel-in-downtown-west-palm-beach.html",
+        "type": "independent local coverage"
+      },
+      {
+        "label": "CBS12: West Palm Beach rides next wave of growth with new luxury tower beside Brightline station",
+        "url": "https://cbs12.com/news/local/west-palm-beach-rides-next-wave-of-growth-with-new-luxury-tower-alida-residences-marriott-brightline-station-west-palm-beach-development-west-palm-beach-luxury-apartments-brightline-station-brightline-west-palm-beach-ldd-igeq-frontrange-capital-partners",
+        "type": "independent local coverage"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "west-palm-beach-waterfront-development-freeze-2026-07-19",
     "slug": "west-palm-beach-waterfront-development-freeze-2026-07-19",
     "title": "West Palm Beach Moves to Freeze Waterfront Development Applications for Six Months",
