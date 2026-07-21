@@ -80,6 +80,12 @@ const marketNoteRoutes = [
 ];
 const downtownSpotlightRoutes = [
   {
+    slug: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
+    title: "Fuku opens at CityPlace and adds another easy downtown draw | Downtown Spotlight",
+    description:
+      "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift.",
+  },
+  {
     slug: "nora-hotel-countdown",
     title: "The Nora Hotel gives NORA a real opening date | Downtown Spotlight",
     description:

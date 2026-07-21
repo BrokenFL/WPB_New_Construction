@@ -66,6 +66,86 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    id: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
+    status: "published",
+    category: "Downtown Spotlight",
+    title: "Fuku opens at CityPlace and adds another easy downtown draw",
+    slug: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
+    excerpt: "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift.",
+    buyerThesis: "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift.",
+    buyerTakeaway: "The opening strengthens the everyday-use case for downtown West Palm Beach. A known fast-casual brand with evening hours is different from a one-off restaurant announcement: it adds to the routine around Rosemary Avenue, improves the district's food depth, and gives nearby buildings another amenity buyers can actually use without getting in a car.",
+    marketSignal: "",
+    bestFor: "",
+    watchPoints: "",
+    buyerQuestions: "",
+    relatedBuildings: [],
+    relatedNeighborhoods: [],
+    relatedCorridor: "",
+    relatedArticleIds: [
+      "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city"
+    ],
+    image: {
+      path: "/assets/editorial/rosemary-square-corridor.jpg",
+      credit: "User-provided editorial image, optimized for site use."
+    },
+    projectIds: [],
+    sourceName: "CityPlace",
+    sourceLinks: [
+      {
+        label: "CityPlace",
+        href: "https://www.cityplace.com/",
+        sourceType: "local news coverage"
+      },
+      {
+        label: "CityPlace: Fuku’s Chicken Sando is Coming To CityPlace",
+        href: "https://www.cityplace.com/",
+        sourceType: "official project site"
+      },
+      {
+        label: "Fuku West Palm Beach location page",
+        href: "https://eatfuku.com/find-fuku/west-palm/",
+        sourceType: "official project site"
+      },
+      {
+        label: "WhatNow: David Chang’s Fuku is Opening in West Palm Beach",
+        href: "https://whatnow.com/miami/restaurants/david-changs-fuku-is-opening-in-west-palm-beach/",
+        sourceType: "local news coverage"
+      }
+    ],
+    datePublished: "2026-07-21",
+    dateModified: "2026-07-21",
+    sections: [
+      {
+        heading: "What changed",
+        body: "CityPlace says Fuku opened on July 16, and Fuku's own West Palm Beach location page now lists the restaurant with summer 2026 timing and the downtown address. That is the real change: a branded fast-casual concept is now part of the district's daily rhythm, not just another opening on a coming-soon page."
+      },
+      {
+        heading: "Why this opening fits CityPlace",
+        body: "Fuku did not land in a sleepy corner of town. It landed inside a district that already leans on restaurants, events, and foot traffic to stay lively across the week. CityPlace is pushing a summer calendar built around Neighborhood Nights, watch parties, and other programmed activity, which means the dining lane is now carrying more than one kind of use. Fuku adds a quick, recognizable, repeatable option to that mix."
+      },
+      {
+        heading: "How the district feels different",
+        body: "A place changes when it gives people more reasons to stay for one more stop instead of heading home. Fuku adds that kind of frictionless option. It is not a formal tasting-menu dinner, and it is not a one-night novelty. It is the kind of kitchen that can catch office crowds, parents, shoppers, and late-day foot traffic without asking them to plan too far ahead. That matters on Rosemary Avenue, where CityPlace is still trying to stitch shopping, dining, and leisure into one easy habit."
+      },
+      {
+        heading: "What to watch next",
+        body: "The opening is useful because it is operational, not theoretical. The question now is whether Fuku becomes one more reliable stop in the CityPlace circuit or just a brief burst of opening-week attention. For downtown West Palm Beach, the bigger signal is that the area keeps pulling in recognizable food names that make the district feel more complete on ordinary weeknights, not just during special events."
+      }
+    ],
+    ctaText: "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    factCheckRequired: [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    seo: {
+      primaryQuery: "Fuku opens at CityPlace and adds another easy downtown draw",
+      secondaryQueries: [],
+      suggestedSlug: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
+      titleTag: "Fuku opens at CityPlace and adds another easy downtown draw | Downtown Spotlight",
+      metaDescription: "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift."
+    }
+  },
+  {
     id: "nora-hotel-countdown",
     status: "published",
     category: "Downtown Spotlight",

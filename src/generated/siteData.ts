@@ -5141,6 +5141,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/downtown-spotlight/fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw/",
+    "title": "Fuku opens at CityPlace and adds another easy downtown draw | Downtown Spotlight",
+    "description": "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift.",
+    "ogImage": "/assets/editorial/rosemary-square-corridor.jpg"
+  },
+  {
     "path": "/downtown-spotlight/nora-district-downtown-transformation/",
     "title": "NORA District's Downtown Impact Explained | Downtown Spotlight",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",
