@@ -5165,6 +5165,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/market-notes/olara-special-pricing-keeps-north-flagler-in-play/",
+    "title": "Olara's special pricing keeps North Flagler in play | Buyer Intelligence",
+    "description": "Olara is still advertising pre-construction inventory and special pricing, and West Palm Beach's new-construction shelf remains broad enough that buyers should compare lines, fees, and timing instead of waiting for a market reset.",
+    "ogImage": "/assets/editorial/wpb-geography-map-hero.jpg"
+  },
+  {
     "path": "/market-notes/nora-district-downtown-transformation/",
     "title": "NORA District's Downtown Impact Explained | Buyer Intelligence",
     "description": "Discover how West Palm Beach's NORA District could transform downtown walkability, lifestyle, and nearby condo decisions - and what buyers should verify.",

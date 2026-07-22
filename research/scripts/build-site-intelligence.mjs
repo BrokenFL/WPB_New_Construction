@@ -18,6 +18,12 @@ const generatedDate = new Date().toISOString().slice(0, 10);
 const cloudflarePagesSingleFileLimitBytes = 25 * 1024 * 1024;
 const marketNoteRoutes = [
   {
+    slug: "olara-special-pricing-keeps-north-flagler-in-play",
+    title: "Olara's special pricing keeps North Flagler in play | Buyer Intelligence",
+    description:
+      "Olara is still advertising pre-construction inventory and special pricing, and West Palm Beach's new-construction shelf remains broad enough that buyers should compare lines, fees, and timing instead of waiting for a market reset.",
+  },
+  {
     slug: "ritz-carlton-penthouse-resets-north-flagler-ceiling",
     title: "A Ritz-Carlton penthouse resets the North Flagler ceiling | Buyer Intelligence",
     description:

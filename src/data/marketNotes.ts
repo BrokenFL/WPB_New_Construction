@@ -66,6 +66,94 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    id: "olara-special-pricing-keeps-north-flagler-in-play",
+    status: "published",
+    category: "general",
+    title: "Olara's special pricing keeps North Flagler in play",
+    slug: "olara-special-pricing-keeps-north-flagler-in-play",
+    excerpt: "Olara is still advertising pre-construction inventory and special pricing, and West Palm Beach's new-construction shelf remains broad enough that buyers should compare lines, fees, and timing instead of waiting for a market reset.",
+    buyerThesis: "Olara is still advertising pre-construction inventory and special pricing, and West Palm Beach's new-construction shelf remains broad enough that buyers should compare lines, fees, and timing instead of waiting for a market reset.",
+    buyerTakeaway: "Treat Olara's special pricing as a line-level opportunity, not proof that North Flagler has gone soft. Compare the remaining inventory, fees, and closing path before assuming there will be better leverage later.",
+    marketSignal: "Olara's live sales page says pre-construction inventory and special pricing are available, while West Palm Beach new-construction directories still show more than 100 active listings and a long average time on market.",
+    bestFor: "Buyers who want North Flagler water views, can compare stacks line by line, and care more about matching the ownership fit than chasing a headline discount.",
+    watchPoints: "Confirm which units are included in the special pricing, whether the concession is price or incentive, how fees and parking vary by line, and how quickly the remaining inventory is moving.",
+    buyerQuestions: "Which lines are actually discounted? What do the fees look like on those units? If I wait three months, what changes besides availability?",
+    relatedBuildings: [
+      "olara-condos",
+      "shorecrest",
+      "south-flagler-house"
+    ],
+    relatedNeighborhoods: [
+      "north-flagler",
+      "downtown-west-palm-beach"
+    ],
+    relatedCorridor: "north-flagler",
+    relatedArticleIds: [
+      "pre-construction-condo-due-diligence",
+      "olara-vs-shorecrest-waterfront-buyer-profiles"
+    ],
+    image: {
+      path: "/assets/editorial/wpb-geography-map-hero.jpg",
+      credit: "User-provided editorial image, optimized for site use."
+    },
+    projectIds: [],
+    sourceName: "Olara Condos in West Palm Beach",
+    sourceLinks: [
+      {
+        label: "Olara Condos in West Palm Beach",
+        href: "https://www.pearlantonacci.com/west-palm-beach-olara.php",
+        sourceType: "local news coverage"
+      },
+      {
+        label: "Olara Condos in West Palm Beach",
+        href: "https://www.pearlantonacci.com/west-palm-beach-olara.php",
+        sourceType: "official project site"
+      },
+      {
+        label: "West Palm Beach New Construction Condos For Sale",
+        href: "https://www.floridacondofinder.com/west-palm-beach/west-palm-beach-new-construction-condos-for-sale/",
+        sourceType: "local news coverage"
+      },
+      {
+        label: "West Palm Beach Housing Market",
+        href: "https://www.redfin.com/city/19373/FL/West-Palm-Beach/housing-market",
+        sourceType: "local news coverage"
+      }
+    ],
+    datePublished: "2026-07-22",
+    dateModified: "2026-07-22",
+    sections: [
+      {
+        heading: "What changed",
+        body: "Olara's current West Palm Beach sales page is still openly advertising pre-construction inventory and special pricing. That is the first thing a buyer should notice. It means the project is not behaving like a closed-out waterfront trophy; it is still in active conversation with the market.\n\nThe page also shows a real spread in the product still available. Olara currently lists 12 active residences, with prices running from about $1.8 million to $8 million and an average asking price around $4.3 million. For a buyer, that is not noise. It is a reminder that the remaining units are still being priced line by line, not treated as interchangeable."
+      },
+      {
+        heading: "What the shelf looks like now",
+        body: "The broader West Palm Beach new-construction shelf is still deep enough to matter. The local new-construction directory shows 105 active listings in the city, with an average days-on-market figure of 263 and a median list price of $4.553 million. Even if those numbers are broader than North Flagler alone, they say something useful: the market is not so tight that buyers have no room to compare.\n\nThe citywide housing market points in the same direction. Redfin shows West Palm Beach homes sold in May 2026 up 28.7 percent year over year, with a median sale price of $512,193 and an average of 85 days on market. That is not a falling market waiting for a rescue. It is a market where good product still moves, but not so fast that buyers can ignore the details."
+      },
+      {
+        heading: "Why this matters on North Flagler",
+        body: "North Flagler is now a comparison corridor, not a single bet. Buyers looking at Olara are comparing it against Shorecrest, South Flagler House, and other waterfront options where the real differences show up in stack, exposure, fees, service model, and closing path.\n\nThat is why special pricing should be read carefully. A reduction or incentive can help a buyer get into the right line, but it does not automatically make one building the better long-term fit. If the unit has the wrong view corridor, higher monthly carrying costs, or a delivery window that does not fit the buyer's timeline, the headline number is not enough."
+      },
+      {
+        heading: "What to watch next",
+        body: "The next buyer question is practical: which units are actually included in the current pricing, and what is the concession really doing? Sometimes it is a straight price move. Sometimes it is a fee credit, a closing-cost adjustment, or a way to clear a specific stack that is harder to move.\n\nBefore moving forward, ask for the current availability sheet, the exact fee schedule, parking and storage treatment, and the delivery assumptions attached to the unit you want. Then compare that package against the other North Flagler options, not just the project brochure. If the answer still works after that review, the market is giving you enough room to act now."
+      }
+    ],
+    ctaText: "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    factCheckRequired: [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    seo: {
+      primaryQuery: "Olara's special pricing keeps North Flagler in play",
+      secondaryQueries: [],
+      suggestedSlug: "olara-special-pricing-keeps-north-flagler-in-play",
+      titleTag: "Olara's special pricing keeps North Flagler in play | Buyer Intelligence",
+      metaDescription: "Olara is still advertising pre-construction inventory and special pricing, and West Palm Beach's new-construction shelf remains broad enough that buyers should compare lines, fees, and timing instead of waiting for a market reset."
+    }
+  },
+  {
     id: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
     status: "published",
     category: "Downtown Spotlight",
