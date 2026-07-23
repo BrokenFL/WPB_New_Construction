@@ -76,6 +76,103 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "berkeley-breaks-ground-clear-lake-edge-2026-07-23",
+    "slug": "berkeley-breaks-ground-clear-lake-edge-2026-07-23",
+    "title": "The Berkeley breaks ground on West Palm Beach's Clear Lake edge",
+    "sourceName": "The Berkeley Palm Beach",
+    "sourceUrl": "https://www.theberkeleypalmbeach.com/berkeley-25-story-condo-breaks-ground-starts-sales-on-west-palms-other-waterfront/",
+    "canonicalUrl": "https://www.theberkeleypalmbeach.com/berkeley-25-story-condo-breaks-ground-starts-sales-on-west-palms-other-waterfront/",
+    "sourceTitle": "The Berkeley breaks ground on West Palm Beach's Clear Lake edge",
+    "publishedAt": "2026-07-23T13:22:13.926Z",
+    "sourcePublishedAt": "2026-07-06",
+    "sourcePublishedDate": "2026-07-06",
+    "eventDate": "2026-07-06",
+    "dateDiscovered": "2026-07-23",
+    "freshnessLane": "recent_30d",
+    "fetchedAt": "2026-07-23T13:23:04.519Z",
+    "deck": "The 25-story, 193-unit tower is now under construction at 550 South Australian Avenue, extending downtown's luxury map west of the Intracoastal and showing where full-time buyer demand is still landing.",
+    "description": "Construction has started on The Berkeley Palm Beach at 550 South Australian Avenue, a 25-story, 193-unit tower on Clear Lake that is already more than $120 million sold.",
+    "summary": "The Berkeley's breakground pushes West Palm Beach luxury west of the Intracoastal and adds another live data point for buyers comparing downtown product.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "The Berkeley Palm Beach is no longer just a sales story. Construction is now underway at 550 South Australian Avenue, and the project team says the 25-story tower has already surpassed $120 million in total sales, including more than $40 million since April. That is the shift that matters: the project has moved from marketing phase to live construction while still absorbing buyers at a meaningful pace.\n\nThe tower is planned for 193 residences and is expected to finish in 2029. In a city where the luxury stack keeps widening, that makes The Berkeley one of the more important west-side data points to watch because it is not a speculative site anymore. It is now a building with a schedule, a sales pace, and a visible footprint."
+      },
+      {
+        "heading": "Why this site matters",
+        "body": "The Berkeley sits on the Clear Lake edge, west of the Intracoastal and just outside the traditional South Flagler waterfront lane. That placement changes the story. This is not a mirror image of the city's east-side luxury towers. It is a different kind of address, one that trades pure ocean-facing prestige for a broader mix of water views, downtown access, and proximity to the city's business and healthcare growth.\n\nThe project page says homes above the 15th floor are expected to capture both west-facing Clear Lake views and east-facing views toward the Intracoastal and Atlantic. That dual-water setup is a rare selling point in West Palm Beach, and it helps explain why the project has already found buyers before the structure is far along."
+      },
+      {
+        "heading": "What the sales pace signals",
+        "body": "The early sales number matters because it shows where demand is still willing to move before delivery. A tower that is already past $120 million sold, with more than $40 million added since April, is not just filling in the margins. It is telling you that well-located for-sale product in West Palm Beach still has room to clear when the layout, view mix, and service model line up.\n\nThat does not mean every buyer should chase the headline. It does mean the market still rewards a clear point of view. The Berkeley is not trying to be the same thing as every other luxury condo in town. It is leaning into a west-of-downtown position, larger residences, and a broader urban-access pitch. Buyers either want that combination or they do not."
+      },
+      {
+        "heading": "How it fits the city now",
+        "body": "West Palm Beach has been building a more layered luxury market, and The Berkeley adds another layer on the west side of downtown. The project sits close enough to the core to benefit from CityPlace, Clematis, employment growth, and the city's expanding institutional footprint, but it does not depend on the same east-edge waterfront logic that has defined so much of the recent pipeline.\n\nThat distinction matters for the city as a whole. A market with multiple premium zones is more resilient than one that relies on a single strip. If the west side of downtown keeps absorbing high-end product, it broadens the map for future developers and gives buyers another way to stay inside West Palm Beach without paying for the same view corridor every time."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The next checkpoint is simple: whether the current sales momentum holds as construction advances. Early interest can fade if pricing, fees, or floorplan selection stop lining up with buyer expectations. It can also deepen if the project keeps proving that the Clear Lake edge is a distinct luxury address rather than a secondary option.\n\nWatch the pace of new contracts, the remaining pricing ladder, and whether the project keeps pulling buyers who want downtown convenience without the standard east-waterfront tradeoffs. If that demand stays intact, The Berkeley will be more than another tower start. It will be another sign that West Palm Beach luxury is spreading outward, not just upward."
+      }
+    ],
+    "whyItMatters": "The Berkeley pushes West Palm Beach's luxury condo map west of the Intracoastal and onto the Clear Lake edge, where a different kind of waterfront premium is taking shape. The early sales total also shows the market is still willing to commit to well-positioned for-sale product before completion.",
+    "buyerContext": "For buyers comparing West Palm Beach's luxury stack, The Berkeley shows that west-of-Intracoastal addresses can still command premium pricing when they pair views, floorplan size, and downtown convenience.",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [
+      "The Berkeley Palm Beach"
+    ],
+    "relatedNeighborhoods": [
+      "Downtown West Palm Beach"
+    ],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "The Berkeley breaks ground on Clear Lake edge",
+    "newsletterBlurb": "The 25-story, 193-unit tower is now under construction at 550 South Australian Avenue, extending downtown's luxury map west of the Intracoastal and showing where full-time buyer demand is still landing.",
+    "newsletterCta": "Read the article",
+    "query": "West Palm Beach The Berkeley Palm Beach groundbreaking July 2026 Clear Lake development",
+    "category": "development",
+    "relatedProjectIds": [
+      "berkeley"
+    ],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [
+      "berkeley"
+    ],
+    "relatedCorridors": [],
+    "primaryProjectSlug": "berkeley",
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/berkeley-breaks-ground-clear-lake-edge-2026-07-23-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "The Berkeley Palm Beach: Berkeley 25-story condo breaks ground, starts sales on West Palm's other waterfront",
+        "url": "https://www.theberkeleypalmbeach.com/berkeley-25-story-condo-breaks-ground-starts-sales-on-west-palms-other-waterfront/",
+        "type": "official project source"
+      },
+      {
+        "label": "PRNewswire-PRWeb: The Berkeley Palm Beach Breaks Ground in West Palm Beach",
+        "url": "https://www.prweb.com/releases/the-berkeley-palm-beach-breaks-ground-in-west-palm-beach-302817309.html",
+        "type": "official press release"
+      },
+      {
+        "label": "Florida YIMBY: The Berkeley Palm Beach Breaks Ground At 550 South Australian Avenue In West Palm Beach",
+        "url": "https://floridayimby.com/2026/07/the-berkeley-palm-beach-breaks-ground-at-550-south-australian-avenue-in-west-palm-beach.html",
+        "type": "independent local coverage"
+      },
+      {
+        "label": "Markets of Tomorrow: The Berkeley officially breaks ground in West Palm Beach",
+        "url": "https://www.oftmw.com/post/the-berkeley-palm-beach-breaks-ground-on-its-25-story-clear-lake-tower/",
+        "type": "independent local coverage"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "alida-breaks-ground-beside-brightline-downtown-west-palm-beach-2026-07-20",
     "slug": "alida-breaks-ground-beside-brightline-downtown-west-palm-beach-2026-07-20",
     "title": "Alida breaks ground beside Brightline in downtown West Palm Beach",
