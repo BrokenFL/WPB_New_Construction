@@ -5141,12 +5141,6 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
-    "path": "/downtown-spotlight/fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw/",
-    "title": "Fuku opens at CityPlace and adds another easy downtown draw | Downtown Spotlight",
-    "description": "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
-  },
-  {
     "path": "/downtown-spotlight/nora-hotel-countdown/",
     "title": "The Nora Hotel gives NORA a real opening date | Downtown Spotlight",
     "description": "NORA's homepage now shows the district's first wave of tenants as open, and Reuters Connect captions say the 201-key hotel is scheduled to welcome guests on Oct. 19. North Railroad Avenue is moving from promise to calendar.",
@@ -5157,6 +5151,12 @@ export const prerenderRoutes = [
     "title": "The New Dining Map: Why West Palm Beach Is Becoming a Serious Restaurant City | Downtown Spotlight",
     "description": "West Palm Beach’s restaurant scene has moved from convenient dining to destination dining. New chef-driven concepts, national hospitality groups, and walkable mixed-use districts are reshaping how buyers think about downtown living.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/downtown-spotlight/urban-roast-opens-on-datura-street/",
+    "title": "Urban Roast opens on Datura Street and gives downtown another late-night stop | Downtown Spotlight",
+    "description": "The D.C.-born café and cocktail lounge is now open downtown, adding breakfast, all-day dining and weekend hours that run past midnight.",
+    "ogImage": "/assets/editorial/rosemary-square-corridor.jpg"
   },
   {
     "path": "/downtown-spotlight/nora-district-downtown-transformation/",

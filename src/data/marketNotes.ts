@@ -66,6 +66,95 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    id: "urban-roast-opens-on-datura-street",
+    status: "published",
+    category: "Downtown Spotlight",
+    title: "Urban Roast opens on Datura Street and gives downtown another late-night stop",
+    slug: "urban-roast-opens-on-datura-street",
+    excerpt: "The D.C.-born café and cocktail lounge is now open downtown, adding breakfast, all-day dining and weekend hours that run past midnight.",
+    buyerThesis: "The D.C.-born café and cocktail lounge is now open downtown, adding breakfast, all-day dining and weekend hours that run past midnight.",
+    buyerTakeaway: "For buyers comparing downtown West Palm Beach, the important signal is not just that another restaurant opened. It is that downtown keeps adding places that make the district feel usable across the day, which helps the case for walkability, evening activity and the lived-in feel people actually notice after moving in.",
+    marketSignal: "",
+    bestFor: "",
+    watchPoints: "",
+    buyerQuestions: "",
+    relatedBuildings: [],
+    relatedNeighborhoods: [],
+    relatedCorridor: "",
+    relatedArticleIds: [
+      "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city"
+    ],
+    image: {
+      path: "/assets/editorial/rosemary-square-corridor.jpg",
+      credit: "User-provided editorial image, optimized for site use."
+    },
+    projectIds: [],
+    sourceName: "Urban Roast",
+    sourceLinks: [
+      {
+        label: "Urban Roast",
+        href: "https://www.urbanroastdc.com/west-palm-beach-menu",
+        sourceType: "local news coverage"
+      },
+      {
+        label: "Urban Roast West Palm Beach menu page",
+        href: "https://www.urbanroastdc.com/west-palm-beach-menu",
+        sourceType: "official project site"
+      },
+      {
+        label: "West Palm Beach DDA: Urban Roast venue page",
+        href: "https://downtownwpb.com/venue/urban-roast/",
+        sourceType: "official project site"
+      },
+      {
+        label: "Hoodline: Urban Roast to open in downtown West Palm Beach",
+        href: "https://hoodline.com/2026/02/d-c-party-cafe-urban-roast-plots-splashy-landing-in-downtown-west-palm/",
+        sourceType: "local news coverage"
+      },
+      {
+        label: "WhatNow: D.C.'s Urban Roast is coming to West Palm Beach",
+        href: "https://whatnow.com/miami/restaurants/d-cs-urban-roast-is-coming-to-west-palm-beach/",
+        sourceType: "local news coverage"
+      }
+    ],
+    datePublished: "2026-07-31",
+    dateModified: "2026-07-31",
+    sections: [
+      {
+        heading: "What changed",
+        body: "Urban Roast is now open on Datura Street. The restaurant's West Palm Beach site says \"Now Open,\" and the West Palm Beach Downtown Development Authority listed a grand opening for July 25. That turns the concept from a promise into a place people can actually use.\n\nThe opening gives downtown another all-day operator with a schedule that stretches from morning coffee to late-night cocktails. Urban Roast is not a one-part-day concept, and that matters in a district where the strongest tenants are the ones that can carry breakfast, lunch, after-work drinks and dinner without changing addresses."
+      },
+      {
+        heading: "What is actually new",
+        body: "The real change is the operating pattern, not the brand name. Urban Roast's West Palm Beach page lists hours that start at 9 a.m. every day and run as late as 1 a.m. on Friday and Saturday. That makes it useful in a way that a dinner-only room is not. It can catch the office crowd, the brunch crowd, the early evening crowd and the people who want one more stop after dinner.\n\nThat kind of schedule makes downtown feel more complete. It adds another place where the day can move naturally into the night instead of stopping at the edge of a meal reservation."
+      },
+      {
+        heading: "Why this block matters",
+        body: "Datura Street already sits in the middle of downtown's shifting food map. Each new opening there gives the block a little more weight as part of the everyday downtown circuit, not just a cut-through between bigger names. Urban Roast helps push that idea further because it is built for repeat use. Coffee in the morning, brunch on the weekend, cocktails later on, and enough hours to be part of the routine instead of a special occasion.\n\nFor West Palm Beach, that is the point. The city does not need more one-time openings that only matter on day one. It needs places that help the downtown core work on an ordinary Tuesday as well as on a Friday night. Urban Roast is aimed squarely at that use case."
+      },
+      {
+        heading: "How daily life changes",
+        body: "A district feels different when it gains more than a single dinner anchor. Urban Roast gives downtown another flexible stop for the in-between hours that shape how a place is actually lived in: before work, after work, between meetings, after an event, or when visitors want one more easy option.\n\nThat matters for nearby residents and for people comparing downtown against other West Palm Beach corridors. Walkability is not just about being able to get to a restaurant. It is about whether there are enough reasons to stay on foot for more than one errand or one reservation. Urban Roast adds to that rhythm."
+      },
+      {
+        heading: "What to watch next",
+        body: "The question now is whether Urban Roast settles into the district as a regular stop or stays a one-week opening story. The opening itself is real, but the deeper test is whether the place keeps drawing morning, daytime and night traffic once the novelty fades.\n\nIf it does, downtown West Palm Beach gets another useful layer of street life on Datura Street. If it does not, the opening still matters, but mainly as another sign of how hard the district is working to build a fuller dining map. Either way, the signal is the same: downtown keeps adding uses that make the core feel more lived in."
+      }
+    ],
+    ctaText: "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    factCheckRequired: [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    seo: {
+      primaryQuery: "Urban Roast opens on Datura Street and gives downtown another late-night stop",
+      secondaryQueries: [],
+      suggestedSlug: "urban-roast-opens-on-datura-street",
+      titleTag: "Urban Roast opens on Datura Street and gives downtown another late-night stop | Downtown Spotlight",
+      metaDescription: "The D.C.-born café and cocktail lounge is now open downtown, adding breakfast, all-day dining and weekend hours that run past midnight."
+    }
+  },
+  {
     id: "olara-special-pricing-keeps-north-flagler-in-play",
     status: "published",
     category: "general",
@@ -151,86 +240,6 @@ export const marketNotes = [
       suggestedSlug: "olara-special-pricing-keeps-north-flagler-in-play",
       titleTag: "Olara's special pricing keeps North Flagler in play | Buyer Intelligence",
       metaDescription: "Olara is still advertising pre-construction inventory and special pricing, and West Palm Beach's new-construction shelf remains broad enough that buyers should compare lines, fees, and timing instead of waiting for a market reset."
-    }
-  },
-  {
-    id: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
-    status: "published",
-    category: "Downtown Spotlight",
-    title: "Fuku opens at CityPlace and adds another easy downtown draw",
-    slug: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
-    excerpt: "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift.",
-    buyerThesis: "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift.",
-    buyerTakeaway: "The opening strengthens the everyday-use case for downtown West Palm Beach. A known fast-casual brand with evening hours is different from a one-off restaurant announcement: it adds to the routine around Rosemary Avenue, improves the district's food depth, and gives nearby buildings another amenity buyers can actually use without getting in a car.",
-    marketSignal: "",
-    bestFor: "",
-    watchPoints: "",
-    buyerQuestions: "",
-    relatedBuildings: [],
-    relatedNeighborhoods: [],
-    relatedCorridor: "",
-    relatedArticleIds: [
-      "the-new-dining-map-why-west-palm-beach-is-becoming-a-serious-restaurant-city"
-    ],
-    image: {
-      path: "/assets/editorial/rosemary-square-corridor.jpg",
-      credit: "User-provided editorial image, optimized for site use."
-    },
-    projectIds: [],
-    sourceName: "CityPlace",
-    sourceLinks: [
-      {
-        label: "CityPlace",
-        href: "https://www.cityplace.com/",
-        sourceType: "local news coverage"
-      },
-      {
-        label: "CityPlace: Fuku’s Chicken Sando is Coming To CityPlace",
-        href: "https://www.cityplace.com/",
-        sourceType: "official project site"
-      },
-      {
-        label: "Fuku West Palm Beach location page",
-        href: "https://eatfuku.com/find-fuku/west-palm/",
-        sourceType: "official project site"
-      },
-      {
-        label: "WhatNow: David Chang’s Fuku is Opening in West Palm Beach",
-        href: "https://whatnow.com/miami/restaurants/david-changs-fuku-is-opening-in-west-palm-beach/",
-        sourceType: "local news coverage"
-      }
-    ],
-    datePublished: "2026-07-21",
-    dateModified: "2026-07-21",
-    sections: [
-      {
-        heading: "What changed",
-        body: "CityPlace says Fuku opened on July 16, and Fuku's own West Palm Beach location page now lists the restaurant with summer 2026 timing and the downtown address. That is the real change: a branded fast-casual concept is now part of the district's daily rhythm, not just another opening on a coming-soon page."
-      },
-      {
-        heading: "Why this opening fits CityPlace",
-        body: "Fuku did not land in a sleepy corner of town. It landed inside a district that already leans on restaurants, events, and foot traffic to stay lively across the week. CityPlace is pushing a summer calendar built around Neighborhood Nights, watch parties, and other programmed activity, which means the dining lane is now carrying more than one kind of use. Fuku adds a quick, recognizable, repeatable option to that mix."
-      },
-      {
-        heading: "How the district feels different",
-        body: "A place changes when it gives people more reasons to stay for one more stop instead of heading home. Fuku adds that kind of frictionless option. It is not a formal tasting-menu dinner, and it is not a one-night novelty. It is the kind of kitchen that can catch office crowds, parents, shoppers, and late-day foot traffic without asking them to plan too far ahead. That matters on Rosemary Avenue, where CityPlace is still trying to stitch shopping, dining, and leisure into one easy habit."
-      },
-      {
-        heading: "What to watch next",
-        body: "The opening is useful because it is operational, not theoretical. The question now is whether Fuku becomes one more reliable stop in the CityPlace circuit or just a brief burst of opening-week attention. For downtown West Palm Beach, the bigger signal is that the area keeps pulling in recognizable food names that make the district feel more complete on ordinary weeknights, not just during special events."
-      }
-    ],
-    ctaText: "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
-    factCheckRequired: [
-      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
-      "Confirm source links and dates before relying on this note in a buyer recommendation."
-    ],
-    seo: {
-      primaryQuery: "Fuku opens at CityPlace and adds another easy downtown draw",
-      secondaryQueries: [],
-      suggestedSlug: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
-      titleTag: "Fuku opens at CityPlace and adds another easy downtown draw | Downtown Spotlight",
-      metaDescription: "David Chang's chicken-sando concept opened at CityPlace on July 16, giving Rosemary Avenue another reason to stay busy after work, after dinner, and into the late shift."
     }
   },
   {

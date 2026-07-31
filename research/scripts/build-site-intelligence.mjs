@@ -86,6 +86,12 @@ const marketNoteRoutes = [
 ];
 const downtownSpotlightRoutes = [
   {
+    slug: "urban-roast-opens-on-datura-street",
+    title: "Urban Roast opens on Datura Street and gives downtown another late-night stop | Downtown Spotlight",
+    description:
+      "The D.C.-born café and cocktail lounge is now open downtown, adding breakfast, all-day dining and weekend hours that run past midnight.",
+  },
+  {
     slug: "fuku-opens-at-cityplace-and-adds-another-easy-downtown-draw",
     title: "Fuku opens at CityPlace and adds another easy downtown draw | Downtown Spotlight",
     description:
