@@ -76,6 +76,89 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "west-palm-beach-coleman-park-habitat-lots",
+    "slug": "west-palm-beach-sets-two-coleman-park-lots-on-habitats-path-2026-08-03",
+    "title": "West Palm Beach sets two Coleman Park lots on Habitat's path",
+    "sourceName": "City of West Palm Beach Community Redevelopment Agency",
+    "sourceUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-cra-agendas/08_03_26_final-cra-agenda.pdf",
+    "canonicalUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-cra-agendas/08_03_26_final-cra-agenda.pdf",
+    "sourceTitle": "West Palm Beach sets two Coleman Park lots on Habitat's path",
+    "publishedAt": "2026-08-03T13:23:13.004Z",
+    "sourcePublishedAt": "2026-08-03",
+    "sourcePublishedDate": "2026-08-03",
+    "eventDate": "2026-08-03",
+    "dateDiscovered": "2026-08-03",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-08-03T13:23:13.004Z",
+    "deck": "The city's August 3 CRA agenda puts 631 6th Street and 639 4th Street on track for Habitat for Humanity homes, extending the Coleman Park infill push.",
+    "description": "West Palm Beach CRA agenda items for August 3 would convey 631 6th Street and 639 4th Street to Habitat for Humanity for affordable housing.",
+    "summary": "West Palm Beach is lining up two Coleman Park parcels for Habitat for Humanity homes, keeping the city's small-lot infill strategy moving.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "West Palm Beach is putting two small Coleman Park parcels back into the housing pipeline, and the paper trail is the point. The city's August 3 Community Redevelopment Agency agenda includes companion resolutions for 631 6th Street and 639 4th Street, both tied to Habitat for Humanity and affordable housing.\n\nOn a meeting agenda, that can look routine. On the ground, it is the kind of small land action that keeps a neighborhood redevelopment story from becoming only a skyline story. West Palm Beach still has to decide what happens to the smallest pieces of public land, and these two lots show the city is still willing to use them for ownership housing."
+      },
+      {
+        "heading": "What is actually new",
+        "body": "The important detail is that this is not a vague future concept. Habitat for Humanity's July 2026 homeownership packet lists both 631 6th Street and 639 4th Street as new-construction homes in West Palm Beach, each described as a three-bedroom, two-bath project.\n\nThat matters because it tells you the parcels are already linked to a specific end use. The city is not just talking about affordability in the abstract. It is moving two lots toward a defined type of home, with the Habitat process already far enough along to identify them by address and product type."
+      },
+      {
+        "heading": "Why Coleman Park matters",
+        "body": "Coleman Park has become one of the clearest tests of whether redevelopment can add homes without turning the neighborhood into a place only insiders can afford. Big projects grab headlines, but small infill lots are where affordable ownership actually gets built.\n\nThat is why this agenda item deserves attention. West Palm Beach has spent years adding pressure to its land market, especially in and around downtown. The city now has to keep a path open for projects that are smaller, more local, and more attainable than the high-rise deals that dominate the market conversation.\n\nHabitat is useful here because it turns a public parcel into a final address, not just a policy talking point. If these lots move forward, the city is not merely preserving a promise. It is making room for a family to buy into the neighborhood at a price that is tied to the program rather than to speculative land values."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The next checkpoint is whether the CRA approves the conveyances and how quickly the parcels move from agenda item to recorded transfer. After that, the milestones that matter are permits, start dates, and whether the homes stay on a realistic path to completion.\n\nIf the transfer clears, the signal is straightforward: West Palm Beach is still using public land for incremental affordable housing, and it is still doing it block by block. That may not be the flashiest development story in the city, but it is one of the most concrete."
+      }
+    ],
+    "whyItMatters": "",
+    "buyerContext": "",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "Coleman Park"
+    ],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "West Palm Beach lines up two Habitat lots in Coleman Park",
+    "newsletterBlurb": "The city's August 3 CRA agenda puts 631 6th Street and 639 4th Street on track for Habitat for Humanity homes, extending the Coleman Park infill push.",
+    "newsletterCta": "Read the article",
+    "query": "West Palm Beach CRA agenda August 3 2026 631 6th Street 639 4th Street Habitat for Humanity Coleman Park",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "Broadway"
+    ],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/west-palm-beach-sets-two-coleman-park-lots-on-habitats-path-2026-08-03-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "City of West Palm Beach CRA agenda, August 3 2026",
+        "url": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-cra-agendas/08_03_26_final-cra-agenda.pdf",
+        "type": "official agenda"
+      },
+      {
+        "label": "Habitat for Humanity of Greater Palm Beach County homeownership packet, July 2026",
+        "url": "https://habitatgreaterpbc.org/wp-content/uploads/2026/07/2026-Application_Final_English.pdf",
+        "type": "official homeownership packet"
+      },
+      {
+        "label": "WLRN: West Palm Beach to vote on land transfer that could shape future of Coleman Park",
+        "url": "https://www.wlrn.org/development/2026-05-26/coleman-park-west-palm-beach-vote",
+        "type": "local coverage"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "broadway-currie-park-zoning-2026-07-06",
     "slug": "broadway-currie-park-zoning-2026-07-06",
     "title": "West Palm Beach rewrites Broadway and Currie Park rules",

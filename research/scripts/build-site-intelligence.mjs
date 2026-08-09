@@ -174,6 +174,7 @@ function approvedUpdateRoutes() {
       .filter((item) => item.status === "published")
       .map((item) => ({
         id: item.id,
+        slug: item.slug,
         title: `${item.title} | WPB Updates`,
         description: item.description || "West Palm Beach new-construction update with buyer context and original source attribution.",
         ogImage: updateRouteOgImage(item),
@@ -2591,7 +2592,7 @@ function buildPrerenderRoutes() {
       ogImage: siteMeta.defaultImage,
     },
     ...updateRoutes.map((item) => ({
-      path: `/updates/${item.id}/`,
+      path: `/updates/${item.slug || item.id}/`,
       title: item.title,
       description: item.description,
       ogImage: item.ogImage || siteMeta.defaultImage,

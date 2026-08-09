@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-08T16:58:21.879Z",
+  "generatedAt": "2026-08-09T22:14:08.768Z",
   "usageNote": "Floorplan inventory from project sources and current packet references. Request the latest sales packet for pricing, availability, and line-by-line guidance.",
   "projects": [
     {
@@ -7,7 +7,7 @@
       "name": "Alba Palm Beach",
       "area": "North Flagler",
       "pageStatus": "Primary condo page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 10,
       "plans": [
         {
@@ -98,7 +98,7 @@
       "name": "Mandarin Oriental Residences, West Palm Beach",
       "area": "North Flagler",
       "pageStatus": "Candidate project page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 0,
       "plans": [],
       "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
@@ -108,7 +108,7 @@
       "name": "Olara",
       "area": "North Flagler",
       "pageStatus": "Primary condo page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 55,
       "plans": [
         {
@@ -559,7 +559,7 @@
       "name": "Shorecrest",
       "area": "North Flagler",
       "pageStatus": "Primary condo page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 9,
       "plans": [
         {
@@ -642,7 +642,7 @@
       "name": "The Ritz-Carlton Residences, West Palm Beach",
       "area": "North Flagler",
       "pageStatus": "Primary condo page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 28,
       "plans": [
         {
@@ -877,7 +877,7 @@
       "name": "Banyan Tree Residences West Palm Beach",
       "area": "Downtown",
       "pageStatus": "High-priority emerging condo page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 0,
       "plans": [],
       "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
@@ -887,7 +887,7 @@
       "name": "Mr. C Hotel & Residences West Palm Beach",
       "area": "Downtown",
       "pageStatus": "Primary mixed-use/hotel-residence page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 64,
       "plans": [
         {
@@ -1410,7 +1410,7 @@
       "name": "The Berkeley Palm Beach",
       "area": "Downtown",
       "pageStatus": "Candidate project page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 9,
       "plans": [
         {
@@ -1493,7 +1493,7 @@
       "name": "NORA House",
       "area": "Downtown / NORA",
       "pageStatus": "Primary condo page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 65,
       "plans": [
         {
@@ -2024,7 +2024,7 @@
       "name": "Edgeworth North Tower",
       "area": "South Flagler",
       "pageStatus": "High-priority pipeline condo page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 0,
       "plans": [],
       "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
@@ -2034,7 +2034,7 @@
       "name": "Forté on Flagler",
       "area": "South Flagler",
       "pageStatus": "Completed/recent-delivery condo page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 5,
       "plans": [
         {
@@ -2085,7 +2085,7 @@
       "name": "Maison d'Or",
       "area": "South Flagler",
       "pageStatus": "Candidate project page",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 2,
       "plans": [
         {
@@ -2112,7 +2112,7 @@
       "name": "South Flagler House North Tower",
       "area": "South Flagler",
       "pageStatus": "Primary condo page; pair with south tower in copy",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 3,
       "plans": [
         {
@@ -2147,7 +2147,7 @@
       "name": "South Flagler House South Tower",
       "area": "South Flagler",
       "pageStatus": "Primary condo page; merge content with north tower unless separate inventory is required",
-      "updatedAt": "2026-06-08",
+      "updatedAt": "2026-08-09",
       "count": 3,
       "plans": [
         {

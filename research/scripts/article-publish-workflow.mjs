@@ -377,11 +377,19 @@ function articleOutputPaths({ destination }) {
         "public/assets/editorial",
         "research/news-review/approved-development-news.json",
         "src/data/approvedExternalNews.ts",
+        // news:refresh regenerates these public intelligence files alongside the article feed.
+        "public/data/answer-engine-faq.json",
+        "public/data/floorplans.json",
+        "public/data/image-clearance-candidates.json",
         "public/data/news-feed.json",
+        "public/data/project-asset-status.json",
+        "public/data/project-team-credits.json",
+        "public/data/published-floorplan-assets.json",
         "public/feed.json",
         "public/rss.xml",
         "public/llms.txt",
         "public/sitemap.xml",
+        "research/source-material-review/image-candidate-catalog.json",
         "src/generated/siteData.ts",
       ]
     : [
