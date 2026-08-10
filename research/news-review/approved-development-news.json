@@ -1,5 +1,100 @@
 [
   {
+    "id": "west-palm-beach-clears-tax-hurdle-second-convention-center-hotel-2026-08-10",
+    "slug": "west-palm-beach-clears-tax-hurdle-second-convention-center-hotel-2026-08-10",
+    "title": "West Palm Beach clears a tax hurdle for the second convention center hotel",
+    "sourceName": "City of West Palm Beach",
+    "sourceUrl": "https://www.wpb.org/News-Folder/News-2026/080426-Mayor-CC-CRA-Approvals",
+    "canonicalUrl": "https://www.wpb.org/News-Folder/News-2026/080426-Mayor-CC-CRA-Approvals",
+    "sourceTitle": "West Palm Beach clears a tax hurdle for the second convention center hotel",
+    "publishedAt": "2026-08-10T13:27:06.499Z",
+    "sourcePublishedAt": "2026-08-04",
+    "sourcePublishedDate": "2026-08-04",
+    "eventDate": "2026-08-03",
+    "dateDiscovered": "2026-08-10",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-08-10T13:27:06.499Z",
+    "deck": "The Aug. 3 CRA vote keeps the hotel PILOT formula intact while loosening the garage-land rules around the Related Ross plan.",
+    "description": "West Palm Beach approved a first amendment to the convention center hotel agreement, removing the requirement that the garage land stay taxable and allowing parking to move elsewhere.",
+    "summary": "The city and CRA loosened one of the sharpest tax constraints on the second convention center hotel, but the county still has to act.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "The CRA agenda says the first amendment to the 2012 Convention Center Hotel agreement would do four specific things: remove the requirement that the garage land remain taxable, allow hotel parking to be moved elsewhere, keep parking expenses deductible even after relocation, and leave no replacement payment in place for the lost garage-land taxes. The executive summary estimates that parcel at roughly $38,631 in annual ad valorem taxes.\n\nJust as important, the amendment does not rewrite the underlying hotel PILOT math. The payment formula, schedule and valuation approach remain in place, which means the city and county are changing the land-and-parking mechanics without reopening the whole financial structure."
+      },
+      {
+        "heading": "Why this deal needed another turn",
+        "body": "The proposed hotel has been moving through a long public process. Related Ross is seeking approvals for a 400-room Curio by Hilton at 900 South Rosemary Avenue, on a site now used as overflow parking for the convention center. Stet News reported in June that the Planning Board had unanimously approved the hotel plan after the company said it had adjusted design and access details to address neighborhood concerns.\n\nThe latest city action is the tax-and-parking counterpart to that planning work. If the project is going to replace a surface lot, rely on garage spaces and still make the numbers work for both the developer and the public side, the agreement has to be flexible enough to move those pieces around."
+      },
+      {
+        "heading": "What the city is protecting",
+        "body": "The city is not writing a blank check here. The amendment keeps the hotel PILOT structure alive, which is the part that ties the project back to a long-term revenue stream for the public side. Traded reported that Related Ross is pursuing a sale-leaseback model in which the county would own the site while the developer funds construction and leases garage spaces for hotel use.\n\nThat is the balance West Palm Beach keeps trying to strike with these big downtown projects: enough flexibility to let the deal move, enough public control to make sure the district still produces revenue and access. In this case, the city seems willing to give on the garage-land rule so long as the larger payment framework survives."
+      },
+      {
+        "heading": "Why this matters downtown",
+        "body": "The convention center hotel is not just a hospitality project. It is a traffic, parking and district-shaping project. Related Ross says the hotel is meant to close a long-standing room-count gap for convention business, and the current parking arrangement assumes hundreds of spaces in the county garage will help support both the existing Hilton and the new hotel.\n\nThat means the city is effectively deciding what kind of downtown edge it wants around Rosemary Avenue and the convention center block. A hotel that depends on shared garage parking, walkability and a public-private land structure changes the daily pattern of the district far more than a conventional ground-up hotel with its own garage would."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The immediate question is whether the county signs off on the larger land-and-lease package. The city side is now farther along, but the deal still needs county approval and a final path through the remaining resolutions tied to the project.\n\nThe second checkpoint is whether the promised revenue structure survives in practice. If the garage land comes off the tax rolls and the hotel still lands on the lease-back track, the project will have cleared one of its biggest policy hurdles. If the county pushes back on ownership, parking or tax treatment, the whole downtown hotel package could still change shape."
+      }
+    ],
+    "whyItMatters": "The amendment removes one tax and parking constraint from the second convention center hotel while keeping the hotel PILOT formula in place, which makes the deal easier to move forward without changing its basic revenue math.",
+    "buyerContext": "For downtown buyers, the point is not the hotel itself so much as what it signals: the city and county are still willing to reshape the convention-center district around large, publicly negotiated projects, and that can affect traffic, parking, and the long-term usefulness of Rosemary Avenue and the surrounding blocks.",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "Downtown West Palm Beach",
+      "Grandview Heights",
+      "CityPlace"
+    ],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "West Palm Beach clears a tax hurdle for the second convention center hotel",
+    "newsletterBlurb": "The Aug. 3 CRA vote keeps the hotel PILOT formula intact while loosening the garage-land rules around the Related Ross plan.",
+    "newsletterCta": "Read the article",
+    "query": "West Palm Beach Aug. 3 2026 CRA agenda convention center hotel garage land amendment Related Ross Curio hotel",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "Rosemary Avenue",
+      "CityPlace"
+    ],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/west-palm-beach-clears-tax-hurdle-second-convention-center-hotel-2026-08-10-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "Mayor, City Commission, CRA Approvals and Decisions for Aug. 3, 2026",
+        "url": "https://www.wpb.org/News-Folder/News-2026/080426-Mayor-CC-CRA-Approvals",
+        "type": "official city release"
+      },
+      {
+        "label": "City of West Palm Beach CRA agenda - Aug. 3, 2026",
+        "url": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-cra-agendas/08_03_26_final-cra-agenda.pdf",
+        "type": "official agenda"
+      },
+      {
+        "label": "Second convention center hotel passes key test",
+        "url": "https://stetnews.org/2026/06/22/second-convention-center-hotel-passes-key-test/",
+        "type": "independent local coverage"
+      },
+      {
+        "label": "Related Ross Advances $300M Curio by Hilton Near West Palm Beach Convention Center",
+        "url": "https://traded.co/blog/related-ross-advances-300m-curio-by-hilton-near-west-palm-beach-convention-center/",
+        "type": "independent market coverage"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "west-palm-beach-coleman-park-habitat-lots",
     "slug": "west-palm-beach-sets-two-coleman-park-lots-on-habitats-path-2026-08-03",
     "title": "West Palm Beach sets two Coleman Park lots on Habitat's path",
