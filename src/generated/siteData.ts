@@ -5183,6 +5183,12 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
   },
   {
+    "path": "/downtown-spotlight/therealreal-cityplace-move-deepens-downtown-luxury-retail-lane/",
+    "title": "The RealReal's CityPlace move deepens downtown's luxury retail lane | Downtown Spotlight",
+    "description": "The RealReal is opening at CityPlace on Aug. 13, relocating from Palm Beach into a larger downtown West Palm Beach space.",
+    "ogImage": "/assets/editorial/therealreal-cityplace-move-deepens-downtown-luxury-retail-lane-hero.jpg"
+  },
+  {
     "path": "/downtown-spotlight/west-palm-beach-new-dining-map/",
     "title": "Downtown Dining Is Becoming a Condo-Buyer Signal | Downtown Spotlight",
     "description": "Downtown West Palm Beach dining is changing how buyers compare buildings. See what Eataly, NORA, rooftops, sushi, and waterfront restaurants really mean.",

@@ -69,6 +69,88 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "therealreal-cityplace-move-deepens-downtown-luxury-retail-lane",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "The RealReal's CityPlace move deepens downtown's luxury retail lane",
+    "slug": "therealreal-cityplace-move-deepens-downtown-luxury-retail-lane",
+    "excerpt": "The resale brand opens Aug. 13 at 700 S. Rosemary Ave., leaving Palm Beach for a larger CityPlace space and adding a different kind of daytime use to downtown West Palm Beach.",
+    "buyerThesis": "For buyers comparing downtown West Palm Beach, CityPlace, and nearby waterfront or north-end options, the signal is simple: the district keeps adding practical walkable uses, not just dining buzz. That improves the case for everyday convenience around Rosemary Avenue and helps the area feel more lived in on normal weekdays.",
+    "buyerTakeaway": "For buyers comparing downtown West Palm Beach, CityPlace, and nearby waterfront or north-end options, the signal is simple: the district keeps adding practical walkable uses, not just dining buzz. That improves the case for everyday convenience around Rosemary Avenue and helps the area feel more lived in on normal weekdays.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/editorial/therealreal-cityplace-move-deepens-downtown-luxury-retail-lane-hero.jpg",
+      "alt": "Editorial illustration of shoppers browsing unbranded clothing racks along a palm-lined downtown retail corridor.",
+      "caption": "An editorial illustration of the kind of daytime retail activity CityPlace is adding to downtown West Palm Beach.",
+      "credit": "AI-generated editorial illustration",
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "The RealReal",
+    "sourceLinks": [
+      {
+        "label": "The RealReal press release: The RealReal Opens New West Palm Beach Store",
+        "href": "https://investor.therealreal.com/news/news-details/2026/The-RealReal-Opens-New-West-Palm-Beach-Store/default.aspx",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "CityPlace opening day page for The RealReal",
+        "href": "https://www.cityplace.com/west-palm-beach-events/realreal-opening-day",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "AOL: The RealReal luxury resale store moves from Palm Beach to CityPlace",
+        "href": "https://www.aol.com/articles/realreal-luxury-resale-store-moves-091410000.html",
+        "sourceType": "local news coverage"
+      }
+    ],
+    "datePublished": "2026-08-11",
+    "dateModified": "2026-08-11",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "The RealReal says it will open its new West Palm Beach store on Aug. 13 at 700 S. Rosemary Ave., Suite 136, inside CityPlace. The company says the move takes the brand out of its longtime Palm Beach location and into a larger, more modern space. CityPlace has already put the opening on its events calendar, with an all-day celebration and refreshments from Maman."
+      },
+      {
+        "heading": "Why this is a downtown story",
+        "body": "This is not just a retail address change. It is another sign that Rosemary Avenue is functioning less like a mall frontage and more like a downtown street with a real daily rhythm. A luxury resale store does something different from a restaurant or a bar. It creates a reason to browse, consign, compare, and return on a weekday afternoon. That kind of use matters because it keeps the district active when the dinner crowd is gone and the event schedule is quiet."
+      },
+      {
+        "heading": "What CityPlace is selling now",
+        "body": "CityPlace keeps leaning into a mixed-use identity that blends shopping, dining, events, and service retail into one district-wide habit. The RealReal fits that direction. It is a recognizable brand with a practical customer use, and it sits alongside a longer list of tenants and activations that are trying to make the area feel useful throughout the day. The message is not about one store alone. It is about a corridor that now has enough weight to pull in brands that depend on repeat traffic, not just opening-week novelty."
+      },
+      {
+        "heading": "Why buyers should care",
+        "body": "For people comparing downtown West Palm Beach with north-end or waterfront options, the retail mix is part of the lifestyle math. A district that can support shopping, errands, dining, and leisure in the same walkable footprint feels different from one that needs a car for every small task. The RealReal does not change the skyline. It does change the routine. That matters when you are judging whether a building really sits inside a usable urban district or only near one."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The useful follow-up is simple: does The RealReal become part of the regular CityPlace circuit, or does it stay a first-week headline? If the store lands well, it strengthens the case for more specialty retail in and around downtown. If the traffic is thin, the bigger story is still intact. CityPlace is continuing to move beyond pure entertainment and toward a more complete daytime district, and that shift is what downtown West Palm Beach has been chasing for years."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "The RealReal's CityPlace move deepens downtown's luxury retail lane",
+      "secondaryQueries": [],
+      "suggestedSlug": "therealreal-cityplace-move-deepens-downtown-luxury-retail-lane",
+      "titleTag": "The RealReal's CityPlace move deepens downtown's luxury retail lane | Downtown Spotlight",
+      "metaDescription": "The RealReal is opening at CityPlace on Aug. 13, relocating from Palm Beach into a larger downtown West Palm Beach space."
+    }
+  },
+
+  {
     id: "urban-roast-opens-on-datura-street",
     status: "published",
     category: "Downtown Spotlight",
