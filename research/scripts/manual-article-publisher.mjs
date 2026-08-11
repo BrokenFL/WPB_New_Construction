@@ -241,98 +241,25 @@ async function publishMarketNote({ id, slug, title, deck, bodySections, imagePat
 }
 
 async function updateGeneratedRoutes({ destination, slug, title, description, imagePath, removedSlugs = [] }) {
-  const routeBase = destinationConfig[destination].routeBase;
-  const routePath = `${routeBase}${slug}/`;
-  for (const removedSlug of removedSlugs) {
-    const removedRoutePath = `${routeBase}${removedSlug}/`;
-    if (removedRoutePath !== routePath) {
-      await removeGeneratedRoute(removedRoutePath);
-      await removeSitemapRoute(removedRoutePath);
-    }
-  }
-  await insertGeneratedRoute(routePath, routeTitle(destination, title), description, imagePath);
-  await insertSitemapRoute(routePath);
-  if (destination === "buyer" || destination === "downtown") {
-    await insertBuildSiteIntelligenceRoute(destination, slug, routeTitle(destination, title), description);
-  }
-}
-
-async function insertGeneratedRoute(routePath, title, description, imagePath) {
-  const filePath = path.join(workspace, "src/generated/siteData.ts");
-  const source = await fs.readFile(filePath, "utf8");
-  if (source.includes(`"path": "${routePath}"`)) return;
-  const route = {
-    path: routePath,
-    title,
-    description,
-    ogImage: imagePath || "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
-  };
-  let anchor = '"path": "/updates/trd-jeff-greene-live-local-120-s-dixie-2026-06-05/"';
-  if (routePath.startsWith("/market-notes/")) anchor = '"path": "/market-notes/nora-district-downtown-transformation/"';
-  if (routePath.startsWith("/downtown-spotlight/")) anchor = '"path": "/downtown-spotlight/nora-district-downtown-transformation/"';
-  const index = source.indexOf(`  {\n    ${anchor}`);
-  if (index === -1) fail(`Could not find generated route anchor for ${routePath}`);
-  const next = `${source.slice(0, index)}  ${JSON.stringify(route, null, 2).replace(/\n/g, "\n  ")},\n${source.slice(index)}`;
-  await fs.writeFile(filePath, next);
-}
-
-async function removeGeneratedRoute(routePath) {
-  const filePath = path.join(workspace, "src/generated/siteData.ts");
-  const source = await fs.readFile(filePath, "utf8");
-  const marker = '"path": "';
-  const index = source.indexOf(`  {\n    ${marker}${routePath}"`);
-  if (index === -1) return;
-  const nextIndex = source.indexOf("\n  },", index);
-  if (nextIndex === -1) fail(`Could not find generated route end for ${routePath}`);
-  await fs.writeFile(filePath, `${source.slice(0, index)}${source.slice(nextIndex + 6)}`);
-}
-
-async function removeSitemapRoute(routePath) {
-  const filePath = path.join(workspace, "public/sitemap.xml");
-  const source = await fs.readFile(filePath, "utf8");
-  const loc = `https://www.wpbnewconstruction.com${routePath}`;
-  const blockStart = source.indexOf(`  <url>\n    <loc>${loc}</loc>`);
-  if (blockStart === -1) return;
-  const blockEnd = source.indexOf("  </url>\n", blockStart);
-  if (blockEnd === -1) fail(`Could not find sitemap route end for ${routePath}`);
-  await fs.writeFile(filePath, `${source.slice(0, blockStart)}${source.slice(blockEnd + 9)}`);
-}
-
-async function insertSitemapRoute(routePath) {
-  const filePath = path.join(workspace, "public/sitemap.xml");
-  const source = await fs.readFile(filePath, "utf8");
-  const loc = `https://www.wpbnewconstruction.com${routePath}`;
-  if (source.includes(`<loc>${loc}</loc>`)) return;
-  const block = `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>0.8</priority>\n  </url>\n`;
-  const anchor = routePath.startsWith("/market-notes/")
-    ? "  <url>\n    <loc>https://www.wpbnewconstruction.com/market-notes/"
-    : routePath.startsWith("/downtown-spotlight/")
-      ? "  <url>\n    <loc>https://www.wpbnewconstruction.com/downtown-spotlight/"
-      : "  <url>\n    <loc>https://www.wpbnewconstruction.com/updates/";
-  const index = source.indexOf(anchor);
-  if (index === -1) fail(`Could not find sitemap anchor for ${routePath}`);
-  await fs.writeFile(filePath, `${source.slice(0, index)}${block}${source.slice(index)}`);
-}
-
-async function insertBuildSiteIntelligenceRoute(destination, slug, title, description) {
-  const filePath = path.join(workspace, "research/scripts/build-site-intelligence.mjs");
-  const source = await fs.readFile(filePath, "utf8");
-  if (source.includes(`slug: "${slug}"`)) return;
-  const item = `  {\n    slug: "${escapeJs(slug)}",\n    title: "${escapeJs(title)}",\n    description:\n      "${escapeJs(description)}",\n  },\n`;
-  const arrayName = destination === "downtown" ? "downtownSpotlightRoutes" : "marketNoteRoutes";
-  const marker = `const ${arrayName} = [\n`;
-  if (!source.includes(marker)) fail(`Could not find ${arrayName}.`);
-  await fs.writeFile(filePath, source.replace(marker, `${marker}${item}`));
+  // Route and sitemap data are generated from the published source collections.
+  await runChecked("npm", ["run", "news:refresh"]);
 }
 
 async function writeImages(input, slugValue, destination) {
   const entries = [];
+  const suppliedHeroPath = clean(input.heroImage?.path || input.image?.path);
+  if (suppliedHeroPath.startsWith("/")) entries.push({ ...input.heroImage, path: suppliedHeroPath, role: "hero" });
   if (input.heroImage?.dataUrl) entries.push({ ...input.heroImage, role: "hero" });
   for (const [index, image] of (input.bodyImages || []).filter((item) => item?.dataUrl).slice(0, 3).entries()) {
     entries.push({ ...image, role: `body-${index + 1}` });
   }
   const output = { hero: "", body: [] };
   for (const image of entries) {
+    if (image.path && !image.dataUrl) {
+      if (image.role === "hero") output.hero = image.path;
+      else output.body.push(image.path);
+      continue;
+    }
     const relative = `public/assets/editorial/${slugValue}-${image.role}.jpg`;
     const outputPath = path.join(workspace, relative);
     const tempPath = `${outputPath}.upload`;
@@ -346,13 +273,7 @@ async function writeImages(input, slugValue, destination) {
     if (image.role === "hero") output.hero = publicPath;
     else output.body.push(publicPath);
   }
-  if (!output.hero) {
-    output.hero = destination === "downtown"
-      ? "/assets/editorial/rosemary-square-corridor.jpg"
-      : destination === "buyer"
-        ? "/assets/editorial/wpb-geography-map-hero.jpg"
-        : "/assets/editorial/flagler-waterfront-corridor.jpg";
-  }
+  if (!output.hero) fail("A meaningful hero image is required. Provide an approved local path or editorial image data URL.");
   return output;
 }
 
@@ -438,13 +359,7 @@ function upsertMarketNote(source, note) {
 
 function shouldReplaceExistingMarketNote(existing, note) {
   if (!existing || typeof existing !== "object") return false;
-  if (existing.id === note.id || existing.slug === note.slug) return true;
-  const sameCorridor = clean(existing.relatedCorridor || "") === clean(note.relatedCorridor || "");
-  const sameBuildings = arraySignature(existing.relatedBuildings) === arraySignature(note.relatedBuildings);
-  const sameArticles = arraySignature(existing.relatedArticleIds) === arraySignature(note.relatedArticleIds);
-  const sameNeighborhoods = arraySignature(existing.relatedNeighborhoods) === arraySignature(note.relatedNeighborhoods);
-  const sameCategory = clean(existing.category || "") === clean(note.category || "");
-  return sameCorridor && sameBuildings && sameArticles && sameNeighborhoods && sameCategory;
+  return existing.id === note.id || existing.slug === note.slug;
 }
 
 function arraySignature(value) {

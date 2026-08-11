@@ -3,6 +3,7 @@ import fsSync from "node:fs";
 import path from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
+import { readTsArray } from "./article-market-note-utils.mjs";
 
 const execFileAsync = promisify(execFile);
 const workspace = process.cwd();
@@ -13,6 +14,7 @@ const canonicalProjectsPath = path.join(reviewRoot, "wpb-projects-canonical-v3-p
 const publicDataRoot = path.join(workspace, "public/data");
 const generatedRoot = path.join(workspace, "src/generated");
 const preferredRoot = path.join(workspace, "research/asset-library/preferred-image-exports");
+const marketNotesPath = path.join(workspace, "src/data/marketNotes.ts");
 const productionBaseUrl = "https://www.wpbnewconstruction.com";
 const generatedDate = new Date().toISOString().slice(0, 10);
 const cloudflarePagesSingleFileLimitBytes = 25 * 1024 * 1024;
@@ -182,6 +184,27 @@ function approvedUpdateRoutes() {
   } catch {
     return [];
   }
+}
+
+function publishedMarketNoteRoutes(destination) {
+  const source = fsSync.readFileSync(marketNotesPath, "utf8");
+  const isDowntown = destination === "downtown";
+  return readTsArray(source, "marketNotes")
+    .filter((note) => note?.status === "published")
+    .filter((note) => (isDowntown ? note.category === "Downtown Spotlight" : note.category !== "Downtown Spotlight"))
+    .map((note) => ({
+      slug: note.slug,
+      title: `${note.title} | ${isDowntown ? "Downtown Spotlight" : "Buyer Intelligence"}`,
+      description: note.seo?.metaDescription || note.excerpt || note.buyerThesis || "West Palm Beach buyer context with source links.",
+      ogImage: note.image?.path || siteMeta.defaultImage,
+    }))
+    .filter((note) => note.slug);
+}
+
+function mergedMarketNoteRoutes(legacyRoutes, destination) {
+  const merged = new Map(legacyRoutes.map((note) => [note.slug, note]));
+  for (const note of publishedMarketNoteRoutes(destination)) merged.set(note.slug, note);
+  return [...merged.values()];
 }
 
 function updateRouteOgImage(item) {
@@ -2510,6 +2533,8 @@ Sitemap: ${productionBaseUrl}/sitemap.xml
 
 function buildPrerenderRoutes() {
   const updateRoutes = approvedUpdateRoutes();
+  const downtownRoutes = mergedMarketNoteRoutes(downtownSpotlightRoutes, "downtown");
+  const buyerRoutes = mergedMarketNoteRoutes(marketNoteRoutes, "buyer");
   const projectRoutes = [
     ["olara", "Olara West Palm Beach | New Construction Condo Guide", "Olara West Palm Beach buyer guide with North Flagler waterfront context, floor plans, amenities, timing, pricing checks, and current availability next steps.", "/projects/olara/media/olara-hero-exterior-1536x1024.png"],
     ["ritz-carlton-wpb", "Ritz-Carlton WPB | New Construction Condo Guide", "Ritz-Carlton Residences West Palm Beach buyer guide with service model, waterfront position, floor plans, team credits, timing, and availability checks.", "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2880x1800.png"],
@@ -2603,11 +2628,11 @@ function buildPrerenderRoutes() {
       description: "Read Downtown West Palm Beach district spotlights, beginning with NORA, and follow the locations shaping condo buyer decisions.",
       ogImage: siteMeta.defaultImage,
     },
-    ...downtownSpotlightRoutes.map((note) => ({
+    ...downtownRoutes.map((note) => ({
       path: `/downtown-spotlight/${note.slug}/`,
       title: note.title,
       description: note.description,
-      ogImage: siteMeta.defaultImage,
+      ogImage: note.ogImage || siteMeta.defaultImage,
     })),
     {
       path: "/market-notes/",
@@ -2615,12 +2640,12 @@ function buildPrerenderRoutes() {
       description: "Read evergreen guidance for West Palm Beach new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
       ogImage: siteMeta.defaultImage,
     },
-    ...marketNoteRoutes.map((note) => (
+    ...buyerRoutes.map((note) => (
       {
         path: `/market-notes/${note.slug}/`,
         title: note.title,
         description: note.description,
-        ogImage: siteMeta.defaultImage,
+        ogImage: note.ogImage || siteMeta.defaultImage,
       }
     )),
     {
@@ -2702,6 +2727,8 @@ function projectTitle(projectId) {
 
 function renderSitemap(projects) {
   const updateRoutes = approvedUpdateRoutes();
+  const downtownRoutes = mergedMarketNoteRoutes(downtownSpotlightRoutes, "downtown");
+  const buyerRoutes = mergedMarketNoteRoutes(marketNoteRoutes, "buyer");
   const today = new Date().toISOString().slice(0, 10);
   const defaultLastmod = "2026-06-03";
   const rebrandUpdatedRoutes = new Set(["", "about/", "inquire/"]);
@@ -2745,11 +2772,11 @@ function renderSitemap(projects) {
     ["corridors/downtown-west-palm-beach/", "0.8"],
     ["corridors/south-flagler/", "0.8"],
     ["updates/", "0.8"],
-    ...updateRoutes.map((item) => [`updates/${item.id}/`, "0.8"]),
+    ...updateRoutes.map((item) => [`updates/${item.slug || item.id}/`, "0.8"]),
     ["downtown-spotlight/", "0.8"],
-    ...downtownSpotlightRoutes.map((note) => [`downtown-spotlight/${note.slug}/`, "0.8"]),
+    ...downtownRoutes.map((note) => [`downtown-spotlight/${note.slug}/`, "0.8"]),
     ["market-notes/", "0.8"],
-    ...marketNoteRoutes.map((note) => [`market-notes/${note.slug}/`, "0.8"]),
+    ...buyerRoutes.map((note) => [`market-notes/${note.slug}/`, "0.8"]),
     ["methodology/", "0.7"],
     ["fair-housing/", "0.6"],
     ["privacy/", "0.5"],

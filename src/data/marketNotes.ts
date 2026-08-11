@@ -44,6 +44,9 @@ export type MarketNote = {
   image?: {
     path: string;
     credit: string;
+    alt?: string;
+    caption?: string;
+    mode?: "approved-local" | "generated-editorial" | "provided-editorial";
   };
   imageId?: string;
   primaryProjectId?: string;

@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { spawn } from "node:child_process";
 import sharp from "sharp";
+import { readTsArray, upsertTsArrayObject } from "./article-market-note-utils.mjs";
 
 const workspace = process.cwd();
 const inputPath = argValue("--input");
@@ -80,14 +81,11 @@ if (previewOnly) {
     if (destination === "news") {
       await publishNewsArticle({ sourceFile, normalized, articleId, routeSlug, input, existing });
       await runChecked("npm", ["run", "news:promote"]);
-      await runChecked("npm", ["run", "news:refresh"]);
     } else {
-      // Keep the legacy market-note publish path for now, but feed it the normalized payload.
-      const payloadPath = path.join(workspace, ".runtime", "article-publish-workflow", `${routeSlug}.json`);
-      await fs.mkdir(path.dirname(payloadPath), { recursive: true });
-      await fs.writeFile(payloadPath, `${JSON.stringify({ ...input, destination, title, deck, slug: routeSlug, id: articleId, bodySections: normalized.bodySections, heroImage: normalized.heroImage, bodyImages: normalized.bodyImages?.values || [], sourceLinks: normalized.sourceLinks }, null, 2)}\n`);
-      await runChecked("node", ["research/scripts/manual-article-publisher.mjs", "--input", path.relative(workspace, payloadPath), "--ship"]);
+      await publishMarketNoteArticle({ sourceFile, normalized, articleId, routeSlug, input, existing, destination });
     }
+    // Rebuild generated feeds, routes, sitemap, and prerender data from article source files.
+    await runChecked("npm", ["run", "news:refresh"]);
 
     if (stageOnly || publishMode) {
       await markStageOutputsAsIntentToAdd({ destination, normalized });
@@ -120,6 +118,7 @@ if (previewOnly) {
     if (publishMode) {
       await runChecked("npm", ["run", "ship:live"]);
       await runChecked("npm", ["run", "qa:live"]);
+      await verifyLiveArticle({ routePath, title, heroImage: normalized.heroImage });
     }
   }
 
@@ -234,6 +233,62 @@ async function publishNewsArticle({ sourceFile, normalized, articleId, routeSlug
   await fs.writeFile(sourceFile, `${JSON.stringify(next, null, 2)}\n`);
 }
 
+async function publishMarketNoteArticle({ sourceFile, normalized, articleId, routeSlug, input, existing, destination }) {
+  const source = await fs.readFile(sourceFile, "utf8");
+  const hero = normalized.heroImage;
+  const note = {
+    ...(existing || {}),
+    id: articleId,
+    status: "published",
+    category: destination === "downtown" ? "Downtown Spotlight" : clean(input.category || existing?.category || "Buyer Intelligence"),
+    title: normalized.article.title,
+    slug: routeSlug,
+    excerpt: normalized.article.deck,
+    buyerThesis: clean(input.buyerThesis || existing?.buyerThesis || input.buyerContext || normalized.article.deck),
+    buyerTakeaway: clean(input.buyerTakeaway || existing?.buyerTakeaway || input.buyerContext || input.whyItMatters || normalized.article.deck),
+    marketSignal: clean(input.marketSignal || existing?.marketSignal || ""),
+    bestFor: clean(input.bestFor || existing?.bestFor || ""),
+    watchPoints: clean(input.watchPoints || existing?.watchPoints || ""),
+    buyerQuestions: clean(input.buyerQuestions || existing?.buyerQuestions || ""),
+    relatedBuildings: asArray(input.relatedBuildings || existing?.relatedBuildings || []),
+    relatedNeighborhoods: asArray(input.relatedNeighborhoods || existing?.relatedNeighborhoods || []),
+    relatedCorridor: clean(input.relatedCorridor || existing?.relatedCorridor || ""),
+    relatedArticleIds: asArray(input.relatedArticleIds || existing?.relatedArticleIds || []),
+    image: {
+      path: hero.path,
+      alt: hero.alt,
+      caption: hero.caption,
+      credit: hero.credit,
+      mode: hero.mode,
+    },
+    primaryProjectId: clean(input.primaryProjectId || existing?.primaryProjectId || asArray(input.relatedProjectIds || input.projectIds || existing?.projectIds || [])[0]),
+    projectIds: asArray(input.relatedProjectIds || input.projectIds || existing?.projectIds || []),
+    sourceName: clean(input.sourceName || existing?.sourceName || "West Palm Beach New Construction"),
+    sourceLinks: normalized.sourceLinks.map((link) => ({
+      label: link.label,
+      href: link.url,
+      sourceType: marketSourceType(link.type),
+    })),
+    datePublished: clean(existing?.datePublished || input.datePublished || today),
+    dateModified: today,
+    sections: normalized.bodySections,
+    ctaText: clean(input.ctaText || existing?.ctaText || "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options."),
+    factCheckRequired: asArray(input.factCheckRequired || existing?.factCheckRequired || [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation.",
+    ]),
+    seo: {
+      primaryQuery: clean(input.primaryQuery || existing?.seo?.primaryQuery || normalized.article.title),
+      secondaryQueries: asArray(input.secondaryQueries || existing?.seo?.secondaryQueries || []),
+      suggestedSlug: routeSlug,
+      titleTag: clean(input.titleTag || existing?.seo?.titleTag || `${normalized.article.title} | ${destination === "downtown" ? "Downtown Spotlight" : "Buyer Intelligence"}`),
+      metaDescription: clean(input.metaDescription || existing?.seo?.metaDescription || input.description || normalized.article.deck),
+    },
+  };
+  const next = upsertTsArrayObject(source, "marketNotes", note, existing?.slug || existing?.id || routeSlug);
+  await fs.writeFile(sourceFile, next);
+}
+
 async function loadExistingArticle(destination, sourceFile, editKey) {
   if (destination === "news") {
     const items = JSON.parse(await fs.readFile(sourceFile, "utf8"));
@@ -254,24 +309,32 @@ async function resolveHeroImage({ destination, routeSlug, title, input, existing
   }
   if (heroInput) {
     if (!input.heroImage?.dataUrl && !input.heroImage?.file && isPublicImagePath(heroInput)) {
-      return {
+      const image = {
         path: heroInput,
         alt: clean(input.heroImage?.alt || existing?.image?.alt || `${title} hero image`),
         caption: clean(input.heroImage?.caption || existing?.image?.caption || ""),
         credit: clean(input.heroImage?.credit || existing?.image?.credit || ""),
+        mode: imageMode || "approved-local",
         sizeBytes: await publicSize(heroInput),
       };
+      validateHeroImage(image, errors);
+      return image;
     }
     const image = await optimizeImage(heroInput, `${routeSlug}-hero.jpg`, title, input.heroImage?.alt || existing?.image?.alt || `${title} hero image`, input.heroImage?.caption || existing?.image?.caption || "", input.heroImage?.credit || existing?.image?.credit || "", assetOutputDir(mode, destination, routeSlug), assetPublicPath(mode, `${routeSlug}-hero.jpg`));
+    image.mode = imageMode || "provided-editorial";
+    validateHeroImage(image, errors);
     return image;
   }
-  const fallback = destination === "downtown"
-    ? "/assets/editorial/rosemary-square-corridor.jpg"
-    : destination === "buyer"
-      ? "/assets/editorial/wpb-geography-map-hero.jpg"
-      : "/assets/editorial/flagler-waterfront-corridor.jpg";
-  warnings.push("Hero image fallback was used.");
-  return { path: fallback, alt: `${title} hero image`, caption: "", credit: "", sizeBytes: await publicSize(fallback) };
+  errors.push("A meaningful hero image is required. Provide an approved local public path or a generated/editorial heroImage dataUrl, file, or path.");
+  return null;
+}
+
+function validateHeroImage(image, errors) {
+  if (!image.path || !image.sizeBytes) errors.push("Hero image could not be found or optimized.");
+  if (!image.alt) errors.push("Hero image alt text is required.");
+  if (!image.caption) errors.push("Hero image caption is required.");
+  if (!image.credit) errors.push("Hero image credit is required.");
+  if (image.sizeBytes > imageBudgetBytes) errors.push(`Hero image ${image.path} exceeds the ${Math.round(imageBudgetBytes / 1024)} KB editorial budget.`);
 }
 
 async function resolveBodyImages({ destination, routeSlug, title, input, existing, mode }) {
@@ -372,32 +435,28 @@ function parseMarkdownBody(bodyText) {
 }
 
 function articleOutputPaths({ destination }) {
-  const files = destination === "news"
-    ? [
-        "public/assets/editorial",
-        "research/news-review/approved-development-news.json",
-        "src/data/approvedExternalNews.ts",
-        // news:refresh regenerates these public intelligence files alongside the article feed.
-        "public/data/answer-engine-faq.json",
-        "public/data/floorplans.json",
-        "public/data/image-clearance-candidates.json",
-        "public/data/news-feed.json",
-        "public/data/project-asset-status.json",
-        "public/data/project-team-credits.json",
-        "public/data/published-floorplan-assets.json",
-        "public/feed.json",
-        "public/rss.xml",
-        "public/llms.txt",
-        "public/sitemap.xml",
-        "research/source-material-review/image-candidate-catalog.json",
-        "src/generated/siteData.ts",
-      ]
-    : [
-        "public/assets/editorial",
-        "src/data/marketNotes.ts",
-        "src/generated/siteData.ts",
-        "public/sitemap.xml",
-      ];
+  const files = [
+    "public/assets/editorial",
+    // news:refresh regenerates this shared intelligence set for every route.
+    "public/data/answer-engine-faq.json",
+    "public/data/floorplans.json",
+    "public/data/image-clearance-candidates.json",
+    "public/data/news-feed.json",
+    "public/data/project-asset-status.json",
+    "public/data/project-team-credits.json",
+    "public/data/published-floorplan-assets.json",
+    "public/feed.json",
+    "public/rss.xml",
+    "public/llms.txt",
+    "public/sitemap.xml",
+    "research/source-material-review/image-candidate-catalog.json",
+    "src/generated/siteData.ts",
+  ];
+  if (destination === "news") {
+    files.push("research/news-review/approved-development-news.json", "src/data/approvedExternalNews.ts");
+  } else {
+    files.push("src/data/marketNotes.ts");
+  }
   return files;
 }
 
@@ -418,10 +477,8 @@ async function markStageOutputsAsIntentToAdd({ destination, normalized }) {
       files.add(path.join("public", image.path.replace(/^\//, "")));
     }
   }
-  if (destination === "news") {
-    files.add("research/news-review/approved-development-news.json");
-    files.add("src/data/approvedExternalNews.ts");
-  }
+  files.add(destination === "news" ? "research/news-review/approved-development-news.json" : "src/data/marketNotes.ts");
+  if (destination === "news") files.add("src/data/approvedExternalNews.ts");
   if (files.size) {
     await runChecked("git", ["add", "-N", "--", ...files]);
   }
@@ -541,6 +598,29 @@ function hostForSourceLink(value) {
     return new URL(value).hostname.replace(/^www\./i, "").toLowerCase();
   } catch {
     return "";
+  }
+}
+
+function marketSourceType(value) {
+  const sourceType = clean(value).toLowerCase();
+  if (sourceType.includes("city") || sourceType.includes("planning")) return "city planning material";
+  if (sourceType.includes("developer") || sourceType.includes("official") || sourceType.includes("business") || sourceType.includes("district")) return "official project site";
+  if (sourceType.includes("market")) return "market report";
+  if (sourceType.includes("legal") || sourceType.includes("filing")) return "official legal source";
+  return "local news coverage";
+}
+
+async function verifyLiveArticle({ routePath, title, heroImage }) {
+  const articleUrl = `https://www.wpbnewconstruction.com${routePath}`;
+  const response = await fetch(articleUrl, { redirect: "follow" });
+  if (!response.ok) fail(`Live article verification failed: ${articleUrl} returned HTTP ${response.status}.`);
+  const html = await response.text();
+  if (!html.includes(title)) fail(`Live article verification failed: title was not found at ${articleUrl}.`);
+  if (!heroImage?.path || !html.includes(heroImage.path)) fail(`Live article verification failed: expected hero image was not found at ${articleUrl}.`);
+  const imageUrl = new URL(heroImage.path, articleUrl);
+  const imageResponse = await fetch(imageUrl, { method: "HEAD", redirect: "follow" });
+  if (!imageResponse.ok || !String(imageResponse.headers.get("content-type") || "").startsWith("image/")) {
+    fail(`Live article verification failed: hero image ${imageUrl} did not return an image response.`);
   }
 }
 
@@ -690,52 +770,6 @@ function previewFiles(destination) {
 
 async function gitStatus() {
   return run("git", ["status", "--short"]).then((result) => result.stdout);
-}
-
-function readTsArray(source, exportName) {
-  const marker = `export const ${exportName} = [`;
-  const start = source.indexOf(marker);
-  if (start === -1) return [];
-  const arrayStart = source.indexOf("[", start);
-  const arrayEnd = findMatchingBracket(source, arrayStart);
-  if (arrayEnd === -1) return [];
-  const raw = source.slice(arrayStart, arrayEnd + 1);
-  try {
-    return Function(`"use strict"; return (${raw});`)();
-  } catch {
-    return [];
-  }
-}
-
-function findMatchingBracket(source, start) {
-  let depth = 0;
-  let quote = "";
-  let escaped = false;
-  for (let index = start; index < source.length; index += 1) {
-    const char = source[index];
-    if (quote) {
-      if (escaped) {
-        escaped = false;
-        continue;
-      }
-      if (char === "\\") {
-        escaped = true;
-        continue;
-      }
-      if (char === quote) quote = "";
-      continue;
-    }
-    if (char === '"' || char === "'" || char === "`") {
-      quote = char;
-      continue;
-    }
-    if (char === "[") depth += 1;
-    if (char === "]") {
-      depth -= 1;
-      if (depth === 0) return index;
-    }
-  }
-  return -1;
 }
 
 function normalizeDestination(value) {
