@@ -69,6 +69,97 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "mr-c-shows-downtown-branded-condos-still-move",
+    "status": "published",
+    "category": "general",
+    "title": "Mr. C shows downtown branded condos still move",
+    "slug": "mr-c-shows-downtown-branded-condos-still-move",
+    "excerpt": "Construction is advancing on the Lakeview Avenue tower, and recent coverage says the project is already more than 85% sold. For buyers weighing downtown walkability against Flagler waterfront pricing, that is the useful signal.",
+    "buyerThesis": "Construction is advancing on the Lakeview Avenue tower, and recent coverage says the project is already more than 85% sold. For buyers weighing downtown walkability against Flagler waterfront pricing, that is the useful signal.",
+    "buyerTakeaway": "Mr. C is a current downtown test case: branded service and walkability still clear when the product is specific, but buyers should compare it against waterfront towers on price, views, and carrying cost.",
+    "marketSignal": "A tower that is still under construction and already more than 85% sold suggests downtown branded residences still have depth when the location and service package are clear.",
+    "bestFor": "Buyers who want downtown walkability, hotel-style service, and a branded residence without paying for a pure waterfront address.",
+    "watchPoints": "Confirm current availability, stack-specific views, monthly dues, parking terms, deposit milestones, and whether any homes are sold furnished or turnkey.",
+    "buyerQuestions": "Which remaining stacks have the best light and skyline angles? What are the HOA dues and parking rules? How does the deposit schedule line up with financing and delivery timing?",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "Downtown West Palm Beach"
+    ],
+    "relatedCorridor": "downtown",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/projects/mr-c/hero/mr-c-hero-exterior-entrance-v01.webp",
+      "alt": "Mr. C Hotel & Residences West Palm Beach rendering of the exterior entrance",
+      "caption": "Mr. C Hotel & Residences West Palm Beach at 320 Lakeview Avenue.",
+      "credit": "Courtesy of Mr. C Residences West Palm Beach",
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "mr-c",
+    "projectIds": [
+      "mr-c"
+    ],
+    "sourceName": "Mr. C Residences West Palm Beach",
+    "sourceLinks": [
+      {
+        "label": "Official project site",
+        "href": "https://www.mrcresidenceswpb.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Terra project page",
+        "href": "https://terragroup.com/projects/mr-c-residences-west-palm-beach",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Florida YIMBY construction update",
+        "href": "https://floridayimby.com/2026/08/construction-progresses-on-27-story-mr-c-hotel-residences-west-palm-beach.html",
+        "sourceType": "local news coverage"
+      },
+      {
+        "label": "Traded sales update",
+        "href": "https://traded.co/blog/construction-progresses-on-mr-c-hotel-residences-west-palm-beach/",
+        "sourceType": "local news coverage"
+      }
+    ],
+    "datePublished": "2026-08-12",
+    "dateModified": "2026-08-12",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "Mr. C on Lakeview Avenue is the kind of project that tells you something real about downtown demand. It is still under construction, and the sales pace is not behaving like a sleepy launch. Recent project coverage says the tower is already more than 85% sold.\n\nThe building at 320 Lakeview Avenue is no longer just a sales story. The tower is visibly rising, with construction moving on the podium and upper floors at the same time. That matters because it turns a branded-residence pitch into something buyers can see from the street."
+      },
+      {
+        "heading": "Why this matters",
+        "body": "Mr. C is not trying to win on pure waterfront frontage. It wins on a different set of buyer priorities: hotel-style service, a downtown address, and everyday access to restaurants, offices, cultural stops, and the bridge to Palm Beach. In West Palm Beach, that is a distinct lane.\n\nThe official project materials still frame it as a 27-story branded tower with 146 residences and 110 hotel suites. That mix keeps it in the branded-luxury conversation, but the actual buyer question is narrower than the branding. Do you want a walkable downtown building with service and a hospitality identity, or do you want to pay more for a water-first address on Flagler? Mr. C gives buyers a current data point for the first option."
+      },
+      {
+        "heading": "What is actually new",
+        "body": "The useful part of this story is not the brand name alone. It is the combination of sales pace and visible progress. When a tower is still under construction and still moving inventory at a high clip, buyers are seeing proof that the market will absorb branded downtown product when the location feels practical and the pitch is clear.\n\nThat is a different signal from a headline about another luxury tower simply being announced. Here, the project is deep enough into the cycle that buyers are making decisions against a live building, not a concept board."
+      },
+      {
+        "heading": "What to verify before acting",
+        "body": "The headline number does not tell you whether a specific unit works. Buyers should still ask for the current availability grid, stack-by-stack view lines, monthly dues, parking terms, deposit schedule, and whether any residences are being offered with furnishings or turnkey packages.\n\nThat is the real comparison point. If you are judging Mr. C against waterfront projects north or south of downtown, the right question is not whether downtown is hot. It is whether the tradeoff between walkability, service, and price is better for your use case than a Flagler or South Flagler alternative."
+      },
+      {
+        "heading": "Bottom line",
+        "body": "Mr. C is the downtown test case for branded luxury in West Palm Beach. It suggests there is still demand for a service-led building that fits the urban core rather than the waterfront edge.\n\nFor buyers, that means downtown branded condos are still moving when the product is specific and the location answers a real daily-life question. The next step is to compare the remaining inventory, not the marketing."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "Mr. C shows downtown branded condos still move",
+      "secondaryQueries": [],
+      "suggestedSlug": "mr-c-shows-downtown-branded-condos-still-move",
+      "titleTag": "Mr. C shows downtown branded condos still move | Buyer Intelligence",
+      "metaDescription": "Mr. C Hotel & Residences is still climbing at 320 Lakeview Avenue, and the current sales pace says downtown branded residences can still clear when the product and location are tight."
+    }
+  },
+
+  {
     "id": "therealreal-cityplace-move-deepens-downtown-luxury-retail-lane",
     "status": "published",
     "category": "Downtown Spotlight",
