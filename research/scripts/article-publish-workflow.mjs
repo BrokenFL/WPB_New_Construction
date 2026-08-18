@@ -1,8 +1,16 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { spawn } from "node:child_process";
+import crypto from "node:crypto";
 import sharp from "sharp";
 import { readTsArray, upsertTsArrayObject } from "./article-market-note-utils.mjs";
+import {
+  PublishSafetyError,
+  acquireAttemptJournal,
+  createPublishTransaction,
+  requireCleanWorktree,
+  runBoundedCommand,
+  validateUniqueNewsCandidate,
+} from "./article-publish-safety.mjs";
 
 const workspace = process.cwd();
 const inputPath = argValue("--input");
@@ -21,55 +29,95 @@ const today = now.toISOString().slice(0, 10);
 const timestamp = now.toISOString().replace(/[:.]/g, "-");
 const previewRoot = path.join(workspace, ".runtime/article-previews");
 const imageBudgetBytes = 750 * 1024;
+const commandAbort = new AbortController();
+let requestedSignal = "";
+let activeTransaction = null;
+let attemptJournal = null;
 
-if (!inputPath) fail("--input is required.");
+process.once("SIGINT", () => requestAbort("SIGINT"));
+process.once("SIGTERM", () => requestAbort("SIGTERM"));
 
-const input = JSON.parse(await fs.readFile(resolveWorkspacePath(inputPath), "utf8"));
-const destination = normalizeDestination(input.destination || "news");
-const sourceFile = destination === "news"
-  ? path.join(workspace, "research/news-review/approved-development-news.json")
-  : path.join(workspace, "src/data/marketNotes.ts");
-const editKey = clean(editTarget || input.edit || input.slug || input.id || "");
-const existing = editKey ? await loadExistingArticle(destination, sourceFile, editKey) : null;
-const title = clean(input.title || existing?.title);
-const deck = clean(input.deck || input.excerpt || input.summary || input.description || existing?.deck || existing?.excerpt || existing?.summary || existing?.description);
-const bodyText = clean(input.body || input.bodyText || input.bodySectionsText || "");
-const sectionsInput = Array.isArray(input.sections) && input.sections.length ? input.sections : [];
-const bodySectionsInput = sectionsInput.length
-  ? sectionsInput
-  : Array.isArray(input.bodySections) && input.bodySections.length
-    ? input.bodySections
-    : Array.isArray(existing?.bodySections)
-      ? existing.bodySections
-      : [];
-const routeSlug = normalizeSlug(input.slug || existing?.slug || title || input.id || "article", destination, existing);
-const articleId = clean(existing?.id || input.id || routeSlug);
-const initialGitStatus = parseGitStatus(await gitStatus());
+await main().catch(handleFatalError);
 
-if (!title) fail("Title is required.");
-if (!deck) fail("Deck / summary is required.");
-if (!bodyText && !bodySectionsInput.length) fail("Article body is required.");
+async function main() {
+  if (!inputPath) fail("--input is required.");
 
-const normalized = await normalizeArticle({ destination, sourceFile, articleId, routeSlug, title, deck, input, existing, bodyText, bodySectionsInput, mode });
-const routePath = `${routeBase(destination)}${routeSlug}/`;
-const preview = buildPreview({ destination, articleId, routeSlug, routePath, title, deck, normalized, existing });
-await writePreviewArtifacts(preview);
+  const input = JSON.parse(await fs.readFile(resolveWorkspacePath(inputPath), "utf8"));
+  const destination = normalizeDestination(input.destination || "news");
+  const sourceFile = destination === "news"
+    ? path.join(workspace, "research/news-review/approved-development-news.json")
+    : path.join(workspace, "src/data/marketNotes.ts");
+  const editKey = clean(editTarget || input.edit || input.slug || input.id || "");
+  const existing = editKey ? await loadExistingArticle(destination, sourceFile, editKey) : null;
+  const title = clean(input.title || existing?.title);
+  const deck = clean(input.deck || input.excerpt || input.summary || input.description || existing?.deck || existing?.excerpt || existing?.summary || existing?.description);
+  const bodyText = clean(input.body || input.bodyText || input.bodySectionsText || "");
+  const sectionsInput = Array.isArray(input.sections) && input.sections.length ? input.sections : [];
+  const bodySectionsInput = sectionsInput.length
+    ? sectionsInput
+    : Array.isArray(input.bodySections) && input.bodySections.length
+      ? input.bodySections
+      : Array.isArray(existing?.bodySections)
+        ? existing.bodySections
+        : [];
+  const routeSlug = normalizeSlug(input.slug || existing?.slug || title || input.id || "article", destination, existing);
+  const articleId = clean(existing?.id || input.id || routeSlug);
 
-if (previewOnly) {
-  const result = buildResult({
-    mode: "preview",
+  if (!title) fail("Title is required.");
+  if (!deck) fail("Deck / summary is required.");
+  if (!bodyText && !bodySectionsInput.length) fail("Article body is required.");
+
+  if (!previewOnly) {
+    await requireCleanWorktree({
+      workspace,
+      run: runForSafety,
+      expectedBranch: "main",
+      expectedRemoteFragment: "BrokenFL/WPB_New_Construction",
+      requireUpstreamSync: true,
+    });
+    const attempt = automationAttempt(input, articleId);
+    if (publishMode && attempt) {
+      attemptJournal = await acquireAttemptJournal({ workspace, ...attempt, input });
+    }
+  }
+
+  const initialGitStatus = parseGitStatus(await gitStatus());
+  const previewNormalized = await normalizeArticle({
     destination,
-    routePath,
-    preview,
-    ok: preview.errors.length === 0,
-    shipped: false,
-    pushed: false,
+    sourceFile,
+    articleId,
+    routeSlug,
+    title,
+    deck,
+    input,
+    existing,
+    bodyText,
+    bodySectionsInput,
+    mode: "preview",
   });
-  console.log(JSON.stringify(result, null, 2));
-  process.exitCode = result.ok ? 0 : 1;
-} else {
+  const routePath = `${routeBase(destination)}${routeSlug}/`;
+  const preview = buildPreview({ destination, articleId, routeSlug, routePath, title, deck, normalized: previewNormalized, existing });
+  preview.errors.push(...await preMutationValidation({ destination, sourceFile, articleId, routeSlug, input, existing, normalized: previewNormalized }));
+  await writePreviewArtifacts(preview);
+
+  if (previewOnly) {
+    const result = buildResult({
+      mode: "preview",
+      destination,
+      routePath,
+      preview,
+      ok: preview.errors.length === 0,
+      shipped: false,
+      pushed: false,
+    });
+    console.log(JSON.stringify(result, null, 2));
+    process.exitCode = result.ok ? 0 : 1;
+    return;
+  }
+
   if (preview.errors.length) fail(preview.errors.join("\n"));
-  const changedFilesBeforeCleanup = new Set(initialGitStatus.map((entry) => entry.path));
+  throwIfAborted();
+
   if (shipOnly && !publishMode) {
     await requireCleanPushedCommit();
     await runChecked("npm", ["run", "build"]);
@@ -77,25 +125,39 @@ if (previewOnly) {
     await runChecked("npm", ["run", "ship:live"]);
     await runChecked("npm", ["run", "qa:live"]);
   }
+
+  let normalized = previewNormalized;
   if (stageOnly || publishMode) {
+    const allowedOutputPaths = rollbackOutputPaths({ destination, normalized: previewNormalized });
+    activeTransaction = createPublishTransaction({ workspace, allowedOutputPaths, run: runForRollback });
+    normalized = await normalizeArticle({
+      destination,
+      sourceFile,
+      articleId,
+      routeSlug,
+      title,
+      deck,
+      input,
+      existing,
+      bodyText,
+      bodySectionsInput,
+      mode,
+    });
+    throwIfAborted();
+
     if (destination === "news") {
       await publishNewsArticle({ sourceFile, normalized, articleId, routeSlug, input, existing });
       await runChecked("npm", ["run", "news:promote"]);
     } else {
       await publishMarketNoteArticle({ sourceFile, normalized, articleId, routeSlug, input, existing, destination });
     }
-    // Rebuild generated feeds, routes, sitemap, and prerender data from article source files.
     await runChecked("npm", ["run", "news:refresh"]);
-
-    if (stageOnly || publishMode) {
-      await markStageOutputsAsIntentToAdd({ destination, normalized });
-    }
-
+    await markStageOutputsAsIntentToAdd({ destination, normalized });
     await runChecked("npm", ["run", "build"]);
     await runChecked("npm", ["run", "qa:launch:no-write"]);
     await runChecked("npm", ["run", "qa:gatekeeper"]);
     await cleanupUnexpectedGeneratedFiles({
-      baselinePaths: changedFilesBeforeCleanup,
+      baselinePaths: new Set(initialGitStatus.map((entry) => entry.path)),
       keepPaths: new Set(articleOutputPaths({ destination, normalized })),
     });
   }
@@ -107,6 +169,7 @@ if (previewOnly) {
     await runChecked("git", ["add", "--", ...filesToCommit]);
     const commitMessage = clean(input.commitMessage || input.commit || `Publish ${title}`);
     await runChecked("git", ["commit", "-m", commitMessage]);
+    activeTransaction?.markCommitReached();
     commitHash = (await runChecked("git", ["rev-parse", "HEAD"])).stdout.trim();
     const branch = clean((await runChecked("git", ["branch", "--show-current"])).stdout) || "main";
     await runChecked("git", ["push", "origin", branch]);
@@ -122,6 +185,10 @@ if (previewOnly) {
     }
   }
 
+  activeTransaction?.complete();
+  activeTransaction = null;
+  await attemptJournal?.update("succeeded", { commitHash, pushed, shipped: shouldShip });
+
   const result = buildResult({
     mode,
     destination,
@@ -136,6 +203,144 @@ if (previewOnly) {
     liveUrl: `https://www.wpbnewconstruction.com${routePath}`,
   });
   console.log(JSON.stringify(result, null, 2));
+}
+
+async function preMutationValidation({ destination, sourceFile, articleId, routeSlug, input, existing, normalized }) {
+  const errors = [];
+  if (destination === "news") {
+    try {
+      const items = JSON.parse(await fs.readFile(sourceFile, "utf8"));
+      validateUniqueNewsCandidate(items, {
+        id: articleId,
+        slug: routeSlug,
+        canonicalUrl: clean(input.canonicalUrl || existing?.canonicalUrl || input.sourceUrl || existing?.sourceUrl),
+      });
+    } catch (error) {
+      errors.push(error.message);
+    }
+  }
+
+  errors.push(...await validateImageRepetitionBeforeMutation({ destination, routeSlug, normalized, existing }));
+  return errors;
+}
+
+async function validateImageRepetitionBeforeMutation({ destination, routeSlug, normalized, existing }) {
+  const findings = [];
+  const images = [normalized.heroImage, ...(normalized.bodyImages?.values || [])].filter(Boolean);
+  const sourceFiles = [
+    "src/main.ts",
+    "src/data/marketNotes.ts",
+    "src/data/approvedExternalNews.ts",
+    "src/data/editorialImagery.ts",
+    "content/overrides/homepage-card-overrides.json",
+  ];
+  const sourceTexts = await Promise.all(sourceFiles.map((file) => fs.readFile(path.join(workspace, file), "utf8")));
+  const existingImagePath = clean(existing?.image?.path || existing?.imagePath);
+
+  for (const image of images) {
+    if (/^\/(?:assets|projects)\//.test(image.path)) {
+      const occurrences = sourceTexts.reduce((count, source) => count + source.split(image.path).length - 1, 0);
+      const proposedUse = image.path === existingImagePath ? 0 : 1;
+      if (occurrences + proposedUse > 3) {
+        findings.push(`Image repetition preflight failed: ${image.path} would appear ${occurrences + proposedUse} times in source mappings.`);
+      }
+      continue;
+    }
+
+    const previewPath = path.join(previewRoot, destination, routeSlug, image.path);
+    const previewHash = await fileSha256(previewPath).catch(() => "");
+    if (!previewHash) continue;
+    const publicTarget = `/assets/editorial/${path.basename(image.path)}`;
+    for (const publicFile of await listFiles(path.join(workspace, "public/assets/editorial"))) {
+      const publicPath = `/assets/editorial/${path.basename(publicFile)}`;
+      if (publicPath === publicTarget || publicPath === existingImagePath) continue;
+      if (await fileSha256(publicFile).catch(() => "") === previewHash) {
+        findings.push(`Image repetition preflight failed: candidate image exactly duplicates ${publicPath}.`);
+        break;
+      }
+    }
+  }
+  return findings;
+}
+
+async function listFiles(directory) {
+  const entries = await fs.readdir(directory, { withFileTypes: true }).catch(() => []);
+  const files = await Promise.all(entries.map(async (entry) => {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) return listFiles(entryPath);
+    return entry.isFile() ? [entryPath] : [];
+  }));
+  return files.flat();
+}
+
+async function fileSha256(filePath) {
+  return crypto.createHash("sha256").update(await fs.readFile(filePath)).digest("hex");
+}
+
+function automationAttempt(input, articleId) {
+  const inferredAutomationId = articleId.startsWith("wpb-content-scout-safe-daily-publish-")
+    ? "wpb-content-scout-safe-daily-publish"
+    : "";
+  const automationId = clean(input.automationId || input.automation?.id || inferredAutomationId);
+  if (!automationId) return null;
+  const runKey = clean(input.automationRunId || input.runId || `${automationId}:${newYorkDate(now)}`);
+  return { automationId, runKey };
+}
+
+function newYorkDate(value) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(value);
+  const byType = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${byType.year}-${byType.month}-${byType.day}`;
+}
+
+function requestAbort(signalName) {
+  if (commandAbort.signal.aborted) return;
+  requestedSignal = signalName;
+  commandAbort.abort(new PublishSafetyError(`Article publishing interrupted by ${signalName}.`, {
+    code: signalName === "SIGINT" ? 130 : 143,
+    reason: "signal",
+  }));
+}
+
+function throwIfAborted() {
+  if (!commandAbort.signal.aborted) return;
+  throw commandAbort.signal.reason instanceof Error
+    ? commandAbort.signal.reason
+    : new PublishSafetyError("Article publishing was aborted.", { reason: "aborted" });
+}
+
+async function handleFatalError(error) {
+  const rollback = await activeTransaction?.rollback().catch((rollbackError) => ({
+    rolledBack: false,
+    reason: "rollback-error",
+    remaining: rollbackError.message,
+  }));
+  activeTransaction = null;
+  await attemptJournal?.update("failed", {
+    error: error.message,
+    reason: error.reason || "workflow-error",
+    rollback: rollback || null,
+  }).catch((journalError) => {
+    process.stderr.write(`Could not update publish attempt journal: ${journalError.message}\n`);
+  });
+
+  const exitCode = requestedSignal === "SIGINT" ? 130 : requestedSignal === "SIGTERM" ? 143 : error.exitCode || 1;
+  process.stderr.write(`${error.message}\n`);
+  console.log(JSON.stringify({
+    ok: false,
+    mode,
+    error: error.message,
+    reason: error.reason || "workflow-error",
+    rolledBack: rollback?.rolledBack ?? false,
+    rollbackReason: rollback?.reason || "not-started",
+    remainingChanges: rollback?.remaining || "",
+  }, null, 2));
+  process.exitCode = exitCode;
 }
 
 async function normalizeArticle({ destination, sourceFile, articleId, routeSlug, title, deck, input, existing, bodyText, bodySectionsInput, mode }) {
@@ -460,6 +665,15 @@ function articleOutputPaths({ destination }) {
   return files;
 }
 
+function rollbackOutputPaths({ destination, normalized }) {
+  const files = articleOutputPaths({ destination }).filter((file) => file !== "public/assets/editorial");
+  for (const image of [normalized.heroImage, ...(normalized.bodyImages?.values || [])].filter(Boolean)) {
+    const fileName = path.basename(image.path || "");
+    if (fileName && !isPublicImagePath(image.path)) files.push(`public/assets/editorial/${fileName}`);
+  }
+  return files;
+}
+
 function assetOutputDir(mode, destination, routeSlug) {
   return mode === "preview"
     ? path.join(previewRoot, destination, routeSlug, "assets")
@@ -769,7 +983,7 @@ function previewFiles(destination) {
 }
 
 async function gitStatus() {
-  return run("git", ["status", "--short"]).then((result) => result.stdout);
+  return runForSafety("git", ["status", "--short"]).then((result) => result.stdout);
 }
 
 function normalizeDestination(value) {
@@ -850,30 +1064,56 @@ function isPublicImagePath(value) {
 }
 
 function fail(message) {
-  console.error(message);
-  process.exit(1);
+  throw new PublishSafetyError(message, { reason: "workflow-validation" });
 }
 
-function run(command, args) {
-  return new Promise((resolve) => {
-    const child = spawn(command, args, { cwd: workspace });
-    let stdout = "";
-    let stderr = "";
-    child.stdout?.on("data", (chunk) => {
-      stdout += chunk;
-      process.stdout.write(chunk);
-    });
-    child.stderr?.on("data", (chunk) => {
-      stderr += chunk;
-      process.stderr.write(chunk);
-    });
-    child.on("error", (error) => resolve({ code: 1, stdout, stderr: error.message }));
-    child.on("close", (code) => resolve({ code: code ?? 1, stdout, stderr }));
+function run(command, args, options = {}) {
+  return runBoundedCommand(command, args, {
+    cwd: workspace,
+    env: options.env || process.env,
+    signal: commandAbort.signal,
+    idleTimeoutMs: numberFromEnv("ARTICLE_PUBLISH_IDLE_TIMEOUT_MS", 180_000),
+    absoluteTimeoutMs: numberFromEnv("ARTICLE_PUBLISH_ABSOLUTE_TIMEOUT_MS", 1_200_000),
+    heartbeatMs: numberFromEnv("ARTICLE_PUBLISH_HEARTBEAT_MS", 30_000),
+    onStdout: (text) => process.stdout.write(text),
+    onStderr: (text) => process.stderr.write(text),
+    onHeartbeat: ({ command: runningCommand, args: runningArgs, elapsedMs, silentMs }) => {
+      process.stderr.write(`[article-publish] ${runningCommand} ${runningArgs.join(" ")} still running; elapsed ${Math.round(elapsedMs / 1000)}s, quiet ${Math.round(silentMs / 1000)}s.\n`);
+    },
   });
 }
 
-async function runChecked(command, args) {
-  const result = await run(command, args);
-  if (result.code !== 0) fail(`${command} ${args.join(" ")} failed with code ${result.code}`);
+async function runChecked(command, args, options = {}) {
+  const result = await run(command, args, options);
+  if (result.code !== 0) {
+    const detail = result.terminationReason ? ` (${result.terminationReason})` : "";
+    throw new PublishSafetyError(`${command} ${args.join(" ")} failed with code ${result.code}${detail}`, {
+      reason: result.terminationReason || "command-failed",
+    });
+  }
   return result;
+}
+
+function runForSafety(command, args) {
+  return runBoundedCommand(command, args, {
+    cwd: workspace,
+    signal: commandAbort.signal,
+    idleTimeoutMs: 30_000,
+    absoluteTimeoutMs: 60_000,
+    heartbeatMs: 0,
+  });
+}
+
+function runForRollback(command, args) {
+  return runBoundedCommand(command, args, {
+    cwd: workspace,
+    idleTimeoutMs: 30_000,
+    absoluteTimeoutMs: 60_000,
+    heartbeatMs: 0,
+  });
+}
+
+function numberFromEnv(name, fallback) {
+  const value = Number(process.env[name]);
+  return Number.isFinite(value) && value > 0 ? value : fallback;
 }

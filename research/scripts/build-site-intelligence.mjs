@@ -180,6 +180,7 @@ function approvedUpdateRoutes() {
         title: `${item.title} | WPB Updates`,
         description: item.description || "West Palm Beach new-construction update with buyer context and original source attribution.",
         ogImage: updateRouteOgImage(item),
+        lastmod: normalizedDate(item.dateModified || item.publishedAt || item.datePublished || item.dateDiscovered),
       }));
   } catch {
     return [];
@@ -197,6 +198,7 @@ function publishedMarketNoteRoutes(destination) {
       title: `${note.title} | ${isDowntown ? "Downtown Spotlight" : "Buyer Intelligence"}`,
       description: note.seo?.metaDescription || note.excerpt || note.buyerThesis || "West Palm Beach buyer context with source links.",
       ogImage: note.image?.path || siteMeta.defaultImage,
+      lastmod: normalizedDate(note.dateModified || note.datePublished),
     }))
     .filter((note) => note.slug);
 }
@@ -1382,20 +1384,29 @@ async function main() {
 
   const catalog = JSON.parse(await fs.readFile(reviewPath, "utf8"));
   const assetTracker = await readAssetTracker();
-  const publishedFloorplans = await publishFloorplanAssets();
+  let publishedFloorplans = await publishFloorplanAssets();
   const floorplans = await buildFloorplanLibrary(catalog.projects);
-  const publicFloorplans = stripInternalFloorplanPaths(floorplans);
+  let publicFloorplans = stripInternalFloorplanPaths(floorplans);
   const images = await buildImageCatalog(catalog.projects, assetTracker);
   const newsFeed = buildNewsFeed(catalog.projects, floorplans, images);
   const projectFacts = buildProjectFacts(catalog.projects);
   const projectAssetStatus = buildProjectAssetStatus(catalog.projects, floorplans, publishedFloorplans, assetTracker);
   const imageClearanceCandidates = buildImageClearanceCandidates(catalog.projects, images, assetTracker);
   const projectTeamCredits = buildProjectTeamCredits(catalog.projects, assetTracker);
-  const publicNewsFeed = sanitizePublicPayload(newsFeed);
-  const publicAnswerBlocks = sanitizePublicPayload(answerBlocks);
-  const publicProjectAssetStatus = sanitizePublicPayload(projectAssetStatus);
-  const publicImageClearanceCandidates = sanitizePublicPayload(imageClearanceCandidates);
-  const publicProjectTeamCredits = sanitizePublicPayload(projectTeamCredits);
+  let publicNewsFeed = sanitizePublicPayload(newsFeed);
+  let publicAnswerBlocks = sanitizePublicPayload(answerBlocks);
+  let publicProjectAssetStatus = sanitizePublicPayload(projectAssetStatus);
+  let publicImageClearanceCandidates = sanitizePublicPayload(imageClearanceCandidates);
+  let publicProjectTeamCredits = sanitizePublicPayload(projectTeamCredits);
+
+  publicFloorplans = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "floorplans.json"), publicFloorplans);
+  publishedFloorplans = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "published-floorplan-assets.json"), publishedFloorplans);
+  publicProjectAssetStatus = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "project-asset-status.json"), publicProjectAssetStatus);
+  publicImageClearanceCandidates = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "image-clearance-candidates.json"), publicImageClearanceCandidates);
+  publicProjectTeamCredits = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "project-team-credits.json"), publicProjectTeamCredits);
+  publicNewsFeed = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "news-feed.json"), publicNewsFeed);
+  publicAnswerBlocks = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "answer-engine-faq.json"), publicAnswerBlocks);
+  images.catalog = await preserveExistingVolatileMetadata(path.join(reviewRoot, "image-candidate-catalog.json"), images.catalog);
 
   await fs.writeFile(path.join(publicDataRoot, "site-meta.json"), `${JSON.stringify(siteMeta, null, 2)}\n`);
   await fs.writeFile(path.join(publicDataRoot, "floorplans.json"), `${JSON.stringify(publicFloorplans, null, 2)}\n`);
@@ -2729,9 +2740,13 @@ function renderSitemap(projects) {
   const updateRoutes = approvedUpdateRoutes();
   const downtownRoutes = mergedMarketNoteRoutes(downtownSpotlightRoutes, "downtown");
   const buyerRoutes = mergedMarketNoteRoutes(marketNoteRoutes, "buyer");
-  const today = new Date().toISOString().slice(0, 10);
   const defaultLastmod = "2026-06-03";
-  const rebrandUpdatedRoutes = new Set(["", "about/", "inquire/"]);
+  const rebrandLastmod = "2026-08-12";
+  const latestArticleDate = [
+    ...updateRoutes.map((item) => item.lastmod),
+    ...downtownRoutes.map((item) => item.lastmod),
+    ...buyerRoutes.map((item) => item.lastmod),
+  ].filter(Boolean).sort().at(-1) || rebrandLastmod;
   const routableProjects = new Set([
     "olara",
     "ritz-carlton-wpb",
@@ -2787,19 +2802,29 @@ function renderSitemap(projects) {
       .map((projectId) => [`projects/${publicProjectPath(projectId)}/`, "0.8"]),
   ];
   const uniqueUrls = [...new Map(urls.map(([pathPart, priority]) => [pathPart, [pathPart, priority]])).values()];
+  const lastmodForRoute = (pathPart) => {
+    if (pathPart === "") return latestArticleDate;
+    if (pathPart === "about/" || pathPart === "inquire/") return rebrandLastmod;
+    return defaultLastmod;
+  };
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${uniqueUrls
   .map(
     ([pathPart, priority]) => `  <url>
     <loc>${productionBaseUrl}/${escapeXml(pathPart)}</loc>
-    <lastmod>${rebrandUpdatedRoutes.has(pathPart) ? today : defaultLastmod}</lastmod>
+    <lastmod>${lastmodForRoute(pathPart)}</lastmod>
     <priority>${priority}</priority>
   </url>`,
   )
   .join("\n")}
 </urlset>
 `;
+}
+
+function normalizedDate(value) {
+  const match = String(value || "").match(/^\d{4}-\d{2}-\d{2}/);
+  return match?.[0] || "";
 }
 
 function readCanonicalPublicProjectIds() {
@@ -2924,6 +2949,59 @@ async function readJsonIfExists(filePath) {
   } catch {
     return null;
   }
+}
+
+async function preserveExistingVolatileMetadata(filePath, nextValue) {
+  const previousValue = await readJsonIfExists(filePath);
+  return previousValue ? preserveVolatileMetadata(nextValue, previousValue) : nextValue;
+}
+
+function preserveVolatileMetadata(nextValue, previousValue) {
+  if (Array.isArray(nextValue)) {
+    if (!Array.isArray(previousValue)) return nextValue;
+    const previousByIdentity = new Map(
+      previousValue.map((item, index) => [stableRecordIdentity(item) || `index:${index}`, item]),
+    );
+    return nextValue.map((item, index) => preserveVolatileMetadata(
+      item,
+      previousByIdentity.get(stableRecordIdentity(item) || `index:${index}`),
+    ));
+  }
+  if (!nextValue || typeof nextValue !== "object" || !previousValue || typeof previousValue !== "object") {
+    return nextValue;
+  }
+
+  const result = Object.fromEntries(
+    Object.entries(nextValue).map(([key, value]) => [key, preserveVolatileMetadata(value, previousValue[key])]),
+  );
+  if (sameSemanticValue(result, previousValue)) {
+    for (const key of ["generatedAt", "updatedAt", "dateAccessed"]) {
+      if (Object.hasOwn(previousValue, key) && Object.hasOwn(result, key)) result[key] = previousValue[key];
+    }
+  }
+  return result;
+}
+
+function stableRecordIdentity(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return "";
+  for (const key of ["id", "projectId", "publicPath", "path", "href", "url", "question", "title", "label"]) {
+    if (value[key]) return `${key}:${value[key]}`;
+  }
+  return "";
+}
+
+function sameSemanticValue(left, right) {
+  return JSON.stringify(stripVolatileMetadata(left)) === JSON.stringify(stripVolatileMetadata(right));
+}
+
+function stripVolatileMetadata(value) {
+  if (Array.isArray(value)) return value.map(stripVolatileMetadata);
+  if (!value || typeof value !== "object") return value;
+  return Object.fromEntries(
+    Object.entries(value)
+      .filter(([key]) => !["generatedAt", "updatedAt", "dateAccessed"].includes(key))
+      .map(([key, item]) => [key, stripVolatileMetadata(item)]),
+  );
 }
 
 function escapeXml(value) {

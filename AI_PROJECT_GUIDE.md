@@ -376,6 +376,8 @@ Before making changes:
 
 If current files contradict this guide, inspect carefully and report the contradiction before changing behavior.
 
+Article publishing is transaction-protected: preview validates canonical URLs and image repetition in `.runtime/`; stage/publish require clean synchronized `main`; automated runs get one persisted attempt; and pre-commit failures, signals, or command timeouts roll back article outputs. The implementation remains `research/scripts/article-publish-cli.mjs` plus `research/scripts/article-publish-workflow.mjs`.
+
 ## 13. Content Studio / Builder — Current State (updated 2026-06-19)
 
 This section mirrors `docs/AI_PROJECT_GUIDE.md` section 13. Read that file for full workflow detail.

@@ -563,6 +563,8 @@ Round-trip behavior applies to all three supported destinations: News Updates, B
 - Publish Live must not deploy if publish or push fails.
 - Do not manually commit unrelated dirty files.
 
+**Publisher transaction safety:** Preview performs canonical URL and image-repetition checks using `.runtime/` artifacts before tracked files are changed. Stage and publish require a clean `main` checkout on the expected GitHub origin with `HEAD` matching its upstream. Automated runs consume one persisted attempt token per run. Any failure or signal before the article commit restores tracked outputs and removes newly created allowlisted article assets. Child build and QA commands emit heartbeats and have idle and absolute deadlines with process-group termination.
+
 #### Supported Article Package JSON shape
 
 ```json

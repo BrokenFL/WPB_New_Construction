@@ -90,7 +90,8 @@
     "article:stage": "node research/scripts/article-publish-cli.mjs --stage",
     "article:publish": "node research/scripts/article-publish-cli.mjs --publish",
     "article:ship": "node research/scripts/article-publish-cli.mjs --publish --ship",
-    "test": "npm run qa:launch:no-write && npm run qa:gatekeeper",
+    "test:article-publisher": "node --test research/scripts/article-market-note-utils.test.mjs research/scripts/article-publish-safety.test.mjs",
+    "test": "npm run test:article-publisher && npm run qa:launch:no-write && npm run qa:gatekeeper",
     "test:leads": "node research/scripts/test-leads-endpoint.mjs",
     "lint": "node research/scripts/lint-public-surface.mjs",
     "check:updates": "node research/scripts/check-imported-updates.mjs"
