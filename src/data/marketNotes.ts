@@ -69,6 +69,88 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "wpb-content-scout-safe-daily-publish-west-palm-move-2026-08-18",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "West Palm Move is about to change downtown's daily rhythm",
+    "slug": "west-palm-move-downtown-mobility",
+    "excerpt": "West Palm Beach's new mobility service will replace RideWPB with a faster fixed-route and on-demand system that reaches from the Norton Museum to Northwood Village.",
+    "buyerThesis": "For downtown buyers, the signal is practical: walkability gets stronger when the city makes it easier to move between the core, Northwood Village and the Norton corridor without a car. That does not replace a good parking plan, but it does make the day-to-day livability argument harder to ignore.",
+    "buyerTakeaway": "For downtown buyers, the signal is practical: walkability gets stronger when the city makes it easier to move between the core, Northwood Village and the Norton corridor without a car. That does not replace a good parking plan, but it does make the day-to-day livability argument harder to ignore.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "image": {
+      "path": "/assets/editorial/west-palm-move-downtown-mobility-hero.jpg",
+      "alt": "An electric shuttle moving through a palm-lined downtown street at dusk.",
+      "caption": "West Palm Move would give downtown a more frequent, lower-friction way to get around.",
+      "credit": "AI-generated editorial illustration",
+      "mode": "provided-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "City of West Palm Beach",
+    "sourceLinks": [
+      {
+        "label": "City of West Palm Beach: West Palm Move",
+        "href": "https://www.wpb.org/Departments/Parking-Mobility-Administration/West-Palm-Move",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "City of West Palm Beach: West Palm Move briefing PDF",
+        "href": "https://www.wpb.org/files/assets/city/v/1/parking-amp-mobility/documents/wpb-move-aug2026-briefing.pdf",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "WPTV: All-electric rides to replace West Palm Beach shuttles",
+        "href": "https://www.wptv.com/news/local-news/our-community/west-palm-beach/west-palm-beach-is-replacing-its-ride-wpb-vans-with-an-all-electric-on-demand-transit-system",
+        "sourceType": "local news coverage"
+      }
+    ],
+    "datePublished": "2026-08-18",
+    "dateModified": "2026-08-18",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "West Palm Beach has put West Palm Move in public view. The city's mobility page now says the service is coming soon, and the briefing materials lay out a first-year system built around a frequent fixed route plus on-demand microtransit. That is the real shift: the city is moving away from the old RideWPB van setup and toward a service that is meant to feel more like part of downtown's daily routine.\n\nThe idea is not subtle. The city wants a service that manages congestion, improves access to downtown destinations and reduces the pressure to keep building more parking. That is a transit goal, but it is also a downtown-life goal."
+      },
+      {
+        "heading": "How it works",
+        "body": "The briefing shows a north-south fixed route running every 10 minutes from the Norton Museum to Northwood Village, with service set for 6 a.m. to 9 p.m. on weekdays, 8 a.m. to 9 p.m. on Saturdays and 8 a.m. to 8 p.m. on Sundays. The microtransit layer is designed to cover about 15 square miles of the city with an average wait of roughly 15 minutes and service from 6 a.m. to 10 p.m.\n\nThe fare structure matters too. The city is presenting this as a low-friction ride option, with $1 fixed-route trips and $2 microtransit rides. That keeps the service closer to an everyday utility than a special-purpose shuttle."
+      },
+      {
+        "heading": "Why downtown feels it first",
+        "body": "This kind of service changes the way a district gets used. It makes it easier to move between CityPlace, Clematis, the museum corridor and the north end without rearranging the whole evening around parking. It also makes downtown less dependent on a single car trip at the start and end of the night.\n\nThat is important in a city where the strongest places are no longer just the ones with the biggest buildings. They are the ones that can absorb work, dinner, errands and a late stop without making every movement feel like a decision. West Palm Move is meant to grease those seams."
+      },
+      {
+        "heading": "What this changes for residents",
+        "body": "For people living downtown, the question is not whether a shuttle exists. It is whether the shuttle becomes part of the rhythm of the day. If the service is frequent, reliable and easy to use, it becomes a reason to leave the car parked more often and to treat downtown as a real walk-and-ride district instead of a place you drive into and out of.\n\nThat matters for people comparing condo buildings, rentals and neighborhoods. Parking still counts. So do commute patterns, evening habits and whether a resident can get to dinner, the museum or Northwood Village without overthinking the trip. West Palm Move strengthens that argument."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The launch timing is the next checkpoint. WPTV reported that the city expected the new service to begin in August, and the city now says West Palm Move is coming soon. Once the service is live, the practical test will be simple: does it feel faster, more reliable and easier to use than the old setup?\n\nIf it does, downtown gets a cleaner mobility story to go with its growing dining and development map. If it does not, the service still matters because it shows where the city wants the district to go: less friction, more access and a downtown that works a little more like a neighborhood."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "West Palm Move is about to change downtown's daily rhythm",
+      "secondaryQueries": [],
+      "suggestedSlug": "west-palm-move-downtown-mobility",
+      "titleTag": "West Palm Move is about to change downtown's daily rhythm | Downtown Spotlight",
+      "metaDescription": "West Palm Move is the city's new mobility layer for downtown West Palm Beach, pairing a 10-minute fixed route with on-demand rides and a wider service zone."
+    }
+  },
+
+  {
     "id": "mr-c-shows-downtown-branded-condos-still-move",
     "status": "published",
     "category": "general",

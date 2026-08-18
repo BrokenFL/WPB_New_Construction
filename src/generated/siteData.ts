@@ -5183,6 +5183,12 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
   },
   {
+    "path": "/downtown-spotlight/west-palm-move-downtown-mobility/",
+    "title": "West Palm Move is about to change downtown's daily rhythm | Downtown Spotlight",
+    "description": "West Palm Move is the city's new mobility layer for downtown West Palm Beach, pairing a 10-minute fixed route with on-demand rides and a wider service zone.",
+    "ogImage": "/assets/editorial/west-palm-move-downtown-mobility-hero.jpg"
+  },
+  {
     "path": "/downtown-spotlight/therealreal-cityplace-move-deepens-downtown-luxury-retail-lane/",
     "title": "The RealReal's CityPlace move deepens downtown's luxury retail lane | Downtown Spotlight",
     "description": "The RealReal is opening at CityPlace on Aug. 13, relocating from Palm Beach into a larger downtown West Palm Beach space.",
