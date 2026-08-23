@@ -23,9 +23,12 @@ const criticalConsolePatterns = [
 ];
 
 const failures = [];
+const cacheBust = `healthCheck=${Date.now()}`;
 
 async function main() {
-  const htmlResponse = await fetch(baseUrl);
+  const htmlResponse = await fetch(`${baseUrl}/?${cacheBust}`, {
+    headers: { "cache-control": "no-cache", pragma: "no-cache" },
+  });
   if (htmlResponse.status !== 200) {
     failures.push(`Homepage returned HTTP ${htmlResponse.status}.`);
   }
@@ -93,7 +96,9 @@ async function checkRoute(browser, route) {
   });
 
   try {
-    const response = await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded", timeout: 20000 });
+    await page.setExtraHTTPHeaders({ "cache-control": "no-cache", pragma: "no-cache" });
+    const query = route.includes("?") ? `&${cacheBust}` : `?${cacheBust}`;
+    const response = await page.goto(`${baseUrl}${route}${query}`, { waitUntil: "domcontentloaded", timeout: 20000 });
     if ((response?.status() ?? 0) >= 400) {
       failures.push(`${route} returned HTTP ${response?.status() ?? "unknown"}.`);
     }
