@@ -5291,6 +5291,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/market-notes/nora-house-turns-the-district-into-a-buyer-decision/",
+    "title": "NORA House turns the district into a buyer decision | Buyer Intelligence",
+    "description": "NORA House gives West Palm Beach buyers a real district-to-district choice: live inside an open, walkable neighborhood now, or keep waiting for a waterfront tower later.",
+    "ogImage": "/projects/nora-house/media/user-provided-nora-house-hero.jpg"
+  },
+  {
     "path": "/market-notes/alba-s-finish-changes-the-north-flagler-buyer-test/",
     "title": "Alba's finish changes the North Flagler buyer test | Buyer Intelligence",
     "description": "Alba Palm Beach is complete, 95% sold, and welcoming residents on North Flagler, giving buyers a live example of delivered waterfront inventory while West Palm Beach still shows a broad new-construction shelf.",

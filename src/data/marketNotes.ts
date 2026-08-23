@@ -69,6 +69,102 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "nora-house-turns-the-district-into-a-buyer-decision",
+    "status": "published",
+    "category": "general",
+    "title": "NORA House turns the district into a buyer decision",
+    "slug": "nora-house-turns-the-district-into-a-buyer-decision",
+    "excerpt": "The district is open, the sales gallery is active, and the condo entry point starts in the low $2 millions. Buyers now have to decide whether walkable district living is worth the construction timeline.",
+    "buyerThesis": "Useful for buyers comparing downtown-adjacent walkability against waterfront towers, and for anyone trying to decide whether district momentum is enough to justify a 2029 delivery window.",
+    "buyerTakeaway": "NORA House only works if you want the neighborhood experience as much as the residence itself. If the goal is water frontage, keep looking.",
+    "marketSignal": "Open district businesses, an active sales gallery, and double-digit reservations suggest NORA is selling a lived-in neighborhood story, not just a future tower.",
+    "bestFor": "Buyers who want walkability, neighborhood energy, and a downtown-adjacent address more than Intracoastal views.",
+    "watchPoints": "Verify current floor plans, line-by-line pricing, parking and storage, deposit timing, amenity delivery, and whether the 2029 timeline fits your use case.",
+    "buyerQuestions": "Which lines make the most sense for daily use? How much of the price is district access versus the unit itself? Can you live with construction and phasing for the next few years?",
+    "relatedBuildings": [
+      "Nora House",
+      "The Nora Hotel"
+    ],
+    "relatedNeighborhoods": [
+      "NORA District",
+      "Downtown West Palm Beach"
+    ],
+    "relatedCorridor": "downtown",
+    "relatedArticleIds": [
+      "nora-district-downtown-transformation"
+    ],
+    "image": {
+      "path": "/projects/nora-house/media/user-provided-nora-house-hero.jpg",
+      "alt": "NORA House exterior rendering in West Palm Beach.",
+      "caption": "NORA House is the first for-sale condominium in the NORA District.",
+      "credit": "Courtesy of NORA House",
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "NORA House",
+    "sourceLinks": [
+      {
+        "label": "NORA House official website",
+        "href": "https://norahouse.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "NORA West Palm official district page",
+        "href": "https://norawpb.com/",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "WPTV: Multimillion-dollar condos coming to NORA District",
+        "href": "https://www.wptv.com/news/region-c-palm-beach-county/west-palm-beach/empty-lots-to-luxury-living-multimillion-dollar-condos-coming-to-west-palm-beachs-growing-nora-district",
+        "sourceType": "local news coverage"
+      },
+      {
+        "label": "Florida Condo Finder: Buying at Nora House preconstruction",
+        "href": "https://www.floridacondofinder.com/blog/buying-nora-house-preconstruction-process-west-palm-beach-2026/",
+        "sourceType": "market report"
+      }
+    ],
+    "datePublished": "2026-08-23",
+    "dateModified": "2026-08-23",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "NORA House is no longer a concept hiding inside a district map. The district now has open tenants, the sales gallery is live, and the first for-sale condo building is being sold as a real ownership choice rather than a future idea. That changes the buyer conversation.\n\nThe question is not whether NORA exists. It does. The NORA homepage lists a long run of businesses already open, from Del Mar and Loco Taco & Oyster Bar to H&H Bagels, Van Leeuwen, Warby Parker, Le Labo, and other daily-use tenants. Nora House sits inside that environment, which means the purchase decision is about living in a functioning district, not betting on a blank block."
+      },
+      {
+        "heading": "What buyers are actually buying",
+        "body": "The official Nora House site gives the price floor and the format. Residences are listed from the low $2 millions, with two- to four-bedroom homes and a sales gallery at 955 N Railroad Avenue, Suite B. WPTV’s reporting from the district launch added the more specific buyer detail: 117 condos, two to four bedrooms, two pools, a fitness center, a spa, a bowling alley, a golf simulator, and two pickleball courts. WPTV also quoted pricing in the high $1 millions up to about $5 million or $6 million, with reservations already in double digits.\n\nThat is the real shift. NORA House is not being sold as a solitary tower on the edge of downtown. It is being sold as the residential anchor inside a district that is already trying to behave like a neighborhood. For a buyer, that can be a strong trade. It gives you restaurants, retail, wellness, and public life at street level rather than a drive away. It also gives you something harder to price: the feeling that the address belongs to a place with a rhythm."
+      },
+      {
+        "heading": "Why the district matters",
+        "body": "The district context is the point. NORA is already functioning as a destination with open dining, wellness, shopping, and service tenants. That matters because buyers are not just comparing square footage. They are comparing the daily life around the square footage.\n\nA district that already has people walking, eating, and lingering is different from a tower surrounded by future renderings. It changes how the building feels on move-in day, but it also changes how you should think about the premium. In a place like NORA, the value question is as much about neighborhood texture as it is about the residence itself.",
+        "image": "/projects/nora-house/media/nora-street.webp"
+      },
+      {
+        "heading": "The timing tradeoff",
+        "body": "The tradeoff is timing. WPTV said groundbreaking is expected next year and completion is not expected until 2029. That means buyers are underwriting a district that will keep changing around them. Today’s open tenants are only part of the story. More hotel, office, and residential phases are still coming.\n\nThat can be a positive if you want to buy into momentum early. It is less attractive if you want a finished neighborhood and a finished building now. The buyer has to decide whether the upside of district formation is worth the wait."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The useful next step is practical. Ask for the current packet, the available stacks, the fee schedule, parking and storage, and the delivery assumptions. Then visit the district at different times of day.\n\n- Which lines make the most sense for daily use?\n- How much of the price is district access versus the unit itself?\n- Can you live with construction and phasing for the next few years?\n- Does this work as a full-time home, or only as an occasional stay?\n\nIf you want a neighborhood to feel alive on a Tuesday and a Saturday night, NORA House has a real argument. If your first priority is open water and a finished tower, this is the wrong comparison set."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "NORA House turns the district into a buyer decision",
+      "secondaryQueries": [],
+      "suggestedSlug": "nora-house-turns-the-district-into-a-buyer-decision",
+      "titleTag": "NORA House turns the district into a buyer decision | Buyer Intelligence",
+      "metaDescription": "NORA House gives West Palm Beach buyers a real district-to-district choice: live inside an open, walkable neighborhood now, or keep waiting for a waterfront tower later."
+    }
+  },
+
+  {
     "id": "alba-s-finish-changes-the-north-flagler-buyer-test",
     "status": "published",
     "category": "general",
