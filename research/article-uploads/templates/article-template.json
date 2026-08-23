@@ -19,6 +19,28 @@
       "type": ""
     }
   ],
+  "imagePlan": {
+    "references": [
+      {
+        "path": "",
+        "role": "reference-only",
+        "sourceUrl": "",
+        "notes": "Use for mood, materials, spatial relationships, or composition only."
+      }
+    ],
+    "deliverables": [
+      {
+        "key": "hero",
+        "role": "editorial hero",
+        "prompt": ""
+      },
+      {
+        "key": "inline-1",
+        "role": "article context image",
+        "prompt": ""
+      }
+    ]
+  },
   "relatedProjectIds": [],
   "relatedCorridorIds": [],
   "heroImage": {

@@ -725,9 +725,7 @@ async function validateImportPackage(request, response) {
 
   // Hero image check (metadata presence, not dataUrl)
   const heroKey = clean(pkg.heroImage?.uploadKey || "hero");
-  if (pkg.heroImage && !images[heroKey]) {
-    warnings.push(`heroImage.uploadKey "${heroKey}" does not match an uploaded image.`);
-  }
+  if (!pkg.heroImage || !images[heroKey]) errors.push(`Article packages require an uploaded hero image matching uploadKey "${heroKey}".`);
 
   // Inline images consistency
   const placementIds = new Set();
@@ -742,6 +740,9 @@ async function validateImportPackage(request, response) {
         warnings.push(`images[].uploadKey "${uploadKey}" does not match an uploaded image.`);
       }
     }
+  }
+  if (!Array.isArray(pkg.images) || pkg.images.length < 1) {
+    errors.push("Article packages require at least one uploaded inline image in addition to the hero image.");
   }
 
   // Large image warnings
@@ -859,7 +860,7 @@ async function createImportDraft(request, response) {
       key: heroKey,
       alt: clean(pkg.heroImage?.alt) || clean(pkg.title),
       caption: clean(pkg.heroImage?.caption) || "",
-      credit: "",
+      credit: clean(pkg.heroImage?.credit) || "",
     };
   }
 
@@ -877,7 +878,7 @@ async function createImportDraft(request, response) {
           key: placementId,
           alt: clean(img?.alt) || "",
           caption: clean(img?.caption) || "",
-          credit: "",
+          credit: clean(img?.credit) || "",
         };
         bodyImages.push(bodyImg);
         imageMap.set(uploadKey, bodyImg);

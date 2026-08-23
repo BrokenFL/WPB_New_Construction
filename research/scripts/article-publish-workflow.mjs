@@ -11,6 +11,8 @@ import {
   runBoundedCommand,
   validateUniqueNewsCandidate,
 } from "./article-publish-safety.mjs";
+import { validateArticleImages } from "./article-content-policy.mjs";
+import { scanPublicFields } from "./public-copy-safety.mjs";
 
 const workspace = process.cwd();
 const inputPath = argValue("--input");
@@ -179,9 +181,13 @@ async function main() {
   if (shouldShip) {
     if (!publishMode && !shipOnly) await requireCleanPushedCommit();
     if (publishMode) {
-      await runChecked("npm", ["run", "ship:live"]);
+      await runChecked("npm", ["run", "ship:live"], {
+        env: { ...process.env, SHIP_LIVE_SKIP_CHECKS: "1" },
+        idleTimeoutMs: numberFromEnv("ARTICLE_PUBLISH_SHIP_IDLE_TIMEOUT_MS", 600_000),
+        absoluteTimeoutMs: numberFromEnv("ARTICLE_PUBLISH_SHIP_ABSOLUTE_TIMEOUT_MS", 1_200_000),
+      });
       await runChecked("npm", ["run", "qa:live"]);
-      await verifyLiveArticle({ routePath, title, heroImage: normalized.heroImage });
+      await verifyLiveArticle({ routePath, title, heroImage: normalized.heroImage, bodyImages: normalized.bodyImages?.values || [] });
     }
   }
 
@@ -221,6 +227,35 @@ async function preMutationValidation({ destination, sourceFile, articleId, route
   }
 
   errors.push(...await validateImageRepetitionBeforeMutation({ destination, routeSlug, normalized, existing }));
+  const publicCopy = {
+    title: normalized.article.title,
+    deck: normalized.article.deck,
+    description: input.description || normalized.article.deck,
+    summary: input.summary || normalized.article.deck,
+    bodySections: normalized.bodySections,
+    whyItMatters: input.whyItMatters || "",
+    buyerContext: input.buyerContext || "",
+    buyerTakeaway: input.buyerTakeaway || "",
+    marketSignal: input.marketSignal || "",
+    bestFor: input.bestFor || "",
+    watchPoints: input.watchPoints || "",
+    buyerQuestions: input.buyerQuestions || "",
+    relatedCorridor: input.relatedCorridor || "",
+    newsletterHeadline: input.newsletterHeadline || normalized.article.title,
+    newsletterBlurb: input.newsletterBlurb || normalized.article.deck,
+    newsletterCta: input.newsletterCta || "Read the article",
+    heroImage: normalized.heroImage ? {
+      alt: normalized.heroImage.alt,
+      caption: normalized.heroImage.caption,
+      credit: normalized.heroImage.credit,
+    } : null,
+    bodyImages: (normalized.bodyImages?.values || []).map((image) => ({
+      alt: image.alt,
+      caption: image.caption,
+      credit: image.credit,
+    })),
+  };
+  errors.push(...scanPublicFields(publicCopy).map((finding) => `Public copy safety failed before mutation: ${finding.field} contains blocked phrase "${finding.match}" (${finding.label}).`));
   return errors;
 }
 
@@ -351,6 +386,11 @@ async function normalizeArticle({ destination, sourceFile, articleId, routeSlug,
   const sectionInput = parseSectionInput({ input, existing, bodySectionsInput, bodyText, warnings });
   const bodySections = sectionInput.map((section, index) => normalizeSection(section, index, bodyImages, warnings));
   if (!bodySections.length) errors.push("Could not normalize any body sections.");
+  errors.push(...validateArticleImages({
+    heroImage,
+    bodyImages: bodyImages.values,
+    bodySections,
+  }));
 
   const sourceLinks = normalizeSourceLinks(input, existing, destination);
   if (destination === "news" && !clean(input.sourceUrl || existing?.sourceUrl)) warnings.push("News items should include a sourceUrl.");
@@ -362,7 +402,7 @@ async function normalizeArticle({ destination, sourceFile, articleId, routeSlug,
   }
 
   const bodyImagesBudgetChecks = [...bodyImages.values, heroImage].filter(Boolean).filter((image) => image.sizeBytes > imageBudgetBytes);
-  for (const image of bodyImagesBudgetChecks) warnings.push(`Image ${image.path} exceeds the ${Math.round(imageBudgetBytes / 1024)} KB editorial budget.`);
+  for (const image of bodyImagesBudgetChecks) errors.push(`Image ${image.path} exceeds the ${Math.round(imageBudgetBytes / 1024)} KB editorial budget.`);
 
   return {
     mode,
@@ -824,17 +864,21 @@ function marketSourceType(value) {
   return "local news coverage";
 }
 
-async function verifyLiveArticle({ routePath, title, heroImage }) {
+async function verifyLiveArticle({ routePath, title, heroImage, bodyImages = [] }) {
   const articleUrl = `https://www.wpbnewconstruction.com${routePath}`;
   const response = await fetch(articleUrl, { redirect: "follow" });
   if (!response.ok) fail(`Live article verification failed: ${articleUrl} returned HTTP ${response.status}.`);
   const html = await response.text();
   if (!html.includes(title)) fail(`Live article verification failed: title was not found at ${articleUrl}.`);
-  if (!heroImage?.path || !html.includes(heroImage.path)) fail(`Live article verification failed: expected hero image was not found at ${articleUrl}.`);
-  const imageUrl = new URL(heroImage.path, articleUrl);
-  const imageResponse = await fetch(imageUrl, { method: "HEAD", redirect: "follow" });
-  if (!imageResponse.ok || !String(imageResponse.headers.get("content-type") || "").startsWith("image/")) {
-    fail(`Live article verification failed: hero image ${imageUrl} did not return an image response.`);
+  const images = [heroImage, ...bodyImages].filter(Boolean);
+  for (const [index, image] of images.entries()) {
+    const label = index === 0 ? "hero image" : `body image ${index}`;
+    if (!image.path || !html.includes(image.path)) fail(`Live article verification failed: expected ${label} was not found at ${articleUrl}.`);
+    const imageUrl = new URL(image.path, articleUrl);
+    const imageResponse = await fetch(imageUrl, { method: "HEAD", redirect: "follow" });
+    if (!imageResponse.ok || !String(imageResponse.headers.get("content-type") || "").startsWith("image/")) {
+      fail(`Live article verification failed: ${label} ${imageUrl} did not return an image response.`);
+    }
   }
 }
 
@@ -890,6 +934,7 @@ function renderPreviewHtml(preview) {
   const imageMap = new Map((preview.bodyImages || []).map((image) => [image.key || image.label || image.path, image]));
   const bodySections = preview.bodySections.map((section) => renderPreviewSection(section, imageMap)).join("");
   const sourceLinks = preview.sourceLinks.map((link) => `<li><a href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a> <small>${escapeHtml(link.type || "source")}</small></li>`).join("");
+  const errors = preview.errors.map((error) => `<li>${escapeHtml(error)}</li>`).join("");
   const warnings = preview.warnings.map((warning) => `<li>${escapeHtml(warning)}</li>`).join("");
   const bodyImages = [preview.hero, ...preview.bodyImages].filter(Boolean).map((image) => `<tr><td>${escapeHtml(image.key || image.path)}</td><td><code>${escapeHtml(image.path)}</code></td><td>${escapeHtml(image.caption || "")}</td><td>${escapeHtml(image.credit || "")}</td><td>${escapeHtml(image.placementMode || "manual")}</td></tr>`).join("");
   return `<!doctype html>
@@ -933,6 +978,10 @@ function renderPreviewHtml(preview) {
         </section>
       </main>
       <aside>
+        <section class="card">
+          <h2>Errors</h2>
+          ${errors ? `<ul>${errors}</ul>` : "<p>No errors.</p>"}
+        </section>
         <section class="card">
           <h2>Warnings</h2>
           ${warnings ? `<ul>${warnings}</ul>` : "<p>No warnings.</p>"}
@@ -1068,13 +1117,14 @@ function fail(message) {
 }
 
 function run(command, args, options = {}) {
+  const commandEnv = options.env || process.env;
   return runBoundedCommand(command, args, {
     cwd: workspace,
-    env: options.env || process.env,
+    env: commandEnv,
     signal: commandAbort.signal,
-    idleTimeoutMs: numberFromEnv("ARTICLE_PUBLISH_IDLE_TIMEOUT_MS", 180_000),
-    absoluteTimeoutMs: numberFromEnv("ARTICLE_PUBLISH_ABSOLUTE_TIMEOUT_MS", 1_200_000),
-    heartbeatMs: numberFromEnv("ARTICLE_PUBLISH_HEARTBEAT_MS", 30_000),
+    idleTimeoutMs: options.idleTimeoutMs ?? numberFromEnv("ARTICLE_PUBLISH_IDLE_TIMEOUT_MS", 180_000),
+    absoluteTimeoutMs: options.absoluteTimeoutMs ?? numberFromEnv("ARTICLE_PUBLISH_ABSOLUTE_TIMEOUT_MS", 1_200_000),
+    heartbeatMs: options.heartbeatMs ?? numberFromEnv("ARTICLE_PUBLISH_HEARTBEAT_MS", 30_000),
     onStdout: (text) => process.stdout.write(text),
     onStderr: (text) => process.stderr.write(text),
     onHeartbeat: ({ command: runningCommand, args: runningArgs, elapsedMs, silentMs }) => {

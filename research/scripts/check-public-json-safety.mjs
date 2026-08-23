@@ -1,23 +1,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { scanPublicOutput } from "./public-copy-safety.mjs";
 
 const workspace = process.cwd();
 const scanRoots = ["public", "dist"].map((item) => path.join(workspace, item));
-const blockedPatterns = [
-  /needs_review/i,
-  /pending\s+approval/i,
-  /approved\s+by\s+Brooke/i,
-  /sign[-\s]?off/i,
-  /signed\s+off/i,
-  /authorization\s+pending/i,
-  /internal\s+approval/i,
-  /internal\s+review/i,
-  /source-material\s+review/i,
-  /future\s+backend/i,
-  /front-end\s+only/i,
-  /info@example\.com/i,
-  /example\.com/i,
-];
 
 const allowlistedFiles = new Set([
   "public/_redirects",
@@ -32,10 +18,7 @@ async function main() {
     if (allowlistedFiles.has(rel)) continue;
     if (!/\.(?:json|txt|xml|html)$/i.test(file)) continue;
     const content = await fs.readFile(file, "utf8");
-    for (const pattern of blockedPatterns) {
-      const match = content.match(pattern);
-      if (match) findings.push(`${rel}: blocked public JSON/text phrase "${match[0]}"`);
-    }
+    for (const match of scanPublicOutput(content)) findings.push(`${rel}: blocked public JSON/text phrase "${match.match}" (${match.label})`);
   }
 
   if (findings.length) {

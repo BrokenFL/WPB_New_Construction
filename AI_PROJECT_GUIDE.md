@@ -376,7 +376,7 @@ Before making changes:
 
 If current files contradict this guide, inspect carefully and report the contradiction before changing behavior.
 
-Article publishing is transaction-protected: preview validates canonical URLs and image repetition in `.runtime/`; stage/publish require clean synchronized `main`; automated runs get one persisted attempt; and pre-commit failures, signals, or command timeouts roll back article outputs. The implementation remains `research/scripts/article-publish-cli.mjs` plus `research/scripts/article-publish-workflow.mjs`.
+Article publishing is transaction-protected: preview validates canonical URLs, public-copy safety, the two-image article contract, and image repetition in `.runtime/`; stage/publish require clean synchronized `main`; automated runs get one persisted attempt; and pre-commit failures, signals, or command timeouts roll back article outputs. The implementation remains `research/scripts/article-publish-cli.mjs` plus `research/scripts/article-publish-workflow.mjs`. Automated image briefs use the native Codex `image_gen` tool outside the publisher, with two distinct final images required before the publisher is called.
 
 ## 13. Content Studio / Builder — Current State (updated 2026-06-19)
 

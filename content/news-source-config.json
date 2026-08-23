@@ -63,11 +63,18 @@
     "doNotWriteAttributionLedCopy": true
   },
   "imagePolicy": {
+    "minimumFinalImages": 2,
+    "minimumBodyImages": 1,
     "approvedLocalPreferred": true,
     "generatedEditorialAllowed": true,
     "generatedProjectRenderingsAllowed": false,
+    "nativeGenerationProvider": "Codex built-in image_gen",
+    "nativeGenerationCalls": 2,
+    "referenceImagesAreReferenceOnly": true,
+    "referenceImageRoles": ["project or place context", "material and atmosphere", "composition guidance"],
     "generatedImageCredit": "AI-generated editorial illustration",
-    "generatedImageRule": "Generate a place-neutral editorial illustration or atmosphere image when no appropriate approved local image exists. Do not depict a real project, logo, named business, exact building, or invented architectural fact."
+    "generatedImageRule": "Generate a place-neutral editorial illustration or atmosphere image when fewer than two accurate approved local images exist. Use two separate native image_gen calls with distinct hero and inline roles. Do not depict a real project, logo, named business, exact building, or invented architectural fact.",
+    "nativePromptRule": "Build an internal image brief from the verified article facts and label every input image as reference-only. Use references for mood, materials, spatial relationships, and composition; never reproduce an exact building, logo, sign, or unsupported architectural detail."
   },
   "primarySources": [
     {

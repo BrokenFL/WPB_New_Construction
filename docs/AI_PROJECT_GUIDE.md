@@ -583,15 +583,31 @@ Round-trip behavior applies to all three supported destinations: News Updates, B
   "tags": ["development", "new construction"],
   "heroImage": {
     "uploadKey": "hero",
-    "alt": "Alt text for hero image",
-    "caption": "Optional hero caption"
+    "alt": "Required alt text for hero image",
+    "caption": "Required hero caption",
+    "credit": "Required image credit"
+  },
+  "imagePlan": {
+    "references": [
+      {
+        "path": "/assets/projects/example/reference.jpg",
+        "role": "reference-only",
+        "sourceUrl": "https://example.org/reference",
+        "notes": "Use for mood, materials, spatial relationships, or composition only."
+      }
+    ],
+    "deliverables": [
+      { "key": "hero", "role": "editorial hero", "prompt": "Native image_gen prompt" },
+      { "key": "inline-1", "role": "article context image", "prompt": "Native image_gen prompt" }
+    ]
   },
   "images": [
     {
       "uploadKey": "image_1",
       "placementId": "inline-rendering-1",
-      "alt": "Alt text for inline image",
-      "caption": "Optional inline image caption"
+      "alt": "Required alt text for inline image",
+      "caption": "Required inline image caption",
+      "credit": "Required image credit"
     }
   ],
   "body": {
@@ -627,6 +643,8 @@ Round-trip behavior applies to all three supported destinations: News Updates, B
 - Section reference → `body.sections[].imagePlacement`
 
 The server maps `placementId` to the `key` field in `bodyImages`, and `imagePlacement` to the `imageKey` field in `bodySections`, so the existing renderer pipeline shows inline images correctly.
+
+**Automated article image contract:** Every automated article must publish at least two distinct final images: one hero and at least one body image placed in a rendered section. If two accurate approved-local images are not available, the WPB Content Scout uses two separate calls to the native Codex `image_gen` tool. `imagePlan.references[]` is runtime planning metadata only; reference images guide mood, materials, spatial relationships, and composition but are not published automatically. Generated images must remain neutral editorial illustrations, carry `AI-generated editorial illustration` credit, and avoid exact buildings, logos, named businesses, signs, and unsupported architectural facts. If native image generation fails, the run skips publication.
 
 **Troubleshooting:**
 
