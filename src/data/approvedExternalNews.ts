@@ -76,6 +76,101 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "banyan-tree-400-hibiscus-approval",
+    "slug": "banyan-tree-400-hibiscus-approval-2026-08-23",
+    "title": "Banyan Tree gets unanimous downtown approval at 400 Hibiscus",
+    "sourceName": "City of West Palm Beach",
+    "sourceUrl": "https://www.wpb.org/Events-Folder/2026/081226-DAC",
+    "canonicalUrl": "https://www.wpb.org/Events-Folder/2026/081226-DAC",
+    "sourceTitle": "Downtown Action Committee",
+    "publishedAt": "2026-08-23T17:20:22.307Z",
+    "sourcePublishedAt": "2026-08-12",
+    "sourcePublishedDate": "2026-08-12",
+    "eventDate": "2026-08-12",
+    "dateDiscovered": "2026-08-22",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-08-23T17:20:22.307Z",
+    "deck": "West Palm Beach’s Downtown Action Committee signed off on Banyan Tree Residences on August 12, moving the brand’s first U.S. residential address one step deeper into the city’s development pipeline.",
+    "description": "West Palm Beach’s Downtown Action Committee unanimously approved Banyan Tree Residences at 400 Hibiscus Street, adding another branded condo project to downtown’s active pipeline.",
+    "summary": "The August 12 approval gives Banyan Tree more planning certainty at 400 Hibiscus Street and sharpens downtown’s branded-residence comparison set.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "Banyan Tree Residences West Palm Beach cleared a downtown city hearing on August 12. The City of West Palm Beach’s event page confirms the Downtown Action Committee meeting date, and local coverage reports that the project won unanimous approval there. That moves the 400 Hibiscus Street plan from a launch-stage branding story into a real step in the city’s approval process."
+      },
+      {
+        "heading": "What the project is",
+        "body": "The official Banyan Tree site says the project will bring 88 corner residences to downtown, with homes ranging from one to four bedrooms and a sales gallery open by appointment at 400 Hibiscus Street. The development is being brought forward by Mast Capital and Curated JCZM Development in collaboration with Banyan Group, with OMA, Yabu Pushelberg, and Enea Landscape Architecture on the team.\n\nThe useful takeaway is simple: the headline number did not change, but the project now has a firmer downtown planning footing. That matters in West Palm Beach, where branded residences are no longer just a concept. They are part of the city’s actual pipeline."
+      },
+      {
+        "heading": "Why downtown cares",
+        "body": "Downtown West Palm Beach keeps adding projects that compete on more than square footage. Banyan Tree enters the market as a hospitality-branded residence with a wellness-first identity, which puts it in a different conversation from a plain luxury condo. Buyers will compare it against Mr. C, NORA House, The Berkeley, and the broader North and South Flagler sets, but the real question is not just brand recognition. It is whether the service promise, location, and daily convenience are strong enough to justify the premium.",
+        "image": "/projects/banyan-tree/media/showcase/banyan-tree-amenities-lobby-v01-web.jpg"
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The next signals that matter are permits, final offering documents, parking and storage allocations, fee structure, and delivery timing. Renderings and launch material can tell you the mood of a project. The documents tell you what ownership actually costs and what the building will really deliver.\n\nFor now, the approval itself is the story. Banyan Tree has advanced one more step in downtown West Palm Beach, and the city’s branded-residence conversation just got a little more crowded."
+      }
+    ],
+    "whyItMatters": "The approval moves Banyan Tree from launch language toward an actual downtown entitlement record. It also adds another branded residence to the city’s luxury comparison set, which matters for buyers weighing service, walkability, and carrying costs against the waterfront alternatives.",
+    "buyerContext": "Most useful for buyers comparing branded downtown residences, hospitality-led service promises, and the tradeoff between city walkability and waterfront positioning.",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [
+      "Banyan Tree Residences West Palm Beach"
+    ],
+    "relatedNeighborhoods": [
+      "Downtown West Palm Beach"
+    ],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "are-branded-residences-worth-it-west-palm-beach"
+    ],
+    "newsletterHeadline": "Banyan Tree clears a downtown city gate",
+    "newsletterBlurb": "The branded condo project at 400 Hibiscus Street won unanimous DAC approval on August 12.",
+    "newsletterCta": "See what changed at 400 Hibiscus",
+    "query": "West Palm Beach Banyan Tree Residences Downtown Action Committee approval 400 Hibiscus August 2026",
+    "category": "development",
+    "relatedProjectIds": [
+      "banyan-tree"
+    ],
+    "relatedCorridorIds": [
+      "downtown"
+    ],
+    "relatedProjectSlugs": [
+      "banyan-tree"
+    ],
+    "relatedCorridors": [
+      "Downtown West Palm Beach"
+    ],
+    "primaryProjectSlug": "banyan-tree",
+    "corridorLabel": "Downtown",
+    "imagePath": "/assets/projects/banyan-tree/residences/banyan-tree-residences-living-room-v01.jpg",
+    "sourceLinks": [
+      {
+        "label": "City of West Palm Beach Downtown Action Committee event page",
+        "url": "https://www.wpb.org/Events-Folder/2026/081226-DAC",
+        "type": "city planning material"
+      },
+      {
+        "label": "Banyan Tree Residences official site",
+        "url": "https://www.banyantreeresidenceswpb.com/",
+        "type": "official project site"
+      },
+      {
+        "label": "Florida YIMBY approval coverage",
+        "url": "https://floridayimby.com/2026/08/banyan-tree-residences-west-palm-beach-secures-unanimous-downtown-action-committee-approval.html",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "cityplace-hotel-package-pushed-to-aug-31-2026-08-23",
     "slug": "cityplace-hotel-package-pushed-to-aug-31-2026-08-23",
     "title": "CityPlace hotel package gets pushed to Aug. 31",

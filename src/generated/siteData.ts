@@ -5051,6 +5051,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/banyan-tree-400-hibiscus-approval-2026-08-23/",
+    "title": "Banyan Tree gets unanimous downtown approval at 400 Hibiscus | WPB Updates",
+    "description": "West Palm Beach’s Downtown Action Committee unanimously approved Banyan Tree Residences at 400 Hibiscus Street, adding another branded condo project to downtown’s active pipeline.",
+    "ogImage": "/assets/projects/banyan-tree/residences/banyan-tree-residences-living-room-v01.jpg"
+  },
+  {
     "path": "/updates/cityplace-hotel-package-pushed-to-aug-31-2026-08-23/",
     "title": "CityPlace hotel package gets pushed to Aug. 31 | WPB Updates",
     "description": "West Palm Beach kept the second convention center hotel in play on Aug. 17, but moved the final city vote to Aug. 31 and left the CityPlace/Convention Center district rewrite for another hearing.",
