@@ -21,6 +21,7 @@ const criticalConsolePatterns = [
   /MIME type/i,
   /hydration/i,
 ];
+const assetRetryDelaysMs = [0, 2_000, 5_000, 10_000, 15_000];
 
 const failures = [];
 const cacheBust = `healthCheck=${Date.now()}`;
@@ -54,10 +55,22 @@ async function main() {
 
 async function checkAsset(label, assetPath) {
   if (!assetPath) return;
-  const assetResponse = await fetch(`${baseUrl}${assetPath}`, { method: "HEAD" });
-  if (assetResponse.status !== 200) {
-    failures.push(`${label} asset ${assetPath} returned HTTP ${assetResponse.status}.`);
+  let status = 0;
+  for (const [attempt, delayMs] of assetRetryDelaysMs.entries()) {
+    if (delayMs) await sleep(delayMs);
+    const separator = assetPath.includes("?") ? "&" : "?";
+    const assetResponse = await fetch(`${baseUrl}${assetPath}${separator}${cacheBust}&assetAttempt=${attempt}`, {
+      method: "HEAD",
+      headers: { "cache-control": "no-cache", pragma: "no-cache" },
+    });
+    status = assetResponse.status;
+    if (status === 200) return;
   }
+  failures.push(`${label} asset ${assetPath} returned HTTP ${status}.`);
+}
+
+function sleep(delayMs) {
+  return new Promise((resolve) => setTimeout(resolve, delayMs));
 }
 
 async function checkVisibleRoutes() {
