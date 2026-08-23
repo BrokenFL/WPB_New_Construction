@@ -83,21 +83,20 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "sourceUrl": "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2026-agendas/2026-final-city-commission-agendas/07-jul-2026-final-cca/07_20_26_fnal-city-commission-agenda.pdf",
     "canonicalUrl": "https://bocapost.com/west-palm-beach-news/west-palm-beach-commission-pine-crest-land-sale-south-flagler-zoning-pause-july-2026/",
     "sourceTitle": "West Palm Beach locks in District Pointe's workforce housing mix",
-    "publishedAt": "2026-08-23T17:04:15.374Z",
+    "publishedAt": "2026-08-23T17:10:17.167Z",
     "sourcePublishedAt": "2026-07-21",
     "sourcePublishedDate": "2026-07-21",
     "eventDate": "2026-07-20",
     "dateDiscovered": "2026-08-23",
     "freshnessLane": "recent_30d",
-    "fetchedAt": "2026-08-23T17:04:15.374Z",
+    "fetchedAt": "2026-08-23T17:10:17.167Z",
     "deck": "The city approved a restrictive covenant for the 280-unit Belvedere Road project, fixing 71 homes as affordable or workforce housing and keeping the long-running plan moving.",
     "description": "West Palm Beach approved a restrictive covenant for District Pointe at 1501 Belvedere Road, locking in 71 affordable or workforce units inside a 280-unit rental project.",
     "summary": "District Pointe's covenant adds 71 affordable/workforce units to a 280-unit Belvedere Road project and shows West Palm Beach still using inland sites to add supply.",
     "bodySections": [
       {
         "heading": "What changed",
-        "body": "West Palm Beach approved a restrictive covenant with District Pointe, LLC on July 20 for a 280-unit rental project at 1501 Belvedere Road. The agreement fixes 71 units, or 25% of the project, as affordable or workforce housing. The breakdown is specific: 18 homes at or below 80% of area median income, 32 units from 81% to 100%, and 21 more from 101% to 120%.\n\nThat is the part worth focusing on. This was not a press-release ribbon cutting or a fresh groundbreaking. It was the city making the housing mix part of the record and tying the project to enforceable affordability terms.",
-        "image": "/assets/editorial/west-palm-beach-locks-in-district-pointe-workforce-housing-mix-2026-08-23-body-1.jpg"
+        "body": "West Palm Beach approved a restrictive covenant with District Pointe, LLC on July 20 for a 280-unit rental project at 1501 Belvedere Road. The agreement fixes 71 units, or 25% of the project, as affordable or workforce housing. The breakdown is specific: 18 homes at or below 80% of area median income, 32 units from 81% to 100%, and 21 more from 101% to 120%.\n\nThat is the part worth focusing on. This was not a press-release ribbon cutting or a fresh groundbreaking. It was the city making the housing mix part of the record and tying the project to enforceable affordability terms."
       },
       {
         "heading": "What is actually new",
