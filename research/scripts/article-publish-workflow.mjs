@@ -384,7 +384,10 @@ async function normalizeArticle({ destination, sourceFile, articleId, routeSlug,
   const heroImage = await resolveHeroImage({ destination, routeSlug, title, input, existing, warnings, errors, mode });
   const bodyImages = await resolveBodyImages({ destination, routeSlug, title, input, existing, mode });
   const sectionInput = parseSectionInput({ input, existing, bodySectionsInput, bodyText, warnings });
-  const bodySections = sectionInput.map((section, index) => normalizeSection(section, index, bodyImages, warnings));
+  const hasExplicitImageReferences = sectionInput.some((section) => Boolean(
+    clean(section.imageKey || section.image || section.imageId || extractFirstImageKey(section.body || "")),
+  ));
+  const bodySections = sectionInput.map((section, index) => normalizeSection(section, index, bodyImages, warnings, hasExplicitImageReferences));
   if (!bodySections.length) errors.push("Could not normalize any body sections.");
   errors.push(...validateArticleImages({
     heroImage,
@@ -619,11 +622,15 @@ async function resolveBodyImages({ destination, routeSlug, title, input, existin
   return { values };
 }
 
-function normalizeSection(section, index, bodyImages, warnings) {
+function normalizeSection(section, index, bodyImages, warnings, hasExplicitImageReferences = false) {
   const heading = clean(section.heading || section.title || defaultHeading(index));
   const body = clean(section.body || section.text || section.copy || "");
   const imageRef = clean(section.imageKey || section.image || section.imageId || extractFirstImageKey(body) || "");
-  const image = imageRef ? bodyImages.values.find((item) => item.key === imageRef || item.path === imageRef) : bodyImages.values[index] || null;
+  const image = imageRef
+    ? bodyImages.values.find((item) => item.key === imageRef || item.path === imageRef)
+    : hasExplicitImageReferences
+      ? null
+      : bodyImages.values[index] || null;
   if (imageRef && !image) warnings.push(`Body image placeholder '${imageRef}' could not be resolved.`);
   const bullets = Array.isArray(section.bullets) ? section.bullets.map((bullet) => clean(bullet)).filter(Boolean) : [];
   return { heading, body, ...(bullets.length ? { bullets } : {}), ...(image ? { image: image.path } : {}) };
