@@ -76,6 +76,88 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "cityplace-hotel-package-pushed-to-aug-31-2026-08-23",
+    "slug": "cityplace-hotel-package-pushed-to-aug-31-2026-08-23",
+    "title": "CityPlace hotel package gets pushed to Aug. 31",
+    "sourceName": "City of West Palm Beach",
+    "sourceUrl": "https://www.wpb.org/News-Folder/News-2026/081826-Mayor-CC-Approvals-and-Decisions",
+    "canonicalUrl": "https://www.wpb.org/News-Folder/News-2026/081826-Mayor-CC-Approvals-and-Decisions",
+    "sourceTitle": "CityPlace hotel package gets pushed to Aug. 31",
+    "publishedAt": "2026-08-23T17:11:36.883Z",
+    "sourcePublishedAt": "2026-08-18",
+    "sourcePublishedDate": "2026-08-18",
+    "eventDate": "2026-08-17",
+    "dateDiscovered": "2026-08-23",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-08-23T17:11:36.883Z",
+    "deck": "West Palm Beach kept the second convention center hotel in play on Aug. 17, but moved the final city vote to Aug. 31 and left the CityPlace/Convention Center district rewrite for another hearing.",
+    "description": "West Palm Beach kept the second convention center hotel in play on Aug. 17, but moved the final city vote to Aug. 31 and left the CityPlace/Convention Center district rewrite for another hearing.",
+    "summary": "West Palm Beach moved the second convention center hotel package to an Aug. 31 second reading after a new city meeting, keeping the 18-story, 400-room proposal alive while the district rewrite waits for a final vote.",
+    "bodySections": [
+      {
+        "heading": "What changed",
+        "body": "West Palm Beach did not finish the second convention center hotel package on Aug. 17. The City Commission continued second reading of Ordinance No. 5179-26 and Resolutions Nos. 156-26 and 157-26 to Aug. 31, so the 18-story, 400-room proposal remains alive but still unfinished.\n\nThat matters because this is not a small tweak. The package sits inside the CityPlace Commercial Planned Development and is meant to create the Convention Center District and Hotel II Subarea. In other words, the city is not just deciding on one building. It is deciding how this corner of downtown is supposed to function next."
+      },
+      {
+        "heading": "What is actually new",
+        "body": "The new part is the timing, not the concept. West Palm Beach had already taken the hotel package through first reading on Aug. 3. Now the item is back on the calendar for Aug. 31, after the latest meeting pushed the final hearing out two more weeks.\n\nCity documents describe the project as an 18-story, 400-room hotel with waivers in the Hotel II Subarea. CBS12 reported that the Curio-branded hotel would rise at 900 S. Rosemary Ave., on a site long used for overflow parking, and that the proposal includes a two-story meeting and event space plus a 7,300-square-foot restaurant."
+      },
+      {
+        "heading": "Why this part of the city matters",
+        "body": "This corner is one of the few places downtown where hotel rooms, convention traffic, parking, and public space all collide at once. The existing Hilton and the convention center already anchor that block. A second hotel adds more room nights and more activity, but it also raises the stakes around garage access, event traffic, and how easy it feels to move through Rosemary Avenue on foot.\n\nThat is why the hearing matters beyond the hotel itself. If the district rules land cleanly, the area gets a stronger meetings and hospitality spine. If the waivers or garage terms keep drawing concern, the hotel may still move forward, but the district will keep carrying more policy weight than a normal site plan.",
+        "image": "/projects/10-cityplace/media/cityplace-shared-card-1448x1086.jpg"
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The next checkpoint is Aug. 31. Watch whether the second reading moves cleanly, whether the city adjusts any of the district rules or waivers, and whether the parking arrangement around the convention center garage changes again.\n\nIf the item clears that hearing, the story shifts from whether the hotel is coming to how quickly the district can absorb it. If it slips again, that would signal the city still has unresolved questions about the edge of downtown that the project is meant to reshape."
+      }
+    ],
+    "whyItMatters": "The change does not kill the project, but it does keep the CityPlace/Convention Center edge in motion. For downtown, the question now is not whether the hotel stays in the mix. It is how the city handles the district rules, the garage relationship, and the pedestrian load around Rosemary Avenue and Okeechobee Boulevard.",
+    "buyerContext": "",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "west-palm-beach-clears-tax-hurdle-second-convention-center-hotel-2026-08-10"
+    ],
+    "newsletterHeadline": "CityPlace hotel package gets pushed to Aug. 31",
+    "newsletterBlurb": "West Palm Beach kept the second convention center hotel in play on Aug. 17, but moved the final city vote to Aug. 31 and left the CityPlace/Convention Center district rewrite for another hearing.",
+    "newsletterCta": "Read the article",
+    "query": "CityPlace hotel package gets pushed to Aug. 31",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/cityplace-hotel-package-pushed-to-aug-31-2026-08-23-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "City of West Palm Beach approval summary",
+        "url": "https://www.wpb.org/News-Folder/News-2026/081826-Mayor-CC-Approvals-and-Decisions",
+        "type": "city planning material"
+      },
+      {
+        "label": "CBS12 coverage of the hotel proposal",
+        "url": "https://cbs12.com/news/local/west-palm-beach-to-consider-400-room-convention-center-hotel-and-parking-deal-related-ross-curio-hotel-hilton-county-parking-garage-revenue-growth-traffic-pedestrian-safety-waivers",
+        "type": "local news coverage"
+      },
+      {
+        "label": "Boca Post follow-up on the Aug. 17 meeting",
+        "url": "https://bocapost.com/west-palm-beach-news/west-palm-beach-city-commission-august-2026-development-pause-fire-assessment/",
+        "type": "local news coverage"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "wpb-content-scout-safe-daily-publish-district-pointe-2026-08-13",
     "slug": "west-palm-beach-locks-in-district-pointe-workforce-housing-mix-2026-08-23",
     "title": "West Palm Beach locks in District Pointe's workforce housing mix",

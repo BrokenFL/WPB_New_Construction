@@ -5051,6 +5051,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/cityplace-hotel-package-pushed-to-aug-31-2026-08-23/",
+    "title": "CityPlace hotel package gets pushed to Aug. 31 | WPB Updates",
+    "description": "West Palm Beach kept the second convention center hotel in play on Aug. 17, but moved the final city vote to Aug. 31 and left the CityPlace/Convention Center district rewrite for another hearing.",
+    "ogImage": "/assets/editorial/cityplace-hotel-package-pushed-to-aug-31-2026-08-23-hero.jpg"
+  },
+  {
     "path": "/updates/west-palm-beach-locks-in-district-pointe-workforce-housing-mix-2026-08-23/",
     "title": "West Palm Beach locks in District Pointe's workforce housing mix | WPB Updates",
     "description": "West Palm Beach approved a restrictive covenant for District Pointe at 1501 Belvedere Road, locking in 71 affordable or workforce units inside a 280-unit rental project.",
