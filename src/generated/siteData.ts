@@ -5051,6 +5051,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/west-palm-beach-locks-in-district-pointe-workforce-housing-mix-2026-08-23/",
+    "title": "West Palm Beach locks in District Pointe's workforce housing mix | WPB Updates",
+    "description": "West Palm Beach approved a restrictive covenant for District Pointe at 1501 Belvedere Road, locking in 71 affordable or workforce units inside a 280-unit rental project.",
+    "ogImage": "/assets/editorial/west-palm-beach-locks-in-district-pointe-workforce-housing-mix-2026-08-23-hero.jpg"
+  },
+  {
     "path": "/updates/west-palm-beach-clears-tax-hurdle-second-convention-center-hotel-2026-08-10/",
     "title": "West Palm Beach clears a tax hurdle for the second convention center hotel | WPB Updates",
     "description": "West Palm Beach approved a first amendment to the convention center hotel agreement, removing the requirement that the garage land stay taxable and allowing parking to move elsewhere.",
