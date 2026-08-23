@@ -69,6 +69,100 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "alba-s-finish-changes-the-north-flagler-buyer-test",
+    "status": "published",
+    "category": "general",
+    "title": "Alba's finish changes the North Flagler buyer test",
+    "slug": "alba-s-finish-changes-the-north-flagler-buyer-test",
+    "excerpt": "The 55-unit tower is complete, 95% sold, and welcoming residents while West Palm Beach still shows 106 active new-construction listings citywide.",
+    "buyerThesis": "Alba's completion turns North Flagler into a certainty-versus-optionality decision: one finished waterfront building is nearly sold out while the broader new-construction shelf still has room to compare.",
+    "buyerTakeaway": "Treat Alba as a certainty trade, not a discount play. The useful comparison is not just price per foot; it is whether a finished waterfront building is more valuable to you than waiting for future inventory.",
+    "marketSignal": "The official project page says Alba is complete and 95% sold, the independent coverage says move-ins are underway, and a current West Palm Beach new-construction directory still shows 106 active listings with a 270-day average DOM and a $4.5985 million median list price.",
+    "bestFor": "End users and second-home buyers who want immediate occupancy, boutique scale, and North Flagler water access.",
+    "watchPoints": "Confirm the remaining lines, current entry pricing, monthly dues, parking and storage, insurance, and whether the last homes still match your view and timing requirements.",
+    "buyerQuestions": "Which lines remain available? What is the actual monthly carrying cost? Does the remaining inventory still include the view exposure I want? How does this finished option compare with waiting for Olara, Shorecrest, or The Berkeley?",
+    "relatedBuildings": [
+      "alba-palm-beach",
+      "olara-condos",
+      "shorecrest",
+      "the-berkeley-palm-beach",
+      "the-ritz-carlton-residences-west-palm-beach"
+    ],
+    "relatedNeighborhoods": [
+      "north-flagler"
+    ],
+    "relatedCorridor": "north-flagler",
+    "relatedArticleIds": [
+      "pre-construction-condo-due-diligence",
+      "olara-vs-shorecrest-waterfront-buyer-profiles"
+    ],
+    "image": {
+      "path": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+      "alt": "Wide aerial view of Alba Palm Beach on the North Flagler waterfront",
+      "caption": "Alba Palm Beach on North Flagler Drive, where the tower is now complete and welcoming residents.",
+      "credit": "Approved local project image",
+      "mode": "approved-local"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "ALBA Palm Beach",
+    "sourceLinks": [
+      {
+        "label": "ALBA Palm Beach completion announcement",
+        "href": "https://www.albapalmbeach.com/press/alba-palm-beach-completed-along-west-palm-beachs-billionaires-corridor-waterfront-at-95-sold",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Florida YIMBY: New Photos Showcase Completed Alba Palm Beach",
+        "href": "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html",
+        "sourceType": "local news coverage"
+      },
+      {
+        "label": "West Palm Beach New Construction Condos For Sale",
+        "href": "https://www.floridacondofinder.com/west-palm-beach/west-palm-beach-new-construction-condos-for-sale/",
+        "sourceType": "market report"
+      }
+    ],
+    "datePublished": "2026-08-23",
+    "dateModified": "2026-08-23",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "Alba Palm Beach is no longer just a sales story. The 22-story waterfront tower at 4714 N. Flagler Drive is complete, move-ins are underway, and the project is reporting that it is 95% sold. That shifts Alba from a future delivery question to a finished-product question.\n\nThe tower has 55 residences, more than 25,000 square feet of amenities, and a remaining entry point starting around $2.5 million. On North Flagler, that matters. Buyers are now looking at a real building, not a promise on paper.",
+        "image": "/assets/projects/alba-palm-beach/residences/alba-residences-living-room-v01.webp"
+      },
+      {
+        "heading": "What the numbers say",
+        "body": "The official Alba page says the building is complete and nearly sold out. Independent coverage says the same thing and adds that residents are already moving in. That is a strong signal in a corridor where many of the biggest names are still working through construction or future-supply timing.\n\nThe broader West Palm Beach new-construction shelf is still open. One current directory shows 106 active listings citywide, a 270-day average DOM, and a $4.5985 million median list price. The market is not starved for choice. What is scarcer is completed waterfront inventory that buyers can inspect and occupy now."
+      },
+      {
+        "heading": "Why this matters on North Flagler",
+        "body": "North Flagler is becoming a split-screen market. On one side are completed or nearly completed buildings. On the other are towers still in the pipeline, with pricing, delivery timing, and line selection that can still move. Alba gives buyers a different kind of decision: certainty now versus optionality later.\n\nThat difference is not cosmetic. A finished building lets a buyer judge the actual arrival experience, the feel of the lobby, the quality of the amenities, and the real water exposure instead of relying on renderings. If a buyer wants to live here immediately, Alba now competes on lived reality rather than projected vision."
+      },
+      {
+        "heading": "Who this fits",
+        "body": "This is the cleanest fit for end users and second-home buyers who want North Flagler water access, boutique scale, and no delivery risk. It is also useful for buyers who care more about certainty than bargain hunting. The completed building is a practical answer for someone who wants to use the residence now and does not need to speculate on a future turn.\n\nIt is less useful for buyers whose main goal is leverage. If the priority is to maximize negotiating room, customize around an unfinished packet, or wait for a later release, the unfinished market remains the place to look. Alba is for the buyer who wants a finished address, not a future one."
+      },
+      {
+        "heading": "What to ask next",
+        "body": "Before treating Alba as a simple headline sale, ask which lines are still available, what the monthly carrying cost looks like, and how parking, storage, and insurance work on the remaining homes. Then compare the remaining inventory line by line against the waterfront and downtown options still in play.\n\nThe right comparison set is not just Alba. It is Alba against Olara, Shorecrest, The Berkeley, and South Flagler House, depending on whether you want immediate occupancy, larger scale, or future pipeline. The useful question is not whether North Flagler is hot. It is whether a finished building now fits your life better than waiting for a tower that is still coming."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "Alba's finish changes the North Flagler buyer test",
+      "secondaryQueries": [],
+      "suggestedSlug": "alba-s-finish-changes-the-north-flagler-buyer-test",
+      "titleTag": "Alba's finish changes the North Flagler buyer test | Buyer Intelligence",
+      "metaDescription": "Alba Palm Beach is complete, 95% sold, and welcoming residents on North Flagler, giving buyers a live example of delivered waterfront inventory while West Palm Beach still shows a broad new-construction shelf."
+    }
+  },
+
+  {
     "id": "wpb-content-scout-safe-daily-publish-west-palm-move-2026-08-18",
     "status": "published",
     "category": "Downtown Spotlight",

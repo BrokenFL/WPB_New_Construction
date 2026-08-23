@@ -5279,6 +5279,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/market-notes/alba-s-finish-changes-the-north-flagler-buyer-test/",
+    "title": "Alba's finish changes the North Flagler buyer test | Buyer Intelligence",
+    "description": "Alba Palm Beach is complete, 95% sold, and welcoming residents on North Flagler, giving buyers a live example of delivered waterfront inventory while West Palm Beach still shows a broad new-construction shelf.",
+    "ogImage": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp"
+  },
+  {
     "path": "/market-notes/mr-c-shows-downtown-branded-condos-still-move/",
     "title": "Mr. C shows downtown branded condos still move | Buyer Intelligence",
     "description": "Mr. C Hotel & Residences is still climbing at 320 Lakeview Avenue, and the current sales pace says downtown branded residences can still clear when the product and location are tight.",
