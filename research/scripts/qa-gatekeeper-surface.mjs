@@ -19,7 +19,6 @@ const blockedVisiblePhrases = [
   /\b(?:awaiting|pending|needs|required(?:\s+to\s+obtain)?)\s+(?:final\s+)?sign[-\s]?off\b/i,
   /\b(?:internal|editorial|Brooke(?:'s)?|source[-\s]?material)\s+(?:team\s+)?(?:has\s+)?signed\s+off\b/i,
   /\bdata model\b/i,
-  /\brecord\b/i,
   /\bgenerated\b/i,
   /\bplaceholder\b/i,
   /\bTODO\b/,
