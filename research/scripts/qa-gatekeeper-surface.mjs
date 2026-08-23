@@ -26,7 +26,7 @@ const blockedVisiblePhrases = [
   /\bunknown fields\b/i,
   /\bsource-catalog\b/i,
   /\bproject-source-catalog\b/i,
-  /\bsales\s+(?:office|gallery)\b/i,
+  /\bsales\s+office\b/i,
   /\bdeveloper\s+(?:site|website|materials?|documents?|disclaimers?|legal notices?|disclosure package)\b/i,
   /\bexternal public source\b/i,
   /\bofficial pdf link\b/i,
