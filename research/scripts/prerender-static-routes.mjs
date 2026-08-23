@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { readTsArray } from "./article-market-note-utils.mjs";
 
 const workspace = process.cwd();
 const distRoot = path.join(workspace, "dist");
@@ -7,6 +8,7 @@ const templatePath = path.join(distRoot, "index.html");
 const siteDataPath = path.join(workspace, "src/generated/siteData.ts");
 const appSourcePath = path.join(workspace, "src/main.ts");
 const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
+const marketNotesPath = path.join(workspace, "src/data/marketNotes.ts");
 const canonicalProjectsPath = path.join(workspace, "research/source-material-review/wpb-projects-canonical-v3-planning-update.json");
 const rosewoodSourceIndexPath = path.join(workspace, "research/rosewood/source-index.json");
 const baseUrl = "https://www.wpbnewconstruction.com";
@@ -60,6 +62,7 @@ async function main() {
 
 async function loadStaticPayload(siteData) {
   const approvedNews = await readJson(approvedNewsPath, []);
+  const marketNotesSource = await fs.readFile(marketNotesPath, "utf8").catch(() => "");
   const canonicalProjects = await readJson(canonicalProjectsPath, { projects: [] });
   const rosewoodSourceIndex = await readJson(rosewoodSourceIndexPath, { sources: [] });
   const appSource = await fs.readFile(appSourcePath, "utf8").catch(() => "");
@@ -72,6 +75,7 @@ async function loadStaticPayload(siteData) {
     projectFacts: parseExport(siteData, "projectFacts"),
     prerenderRoutes: parseExport(siteData, "prerenderRoutes"),
     approvedNews: approvedNews.filter((item) => item.status === "published"),
+    marketNotes: readTsArray(marketNotesSource, "marketNotes").filter((item) => item?.status === "published"),
     canonicalProjects: Array.isArray(canonicalProjects.projects) ? canonicalProjects.projects : [],
     rosewoodSourceIndex: Array.isArray(rosewoodSourceIndex.sources) ? rosewoodSourceIndex.sources : [],
   };
@@ -192,8 +196,8 @@ function renderStaticRouteContent(route, payload) {
   if (routeKind.type === "corridor") return renderCorridorRoute(route, payload, routeKind.slug);
   if (routeKind.type === "answer") return renderBuyerIntentAnswerRoute(route, payload, routeKind.slug);
   if (routeKind.type === "update") return renderUpdateRoute(route, payload, routeKind.slug);
-  if (routeKind.type === "market-note") return renderMarketNoteRoute(route, routeKind.slug);
-  if (routeKind.type === "downtown-spotlight") return renderMarketNoteRoute(route, routeKind.slug);
+  if (routeKind.type === "market-note") return renderMarketNoteRoute(route, payload, routeKind.slug);
+  if (routeKind.type === "downtown-spotlight") return renderMarketNoteRoute(route, payload, routeKind.slug);
   if (route.path === "/") return renderHomeRoute(route, payload);
   if (route.path === "/buildings/") return renderBuildingsRoute(route, payload);
   if (route.path === "/corridors/") return renderCorridorsIndexRoute(route, payload);
@@ -697,17 +701,22 @@ function renderUpdatesIndex(route, payload) {
   );
 }
 
-function renderMarketNoteRoute(route, slug) {
+function renderMarketNoteRoute(route, payload, slug) {
+  const note = payload.marketNotes.find((item) => item.slug === slug);
+  const hero = note?.image;
+  const sections = Array.isArray(note?.sections) ? note.sections : [];
   return pageShell(
     `market-note-${slug}`,
     route.title.replace(/\s+\|\s+.*$/, ""),
     route.description,
     `
       <article>
+        ${hero?.path ? `<figure class="market-note-hero-image"><img src="${safeHref(hero.path)}" alt="${publicText(hero.alt || note?.title || route.title)}" loading="eager" decoding="async" />${hero.caption ? `<figcaption>${publicText(hero.caption)}</figcaption>` : ""}</figure>` : ""}
         <h2>Bottom line</h2>
-        <p>${publicText(route.description)} This guide is buyer education, not a substitute for current building-specific pricing, availability, fee, or contract verification.</p>
+        <p>${publicText(note?.excerpt || route.description)} This guide is buyer education, not a substitute for current building-specific pricing, availability, fee, or contract verification.</p>
         <h2>How to use this guidance</h2>
         <p>Use the guidance to frame questions before comparing West Palm Beach buildings. Then check project pages, current floor-plan packets, source-linked updates, and The Scott Gordon Group at Douglas Elliman for the details that can change.</p>
+        ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(stripImageTokens(section.body))}</p>${section.image ? `<figure class="market-note-inline-image"><img src="${safeHref(section.image)}" alt="${publicText(`${note?.title || route.title}: ${section.heading}`)}" loading="lazy" decoding="async" /></figure>` : ""}</section>`).join("")}
         <h2>Verification note</h2>
         <p>Before touring or relying on a public summary, verify current availability, incentives, carrying costs, square footage, delivery timing, and whether a building's public packet has changed.</p>
       </article>
