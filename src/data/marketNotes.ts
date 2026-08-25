@@ -69,6 +69,94 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "fuku-gives-cityplace-another-reason-to-linger-on-rosemary",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "Fuku gives CityPlace another reason to linger on Rosemary",
+    "slug": "fuku-gives-cityplace-another-reason-to-linger-on-rosemary",
+    "excerpt": "David Chang’s fried-chicken concept is now open at 407 South Rosemary Avenue, adding another fast-casual stop to CityPlace’s growing daily-use strip.",
+    "buyerThesis": "Most useful for downtown buyers comparing walkability, dining convenience, and how much the CityPlace/Rosemary corridor feels like part of everyday life.",
+    "buyerTakeaway": "Most useful for downtown buyers comparing walkability, dining convenience, and how much the CityPlace/Rosemary corridor feels like part of everyday life.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "CityPlace",
+      "Rosemary Avenue"
+    ],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "therealreal-cityplace-move-deepens-downtown-luxury-retail-lane"
+    ],
+    "image": {
+      "path": "/assets/editorial/fuku-gives-cityplace-another-reason-to-linger-on-rosemary-hero.jpg",
+      "alt": "Editorial illustration of a palm-lined downtown dining corridor at dusk with an open restaurant and pedestrians.",
+      "caption": "Fuku adds another low-friction dining stop to CityPlace’s Rosemary Avenue corridor.",
+      "credit": "AI-generated editorial illustration",
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "CityPlace",
+    "sourceLinks": [
+      {
+        "label": "CityPlace Fuku event page",
+        "href": "https://www.cityplace.com/west-palm-beach-events/fukus-grand-opening-event",
+        "sourceType": "local news coverage"
+      },
+      {
+        "label": "CityPlace Fuku restaurant page",
+        "href": "https://www.cityplace.com/west-palm-beach-restaurants/fuku",
+        "sourceType": "local news coverage"
+      },
+      {
+        "label": "Palm Beach Illustrated: Fuku Opens in West Palm Beach",
+        "href": "https://www.palmbeachillustrated.com/fuku-opens-in-west-palm-beach/",
+        "sourceType": "local news coverage"
+      }
+    ],
+    "datePublished": "2026-08-25",
+    "dateModified": "2026-08-25",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "CityPlace now lists Fuku as open, and the district has already marked a grand opening ribbon cutting for Aug. 20. That turns the Rosemary Avenue address into more than a coming-soon label. It is a live stop in a corridor that keeps adding reasons to walk, not just shop.\n\nFuku grew out of David Chang’s Momofuku Noodle Bar, and the CityPlace version leans into the brand’s quick-service lane: the O.G. Sando, fries, slushies, and a menu built for lunch, late dinner, and easy takeout. Palm Beach Illustrated reported the restaurant recently opened at 407 South Rosemary Avenue, which lines up with CityPlace’s own opening and event pages.",
+        "image": "/assets/editorial/fuku-gives-cityplace-another-reason-to-linger-on-rosemary-body-1.jpg"
+      },
+      {
+        "heading": "What Fuku adds to the mix",
+        "body": "This is not a formal dining room, and that is the point. Fuku gives CityPlace another practical stop people can use without planning a whole evening around it. Fast-casual places do a different job from white-tablecloth rooms. They fill the gaps between appointments, errands, and the days when dinner needs to be simple.\n\nThat kind of use matters in downtown West Palm Beach because the district is no longer measured only by marquee openings. It is also judged by how well it supports ordinary movement: a quick meal, a pickup order, a casual bite before an event, or a place that can absorb repeat traffic without losing its shape."
+      },
+      {
+        "heading": "Why Rosemary matters",
+        "body": "Rosemary Avenue keeps looking less like a mall edge and more like an actual downtown street. That shift is subtle, but it is the difference between a place you visit and a place you use. The more the corridor can support everyday dining, the easier it is for CityPlace to function as part of West Palm Beach’s daily rhythm rather than just its weekend plan.\n\nFuku fits that evolution because it is built around repetition. A district becomes more livable when people can return to the same block for lunch, dinner, or a low-friction pickup stop and not feel like they are making a special trip. That is the kind of utility that changes how a place feels on a Tuesday."
+      },
+      {
+        "heading": "How the day changes",
+        "body": "CityPlace’s Fuku page lists lunch-through-late-night hours, with later service on Fridays and Saturdays. That matters because the real downtown test is not whether an opening gets attention. It is whether the business becomes part of the routine.\n\nA district feels more complete when residents and visitors can string together a meal, a coffee, an errand, and a late walk without leaving the same corridor. Fuku adds another link in that chain. It is a street-level convenience story more than a skyline story, and West Palm Beach needs more of those."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "Opening week will tell you whether Fuku becomes part of the CityPlace circuit or just another item on the event calendar. If it sticks, Rosemary Avenue keeps gaining the kind of low-friction uses that make a district feel lived in. If traffic is thin after the ribbon cutting, CityPlace still moves in the right direction, but it will need more everyday-use tenants to make the pattern hold.\n\nThat is the useful downtown signal. West Palm Beach is not only adding bigger projects. It is learning how to fill the seams between them. Fuku is one more seam-filler, and downtown feels stronger for it."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "Fuku gives CityPlace another reason to linger on Rosemary",
+      "secondaryQueries": [],
+      "suggestedSlug": "fuku-gives-cityplace-another-reason-to-linger-on-rosemary",
+      "titleTag": "Fuku gives CityPlace another reason to linger on Rosemary | Downtown Spotlight",
+      "metaDescription": "Fuku’s arrival adds a quick, repeatable dining option to CityPlace and pushes Rosemary Avenue a little farther from mall frontage and a little closer to an actual downtown street."
+    }
+  },
+
+  {
     "id": "nora-house-turns-the-district-into-a-buyer-decision",
     "status": "published",
     "category": "general",

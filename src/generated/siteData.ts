@@ -5201,6 +5201,12 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
   },
   {
+    "path": "/downtown-spotlight/fuku-gives-cityplace-another-reason-to-linger-on-rosemary/",
+    "title": "Fuku gives CityPlace another reason to linger on Rosemary | Downtown Spotlight",
+    "description": "Fuku’s arrival adds a quick, repeatable dining option to CityPlace and pushes Rosemary Avenue a little farther from mall frontage and a little closer to an actual downtown street.",
+    "ogImage": "/assets/editorial/fuku-gives-cityplace-another-reason-to-linger-on-rosemary-hero.jpg"
+  },
+  {
     "path": "/downtown-spotlight/west-palm-move-downtown-mobility/",
     "title": "West Palm Move is about to change downtown's daily rhythm | Downtown Spotlight",
     "description": "West Palm Move is the city's new mobility layer for downtown West Palm Beach, pairing a 10-minute fixed route with on-demand rides and a wider service zone.",
