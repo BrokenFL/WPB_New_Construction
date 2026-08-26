@@ -1,35 +1,20 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { sharedBlockedPhraseRules } from "./public-copy-safety.mjs";
 
 const workspace = process.cwd();
 const distRoot = path.join(workspace, "dist");
 
 const textFilePattern = /\.(?:html|xml|json|txt|js)$/i;
 const blockedVisiblePhrases = [
-  /\bbackend\b/i,
-  /\bfront-end only\b/i,
+  ...sharedBlockedPhraseRules.map((rule) => rule.gatekeeperPattern || rule.pattern),
   /\bfuture CRM\b/i,
-  /\breview queue\b/i,
-  /\bneeds review\b/i,
-  /\bneeds-sourcing\b/i,
-  /\binternal\b/i,
-  /\bsource-material\b/i,
   /\bapproved by\b/i,
   /\bauthorized by\b/i,
-  /\b(?:awaiting|pending|needs|required(?:\s+to\s+obtain)?)\s+(?:final\s+)?sign[-\s]?off\b/i,
   /\b(?:internal|editorial|Brooke(?:'s)?|source[-\s]?material)\s+(?:team\s+)?(?:has\s+)?signed\s+off\b/i,
-  /\bdata model\b/i,
   /\bgenerated\b/i,
-  /\bplaceholder\b/i,
-  /\bTODO\b/,
-  /\bFIXME\b/,
-  /\bunknown fields\b/i,
   /\bsource-catalog\b/i,
   /\bproject-source-catalog\b/i,
-  /\bsales\s+office\b/i,
-  /\bdeveloper\s+(?:site|website|materials?|documents?|disclaimers?|legal notices?|disclosure package)\b/i,
-  /\bexternal public source\b/i,
-  /\bofficial pdf link\b/i,
 ];
 const blockedHrefHosts = [
   /(?:^|\.)albapalmbeach\.com$/i,

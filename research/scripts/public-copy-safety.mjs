@@ -1,18 +1,36 @@
+// These phrases are unsafe both in an article package and in rendered public output.
+// The gatekeeper imports this list so the two checks cannot drift on shared policy.
+export const sharedBlockedPhraseRules = [
+  { label: "backend", pattern: /\bbackend\b/i, example: "backend" },
+  { label: "front-end only", pattern: /\bfront-end only\b/i, example: "front-end only" },
+  { label: "review queue", pattern: /\breview queue\b/i, example: "review queue" },
+  { label: "needs_review", pattern: /\bneeds[_\s-]+review\b/i, gatekeeperPattern: /\bneeds review\b/i, example: "needs review" },
+  { label: "needs-sourcing", pattern: /\bneeds-sourcing\b/i, example: "needs-sourcing" },
+  { label: "internal", pattern: /\binternal\b/i, example: "internal" },
+  { label: "source-material", pattern: /\bsource-material\b/i, example: "source-material" },
+  { label: "pending sign-off", pattern: /\b(?:awaiting|pending|needs|required(?:\s+to\s+obtain)?)\s+(?:final\s+)?sign[-\s]?off\b/i, example: "awaiting final sign-off" },
+  { label: "data model", pattern: /\bdata model\b/i, example: "data model" },
+  { label: "placeholder", pattern: /\bplaceholder\b/i, example: "placeholder" },
+  { label: "TODO", pattern: /\bTODO\b/, example: "TODO" },
+  { label: "FIXME", pattern: /\bFIXME\b/, example: "FIXME" },
+  { label: "unknown fields", pattern: /\bunknown fields\b/i, example: "unknown fields" },
+  { label: "sales office", pattern: /\bsales\s+office\b/i, example: "sales office" },
+  { label: "developer source wording", pattern: /\bdeveloper\s+(?:site|website|materials?|documents?|disclaimers?|legal notices?|disclosure package)\b/i, example: "developer website" },
+  { label: "external public source", pattern: /\bexternal public source\b/i, example: "external public source" },
+  { label: "official PDF link", pattern: /\bofficial pdf link\b/i, example: "official PDF link" },
+];
+
 const blockedRules = [
-  { label: "needs_review", pattern: /needs[_\s-]+review/i },
+  ...sharedBlockedPhraseRules,
   { label: "pending approval", pattern: /pending\s+approval/i },
   { label: "approved by Brooke", pattern: /approved\s+by\s+Brooke/i },
   { label: "authorization pending", pattern: /authorization\s+pending/i },
   { label: "internal approval", pattern: /internal\s+approval/i },
   { label: "internal review", pattern: /internal\s+review/i },
-  { label: "source-material review", pattern: /source-material\s+review/i },
   { label: "future backend", pattern: /future\s+backend/i },
-  { label: "front-end only", pattern: /front-end\s+only/i },
-  { label: "pending sign-off", pattern: /\b(?:awaiting|pending|needs|required(?:\s+to\s+obtain)?)\s+(?:final\s+)?sign[-\s]?off\b/i },
   { label: "internal sign-off", pattern: /\b(?:internal|editorial|Brooke(?:'s)?|source[-\s]?material)\s+(?:team\s+)?(?:has\s+)?signed\s+off\b/i },
   { label: "placeholder email", pattern: /info@example\.com/i },
   { label: "example domain", pattern: /example\.com/i },
-  { label: "placeholder", pattern: /\bplaceholder\b/i },
 ];
 
 const ignoredFieldKeys = new Set(["dataUrl", "path", "url", "href", "sourceUrl", "canonicalUrl"]);
@@ -25,6 +43,10 @@ export function scanPublicFields(value, field = "article") {
   const findings = [];
   walk(value, field, findings);
   return findings;
+}
+
+export function scanArticlePackagePublicCopy(articlePackage) {
+  return scanPublicFields(articlePackage, "article package");
 }
 
 function walk(value, field, findings) {

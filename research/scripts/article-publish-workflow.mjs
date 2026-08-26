@@ -12,7 +12,7 @@ import {
   validateUniqueNewsCandidate,
 } from "./article-publish-safety.mjs";
 import { validateArticleImages } from "./article-content-policy.mjs";
-import { scanPublicFields } from "./public-copy-safety.mjs";
+import { scanArticlePackagePublicCopy } from "./public-copy-safety.mjs";
 
 const workspace = process.cwd();
 const inputPath = argValue("--input");
@@ -255,7 +255,7 @@ async function preMutationValidation({ destination, sourceFile, articleId, route
       credit: image.credit,
     })),
   };
-  errors.push(...scanPublicFields(publicCopy).map((finding) => `Public copy safety failed before mutation: ${finding.field} contains blocked phrase "${finding.match}" (${finding.label}).`));
+  errors.push(...scanArticlePackagePublicCopy(publicCopy).map((finding) => `Public copy safety failed before mutation: ${finding.field} contains blocked phrase "${finding.match}" (${finding.label}).`));
   return errors;
 }
 
