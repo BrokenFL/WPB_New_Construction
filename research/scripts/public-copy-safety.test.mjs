@@ -12,9 +12,9 @@ test("internal sign-off language is blocked before publish", () => {
   assert.equal(findings[0].field, "article.deck");
 });
 
-test("public output scanning still blocks internal markers and placeholders", () => {
+test("broad artifact scanning keeps legacy technical files out of the article-package policy", () => {
   const findings = scanPublicOutput("Needs review before launch. Contact info@example.com. This is a placeholder.");
-  assert.deepEqual(findings.map((finding) => finding.label).sort(), ["needs_review", "placeholder", "placeholder email", "example domain"].sort());
+  assert.deepEqual(findings.map((finding) => finding.label).sort(), ["needs_review", "placeholder email", "example domain"].sort());
 });
 
 test("generic placeholder copy is blocked before article mutation", () => {

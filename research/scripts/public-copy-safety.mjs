@@ -1,4 +1,4 @@
-// These phrases are unsafe both in an article package and in rendered public output.
+// These phrases are unsafe in article packages and rendered reader-facing output.
 // The gatekeeper imports this list so the two checks cannot drift on shared policy.
 export const sharedBlockedPhraseRules = [
   { label: "backend", pattern: /\bbackend\b/i, example: "backend" },
@@ -20,7 +20,7 @@ export const sharedBlockedPhraseRules = [
   { label: "official PDF link", pattern: /\bofficial pdf link\b/i, example: "official PDF link" },
 ];
 
-const blockedRules = [
+const articlePackageBlockedRules = [
   ...sharedBlockedPhraseRules,
   { label: "pending approval", pattern: /pending\s+approval/i },
   { label: "approved by Brooke", pattern: /approved\s+by\s+Brooke/i },
@@ -33,10 +33,28 @@ const blockedRules = [
   { label: "example domain", pattern: /example\.com/i },
 ];
 
+// Broad artifact scans also cover legacy floorplan files and technical static pages.
+// Keep this narrower than article copy validation; the gatekeeper owns final visible-page checks.
+const publicArtifactBlockedRules = [
+  { label: "needs_review", pattern: /needs[_\s-]+review/i },
+  { label: "pending approval", pattern: /pending\s+approval/i },
+  { label: "approved by Brooke", pattern: /approved\s+by\s+Brooke/i },
+  { label: "authorization pending", pattern: /authorization\s+pending/i },
+  { label: "internal approval", pattern: /internal\s+approval/i },
+  { label: "internal review", pattern: /internal\s+review/i },
+  { label: "source-material review", pattern: /source-material\s+review/i },
+  { label: "future backend", pattern: /future\s+backend/i },
+  { label: "front-end only", pattern: /front-end\s+only/i },
+  { label: "pending sign-off", pattern: /\b(?:awaiting|pending|needs|required(?:\s+to\s+obtain)?)\s+(?:final\s+)?sign[-\s]?off\b/i },
+  { label: "internal sign-off", pattern: /\b(?:internal|editorial|Brooke(?:'s)?|source[-\s]?material)\s+(?:team\s+)?(?:has\s+)?signed\s+off\b/i },
+  { label: "placeholder email", pattern: /info@example\.com/i },
+  { label: "example domain", pattern: /example\.com/i },
+];
+
 const ignoredFieldKeys = new Set(["dataUrl", "path", "url", "href", "sourceUrl", "canonicalUrl"]);
 
 export function scanPublicOutput(content) {
-  return scanText(String(content ?? ""), "public output");
+  return scanText(String(content ?? ""), "public output", publicArtifactBlockedRules);
 }
 
 export function scanPublicFields(value, field = "article") {
@@ -65,8 +83,8 @@ function walk(value, field, findings) {
   }
 }
 
-function scanText(value, field) {
-  return blockedRules.flatMap((rule) => {
+function scanText(value, field, rules = articlePackageBlockedRules) {
+  return rules.flatMap((rule) => {
     const match = value.match(rule.pattern);
     return match ? [{ field, label: rule.label, match: match[0] }] : [];
   });
