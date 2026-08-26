@@ -69,6 +69,100 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "wpb-content-scout-safe-daily-publish-south-flagler-house-selection-mode",
+    "status": "published",
+    "category": "general",
+    "title": "South Flagler House keeps West Palm Beach luxury buyers line-shopping",
+    "slug": "south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping",
+    "excerpt": "The official sales packet spans $7.98 million to $70 million, while the latest downtown report still shows only a small active pool at the top end. Buyers are choosing lines, exposures, and timing, not waiting for a broad reset.",
+    "buyerThesis": "Useful for buyers comparing South Flagler House against other Flagler waterfront towers and deciding whether the top end is a selective buy or a wait-for-better-pricing play.",
+    "buyerTakeaway": "South Flagler House is a line-by-line buy. If the view, loggia, fee stack, or delivery path do not fit, wait rather than buy the label.",
+    "marketSignal": "The official packet spans $7.98 million to $70 million, and the July downtown report shows 7 active South Flagler House listings with 6 under contract.",
+    "bestFor": "Buyers who want a south-end waterfront address, can compare stacks carefully, and care more about the exact line than the building name.",
+    "watchPoints": "Verify the exact floor band, view corridor, loggia depth, monthly dues, parking, storage, and whether the current ask reflects a price move or a fee or incentive adjustment.",
+    "buyerQuestions": "Which line is really for full-time use? How do dues and parking vary by tier? If I wait, is there enough inventory to expect better leverage or just fewer choices?",
+    "relatedBuildings": [
+      "South Flagler House",
+      "Olara",
+      "Shorecrest",
+      "The Ritz-Carlton Residences West Palm Beach"
+    ],
+    "relatedNeighborhoods": [
+      "South End",
+      "Downtown West Palm Beach"
+    ],
+    "relatedCorridor": "south-flagler",
+    "relatedArticleIds": [
+      "ritz-carlton-penthouse-resets-north-flagler-ceiling",
+      "olara-special-pricing-keeps-north-flagler-in-play"
+    ],
+    "image": {
+      "path": "/assets/editorial/south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping-hero.jpg",
+      "alt": "A calm waterfront skyline of luxury condo towers at blue hour in West Palm Beach.",
+      "caption": "An editorial skyline illustration for West Palm Beach's top-end condo market.",
+      "credit": "AI-generated editorial illustration",
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "South Flagler House",
+    "sourceLinks": [
+      {
+        "label": "South Flagler House residences page",
+        "href": "https://www.southflaglerhouse.com/residences",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Downtown West Palm Beach Condo Market Report — July 2026",
+        "href": "https://www.condowpb.com/guides/wpb-condo-market-report-2026",
+        "sourceType": "market report"
+      },
+      {
+        "label": "Redfin: West Palm Beach, FL Housing Market",
+        "href": "https://www.redfin.com/city/19373/FL/West-Palm-Beach/housing-market",
+        "sourceType": "market report"
+      }
+    ],
+    "datePublished": "2026-08-26",
+    "dateModified": "2026-08-26",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "South Flagler House is no longer an abstract luxury proposition. The official residences page now lays out 105 homes across multiple price bands, from guest suites in the mid-$16 millions to penthouses priced as high as $70 million. That spread matters because it tells buyers the project is not one product. It is a ladder of very different choices on the same waterfront site.\n\nThe site also breaks out the building in a way that makes the decision more concrete. The 10th through 18th floors sit in one band, the higher residences in another, and the penthouses in a category of their own. That is not marketing fluff. It is a reminder that a buyer is choosing a specific line, floor, and view experience, not just a name on the façade."
+      },
+      {
+        "heading": "What the inventory says",
+        "body": "CondoWPB's July market report shows 7 active South Flagler House listings and 6 under contract as of July 27, with a median ask of $22.875 million. There are no MLS closings yet because the building is still being sold through the developer. In other words, the market is active, but not broad. Buyers are still choosing specific lines and specific price points, not wandering through a pile of interchangeable units.\n\nThe same report shows downtown resale inventory at 165 listings with 44 more under contract, or roughly 6.25 months of supply. That is enough room for comparison, but not enough for a buyer to assume every luxury project will soften into a bargain. The top end can move without becoming easy."
+      },
+      {
+        "heading": "Why this matters on South Flagler",
+        "body": "South Flagler House is the kind of tower that can make a buyer look at the West Palm Beach luxury map differently. The official site pairs the pricing ladder with 50,000 square feet of amenities, a lakefront pool, concierge service, and a waterfront location aimed squarely at the South Flagler corridor. That is a lifestyle pitch, but it is also a market signal: the building is selling a very specific version of ownership.\n\nRedfin's citywide read backs up the bigger point. West Palm Beach is still a market where homes are taking about 88.5 days to sell on average, and prices are still up year over year. The backdrop is not frozen. It is active enough that buyers still have to work for the right deal, but not so tight that every luxury project will move on brand alone.",
+        "image": "/assets/editorial/south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping-body-1.jpg"
+      },
+      {
+        "heading": "What to compare before you write a check",
+        "body": "At this level, you compare floor, exposure, loggia depth, guest-suite layout, parking, storage, and monthly dues before you compare the headline price. The official site breaks the building into discrete products for a reason: the 10th through 18th floors are priced very differently from the penthouses, and the lower guest-suite band lives in a different universe again.\n\nThat makes South Flagler House useful for a specific kind of buyer. It rewards someone who knows the use case: full-time residence, winter place, or trophy hold. It is less useful for anyone expecting a broad discount across the whole tower. If you want leverage, you need to know exactly which line is negotiable and why."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "Watch whether the active pool narrows further, whether a few more units move under contract, and how the price ladder behaves as more of the building becomes visible to buyers. If the building keeps selling line by line, South Flagler House will stay a selective market. If the active pool widens, buyers may get more room to press on terms.\n\nEither way, the tower is telling West Palm Beach luxury buyers the same thing: the premium is still there, but it has become much more specific. The right question is no longer whether South Flagler House is expensive. It is whether the line you want is worth what it costs."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "South Flagler House keeps West Palm Beach luxury buyers line-shopping",
+      "secondaryQueries": [],
+      "suggestedSlug": "south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping",
+      "titleTag": "South Flagler House keeps West Palm Beach luxury buyers line-shopping | Buyer Intelligence",
+      "metaDescription": "South Flagler House's official pricing ladder and the latest downtown condo report show a luxury market that still rewards line-by-line comparison."
+    }
+  },
+
+  {
     "id": "fuku-gives-cityplace-another-reason-to-linger-on-rosemary",
     "status": "published",
     "category": "Downtown Spotlight",

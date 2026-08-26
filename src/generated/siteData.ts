@@ -5303,6 +5303,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/market-notes/south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping/",
+    "title": "South Flagler House keeps West Palm Beach luxury buyers line-shopping | Buyer Intelligence",
+    "description": "South Flagler House's official pricing ladder and the latest downtown condo report show a luxury market that still rewards line-by-line comparison.",
+    "ogImage": "/assets/editorial/south-flagler-house-keeps-west-palm-beach-luxury-buyers-line-shopping-hero.jpg"
+  },
+  {
     "path": "/market-notes/nora-house-turns-the-district-into-a-buyer-decision/",
     "title": "NORA House turns the district into a buyer decision | Buyer Intelligence",
     "description": "NORA House gives West Palm Beach buyers a real district-to-district choice: live inside an open, walkable neighborhood now, or keep waiting for a waterfront tower later.",
