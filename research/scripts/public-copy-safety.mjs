@@ -12,6 +12,7 @@ const blockedRules = [
   { label: "internal sign-off", pattern: /\b(?:internal|editorial|Brooke(?:'s)?|source[-\s]?material)\s+(?:team\s+)?(?:has\s+)?signed\s+off\b/i },
   { label: "placeholder email", pattern: /info@example\.com/i },
   { label: "example domain", pattern: /example\.com/i },
+  { label: "placeholder", pattern: /\bplaceholder\b/i },
 ];
 
 const ignoredFieldKeys = new Set(["dataUrl", "path", "url", "href", "sourceUrl", "canonicalUrl"]);
