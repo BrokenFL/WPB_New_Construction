@@ -69,6 +69,94 @@ export type MarketNote = {
 
 export const marketNotes = [
   {
+    "id": "rivian-cityplace-downtown-street-2026-08-28",
+    "status": "published",
+    "category": "Downtown Spotlight",
+    "title": "Rivian gives CityPlace another reason to feel like a downtown street",
+    "slug": "rivian-cityplace-downtown-street-2026-08-28",
+    "excerpt": "The electric-vehicle showroom is open at 729 S. Rosemary Ave., adding a car brand to CityPlace’s walkable retail strip and widening the district’s daytime use.",
+    "buyerThesis": "The electric-vehicle showroom is open at 729 S. Rosemary Ave., adding a car brand to CityPlace’s walkable retail strip and widening the district’s daytime use.",
+    "buyerTakeaway": "Rivian adds a brand that depends on repeat visits, test drives, and browsing rather than a single meal or event. That widens CityPlace's daytime mix and reinforces Rosemary Avenue as a place people use during the week, not only after dinner.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "CityPlace",
+      "Rosemary Avenue"
+    ],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "therealreal-cityplace-move-deepens-downtown-luxury-retail-lane"
+    ],
+    "image": {
+      "path": "/assets/editorial/rivian-cityplace-downtown-street-2026-08-28-hero.jpg",
+      "alt": "Editorial illustration of an electric vehicle showroom along a palm-lined downtown retail corridor at dusk.",
+      "caption": "Rivian adds another weekday-use tenant to CityPlace’s Rosemary Avenue corridor.",
+      "credit": "AI-generated editorial illustration",
+      "mode": "generated-editorial"
+    },
+    "primaryProjectId": "",
+    "projectIds": [],
+    "sourceName": "CityPlace",
+    "sourceLinks": [
+      {
+        "label": "CityPlace Rivian directory page",
+        "href": "https://www.cityplace.com/west-palm-beach-shopping/rivian",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Rivian West Palm Beach space page",
+        "href": "https://rivian.com/spaces/west-palm-beach",
+        "sourceType": "official project site"
+      },
+      {
+        "label": "Kourtney Pulitzer: CityPlace Isn't a Mall Anymore",
+        "href": "https://kourtneypulitzerproperties.com/blog/cityplace-quietly-stopped-being-a-mall-and-downtown-west-palm-beach-noticed",
+        "sourceType": "local news coverage"
+      }
+    ],
+    "datePublished": "2026-08-28",
+    "dateModified": "2026-08-28",
+    "sections": [
+      {
+        "heading": "What changed",
+        "body": "Rivian is now listed at CityPlace, and the brand's West Palm Beach space is open at 729 S. Rosemary Ave. CityPlace's directory gives the showroom standard weekly hours, and Rivian's own location page says visitors can climb in, inspect materials, and book a drive without making an appointment. That is a different kind of retail use for the block. It is still shopping, but it is also browsing, test driving, and lingering.\n\nCityPlace also marked the opening on its events calendar, framing the arrival as part of the district's summer retail reset rather than a one-off lease footnote.",
+        "image": "/assets/editorial/rivian-cityplace-downtown-street-2026-08-28-body-1.jpg"
+      },
+      {
+        "heading": "Why this is a downtown story",
+        "body": "A car brand inside a pedestrian district sounds odd until you look at what it signals. Rivian is not coming to Rosemary Avenue like a traditional dealership. It is coming as a showroom, with a brand experience built around seeing the product in person and spending time in the space. That makes the store feel closer to an urban gallery than a car lot.\n\nThat matters in downtown West Palm Beach because CityPlace has spent the last few years turning itself into a place that can absorb more than dinner and entertainment. A showroom adds a daytime reason to walk the corridor, cross it again later, and treat the area as somewhere to return to during the week."
+      },
+      {
+        "heading": "What the corridor is becoming",
+        "body": "Rosemary Avenue keeps losing its old mall-edge personality. It is still retail, but the tenant mix is now built around repeat use and small decisions: coffee, lunch, a consignment stop, a test drive, a shopping run, a quick dinner. CityPlace's own pages make that case plainly, and a local August write-up on the district's tenant mix put Rivian alongside other newer additions that assume foot traffic already exists.\n\nThat is the useful shift. The district no longer has to rely on one big anchor or one big event to feel active. It can stack smaller uses that keep people moving through the same few blocks all day."
+      },
+      {
+        "heading": "What this does and does not change",
+        "body": "Rivian does not change the skyline, the parking geometry, or the core urban rules of the block. It does something subtler. It changes the reason people go there. Instead of only stopping for a restaurant reservation or a shopping errand, they now have a reason to browse a showroom, compare materials, and make a return visit later.\n\nThat kind of use is easy to overlook because it is quieter than a new tower or a big restaurant launch. But downtown districts are often built or broken by that quieter layer. The places that feel lived in are the ones that can support errands, curiosity, and repeat visits without making every trip feel like an occasion."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "The main question is whether Rivian becomes routine. If the showroom settles into the regular CityPlace circuit, it will reinforce the district's move toward a more layered daytime economy. If it stays a novelty, the opening still tells you something important: CityPlace is willing to keep using its street-level space for brands that rely on visibility, browsing, and walk-in traffic rather than traditional mall logic.\n\nEither way, the message is the same. Downtown West Palm Beach is still adding uses that make the block feel more useful between meals, not just after them."
+      }
+    ],
+    "ctaText": "The Scott Gordon Group at Douglas Elliman can help buyers apply this note to current West Palm Beach new-construction options.",
+    "factCheckRequired": [
+      "Verify current pricing, availability, incentives, fees, square footage, and delivery timing before advising a buyer.",
+      "Confirm source links and dates before relying on this note in a buyer recommendation."
+    ],
+    "seo": {
+      "primaryQuery": "Rivian gives CityPlace another reason to feel like a downtown street",
+      "secondaryQueries": [],
+      "suggestedSlug": "rivian-cityplace-downtown-street-2026-08-28",
+      "titleTag": "Rivian gives CityPlace another reason to feel like a downtown street | Downtown Spotlight",
+      "metaDescription": "Rivian's CityPlace showroom is now open on Rosemary Avenue, adding a new kind of retail stop to downtown West Palm Beach."
+    }
+  },
+
+  {
     "id": "wpb-content-scout-safe-daily-publish-south-flagler-house-selection-mode",
     "status": "published",
     "category": "general",

@@ -5201,6 +5201,12 @@ export const prerenderRoutes = [
     "ogImage": "/assets/editorial/nora-district-aerial-evening-hero.jpg"
   },
   {
+    "path": "/downtown-spotlight/rivian-cityplace-downtown-street-2026-08-28/",
+    "title": "Rivian gives CityPlace another reason to feel like a downtown street | Downtown Spotlight",
+    "description": "Rivian's CityPlace showroom is now open on Rosemary Avenue, adding a new kind of retail stop to downtown West Palm Beach.",
+    "ogImage": "/assets/editorial/rivian-cityplace-downtown-street-2026-08-28-hero.jpg"
+  },
+  {
     "path": "/downtown-spotlight/fuku-gives-cityplace-another-reason-to-linger-on-rosemary/",
     "title": "Fuku gives CityPlace another reason to linger on Rosemary | Downtown Spotlight",
     "description": "Fuku’s arrival adds a quick, repeatable dining option to CityPlace and pushes Rosemary Avenue a little farther from mall frontage and a little closer to an actual downtown street.",
