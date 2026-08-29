@@ -5051,6 +5051,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/related-ross-files-25-story-464-fern-plan-2026-08-20/",
+    "title": "Related Ross files a 25-story plan for 464 Fern | WPB Updates",
+    "description": "Related Ross has filed a 25-story residential plan for 464 Fern Street, shifting one of downtown West Palm Beach's last large blocks back into review.",
+    "ogImage": "/assets/editorial/related-ross-files-25-story-464-fern-plan-2026-08-20-hero.jpg"
+  },
+  {
     "path": "/updates/banyan-tree-400-hibiscus-approval-2026-08-23/",
     "title": "Banyan Tree gets unanimous downtown approval at 400 Hibiscus | WPB Updates",
     "description": "West Palm Beach’s Downtown Action Committee unanimously approved Banyan Tree Residences at 400 Hibiscus Street, adding another branded condo project to downtown’s active pipeline.",
