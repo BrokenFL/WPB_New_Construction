@@ -6038,7 +6038,10 @@ function renderFeaturedProject(project: FeaturedProject) {
     : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${displayName}</strong></div>`;
   const cardStatus = project.status;
   const salesOffice = salesOfficeLabel(project);
-  const completionYear = Number.isFinite(project.deliveryYear) && project.deliveryYear > 2000 ? String(project.deliveryYear) : "TBD";
+  const completionYear =
+    Number.isFinite(project.deliveryYear) && project.deliveryYear >= 1900 && project.deliveryYear <= 2200
+      ? String(project.deliveryYear)
+      : "TBD";
   const cardCopy = project.summary;
 
   return `
