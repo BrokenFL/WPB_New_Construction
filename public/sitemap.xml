@@ -96,6 +96,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.wpbnewconstruction.com/corridors/palm-beach/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.wpbnewconstruction.com/updates/</loc>
     <lastmod>2026-06-03</lastmod>
     <priority>0.8</priority>
@@ -371,16 +376,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wpbnewconstruction.com/projects/alba-reserve/</loc>
-    <lastmod>2026-06-03</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.wpbnewconstruction.com/projects/mandarin-oriental/</loc>
-    <lastmod>2026-06-03</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.wpbnewconstruction.com/projects/olara/</loc>
     <lastmod>2026-06-03</lastmod>
     <priority>0.8</priority>
@@ -396,16 +391,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wpbnewconstruction.com/projects/banyan-tree/</loc>
-    <lastmod>2026-06-03</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.wpbnewconstruction.com/projects/mr-c/</loc>
-    <lastmod>2026-06-03</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.wpbnewconstruction.com/projects/berkeley/</loc>
     <lastmod>2026-06-03</lastmod>
     <priority>0.8</priority>
@@ -416,12 +401,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wpbnewconstruction.com/projects/forte-on-flagler/</loc>
+    <loc>https://www.wpbnewconstruction.com/projects/south-flagler-house/</loc>
     <lastmod>2026-06-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wpbnewconstruction.com/projects/la-clara/</loc>
+    <loc>https://www.wpbnewconstruction.com/projects/mr-c/</loc>
     <lastmod>2026-06-03</lastmod>
     <priority>0.8</priority>
   </url>
@@ -431,12 +416,32 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wpbnewconstruction.com/projects/south-flagler-house/</loc>
+    <loc>https://www.wpbnewconstruction.com/projects/edgeworth/</loc>
     <lastmod>2026-06-03</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wpbnewconstruction.com/projects/edgeworth/</loc>
+    <loc>https://www.wpbnewconstruction.com/projects/mandarin-oriental/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wpbnewconstruction.com/projects/banyan-tree/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wpbnewconstruction.com/projects/alba-reserve/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wpbnewconstruction.com/projects/forte-on-flagler/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wpbnewconstruction.com/projects/la-clara/</loc>
     <lastmod>2026-06-03</lastmod>
     <priority>0.8</priority>
   </url>
@@ -452,6 +457,16 @@
   </url>
   <url>
     <loc>https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wpbnewconstruction.com/projects/olin-palm-beach/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wpbnewconstruction.com/projects/3031-s-ocean-palm-beach/</loc>
     <lastmod>2026-06-03</lastmod>
     <priority>0.8</priority>
   </url>

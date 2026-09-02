@@ -10,9 +10,10 @@ const workspace = process.cwd();
 const reviewPath = path.join(workspace, "research/source-material-review/project-source-catalog.json");
 const projectsRoot = path.join(workspace, "research/asset-library/projects");
 const reviewRoot = path.join(workspace, "research/source-material-review");
-const canonicalProjectsPath = path.join(reviewRoot, "wpb-projects-canonical-v3-planning-update.json");
 const publicDataRoot = path.join(workspace, "public/data");
 const generatedRoot = path.join(workspace, "src/generated");
+const projectModelPath = path.join(generatedRoot, "projectModel.json");
+const projectCopyPackagePath = path.join(publicDataRoot, "project-copy-package.json");
 const preferredRoot = path.join(workspace, "research/asset-library/preferred-image-exports");
 const marketNotesPath = path.join(workspace, "src/data/marketNotes.ts");
 const productionBaseUrl = "https://www.wpbnewconstruction.com";
@@ -2468,6 +2469,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - North Flagler condos: /corridors/north-flagler/
 - Downtown West Palm Beach condos: /corridors/downtown-west-palm-beach/
 - South Flagler condos: /corridors/south-flagler/
+- Palm Beach condos: /corridors/palm-beach/
 
 ## Priority Project Pages
 
@@ -2546,26 +2548,16 @@ function buildPrerenderRoutes() {
   const updateRoutes = approvedUpdateRoutes();
   const downtownRoutes = mergedMarketNoteRoutes(downtownSpotlightRoutes, "downtown");
   const buyerRoutes = mergedMarketNoteRoutes(marketNoteRoutes, "buyer");
-  const projectRoutes = [
-    ["olara", "Olara West Palm Beach | New Construction Condo Guide", "Olara West Palm Beach buyer guide with North Flagler waterfront context, floor plans, amenities, timing, pricing checks, and current availability next steps.", "/projects/olara/media/olara-hero-exterior-1536x1024.png"],
-    ["ritz-carlton-wpb", "Ritz-Carlton WPB | New Construction Condo Guide", "Ritz-Carlton Residences West Palm Beach buyer guide with service model, waterfront position, floor plans, team credits, timing, and availability checks.", "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2880x1800.png"],
-    ["shorecrest", "Shorecrest West Palm Beach | Buyer Guide", "Shorecrest West Palm Beach buyer guide for North Flagler waterfront comparison, floor plans, amenities, delivery timing, and current availability questions.", "/projects/shorecrest/media/user-provided-shorecrest-card.jpg"],
-    ["mr-c", "Mr. C West Palm Beach | Buyer Guide", "Mr. C West Palm Beach buyer guide for downtown walkability, hotel-residence service, floor plans, timing, and current availability checks.", "/projects/mr-c/media/mr-c-waterfront-building-source.jpg"],
-    ["alba-palm-beach", "Alba Palm Beach | New Construction Condo Guide", "Alba Palm Beach buyer guide for a boutique North Flagler waterfront building, released floor plans, delivery timing, and current pricing checks.", "/projects/alba-palm-beach/media/card.jpg"],
-    ["mandarin-oriental", "Mandarin Oriental WPB | Buyer Guide", "Mandarin Oriental Residences West Palm Beach buyer guide for a future North Flagler branded-residence project, timing, views, and verification notes.", "/projects/mandarin-oriental/media/mandarin-oriental-hero.webp"],
-    ["south-flagler-house", "South Flagler House | West Palm Beach Condo Guide", "South Flagler House buyer guide with waterfront context, floor plans, tower positioning, amenities, pricing checks, and availability questions.", "/projects/south-flagler-house/media/user-provided-south-flagler-house-card.jpg"],
-    ["nora-house", "NORA House West Palm Beach | Buyer Guide", "NORA House West Palm Beach buyer guide for NORA District walkability, floor plans, amenities, sales status, and current availability checks.", "/projects/nora-house/media/user-provided-nora-house-card.jpg"],
-    ["banyan-tree", "Banyan Tree Residences WPB | Buyer Guide", "Banyan Tree Residences West Palm Beach buyer guide with downtown location context, branded-residence positioning, floor plans, and pricing checks.", "/projects/banyan-tree/media/user-provided-banyan-tree-card.jpg"],
-    ["berkeley", "The Berkeley Palm Beach | Buyer Guide", "The Berkeley Palm Beach buyer guide for downtown West Palm Beach comparison, floor plans, amenities, pricing range, and current availability checks.", "/projects/berkeley/media/card.jpg"],
-    ["maison-dor", "Maison d'Or West Palm Beach | Buyer Guide", "Maison d'Or West Palm Beach buyer guide for boutique South Flagler waterfront living, floor plans, amenities, pricing checks, and availability questions.", "/projects/maison-dor/media/card.jpg"],
-    ["edgeworth", "Edgeworth West Palm Beach | Pipeline Buyer Guide", "Edgeworth buyer guide for the combined South Flagler pipeline project at 1155 S Flagler Drive, timing, pricing checks, and buyer verification notes.", "/projects/edgeworth-north/media/card.webp"],
-    ["alba-reserve", "Alba Reserve West Palm Beach | Pipeline Buyer Guide", "Alba Reserve buyer guide for the reported North Flagler watchlist project, proposed scale, timing, and verification notes.", "/projects/alba-reserve/media/card.jpg"],
-    ["forte-on-flagler", "Forte on Flagler | West Palm Beach Condo Guide", "Forte on Flagler buyer guide for delivered South Flagler waterfront comparison, floor plans, amenities, and resale benchmark context.", "/projects/forte-on-flagler/media/card.jpg"],
-    ["la-clara", "La Clara West Palm Beach | Condo Benchmark", "La Clara West Palm Beach guide for delivered waterfront benchmark context when comparing South Flagler and new-construction alternatives.", "/projects/la-clara/media/la-clara-hero-3x2.jpg"],
-    ["fern-and-gardenia-related-ross-fern-street", "Fern & Gardenia / Related Ross Fern Street | Pipeline Watch", "Fern & Gardenia / Related Ross Fern Street watchlist guide for the Downtown condo repositioning while official project details are gathered.", "/projects/related-ross-fern-street/media/card.jpg"],
-    ["rosewood-residences-west-palm-beach", "Rosewood Residences West Palm Beach | Watchlist", "Rosewood Residences West Palm Beach watchlist entry for North Flagler branded-residence tracking while official details are gathered.", "/projects/rosewood/media/user-provided-rosewood-render-01.jpg"],
-    ["rybovich-marina-redevelopment", "Rybovich Marina Redevelopment | Watchlist", "Rybovich Marina Redevelopment watchlist guide for North Flagler and Northwood waterfront context while condo-specific details are clarified.", "/projects/rybovich-marina/media/card.webp"],
-  ];
+  const copyByProjectId = new Map(readProjectCopyPackage().map((record) => [record.repoProjectId, record]));
+  const projectRoutes = readPublishedProjectRecords().map((project) => {
+    const copy = copyByProjectId.get(project.publicSlug);
+    return [
+      project.publicSlug,
+      copy?.seoTitle || `${project.displayName} | WPB New Construction`,
+      copy?.metaDescription || project.presentation?.summary || `${project.displayName} project guide and buyer verification notes.`,
+      copy?.showcase?.heroImage?.src || project.presentation?.heroImage || project.presentation?.image || siteMeta.defaultImage,
+    ];
+  });
   return [
     {
       path: "/",
@@ -2678,6 +2670,12 @@ function buildPrerenderRoutes() {
       ogImage: siteMeta.defaultImage,
     },
     {
+      path: "/corridors/palm-beach/",
+      title: "Palm Beach New Construction Condos | Buyer Guide",
+      description: "Track Palm Beach island new-construction and approved condo projects by coastal setting, scale, readiness, and open buyer-verification questions.",
+      ogImage: "/assets/editorial/wpb-geography-map-hero.jpg",
+    },
+    {
       path: "/methodology/",
       title: "How We Verify | WPB New Construction",
       description: "How WPB New Construction separates official sources, reported details, and items to confirm before relying on project information.",
@@ -2747,32 +2745,7 @@ function renderSitemap(projects) {
     ...downtownRoutes.map((item) => item.lastmod),
     ...buyerRoutes.map((item) => item.lastmod),
   ].filter(Boolean).sort().at(-1) || rebrandLastmod;
-  const routableProjects = new Set([
-    "olara",
-    "ritz-carlton-wpb",
-    "shorecrest",
-    "mr-c",
-    "alba-palm-beach",
-    "mandarin-oriental",
-    "banyan-tree",
-    "berkeley",
-    "maison-dor",
-    "edgeworth",
-    "alba-reserve",
-    "forte-on-flagler",
-    "la-clara",
-    "fern-and-gardenia-related-ross-fern-street",
-    "rosewood-residences-west-palm-beach",
-    "rybovich-marina-redevelopment",
-    "south-flagler-house-north",
-    "nora-house",
-  ]);
-  const publicProjectPath = (projectId) =>
-    projectId === "south-flagler-house-north" ? "south-flagler-house" : projectId;
-  const projectIds = new Set([
-    ...projects.map((project) => project.projectId),
-    ...readCanonicalPublicProjectIds(),
-  ]);
+  const publishedProjects = readPublishedProjectRecords();
   const urls = [
     ["", "1.0"],
     ["floorplans/", "0.9"],
@@ -2786,6 +2759,7 @@ function renderSitemap(projects) {
     ["corridors/north-flagler/", "0.8"],
     ["corridors/downtown-west-palm-beach/", "0.8"],
     ["corridors/south-flagler/", "0.8"],
+    ["corridors/palm-beach/", "0.8"],
     ["updates/", "0.8"],
     ...updateRoutes.map((item) => [`updates/${item.slug || item.id}/`, "0.8"]),
     ["downtown-spotlight/", "0.8"],
@@ -2797,9 +2771,7 @@ function renderSitemap(projects) {
     ["privacy/", "0.5"],
     ["terms/", "0.5"],
     ["inquire/", "0.5"],
-    ...[...projectIds]
-      .filter((projectId) => routableProjects.has(projectId))
-      .map((projectId) => [`projects/${publicProjectPath(projectId)}/`, "0.8"]),
+    ...publishedProjects.map((project) => [`projects/${project.publicSlug}/`, "0.8"]),
   ];
   const uniqueUrls = [...new Map(urls.map(([pathPart, priority]) => [pathPart, [pathPart, priority]])).values()];
   const lastmodForRoute = (pathPart) => {
@@ -2827,13 +2799,21 @@ function normalizedDate(value) {
   return match?.[0] || "";
 }
 
-function readCanonicalPublicProjectIds() {
+function readPublishedProjectRecords() {
   try {
-    const canonical = JSON.parse(fsSync.readFileSync(canonicalProjectsPath, "utf8"));
-    return (canonical.projects || [])
-      .filter((project) => project.include_on_site === true)
-      .map((project) => project.project_id || project.slug)
-      .filter(Boolean);
+    const projectModel = JSON.parse(fsSync.readFileSync(projectModelPath, "utf8"));
+    return (projectModel.projects || []).filter(
+      (project) => project.publicationState === "published" && project.publicSlug && project.publicRoute,
+    );
+  } catch {
+    return [];
+  }
+}
+
+function readProjectCopyPackage() {
+  try {
+    const records = JSON.parse(fsSync.readFileSync(projectCopyPackagePath, "utf8"));
+    return Array.isArray(records) ? records : [];
   } catch {
     return [];
   }

@@ -3,12 +3,25 @@ import path from "node:path";
 
 const workspace = process.cwd();
 const main = fs.readFileSync(path.join(workspace, "src/main.ts"), "utf8");
+const prerender = fs.readFileSync(path.join(workspace, "research/scripts/prerender-static-routes.mjs"), "utf8");
+const projectModel = JSON.parse(fs.readFileSync(path.join(workspace, "src/generated/projectModel.json"), "utf8"));
 const findings = [];
 
-const projectIds = [...main.matchAll(/id:\s*"([^"]+)"[\s\S]*?pageState:\s*"([^"]+)"/g)].map((match) => ({
-  id: match[1],
-  pageState: match[2],
-}));
+const projectIds = projectModel.projects
+  .filter((project) => project.publicationState === "published")
+  .map((project) => ({ id: project.publicSlug, pageState: project.presentation?.pageState || "" }));
+const awaitingImagery = projectModel.projects.filter((project) => project.publicationState === "awaiting_imagery");
+
+if (!projectIds.length) findings.push("Generated project model contains no published project page definitions.");
+for (const project of projectModel.projects) {
+  if (project.publicationState === "published" && !project.presentation) findings.push(`${project.publicSlug}: published project is missing presentation data.`);
+  if (project.publicationState === "awaiting_imagery" && project.presentation) findings.push(`${project.publicSlug}: imagery-gated project must not have presentation data or a public page.`);
+}
+
+for (const section of ["hero", "facts", "residences", "neighborhood", "inquiry"]) {
+  if (!main.includes(`data-project-section="${section}"`)) findings.push(`Browser project renderer is missing ${section} section contract marker.`);
+  if (!prerender.includes(`data-project-section="${section}"`)) findings.push(`Prerender project renderer is missing ${section} section contract marker.`);
+}
 
 if (!main.includes("renderProjectIdentityHeader(project, pageType)")) {
   findings.push("Project pages do not render a shared identity header.");
@@ -57,4 +70,4 @@ if (findings.length) {
   process.exit(1);
 }
 
-console.log(`Project page completeness QA passed for ${projectIds.length} tracked project page definitions.`);
+console.log(`Project page completeness QA passed for ${projectIds.length} published project pages; ${awaitingImagery.length} imagery-gated candidates remain unpublished.`);

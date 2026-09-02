@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T13:23:58.548Z",
+  "generatedAt": "2026-09-02T15:33:26.360Z",
   "usageNote": "Public project credits are derived from reviewed project records. Use these for project/team and original-source attribution blocks.",
   "projects": [
     {
@@ -35,6 +35,24 @@
           "label": "15 CityPlace",
           "href": "https://www.relatedross.com/office/15-cityplace",
           "sourceType": "official project site"
+        }
+      ]
+    },
+    {
+      "projectId": "3031-s-ocean-palm-beach",
+      "name": "3031 S. Ocean",
+      "officialWebsite": "",
+      "sourceCredit": {
+        "label": "Source: 3031 S. Ocean original materials",
+        "sourceUrl": "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
+        "note": "Media review pending; use representative visuals or omit imagery until source status is refreshed."
+      },
+      "teamCredit": "Copperline Partners; Fairfax & Sammons Architects",
+      "sourceLinks": [
+        {
+          "label": "3031 S. Ocean",
+          "href": "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
+          "sourceType": "reviewed material"
         }
       ]
     },
@@ -268,6 +286,24 @@
         {
           "label": "Olara",
           "href": "https://www.olarawestpalmbeach.com/",
+          "sourceType": "official project site"
+        }
+      ]
+    },
+    {
+      "projectId": "olin-palm-beach",
+      "name": "OLIN Palm Beach",
+      "officialWebsite": "https://olinpalmbeach.com/",
+      "sourceCredit": {
+        "label": "Source: OLIN Palm Beach original materials",
+        "sourceUrl": "https://olinpalmbeach.com/",
+        "note": "Media review pending; use representative visuals or omit imagery until source status is refreshed."
+      },
+      "teamCredit": "OKO Group and Cain International; OMA and Spina O'Rourke + Partners; GACHOT; Corcoran Sunshine Marketing Group",
+      "sourceLinks": [
+        {
+          "label": "OLIN Palm Beach",
+          "href": "https://olinpalmbeach.com/",
           "sourceType": "official project site"
         }
       ]

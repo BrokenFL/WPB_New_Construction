@@ -25,6 +25,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - North Flagler condos: /corridors/north-flagler/
 - Downtown West Palm Beach condos: /corridors/downtown-west-palm-beach/
 - South Flagler condos: /corridors/south-flagler/
+- Palm Beach condos: /corridors/palm-beach/
 
 ## Priority Project Pages
 
@@ -135,29 +136,32 @@ The site is built to help buyers understand which West Palm Beach condo building
 - North Flagler Condos | West Palm Beach Buyer Guide: /corridors/north-flagler/
 - Downtown West Palm Beach Condos | Buyer Guide: /corridors/downtown-west-palm-beach/
 - South Flagler Condos | West Palm Beach Buyer Guide: /corridors/south-flagler/
+- Palm Beach New Construction Condos | Buyer Guide: /corridors/palm-beach/
 - How We Verify | WPB New Construction: /methodology/
 - Fair Housing | WPB New Construction: /fair-housing/
 - Privacy | WPB New Construction: /privacy/
 - Terms | WPB New Construction: /terms/
 - Request West Palm Beach Condo Availability: /inquire/
-- Olara West Palm Beach | New Construction Condo Guide: /projects/olara/
-- Ritz-Carlton WPB | New Construction Condo Guide: /projects/ritz-carlton-wpb/
-- Shorecrest West Palm Beach | Buyer Guide: /projects/shorecrest/
-- Mr. C West Palm Beach | Buyer Guide: /projects/mr-c/
-- Alba Palm Beach | New Construction Condo Guide: /projects/alba-palm-beach/
-- Mandarin Oriental WPB | Buyer Guide: /projects/mandarin-oriental/
-- South Flagler House | West Palm Beach Condo Guide: /projects/south-flagler-house/
-- NORA House West Palm Beach | Buyer Guide: /projects/nora-house/
-- Banyan Tree Residences WPB | Buyer Guide: /projects/banyan-tree/
-- The Berkeley Palm Beach | Buyer Guide: /projects/berkeley/
-- Maison d'Or West Palm Beach | Buyer Guide: /projects/maison-dor/
-- Edgeworth West Palm Beach | Pipeline Buyer Guide: /projects/edgeworth/
-- Alba Reserve West Palm Beach | Pipeline Buyer Guide: /projects/alba-reserve/
-- Forte on Flagler | West Palm Beach Condo Guide: /projects/forte-on-flagler/
-- La Clara West Palm Beach | Condo Benchmark: /projects/la-clara/
-- Fern & Gardenia / Related Ross Fern Street | Pipeline Watch: /projects/fern-and-gardenia-related-ross-fern-street/
-- Rosewood Residences West Palm Beach | Watchlist: /projects/rosewood-residences-west-palm-beach/
-- Rybovich Marina Redevelopment | Watchlist: /projects/rybovich-marina-redevelopment/
+- Alba Palm Beach | North Flagler New Construction Condos: /projects/alba-palm-beach/
+- Olara West Palm Beach | Waterfront Resort Condos: /projects/olara/
+- Shorecrest West Palm Beach | Related Ross Waterfront Condos: /projects/shorecrest/
+- Ritz-Carlton Residences West Palm Beach | Waterfront Condos: /projects/ritz-carlton-wpb/
+- The Berkeley Palm Beach | Clear Lake New Construction Condos: /projects/berkeley/
+- Nora House West Palm Beach | Nora District Luxury Condos: /projects/nora-house/
+- South Flagler House | Flagship Waterfront Condos: /projects/south-flagler-house/
+- Mr. C Residences West Palm Beach | Downtown Branded Condos: /projects/mr-c/
+- Maison d Or West Palm Beach | South Flagler Condo Watch: /projects/maison-dor/
+- Edgeworth West Palm Beach | Related Ross South Flagler Condos: /projects/edgeworth/
+- Mandarin Oriental Residences West Palm Beach | North Flagler Waterfront: /projects/mandarin-oriental/
+- Banyan Tree Residences West Palm Beach | Downtown Condos: /projects/banyan-tree/
+- Alba Reserve West Palm Beach | North Flagler Watchlist: /projects/alba-reserve/
+- Forte on Flagler | Completed South Flagler Luxury Comp: /projects/forte-on-flagler/
+- La Clara West Palm Beach | Completed South Flagler Condos: /projects/la-clara/
+- Fern & Gardenia / Related Ross Fern Street Project | WPB New Construction: /projects/fern-and-gardenia-related-ross-fern-street/
+- Rybovich Marina Redevelopment | North Flagler Waterfront District: /projects/rybovich-marina-redevelopment/
+- Rosewood Residences West Palm Beach | WPB New Construction: /projects/rosewood-residences-west-palm-beach/
+- OLIN Palm Beach | Ocean-to-Lagoon New Construction: /projects/olin-palm-beach/
+- 3031 S. Ocean Palm Beach | Villa-Style Waterfront Residences: /projects/3031-s-ocean-palm-beach/
 
 ## Use Guidance
 

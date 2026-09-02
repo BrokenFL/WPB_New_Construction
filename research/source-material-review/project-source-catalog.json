@@ -5,12 +5,12 @@
   "sourceRepoCommit": "3753c0ef2370817338e55f959cb78224783fccbd",
   "usageNote": "This is a sorting and review layer over the raw asset library. Keep official/public facts separate from third-party reporting and clear image/document rights before publishing.",
   "totals": {
-    "projects": 24,
+    "projects": 26,
     "downloadedPdfs": 91,
-    "downloadedImages": 84,
-    "sourcePages": 86,
-    "officialSourceUrls": 73,
-    "reportingSourceUrls": 25
+    "downloadedImages": 91,
+    "sourcePages": 89,
+    "officialSourceUrls": 74,
+    "reportingSourceUrls": 27
   },
   "areas": {
     "North Flagler": {
@@ -55,6 +55,13 @@
       "projectCount": 1,
       "projects": [
         "nora-house"
+      ]
+    },
+    "Palm Beach": {
+      "projectCount": 2,
+      "projects": [
+        "olin-palm-beach",
+        "3031-s-ocean-palm-beach"
       ]
     }
   },
@@ -3315,6 +3322,226 @@
         ],
         "otherPdfs": [],
         "images": []
+      }
+    },
+    {
+      "projectId": "olin-palm-beach",
+      "name": "OLIN Palm Beach",
+      "area": "Palm Beach",
+      "pageStatus": "Public Palm Beach watch page",
+      "dataConfidence": "High with open buyer-detail gaps",
+      "rightsStatus": "Six user-approved project renderings promoted through the approved asset warehouse",
+      "officialWebsite": "https://olinpalmbeach.com/",
+      "normalizedFacts": {
+        "address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
+        "status": "Breaking Ground / Sales Launched",
+        "residences": "32",
+        "stories": "5 across three interconnected buildings",
+        "completion": "Timing not released",
+        "pricing": "Residence-specific pricing requires current sales verification",
+        "team": "OKO Group and Cain International; OMA and Spina O'Rourke + Partners; GACHOT; Corcoran Sunshine Marketing Group"
+      },
+      "sourceCounts": {
+        "official": 1,
+        "reporting": 1,
+        "other": 0,
+        "sourcePages": 2
+      },
+      "assetCounts": {
+        "floorplans": 0,
+        "brochures": 0,
+        "factsheets": 0,
+        "otherPdfs": 0,
+        "images": 6,
+        "generatedPlaceholders": 0
+      },
+      "highValueSources": [
+        "https://olinpalmbeach.com/",
+        "https://www.oftmw.com/projects/olin-palm-beach/"
+      ],
+      "assetNotes": [
+        "Brooke supplied and approved six OLIN renderings on 2026-09-01; the full-building image is the page hero, with distinct terrace, aerial, pool, arrival, and side-elevation roles."
+      ],
+      "conflicts": [
+        "Older planning and reporting referenced 41 residences; the current official project confirms 32."
+      ],
+      "gaps": [
+        "Delivery timing is not public.",
+        "Residence-specific pricing, maintenance, deposit structure, parking, policies, floor plans, and the complete amenity program require current sales materials."
+      ],
+      "sourceBuckets": {
+        "official": [
+          "https://olinpalmbeach.com/"
+        ],
+        "reporting": [
+          "https://www.oftmw.com/projects/olin-palm-beach/"
+        ],
+        "other": []
+      },
+      "assetBuckets": {
+        "floorplans": [],
+        "brochures": [],
+        "factsheets": [],
+        "otherPdfs": [],
+        "images": [
+          {
+            "label": "OLIN Palm Beach three-building waterfront hero",
+            "url": "",
+            "path": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-hero-three-building-waterfront-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "OLIN Palm Beach ocean terrace",
+            "url": "",
+            "path": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-residences-ocean-terrace-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "OLIN Palm Beach site-context aerial",
+            "url": "",
+            "path": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-neighborhood-site-context-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "OLIN Palm Beach poolside waterfront",
+            "url": "",
+            "path": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-amenities-poolside-waterfront-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "OLIN Palm Beach landscaped arrival",
+            "url": "",
+            "path": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-amenities-landscaped-arrival-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "OLIN Palm Beach side exterior",
+            "url": "",
+            "path": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-hero-side-exterior-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          }
+        ]
+      }
+    },
+    {
+      "projectId": "3031-s-ocean-palm-beach",
+      "name": "3031 S. Ocean",
+      "area": "Palm Beach",
+      "pageStatus": "Public Palm Beach watch page",
+      "dataConfidence": "High with an open address-reference conflict and unreleased buyer details",
+      "rightsStatus": "Seven user-approved project renderings promoted through the approved asset warehouse",
+      "officialWebsite": "",
+      "normalizedFacts": {
+        "address": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
+        "status": "Town Approved / Announced",
+        "residences": "12",
+        "stories": "Up to 5",
+        "completion": "Timing not released",
+        "pricing": "Not publicly released",
+        "team": "Copperline Partners; Fairfax & Sammons Architects"
+      },
+      "sourceCounts": {
+        "official": 1,
+        "reporting": 2,
+        "other": 0,
+        "sourcePages": 3
+      },
+      "assetCounts": {
+        "floorplans": 0,
+        "brochures": 0,
+        "factsheets": 0,
+        "otherPdfs": 0,
+        "images": 7,
+        "generatedPlaceholders": 0
+      },
+      "highValueSources": [
+        "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
+        "https://www.oftmw.com/firm/copperline-partners/",
+        "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+      ],
+      "assetNotes": [
+        "Brooke supplied and approved seven 3031 S. Ocean renderings on 2026-09-02 and selected the wide lagoon-side campus image as the page hero.",
+        "Source filenames mix 3031 and 3101 labels; Brooke identified the full set as 3031 S. Ocean imagery, so the approved warehouse normalizes every asset to the canonical 3031 project ID."
+      ],
+      "conflicts": [
+        "Some coverage contains a 3301 S. Ocean typographical reference; Town and project materials identify 3031 S. Ocean Boulevard."
+      ],
+      "gaps": [
+        "Sales launch, delivery timing, and pricing have not been released.",
+        "Maintenance, deposit structure, parking, storage, policies, final floor plans, and the complete amenity program require current sales materials."
+      ],
+      "sourceBuckets": {
+        "official": [
+          "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)"
+        ],
+        "reporting": [
+          "https://www.oftmw.com/firm/copperline-partners/",
+          "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+        ],
+        "other": []
+      },
+      "assetBuckets": {
+        "floorplans": [],
+        "brochures": [],
+        "factsheets": [],
+        "otherPdfs": [],
+        "images": [
+          {
+            "label": "3031 S. Ocean lagoon-side campus hero",
+            "url": "",
+            "path": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "3031 S. Ocean lagoon balcony",
+            "url": "",
+            "path": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "3031 S. Ocean peninsula context",
+            "url": "",
+            "path": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "3031 S. Ocean bridge entrance",
+            "url": "",
+            "path": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "3031 S. Ocean waterfront elevation",
+            "url": "",
+            "path": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "3031 S. Ocean inner courtyard",
+            "url": "",
+            "path": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          },
+          {
+            "label": "3031 S. Ocean side arrival",
+            "url": "",
+            "path": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-side-arrival-v01.png",
+            "source": "user-provided-approved",
+            "status": "approved"
+          }
+        ]
       }
     }
   ]

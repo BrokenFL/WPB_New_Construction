@@ -1,5 +1,180 @@
 [
   {
+    "projectSlug": "3031-s-ocean-palm-beach",
+    "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.png",
+    "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.png",
+    "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
+    "publicPath": "/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
+    "sourceHash": "a05a6913d3930a7ae982299c9bdee1996480f5541ac58663cc7110e2930b1851",
+    "outputHash": "23f959f1a267b8ccef21a5567d15d0012f1d0195fc9a360398f2c0688a8f2745",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2800011,
+    "outputSizeBytes": 311558,
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "category": "amenities",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T15:15:12.897Z"
+  },
+  {
+    "projectSlug": "3031-s-ocean-palm-beach",
+    "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.png",
+    "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.png",
+    "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
+    "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
+    "sourceHash": "61b0fc9f3492cea753030757b8a3fea2ca5a3e0cd4f7ae1920cf3471d766c4ba",
+    "outputHash": "03f5f5e74d55fd234df0466c1dba7146e077a7d8e6b0ca7f9cbcd9b3c44193a5",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2714723,
+    "outputSizeBytes": 326920,
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T15:15:12.897Z"
+  },
+  {
+    "projectSlug": "3031-s-ocean-palm-beach",
+    "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.png",
+    "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.png",
+    "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
+    "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
+    "sourceHash": "b8a2027813d1312d121abcf3c9f247fd1015960e5a4e173d3d4d4a691c688016",
+    "outputHash": "4b34c719c3a68739465f7003528c8dfa4ad9a0ad04f2a6b894da67bb98bf5dc4",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2404702,
+    "outputSizeBytes": 272198,
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "outputDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T15:15:12.897Z"
+  },
+  {
+    "projectSlug": "3031-s-ocean-palm-beach",
+    "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-side-arrival-v01.png",
+    "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-side-arrival-v01.png",
+    "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
+    "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
+    "sourceHash": "5d84df057535bdfaed1da399ca3d7150a91e081a65226bddca771f6dcc6b3044",
+    "outputHash": "257154b40728d57a4f20c2dbd1c4c683347fca649d1efc4ec6530354827164b3",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2744922,
+    "outputSizeBytes": 315884,
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T15:15:12.897Z"
+  },
+  {
+    "projectSlug": "3031-s-ocean-palm-beach",
+    "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.png",
+    "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.png",
+    "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
+    "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
+    "sourceHash": "881ac6fe9e7100e31590ec609a85617a4b520e2f1f7c2cd2e9d008fce8cbd1d6",
+    "outputHash": "54b5d5a39ac70dbb06d352e2e89fb0ce7822615559b7b0ee1b7dff1bdd45890f",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2607496,
+    "outputSizeBytes": 316630,
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T15:15:12.897Z"
+  },
+  {
+    "projectSlug": "3031-s-ocean-palm-beach",
+    "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.png",
+    "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.png",
+    "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
+    "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
+    "sourceHash": "1e194370dd710e9347555febd30c57e59ef6d2bdea16881afb28427e2dc6d36e",
+    "outputHash": "2e101d35a548214ccef7bfa39b900c8c626be0958ed5dd03050109a82c48c260",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2690880,
+    "outputSizeBytes": 328340,
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "outputDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T15:15:12.897Z"
+  },
+  {
+    "projectSlug": "3031-s-ocean-palm-beach",
+    "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.png",
+    "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.png",
+    "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/residences/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp",
+    "publicPath": "/assets/projects/3031-s-ocean-palm-beach/residences/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp",
+    "sourceHash": "f75fc66ad1613b873def861644829eef3a27e2d9e4c7e6ba67f15ebfc84dd290",
+    "outputHash": "9bcc1d23a0e9724bf0582d4af418f2da69c8b6541d22f68dfbd3d9fad65758b0",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2427945,
+    "outputSizeBytes": 231342,
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "category": "residences",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T15:15:12.897Z"
+  },
+  {
     "projectSlug": "alba-palm-beach",
     "sourceAssetRepoPath": "public-projects/alba-palm-beach/approved-for-website/images/alba-amenities-gym-v01.png",
     "sourceRelativePath": "public-projects/alba-palm-beach/approved-for-website/images/alba-amenities-gym-v01.png",
@@ -3333,5 +3508,155 @@
     "action": "published",
     "reason": "converted png to webp; resized to 1800px max width",
     "publishedAt": "2026-05-28T17:25:47.436Z"
+  },
+  {
+    "projectSlug": "olin-palm-beach",
+    "sourceAssetRepoPath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-amenities-landscaped-arrival-v01.png",
+    "sourceRelativePath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-amenities-landscaped-arrival-v01.png",
+    "websiteAssetPath": "public/assets/projects/olin-palm-beach/amenities/olin-palm-beach-amenities-landscaped-arrival-v01.webp",
+    "publicPath": "/assets/projects/olin-palm-beach/amenities/olin-palm-beach-amenities-landscaped-arrival-v01.webp",
+    "sourceHash": "bf5f8cb94f734e502c67f643bbae65e43daaa0fd8b2d587574d82dc18f58a868",
+    "outputHash": "a668fcb32ccb9255b03d5601aab4097a00df455f6b6337ee75bbfb8ee84ebac7",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 3003499,
+    "outputSizeBytes": 386372,
+    "sourceDimensions": {
+      "width": 1537,
+      "height": 1023
+    },
+    "outputDimensions": {
+      "width": 1537,
+      "height": 1023
+    },
+    "category": "amenities",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T00:07:51.693Z"
+  },
+  {
+    "projectSlug": "olin-palm-beach",
+    "sourceAssetRepoPath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-amenities-poolside-waterfront-v01.png",
+    "sourceRelativePath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-amenities-poolside-waterfront-v01.png",
+    "websiteAssetPath": "public/assets/projects/olin-palm-beach/hero/olin-palm-beach-amenities-poolside-waterfront-v01.webp",
+    "publicPath": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-amenities-poolside-waterfront-v01.webp",
+    "sourceHash": "b9728ecdab62f355a334e8d0c1e37aaf99f0e449c6424b6252bcd6c51de508e4",
+    "outputHash": "492c04eda26f74f6128ab9d48ba9c3c1f667c1a0202896b26aa36ac3b0b00969",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2745632,
+    "outputSizeBytes": 337540,
+    "sourceDimensions": {
+      "width": 1537,
+      "height": 1023
+    },
+    "outputDimensions": {
+      "width": 1537,
+      "height": 1023
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T00:07:51.693Z"
+  },
+  {
+    "projectSlug": "olin-palm-beach",
+    "sourceAssetRepoPath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-hero-side-exterior-v01.png",
+    "sourceRelativePath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-hero-side-exterior-v01.png",
+    "websiteAssetPath": "public/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",
+    "publicPath": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",
+    "sourceHash": "a2c6af898ee63e877490eab45f0c5cdaf58c20985d94da57b23dc87229ae3cb8",
+    "outputHash": "fb37a81c78060af76d2f5d848b19173bd1b014783bb13e60acbcce67fa63a667",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 3039037,
+    "outputSizeBytes": 420374,
+    "sourceDimensions": {
+      "width": 1535,
+      "height": 1024
+    },
+    "outputDimensions": {
+      "width": 1535,
+      "height": 1024
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T00:07:51.693Z"
+  },
+  {
+    "projectSlug": "olin-palm-beach",
+    "sourceAssetRepoPath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-hero-three-building-waterfront-v01.png",
+    "sourceRelativePath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-hero-three-building-waterfront-v01.png",
+    "websiteAssetPath": "public/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp",
+    "publicPath": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp",
+    "sourceHash": "36842197e7d22302471572786ad85dd7ec2ef0e745b25cc16c6d2ebbc3a8efc4",
+    "outputHash": "a2110460ec50a16e82ee4878df1099a9befe673db227db8aadc9206385425c15",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2648567,
+    "outputSizeBytes": 297740,
+    "sourceDimensions": {
+      "width": 1774,
+      "height": 887
+    },
+    "outputDimensions": {
+      "width": 1774,
+      "height": 887
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T00:07:51.693Z"
+  },
+  {
+    "projectSlug": "olin-palm-beach",
+    "sourceAssetRepoPath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-neighborhood-site-context-v01.png",
+    "sourceRelativePath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-neighborhood-site-context-v01.png",
+    "websiteAssetPath": "public/assets/projects/olin-palm-beach/neighborhood/olin-palm-beach-neighborhood-site-context-v01.webp",
+    "publicPath": "/assets/projects/olin-palm-beach/neighborhood/olin-palm-beach-neighborhood-site-context-v01.webp",
+    "sourceHash": "3c1f77548ef3928a7908b6abf8f715b844e5303b0dec9d69e3325811023d34aa",
+    "outputHash": "85c4acc1bba0d822987b289e703961c32b4a4754267f5b2cf96b20802f2a0720",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 3280342,
+    "outputSizeBytes": 456756,
+    "sourceDimensions": {
+      "width": 1535,
+      "height": 1024
+    },
+    "outputDimensions": {
+      "width": 1535,
+      "height": 1024
+    },
+    "category": "neighborhood",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T00:07:51.693Z"
+  },
+  {
+    "projectSlug": "olin-palm-beach",
+    "sourceAssetRepoPath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-residences-ocean-terrace-v01.png",
+    "sourceRelativePath": "public-projects/olin-palm-beach/approved-for-website/images/olin-palm-beach-residences-ocean-terrace-v01.png",
+    "websiteAssetPath": "public/assets/projects/olin-palm-beach/residences/olin-palm-beach-residences-ocean-terrace-v01.webp",
+    "publicPath": "/assets/projects/olin-palm-beach/residences/olin-palm-beach-residences-ocean-terrace-v01.webp",
+    "sourceHash": "68a64e6104bc87f54109d342f955c0628d02a235403b5ef13bdc9129fbfe26e1",
+    "outputHash": "4e5b6c303414ea3eb025d131c9338bebe1e55b1077d05cc91760947cf209e6db",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2410053,
+    "outputSizeBytes": 189912,
+    "sourceDimensions": {
+      "width": 1537,
+      "height": 1023
+    },
+    "outputDimensions": {
+      "width": 1537,
+      "height": 1023
+    },
+    "category": "residences",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-02T00:07:51.693Z"
   }
 ]

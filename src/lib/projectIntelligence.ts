@@ -418,7 +418,8 @@ function buildFieldReviews(
     const sourceValue = normalizeValue(config.sourceValue(sourceFact));
     const compareValue = normalizeValue(config.compareValue(compareRecord));
     const distinct = distinctValues([override?.value, compareValue, sourceValue, publicValue]);
-    const hasConflict = distinct.length > 1;
+    const explicitlyBlocked = registryEntry.schemaBlockedFields?.includes(config.field) ?? false;
+    const hasConflict = distinct.length > 1 || explicitlyBlocked;
     const isIdentity = config.scope === "identity";
     const currentWinner = override?.value
       ? "override"
@@ -498,7 +499,8 @@ function buildFieldReviews(
       schemaSafe,
       reviewStatus,
       notes: [
-        hasConflict ? "Values differ across layers." : "",
+        distinct.length > 1 ? "Values differ across layers." : "",
+        explicitlyBlocked ? "This field is explicitly blocked from schema until its recorded conflict is reviewed." : "",
         isIdentity && !compareValue ? "Compare row does not provide this field." : "",
         override?.note ?? "",
       ].filter(Boolean),

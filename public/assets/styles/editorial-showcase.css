@@ -45,3 +45,6 @@ html:has(.route-view-editorial-showcase:not([hidden])){overflow-x:hidden}
 .berkeley-hero-tags article{align-content:center;justify-items:center;text-align:center}.berkeley-hero-tags strong{line-height:1.05;text-align:center}
 @media (max-width:760px){.berkeley-hero-tags article{min-height:56px;padding:7px 4px}.berkeley-hero-tags span{font-size:.42rem;letter-spacing:.05em}.berkeley-hero-tags strong{font-size:.58rem;letter-spacing:0;line-height:1.04}}
 .berkeley-residence-price{display:inline-flex;margin-top:10px;color:var(--berkeley-brass);font-size:.82rem;font-weight:800;letter-spacing:.02em}
+[data-project-id="3031-s-ocean-palm-beach"] .berkeley-hero-content{width:min(760px,calc(100% - 48px))}
+[data-project-id="3031-s-ocean-palm-beach"] .berkeley-hero-content h1{font-size:clamp(3.1rem,5.4vw,5.35rem);white-space:nowrap}
+@media (max-width:760px){[data-project-id="3031-s-ocean-palm-beach"] .berkeley-hero-content{width:calc(100% - 36px)}[data-project-id="3031-s-ocean-palm-beach"] .berkeley-hero-content h1{font-size:clamp(2.45rem,11vw,3.35rem);letter-spacing:-.035em;white-space:nowrap}}

@@ -111,6 +111,7 @@ function main() {
     relax_column_count: false,
     skip_empty_lines: true,
     trim: false,
+    record_delimiter: ["\r\n", "\n"],
   }).map((record) => Object.fromEntries(Object.entries(record).map(([key, value]) => [key, normalizeCell(value)])));
 
   const headers = Object.keys(records[0] ?? {});

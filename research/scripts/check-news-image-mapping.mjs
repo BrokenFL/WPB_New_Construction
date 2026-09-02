@@ -4,8 +4,15 @@ import path from "node:path";
 const workspace = process.cwd();
 const newsPath = path.join(workspace, "src/data/approvedExternalNews.ts");
 const mainPath = path.join(workspace, "src/main.ts");
+const projectModelPath = path.join(workspace, "src/generated/projectModel.json");
 const source = fs.readFileSync(newsPath, "utf8");
 const main = fs.readFileSync(mainPath, "utf8");
+const projectModel = JSON.parse(fs.readFileSync(projectModelPath, "utf8"));
+const publishedProjectIds = new Set(
+  (projectModel.projects || [])
+    .filter((project) => project.publicationState === "published")
+    .map((project) => project.publicSlug),
+);
 const findings = [];
 
 const projectImageRules = {
@@ -18,7 +25,7 @@ const projectImageRules = {
 };
 
 for (const [projectId, expectedPath] of Object.entries(projectImageRules)) {
-  if (source.includes(`"${projectId}"`) && !main.includes(`id: "${projectId}"`)) {
+  if (source.includes(`"${projectId}"`) && !publishedProjectIds.has(projectId)) {
     findings.push(`${projectId}: published news references a project that is not in featuredProjects.`);
   }
   if (source.includes(`"${projectId}"`) && !main.includes(expectedPath)) {

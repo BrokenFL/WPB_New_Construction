@@ -278,3 +278,11 @@ Preferred candidates are resized into `research/asset-library/preferred-image-ex
 
 - No downloaded image candidates.
 
+## OLIN Palm Beach
+
+- No downloaded image candidates.
+
+## 3031 S. Ocean
+
+- No downloaded image candidates.
+

@@ -1319,6 +1319,143 @@
       "development_stage": "filed_plans_watchlist",
       "public_address": "2001 N Flagler Drive, West Palm Beach, FL",
       "neighborhood": "North Flagler waterfront"
+    },
+    {
+      "include_on_site": true,
+      "city": "Palm Beach",
+      "municipal_or_legal_note": "The project spans the former Ambassador and Edgewater sites at 2720 and 2730 South Ocean Boulevard.",
+      "public_residence_count": 32,
+      "municipal_residence_count": null,
+      "floor_count_display": 5,
+      "municipal_floor_count": null,
+      "tower_count": 3,
+      "developer": [
+        "OKO Group",
+        "Cain International"
+      ],
+      "architect": [
+        "OMA",
+        "Spina O'Rourke + Partners"
+      ],
+      "interior_designer": [
+        "GACHOT"
+      ],
+      "landscape_architect": [],
+      "brand_partner": [],
+      "sales_team": [
+        "Corcoran Sunshine Marketing Group"
+      ],
+      "construction_team": [],
+      "price_display": "Inquiry pricing bands reported up to and above $40M; residence-specific pricing requires sales verification",
+      "maintenance_display": "Not publicly confirmed",
+      "delivery_display": "Timing not released",
+      "size_range_display": "Estate-scaled and full-floor residences; exact public range not released",
+      "bedroom_range_display": "Not publicly released",
+      "parking_summary": "Not publicly confirmed",
+      "ev_summary": "Not publicly confirmed",
+      "storage_summary": "Not publicly confirmed",
+      "pet_summary": "Not publicly confirmed",
+      "amenity_summary": "Oceanfront and lagoon setting within a landscaped low-rise campus; the full amenity program is not yet public.",
+      "service_summary": "Sales program active; final service model requires offering documents.",
+      "residence_features": [
+        "32 graciously scaled residences",
+        "Architecture by OMA",
+        "Interiors by GACHOT",
+        "Private terraces and landscaped oceanfront grounds"
+      ],
+      "best_for": [
+        "Palm Beach buyers prioritizing extreme scarcity",
+        "Buyers seeking low-rise privacy and direct ocean-to-lagoon frontage"
+      ],
+      "tradeoffs": [
+        "Very early stage; delivery, detailed pricing, maintenance, parking, policies, floor plans, and the full amenity program remain limited"
+      ],
+      "key_conflicts": [
+        "Older planning and reporting referenced 41 residences; the current official project confirms 32."
+      ],
+      "source_urls": [
+        "https://olinpalmbeach.com/",
+        "https://www.oftmw.com/projects/olin-palm-beach/"
+      ],
+      "human_review_required": true,
+      "confidence_level": "high",
+      "import_recommendation": "Publish as a Palm Beach watch page with the 32-residence conflict retained for human review and excluded from schema until approved.",
+      "project_id": "olin-palm-beach",
+      "slug": "olin-palm-beach",
+      "display_name": "OLIN Palm Beach",
+      "site_group": "pipeline_watchlist",
+      "page_type": "public_watchlist_page",
+      "status_badge": "Breaking Ground / Sales Launched",
+      "development_stage": "breaking_ground",
+      "public_address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
+      "neighborhood": "Palm Beach South End / Condominium Row",
+      "missing_or_unconfirmed": "Delivery, final pricing, floor plans, maintenance, parking, policies, and the complete amenity program"
+    },
+    {
+      "include_on_site": true,
+      "city": "Palm Beach",
+      "municipal_or_legal_note": "A typographical 3301 S. Ocean reference appears in some coverage; Town of Palm Beach materials and the project record identify 3031 S. Ocean Boulevard.",
+      "public_residence_count": 12,
+      "municipal_residence_count": 12,
+      "floor_count_display": 5,
+      "municipal_floor_count": 5,
+      "tower_count": null,
+      "developer": [
+        "Copperline Partners"
+      ],
+      "architect": [
+        "Fairfax & Sammons Architects"
+      ],
+      "interior_designer": [],
+      "landscape_architect": [],
+      "brand_partner": [],
+      "sales_team": [],
+      "construction_team": [],
+      "price_display": "Not publicly released",
+      "maintenance_display": "Not publicly confirmed",
+      "delivery_display": "Timing not released",
+      "size_range_display": "Approximately 3,500–5,600 square feet reported; verify final plans",
+      "bedroom_range_display": "Not publicly confirmed",
+      "parking_summary": "Not publicly confirmed",
+      "ev_summary": "Not publicly confirmed",
+      "storage_summary": "Not publicly confirmed",
+      "pet_summary": "Not publicly confirmed",
+      "amenity_summary": "A private, low-density waterfront setting is shown in planning materials; the complete shared amenity program has not been released.",
+      "service_summary": "Not publicly released",
+      "residence_features": [
+        "Twelve connected villa-style residences",
+        "Italian coastal architectural references",
+        "Landscaped terraces and waterfront outdoor areas",
+        "Lake Worth Lagoon and Intracoastal frontage"
+      ],
+      "best_for": [
+        "Palm Beach buyers seeking very low density and villa scale",
+        "Buyers prioritizing direct Intracoastal frontage"
+      ],
+      "tradeoffs": [
+        "The project is not yet selling, and pricing, delivery, fees, policies, parking, and the complete program remain unknown"
+      ],
+      "key_conflicts": [
+        "Some coverage contains a 3301 S. Ocean typographical reference; Town and project materials identify 3031 S. Ocean Boulevard."
+      ],
+      "source_urls": [
+        "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
+        "https://www.oftmw.com/firm/copperline-partners/",
+        "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+      ],
+      "human_review_required": true,
+      "confidence_level": "high",
+      "import_recommendation": "Publish as a Palm Beach watch page with the 3031-versus-3301 address conflict retained for review and the address excluded from schema until approved.",
+      "project_id": "3031-s-ocean-palm-beach",
+      "slug": "3031-s-ocean-palm-beach",
+      "display_name": "3031 S. Ocean",
+      "site_group": "pipeline_watchlist",
+      "page_type": "public_watchlist_page",
+      "status_badge": "Town Approved / Announced",
+      "development_stage": "approved",
+      "public_address": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
+      "neighborhood": "Palm Beach South End",
+      "missing_or_unconfirmed": "Sales launch, delivery, pricing, floor plans, maintenance, parking, policies, and the complete amenity program"
     }
   ],
   "excluded_or_internal_only": [

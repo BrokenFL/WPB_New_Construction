@@ -8,17 +8,9 @@ const writeMode = args.includes("--write");
 const sourceArg = valueAfter("--source");
 const snapshotPath = path.join(workspace, "research/source-material-review/wpb-projects-canonical-v3-planning-update.json");
 const sourcePath = sourceArg || process.env.WPB_CANONICAL_PROJECTS_SOURCE || "";
-const appPath = path.join(workspace, "src/main.ts");
 const sourceCatalogPath = path.join(workspace, "research/source-material-review/project-source-catalog.json");
-
-const routeAliases = {
-  "olara-west-palm-beach": "olara",
-  "ritz-carlton-residences-west-palm-beach": "ritz-carlton-wpb",
-  "berkeley-palm-beach": "berkeley",
-  "mr-c-residences-west-palm-beach": "mr-c",
-  "mandarin-oriental-residences-west-palm-beach": "mandarin-oriental",
-  "banyan-tree-residences-west-palm-beach": "banyan-tree",
-};
+const decisionsPath = path.join(workspace, "content/project-identity-decisions.json");
+const overlaysPath = path.join(workspace, "content/project-page-overlays.json");
 
 const sourceCatalogAliases = {
   "olara-west-palm-beach": "olara",
@@ -47,7 +39,8 @@ if (!fs.existsSync(snapshotPath)) {
 
 const schema = readJson(snapshotPath);
 const sourceCatalog = readJson(sourceCatalogPath);
-const appSource = fs.readFileSync(appPath, "utf8");
+const decisions = readJson(decisionsPath);
+const overlays = readJson(overlaysPath);
 const errors = [];
 
 if (!Array.isArray(schema.projects)) errors.push("Canonical schema projects must be an array.");
@@ -57,6 +50,8 @@ const publicProjects = Array.isArray(schema.projects) ? schema.projects : [];
 const internalProjects = Array.isArray(schema.excluded_or_internal_only) ? schema.excluded_or_internal_only : [];
 const publicIds = new Set();
 const internalIds = new Set();
+const decisionByCanonicalId = new Map((decisions.projects || []).map((project) => [project.canonicalId, project]));
+const overlaySlugs = new Set((overlays.projects || []).map((project) => project.publicSlug));
 
 for (const project of publicProjects) {
   const id = project.project_id || project.slug;
@@ -67,8 +62,22 @@ for (const project of publicProjects) {
   if (publicIds.has(id)) errors.push(`${id}: duplicate public project id.`);
   publicIds.add(id);
 
-  const routeId = routeAliases[id] || id;
-  if (!appSource.includes(`id: "${routeId}"`)) errors.push(`${id}: public route ${routeId} is missing from src/main.ts.`);
+  const decision = decisionByCanonicalId.get(id);
+  if (!decision) errors.push(`${id}: missing project identity decision.`);
+  if (decision?.publicationState !== "published") errors.push(`${id}: canonical public project must have publicationState=published.`);
+  if (decision?.publicSlug && !overlaySlugs.has(decision.publicSlug)) errors.push(`${id}: published project is missing page overlay ${decision.publicSlug}.`);
+}
+
+for (const decision of decisions.projects || []) {
+  if (decision.publicationState === "published" && !publicIds.has(decision.canonicalId)) {
+    errors.push(`${decision.canonicalId}: published identity decision is missing from canonical projects.`);
+  }
+  if (decision.publicationState === "awaiting_imagery" && !decision.candidateFacts) {
+    errors.push(`${decision.canonicalId}: awaiting-imagery project is missing candidateFacts.`);
+  }
+  if (decision.publicationState === "retired_merged" && !decision.mergedInto) {
+    errors.push(`${decision.canonicalId}: retired project is missing mergedInto.`);
+  }
 }
 
 for (const project of internalProjects) {

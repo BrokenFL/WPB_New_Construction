@@ -17,10 +17,13 @@ async function main() {
   const compareRows = parse(await fs.readFile(compareCsvPath, "utf8"), {
     columns: true,
     skip_empty_lines: true,
+    record_delimiter: ["\r\n", "\n"],
   }) as Record<string, string>[];
 
   const intelligenceByPublicSlug = new Map<string, Awaited<ReturnType<typeof getProjectIntelligence>>>();
-  for (const entry of projectIntelligenceRegistryEntries) {
+  const publishedRegistryEntries = projectIntelligenceRegistryEntries.filter((entry) => entry.publicationState === "published");
+  const awaitingImageryEntries = projectIntelligenceRegistryEntries.filter((entry) => entry.publicationState === "awaiting_imagery");
+  for (const entry of publishedRegistryEntries) {
     intelligenceByPublicSlug.set(entry.publicSlug, await getProjectIntelligence(entry.publicSlug));
   }
   const queue = buildProjectIntelligenceReviewQueue([...intelligenceByPublicSlug.values()]);
@@ -43,6 +46,7 @@ async function main() {
     aliasCollisions,
     queue,
     intelligenceByPublicSlug,
+    awaitingImageryEntries,
   });
 
   if (writeReport) {
@@ -100,6 +104,7 @@ function buildReport({
   aliasCollisions,
   queue,
   intelligenceByPublicSlug,
+  awaitingImageryEntries,
 }: {
   compareRows: Record<string, string>[];
   publicWithoutCompare: Awaited<ReturnType<typeof getProjectIntelligence>>[];
@@ -108,6 +113,7 @@ function buildReport({
   aliasCollisions: { alias: string; publicSlugs: string[] }[];
   queue: Awaited<ReturnType<typeof buildProjectIntelligenceReviewQueue>>;
   intelligenceByPublicSlug: Map<string, Awaited<ReturnType<typeof getProjectIntelligence>>>;
+  awaitingImageryEntries: typeof projectIntelligenceRegistryEntries;
 }) {
   const lines: string[] = [];
   const issues: string[] = [];
@@ -115,6 +121,8 @@ function buildReport({
   lines.push(`# Project Intelligence Audit`);
   lines.push("");
   lines.push(`- Registry entries: ${projectIntelligenceRegistryEntries.length}`);
+  lines.push(`- Published project entries audited: ${intelligenceByPublicSlug.size}`);
+  lines.push(`- Awaiting imagery (publication-gated): ${awaitingImageryEntries.length}`);
   lines.push(`- Compare rows: ${compareRows.length}`);
   lines.push(`- Public projects without compare rows: ${publicWithoutCompare.length}`);
   lines.push(`- Public projects without source-catalog matches: ${publicWithoutSource.length}`);
@@ -125,6 +133,14 @@ function buildReport({
   lines.push(`- Missing compare rows: ${queue.summary.missingCompareRows}`);
   lines.push(`- Missing source mappings: ${queue.summary.missingSourceMappings}`);
   lines.push("");
+
+  if (awaitingImageryEntries.length) {
+    lines.push("## Awaiting Imagery (Not Yet Public Routes)");
+    for (const entry of awaitingImageryEntries) {
+      lines.push(`- ${entry.publicSlug}: ${entry.publicDisplayName} (${entry.corridor})`);
+    }
+    lines.push("");
+  }
 
   if (aliasCollisions.length) {
     lines.push("## Alias Collisions");

@@ -4944,6 +4944,94 @@ export const projectFacts = [
       "reporting": [],
       "other": []
     }
+  },
+  {
+    "projectId": "olin-palm-beach",
+    "name": "OLIN Palm Beach",
+    "area": "Palm Beach",
+    "pageStatus": "Public Palm Beach watch page",
+    "dataConfidence": "High with open buyer-detail gaps",
+    "officialWebsite": "https://olinpalmbeach.com/",
+    "facts": {
+      "address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
+      "status": "Breaking Ground / Sales Launched",
+      "residences": "32",
+      "stories": "5 across three interconnected buildings",
+      "completion": "Timing not released",
+      "pricing": "Residence-specific pricing requires current sales verification",
+      "team": "OKO Group and Cain International; OMA and Spina O'Rourke + Partners; GACHOT; Corcoran Sunshine Marketing Group"
+    },
+    "conflicts": [
+      "Older planning and reporting referenced 41 residences; the current official project confirms 32."
+    ],
+    "gaps": [
+      "Delivery timing is not public.",
+      "Residence-specific pricing, maintenance, deposit structure, parking, policies, floor plans, and the complete amenity program require current sales materials."
+    ],
+    "highValueSources": [
+      "https://olinpalmbeach.com/",
+      "https://www.oftmw.com/projects/olin-palm-beach/"
+    ],
+    "sourceCounts": {
+      "official": 1,
+      "reporting": 1,
+      "other": 0,
+      "sourcePages": 2
+    },
+    "sourceBuckets": {
+      "official": [
+        "https://olinpalmbeach.com/"
+      ],
+      "reporting": [
+        "https://www.oftmw.com/projects/olin-palm-beach/"
+      ],
+      "other": []
+    }
+  },
+  {
+    "projectId": "3031-s-ocean-palm-beach",
+    "name": "3031 S. Ocean",
+    "area": "Palm Beach",
+    "pageStatus": "Public Palm Beach watch page",
+    "dataConfidence": "High with an open address-reference conflict and unreleased buyer details",
+    "officialWebsite": "",
+    "facts": {
+      "address": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
+      "status": "Town Approved / Announced",
+      "residences": "12",
+      "stories": "Up to 5",
+      "completion": "Timing not released",
+      "pricing": "Not publicly released",
+      "team": "Copperline Partners; Fairfax & Sammons Architects"
+    },
+    "conflicts": [
+      "Some coverage contains a 3301 S. Ocean typographical reference; Town and project materials identify 3031 S. Ocean Boulevard."
+    ],
+    "gaps": [
+      "Sales launch, delivery timing, and pricing have not been released.",
+      "Maintenance, deposit structure, parking, storage, policies, final floor plans, and the complete amenity program require current sales materials."
+    ],
+    "highValueSources": [
+      "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
+      "https://www.oftmw.com/firm/copperline-partners/",
+      "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+    ],
+    "sourceCounts": {
+      "official": 1,
+      "reporting": 2,
+      "other": 0,
+      "sourcePages": 3
+    },
+    "sourceBuckets": {
+      "official": [
+        "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)"
+      ],
+      "reporting": [
+        "https://www.oftmw.com/firm/copperline-partners/",
+        "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+      ],
+      "other": []
+    }
   }
 ] as const;
 
@@ -5357,6 +5445,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/corridors/palm-beach/",
+    "title": "Palm Beach New Construction Condos | Buyer Guide",
+    "description": "Track Palm Beach island new-construction and approved condo projects by coastal setting, scale, readiness, and open buyer-verification questions.",
+    "ogImage": "/assets/editorial/wpb-geography-map-hero.jpg"
+  },
+  {
     "path": "/methodology/",
     "title": "How We Verify | WPB New Construction",
     "description": "How WPB New Construction separates official sources, reported details, and items to confirm before relying on project information.",
@@ -5387,111 +5481,123 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
-    "path": "/projects/olara/",
-    "title": "Olara West Palm Beach | New Construction Condo Guide",
-    "description": "Olara West Palm Beach buyer guide with North Flagler waterfront context, floor plans, amenities, timing, pricing checks, and current availability next steps.",
-    "ogImage": "/projects/olara/media/olara-hero-exterior-1536x1024.png"
+    "path": "/projects/alba-palm-beach/",
+    "title": "Alba Palm Beach | North Flagler New Construction Condos",
+    "description": "Explore Alba Palm Beach, a boutique North Flagler waterfront condo with 55 residences, private terraces, amenities, and Spring 2026 delivery.",
+    "ogImage": "/projects/alba-palm-beach/media/showcase/alba-hero-aerial-waterfront-rendering-v01.jpg?v=approved-hq-20260530"
   },
   {
-    "path": "/projects/ritz-carlton-wpb/",
-    "title": "Ritz-Carlton WPB | New Construction Condo Guide",
-    "description": "Ritz-Carlton Residences West Palm Beach buyer guide with service model, waterfront position, floor plans, team credits, timing, and availability checks.",
-    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2880x1800.png"
+    "path": "/projects/olara/",
+    "title": "Olara West Palm Beach | Waterfront Resort Condos",
+    "description": "Explore Olara West Palm Beach, a North Flagler waterfront condominium with 275 residences, a private marina, José Andrés dining, and 80,000 square feet of amenities.",
+    "ogImage": "/projects/olara/media/olara-hero-exterior-1536x1024.jpg"
   },
   {
     "path": "/projects/shorecrest/",
-    "title": "Shorecrest West Palm Beach | Buyer Guide",
-    "description": "Shorecrest West Palm Beach buyer guide for North Flagler waterfront comparison, floor plans, amenities, delivery timing, and current availability questions.",
-    "ogImage": "/projects/shorecrest/media/user-provided-shorecrest-card.jpg"
+    "title": "Shorecrest West Palm Beach | Related Ross Waterfront Condos",
+    "description": "Explore Shorecrest West Palm Beach, a boutique North Flagler waterfront condominium by Related Ross with 98 residences, rooftop amenities, and panoramic views.",
+    "ogImage": "/projects/shorecrest/media/showcase/shorecrest-hero-aerial-v01-web.jpg"
   },
   {
-    "path": "/projects/mr-c/",
-    "title": "Mr. C West Palm Beach | Buyer Guide",
-    "description": "Mr. C West Palm Beach buyer guide for downtown walkability, hotel-residence service, floor plans, timing, and current availability checks.",
-    "ogImage": "/projects/mr-c/media/mr-c-waterfront-building-source.jpg"
-  },
-  {
-    "path": "/projects/alba-palm-beach/",
-    "title": "Alba Palm Beach | New Construction Condo Guide",
-    "description": "Alba Palm Beach buyer guide for a boutique North Flagler waterfront building, released floor plans, delivery timing, and current pricing checks.",
-    "ogImage": "/projects/alba-palm-beach/media/card.jpg"
-  },
-  {
-    "path": "/projects/mandarin-oriental/",
-    "title": "Mandarin Oriental WPB | Buyer Guide",
-    "description": "Mandarin Oriental Residences West Palm Beach buyer guide for a future North Flagler branded-residence project, timing, views, and verification notes.",
-    "ogImage": "/projects/mandarin-oriental/media/mandarin-oriental-hero.webp"
-  },
-  {
-    "path": "/projects/south-flagler-house/",
-    "title": "South Flagler House | West Palm Beach Condo Guide",
-    "description": "South Flagler House buyer guide with waterfront context, floor plans, tower positioning, amenities, pricing checks, and availability questions.",
-    "ogImage": "/projects/south-flagler-house/media/user-provided-south-flagler-house-card.jpg"
-  },
-  {
-    "path": "/projects/nora-house/",
-    "title": "NORA House West Palm Beach | Buyer Guide",
-    "description": "NORA House West Palm Beach buyer guide for NORA District walkability, floor plans, amenities, sales status, and current availability checks.",
-    "ogImage": "/projects/nora-house/media/user-provided-nora-house-card.jpg"
-  },
-  {
-    "path": "/projects/banyan-tree/",
-    "title": "Banyan Tree Residences WPB | Buyer Guide",
-    "description": "Banyan Tree Residences West Palm Beach buyer guide with downtown location context, branded-residence positioning, floor plans, and pricing checks.",
-    "ogImage": "/projects/banyan-tree/media/user-provided-banyan-tree-card.jpg"
+    "path": "/projects/ritz-carlton-wpb/",
+    "title": "Ritz-Carlton Residences West Palm Beach | Waterfront Condos",
+    "description": "The Ritz-Carlton Residences, West Palm Beach is a branded North Flagler waterfront condominium with 138 residences and 2028 delivery.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg"
   },
   {
     "path": "/projects/berkeley/",
-    "title": "The Berkeley Palm Beach | Buyer Guide",
-    "description": "The Berkeley Palm Beach buyer guide for downtown West Palm Beach comparison, floor plans, amenities, pricing range, and current availability checks.",
+    "title": "The Berkeley Palm Beach | Clear Lake New Construction Condos",
+    "description": "The Berkeley Palm Beach is a Clear Lake / downtown-adjacent luxury condo with 193 residences, large terraces, amenities, and practical WPB access.",
     "ogImage": "/projects/berkeley/media/card.jpg"
   },
   {
+    "path": "/projects/nora-house/",
+    "title": "Nora House West Palm Beach | Nora District Luxury Condos",
+    "description": "Explore Nora House, a 117-residence luxury condominium in West Palm Beach's walkable Nora District with rooftop amenities and 2029 delivery.",
+    "ogImage": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.jpg"
+  },
+  {
+    "path": "/projects/south-flagler-house/",
+    "title": "South Flagler House | Flagship Waterfront Condos",
+    "description": "Explore South Flagler House, Related Ross’s flagship South Flagler waterfront condominium with two towers, 108 residences, private-club amenities, and 2027 delivery.",
+    "ogImage": "/projects/south-flagler-house/media/showcase/south-flagler-house-hero-night-web.jpg"
+  },
+  {
+    "path": "/projects/mr-c/",
+    "title": "Mr. C Residences West Palm Beach | Downtown Branded Condos",
+    "description": "Mr. C Residences West Palm Beach is a downtown branded condominium with hospitality-driven services, dining, amenities, and 146 residences.",
+    "ogImage": "/assets/projects/mr-c/hero/mr-c-hero-exterior-entrance-v01.webp"
+  },
+  {
     "path": "/projects/maison-dor/",
-    "title": "Maison d'Or West Palm Beach | Buyer Guide",
-    "description": "Maison d'Or West Palm Beach buyer guide for boutique South Flagler waterfront living, floor plans, amenities, pricing checks, and availability questions.",
-    "ogImage": "/projects/maison-dor/media/card.jpg"
+    "title": "Maison d Or West Palm Beach | South Flagler Condo Watch",
+    "description": "Maison d Or is an early South Flagler luxury condominium with 39 residences, starting prices from $5.7M, and details still emerging.",
+    "ogImage": "/assets/projects/maison-dor/hero/maison-dor-hero-exterior-v01.webp"
   },
   {
     "path": "/projects/edgeworth/",
-    "title": "Edgeworth West Palm Beach | Pipeline Buyer Guide",
-    "description": "Edgeworth buyer guide for the combined South Flagler pipeline project at 1155 S Flagler Drive, timing, pricing checks, and buyer verification notes.",
-    "ogImage": "/projects/edgeworth-north/media/card.webp"
+    "title": "Edgeworth West Palm Beach | Related Ross South Flagler Condos",
+    "description": "Explore Edgeworth West Palm Beach, Related Ross’s two-tower South Flagler waterfront condominium with 168 residences and more than 90,000 square feet of amenities.",
+    "ogImage": "/projects/edgeworth-north/media/showcase/edgeworth-hero-exterior-v01-web.jpg"
+  },
+  {
+    "path": "/projects/mandarin-oriental/",
+    "title": "Mandarin Oriental Residences West Palm Beach | North Flagler Waterfront",
+    "description": "Explore Mandarin Oriental Residences West Palm Beach, an 87-residence branded waterfront tower on North Flagler with Safdie architecture and 2031 delivery.",
+    "ogImage": "/projects/mandarin-oriental/media/showcase/mandarin-oriental-hero-waterfront-web.jpg"
+  },
+  {
+    "path": "/projects/banyan-tree/",
+    "title": "Banyan Tree Residences West Palm Beach | Downtown Condos",
+    "description": "Explore Banyan Tree Residences West Palm Beach, a downtown wellness-led branded condominium with 88 residences one block from CityPlace.",
+    "ogImage": "/projects/banyan-tree/media/showcase/banyan-tree-hero-front-v01-web.jpg"
   },
   {
     "path": "/projects/alba-reserve/",
-    "title": "Alba Reserve West Palm Beach | Pipeline Buyer Guide",
-    "description": "Alba Reserve buyer guide for the reported North Flagler watchlist project, proposed scale, timing, and verification notes.",
+    "title": "Alba Reserve West Palm Beach | North Flagler Watchlist",
+    "description": "Alba Reserve is a reported / proposed North Flagler waterfront watchlist project that should be tracked separately from Alba Palm Beach.",
     "ogImage": "/projects/alba-reserve/media/card.jpg"
   },
   {
     "path": "/projects/forte-on-flagler/",
-    "title": "Forte on Flagler | West Palm Beach Condo Guide",
-    "description": "Forte on Flagler buyer guide for delivered South Flagler waterfront comparison, floor plans, amenities, and resale benchmark context.",
-    "ogImage": "/projects/forte-on-flagler/media/card.jpg"
+    "title": "Forte on Flagler | Completed South Flagler Luxury Comp",
+    "description": "Forte on Flagler is a completed South Flagler luxury condominium useful for comparing newer West Palm Beach waterfront residences and resale context.",
+    "ogImage": "/assets/projects/forte-on-flagler/hero/forte-on-flagler-hero-exterior-main-v01.webp"
   },
   {
     "path": "/projects/la-clara/",
-    "title": "La Clara West Palm Beach | Condo Benchmark",
-    "description": "La Clara West Palm Beach guide for delivered waterfront benchmark context when comparing South Flagler and new-construction alternatives.",
-    "ogImage": "/projects/la-clara/media/la-clara-hero-3x2.jpg"
+    "title": "La Clara West Palm Beach | Completed South Flagler Condos",
+    "description": "Explore La Clara West Palm Beach, a completed 83-residence South Flagler waterfront condominium with resort-style amenities and resale opportunities.",
+    "ogImage": "/projects/la-clara/media/showcase/la-clara-hero-4x3-web.jpg"
   },
   {
     "path": "/projects/fern-and-gardenia-related-ross-fern-street/",
-    "title": "Fern & Gardenia / Related Ross Fern Street | Pipeline Watch",
-    "description": "Fern & Gardenia / Related Ross Fern Street watchlist guide for the Downtown condo repositioning while official project details are gathered.",
+    "title": "Fern & Gardenia / Related Ross Fern Street Project | WPB New Construction",
+    "description": "Fern & Gardenia / Related Ross Fern Street is a Downtown pipeline entry for the reported condo repositioning at 401 S Dixie Highway and Fern Street parcels.",
     "ogImage": "/projects/related-ross-fern-street/media/card.jpg"
   },
   {
+    "path": "/projects/rybovich-marina-redevelopment/",
+    "title": "Rybovich Marina Redevelopment | North Flagler Waterfront District",
+    "description": "Rybovich Marina Redevelopment is a planned North Flagler waterfront district with residential towers, marina context, private club space, retail, restaurants, office, and promenade access.",
+    "ogImage": "/projects/rybovich-marina/media/showcase/rybovich-marina-hero-main-v01-web.jpg"
+  },
+  {
     "path": "/projects/rosewood-residences-west-palm-beach/",
-    "title": "Rosewood Residences West Palm Beach | Watchlist",
-    "description": "Rosewood Residences West Palm Beach watchlist entry for North Flagler branded-residence tracking while official details are gathered.",
+    "title": "Rosewood Residences West Palm Beach | WPB New Construction",
+    "description": "Rosewood Residences is a North Flagler branded-residence pipeline entry at 2001 N Flagler Drive with human review required until official sales materials are public.",
     "ogImage": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg"
   },
   {
-    "path": "/projects/rybovich-marina-redevelopment/",
-    "title": "Rybovich Marina Redevelopment | Watchlist",
-    "description": "Rybovich Marina Redevelopment watchlist guide for North Flagler and Northwood waterfront context while condo-specific details are clarified.",
-    "ogImage": "/projects/rybovich-marina/media/card.webp"
+    "path": "/projects/olin-palm-beach/",
+    "title": "OLIN Palm Beach | Ocean-to-Lagoon New Construction",
+    "description": "OLIN Palm Beach is a 32-residence, three-building ocean-to-lagoon condominium on Palm Beach Island by OKO Group and Cain International.",
+    "ogImage": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp"
+  },
+  {
+    "path": "/projects/3031-s-ocean-palm-beach/",
+    "title": "3031 S. Ocean Palm Beach | Villa-Style Waterfront Residences",
+    "description": "3031 S. Ocean is a Town-approved 12-residence villa-style waterfront redevelopment planned by Copperline Partners on Palm Beach's South End.",
+    "ogImage": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp"
   }
 ] as const;

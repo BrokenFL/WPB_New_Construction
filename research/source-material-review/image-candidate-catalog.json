@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T13:23:53.234Z",
+  "generatedAt": "2026-09-02T15:33:16.730Z",
   "usageNote": "Image candidates are organized for production use. Preferred exports are resized working files with concise project-source attribution.",
   "projects": [
     {
@@ -2476,6 +2476,24 @@
       "projectId": "south-flagler-house-south",
       "name": "South Flagler House South Tower",
       "area": "South Flagler",
+      "candidateCount": 0,
+      "candidates": [],
+      "preferred": [],
+      "preferredExports": []
+    },
+    {
+      "projectId": "olin-palm-beach",
+      "name": "OLIN Palm Beach",
+      "area": "Palm Beach",
+      "candidateCount": 0,
+      "candidates": [],
+      "preferred": [],
+      "preferredExports": []
+    },
+    {
+      "projectId": "3031-s-ocean-palm-beach",
+      "name": "3031 S. Ocean",
+      "area": "Palm Beach",
       "candidateCount": 0,
       "candidates": [],
       "preferred": [],

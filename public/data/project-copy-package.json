@@ -4459,5 +4459,426 @@
         "La Clara"
       ]
     }
+  },
+  {
+    "slug": "olin-palm-beach",
+    "repoProjectId": "olin-palm-beach",
+    "heroHeadline": "Ocean to Lagoon on Palm Beach Island",
+    "heroSubheadline": "A 32-residence, three-building address spanning the Atlantic Ocean and Lake Worth Lagoon on Palm Beach's South End.",
+    "overview": "OLIN Palm Beach is a low-rise ocean-to-lagoon condominium developed by OKO Group and Cain International. The current official project identifies 32 residences, architecture by OMA, interiors by GACHOT, and an active sales program. Public delivery timing, detailed floor plans, pricing by residence, fees, and operating rules remain limited.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480"
+      },
+      {
+        "label": "Status",
+        "value": "Breaking Ground / Sales Launched"
+      },
+      {
+        "label": "Residences",
+        "value": "32"
+      },
+      {
+        "label": "Buildings",
+        "value": "3 interconnected buildings"
+      },
+      {
+        "label": "Floors",
+        "value": "5"
+      },
+      {
+        "label": "Waterfront",
+        "value": "Direct ocean-to-lagoon"
+      },
+      {
+        "label": "Developer",
+        "value": "OKO Group and Cain International"
+      },
+      {
+        "label": "Architecture",
+        "value": "OMA; Spina O'Rourke + Partners"
+      },
+      {
+        "label": "Interiors",
+        "value": "GACHOT"
+      },
+      {
+        "label": "Sales",
+        "value": "Corcoran Sunshine Marketing Group"
+      },
+      {
+        "label": "Delivery",
+        "value": "Timing not released"
+      },
+      {
+        "label": "Pricing",
+        "value": "Request current residence-specific availability"
+      }
+    ],
+    "residences": "The official project describes 32 graciously scaled residences across three interconnected five-story buildings. Estate-scaled and full-floor formats have been reported, while exact bedroom ranges, size ranges, and floor plans require current sales materials.",
+    "amenities": "The public identity centers on a landscaped low-rise campus with direct Atlantic Ocean and Lake Worth Lagoon frontage. The complete amenity and service program has not yet been released publicly.",
+    "location": "OLIN occupies the former Ambassador and Edgewater sites at 2720 and 2730 South Ocean Boulevard in Palm Beach's South End, spanning settings on both the Atlantic Ocean and Lake Worth Lagoon sides of the island.",
+    "localTake": "OLIN's strongest distinction is scarcity: 32 residences, a low-rise Palm Beach Island format, and an ocean-to-lagoon site. It belongs in a separate Palm Beach comparison set rather than being treated as another West Palm Beach high-rise.",
+    "tradeoffs": [
+      "The project remains early, with public delivery timing not released.",
+      "Residence-specific pricing, floor plans, maintenance, deposits, parking, policies, and the final amenity program require current sales materials.",
+      "The current official project identifies 32 residences; older planning and reporting referenced 41, so the conflict remains open for schema review."
+    ],
+    "confidenceNote": "High confidence in current identity, status, location, residence count, building scale, and named project team; human review remains required for the open 32-versus-41 conflict and unreleased buyer details.",
+    "seoTitle": "OLIN Palm Beach | Ocean-to-Lagoon New Construction",
+    "metaDescription": "OLIN Palm Beach is a 32-residence, three-building ocean-to-lagoon condominium on Palm Beach Island by OKO Group and Cain International.",
+    "badge": "Breaking Ground / Sales Launched",
+    "tags": [
+      "palm-beach",
+      "oceanfront",
+      "lagoon-front",
+      "low-rise",
+      "breaking-ground",
+      "sales-launched",
+      "oma",
+      "gachot",
+      "new-construction"
+    ],
+    "introHeadline": "Ocean to Lagoon on Palm Beach Island",
+    "introDek": "A rare low-rise Palm Beach address with 32 residences across three interconnected buildings.",
+    "brookeTake": "OLIN's strongest distinction is scarcity: 32 residences, a low-rise Palm Beach Island format, and an ocean-to-lagoon site. It belongs in a separate Palm Beach comparison set rather than being treated as another West Palm Beach high-rise.",
+    "bestFor": [
+      "Palm Beach Island buyers",
+      "Buyers prioritizing direct ocean and lagoon exposure",
+      "Low-density and low-rise buyers",
+      "Buyers comfortable entering at an early stage"
+    ],
+    "signatureFeatures": [
+      "32 residences",
+      "Three interconnected five-story buildings",
+      "Direct ocean-to-lagoon site",
+      "OMA architecture and GACHOT interiors"
+    ],
+    "amenityNarrative": "The public identity centers on a landscaped low-rise campus with direct Atlantic Ocean and Lake Worth Lagoon frontage. The complete amenity and service program has not yet been released publicly.",
+    "residenceNarrative": "The official project describes 32 graciously scaled residences across three interconnected five-story buildings. Exact floor plans, bedroom ranges, and residence sizes require current sales materials.",
+    "locationNarrative": "OLIN is positioned on Palm Beach's South End at 2720 and 2730 South Ocean Boulevard, with the project spanning the island between the Atlantic Ocean and Lake Worth Lagoon.",
+    "buyerComparisonNotes": "Compare OLIN within the Palm Beach Island set first. Its scarce land, low-rise entitlement context, and ocean-to-lagoon site make direct price or amenity comparisons with West Palm Beach towers incomplete.",
+    "projectTeamNarrative": "Developers: OKO Group and Cain International. Architecture: OMA and Spina O'Rourke + Partners. Interiors: GACHOT. Sales: Corcoran Sunshine Marketing Group.",
+    "sourceNotes": [
+      "The official OLIN site confirms 32 residences, OMA, GACHOT, OKO Group and Cain International, and Corcoran Sunshine Marketing Group.",
+      "Markets of Tomorrow identifies three interconnected five-story buildings and breaking-ground status.",
+      "Older planning and reporting referenced 41 residences; the current official project confirms 32, and the conflict remains review-visible."
+    ],
+    "sourceUrls": [
+      "https://olinpalmbeach.com/",
+      "https://www.oftmw.com/projects/olin-palm-beach/"
+    ],
+    "lastCopyResearchDate": "2026-09-01",
+    "copyConfidence": "high",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "Palm Beach",
+      "heroBlurb": "Ocean. Lagoon. Thirty-two residences on Palm Beach Island.",
+      "heroImage": {
+        "src": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp",
+        "label": "Ocean-to-Lagoon Residences",
+        "alt": "OLIN Palm Beach low-rise residential buildings set within landscaped waterfront grounds"
+      },
+      "intro": "OLIN brings a rare new low-rise residential collection to Palm Beach's South End: 32 residences across three interconnected five-story buildings on an ocean-to-lagoon site. Developed by OKO Group and Cain International, with architecture by OMA and interiors by GACHOT, the project pairs Palm Beach scarcity with a deliberately private scale.",
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Breaking Ground"
+        },
+        {
+          "label": "Corridor",
+          "value": "Palm Beach"
+        },
+        {
+          "label": "Sales",
+          "value": "Launched"
+        }
+      ],
+      "factStrip": [
+        {
+          "icon": "residence",
+          "label": "Residences",
+          "value": "32"
+        },
+        {
+          "icon": "stories",
+          "label": "Buildings",
+          "value": "3"
+        },
+        {
+          "icon": "stories",
+          "label": "Stories",
+          "value": "5"
+        },
+        {
+          "icon": "waterfront",
+          "label": "Waterfront",
+          "value": "Ocean to Lagoon"
+        },
+        {
+          "icon": "status",
+          "label": "Delivery",
+          "value": "Timing Not Released"
+        }
+      ],
+      "monogram": "O",
+      "titleLines": [
+        "OLIN",
+        "Palm Beach"
+      ],
+      "visualBreak": {
+        "src": "/assets/projects/olin-palm-beach/residences/olin-palm-beach-residences-ocean-terrace-v01.webp",
+        "label": "Ocean Terrace",
+        "alt": "OLIN Palm Beach private residence terrace facing the Atlantic Ocean at sunset"
+      },
+      "galleryLayout": "grid",
+      "gallery": [
+        {
+          "src": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-amenities-poolside-waterfront-v01.webp",
+          "label": "Oceanfront Pool",
+          "alt": "OLIN Palm Beach pool and landscaped waterfront grounds overlooking the Atlantic Ocean"
+        },
+        {
+          "src": "/assets/projects/olin-palm-beach/amenities/olin-palm-beach-amenities-landscaped-arrival-v01.webp",
+          "label": "Landscaped Arrival",
+          "alt": "OLIN Palm Beach landscaped private entrance and low-rise residential buildings"
+        },
+        {
+          "src": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",
+          "label": "Low-Rise Architecture",
+          "alt": "OLIN Palm Beach five-story residential building framed by tropical landscaping"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/assets/projects/olin-palm-beach/neighborhood/olin-palm-beach-neighborhood-site-context-v01.webp",
+        "label": "Ocean-to-Lagoon Site",
+        "alt": "Aerial rendering of the OLIN Palm Beach three-building site between the Atlantic Ocean and Lake Worth Lagoon"
+      },
+      "neighborhoodHeadline": "Palm Beach's South End, between the Atlantic and the lagoon.",
+      "projectTeam": [
+        {
+          "label": "Developers",
+          "value": "OKO Group and Cain International"
+        },
+        {
+          "label": "Design Architect",
+          "value": "OMA"
+        },
+        {
+          "label": "Architect",
+          "value": "Spina O'Rourke + Partners"
+        },
+        {
+          "label": "Interiors",
+          "value": "GACHOT"
+        },
+        {
+          "label": "Sales",
+          "value": "Corcoran Sunshine Marketing Group"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "3031-s-ocean-palm-beach",
+    "repoProjectId": "3031-s-ocean-palm-beach",
+    "heroHeadline": "A Private Peninsula on the Lagoon",
+    "heroSubheadline": "A Town-approved collection of 12 connected villa-style residences planned for Palm Beach's South End.",
+    "overview": "3031 S. Ocean is a low-density waterfront redevelopment planned by Copperline Partners with architecture by Fairfax & Sammons. Town materials describe 12 residences in a five-story maximum composition on a man-made peninsula in Lake Worth Lagoon. The project is approved but not yet selling, and pricing, delivery, final floor plans, fees, parking, policies, and the complete amenity program remain unreleased.",
+    "quickFacts": [
+      {
+        "label": "Address",
+        "value": "3031 South Ocean Boulevard, Palm Beach, FL 33480"
+      },
+      {
+        "label": "Status",
+        "value": "Town Approved / Announced"
+      },
+      {
+        "label": "Residences",
+        "value": "12"
+      },
+      {
+        "label": "Scale",
+        "value": "Connected villa-style buildings"
+      },
+      {
+        "label": "Maximum Height",
+        "value": "5 stories"
+      },
+      {
+        "label": "Waterfront",
+        "value": "Direct Lake Worth Lagoon frontage"
+      },
+      {
+        "label": "Developer",
+        "value": "Copperline Partners"
+      },
+      {
+        "label": "Architecture",
+        "value": "Fairfax & Sammons Architects"
+      },
+      {
+        "label": "Delivery",
+        "value": "Timing not released"
+      },
+      {
+        "label": "Pricing",
+        "value": "Not publicly released"
+      }
+    ],
+    "residences": "The approved concept calls for 12 connected villa-style residences rather than a conventional condominium tower. Reported home sizes are approximately 3,500 to 5,600 square feet, but final plans, bedroom counts, interior specifications, parking allocations, and residence-specific outdoor space require current project materials.",
+    "amenities": "Planning imagery emphasizes landscaped passages, terraces, pergolas, and a private lagoon-edge setting. A complete shared amenity and service program has not been released publicly.",
+    "location": "The site occupies a man-made peninsula at 3031 South Ocean Boulevard in Palm Beach's South End, directly on Lake Worth Lagoon and near the Lake Worth Bridge area.",
+    "localTake": "The proposition is unusual even for Palm Beach: only 12 residences, a connected villa form, and a peninsula setting on the lagoon. Buyers should compare it with other Palm Beach South End opportunities rather than normalize it against West Palm Beach towers.",
+    "tradeoffs": [
+      "The project is approved but not yet selling; construction timing and delivery have not been released.",
+      "Pricing, maintenance, deposits, parking, storage, rental and pet policies, floor plans, and the complete amenity program require current project materials.",
+      "Some coverage contains a 3301 S. Ocean typographical reference; Town and project materials identify 3031 S. Ocean Boulevard, and the address remains excluded from public schema pending review."
+    ],
+    "confidenceNote": "High confidence in the 12-residence, five-story maximum, villa-style waterfront concept and named development team. Human review remains required for the 3031-versus-3301 reference conflict and all unreleased buyer details.",
+    "seoTitle": "3031 S. Ocean Palm Beach | Villa-Style Waterfront Residences",
+    "metaDescription": "3031 S. Ocean is a Town-approved 12-residence villa-style waterfront redevelopment planned by Copperline Partners on Palm Beach's South End.",
+    "badge": "Town Approved / Announced",
+    "tags": [
+      "palm-beach",
+      "south-end",
+      "intracoastal",
+      "waterfront",
+      "low-density",
+      "villa-style",
+      "approved",
+      "pipeline"
+    ],
+    "introHeadline": "Twelve residences. One private lagoon setting.",
+    "introDek": "A connected villa-style alternative to Palm Beach's conventional condominium towers.",
+    "brookeTake": "The proposition is unusual even for Palm Beach: only 12 residences, a connected villa form, and a peninsula setting on the lagoon. It belongs in the Palm Beach comparison set, with early-stage unknowns kept plainly visible.",
+    "bestFor": [
+      "Palm Beach Island buyers",
+      "Buyers prioritizing very low density",
+      "Buyers drawn to villa scale over tower living",
+      "Buyers comfortable tracking an early-stage approved project"
+    ],
+    "signatureFeatures": [
+      "12 connected villa-style residences",
+      "Five-story maximum composition",
+      "Man-made peninsula setting",
+      "Direct Lake Worth Lagoon frontage"
+    ],
+    "amenityNarrative": "Planning imagery emphasizes landscaped passages, terraces, pergolas, and a private lagoon-edge setting. A complete shared amenity and service program has not been released publicly.",
+    "residenceNarrative": "The approved concept calls for 12 connected villa-style residences rather than a conventional condominium tower. Reported sizes are approximately 3,500 to 5,600 square feet; final plans and specifications require current project materials.",
+    "locationNarrative": "The project is planned for a man-made peninsula at 3031 South Ocean Boulevard in Palm Beach's South End, directly on Lake Worth Lagoon near the Lake Worth Bridge area.",
+    "buyerComparisonNotes": "Compare 3031 S. Ocean first with OLIN and existing Palm Beach South End condominiums. Its 12-home scale, lagoon setting, and approved-but-not-yet-selling stage make direct comparisons with larger West Palm Beach towers incomplete.",
+    "projectTeamNarrative": "Developer: Copperline Partners. Architecture: Fairfax & Sammons Architects. Sales, interiors, landscape architecture, and construction team have not been publicly announced.",
+    "sourceNotes": [
+      "Town of Palm Beach materials identify a five-story, 12-unit residential project at 3031 S. Ocean Boulevard.",
+      "Markets of Tomorrow lists the Copperline Partners project as a 12-unit, five-floor pipeline development with timing to be determined.",
+      "Some reporting contains a 3301 S. Ocean typographical reference; the conflict remains review-visible and the address is omitted from public schema."
+    ],
+    "sourceUrls": [
+      "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
+      "https://www.oftmw.com/firm/copperline-partners/",
+      "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+    ],
+    "lastCopyResearchDate": "2026-09-02",
+    "copyConfidence": "high",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "Palm Beach",
+      "heroBlurb": "Twelve villa-style residences. One private peninsula on the lagoon.",
+      "heroImage": {
+        "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
+        "label": "Lagoon-Side Residences",
+        "alt": "Wide lagoon view of the proposed villa-style residences at 3031 S. Ocean in Palm Beach"
+      },
+      "intro": "3031 S. Ocean brings an unusually intimate residential concept to Palm Beach's South End: 12 connected villas arranged on a man-made peninsula in Lake Worth Lagoon. The approved design by Fairfax & Sammons for Copperline Partners trades tower scale for layered courtyards, terraces, and a distinctly residential waterfront composition.",
+      "heroTags": [
+        {
+          "label": "Status",
+          "value": "Town Approved"
+        },
+        {
+          "label": "Corridor",
+          "value": "Palm Beach"
+        },
+        {
+          "label": "Stage",
+          "value": "Not Yet Selling"
+        }
+      ],
+      "factStrip": [
+        {
+          "icon": "residence",
+          "label": "Residences",
+          "value": "12"
+        },
+        {
+          "icon": "stories",
+          "label": "Stories",
+          "value": "Up to 5"
+        },
+        {
+          "icon": "waterfront",
+          "label": "Waterfront",
+          "value": "Lagoon Peninsula"
+        },
+        {
+          "icon": "status",
+          "label": "Delivery",
+          "value": "Not Released"
+        }
+      ],
+      "monogram": "3031",
+      "titleLines": [
+        "3031 S. Ocean"
+      ],
+      "visualBreak": {
+        "src": "/assets/projects/3031-s-ocean-palm-beach/residences/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp",
+        "label": "Lagoon Balcony",
+        "alt": "Private balcony overlooking Lake Worth Lagoon at the proposed 3031 S. Ocean residences"
+      },
+      "galleryLayout": "grid",
+      "gallery": [
+        {
+          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
+          "label": "Bridge Arrival",
+          "alt": "Bridge approach to the proposed 3031 S. Ocean villa-style waterfront residences"
+        },
+        {
+          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
+          "label": "Waterfront Elevation",
+          "alt": "Lagoon-side elevation of the proposed 3031 S. Ocean residences"
+        },
+        {
+          "src": "/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
+          "label": "Landscaped Passage",
+          "alt": "Landscaped pedestrian courtyard within the proposed 3031 S. Ocean residential setting"
+        },
+        {
+          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
+          "label": "Villa Architecture",
+          "alt": "Villa-style architecture and waterfront arrival planned for 3031 S. Ocean"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
+        "label": "Palm Beach South End",
+        "alt": "Aerial view of the proposed 3031 S. Ocean peninsula site on Lake Worth Lagoon"
+      },
+      "neighborhoodHeadline": "Palm Beach's South End, directly on Lake Worth Lagoon.",
+      "projectTeam": [
+        {
+          "label": "Developer",
+          "value": "Copperline Partners"
+        },
+        {
+          "label": "Architecture",
+          "value": "Fairfax & Sammons Architects"
+        }
+      ]
+    }
   }
 ]

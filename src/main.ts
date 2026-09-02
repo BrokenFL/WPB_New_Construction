@@ -37,6 +37,8 @@ import { resolveSourceCatalogProjectId } from "./lib/projectIntelligenceRegistry
 import { escapeHtml, safeHref } from "./renderUtils";
 import { localIntelligence } from "./data/localIntelligence";
 import { homepageAssets, homepageProjectCardImage } from "./data/homepageAssets";
+import { generatedPublishedProjectRecords } from "./generated/projectModel";
+import { resolveProjectField } from "./lib/projectFieldAccessors";
 
 captureLeadLandingContext();
 
@@ -60,7 +62,7 @@ type ProjectFact = {
   note?: string;
 };
 
-type CorridorKey = "north-flagler" | "downtown" | "south-flagler";
+type CorridorKey = "north-flagler" | "downtown" | "south-flagler" | "palm-beach";
 
 type FeaturedProject = {
   id: string;
@@ -446,24 +448,15 @@ const activeHomeHeroImages = (() => {
 const approvedHeroCardOverride = approvedHomepageCardOverride("hero", "hero");
 
 const mediaBase = "/projects/olara/media/";
-const docsBase = "/projects/olara/docs/";
 const ritzMediaBase = "/projects/ritz-carlton-wpb/media/";
-const ritzDocsBase = "/projects/ritz-carlton-wpb/docs/";
 const noraHouseUserHero = "/projects/nora-house/media/user-provided-nora-house-hero.jpg";
-const noraHouseUserCard = "/projects/nora-house/media/user-provided-nora-house-card.jpg";
 const southFlaglerHouseUserHero = "/projects/south-flagler-house/media/user-provided-south-flagler-house-hero.jpg";
-const southFlaglerHouseUserCard = "/projects/south-flagler-house/media/user-provided-south-flagler-house-card.jpg";
 const shorecrestUserHero = "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg";
-const shorecrestUserCard = "/projects/shorecrest/media/user-provided-shorecrest-card.jpg";
 const southFlaglerMediaBase = "/projects/south-flagler-house/media/";
 const albaMediaBase = "/projects/alba-palm-beach/media/";
 const shorecrestMediaBase = "/projects/shorecrest/media/";
-const banyanTreeUserCard = "/projects/banyan-tree/media/user-provided-banyan-tree-card.jpg";
 const rosewoodRenderHero = "/projects/rosewood/media/user-provided-rosewood-render-01.jpg";
 const rosewoodRenderVertical = "/projects/rosewood/media/user-provided-rosewood-render-02.jpg";
-const laClaraHeroWide = "/projects/la-clara/media/la-clara-hero-3x2.jpg";
-const laClaraHeroStandard = "/projects/la-clara/media/la-clara-hero-4x3.jpg";
-const laClaraHeroPortrait = "/projects/la-clara/media/la-clara-hero-4x5.jpg";
 const relatedRossLogo = "/team-logos/related-ross-logo.webp";
 const arquitectonicaLogo = "/team-logos/arquitectonica-logo.webp";
 const projectLogoImages: Record<string, { src: string; alt: string }> = {
@@ -525,391 +518,41 @@ const corridorRoutePaths: Record<string, CorridorKey> = {
   "/corridors/downtown-west-palm-beach/": "downtown",
   "/corridors/downtown/": "downtown",
   "/corridors/south-flagler/": "south-flagler",
+  "/corridors/palm-beach/": "palm-beach",
 };
 
-const baseFeaturedProjects: FeaturedProject[] = [
-  {
-    id: "olara",
-    name: "Olara West Palm Beach",
-    corridor: "North Flagler",
-    corridorKey: "north-flagler",
-    status: "Under Construction",
-    delivery: "2027",
-    deliveryYear: 2027,
-    residences: "275",
-    price: "$2M-$7.5M",
-    href: "?project=olara",
-    image: `${mediaBase}olara-hero-exterior-1536x1024.jpg`,
-    summary: "North Flagler waterfront residences at 1919 N Flagler Drive with marina access, deep amenities, Jose Andres dining, and one of the most complete released floorplan packets in the market.",
-    floorplans: true,
-    pageState: "Active / Sales / Under Construction",
-    rank: 1,
-    longitude: -80.0501,
-    latitude: 26.7307,
-    address: "1919 N Flagler Drive, West Palm Beach, FL 33407",
-  },
-  {
-    id: "ritz-carlton-wpb",
-    name: "The Ritz-Carlton Residences, West Palm Beach",
-    corridor: "North Flagler",
-    corridorKey: "north-flagler",
-    status: "Under Construction",
-    delivery: "2028",
-    deliveryYear: 2028,
-    residences: "138",
-    price: "$2.5M-$8M",
-    href: "?project=ritz-carlton-wpb",
-    image: `${ritzMediaBase}ritz-hero-waterfront-building-2200x1375.jpg`,
-    summary: "A Ritz-Carlton branded North Flagler address with public-facing address at 1745 N Flagler Drive and legal parcel references preserved for review.",
-    floorplans: true,
-    pageState: "Active / Sales / Under Construction",
-    rank: 2,
-    longitude: -80.05057,
-    latitude: 26.72848,
-    address: "1745 N Flagler Drive, West Palm Beach, FL 33407",
-  },
-  {
-    id: "shorecrest",
-    name: "Shorecrest",
-    corridor: "North Flagler",
-    corridorKey: "north-flagler",
-    status: "Active Sales / Under Construction",
-    delivery: "Confirm with sales team",
-    deliveryYear: 2027,
-    residences: "98",
-    price: "$3.69M-$5.445M for reviewed available residences",
-    href: "?project=shorecrest",
-    image: shorecrestUserCard,
-    summary: "A Related Ross waterfront tower at 1865 N Flagler Drive for buyers comparing boutique floor plates, wellness, and North Flagler construction momentum.",
-    floorplans: true,
-    pageState: "Active / Sales / Under Construction",
-    rank: 3,
-    longitude: -80.05012,
-    latitude: 26.72985,
-    address: "1865 N Flagler Drive, West Palm Beach, FL 33407",
-  },
-  {
-    id: "south-flagler-house",
-    name: "South Flagler House",
-    corridor: "South Flagler",
-    corridorKey: "south-flagler",
-    status: "Under Construction",
-    delivery: "2027",
-    deliveryYear: 2027,
-    residences: "108",
-    price: "$7.98M-$70M",
-    href: "?project=south-flagler-house",
-    image: southFlaglerHouseUserCard,
-    summary: "RAMSA-designed waterfront residences at 1355 S Flagler Drive, positioned for buyers who want South Flagler privacy, scale, and Palm Beach-facing orientation.",
-    floorplans: true,
-    pageState: "Active / Sales / Under Construction",
-    rank: 4,
-    longitude: -80.0511,
-    latitude: 26.7011,
-    address: "1355 S Flagler Drive, West Palm Beach, FL 33401",
-  },
-  {
-    id: "nora-house",
-    name: "Nora House",
-    corridor: "Downtown",
-    corridorKey: "downtown",
-    status: "Sales Launched / Pipeline",
-    delivery: "2029",
-    deliveryYear: 2029,
-    residences: "117",
-    price: "From low $2Ms",
-    href: "?project=nora-house",
-    image: noraHouseUserCard,
-    summary: "Design-driven condominium living in the walkable Nora District, with rooftop wellness, social amenities, and ground-floor retail.",
-    floorplans: false,
-    pageState: "Active / Sales / Under Construction",
-    rank: 5,
-    longitude: -80.0581,
-    latitude: 26.7178,
-    address: "1105 N. Dixie Highway, West Palm Beach, FL 33401",
-  },
-  {
-    id: "banyan-tree",
-    name: "Banyan Tree Residences West Palm Beach",
-    corridor: "Downtown",
-    corridorKey: "downtown",
-    status: "Sales Open",
-    delivery: "Projected 2028",
-    deliveryYear: 2028,
-    residences: "88",
-    price: "From $1.9M",
-    href: "?project=banyan-tree",
-    image: banyanTreeUserCard,
-    summary: "Banyan Group's first U.S. residential project brings a private, wellness-led hospitality experience to Downtown West Palm Beach, one block from CityPlace.",
-    floorplans: true,
-    pageState: "Active Sales / Preconstruction",
-    rank: 6,
-    longitude: -80.0553,
-    latitude: 26.7069,
-    address: "400 Hibiscus Street, West Palm Beach, FL 33401",
-  },
-  {
-    id: "mr-c",
-    name: "Mr. C Residences West Palm Beach",
-    corridor: "Downtown",
-    corridorKey: "downtown",
-    status: "Under Construction",
-    delivery: "Confirm with sales team",
-    deliveryYear: 2027,
-    residences: "146",
-    price: "Request current pricing",
-    href: "?project=mr-c",
-    image: "/projects/mr-c/media/mr-c-waterfront-building-source.jpg",
-    summary: "A downtown Cipriani-branded hotel-residence tower at 327 Okeechobee Boulevard, with municipal address caveats kept out of primary display copy.",
-    floorplans: true,
-    pageState: "Active / Sales / Under Construction",
-    rank: 7,
-    longitude: -80.0578,
-    latitude: 26.706,
-    address: "327 Okeechobee Boulevard, West Palm Beach, FL 33401",
-  },
-  {
-    id: "alba-palm-beach",
-    name: "Alba Palm Beach",
-    corridor: "North Flagler",
-    corridorKey: "north-flagler",
-    status: "Under Construction",
-    delivery: "Spring 2026 estimated",
-    deliveryYear: 2026,
-    residences: "55",
-    price: "$2.5M-$7.8M",
-    href: "?project=alba-palm-beach",
-    image: `${albaMediaBase}card.jpg`,
-    summary: "A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale.",
-    floorplans: true,
-    pageState: "Active / Sales / Under Construction",
-    rank: 8,
-    longitude: -80.051,
-    latitude: 26.7526,
-    address: "4714 N. Flagler Drive, West Palm Beach, FL 33407",
-  },
-  {
-    id: "berkeley",
-    name: "The Berkeley Palm Beach",
-    corridor: "Downtown",
-    corridorKey: "downtown",
-    status: "Under Construction",
-    delivery: "Confirm with sales team",
-    deliveryYear: 2027,
-    residences: "193",
-    price: "$2M-$10M+",
-    href: "?project=berkeley",
-    image: "/projects/berkeley/media/card.jpg",
-    summary: "A Clear Lake/downtown luxury project at 601-621 Clearwater Park Road for buyers comparing newer ownership near The Square, the convention-center edge, and the office core.",
-    floorplans: false,
-    pageState: "Active / Sales / Under Construction",
-    rank: 9,
-    longitude: -80.0642,
-    latitude: 26.7087,
-    address: "601-621 Clearwater Park Road, West Palm Beach, FL 33401",
-  },
-  {
-    id: "maison-dor",
-    name: "Maison d'Or",
-    corridor: "South Flagler",
-    corridorKey: "south-flagler",
-    status: "Preconstruction / Details Emerging",
-    delivery: "2028 reported",
-    deliveryYear: 2028,
-    residences: "39",
-    price: "$5.7M+ reported",
-    href: "?project=maison-dor",
-    image: "/projects/maison-dor/media/card.jpg",
-    summary: "A 39-residence South Flagler boutique project with emerging details; exact street number, floor count, and service program remain review items.",
-    floorplans: false,
-    pageState: "Active / Sales / Under Construction",
-    rank: 10,
-    longitude: -80.04927,
-    latitude: 26.67787,
-    address: "South Flagler Drive, West Palm Beach, FL",
-  },
-  {
-    id: "edgeworth",
-    name: "Edgeworth",
-    corridor: "South Flagler",
-    corridorKey: "south-flagler",
-    status: "Announced / Pipeline",
-    delivery: "Pipeline watch",
-    deliveryYear: 2029,
-    residences: "168",
-    price: "$2.5M-$35.5M reported",
-    href: "?project=edgeworth",
-    image: "/projects/edgeworth-north/media/card.webp",
-    summary: "A combined South Flagler pipeline project at 1155 S Flagler Drive, tracked as one Edgeworth entry until official materials require a tower split.",
-    floorplans: false,
-    pageState: "Pipeline / Announced / Watchlist",
-    rank: 11,
-    longitude: -80.0514,
-    latitude: 26.6992,
-    address: "1155 S Flagler Drive, West Palm Beach, FL",
-  },
-  {
-    id: "mandarin-oriental",
-    name: "Mandarin Oriental Residences West Palm Beach",
-    corridor: "North Flagler",
-    corridorKey: "north-flagler",
-    status: "Sales Open",
-    delivery: "Anticipated 2031",
-    deliveryYear: 2031,
-    residences: "87",
-    price: "From $3.5M",
-    href: "?project=mandarin-oriental",
-    image: "/projects/mandarin-oriental/media/showcase/mandarin-oriental-hero-waterfront-web.jpg",
-    summary: "An 87-residence Mandarin Oriental waterfront tower on North Flagler with Safdie architecture, private terraces, and a 2031 delivery horizon.",
-    floorplans: true,
-    pageState: "Pipeline / Announced / Watchlist",
-    rank: 12,
-    longitude: -80.0516,
-    latitude: 26.759,
-    address: "5400 N Flagler Drive, West Palm Beach, FL 33407",
-  },
-  {
-    id: "alba-reserve",
-    name: "Alba Reserve",
-    corridor: "North Flagler",
-    corridorKey: "north-flagler",
-    status: "Reported / Proposed",
-    delivery: "Pipeline watch",
-    deliveryYear: 2029,
-    residences: "87",
-    price: "Not released",
-    href: "?project=alba-reserve",
-    image: "/projects/alba-reserve/media/card.jpg",
-    summary: "A reported/proposed North Flagler watchlist project at 4720 N Flagler Drive, kept separate from Mandarin Oriental unless official sources prove otherwise.",
-    floorplans: false,
-    pageState: "Pipeline / Announced / Watchlist",
-    rank: 13,
-    longitude: -80.051,
-    latitude: 26.7535,
-    address: "4720 N Flagler Drive, West Palm Beach, FL",
-  },
-  {
-    id: "forte-on-flagler",
-    name: "Forte on Flagler",
-    corridor: "South Flagler",
-    corridorKey: "south-flagler",
-    status: "Completed Comp",
-    delivery: "Completed comp",
-    deliveryYear: 2024,
-    residences: "41",
-    price: "Resale inventory varies",
-    href: "?project=forte-on-flagler",
-    image: "/projects/forte-on-flagler/media/card.jpg",
-    summary: "A completed South Flagler luxury comp at 1309 S Flagler Drive, used as a benchmark rather than active preconstruction inventory.",
-    floorplans: true,
-    pageState: "Completed Luxury Comp",
-    rank: 14,
-    longitude: -80.0509,
-    latitude: 26.7019,
-    address: "1309 S Flagler Drive, West Palm Beach, FL",
-  },
-  {
-    id: "la-clara",
-    name: "La Clara",
-    corridor: "South Flagler",
-    corridorKey: "south-flagler",
-    status: "Completed",
-    delivery: "Completed 2023",
-    deliveryYear: 2023,
-    residences: "83",
-    price: "Resale inventory varies",
-    href: "?project=la-clara",
-    image: laClaraHeroStandard,
-    heroImage: laClaraHeroWide,
-    mobileImage: laClaraHeroPortrait,
-    galleryImages: [
-      {
-        src: laClaraHeroStandard,
-        kicker: "Waterfront",
-        title: "Intracoastal Arrival",
-        alt: "La Clara waterfront tower rendering from the Intracoastal",
-      },
-      {
-        src: laClaraHeroPortrait,
-        kicker: "Evening",
-        title: "South Flagler Tower",
-        alt: "La Clara tower evening rendering with water reflection",
-      },
-    ],
-    summary: "A completed South Flagler luxury comp at 1515 S Flagler Drive for benchmarking finished waterfront product and resale alternatives.",
-    floorplans: true,
-    pageState: "Completed Luxury Comp",
-    rank: 15,
-    longitude: -80.0511,
-    latitude: 26.6993,
-    address: "1515 S Flagler Drive, West Palm Beach, FL",
-  },
-  {
-    id: "fern-and-gardenia-related-ross-fern-street",
-    name: "Fern & Gardenia / Related Ross Fern Street Project",
-    corridor: "Downtown",
-    corridorKey: "downtown",
-    status: "Pipeline / Watchlist",
-    delivery: "Pipeline watch",
-    deliveryYear: 2029,
-    residences: "100-130 proposed",
-    price: "Not released",
-    href: "?project=fern-and-gardenia-related-ross-fern-street",
-    image: "/projects/related-ross-fern-street/media/card.jpg",
-    summary: "Fern & Gardenia / Related Ross Fern Street is a Downtown pipeline entry for the reported condo repositioning at 401 S Dixie Highway and Fern Street parcels.",
-    floorplans: false,
-    pageState: "Pipeline / Announced / Watchlist",
-    rank: 17,
-    longitude: -80.0555,
-    latitude: 26.7112,
-    address: "430-464 Fern St",
-  },
-  {
-    id: "rosewood-residences-west-palm-beach",
-    name: "Rosewood Residences West Palm Beach",
-    corridor: "North Flagler",
-    corridorKey: "north-flagler",
-    status: "Pipeline / Branded Residences",
-    delivery: "Timing not released",
-    deliveryYear: 2029,
-    residences: "90",
-    price: "Not released",
-    href: "?project=rosewood-residences-west-palm-beach",
-    image: rosewoodRenderHero,
-    heroImage: rosewoodRenderHero,
-    mobileImage: rosewoodRenderVertical,
-    summary: "Rosewood Residences West Palm Beach is a North Flagler branded-residence pipeline entry at 2001 N Flagler Drive with human review required until official sales materials are public.",
-    floorplans: false,
-    pageState: "Pipeline / Announced / Watchlist",
-    rank: 18,
-    longitude: -80.05005,
-    latitude: 26.73135,
-    address: "2001 N Flagler Drive, West Palm Beach, FL",
-  },
-  {
-    id: "rybovich-marina-redevelopment",
-    name: "Rybovich Marina Redevelopment",
-    corridor: "North Flagler",
-    corridorKey: "north-flagler",
-    status: "Pipeline / Planning Approved",
-    delivery: "Pipeline watch",
-    deliveryYear: 2030,
-    residences: "Up to 660 planned",
-    price: "Not released",
-    href: "?project=rybovich-marina-redevelopment",
-    image: "/projects/rybovich-marina/media/showcase/rybovich-marina-hero-main-v01-web.jpg",
-    summary: "Rybovich Marina Redevelopment is a planned 19-acre North Flagler waterfront district with residential towers, marina context, private club space, retail, restaurants, office, crew amenities, and an Intracoastal promenade.",
-    floorplans: false,
-    pageState: "Pipeline / Announced / Watchlist",
-    rank: 19,
-    longitude: -80.0506,
-    latitude: 26.7461,
-    address: "4000-4300 N Flagler Dr",
-  },
-];
+const baseFeaturedProjects: FeaturedProject[] = generatedPublishedProjectRecords.map((record) => {
+  const presentation = record.presentation;
+  if (!presentation) throw new Error(`Published project ${record.publicSlug} is missing its presentation overlay.`);
+  const field = (name: "displayName" | "status" | "delivery" | "residences" | "price" | "address") =>
+    resolveProjectField({ identifier: record.publicSlug, field: name }).value;
+  return {
+    id: record.publicSlug,
+    name: field("displayName"),
+    corridor: record.corridor,
+    corridorKey: record.corridorKey,
+    status: field("status"),
+    delivery: field("delivery"),
+    deliveryYear: presentation.deliveryYear,
+    residences: field("residences"),
+    price: field("price"),
+    href: `?project=${record.publicSlug}`,
+    image: presentation.image || undefined,
+    heroImage: presentation.heroImage || undefined,
+    mobileImage: presentation.mobileImage || undefined,
+    galleryImages: presentation.galleryImages.map((image) => ({ ...image })),
+    summary: presentation.summary,
+    floorplans: presentation.floorplans,
+    pageState: presentation.pageState,
+    rank: presentation.rank,
+    longitude: presentation.longitude,
+    latitude: presentation.latitude,
+    address: field("address"),
+  };
+});
 
 const projectFactById = new Map(projectFacts.map((project) => [project.projectId, project]));
-const featuredProjects = enhanceProjectIdentity(applyEditorProjectOverrides(applySourceFactsToProjects(baseFeaturedProjects), editorProjectOverrides));
+const featuredProjects = enhanceProjectIdentity(applyEditorProjectOverrides(baseFeaturedProjects, editorProjectOverrides));
 const approvedFloorplanProjectIds = new Set<string>(approvedFloorplanLibrary.map((project) => project.projectId));
 const floorplanHubProjects: ApprovedFloorplanProject[] = [
   ...approvedFloorplanLibrary,
@@ -928,7 +571,7 @@ const homepageFeaturedProjectIds = ["alba-palm-beach", "olara", "shorecrest", "r
 const homepageFeaturedProjects = homepageFeaturedProjectIds
   .map((projectId) => rankedFeaturedProjects.find((project) => project.id === projectId))
   .filter((project): project is FeaturedProject => Boolean(project));
-const homepageCorridorKeys: CorridorKey[] = ["north-flagler", "south-flagler", "downtown"];
+const homepageCorridorKeys: CorridorKey[] = ["north-flagler", "south-flagler", "downtown", "palm-beach"];
 const importedProjectImages = approvedImportedProjectImagesRaw as ImportedProjectImage[];
 
 type BuildingDatabaseHelpers = typeof import("./lib/buildingDatabase");
@@ -954,27 +597,6 @@ function enhanceProjectIdentity(projects: FeaturedProject[]): FeaturedProject[] 
   });
 }
 
-function applySourceFactsToProjects(projects: FeaturedProject[]): FeaturedProject[] {
-  return projects.map((project) => {
-    const sourceFact = sourceFactForProject(project.id);
-    if (!sourceFact) return project;
-    const facts = sourceFact.facts;
-    return {
-      ...project,
-      status: conciseStatus(facts.status) || project.status,
-      delivery: conciseDelivery(facts.completion) || project.delivery,
-      deliveryYear: deliveryYearFromText(facts.completion, project.deliveryYear),
-      residences: conciseResidences(project.id, facts.residences) || project.residences,
-      price: concisePricing(facts.pricing) || project.price,
-      address: facts.address || project.address,
-    };
-  });
-}
-
-function conciseStatus(value: string) {
-  return value?.replace(/;.*$/, "").trim();
-}
-
 function conciseDelivery(value: string) {
   if (!value) return "";
   if (/june 2026/i.test(value)) return "Closings from June 2026";
@@ -983,11 +605,6 @@ function conciseDelivery(value: string) {
   if (/construction planned 2027.*2029/i.test(value)) return "Planned 2029 finish";
   if (/planning-stage timing not publicly confirmed/i.test(value)) return "Timing not released";
   return value.split(";")[0].trim();
-}
-
-function deliveryYearFromText(value: string, fallback: number) {
-  const match = value?.match(/20\d{2}/);
-  return match ? Number(match[0]) : fallback;
 }
 
 function conciseResidences(projectId: string, value: string) {
@@ -1052,6 +669,7 @@ const projectFilters: ProjectFilter[] = [
   { key: "north-flagler", label: "North Flagler" },
   { key: "south-flagler", label: "South Flagler" },
   { key: "downtown", label: "Downtown" },
+  { key: "palm-beach", label: "Palm Beach" },
   { key: "active-sales", label: "Active Sales" },
   { key: "waterfront", label: "Waterfront" },
   { key: "under-construction", label: "Under Construction" },
@@ -1067,6 +685,7 @@ const projectCorridorFilters: ProjectFilter[] = [
   { key: "north-flagler", label: "North Flagler" },
   { key: "south-flagler", label: "South Flagler" },
   { key: "downtown", label: "Downtown" },
+  { key: "palm-beach", label: "Palm Beach" },
 ];
 
 const projectStatusFilters: ProjectFilter[] = [
@@ -1094,6 +713,7 @@ const newsFilters: ProjectFilter[] = [
   { key: "north-flagler", label: "North Flagler" },
   { key: "downtown", label: "Downtown / NORA" },
   { key: "south-flagler", label: "South Flagler" },
+  { key: "palm-beach", label: "Palm Beach" },
 ];
 
 const corridorSections: CorridorSection[] = [
@@ -1120,6 +740,14 @@ const corridorSections: CorridorSection[] = [
     reviewNote: "Southern waterfront benchmark for buyers comparing scale, privacy, and Palm Beach proximity.",
     description:
       "South Flagler is an established luxury waterfront corridor known for its proximity to Palm Beach Island and broad Intracoastal views. Buyers typically compare architecture, residence size, privacy, service, and whether a completed building or new launch better fits the ownership plan.",
+  },
+  {
+    key: "palm-beach",
+    label: "Palm Beach",
+    detail: "OLIN Palm Beach, 3031 S. Ocean",
+    reviewNote: "Island corridor anchored by two reviewed public project pages, with disputed facts still held out of schema where required.",
+    description:
+      "Palm Beach is a distinct island market with scarce development sites, low-density approvals, ocean and lagoon exposures, and a different ownership context from West Palm Beach towers. Buyers should compare coastal setting, entitlement certainty, building scale, service structure, fees, and project-specific waterfront rights.",
   },
 ];
 
@@ -1568,38 +1196,6 @@ const amenityGallery: MediaAsset[] = [
   },
 ];
 
-const floorplanDownloads = [
-  { label: "Residence A", file: "olara-residence-plan-a.pdf" },
-  { label: "Residence B", file: "olara-residence-plan-b.pdf" },
-  { label: "Residence C", file: "olara-residence-plan-c.pdf" },
-  { label: "Residence D", file: "olara-residence-plan-d.pdf" },
-  { label: "Residence E", file: "olara-residence-plan-e.pdf" },
-  { label: "Residence F", file: "olara-residence-plan-f.pdf" },
-  { label: "Residence G", file: "olara-residence-plan-g.pdf" },
-  { label: "Residence H", file: "olara-residence-plan-h.pdf" },
-  { label: "Residence I", file: "olara-residence-plan-i.pdf" },
-  { label: "Residence J", file: "olara-residence-plan-j.pdf" },
-  { label: "Residence K", file: "olara-residence-plan-k.pdf" },
-  { label: "Residence L", file: "olara-residence-plan-l.pdf" },
-  { label: "Residence M", file: "olara-residence-plan-m.pdf" },
-  { label: "Residence N", file: "olara-residence-plan-n.pdf" },
-  { label: "Residence O", file: "olara-residence-plan-o.pdf" },
-  { label: "Residence P", file: "olara-residence-plan-p.pdf" },
-  { label: "Residence Q", file: "olara-residence-plan-q.pdf" },
-  { label: "Residence T", file: "olara-residence-plan-t.pdf" },
-  { label: "Residence U", file: "olara-residence-plan-u.pdf" },
-  { label: "Residence V", file: "olara-residence-plan-v-401-501.pdf", note: "401 / 501" },
-  { label: "Residence W", file: "olara-residence-plan-w-402-502.pdf", note: "402 / 502" },
-  {
-    label: "Residence X",
-    file: "olara-residence-plan-x-207-307-403-503.pdf",
-    note: "207 / 307 / 403 / 503",
-  },
-  { label: "Residence Y", file: "olara-residence-plan-y-208.pdf", note: "208" },
-  { label: "Residence Y", file: "olara-residence-plan-y-308-404-504.pdf", note: "308 / 404 / 504" },
-  { label: "Residence Z", file: "olara-residence-plan-z-209.pdf", note: "209" },
-  { label: "Residence Z", file: "olara-residence-plan-z-309-405-505.pdf", note: "309 / 405 / 505" },
-];
 
 const ritzFacts: ProjectFact[] = [
   {
@@ -1712,21 +1308,6 @@ const ritzAmenityGallery: MediaAsset[] = [
   },
 ];
 
-const ritzFloorplanDownloads = [
-  { label: "Residence 01", file: "ritz-residence-01.pdf", note: "Floorplan PDF" },
-  { label: "Residence 02", file: "ritz-residence-02.pdf", note: "2 Bed / 2.5 Bath" },
-  { label: "Residence 03", file: "ritz-residence-03.pdf", note: "3 Bed / 3.5 Bath" },
-  { label: "Residence 04", file: "ritz-residence-04.pdf", note: "Floorplan PDF" },
-  { label: "Residence 05", file: "ritz-residence-05.pdf", note: "Floorplan PDF" },
-  { label: "Residence 06", file: "ritz-residence-06.pdf", note: "Floorplan PDF" },
-  { label: "Lake Home 07", file: "ritz-lake-home-07.pdf", note: "Floorplan PDF" },
-  { label: "Lake Home 08", file: "ritz-lake-home-08.pdf", note: "Floorplan PDF" },
-  { label: "Lake Home 09", file: "ritz-lake-home-09.pdf", note: "Floorplan PDF" },
-  { label: "Lake Home 10", file: "ritz-lake-home-10.pdf", note: "Floorplan PDF" },
-  { label: "Lake Home 11", file: "ritz-lake-home-11.pdf", note: "Floorplan PDF" },
-  { label: "Lake Home 12", file: "ritz-lake-home-12.pdf", note: "3 Bed / 3.5 Bath" },
-  { label: "Lake Home 12.1", file: "ritz-lake-home-12-1.pdf", note: "Alt floorplan PDF" },
-];
 
 const southFlaglerTeam: TeamCredit[] = [
   {
@@ -3265,339 +2846,6 @@ app.innerHTML = `
 
       ${featuredProjects.map(renderDraftProjectPage).join("")}
 
-      <div class="route-view route-view-project route-view-full-project" data-route-view="project-legacy" data-project-id="olara" hidden>
-      <section class="hero project-hero" id="olara">
-        <picture>
-          <source media="(max-width: 720px)" srcset="${mediaBase}olara-mobile-hero-exterior-900x1125.jpg" />
-          <img src="${mediaBase}olara-hero-exterior-1536x1024.jpg" alt="Olara-inspired exterior on the West Palm Beach waterfront" />
-        </picture>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="eyebrow">North Flagler Waterfront · West Palm Beach</p>
-          <h1>Olara</h1>
-          <p class="hero-copy">
-            A private waterfront development page organized around architecture, wellness,
-            marina access, floorplans, and the lifestyle assets needed for a high-end buyer experience.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="/floorplans/#floorplans-olara">View Floorplans</a>
-            <a class="button ghost" href="/inquire/?project=olara&interest=availability">Ask The Scott Gordon Group About This Building</a>
-          </div>
-        </div>
-        <aside class="hero-facts" aria-label="Olara quick facts">
-          <div>
-            <span>Stories</span>
-            <strong>26</strong>
-          </div>
-          <div>
-            <span>Residences</span>
-            <strong>275</strong>
-          </div>
-          <div>
-            <span>Amenities</span>
-            <strong>80K+ SF</strong>
-          </div>
-          <div>
-            <span>Status</span>
-            <strong>Under Construction</strong>
-          </div>
-        </aside>
-      </section>
-
-      ${renderProjectSnapshotPanel("olara")}
-
-      <section class="section intro-section">
-        <div class="section-heading">
-          <p class="eyebrow">Buyer Summary</p>
-          <h2>Waterfront lifestyle, floorplans, and buyer priorities.</h2>
-        </div>
-        <p class="large-copy">
-          Olara is one of the most complete current project profiles in this catalog because the page can show
-          waterfront context, released floorplan materials, residence imagery, amenity positioning, and source notes
-          in one place. Before relying on availability, incentives, pricing, square footage, or delivery timing,
-          request a current sales-team confirmation.
-        </p>
-      </section>
-
-      <section class="section team-section" id="team">
-        <div class="section-heading">
-          <p class="eyebrow">Development Team</p>
-          <h2>The people behind the asset.</h2>
-        </div>
-        <div class="team-grid">
-          ${projectTeam.map(renderTeamCredit).join("")}
-        </div>
-        <p class="source-note">
-          Team credits cross-checked against the official Olara team page, lifestyle page, and brochure.
-          Final purchase decisions should verify current team, offering, and sales materials directly with the sales team.
-        </p>
-      </section>
-
-      <section class="gallery-strip" aria-label="Featured Olara image roles">
-        ${featuredGallery.map(renderGalleryCard).join("")}
-      </section>
-
-      <section class="section split-section">
-        <div class="split-copy">
-          <p class="eyebrow">Arrival</p>
-          <h2>Valet, lobby, and private arrival moments.</h2>
-          <p>
-            This image anchors the arrival section: a polished lobby approach, warm lighting,
-            valet service, tropical planting, and the kind of quiet threshold that makes the
-            page feel more like a private presentation than a listing.
-          </p>
-        </div>
-        <figure class="feature-image">
-          <img src="${mediaBase}olara-arrival-valet-lobby-1600x1067.jpg" alt="Olara valet and lobby arrival" />
-        </figure>
-      </section>
-
-      <section class="section" id="residences">
-        <div class="section-heading">
-          <p class="eyebrow">Residences</p>
-          <h2>Terraces, living rooms, kitchens, and baths.</h2>
-        </div>
-        <div class="editorial-grid residences-grid">
-          <article class="feature-card wide">
-            <img src="${mediaBase}olara-residence-terrace-sunrise-1600x1067.jpg" alt="Olara residence terrace sunrise view" />
-            <div>
-              <span>Residence Terrace</span>
-              <strong>Sunrise over the Intracoastal</strong>
-            </div>
-          </article>
-          ${residenceGallery.map(renderFeatureCard).join("")}
-        </div>
-      </section>
-
-      <section class="section" id="views">
-        <div class="section-heading">
-          <p class="eyebrow">Views</p>
-          <h2>Intracoastal, Palm Beach, and ocean horizon.</h2>
-        </div>
-        <div class="view-pair">
-          <figure>
-            <img src="${mediaBase}olara-view-balcony-intracoastal-1600x1067.jpg" alt="Olara balcony chair with Intracoastal view" />
-            <figcaption>Balcony view · Intracoastal foreground · ${imageProviderLabel(`${mediaBase}olara-view-balcony-intracoastal-1600x1067.jpg`)}</figcaption>
-          </figure>
-          <figure>
-            <img src="${mediaBase}olara-view-east-intracoastal-ocean-1600x1067.jpg" alt="Olara east-facing Intracoastal and ocean view" />
-            <figcaption>East view · Palm Beach and Atlantic horizon · ${imageProviderLabel(`${mediaBase}olara-view-east-intracoastal-ocean-1600x1067.jpg`)}</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="section" id="amenities">
-        <div class="section-heading">
-          <p class="eyebrow">Amenities</p>
-          <h2>Wellness, water, and resort-scale service.</h2>
-        </div>
-        <div class="editorial-grid amenities-grid">
-          ${amenityGallery.map(renderFeatureCard).join("")}
-        </div>
-      </section>
-
-      <section class="section split-section marina-section">
-        <figure class="feature-image">
-          <img src="${mediaBase}olara-marina-boat-dock-1600x1067.jpg" alt="Olara marina and boat dock lifestyle" />
-        </figure>
-        <div class="split-copy">
-          <p class="eyebrow">Marina</p>
-          <h2>Private waterfront rhythm.</h2>
-          <p>
-            The marina asset supports the lifestyle section: dock access, water toys, boats,
-            and a waterfront social layer that separates this page from a standard condo directory.
-          </p>
-        </div>
-      </section>
-
-      <section class="section document-section" id="floorplans">
-        <div class="section-heading">
-          <p class="eyebrow">Document Library</p>
-          <h2>Floorplans and brochure.</h2>
-        </div>
-        <div class="document-grid">
-          <a class="document-card" href="/floorplans/#floorplans-olara">
-            <span>Floorplan Library</span>
-            <strong>Complete Floorplan Collection</strong>
-            <small>Individual residence plans organized for direct review</small>
-          </a>
-          <a class="document-card" href="/inquire/?project=olara&interest=availability">
-            <span>Buyer Packet</span>
-            <strong>Request current Olara packet</strong>
-            <small>Availability, floorplans, pricing guidance, and buyer notes</small>
-          </a>
-        </div>
-        <div class="floorplan-library">
-          <div>
-            <p class="eyebrow">Individual Plans</p>
-            <h3>Residence plan PDFs organized for direct buyer review.</h3>
-          </div>
-          <div class="floorplan-grid">
-            ${floorplanDownloads.map((plan) => renderFloorplanLink(plan, docsBase, "Olara")).join("")}
-          </div>
-        </div>
-      </section>
-      </div>
-
-      <div class="route-view route-view-project route-view-full-project" data-route-view="project-legacy" data-project-id="ritz-carlton-wpb" hidden>
-      <section class="project-break" id="ritz">
-        <picture>
-          <source media="(max-width: 720px)" srcset="${ritzMediaBase}ritz-mobile-hero-tower-sunset-900x1125.jpg" />
-          <img src="${ritzMediaBase}ritz-hero-waterfront-building-2200x1375.jpg" alt="The Ritz-Carlton Residences tower on the West Palm Beach waterfront" />
-        </picture>
-        <div class="project-break-overlay"></div>
-        <div class="project-break-content">
-          <p class="eyebrow">North Flagler Waterfront · Branded Residences</p>
-          <h2>The Ritz-Carlton Residences, West Palm Beach</h2>
-          <p>
-            This profile brings together team credits, buyer-facing facts, arrival and residence
-            imagery, brochure access, and released floorplans for a focused North Flagler comparison.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="/inquire/?project=ritz-carlton-wpb&interest=availability">Request Current Availability</a>
-            <a class="button ghost" href="/floorplans/#floorplans-ritz-carlton-wpb">View Floorplans</a>
-          </div>
-        </div>
-      </section>
-
-      ${renderProjectSnapshotPanel("ritz-carlton-wpb")}
-
-      <section class="section project-profile-section" id="ritz-profile">
-        <div class="section-heading">
-          <p class="eyebrow">Ritz-Carlton Snapshot</p>
-          <h2>Verified facts for the page.</h2>
-        </div>
-        <div class="profile-grid">
-          ${ritzFacts.map(renderProjectFact).join("")}
-        </div>
-        <p class="source-note">
-          Sources: official Ritz-Carlton Residences site and floorplan page, Related Group,
-          the official public brochure, Rockwell Group, and February 2026 construction reporting.
-        </p>
-      </section>
-
-      <section class="section team-section" id="ritz-team">
-        <div class="section-heading">
-          <p class="eyebrow">Ritz-Carlton Team</p>
-          <h2>Development, design, and service credits.</h2>
-        </div>
-        <div class="team-grid">
-          ${ritzTeam.map(renderTeamCredit).join("")}
-        </div>
-      </section>
-
-      <section class="gallery-strip ritz-gallery" aria-label="Featured Ritz-Carlton image roles">
-        ${ritzFeaturedGallery.map(renderGalleryCard).join("")}
-      </section>
-
-      <section class="section split-section">
-        <div class="split-copy">
-          <p class="eyebrow">Ritz Arrival</p>
-          <h2>Branded service starts at the curb.</h2>
-          <p>
-            The arrival sequence emphasizes privacy, warm lighting, and the hotel-residential
-            threshold that separates this project from a conventional condominium tower.
-          </p>
-        </div>
-        <figure class="feature-image">
-          <img src="${ritzMediaBase}ritz-arrival-porte-cochere-evening-1600x1067.jpg" alt="Ritz-Carlton Residences evening porte cochere arrival" />
-        </figure>
-      </section>
-
-      <section class="section" id="ritz-residences">
-        <div class="section-heading">
-          <p class="eyebrow">Ritz Residences</p>
-          <h2>Rockwell interiors and waterfront light.</h2>
-        </div>
-        <div class="editorial-grid residences-grid">
-          <article class="feature-card wide">
-            <img src="${ritzMediaBase}ritz-residence-living-room-sunrise-1600x1067.jpg" alt="Ritz-Carlton residence living room at sunrise" />
-            <div>
-              <span>Residence</span>
-              <strong>Sunrise living room</strong>
-            </div>
-          </article>
-          ${ritzResidenceGallery.slice(1).map(renderFeatureCard).join("")}
-          <article class="feature-card">
-            <img src="${ritzMediaBase}ritz-lobby-service-1600x1067.jpg" alt="Ritz-Carlton residential lobby service moment" />
-            <div>
-              <span>Service</span>
-              <strong>Private residential rhythm</strong>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="ritz-views">
-        <div class="section-heading">
-          <p class="eyebrow">Ritz Views</p>
-          <h2>Intracoastal by day, skyline by night.</h2>
-        </div>
-        <div class="view-pair">
-          <figure>
-            <img src="${ritzMediaBase}ritz-view-intracoastal-day-1600x1067.jpg" alt="Daytime Intracoastal and Palm Beach view from the Ritz-Carlton Residences" />
-            <figcaption>Day view · Palm Beach Island and Atlantic horizon · ${imageProviderLabel(`${ritzMediaBase}ritz-view-intracoastal-day-1600x1067.jpg`)}</figcaption>
-          </figure>
-          <figure>
-            <img src="${ritzMediaBase}ritz-view-balcony-night-1600x1067.jpg" alt="Night balcony view toward downtown West Palm Beach" />
-            <figcaption>Night view · Downtown West Palm Beach and waterfront lights · ${imageProviderLabel(`${ritzMediaBase}ritz-view-balcony-night-1600x1067.jpg`)}</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="section" id="ritz-amenities">
-        <div class="section-heading">
-          <p class="eyebrow">Ritz Amenities</p>
-          <h2>Wellness, pool deck, and hospitality service.</h2>
-        </div>
-        <div class="editorial-grid amenities-grid ritz-amenities-grid">
-          ${ritzAmenityGallery.map(renderFeatureCard).join("")}
-        </div>
-      </section>
-
-      <section class="section split-section marina-section">
-        <figure class="feature-image">
-          <img src="${ritzMediaBase}ritz-evening-aerial-road-motion-1600x1067.jpg" alt="Night aerial view of the Ritz-Carlton Residences and West Palm Beach waterfront" />
-        </figure>
-        <div class="split-copy">
-          <p class="eyebrow">Market Context</p>
-          <h2>North Flagler is the next luxury spine.</h2>
-          <p>
-            The tower sits inside the broader North Flagler story, where downtown access,
-            Palm Beach proximity, waterfront views, and branded service all shape buyer comparison.
-          </p>
-        </div>
-      </section>
-
-      <section class="section document-section" id="ritz-floorplans">
-        <div class="section-heading">
-          <p class="eyebrow">Ritz Document Library</p>
-          <h2>Brochure and released floorplans.</h2>
-        </div>
-        <div class="document-grid">
-          <a class="document-card" href="/inquire/?project=ritz-carlton-wpb&interest=availability">
-            <span>Buyer Packet</span>
-            <strong>Request current Ritz-Carlton packet</strong>
-            <small>Availability, floorplans, pricing guidance, and buyer notes</small>
-          </a>
-          <a class="document-card" href="/floorplans/#floorplans-ritz-carlton-wpb">
-            <span>PDF · Floorplan Example</span>
-            <strong>Residence 02</strong>
-            <small>Open in the on-site floorplan viewer</small>
-          </a>
-        </div>
-        <div class="floorplan-library">
-          <div>
-            <p class="eyebrow">Released Plans</p>
-            <h3>Residence and lake-home PDFs organized for direct buyer review.</h3>
-          </div>
-          <div class="floorplan-grid">
-            ${ritzFloorplanDownloads.map((plan) => renderFloorplanLink(plan, ritzDocsBase, "The Ritz-Carlton Residences, West Palm Beach")).join("")}
-          </div>
-        </div>
-      </section>
-      </div>
-
       <div class="route-view route-view-inquiry" data-route-view="inquire" hidden>
       <section class="section inquiry-section" id="inquire">
         <div class="inquiry-copy-panel">
@@ -4660,11 +3908,13 @@ function routeSeoDetails(
     "north-flagler": "North Flagler Condos | West Palm Beach Buyer Guide",
     downtown: "Downtown West Palm Beach Condos | Buyer Guide",
     "south-flagler": "South Flagler Condos | West Palm Beach Buyer Guide",
+    "palm-beach": "Palm Beach New Construction Condos | Buyer Guide",
   };
   const corridorDescriptions: Record<CorridorKey, string> = {
     "north-flagler": "Compare North Flagler new-construction condos by waterfront position, Palm Beach proximity, floor plans, status, and current availability questions.",
     downtown: "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
     "south-flagler": "Compare South Flagler waterfront condo projects by privacy, boutique scale, Palm Beach views, floor plans, and current availability checks.",
+    "palm-beach": "Track Palm Beach island condo projects by coastal setting, low-density scale, approval status, and current buyer-verification needs.",
   };
   const routeTitles: Record<string, string> = {
     home: siteMeta.title,
@@ -4685,8 +3935,9 @@ function routeSeoDetails(
     inquire: "Contact the Scott Gordon Group | West Palm Beach Luxury New Construction",
   };
   const projectSchemaFacts = activeProject ? getSchemaSafeProjectFacts(activeProject.id) : undefined;
+  const projectMarketSuffix = activeProject?.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   const title = activeProject
-    ? `${projectSchemaFacts?.identity.displayName ?? activeProject.name}${/west palm beach/i.test(projectSchemaFacts?.identity.displayName ?? activeProject.name) ? "" : " West Palm Beach"} | ${activeProject.pageState === "Complete profile" ? "New Construction Condo Guide" : "Buyer Guide"}`
+    ? `${projectSchemaFacts?.identity.displayName ?? activeProject.name}${new RegExp(projectMarketSuffix, "i").test(projectSchemaFacts?.identity.displayName ?? activeProject.name) ? "" : ` ${projectMarketSuffix}`} | ${activeProject.pageState === "Complete profile" ? "New Construction Condo Guide" : "Buyer Guide"}`
     : activeCorridor
       ? corridorTitles[activeCorridor.key]
       : activeMarketNote
@@ -5358,6 +4609,7 @@ function buildMarketNoteSchema(note: MarketNote) {
 function buildProjectSchema(project: FeaturedProject) {
   const schemaFacts = getSchemaSafeProjectFacts(project.id);
   const unitCount = Number(schemaFacts.safeFields.residenceCount?.match(/\d+/)?.[0] ?? 0) || undefined;
+  const projectLocality = project.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   return {
     "@type": "ApartmentComplex",
     "@id": `${siteMeta.baseUrl}${projectPath(project)}#project`,
@@ -5367,7 +4619,7 @@ function buildProjectSchema(project: FeaturedProject) {
           address: {
             "@type": "PostalAddress",
             streetAddress: schemaFacts.safeFields.address,
-            addressLocality: "West Palm Beach",
+            addressLocality: projectLocality,
             addressRegion: "FL",
             addressCountry: "US",
           },
@@ -5375,13 +4627,13 @@ function buildProjectSchema(project: FeaturedProject) {
       : {}),
     latitude: project.latitude,
     longitude: project.longitude,
-    description: project.summary,
+    description: `${schemaFacts.safeFields.name} buyer guide with source-backed project context and verification notes.`,
     url: schemaFacts.safeFields.url,
     image: project.image ? `${siteMeta.baseUrl}${project.image}` : undefined,
-    areaServed: "West Palm Beach, Florida",
+    areaServed: `${projectLocality}, Florida`,
     containedInPlace: {
       "@type": "City",
-      name: "West Palm Beach",
+      name: projectLocality,
     },
     numberOfAccommodationUnits: unitCount,
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
@@ -5460,6 +4712,7 @@ function homepageCorridorCopy(key: CorridorKey) {
     "north-flagler": "Waterfront redevelopment, marina access, and a residential feel close to downtown.",
     "south-flagler": "Palm Beach views, privacy, and a quieter waterfront setting.",
     downtown: "Walkability, restaurants, culture, and NORA nearby.",
+    "palm-beach": "Island scarcity, low-density residences, and ocean-to-lagoon settings.",
   }[key];
 }
 
@@ -5782,45 +5035,8 @@ function renderEmailSignup(
   `;
 }
 
-function renderGalleryCard(asset: MediaAsset) {
-  const provider = imageProviderLabel(asset.src);
-  const media = renderMediaAsset(asset, "gallery");
-  return `
-    <article class="gallery-card">
-      ${media}
-      <div>
-        <span>${asset.kicker}</span>
-        <strong>${asset.title}</strong>
-        <small>${provider}</small>
-      </div>
-    </article>
-  `;
-}
 
-function renderTeamCredit(credit: TeamCredit) {
-  return `
-    <article class="team-card">
-      <span>${credit.role}</span>
-      <strong>${credit.name}</strong>
-      <p>${credit.note}</p>
-    </article>
-  `;
-}
 
-function renderFeatureCard(asset: MediaAsset) {
-  const provider = imageProviderLabel(asset.src);
-  const media = renderMediaAsset(asset, "feature");
-  return `
-    <article class="feature-card">
-      ${media}
-      <div>
-        <span>${asset.kicker}</span>
-        <strong>${asset.title}</strong>
-        <small>${provider}</small>
-      </div>
-    </article>
-  `;
-}
 
 function corridorPath(key: CorridorKey) {
   if (key === "downtown") return "/corridors/downtown-west-palm-beach/";
@@ -5834,12 +5050,14 @@ function corridorDirectoryPath(key: CorridorKey) {
 function corridorImageId(key: CorridorKey) {
   if (key === "north-flagler") return "flagler-waterfront-corridor";
   if (key === "south-flagler") return "south-flagler-corridor";
+  if (key === "palm-beach") return "wpb-geography-map-hero";
   return "rosemary-square-corridor";
 }
 
 function corridorDisplayLabel(key: CorridorKey) {
   if (key === "north-flagler") return "NORTH FLAGLER";
   if (key === "south-flagler") return "SOUTH FLAGLER";
+  if (key === "palm-beach") return "PALM BEACH";
   return "DOWNTOWN / ROSEMARY";
 }
 
@@ -5859,6 +5077,11 @@ function corridorBuyerQuestions(key: CorridorKey) {
       "Do you want a quieter waterfront address over urban walkability?",
       "How important are Palm Beach views and proximity?",
       "Are you comparing boutique privacy or larger amenity depth?",
+    ],
+    "palm-beach": [
+      "Do you want an island address rather than bridge access from West Palm Beach?",
+      "How important are direct ocean, lagoon, or dual-water exposures?",
+      "Are you comfortable evaluating very early, low-density projects with limited public buyer documents?",
     ],
   };
   return questions[key];
@@ -5881,6 +5104,11 @@ function corridorComparisonConsiderations(key: CorridorKey) {
       "Residence size, layout, and terrace depth",
       "Service level, privacy, and long-term positioning",
     ],
+    "palm-beach": [
+      "Ocean, lagoon, and coastal exposure",
+      "Approval status and construction readiness",
+      "Low-density scale, services, fees, and waterfront rights",
+    ],
   };
   return considerations[key];
 }
@@ -5888,6 +5116,7 @@ function corridorComparisonConsiderations(key: CorridorKey) {
 function corridorPageHeadline(key: CorridorKey) {
   if (key === "north-flagler") return "North Flagler Waterfront Living";
   if (key === "south-flagler") return "South Flagler Waterfront Residences";
+  if (key === "palm-beach") return "Palm Beach Island Residences";
   return "Downtown West Palm Beach Living";
 }
 
@@ -5969,6 +5198,16 @@ function corridorHubCards() {
       image: "/assets/home/downtown-cityplace-shared-card-v01.jpg",
       alt: "Downtown West Palm Beach CityPlace and urban retail district",
     },
+    {
+      key: "palm-beach" as CorridorKey,
+      corridorKey: "palm-beach",
+      kicker: "Island Scarcity",
+      headline: "Low-Density Island Living Between Ocean and Lagoon",
+      body:
+        "Palm Beach is a separate island market shaped by scarce sites, coastal approvals, low-density formats, and direct ocean or lagoon settings. Compare OLIN Palm Beach and 3031 S. Ocean as the two reviewed projects currently tracked on the island.",
+      image: "/assets/home/palm-beach-corridor-clock-tower-v01.jpg",
+      alt: "Palm Beach clock tower, oceanfront promenade, and palms at sunset",
+    },
   ];
 }
 
@@ -5989,7 +5228,7 @@ function renderCorridorsRouteView() {
           <p class="eyebrow">Choose Your West Palm Beach Corridor</p>
           <h2>West Palm Beach new construction is not one market.</h2>
         </div>
-        <p>South Flagler, North Flagler, and Downtown each offer a different lifestyle, price point, and long-term value story. Start with where you want to live, then compare the buildings that fit that daily routine.</p>
+        <p>South Flagler, North Flagler, Downtown, and Palm Beach each offer a different lifestyle, price point, and long-term value story. Start with where you want to live, then compare the buildings that fit that daily routine.</p>
       </section>
 
       <section class="home-atlas-feature home-atlas-feature-editorial home-atlas-compact corridors-atlas-feature" aria-label="West Palm Beach project map">
@@ -6125,12 +5364,25 @@ function compareFieldHasPublicValue(projects: FeaturedProject[], field: Building
 }
 
 function compareBuildingValue(project: FeaturedProject, field: BuildingDatabaseField) {
+  const reviewedOverride = compareReviewedOverride(project, field);
+  if (reviewedOverride) return reviewedOverride;
   const enrichment = buildingDatabaseHelpers?.getBuildingEnrichmentForProject(project);
   const enrichedValue = enrichment?.[field];
   if (enrichedValue?.trim()) return enrichedValue.trim();
   const canonicalValue = canonicalCompareValue(project, field);
   if (canonicalValue.trim()) return canonicalValue.trim();
   return buildingDatabaseHelpers?.formatBuildingFieldValue(field, "") ?? "Verify";
+}
+
+function compareReviewedOverride(project: FeaturedProject, field: BuildingDatabaseField) {
+  const override = (editorProjectOverrides as EditorProjectOverrides)[project.id];
+  if (!override) return "";
+  if (field === "development_stage" || field === "status_badge" || field === "construction_status") return cleanOverrideText(override.status) ?? "";
+  if (field === "completion_or_delivery") return cleanOverrideText(override.delivery) ?? "";
+  if (field === "price_display") return cleanOverrideText(override.price) ?? "";
+  if (field === "residence_count") return cleanOverrideText(override.residences) ?? "";
+  if (field === "public_address") return cleanOverrideText(override.address) ?? "";
+  return "";
 }
 
 function renderCompareSection(section: CompareSection, projects: FeaturedProject[]) {
@@ -6470,10 +5722,6 @@ function renderMissingMarketNote() {
   `;
 }
 
-function imageProviderLabel(src: string) {
-  const sourceName = imageSourceName(src);
-  return `Image: ${sourceName}`;
-}
 
 function imageCaptionShort(src: string) {
   return projectLabelForImage(src) ?? imageSourceName(src);
@@ -7895,6 +7143,7 @@ function floorplanLibraryPath(projectId?: string) {
 
 function renderProjectFloorplanHubLink(project: FeaturedProject, floorplanProject?: ApprovedFloorplanProject | null) {
   const planCount = floorplanProject?.plans?.length ?? 0;
+  if (!project.floorplans && planCount === 0) return "";
   const href = floorplanLibraryPath(floorplanProject?.projectId ?? project.id);
   const label = planCount
     ? `View ${planCount} floorplan${planCount === 1 ? "" : "s"}`
@@ -7908,9 +7157,6 @@ function renderProjectFloorplanHubLink(project: FeaturedProject, floorplanProjec
   `;
 }
 
-function floorplanProjectIdFromDocsPath(basePath: string) {
-  return basePath.match(/\/projects\/([^/]+)\//)?.[1];
-}
 
 function cleanFloorplanTitle(title: string) {
   return title
@@ -8279,21 +7525,7 @@ function sourceFactForProject(projectId: string) {
   return projectFactById.get(sourceId as (typeof projectFacts)[number]["projectId"]);
 }
 
-function renderProjectFact(fact: ProjectFact) {
-  if (isSuppressedPublicFact(fact)) return "";
-  return `
-    <article class="profile-card">
-      <span>${publicText(fact.label)}</span>
-      <strong>${publicText(fact.value)}</strong>
-      ${fact.note ? `<p>${publicText(fact.note)}</p>` : ""}
-    </article>
-  `;
-}
 
-function isSuppressedPublicFact(fact: ProjectFact) {
-  const combined = `${fact.label} ${fact.value} ${fact.note ?? ""}`.toLowerCase();
-  return /sales\s*(gallery|office)|developer\s+site|official\s+site|review file|operations layer/.test(combined);
-}
 
 function projectTypeLabel(type: ProjectPageType) {
   const labels: Record<ProjectPageType, string> = {
@@ -8752,7 +7984,7 @@ function renderTechnicalDisclosuresSection(project: FeaturedProject, draft: Proj
   if (!hasDisclosures) return "";
 
   return `
-    <section class="section brochure-disclosures-section" id="disclosures-${project.id}">
+    <section class="section brochure-disclosures-section" id="disclosures-${project.id}" data-project-section="disclosures">
       <details class="disclosures-accordion">
         <summary class="disclosures-summary">
           <span>Sourcing Details & Technical Disclosures</span>
@@ -9003,7 +8235,7 @@ function renderProjectAmenitiesSection(project: FeaturedProject, draft: ProjectP
     : "";
 
   return `
-    <section class="section brochure-amenities-section" id="amenities-${project.id}">
+    <section class="section brochure-amenities-section" id="amenities-${project.id}" data-project-section="amenities">
       <div class="amenities-container">
         <div class="section-heading">
           <p class="eyebrow">Amenities</p>
@@ -9089,6 +8321,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const facts = (showcase?.factStrip?.length ? showcase.factStrip : defaultFacts).filter((fact) => isBuyerFacingValue(fact.value));
   const heroBlurb = showcase?.heroBlurb ?? copyPackage?.heroSubheadline ?? project.summary;
   const gallery = showcase?.gallery ?? [];
+  const galleryId = `project-gallery-${project.id}`;
   const galleryClass = showcase?.galleryLayout === "grid" ? "berkeley-gallery-grid" : "berkeley-gallery-slideshow";
   const residences = showcase?.residenceCollections ?? [];
   const amenities = showcase?.amenityHighlights ?? [];
@@ -9132,7 +8365,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         <a class="berkeley-inquire" href="/inquire/?project=${project.id}&interest=availability" ${renderCtaTrackingAttrs("project_page", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
       </nav>
 
-      <section class="berkeley-hero-clean">
+      <section class="berkeley-hero-clean" data-project-section="hero">
         <img src="${safeHref(heroImage)}" alt="${publicText(showcase?.heroImage?.alt ?? `${project.name} hero rendering`)}" decoding="async" />
         <div class="berkeley-hero-shade"></div>
         <div class="berkeley-hero-content">
@@ -9142,11 +8375,11 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         ${heroTags.length ? `<div class="berkeley-hero-tags" aria-label="Project tags">${heroTags.map((tag) => `<article><span>${publicText(tag.label)}</span><strong>${publicText(tag.value)}</strong></article>`).join("")}</div>` : ""}
       </section>
 
-      <section class="berkeley-fact-strip" aria-label="Key project facts">
+      <section class="berkeley-fact-strip" data-project-section="facts" aria-label="Key project facts">
         ${facts.map((fact) => `<article>${berkeleyIcon(fact.icon)}<span>${publicText(fact.label)}</span><strong>${publicText(fact.value)}</strong></article>`).join("")}
       </section>
 
-      <section class="berkeley-intro-section" aria-label="Project introduction">
+      <section class="berkeley-intro-section" data-project-section="overview" aria-label="Project introduction">
         <p class="berkeley-kicker">Overview</p>
         <p>${publicText(intro)}</p>
         ${renderProjectFloorplanHubLink(project)}
@@ -9154,7 +8387,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 
       ${visualBreak ? `<figure class="berkeley-patio-break"><img src="${safeHref(visualBreak.src)}" alt="${publicText(visualBreak.alt ?? `${project.name} ${visualBreak.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
-      ${residences.length ? `<section class="berkeley-residence-section" id="berkeley-residences">
+      ${residences.length ? `<section class="berkeley-residence-section" id="berkeley-residences" data-project-section="residences">
         <div class="berkeley-section-heading"><p class="berkeley-kicker">${publicText(residenceSectionLabel)}</p><a href="${safeHref(residenceSectionHeadingHref)}">${publicText(residenceSectionLinkText)} <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-residence-grid">
           ${residences.map((item, index) => {
@@ -9167,13 +8400,13 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         </div>
       </section>` : ""}
 
-      ${gallery.length ? `<section class="berkeley-gallery-row ${galleryClass}" aria-label="Project image gallery"><div class="berkeley-section-heading"><p class="berkeley-kicker">Gallery</p><a href="#berkeley-gallery">View all images <span aria-hidden="true">→</span></a></div><div class="berkeley-image-row" id="berkeley-gallery">${gallery.map((item, index) => `<figure><img src="${safeHref(item.src)}" alt="${publicText(item.alt ?? `${project.name} ${item.label}`)}" loading="${showcase?.galleryLayout === "grid" || index < 4 ? "eager" : "lazy"}" decoding="async" /><figcaption>${publicText(item.label)}</figcaption></figure>`).join("")}</div></section>` : ""}
+      ${gallery.length ? `<section class="berkeley-gallery-row ${galleryClass}" data-project-section="gallery" aria-label="Project image gallery"><div class="berkeley-section-heading"><p class="berkeley-kicker">Gallery</p><a href="#${galleryId}">View all images <span aria-hidden="true">→</span></a></div><div class="berkeley-image-row" id="${galleryId}">${gallery.map((item, index) => `<figure><img src="${safeHref(item.src)}" alt="${publicText(item.alt ?? `${project.name} ${item.label}`)}" loading="${showcase?.galleryLayout === "grid" || index < 4 ? "eager" : "lazy"}" decoding="async" /><figcaption>${publicText(item.label)}</figcaption></figure>`).join("")}</div></section>` : ""}
 
-      ${amenities.length ? `<section class="berkeley-amenity-rail" aria-label="Highlighted amenities"><div class="berkeley-section-heading"><p class="berkeley-kicker">Amenities</p></div><div class="berkeley-amenity-icon-grid">${amenities.map((amenity) => `<article>${berkeleyIcon(amenity.icon)}<span>${publicText(amenity.label)}</span></article>`).join("")}</div></section>` : ""}
+      ${amenities.length ? `<section class="berkeley-amenity-rail" data-project-section="amenities" aria-label="Highlighted amenities"><div class="berkeley-section-heading"><p class="berkeley-kicker">Amenities</p></div><div class="berkeley-amenity-icon-grid">${amenities.map((amenity) => `<article>${berkeleyIcon(amenity.icon)}<span>${publicText(amenity.label)}</span></article>`).join("")}</div></section>` : ""}
 
       ${neighborhoodImage ? `<figure class="berkeley-image-break"><img src="${safeHref(neighborhoodImage.src)}" alt="${publicText(neighborhoodImage.alt ?? `${project.name} ${neighborhoodImage.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
-      <section class="berkeley-neighborhood-section" id="berkeley-neighborhood">
+      <section class="berkeley-neighborhood-section" id="berkeley-neighborhood" data-project-section="neighborhood">
         <div><p class="berkeley-kicker">The Neighborhood</p><h2>${publicText(neighborhoodHeadline)}</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="${corridorDirectoryPath(project.corridorKey)}">View nearby projects <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-google-map berkeley-project-map">
           <aside class="home-hero-map-card berkeley-map-card" data-focus-project-id="${project.id}" aria-label="West Palm Beach development map centered on ${publicText(project.name)}">
@@ -9194,11 +8427,11 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         </div>
       </section>
 
-      ${teamFacts.length ? `<section class="berkeley-team-section" aria-label="Project team"><p>${teamFacts.map((fact) => `<span><small>${escapeHtml(fact.label)}:</small> ${publicText(fact.value)}</span>`).join("")}</p></section>` : ""}
+      ${teamFacts.length ? `<section class="berkeley-team-section" data-project-section="team" aria-label="Project team"><p>${teamFacts.map((fact) => `<span><small>${escapeHtml(fact.label)}:</small> ${publicText(fact.value)}</span>`).join("")}</p></section>` : ""}
 
-      <section class="berkeley-brooke-card" aria-label="Local take"><div><p class="berkeley-kicker">Local Take</p><p>${publicText(copyPackage?.localTake ?? copyPackage?.brookeTake ?? project.summary)}</p></div><div class="berkeley-brooke-profile"><div><h3>The Scott Gordon Group</h3><p>Douglas Elliman</p></div></div><ul><li>${advisorProfile.mobile}</li><li>${advisorProfile.email}</li><li>wpbnewconstruction.com</li></ul></section>
+      <section class="berkeley-brooke-card" data-project-section="local-take" aria-label="Local take"><div><p class="berkeley-kicker">Local Take</p><p>${publicText(copyPackage?.localTake ?? copyPackage?.brookeTake ?? project.summary)}</p></div><div class="berkeley-brooke-profile"><div><h3>The Scott Gordon Group</h3><p>Douglas Elliman</p></div></div><ul><li>${advisorProfile.mobile}</li><li>${advisorProfile.email}</li><li>wpbnewconstruction.com</li></ul></section>
 
-      <section class="brochure-research-contact" id="project-contact-${project.id}">
+      <section class="brochure-research-contact" id="project-contact-${project.id}" data-project-section="inquiry">
         <div class="brochure-research-panel"><p class="berkeley-kicker">Buyer Inquiry</p><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div>
         ${renderProjectInquiryForm(project)}
       </section>
@@ -9290,7 +8523,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
   return `
     <div class="route-view route-view-project route-view-draft-project route-view-brochure-project project-page-${pageType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="${pageType}" hidden>
       ${renderProjectIdentityHeader(project, pageType)}
-      <section class="brochure-hero" id="${project.id}">
+      <section class="brochure-hero" id="${project.id}" data-project-section="hero">
         ${renderProjectHeroSlideshow(project, draft, heroImage, heroMobileImage, approvedHeroAsset)}
         <div class="brochure-hero-copy">
           <p class="eyebrow">${project.corridor} · West Palm Beach</p>
@@ -9335,7 +8568,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${renderProjectCorridorCta(project)}
       ${copyPackage ? renderProjectBuyerLens(copyPackage) : ""}
 
-      <section class="brochure-module brochure-residences-module ${!residencesImage ? 'no-feature-image' : ''}" id="overview-${project.id}">
+      <section class="brochure-module brochure-residences-module ${!residencesImage ? 'no-feature-image' : ''}" id="overview-${project.id}" data-project-section="residences">
         <div class="brochure-module-copy">
           <p class="eyebrow">${isCompactWatch ? "Editorial Brief" : "Residences"}</p>
           <h2>${isCompactWatch ? `${project.name} buyer read` : residenceSectionTitle(project)}</h2>
@@ -9357,7 +8590,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
       ${hasAmenities ? renderProjectAmenitiesSection(project, draft, copyPackage) : ""}
 
-      <section class="brochure-module brochure-location-module" id="location-${project.id}">
+      <section class="brochure-module brochure-location-module" id="location-${project.id}" data-project-section="neighborhood">
         <div class="brochure-module-copy">
           <p class="eyebrow">The Neighborhood</p>
           <h2>${locationSectionTitle(project)}</h2>
@@ -9392,7 +8625,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${renderProjectInternalComparison(project)}
       ${renderProjectRelatedNews(project)}
 
-      <section class="brochure-research-contact" id="project-resources-${project.id}">
+      <section class="brochure-research-contact" id="project-resources-${project.id}" data-project-section="inquiry">
         <div class="brochure-research-panel">
           <p class="eyebrow">Buyer Resources</p>
           <h2>${isCompactWatch ? "Track what is known, and what is not." : longContactCtaHeadline}</h2>
@@ -9418,12 +8651,12 @@ function renderDraftProjectPage(project: FeaturedProject) {
 function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
   const sourceFact = sourceFactForProject(project.id);
   const source = sourceFact?.facts;
-  const address = source?.address || project.address;
-  const status = source?.status || project.status;
+  const address = resolveProjectField({ identifier: project.id, field: "address", approvedFallback: project.address }).value;
+  const status = resolveProjectField({ identifier: project.id, field: "status", approvedFallback: project.status }).value;
   const stories = source?.stories || "Verify";
-  const residences = conciseResidences(project.id, source?.residences ?? "") || project.residences;
-  const delivery = conciseDelivery(source?.completion ?? "") || project.delivery;
-  const pricing = concisePricing(source?.pricing ?? "") || project.price;
+  const residences = resolveProjectField({ identifier: project.id, field: "residences", approvedFallback: project.residences }).value;
+  const delivery = resolveProjectField({ identifier: project.id, field: "delivery", approvedFallback: project.delivery }).value;
+  const pricing = resolveProjectField({ identifier: project.id, field: "price", approvedFallback: project.price }).value;
   const projectHeroAsset = getProjectHeroAsset(project);
   const projectHeroImage = projectHeroAsset?.src ?? curatedProjectImage(project) ?? placedImportedImageForProject(project.id, "card") ?? project.heroImage ?? project.image;
   const factFields = [
@@ -9868,30 +9101,6 @@ function renderProjectDocument(document: ProjectDocument, projectId?: string) {
   `;
 }
 
-function renderProjectSnapshotPanel(projectId: string) {
-  const floorplanProject = getFloorplanProject(projectId);
-  const floorplanCount = floorplanProject?.count ?? 0;
-  const isRosewood = projectId === "rosewood-residences-west-palm-beach";
-  return `
-    <section class="asset-status-strip" aria-label="Project snapshot">
-      <article>
-        <span>Project Media</span>
-        <strong>${isRosewood ? "User-provided rendering" : "Gallery available"}</strong>
-        <small>${isRosewood ? "Renderings are used as project-specific visuals, not generic corridor imagery." : "Curated imagery, residence visuals, and location context for buyer review."}</small>
-      </article>
-      <article>
-        <span>Floorplans</span>
-        <strong>${isRosewood ? "Not public" : floorplanCount ? `${floorplanCount} plan records` : "Available on request"}</strong>
-        <small>${isRosewood ? "No public Rosewood WPB floorplan packet has been found." : floorplanCount ? `Released plans and packet references are organized for quick comparison.` : "Request the current project packet for available plans."}</small>
-      </article>
-      <article>
-        <span>Advisor</span>
-        <strong>${advisorProfile.name}</strong>
-        <small>${advisorProfile.brokerage} · ${advisorProfile.mobile}</small>
-      </article>
-    </section>
-  `;
-}
 
 function getFloorplanProject(projectId: string) {
   const lookupId = projectId === "south-flagler-house" ? "south-flagler-house-north" : projectId;
@@ -9907,19 +9116,6 @@ export function renderNeededItem(item: string, index: number) {
   `;
 }
 
-function renderFloorplanLink(plan: { label: string; file: string; note?: string }, basePath = docsBase, projectName = "Olara") {
-  const libraryHref = floorplanLibraryPath(floorplanProjectIdFromDocsPath(basePath));
-  return `
-    <a
-      class="floorplan-link floorplan-link-button"
-      href="${libraryHref}"
-      aria-label="View ${escapeHtml(plan.label)} for ${escapeHtml(projectName)} in the floorplan library"
-    >
-      <span>${plan.label}</span>
-      <small>${plan.note ?? "Floorplan library"}</small>
-    </a>
-  `;
-}
 
 function initFloorplanViewer() {
   const viewer = document.querySelector<HTMLElement>("[data-floorplan-viewer]");
@@ -10301,6 +9497,7 @@ function corridorDirectoryDeck(key: CorridorKey) {
     "north-flagler": "Waterfront and marina-area projects north of Downtown, with the deepest active pipeline and long-term redevelopment story.",
     "south-flagler": "Quieter waterfront projects with Palm Beach views, prestige positioning, and a more residential daily rhythm.",
     downtown: "Walkable projects near restaurants, offices, Brightline, CityPlace, Clematis, the Kravis Center, and NORA.",
+    "palm-beach": "Low-density island projects shaped by coastal approvals, scarce sites, and ocean or lagoon settings.",
   }[key];
 }
 
@@ -10477,7 +9674,7 @@ function renderProjectGallerySection(projectId: string) {
   }).join("");
 
   return `
-    <section class="section brochure-gallery-section" id="gallery-${projectId}">
+    <section class="section brochure-gallery-section" id="gallery-${projectId}" data-project-section="gallery">
       <div class="section-heading">
         <p class="eyebrow">Project Media</p>
         <h2>Curated residence & amenity gallery.</h2>
@@ -10609,7 +9806,7 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
   };
 
   return `
-    <section class="section brochure-snapshot-section" id="snapshot-${project.id}">
+    <section class="section brochure-snapshot-section" id="snapshot-${project.id}" data-project-section="facts">
       <div class="snapshot-card-container">
         <div class="snapshot-card-header">
           <p class="eyebrow">At a Glance</p>
@@ -10662,7 +9859,7 @@ function renderLocalTakeSection(project: FeaturedProject, intel: any) {
   `;
 
   return `
-    <section class="section brochure-local-take-section" id="local-take-${project.id}">
+    <section class="section brochure-local-take-section" id="local-take-${project.id}" data-project-section="local-take">
       <div class="local-take-container">
         <div class="local-take-header">
           ${titleHtml}
@@ -10846,7 +10043,7 @@ function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDr
   if (!hasAnyTeam) return "";
 
   return `
-    <section class="section brochure-team-section" id="team-${project.id}">
+    <section class="section brochure-team-section" id="team-${project.id}" data-project-section="team">
       <div class="team-section-container">
         <div class="section-heading">
           <p class="eyebrow">Project Team</p>

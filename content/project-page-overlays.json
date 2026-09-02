@@ -1,0 +1,483 @@
+{
+  "version": 1,
+  "notes": [
+    "Presentation and approved fallback data are keyed by public slug. Canonical structured facts take precedence when present.",
+    "New public candidates are intentionally absent until project imagery and page presentation clear review."
+  ],
+  "projects": [
+    {
+      "publicSlug": "olara",
+      "rank": 1,
+      "deliveryYear": 2027,
+      "longitude": -80.0501,
+      "latitude": 26.7307,
+      "summary": "North Flagler waterfront residences at 1919 N Flagler Drive with marina access, deep amenities, Jose Andres dining, and one of the most complete released floorplan packets in the market.",
+      "floorplans": true,
+      "pageState": "Active / Sales / Under Construction",
+      "image": "/projects/olara/media/olara-hero-exterior-1536x1024.jpg",
+      "approvedFallback": {
+        "displayName": "Olara West Palm Beach",
+        "corridor": "North Flagler",
+        "status": "Under Construction",
+        "delivery": "2027",
+        "residences": "275",
+        "price": "$2M-$7.5M",
+        "address": "1919 N Flagler Drive, West Palm Beach, FL 33407"
+      }
+    },
+    {
+      "publicSlug": "ritz-carlton-wpb",
+      "rank": 2,
+      "deliveryYear": 2028,
+      "longitude": -80.05057,
+      "latitude": 26.72848,
+      "summary": "A Ritz-Carlton branded North Flagler address with public-facing address at 1745 N Flagler Drive and legal parcel references preserved for review.",
+      "floorplans": true,
+      "pageState": "Active / Sales / Under Construction",
+      "image": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg",
+      "approvedFallback": {
+        "displayName": "The Ritz-Carlton Residences, West Palm Beach",
+        "corridor": "North Flagler",
+        "status": "Under Construction",
+        "delivery": "2028",
+        "residences": "138",
+        "price": "$2.5M-$8M",
+        "address": "1745 N Flagler Drive, West Palm Beach, FL 33407"
+      }
+    },
+    {
+      "publicSlug": "shorecrest",
+      "rank": 3,
+      "deliveryYear": 2027,
+      "longitude": -80.05012,
+      "latitude": 26.72985,
+      "summary": "A Related Ross waterfront tower at 1865 N Flagler Drive for buyers comparing boutique floor plates, wellness, and North Flagler construction momentum.",
+      "floorplans": true,
+      "pageState": "Active / Sales / Under Construction",
+      "image": "/projects/shorecrest/media/user-provided-shorecrest-card.jpg",
+      "approvedFallback": {
+        "displayName": "Shorecrest",
+        "corridor": "North Flagler",
+        "status": "Active Sales / Under Construction",
+        "delivery": "Confirm with sales team",
+        "residences": "98",
+        "price": "$3.69M-$5.445M for reviewed available residences",
+        "address": "1865 N Flagler Drive, West Palm Beach, FL 33407"
+      }
+    },
+    {
+      "publicSlug": "south-flagler-house",
+      "rank": 4,
+      "deliveryYear": 2027,
+      "longitude": -80.0511,
+      "latitude": 26.7011,
+      "summary": "RAMSA-designed waterfront residences at 1355 S Flagler Drive, positioned for buyers who want South Flagler privacy, scale, and Palm Beach-facing orientation.",
+      "floorplans": true,
+      "pageState": "Active / Sales / Under Construction",
+      "image": "/projects/south-flagler-house/media/user-provided-south-flagler-house-card.jpg",
+      "approvedFallback": {
+        "displayName": "South Flagler House",
+        "corridor": "South Flagler",
+        "status": "Under Construction",
+        "delivery": "2027",
+        "residences": "108",
+        "price": "$7.98M-$70M",
+        "address": "1355 S Flagler Drive, West Palm Beach, FL 33401"
+      }
+    },
+    {
+      "publicSlug": "nora-house",
+      "rank": 5,
+      "deliveryYear": 2029,
+      "longitude": -80.0581,
+      "latitude": 26.7178,
+      "summary": "Design-driven condominium living in the walkable Nora District, with rooftop wellness, social amenities, and ground-floor retail.",
+      "floorplans": false,
+      "pageState": "Active / Sales / Under Construction",
+      "image": "/projects/nora-house/media/user-provided-nora-house-card.jpg",
+      "approvedFallback": {
+        "displayName": "Nora House",
+        "corridor": "Downtown",
+        "status": "Sales Launched / Pipeline",
+        "delivery": "2029",
+        "residences": "117",
+        "price": "From low $2Ms",
+        "address": "1105 N. Dixie Highway, West Palm Beach, FL 33401"
+      }
+    },
+    {
+      "publicSlug": "banyan-tree",
+      "rank": 6,
+      "deliveryYear": 2028,
+      "longitude": -80.0553,
+      "latitude": 26.7069,
+      "summary": "Banyan Group's first U.S. residential project brings a private, wellness-led hospitality experience to Downtown West Palm Beach, one block from CityPlace.",
+      "floorplans": true,
+      "pageState": "Active Sales / Preconstruction",
+      "image": "/projects/banyan-tree/media/user-provided-banyan-tree-card.jpg",
+      "approvedFallback": {
+        "displayName": "Banyan Tree Residences West Palm Beach",
+        "corridor": "Downtown",
+        "status": "Sales Open",
+        "delivery": "Projected 2028",
+        "residences": "88",
+        "price": "From $1.9M",
+        "address": "400 Hibiscus Street, West Palm Beach, FL 33401"
+      }
+    },
+    {
+      "publicSlug": "mr-c",
+      "rank": 7,
+      "deliveryYear": 2027,
+      "longitude": -80.0578,
+      "latitude": 26.706,
+      "summary": "A downtown Cipriani-branded hotel-residence tower at 327 Okeechobee Boulevard, with municipal address caveats kept out of primary display copy.",
+      "floorplans": true,
+      "pageState": "Active / Sales / Under Construction",
+      "image": "/projects/mr-c/media/mr-c-waterfront-building-source.jpg",
+      "approvedFallback": {
+        "displayName": "Mr. C Residences West Palm Beach",
+        "corridor": "Downtown",
+        "status": "Under Construction",
+        "delivery": "Confirm with sales team",
+        "residences": "146",
+        "price": "Request current pricing",
+        "address": "327 Okeechobee Boulevard, West Palm Beach, FL 33401"
+      }
+    },
+    {
+      "publicSlug": "alba-palm-beach",
+      "rank": 8,
+      "deliveryYear": 2026,
+      "longitude": -80.051,
+      "latitude": 26.7526,
+      "summary": "A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale.",
+      "floorplans": true,
+      "pageState": "Active / Sales / Under Construction",
+      "image": "/projects/alba-palm-beach/media/card.jpg",
+      "approvedFallback": {
+        "displayName": "Alba Palm Beach",
+        "corridor": "North Flagler",
+        "status": "Under Construction",
+        "delivery": "Spring 2026 estimated",
+        "residences": "55",
+        "price": "$2.5M-$7.8M",
+        "address": "4714 N. Flagler Drive, West Palm Beach, FL 33407"
+      }
+    },
+    {
+      "publicSlug": "berkeley",
+      "rank": 9,
+      "deliveryYear": 2027,
+      "longitude": -80.0642,
+      "latitude": 26.7087,
+      "summary": "A Clear Lake/downtown luxury project at 601-621 Clearwater Park Road for buyers comparing newer ownership near The Square, the convention-center edge, and the office core.",
+      "floorplans": false,
+      "pageState": "Active / Sales / Under Construction",
+      "image": "/projects/berkeley/media/card.jpg",
+      "approvedFallback": {
+        "displayName": "The Berkeley Palm Beach",
+        "corridor": "Downtown",
+        "status": "Under Construction",
+        "delivery": "Confirm with sales team",
+        "residences": "193",
+        "price": "$2M-$10M+",
+        "address": "601-621 Clearwater Park Road, West Palm Beach, FL 33401"
+      }
+    },
+    {
+      "publicSlug": "maison-dor",
+      "rank": 10,
+      "deliveryYear": 2028,
+      "longitude": -80.04927,
+      "latitude": 26.67787,
+      "summary": "A 39-residence South Flagler boutique project with emerging details; exact street number, floor count, and service program remain review items.",
+      "floorplans": false,
+      "pageState": "Active / Sales / Under Construction",
+      "image": "/projects/maison-dor/media/card.jpg",
+      "approvedFallback": {
+        "displayName": "Maison d'Or",
+        "corridor": "South Flagler",
+        "status": "Preconstruction / Details Emerging",
+        "delivery": "2028 reported",
+        "residences": "39",
+        "price": "$5.7M+ reported",
+        "address": "South Flagler Drive, West Palm Beach, FL"
+      }
+    },
+    {
+      "publicSlug": "edgeworth",
+      "rank": 11,
+      "deliveryYear": 2029,
+      "longitude": -80.0514,
+      "latitude": 26.6992,
+      "summary": "A combined South Flagler pipeline project at 1155 S Flagler Drive, tracked as one Edgeworth entry until official materials require a tower split.",
+      "floorplans": false,
+      "pageState": "Pipeline / Announced / Watchlist",
+      "image": "/projects/edgeworth-north/media/card.webp",
+      "approvedFallback": {
+        "displayName": "Edgeworth",
+        "corridor": "South Flagler",
+        "status": "Announced / Pipeline",
+        "delivery": "Pipeline watch",
+        "residences": "168",
+        "price": "$2.5M-$35.5M reported",
+        "address": "1155 S Flagler Drive, West Palm Beach, FL"
+      }
+    },
+    {
+      "publicSlug": "mandarin-oriental",
+      "rank": 12,
+      "deliveryYear": 2031,
+      "longitude": -80.0516,
+      "latitude": 26.759,
+      "summary": "An 87-residence Mandarin Oriental waterfront tower on North Flagler with Safdie architecture, private terraces, and a 2031 delivery horizon.",
+      "floorplans": true,
+      "pageState": "Pipeline / Announced / Watchlist",
+      "image": "/projects/mandarin-oriental/media/showcase/mandarin-oriental-hero-waterfront-web.jpg",
+      "approvedFallback": {
+        "displayName": "Mandarin Oriental Residences West Palm Beach",
+        "corridor": "North Flagler",
+        "status": "Sales Open",
+        "delivery": "Anticipated 2031",
+        "residences": "87",
+        "price": "From $3.5M",
+        "address": "5400 N Flagler Drive, West Palm Beach, FL 33407"
+      }
+    },
+    {
+      "publicSlug": "alba-reserve",
+      "rank": 13,
+      "deliveryYear": 2029,
+      "longitude": -80.051,
+      "latitude": 26.7535,
+      "summary": "A reported/proposed North Flagler watchlist project at 4720 N Flagler Drive, kept separate from Mandarin Oriental unless official sources prove otherwise.",
+      "floorplans": false,
+      "pageState": "Pipeline / Announced / Watchlist",
+      "image": "/projects/alba-reserve/media/card.jpg",
+      "approvedFallback": {
+        "displayName": "Alba Reserve",
+        "corridor": "North Flagler",
+        "status": "Reported / Proposed",
+        "delivery": "Pipeline watch",
+        "residences": "87",
+        "price": "Not released",
+        "address": "4720 N Flagler Drive, West Palm Beach, FL"
+      }
+    },
+    {
+      "publicSlug": "forte-on-flagler",
+      "rank": 14,
+      "deliveryYear": 2024,
+      "longitude": -80.0509,
+      "latitude": 26.7019,
+      "summary": "A completed South Flagler luxury comp at 1309 S Flagler Drive, used as a benchmark rather than active preconstruction inventory.",
+      "floorplans": true,
+      "pageState": "Completed Luxury Comp",
+      "image": "/projects/forte-on-flagler/media/card.jpg",
+      "approvedFallback": {
+        "displayName": "Forte on Flagler",
+        "corridor": "South Flagler",
+        "status": "Completed Comp",
+        "delivery": "Completed comp",
+        "residences": "41",
+        "price": "Resale inventory varies",
+        "address": "1309 S Flagler Drive, West Palm Beach, FL"
+      }
+    },
+    {
+      "publicSlug": "la-clara",
+      "rank": 15,
+      "deliveryYear": 2023,
+      "longitude": -80.0511,
+      "latitude": 26.6993,
+      "summary": "A completed South Flagler luxury comp at 1515 S Flagler Drive for benchmarking finished waterfront product and resale alternatives.",
+      "floorplans": true,
+      "pageState": "Completed Luxury Comp",
+      "image": "/projects/la-clara/media/la-clara-hero-4x3.jpg",
+      "heroImage": "/projects/la-clara/media/la-clara-hero-3x2.jpg",
+      "mobileImage": "/projects/la-clara/media/la-clara-hero-4x5.jpg",
+      "galleryImages": [
+        {
+          "src": "/projects/la-clara/media/la-clara-hero-4x3.jpg",
+          "kicker": "Waterfront",
+          "title": "Intracoastal Arrival",
+          "alt": "La Clara waterfront tower rendering from the Intracoastal"
+        },
+        {
+          "src": "/projects/la-clara/media/la-clara-hero-4x5.jpg",
+          "kicker": "Evening",
+          "title": "South Flagler Tower",
+          "alt": "La Clara tower evening rendering with water reflection"
+        }
+      ],
+      "approvedFallback": {
+        "displayName": "La Clara",
+        "corridor": "South Flagler",
+        "status": "Completed",
+        "delivery": "Completed 2023",
+        "residences": "83",
+        "price": "Resale inventory varies",
+        "address": "1515 S Flagler Drive, West Palm Beach, FL"
+      }
+    },
+    {
+      "publicSlug": "fern-and-gardenia-related-ross-fern-street",
+      "rank": 17,
+      "deliveryYear": 2029,
+      "longitude": -80.0555,
+      "latitude": 26.7112,
+      "summary": "Fern & Gardenia / Related Ross Fern Street is a Downtown pipeline entry for the reported condo repositioning at 401 S Dixie Highway and Fern Street parcels.",
+      "floorplans": false,
+      "pageState": "Pipeline / Announced / Watchlist",
+      "image": "/projects/related-ross-fern-street/media/card.jpg",
+      "approvedFallback": {
+        "displayName": "Fern & Gardenia / Related Ross Fern Street Project",
+        "corridor": "Downtown",
+        "status": "Pipeline / Watchlist",
+        "delivery": "Pipeline watch",
+        "residences": "100-130 proposed",
+        "price": "Not released",
+        "address": "430-464 Fern St"
+      }
+    },
+    {
+      "publicSlug": "rosewood-residences-west-palm-beach",
+      "rank": 18,
+      "deliveryYear": 2029,
+      "longitude": -80.05005,
+      "latitude": 26.73135,
+      "summary": "Rosewood Residences is a North Flagler branded-residence pipeline entry at 2001 N Flagler Drive with human review required until official sales materials are public.",
+      "floorplans": false,
+      "pageState": "Pipeline / Announced / Watchlist",
+      "image": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg",
+      "heroImage": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg",
+      "mobileImage": "/projects/rosewood/media/user-provided-rosewood-render-02.jpg",
+      "approvedFallback": {
+        "displayName": "Rosewood Residences West Palm Beach",
+        "corridor": "North Flagler",
+        "status": "Pipeline / Branded Residences",
+        "delivery": "Timing not released",
+        "residences": "90",
+        "price": "Not released",
+        "address": "2001 N Flagler Drive, West Palm Beach, FL"
+      }
+    },
+    {
+      "publicSlug": "rybovich-marina-redevelopment",
+      "rank": 19,
+      "deliveryYear": 2030,
+      "longitude": -80.0506,
+      "latitude": 26.7461,
+      "summary": "Rybovich Marina Redevelopment is a planned 19-acre North Flagler waterfront district with residential towers, marina context, private club space, retail, restaurants, office, crew amenities, and an Intracoastal promenade.",
+      "floorplans": false,
+      "pageState": "Pipeline / Announced / Watchlist",
+      "image": "/projects/rybovich-marina/media/showcase/rybovich-marina-hero-main-v01-web.jpg",
+      "approvedFallback": {
+        "displayName": "Rybovich Marina Redevelopment",
+        "corridor": "North Flagler",
+        "status": "Pipeline / Planning Approved",
+        "delivery": "Pipeline watch",
+        "residences": "Up to 660 planned",
+        "price": "Not released",
+        "address": "4000-4300 N Flagler Dr"
+      }
+    },
+    {
+      "publicSlug": "olin-palm-beach",
+      "rank": 20,
+      "deliveryYear": 9999,
+      "longitude": -80.0376,
+      "latitude": 26.6229,
+      "summary": "OLIN Palm Beach is a 32-residence, three-building ocean-to-lagoon development on Palm Beach Island, designed by OMA with interiors by GACHOT and sales now launched.",
+      "floorplans": false,
+      "pageState": "Breaking Ground / Sales Launched",
+      "image": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",
+      "heroImage": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp",
+      "mobileImage": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",
+      "galleryImages": [
+        {
+          "src": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-amenities-poolside-waterfront-v01.webp",
+          "kicker": "Waterfront",
+          "title": "Oceanfront Pool Setting",
+          "alt": "OLIN Palm Beach pool and landscaped waterfront grounds overlooking the Atlantic Ocean"
+        },
+        {
+          "src": "/assets/projects/olin-palm-beach/amenities/olin-palm-beach-amenities-landscaped-arrival-v01.webp",
+          "kicker": "Arrival",
+          "title": "Landscaped Private Entrance",
+          "alt": "OLIN Palm Beach landscaped private entrance and low-rise residential buildings"
+        },
+        {
+          "src": "/assets/projects/olin-palm-beach/residences/olin-palm-beach-residences-ocean-terrace-v01.webp",
+          "kicker": "Residences",
+          "title": "Ocean Terrace",
+          "alt": "OLIN Palm Beach private residence terrace facing the Atlantic Ocean at sunset"
+        },
+        {
+          "src": "/assets/projects/olin-palm-beach/neighborhood/olin-palm-beach-neighborhood-site-context-v01.webp",
+          "kicker": "Site Context",
+          "title": "Ocean-to-Lagoon Campus",
+          "alt": "Aerial rendering of the OLIN Palm Beach three-building site between the Atlantic Ocean and Lake Worth Lagoon"
+        }
+      ],
+      "approvedFallback": {
+        "displayName": "OLIN Palm Beach",
+        "corridor": "Palm Beach",
+        "status": "Breaking Ground / Sales Launched",
+        "delivery": "Timing not released",
+        "residences": "32",
+        "price": "Residence-specific pricing requires sales verification",
+        "address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480"
+      }
+    },
+    {
+      "publicSlug": "3031-s-ocean-palm-beach",
+      "rank": 21,
+      "deliveryYear": 9999,
+      "longitude": -80.0386461,
+      "latitude": 26.6198567,
+      "summary": "A Town-approved, 12-residence villa-style redevelopment on a man-made Palm Beach peninsula, designed by Fairfax & Sammons for Copperline Partners.",
+      "floorplans": false,
+      "pageState": "Town Approved / Announced",
+      "image": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
+      "heroImage": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
+      "mobileImage": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
+      "galleryImages": [
+        {
+          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
+          "kicker": "Arrival",
+          "title": "Bridge Entrance",
+          "alt": "Bridge approach to the proposed 3031 S. Ocean villa-style waterfront residences"
+        },
+        {
+          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
+          "kicker": "Waterfront",
+          "title": "Lagoon-Side Elevation",
+          "alt": "Waterfront elevation of the proposed 3031 S. Ocean residences beside Lake Worth Lagoon"
+        },
+        {
+          "src": "/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
+          "kicker": "Courtyard",
+          "title": "Landscaped Passage",
+          "alt": "Landscaped pedestrian courtyard within the proposed 3031 S. Ocean residential setting"
+        },
+        {
+          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
+          "kicker": "Architecture",
+          "title": "Villa-Style Composition",
+          "alt": "Villa-style architecture and waterfront arrival planned for 3031 S. Ocean"
+        }
+      ],
+      "approvedFallback": {
+        "displayName": "3031 S. Ocean",
+        "corridor": "Palm Beach",
+        "status": "Town Approved / Announced",
+        "delivery": "Timing not released",
+        "residences": "12",
+        "price": "Not publicly released",
+        "address": "3031 South Ocean Boulevard, Palm Beach, FL 33480"
+      }
+    }
+  ]
+}

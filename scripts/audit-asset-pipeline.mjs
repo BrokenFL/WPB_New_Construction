@@ -898,7 +898,7 @@ ${listItems(report.oversizedOrUnoptimized.slice(0, 50).map((item) => `${item.lay
 
 ## Slug Mismatches
 
-${listItems(report.slugMismatches.map((item) => `${item.layer}: ${item.projectSlug} at ${item.path}`))}
+${listItems(report.slugMismatches.map((item) => `${item.layer}: ${item.projectSlug} at \`${item.path}\``))}
 
 ## Broken References
 

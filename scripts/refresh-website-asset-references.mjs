@@ -11,7 +11,7 @@ const registryPath = path.join(websiteRoot, "data/project_assets.json");
 const publishManifestPath = path.join(websiteRoot, "data/generated_asset_publish_manifest.json");
 const reportJsonPath = path.join(websiteRoot, "docs/reports/website-asset-reference-refresh-report.json");
 const reportMdPath = path.join(websiteRoot, "docs/reports/website-asset-reference-refresh-report.md");
-const targetProjects = ["alba-palm-beach", "berkeley", "forte-on-flagler", "maison-dor", "mandarin-oriental", "mr-c"];
+const targetProjects = ["3031-s-ocean-palm-beach", "alba-palm-beach", "berkeley", "forte-on-flagler", "maison-dor", "mandarin-oriental", "mr-c", "olin-palm-beach"];
 const galleryPlacements = ["hero", "amenities", "residences", "neighborhood"];
 const allowedProjects = new Set(targetProjects);
 const args = process.argv.slice(2);
@@ -154,7 +154,11 @@ function buildRegistryAssets(projectSlug, inventory, current, existingManualHero
 
 function findExistingManualHero(project, inventory) {
   const candidates = (project.assets ?? []).filter((asset) => asset.placement === "hero" && asset.status === "approved" && asset.src?.startsWith("/assets/"));
-  for (const asset of candidates) {
+  const orderedCandidates = [
+    ...candidates.filter((asset) => asset.variant === "primary"),
+    ...candidates.filter((asset) => asset.variant !== "primary"),
+  ];
+  for (const asset of orderedCandidates) {
     const localPath = path.join(publicRoot, asset.src.replace(/^\//, ""));
     if (fs.existsSync(localPath) && inventory.some((item) => item.publicPath === asset.src)) return asset;
   }

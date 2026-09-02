@@ -1,23 +1,32 @@
 # Project Intelligence Architecture
 
-This document captures the source-of-truth layout for public project identity, source-catalog facts, compare/building intelligence, manual overrides, and the shared resolver that ties them together.
+This document captures the source-of-truth layout for public project identity, source-catalog facts, compare/building intelligence, manual overrides, publication gates, and the shared resolver that ties them together.
 
 ## Current Strategy
 
-- Public project identity is the public route layer: display name, route slug, corridor, public status, delivery text, residence count, and public address.
+- Public project identity is generated from the tracked canonical snapshot plus Brooke-reviewed identity/publication decisions. `src/main.ts` is no longer a second hand-maintained project registry.
+- Project presentation is a separate overlay: ranking, coordinates, approved imagery, summary, page state, and other visual/editorial concerns do not control canonical identity or factual precedence.
 - Source-catalog facts remain the caveat and review layer: source-derived facts, conflicts, gaps, review notes, and source counts.
 - The compare/building database is the enriched buyer-intelligence layer: amenities, services, parking, storage, pets, rentals, fees, delivery detail, and comparison fields.
-- The site reads these layers through one shared resolver so conflicts stay visible instead of being silently overwritten.
+- The site reads these layers through shared accessors and the project-intelligence resolver so conflicts stay visible instead of being silently overwritten.
+- Publication states are explicit: `published`, `awaiting_imagery`, and `retired_merged`. Only `published` projects receive routes, cards, sitemap entries, and JSON-LD.
 
 ## Shared Files
 
-- `src/lib/projectIntelligenceRegistry.ts` — per-project registry (slug, compare ID, source IDs, aliases, collapsed entries)
+- `content/project-identity-decisions.json` — Brooke-reviewed canonical IDs, aliases, corridor assignment, and publication state
+- `content/project-page-overlays.json` — approved presentation and legacy fallback data for published project pages
+- `research/scripts/generate-project-model.mjs` — validates and generates the shared project model
+- `src/generated/projectModel.ts` / `src/generated/projectModel.json` — generated browser/build projections; do not edit directly
+- `src/lib/projectIntelligenceRegistry.ts` — generated-model adapter for slug, compare ID, source IDs, aliases, and collapsed entries
+- `src/lib/projectFieldAccessors.ts` — shared field precedence helper
 - `src/lib/projectIntelligence.ts` — resolver, field review configs, queue builder, schema safety
 - `src/data/projectFactOverrides.ts` — TypeScript type definitions and JSON import
 - `content/overrides/project-fact-overrides.json` — Brooke-reviewed override values (the write target)
 - `src/lib/buildingDatabase.ts` — compare database resolver
 - `src/main.ts` — site data assembly (reads from resolver)
 - `research/scripts/check-project-intelligence.ts` — warning-only alignment QA
+- `research/scripts/generate-project-schema-safe.ts` — runs the shared schema resolver and generates the build-only prerender projection
+- `src/generated/projectSchemaSafe.json` — build-only schema-safe values used by static prerendering; do not expose as public JSON
 - `tools/content-studio/server.mjs` — Builder API including `/api/project-fact-override`
 - `tools/content-studio/app.js` — Project Intelligence UI and Project Facts panel
 - `tools/content-studio/index.html` — Builder shell
@@ -51,6 +60,23 @@ The resolver returns a merged object with:
 - **Public identity fields** (name, slug, corridor, route): manual override > public project layer > source catalog > compare data
 - **Buyer-facing facts** (status, delivery, address, residenceCount, price, bedrooms, etc.): manual override > compare database > source catalog > public project layer
 - **Schema output**: only emits a field when it is conflict-free AND explicitly marked `schemaSafe: true` in the override, OR when the resolver finds no conflict
+
+For generated page facts, the explicit precedence contract is:
+
+1. Brooke-reviewed override
+2. appropriate structured source (canonical identity/project model for project pages; compare database for buyer comparison fields)
+3. approved fallback from the page overlay
+
+The generator records field provenance. It never converts a conflict into an approved value.
+
+## Publication Gates (2026-09-01)
+
+- Published project pages: 18
+- Public candidates awaiting imagery: OLIN Palm Beach, 3031 S. Ocean, Apogee Residences, 201 Arkona Court, and 2085 North Flagler
+- Retired/merged: Currie Park Towers → 2085 North Flagler
+- Palm Beach is a fourth corridor alongside North Flagler, South Flagler, and Downtown.
+
+Awaiting-imagery projects are present in the identity registry so aliases and future compare reconciliation are stable, but they intentionally have no route, card, sitemap entry, presentation overlay, or JSON-LD.
 
 ## Reviewable Fields
 
@@ -239,8 +265,8 @@ Add `--write` to `qa:project-intelligence` to emit a markdown snapshot at `docs/
 
 ## Next Phase
 
-- Use the shared resolver directly in project-page data assembly.
-- Feed compare-page rows and related insights from the same merged object.
+- Review and approve project-specific imagery for the five `awaiting_imagery` candidates before adding presentation overlays or public routes.
+- Review the proposed master fact changes before replacing the active compare CSV; the dry-run report intentionally keeps all changed cells and conflicts visible.
 - Resolve the 63 open Priority 1 items using the Builder queue — one field per session.
 - Add `schemaSafe: true` overrides only after Brooke confirms each value through the Builder.
 - Keep the priority queue and warning-only audit aligned so Brooke sees the same issue ordering in the cockpit and QA output.

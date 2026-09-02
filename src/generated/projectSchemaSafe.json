@@ -1,0 +1,606 @@
+{
+  "version": 1,
+  "projects": [
+    {
+      "identity": {
+        "slug": "alba-palm-beach",
+        "route": "/projects/alba-palm-beach/",
+        "displayName": "Alba Palm Beach",
+        "corridor": "North Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/alba-palm-beach/"
+      },
+      "safeFields": {
+        "name": "Alba Palm Beach",
+        "route": "/projects/alba-palm-beach/",
+        "url": "https://www.wpbnewconstruction.com/projects/alba-palm-beach/",
+        "corridor": "North Flagler",
+        "residenceCount": "55",
+        "compareDatabaseId": "alba-palm-beach",
+        "compareDatabaseSlug": "alba-palm-beach",
+        "sourceCatalogId": "alba-palm-beach"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "address"
+      ],
+      "conflictCount": 1,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "olara",
+        "route": "/projects/olara/",
+        "displayName": "Olara West Palm Beach",
+        "corridor": "North Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/olara/"
+      },
+      "safeFields": {
+        "name": "Olara West Palm Beach",
+        "route": "/projects/olara/",
+        "url": "https://www.wpbnewconstruction.com/projects/olara/",
+        "corridor": "North Flagler",
+        "compareDatabaseId": "olara-wpb",
+        "compareDatabaseSlug": "olara-west-palm-beach",
+        "sourceCatalogId": "olara"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "residenceCount",
+        "address"
+      ],
+      "conflictCount": 4,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "residenceCount",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "shorecrest",
+        "route": "/projects/shorecrest/",
+        "displayName": "Shorecrest",
+        "corridor": "North Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/shorecrest/"
+      },
+      "safeFields": {
+        "name": "Shorecrest",
+        "route": "/projects/shorecrest/",
+        "url": "https://www.wpbnewconstruction.com/projects/shorecrest/",
+        "corridor": "North Flagler",
+        "compareDatabaseId": "shorecrest-wpb",
+        "compareDatabaseSlug": "shorecrest-west-palm-beach",
+        "sourceCatalogId": "shorecrest"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "residenceCount",
+        "address"
+      ],
+      "conflictCount": 4,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "residenceCount",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "ritz-carlton-wpb",
+        "route": "/projects/ritz-carlton-wpb/",
+        "displayName": "The Ritz-Carlton Residences, West Palm Beach",
+        "corridor": "North Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/"
+      },
+      "safeFields": {
+        "name": "The Ritz-Carlton Residences, West Palm Beach",
+        "route": "/projects/ritz-carlton-wpb/",
+        "url": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/",
+        "corridor": "North Flagler",
+        "compareDatabaseId": "ritz-carlton-residences-west-palm-beach",
+        "compareDatabaseSlug": "ritz-carlton-residences-west-palm-beach",
+        "sourceCatalogId": "ritz-carlton-wpb"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "residenceCount",
+        "address"
+      ],
+      "conflictCount": 4,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "residenceCount",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "berkeley",
+        "route": "/projects/berkeley/",
+        "displayName": "The Berkeley Palm Beach",
+        "corridor": "Downtown",
+        "url": "https://www.wpbnewconstruction.com/projects/berkeley/"
+      },
+      "safeFields": {
+        "name": "The Berkeley Palm Beach",
+        "route": "/projects/berkeley/",
+        "url": "https://www.wpbnewconstruction.com/projects/berkeley/",
+        "corridor": "Downtown",
+        "residenceCount": "193",
+        "compareDatabaseId": "berkeley-wpb",
+        "compareDatabaseSlug": "the-berkeley-west-palm-beach",
+        "sourceCatalogId": "berkeley"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "address"
+      ],
+      "conflictCount": 4,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "nora-house",
+        "route": "/projects/nora-house/",
+        "displayName": "Nora House",
+        "corridor": "Downtown",
+        "url": "https://www.wpbnewconstruction.com/projects/nora-house/"
+      },
+      "safeFields": {
+        "name": "Nora House",
+        "route": "/projects/nora-house/",
+        "url": "https://www.wpbnewconstruction.com/projects/nora-house/",
+        "corridor": "Downtown",
+        "residenceCount": "117",
+        "compareDatabaseId": "nora-house-wpb",
+        "compareDatabaseSlug": "nora-house-west-palm-beach",
+        "sourceCatalogId": "nora-house"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "address"
+      ],
+      "conflictCount": 3,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "south-flagler-house",
+        "route": "/projects/south-flagler-house/",
+        "displayName": "South Flagler House",
+        "corridor": "South Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/south-flagler-house/"
+      },
+      "safeFields": {
+        "name": "South Flagler House",
+        "route": "/projects/south-flagler-house/",
+        "url": "https://www.wpbnewconstruction.com/projects/south-flagler-house/",
+        "corridor": "South Flagler",
+        "compareDatabaseId": "south-flagler-house",
+        "compareDatabaseSlug": "south-flagler-house",
+        "sourceCatalogId": "south-flagler-house-north"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "residenceCount",
+        "address"
+      ],
+      "conflictCount": 5,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "residenceCount",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "mr-c",
+        "route": "/projects/mr-c/",
+        "displayName": "Mr. C Residences West Palm Beach",
+        "corridor": "Downtown",
+        "url": "https://www.wpbnewconstruction.com/projects/mr-c/"
+      },
+      "safeFields": {
+        "name": "Mr. C Residences West Palm Beach",
+        "route": "/projects/mr-c/",
+        "url": "https://www.wpbnewconstruction.com/projects/mr-c/",
+        "corridor": "Downtown",
+        "compareDatabaseId": "mr-c-residences-wpb",
+        "compareDatabaseSlug": "mr-c-residences-west-palm-beach",
+        "sourceCatalogId": "mr-c"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "residenceCount",
+        "address"
+      ],
+      "conflictCount": 4,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "residenceCount",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "maison-dor",
+        "route": "/projects/maison-dor/",
+        "displayName": "Maison d’Or",
+        "corridor": "South Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/maison-dor/"
+      },
+      "safeFields": {
+        "name": "Maison d’Or",
+        "route": "/projects/maison-dor/",
+        "url": "https://www.wpbnewconstruction.com/projects/maison-dor/",
+        "corridor": "South Flagler",
+        "residenceCount": "39",
+        "compareDatabaseId": "maison-dor-south-flagler",
+        "compareDatabaseSlug": "maison-dor-south-flagler",
+        "sourceCatalogId": "maison-dor"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "address"
+      ],
+      "conflictCount": 3,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "edgeworth",
+        "route": "/projects/edgeworth/",
+        "displayName": "Edgeworth",
+        "corridor": "South Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/edgeworth/"
+      },
+      "safeFields": {
+        "name": "Edgeworth",
+        "route": "/projects/edgeworth/",
+        "url": "https://www.wpbnewconstruction.com/projects/edgeworth/",
+        "corridor": "South Flagler",
+        "compareDatabaseId": "edgeworth-wpb",
+        "compareDatabaseSlug": "edgeworth-west-palm-beach",
+        "sourceCatalogId": "edgeworth-north"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "residenceCount",
+        "address"
+      ],
+      "conflictCount": 5,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "residenceCount",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "mandarin-oriental",
+        "route": "/projects/mandarin-oriental/",
+        "displayName": "Mandarin Oriental Residences West Palm Beach",
+        "corridor": "North Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/mandarin-oriental/"
+      },
+      "safeFields": {
+        "name": "Mandarin Oriental Residences West Palm Beach",
+        "route": "/projects/mandarin-oriental/",
+        "url": "https://www.wpbnewconstruction.com/projects/mandarin-oriental/",
+        "corridor": "North Flagler",
+        "residenceCount": "87",
+        "compareDatabaseId": "mandarin-oriental-residences-wpb",
+        "compareDatabaseSlug": "mandarin-oriental-residences-west-palm-beach",
+        "sourceCatalogId": "mandarin-oriental"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "address"
+      ],
+      "conflictCount": 3,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "banyan-tree",
+        "route": "/projects/banyan-tree/",
+        "displayName": "Banyan Tree Residences West Palm Beach",
+        "corridor": "Downtown",
+        "url": "https://www.wpbnewconstruction.com/projects/banyan-tree/"
+      },
+      "safeFields": {
+        "name": "Banyan Tree Residences West Palm Beach",
+        "route": "/projects/banyan-tree/",
+        "url": "https://www.wpbnewconstruction.com/projects/banyan-tree/",
+        "corridor": "Downtown",
+        "compareDatabaseId": "banyan-tree-residences-wpb",
+        "compareDatabaseSlug": "banyan-tree-residences-west-palm-beach",
+        "sourceCatalogId": "banyan-tree"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "residenceCount",
+        "address"
+      ],
+      "conflictCount": 4,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "residenceCount",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "alba-reserve",
+        "route": "/projects/alba-reserve/",
+        "displayName": "Alba Reserve",
+        "corridor": "North Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/alba-reserve/"
+      },
+      "safeFields": {
+        "name": "Alba Reserve",
+        "route": "/projects/alba-reserve/",
+        "url": "https://www.wpbnewconstruction.com/projects/alba-reserve/",
+        "corridor": "North Flagler",
+        "residenceCount": "87",
+        "sourceCatalogId": "alba-reserve"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "address"
+      ],
+      "conflictCount": 3,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "forte-on-flagler",
+        "route": "/projects/forte-on-flagler/",
+        "displayName": "Forté on Flagler",
+        "corridor": "South Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/forte-on-flagler/"
+      },
+      "safeFields": {
+        "name": "Forté on Flagler",
+        "route": "/projects/forte-on-flagler/",
+        "url": "https://www.wpbnewconstruction.com/projects/forte-on-flagler/",
+        "corridor": "South Flagler",
+        "residenceCount": "41",
+        "compareDatabaseId": "forte-on-flagler",
+        "compareDatabaseSlug": "forte-on-flagler",
+        "sourceCatalogId": "forte-on-flagler"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "address"
+      ],
+      "conflictCount": 4,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "la-clara",
+        "route": "/projects/la-clara/",
+        "displayName": "La Clara",
+        "corridor": "South Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/la-clara/"
+      },
+      "safeFields": {
+        "name": "La Clara",
+        "route": "/projects/la-clara/",
+        "url": "https://www.wpbnewconstruction.com/projects/la-clara/",
+        "corridor": "South Flagler",
+        "residenceCount": "83",
+        "compareDatabaseId": "la-clara-wpb",
+        "compareDatabaseSlug": "la-clara-west-palm-beach",
+        "sourceCatalogId": "la-clara"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "address"
+      ],
+      "conflictCount": 3,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "fern-and-gardenia-related-ross-fern-street",
+        "route": "/projects/fern-and-gardenia-related-ross-fern-street/",
+        "displayName": "Fern & Gardenia / Related Ross Fern Street Project",
+        "corridor": "Downtown",
+        "url": "https://www.wpbnewconstruction.com/projects/fern-and-gardenia-related-ross-fern-street/"
+      },
+      "safeFields": {
+        "name": "Fern & Gardenia / Related Ross Fern Street Project",
+        "route": "/projects/fern-and-gardenia-related-ross-fern-street/",
+        "url": "https://www.wpbnewconstruction.com/projects/fern-and-gardenia-related-ross-fern-street/",
+        "corridor": "Downtown",
+        "sourceCatalogId": "related-ross-fern-street"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "residenceCount",
+        "address"
+      ],
+      "conflictCount": 4,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "residenceCount",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "rybovich-marina-redevelopment",
+        "route": "/projects/rybovich-marina-redevelopment/",
+        "displayName": "Rybovich Marina Redevelopment",
+        "corridor": "North Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/rybovich-marina-redevelopment/"
+      },
+      "safeFields": {
+        "name": "Rybovich Marina Redevelopment",
+        "route": "/projects/rybovich-marina-redevelopment/",
+        "url": "https://www.wpbnewconstruction.com/projects/rybovich-marina-redevelopment/",
+        "corridor": "North Flagler",
+        "sourceCatalogId": "rybovich-marina"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "residenceCount",
+        "address"
+      ],
+      "conflictCount": 4,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "residenceCount",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "rosewood-residences-west-palm-beach",
+        "route": "/projects/rosewood-residences-west-palm-beach/",
+        "displayName": "Rosewood Residences West Palm Beach",
+        "corridor": "North Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/"
+      },
+      "safeFields": {
+        "name": "Rosewood Residences West Palm Beach",
+        "route": "/projects/rosewood-residences-west-palm-beach/",
+        "url": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/",
+        "corridor": "North Flagler",
+        "residenceCount": "90",
+        "compareDatabaseId": "rosewood-residences-west-palm-beach",
+        "compareDatabaseSlug": "rosewood-residences-west-palm-beach",
+        "sourceCatalogId": "rosewood-residences-west-palm-beach"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "address"
+      ],
+      "conflictCount": 3,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "olin-palm-beach",
+        "route": "/projects/olin-palm-beach/",
+        "displayName": "OLIN Palm Beach",
+        "corridor": "Palm Beach",
+        "url": "https://www.wpbnewconstruction.com/projects/olin-palm-beach/"
+      },
+      "safeFields": {
+        "name": "OLIN Palm Beach",
+        "route": "/projects/olin-palm-beach/",
+        "url": "https://www.wpbnewconstruction.com/projects/olin-palm-beach/",
+        "corridor": "Palm Beach",
+        "status": "Breaking Ground / Sales Launched",
+        "address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
+        "compareDatabaseId": "olin-palm-beach",
+        "compareDatabaseSlug": "olin-palm-beach",
+        "sourceCatalogId": "olin-palm-beach"
+      },
+      "omittedFields": [
+        "delivery",
+        "residenceCount"
+      ],
+      "conflictCount": 3,
+      "reviewFields": [
+        "deliveryTiming",
+        "residenceCount"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "3031-s-ocean-palm-beach",
+        "route": "/projects/3031-s-ocean-palm-beach/",
+        "displayName": "3031 S. Ocean",
+        "corridor": "Palm Beach",
+        "url": "https://www.wpbnewconstruction.com/projects/3031-s-ocean-palm-beach/"
+      },
+      "safeFields": {
+        "name": "3031 S. Ocean",
+        "route": "/projects/3031-s-ocean-palm-beach/",
+        "url": "https://www.wpbnewconstruction.com/projects/3031-s-ocean-palm-beach/",
+        "corridor": "Palm Beach",
+        "status": "Town Approved / Announced",
+        "residenceCount": "12",
+        "compareDatabaseId": "3031-s-ocean-palm-beach",
+        "compareDatabaseSlug": "3031-s-ocean-palm-beach",
+        "sourceCatalogId": "3031-s-ocean-palm-beach"
+      },
+      "omittedFields": [
+        "delivery",
+        "address"
+      ],
+      "conflictCount": 3,
+      "reviewFields": [
+        "deliveryTiming",
+        "address"
+      ]
+    }
+  ]
+}
