@@ -9546,7 +9546,10 @@ function salesOfficeLabel(project: FeaturedProject) {
 function salesOfficeFilterValue(project: FeaturedProject) {
   const status = project.status.toLowerCase();
   if (/completed|delivered|resale/.test(status)) return "resales";
-  if (/planning/.test(status) || project.id === "edgeworth" || project.id === "rybovich-marina-redevelopment") return "sales-office-closed";
+  const explicitlySelling = /sales launched|sales office open|active sales|buyer appointment/.test(status);
+  if (!explicitlySelling && /planning|pipeline|proposed|announced|watchlist|emerging/.test(status)) {
+    return "sales-office-closed";
+  }
   return "sales-office-open";
 }
 
