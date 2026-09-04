@@ -1337,10 +1337,10 @@ export const canonicalProjectModel = {
     {
       "canonicalId": "apogee-residences-wpb",
       "publicSlug": "apogee-residences-wpb",
-      "publicRoute": "",
+      "publicRoute": "/projects/apogee-residences-wpb/",
       "corridorKey": "north-flagler",
       "corridor": "North Flagler",
-      "publicationState": "awaiting_imagery",
+      "publicationState": "published",
       "displayName": "Apogee Residences",
       "status": "Approved / Announced",
       "delivery": "Timing not released",
@@ -1363,30 +1363,63 @@ export const canonicalProjectModel = {
       "collapsedSourceCatalogIds": [],
       "mergedInto": "",
       "humanReviewRequired": true,
-      "confidenceLevel": "",
+      "confidenceLevel": "high",
       "conflicts": [
+        "Earlier sources identified Arquitectonica and a 46-unit, 25-story plan; the current reviewed record identifies Sieger Suarez and 39 units across 21 floors.",
         "Earlier sources identified Arquitectonica and a 46-unit/25-story plan; the proposed master identifies Sieger Suarez and 39 units/21 floors."
       ],
-      "schemaBlockedFields": [],
-      "gaps": [],
-      "sourceUrls": [],
+      "schemaBlockedFields": [
+        "residenceCount"
+      ],
+      "gaps": [
+        "Sales launch, pricing, delivery, floor plans, maintenance, final amenity program, and offering documents"
+      ],
+      "sourceUrls": [
+        "https://www.oftmw.com/firm/related-group/",
+        "https://www.oftmw.com/firm/sieger-suarez-architects/"
+      ],
       "fieldSources": {
-        "displayName": "candidate",
-        "status": "candidate",
-        "delivery": "candidate",
-        "residences": "candidate",
-        "price": "candidate",
-        "address": "candidate"
+        "displayName": "canonical",
+        "status": "canonical",
+        "delivery": "canonical",
+        "residences": "canonical",
+        "price": "canonical",
+        "address": "canonical"
       },
-      "presentation": null
+      "presentation": {
+        "rank": 22,
+        "deliveryYear": 9999,
+        "longitude": -80.0524855,
+        "latitude": 26.7552125,
+        "summary": "A 39-residence waterfront proposal at 4906 North Flagler Drive, tracked as an approved watch project while sales, timing, and the final offering program remain unreleased.",
+        "floorplans": false,
+        "pageState": "Approved / Announced / Watchlist",
+        "image": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+        "heroImage": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+        "mobileImage": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+        "galleryImages": [
+          {
+            "src": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+            "kicker": "Waterfront",
+            "title": "North Flagler Context",
+            "alt": "Concept rendering of the proposed Apogee Residences tower on the North Flagler waterfront"
+          },
+          {
+            "src": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+            "kicker": "Arrival",
+            "title": "Landscaped Approach",
+            "alt": "Concept rendering of the landscaped arrival planned for Apogee Residences"
+          }
+        ]
+      }
     },
     {
       "canonicalId": "201-arkona-court",
       "publicSlug": "201-arkona-court",
-      "publicRoute": "",
+      "publicRoute": "/projects/201-arkona-court/",
       "corridorKey": "south-flagler",
       "corridor": "South Flagler",
-      "publicationState": "awaiting_imagery",
+      "publicationState": "published",
       "displayName": "201 Arkona Court",
       "status": "Announced / Planning",
       "delivery": "2029 estimate",
@@ -1408,30 +1441,57 @@ export const canonicalProjectModel = {
       "collapsedSourceCatalogIds": [],
       "mergedInto": "",
       "humanReviewRequired": true,
-      "confidenceLevel": "",
+      "confidenceLevel": "high",
       "conflicts": [
+        "Current reporting describes a 26-story proposal, while one firm-profile aggregation displays 16 floors; retain a review flag.",
         "Current reporting describes a 26-story proposal; one firm-profile aggregation displays 16 floors. Retain review flag."
       ],
-      "schemaBlockedFields": [],
-      "gaps": [],
-      "sourceUrls": [],
+      "schemaBlockedFields": [
+        "floorCount"
+      ],
+      "gaps": [
+        "Final approvals, floor count, sales launch, pricing, final delivery, floor plans, parking, maintenance, policies, and operating structure"
+      ],
+      "sourceUrls": [
+        "https://www.oftmw.com/post/easton-street-capital-and-donald-trump-jr-s-1789-capital-plan-a-26-story-full-floor-condo-and-private-club-by-the-norton-museum-in-west-palm-beach/",
+        "https://www.oftmw.com/firm/1789-capital/"
+      ],
       "fieldSources": {
-        "displayName": "candidate",
-        "status": "candidate",
-        "delivery": "candidate",
-        "residences": "candidate",
-        "price": "candidate",
-        "address": "candidate"
+        "displayName": "canonical",
+        "status": "canonical",
+        "delivery": "canonical",
+        "residences": "canonical",
+        "price": "canonical",
+        "address": "canonical"
       },
-      "presentation": null
+      "presentation": {
+        "rank": 23,
+        "deliveryYear": 2029,
+        "longitude": -80.0517834,
+        "latitude": 26.7002895,
+        "summary": "A proposed 16-residence full-floor condominium beside the Norton Museum, paired with a private cultural-club concept and tracked as an early planning-stage watch project.",
+        "floorplans": false,
+        "pageState": "Announced / Planning / Watchlist",
+        "image": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+        "heroImage": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+        "mobileImage": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+        "galleryImages": [
+          {
+            "src": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+            "kicker": "Architecture",
+            "title": "Proposed Arkona Arrival",
+            "alt": "Concept rendering of the formal residential arrival proposed for 201 Arkona Court"
+          }
+        ]
+      }
     },
     {
       "canonicalId": "2085-n-flagler-terra-bh",
       "publicSlug": "2085-north-flagler",
-      "publicRoute": "",
+      "publicRoute": "/projects/2085-north-flagler/",
       "corridorKey": "north-flagler",
       "corridor": "North Flagler",
-      "publicationState": "awaiting_imagery",
+      "publicationState": "published",
       "displayName": "2085 North Flagler",
       "status": "Announced / Planning",
       "delivery": "Timing not released",
@@ -1455,22 +1515,47 @@ export const canonicalProjectModel = {
       "collapsedSourceCatalogIds": [],
       "mergedInto": "",
       "humanReviewRequired": true,
-      "confidenceLevel": "",
+      "confidenceLevel": "medium",
       "conflicts": [
+        "The 281-unit and 31-floor figures were previously misattributed to the former Currie Park Towers proposal; reviewed identity decisions assign them to Terra and BH Group at 2085 North Flagler.",
         "The 281-unit/31-floor data has been misattributed to the former Currie Park Towers proposal; it belongs to Terra + BH at 2085 North Flagler."
       ],
       "schemaBlockedFields": [],
-      "gaps": [],
-      "sourceUrls": [],
+      "gaps": [
+        "Final acquisition and plan confirmation, approvals, architect, sales launch, pricing, delivery, fees, policies, and offering documents"
+      ],
+      "sourceUrls": [
+        "https://floridayimby.com/2026/06/developers-plan-two-31-story-towers-for-2085-n-flagler-dr-west-palm-beach-fl.html",
+        "https://traded.co/deals/florida/development-site/sale/david-martin-of-terra-and-isaac-toledano-liat-toledano-of-bh-group-acquire-development-site-from-jeff-greene-for-100m/"
+      ],
       "fieldSources": {
-        "displayName": "candidate",
-        "status": "candidate",
-        "delivery": "candidate",
-        "residences": "candidate",
-        "price": "candidate",
-        "address": "candidate"
+        "displayName": "canonical",
+        "status": "canonical",
+        "delivery": "canonical",
+        "residences": "canonical",
+        "price": "canonical",
+        "address": "canonical"
       },
-      "presentation": null
+      "presentation": {
+        "rank": 24,
+        "deliveryYear": 9999,
+        "longitude": -80.0497521,
+        "latitude": 26.7317695,
+        "summary": "An early two-tower waterfront proposal by Terra and BH Group at 2085 North Flagler, tracked as a watch page across from Currie Park with no public sales program yet.",
+        "floorplans": false,
+        "pageState": "Announced / Planning / Watchlist",
+        "image": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+        "heroImage": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+        "mobileImage": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+        "galleryImages": [
+          {
+            "src": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+            "kicker": "Site Watch",
+            "title": "2085 North Flagler",
+            "alt": "Labeled concept aerial of the two-tower proposal at 2085 North Flagler Drive across from Currie Park"
+          }
+        ]
+      }
     }
   ],
   "retiredProjects": [

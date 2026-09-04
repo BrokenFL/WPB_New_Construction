@@ -5584,8 +5584,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/rosewood-residences-west-palm-beach/",
-    "title": "Rosewood Residences West Palm Beach | WPB New Construction",
-    "description": "Rosewood Residences is a North Flagler branded-residence pipeline entry at 2001 N Flagler Drive with human review required until official sales materials are public.",
+    "title": "Rosewood Residences West Palm Beach | Branded Pipeline",
+    "description": "Rosewood Residences West Palm Beach is a branded North Flagler pipeline project with 90 planned residences and filed-plan details emerging.",
     "ogImage": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg"
   },
   {
@@ -5599,5 +5599,23 @@ export const prerenderRoutes = [
     "title": "3031 S. Ocean Palm Beach | Villa-Style Waterfront Residences",
     "description": "3031 S. Ocean is a Town-approved 12-residence villa-style waterfront redevelopment planned by Copperline Partners on Palm Beach's South End.",
     "ogImage": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp"
+  },
+  {
+    "path": "/projects/apogee-residences-wpb/",
+    "title": "Apogee Residences West Palm Beach | North Flagler Watch",
+    "description": "Track Apogee Residences, an approved 39-residence North Flagler waterfront proposal at 4906 North Flagler Drive in West Palm Beach.",
+    "ogImage": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp"
+  },
+  {
+    "path": "/projects/201-arkona-court/",
+    "title": "201 Arkona Court West Palm Beach | Planning Watch",
+    "description": "Track 201 Arkona Court, a proposed 16-residence full-floor condominium and private cultural-club concept beside the Norton Museum.",
+    "ogImage": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp"
+  },
+  {
+    "path": "/projects/2085-north-flagler/",
+    "title": "2085 North Flagler West Palm Beach | Project Watch",
+    "description": "Track the early Terra and BH Group proposal for two 31-floor waterfront condominium towers at 2085 North Flagler across from Currie Park.",
+    "ogImage": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp"
   }
 ] as const;

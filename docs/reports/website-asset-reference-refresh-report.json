@@ -1,29 +1,63 @@
 {
-  "timestamp": "2026-09-02T15:15:14.033Z",
+  "timestamp": "2026-09-03T17:40:25.465Z",
   "mode": "write",
   "registryFile": "data/project_assets.json",
   "projectsRefreshed": [
-    "3031-s-ocean-palm-beach"
+    "201-arkona-court",
+    "2085-north-flagler",
+    "apogee-residences-wpb"
   ],
   "assetRoot": "public/assets/projects",
   "usedPublishManifest": true,
   "changedCuratedContent": false,
-  "gitStatus": "## main...origin/main\n M content/wpb_new_construction_building_database_cleaned.csv\n M data/generated_asset_publish_manifest.json\n M data/project_assets.json\n M docs/project-intelligence-architecture.md\n M docs/reports/asset-pipeline-audit-report.json\n M docs/reports/asset-pipeline-audit-report.md\n M docs/reports/asset-repo-to-website-publish-report.json\n M docs/reports/asset-repo-to-website-publish-report.md\n M docs/reports/website-asset-reference-refresh-report.json\n M docs/reports/website-asset-reference-refresh-report.md\n M package.json\n M public/data/image-clearance-candidates.json\n M public/data/project-asset-status.json\n M public/data/project-copy-package.json\n M public/data/project-team-credits.json\n M public/llms.txt\n M public/sitemap.xml\n M research/scripts/build-site-intelligence.mjs\n M research/scripts/check-news-image-mapping.mjs\n M research/scripts/check-project-intelligence.ts\n M research/scripts/check-project-page-completeness.mjs\n M research/scripts/prerender-static-routes.mjs\n M research/scripts/reconcile-canonical-projects.mjs\n M research/source-material-review/image-candidate-catalog.json\n M research/source-material-review/image-candidate-catalog.md\n M research/source-material-review/project-source-catalog.json\n M research/source-material-review/wpb-projects-canonical-v3-planning-update.json\n M scripts/audit-asset-pipeline.mjs\n M scripts/publish-assets-from-asset-repo.mjs\n M scripts/refresh-website-asset-references.mjs\n M src/data/homepageAssets.ts\n M src/generated/buildingDatabase.ts\n M src/generated/buildingDatabasePublic.ts\n M src/generated/siteData.ts\n M src/lib/projectIntelligence.ts\n M src/lib/projectIntelligenceRegistry.ts\n M src/main.ts\n?? content/project-identity-decisions.json\n?? content/project-page-overlays.json\n?? public/assets/projects/3031-s-ocean-palm-beach/\n?? public/assets/projects/olin-palm-beach/\n?? research/scripts/generate-project-model.mjs\n?? research/scripts/generate-project-schema-safe.ts\n?? research/scripts/reconcile-proposed-building-master.mjs\n?? research/scripts/reconcile-proposed-building-master.test.mjs\n?? src/generated/projectModel.json\n?? src/generated/projectModel.ts\n?? src/generated/projectSchemaSafe.json\n?? src/lib/projectFieldAccessors.ts",
+  "gitStatus": "## main...origin/main\n M content/project-identity-decisions.json\n M content/project-page-overlays.json\n M data/generated_asset_publish_manifest.json\n M data/project_assets.json\n M docs/reports/asset-repo-to-website-publish-report.json\n M docs/reports/asset-repo-to-website-publish-report.md\n M docs/reports/website-asset-reference-refresh-report.json\n M docs/reports/website-asset-reference-refresh-report.md\n M public/data/project-copy-package.json\n M public/llms.txt\n M public/sitemap.xml\n M research/scripts/build-site-intelligence.mjs\n M research/source-material-review/wpb-projects-canonical-v3-planning-update.json\n M scripts/publish-assets-from-asset-repo.mjs\n M scripts/refresh-website-asset-references.mjs\n M src/data/projectCopyPackage.ts\n M src/generated/projectModel.json\n M src/generated/projectModel.ts\n M src/generated/projectSchemaSafe.json\n M src/generated/siteData.ts\n?? public/assets/projects/201-arkona-court/\n?? public/assets/projects/2085-north-flagler/\n?? public/assets/projects/apogee-residences-wpb/",
   "projects": [
     {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "assetCount": 7,
+      "projectSlug": "201-arkona-court",
+      "assetCount": 1,
       "assetsByCategory": {
-        "amenities": 1,
-        "hero": 5,
-        "residences": 1
+        "hero": 1
       },
-      "heroSelected": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
-      "heroMode": "selected-from-public-assets",
-      "galleryCount": 7,
+      "heroSelected": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+      "heroMode": "preserved-existing",
+      "galleryCount": 1,
       "floorplanCount": 0,
       "logoCount": 0,
-      "pathsValidated": 7,
+      "pathsValidated": 1,
+      "skippedAssets": [],
+      "warnings": [],
+      "validationErrors": []
+    },
+    {
+      "projectSlug": "2085-north-flagler",
+      "assetCount": 1,
+      "assetsByCategory": {
+        "hero": 1
+      },
+      "heroSelected": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+      "heroMode": "preserved-existing",
+      "galleryCount": 1,
+      "floorplanCount": 0,
+      "logoCount": 0,
+      "pathsValidated": 1,
+      "skippedAssets": [],
+      "warnings": [],
+      "validationErrors": []
+    },
+    {
+      "projectSlug": "apogee-residences-wpb",
+      "assetCount": 3,
+      "assetsByCategory": {
+        "amenities": 1,
+        "hero": 1,
+        "neighborhood": 1
+      },
+      "heroSelected": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+      "heroMode": "preserved-existing",
+      "galleryCount": 3,
+      "floorplanCount": 0,
+      "logoCount": 0,
+      "pathsValidated": 3,
       "skippedAssets": [],
       "warnings": [],
       "validationErrors": []
@@ -32,134 +66,120 @@
   "validationErrors": [],
   "warnings": [],
   "registryPreview": {
-    "3031-s-ocean-palm-beach": {
-      "projectId": "3031-s-ocean-palm-beach",
-      "slug": "3031-s-ocean-palm-beach",
+    "201-arkona-court": {
+      "projectId": "201-arkona-court",
+      "slug": "201-arkona-court",
       "aliases": [
-        "3031-s-ocean-palm-beach"
+        "201-arkona-court"
       ],
       "assets": [
         {
           "placement": "hero",
           "variant": "primary",
-          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
-          "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
-          "filename": "3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
+          "src": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+          "publicPath": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+          "filename": "201-arkona-court-hero-architectural-arrival-v01.webp",
           "category": "hero",
           "format": "webp",
-          "sizeBytes": 316630,
-          "width": 1448,
-          "height": 1086,
-          "alt": "3031 S Ocean Palm Beach 3031 S Ocean Palm Beach Hero Waterfront Elevation",
-          "title": "3031 S Ocean Palm Beach Hero Waterfront Elevation",
-          "credit": "3031 S Ocean Palm Beach project marketing materials",
-          "source": "approved-asset-publisher",
-          "status": "approved"
-        },
-        {
-          "placement": "hero",
-          "variant": "bridge-entrance",
-          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
-          "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
-          "filename": "3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
-          "category": "hero",
-          "format": "webp",
-          "sizeBytes": 326920,
-          "width": 1448,
-          "height": 1086,
-          "alt": "3031 S Ocean Palm Beach 3031 S Ocean Palm Beach Hero Bridge Entrance",
-          "title": "3031 S Ocean Palm Beach Hero Bridge Entrance",
-          "credit": "3031 S Ocean Palm Beach project marketing materials",
-          "source": "approved-asset-publisher",
-          "status": "approved"
-        },
-        {
-          "placement": "hero",
-          "variant": "lagoon-campus",
-          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
-          "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
-          "filename": "3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
-          "category": "hero",
-          "format": "webp",
-          "sizeBytes": 272198,
+          "sizeBytes": 416540,
           "width": 1672,
           "height": 941,
-          "alt": "3031 S Ocean Palm Beach 3031 S Ocean Palm Beach Hero Lagoon Campus",
-          "title": "3031 S Ocean Palm Beach Hero Lagoon Campus",
-          "credit": "3031 S Ocean Palm Beach project marketing materials",
+          "alt": "201 Arkona Court 201 Arkona Court Hero Architectural Arrival",
+          "title": "201 Arkona Court Hero Architectural Arrival",
+          "credit": "201 Arkona Court project marketing materials",
           "source": "approved-asset-publisher",
           "status": "approved"
-        },
+        }
+      ],
+      "updatedAt": "2026-09-03T17:40:25.465Z"
+    },
+    "2085-north-flagler": {
+      "projectId": "2085-north-flagler",
+      "slug": "2085-north-flagler",
+      "aliases": [
+        "2085-north-flagler"
+      ],
+      "assets": [
         {
           "placement": "hero",
-          "variant": "side-arrival",
-          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
-          "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
-          "filename": "3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
+          "variant": "primary",
+          "src": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+          "publicPath": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+          "filename": "2085-north-flagler-hero-site-aerial-v01.webp",
           "category": "hero",
           "format": "webp",
-          "sizeBytes": 315884,
-          "width": 1448,
-          "height": 1086,
-          "alt": "3031 S Ocean Palm Beach 3031 S Ocean Palm Beach Hero Side Arrival",
-          "title": "3031 S Ocean Palm Beach Hero Side Arrival",
-          "credit": "3031 S Ocean Palm Beach project marketing materials",
-          "source": "approved-asset-publisher",
-          "status": "approved"
-        },
-        {
-          "placement": "hero",
-          "variant": "peninsula-aerial",
-          "src": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
-          "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
-          "filename": "3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
-          "category": "hero",
-          "format": "webp",
-          "sizeBytes": 328340,
+          "sizeBytes": 395806,
           "width": 1672,
           "height": 941,
-          "alt": "3031 S Ocean Palm Beach 3031 S Ocean Palm Beach Neighborhood Peninsula Aerial",
-          "title": "3031 S Ocean Palm Beach Neighborhood Peninsula Aerial",
-          "credit": "3031 S Ocean Palm Beach project marketing materials",
+          "alt": "2085 North Flagler 2085 North Flagler Hero Site Aerial",
+          "title": "2085 North Flagler Hero Site Aerial",
+          "credit": "2085 North Flagler project marketing materials",
+          "source": "approved-asset-publisher",
+          "status": "approved"
+        }
+      ],
+      "updatedAt": "2026-09-03T17:40:25.465Z"
+    },
+    "apogee-residences-wpb": {
+      "projectId": "apogee-residences-wpb",
+      "slug": "apogee-residences-wpb",
+      "aliases": [
+        "apogee-residences-wpb"
+      ],
+      "assets": [
+        {
+          "placement": "hero",
+          "variant": "primary",
+          "src": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+          "publicPath": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+          "filename": "apogee-residences-wpb-hero-street-view-v01.webp",
+          "category": "hero",
+          "format": "webp",
+          "sizeBytes": 272786,
+          "width": 1672,
+          "height": 941,
+          "alt": "Apogee Residences Wpb Apogee Residences Wpb Hero Street View",
+          "title": "Apogee Residences Wpb Hero Street View",
+          "credit": "Apogee Residences Wpb project marketing materials",
           "source": "approved-asset-publisher",
           "status": "approved"
         },
         {
           "placement": "amenities",
-          "variant": "inner-courtyard",
-          "src": "/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
-          "publicPath": "/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
-          "filename": "3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
+          "variant": "landscaped-arrival",
+          "src": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+          "publicPath": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+          "filename": "apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
           "category": "amenities",
           "format": "webp",
-          "sizeBytes": 311558,
+          "sizeBytes": 479596,
           "width": 1448,
           "height": 1086,
-          "alt": "3031 S Ocean Palm Beach 3031 S Ocean Palm Beach Amenities Inner Courtyard",
-          "title": "3031 S Ocean Palm Beach Amenities Inner Courtyard",
-          "credit": "3031 S Ocean Palm Beach project marketing materials",
+          "alt": "Apogee Residences Wpb Apogee Residences Wpb Amenities Landscaped Arrival",
+          "title": "Apogee Residences Wpb Amenities Landscaped Arrival",
+          "credit": "Apogee Residences Wpb project marketing materials",
           "source": "approved-asset-publisher",
           "status": "approved"
         },
         {
-          "placement": "residences",
-          "variant": "lagoon-balcony",
-          "src": "/assets/projects/3031-s-ocean-palm-beach/residences/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp",
-          "publicPath": "/assets/projects/3031-s-ocean-palm-beach/residences/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp",
-          "filename": "3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp",
-          "category": "residences",
+          "placement": "neighborhood",
+          "variant": "context",
+          "src": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+          "publicPath": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+          "filename": "apogee-residences-wpb-neighborhood-context-v01.webp",
+          "category": "neighborhood",
           "format": "webp",
-          "sizeBytes": 231342,
-          "width": 1448,
-          "height": 1086,
-          "alt": "3031 S Ocean Palm Beach 3031 S Ocean Palm Beach Residences Lagoon Balcony",
-          "title": "3031 S Ocean Palm Beach Residences Lagoon Balcony",
-          "credit": "3031 S Ocean Palm Beach project marketing materials",
+          "sizeBytes": 220406,
+          "width": 1672,
+          "height": 941,
+          "alt": "Apogee Residences Wpb Apogee Residences Wpb Neighborhood Context",
+          "title": "Apogee Residences Wpb Neighborhood Context",
+          "credit": "Apogee Residences Wpb project marketing materials",
           "source": "approved-asset-publisher",
           "status": "approved"
         }
       ],
-      "updatedAt": "2026-09-02T15:15:14.033Z"
+      "updatedAt": "2026-09-03T17:40:25.465Z"
     }
   }
 }

@@ -478,6 +478,102 @@
         "price": "Not publicly released",
         "address": "3031 South Ocean Boulevard, Palm Beach, FL 33480"
       }
+    },
+    {
+      "publicSlug": "apogee-residences-wpb",
+      "rank": 22,
+      "deliveryYear": 9999,
+      "longitude": -80.0524855,
+      "latitude": 26.7552125,
+      "summary": "A 39-residence waterfront proposal at 4906 North Flagler Drive, tracked as an approved watch project while sales, timing, and the final offering program remain unreleased.",
+      "floorplans": false,
+      "pageState": "Approved / Announced / Watchlist",
+      "image": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+      "heroImage": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+      "mobileImage": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+      "galleryImages": [
+        {
+          "src": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+          "kicker": "Waterfront",
+          "title": "North Flagler Context",
+          "alt": "Concept rendering of the proposed Apogee Residences tower on the North Flagler waterfront"
+        },
+        {
+          "src": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+          "kicker": "Arrival",
+          "title": "Landscaped Approach",
+          "alt": "Concept rendering of the landscaped arrival planned for Apogee Residences"
+        }
+      ],
+      "approvedFallback": {
+        "displayName": "Apogee Residences",
+        "corridor": "North Flagler",
+        "status": "Approved / Announced",
+        "delivery": "Timing not released",
+        "residences": "39",
+        "price": "Not publicly released",
+        "address": "4906 North Flagler Drive, West Palm Beach, FL 33407"
+      }
+    },
+    {
+      "publicSlug": "201-arkona-court",
+      "rank": 23,
+      "deliveryYear": 2029,
+      "longitude": -80.0517834,
+      "latitude": 26.7002895,
+      "summary": "A proposed 16-residence full-floor condominium beside the Norton Museum, paired with a private cultural-club concept and tracked as an early planning-stage watch project.",
+      "floorplans": false,
+      "pageState": "Announced / Planning / Watchlist",
+      "image": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+      "heroImage": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+      "mobileImage": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+      "galleryImages": [
+        {
+          "src": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+          "kicker": "Architecture",
+          "title": "Proposed Arkona Arrival",
+          "alt": "Concept rendering of the formal residential arrival proposed for 201 Arkona Court"
+        }
+      ],
+      "approvedFallback": {
+        "displayName": "201 Arkona Court",
+        "corridor": "South Flagler",
+        "status": "Announced / Planning",
+        "delivery": "2029 estimate",
+        "residences": "16",
+        "price": "Not publicly released",
+        "address": "201 & 203 Arkona Court, West Palm Beach, FL 33401"
+      }
+    },
+    {
+      "publicSlug": "2085-north-flagler",
+      "rank": 24,
+      "deliveryYear": 9999,
+      "longitude": -80.0497521,
+      "latitude": 26.7317695,
+      "summary": "An early two-tower waterfront proposal by Terra and BH Group at 2085 North Flagler, tracked as a watch page across from Currie Park with no public sales program yet.",
+      "floorplans": false,
+      "pageState": "Announced / Planning / Watchlist",
+      "image": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+      "heroImage": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+      "mobileImage": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+      "galleryImages": [
+        {
+          "src": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+          "kicker": "Site Watch",
+          "title": "2085 North Flagler",
+          "alt": "Labeled concept aerial of the two-tower proposal at 2085 North Flagler Drive across from Currie Park"
+        }
+      ],
+      "approvedFallback": {
+        "displayName": "2085 North Flagler",
+        "corridor": "North Flagler",
+        "status": "Announced / Planning",
+        "delivery": "Timing not released",
+        "residences": "281",
+        "price": "Not publicly released",
+        "address": "2085 North Flagler Drive, West Palm Beach, FL 33407"
+      }
     }
   ]
 }

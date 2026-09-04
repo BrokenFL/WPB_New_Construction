@@ -11,14 +11,16 @@ const registryPath = path.join(websiteRoot, "data/project_assets.json");
 const publishManifestPath = path.join(websiteRoot, "data/generated_asset_publish_manifest.json");
 const reportJsonPath = path.join(websiteRoot, "docs/reports/website-asset-reference-refresh-report.json");
 const reportMdPath = path.join(websiteRoot, "docs/reports/website-asset-reference-refresh-report.md");
-const targetProjects = ["3031-s-ocean-palm-beach", "alba-palm-beach", "berkeley", "forte-on-flagler", "maison-dor", "mandarin-oriental", "mr-c", "olin-palm-beach"];
+const targetProjects = ["201-arkona-court", "2085-north-flagler", "3031-s-ocean-palm-beach", "alba-palm-beach", "apogee-residences-wpb", "berkeley", "forte-on-flagler", "maison-dor", "mandarin-oriental", "mr-c", "olin-palm-beach"];
 const galleryPlacements = ["hero", "amenities", "residences", "neighborhood"];
 const allowedProjects = new Set(targetProjects);
 const args = process.argv.slice(2);
 const writeMode = args.includes("--write");
 const dryRun = args.includes("--dry-run") || !writeMode;
 const projectArg = readFlag("--project");
-const projects = projectArg ? [normalizeProjectSlug(projectArg)] : targetProjects;
+const projects = projectArg
+  ? projectArg.split(",").map((value) => normalizeProjectSlug(value)).filter(Boolean)
+  : targetProjects;
 const timestamp = new Date().toISOString();
 
 for (const project of projects) {

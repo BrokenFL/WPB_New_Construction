@@ -1,46 +1,99 @@
 {
-  "timestamp": "2026-09-02T15:15:12.897Z",
+  "timestamp": "2026-09-03T17:40:25.247Z",
   "mode": "write",
   "sourceRoot": "asset-repo:/",
   "sourceApprovedRoots": [
-    "public-projects/3031-s-ocean-palm-beach/approved-for-website"
+    "public-projects/201-arkona-court/approved-for-website",
+    "public-projects/2085-north-flagler/approved-for-website",
+    "public-projects/apogee-residences-wpb/approved-for-website"
   ],
   "destinationRoot": "website:public/assets/projects",
   "projectsProcessed": [
-    "3031-s-ocean-palm-beach"
+    "201-arkona-court",
+    "2085-north-flagler",
+    "apogee-residences-wpb"
   ],
   "manifestPath": "data/generated_asset_publish_manifest.json",
-  "gitStatus": "## main...origin/main\n M content/wpb_new_construction_building_database_cleaned.csv\n M data/generated_asset_publish_manifest.json\n M data/project_assets.json\n M docs/project-intelligence-architecture.md\n M docs/reports/asset-pipeline-audit-report.json\n M docs/reports/asset-pipeline-audit-report.md\n M docs/reports/asset-repo-to-website-publish-report.json\n M docs/reports/asset-repo-to-website-publish-report.md\n M docs/reports/website-asset-reference-refresh-report.json\n M docs/reports/website-asset-reference-refresh-report.md\n M package.json\n M public/data/image-clearance-candidates.json\n M public/data/project-asset-status.json\n M public/data/project-copy-package.json\n M public/data/project-team-credits.json\n M public/llms.txt\n M public/sitemap.xml\n M research/scripts/build-site-intelligence.mjs\n M research/scripts/check-news-image-mapping.mjs\n M research/scripts/check-project-intelligence.ts\n M research/scripts/check-project-page-completeness.mjs\n M research/scripts/prerender-static-routes.mjs\n M research/scripts/reconcile-canonical-projects.mjs\n M research/source-material-review/image-candidate-catalog.json\n M research/source-material-review/image-candidate-catalog.md\n M research/source-material-review/project-source-catalog.json\n M research/source-material-review/wpb-projects-canonical-v3-planning-update.json\n M scripts/audit-asset-pipeline.mjs\n M scripts/publish-assets-from-asset-repo.mjs\n M scripts/refresh-website-asset-references.mjs\n M src/data/homepageAssets.ts\n M src/generated/buildingDatabase.ts\n M src/generated/buildingDatabasePublic.ts\n M src/generated/siteData.ts\n M src/lib/projectIntelligence.ts\n M src/lib/projectIntelligenceRegistry.ts\n M src/main.ts\n?? content/project-identity-decisions.json\n?? content/project-page-overlays.json\n?? public/assets/projects/3031-s-ocean-palm-beach/\n?? public/assets/projects/olin-palm-beach/\n?? research/scripts/generate-project-model.mjs\n?? research/scripts/generate-project-schema-safe.ts\n?? research/scripts/reconcile-proposed-building-master.mjs\n?? research/scripts/reconcile-proposed-building-master.test.mjs\n?? src/generated/projectModel.json\n?? src/generated/projectModel.ts\n?? src/generated/projectSchemaSafe.json\n?? src/lib/projectFieldAccessors.ts",
+  "gitStatus": "## main...origin/main\n M content/project-identity-decisions.json\n M content/project-page-overlays.json\n M data/generated_asset_publish_manifest.json\n M data/project_assets.json\n M docs/reports/asset-repo-to-website-publish-report.json\n M docs/reports/asset-repo-to-website-publish-report.md\n M docs/reports/website-asset-reference-refresh-report.json\n M docs/reports/website-asset-reference-refresh-report.md\n M public/data/project-copy-package.json\n M public/llms.txt\n M public/sitemap.xml\n M research/scripts/build-site-intelligence.mjs\n M research/source-material-review/wpb-projects-canonical-v3-planning-update.json\n M scripts/publish-assets-from-asset-repo.mjs\n M scripts/refresh-website-asset-references.mjs\n M src/data/projectCopyPackage.ts\n M src/generated/projectModel.json\n M src/generated/projectModel.ts\n M src/generated/projectSchemaSafe.json\n M src/generated/siteData.ts\n?? public/assets/projects/201-arkona-court/\n?? public/assets/projects/2085-north-flagler/\n?? public/assets/projects/apogee-residences-wpb/",
   "summary": {
-    "filesScanned": 7,
+    "filesScanned": 5,
     "actions": {
-      "published": 7
+      "skipped-existing": 5
     },
-    "convertedImages": 7,
+    "convertedImages": 0,
     "resizedImages": 0,
     "finalPublicPaths": [
-      "/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
-      "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
-      "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
-      "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
-      "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
-      "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
-      "/assets/projects/3031-s-ocean-palm-beach/residences/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp"
+      "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+      "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+      "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+      "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+      "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp"
     ]
   },
-  "publishedFiles": [
+  "publishedFiles": [],
+  "skippedFiles": [
     {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
-      "sourceHash": "a05a6913d3930a7ae982299c9bdee1996480f5541ac58663cc7110e2930b1851",
-      "outputHash": "23f959f1a267b8ccef21a5567d15d0012f1d0195fc9a360398f2c0688a8f2745",
+      "projectSlug": "201-arkona-court",
+      "sourceAssetRepoPath": "public-projects/201-arkona-court/approved-for-website/images/201-arkona-court-hero-architectural-arrival-v01.png",
+      "sourceRelativePath": "public-projects/201-arkona-court/approved-for-website/images/201-arkona-court-hero-architectural-arrival-v01.png",
+      "websiteAssetPath": "public/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+      "publicPath": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+      "sourceHash": "66f59875b5d4d51f4a878795ad257419d162750381c4f2dea0caa66fbda66f39",
+      "outputHash": "eb68d056bf2e12dfb07919e393833bc54b745315d3e6f2d36ef86643c7ec6394",
       "sourceFormat": ".png",
       "outputFormat": ".webp",
-      "sourceSizeBytes": 2800011,
-      "outputSizeBytes": 311558,
+      "sourceSizeBytes": 3155543,
+      "outputSizeBytes": 416540,
+      "sourceDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "outputDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "category": "hero",
+      "action": "skipped-existing",
+      "reason": "already recorded in publish manifest",
+      "publishedAt": "2026-09-03T17:40:25.247Z"
+    },
+    {
+      "projectSlug": "2085-north-flagler",
+      "sourceAssetRepoPath": "public-projects/2085-north-flagler/approved-for-website/images/2085-north-flagler-hero-site-aerial-v01.png",
+      "sourceRelativePath": "public-projects/2085-north-flagler/approved-for-website/images/2085-north-flagler-hero-site-aerial-v01.png",
+      "websiteAssetPath": "public/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+      "publicPath": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+      "sourceHash": "1a0210f6245805535ff6e9d666fa5f26d0ba8297f1949d84a27d1dcc859810ce",
+      "outputHash": "07e89cdb0556dbcf0a8d9950ab3eb5629664b66e6e625f2991b1cef061a2c756",
+      "sourceFormat": ".png",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 3063927,
+      "outputSizeBytes": 395806,
+      "sourceDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "outputDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "category": "hero",
+      "action": "skipped-existing",
+      "reason": "already recorded in publish manifest",
+      "publishedAt": "2026-09-03T17:40:25.247Z"
+    },
+    {
+      "projectSlug": "apogee-residences-wpb",
+      "sourceAssetRepoPath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-amenities-landscaped-arrival-v01.png",
+      "sourceRelativePath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-amenities-landscaped-arrival-v01.png",
+      "websiteAssetPath": "public/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+      "publicPath": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+      "sourceHash": "a7fe64dbc000d69f64dd46364666e30815bae12f7bdc24a18477ca625e456aa6",
+      "outputHash": "1fe3b89b853d699ceaae259470047d6a5266d9dbfd0295347a34f54852e89f49",
+      "sourceFormat": ".png",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 3995336,
+      "outputSizeBytes": 479596,
       "sourceDimensions": {
         "width": 1448,
         "height": 1086
@@ -50,47 +103,22 @@
         "height": 1086
       },
       "category": "amenities",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
+      "action": "skipped-existing",
+      "reason": "already recorded in publish manifest",
+      "publishedAt": "2026-09-03T17:40:25.247Z"
     },
     {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
-      "sourceHash": "61b0fc9f3492cea753030757b8a3fea2ca5a3e0cd4f7ae1920cf3471d766c4ba",
-      "outputHash": "03f5f5e74d55fd234df0466c1dba7146e077a7d8e6b0ca7f9cbcd9b3c44193a5",
+      "projectSlug": "apogee-residences-wpb",
+      "sourceAssetRepoPath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-hero-street-view-v01.png",
+      "sourceRelativePath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-hero-street-view-v01.png",
+      "websiteAssetPath": "public/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+      "publicPath": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+      "sourceHash": "d05b6ef27fc74b1b6469724790465b2834d5ef617d9868c5cc4c060d82e5d245",
+      "outputHash": "42704b29ea7cac61334db699c8c4ef8b3e46d49901038c02440232e3a07f9d15",
       "sourceFormat": ".png",
       "outputFormat": ".webp",
-      "sourceSizeBytes": 2714723,
-      "outputSizeBytes": 326920,
-      "sourceDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "outputDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "category": "hero",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
-    },
-    {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
-      "sourceHash": "b8a2027813d1312d121abcf3c9f247fd1015960e5a4e173d3d4d4a691c688016",
-      "outputHash": "4b34c719c3a68739465f7003528c8dfa4ad9a0ad04f2a6b894da67bb98bf5dc4",
-      "sourceFormat": ".png",
-      "outputFormat": ".webp",
-      "sourceSizeBytes": 2404702,
-      "outputSizeBytes": 272198,
+      "sourceSizeBytes": 2583740,
+      "outputSizeBytes": 272786,
       "sourceDimensions": {
         "width": 1672,
         "height": 941
@@ -100,72 +128,22 @@
         "height": 941
       },
       "category": "hero",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
+      "action": "skipped-existing",
+      "reason": "already recorded in publish manifest",
+      "publishedAt": "2026-09-03T17:40:25.247Z"
     },
     {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-side-arrival-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-side-arrival-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
-      "sourceHash": "5d84df057535bdfaed1da399ca3d7150a91e081a65226bddca771f6dcc6b3044",
-      "outputHash": "257154b40728d57a4f20c2dbd1c4c683347fca649d1efc4ec6530354827164b3",
+      "projectSlug": "apogee-residences-wpb",
+      "sourceAssetRepoPath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-neighborhood-context-v01.png",
+      "sourceRelativePath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-neighborhood-context-v01.png",
+      "websiteAssetPath": "public/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+      "publicPath": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+      "sourceHash": "afd26b3b09bc0c8345bd516042dee58d1e684533d6eb6eec0b492c090e0289f6",
+      "outputHash": "d887d9ccc6d0b4f7424706f2d1d4850ffe9c59ee134abf9f0e5c2d76d7b524e1",
       "sourceFormat": ".png",
       "outputFormat": ".webp",
-      "sourceSizeBytes": 2744922,
-      "outputSizeBytes": 315884,
-      "sourceDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "outputDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "category": "hero",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
-    },
-    {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
-      "sourceHash": "881ac6fe9e7100e31590ec609a85617a4b520e2f1f7c2cd2e9d008fce8cbd1d6",
-      "outputHash": "54b5d5a39ac70dbb06d352e2e89fb0ce7822615559b7b0ee1b7dff1bdd45890f",
-      "sourceFormat": ".png",
-      "outputFormat": ".webp",
-      "sourceSizeBytes": 2607496,
-      "outputSizeBytes": 316630,
-      "sourceDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "outputDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "category": "hero",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
-    },
-    {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
-      "sourceHash": "1e194370dd710e9347555febd30c57e59ef6d2bdea16881afb28427e2dc6d36e",
-      "outputHash": "2e101d35a548214ccef7bfa39b900c8c626be0958ed5dd03050109a82c48c260",
-      "sourceFormat": ".png",
-      "outputFormat": ".webp",
-      "sourceSizeBytes": 2690880,
-      "outputSizeBytes": 328340,
+      "sourceSizeBytes": 2319049,
+      "outputSizeBytes": 220406,
       "sourceDimensions": {
         "width": 1672,
         "height": 941
@@ -174,54 +152,78 @@
         "width": 1672,
         "height": 941
       },
-      "category": "hero",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
-    },
-    {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/residences/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/residences/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp",
-      "sourceHash": "f75fc66ad1613b873def861644829eef3a27e2d9e4c7e6ba67f15ebfc84dd290",
-      "outputHash": "9bcc1d23a0e9724bf0582d4af418f2da69c8b6541d22f68dfbd3d9fad65758b0",
-      "sourceFormat": ".png",
-      "outputFormat": ".webp",
-      "sourceSizeBytes": 2427945,
-      "outputSizeBytes": 231342,
-      "sourceDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "outputDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "category": "residences",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
+      "category": "neighborhood",
+      "action": "skipped-existing",
+      "reason": "already recorded in publish manifest",
+      "publishedAt": "2026-09-03T17:40:25.247Z"
     }
   ],
-  "skippedFiles": [],
   "preservedPdfs": [],
   "conflicts": [],
   "unsupportedFiles": [],
   "entries": [
     {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/amenities/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.webp",
-      "sourceHash": "a05a6913d3930a7ae982299c9bdee1996480f5541ac58663cc7110e2930b1851",
-      "outputHash": "23f959f1a267b8ccef21a5567d15d0012f1d0195fc9a360398f2c0688a8f2745",
+      "projectSlug": "201-arkona-court",
+      "sourceAssetRepoPath": "public-projects/201-arkona-court/approved-for-website/images/201-arkona-court-hero-architectural-arrival-v01.png",
+      "sourceRelativePath": "public-projects/201-arkona-court/approved-for-website/images/201-arkona-court-hero-architectural-arrival-v01.png",
+      "websiteAssetPath": "public/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+      "publicPath": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+      "sourceHash": "66f59875b5d4d51f4a878795ad257419d162750381c4f2dea0caa66fbda66f39",
+      "outputHash": "eb68d056bf2e12dfb07919e393833bc54b745315d3e6f2d36ef86643c7ec6394",
       "sourceFormat": ".png",
       "outputFormat": ".webp",
-      "sourceSizeBytes": 2800011,
-      "outputSizeBytes": 311558,
+      "sourceSizeBytes": 3155543,
+      "outputSizeBytes": 416540,
+      "sourceDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "outputDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "category": "hero",
+      "action": "skipped-existing",
+      "reason": "already recorded in publish manifest",
+      "publishedAt": "2026-09-03T17:40:25.247Z"
+    },
+    {
+      "projectSlug": "2085-north-flagler",
+      "sourceAssetRepoPath": "public-projects/2085-north-flagler/approved-for-website/images/2085-north-flagler-hero-site-aerial-v01.png",
+      "sourceRelativePath": "public-projects/2085-north-flagler/approved-for-website/images/2085-north-flagler-hero-site-aerial-v01.png",
+      "websiteAssetPath": "public/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+      "publicPath": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+      "sourceHash": "1a0210f6245805535ff6e9d666fa5f26d0ba8297f1949d84a27d1dcc859810ce",
+      "outputHash": "07e89cdb0556dbcf0a8d9950ab3eb5629664b66e6e625f2991b1cef061a2c756",
+      "sourceFormat": ".png",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 3063927,
+      "outputSizeBytes": 395806,
+      "sourceDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "outputDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "category": "hero",
+      "action": "skipped-existing",
+      "reason": "already recorded in publish manifest",
+      "publishedAt": "2026-09-03T17:40:25.247Z"
+    },
+    {
+      "projectSlug": "apogee-residences-wpb",
+      "sourceAssetRepoPath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-amenities-landscaped-arrival-v01.png",
+      "sourceRelativePath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-amenities-landscaped-arrival-v01.png",
+      "websiteAssetPath": "public/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+      "publicPath": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+      "sourceHash": "a7fe64dbc000d69f64dd46364666e30815bae12f7bdc24a18477ca625e456aa6",
+      "outputHash": "1fe3b89b853d699ceaae259470047d6a5266d9dbfd0295347a34f54852e89f49",
+      "sourceFormat": ".png",
+      "outputFormat": ".webp",
+      "sourceSizeBytes": 3995336,
+      "outputSizeBytes": 479596,
       "sourceDimensions": {
         "width": 1448,
         "height": 1086
@@ -231,47 +233,22 @@
         "height": 1086
       },
       "category": "amenities",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
+      "action": "skipped-existing",
+      "reason": "already recorded in publish manifest",
+      "publishedAt": "2026-09-03T17:40:25.247Z"
     },
     {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-bridge-entrance-v01.webp",
-      "sourceHash": "61b0fc9f3492cea753030757b8a3fea2ca5a3e0cd4f7ae1920cf3471d766c4ba",
-      "outputHash": "03f5f5e74d55fd234df0466c1dba7146e077a7d8e6b0ca7f9cbcd9b3c44193a5",
+      "projectSlug": "apogee-residences-wpb",
+      "sourceAssetRepoPath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-hero-street-view-v01.png",
+      "sourceRelativePath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-hero-street-view-v01.png",
+      "websiteAssetPath": "public/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+      "publicPath": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+      "sourceHash": "d05b6ef27fc74b1b6469724790465b2834d5ef617d9868c5cc4c060d82e5d245",
+      "outputHash": "42704b29ea7cac61334db699c8c4ef8b3e46d49901038c02440232e3a07f9d15",
       "sourceFormat": ".png",
       "outputFormat": ".webp",
-      "sourceSizeBytes": 2714723,
-      "outputSizeBytes": 326920,
-      "sourceDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "outputDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "category": "hero",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
-    },
-    {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-lagoon-campus-v01.webp",
-      "sourceHash": "b8a2027813d1312d121abcf3c9f247fd1015960e5a4e173d3d4d4a691c688016",
-      "outputHash": "4b34c719c3a68739465f7003528c8dfa4ad9a0ad04f2a6b894da67bb98bf5dc4",
-      "sourceFormat": ".png",
-      "outputFormat": ".webp",
-      "sourceSizeBytes": 2404702,
-      "outputSizeBytes": 272198,
+      "sourceSizeBytes": 2583740,
+      "outputSizeBytes": 272786,
       "sourceDimensions": {
         "width": 1672,
         "height": 941
@@ -281,72 +258,22 @@
         "height": 941
       },
       "category": "hero",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
+      "action": "skipped-existing",
+      "reason": "already recorded in publish manifest",
+      "publishedAt": "2026-09-03T17:40:25.247Z"
     },
     {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-side-arrival-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-side-arrival-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-side-arrival-v01.webp",
-      "sourceHash": "5d84df057535bdfaed1da399ca3d7150a91e081a65226bddca771f6dcc6b3044",
-      "outputHash": "257154b40728d57a4f20c2dbd1c4c683347fca649d1efc4ec6530354827164b3",
+      "projectSlug": "apogee-residences-wpb",
+      "sourceAssetRepoPath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-neighborhood-context-v01.png",
+      "sourceRelativePath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-neighborhood-context-v01.png",
+      "websiteAssetPath": "public/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+      "publicPath": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+      "sourceHash": "afd26b3b09bc0c8345bd516042dee58d1e684533d6eb6eec0b492c090e0289f6",
+      "outputHash": "d887d9ccc6d0b4f7424706f2d1d4850ffe9c59ee134abf9f0e5c2d76d7b524e1",
       "sourceFormat": ".png",
       "outputFormat": ".webp",
-      "sourceSizeBytes": 2744922,
-      "outputSizeBytes": 315884,
-      "sourceDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "outputDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "category": "hero",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
-    },
-    {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-hero-waterfront-elevation-v01.webp",
-      "sourceHash": "881ac6fe9e7100e31590ec609a85617a4b520e2f1f7c2cd2e9d008fce8cbd1d6",
-      "outputHash": "54b5d5a39ac70dbb06d352e2e89fb0ce7822615559b7b0ee1b7dff1bdd45890f",
-      "sourceFormat": ".png",
-      "outputFormat": ".webp",
-      "sourceSizeBytes": 2607496,
-      "outputSizeBytes": 316630,
-      "sourceDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "outputDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "category": "hero",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
-    },
-    {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/hero/3031-s-ocean-palm-beach-neighborhood-peninsula-aerial-v01.webp",
-      "sourceHash": "1e194370dd710e9347555febd30c57e59ef6d2bdea16881afb28427e2dc6d36e",
-      "outputHash": "2e101d35a548214ccef7bfa39b900c8c626be0958ed5dd03050109a82c48c260",
-      "sourceFormat": ".png",
-      "outputFormat": ".webp",
-      "sourceSizeBytes": 2690880,
-      "outputSizeBytes": 328340,
+      "sourceSizeBytes": 2319049,
+      "outputSizeBytes": 220406,
       "sourceDimensions": {
         "width": 1672,
         "height": 941
@@ -355,35 +282,10 @@
         "width": 1672,
         "height": 941
       },
-      "category": "hero",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
-    },
-    {
-      "projectSlug": "3031-s-ocean-palm-beach",
-      "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.png",
-      "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.png",
-      "websiteAssetPath": "public/assets/projects/3031-s-ocean-palm-beach/residences/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp",
-      "publicPath": "/assets/projects/3031-s-ocean-palm-beach/residences/3031-s-ocean-palm-beach-residences-lagoon-balcony-v01.webp",
-      "sourceHash": "f75fc66ad1613b873def861644829eef3a27e2d9e4c7e6ba67f15ebfc84dd290",
-      "outputHash": "9bcc1d23a0e9724bf0582d4af418f2da69c8b6541d22f68dfbd3d9fad65758b0",
-      "sourceFormat": ".png",
-      "outputFormat": ".webp",
-      "sourceSizeBytes": 2427945,
-      "outputSizeBytes": 231342,
-      "sourceDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "outputDimensions": {
-        "width": 1448,
-        "height": 1086
-      },
-      "category": "residences",
-      "action": "published",
-      "reason": "converted png to webp",
-      "publishedAt": "2026-09-02T15:15:12.897Z"
+      "category": "neighborhood",
+      "action": "skipped-existing",
+      "reason": "already recorded in publish manifest",
+      "publishedAt": "2026-09-03T17:40:25.247Z"
     }
   ]
 }

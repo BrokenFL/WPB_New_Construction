@@ -12,7 +12,7 @@ const destinationBase = path.join(websiteRoot, "public/assets/projects");
 const manifestPath = path.join(websiteRoot, "data/generated_asset_publish_manifest.json");
 const reportJsonPath = path.join(websiteRoot, "docs/reports/asset-repo-to-website-publish-report.json");
 const reportMdPath = path.join(websiteRoot, "docs/reports/asset-repo-to-website-publish-report.md");
-const targetProjects = ["3031-s-ocean-palm-beach", "alba-palm-beach", "berkeley", "forte-on-flagler", "maison-dor", "mandarin-oriental", "mr-c", "olin-palm-beach"];
+const targetProjects = ["201-arkona-court", "2085-north-flagler", "3031-s-ocean-palm-beach", "alba-palm-beach", "apogee-residences-wpb", "berkeley", "forte-on-flagler", "maison-dor", "mandarin-oriental", "mr-c", "olin-palm-beach"];
 const destinationCategories = ["hero", "amenities", "residences", "logos", "floorplans", "site-plans", "neighborhood", "misc"];
 const imageExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".svg"]);
 const rasterExtensions = new Set([".jpg", ".jpeg", ".png", ".webp"]);
@@ -20,7 +20,9 @@ const args = process.argv.slice(2);
 const writeMode = args.includes("--write");
 const dryRun = args.includes("--dry-run") || !writeMode;
 const projectArg = readFlag("--project");
-const projects = projectArg ? [normalizeProjectSlug(projectArg)] : targetProjects;
+const projects = projectArg
+  ? projectArg.split(",").map((value) => normalizeProjectSlug(value)).filter(Boolean)
+  : targetProjects;
 const publishedAt = new Date().toISOString();
 
 for (const project of projects) {
@@ -109,7 +111,7 @@ async function planPublish(projectSlug, approvedRoot, sourcePath) {
   const sourceFormat = path.extname(sourcePath).toLowerCase();
   const sourceSizeBytes = fs.statSync(sourcePath).size;
   const sourceHash = sha256(sourcePath);
-  const category = classifyDestination(sourcePath, sourceFormat);
+  const category = classifyDestination(projectSlug, sourcePath, sourceFormat);
 
   if (isHiddenOrTemp(originalFilename)) {
     return makeEntry({ projectSlug, sourceAssetRepoPath: sourcePath, sourceRelativePath, sourceHash, sourceFormat, sourceSizeBytes, category, action: "unsupported", reason: "hidden or temporary file" });
@@ -142,8 +144,25 @@ async function planRaster(projectSlug, sourcePath, sourceRelativePath, sourceHas
   const publicPath = `/${path.relative(path.join(websiteRoot, "public"), destinationPath).split(path.sep).join("/")}`;
   const existing = existingBySource.get(`${projectSlug}|${sourceRelativePath}|${sourceHash}`);
   const existingWebsitePath = existing?.websiteAssetPath ? path.join(websiteRoot, existing.websiteAssetPath) : null;
-  if (existingWebsitePath && fs.existsSync(existingWebsitePath)) {
-    return makeEntryFromPlan({ projectSlug, sourcePath, sourceRelativePath, destinationPath: existingWebsitePath, publicPath: existing.publicPath, sourceHash, sourceFormat, sourceSizeBytes, sourceDimensions, outputFormat: existing.outputFormat, category, action: "skipped-existing", reason: "already recorded in publish manifest" });
+  if (existingWebsitePath && existing.category === category && fs.existsSync(existingWebsitePath)) {
+    return makeEntryFromPlan({
+      projectSlug,
+      sourcePath,
+      sourceRelativePath,
+      destinationPath: existingWebsitePath,
+      publicPath: existing.publicPath,
+      sourceHash,
+      sourceFormat,
+      sourceSizeBytes,
+      sourceDimensions,
+      outputFormat: existing.outputFormat,
+      outputHash: existing.outputHash || sha256(existingWebsitePath),
+      outputSizeBytes: existing.outputSizeBytes || fs.statSync(existingWebsitePath).size,
+      outputDimensions: existing.outputDimensions || await dimensionsFor(existingWebsitePath),
+      category,
+      action: "skipped-existing",
+      reason: "already recorded in publish manifest",
+    });
   }
   if (fs.existsSync(destinationPath)) {
     return await compareExistingDestination({ projectSlug, sourcePath, sourceRelativePath, destinationPath, publicPath, sourceHash, sourceFormat, sourceSizeBytes, sourceDimensions, outputFormat, category });
@@ -164,7 +183,7 @@ function planPdf(projectSlug, sourcePath, sourceRelativePath, sourceHash, source
   const existing = existingBySource.get(`${projectSlug}|${sourceRelativePath}|${sourceHash}`);
   const existingWebsitePath = existing?.websiteAssetPath ? path.join(websiteRoot, existing.websiteAssetPath) : null;
   if (existingWebsitePath && fs.existsSync(existingWebsitePath)) {
-    return makeEntryFromPlan({ projectSlug, sourcePath, sourceRelativePath, destinationPath: existingWebsitePath, publicPath: existing.publicPath, sourceHash, sourceFormat, sourceSizeBytes, sourceDimensions: null, outputFormat: ".pdf", category: "floorplans", action: "skipped-existing", reason: "already recorded in publish manifest" });
+    return makeEntryFromPlan({ projectSlug, sourcePath, sourceRelativePath, destinationPath: existingWebsitePath, publicPath: existing.publicPath, sourceHash, sourceFormat, sourceSizeBytes, sourceDimensions: null, outputFormat: ".pdf", outputHash: existing.outputHash || sha256(existingWebsitePath), outputSizeBytes: existing.outputSizeBytes || fs.statSync(existingWebsitePath).size, category: "floorplans", action: "skipped-existing", reason: "already recorded in publish manifest" });
   }
   if (fs.existsSync(destinationPath)) {
     const existingHash = sha256(destinationPath);
@@ -221,19 +240,22 @@ function chooseOutputFormat(sourceFormat, category, hasAlpha) {
   return ".webp";
 }
 
-function classifyDestination(sourcePath, sourceFormat) {
+function classifyDestination(projectSlug, sourcePath, sourceFormat) {
   const relative = sourcePath.split(path.sep).join("/").toLowerCase();
   const approvedMarker = "/approved-for-website/";
   const approvedRelative = relative.includes(approvedMarker) ? relative.slice(relative.indexOf(approvedMarker) + approvedMarker.length) : relative;
   const filename = path.basename(sourcePath).toLowerCase();
+  const descriptiveFilename = filename.startsWith(`${projectSlug}-`) ? filename.slice(projectSlug.length + 1) : filename;
+  const classificationRelative = approvedRelative.replace(filename, descriptiveFilename);
   if (sourceFormat === ".pdf") return "floorplans";
-  if (/(logo|architect|developer|branding)/.test(approvedRelative)) return "logos";
-  if (/(floorplan|floorplans|residence-[a-z0-9]|penthouse|townhouse|lph|unit|stack|plan)/.test(approvedRelative)) return "floorplans";
-  if (/(site-plan|map|parcel|location|master-plan)/.test(approvedRelative)) return "site-plans";
-  if (/(hero|exterior|aerial|waterfront|building|facade|intracoastal|lake-view|lower-view|wide|\broof\b)/.test(filename)) return "hero";
-  if (/(amenities|amenity|pool|fitness|spa|lobby|valet|private-dining|rooftop|lounge)/.test(approvedRelative)) return "amenities";
-  if (/(residence|residences|interior|kitchen|bedroom|bathroom|living-room|patio|en-suite)/.test(approvedRelative)) return "residences";
-  if (/(neighborhood|clocktower|cityplace|downtown|palm-beach|waterfront-context)/.test(filename)) return "neighborhood";
+  if (/(^|-)hero(?:-|\.|$)/.test(descriptiveFilename)) return "hero";
+  if (/(logo|architect|developer|branding)/.test(classificationRelative)) return "logos";
+  if (/(floorplan|floorplans|residence-[a-z0-9]|penthouse|townhouse|lph|unit|stack|plan)/.test(classificationRelative)) return "floorplans";
+  if (/(site-plan|map|parcel|location|master-plan)/.test(classificationRelative)) return "site-plans";
+  if (/(exterior|aerial|waterfront|building|facade|intracoastal|lake-view|lower-view|wide|\broof\b)/.test(descriptiveFilename)) return "hero";
+  if (/(amenities|amenity|pool|fitness|spa|lobby|valet|private-dining|rooftop|lounge)/.test(classificationRelative)) return "amenities";
+  if (/(residence|residences|interior|kitchen|bedroom|bathroom|living-room|patio|en-suite)/.test(classificationRelative)) return "residences";
+  if (/(neighborhood|clocktower|cityplace|downtown|palm-beach|waterfront-context)/.test(descriptiveFilename)) return "neighborhood";
   return imageExtensions.has(sourceFormat) ? "misc" : "misc";
 }
 
@@ -319,7 +341,24 @@ function makeEntry(values) {
 
 function mergeManifest(existing, latestEntries) {
   const byKey = new Map(existing.map((entry) => [manifestKey(entry), entry]));
-  for (const entry of latestEntries) byKey.set(manifestKey(entry), entry);
+  for (const entry of latestEntries) {
+    const key = manifestKey(entry);
+    const previous = byKey.get(key);
+    if (previous && entry.action === "skipped-existing") {
+      byKey.set(key, {
+        ...previous,
+        websiteAssetPath: entry.websiteAssetPath || previous.websiteAssetPath,
+        publicPath: entry.publicPath || previous.publicPath,
+        outputHash: entry.outputHash || previous.outputHash,
+        outputSizeBytes: entry.outputSizeBytes || previous.outputSizeBytes,
+        sourceDimensions: entry.sourceDimensions || previous.sourceDimensions,
+        outputDimensions: entry.outputDimensions || previous.outputDimensions,
+        category: entry.category || previous.category,
+      });
+      continue;
+    }
+    byKey.set(key, entry);
+  }
   return [...byKey.values()];
 }
 

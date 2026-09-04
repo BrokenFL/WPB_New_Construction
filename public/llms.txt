@@ -159,9 +159,12 @@ The site is built to help buyers understand which West Palm Beach condo building
 - La Clara West Palm Beach | Completed South Flagler Condos: /projects/la-clara/
 - Fern & Gardenia / Related Ross Fern Street Project | WPB New Construction: /projects/fern-and-gardenia-related-ross-fern-street/
 - Rybovich Marina Redevelopment | North Flagler Waterfront District: /projects/rybovich-marina-redevelopment/
-- Rosewood Residences West Palm Beach | WPB New Construction: /projects/rosewood-residences-west-palm-beach/
+- Rosewood Residences West Palm Beach | Branded Pipeline: /projects/rosewood-residences-west-palm-beach/
 - OLIN Palm Beach | Ocean-to-Lagoon New Construction: /projects/olin-palm-beach/
 - 3031 S. Ocean Palm Beach | Villa-Style Waterfront Residences: /projects/3031-s-ocean-palm-beach/
+- Apogee Residences West Palm Beach | North Flagler Watch: /projects/apogee-residences-wpb/
+- 201 Arkona Court West Palm Beach | Planning Watch: /projects/201-arkona-court/
+- 2085 North Flagler West Palm Beach | Project Watch: /projects/2085-north-flagler/
 
 ## Use Guidance
 

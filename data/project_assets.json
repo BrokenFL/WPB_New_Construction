@@ -2917,6 +2917,121 @@
         }
       ],
       "updatedAt": "2026-09-02T15:15:14.033Z"
+    },
+    "apogee-residences-wpb": {
+      "projectId": "apogee-residences-wpb",
+      "slug": "apogee-residences-wpb",
+      "aliases": [
+        "apogee-residences-wpb"
+      ],
+      "assets": [
+        {
+          "placement": "hero",
+          "variant": "primary",
+          "src": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+          "publicPath": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+          "filename": "apogee-residences-wpb-hero-street-view-v01.webp",
+          "category": "hero",
+          "format": "webp",
+          "sizeBytes": 272786,
+          "width": 1672,
+          "height": 941,
+          "alt": "Apogee Residences Wpb Apogee Residences Wpb Hero Street View",
+          "title": "Apogee Residences Wpb Hero Street View",
+          "credit": "Apogee Residences Wpb project marketing materials",
+          "source": "approved-asset-publisher",
+          "status": "approved"
+        },
+        {
+          "placement": "amenities",
+          "variant": "landscaped-arrival",
+          "src": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+          "publicPath": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+          "filename": "apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+          "category": "amenities",
+          "format": "webp",
+          "sizeBytes": 479596,
+          "width": 1448,
+          "height": 1086,
+          "alt": "Apogee Residences Wpb Apogee Residences Wpb Amenities Landscaped Arrival",
+          "title": "Apogee Residences Wpb Amenities Landscaped Arrival",
+          "credit": "Apogee Residences Wpb project marketing materials",
+          "source": "approved-asset-publisher",
+          "status": "approved"
+        },
+        {
+          "placement": "neighborhood",
+          "variant": "context",
+          "src": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+          "publicPath": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+          "filename": "apogee-residences-wpb-neighborhood-context-v01.webp",
+          "category": "neighborhood",
+          "format": "webp",
+          "sizeBytes": 220406,
+          "width": 1672,
+          "height": 941,
+          "alt": "Apogee Residences Wpb Apogee Residences Wpb Neighborhood Context",
+          "title": "Apogee Residences Wpb Neighborhood Context",
+          "credit": "Apogee Residences Wpb project marketing materials",
+          "source": "approved-asset-publisher",
+          "status": "approved"
+        }
+      ],
+      "updatedAt": "2026-09-03T17:40:25.465Z"
+    },
+    "201-arkona-court": {
+      "projectId": "201-arkona-court",
+      "slug": "201-arkona-court",
+      "aliases": [
+        "201-arkona-court"
+      ],
+      "assets": [
+        {
+          "placement": "hero",
+          "variant": "primary",
+          "src": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+          "publicPath": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+          "filename": "201-arkona-court-hero-architectural-arrival-v01.webp",
+          "category": "hero",
+          "format": "webp",
+          "sizeBytes": 416540,
+          "width": 1672,
+          "height": 941,
+          "alt": "201 Arkona Court 201 Arkona Court Hero Architectural Arrival",
+          "title": "201 Arkona Court Hero Architectural Arrival",
+          "credit": "201 Arkona Court project marketing materials",
+          "source": "approved-asset-publisher",
+          "status": "approved"
+        }
+      ],
+      "updatedAt": "2026-09-03T17:40:25.465Z"
+    },
+    "2085-north-flagler": {
+      "projectId": "2085-north-flagler",
+      "slug": "2085-north-flagler",
+      "aliases": [
+        "2085-north-flagler"
+      ],
+      "assets": [
+        {
+          "placement": "hero",
+          "variant": "primary",
+          "src": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+          "publicPath": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+          "filename": "2085-north-flagler-hero-site-aerial-v01.webp",
+          "category": "hero",
+          "format": "webp",
+          "sizeBytes": 395806,
+          "width": 1672,
+          "height": 941,
+          "alt": "2085 North Flagler 2085 North Flagler Hero Site Aerial",
+          "title": "2085 North Flagler Hero Site Aerial",
+          "credit": "2085 North Flagler project marketing materials",
+          "source": "approved-asset-publisher",
+          "status": "approved"
+        }
+      ],
+      "updatedAt": "2026-09-03T17:40:25.465Z"
     }
   }
 }

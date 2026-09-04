@@ -111,6 +111,7 @@ export function loadBatch1ProjectCopyPackageSync() {
   const records = JSON.parse(request.responseText) as ProjectCopyPackage[];
   for (const record of records) {
     batch1ProjectCopyByProjectId.set(record.repoProjectId, record);
+    batch1ProjectCopyByProjectId.set(record.slug, record);
   }
   return batch1ProjectCopyByProjectId;
 }
@@ -122,6 +123,7 @@ export async function loadBatch1ProjectCopyPackage() {
   const records = await response.json() as ProjectCopyPackage[];
   for (const record of records) {
     batch1ProjectCopyByProjectId.set(record.repoProjectId, record);
+    batch1ProjectCopyByProjectId.set(record.slug, record);
   }
   return batch1ProjectCopyByProjectId;
 }

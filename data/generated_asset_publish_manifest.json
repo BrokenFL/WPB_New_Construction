@@ -1,5 +1,55 @@
 [
   {
+    "projectSlug": "201-arkona-court",
+    "sourceAssetRepoPath": "public-projects/201-arkona-court/approved-for-website/images/201-arkona-court-hero-architectural-arrival-v01.png",
+    "sourceRelativePath": "public-projects/201-arkona-court/approved-for-website/images/201-arkona-court-hero-architectural-arrival-v01.png",
+    "websiteAssetPath": "public/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+    "publicPath": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+    "sourceHash": "66f59875b5d4d51f4a878795ad257419d162750381c4f2dea0caa66fbda66f39",
+    "outputHash": "eb68d056bf2e12dfb07919e393833bc54b745315d3e6f2d36ef86643c7ec6394",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 3155543,
+    "outputSizeBytes": 416540,
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "outputDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-03T17:37:04.026Z"
+  },
+  {
+    "projectSlug": "2085-north-flagler",
+    "sourceAssetRepoPath": "public-projects/2085-north-flagler/approved-for-website/images/2085-north-flagler-hero-site-aerial-v01.png",
+    "sourceRelativePath": "public-projects/2085-north-flagler/approved-for-website/images/2085-north-flagler-hero-site-aerial-v01.png",
+    "websiteAssetPath": "public/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+    "publicPath": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+    "sourceHash": "1a0210f6245805535ff6e9d666fa5f26d0ba8297f1949d84a27d1dcc859810ce",
+    "outputHash": "07e89cdb0556dbcf0a8d9950ab3eb5629664b66e6e625f2991b1cef061a2c756",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 3063927,
+    "outputSizeBytes": 395806,
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "outputDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-03T17:37:04.026Z"
+  },
+  {
     "projectSlug": "3031-s-ocean-palm-beach",
     "sourceAssetRepoPath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.png",
     "sourceRelativePath": "public-projects/3031-s-ocean-palm-beach/approved-for-website/images/3031-s-ocean-palm-beach-amenities-inner-courtyard-v01.png",
@@ -792,6 +842,81 @@
     "action": "skipped-existing",
     "reason": "already recorded in publish manifest",
     "publishedAt": "2026-05-28T17:25:47.436Z"
+  },
+  {
+    "projectSlug": "apogee-residences-wpb",
+    "sourceAssetRepoPath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-amenities-landscaped-arrival-v01.png",
+    "sourceRelativePath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-amenities-landscaped-arrival-v01.png",
+    "websiteAssetPath": "public/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+    "publicPath": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+    "sourceHash": "a7fe64dbc000d69f64dd46364666e30815bae12f7bdc24a18477ca625e456aa6",
+    "outputHash": "1fe3b89b853d699ceaae259470047d6a5266d9dbfd0295347a34f54852e89f49",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 3995336,
+    "outputSizeBytes": 479596,
+    "sourceDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "outputDimensions": {
+      "width": 1448,
+      "height": 1086
+    },
+    "category": "amenities",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-03T17:37:04.026Z"
+  },
+  {
+    "projectSlug": "apogee-residences-wpb",
+    "sourceAssetRepoPath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-hero-street-view-v01.png",
+    "sourceRelativePath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-hero-street-view-v01.png",
+    "websiteAssetPath": "public/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+    "publicPath": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+    "sourceHash": "d05b6ef27fc74b1b6469724790465b2834d5ef617d9868c5cc4c060d82e5d245",
+    "outputHash": "42704b29ea7cac61334db699c8c4ef8b3e46d49901038c02440232e3a07f9d15",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2583740,
+    "outputSizeBytes": 272786,
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "outputDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "category": "hero",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-03T17:37:04.026Z"
+  },
+  {
+    "projectSlug": "apogee-residences-wpb",
+    "sourceAssetRepoPath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-neighborhood-context-v01.png",
+    "sourceRelativePath": "public-projects/apogee-residences-wpb/approved-for-website/images/apogee-residences-wpb-neighborhood-context-v01.png",
+    "websiteAssetPath": "public/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+    "publicPath": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+    "sourceHash": "afd26b3b09bc0c8345bd516042dee58d1e684533d6eb6eec0b492c090e0289f6",
+    "outputHash": "d887d9ccc6d0b4f7424706f2d1d4850ffe9c59ee134abf9f0e5c2d76d7b524e1",
+    "sourceFormat": ".png",
+    "outputFormat": ".webp",
+    "sourceSizeBytes": 2319049,
+    "outputSizeBytes": 220406,
+    "sourceDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "outputDimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "category": "neighborhood",
+    "action": "published",
+    "reason": "converted png to webp",
+    "publishedAt": "2026-09-03T17:37:04.026Z"
   },
   {
     "projectSlug": "berkeley",

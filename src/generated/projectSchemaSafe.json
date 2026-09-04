@@ -601,6 +601,87 @@
         "deliveryTiming",
         "address"
       ]
+    },
+    {
+      "identity": {
+        "slug": "apogee-residences-wpb",
+        "route": "/projects/apogee-residences-wpb/",
+        "displayName": "Apogee Residences",
+        "corridor": "North Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/apogee-residences-wpb/"
+      },
+      "safeFields": {
+        "name": "Apogee Residences",
+        "route": "/projects/apogee-residences-wpb/",
+        "url": "https://www.wpbnewconstruction.com/projects/apogee-residences-wpb/",
+        "corridor": "North Flagler",
+        "compareDatabaseId": "apogee-residences-wpb",
+        "compareDatabaseSlug": "apogee-residences-wpb",
+        "sourceCatalogId": "apogee-wpb"
+      },
+      "omittedFields": [
+        "status",
+        "delivery",
+        "residenceCount",
+        "address"
+      ],
+      "conflictCount": 4,
+      "reviewFields": [
+        "status",
+        "deliveryTiming",
+        "residenceCount",
+        "address"
+      ]
+    },
+    {
+      "identity": {
+        "slug": "201-arkona-court",
+        "route": "/projects/201-arkona-court/",
+        "displayName": "201 Arkona Court",
+        "corridor": "South Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/201-arkona-court/"
+      },
+      "safeFields": {
+        "name": "201 Arkona Court",
+        "route": "/projects/201-arkona-court/",
+        "url": "https://www.wpbnewconstruction.com/projects/201-arkona-court/",
+        "corridor": "South Flagler",
+        "status": "Announced / Planning",
+        "delivery": "2029 estimate",
+        "residenceCount": "16",
+        "address": "201 & 203 Arkona Court, West Palm Beach, FL 33401",
+        "compareDatabaseId": "201-arkona-court",
+        "compareDatabaseSlug": "201-arkona-court",
+        "sourceCatalogId": "201-arkona-court"
+      },
+      "omittedFields": [],
+      "conflictCount": 1,
+      "reviewFields": []
+    },
+    {
+      "identity": {
+        "slug": "2085-north-flagler",
+        "route": "/projects/2085-north-flagler/",
+        "displayName": "2085 North Flagler",
+        "corridor": "North Flagler",
+        "url": "https://www.wpbnewconstruction.com/projects/2085-north-flagler/"
+      },
+      "safeFields": {
+        "name": "2085 North Flagler",
+        "route": "/projects/2085-north-flagler/",
+        "url": "https://www.wpbnewconstruction.com/projects/2085-north-flagler/",
+        "corridor": "North Flagler",
+        "status": "Announced / Planning",
+        "delivery": "Timing not released",
+        "residenceCount": "281",
+        "address": "2085 North Flagler Drive, West Palm Beach, FL 33407",
+        "compareDatabaseId": "2085-n-flagler-terra-bh",
+        "compareDatabaseSlug": "2085-n-flagler-terra-bh",
+        "sourceCatalogId": "2085-n-flagler-terra-bh"
+      },
+      "omittedFields": [],
+      "conflictCount": 0,
+      "reviewFields": []
     }
   ]
 }

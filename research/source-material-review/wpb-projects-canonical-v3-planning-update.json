@@ -1456,6 +1456,200 @@
       "public_address": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
       "neighborhood": "Palm Beach South End",
       "missing_or_unconfirmed": "Sales launch, delivery, pricing, floor plans, maintenance, parking, policies, and the complete amenity program"
+    },
+    {
+      "include_on_site": true,
+      "city": "West Palm Beach",
+      "municipal_or_legal_note": "The current reviewed proposal is 39 residences across 21 floors; earlier reporting described a 46-residence, 25-story plan with a different architect.",
+      "public_residence_count": 39,
+      "municipal_residence_count": null,
+      "floor_count_display": 21,
+      "municipal_floor_count": null,
+      "tower_count": 1,
+      "developer": [
+        "Related Group"
+      ],
+      "architect": [
+        "Sieger Suarez Architects"
+      ],
+      "interior_designer": [],
+      "landscape_architect": [],
+      "brand_partner": [],
+      "sales_team": [],
+      "construction_team": [],
+      "price_display": "Not publicly released",
+      "maintenance_display": "Not publicly confirmed",
+      "delivery_display": "Timing not released",
+      "size_range_display": "Not publicly released",
+      "bedroom_range_display": "Not publicly released",
+      "parking_summary": "99 parking spaces in the approved plan",
+      "ev_summary": "Not publicly confirmed",
+      "storage_summary": "Not publicly confirmed",
+      "pet_summary": "Not publicly confirmed",
+      "amenity_summary": "A waterfront pool and private-elevator concept have been reported; the final amenity program requires verification.",
+      "service_summary": "Not publicly released",
+      "residence_features": [
+        "Low-density waterfront condominium format",
+        "Direct Intracoastal exposure",
+        "Private elevator access reported in earlier planning coverage; verify current plans"
+      ],
+      "best_for": [
+        "Buyers monitoring the next low-density North Flagler waterfront launch",
+        "Buyers prioritizing direct Intracoastal views"
+      ],
+      "tradeoffs": [
+        "Public sales, pricing, delivery, floor plans, fees, policies, and the complete amenity program have not been released"
+      ],
+      "key_conflicts": [
+        "Earlier sources identified Arquitectonica and a 46-unit, 25-story plan; the current reviewed record identifies Sieger Suarez and 39 units across 21 floors."
+      ],
+      "source_urls": [
+        "https://www.oftmw.com/firm/related-group/",
+        "https://www.oftmw.com/firm/sieger-suarez-architects/"
+      ],
+      "human_review_required": true,
+      "confidence_level": "high",
+      "import_recommendation": "Publish as a North Flagler watch page while retaining the prior plan conflict and excluding residence count from schema until Brooke resolves it.",
+      "project_id": "apogee-residences-wpb",
+      "slug": "apogee-residences-wpb",
+      "display_name": "Apogee Residences",
+      "site_group": "pipeline_watchlist",
+      "page_type": "public_watchlist_page",
+      "status_badge": "Approved / Announced",
+      "development_stage": "approved",
+      "public_address": "4906 North Flagler Drive, West Palm Beach, FL 33407",
+      "neighborhood": "North End / North Flagler",
+      "missing_or_unconfirmed": "Sales launch, pricing, delivery, floor plans, maintenance, final amenity program, and offering documents"
+    },
+    {
+      "include_on_site": true,
+      "city": "West Palm Beach",
+      "municipal_or_legal_note": "Current reporting describes a 26-story proposal, while one firm-profile aggregation displays 16 floors; the floor count remains under review.",
+      "public_residence_count": 16,
+      "municipal_residence_count": null,
+      "floor_count_display": "26 proposed; review open",
+      "municipal_floor_count": null,
+      "tower_count": 1,
+      "developer": [
+        "Easton Street Capital",
+        "1789 Capital"
+      ],
+      "architect": [
+        "SCB"
+      ],
+      "interior_designer": [],
+      "landscape_architect": [],
+      "brand_partner": [],
+      "sales_team": [],
+      "construction_team": [],
+      "price_display": "Not publicly released",
+      "maintenance_display": "Not publicly confirmed",
+      "delivery_display": "2029 estimate",
+      "size_range_display": "Approximately 5,000–6,000+ square feet reported",
+      "bedroom_range_display": "Not publicly confirmed",
+      "parking_summary": "Not publicly confirmed",
+      "ev_summary": "Not publicly confirmed",
+      "storage_summary": "Not publicly confirmed",
+      "pet_summary": "Not publicly confirmed",
+      "amenity_summary": "A private cultural club of roughly 7,000 square feet and a public market or cafe concept have been reported.",
+      "service_summary": "Not publicly released",
+      "residence_features": [
+        "Approximately 16 full-floor residences",
+        "One principal residence per residential level",
+        "Art-oriented private club concept",
+        "Terraces shown in concept materials"
+      ],
+      "best_for": [
+        "Buyers seeking full-floor privacy",
+        "Buyers prioritizing immediate access to the Norton Museum and cultural district"
+      ],
+      "tradeoffs": [
+        "The proposal is early-stage; approvals, height, club economics, pricing, fees, parking, policies, and delivery remain subject to verification"
+      ],
+      "key_conflicts": [
+        "Current reporting describes a 26-story proposal, while one firm-profile aggregation displays 16 floors; retain a review flag."
+      ],
+      "source_urls": [
+        "https://www.oftmw.com/post/easton-street-capital-and-donald-trump-jr-s-1789-capital-plan-a-26-story-full-floor-condo-and-private-club-by-the-norton-museum-in-west-palm-beach/",
+        "https://www.oftmw.com/firm/1789-capital/"
+      ],
+      "human_review_required": true,
+      "confidence_level": "high",
+      "import_recommendation": "Publish as a South Flagler cultural-quarter watch page while keeping the floor-count discrepancy review-visible and out of schema.",
+      "project_id": "201-arkona-court",
+      "slug": "201-arkona-court",
+      "display_name": "201 Arkona Court",
+      "site_group": "pipeline_watchlist",
+      "page_type": "public_watchlist_page",
+      "status_badge": "Announced / Planning",
+      "development_stage": "announced",
+      "public_address": "201 & 203 Arkona Court, West Palm Beach, FL 33401",
+      "neighborhood": "Cultural Quarter / Norton Museum",
+      "missing_or_unconfirmed": "Final approvals, floor count, sales launch, pricing, final delivery, floor plans, parking, maintenance, policies, and operating structure"
+    },
+    {
+      "include_on_site": true,
+      "city": "West Palm Beach",
+      "municipal_or_legal_note": "This record tracks the Terra and BH Group proposal at 2085 North Flagler. The former Currie Park Towers record is retired and merged into this address-based watch entry.",
+      "public_residence_count": 281,
+      "municipal_residence_count": null,
+      "floor_count_display": "31 floors each",
+      "municipal_floor_count": null,
+      "tower_count": 2,
+      "developer": [
+        "Terra",
+        "BH Group"
+      ],
+      "architect": [],
+      "interior_designer": [],
+      "landscape_architect": [],
+      "brand_partner": [],
+      "sales_team": [],
+      "construction_team": [],
+      "price_display": "Not publicly released",
+      "maintenance_display": "Not publicly confirmed",
+      "delivery_display": "Timing not released",
+      "size_range_display": "Approximately 1,065–4,510 square feet reported; verify future offering materials",
+      "bedroom_range_display": "Not publicly released",
+      "parking_summary": "362 parking spaces planned",
+      "ev_summary": "Not publicly confirmed",
+      "storage_summary": "Not publicly confirmed",
+      "pet_summary": "Not publicly confirmed",
+      "amenity_summary": "Third- and ninth-floor amenity areas, a pool deck, and rooftop amenities have been reported.",
+      "service_summary": "Not publicly released",
+      "residence_features": [
+        "Two waterfront condominium towers",
+        "Shared podium and amenity concept",
+        "Direct Intracoastal and Currie Park exposures",
+        "Approximately 4,385 square feet of planned retail"
+      ],
+      "best_for": [
+        "Buyers monitoring future North Flagler supply",
+        "Buyers prioritizing Currie Park and direct Intracoastal frontage"
+      ],
+      "tradeoffs": [
+        "This remains an early address-based watch record; final acquisition details, approvals, architect, sales program, pricing, delivery, fees, policies, and offering documents require verification"
+      ],
+      "key_conflicts": [
+        "The 281-unit and 31-floor figures were previously misattributed to the former Currie Park Towers proposal; reviewed identity decisions assign them to Terra and BH Group at 2085 North Flagler."
+      ],
+      "source_urls": [
+        "https://floridayimby.com/2026/06/developers-plan-two-31-story-towers-for-2085-n-flagler-dr-west-palm-beach-fl.html",
+        "https://traded.co/deals/florida/development-site/sale/david-martin-of-terra-and-isaac-toledano-liat-toledano-of-bh-group-acquire-development-site-from-jeff-greene-for-100m/"
+      ],
+      "human_review_required": true,
+      "confidence_level": "medium",
+      "import_recommendation": "Publish as a North Flagler watch page under the 2085 identity; keep the former Currie Park identity retired and merged.",
+      "project_id": "2085-n-flagler-terra-bh",
+      "slug": "2085-n-flagler-terra-bh",
+      "display_name": "2085 North Flagler",
+      "site_group": "pipeline_watchlist",
+      "page_type": "public_watchlist_page",
+      "status_badge": "Announced / Planning",
+      "development_stage": "announced",
+      "public_address": "2085 North Flagler Drive, West Palm Beach, FL 33407",
+      "neighborhood": "Currie Park / North Flagler",
+      "missing_or_unconfirmed": "Final acquisition and plan confirmation, approvals, architect, sales launch, pricing, delivery, fees, policies, and offering documents"
     }
   ],
   "excluded_or_internal_only": [

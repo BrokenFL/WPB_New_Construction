@@ -2548,7 +2548,12 @@ function buildPrerenderRoutes() {
   const updateRoutes = approvedUpdateRoutes();
   const downtownRoutes = mergedMarketNoteRoutes(downtownSpotlightRoutes, "downtown");
   const buyerRoutes = mergedMarketNoteRoutes(marketNoteRoutes, "buyer");
-  const copyByProjectId = new Map(readProjectCopyPackage().map((record) => [record.repoProjectId, record]));
+  const copyByProjectId = new Map(
+    readProjectCopyPackage().flatMap((record) => [
+      [record.repoProjectId, record],
+      [record.slug, record],
+    ]),
+  );
   const projectRoutes = readPublishedProjectRecords().map((project) => {
     const copy = copyByProjectId.get(project.publicSlug);
     return [

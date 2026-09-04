@@ -4880,5 +4880,329 @@
         }
       ]
     }
+  },
+  {
+    "slug": "apogee-residences-wpb",
+    "repoProjectId": "apogee-residences-wpb",
+    "heroHeadline": "A 39-Residence Waterfront Proposal on North Flagler",
+    "heroSubheadline": "Approved and announced, with sales, pricing, delivery, and final offering details still unreleased.",
+    "overview": "Apogee Residences is an approved North Flagler waterfront proposal at 4906 North Flagler Drive. The current reviewed record describes 39 residences across 21 floors by Related Group with Sieger Suarez Architects, while earlier reporting described a different 46-residence, 25-story plan. That earlier plan remains visible as a review item rather than being silently discarded.",
+    "quickFacts": [
+      { "label": "Address", "value": "4906 North Flagler Drive, West Palm Beach, FL 33407" },
+      { "label": "Status", "value": "Approved / Announced" },
+      { "label": "Residences", "value": "39 in the current reviewed plan; earlier reporting cited 46" },
+      { "label": "Floors", "value": "21 in the current reviewed plan; earlier reporting cited 25" },
+      { "label": "Buildings", "value": "1" },
+      { "label": "Parking", "value": "99 spaces in the approved plan" },
+      { "label": "Waterfront", "value": "Direct Intracoastal frontage" },
+      { "label": "Delivery", "value": "Timing not released" },
+      { "label": "Pricing", "value": "Not publicly released" }
+    ],
+    "residences": "The current reviewed proposal calls for 39 waterfront residences in a single 21-floor building. Unit mix, bedroom counts, sizes, floor plans, finish specifications, parking allocations, storage, and residence-specific outdoor space have not been publicly released.",
+    "amenities": "Planning coverage has referenced a waterfront pool and private-elevator concept. The final amenity, wellness, service, and common-area program requires current project materials.",
+    "location": "The site is planned for 4906 North Flagler Drive on the Intracoastal, north of Currie Park and near Northwood and the wider North Flagler waterfront cluster.",
+    "localTake": "Apogee is compelling as a low-density North Flagler waterfront watch: 39 residences is materially smaller than many nearby tower proposals. The important discipline is to compare the current 39-residence concept without erasing the earlier 46-residence plan that still appears in public reporting.",
+    "tradeoffs": [
+      "Public sales, pricing, delivery, floor plans, fees, policies, and final offering documents have not been released.",
+      "The current reviewed record differs from earlier reporting on residence count, height, and architect; those differences remain open for review.",
+      "Amenity and private-elevator references require confirmation against the final approved plan and future offering materials."
+    ],
+    "confidenceNote": "High confidence in the current reviewed address, sponsor, 39-residence and 21-floor planning record. Human review remains required because earlier coverage described a different 46-residence, 25-story plan with Arquitectonica.",
+    "seoTitle": "Apogee Residences West Palm Beach | North Flagler Watch",
+    "metaDescription": "Track Apogee Residences, an approved 39-residence North Flagler waterfront proposal at 4906 North Flagler Drive in West Palm Beach.",
+    "badge": "Approved / Announced",
+    "tags": ["north-flagler", "waterfront", "intracoastal", "low-density", "approved", "pipeline"],
+    "introHeadline": "Low density on the North Flagler waterfront.",
+    "introDek": "An approved 39-residence proposal with its sales program and final offering details still ahead.",
+    "brookeTake": "This is a scale story first: a 39-residence plan on direct Intracoastal frontage. Buyers should track it beside Alba, Mandarin Oriental, and future Rybovich inventory, while treating the earlier 46-residence version as an unresolved planning-history issue.",
+    "bestFor": [
+      "Buyers tracking low-density North Flagler waterfront projects",
+      "Buyers prioritizing direct Intracoastal exposure",
+      "Buyers comfortable monitoring an approved project before sales launch"
+    ],
+    "signatureFeatures": [
+      "39 residences in the current reviewed plan",
+      "21-floor single-building proposal",
+      "Direct Intracoastal frontage",
+      "99 planned parking spaces"
+    ],
+    "amenityNarrative": "Planning coverage has referenced a waterfront pool and private-elevator concept. The full amenity, wellness, service, and common-area program is not yet public.",
+    "residenceNarrative": "The current reviewed proposal calls for 39 residences. Detailed unit mix, sizes, plans, finishes, parking allocations, storage, policies, and outdoor-space assignments require future offering materials.",
+    "locationNarrative": "Apogee is planned for 4906 North Flagler Drive on the Intracoastal, north of Currie Park and near Northwood, Rybovich, and the broader North Flagler development corridor.",
+    "buyerComparisonNotes": "Compare Apogee with Alba for boutique North Flagler scale, Mandarin Oriental for a later luxury launch, and future Rybovich towers for district-level change. Its public facts remain thinner than projects already in active sales.",
+    "projectTeamNarrative": "Developer: Related Group. Architecture: Sieger Suarez Architects in the current reviewed record. Earlier reporting identified Arquitectonica; final team roles should be confirmed with future project materials.",
+    "sourceNotes": [
+      "The current reviewed record lists Related Group, Sieger Suarez Architects, 39 residences, and 21 floors.",
+      "Earlier reporting described Arquitectonica and a 46-residence, 25-story plan; the conflict remains review-visible.",
+      "No public sales program, pricing, delivery date, floor plans, or complete amenity program has been released."
+    ],
+    "sourceUrls": [
+      "https://www.oftmw.com/firm/related-group/",
+      "https://www.oftmw.com/firm/sieger-suarez-architects/"
+    ],
+    "lastCopyResearchDate": "2026-08-31",
+    "copyConfidence": "medium-high",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "North Flagler",
+      "heroBlurb": "Thirty-nine planned residences. Direct Intracoastal frontage. An approved North Flagler watch.",
+      "heroImage": {
+        "src": "/assets/projects/apogee-residences-wpb/hero/apogee-residences-wpb-hero-street-view-v01.webp",
+        "label": "North Flagler Waterfront",
+        "alt": "Concept street-level rendering of the proposed Apogee Residences tower on North Flagler Drive"
+      },
+      "intro": "Apogee Residences brings a lower-density proposition to North Flagler: 39 planned homes in the current reviewed 21-floor concept by Related Group. The project is approved and announced, but buyers are still waiting for public sales materials, detailed residence plans, pricing, delivery timing, and the final operating program.",
+      "heroTags": [
+        { "label": "Status", "value": "Approved / Announced" },
+        { "label": "Corridor", "value": "North Flagler" },
+        { "label": "Stage", "value": "Watch Page" }
+      ],
+      "factStrip": [
+        { "icon": "residence", "label": "Residences", "value": "39 Current Plan" },
+        { "icon": "stories", "label": "Floors", "value": "21 Current Plan" },
+        { "icon": "waterfront", "label": "Waterfront", "value": "Intracoastal" },
+        { "icon": "status", "label": "Sales", "value": "Not Launched" }
+      ],
+      "monogram": "A",
+      "titleLines": ["Apogee", "Residences"],
+      "visualBreak": {
+        "src": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+        "label": "Landscaped Arrival",
+        "alt": "Concept rendering of the landscaped arrival planned for Apogee Residences"
+      },
+      "galleryLayout": "grid",
+      "gallery": [
+        {
+          "src": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+          "label": "Waterfront Context",
+          "alt": "Concept waterfront rendering of the proposed Apogee Residences tower on North Flagler"
+        },
+        {
+          "src": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
+          "label": "Landscaped Approach",
+          "alt": "Concept rendering of the landscaped arrival and amenity podium planned for Apogee Residences"
+        }
+      ],
+      "neighborhoodImage": {
+        "src": "/assets/projects/apogee-residences-wpb/neighborhood/apogee-residences-wpb-neighborhood-context-v01.webp",
+        "label": "North Flagler Waterfront",
+        "alt": "Concept view of Apogee Residences within the North Flagler waterfront setting"
+      },
+      "neighborhoodHeadline": "Direct Intracoastal frontage in the evolving North Flagler corridor.",
+      "projectTeam": [
+        { "label": "Developer", "value": "Related Group" },
+        { "label": "Architecture", "value": "Sieger Suarez Architects — current reviewed record" }
+      ]
+    }
+  },
+  {
+    "slug": "201-arkona-court",
+    "repoProjectId": "201-arkona-court",
+    "heroHeadline": "Full-Floor Privacy Beside the Norton",
+    "heroSubheadline": "A proposed 16-residence condominium and private cultural-club concept in West Palm Beach's cultural quarter.",
+    "overview": "201 Arkona Court is an early planning-stage proposal for approximately 16 full-floor residences beside the Norton Museum. Easton Street Capital and 1789 Capital are associated with the project, with SCB named as architect. Current reporting describes a 26-story proposal, while one aggregation displays 16 floors; the discrepancy remains open for review.",
+    "quickFacts": [
+      { "label": "Address", "value": "201 & 203 Arkona Court, West Palm Beach, FL 33401" },
+      { "label": "Status", "value": "Announced / Planning" },
+      { "label": "Residences", "value": "16 planned" },
+      { "label": "Floors", "value": "26 proposed; review open" },
+      { "label": "Residence Format", "value": "Full-floor concept" },
+      { "label": "Club", "value": "Private cultural club planned" },
+      { "label": "Delivery", "value": "2029 estimate; not confirmed" },
+      { "label": "Pricing", "value": "Not publicly released" }
+    ],
+    "residences": "The reported concept centers on approximately 16 full-floor residences, with sizes around 5,000 to more than 6,000 square feet. Final approvals, layouts, bedroom counts, finishes, terraces, elevator configuration, parking, storage, and policies remain unconfirmed.",
+    "amenities": "Reporting describes a private art and cultural club of roughly 7,000 square feet and a public market or cafe concept. Club access, dues, operating structure, service model, and the final public-private program require confirmation.",
+    "location": "The project is planned for 201 and 203 Arkona Court beside the Norton Museum, with strong access to the cultural quarter, South Dixie corridor, South Flagler, Flamingo Park, and downtown.",
+    "localTake": "Arkona is best understood as a cultural-quarter proposition rather than a direct waterfront tower. Its unusual combination of full-floor privacy and a private club could be distinctive, but the approval, height, club economics, and offering details are still early.",
+    "tradeoffs": [
+      "Final approvals, height, construction timing, pricing, fees, parking, policies, and offering terms remain fluid.",
+      "Current reporting describes 26 stories while one aggregation displays 16 floors; the floor-count discrepancy remains review-visible.",
+      "The private club and public market or cafe concepts require confirmation in final plans and operating documents."
+    ],
+    "confidenceNote": "High confidence in the announced 16-residence full-floor concept, named development team, and Norton-area location. Human review remains required for final approvals, the 26-versus-16 floor discrepancy, and all buyer-facing offering details.",
+    "seoTitle": "201 Arkona Court West Palm Beach | Planning Watch",
+    "metaDescription": "Track 201 Arkona Court, a proposed 16-residence full-floor condominium and private cultural-club concept beside the Norton Museum.",
+    "badge": "Announced / Planning",
+    "tags": ["south-flagler", "cultural-quarter", "norton-museum", "full-floor", "boutique", "pipeline"],
+    "introHeadline": "Sixteen full-floor residences in the cultural quarter.",
+    "introDek": "An early proposal pairing residential privacy with an art-oriented private club beside the Norton Museum.",
+    "brookeTake": "The full-floor format and Norton location make Arkona a genuinely different comparison. Buyers should benchmark it against La Clara, Forte, South Flagler House, and Edgeworth, while recognizing that the project is not yet far enough along for reliable operating-cost or delivery comparisons.",
+    "bestFor": [
+      "Buyers seeking full-floor privacy",
+      "Buyers prioritizing the Norton Museum and cultural quarter",
+      "Buyers comfortable tracking a very early planning-stage proposal"
+    ],
+    "signatureFeatures": [
+      "Approximately 16 full-floor residences",
+      "Reported 5,000–6,000+ square-foot homes",
+      "Private cultural-club concept",
+      "Norton Museum location"
+    ],
+    "amenityNarrative": "A private cultural club of roughly 7,000 square feet and a public market or cafe concept have been reported. Final access, dues, service, staffing, and operating terms are not yet public.",
+    "residenceNarrative": "Approximately 16 full-floor residences are planned, with reported sizes around 5,000 to more than 6,000 square feet. Final floor plans, bedroom counts, finishes, terraces, elevator access, parking, and storage require future project materials.",
+    "locationNarrative": "201 Arkona Court sits beside the Norton Museum in West Palm Beach's cultural quarter, close to South Dixie, Flamingo Park, South Flagler, downtown, and the Palm Beach bridges.",
+    "buyerComparisonNotes": "Compare Arkona with La Clara and Forte for nearby completed full-service product, South Flagler House for current ultra-luxury waterfront scale, and Edgeworth for future South Flagler inventory. Arkona is not directly waterfront.",
+    "projectTeamNarrative": "Developers: Easton Street Capital and 1789 Capital. Architecture: SCB. Sales, interiors, landscape architecture, and construction team have not been publicly announced.",
+    "sourceNotes": [
+      "Markets of Tomorrow reported the project in June 2026 as a 26-story proposal with approximately 16 full-floor residences.",
+      "One firm-profile aggregation displays 16 floors; the discrepancy remains open and is not treated as resolved.",
+      "The private cultural club and public market or cafe program remain planning-stage concepts."
+    ],
+    "sourceUrls": [
+      "https://www.oftmw.com/post/easton-street-capital-and-donald-trump-jr-s-1789-capital-plan-a-26-story-full-floor-condo-and-private-club-by-the-norton-museum-in-west-palm-beach/",
+      "https://www.oftmw.com/firm/1789-capital/"
+    ],
+    "lastCopyResearchDate": "2026-08-31",
+    "copyConfidence": "medium-high",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "Cultural Quarter",
+      "heroBlurb": "Sixteen planned full-floor residences. A private cultural-club concept. Steps from the Norton.",
+      "heroImage": {
+        "src": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+        "label": "Arkona Court Arrival",
+        "alt": "Concept rendering of the formal residential arrival proposed for 201 Arkona Court"
+      },
+      "intro": "201 Arkona Court proposes a rare full-floor residential format beside the Norton Museum, pairing approximately 16 homes with a private art and cultural-club concept. It is still a planning-stage watch, so final approvals, height, layouts, pricing, timing, and operating terms remain ahead.",
+      "heroTags": [
+        { "label": "Status", "value": "Announced / Planning" },
+        { "label": "Corridor", "value": "South Flagler" },
+        { "label": "Stage", "value": "Watch Page" }
+      ],
+      "factStrip": [
+        { "icon": "residence", "label": "Residences", "value": "16 Planned" },
+        { "icon": "stories", "label": "Height", "value": "Review Open" },
+        { "icon": "planResidence", "label": "Format", "value": "Full-Floor" },
+        { "icon": "status", "label": "Sales", "value": "Not Launched" }
+      ],
+      "monogram": "201",
+      "titleLines": ["201 Arkona Court"],
+      "visualBreak": {
+        "src": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+        "label": "Proposed Architecture",
+        "alt": "Concept rendering of the architectural frontage proposed for 201 Arkona Court"
+      },
+      "galleryLayout": "grid",
+      "gallery": [
+        {
+          "src": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
+          "label": "Concept Arrival",
+          "alt": "Concept rendering of the proposed entrance and residential facade at 201 Arkona Court"
+        }
+      ],
+      "neighborhoodHeadline": "Beside the Norton Museum in West Palm Beach's cultural quarter.",
+      "projectTeam": [
+        { "label": "Developers", "value": "Easton Street Capital + 1789 Capital" },
+        { "label": "Architecture", "value": "SCB" }
+      ]
+    }
+  },
+  {
+    "slug": "2085-north-flagler",
+    "repoProjectId": "2085-n-flagler-terra-bh",
+    "heroHeadline": "A Two-Tower Watch Across from Currie Park",
+    "heroSubheadline": "Terra and BH Group's early waterfront proposal at 2085 North Flagler remains a planning-stage watch with no public sales program.",
+    "overview": "2085 North Flagler tracks an early Terra and BH Group proposal for 281 condominiums in two 31-floor waterfront towers with 362 planned parking spaces and a small retail component. The former Currie Park Towers record is retired and merged into this address-based entry; the current figures belong to the 2085 proposal, not a separate live Currie Park project.",
+    "quickFacts": [
+      { "label": "Address", "value": "2085 North Flagler Drive, West Palm Beach, FL 33407" },
+      { "label": "Status", "value": "Announced / Planning" },
+      { "label": "Residences", "value": "281 planned" },
+      { "label": "Towers", "value": "2" },
+      { "label": "Floors", "value": "31 planned in each tower" },
+      { "label": "Parking", "value": "362 spaces planned" },
+      { "label": "Retail", "value": "Approximately 4,385 square feet planned" },
+      { "label": "Delivery", "value": "Timing not released" },
+      { "label": "Pricing", "value": "Not publicly released" }
+    ],
+    "residences": "Planning reporting describes 281 condominiums across two towers, with residences of approximately 1,065 to 4,510 square feet and an average around 1,762 square feet. Final unit mix, floor plans, bedroom counts, finishes, parking allocations, storage, and policies have not been released.",
+    "amenities": "Third- and ninth-floor amenity areas, a pool deck, rooftop amenities, and a shared waterfront platform have been reported. The complete amenity, service, wellness, marina, and association program requires confirmation.",
+    "location": "The site is at 2085 North Flagler Drive on the Intracoastal, across from Currie Park and adjacent to the Rosewood site, with access to Northwood and the broader North Flagler corridor.",
+    "localTake": "This is a true watch page, not an active-sales profile. The waterfront and Currie Park position matter, but buyers should wait for developer-confirmed plans, approvals, architecture, unit mix, pricing, delivery, and offering documents before comparing it as available inventory.",
+    "tradeoffs": [
+      "No public sales program, pricing, delivery timeline, final approvals, architect, or offering documents have been confirmed.",
+      "The 281-unit and 31-floor figures were previously attributed to the retired Currie Park Towers identity; the reviewed model now assigns them to Terra and BH Group at 2085 North Flagler.",
+      "Residence sizes, amenities, parking, retail, and rooftop details remain planning-stage reports rather than final offering commitments."
+    ],
+    "confidenceNote": "Medium confidence in the reported 281-residence, two-tower, 31-floor planning concept and approximately $100 million site transaction. Human review remains required until Terra and BH Group confirm the final acquisition, plans, approvals, architect, and sales program.",
+    "seoTitle": "2085 North Flagler West Palm Beach | Project Watch",
+    "metaDescription": "Track the early Terra and BH Group proposal for two 31-floor waterfront condominium towers at 2085 North Flagler across from Currie Park.",
+    "badge": "Announced / Planning",
+    "tags": ["north-flagler", "currie-park", "waterfront", "intracoastal", "two-tower", "pipeline"],
+    "introHeadline": "Two planned towers at the Currie Park waterfront.",
+    "introDek": "An early 281-residence proposal at 2085 North Flagler, tracked separately from active sales inventory.",
+    "brookeTake": "The site sits at one of North Flagler's most visible waterfront positions. For now, the right buyer use is monitoring: track approvals, the final development team, residence mix, construction timing, and how the project relates to Rosewood and Currie Park improvements.",
+    "bestFor": [
+      "Buyers monitoring future North Flagler waterfront supply",
+      "Buyers prioritizing Currie Park and Intracoastal frontage",
+      "Buyers who want early notice before a public sales launch"
+    ],
+    "signatureFeatures": [
+      "281 planned condominiums",
+      "Two planned 31-floor towers",
+      "Direct Intracoastal frontage across from Currie Park",
+      "Approximately 4,385 square feet of planned retail"
+    ],
+    "amenityNarrative": "Planning reporting references shared waterfront amenities, third- and ninth-floor amenity areas, a pool deck, and rooftop space. Final access, services, staffing, marina rights, fees, and association structure are not public.",
+    "residenceNarrative": "The reported plan includes 281 condominiums across two towers, with approximate sizes from 1,065 to 4,510 square feet. Final unit mix, plans, finishes, parking, storage, policies, and pricing require future project materials.",
+    "locationNarrative": "2085 North Flagler sits directly on the Intracoastal across from Currie Park, beside the Rosewood site and close to Northwood and the developing North Flagler waterfront cluster.",
+    "buyerComparisonNotes": "Compare this watch with Rosewood for adjacent branded-residence potential and with Olara and Shorecrest for active or more advanced North Flagler product. 2085 is not yet a substitute for currently available inventory.",
+    "projectTeamNarrative": "Developers: Terra and BH Group. A final architect, interiors team, landscape architect, sales team, and construction team have not been publicly confirmed.",
+    "sourceNotes": [
+      "Florida YIMBY reported two 31-floor towers, 281 condominiums, approximately 4,385 square feet of retail, and 362 parking spaces in June 2026.",
+      "Transaction reporting described an approximately $100 million site acquisition involving Terra and BH Group.",
+      "Per Brooke's reviewed identity decision, the former Currie Park Towers record is retired and merged into this 2085 North Flagler watch entry."
+    ],
+    "sourceUrls": [
+      "https://floridayimby.com/2026/06/developers-plan-two-31-story-towers-for-2085-n-flagler-dr-west-palm-beach-fl.html",
+      "https://traded.co/deals/florida/development-site/sale/david-martin-of-terra-and-isaac-toledano-liat-toledano-of-bh-group-acquire-development-site-from-jeff-greene-for-100m/"
+    ],
+    "lastCopyResearchDate": "2026-08-31",
+    "copyConfidence": "medium",
+    "pageTemplate": "editorial-showcase",
+    "showcase": {
+      "template": "editorial-showcase",
+      "heroEyebrow": "North Flagler",
+      "heroBlurb": "Two planned towers. Direct Intracoastal frontage. A Currie Park watch.",
+      "heroImage": {
+        "src": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+        "label": "2085 North Flagler Site",
+        "alt": "Labeled concept aerial of the two-tower proposal at 2085 North Flagler Drive across from Currie Park"
+      },
+      "intro": "2085 North Flagler is an early Terra and BH Group watch for 281 planned condominiums across two waterfront towers. The former Currie Park Towers identity is retired and merged into this address-based record, while approvals, design-team confirmation, sales timing, pricing, and delivery remain ahead.",
+      "heroTags": [
+        { "label": "Status", "value": "Announced / Planning" },
+        { "label": "Corridor", "value": "North Flagler" },
+        { "label": "Stage", "value": "Watch Page" }
+      ],
+      "factStrip": [
+        { "icon": "residence", "label": "Residences", "value": "281 Planned" },
+        { "icon": "stories", "label": "Towers", "value": "2 Planned" },
+        { "icon": "waterfront", "label": "Waterfront", "value": "Intracoastal" },
+        { "icon": "status", "label": "Sales", "value": "Not Launched" }
+      ],
+      "monogram": "2085",
+      "titleLines": ["2085 North Flagler"],
+      "visualBreak": {
+        "src": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+        "label": "Currie Park Context",
+        "alt": "Labeled concept aerial showing the proposed 2085 North Flagler towers and Currie Park waterfront context"
+      },
+      "galleryLayout": "grid",
+      "gallery": [
+        {
+          "src": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
+          "label": "Site and Waterfront Context",
+          "alt": "Concept aerial of the planned two-tower development at 2085 North Flagler Drive"
+        }
+      ],
+      "neighborhoodHeadline": "Directly on the Intracoastal, across from Currie Park.",
+      "projectTeam": [
+        { "label": "Developers", "value": "Terra + BH Group" },
+        { "label": "Architecture", "value": "Not publicly confirmed" }
+      ]
+    }
   }
 ]
