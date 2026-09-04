@@ -96,6 +96,20 @@ type FeaturedProject = {
 
 type ProjectPageType = "complete-profile" | "advisory-brief" | "planning-watch" | "source-watch" | "market-marker";
 
+type ProjectPresentationRules = {
+  identityLabel: string;
+  overviewLabel: string;
+  primaryCtaLabel: string;
+  primaryCtaHref: string;
+  secondaryCtaLabel: string;
+  inquiryInterest: string;
+  resourceLabel: string;
+  resourceHeading: string;
+  resourceCopy: string;
+  compact: boolean;
+  showFloorplans: boolean;
+};
+
 type Route =
   | { type: "home"; projectId?: undefined }
   | { type: "buildings"; projectId?: undefined }
@@ -7556,23 +7570,127 @@ function projectTypeLabel(type: ProjectPageType) {
   return labels[type];
 }
 
-function renderProjectIdentityHeader(project: FeaturedProject, pageType: ProjectPageType) {
+function projectPresentationRules(project: FeaturedProject, floorplanCount = 0): ProjectPresentationRules {
+  const hasFloorplans = floorplanCount > 0;
+  const inquiryHref = (interest: string) => `/inquire/?project=${project.id}&interest=${encodeURIComponent(interest)}`;
+  const currentPacketCopy = "Pricing, availability, incentives, fees, delivery timing, and contract terms should be confirmed from the current buyer packet.";
+
+  switch (project.projectType) {
+    case "rental":
+      return {
+        identityLabel: "Rental residences",
+        overviewLabel: "Rental Living",
+        primaryCtaLabel: "Check Current Leasing Information",
+        primaryCtaHref: inquiryHref("leasing"),
+        secondaryCtaLabel: "Ask About This Rental Community",
+        inquiryInterest: "Request current leasing information",
+        resourceLabel: "Leasing Resources",
+        resourceHeading: "Confirm current rents, availability, and lease terms.",
+        resourceCopy: "Rental availability, asking rents, concessions, deposits, pet terms, and move-in timing can change. Request current leasing information before relying on a public figure.",
+        compact: false,
+        showFloorplans: hasFloorplans,
+      };
+    case "office":
+      return {
+        identityLabel: "Office development",
+        overviewLabel: "Office Development",
+        primaryCtaLabel: "Request Leasing Information",
+        primaryCtaHref: inquiryHref("office-leasing"),
+        secondaryCtaLabel: "Ask About This Office Project",
+        inquiryInterest: "Request office leasing information",
+        resourceLabel: "Leasing Resources",
+        resourceHeading: "Confirm current office leasing details.",
+        resourceCopy: "Office availability, asking terms, delivery condition, parking, and tenant-improvement details should be confirmed with current leasing materials.",
+        compact: true,
+        showFloorplans: hasFloorplans,
+      };
+    case "condo-pipeline":
+      return {
+        identityLabel: "Condominium pipeline",
+        overviewLabel: "Project Brief",
+        primaryCtaLabel: "Get Project Updates",
+        primaryCtaHref: `#project-updates-${project.id}`,
+        secondaryCtaLabel: "Ask What Is Currently Known",
+        inquiryInterest: "Request project updates",
+        resourceLabel: "Project Updates",
+        resourceHeading: "Track what is known, and what is not.",
+        resourceCopy: "Pipeline pages are intentionally measured. Use them for location, sponsor, planning, and public-status signals—not as a promise of a sales launch, pricing, or availability.",
+        compact: true,
+        showFloorplans: hasFloorplans,
+      };
+    case "mixed-use":
+      return {
+        identityLabel: "Mixed-use development",
+        overviewLabel: "Development Brief",
+        primaryCtaLabel: "Get Development Updates",
+        primaryCtaHref: `#project-updates-${project.id}`,
+        secondaryCtaLabel: "Ask About This Development",
+        inquiryInterest: "Request development updates",
+        resourceLabel: "Development Updates",
+        resourceHeading: "Follow the residential, commercial, and public-realm pieces.",
+        resourceCopy: "Mixed-use projects can change by phase. Confirm the current program, approvals, timing, and any residential or commercial offering directly from current materials.",
+        compact: true,
+        showFloorplans: hasFloorplans,
+      };
+    case "completed-comparable":
+      return {
+        identityLabel: "Completed condominium",
+        overviewLabel: "Completed Residences",
+        primaryCtaLabel: hasFloorplans ? "View Floorplans" : "Request Current Resale Availability",
+        primaryCtaHref: hasFloorplans ? floorplanLibraryPath(project.id) : inquiryHref("resale-availability"),
+        secondaryCtaLabel: "Ask About Current Resales",
+        inquiryInterest: "Request current resale availability",
+        resourceLabel: "Resale Resources",
+        resourceHeading: "Compare current resale opportunities.",
+        resourceCopy: "This completed building is a market comparable, not developer inventory. Confirm current listings, condition, fees, assessments, and seller terms before relying on historical launch information.",
+        compact: false,
+        showFloorplans: hasFloorplans,
+      };
+    case "hotel-residences":
+      return {
+        identityLabel: "Hotel and residences",
+        overviewLabel: "Hotel & Residences",
+        primaryCtaLabel: hasFloorplans ? "View Residence Floorplans" : "Request Current Residence Information",
+        primaryCtaHref: hasFloorplans ? floorplanLibraryPath(project.id) : inquiryHref("residence-availability"),
+        secondaryCtaLabel: "Ask About Ownership and Hotel Services",
+        inquiryInterest: "Request current residence information",
+        resourceLabel: "Residence Resources",
+        resourceHeading: "Confirm the ownership and hotel-service details.",
+        resourceCopy: currentPacketCopy,
+        compact: false,
+        showFloorplans: hasFloorplans,
+      };
+    case "condo-active-sales":
+    default:
+      return {
+        identityLabel: projectTypeLabel(project.projectPageType ?? pageTypeForProject(project)),
+        overviewLabel: "Residences",
+        primaryCtaLabel: hasFloorplans ? "View Floorplans" : "Request Current Availability",
+        primaryCtaHref: hasFloorplans ? floorplanLibraryPath(project.id) : inquiryHref("availability"),
+        secondaryCtaLabel: "Ask About This Building",
+        inquiryInterest: "Request current availability",
+        resourceLabel: "Buyer Resources",
+        resourceHeading: longContactCtaHeadline,
+        resourceCopy: currentPacketCopy,
+        compact: false,
+        showFloorplans: hasFloorplans,
+      };
+  }
+}
+
+function renderProjectIdentityHeader(project: FeaturedProject, rules: ProjectPresentationRules) {
   const logo = project.logoImage && canShowImage(project.logoImage)
     ? `<img src="${safeHref(project.logoImage)}" alt="${escapeHtml(project.logoAlt ?? `${project.name} logo`)}" loading="lazy" decoding="async" />`
     : `<strong>${publicText(project.name)}</strong>`;
-  const heroCtaLabel = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker" ? "Get Updates" : shortContactCtaLabel;
-  const heroCtaHref = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker"
-    ? `#project-updates-${project.id}`
-    : `/inquire/?project=${project.id}&interest=availability`;
   return `
     <header class="project-identity-header">
       <div class="project-identity-mark">${logo}</div>
       <div class="project-identity-copy">
-        <p class="eyebrow">${publicText(projectTypeLabel(pageType))}</p>
+        <p class="eyebrow">${publicText(rules.identityLabel)}</p>
         <h1>${publicText(project.name)}</h1>
         <p>${publicText(project.corridor)} · ${publicText(project.status)} · ${publicText(project.address)}</p>
       </div>
-      <a class="button primary" href="${heroCtaHref}" ${renderCtaTrackingAttrs("project_page", heroCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${heroCtaLabel}</a>
+      <a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel}</a>
     </header>
   `;
 }
@@ -8280,6 +8398,8 @@ function berkeleyIcon(name: string) {
 
 function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackage?: ProjectCopyPackage) {
   const showcase = copyPackage?.showcase;
+  const floorplanProject = getFloorplanProject(project.id);
+  const rules = projectPresentationRules(project, floorplanProject?.count ?? 0);
   const heroImage = showcase?.heroImage?.src ?? getProjectHeroAsset(project)?.src ?? project.heroImage ?? project.image ?? siteMeta.defaultImage;
   const showcaseFloors = copyFactValue(copyPackage, /floors/i, "25")
     .replace(/\s+public-facing.*/i, "")
@@ -8311,7 +8431,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const residenceSectionLabel = showcase?.residenceSectionLabel ?? "Residences";
   const residenceSectionLinkText = showcase?.residenceSectionLinkText ?? "View all floor plans";
   const residenceSectionLinkHref = showcase?.residenceSectionLinkHref ?? `/inquire/?project=${project.id}&interest=floorplans`;
-  const residenceSectionHeadingHref = /floor\s*plans?|floorplans?/i.test(residenceSectionLinkText)
+  const residenceSectionHeadingHref = rules.showFloorplans && /floor\s*plans?|floorplans?/i.test(residenceSectionLinkText)
     ? floorplanLibraryPath(project.id)
     : residenceSectionLinkHref;
   const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
@@ -8327,7 +8447,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 
   return `
     <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=mandarin-waterfront-crop-20260602" />
-    <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" hidden>
+    <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase project-type-${project.projectType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" data-project-type="${project.projectType}" hidden>
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
           <span class="berkeley-brand-mark" aria-hidden="true">WPB</span>
@@ -8338,10 +8458,10 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
           <a href="/corridors/">Corridors</a>
           <a href="/market-notes/">Buyers</a>
           <a href="/about/">About Us</a>
-          <a href="${floorplanLibraryPath(project.id)}">Floorplans</a>
+          ${rules.showFloorplans ? `<a href="${floorplanLibraryPath(project.id)}">Floorplans</a>` : ""}
         </div>
         <a class="berkeley-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">${berkeleyIcon("valet")}</a>
-        <a class="berkeley-inquire" href="/inquire/?project=${project.id}&interest=availability" ${renderCtaTrackingAttrs("project_page", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+        <a class="berkeley-inquire" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel} <span aria-hidden="true">→</span></a>
       </nav>
 
       <section class="berkeley-hero-clean" data-project-section="hero">
@@ -8361,13 +8481,13 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <section class="berkeley-intro-section" data-project-section="overview" aria-label="Project introduction">
         <p class="berkeley-kicker">Overview</p>
         <p>${publicText(intro)}</p>
-        ${renderProjectFloorplanHubLink(project)}
+        ${rules.showFloorplans ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
       </section>
 
       ${visualBreak ? `<figure class="berkeley-patio-break"><img src="${safeHref(visualBreak.src)}" alt="${publicText(visualBreak.alt ?? `${project.name} ${visualBreak.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
       ${residences.length ? `<section class="berkeley-residence-section" id="berkeley-residences" data-project-section="residences">
-        <div class="berkeley-section-heading"><p class="berkeley-kicker">${publicText(residenceSectionLabel)}</p><a href="${safeHref(residenceSectionHeadingHref)}">${publicText(residenceSectionLinkText)} <span aria-hidden="true">→</span></a></div>
+        <div class="berkeley-section-heading"><p class="berkeley-kicker">${publicText(residenceSectionLabel)}</p>${rules.showFloorplans ? `<a href="${safeHref(residenceSectionHeadingHref)}">${publicText(residenceSectionLinkText)} <span aria-hidden="true">→</span></a>` : ""}</div>
         <div class="berkeley-residence-grid">
           ${residences.map((item, index) => {
             const planIcon = ["planResidence", "planEstate", "planPenthouse"][index] ?? "residence";
@@ -8411,23 +8531,23 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <section class="berkeley-brooke-card" data-project-section="local-take" aria-label="Local take"><div><p class="berkeley-kicker">Local Take</p><p>${publicText(copyPackage?.localTake ?? copyPackage?.brookeTake ?? project.summary)}</p></div><div class="berkeley-brooke-profile"><div><h3>The Scott Gordon Group</h3><p>Douglas Elliman</p></div></div><ul><li>${advisorProfile.mobile}</li><li>${advisorProfile.email}</li><li>wpbnewconstruction.com</li></ul></section>
 
       <section class="brochure-research-contact" id="project-contact-${project.id}" data-project-section="inquiry">
-        <div class="brochure-research-panel"><p class="berkeley-kicker">Buyer Inquiry</p><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div>
-        ${renderProjectInquiryForm(project)}
+        <div class="brochure-research-panel"><p class="berkeley-kicker">${rules.resourceLabel}</p><h2>${rules.resourceHeading}</h2><p>${rules.resourceCopy}</p></div>
+        ${renderProjectInquiryForm(project, rules)}
       </section>
 
-      <section class="berkeley-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/?project=${project.id}&interest=availability" ${renderCtaTrackingAttrs("project_page", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
+      <section class="berkeley-final-cta"><div><h2>${rules.resourceHeading}</h2><p>${rules.resourceCopy}</p></div><a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel} <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
     </div>
   `;
 }
 
-function renderProjectInquiryForm(project: FeaturedProject) {
+function renderProjectInquiryForm(project: FeaturedProject, rules = projectPresentationRules(project, getFloorplanProject(project.id)?.count ?? 0)) {
   return `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(shortContactCtaLabel)}">
     <input type="hidden" name="form-name" value="wpb-project-inquiry" />
     <input type="hidden" name="form_type" value="project_inquiry" />
     <input type="hidden" name="submission_id" value="" />
     <input type="hidden" name="project" value="${escapeHtml(project.id)}" />
     <input type="hidden" name="project_name" value="${escapeHtml(project.name)}" />
-    <input type="hidden" name="interest" value="Request current availability" />
+    <input type="hidden" name="interest" value="${escapeHtml(rules.inquiryInterest)}" />
     <input type="hidden" name="lead_capture_context" value="project_page_contact" />
     <input type="hidden" name="turnstile_token" value="" />
     <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -8455,6 +8575,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const intel = localIntelligence[project.id];
   const floorplanProject = getFloorplanProject(project.id);
   const floorplanCount = floorplanProject?.count ?? 0;
+  const rules = projectPresentationRules(project, floorplanCount);
   const brochureStats = projectBrochureStats(project, draft, floorplanCount);
   const gallery = projectBrochureGallery(project, draft);
   const approvedHeroAsset = getProjectHeroAsset(project);
@@ -8464,11 +8585,11 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const verticalHeroAsset = getApprovedProjectAssets(project).find((asset) => asset.placement === "hero" && asset.variant === "vertical-exterior");
   const heroMobileImage = verticalHeroAsset?.src ?? (heroImage === project.heroImage ? project.mobileImage : undefined);
   const pageType = project.projectPageType ?? pageTypeForProject(project);
-  const isCompactWatch = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker";
+  const isCompactWatch = rules.compact;
   const hasGallery = gallery.some((asset) => canShowImage(asset.src));
   const hasAmenities = !isCompactWatch && amenityTiles.some((asset) => canShowImage(asset.src));
   const hasTeam = teamTiles.length > 0;
-  const primaryCta = isCompactWatch ? "Get Updates on This Project" : "Request Current Availability";
+  const primaryCta = rules.primaryCtaLabel;
   const residencesImage = residenceImageForProject(project, heroImage);
 
   const isWaterfront = project.corridor.toLowerCase().includes("waterfront") || project.address.toLowerCase().includes("flagler") || ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "south-flagler-house", "forte-on-flagler", "maison-dor"].includes(project.id);
@@ -8488,20 +8609,18 @@ function renderDraftProjectPage(project: FeaturedProject) {
       </div>
     `).join("");
 
-  const heroPrimaryCtaLabel = isCompactWatch ? "Get Availability Updates" : "View Floorplans";
-  const heroSecondaryCtaLabel = isCompactWatch ? "Ask The Scott Gordon Group What Is Known" : "Ask The Scott Gordon Group About This Building";
-  const heroPrimaryCtaUrl = isCompactWatch
-    ? `/inquire/?project=${project.id}&interest=updates&lead_capture_context=project_hero`
-    : floorplanLibraryPath(floorplanProject?.projectId ?? project.id);
-  const heroSecondaryCtaUrl = `/inquire/?project=${project.id}&interest=availability&lead_capture_context=project_hero`;
-  const sectionNavPrimaryCtaHref = isCompactWatch ? `#project-updates-${project.id}` : `/inquire/?project=${project.id}&interest=floorplans`;
+  const heroPrimaryCtaLabel = rules.primaryCtaLabel;
+  const heroSecondaryCtaLabel = rules.secondaryCtaLabel;
+  const heroPrimaryCtaUrl = rules.primaryCtaHref;
+  const heroSecondaryCtaUrl = `/inquire/?project=${project.id}&interest=${encodeURIComponent(rules.inquiryInterest)}`;
+  const sectionNavPrimaryCtaHref = rules.primaryCtaHref;
   const sectionNavPrimaryCtaTracking = sectionNavPrimaryCtaHref.startsWith("/inquire/")
     ? renderCtaTrackingAttrs("project_page", primaryCta, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_section_nav" })
     : "";
 
   return `
-    <div class="route-view route-view-project route-view-draft-project route-view-brochure-project project-page-${pageType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="${pageType}" hidden>
-      ${renderProjectIdentityHeader(project, pageType)}
+    <div class="route-view route-view-project route-view-draft-project route-view-brochure-project project-page-${pageType} project-type-${project.projectType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="${pageType}" data-project-type="${project.projectType}" hidden>
+      ${renderProjectIdentityHeader(project, rules)}
       <section class="brochure-hero" id="${project.id}" data-project-section="hero">
         ${renderProjectHeroSlideshow(project, draft, heroImage, heroMobileImage, approvedHeroAsset)}
         <div class="brochure-hero-copy">
@@ -8526,8 +8645,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <a href="/buildings/">Explore Buildings</a>
         <a href="#snapshot-${project.id}">At a Glance</a>
         ${intel ? `<a href="#local-take-${project.id}">Local Take</a>` : ""}
-        <a href="${floorplanLibraryPath(project.id)}">Floor Plans</a>
-        <a href="#overview-${project.id}">Residences</a>
+        ${rules.showFloorplans ? `<a href="${floorplanLibraryPath(project.id)}">Floor Plans</a>` : ""}
+        <a href="#overview-${project.id}">${rules.overviewLabel}</a>
         ${hasGallery ? `<a href="#gallery-${project.id}">Gallery</a>` : ""}
         ${hasAmenities ? `<a href="#amenities-${project.id}">Amenities</a>` : ""}
         <a href="#location-${project.id}">Location</a>
@@ -8549,12 +8668,12 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
       <section class="brochure-module brochure-residences-module ${!residencesImage ? 'no-feature-image' : ''}" id="overview-${project.id}" data-project-section="residences">
         <div class="brochure-module-copy">
-          <p class="eyebrow">${isCompactWatch ? "Editorial Brief" : "Residences"}</p>
+          <p class="eyebrow">${rules.overviewLabel}</p>
           <h2>${isCompactWatch ? `${project.name} buyer read` : residenceSectionTitle(project)}</h2>
           <p>${publicText(copyPackage?.residenceNarrative ?? project.summary)}</p>
-          <div class="section-actions" style="margin-top: 24px;">
+          ${rules.showFloorplans ? `<div class="section-actions" style="margin-top: 24px;">
             <a class="button primary" href="${floorplanLibraryPath(floorplanProject?.projectId ?? project.id)}">View Floorplans</a>
-          </div>
+          </div>` : ""}
         </div>
         ${residencesImage ? `
         <figure class="feature-image">
@@ -8563,7 +8682,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         ` : ""}
       </section>
 
-      ${renderProjectFloorplansSection(project, floorplanProject)}
+      ${renderProjectFloorplansSection(project, floorplanProject, rules)}
 
       ${renderProjectGallerySection(project.id)}
 
@@ -8606,21 +8725,21 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
       <section class="brochure-research-contact" id="project-resources-${project.id}" data-project-section="inquiry">
         <div class="brochure-research-panel">
-          <p class="eyebrow">Buyer Resources</p>
-          <h2>${isCompactWatch ? "Track what is known, and what is not." : longContactCtaHeadline}</h2>
-          <p>${isCompactWatch ? "Planning and source-watch pages are intentionally lighter. Use them for status, location, sponsor signals, and related news, not as a promise of current availability." : longContactCtaBody}</p>
+          <p class="eyebrow">${rules.resourceLabel}</p>
+          <h2>${rules.resourceHeading}</h2>
+          <p>${rules.resourceCopy}</p>
           <div class="brochure-download-list">
             ${draft.documents.map((document) => renderProjectDocument(document, project.id)).join("")}
-            ${!isCompactWatch && floorplanProject ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
+            ${rules.showFloorplans ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
           </div>
         </div>
-        ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project, "project_page") : renderProjectInquiryForm(project)}
+        ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project, "project_page") : renderProjectInquiryForm(project, rules)}
       </section>
 
       ${renderTechnicalDisclosuresSection(project, draft)}
 
       <div class="brochure-mobile-cta-sticky">
-        <a class="button primary" href="/inquire/?project=${project.id}&interest=availability&lead_capture_context=mobile_sticky" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "mobile_sticky" })}>${shortContactCtaLabel}</a>
+        <a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("mobile_nav", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "mobile_sticky" })}>${rules.primaryCtaLabel}</a>
         <a class="button ghost" href="${advisorProfile.mobileHref.replace("tel:", "sms:")}" style="color: var(--ivory); border-color: rgba(244, 239, 229, 0.4); background: rgba(255,255,255,0.05);">Text The Scott Gordon Group</a>
       </div>
     </div>
@@ -9018,6 +9137,7 @@ function teamSectionTitle(project: FeaturedProject) {
 function locationSectionTitle(project: FeaturedProject) {
   if (project.corridorKey === "downtown") return "In the center of West Palm Beach.";
   if (project.corridorKey === "south-flagler") return "A quieter waterfront address south of downtown.";
+  if (project.corridorKey === "palm-beach") return "On Palm Beach island, across the Intracoastal from West Palm Beach.";
   return "On the North Flagler waterfront spine.";
 }
 
@@ -9922,7 +10042,8 @@ function renderLocalTakeSection(project: FeaturedProject, intel: any) {
   `;
 }
 
-function renderProjectFloorplansSection(project: FeaturedProject, floorplanProject: any) {
+function renderProjectFloorplansSection(project: FeaturedProject, floorplanProject: any, rules = projectPresentationRules(project, floorplanProject?.count ?? 0)) {
+  if (!rules.showFloorplans) return "";
   const plans = floorplanProject?.plans ?? [];
   const hasPlans = plans.length > 0;
   const libraryHref = floorplanLibraryPath(floorplanProject?.projectId ?? project.id);

@@ -493,6 +493,7 @@ function renderProjectRoute(route, payload, slug) {
   const project = projectForSlug(payload, slug);
   if (!project) return renderSimpleRoute(route);
   const floorplans = floorplanForProject(payload, project.projectId);
+  const presentation = staticProjectPresentation(project, floorplans);
   const facts = project.facts || {};
   const sources = sourceLinksForProject(project).slice(0, 6);
   const comparisons = comparisonProjectsForStatic(payload, project).slice(0, 4);
@@ -503,15 +504,15 @@ function renderProjectRoute(route, payload, slug) {
     `project-${slug}`,
     project.name,
     route.description,
-    `
+    `<div data-project-type="${safeHref(project.projectType)}">
       <section data-project-section="hero">
-        <p>${publicText(project.area || "West Palm Beach")} project guide</p>
+        <p>${publicText(project.area || "West Palm Beach")} ${publicText(presentation.identityLabel)}</p>
         <h2>${publicText(project.name)}</h2>
         <p>${publicText(project.summary || route.description)}</p>
       </section>
       <section data-project-section="overview">
         <h2>Bottom line</h2>
-        <p>${publicText(project.name)} is tracked as a ${publicText(project.area || "West Palm Beach")} project page. Use this page for orientation, then verify current pricing, availability, incentives, fees, floor-plan release status, square footage, delivery timing, and contract terms before relying on any public summary.</p>
+        <p>${publicText(presentation.bottomLine)}</p>
       </section>
       ${renderPipelineWatchlistStaticNote(project)}
       <section data-project-section="facts">
@@ -525,21 +526,21 @@ function renderProjectRoute(route, payload, slug) {
           ${factRow("Delivery", facts.completion)}
           ${factRow("Pricing", facts.pricing)}
           ${factRow("Project team", facts.team)}
-          ${factRow("Floorplans", floorplans?.count ? `${floorplans.count} records tracked` : "Request current packet")}
+          ${presentation.showFloorplans ? factRow("Floorplans", `${floorplans.count} canonical plans tracked`) : ""}
         </dl>
       </section>
       <section>
         <h2>How to use this guide</h2>
-        <p>Use this stable ${publicText(project.name)} profile to compare the project with nearby options, review released floor plans, and identify the current details worth confirming before a tour or purchase decision.</p>
+        <p>${publicText(presentation.guideCopy)}</p>
       </section>
       <section data-project-section="neighborhood">
         <h2>Location and corridor context</h2>
         <p>${publicText(project.name)} is tracked in the ${publicText(project.area || "West Palm Beach")} lane. Compare this location by daily drive pattern, Palm Beach access, waterfront or downtown orientation, view exposure, parking, and what nearby construction may mean before touring.</p>
       </section>
       ${renderProjectCorridorCta(project, payload)}
-      <section data-project-section="residences">
-        <h2>Residence and floorplan overview</h2>
-        <p>${floorplans?.count ? `${floorplans.count} floorplan records are currently tracked for this project.` : "No complete public floorplan packet is confirmed in the current catalog."} Public plans are not a substitute for the current buyer packet; confirm line, stack, exposure, square footage, fees, pricing, and availability.</p>
+      <section data-project-section="offering">
+        <h2>${publicText(presentation.offeringHeading)}</h2>
+        <p>${publicText(presentation.offeringCopy)}</p>
         ${floorplans?.plans?.length ? `<ul>${floorplans.plans.slice(0, 6).map((plan) => `<li>${publicText(plan.displayName || plan.title)} - ${publicText(String(plan.planType || "individual").replace(/-/g, " "))}</li>`).join("")}</ul>` : ""}
       </section>
       ${hasSourcedAmenities ? `<section data-project-section="amenities">
@@ -556,9 +557,9 @@ function renderProjectRoute(route, payload, slug) {
       </section>` : ""}
       
       <section data-project-section="inquiry">
-        <h2>Buyer inquiry</h2>
-        <p>Request the current buyer packet, availability, pricing, fees, floorplans, and project-specific verification notes before making a purchase decision.</p>
-        <p><a href="/inquire/?project=${encodeURIComponent(project.projectId)}&interest=availability">Ask The Scott Gordon Group about ${publicText(project.name)}</a></p>
+        <h2>${publicText(presentation.inquiryHeading)}</h2>
+        <p>${publicText(presentation.inquiryCopy)}</p>
+        <p><a href="/inquire/?project=${encodeURIComponent(project.projectId)}&interest=${encodeURIComponent(presentation.interest)}">${publicText(presentation.ctaLabel)}</a></p>
       </section>
 
       <section data-project-section="sources">
@@ -571,8 +572,73 @@ function renderProjectRoute(route, payload, slug) {
         <h2>FAQ</h2>
         ${projectFaqForStatic(project, floorplans).map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
       </section>
+      </div>
     `,
   );
+}
+
+function staticProjectPresentation(project, floorplans) {
+  const hasFloorplans = Boolean(floorplans?.count);
+  const location = project.area || "West Palm Beach";
+  const common = {
+    showFloorplans: hasFloorplans,
+    guideCopy: `Use this stable ${project.name} profile for orientation, comparison, and the current details worth confirming before acting.`,
+  };
+  if (project.projectType === "rental") return {
+    ...common,
+    identityLabel: "rental community guide",
+    bottomLine: `${project.name} is a rental apartment community in ${location}, not a for-sale condominium. Confirm current rents, availability, concessions, deposits, lease terms, and move-in timing before relying on public summaries.`,
+    offeringHeading: "Rental homes and leasing context",
+    offeringCopy: hasFloorplans ? `${floorplans.count} canonical layouts are tracked for orientation. Current leasing availability and quoted rent should come from current leasing materials.` : "No public leasing floorplan set is confirmed in the current catalog. Confirm current layouts, rents, availability, concessions, and lease terms directly.",
+    inquiryHeading: "Leasing inquiry",
+    inquiryCopy: "Request current rents, availability, concessions, deposits, pet terms, and move-in timing.",
+    ctaLabel: `Check current leasing information for ${project.name}`,
+    interest: "leasing",
+  };
+  if (project.projectType === "office") return {
+    ...common,
+    identityLabel: "office development guide",
+    bottomLine: `${project.name} is an office development in ${location}, not residential inventory. Confirm current space availability, asking terms, delivery condition, parking, and tenant-improvement details.`,
+    offeringHeading: "Office space and leasing context",
+    offeringCopy: "Office plans and public project facts are for orientation. Current availability and commercial terms should come from current leasing materials.",
+    inquiryHeading: "Office leasing inquiry",
+    inquiryCopy: "Request current space availability, asking terms, parking, delivery condition, and tenant-improvement details.",
+    ctaLabel: `Request leasing information for ${project.name}`,
+    interest: "office-leasing",
+  };
+  if (project.projectType === "completed-comparable") return {
+    ...common,
+    identityLabel: "completed condominium guide",
+    bottomLine: `${project.name} is a completed ${location} condominium used as a resale comparable, not current developer inventory. Confirm active listings, condition, fees, assessments, and seller terms.`,
+    offeringHeading: "Completed residences and resale context",
+    offeringCopy: hasFloorplans ? `${floorplans.count} canonical plans are tracked for layout orientation. Confirm the specific resale residence, condition, exposure, fees, and seller terms.` : "Use this page as completed-building context, then confirm the specific resale residence, condition, exposure, fees, assessments, and seller terms.",
+    inquiryHeading: "Resale inquiry",
+    inquiryCopy: "Request current resale listings and building-specific due diligence.",
+    ctaLabel: `Request current resale availability at ${project.name}`,
+    interest: "resale-availability",
+  };
+  if (project.projectType === "condo-pipeline" || project.projectType === "mixed-use") return {
+    ...common,
+    identityLabel: project.projectType === "mixed-use" ? "mixed-use development guide" : "condominium pipeline guide",
+    bottomLine: `${project.name} is tracked as a ${location} ${project.projectType === "mixed-use" ? "mixed-use development" : "condominium pipeline project"}. Use current public status and planning signals for context, not as a promise of a sales launch, pricing, or availability.`,
+    offeringHeading: project.projectType === "mixed-use" ? "Development program and status" : "Pipeline status and future residences",
+    offeringCopy: hasFloorplans ? `${floorplans.count} canonical plans are tracked, but public status, launch timing, pricing, and availability still require current confirmation.` : "No complete public floorplan packet is confirmed. Track current approvals, program, sponsor signals, launch timing, and status before treating this as available inventory.",
+    inquiryHeading: "Project updates",
+    inquiryCopy: "Request current status, planning, launch, and public-material updates.",
+    ctaLabel: `Get updates on ${project.name}`,
+    interest: "project-updates",
+  };
+  return {
+    ...common,
+    identityLabel: project.projectType === "hotel-residences" ? "hotel and residences guide" : "condominium buyer guide",
+    bottomLine: `${project.name} is tracked as a ${location} ${String(project.projectType || "project").replace(/-/g, " ")} profile. Verify current pricing, availability, incentives, fees, floor-plan release status, delivery timing, and contract terms.`,
+    offeringHeading: project.projectType === "hotel-residences" ? "Hotel services and private residences" : "Residences and floorplans",
+    offeringCopy: hasFloorplans ? `${floorplans.count} canonical floorplans are tracked for buyer orientation. Confirm current line, stack, exposure, square footage, fees, pricing, and availability.` : "No complete public floorplan packet is confirmed in the current catalog. Request current offering materials before comparing residences.",
+    inquiryHeading: "Buyer inquiry",
+    inquiryCopy: "Request the current buyer packet, availability, pricing, fees, floorplans, and project-specific verification notes.",
+    ctaLabel: `Ask The Scott Gordon Group about ${project.name}`,
+    interest: "availability",
+  };
 }
 
 function renderCorridorRoute(route, payload, slug) {

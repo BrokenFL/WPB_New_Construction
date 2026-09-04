@@ -9,10 +9,12 @@ const findings = [];
 const sitemapPath = path.join(distRoot, "sitemap.xml");
 const llmsPath = path.join(distRoot, "llms.txt");
 const robotsPath = path.join(distRoot, "robots.txt");
+const projectModelPath = path.join(workspace, "src", "generated", "projectModelPublic.json");
 
 const sitemap = await fs.readFile(sitemapPath, "utf8").catch(() => "");
 const llms = await fs.readFile(llmsPath, "utf8").catch(() => "");
 const robots = await fs.readFile(robotsPath, "utf8").catch(() => "");
+const projectModel = JSON.parse(await fs.readFile(projectModelPath, "utf8"));
 
 if (!sitemap) findings.push("dist/sitemap.xml is missing.");
 if (!llms) findings.push("dist/llms.txt is missing.");
@@ -61,8 +63,19 @@ for (const route of priorityRoutes) {
   if (!llms.includes(route)) findings.push(`llms.txt missing route ${route}.`);
 }
 
-for (const route of ["/corridors/north-flagler/", "/corridors/downtown-west-palm-beach/", "/corridors/south-flagler/"]) {
+for (const route of ["/corridors/north-flagler/", "/corridors/downtown-west-palm-beach/", "/corridors/south-flagler/", "/corridors/palm-beach/"]) {
   if (!sitemapRoutes.includes(route)) findings.push(`sitemap.xml missing corridor route ${route}.`);
+}
+
+for (const project of projectModel.projects.filter((item) => item.corridorKey === "palm-beach")) {
+  const html = await fs.readFile(routeFile(project.publicRoute), "utf8").catch(() => "");
+  const text = visibleText(html);
+  if (/North Flagler waterfront spine/i.test(text)) {
+    findings.push(`${project.publicRoute}: Palm Beach project contains North Flagler geography copy.`);
+  }
+  if (!/Palm Beach/i.test(text)) {
+    findings.push(`${project.publicRoute}: Palm Beach project is missing its island geography context.`);
+  }
 }
 
 for (const agent of ["OAI-SearchBot", "PerplexityBot", "Claude-SearchBot", "GoogleOther"]) {
