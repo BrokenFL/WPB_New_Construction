@@ -32,12 +32,11 @@ import { getTurnstileToken, resetTurnstile } from "./lib/turnstile";
 import type { BuildingDatabaseField } from "./lib/buildingDatabase";
 import type { CompareSection } from "./lib/buildingCompareSections";
 import { advisorProfile, teamProfile } from "./lib/contact";
-import { getSchemaSafeProjectFacts } from "./lib/projectIntelligence";
-import { resolveSourceCatalogProjectId } from "./lib/projectIntelligenceRegistry";
+import { getSchemaSafeProjectFacts } from "./lib/projectSchemaRuntime";
 import { escapeHtml, safeHref } from "./renderUtils";
 import { localIntelligence } from "./data/localIntelligence";
 import { homepageAssets, homepageProjectCardImage } from "./data/homepageAssets";
-import { generatedPublishedProjectRecords } from "./generated/projectModel";
+import { publicProjectRecords } from "./generated/projectModelPublic";
 import { resolveProjectField } from "./lib/projectFieldAccessors";
 
 captureLeadLandingContext();
@@ -63,12 +62,14 @@ type ProjectFact = {
 };
 
 type CorridorKey = "north-flagler" | "downtown" | "south-flagler" | "palm-beach";
+type PublicProjectType = "condo-active-sales" | "condo-pipeline" | "rental" | "office" | "hotel-residences" | "mixed-use" | "completed-comparable";
 
 type FeaturedProject = {
   id: string;
   name: string;
   corridor: string;
   corridorKey: CorridorKey;
+  projectType: PublicProjectType;
   status: string;
   delivery: string;
   deliveryYear: number;
@@ -521,7 +522,7 @@ const corridorRoutePaths: Record<string, CorridorKey> = {
   "/corridors/palm-beach/": "palm-beach",
 };
 
-const baseFeaturedProjects: FeaturedProject[] = generatedPublishedProjectRecords.map((record) => {
+const baseFeaturedProjects: FeaturedProject[] = publicProjectRecords.map((record) => {
   const presentation = record.presentation;
   if (!presentation) throw new Error(`Published project ${record.publicSlug} is missing its presentation overlay.`);
   const field = (name: "displayName" | "status" | "delivery" | "residences" | "price" | "address") =>
@@ -531,6 +532,7 @@ const baseFeaturedProjects: FeaturedProject[] = generatedPublishedProjectRecords
     name: field("displayName"),
     corridor: record.corridor,
     corridorKey: record.corridorKey,
+    projectType: record.projectType,
     status: field("status"),
     delivery: field("delivery"),
     deliveryYear: presentation.deliveryYear,
@@ -2078,7 +2080,8 @@ function applySourceFactsToDraft(base: ProjectPageDraft, project: FeaturedProjec
   if (!sourceFact) return base;
   const source = sourceFact.facts;
   const sourceFacts = [
-    { label: "Address", value: source.address || project.address },
+    { label: "Project Address", value: source.projectAddress || project.address },
+    { label: "Sales Gallery", value: source.salesGalleryAddress },
     { label: "Stories", value: source.stories || "Verify" },
     { label: "Residences", value: conciseResidences(project.id, source.residences) || project.residences, note: source.residences },
     { label: "Delivery", value: conciseDelivery(source.completion) || project.delivery, note: source.completion },
@@ -2101,7 +2104,7 @@ function applySourceFactsToDraft(base: ProjectPageDraft, project: FeaturedProjec
       ...base.highlights.filter((item) => !["status", "pricing", "views"].includes(item.label.toLowerCase())),
     ],
     documents: uniqueDocuments([...documentsFromSource(project, sourceFact), ...base.documents]),
-    needed: neededFromSource(sourceFact),
+    needed: neededFromSource(),
   };
 }
 
@@ -4325,10 +4328,10 @@ function setMetaName(name: string, content: string) {
 function updateStructuredData(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem, activeAnswer?: BuyerIntentAnswerPage) {
   const baseGraph = [
     {
-      "@type": siteMeta.publisher.type,
-      "@id": `${siteMeta.baseUrl}/#publisher`,
-      name: advisorProfile.brokerage,
-      url: siteMeta.baseUrl,
+      "@type": "Organization",
+      "@id": `${siteMeta.baseUrl}/#brokerage`,
+      name: teamProfile.legalBrokerage,
+      url: "https://www.elliman.com/",
       telephone: advisorProfile.schemaTelephone,
       address: {
         "@type": "PostalAddress",
@@ -4342,16 +4345,23 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
       "@type": "RealEstateAgent",
       "@id": `${siteMeta.baseUrl}/#advisor`,
       name: teamProfile.displayName,
-      jobTitle: "Palm Beach waterfront and new-construction advisory team",
+      description: "Palm Beach waterfront and new-construction advisory team",
       telephone: advisorProfile.schemaTelephone,
-      worksFor: { "@id": `${siteMeta.baseUrl}/#publisher` },
+      parentOrganization: { "@id": `${siteMeta.baseUrl}/#brokerage` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteMeta.baseUrl}/#brooke-snader`,
+      name: "Brooke Matthew Snader",
+      jobTitle: advisorProfile.title,
+      worksFor: { "@id": `${siteMeta.baseUrl}/#advisor` },
     },
     {
       "@type": "WebSite",
       "@id": `${siteMeta.baseUrl}/#website`,
       name: siteMeta.siteName,
       url: siteMeta.baseUrl,
-      publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+      publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
     },
   ];
 
@@ -4441,8 +4451,8 @@ function buildWebPageSchema(routeType: string) {
     url: `${siteMeta.baseUrl}${path}`,
     description: metaDescriptionForRoute(routeType),
     isPartOf: { "@id": `${siteMeta.baseUrl}/#website` },
-    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
-    reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
   };
 }
 
@@ -4514,8 +4524,8 @@ function buildFaqSchema() {
     "@type": "FAQPage",
     "@id": `${siteMeta.baseUrl}/answers/#faq`,
     name: "West Palm Beach New Construction Answers",
-    author: { "@id": `${siteMeta.baseUrl}/#advisor` },
-    reviewedBy: { name: siteMeta.reviewedBy.name },
+    author: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
     mainEntity: answerEngineFaq.map((item) => ({
       "@type": "Question",
@@ -4536,8 +4546,8 @@ function buildBuyerIntentAnswerPageSchema(answer: BuyerIntentAnswerPage) {
     url: `${siteMeta.baseUrl}${buyerIntentAnswerPath(answer)}`,
     description: answer.description,
     isPartOf: { "@id": `${siteMeta.baseUrl}/#website` },
-    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
-    reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
   };
 }
 
@@ -4583,8 +4593,8 @@ function buildExternalNewsArticleSchema(item: ExternalNewsItem) {
     description: article.excerpt,
     datePublished: item.publishedAt,
     dateModified: item.fetchedAt,
-    author: { "@id": `${siteMeta.baseUrl}/#advisor` },
-    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+    author: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
     mainEntityOfPage: `${siteMeta.baseUrl}${updatePath(item)}`,
   };
 }
@@ -4599,8 +4609,8 @@ function buildMarketNoteSchema(note: MarketNote) {
     datePublished: note.datePublished,
     dateModified: note.dateModified,
     articleSection: note.category,
-    author: { "@id": `${siteMeta.baseUrl}/#advisor` },
-    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+    author: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
     image: resolvedImage.src ? `${siteMeta.baseUrl}${resolvedImage.src}` : `${siteMeta.baseUrl}${siteMeta.defaultImage}`,
     mainEntityOfPage: `${siteMeta.baseUrl}${marketNotePath(note)}`,
   };
@@ -4611,7 +4621,7 @@ function buildProjectSchema(project: FeaturedProject) {
   const unitCount = Number(schemaFacts.safeFields.residenceCount?.match(/\d+/)?.[0] ?? 0) || undefined;
   const projectLocality = project.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   return {
-    "@type": "ApartmentComplex",
+    "@type": schemaTypeForProject(project),
     "@id": `${siteMeta.baseUrl}${projectPath(project)}#project`,
     name: schemaFacts.safeFields.name,
     ...(schemaFacts.safeFields.address
@@ -4658,9 +4668,15 @@ function buildProjectSchema(project: FeaturedProject) {
           creditText: imageSourceName(project.image),
         }]
       : [],
-    reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
     amenityFeature: getFloorplanProject(project.id)?.count ? [{ "@type": "LocationFeatureSpecification", name: "Floorplans available" }] : [],
   };
+}
+
+function schemaTypeForProject(project: FeaturedProject) {
+  if (project.projectType === "hotel-residences") return ["Hotel", "ApartmentComplex"];
+  if (["office", "mixed-use", "condo-pipeline"].includes(project.projectType)) return "Place";
+  return "ApartmentComplex";
 }
 
 function buildLegalPageSchema(routeType: string) {
@@ -4676,8 +4692,8 @@ function buildLegalPageSchema(routeType: string) {
     "@id": `${siteMeta.baseUrl}/${path}/#webpage`,
     name: `${labels[routeType] ?? routeType} | WPB New Construction`,
     url: `${siteMeta.baseUrl}/${path}/`,
-    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
-    reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
   };
 }
@@ -7524,8 +7540,7 @@ function projectViewSummary(project: FeaturedProject) {
 }
 
 function sourceFactForProject(projectId: string) {
-  const sourceId = resolveSourceCatalogProjectId(projectId);
-  return projectFactById.get(sourceId as (typeof projectFacts)[number]["projectId"]);
+  return projectFactById.get(projectId as (typeof projectFacts)[number]["projectId"]);
 }
 
 
@@ -7597,11 +7612,11 @@ function renderProjectBuyerLens(copy: ProjectCopyPackage) {
         </article>
         <article>
           <span>Compare against</span>
-          <p>${publicText(copy.buyerComparisonNotes)}</p>
+          <p>Compare corridor, project type, delivery timing, residence scale, floor-plan depth, service model, and carrying costs against the buyer's actual shortlist.</p>
         </article>
         <article>
           <span>Information status</span>
-          <p>${publicText(copy.sourceNotes.join(" "))}</p>
+          <p>Pricing, availability, incentives, fees, delivery timing, and contract terms should be confirmed from the current buyer packet.</p>
           <small>Project details continue to be monitored.</small>
         </article>
       </div>
@@ -7781,7 +7796,8 @@ function renderProjectEntityBrief(
         <p>${publicText(entityBluf(project, sourceFact))}</p>
       </div>
       <div class="profile-grid">
-        ${entityFactCard("Location", source?.address || project.address, "Confirm final legal/project address before relying on it.")}
+        ${entityFactCard("Project Address", source?.projectAddress || project.address, "Confirm the residence, sales gallery, and legal addresses for the purpose you need.")}
+        ${source?.salesGalleryAddress ? entityFactCard("Sales Gallery", source.salesGalleryAddress, "Use this address for appointments only after confirming current hours and access.") : ""}
         ${entityFactCard("Status", source?.status || project.status, "Verify current construction and sales status before touring.")}
         ${entityFactCard("Residences", source?.residences || project.residences, "Counts can vary by source date or tower definition.")}
         ${entityFactCard("Delivery", source?.completion || project.delivery, "Delivery timing should be checked against the current buyer packet.")}
@@ -7822,7 +7838,7 @@ function renderProjectEntityBrief(
       <div class="section-heading">
         <p class="eyebrow">Source Notes</p>
         <h2>What this page is based on.</h2>
-        <p>Source counts: ${sourceFact?.sourceCounts?.official ?? 0} official, ${sourceFact?.sourceCounts?.reporting ?? 0} reporting, ${sourceFact?.sourceCounts?.other ?? 0} other. Conflicts and gaps are preserved rather than smoothed away.</p>
+        <p>Facts are drawn from the public sources linked below and were last reviewed ${publicText(sourceFact?.lastReviewedDate || "recently")}. Pricing, availability, incentives, fees, and contract terms can change.</p>
       </div>
       <div class="brochure-download-list">
         ${sourceLinks.length ? sourceLinks.map((href) => renderProjectSourceLink(href, floorplanProject?.projectId ?? project.id)).join("") : `<article class="document-card is-placeholder"><span>Source Review</span><strong>Needs current source refresh</strong><small>No public source link is attached to this brief.</small></article>`}
@@ -7870,16 +7886,11 @@ function entityBluf(project: FeaturedProject, sourceFact: ReturnType<typeof sour
   const facts = sourceFact?.facts;
   const status = facts?.status || project.status;
   const delivery = facts?.completion || project.delivery;
-  return `${project.name} is a ${project.corridor} project tracked for buyer comparison by status, location, residence scale, floorplan availability, and open verification notes. Current source notes show ${status}; timing is ${delivery}. Pricing, availability, incentives, fees, square footage, view exposure, delivery, and contract terms should be verified before reliance.`;
+  return `${project.name} is a ${project.corridor} project tracked for buyer comparison by status, location, residence scale, and floorplan availability. Current public information shows ${status}; timing is ${delivery}. Pricing, availability, incentives, fees, square footage, view exposure, delivery, and contract terms should be verified before reliance.`;
 }
 
 function projectSourceNoteLinks(sourceFact: ReturnType<typeof sourceFactForProject> | undefined) {
-  const links = [
-    sourceFact?.officialWebsite,
-    ...(sourceFact?.highValueSources ?? []),
-    ...(sourceFact?.sourceBuckets?.official ?? []),
-    ...(sourceFact?.sourceBuckets?.reporting ?? []),
-  ];
+  const links = (sourceFact?.sources ?? []).map((source) => source.url);
   return links
     .map((href) => String(href ?? "").trim())
     .filter(Boolean)
@@ -7938,7 +7949,7 @@ function projectEntityFaq(
     },
     {
       question: `What should buyers verify before relying on ${project.name} public information?`,
-      answer: `Verify current pricing, availability, incentives, fees, square footage, view exposure, delivery timing, contract terms, and any open verification notes. Current source notes include: ${[...(sourceFact?.conflicts ?? []), ...(sourceFact?.gaps ?? [])].slice(0, 2).join(" ") || facts?.pricing || "request current buyer-side confirmation."}`,
+      answer: `Verify current pricing, availability, incentives, fees, square footage, view exposure, delivery timing, and contract terms. ${facts?.pricing ? `The latest published pricing context is ${facts.pricing}; request current buyer-side confirmation.` : "Request current buyer-side confirmation before relying on public summaries."}`,
     },
   ];
 }
@@ -7975,65 +7986,30 @@ function residenceImageForProject(project: FeaturedProject, heroImage: string | 
 
 function renderTechnicalDisclosuresSection(project: FeaturedProject, draft: ProjectPageDraft) {
   const sourceFact = sourceFactForProject(project.id);
-  const missingInfo = project.missingInfo ?? missingInfoForProject(project) ?? [];
-  const conflicts = sourceFact?.conflicts ?? [];
-  const gaps = sourceFact?.gaps ?? [];
   const needed = draft.needed ?? [];
-  const sourceCounts = sourceFact?.sourceCounts;
-  const pageStatus = sourceFact?.pageStatus || project.projectPageType || "Market watch";
-  const confidence = sourceFact?.dataConfidence || "Draft";
-
-  const hasDisclosures = missingInfo.length > 0 || conflicts.length > 0 || gaps.length > 0 || needed.length > 0 || sourceCounts;
-  if (!hasDisclosures) return "";
+  const sources = projectSourceNoteLinks(sourceFact);
 
   return `
     <section class="section brochure-disclosures-section" id="disclosures-${project.id}" data-project-section="disclosures">
       <details class="disclosures-accordion">
         <summary class="disclosures-summary">
-          <span>Sourcing Details & Technical Disclosures</span>
+          <span>Sources and buyer checks</span>
           <svg class="summary-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </summary>
         <div class="disclosures-content">
-          <p class="disclosures-intro">This building profile uses published project information compiled from public records, developer announcements, and real estate filings. The details below are tracked for internal data verification and buyer risk assessment.</p>
+          <p class="disclosures-intro">This profile uses public project information reviewed ${publicText(sourceFact?.lastReviewedDate || "recently")}. Confirm live inventory and transaction terms before making a decision.</p>
           <div class="disclosures-grid">
-            ${missingInfo.length > 0 ? `
-              <div>
-                <h4>Unconfirmed Details</h4>
-                <ul>
-                  ${missingInfo.map((item) => `<li>${publicText(item)}</li>`).join("")}
-                </ul>
-              </div>
-            ` : ""}
-
-            ${(conflicts.length > 0 || gaps.length > 0) ? `
-              <div>
-                <h4>Conflicts & Gaps</h4>
-                <ul>
-                  ${conflicts.map((item) => `<li>${publicText(item)}</li>`).join("")}
-                  ${gaps.map((item) => `<li>${publicText(item)}</li>`).join("")}
-                </ul>
-              </div>
-            ` : ""}
-
             ${needed.length > 0 ? `
               <div>
-                <h4>Advisor Review Checklist</h4>
+                <h4>Buyer checklist</h4>
                 <ul>
                   ${needed.map((item) => `<li>${publicText(item)}</li>`).join("")}
                 </ul>
               </div>
             ` : ""}
-
-            <div>
-              <h4>Verification Logs</h4>
-              <ul>
-                ${sourceCounts ? `<li><strong>Source Database:</strong> ${sourceCounts.official ?? 0} official pages, ${sourceCounts.reporting ?? 0} reporting, ${sourceCounts.other ?? 0} other references.</li>` : ""}
-                <li><strong>Entity Class:</strong> ${publicText(pageStatus)}</li>
-                <li><strong>Confidence:</strong> ${publicText(confidence)}</li>
-              </ul>
-            </div>
+            ${sources.length ? `<div><h4>Reviewed public sources</h4><div class="brochure-download-list">${sources.slice(0, 6).map((href) => renderProjectSourceLink(href, project.id)).join("")}</div></div>` : ""}
           </div>
         </div>
       </details>
@@ -8708,7 +8684,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
         ]
       : [],
     documents: documentsFromSource(project, sourceFact),
-    needed: neededFromSource(sourceFact),
+    needed: neededFromSource(),
   };
 }
 
@@ -8743,7 +8719,7 @@ function teamCreditsFromSource(team: string | undefined): TeamCredit[] {
 
 function documentsFromSource(_project: FeaturedProject, sourceFact: ReturnType<typeof sourceFactForProject> | undefined): ProjectDocument[] {
   const docs: ProjectDocument[] = [];
-  if (sourceFact?.officialWebsite || (sourceFact?.highValueSources ?? []).length) {
+  if ((sourceFact?.sources ?? []).length) {
     docs.push({
       label: "Reviewed",
       title: "Project materials reviewed",
@@ -8754,12 +8730,8 @@ function documentsFromSource(_project: FeaturedProject, sourceFact: ReturnType<t
   return docs;
 }
 
-function neededFromSource(sourceFact: ReturnType<typeof sourceFactForProject> | undefined) {
-  const conflicts = sourceFact?.conflicts?.map((item) => `Confirm detail: ${item}`) ?? [];
-  const gaps = sourceFact?.gaps ?? [];
+function neededFromSource() {
   return [
-    ...conflicts,
-    ...gaps,
     "Current pricing, availability, fees, and incentives",
     "Preferred residence lines, floorplans, and view stacks",
     "Tour timing, deposit schedule, and reservation process",

@@ -10,10 +10,12 @@ const workspace = process.cwd();
 const reviewPath = path.join(workspace, "research/source-material-review/project-source-catalog.json");
 const projectsRoot = path.join(workspace, "research/asset-library/projects");
 const reviewRoot = path.join(workspace, "research/source-material-review");
+const internalGeneratedRoot = path.join(workspace, "research/generated");
 const publicDataRoot = path.join(workspace, "public/data");
 const generatedRoot = path.join(workspace, "src/generated");
-const projectModelPath = path.join(generatedRoot, "projectModel.json");
-const projectCopyPackagePath = path.join(publicDataRoot, "project-copy-package.json");
+const projectModelPath = path.join(generatedRoot, "projectModelPublic.json");
+const projectCopyPackagePath = path.join(workspace, "content/project-copy-package.json");
+const publicProjectCopyPackagePath = path.join(publicDataRoot, "project-copy-package.json");
 const preferredRoot = path.join(workspace, "research/asset-library/preferred-image-exports");
 const marketNotesPath = path.join(workspace, "src/data/marketNotes.ts");
 const productionBaseUrl = "https://www.wpbnewconstruction.com";
@@ -1381,15 +1383,18 @@ async function main() {
   await fs.mkdir(publicDataRoot, { recursive: true });
   await fs.mkdir(generatedRoot, { recursive: true });
   await fs.mkdir(reviewRoot, { recursive: true });
+  await fs.mkdir(internalGeneratedRoot, { recursive: true });
   await fs.mkdir(preferredRoot, { recursive: true });
 
   const catalog = JSON.parse(await fs.readFile(reviewPath, "utf8"));
+  const publicProjectCopyPackage = buildPublicProjectCopyPackage(readProjectCopyPackage());
   const assetTracker = await readAssetTracker();
   let publishedFloorplans = await publishFloorplanAssets();
   const floorplans = await buildFloorplanLibrary(catalog.projects);
   let publicFloorplans = stripInternalFloorplanPaths(floorplans);
   const images = await buildImageCatalog(catalog.projects, assetTracker);
   const newsFeed = buildNewsFeed(catalog.projects, floorplans, images);
+  const internalProjectFacts = buildInternalProjectFacts(catalog.projects);
   const projectFacts = buildProjectFacts(catalog.projects);
   const projectAssetStatus = buildProjectAssetStatus(catalog.projects, floorplans, publishedFloorplans, assetTracker);
   const imageClearanceCandidates = buildImageClearanceCandidates(catalog.projects, images, assetTracker);
@@ -1401,24 +1406,25 @@ async function main() {
   let publicProjectTeamCredits = sanitizePublicPayload(projectTeamCredits);
 
   publicFloorplans = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "floorplans.json"), publicFloorplans);
-  publishedFloorplans = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "published-floorplan-assets.json"), publishedFloorplans);
-  publicProjectAssetStatus = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "project-asset-status.json"), publicProjectAssetStatus);
-  publicImageClearanceCandidates = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "image-clearance-candidates.json"), publicImageClearanceCandidates);
-  publicProjectTeamCredits = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "project-team-credits.json"), publicProjectTeamCredits);
+  publishedFloorplans = await preserveExistingVolatileMetadata(path.join(internalGeneratedRoot, "published-floorplan-assets.json"), publishedFloorplans);
+  publicProjectAssetStatus = await preserveExistingVolatileMetadata(path.join(internalGeneratedRoot, "project-asset-status.json"), publicProjectAssetStatus);
+  publicImageClearanceCandidates = await preserveExistingVolatileMetadata(path.join(internalGeneratedRoot, "image-clearance-candidates.json"), publicImageClearanceCandidates);
+  publicProjectTeamCredits = await preserveExistingVolatileMetadata(path.join(internalGeneratedRoot, "project-team-credits.json"), publicProjectTeamCredits);
   publicNewsFeed = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "news-feed.json"), publicNewsFeed);
   publicAnswerBlocks = await preserveExistingVolatileMetadata(path.join(publicDataRoot, "answer-engine-faq.json"), publicAnswerBlocks);
   images.catalog = await preserveExistingVolatileMetadata(path.join(reviewRoot, "image-candidate-catalog.json"), images.catalog);
 
   await fs.writeFile(path.join(publicDataRoot, "site-meta.json"), `${JSON.stringify(siteMeta, null, 2)}\n`);
+  await fs.writeFile(publicProjectCopyPackagePath, `${JSON.stringify(publicProjectCopyPackage, null, 2)}\n`);
   await fs.writeFile(path.join(publicDataRoot, "floorplans.json"), `${JSON.stringify(publicFloorplans, null, 2)}\n`);
-  await fs.writeFile(path.join(publicDataRoot, "published-floorplan-assets.json"), `${JSON.stringify(publishedFloorplans, null, 2)}\n`);
-  await fs.writeFile(path.join(publicDataRoot, "project-asset-status.json"), `${JSON.stringify(publicProjectAssetStatus, null, 2)}\n`);
+  await fs.writeFile(path.join(internalGeneratedRoot, "published-floorplan-assets.json"), `${JSON.stringify(publishedFloorplans, null, 2)}\n`);
+  await fs.writeFile(path.join(internalGeneratedRoot, "project-asset-status.json"), `${JSON.stringify(publicProjectAssetStatus, null, 2)}\n`);
   await fs.writeFile(
-    path.join(publicDataRoot, "image-clearance-candidates.json"),
+    path.join(internalGeneratedRoot, "image-clearance-candidates.json"),
     `${JSON.stringify(publicImageClearanceCandidates, null, 2)}\n`,
   );
   await fs.writeFile(
-    path.join(publicDataRoot, "project-team-credits.json"),
+    path.join(internalGeneratedRoot, "project-team-credits.json"),
     `${JSON.stringify(publicProjectTeamCredits, null, 2)}\n`,
   );
   await fs.writeFile(path.join(publicDataRoot, "news-feed.json"), `${JSON.stringify(publicNewsFeed, null, 2)}\n`);
@@ -1432,6 +1438,10 @@ async function main() {
   await fs.writeFile(path.join(reviewRoot, "image-candidate-catalog.md"), renderImageMd(images.catalog));
   await fs.writeFile(path.join(reviewRoot, "image-candidate-catalog.json"), `${JSON.stringify(images.catalog, null, 2)}\n`);
   await fs.writeFile(path.join(reviewRoot, "metadata-answer-engine-plan.md"), renderMetadataPlan(newsFeed));
+  await fs.writeFile(
+    path.join(generatedRoot, "projectFactsInternal.ts"),
+    `// Generated by research/scripts/build-site-intelligence.mjs. Do not edit directly.\n// Internal review data: this module must never be imported by public runtime code.\n\nexport const internalProjectFacts = ${JSON.stringify(internalProjectFacts, null, 2)} as const;\n`,
+  );
   await fs.writeFile(path.join(generatedRoot, "siteData.ts"), renderSiteDataTs({ floorplans: publicFloorplans, newsFeed: publicNewsFeed, projectFacts: sanitizePublicPayload(projectFacts), answerBlocks: publicAnswerBlocks }));
 
   console.log(
@@ -1450,23 +1460,140 @@ async function main() {
 }
 
 function stripInternalFloorplanPaths(floorplans) {
+  const publicProjectBySlug = new Map(readPublicProjectModel().projects.map((project) => [project.publicSlug, project]));
   return {
-    ...floorplans,
-    projects: floorplans.projects.map((project) => ({
-      ...project,
-      plans: project.plans.map(({ researchPath, ...plan }) => plan),
-    })),
+    version: 2,
+    generatedAt: floorplans.generatedAt,
+    usageNote: floorplans.usageNote,
+    projects: floorplans.projects.map((project) => {
+      const publicProject = publicProjectBySlug.get(project.projectId);
+      const plans = canonicalizePublicPlans(project.projectId, project.plans);
+      return {
+        projectId: project.projectId,
+        name: publicProject?.displayName || project.name,
+        area: publicProject?.corridor || project.area,
+        projectType: publicProject?.projectType || "condo-active-sales",
+        updatedAt: publicProject?.facts?.lastVerifiedDate || project.updatedAt,
+        count: plans.length,
+        plans,
+        missingNote: project.missingNote,
+      };
+    }),
   };
 }
 
+function canonicalizePublicPlans(projectId, plans) {
+  const groups = new Map();
+  for (const plan of plans) {
+    const displayName = canonicalPlanDisplayName(projectId, plan.title);
+    const normalizedName = normalizePlanIdentity(displayName);
+    const planType = floorplanType(displayName, plan.href);
+    const key = `${planType}:${normalizedName}`;
+    const group = groups.get(key) || [];
+    group.push({ ...plan, displayName, normalizedName, planType });
+    groups.set(key, group);
+  }
+
+  return [...groups.values()]
+    .map((group) => {
+      const local = group.find((plan) => plan.href && !/^https?:\/\//i.test(plan.href));
+      const external = group.find((plan) => /^https?:\/\//i.test(plan.sourceUrl || plan.href));
+      const selected = local || external || group[0];
+      const sourceUrl = external?.sourceUrl || external?.href || selected.sourceUrl || selected.href;
+      const planId = `${projectId}-${selected.planType}-${selected.normalizedName.replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+      return {
+        planId,
+        projectId,
+        normalizedName: selected.normalizedName,
+        displayName: selected.displayName,
+        title: selected.displayName,
+        planType: selected.planType,
+        href: local?.href || selected.href,
+        sourceUrl,
+        ...(local?.href ? { publicAssetUrl: local.href } : {}),
+        effectiveDate: "",
+        isCanonicalPublicPlan: true,
+      };
+    })
+    .sort((a, b) => naturalCompare(a.displayName, b.displayName));
+}
+
+function canonicalPlanDisplayName(projectId, title) {
+  let value = String(title || "Floorplan").replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+  if (projectId === "alba-palm-beach") {
+    value = value
+      .replace(/^Alba Floorplans?\s+/i, "Residence ")
+      .replace(/\bUnbranded\b/gi, "")
+      .replace(/\b19LPHA\b/i, "LPH A")
+      .replace(/\b19LPHB\b/i, "LPH B")
+      .replace(/\bTHC\b/i, "Townhouse C")
+      .replace(/\s+/g, " ")
+      .trim()
+      .replace(/^Residence Lpha$/i, "Residence LPH A")
+      .replace(/^Residence Lphb$/i, "Residence LPH B")
+      .replace(/^Residence Townhouse C$/i, "Townhouse C");
+  }
+  if (projectId === "olara" && /(?:complete floorplan collection|floor plans all march 2026)/i.test(value)) {
+    return "Complete Floorplan Collection";
+  }
+  if (/official floor plans index/i.test(value)) return "Floorplan Index";
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function normalizePlanIdentity(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/\bfloor\s*plans?\b/g, "floorplan")
+    .replace(/\b(?:digital|unbranded|official)\b/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function floorplanType(displayName, href) {
+  const value = `${displayName} ${href}`.toLowerCase();
+  if (/fact[ -]?sheet/.test(value)) return "fact-sheet";
+  if (/\bindex\b|\/floor-plans?\/?(?:$|[?#])/.test(value)) return "index";
+  if (/collection|plans all|all plans/.test(value)) return "collection";
+  return "individual";
+}
+
 function buildProjectFacts(projects) {
+  const sourceById = new Map(projects.map((project) => [project.projectId, project]));
+  const publicModel = readPublicProjectModel();
+  return publicModel.projects.map((project) => {
+    const source = sourceById.get(project.publicSlug);
+    return {
+      projectId: project.publicSlug,
+      name: project.displayName,
+      area: project.corridor,
+      projectType: project.projectType,
+      summary: project.presentation?.summary || "",
+      lastReviewedDate: project.facts.lastVerifiedDate,
+      facts: {
+        projectAddress: project.facts.projectAddress,
+        salesGalleryAddress: project.facts.salesGalleryAddress,
+        mailingAddress: project.facts.mailingAddress,
+        planningParcelAddress: project.facts.planningParcelAddress,
+        status: project.status,
+        residences: project.facts.canonicalResidenceCount,
+        stories: source?.normalizedFacts?.stories || "",
+        completion: project.facts.expectedDeliveryCurrent,
+        pricing: project.price,
+        team: source?.normalizedFacts?.team || "",
+        effectiveDate: project.facts.factEffectiveDate,
+      },
+      sources: project.sourceUrls.map((url) => ({ url })),
+    };
+  });
+}
+
+function buildInternalProjectFacts(projects) {
   return projects.map((project) => ({
     projectId: project.projectId,
     name: project.name,
     area: project.area,
     pageStatus: project.pageStatus,
     dataConfidence: project.dataConfidence,
-    officialWebsite: project.officialWebsite || "",
     facts: {
       address: project.normalizedFacts?.address || "",
       status: project.normalizedFacts?.status || "",
@@ -1480,12 +1607,15 @@ function buildProjectFacts(projects) {
     gaps: project.gaps ?? [],
     highValueSources: project.highValueSources ?? [],
     sourceCounts: project.sourceCounts ?? {},
-    sourceBuckets: {
-      official: project.sourceBuckets?.official ?? [],
-      reporting: project.sourceBuckets?.reporting ?? [],
-      other: project.sourceBuckets?.other ?? [],
-    },
   }));
+}
+
+function readPublicProjectModel() {
+  try {
+    return JSON.parse(fsSync.readFileSync(projectModelPath, "utf8"));
+  } catch {
+    return { projects: [] };
+  }
 }
 
 async function buildFloorplanLibrary(projects) {
@@ -1720,7 +1850,7 @@ function buildNewsFeed(projects, floorplans, images) {
   return {
     generatedAt: now,
     updatePolicy:
-      "Buyer-facing development news feed refreshed from reviewed public material. Publish after human review of titles, facts, and source links.",
+      "Buyer-facing development news feed refreshed from reviewed public sources. Current pricing, availability, and transaction terms require direct confirmation.",
     items: [
       {
         id: "mandarin-oriental-interiors-revealed",
@@ -2808,7 +2938,7 @@ function readPublishedProjectRecords() {
   try {
     const projectModel = JSON.parse(fsSync.readFileSync(projectModelPath, "utf8"));
     return (projectModel.projects || []).filter(
-      (project) => project.publicationState === "published" && project.publicSlug && project.publicRoute,
+      (project) => project.publicSlug && project.publicRoute,
     );
   } catch {
     return [];
@@ -2821,6 +2951,47 @@ function readProjectCopyPackage() {
     return Array.isArray(records) ? records : [];
   } catch {
     return [];
+  }
+}
+
+function buildPublicProjectCopyPackage(records) {
+  return records.map((record) => ({
+    slug: record.slug,
+    repoProjectId: record.repoProjectId,
+    pageTemplate: record.pageTemplate,
+    showcase: record.showcase,
+    heroHeadline: record.heroHeadline,
+    heroSubheadline: record.heroSubheadline,
+    overview: record.overview,
+    quickFacts: record.quickFacts,
+    residences: record.residences,
+    amenities: record.amenities,
+    location: record.location,
+    localTake: record.localTake,
+    seoTitle: record.seoTitle,
+    metaDescription: record.metaDescription,
+    badge: record.badge,
+    tags: record.tags,
+    introHeadline: record.introHeadline,
+    introDek: record.introDek,
+    brookeTake: record.brookeTake,
+    bestFor: record.bestFor,
+    signatureFeatures: record.signatureFeatures,
+    amenityNarrative: record.amenityNarrative,
+    residenceNarrative: record.residenceNarrative,
+    locationNarrative: record.locationNarrative,
+    projectTeamNarrative: record.projectTeamNarrative,
+    sourceUrls: (record.sourceUrls || []).filter(isPublicHttpUrl),
+    lastCopyResearchDate: record.lastCopyResearchDate,
+  }));
+}
+
+function isPublicHttpUrl(value) {
+  try {
+    const url = new URL(String(value));
+    return url.protocol === "https:" || url.protocol === "http:";
+  } catch {
+    return false;
   }
 }
 

@@ -37,7 +37,7 @@ const articlePackageBlockedRules = [
 // Keep this narrower than article copy validation; the gatekeeper owns final visible-page checks.
 const publicArtifactBlockedRules = [
   { label: "needs_review", pattern: /needs[_\s-]+review/i },
-  { label: "pending approval", pattern: /pending\s+approval/i },
+  { label: "pending approval workflow", pattern: /(?:editorial|content|publication|review|Brooke)\s+(?:is\s+)?pending\s+approval|pending\s+approval\s+(?:from|by)/i },
   { label: "approved by Brooke", pattern: /approved\s+by\s+Brooke/i },
   { label: "authorization pending", pattern: /authorization\s+pending/i },
   { label: "internal approval", pattern: /internal\s+approval/i },
@@ -49,6 +49,16 @@ const publicArtifactBlockedRules = [
   { label: "internal sign-off", pattern: /\b(?:internal|editorial|Brooke(?:'s)?|source[-\s]?material)\s+(?:team\s+)?(?:has\s+)?signed\s+off\b/i },
   { label: "placeholder email", pattern: /info@example\.com/i },
   { label: "example domain", pattern: /example\.com/i },
+  { label: "agent merge instruction", pattern: /\bAgent\s+\d+\b|\bdo not merge\b/i },
+  { label: "review flag", pattern: /\breview flag\b/i },
+  { label: "conflict log", pattern: /\bconflict (?:log|mechanic)/i },
+  { label: "database records", pattern: /\b(?:database records|source database)\b/i },
+  { label: "AI crawler instruction", pattern: /\bAI crawlers?\b/i },
+  { label: "human review workflow", pattern: /\bhuman review\b/i },
+  { label: "internal project metadata key", pattern: /["']?(?:sourceCounts|sourceCatalogIds|sourceAssetRepoPath|sourceBuckets|highValueSources|dataConfidence|pageStatus)["']?\s*[:=]/i },
+  { label: "local filesystem path", pattern: /(?:\/Users\/|\/Volumes\/|\biCloud\/)/i },
+  { label: "research path", pattern: /(?:^|["'`:(\s])research\/(?:asset-library|source-material-review|source-repos|rosewood)\//i },
+  { label: "asset repository path", pattern: /\bpublic-projects\//i },
 ];
 
 const ignoredFieldKeys = new Set(["dataUrl", "path", "url", "href", "sourceUrl", "canonicalUrl"]);

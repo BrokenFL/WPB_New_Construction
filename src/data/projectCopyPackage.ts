@@ -1,5 +1,3 @@
-export type ProjectCopyConfidence = "high" | "medium-high" | "medium" | "medium-low" | "low-medium" | "needs-source-confirmation";
-
 export type ProjectQuickFact = {
   label: string;
   value: string;
@@ -76,8 +74,6 @@ export type ProjectCopyPackage = {
   amenities?: string;
   location?: string;
   localTake?: string;
-  tradeoffs?: string[];
-  confidenceNote?: string;
   seoTitle?: string;
   metaDescription?: string;
   badge?: string;
@@ -90,12 +86,9 @@ export type ProjectCopyPackage = {
   amenityNarrative: string;
   residenceNarrative: string;
   locationNarrative: string;
-  buyerComparisonNotes: string;
   projectTeamNarrative: string;
-  sourceNotes: string[];
   sourceUrls: string[];
   lastCopyResearchDate: string;
-  copyConfidence: ProjectCopyConfidence;
 };
 
 export const batch1ProjectCopyByProjectId = new Map<string, ProjectCopyPackage>();

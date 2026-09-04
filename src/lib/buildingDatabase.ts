@@ -1,9 +1,5 @@
 import type { PublicBuildingDatabaseField, PublicBuildingDatabaseItem } from "../generated/buildingDatabasePublic";
-import {
-  projectIntelligenceRegistryEntries,
-  resolveCompareDatabaseProjectId,
-  resolveCompareDatabaseProjectSlug,
-} from "./projectIntelligenceRegistry.ts";
+import { publicProjectRecords } from "../generated/projectModelPublic";
 
 export type BuildingDatabaseField = PublicBuildingDatabaseField;
 export type BuildingDatabaseRecord = PublicBuildingDatabaseItem;
@@ -17,19 +13,36 @@ type BuildingDatabaseRuntime = {
 let runtimeDatabase: BuildingDatabaseRuntime | undefined;
 let runtimeDatabasePromise: Promise<BuildingDatabaseRuntime> | undefined;
 
+type PublicProjectLookupRecord = {
+  publicSlug: string;
+  publicRoute: string;
+  compareDatabaseId: string;
+  compareDatabaseSlug: string;
+  lookupAliases: readonly string[];
+};
+
+const publicLookupRecords: readonly PublicProjectLookupRecord[] = publicProjectRecords;
+
 export const buildingDatabaseProjectAliases = Object.fromEntries(
-  projectIntelligenceRegistryEntries.flatMap((entry) => {
+  publicLookupRecords.flatMap((entry) => {
     const compareId = entry.compareDatabaseId ?? entry.publicSlug;
     const aliases = new Set<string>([
       entry.publicSlug,
       entry.publicRoute,
       compareId,
       entry.compareDatabaseSlug,
-      ...(entry.alternateAliases ?? []),
-      ...(entry.sourceCatalogIds ?? []),
-      ...(entry.collapsedSourceCatalogIds ?? []),
-    ].filter((value): value is string => Boolean(value && value.trim())));
-    return [...aliases].map((alias) => [alias, compareId] as const);
+      ...entry.lookupAliases,
+    ].filter(Boolean));
+    return [...aliases].map((alias) => [normalizeProjectIdentifier(alias), compareId] as const);
+  }),
+) as Record<string, string>;
+
+const buildingDatabaseSlugByAlias = Object.fromEntries(
+  publicLookupRecords.flatMap((entry) => {
+    const compareSlug = entry.compareDatabaseSlug ?? entry.publicSlug;
+    return [...new Set([entry.publicSlug, entry.publicRoute, entry.compareDatabaseId, compareSlug, ...entry.lookupAliases])]
+      .filter(Boolean)
+      .map((alias) => [normalizeProjectIdentifier(alias), compareSlug] as const);
   }),
 ) as Record<string, string>;
 
@@ -91,12 +104,12 @@ export async function loadBuildingDatabase() {
 }
 
 export function getBuildingDatabaseRecord(projectIdOrSlug: string) {
-  const normalized = projectIdOrSlug.trim();
+  const normalized = normalizeProjectIdentifier(projectIdOrSlug);
   if (!normalized) return undefined;
   if (!runtimeDatabase) return undefined;
 
-  const aliasedProjectId = buildingDatabaseProjectAliases[normalized] ?? resolveCompareDatabaseProjectId(normalized);
-  const aliasedProjectSlug = resolveCompareDatabaseProjectSlug(normalized);
+  const aliasedProjectId = buildingDatabaseProjectAliases[normalized] ?? normalized;
+  const aliasedProjectSlug = buildingDatabaseSlugByAlias[normalized] ?? normalized;
   return (
     runtimeDatabase.publicBuildingDatabaseByProjectId[aliasedProjectId] ??
     runtimeDatabase.publicBuildingDatabaseByProjectId[normalized] ??
@@ -104,6 +117,10 @@ export function getBuildingDatabaseRecord(projectIdOrSlug: string) {
     runtimeDatabase.publicBuildingDatabaseBySlug[normalized] ??
     runtimeDatabase.publicBuildingDatabaseItems.find((item) => item.slug === normalized || item.project_id === normalized)
   );
+}
+
+function normalizeProjectIdentifier(value: string) {
+  return value.trim().toLowerCase().replace(/^https?:\/\/[^/]+/i, "").replace(/^\/projects\//, "").replace(/^\/+|\/+$/g, "");
 }
 
 export function getBuildingEnrichmentForProject(project: BuildingDatabaseProjectLike) {

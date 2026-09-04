@@ -6,11 +6,7 @@ const generatedOnlyPublicDirs = ["models", "concepts"];
 const internalPublicDataFiles = [
   "answer-engine-faq.json",
   "floorplans.json",
-  "image-clearance-candidates.json",
   "news-feed.json",
-  "project-asset-status.json",
-  "project-team-credits.json",
-  "published-floorplan-assets.json",
 ];
 const distRoot = resolve("dist");
 

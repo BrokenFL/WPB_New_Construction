@@ -599,11 +599,9 @@ function auditWebsiteReferences() {
   const roots = [
     "src",
     "data",
-    "scripts",
-    "research/scripts",
     "public/data",
   ];
-  const extraFiles = ["public/feed.json", "public/rss.xml", "public/llms.txt", "public/robots.txt", "public/sitemap.xml", "vite.config.ts", "package.json"];
+  const extraFiles = ["public/feed.json", "public/rss.xml", "public/llms.txt", "public/robots.txt", "public/sitemap.xml"];
   const files = roots.flatMap((rel) => walkFiles(path.join(websiteRoot, rel), { ignoreDirs: ["node_modules", "dist", ".git"] }))
     .concat(extraFiles.map((rel) => path.join(websiteRoot, rel)).filter((file) => fs.existsSync(file)))
     .filter(isTextFile);

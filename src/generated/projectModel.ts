@@ -1146,7 +1146,7 @@ export const canonicalProjectModel = {
         "deliveryYear": 2029,
         "longitude": -80.05005,
         "latitude": 26.73135,
-        "summary": "Rosewood Residences is a North Flagler branded-residence pipeline entry at 2001 N Flagler Drive with human review required until official sales materials are public.",
+        "summary": "Rosewood Residences is a North Flagler branded-residence proposal at 2001 N Flagler Drive. The public sales program, pricing, delivery timing, and residence mix have not yet been released.",
         "floorplans": false,
         "pageState": "Pipeline / Announced / Watchlist",
         "image": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg",

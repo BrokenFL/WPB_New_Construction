@@ -10,7 +10,7 @@ const masterPath = path.join(
   workspace,
   "research/source-repos/WestPalmNewConstruction/data/buildings_master.json",
 );
-const teamCreditsPath = path.join(workspace, "public/data/project-team-credits.json");
+const teamCreditsPath = path.join(workspace, "research/generated/project-team-credits.json");
 
 const USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36 WPBAssetResearch/2.0";
