@@ -27,7 +27,7 @@ import homepageCardOverridesRaw from "../content/overrides/homepage-card-overrid
 import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
-import { applyLeadAttribution, captureLeadLandingContext, ensureSubmissionId, rememberLeadAttribution } from "./lib/leadCapture";
+import { applyLeadAttribution, captureLeadLandingContext, ensureSubmissionId, getLeadAttribution, rememberLeadAttribution } from "./lib/leadCapture";
 import { getTurnstileToken, resetTurnstile } from "./lib/turnstile";
 import type { BuildingDatabaseField } from "./lib/buildingDatabase";
 import type { CompareSection } from "./lib/buildingCompareSections";
@@ -1075,6 +1075,9 @@ function pageTypeForProject(project: FeaturedProject): ProjectPageType {
 
 function editorialIntroForProject(project: FeaturedProject) {
   const type = pageTypeForProject(project);
+  if (project.projectType === "rental") {
+    return `${project.name} is tracked as a ${project.corridor} rental community. Use this page for source-backed development, amenity, neighborhood, and leasing context, then confirm current rents, concessions, availability, lease terms, policies, parking, and move-in timing directly.`;
+  }
   if (project.id === "nora-house") {
     return "NORA House matters less as an immediately comparable sales option and more as a signal of where Downtown West Palm Beach is heading. Its value in the buyer map is tied to NORA's restaurant, retail, and walkability story, with final offering details still requiring confirmation.";
   }
@@ -2204,7 +2207,7 @@ type BuyerIntentCtaLocation =
   | "lead_capture";
 
 function analyticsPath() {
-  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  return window.location.pathname;
 }
 
 function analyticsPageType(routeType: Route["type"]) {
@@ -2828,6 +2831,11 @@ app.innerHTML = `
               <p>Submissions are stored in the site's lead database and routed through transactional email only to respond to the inquiry. The browser does not keep a backup copy of submitted personal information. Anti-abuse checks retain hashed request signals for rate limiting and delivery status records may include provider response details. Do not submit sensitive financial records, identification documents, or confidential transaction documents through this form.</p>
             </article>
             <article class="profile-card">
+              <span>Analytics</span>
+              <strong>Site-use events exclude submitted contact details and message contents.</strong>
+              <p>When production analytics is enabled, the site may use Google Analytics to measure page, project, floorplan, comparison, article, and form-step activity. Event payloads use an explicit non-PII field list, omit URL query strings, and disable advertising-personalization signals. Google Analytics may use browser storage; deployment must follow the applicable disclosure and consent requirements.</p>
+            </article>
+            <article class="profile-card">
               <span>Brokerage Policy</span>
               <strong>Douglas Elliman's policy governs elliman.com interactions.</strong>
               <p>Douglas Elliman states that agent interactions outside its site may also be governed by other applicable privacy terms.</p>
@@ -3058,11 +3066,8 @@ app.innerHTML = `
   </div>
 `;
 
-document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("focusin", (event) => {
-  const target = event.currentTarget;
-  if (target instanceof HTMLFormElement) {
-    markInquiryFormStarted(target);
-  }
+document.querySelectorAll<HTMLFormElement>("[data-lead-form]").forEach((leadForm) => {
+  leadForm.addEventListener("focusin", () => markInquiryFormStarted(leadForm));
 });
 
 document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("submit", async (event) => {
@@ -3115,6 +3120,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     hasMessage: Boolean(message),
     leadCaptureContext: context,
     viewedBuildingCount: viewedBuildings.length,
+    articleId: getLeadAttribution().article_id,
   });
   if (status) {
     status.textContent = "Saving inquiry...";
@@ -3136,6 +3142,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
       corridor: selectedProjectRecord?.corridor,
       interest,
       leadCaptureContext: context,
+      articleId: getLeadAttribution().article_id,
     });
     if (status) {
       status.textContent = "Thanks — your request was received. The Scott Gordon Group will follow up with current availability and floor plan guidance.";
@@ -3157,6 +3164,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
       interest,
       leadCaptureContext: context,
       errorCode: result.code,
+      articleId: getLeadAttribution().article_id,
     });
     status.textContent = result.message ?? "We could not securely save your request. Please try again.";
   }
@@ -3215,6 +3223,29 @@ document.querySelectorAll<HTMLFormElement>('[data-lead-form="project_inquiry"]')
     event.preventDefault();
     if (projectForm.dataset.submitting === "true" || !projectForm.reportValidity()) return;
     projectForm.dataset.submitting = "true";
+    markInquiryFormStarted(projectForm);
+    const form = new FormData(projectForm);
+    const projectSlug = projectForm.dataset.leadProjectSlug || String(form.get("project") ?? "") || undefined;
+    const project = featuredProjects.find((item) => item.id === projectSlug);
+    const interest = String(form.get("interest") ?? "project_inquiry");
+    const leadCaptureContext = String(form.get("lead_capture_context") ?? projectForm.dataset.leadCtaLocation ?? "project_page");
+    const analyticsContext = {
+      location: projectForm.dataset.leadCtaLocation ?? "project_page",
+      pageType: analyticsPageType(getCurrentRoute().type),
+      path: analyticsPath(),
+      projectSlug,
+      projectName: project?.name ?? projectForm.dataset.leadProjectName,
+      corridor: project?.corridor ?? projectForm.dataset.leadCorridor,
+      interest,
+      leadCaptureContext,
+      articleId: getLeadAttribution().article_id,
+    };
+    track("contact_form_submit", {
+      ...analyticsContext,
+      hasPhone: Boolean(String(form.get("phone") ?? "").trim()),
+      hasMessage: Boolean(String(form.get("message") ?? "").trim()),
+      viewedBuildingCount: getViewedBuildings().length,
+    });
     const status = projectForm.querySelector<HTMLElement>(".form-status");
     if (status) status.textContent = "Saving inquiry...";
     const submission = await buildLeadSubmission(projectForm, "project_inquiry");
@@ -3224,11 +3255,13 @@ document.querySelectorAll<HTMLFormElement>('[data-lead-form="project_inquiry"]')
     }
     const result = await submitLeadForm(submission);
     if (result.ok) {
+      track("lead_form_submit_success", analyticsContext);
       if (status) status.textContent = "Thanks — your request was received. Brooke will follow up with current information.";
       resetTurnstile(projectForm);
       projectForm.reset();
-    } else if (status) {
-      status.textContent = result.message ?? "We could not securely save your request. Please try again.";
+    } else {
+      track("lead_form_submit_failure", { ...analyticsContext, errorCode: result.code });
+      if (status) status.textContent = result.message ?? "We could not securely save your request. Please try again.";
     }
     projectForm.dataset.submitting = "false";
   });
@@ -3331,13 +3364,14 @@ function markInquiryFormStarted(form: HTMLFormElement) {
   const projectId = String(new FormData(form).get("project") ?? "").trim();
   const project = featuredProjects.find((item) => item.id === projectId);
   track("contact_form_start", {
-    location: "inquiry_page",
+    location: form.dataset.leadCtaLocation ?? "inquiry_page",
     pageType: analyticsPageType(getCurrentRoute().type),
     path: analyticsPath(),
     projectSlug: project?.id ?? "not-sure-yet",
     projectName: project?.name,
     corridor: project?.corridor,
     leadCaptureContext: String(new FormData(form).get("lead_capture_context") ?? "").trim() || new URLSearchParams(window.location.search).get("lead_capture_context") || "contact_page",
+    articleId: getLeadAttribution().article_id,
   });
 }
 
@@ -3353,6 +3387,66 @@ function initTrackableCtas() {
     const tracked = target?.closest<HTMLElement>("[data-track-lead-capture-cta='true']");
     if (!tracked) return;
     trackLeadCaptureCta(tracked);
+  }, true);
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement | null;
+    if (!target) return;
+    const route = getCurrentRoute();
+    const routeContext = analyticsRouteContext(route);
+    const floorplanButton = target.closest<HTMLElement>("[data-floorplan-open]");
+    if (floorplanButton) {
+      track("floor_plan_click", {
+        buildingSlug: floorplanButton.dataset.floorplanProjectSlug,
+        planName: floorplanButton.dataset.floorplanTitle,
+        path: analyticsPath(),
+      });
+      return;
+    }
+
+    const anchor = target.closest<HTMLAnchorElement>("a[href]");
+    if (!anchor) return;
+    const href = anchor.getAttribute("href") ?? "";
+    if (href.startsWith("tel:")) {
+      track("phone_click", { source: routeContext.pageType, path: analyticsPath(), projectSlug: routeContext.projectSlug, articleId: getLeadAttribution().article_id });
+      return;
+    }
+    if (href.startsWith("mailto:")) {
+      track("email_click", { source: routeContext.pageType, path: analyticsPath(), projectSlug: routeContext.projectSlug, articleId: getLeadAttribution().article_id });
+      return;
+    }
+
+    let destination: URL;
+    try {
+      destination = new URL(anchor.href, window.location.origin);
+    } catch {
+      return;
+    }
+    if (route.type === "project" && destination.origin === window.location.origin && destination.pathname === "/floorplans/") {
+      track("floor_plan_click", {
+        buildingSlug: route.projectId,
+        planName: cleanCtaText(anchor.textContent ?? "Floorplan library"),
+        path: analyticsPath(),
+      });
+    }
+    if (route.type === "project" && destination.origin !== window.location.origin && anchor.classList.contains("document-card")) {
+      track("source_click", {
+        buildingSlug: route.projectId,
+        sourceHost: destination.hostname.replace(/^www\./, ""),
+        path: analyticsPath(),
+      });
+    }
+    if ((route.type === "news-detail" || route.type === "market-note-detail") && destination.origin === window.location.origin && destination.pathname.startsWith("/projects/")) {
+      const articleId = route.type === "news-detail" ? route.articleId : route.articleSlug;
+      const projectSlug = destination.pathname.split("/").filter(Boolean)[1];
+      rememberLeadAttribution({ article_id: articleId });
+      track("article_to_project_click", { articleId, projectSlug, path: analyticsPath() });
+    }
+    if (destination.origin === window.location.origin && destination.pathname === "/compare/") {
+      track("compare_opened", { path: "/compare/", sourcePath: analyticsPath(), projectSlug: routeContext.projectSlug });
+    }
+    if (destination.origin === window.location.origin && destination.pathname === "/map/") {
+      track("map_opened", { path: "/map/", sourcePath: analyticsPath() });
+    }
   }, true);
 }
 
@@ -3972,8 +4066,13 @@ function routeSeoDetails(
   };
   const projectSchemaFacts = activeProject ? getSchemaSafeProjectFacts(activeProject.id) : undefined;
   const projectMarketSuffix = activeProject?.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
+  const projectTitleSuffix = activeProject?.projectType === "rental"
+    ? "Rental Guide"
+    : activeProject?.pageState === "Complete profile"
+      ? "New Construction Condo Guide"
+      : "Buyer Guide";
   const title = activeProject
-    ? `${projectSchemaFacts?.identity.displayName ?? activeProject.name}${new RegExp(projectMarketSuffix, "i").test(projectSchemaFacts?.identity.displayName ?? activeProject.name) ? "" : ` ${projectMarketSuffix}`} | ${activeProject.pageState === "Complete profile" ? "New Construction Condo Guide" : "Buyer Guide"}`
+    ? `${projectSchemaFacts?.identity.displayName ?? activeProject.name}${new RegExp(projectMarketSuffix, "i").test(projectSchemaFacts?.identity.displayName ?? activeProject.name) ? "" : ` ${projectMarketSuffix}`} | ${projectTitleSuffix}`
     : activeCorridor
       ? corridorTitles[activeCorridor.key]
       : activeMarketNote
@@ -3983,7 +4082,7 @@ function routeSeoDetails(
       : activeAnswer
         ? `${activeAnswer.title} | WPB Answers`
       : routeTitles[route.type] ?? siteMeta.title;
-  const description = activeAnswer?.description ?? (activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
+  const description = activeAnswer?.description ?? (activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? (activeProject?.projectType === "rental" ? `Track ${activeProject.name} at ${activeProject.address}: rental status, ${activeProject.residences}, amenities, neighborhood context, and current leasing details to verify.` : activeProject?.summary) ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
   const image = route.type === "about" ? teamProfile.photo : activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : activeNewsItem ? imageForContentItem(externalNewsImageContext(activeNewsItem)).src : siteMeta.defaultImage);
   return {
     title,
@@ -4312,7 +4411,7 @@ function metaDescriptionForRoute(routeType: string) {
     about: aboutPageDescription,
     news: "Track West Palm Beach luxury condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
     "downtown-spotlight": "Read Downtown West Palm Beach district spotlights, beginning with NORA, and follow the locations shaping condo buyer decisions.",
-    "news-detail": "Read a West Palm Beach luxury new-construction update with buyer context, related buildings, team context, and the original source link.",
+    "news-detail": "Read a West Palm Beach luxury new-construction update with buyer context, related buildings, local perspective, and the original source link.",
     "market-notes": "Read evergreen guidance for West Palm Beach luxury new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
     floorplans: "Browse released West Palm Beach luxury new-construction condo floor plans and request current sales packets before comparing available residences.",
     answers: "Concise answers to West Palm Beach luxury new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
@@ -7020,17 +7119,17 @@ function renderUpdateArticle(item: ExternalNewsItem) {
             <p>${publicText(content.buyerContext)}</p>
           </section>
           <section>
-            <h2>Team context</h2>
+            <h2>Local perspective</h2>
             <p>${publicText(content.brookeTake)}</p>
           </section>
           <aside class="verify-box">
-            <span>Newsletter-ready note</span>
+            <span>In brief</span>
             <p>${publicText(content.newsletterBlurb)}</p>
           </aside>
           <aside class="buyer-takeaway-box">
             <span>Next step</span>
             <p>${publicText(content.cta)}</p>
-            <a href="/inquire/?update=${encodeURIComponent(item.id)}" ${renderCtaTrackingAttrs("article_page", shortContactCtaLabel, { leadCaptureContext: "update_article" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+            <a href="/inquire/" ${renderCtaTrackingAttrs("article_page", shortContactCtaLabel, { leadCaptureContext: "update_article" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
           </aside>
         </div>
       </section>
@@ -7230,6 +7329,7 @@ function renderGeneratedFloorplanLink(
       data-floorplan-index="${index}"
       data-floorplan-title="${escapeHtml(title)}"
       data-floorplan-project="${escapeHtml(projectName)}"
+      data-floorplan-project-slug="${escapeHtml(project?.projectId ?? "")}"
       data-floorplan-caption="${escapeHtml(caption)}"
       data-floorplan-src=""
     >
@@ -7249,6 +7349,7 @@ function renderGeneratedFloorplanLink(
       data-floorplan-index="${index}"
       data-floorplan-title="${escapeHtml(title)}"
       data-floorplan-project="${escapeHtml(projectName)}"
+      data-floorplan-project-slug="${escapeHtml(project?.projectId ?? "")}"
       data-floorplan-caption="${escapeHtml(caption)}"
       data-floorplan-src="${safeHref(plan.href)}"
     >
@@ -8973,11 +9074,23 @@ function teamCreditsFromSource(team: string | undefined): TeamCredit[] {
         lowerName.includes("not released");
       
       if (isPlaceholder) return null;
+
+      const verifiedRole = lowerName.includes("woodfield development")
+        ? "Developer"
+        : lowerName.includes("flagler realty")
+          ? "Development Partner"
+          : lowerName.includes("spina o’rourke") || lowerName.includes("spina o'rourke")
+            ? "Architect"
+            : lowerName.includes("verdex construction")
+              ? "General Contractor"
+              : undefined;
       
       return {
-        role: roles[index] ?? "Project Team",
+        role: verifiedRole ?? roles[index] ?? "Project Team",
         name,
-        note: "Team credit captured for buyer orientation; confirm final role and scope with current materials.",
+        note: verifiedRole
+          ? "Role identified in reviewed public project materials."
+          : "Team credit captured for buyer orientation; confirm final role and scope with current materials.",
       };
     })
     .filter((credit): credit is TeamCredit => credit !== null);
@@ -10274,9 +10387,11 @@ function renderProjectFloorplansSection(project: FeaturedProject, floorplanProje
 
 function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDraft) {
   let developerName = "";
+  let developmentPartnerName = "";
   let architectName = "";
   let designerName = "";
   let landscapeName = "";
+  let contractorName = "";
   let salesName = "";
 
   if (project.id === "berkeley") {
@@ -10308,13 +10423,15 @@ function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDr
     };
 
     developerName = getRealName(/developer|sponsor|lead|partner/i);
+    developmentPartnerName = getRealName(/development partner/i);
     architectName = getRealName(/architect/i);
     designerName = getRealName(/interior|design/i);
-    landscapeName = getRealName(/landscape|construction/i);
+    landscapeName = getRealName(/landscape/i);
+    contractorName = getRealName(/contractor|construction/i);
     salesName = getRealName(/marketing|sales/i);
   }
 
-  const hasAnyTeam = Boolean(developerName || architectName || designerName || landscapeName || salesName);
+  const hasAnyTeam = Boolean(developerName || developmentPartnerName || architectName || designerName || landscapeName || contractorName || salesName);
   if (!hasAnyTeam) return "";
 
   return `
@@ -10323,7 +10440,7 @@ function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDr
         <div class="section-heading">
           <p class="eyebrow">Project Team</p>
           <h2>${teamSectionTitle(project)}</h2>
-          <p>The design and development firms behind ${escapeHtml(project.name)}, supporting project credibility and long-term asset value.</p>
+          <p>The publicly identified development, design, and construction firms associated with ${escapeHtml(project.name)}.</p>
         </div>
 
         <div class="project-team-box">
@@ -10332,6 +10449,12 @@ function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDr
               <li class="project-team-row">
                 <span class="project-team-role">Developer</span>
                 <strong class="project-team-name">${escapeHtml(developerName)}</strong>
+              </li>
+            ` : ""}
+            ${developmentPartnerName && developmentPartnerName !== developerName ? `
+              <li class="project-team-row">
+                <span class="project-team-role">Development Partner</span>
+                <strong class="project-team-name">${escapeHtml(developmentPartnerName)}</strong>
               </li>
             ` : ""}
             ${architectName ? `
@@ -10350,6 +10473,12 @@ function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDr
               <li class="project-team-row">
                 <span class="project-team-role">Landscape</span>
                 <strong class="project-team-name">${escapeHtml(landscapeName)}</strong>
+              </li>
+            ` : ""}
+            ${contractorName ? `
+              <li class="project-team-row">
+                <span class="project-team-role">General Contractor</span>
+                <strong class="project-team-name">${escapeHtml(contractorName)}</strong>
               </li>
             ` : ""}
             ${salesName ? `

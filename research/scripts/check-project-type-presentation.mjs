@@ -50,6 +50,8 @@ const soundRequired = [
   "Rental apartments, not condominiums",
   "Trader Joe’s",
   "Current rents",
+  "Flagler Realty &amp; Development",
+  "Verdex Construction",
   "/updates/sound-apartments-right-of-way-maintenance-2026-07-12/",
   "/corridors/south-end/",
 ];
@@ -60,6 +62,10 @@ const soundForbidden = ["Request Current Pricing", "Sales Status", "North Flagle
 for (const phrase of soundForbidden) {
   if (soundHtml.toLowerCase().includes(phrase.toLowerCase())) findings.push(`${soundRoute}: contains condo-only language ${phrase}.`);
 }
+for (const phrase of ["Development Partner", "General Contractor"]) {
+  if (!source.includes(phrase)) findings.push(`Project-team presentation is missing: ${phrase}.`);
+}
+if (!JSON.stringify(model).includes("Verdex Construction")) findings.push("Public project model is missing the verified Verdex Construction credit.");
 
 const soundUpdateRoute = "/updates/sound-apartments-right-of-way-maintenance-2026-07-12/";
 const soundUpdateHtml = await fs.readFile(path.join(workspace, "dist", soundUpdateRoute.replace(/^\//, ""), "index.html"), "utf8").catch(() => "");

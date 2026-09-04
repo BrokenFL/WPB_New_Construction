@@ -213,12 +213,36 @@ function renderStaticRouteContent(route, payload) {
   if (route.path === "/corridors/") return renderCorridorsIndexRoute(route, payload);
   if (route.path === "/compare/") return renderCompareRoute(route, payload);
   if (route.path === "/about/") return renderAboutRoute(route);
+  if (route.path === "/privacy/") return renderPrivacyRoute(route);
   if (route.path === "/floorplans/") return renderFloorplansRoute(route, payload);
   if (route.path === "/answers/") return renderAnswersRoute(route, payload);
   if (route.path === "/updates/") return renderUpdatesIndex(route, payload);
   if (route.path === "/downtown-spotlight/") return renderDowntownSpotlightIndex(route, payload);
   if (route.path === "/market-notes/") return renderMarketNotesIndex(route, payload);
   return renderSimpleRoute(route);
+}
+
+function renderPrivacyRoute(route) {
+  return pageShell(
+    "privacy",
+    "How lead and site-use information is handled",
+    route.description,
+    `
+      <section>
+        <h2>Lead information</h2>
+        <p>Inquiry forms use the name, email, phone, project interest, and message a visitor chooses to submit so The Scott Gordon Group can respond. Do not submit sensitive financial records, identification documents, or confidential transaction documents through the form.</p>
+      </section>
+      <section>
+        <h2>Analytics</h2>
+        <p>When production analytics is enabled, the site may use Google Analytics to measure page, project, floorplan, comparison, article, and form-step activity. Analytics events exclude submitted contact details and message contents, omit URL query strings, and disable advertising-personalization signals.</p>
+        <p>Google Analytics may use browser storage. Production enablement must follow the applicable disclosure and consent requirements.</p>
+      </section>
+      <section>
+        <h2>Official policy and choices</h2>
+        <p><a href="https://www.elliman.com/privacy-policy" rel="noopener noreferrer">Review the Douglas Elliman privacy policy</a>. Do not submit personal information if you do not consent to its use for responding to the inquiry.</p>
+      </section>
+    `,
+  );
 }
 
 function routeKindForPath(routePath) {
