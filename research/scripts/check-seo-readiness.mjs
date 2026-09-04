@@ -84,6 +84,14 @@ if (!sitemap) {
   }
 }
 
+const builtTextFiles = await listTextFiles(distRoot);
+for (const filePath of builtTextFiles) {
+  const content = await fs.readFile(filePath, "utf8");
+  for (const match of content.matchAll(/href=["']([^"']*lead_capture_context[^"']*)["']/g)) {
+    findings.push(`${path.relative(workspace, filePath)} contains a crawlable attribution parameter: ${match[1]}`);
+  }
+}
+
 let apexNextCalled = false;
 const apexRedirect = await onRequest({
   request: new Request("https://wpbnewconstruction.com/projects/olara/?source=test"),
@@ -107,3 +115,13 @@ if (findings.length) {
 }
 
 console.log(`SEO readiness QA passed for ${requiredRoutes.length} routes.`);
+
+async function listTextFiles(root) {
+  const entries = await fs.readdir(root, { withFileTypes: true }).catch(() => []);
+  const nested = await Promise.all(entries.map(async (entry) => {
+    const entryPath = path.join(root, entry.name);
+    if (entry.isDirectory()) return listTextFiles(entryPath);
+    return /\.(?:html|js)$/i.test(entry.name) ? [entryPath] : [];
+  }));
+  return nested.flat();
+}
