@@ -5364,6 +5364,16 @@ function renderCorridorsFeatureCard(card: ReturnType<typeof corridorHubCards>[nu
 }
 
 function compareBuyerFit(project: FeaturedProject) {
+  const projectSpecificFit: Record<string, string> = {
+    olara: "Marina access, wellness, dining, and social energy.",
+    shorecrest: "Contemporary waterfront living at a more focused scale.",
+    "ritz-carlton-wpb": "Branded service and a deep amenity program.",
+    "alba-palm-beach": "Boutique waterfront scale and direct Intracoastal orientation.",
+    "mandarin-oriental": "Long-horizon branded service and future delivery.",
+    "rybovich-marina-redevelopment": "Waterfront-district and marina pipeline context.",
+    "rosewood-residences-west-palm-beach": "Early branded-residence pipeline monitoring.",
+  };
+  if (projectSpecificFit[project.id]) return projectSpecificFit[project.id];
   if (project.floorplans) return "Floor-plan-first buyer";
   if (project.corridorKey === "downtown") return "Walkability buyer";
   if (project.corridorKey === "north-flagler" || project.corridorKey === "south-flagler") return "Waterfront buyer";
@@ -5464,11 +5474,11 @@ function renderAuthorityComparisonTable(projects: FeaturedProject[]) {
   return `
     <div class="comparison-table-wrap">
       <table>
-        <thead><tr><th>Building</th><th>Status</th><th>Delivery</th><th>Floorplans</th><th>Buyer verification</th></tr></thead>
+        <thead><tr><th>Building</th><th>Status</th><th>Delivery</th><th>Pricing guidance</th><th>Floorplans</th><th>Best fit</th><th>Buyer verification</th></tr></thead>
         <tbody>${projects.map((project) => {
           const source = sourceFactForProject(project.id)?.facts;
           const floorplanProject = getFloorplanProject(project.id);
-          return `<tr><td><a href="${projectPath(project)}">${publicText(project.name)}</a></td><td>${publicText(source?.status || project.status || "Needs verification")}</td><td>${publicText(source?.completion || project.delivery || "Needs verification")}</td><td>${floorplanProject?.count ? `${floorplanProject.count} tracked records` : "Request current packet"}</td><td>${publicText(compareVerificationNeed(project))}</td></tr>`;
+          return `<tr><td><a href="${projectPath(project)}">${publicText(project.name)}</a></td><td>${publicText(source?.status || project.status || "Needs verification")}</td><td>${publicText(source?.completion || project.delivery || "Needs verification")}</td><td>${publicText(source?.pricing || project.price || "Request current guidance")}</td><td>${floorplanProject?.count ? `${floorplanProject.count} tracked records` : "Request current packet"}</td><td>${publicText(compareBuyerFit(project))}</td><td>${publicText(compareVerificationNeed(project))}</td></tr>`;
         }).join("")}</tbody>
       </table>
     </div>
@@ -5516,10 +5526,12 @@ function renderCorridorRouteView(section: CorridorSection) {
           <ul>
             ${corridorComparisonConsiderations(section.key).map((consideration) => `<li>${consideration}</li>`).join("")}
           </ul>
-          <a href="/inquire/?message=${encodeURIComponent(`I want help comparing ${section.label} projects.`)}" ${renderCtaTrackingAttrs("corridor_page", `${shortContactCtaLabel} for ${section.label} guidance`, { corridor: section.label, leadCaptureContext: "corridor" })}>${shortContactCtaLabel} for ${section.label} guidance <span aria-hidden="true">↗</span></a>
+          <a href="/inquire/" ${renderCtaTrackingAttrs("corridor_page", `${shortContactCtaLabel} for ${section.label} guidance`, { corridor: section.label, leadCaptureContext: "corridor" })}>${shortContactCtaLabel} for ${section.label} guidance <span aria-hidden="true">↗</span></a>
         </div>
       </section>
       ${renderCorridorAuthoritySections(section, projects)}
+      ${renderCorridorLatestUpdates(section, projects)}
+      ${renderCorridorConversionActions(section)}
       <section class="corridors-final-cta corridor-final-cta">
         <div>
           <h2>${longContactCtaHeadline}</h2>
@@ -5527,21 +5539,65 @@ function renderCorridorRouteView(section: CorridorSection) {
         </div>
         <a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("corridor_page", shortContactCtaLabel, { corridor: section.label, leadCaptureContext: "corridor" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
       </section>
-      <section class="project-sort-shell corridor-project-shell">
-        <div class="project-sort-header">
-          <div>
-            <p class="eyebrow">Corridor Projects</p>
-            <h2>${section.label} buildings currently tracked.</h2>
-            <p class="selected-filter-summary">These are the buildings assigned to ${section.label}. Return to all buildings when you want a citywide comparison.</p>
-          </div>
-          <a class="corridor-back-link" href="/buildings/">All projects <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="front-project-grid front-project-grid-static">
-          ${projects.map(renderFeaturedProject).join("")}
-        </div>
-      </section>
+      ${renderCorridorProjectDirectory(section, projects)}
     </div>
   `;
+}
+
+function renderCorridorProjectDirectory(section: CorridorSection, projects: FeaturedProject[]) {
+  const heading = (label: string, description: string, items: FeaturedProject[]) => `
+    <section class="project-sort-shell corridor-project-shell" aria-label="${escapeHtml(label)}">
+      <div class="project-sort-header">
+        <div><p class="eyebrow">Corridor Projects</p><h2>${escapeHtml(label)}</h2><p class="selected-filter-summary">${escapeHtml(description)}</p></div>
+        <a class="corridor-back-link" href="/buildings/">All projects <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="front-project-grid front-project-grid-static">${items.map(renderFeaturedProject).join("")}</div>
+    </section>`;
+  if (section.key !== "north-flagler") {
+    return heading(`${section.label} buildings currently tracked.`, `These are the buildings assigned to ${section.label}. Return to all buildings when you want a citywide comparison.`, projects);
+  }
+  const active = projects.filter((project) => project.projectType === "condo-active-sales");
+  const pipeline = projects.filter((project) => project.projectType === "condo-pipeline" || project.projectType === "mixed-use");
+  return [
+    heading("North Flagler active sales and construction.", "Compare currently active buildings by waterfront position, service model, pricing guidance, floorplan depth, and delivery timing.", active),
+    heading("North Flagler pipeline and planning watch.", "Track future supply separately from active inventory; verify approvals, launch status, program, and whether buyer materials have been released.", pipeline),
+  ].join("");
+}
+
+function renderCorridorLatestUpdates(section: CorridorSection, projects: FeaturedProject[]) {
+  const projectIds = new Set(projects.flatMap((project) => [project.id, ...projectCopySlugs(project.id)]));
+  const items = publishedExternalNews
+    .filter((item) => {
+      const corridorValues = [...item.relatedCorridorIds, ...item.relatedCorridors, item.relatedCorridor ?? "", item.corridorLabel ?? ""];
+      const directCorridor = corridorValues.some((value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").includes(section.key));
+      const directProject = [...item.relatedProjectIds, ...item.relatedProjectSlugs].some((id) => projectIds.has(id));
+      return directCorridor || directProject;
+    })
+    .sort((a, b) => newsSortTimestamp(b) - newsSortTimestamp(a))
+    .slice(0, 3);
+  if (!items.length) return "";
+  return `
+    <section class="section corridor-latest-updates" aria-label="Latest ${escapeHtml(section.label)} updates">
+      <div class="section-heading"><p class="eyebrow">Latest Corridor Updates</p><h2>Recent signals affecting ${publicText(section.label)}.</h2><p>Use these dated updates with the stable project guides; current sales, pricing, and availability still require direct confirmation.</p></div>
+      <div class="project-note-list">
+        ${items.map((item) => {
+          const article = updateArticleContent(item);
+          return `<article class="project-note-row"><div><span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span><strong>${publicText(item.title)}</strong><p>${publicText(article.excerpt)}</p><small>Source: ${publicText(item.sourceName)}</small></div><nav aria-label="${escapeHtml(item.title)} actions"><a href="${updatePath(item)}">Read Update</a></nav></article>`;
+        }).join("")}
+      </div>
+    </section>`;
+}
+
+function renderCorridorConversionActions(section: CorridorSection) {
+  if (section.key !== "north-flagler") return "";
+  return `
+    <section class="section corridor-conversion-actions" aria-label="Build a North Flagler shortlist">
+      <div class="section-heading"><p class="eyebrow">Next Step</p><h2>Build a focused North Flagler shortlist.</h2><p>Compare the active buildings side by side, or request current residence-specific pricing, availability, fees, incentives, and buyer packets.</p></div>
+      <div class="market-note-actions">
+        <a href="/compare/" ${renderCtaTrackingAttrs("corridor_page", "Compare North Flagler buildings", { corridor: section.label, leadCaptureContext: "north_flagler_compare" })}>Compare North Flagler buildings <span aria-hidden="true">→</span></a>
+        <a href="/inquire/" ${renderCtaTrackingAttrs("corridor_page", "Request current North Flagler pricing and packets", { corridor: section.label, leadCaptureContext: "north_flagler_packet" })}>Request current pricing and packets <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>`;
 }
 
 function renderCorridorAuthoritySections(section: CorridorSection, projects: FeaturedProject[]) {

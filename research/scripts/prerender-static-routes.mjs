@@ -675,9 +675,29 @@ function staticProjectPresentation(project, floorplans) {
 function renderCorridorRoute(route, payload, slug) {
   const corridor = corridorDetails[slug] || { label: route.title, summary: route.description };
   const projects = payload.projectFacts.filter((project) => normalize(project.area).includes(normalize(corridor.label)));
+  const activeProjects = projects.filter((project) => project.projectType === "condo-active-sales");
+  const pipelineProjects = projects.filter((project) => project.projectType === "condo-pipeline" || project.projectType === "mixed-use");
+  const latestUpdates = corridorUpdatesForStatic(payload, slug, projects);
+  const projectSections = slug === "north-flagler"
+    ? `
+      <section>
+        <h2>Active sales and construction</h2>
+        <p>These buildings have active sales or construction signals. Public pricing is guidance only; confirm residence-specific availability, fees, incentives, and contract terms from current materials.</p>
+        ${projectCards(activeProjects)}
+      </section>
+      <section>
+        <h2>Pipeline and planning watch</h2>
+        <p>These projects belong in a future-supply watchlist, not in the same inventory set as active sales. Confirm approvals, launch status, program, timing, and whether buyer materials have actually been released.</p>
+        ${projectCards(pipelineProjects)}
+      </section>`
+    : `<section><h2>Tracked projects in this corridor</h2>${projectCards(projects)}</section>`;
   return pageShell(
     `corridor-${slug}`,
-    slug === "south-end" ? "South End Developments" : `${corridor.label} Condos`,
+    slug === "south-end"
+      ? "South End Developments"
+      : slug === "north-flagler"
+        ? "North Flagler Condos & Waterfront New Construction"
+        : `${corridor.label} Condos`,
     route.description,
     `
       <section>
@@ -688,20 +708,51 @@ function renderCorridorRoute(route, payload, slug) {
         <h2>${publicText(corridor.label)} comparison table</h2>
         ${renderStaticComparisonTable(payload, projects)}
       </section>
-      <section>
-        <h2>Tracked projects in this corridor</h2>
-        ${projectCards(projects)}
-      </section>
+      ${projectSections}
       <section>
         <h2>Buyer fit and verification notes</h2>
         <p>${publicText(corridorBestFit(slug))} Confirm current pricing, availability, incentives, fees, floor-plan release status, stack, exposure, delivery timing, and contract terms before making a purchase decision.</p>
       </section>
+      ${renderCorridorUpdatesForStatic(latestUpdates, corridor)}
+      ${slug === "north-flagler" ? `
+        <section>
+          <h2>Build a North Flagler shortlist</h2>
+          <p><a href="/compare/">Compare North Flagler buildings side by side</a></p>
+          <p><a href="/inquire/">Request current pricing, availability, and buyer packets</a></p>
+        </section>` : ""}
       <section>
         <h2>FAQ</h2>
         ${corridorFaqForStatic(corridor, projects).map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
       </section>
     `,
   );
+}
+
+function corridorUpdatesForStatic(payload, slug, projects) {
+  const projectIds = new Set(projects.map((project) => project.projectId));
+  const normalizedSlug = normalize(slug);
+  return payload.approvedNews
+    .filter((item) => {
+      const corridorValues = [
+        ...(item.relatedCorridorIds ?? []),
+        ...(item.relatedCorridors ?? []),
+        item.relatedCorridor,
+        item.corridorLabel,
+      ].filter(Boolean).map(normalize);
+      return corridorValues.some((value) => value.includes(normalizedSlug)) || relatedProjectIds(item).some((id) => projectIds.has(id));
+    })
+    .sort((a, b) => Date.parse(b.sourcePublishedDate || b.publishedAt || 0) - Date.parse(a.sourcePublishedDate || a.publishedAt || 0))
+    .slice(0, 3);
+}
+
+function renderCorridorUpdatesForStatic(items, corridor) {
+  if (!items.length) return "";
+  return `
+    <section>
+      <h2>Latest ${publicText(corridor.label)} updates</h2>
+      ${items.map((item) => `<article><h3><a href="/updates/${escapeHtml(item.slug || item.id)}/">${publicText(item.title)}</a></h3><p>${publicText(item.summary || item.description || item.deck || "Source-linked corridor update.")}</p></article>`).join("")}
+    </section>
+  `;
 }
 
 function renderPipelineWatchlistStaticNote(project) {
@@ -1044,7 +1095,7 @@ function comparisonAuthorityProjects(payload) {
 function renderStaticComparisonTable(payload, projects) {
   return `
     <table>
-      <thead><tr><th>Building</th><th>Corridor</th><th>Status</th><th>Delivery</th><th>Floorplans</th><th>Best fit</th><th>Buyer focus</th></tr></thead>
+      <thead><tr><th>Building</th><th>Corridor</th><th>Status</th><th>Delivery</th><th>Pricing guidance</th><th>Floorplans</th><th>Best fit</th><th>Buyer focus</th></tr></thead>
       <tbody>
         ${projects.map((project) => {
           const floorplans = floorplanForProject(payload, project.projectId);
@@ -1053,6 +1104,7 @@ function renderStaticComparisonTable(payload, projects) {
             <td>${publicText(project.area || "West Palm Beach")}</td>
             <td>${publicText(project.facts?.status || "Needs verification")}</td>
             <td>${publicText(project.facts?.completion || "Needs verification")}</td>
+            <td>${publicText(project.facts?.pricing || "Request current guidance")}</td>
             <td>${floorplans?.count ? `${floorplans.count} records` : "Request current packet"}</td>
             <td>${publicText(staticBuyerFit(project))}</td>
             <td>${publicText(firstVerificationNote(project))}</td>
@@ -1064,6 +1116,16 @@ function renderStaticComparisonTable(payload, projects) {
 }
 
 function staticBuyerFit(project) {
+  const northFlaglerFits = {
+    olara: "Marina, wellness, and social-energy buyer",
+    shorecrest: "Contemporary waterfront buyer",
+    "ritz-carlton-wpb": "Branded-service and amenity buyer",
+    "alba-palm-beach": "Boutique waterfront buyer",
+    "mandarin-oriental": "Long-horizon branded-residence buyer",
+    "rybovich-marina": "Waterfront-district pipeline watcher",
+    "rosewood-residences-west-palm-beach": "Early branded-residence pipeline watcher",
+  };
+  if (northFlaglerFits[project.projectId]) return northFlaglerFits[project.projectId];
   if (floorplanSignals(project)) return "Floor-plan-first buyer";
   if (normalize(project.area).includes("downtown")) return "Walkability buyer";
   if (normalize(project.area) === "palm-beach") return "Palm Beach island buyer";
