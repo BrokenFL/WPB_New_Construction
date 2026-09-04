@@ -25,6 +25,25 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Spring 2026 estimated",
         "priorDeliveryGuidance": [],
+        "stories": "22",
+        "projectTeam": [
+          "BGI Companies",
+          "Blue Road Group",
+          "Spina O’Rourke + Partners"
+        ],
+        "amenitySummary": "Staffed lobby, private dining with wine storage, conference/business center, sunrise and sunset pools, TechnoGym fitness/yoga/Pilates, bocce, lawn chess, pet spa, valet, lounge/library, catering kitchen, simulator, screening room, spa, package room with cold storage.",
+        "residenceFeatures": [
+          "Oversized glass-framed terraces",
+          "Floor-to-ceiling hurricane-impact windows",
+          "Italkraft kitchens",
+          "Sub-Zero and Wolf appliances",
+          "Smart-home prewiring",
+          "Summer kitchens on terraces",
+          "Spa-style baths",
+          "Select townhomes with private plunge pool / hot tub",
+          "Private elevators and vestibules"
+        ],
+        "neighborhoodContext": "North Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -81,6 +100,31 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "2027",
         "priorDeliveryGuidance": [],
+        "stories": "26",
+        "projectTeam": [
+          "Savanna",
+          "Arquitectonica",
+          "Gabellini Sheppard"
+        ],
+        "amenitySummary": "Nearly 80,000 sq. ft. sixth-floor amenity deck, restaurant/epicurean marketplace, 12 guest suites, private five-slip dock, leisure and lap pools, fitness by The Wright Fit, recovery spa, onsen, plunge/vitality pools, meditation, sauna/steam, private dining, game room, library/veranda, simulator, private offices/coworking.",
+        "residenceFeatures": [
+          "Floor-to-ceiling windows",
+          "10-foot-deep terraces",
+          "European kitchens",
+          "Matte lacquer cabinetry",
+          "Calacatta marble counters/backsplash/island",
+          "Professional-grade appliances",
+          "Gas cooktops",
+          "Butler closets",
+          "Spa-style bathrooms",
+          "9’6” ceilings",
+          "Wide-plank oak floors",
+          "Italian porcelain terrace tile",
+          "Gaggenau / Bosch / True / Falmec kitchen package",
+          "Hansgrohe fixtures",
+          "Duravit toilets"
+        ],
+        "neighborhoodContext": "North Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -139,6 +183,19 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Confirm with sales team",
         "priorDeliveryGuidance": [],
+        "stories": "27",
+        "projectTeam": [
+          "Related Ross",
+          "Roger Ferris + Partners",
+          "Rottet Studio"
+        ],
+        "amenitySummary": "Rooftop pool, fitness/yoga/Pilates studios, men’s and women’s spas, steam, sauna, cold plunge, hot tub, private dining, cocktail lounge, card/game lounge, coworking, executive meeting space, golf simulator, package room with refrigerated storage.",
+        "residenceFeatures": [
+          "Private terraces",
+          "Reviewed floorplans show 2- and 3-bedroom homes",
+          "Modern waterfront layouts"
+        ],
+        "neighborhoodContext": "North Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -198,6 +255,22 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "2028",
         "priorDeliveryGuidance": [],
+        "stories": "27",
+        "projectTeam": [
+          "1717 N Flagler Drive Venture, LLC",
+          "Related Group",
+          "BH Group",
+          "Arquitectonica",
+          "Rockwell Group"
+        ],
+        "amenitySummary": "Pool deck, fitness and wellness center, spa, indoor/outdoor lounges, branded service positioning, exclusive beach club membership.",
+        "residenceFeatures": [
+          "Spa-like bathrooms",
+          "Smart home systems",
+          "Balconies and indoor-outdoor layouts",
+          "Open-plan layouts"
+        ],
+        "neighborhoodContext": "North Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -256,6 +329,28 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Confirm with sales team",
         "priorDeliveryGuidance": [],
+        "stories": "25",
+        "projectTeam": [
+          "Australian Properties Group",
+          "Al Adelson",
+          "Sympatico Real Estate",
+          "Bernardo Fort-Brescia / Arquitectonica",
+          "Arquitectonica Interiors"
+        ],
+        "amenitySummary": "Rooftop adult pool, family pool, private cabanas, fitness/yoga, spas, sauna, treatment rooms, private dining, chef’s kitchen, lounges, rooftop party room, board room, coworking, splash pad, dog run, golf simulator, outdoor theatre/event lawn, UPLIN Health concierge medical care.",
+        "residenceFeatures": [
+          "Snaidero Italian cabinetry",
+          "Sub-Zero and Wolf appliances",
+          "Waterworks fixtures",
+          "European white oak floors",
+          "Floor-to-ceiling windows",
+          "Smart building technology",
+          "Flow-through east and west terraces",
+          "Large private balconies",
+          "Flex room in every residence",
+          "Private elevator vestibule with butler’s pantry"
+        ],
+        "neighborhoodContext": "Clear Lake / west edge of downtown",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -315,6 +410,30 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "2029 estimated; construction expected to begin 2027 per reporting",
         "priorDeliveryGuidance": [],
+        "stories": "11",
+        "projectTeam": [
+          "The Ronto Group",
+          "Wheelock Street Capital",
+          "Swedroe Architecture",
+          "Lillian Wu Studio",
+          "Connor & Gaskins"
+        ],
+        "amenitySummary": "Rooftop resort pool, level 4 lap pool, Technogym wellness center, yoga lawn, hot/cold plunges, steam, sauna, spa treatment room, lounges, outdoor bar, hosting room, boardroom, coworking, pet grooming, bicycle storage, six guest suites, pickleball, bowling, golf simulator, games lounge, bocce.",
+        "residenceFeatures": [
+          "Italkraft cabinetry",
+          "Quartzite or quartz counters with waterfall island",
+          "Wolf and Sub-Zero appliances",
+          "Miele dishwasher",
+          "Badeloft tub",
+          "Kallista fixtures",
+          "Travertine primary bath surfaces",
+          "Toto toilets",
+          "Wide-plank hardwood or tile",
+          "Floor-to-ceiling impact glass",
+          "10-foot ceilings",
+          "Large terraces"
+        ],
+        "neighborhoodContext": "Nora District",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -374,6 +493,23 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "2027",
         "priorDeliveryGuidance": [],
+        "stories": "28",
+        "projectTeam": [
+          "Related Ross",
+          "Robert A.M. Stern Architects",
+          "Pembrooke & Ives",
+          "Rogers by Related Ross",
+          "Rogers General Contracting"
+        ],
+        "amenitySummary": "50,000 sq. ft. private-club amenities, lakefront pool/cabanas, private marina, vanishing-edge pool, 25-meter lap pool, spa, treatment rooms, beauty salon, hydrotherapy, fitness/Pilates/yoga, pickleball, restaurant, private dining, wine lounge, private bar, executive conference rooms, children’s facilities, golf simulator, Related Life programming.",
+        "residenceFeatures": [
+          "Estate-scale residences",
+          "Large all-season loggias",
+          "Some terraces 31 feet wide and select ones up to 23 feet deep",
+          "Select private elevator access",
+          "Full-floor and duplex penthouse options"
+        ],
+        "neighborhoodContext": "South Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -431,6 +567,28 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "2027 recommended; conflicts remain",
         "priorDeliveryGuidance": [],
+        "stories": "27",
+        "projectTeam": [
+          "Lakeview Hospitality Investments, LLC",
+          "Terra",
+          "Sympatico Real Estate",
+          "Arquitectonica",
+          "Meyer Davis"
+        ],
+        "amenitySummary": "Garden-level lap pool, cabanas, pool bar/lounge, hotel rooftop pool/bar, fitness, yoga, Pilates, Peloton, spa, sauna, steam, Bellini Café/Restaurant/Rooftop lounge, billiards, outdoor cinema, library/business lounge, Little C’s playground, bocce.",
+        "residenceFeatures": [
+          "Custom kitchens with Italian cabinetry",
+          "Wolf and Sub-Zero appliances",
+          "Porcelain tile floors",
+          "Floor-to-ceiling glass",
+          "High-speed internet prewire",
+          "Motorized shade provisions",
+          "Custom Mr. C app",
+          "Private terraces",
+          "Terrazzo countertops",
+          "Solid-core doors"
+        ],
+        "neighborhoodContext": "Downtown West Palm Beach / Okeechobee corridor",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -491,6 +649,16 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "2028 reported",
         "priorDeliveryGuidance": [],
+        "stories": "",
+        "projectTeam": [
+          "Kolter Urban",
+          "Perko Development",
+          "SB Architects / 10 Design",
+          "Hirsch Bedner Associates (HBA)"
+        ],
+        "amenitySummary": "Detailed amenity program not yet verified from official public materials.",
+        "residenceFeatures": [],
+        "neighborhoodContext": "South Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -547,6 +715,18 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Pipeline watch",
         "priorDeliveryGuidance": [],
+        "stories": "28",
+        "projectTeam": [
+          "Related Ross",
+          "Kohn Pedersen Fox",
+          "MAWD | March and White Design"
+        ],
+        "amenitySummary": "Launch reporting references more than 90,000 sq. ft. of indoor/outdoor amenities; detailed amenity program not yet verified.",
+        "residenceFeatures": [
+          "Private elevator access reported",
+          "Generous balconies reported"
+        ],
+        "neighborhoodContext": "South Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -603,6 +783,18 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "2031 anticipated",
         "priorDeliveryGuidance": [],
+        "stories": "31",
+        "projectTeam": [
+          "Great Gulf Group",
+          "Safdie Architects / Moshe Safdie"
+        ],
+        "amenitySummary": "Official high-level materials reference serene rooftop retreat, private waterfront pool, restorative wellness experiences, and Mandarin Oriental service.",
+        "residenceFeatures": [
+          "Private elevator access",
+          "Expansive wraparound terraces",
+          "Water and skyline views"
+        ],
+        "neighborhoodContext": "North Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -660,6 +852,16 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Projected 2028",
         "priorDeliveryGuidance": [],
+        "stories": "",
+        "projectTeam": [
+          "Mast Capital",
+          "Curated JCZM Development",
+          "OMA",
+          "Yabu Pushelberg"
+        ],
+        "amenitySummary": "Private porte cochère, fully serviced resort-style pool, curated social and recreation spaces, wellness center and spa with treatment rooms, cryotherapy, hammam, and meditation spaces.",
+        "residenceFeatures": [],
+        "neighborhoodContext": "Downtown West Palm Beach",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -717,6 +919,16 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Pipeline watch",
         "priorDeliveryGuidance": [],
+        "stories": "31",
+        "projectTeam": [
+          "BGI Companies",
+          "Blue Road Group",
+          "Spina O’Rourke + Partners",
+          "Carlos Ott"
+        ],
+        "amenitySummary": "Not verified; watchlist/project proposal stage.",
+        "residenceFeatures": [],
+        "neighborhoodContext": "North Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -772,6 +984,19 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Completed / recently completed; occupancy/resale status to verify",
         "priorDeliveryGuidance": [],
+        "stories": "25",
+        "projectTeam": [
+          "Two Roads Development",
+          "Alpha Blue Ventures",
+          "Arquitectonica",
+          "Jean-Louis Deniot"
+        ],
+        "amenitySummary": "Three levels of amenities including 75-ft lap pool with heated spa, outdoor dining/lounge, private dining for 24, great room, library, evening lounge, his/hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security/lobby attendant, valet, house cars, EV charging, concierge.",
+        "residenceFeatures": [
+          "Luxury waterfront residences",
+          "Full-floor six-bedroom penthouse referenced"
+        ],
+        "neighborhoodContext": "South Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -829,6 +1054,15 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Completed / opened to residents in 2023",
         "priorDeliveryGuidance": [],
+        "stories": "25",
+        "projectTeam": [
+          "Great Gulf",
+          "Hariri Pontarini Architects",
+          "Stantec"
+        ],
+        "amenitySummary": "Amenity/service list still needs refresh from resale/association sources.",
+        "residenceFeatures": [],
+        "neighborhoodContext": "South Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -899,6 +1133,16 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Pipeline watch",
         "priorDeliveryGuidance": [],
+        "stories": "25",
+        "projectTeam": [
+          "Related Ross",
+          "Wexford",
+          "13th Floor Investments",
+          "L&L Holding"
+        ],
+        "amenitySummary": "Formerly planned as a 25-story mixed-use project with apartments and commercial space; later reported as being repositioned as a 100–130 unit condominium tower.",
+        "residenceFeatures": [],
+        "neighborhoodContext": "Downtown West Palm Beach / Fern Street corridor",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -951,6 +1195,14 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Pipeline watch",
         "priorDeliveryGuidance": [],
+        "stories": "34 and 36 stories for initial two towers; future towers up to 445 ft reported",
+        "projectTeam": [
+          "Huizenga Holdings",
+          "Integra Investments"
+        ],
+        "amenitySummary": "Large-scale 19-acre marina redevelopment with waterfront condominium towers and marina context; detailed residential amenities not yet finalized publicly.",
+        "residenceFeatures": [],
+        "neighborhoodContext": "North Flagler / Rybovich waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -1003,6 +1255,15 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Timing not released",
         "priorDeliveryGuidance": [],
+        "stories": "27",
+        "projectTeam": [
+          "Related Group",
+          "BH Group",
+          "Arquitectonica"
+        ],
+        "amenitySummary": "Reported plan includes more than 13,000 sq. ft. of indoor amenities and a fifth-floor pool deck.",
+        "residenceFeatures": [],
+        "neighborhoodContext": "North Flagler waterfront",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -1055,6 +1316,22 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Timing not released",
         "priorDeliveryGuidance": [],
+        "stories": "5",
+        "projectTeam": [
+          "OKO Group",
+          "Cain International",
+          "OMA",
+          "Spina O'Rourke + Partners",
+          "GACHOT"
+        ],
+        "amenitySummary": "Oceanfront and lagoon setting within a landscaped low-rise campus; the full amenity program is not yet public.",
+        "residenceFeatures": [
+          "32 graciously scaled residences",
+          "Architecture by OMA",
+          "Interiors by GACHOT",
+          "Private terraces and landscaped oceanfront grounds"
+        ],
+        "neighborhoodContext": "Palm Beach South End / Condominium Row",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -1135,6 +1412,19 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Timing not released",
         "priorDeliveryGuidance": [],
+        "stories": "5",
+        "projectTeam": [
+          "Copperline Partners",
+          "Fairfax & Sammons Architects"
+        ],
+        "amenitySummary": "A private, low-density waterfront setting is shown in planning materials; the complete shared amenity program has not been released.",
+        "residenceFeatures": [
+          "Twelve connected villa-style residences",
+          "Italian coastal architectural references",
+          "Landscaped terraces and waterfront outdoor areas",
+          "Lake Worth Lagoon and Intracoastal frontage"
+        ],
+        "neighborhoodContext": "Palm Beach South End",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -1216,6 +1506,18 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Timing not released",
         "priorDeliveryGuidance": [],
+        "stories": "21",
+        "projectTeam": [
+          "Related Group",
+          "Sieger Suarez Architects"
+        ],
+        "amenitySummary": "A waterfront pool and private-elevator concept have been reported; the final amenity program requires verification.",
+        "residenceFeatures": [
+          "Low-density waterfront condominium format",
+          "Direct Intracoastal exposure",
+          "Private elevator access reported in earlier planning coverage; verify current plans"
+        ],
+        "neighborhoodContext": "North End / North Flagler",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -1284,6 +1586,20 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "2029 estimate",
         "priorDeliveryGuidance": [],
+        "stories": "26 proposed; review open",
+        "projectTeam": [
+          "Easton Street Capital",
+          "1789 Capital",
+          "SCB"
+        ],
+        "amenitySummary": "A private cultural club of roughly 7,000 square feet and a public market or cafe concept have been reported.",
+        "residenceFeatures": [
+          "Approximately 16 full-floor residences",
+          "One principal residence per residential level",
+          "Art-oriented private club concept",
+          "Terraces shown in concept materials"
+        ],
+        "neighborhoodContext": "Cultural Quarter / Norton Museum",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -1346,6 +1662,19 @@ export const publicProjectModel = {
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Timing not released",
         "priorDeliveryGuidance": [],
+        "stories": "31 floors each",
+        "projectTeam": [
+          "Terra",
+          "BH Group"
+        ],
+        "amenitySummary": "Third- and ninth-floor amenity areas, a pool deck, and rooftop amenities have been reported.",
+        "residenceFeatures": [
+          "Two waterfront condominium towers",
+          "Shared podium and amenity concept",
+          "Direct Intracoastal and Currie Park exposures",
+          "Approximately 4,385 square feet of planned retail"
+        ],
+        "neighborhoodContext": "Currie Park / North Flagler",
         "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
@@ -1387,6 +1716,80 @@ export const publicProjectModel = {
             "alt": "Labeled concept aerial of the two-tower proposal at 2085 North Flagler Drive across from Currie Park"
           }
         ]
+      }
+    },
+    {
+      "publicSlug": "the-sound-west-palm-beach",
+      "publicRoute": "/projects/the-sound-west-palm-beach/",
+      "corridorKey": "south-end",
+      "corridor": "South End / South Dixie",
+      "displayName": "The Sound Apartments",
+      "projectType": "rental",
+      "status": "Under Construction",
+      "delivery": "Under construction; 2026 delivery target",
+      "residences": "358",
+      "price": "Request current leasing information",
+      "facts": {
+        "projectAddress": "8111 South Dixie Highway, West Palm Beach, FL 33405",
+        "salesGalleryAddress": "",
+        "mailingAddress": "",
+        "planningParcelAddress": "",
+        "canonicalResidenceCount": "358",
+        "historicalResidenceCounts": [],
+        "expectedDeliveryCurrent": "Under construction; 2026 delivery target",
+        "priorDeliveryGuidance": [],
+        "stories": "8",
+        "projectTeam": [
+          "Woodfield Development",
+          "Flagler Realty & Development",
+          "Spina O’Rourke + Partners",
+          "Verdex Construction"
+        ],
+        "amenitySummary": "Coworking lounge, indoor pickleball courts, resort-style pool, top-level sky lounge, landscaped waterfront walkway, dock, and kayak or canoe launch were announced in March 2026.",
+        "residenceFeatures": [
+          "Rental apartments rather than for-sale condominiums",
+          "Studio, one-, two-, and three-bedroom homes",
+          "90 workforce housing units within the 358-unit community",
+          "Mixed-use South Dixie setting with neighborhood retail",
+          "Waterfront walkway and canal access"
+        ],
+        "neighborhoodContext": "South End / South Dixie",
+        "factEffectiveDate": "2026-09-04",
+        "lastVerifiedDate": "2026-09-04",
+        "sourcePriority": {
+          "displayName": "canonical",
+          "status": "canonical",
+          "delivery": "canonical",
+          "residences": "canonical",
+          "price": "canonical",
+          "address": "canonical"
+        }
+      },
+      "sourceUrls": [
+        "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions",
+        "https://verdex.com/the-sound-apartments/",
+        "https://www.citybiz.co/article/813518/woodfield-development-and-flagler-realty-development-advance-construction-on-the-sound-apartments-and-trader-joes-in-west-palm-beach/",
+        "https://floridayimby.com/2026/03/construction-nears-completion-on-the-sound-apartments-at-8111-south-dixie-highway-in-west-palm-beach.html",
+        "https://locations.traderjoes.com/fl/west-palm-beach/796/"
+      ],
+      "lookupAliases": [
+        "the-sound-west-palm-beach",
+        "/projects/the-sound-west-palm-beach/"
+      ],
+      "compareDatabaseId": "",
+      "compareDatabaseSlug": "",
+      "presentation": {
+        "rank": 25,
+        "deliveryYear": 2026,
+        "longitude": -80.0563543,
+        "latitude": 26.6452469,
+        "summary": "A 358-unit rental apartment community in West Palm Beach’s South End with 90 workforce units, neighborhood retail, and a waterfront public-realm program. This is rental housing, not for-sale condominium inventory.",
+        "floorplans": false,
+        "pageState": "Rental / Under Construction / Leasing Status to Verify",
+        "image": "",
+        "heroImage": "",
+        "mobileImage": "",
+        "galleryImages": []
       }
     }
   ]

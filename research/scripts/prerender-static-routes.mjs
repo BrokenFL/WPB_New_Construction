@@ -41,6 +41,11 @@ const corridorDetails = {
     summary:
       "South Flagler is the quieter waterfront lane south of downtown, where privacy, Palm Beach proximity, boutique scale, and delivered-building benchmarks matter as much as headline amenity lists.",
   },
+  "south-end": {
+    label: "South End / South Dixie",
+    summary:
+      "The South End and South Dixie corridor is a rental and mixed-use development lane where residents should compare leasing status, neighborhood retail, traffic patterns, and current delivery details.",
+  },
   "palm-beach": {
     label: "Palm Beach",
     summary:
@@ -497,6 +502,7 @@ function renderProjectRoute(route, payload, slug) {
   const facts = project.facts || {};
   const sources = sourceLinksForProject(project).slice(0, 6);
   const comparisons = comparisonProjectsForStatic(payload, project).slice(0, 4);
+  const relatedUpdates = payload.approvedNews.filter((item) => relatedProjectIds(item).includes(project.projectId)).slice(0, 4);
   const hasSourcedAmenities = sources.some((href) => /amenit/i.test(href));
   const cleanStatus = facts.status && !facts.status.toLowerCase().includes("candidate") ? facts.status : "Tracked project page";
 
@@ -515,6 +521,7 @@ function renderProjectRoute(route, payload, slug) {
         <p>${publicText(presentation.bottomLine)}</p>
       </section>
       ${renderPipelineWatchlistStaticNote(project)}
+      ${renderProjectTypeContextStatic(project)}
       <section data-project-section="facts">
         <h2>Key facts to verify</h2>
         <dl>
@@ -564,9 +571,14 @@ function renderProjectRoute(route, payload, slug) {
 
       <section data-project-section="sources">
         <h2>Sources and review date</h2>
-        <p>Facts on this page were last reviewed ${publicText(project.lastReviewedDate || "recently")}. Pricing, availability, incentives, fees, and contract terms can change.</p>
+        <p>Facts on this page were last reviewed ${publicText(project.lastReviewedDate || "recently")}. ${project.projectType === "rental" ? "Rents, concessions, availability, lease terms, and resident policies can change." : "Pricing, availability, incentives, fees, and contract terms can change."}</p>
         ${sources.length ? `<p>${sources.map((href) => renderStaticSourceLink(href, project.projectId)).join(" · ")}</p>` : ""}
       </section>
+
+      ${relatedUpdates.length ? `<section data-project-section="updates">
+        <h2>Latest project updates</h2>
+        <ul>${relatedUpdates.map((item) => `<li><a href="/updates/${safeHref(item.slug || item.id)}/">${publicText(item.title)}</a></li>`).join("")}</ul>
+      </section>` : ""}
 
       <section data-project-section="faq">
         <h2>FAQ</h2>
@@ -575,6 +587,25 @@ function renderProjectRoute(route, payload, slug) {
       </div>
     `,
   );
+}
+
+function renderProjectTypeContextStatic(project) {
+  if (project.projectId !== "the-sound-west-palm-beach") return "";
+  return `
+    <section>
+      <h2>Rental apartments, not condominiums</h2>
+      <p>The Sound is a 358-unit rental apartment community with 90 workforce housing units. It is not a for-sale condominium or ownership opportunity.</p>
+      <h3>Development timeline</h3>
+      <ul>
+        <li>March 2026: the development team reported that construction was nearing completion, with 2026 delivery targeted.</li>
+        <li>June 12, 2026: Trader Joe’s opened at 8111 South Dixie Highway.</li>
+        <li>July 6, 2026: the City Commission approved streetscape and right-of-way maintenance agreements tied to the project.</li>
+        <li>September 4, 2026 review: Verdex still described the project as under construction; live residential leasing status remained unconfirmed.</li>
+      </ul>
+      <h3>Amenities and South End context</h3>
+      <p>Announced amenities include a coworking lounge, indoor pickleball courts, a resort-style pool, a top-level sky lounge, a landscaped waterfront walkway, a dock, and a kayak or canoe launch. Trader Joe’s is now open at the same address, while the remaining retail lineup should be confirmed directly.</p>
+    </section>
+  `;
 }
 
 function staticProjectPresentation(project, floorplans) {
@@ -646,7 +677,7 @@ function renderCorridorRoute(route, payload, slug) {
   const projects = payload.projectFacts.filter((project) => normalize(project.area).includes(normalize(corridor.label)));
   return pageShell(
     `corridor-${slug}`,
-    `${corridor.label} Condos`,
+    slug === "south-end" ? "South End Developments" : `${corridor.label} Condos`,
     route.description,
     `
       <section>
@@ -713,6 +744,9 @@ function renderUpdateRoute(route, payload, slug) {
       .filter(Boolean),
   );
   const isDeckEcho = (value) => deckEchoes.has(String(value ?? "").trim().toLowerCase());
+  const relatedProjects = relatedProjectIds(item)
+    .map((projectId) => payload.projectFacts.find((project) => project.projectId === projectId))
+    .filter(Boolean);
   return pageShell(
     `update-${slug}`,
     item.title,
@@ -724,10 +758,19 @@ function renderUpdateRoute(route, payload, slug) {
         ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(stripImageTokens(section.body))}</p>${section.image ? `<figure class="market-note-inline-image"><img src="${safeHref(section.image)}" alt="${publicText(`${item.title}: ${section.heading}`)}" loading="lazy" decoding="async" /></figure>` : ""}</section>`).join("")}
         ${item.whyItMatters && !isDeckEcho(item.whyItMatters) ? `<section><h2>Why it matters</h2><p>${publicText(stripImageTokens(item.whyItMatters))}</p></section>` : ""}
         ${item.buyerContext && !isDeckEcho(item.buyerContext) ? `<section><h2>Buyer context</h2><p>${publicText(stripImageTokens(item.buyerContext))}</p></section>` : ""}
+        ${relatedProjects.length ? `<section><h2>Related project guide</h2><p>${relatedProjects.map((project) => `<a href="${projectPath(project)}">${publicText(project.name)}</a>`).join(" · ")}</p></section>` : ""}
         <section><h2>Source</h2><p><a href="${safeHref(item.canonicalUrl || item.sourceUrl || "#")}">${publicText(item.sourceName || "Original source")}</a>. Verify current project details before making a purchase decision.</p></section>
       </article>
     `,
   );
+}
+
+function relatedProjectIds(item) {
+  return [...new Set([
+    ...(item.relatedProjectIds || []),
+    ...(item.relatedProjectSlugs || []),
+    item.primaryProjectSlug,
+  ].filter(Boolean))];
 }
 
 function renderUpdatesIndex(route, payload) {
@@ -920,6 +963,7 @@ function publicProjectId(projectId) {
 function corridorKeyForProject(project) {
   const area = normalize(project.area);
   if (area.includes("south-flagler")) return "south-flagler";
+  if (area.includes("south-end") || area.includes("south-dixie")) return "south-end";
   if (area.includes("downtown")) return "downtown";
   if (area === "palm-beach" || area.includes("palm-beach-island")) return "palm-beach";
   return "north-flagler";
@@ -937,6 +981,7 @@ function corridorDirectoryPathForKey(key) {
 function corridorLabelForKey(key) {
   if (key === "north-flagler") return "North Flagler";
   if (key === "south-flagler") return "South Flagler";
+  if (key === "south-end") return "South End / South Dixie";
   if (key === "palm-beach") return "Palm Beach";
   return "Downtown West Palm Beach";
 }
@@ -1037,6 +1082,7 @@ function corridorBestFit(slug) {
   const key = slug === "downtown-west-palm-beach" ? "downtown" : slug;
   if (key === "north-flagler") return "North Flagler is best for waterfront buyers who want the deepest active comparison set.";
   if (key === "south-flagler") return "South Flagler is best for buyers who want quieter waterfront positioning and Palm Beach proximity.";
+  if (key === "south-end") return "The South End is best for renters and residents prioritizing South Dixie retail access and newer mixed-use development.";
   if (key === "palm-beach") return "Palm Beach is best for buyers prioritizing an island address, low-density scale, and direct ocean or lagoon setting.";
   return "Downtown West Palm Beach is best for buyers who prioritize walkability, restaurants, district energy, and hotel-style service.";
 }
@@ -1098,6 +1144,24 @@ function comparisonProjectsForStatic(payload, project) {
 }
 
 function projectFaqForStatic(project, floorplans) {
+  if (project.projectType === "rental") {
+    return [
+      {
+        question: `Is ${project.name} a condominium or rental?`,
+        answer: `${project.name} is a rental apartment community, not a for-sale condominium. Current availability and lease terms should be confirmed directly.`,
+      },
+      {
+        question: `Are current rents and floorplans available for ${project.name}?`,
+        answer: floorplans?.count
+          ? `${floorplans.count} canonical layouts are tracked for orientation, but current rents, concessions, and unit availability require direct leasing confirmation.`
+          : "No complete public leasing floorplan set is confirmed in this catalog. Request current layouts, rents, concessions, and unit availability directly.",
+      },
+      {
+        question: `What should renters verify at ${project.name}?`,
+        answer: "Confirm current rent, concessions, available units, lease length, deposits, pet policies, parking, amenities, and move-in timing.",
+      },
+    ];
+  }
   return [
     {
       question: `What is the bottom line on ${project.name}?`,
@@ -1141,9 +1205,7 @@ function renderStaticSourceLink(href, projectId) {
 
 function buildRouteSchema(route, payload, canonical) {
   const routeKind = routeKindForPath(route.path);
-  const schemaDescription = routeKind.type === "project"
-    ? `${route.title.replace(/\s+\|\s+.*$/, "")} buyer guide with source-backed project context and verification notes.`
-    : route.description;
+  const schemaDescription = route.description;
   const baseGraph = [
     {
       "@type": "Organization",
@@ -1243,7 +1305,9 @@ function projectSchema(project, payload) {
     "@id": `${baseUrl}${projectPath(project)}#project`,
     name: safeFields.name,
     url: safeFields.url,
-    description: `${safeFields.name} buyer guide with source-backed project context and verification notes.`,
+    description: project.projectType === "rental"
+      ? `${safeFields.name} rental community guide with source-backed development, amenity, neighborhood, and leasing-verification context.`
+      : `${safeFields.name} buyer guide with source-backed project context and verification notes.`,
     address: safeFields.address ? {
       "@type": "PostalAddress",
       streetAddress: safeFields.address,

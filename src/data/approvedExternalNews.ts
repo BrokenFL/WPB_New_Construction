@@ -1108,11 +1108,16 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "newsletterCta": "Read the article",
     "query": "West Palm Beach approves maintenance agreements for The Sound Apartments on South Dixie",
     "category": "development",
-    "relatedProjectIds": [],
+    "relatedProjectIds": [
+      "the-sound-west-palm-beach"
+    ],
     "relatedCorridorIds": [],
-    "relatedProjectSlugs": [],
+    "relatedProjectSlugs": [
+      "the-sound-west-palm-beach"
+    ],
     "relatedCorridors": [],
-    "corridorLabel": "West Palm Beach",
+    "corridorLabel": "South End / South Dixie",
+    "primaryProjectSlug": "the-sound-west-palm-beach",
     "imagePath": "/assets/editorial/preconstruction-condo-document-review.jpg",
     "sourceLinks": [
       {

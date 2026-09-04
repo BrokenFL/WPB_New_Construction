@@ -44,6 +44,31 @@ for (const label of requiredPolicyLabels) {
   if (!source.includes(label)) findings.push(`Project presentation policy is missing: ${label}.`);
 }
 
+const soundRoute = "/projects/the-sound-west-palm-beach/";
+const soundHtml = await fs.readFile(path.join(workspace, "dist", soundRoute.replace(/^\//, ""), "index.html"), "utf8").catch(() => "");
+const soundRequired = [
+  "Rental apartments, not condominiums",
+  "Trader Joe’s",
+  "Current rents",
+  "/updates/sound-apartments-right-of-way-maintenance-2026-07-12/",
+  "/corridors/south-end/",
+];
+for (const phrase of soundRequired) {
+  if (!soundHtml.toLowerCase().includes(phrase.toLowerCase())) findings.push(`${soundRoute}: missing rental-route evidence ${phrase}.`);
+}
+const soundForbidden = ["Request Current Pricing", "Sales Status", "North Flagler", "current buyer packet", "condo buyer"];
+for (const phrase of soundForbidden) {
+  if (soundHtml.toLowerCase().includes(phrase.toLowerCase())) findings.push(`${soundRoute}: contains condo-only language ${phrase}.`);
+}
+
+const soundUpdateRoute = "/updates/sound-apartments-right-of-way-maintenance-2026-07-12/";
+const soundUpdateHtml = await fs.readFile(path.join(workspace, "dist", soundUpdateRoute.replace(/^\//, ""), "index.html"), "utf8").catch(() => "");
+if (!soundUpdateHtml.includes(soundRoute)) findings.push(`${soundUpdateRoute}: missing link back to the canonical project page.`);
+
+const southEndRoute = "/corridors/south-end/";
+const southEndHtml = await fs.readFile(path.join(workspace, "dist", southEndRoute.replace(/^\//, ""), "index.html"), "utf8").catch(() => "");
+if (!southEndHtml.includes(soundRoute)) findings.push(`${southEndRoute}: missing The Sound project link.`);
+
 if (findings.length) {
   console.error("Project-type presentation findings:");
   findings.forEach((finding) => console.error(`- ${finding}`));

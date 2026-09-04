@@ -1576,10 +1576,13 @@ function buildProjectFacts(projects) {
         planningParcelAddress: project.facts.planningParcelAddress,
         status: project.status,
         residences: project.facts.canonicalResidenceCount,
-        stories: source?.normalizedFacts?.stories || "",
+        stories: project.facts.stories || source?.normalizedFacts?.stories || "",
         completion: project.facts.expectedDeliveryCurrent,
         pricing: project.price,
-        team: source?.normalizedFacts?.team || "",
+        team: project.facts.projectTeam.join("; ") || source?.normalizedFacts?.team || "",
+        amenities: project.facts.amenitySummary,
+        residenceFeatures: project.facts.residenceFeatures,
+        neighborhoodContext: project.facts.neighborhoodContext,
         effectiveDate: project.facts.factEffectiveDate,
       },
       sources: project.sourceUrls.map((url) => ({ url })),
@@ -2599,6 +2602,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - North Flagler condos: /corridors/north-flagler/
 - Downtown West Palm Beach condos: /corridors/downtown-west-palm-beach/
 - South Flagler condos: /corridors/south-flagler/
+- South End and South Dixie developments: /corridors/south-end/
 - Palm Beach condos: /corridors/palm-beach/
 
 ## Priority Project Pages
@@ -2617,6 +2621,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Fern & Gardenia / Related Ross Fern Street Project: /projects/fern-and-gardenia-related-ross-fern-street/
 - Rosewood Residences West Palm Beach: /projects/rosewood-residences-west-palm-beach/
 - Rybovich Marina Redevelopment: /projects/rybovich-marina-redevelopment/
+- The Sound Apartments: /projects/the-sound-west-palm-beach/
 
 ## Floorplan Coverage
 
@@ -2686,10 +2691,11 @@ function buildPrerenderRoutes() {
   );
   const projectRoutes = readPublishedProjectRecords().map((project) => {
     const copy = copyByProjectId.get(project.publicSlug);
+    const isTheSound = project.publicSlug === "the-sound-west-palm-beach";
     return [
       project.publicSlug,
-      copy?.seoTitle || `${project.displayName} | WPB New Construction`,
-      copy?.metaDescription || project.presentation?.summary || `${project.displayName} project guide and buyer verification notes.`,
+      isTheSound ? "The Sound Apartments West Palm Beach | Rental Guide" : copy?.seoTitle || `${project.displayName} | WPB New Construction`,
+      isTheSound ? "Track The Sound Apartments at 8111 South Dixie Highway: rental status, 358 apartments, amenities, Trader Joe’s, timeline, and leasing details to verify." : copy?.metaDescription || project.presentation?.summary || `${project.displayName} project guide and buyer verification notes.`,
       copy?.showcase?.heroImage?.src || project.presentation?.heroImage || project.presentation?.image || siteMeta.defaultImage,
     ];
   });
@@ -2805,6 +2811,12 @@ function buildPrerenderRoutes() {
       ogImage: siteMeta.defaultImage,
     },
     {
+      path: "/corridors/south-end/",
+      title: "South End West Palm Beach Developments | Area Guide",
+      description: "Track South End West Palm Beach rental and mixed-use development by leasing status, neighborhood retail, delivery, and resident fit.",
+      ogImage: siteMeta.defaultImage,
+    },
+    {
       path: "/corridors/palm-beach/",
       title: "Palm Beach New Construction Condos | Buyer Guide",
       description: "Track Palm Beach island new-construction and approved condo projects by coastal setting, scale, readiness, and open buyer-verification questions.",
@@ -2866,6 +2878,7 @@ function projectTitle(projectId) {
     "rybovich-marina-redevelopment": "Rybovich Marina Redevelopment",
     "south-flagler-house": "South Flagler House",
     "nora-house": "NORA House",
+    "the-sound-west-palm-beach": "The Sound Apartments",
   }[projectId] ?? projectId;
 }
 
@@ -2908,6 +2921,7 @@ function renderSitemap(projects) {
     { pathPart: "corridors/north-flagler/", priority: "0.8", lastmod: corridorDate("north-flagler") },
     { pathPart: "corridors/downtown-west-palm-beach/", priority: "0.8", lastmod: corridorDate("downtown") },
     { pathPart: "corridors/south-flagler/", priority: "0.8", lastmod: corridorDate("south-flagler") },
+    { pathPart: "corridors/south-end/", priority: "0.8", lastmod: corridorDate("south-end") },
     { pathPart: "corridors/palm-beach/", priority: "0.8", lastmod: corridorDate("palm-beach") },
     { pathPart: "updates/", priority: "0.8", lastmod: maxDate(...updateRoutes.map((item) => item.lastmod)) },
     ...updateRoutes.map((item) => ({ pathPart: `updates/${item.slug || item.id}/`, priority: "0.8", lastmod: item.lastmod })),

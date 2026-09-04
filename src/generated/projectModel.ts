@@ -30,6 +30,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "alba-palm-beach",
       "compareDatabaseSlug": "alba-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "alba-palm-beach",
         "/projects/alba-palm-beach/"
@@ -91,6 +92,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "olara-wpb",
       "compareDatabaseSlug": "olara-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "olara",
         "/projects/olara/",
@@ -154,6 +156,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "shorecrest-wpb",
       "compareDatabaseSlug": "shorecrest-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "shorecrest",
         "/projects/shorecrest/",
@@ -220,6 +223,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "ritz-carlton-residences-west-palm-beach",
       "compareDatabaseSlug": "ritz-carlton-residences-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "ritz-carlton-wpb",
         "/projects/ritz-carlton-wpb/",
@@ -284,6 +288,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "berkeley-wpb",
       "compareDatabaseSlug": "the-berkeley-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "berkeley",
         "/projects/berkeley/",
@@ -351,6 +356,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "nora-house-wpb",
       "compareDatabaseSlug": "nora-house-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "nora-house",
         "/projects/nora-house/",
@@ -417,6 +423,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "south-flagler-house",
       "compareDatabaseSlug": "south-flagler-house",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "south-flagler-house",
         "/projects/south-flagler-house/",
@@ -485,6 +492,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "mr-c-residences-wpb",
       "compareDatabaseSlug": "mr-c-residences-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "mr-c",
         "/projects/mr-c/",
@@ -552,6 +560,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "maison-dor-south-flagler",
       "compareDatabaseSlug": "maison-dor-south-flagler",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "maison-dor",
         "/projects/maison-dor/",
@@ -614,6 +623,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "edgeworth-wpb",
       "compareDatabaseSlug": "edgeworth-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "edgeworth",
         "/projects/edgeworth/",
@@ -680,6 +690,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "mandarin-oriental-residences-wpb",
       "compareDatabaseSlug": "mandarin-oriental-residences-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "mandarin-oriental",
         "/projects/mandarin-oriental/",
@@ -743,6 +754,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "banyan-tree-residences-wpb",
       "compareDatabaseSlug": "banyan-tree-residences-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "banyan-tree",
         "/projects/banyan-tree/",
@@ -805,6 +817,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "",
       "compareDatabaseSlug": "",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "alba-reserve",
         "/projects/alba-reserve/"
@@ -866,6 +879,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "forte-on-flagler",
       "compareDatabaseSlug": "forte-on-flagler",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "forte-on-flagler",
         "/projects/forte-on-flagler/"
@@ -929,6 +943,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "la-clara-wpb",
       "compareDatabaseSlug": "la-clara-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "la-clara",
         "/projects/la-clara/",
@@ -1004,6 +1019,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "",
       "compareDatabaseSlug": "",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "fern-and-gardenia-related-ross-fern-street",
         "/projects/fern-and-gardenia-related-ross-fern-street/",
@@ -1062,6 +1078,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "",
       "compareDatabaseSlug": "",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "rybovich-marina-redevelopment",
         "/projects/rybovich-marina-redevelopment/",
@@ -1120,6 +1137,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "rosewood-residences-west-palm-beach",
       "compareDatabaseSlug": "rosewood-residences-west-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "rosewood-residences-west-palm-beach",
         "/projects/rosewood-residences-west-palm-beach/",
@@ -1176,6 +1194,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "olin-palm-beach",
       "compareDatabaseSlug": "olin-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "olin-palm-beach",
         "/projects/olin-palm-beach/"
@@ -1265,6 +1284,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "3031-s-ocean-palm-beach",
       "compareDatabaseSlug": "3031-s-ocean-palm-beach",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "3031-s-ocean-palm-beach",
         "/projects/3031-s-ocean-palm-beach/"
@@ -1355,6 +1375,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "apogee-residences-wpb",
       "compareDatabaseSlug": "apogee-residences-wpb",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "apogee-residences-wpb",
         "/projects/apogee-residences-wpb/",
@@ -1434,6 +1455,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "201-arkona-court",
       "compareDatabaseSlug": "201-arkona-court",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "201-arkona-court",
         "/projects/201-arkona-court/"
@@ -1506,6 +1528,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "2085-n-flagler-terra-bh",
       "compareDatabaseSlug": "2085-n-flagler-terra-bh",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "2085-north-flagler",
         "/projects/2085-north-flagler/",
@@ -1556,6 +1579,74 @@ export const canonicalProjectModel = {
           }
         ]
       }
+    },
+    {
+      "canonicalId": "the-sound-west-palm-beach",
+      "publicSlug": "the-sound-west-palm-beach",
+      "publicRoute": "/projects/the-sound-west-palm-beach/",
+      "corridorKey": "south-end",
+      "corridor": "South End / South Dixie",
+      "publicationState": "published",
+      "displayName": "The Sound Apartments",
+      "status": "Under Construction",
+      "delivery": "Under construction; 2026 delivery target",
+      "residences": "358",
+      "price": "Request current leasing information",
+      "address": "8111 South Dixie Highway, West Palm Beach, FL 33405",
+      "developmentStage": "under_construction_rental",
+      "pageType": "rental_project_page",
+      "siteGroup": "rental_under_construction",
+      "sourceCatalogIds": [
+        "the-sound-west-palm-beach"
+      ],
+      "compareDatabaseId": "",
+      "compareDatabaseSlug": "",
+      "lastVerifiedDate": "2026-09-04",
+      "aliases": [
+        "the-sound-west-palm-beach",
+        "/projects/the-sound-west-palm-beach/",
+        "the-sound-apartments",
+        "sound-apartments"
+      ],
+      "collapsedSourceCatalogIds": [],
+      "mergedInto": "",
+      "humanReviewRequired": false,
+      "confidenceLevel": "high",
+      "conflicts": [
+        "Project sources describe the retail program differently: Verdex lists a 21,000-square-foot neighborhood grocer with additional retail, while the March 2026 developer announcement describes 19,000 square feet of outparcel retail including a 15,000-square-foot Trader Joe’s lease."
+      ],
+      "schemaBlockedFields": [],
+      "gaps": [
+        "Current rents, concessions, live unit availability, lease terms, resident policies, exact move-in timing, parking details, and final retail lineup"
+      ],
+      "sourceUrls": [
+        "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions",
+        "https://verdex.com/the-sound-apartments/",
+        "https://www.citybiz.co/article/813518/woodfield-development-and-flagler-realty-development-advance-construction-on-the-sound-apartments-and-trader-joes-in-west-palm-beach/",
+        "https://floridayimby.com/2026/03/construction-nears-completion-on-the-sound-apartments-at-8111-south-dixie-highway-in-west-palm-beach.html",
+        "https://locations.traderjoes.com/fl/west-palm-beach/796/"
+      ],
+      "fieldSources": {
+        "displayName": "canonical",
+        "status": "canonical",
+        "delivery": "canonical",
+        "residences": "canonical",
+        "price": "canonical",
+        "address": "canonical"
+      },
+      "presentation": {
+        "rank": 25,
+        "deliveryYear": 2026,
+        "longitude": -80.0563543,
+        "latitude": 26.6452469,
+        "summary": "A 358-unit rental apartment community in West Palm Beach’s South End with 90 workforce units, neighborhood retail, and a waterfront public-realm program. This is rental housing, not for-sale condominium inventory.",
+        "floorplans": false,
+        "pageState": "Rental / Under Construction / Leasing Status to Verify",
+        "image": "",
+        "heroImage": "",
+        "mobileImage": "",
+        "galleryImages": []
+      }
     }
   ],
   "retiredProjects": [
@@ -1580,6 +1671,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "",
       "compareDatabaseSlug": "",
+      "lastVerifiedDate": "2026-09-01",
       "aliases": [
         "currie-park-towers-jeff-greene",
         "/projects/currie-park-towers-jeff-greene/",

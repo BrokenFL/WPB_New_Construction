@@ -61,7 +61,7 @@ type ProjectFact = {
   note?: string;
 };
 
-type CorridorKey = "north-flagler" | "downtown" | "south-flagler" | "palm-beach";
+type CorridorKey = "north-flagler" | "downtown" | "south-flagler" | "south-end" | "palm-beach";
 type PublicProjectType = "condo-active-sales" | "condo-pipeline" | "rental" | "office" | "hotel-residences" | "mixed-use" | "completed-comparable";
 
 type FeaturedProject = {
@@ -533,6 +533,7 @@ const corridorRoutePaths: Record<string, CorridorKey> = {
   "/corridors/downtown-west-palm-beach/": "downtown",
   "/corridors/downtown/": "downtown",
   "/corridors/south-flagler/": "south-flagler",
+  "/corridors/south-end/": "south-end",
   "/corridors/palm-beach/": "palm-beach",
 };
 
@@ -684,6 +685,7 @@ const projectFilters: ProjectFilter[] = [
   { key: "all", label: "All" },
   { key: "north-flagler", label: "North Flagler" },
   { key: "south-flagler", label: "South Flagler" },
+  { key: "south-end", label: "South End" },
   { key: "downtown", label: "Downtown" },
   { key: "palm-beach", label: "Palm Beach" },
   { key: "active-sales", label: "Active Sales" },
@@ -700,6 +702,7 @@ const projectCorridorFilters: ProjectFilter[] = [
   { key: "all", label: "All Corridors" },
   { key: "north-flagler", label: "North Flagler" },
   { key: "south-flagler", label: "South Flagler" },
+  { key: "south-end", label: "South End" },
   { key: "downtown", label: "Downtown" },
   { key: "palm-beach", label: "Palm Beach" },
 ];
@@ -756,6 +759,14 @@ const corridorSections: CorridorSection[] = [
     reviewNote: "Southern waterfront benchmark for buyers comparing scale, privacy, and Palm Beach proximity.",
     description:
       "South Flagler is an established luxury waterfront corridor known for its proximity to Palm Beach Island and broad Intracoastal views. Buyers typically compare architecture, residence size, privacy, service, and whether a completed building or new launch better fits the ownership plan.",
+  },
+  {
+    key: "south-end",
+    label: "South End",
+    detail: "The Sound Apartments and South Dixie context",
+    reviewNote: "A mixed-use and rental-development lane that stays separate from South Flagler condominium inventory.",
+    description:
+      "West Palm Beach’s South End and South Dixie corridor combine established neighborhoods with newer rental housing, neighborhood retail, and canal-side public-realm improvements. Residents should compare leasing status, daily drive patterns, retail delivery, and proximity to both central West Palm Beach and Lake Worth Beach.",
   },
   {
     key: "palm-beach",
@@ -3931,12 +3942,14 @@ function routeSeoDetails(
     "north-flagler": "North Flagler Condos | West Palm Beach Buyer Guide",
     downtown: "Downtown West Palm Beach Condos | Buyer Guide",
     "south-flagler": "South Flagler Condos | West Palm Beach Buyer Guide",
+    "south-end": "South End West Palm Beach Developments | Area Guide",
     "palm-beach": "Palm Beach New Construction Condos | Buyer Guide",
   };
   const corridorDescriptions: Record<CorridorKey, string> = {
     "north-flagler": "Compare North Flagler new-construction condos by waterfront position, Palm Beach proximity, floor plans, status, and current availability questions.",
     downtown: "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
     "south-flagler": "Compare South Flagler waterfront condo projects by privacy, boutique scale, Palm Beach views, floor plans, and current availability checks.",
+    "south-end": "Track South End West Palm Beach rental and mixed-use development by leasing status, neighborhood retail, delivery, and resident fit.",
     "palm-beach": "Track Palm Beach island condo projects by coastal setting, low-density scale, approval status, and current buyer-verification needs.",
   };
   const routeTitles: Record<string, string> = {
@@ -4657,7 +4670,9 @@ function buildProjectSchema(project: FeaturedProject) {
       : {}),
     latitude: project.latitude,
     longitude: project.longitude,
-    description: `${schemaFacts.safeFields.name} buyer guide with source-backed project context and verification notes.`,
+    description: project.projectType === "rental"
+      ? `${schemaFacts.safeFields.name} rental community guide with source-backed development, amenity, neighborhood, and leasing-verification context.`
+      : `${schemaFacts.safeFields.name} buyer guide with source-backed project context and verification notes.`,
     url: schemaFacts.safeFields.url,
     image: project.image ? `${siteMeta.baseUrl}${project.image}` : undefined,
     areaServed: `${projectLocality}, Florida`,
@@ -4671,7 +4686,7 @@ function buildProjectSchema(project: FeaturedProject) {
     subjectOf: [
       {
         "@type": "WebPage",
-        name: "Buyer Resources",
+        name: project.projectType === "rental" ? "Leasing Resources" : "Buyer Resources",
         url: `${siteMeta.baseUrl}${projectPath(project)}#project-resources-${project.id}`,
       },
       {
@@ -4747,6 +4762,7 @@ function homepageCorridorCopy(key: CorridorKey) {
   return {
     "north-flagler": "Waterfront redevelopment, marina access, and a residential feel close to downtown.",
     "south-flagler": "Palm Beach views, privacy, and a quieter waterfront setting.",
+    "south-end": "Rental housing, neighborhood retail, and South Dixie convenience.",
     downtown: "Walkability, restaurants, culture, and NORA nearby.",
     "palm-beach": "Island scarcity, low-density residences, and ocean-to-lagoon settings.",
   }[key];
@@ -5080,12 +5096,13 @@ function corridorPath(key: CorridorKey) {
 }
 
 function corridorDirectoryPath(key: CorridorKey) {
-  return `/buildings/?filter=${key}`;
+  return corridorPath(key);
 }
 
 function corridorImageId(key: CorridorKey) {
   if (key === "north-flagler") return "flagler-waterfront-corridor";
   if (key === "south-flagler") return "south-flagler-corridor";
+  if (key === "south-end") return "south-flagler-corridor";
   if (key === "palm-beach") return "wpb-geography-map-hero";
   return "rosemary-square-corridor";
 }
@@ -5093,6 +5110,7 @@ function corridorImageId(key: CorridorKey) {
 function corridorDisplayLabel(key: CorridorKey) {
   if (key === "north-flagler") return "NORTH FLAGLER";
   if (key === "south-flagler") return "SOUTH FLAGLER";
+  if (key === "south-end") return "SOUTH END / SOUTH DIXIE";
   if (key === "palm-beach") return "PALM BEACH";
   return "DOWNTOWN / ROSEMARY";
 }
@@ -5113,6 +5131,11 @@ function corridorBuyerQuestions(key: CorridorKey) {
       "Do you want a quieter waterfront address over urban walkability?",
       "How important are Palm Beach views and proximity?",
       "Are you comparing boutique privacy or larger amenity depth?",
+    ],
+    "south-end": [
+      "Are you comparing rental housing rather than condominium ownership?",
+      "How important are South Dixie retail and daily errands?",
+      "What current leasing terms and move-in timing need direct confirmation?",
     ],
     "palm-beach": [
       "Do you want an island address rather than bridge access from West Palm Beach?",
@@ -5140,6 +5163,11 @@ function corridorComparisonConsiderations(key: CorridorKey) {
       "Residence size, layout, and terrace depth",
       "Service level, privacy, and long-term positioning",
     ],
+    "south-end": [
+      "Current rental availability, rents, and concessions",
+      "South Dixie traffic and neighborhood retail access",
+      "Delivery status, parking, and canal-side public realm",
+    ],
     "palm-beach": [
       "Ocean, lagoon, and coastal exposure",
       "Approval status and construction readiness",
@@ -5152,6 +5180,7 @@ function corridorComparisonConsiderations(key: CorridorKey) {
 function corridorPageHeadline(key: CorridorKey) {
   if (key === "north-flagler") return "North Flagler Waterfront Living";
   if (key === "south-flagler") return "South Flagler Waterfront Residences";
+  if (key === "south-end") return "South End West Palm Beach Development";
   if (key === "palm-beach") return "Palm Beach Island Residences";
   return "Downtown West Palm Beach Living";
 }
@@ -5449,6 +5478,8 @@ function renderAuthorityComparisonTable(projects: FeaturedProject[]) {
 function corridorBestFit(key: CorridorKey) {
   if (key === "north-flagler") return "Waterfront shortlist with the most active comparison depth.";
   if (key === "downtown") return "Walkability, restaurants, district energy, and hotel-style service.";
+  if (key === "south-end") return "Renters and residents prioritizing South Dixie retail access and newer mixed-use development.";
+  if (key === "palm-beach") return "Island ownership, low-density scale, and ocean or lagoon settings.";
   return "Quieter waterfront ownership, privacy, and Palm Beach proximity.";
 }
 
@@ -7765,6 +7796,56 @@ function renderProjectRelatedNews(project: FeaturedProject) {
   `;
 }
 
+function renderProjectTypeContext(project: FeaturedProject) {
+  if (project.projectType !== "rental") return "";
+  const sourceFact = sourceFactForProject(project.id);
+  const facts = sourceFact?.facts;
+  const features = facts?.residenceFeatures ?? [];
+  const sources = projectSourceNoteLinks(sourceFact).slice(0, 6);
+  return `
+    <section class="section project-type-context project-rental-context" aria-label="${escapeHtml(project.name)} rental and neighborhood context">
+      <div class="section-heading">
+        <p class="eyebrow">Rental, Not Ownership</p>
+        <h2>${escapeHtml(project.name)} is a rental apartment community.</h2>
+        <p>This page tracks leasing and neighborhood context. It does not present ${escapeHtml(project.name)} as a condominium or ownership opportunity.</p>
+      </div>
+      <div class="project-buyer-lens-grid">
+        <article>
+          <span>Community</span>
+          <p>${escapeHtml(features[0] ?? `${project.residences} rental apartments`)}</p>
+        </article>
+        <article>
+          <span>Amenities announced</span>
+          <p>${escapeHtml(facts?.amenities || "Confirm the current amenity program directly with leasing.")}</p>
+        </article>
+        <article>
+          <span>Nearby daily-use anchor</span>
+          <p>Trader Joe’s opened at 8111 South Dixie Highway on June 12, 2026. Confirm other retail tenants and hours directly.</p>
+        </article>
+        <article>
+          <span>What to verify now</span>
+          <p>Current rents, concessions, available units, lease terms, deposits, pet policies, parking, and move-in timing.</p>
+        </article>
+      </div>
+      ${project.id === "the-sound-west-palm-beach" ? `
+        <div class="project-note-list" aria-label="The Sound development timeline">
+          <article><span>March 2026</span><h3>Construction update</h3><p>The development team reported that the 358-unit community was nearing completion, with 2026 delivery targeted.</p></article>
+          <article><span>June 12, 2026</span><h3>Trader Joe’s opened</h3><p>Trader Joe’s opened its West Palm Beach store at the same 8111 South Dixie Highway address.</p></article>
+          <article><span>July 6, 2026</span><h3>Right-of-way maintenance approved</h3><p>The City Commission approved South Dixie streetscape and right-of-way maintenance agreements tied to the project.</p></article>
+          <article><span>September 4, 2026</span><h3>Current review</h3><p>Verdex still describes the project as under construction; live residential leasing status remains a direct-verification item.</p></article>
+        </div>
+      ` : ""}
+      <div class="section-heading">
+        <p class="eyebrow">Sources & Review Date</p>
+        <p>Project and neighborhood facts were last reviewed ${escapeHtml(sourceFact?.lastReviewedDate ?? "recently")}. Current leasing terms still require direct confirmation.</p>
+      </div>
+      <div class="brochure-download-list">
+        ${sources.map((href) => renderProjectSourceLink(href, project.id)).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function projectRelatedNewsItems(project: FeaturedProject) {
   const direct = publishedExternalNews
     .filter((item) => projectMatchesArticle(project, item))
@@ -8547,7 +8628,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 }
 
 function renderProjectInquiryForm(project: FeaturedProject, rules = projectPresentationRules(project, getFloorplanProject(project.id)?.count ?? 0)) {
-  return `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(shortContactCtaLabel)}">
+  return `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(rules.primaryCtaLabel)}">
     <input type="hidden" name="form-name" value="wpb-project-inquiry" />
     <input type="hidden" name="form_type" value="project_inquiry" />
     <input type="hidden" name="submission_id" value="" />
@@ -8558,7 +8639,7 @@ function renderProjectInquiryForm(project: FeaturedProject, rules = projectPrese
     <input type="hidden" name="turnstile_token" value="" />
     <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
     <p class="eyebrow">Contact The Scott Gordon Group</p>
-    <h2>${shortContactCtaLabel}</h2>
+    <h2>${rules.primaryCtaLabel}</h2>
     <p>${shortTeamCtaCopy}</p>
     <label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Full name" required /></label>
     <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="Email address" required /></label>
@@ -8567,7 +8648,7 @@ function renderProjectInquiryForm(project: FeaturedProject, rules = projectPrese
     <label class="lead-consent-row"><input type="checkbox" name="consent" required /><span>By submitting, I consent to be contacted about this real-estate inquiry. This is a request for a manual response, not consent to autodialed or prerecorded marketing calls or texts.</span></label>
     <div class="turnstile-slot" data-turnstile-slot aria-label="Spam protection"></div>
     <p class="form-security-note">Protected by Cloudflare Turnstile.</p>
-    <button type="submit">${shortContactCtaLabel}</button>
+    <button type="submit">${rules.primaryCtaLabel}</button>
     <p class="form-status" role="status" aria-live="polite"></p>
   </form>`;
 }
@@ -8669,6 +8750,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${intel ? renderLocalTakeSection(project, intel) : ""}
 
       ${renderProjectEntityBrief(project, floorplanProject, copyPackage)}
+      ${renderProjectTypeContext(project)}
       ${renderProjectCorridorCta(project)}
       ${copyPackage ? renderProjectBuyerLens(copyPackage) : ""}
 
@@ -8761,15 +8843,16 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
   const residences = resolveProjectField({ identifier: project.id, field: "residences", approvedFallback: project.residences }).value;
   const delivery = resolveProjectField({ identifier: project.id, field: "delivery", approvedFallback: project.delivery }).value;
   const pricing = resolveProjectField({ identifier: project.id, field: "price", approvedFallback: project.price }).value;
+  const isRental = project.projectType === "rental";
   const projectHeroAsset = getProjectHeroAsset(project);
   const projectHeroImage = projectHeroAsset?.src ?? curatedProjectImage(project) ?? placedImportedImageForProject(project.id, "card") ?? project.heroImage ?? project.image;
   const factFields = [
     { label: "Address", value: address },
     { label: "Stories", value: stories },
-    { label: "Residences", value: residences, note: source?.residences },
+    { label: isRental ? "Rental Homes" : "Residences", value: residences, note: source?.residences },
     { label: "Delivery", value: delivery, note: source?.completion },
     { label: "Status", value: status },
-    { label: "Pricing", value: pricing, note: source?.pricing },
+    { label: isRental ? "Current Asking Rent" : "Pricing", value: pricing, note: source?.pricing },
     { label: "Views", value: projectViewSummary(project) },
     { label: "Corridor", value: project.corridor },
   ].filter((fact) => fact.value);
@@ -8787,16 +8870,18 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
     image: projectHeroImage,
     imageAlt: projectHeroAsset?.alt ?? `${project.name} project image`,
     stage: status,
-    locationCopy: `${project.name} is tracked in the ${project.corridor} corridor. Compare it by delivery timing, price guidance, view exposure, floorplan depth, and the current buyer packet before touring.`,
+    locationCopy: isRental
+      ? `${project.name} is tracked in the ${project.corridor} corridor as a rental community. Confirm current rents, concessions, availability, lease terms, parking, policies, and move-in timing directly with leasing.`
+      : `${project.name} is tracked in the ${project.corridor} corridor. Compare it by delivery timing, price guidance, view exposure, floorplan depth, and the current buyer packet before touring.`,
     facts: factFields,
     team: teamCredits.length ? teamCredits : [
-      { role: "Project Team", name: "Project team", note: "Current project and design credits should be confirmed with the latest buyer packet." },
-      { role: "Advisory", name: advisorProfile.brokerage, note: "Buyer guidance is tailored around timing, preferred view, floorplan, and contract priorities." },
+      { role: "Project Team", name: "Project team", note: isRental ? "Current project and design credits should be confirmed with current project materials." : "Current project and design credits should be confirmed with the latest buyer packet." },
+      { role: "Advisory", name: advisorProfile.brokerage, note: isRental ? "Local guidance is tailored around timing, home type, lease terms, and neighborhood fit." : "Buyer guidance is tailored around timing, preferred view, floorplan, and contract priorities." },
     ],
     highlights: [
-      { label: "Buyer Fit", value: project.corridor, note: project.summary },
+      { label: isRental ? "Renter Fit" : "Buyer Fit", value: project.corridor, note: project.summary },
       { label: "Status", value: status, note: delivery },
-      { label: "Pricing", value: pricing, note: "Request current availability, incentives, carrying costs, and contract terms before relying on any public figure." },
+      { label: isRental ? "Leasing" : "Pricing", value: pricing, note: isRental ? "Confirm current rents, concessions, availability, recurring charges, deposits, and lease terms directly with leasing." : "Request current availability, incentives, carrying costs, and contract terms before relying on any public figure." },
       { label: "Views", value: projectViewSummary(project), note: "Confirm exact stack, floor, exposure, and future view-corridor risk." },
     ],
     gallery: projectHeroImage
@@ -8809,7 +8894,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
         ]
       : [],
     documents: documentsFromSource(project, sourceFact),
-    needed: neededFromSource(),
+    needed: neededFromSource(project),
   };
 }
 
@@ -8842,20 +8927,31 @@ function teamCreditsFromSource(team: string | undefined): TeamCredit[] {
     .filter((credit): credit is TeamCredit => credit !== null);
 }
 
-function documentsFromSource(_project: FeaturedProject, sourceFact: ReturnType<typeof sourceFactForProject> | undefined): ProjectDocument[] {
+function documentsFromSource(project: FeaturedProject, sourceFact: ReturnType<typeof sourceFactForProject> | undefined): ProjectDocument[] {
   const docs: ProjectDocument[] = [];
   if ((sourceFact?.sources ?? []).length) {
     docs.push({
       label: "Reviewed",
       title: "Project materials reviewed",
-      note: "Detailed review notes are kept out of the buyer page; request the buyer packet for current details.",
+      note: project.projectType === "rental"
+        ? "Public sources support the project profile; confirm live residential leasing terms directly."
+        : "Detailed review notes are kept out of the buyer page; request the buyer packet for current details.",
     });
   }
-  docs.push({ label: "Packet", title: "Request current packet", note: "Floorplans, pricing, availability, fees, and contract guidance" });
+  docs.push(project.projectType === "rental"
+    ? { label: "Leasing", title: "Request current leasing information", note: "Rents, concessions, availability, lease terms, policies, parking, and move-in timing" }
+    : { label: "Packet", title: "Request current packet", note: "Floorplans, pricing, availability, fees, and contract guidance" });
   return docs;
 }
 
-function neededFromSource() {
+function neededFromSource(project?: FeaturedProject) {
+  if (project?.projectType === "rental") {
+    return [
+      "Current rents, concessions, and available homes",
+      "Lease terms, deposits, recurring charges, and policies",
+      "Parking, pet policies, and move-in timing",
+    ];
+  }
   return [
     "Current pricing, availability, fees, and incentives",
     "Preferred residence lines, floorplans, and view stacks",
@@ -8865,12 +8961,14 @@ function neededFromSource() {
 
 function brochureHeadline(project: FeaturedProject) {
   if (project.id === "rosewood-residences-west-palm-beach") return "Rosewood Residences West Palm Beach";
+  if (project.projectType === "rental") return "New rental living with South Dixie at the doorstep";
   if (project.corridorKey === "downtown") return "Refined living in the heart of everything";
   if (project.corridorKey === "south-flagler") return "Waterfront living along South Flagler";
   return "New waterfront living on North Flagler";
 }
 
 function projectBrochureStats(project: FeaturedProject, draft: ProjectPageDraft, floorplanCount: number) {
+  const isRental = project.projectType === "rental";
   const stories = draft.facts.find((fact) => /stor/i.test(fact.label))?.value ?? "Verify";
   const residences = draft.facts.find((fact) => /residence/i.test(fact.label))?.value ?? project.residences;
   const delivery = draft.facts.find((fact) => /delivery/i.test(fact.label))?.value ?? project.delivery;
@@ -8879,12 +8977,12 @@ function projectBrochureStats(project: FeaturedProject, draft: ProjectPageDraft,
   const sqFt = draft.facts.find((fact) => /sq|size|foot/i.test(fact.label))?.value ?? "Request";
   return [
     { label: "Stories", value: stories },
-    { label: "Residences", value: residences },
+    { label: isRental ? "Rental Homes" : "Residences", value: residences },
     { label: "Bedrooms", value: bedrooms },
     { label: "Sq Ft", value: sqFt },
-    { label: "Pricing", value: pricing },
+    { label: isRental ? "Asking Rent" : "Pricing", value: pricing },
     { label: "Est. Completion", value: delivery },
-    { label: "Floorplans", value: project.id === "rosewood-residences-west-palm-beach" ? "Not public" : floorplanCount ? `${floorplanCount} plans` : "On request" },
+    { label: isRental ? "Leasing Plans" : "Floorplans", value: project.id === "rosewood-residences-west-palm-beach" ? "Not public" : floorplanCount ? `${floorplanCount} plans` : "On request" },
   ];
 }
 
@@ -9116,6 +9214,7 @@ function renderDeveloperImageDisclaimer() {
 }
 
 function residenceSectionTitle(project: FeaturedProject) {
+  if (project.projectType === "rental") return "Rental homes and current leasing context.";
   if (project.id === "ritz-carlton-wpb") return "How the residences live.";
   if (project.id === "olara") return "Residences made for water, light, and gathering.";
   if (project.id === "shorecrest") return "What is known about the residences.";
@@ -9143,6 +9242,7 @@ function teamSectionTitle(project: FeaturedProject) {
 function locationSectionTitle(project: FeaturedProject) {
   if (project.corridorKey === "downtown") return "In the center of West Palm Beach.";
   if (project.corridorKey === "south-flagler") return "A quieter waterfront address south of downtown.";
+  if (project.corridorKey === "south-end") return "In West Palm Beach’s South End along South Dixie.";
   if (project.corridorKey === "palm-beach") return "On Palm Beach island, across the Intracoastal from West Palm Beach.";
   return "On the North Flagler waterfront spine.";
 }
@@ -9164,7 +9264,17 @@ function locationList(project: FeaturedProject) {
     { label: "Norton Museum", time: "10 min" },
     { label: "PBI Airport", time: "12 min" },
   ];
-  return project.corridorKey === "downtown" ? downtownList : flaglerList;
+  const southEndList = [
+    { label: "Trader Joe’s", time: "On site" },
+    { label: "South Olive / SoSo", time: "3 min" },
+    { label: "Lake Worth Beach", time: "6 min" },
+    { label: "The Park West Palm", time: "7 min" },
+    { label: "Downtown West Palm Beach", time: "12 min" },
+    { label: "PBI Airport", time: "12 min" },
+  ];
+  if (project.corridorKey === "downtown") return downtownList;
+  if (project.corridorKey === "south-end") return southEndList;
+  return flaglerList;
 }
 
 function renderProjectDocument(document: ProjectDocument, projectId?: string) {
@@ -9597,6 +9707,7 @@ function corridorDirectoryDeck(key: CorridorKey) {
   return {
     "north-flagler": "Waterfront and marina-area projects north of Downtown, with the deepest active pipeline and long-term redevelopment story.",
     "south-flagler": "Quieter waterfront projects with Palm Beach views, prestige positioning, and a more residential daily rhythm.",
+    "south-end": "Rental and mixed-use projects along South Dixie, with neighborhood retail, access, and current leasing details to verify.",
     downtown: "Walkable projects near restaurants, offices, Brightline, CityPlace, Clematis, the Kravis Center, and NORA.",
     "palm-beach": "Low-density island projects shaped by coastal approvals, scarce sites, and ocean or lagoon settings.",
   }[key];
@@ -9806,6 +9917,9 @@ function uniqueGalleryCategorizedImages<T extends { publicPath: string }>(images
 }
 
 function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageDraft) {
+  const isRental = project.projectType === "rental";
+  const rules = projectPresentationRules(project, getFloorplanProject(project.id)?.count ?? 0);
+  const lastReviewedDate = sourceFactForProject(project.id)?.lastReviewedDate ?? "recently";
   const findFactValue = (regex: RegExp, fallback = "") => {
     const fact = draft.facts.find((f) => regex.test(f.label)) || draft.highlights.find((f) => regex.test(f.label));
     return fact?.value ?? fallback;
@@ -9822,9 +9936,9 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
   }
 
   const sizingResidences = [
-    { label: "Number of Units", value: project.residences },
+    { label: isRental ? "Rental Homes" : "Number of Units", value: project.residences },
     { label: "Number of Floors", value: findFactValue(/stor(y|ies)|floor/i) },
-    { label: "Residence Types", value: findFactValue(/bed/i) },
+    { label: isRental ? "Home Types" : "Residence Types", value: findFactValue(/bed/i) },
     { label: "Square Footage Range", value: findFactValue(/sq|size|foot/i) }
   ];
 
@@ -9836,14 +9950,14 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
   ];
 
   const pricingTiming = [
-    { label: "Price Range", value: project.price },
+    { label: isRental ? "Current Asking Rent" : "Price Range", value: project.price },
     { label: "Estimated Completion", value: project.delivery },
-    { label: "Maintenance Estimate", value: findFactValue(/maintenance|carrying|fee/i) },
+    { label: isRental ? "Recurring Fees" : "Maintenance Estimate", value: findFactValue(/maintenance|carrying|fee/i) },
     { label: "Deposit Structure", value: findFactValue(/deposit|structure|payment/i) },
     { label: "Parking Allocation", value: findFactValue(/parking/i) },
     { label: "Pet Policy", value: findFactValue(/pet/i) },
     { label: "Storage", value: findFactValue(/storage|locker/i) },
-    { label: "Sales Status", value: project.status }
+    { label: isRental ? "Leasing Status" : "Sales Status", value: project.status }
   ];
 
   const isImportantField = (label: string) => {
@@ -9914,17 +10028,17 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
       <div class="snapshot-card-container">
         <div class="snapshot-card-header">
           <p class="eyebrow">At a Glance</p>
-          <h2>Building Specifications</h2>
+          <h2>${isRental ? "Community Specifications" : "Building Specifications"}</h2>
           <p>Verified project facts compiled from municipal filings and official developer disclosures.</p>
         </div>
         <div class="snapshot-columns">
-          ${renderColHtml("Sizing & Residences", col1)}
+          ${renderColHtml(isRental ? "Sizing & Rental Homes" : "Sizing & Residences", col1)}
           ${renderColHtml("Design & Development", col2)}
-          ${renderColHtml("Pricing & Timing", col3)}
+          ${renderColHtml(isRental ? "Leasing & Timing" : "Pricing & Timing", col3)}
         </div>
         <div class="snapshot-card-footer">
-          <p class="source-attribution">Information last compiled May 2026. Price ranges and residence availability are subject to daily change.</p>
-          <a class="button primary" href="/inquire/?project=${project.id}&interest=pricing" ${renderCtaTrackingAttrs("project_page", "Request Current Pricing", { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_snapshot" })}>Request Current Pricing</a>
+          <p class="source-attribution">Information last reviewed ${escapeHtml(lastReviewedDate)}. ${isRental ? "Rents, concessions, lease terms, and unit availability can change." : "Price ranges and residence availability are subject to daily change."}</p>
+          <a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_snapshot" })}>${rules.primaryCtaLabel}</a>
         </div>
       </div>
     </section>

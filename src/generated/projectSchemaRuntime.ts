@@ -367,5 +367,24 @@ export const generatedProjectSchemaFacts = [
       "residenceCount": "281",
       "address": "2085 North Flagler Drive, West Palm Beach, FL 33407"
     }
+  },
+  {
+    "identity": {
+      "slug": "the-sound-west-palm-beach",
+      "route": "/projects/the-sound-west-palm-beach/",
+      "displayName": "The Sound Apartments",
+      "corridor": "South End / South Dixie",
+      "url": "https://www.wpbnewconstruction.com/projects/the-sound-west-palm-beach/"
+    },
+    "safeFields": {
+      "name": "The Sound Apartments",
+      "route": "/projects/the-sound-west-palm-beach/",
+      "url": "https://www.wpbnewconstruction.com/projects/the-sound-west-palm-beach/",
+      "corridor": "South End / South Dixie",
+      "status": "Under Construction",
+      "delivery": "Under construction; 2026 delivery target",
+      "residenceCount": "358",
+      "address": "8111 South Dixie Highway, West Palm Beach, FL 33405"
+    }
   }
 ] as const;

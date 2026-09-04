@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.wpbnewconstruction.com/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.wpbnewconstruction.com/floorplans/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.wpbnewconstruction.com/buildings/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.wpbnewconstruction.com/map/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.wpbnewconstruction.com/corridors/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.wpbnewconstruction.com/compare/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -83,6 +83,11 @@
   <url>
     <loc>https://www.wpbnewconstruction.com/corridors/south-flagler/</loc>
     <lastmod>2026-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wpbnewconstruction.com/corridors/south-end/</loc>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -466,6 +471,11 @@
   <url>
     <loc>https://www.wpbnewconstruction.com/projects/2085-north-flagler/</loc>
     <lastmod>2026-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wpbnewconstruction.com/projects/the-sound-west-palm-beach/</loc>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

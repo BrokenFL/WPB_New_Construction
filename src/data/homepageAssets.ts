@@ -7,6 +7,7 @@ export const homepageAssets = {
     "north-flagler": "/assets/home/north-flagler-corridor-skyline-square-v01.jpg",
     downtown: "/assets/home/downtown-cityplace-shared-card-v01.jpg",
     "south-flagler": "/assets/home/south-flagler-corridor-hero-main-square-v01.jpg",
+    "south-end": "/assets/home/south-flagler-corridor-hero-main-square-v01.jpg",
     "palm-beach": "/assets/home/palm-beach-corridor-clock-tower-v01.jpg",
   },
   lifestyle: {
