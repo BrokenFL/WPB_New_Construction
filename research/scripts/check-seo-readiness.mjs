@@ -69,6 +69,21 @@ if (!notFoundHtml) {
   }
 }
 
+const sitemap = await fs.readFile(path.join(distRoot, "sitemap.xml"), "utf8").catch(() => "");
+if (!sitemap) {
+  findings.push("missing sitemap.xml");
+} else {
+  const today = new Date().toISOString().slice(0, 10);
+  if (sitemap.includes("<lastmod>2026-06-03</lastmod>")) findings.push("sitemap contains the retired hard-coded 2026-06-03 lastmod");
+  for (const match of sitemap.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(match[1])) findings.push(`sitemap has invalid lastmod ${match[1]}`);
+    if (match[1] > today) findings.push(`sitemap has future lastmod ${match[1]}`);
+  }
+  for (const match of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    if (/[?&#]/.test(match[1])) findings.push(`sitemap contains a parameterized URL ${match[1]}`);
+  }
+}
+
 let apexNextCalled = false;
 const apexRedirect = await onRequest({
   request: new Request("https://wpbnewconstruction.com/projects/olara/?source=test"),

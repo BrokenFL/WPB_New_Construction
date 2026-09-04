@@ -2873,60 +2873,73 @@ function renderSitemap(projects) {
   const updateRoutes = approvedUpdateRoutes();
   const downtownRoutes = mergedMarketNoteRoutes(downtownSpotlightRoutes, "downtown");
   const buyerRoutes = mergedMarketNoteRoutes(marketNoteRoutes, "buyer");
-  const defaultLastmod = "2026-06-03";
-  const rebrandLastmod = "2026-08-12";
-  const latestArticleDate = [
+  const publishedProjects = readPublishedProjectRecords();
+  const copyByProjectId = new Map(
+    readProjectCopyPackage().flatMap((record) => [
+      [record.repoProjectId, record],
+      [record.slug, record],
+    ]),
+  );
+  const projectLastmod = (project) => maxDate(
+    project.facts?.lastVerifiedDate,
+    project.facts?.factEffectiveDate,
+    copyByProjectId.get(project.publicSlug)?.lastCopyResearchDate,
+  );
+  const allProjectDate = maxDate(...publishedProjects.map(projectLastmod));
+  const allArticleDate = maxDate(
     ...updateRoutes.map((item) => item.lastmod),
     ...downtownRoutes.map((item) => item.lastmod),
     ...buyerRoutes.map((item) => item.lastmod),
-  ].filter(Boolean).sort().at(-1) || rebrandLastmod;
-  const publishedProjects = readPublishedProjectRecords();
+  );
+  const corridorDate = (corridorKey) => maxDate(
+    ...publishedProjects.filter((project) => project.corridorKey === corridorKey).map(projectLastmod),
+    ...updateRoutes.filter((item) => String(item.slug || item.id).includes(corridorKey.replace("-", ""))).map((item) => item.lastmod),
+  );
   const urls = [
-    ["", "1.0"],
-    ["floorplans/", "0.9"],
-    ["buildings/", "0.9"],
-    ["map/", "0.8"],
-    ["corridors/", "0.9"],
-    ["compare/", "0.8"],
-    ["about/", "0.7"],
-    ["answers/", "0.9"],
-    ...buyerIntentAnswerRoutes.map((answer) => [`answers/${answer.slug}/`, "0.8"]),
-    ["corridors/north-flagler/", "0.8"],
-    ["corridors/downtown-west-palm-beach/", "0.8"],
-    ["corridors/south-flagler/", "0.8"],
-    ["corridors/palm-beach/", "0.8"],
-    ["updates/", "0.8"],
-    ...updateRoutes.map((item) => [`updates/${item.slug || item.id}/`, "0.8"]),
-    ["downtown-spotlight/", "0.8"],
-    ...downtownRoutes.map((note) => [`downtown-spotlight/${note.slug}/`, "0.8"]),
-    ["market-notes/", "0.8"],
-    ...buyerRoutes.map((note) => [`market-notes/${note.slug}/`, "0.8"]),
-    ["methodology/", "0.7"],
-    ["fair-housing/", "0.6"],
-    ["privacy/", "0.5"],
-    ["terms/", "0.5"],
-    ["inquire/", "0.5"],
-    ...publishedProjects.map((project) => [`projects/${project.publicSlug}/`, "0.8"]),
+    { pathPart: "", priority: "1.0", lastmod: maxDate(allProjectDate, allArticleDate) },
+    { pathPart: "floorplans/", priority: "0.9", lastmod: allProjectDate },
+    { pathPart: "buildings/", priority: "0.9", lastmod: allProjectDate },
+    { pathPart: "map/", priority: "0.8", lastmod: allProjectDate },
+    { pathPart: "corridors/", priority: "0.9", lastmod: allProjectDate },
+    { pathPart: "compare/", priority: "0.8", lastmod: allProjectDate },
+    { pathPart: "about/", priority: "0.7" },
+    { pathPart: "answers/", priority: "0.9" },
+    ...buyerIntentAnswerRoutes.map((answer) => ({ pathPart: `answers/${answer.slug}/`, priority: "0.8" })),
+    { pathPart: "corridors/north-flagler/", priority: "0.8", lastmod: corridorDate("north-flagler") },
+    { pathPart: "corridors/downtown-west-palm-beach/", priority: "0.8", lastmod: corridorDate("downtown") },
+    { pathPart: "corridors/south-flagler/", priority: "0.8", lastmod: corridorDate("south-flagler") },
+    { pathPart: "corridors/palm-beach/", priority: "0.8", lastmod: corridorDate("palm-beach") },
+    { pathPart: "updates/", priority: "0.8", lastmod: maxDate(...updateRoutes.map((item) => item.lastmod)) },
+    ...updateRoutes.map((item) => ({ pathPart: `updates/${item.slug || item.id}/`, priority: "0.8", lastmod: item.lastmod })),
+    { pathPart: "downtown-spotlight/", priority: "0.8", lastmod: maxDate(...downtownRoutes.map((item) => item.lastmod)) },
+    ...downtownRoutes.map((note) => ({ pathPart: `downtown-spotlight/${note.slug}/`, priority: "0.8", lastmod: note.lastmod })),
+    { pathPart: "market-notes/", priority: "0.8", lastmod: maxDate(...buyerRoutes.map((item) => item.lastmod)) },
+    ...buyerRoutes.map((note) => ({ pathPart: `market-notes/${note.slug}/`, priority: "0.8", lastmod: note.lastmod })),
+    { pathPart: "methodology/", priority: "0.7" },
+    { pathPart: "fair-housing/", priority: "0.6" },
+    { pathPart: "privacy/", priority: "0.5" },
+    { pathPart: "terms/", priority: "0.5" },
+    { pathPart: "inquire/", priority: "0.5" },
+    ...publishedProjects.map((project) => ({ pathPart: `projects/${project.publicSlug}/`, priority: "0.8", lastmod: projectLastmod(project) })),
   ];
-  const uniqueUrls = [...new Map(urls.map(([pathPart, priority]) => [pathPart, [pathPart, priority]])).values()];
-  const lastmodForRoute = (pathPart) => {
-    if (pathPart === "") return latestArticleDate;
-    if (pathPart === "about/" || pathPart === "inquire/") return rebrandLastmod;
-    return defaultLastmod;
-  };
+  const uniqueUrls = [...new Map(urls.map((entry) => [entry.pathPart, entry])).values()];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${uniqueUrls
   .map(
-    ([pathPart, priority]) => `  <url>
-    <loc>${productionBaseUrl}/${escapeXml(pathPart)}</loc>
-    <lastmod>${lastmodForRoute(pathPart)}</lastmod>
+    ({ pathPart, priority, lastmod }) => `  <url>
+    <loc>${productionBaseUrl}/${escapeXml(pathPart)}</loc>${lastmod ? `
+    <lastmod>${lastmod}</lastmod>` : ""}
     <priority>${priority}</priority>
   </url>`,
   )
   .join("\n")}
 </urlset>
 `;
+}
+
+function maxDate(...values) {
+  return values.map(normalizedDate).filter(Boolean).sort().at(-1) || "";
 }
 
 function normalizedDate(value) {
