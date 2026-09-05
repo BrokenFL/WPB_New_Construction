@@ -140,6 +140,7 @@ export default defineConfig({
   plugins: [
     {
       name: "prune-unused-public-build-assets",
+      apply: "build",
       buildStart: async () => {
         await rm(privateBuildManifest, { force: true });
       },
