@@ -1,0 +1,28 @@
+name: Integration pinned sources (no deploy)
+on:
+  push:
+    branches: [astra-p2-integrated-release]
+    paths: [.github/workflows/p2-integration-source.yml]
+permissions:
+  contents: read
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Archive exact source inputs without credentials or builds
+        run: |
+          mkdir -p .runtime/integration-source
+          for sha in 183320c452e95565c2928bb5d0d9d9f0620eebfb 95cdd3fda76b595b6449331a7a94c6bf3aa89dfa; do
+            git archive "$sha" .github AGENTS.md AI_PROJECT_GUIDE.md README.md src research scripts tools docs data content functions index.html package.json package-lock.json tsconfig.json vite.config.ts > /tmp/source.tar
+            gzip -c /tmp/source.tar > ".runtime/integration-source/$sha.tar.gz"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: integration-pinned-sources
+          path: .runtime/integration-source/
+          retention-days: 3
