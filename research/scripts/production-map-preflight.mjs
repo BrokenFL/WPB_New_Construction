@@ -22,7 +22,8 @@ export async function verifyProductionMapBundle(distRoot = path.resolve('dist'))
   }
   const html = await readBuildFile('index.html');
   let manifest;
-  try { manifest = JSON.parse(await readBuildFile('.vite/manifest.json')); }
+  // Vite's closeBundle moves its graph out of public dist into this private sidecar.
+  try { manifest = JSON.parse(await fs.readFile(path.join(path.dirname(root), '.runtime/build/manifest.json'), 'utf8')); }
   catch { throw fail('Vite build manifest is missing or invalid. Rebuild with build.manifest enabled.'); }
   if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) throw fail('invalid Vite manifest.');
   const entry = manifest['index.html'];

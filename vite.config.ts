@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import { readdir, readFile, rm } from "node:fs/promises";
+import { readdir, readFile, rm, mkdir, rename } from "node:fs/promises";
 import { join, relative, resolve, sep } from "node:path";
 
 const generatedOnlyPublicDirs = ["models", "concepts"];
@@ -9,6 +9,7 @@ const internalPublicDataFiles = [
   "news-feed.json",
 ];
 const distRoot = resolve("dist");
+const privateBuildManifest = resolve(".runtime/build/manifest.json");
 
 async function listFiles(dir: string): Promise<string[]> {
   let entries;
@@ -139,6 +140,9 @@ export default defineConfig({
   plugins: [
     {
       name: "prune-unused-public-build-assets",
+      buildStart: async () => {
+        await rm(privateBuildManifest, { force: true });
+      },
       closeBundle: async () => {
         await Promise.all(
           generatedOnlyPublicDirs.map((dir) =>
@@ -148,6 +152,10 @@ export default defineConfig({
         await Promise.all(internalPublicDataFiles.map((file) => rm(resolve(distRoot, "data", file), { force: true })));
         await pruneUnreferencedProjectAssets();
         await removeMirroredProjectHtml();
+        // The Vite graph is build metadata, never a public site asset.
+        await mkdir(resolve(".runtime/build"), { recursive: true });
+        await rename(resolve(distRoot, ".vite/manifest.json"), privateBuildManifest);
+        await rm(resolve(distRoot, ".vite"), { recursive: true, force: true });
       },
     },
   ],

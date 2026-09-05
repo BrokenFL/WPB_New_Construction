@@ -9,11 +9,13 @@ import { verifyProductionMapBundle } from './production-map-preflight.mjs';
 
 const LOADER = 'const url = "https://maps.googleapis.com/maps/api/js";';
 async function fixture(t, manifest, files = {}, html = '<script type="module" src="/assets/index-a.js"></script>') {
-  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'wpb-preflight-'));
-  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const workspace = await fs.mkdtemp(path.join(os.tmpdir(), 'wpb-preflight-'));
+  const dir = path.join(workspace, 'dist');
+  t.after(() => fs.rm(workspace, { recursive: true, force: true }));
   for (const [file, content] of Object.entries({ 'index.html': html, '.vite/manifest.json': JSON.stringify(manifest), ...files })) {
-    await fs.mkdir(path.dirname(path.join(dir, file)), { recursive: true });
-    await fs.writeFile(path.join(dir, file), content);
+    const output = file === '.vite/manifest.json' ? path.join(workspace, '.runtime/build/manifest.json') : path.join(dir, file);
+    await fs.mkdir(path.dirname(output), { recursive: true });
+    await fs.writeFile(output, content);
   }
   return dir;
 }
@@ -79,4 +81,11 @@ test('preflight module import and CLI never invoke deployment or network', async
     assert.ok(deploySource.includes('await verifyProductionMapBundle(distRoot)'));
     assert.ok(deploySource.indexOf('await verifyProductionMapBundle(distRoot)') < deploySource.indexOf('await deployWithRetry()'));
   }
+});
+
+test('Vite graph is private build metadata, not deployed public output', async () => {
+  const config = await fs.readFile(fileURLToPath(new URL('../../vite.config.ts', import.meta.url)), 'utf8');
+  assert.match(config, /manifest: true/);
+  assert.match(config, /rename\(resolve\(distRoot, "\.vite\/manifest\.json"\), privateBuildManifest\)/);
+  assert.match(config, /buildStart:[\s\S]*?rm\(privateBuildManifest/);
 });
