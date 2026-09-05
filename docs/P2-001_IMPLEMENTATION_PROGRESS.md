@@ -1,73 +1,155 @@
-# P2-001: individual floor-plan HTML pilot
+# P2-001: pilot implementation and review-gap closure
 
-Date: 2026-09-05
-Branch: `astra-phase-2-growth`
-Starting branch HEAD: `63a267111bc672f531033eaaf48f65be903cb26e`
-Read-only Phase 1 baseline: `fb7bf0e9b93a4c4710423dcd900d3e9d185e7605`
-Review: https://github.com/BrokenFL/WPB_New_Construction/pull/72 (draft)
-Status: first implementation pilot, not the complete P2-001 rollout. No merge or deployment authorized. Final candidate evidence and remaining review gates are recorded on PR #72.
+Updated: 2026-09-05
+Repository: `BrokenFL/WPB_New_Construction`
+Working branch: `astra-phase-2-growth`
+Draft review: https://github.com/BrokenFL/WPB_New_Construction/pull/72
+Original reviewed HEAD: `44c79d24dfc124dc6c4571adf68318bf85d9b429`
+Read-only production baseline: `fb7bf0e9b93a4c4710423dcd900d3e9d185e7605`
 
-## Scope and behavior
+**Exact tested implementation SHA: `e2d022ef21bcb5c019e0c5356794fc16963eb1a7`.**
+This document is a documentation-only follow-up to that tested code. Do not confuse the subsequent documentation commit with the implementation SHA embedded in the evidence.
 
-Two individual reference pages, not all plans or two project indexes:
+**Status: review fixes implemented; merge and deployment remain blocked.** Actual key-configured Maps verification has not run because the dedicated review key is absent. Alba current-drawing confirmation and Brooke's approval also remain open. No additional Phase 2 batch is authorized by this pass.
+
+## Preserved pilot and boundaries
+
+The review branch still contains only the original two individual-plan HTML pilots:
 
 - `/floorplans/olara/residence-d/`
 - `/floorplans/alba-palm-beach/residence-d/`
 
-The existing approved library remains the fact/asset authority. An explicit publication allowlist selects one existing PDF/preview pair per plan and checks the reviewed fact snapshot. Source changes, duplicates and collection/index/fact-sheet records fail closed. IDs follow the existing canonical plan identity; `v01` is the library asset edition, not an inferred developer revision date.
+Approved PDFs/previews, approved plan facts, existing PDF URLs, canonical plan identities, source-of-truth data, the lead endpoint, consent adapter, analytics allowlist, lockfile, production deployment workflow and `src/main.ts` remain unchanged in this review-gap pass. No production branch write, merge, deployment, real lead, production analytics event or production key-restriction change was performed.
 
-Implemented: complete HTML with preview, PDF download, plan facts, review/source notes, project/library links, comparison action and current-availability inquiry; clean self-canonicals, unique titles/descriptions/H1, WebPage/CreativeWork/MediaObject/Breadcrumb schema; discovery ItemLists merged into the existing page graph; stable, meaningful sitemap dates; crawlable links on the library and both project pages before and after hydration.
+Publication remains a review decision, not a consequence of passing local tests. Both pilot implementations are preserved on the branch; there is not yet an Olara-only publication switch. Do not merge this two-page build while Alba's publication gate remains open.
 
-The additive bootstrap handles only the two reviewed routes; every other route loads unchanged `src/main.ts`. Existing PDF viewers, approved assets, source records, lead endpoint and production workflow remain unchanged. Native entity navigation is preserved alongside the legacy SPA router. Postbuild uses the existing prerender end marker rather than the first nested closing div. HTML, discovery and sitemap transforms are idempotent.
+## 1. Production deployment guard: reproduced and corrected
 
-Existing analytics sanitizer/consent adapter and session-based lead attribution are reused. No additional Google loader, PII event fields or query-string attribution. Plan context uses existing `cta_context` (`floorplan:project:plan`) with clean `/inquire/`. Tests stub external requests and submit no real leads.
+The original guard in `research/scripts/deploy-cloudflare-pages-with-retry.mjs` inspected only the `index-*.js` entry. At original SHA `44c79d2`, a real Vite build with a clearly synthetic nonempty Maps configuration placed the loader in reachable dynamic chunk `assets/main-DehAGrkM.js`, not the entry. The original guard failed despite the loader being reachable.
 
-Public source actions open the approved local archived developer PDF, preserving the site's existing outbound-project-link policy. Original official URLs remain in provenance (`isBasedOn`) and this review document. No blocked developer host was allowlisted. The gatekeeper's existing technical-context exception now recognizes `main-*.js` as well as `index-*.js`, because the unchanged legacy app is lazily loaded; visible-copy and outbound-host rules are unchanged.
+Reproduction run: https://github.com/BrokenFL/WPB_New_Construction/actions/runs/33980469689
+The diagnostic checked out the exact original reviewed SHA. Its synthetic key established build-layout behavior only, never working Google Maps. The temporary reproduction workflow was removed after collecting evidence.
 
-## Files
+The production script now imports `verifyProductionMapBundle()` from `research/scripts/production-map-preflight.mjs`. It starts from the actual HTML-loaded manifest entry and recursively follows Vite `imports` and `dynamicImports`. Unreachable manifest entries and stray/stale files cannot satisfy the guard. Missing dependencies/files, malformed manifests, stale HTML-entry mismatches, unsafe paths and missing reachable loaders fail closed. Cyclic dependencies terminate safely.
 
-`index.html`, `package.json`, `src/bootstrap.ts`, `src/lib/floorplanEntities.ts`, `src/floorplanPage.ts`, `src/floorplanEntities.css`, `research/scripts/prerender-floorplan-entities.mjs`, `research/scripts/floorplan-entities.test.mjs`, `research/scripts/check-floorplan-entities.mjs`, `research/scripts/qa-gatekeeper-surface.mjs`, `.github/workflows/phase-2-qa.yml`, this progress note.
+Vite produces its real manifest during the build, then a build-only hook moves it to `.runtime/build/manifest.json`, outside public `dist/`. The hook clears stale metadata before building. Public copy/privacy checks are not relaxed. The manifest lifecycle is scoped to builds so development-server startup/shutdown does not consume or delete production metadata.
 
-The extra gatekeeper-file change is a build-output naming compatibility correction discovered by real full-repository QA, not a relaxation of business rules. New routes/discovery/sitemap are generated in `dist/`; no generated research feed, approved asset, lockfile, main branch or production setting is intentionally changed.
+Read-only command, after a build:
 
-## Official source checks and caveats
+```sh
+npm run qa:deploy-preflight
+```
 
-Sources inspected on 2026-09-05:
+This command does not build, spawn Wrangler, fetch a remote endpoint or upload anything. The production deployment path still invokes the same guard before diagnostics/upload, including when normal build/QA checks are skipped by the existing production workflow.
 
+Regression coverage: 11 tests covering split/nested imports, single bundles, unrelated Maps files, missing loader/dependency/file, cycles, stale entry, malformed paths/lists/manifest, read-only CLI and private metadata. The final actual no-key build was correctly rejected. The final synthetic-config split build passed with the loader found only in `assets/main-CEoKhXKu.js` among 15 reachable chunks. Neither result is proof of a valid key or working map tiles.
+
+## 2. Key-configured Maps verification: exact blocker and required action
+
+`.github/workflows/phase-2-qa.yml` now contains a separate **Restricted-key Maps verification (no deploy)** job. It has read-only repository permissions and receives no Cloudflare/deployment credentials. Only its BUILD step receives the dedicated Maps key. No key-bearing bundle is included in its artifacts.
+
+The job runs the standalone preflight, the full existing test suite, and `npm run qa:maps-keyed`. The dedicated browser check requires a real Google loader response, loaded Google map tile imagery, ready state without Google API errors, and an exercised zoom control on both `/` and `/map/`. Google Maps responses are not mocked; fallback rendering cannot pass this check. Error evidence omits request URLs/keys. Existing mandatory map QA retains its requirement; only a fixed review port and safer error reporting were added.
+
+Final code run `33982094565`, job `101349013576`, failed BEFORE checkout/build with:
+
+```text
+Missing repository Actions secret P2_REVIEW_GOOGLE_MAPS_API_KEY.
+HAS_REVIEW_KEY: false
+RESTRICTIONS_CONFIRMED: false
+```
+
+**Brooke must complete these settings before this gate can close:**
+
+1. In Google Cloud, create a separate review API key in a billing-enabled project with Maps JavaScript API enabled. Restrict the key to **Maps JavaScript API** and Website/HTTP-referrer **`http://127.0.0.1:4173/*`**. Leave production-key restrictions unchanged. Do not paste the key into chat or commit it.
+2. In this GitHub repository, **Settings → Secrets and variables → Actions → Secrets**, add `P2_REVIEW_GOOGLE_MAPS_API_KEY` with that dedicated key.
+3. After reviewing those restrictions, under **Actions → Variables**, set `P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED` to `true`. This is an explicit human restriction-review attestation, not an automated inspection of Cloud settings.
+4. Re-run the **Restricted-key Maps verification (no deploy)** job for the latest reviewed code. Resolve any real API/billing/referrer/tile failure without relaxing the production key. Keep PR #72 draft until the actual map evidence passes.
+
+The credential-free full `npm test` was also executed on both baseline and candidate. Both stop at the mandatory map checks because Google Maps was not requested by their no-key bundles. No fallback test is substituted, no failure is suppressed, and the overall workflow is NOT green.
+
+## 3. Source review: asset consistency proved, Alba freshness still unresolved
+
+Current read-only official retrieval succeeded for five resources on 2026-09-05:
+
+- https://www.albapalmbeach.com/residences/
+- https://www.albapalmbeach.com/downloads/
+- https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf
 - https://www.olarawestpalmbeach.com/floorplans
 - https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf
-- https://www.albapalmbeach.com/residences
-- https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf
 
-Olara D text and rendered source sheet match 2 bedrooms + den, 2 baths + powder, floors 7–26, 1,774 interior / 381 exterior / 2,155 total square feet. Do not infer an effective date from the PDF filename.
+Official-site searches and the fetched Alba residences/downloads pages did not establish a newer Residence D drawing. HTTP retrieval dates, file modification dates and PDF filenames are not treated as drawing revisions or evidence of current availability.
 
-**Alba D discrepancy:** the source reports 1,786 interior and 578 terrace square feet, but 2,374 total. The components sum to 2,364: a 10-square-foot difference. The page preserves the reported values and visibly explains the mismatch, rather than silently changing approved data. The source carries **REV. 8/2022**, displayed plainly. There is no current-availability or unchanged-current-drawing claim. Official PDF text was readable; its web screenshot fetch failed. The local approved Residence D preview loaded in browser tests and was visually inspected in the first-run screenshots; review the final candidate screenshots and source before accepting publication.
+Both freshly retrieved official PDFs are byte-for-byte identical to their existing approved downloadable assets:
 
-Technical guidance reviewed: Google canonical consolidation, URL structure and meaningful sitemap `lastmod`. HTML pages self-canonicalize; existing PDFs retain their treatment, including the indexed legacy `/projects/olara/docs/floorplans/olara-residence-plan-d.pdf`.
+| Plan | Official and approved PDF SHA-256 |
+|---|---|
+| Alba Residence D | `0f6cf9771eaaf8a8231056c70fffac8c6e628f121806815f30db82c22afb8c38` |
+| Olara Residence D | `bdafa9399566df69f665551ecd332cdbb8b34923db310c1c07b5a000d9d8deae` |
 
-## Search Console baseline
+The downloaded PDFs were rendered locally and visually compared with the approved previews. Alba's preview matches the drawing on PDF page 2; its cover/disclaimer page 1 visibly carries **REV. 8/2022**. The web PDF screenshot service failed with a cache miss; locally rendering the successfully retrieved original PDF closed the previous visual-inspection gap without OCR. The source/preview numbers also agree with the page facts:
 
-Read-only property: `sc-domain:wpbnewconstruction.com`.
-Finalized window: 2026-08-06 through 2026-09-02; prior window 2026-07-09 through 2026-08-05.
-Site totals: 63 clicks / 3,403 impressions; prior 53 / 1,752.
-Olara D's legacy PDF: **0 clicks, 2 impressions, average position 3.5**. This supports URL preservation and an HTML buyer journey, not a claim of meaningful floor-plan demand or expected conversion uplift. Raw queries are not republished.
+| Plan | Beds / baths | Drawing floors | Interior | Exterior | Reported total |
+|---|---|---|---:|---:|---:|
+| Olara D | 2 + den / 2 + powder room | 7–26 | 1,774 | 381 | 2,155 |
+| Alba D | 3 / 3 | 7–18 | 1,786 | 578 | 2,374 |
 
-## Verification history and remaining blocker
+Areas are square feet. Alba's components sum to **2,364**, not its reported **2,374**. The 10-square-foot discrepancy and August 2022 revision remain plainly disclosed. No total, source date, asset or fact was silently corrected.
 
-Real GitHub Actions compare the pinned Phase 1 baseline with each branch candidate. Read-only workflow permissions; no deployment credentials or deploy command. Tests retain the original mandatory Google Maps CI check, plus an explicitly labeled fallback-mode check and independent remaining gates so a missing Maps key cannot hide later failures.
+**Recommendation requiring Brooke's decision:** keep Alba's new HTML entity unpublished until the developer confirms the current drawing/area schedule, and submit the source-verified Olara pilot for publication review after the Maps gate passes. Preserve all existing PDFs. The branch intentionally retains both pilot implementations; this recommendation does not claim that Alba has already been selectively removed from the build or that either page is approved to deploy.
 
-Run 1 (`33972615177`, candidate `04e9560a...`): full typecheck/build and all 8 entity browser views passed. Full QA correctly found duplicate discovery JSON-LD scripts; fixed by merging the existing graph. It also exposed asset-scanner issues from interpolated asset paths; fixed with explicit approved paths.
+## 4. Mobile CTA and actual inquiry payload
 
-Run 2 (`33973173581`, candidate `3fb546585e6a8ed868c073c49cd4dd3299de8611`): typecheck/build, 13 floor-plan tests, 6 building-master tests and 15 article tests passed. SEO, GEO (77 priority routes), internal links (246), privacy/analytics, form accessibility, performance, homepage visuals and other launch checks before the Maps gate passed. Strict asset audit passed: 0 blockers, 0 broken asset references, 0 local-path leaks, 81 existing warnings. Static entity QA and all 8 desktop/mobile JavaScript-on/off views passed, including actual preview loads, PDF download, inquiry attribution, inbound links and one merged JSON-LD graph. The inherited heading-width issue was also corrected.
+Added a prominent, normal-flow **Request current availability** button immediately after introductory copy, before the drawing. It is full-width on mobile; no sticky overlay obscures the plan. The existing facts-panel CTA remains.
 
-Run 2 exposed two outbound Alba links and technical-string false positives caused by the unchanged application's new `main-*` filename. This revision changes source actions to the approved archive, preserves official provenance, and extends only the existing chunk-name match. A 14th regression test protects that source-link policy. Local isolated tests: 14/14 pass; the new pure entity module passes strict TypeScript checking. Full-repository results for this final correction are on the subsequent PR workflow run; local fixtures are not committed or represented as full application tests.
+The old storage-only test missed a real bug: the legacy inquiry page reset the hidden origin context to `contact_page`, and the submit handler overwrote the saved plan origin. The additive `src/lib/floorplanInquiry.ts` bridge restores only validated pilot context before submission, prefills the building, preserves explicit query/manual building selections and leaves the endpoint, validation and production Turnstile behavior unchanged. `src/main.ts` was not rewritten.
 
-**Unresolved environment verification:** baseline and candidate both fail the original full `npm test` at `/` and `/map/` because this credential-free CI build has no Google Maps key and cannot render Google tiles. Explicit fallback checks pass. Do not call the full suite green, disable the original guard, or equate fallback rendering with authenticated/live map verification. Supply an appropriate review environment for that remaining check before treating the entire application as verified.
+Final browser tests use the actual inquiry UI, browser validation and submit handler, intercepting the resulting JSON POST to `/api/leads`. Test-only contact values and a test-only hidden Turnstile token never reach the real endpoint. Eight submissions pass: two plans × desktop/mobile × intro/facts CTAs.
 
-Dependency installation also reports 4 high-severity findings on the unchanged lockfile. No automatic dependency upgrades were attempted in this floor-plan batch. The existing app chunk still exceeds Vite's advisory 500 kB threshold; the repository's actual performance budget passes.
+Verified payload fields include `project`, `cta_context`, `lead_capture_context`, `landing_page`, `submission_page` and `cta_location`. Example non-PII context: `floorplan:olara:residence-d`. The inquiry URL remains clean `/inquire/`. Both local analytics events and the GA4 data layer exclude synthetic name, email, phone, message and token. No raw test contact payload is saved in evidence.
 
-## Review gate and continuation
+## 5. Final tested results and evidence
 
-PR #72 remains draft. Inspect final workflow logs and desktop/mobile artifacts, accept the Alba source/revision treatment, and complete the Maps verification/disposition and Brooke's first-batch review before any merge/deploy. Artifacts include `tested-sha.txt`, eight page screenshots, browser results and strict asset audit. The QA artifact is evidence, not a public deployment.
+Implementation SHA: `e2d022ef21bcb5c019e0c5356794fc16963eb1a7`
+Run: https://github.com/BrokenFL/WPB_New_Construction/actions/runs/33982094565
+Candidate job: `101349013735`; baseline job: `101349013681`; keyed Maps job: `101349013576`.
 
-After approval, expand P2-001 plan coverage using the same source-review gate before starting separate homepage/comparison work. Never assume this two-plan pilot completes P2-001 or the broader Phase 2 roadmap.
+| Check | Result on tested implementation |
+|---|---|
+| Full repository typecheck | PASS |
+| Production build / 99 existing + 2 pilot prerenders | PASS |
+| Preflight regressions | 11/11 PASS |
+| Floor-plan regressions | 15/15 PASS |
+| Existing building / article unit tests | 6/6 and 15/15 PASS |
+| Existing launch checks before Maps | PASS, including SEO, GEO, links, public copy, analytics, forms, performance and homepage visuals |
+| Independent untracked-assets / gatekeeper | PASS; gatekeeper scanned 1,111 built files |
+| Strict asset audit | PASS: 0 blockers, 0 broken references, 0 local-path leaks; 81 existing advisories |
+| Floor-plan static/browser verification | PASS: 8 desktop/mobile JavaScript-on/off views |
+| Actual intercepted inquiry submissions | 8/8 PASS; building + plan context and analytics PII exclusion verified |
+| Actual no-key build preflight | Correctly REJECTED; negative-case verification PASS |
+| Synthetic-config split build preflight | PASS; no upload/deployment, no working-key claim |
+| Restricted-key Maps check | BLOCKED before build: dedicated review key absent |
+| Full npm test / overall workflow | FAIL at mandatory no-key Maps check; not waived |
+
+Final artifact: https://github.com/BrokenFL/WPB_New_Construction/actions/runs/33982094565/artifacts/9974069600
+Artifact ZIP SHA-256: `898322df3cad2289e0ade72366c2cc50d1af036d8200fcfdf8daaa5310af2fb0`.
+The downloaded `tested-sha.txt` matches the implementation SHA. Evidence includes eight screenshots, safe submission/view results, strict audit, split-preflight output and current public source retrievals. No built credential-bearing bundle or deployment credentials are archived.
+
+Final desktop/mobile screenshots for both plans were inspected; the intro CTA precedes the loaded drawing without overlap, controls and facts are readable, and Alba's clarification is visible. JavaScript-on/off screenshot pairs are identical in this capture. This is implementation visual review, not Brooke approval.
+
+The existing four high-severity dependency findings and asset advisories remain the separate maintenance backlog. No dependency upgrades were attempted. Vite's 500 kB advisory remains; the actual repository performance budget passes.
+
+## Changed files in this review-gap pass
+
+Build/preflight: `vite.config.ts`, `package.json`, `research/scripts/deploy-cloudflare-pages-with-retry.mjs`, `research/scripts/production-map-preflight.mjs`, `research/scripts/production-map-preflight.test.mjs`.
+
+Maps/source QA: `.github/workflows/phase-2-qa.yml`, `research/scripts/check-map-functionality.mjs`, `research/scripts/check-maps-keyed.mjs`, `research/scripts/review-floorplan-sources.mjs`.
+
+Pilot conversion: `src/bootstrap.ts`, `src/lib/floorplanInquiry.ts`, `src/lib/floorplanEntities.ts`, `src/floorplanPage.ts`, `src/floorplanEntities.css`, `research/scripts/floorplan-entities.test.mjs`, `research/scripts/check-floorplan-entities.mjs`, and this progress document. The temporary reproduction workflow is removed. Only intended files were written through explicit branch-scoped GitHub operations; the local analysis workspace is not represented as a full clean Git checkout.
+
+## Earlier pilot history and release gate
+
+Earlier runs `33972615177`, `33973173581` and `33973550055` established the pilot, corrected duplicate schema and source-link-policy issues, and recorded 14 original plan regressions. That verification was insufficient for the split production guard and real submission context; this review pass addresses those omissions.
+
+The earlier Search Console window (2026-08-06–2026-09-02) showed Olara D's legacy PDF at 0 clicks / 2 impressions. It justified preserving the URL, not a demand/uplift claim. No new SEO prioritization or content batch was started.
+
+Outstanding release requirements: dedicated-key map verification; Alba source confirmation or an explicitly approved Olara-only publication scope; Brooke's first-batch approval. Keep PR #72 in draft. Do not merge, deploy, change main, expand plan coverage or start P2-002 under this request.
