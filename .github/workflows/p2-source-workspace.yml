@@ -1,0 +1,28 @@
+name: Prepare P2 review sources (no deploy)
+on:
+  push:
+    branches: [astra-p2-002-home-buildings]
+    paths: [.github/workflows/p2-source-workspace.yml]
+permissions:
+  contents: read
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Archive pinned source only, never credentials or builds
+        run: |
+          mkdir -p .runtime/review-sources
+          git fetch --depth=1 origin 1f93e9025b0e31214cd74be7d445da13cef0b04d
+          for target in fb7bf0e9b93a4c4710423dcd900d3e9d185e7605 1f93e9025b0e31214cd74be7d445da13cef0b04d; do
+            git archive --format=tar.gz -o ".runtime/review-sources/$target.tar.gz" "$target" src research/scripts scripts tools docs data content functions .github index.html package.json package-lock.json tsconfig.json vite.config.ts README.md AGENTS.md AI_PROJECT_GUIDE.md public/_headers public/_redirects public/sitemap.xml public/robots.txt public/llms.txt
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-p2-review-sources
+          path: .runtime/review-sources/
+          retention-days: 3
