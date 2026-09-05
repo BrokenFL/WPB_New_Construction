@@ -19,7 +19,15 @@ export async function inspectCommercialPresentation(page, guide, { output, pageN
   }
   const details = guide.locator('.cg-stage-details');
   if (await details.count()) await details.locator('summary').click();
-  const headingContrasts = await guide.locator('h3').evaluateAll((headings) => {
+  const headingContrasts = await guide.locator('h3').evaluateAll(contrastRatios);
+  let nativeLinkContrasts = [];
+  if (!javaScriptEnabled) {
+    const nativeLinks = page.locator(`.static-prerender[data-static-prerender="${pageName}"] article h3 a`);
+    nativeLinkContrasts = await nativeLinks.evaluateAll(contrastRatios);
+    assert.ok(nativeLinkContrasts.length > 3, 'Expected native building/research links');
+    assert.ok(nativeLinkContrasts.every((ratio) => ratio >= 4.5), 'Native commercial links must remain readable without JavaScript');
+  }
+  function contrastRatios(headings) {
     const rgba = (value) => {
       const values = value.match(/[\d.]+/g)?.map(Number) ?? [];
       if (values.length < 3) throw new Error('Expected an sRGB computed color');
@@ -39,7 +47,7 @@ export async function inspectCommercialPresentation(page, guide, { output, pageN
       const a = luminance(fg), b = luminance(bg);
       return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
     });
-  });
+  }
   assert.equal(headingContrasts.length, 3);
   assert.ok(headingContrasts.every((ratio) => ratio >= 4.5), 'Commercial card heading contrast must be at least 4.5:1');
   if (await details.count()) {
@@ -47,5 +55,5 @@ export async function inspectCommercialPresentation(page, guide, { output, pageN
     await details.locator('summary').click();
   }
   await page.evaluate(() => window.scrollTo(0, 0));
-  await fs.writeFile(`${output}/${pageName}-presentation-${width}-${suffix}.json`, JSON.stringify({ pageName, width, javaScriptEnabled, headingContrasts, consentRefusedForCleanCapture: javaScriptEnabled, firstVisitCapturePreserved: javaScriptEnabled }, null, 2));
+  await fs.writeFile(`${output}/${pageName}-presentation-${width}-${suffix}.json`, JSON.stringify({ pageName, width, javaScriptEnabled, headingContrasts, nativeLinkContrasts, consentRefusedForCleanCapture: javaScriptEnabled, firstVisitCapturePreserved: javaScriptEnabled }, null, 2));
 }

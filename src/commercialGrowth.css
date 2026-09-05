@@ -31,3 +31,7 @@
 
 .cg-stage-details summary { cursor:pointer; min-height:44px; padding:10px 0; font-weight:650; color:var(--editorial-navy); }
 .cg-stage-details[open] summary { margin-bottom:16px; }
+
+/* Readable native-link fallback on the two commercial pages only. */
+.static-prerender:is([data-static-prerender="home"], [data-static-prerender="buildings"]) article h3 { color:var(--editorial-navy); max-width:none; font-size:24px; line-height:1.3; }
+.static-prerender:is([data-static-prerender="home"], [data-static-prerender="buildings"]) article h3 a { color:inherit; text-underline-offset:3px; }
