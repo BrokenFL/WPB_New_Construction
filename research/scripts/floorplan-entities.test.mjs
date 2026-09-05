@@ -61,7 +61,7 @@ test("entity HTML is useful without JavaScript and has clean buyer actions", () 
   for (const plan of plans) {
     const html = renderFloorplanPage(plan);
     assert.equal((html.match(/<h1>/g) ?? []).length, 1);
-    for (const content of [plan.pdf, plan.preview, plan.sourceUrl, '/inquire/', '/compare/', `/projects/${plan.projectId}/`, plan.reviewedOn]) assert.ok(html.includes(content));
+    for (const content of [plan.pdf, plan.preview, '/inquire/', '/compare/', `/projects/${plan.projectId}/`, plan.reviewedOn]) assert.ok(html.includes(content));
     assert.doesNotMatch(html, /href="[^"\s]*[?]/);
     assert.ok(floorplanTitle(plan).length < 80);
     assert.ok(floorplanDescription(plan).length <= 165);
@@ -128,4 +128,14 @@ test("discovery merges into one existing graph without losing page identity", ()
   assert.match(html, /"old":true/);
   assert.doesNotMatch(html, /id="wpb-floorplan-index-schema"/);
   assert.throws(() => mergeFloorplanDiscoverySchema(null, '/floorplans/'), /Expected/);
+});
+
+test("public source actions stay on the approved archive while schema retains provenance", () => {
+  for (const plan of plans) {
+    const html = renderFloorplanPage(plan);
+    const sourceLinks = [...html.matchAll(/href="([^"]+)" data-fp-action="source"/g)].map((match) => match[1]);
+    assert.deepEqual(sourceLinks, [plan.pdf, plan.pdf]);
+    assert.doesNotMatch(html, /href="https?:\/\//);
+    assert.equal(floorplanSchema(plan)['@graph'][0].mainEntity.isBasedOn, plan.sourceUrl);
+  }
 });

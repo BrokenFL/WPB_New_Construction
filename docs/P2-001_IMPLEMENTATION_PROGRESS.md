@@ -4,64 +4,70 @@ Date: 2026-09-05
 Branch: `astra-phase-2-growth`
 Starting branch HEAD: `63a267111bc672f531033eaaf48f65be903cb26e`
 Read-only Phase 1 baseline: `fb7bf0e9b93a4c4710423dcd900d3e9d185e7605`
-Status: implementation prepared for branch review; full-repository verification pending.
+Review: https://github.com/BrokenFL/WPB_New_Construction/pull/72 (draft)
+Status: first implementation pilot, not the complete P2-001 rollout. No merge or deployment authorized. Final candidate evidence and remaining review gates are recorded on PR #72.
 
-## Scope
+## Scope and behavior
 
-Two individual reference pages, not all plans or two new project indexes:
+Two individual reference pages, not all plans or two project indexes:
 
 - `/floorplans/olara/residence-d/`
 - `/floorplans/alba-palm-beach/residence-d/`
 
-The existing approved library remains the fact/asset source. An explicit publication allowlist selects one existing asset per plan and checks the reviewed fact snapshot. It does not publish collection/index/fact-sheet records as individual residences. IDs match the existing canonical plan identity; `v01` is the approved library asset edition, not an inferred developer revision date.
+The existing approved library remains the fact/asset authority. An explicit publication allowlist selects one existing PDF/preview pair per plan and checks the reviewed fact snapshot. Source changes, duplicates and collection/index/fact-sheet records fail closed. IDs follow the existing canonical plan identity; `v01` is the library asset edition, not an inferred developer revision date.
 
-## Implemented
+Implemented: complete HTML with preview, PDF download, plan facts, review/source notes, project/library links, comparison action and current-availability inquiry; clean self-canonicals, unique titles/descriptions/H1, WebPage/CreativeWork/MediaObject/Breadcrumb schema; discovery ItemLists merged into the existing page graph; stable, meaningful sitemap dates; crawlable links on the library and both project pages before and after hydration.
 
-- Complete HTML with a preview, direct PDF download, source link, factual plan table, review date, project/library links, comparison action and current-availability inquiry.
-- Clean self-canonicals, unique titles/descriptions/H1, WebPage/CreativeWork/MediaObject/Breadcrumb schema, matching discovery ItemLists and meaningful, stable sitemap dates.
-- Native crawlable links from the existing library and both project pages, in initial HTML and after the existing app hydrates or navigates.
-- Additive bootstrap with scoped floor-plan presentation. Existing `src/main.ts` and its routes/viewers remain unchanged. New entity links use native document navigation; existing SPA routes retain their router.
-- Shared existing analytics sanitizer, consent adapter and lead-attribution implementation. No new Google loader, PII fields, lead endpoint or query-string attribution. Plan context is stored using existing `cta_context` (`floorplan:project:plan`) and carried to clean `/inquire/`.
-- Postbuild preserves existing template assets and uses its explicit prerender end marker, avoiding unsafe first-`</div>` replacement. HTML/discovery/sitemap transformations are idempotent.
-- Existing PDF URLs and files remain intact, including the indexed legacy Olara D path. No PDF canonical, redirect or noindex change.
-- Regression tests plus static/browser QA and a branch-only, read-only QA workflow. No production workflow changes and no deploy/merge commands.
+The additive bootstrap handles only the two reviewed routes; every other route loads unchanged `src/main.ts`. Existing PDF viewers, approved assets, source records, lead endpoint and production workflow remain unchanged. Native entity navigation is preserved alongside the legacy SPA router. Postbuild uses the existing prerender end marker rather than the first nested closing div. HTML, discovery and sitemap transforms are idempotent.
+
+Existing analytics sanitizer/consent adapter and session-based lead attribution are reused. No additional Google loader, PII event fields or query-string attribution. Plan context uses existing `cta_context` (`floorplan:project:plan`) with clean `/inquire/`. Tests stub external requests and submit no real leads.
+
+Public source actions open the approved local archived developer PDF, preserving the site's existing outbound-project-link policy. Original official URLs remain in provenance (`isBasedOn`) and this review document. No blocked developer host was allowlisted. The gatekeeper's existing technical-context exception now recognizes `main-*.js` as well as `index-*.js`, because the unchanged legacy app is lazily loaded; visible-copy and outbound-host rules are unchanged.
 
 ## Files
 
-`index.html`, `package.json`, `src/bootstrap.ts`, `src/lib/floorplanEntities.ts`, `src/floorplanPage.ts`, `src/floorplanEntities.css`, `research/scripts/prerender-floorplan-entities.mjs`, `research/scripts/floorplan-entities.test.mjs`, `research/scripts/check-floorplan-entities.mjs`, `.github/workflows/phase-2-qa.yml`, this progress note.
+`index.html`, `package.json`, `src/bootstrap.ts`, `src/lib/floorplanEntities.ts`, `src/floorplanPage.ts`, `src/floorplanEntities.css`, `research/scripts/prerender-floorplan-entities.mjs`, `research/scripts/floorplan-entities.test.mjs`, `research/scripts/check-floorplan-entities.mjs`, `research/scripts/qa-gatekeeper-surface.mjs`, `.github/workflows/phase-2-qa.yml`, this progress note.
 
-New routes/discovery/sitemap output are generated in `dist/` by postbuild. No generated research feed, approved asset, source-of-truth record, lockfile, main branch or production setting is intentionally changed.
+The extra gatekeeper-file change is a build-output naming compatibility correction discovered by real full-repository QA, not a relaxation of business rules. New routes/discovery/sitemap are generated in `dist/`; no generated research feed, approved asset, lockfile, main branch or production setting is intentionally changed.
 
-## Source checks and publication caveats
+## Official source checks and caveats
 
 Sources inspected on 2026-09-05:
 
-- Olara developer floor-plan index: https://www.olarawestpalmbeach.com/floorplans
-- Olara D: https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf
-- Alba developer residences: https://www.albapalmbeach.com/residences
-- Alba D: https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf
+- https://www.olarawestpalmbeach.com/floorplans
+- https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf
+- https://www.albapalmbeach.com/residences
+- https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf
 
 Olara D text and rendered source sheet match 2 bedrooms + den, 2 baths + powder, floors 7–26, 1,774 interior / 381 exterior / 2,155 total square feet. Do not infer an effective date from the PDF filename.
 
-**Alba D source discrepancy:** the source reports 1,786 interior and 578 terrace square feet, but 2,374 total. The components sum to 2,364, a 10-square-foot difference. The page preserves the reported values and explicitly flags this discrepancy; it does not silently amend developer data. The source carries **REV. 8/2022**, displayed plainly. No representation of current availability or an unchanged current drawing is made. Alba source text was readable; the official PDF screenshot fetch failed, so visual PDF verification remains a review item. Inspect the existing preview in the browser artifacts before approval.
+**Alba D discrepancy:** the source reports 1,786 interior and 578 terrace square feet, but 2,374 total. The components sum to 2,364: a 10-square-foot difference. The page preserves the reported values and visibly explains the mismatch, rather than silently changing approved data. The source carries **REV. 8/2022**, displayed plainly. There is no current-availability or unchanged-current-drawing claim. Official PDF text was readable; its web screenshot fetch failed. The local approved Residence D preview loaded in browser tests and was visually inspected in the first-run screenshots; review the final candidate screenshots and source before accepting publication.
 
-Technical guidance reviewed: Google's canonical consolidation, URL structure and sitemap lastmod guidance. HTML pages have their own self-canonicals; PDFs retain their existing treatment.
+Technical guidance reviewed: Google canonical consolidation, URL structure and meaningful sitemap `lastmod`. HTML pages self-canonicalize; existing PDFs retain their treatment, including the indexed legacy `/projects/olara/docs/floorplans/olara-residence-plan-d.pdf`.
 
 ## Search Console baseline
 
 Read-only property: `sc-domain:wpbnewconstruction.com`.
 Finalized window: 2026-08-06 through 2026-09-02; prior window 2026-07-09 through 2026-08-05.
-Site totals: 63 clicks, 3,403 impressions; prior 53 clicks, 1,752 impressions.
-Olara D's legacy PDF appeared with **0 clicks, 2 impressions and average position 3.5**. This supports preserving its URL and offering an HTML buyer journey; it is not proof of meaningful floor-plan demand or expected conversion uplift. Raw query logs are not copied into browser data or this report.
+Site totals: 63 clicks / 3,403 impressions; prior 53 / 1,752.
+Olara D's legacy PDF: **0 clicks, 2 impressions, average position 3.5**. This supports URL preservation and an HTML buyer journey, not a claim of meaningful floor-plan demand or expected conversion uplift. Raw queries are not republished.
 
-## Verification ledger
+## Verification history and remaining blocker
 
-- Local isolated Node 22 fixture harness: **12/12 regression tests pass** (source snapshots, deduplication/type gates, privacy projection, escaping, canonical lookup, substantive rendering, schema, template boundaries and repeat-build idempotence).
-- This environment did not have a full repository checkout or dependencies; the isolated fixtures are not committed. These local results are **not** a full repository build/typecheck/test claim.
-- Full repository typecheck/build/test/assets audit: pending branch QA workflow. It tests both the pinned Phase 1 baseline and candidate without deployment credentials.
-- Browser QA: pending candidate workflow; desktop 1440px/mobile 390px, JavaScript on/off, actual preview loads, overflow, native PDF download, clean canonical/attribution, inbound navigation and analytics consent. External requests are stubbed; no production analytics or real leads are submitted.
-- Screenshots and machine results: workflow artifact under `.runtime/phase-2-qa/`. Manual screenshot review remains required even when automated checks pass.
+Real GitHub Actions compare the pinned Phase 1 baseline with each branch candidate. Read-only workflow permissions; no deployment credentials or deploy command. Tests retain the original mandatory Google Maps CI check, plus an explicitly labeled fallback-mode check and independent remaining gates so a missing Maps key cannot hide later failures.
 
-## Review gate / next step
+Run 1 (`33972615177`, candidate `04e9560a...`): full typecheck/build and all 8 entity browser views passed. Full QA correctly found duplicate discovery JSON-LD scripts; fixed by merging the existing graph. It also exposed asset-scanner issues from interpolated asset paths; fixed with explicit approved paths.
 
-Keep the PR in draft until candidate checks pass, baseline differences are understood, preview/mobile screenshots are inspected, and the Alba source discrepancy treatment is accepted. Do not merge, enable auto-merge, push main or deploy in this implementation session. After this pilot is approved, expand P2-001 coverage before moving to separate homepage/comparison work.
+Run 2 (`33973173581`, candidate `3fb546585e6a8ed868c073c49cd4dd3299de8611`): typecheck/build, 13 floor-plan tests, 6 building-master tests and 15 article tests passed. SEO, GEO (77 priority routes), internal links (246), privacy/analytics, form accessibility, performance, homepage visuals and other launch checks before the Maps gate passed. Strict asset audit passed: 0 blockers, 0 broken asset references, 0 local-path leaks, 81 existing warnings. Static entity QA and all 8 desktop/mobile JavaScript-on/off views passed, including actual preview loads, PDF download, inquiry attribution, inbound links and one merged JSON-LD graph. The inherited heading-width issue was also corrected.
+
+Run 2 exposed two outbound Alba links and technical-string false positives caused by the unchanged application's new `main-*` filename. This revision changes source actions to the approved archive, preserves official provenance, and extends only the existing chunk-name match. A 14th regression test protects that source-link policy. Local isolated tests: 14/14 pass; the new pure entity module passes strict TypeScript checking. Full-repository results for this final correction are on the subsequent PR workflow run; local fixtures are not committed or represented as full application tests.
+
+**Unresolved environment verification:** baseline and candidate both fail the original full `npm test` at `/` and `/map/` because this credential-free CI build has no Google Maps key and cannot render Google tiles. Explicit fallback checks pass. Do not call the full suite green, disable the original guard, or equate fallback rendering with authenticated/live map verification. Supply an appropriate review environment for that remaining check before treating the entire application as verified.
+
+Dependency installation also reports 4 high-severity findings on the unchanged lockfile. No automatic dependency upgrades were attempted in this floor-plan batch. The existing app chunk still exceeds Vite's advisory 500 kB threshold; the repository's actual performance budget passes.
+
+## Review gate and continuation
+
+PR #72 remains draft. Inspect final workflow logs and desktop/mobile artifacts, accept the Alba source/revision treatment, and complete the Maps verification/disposition and Brooke's first-batch review before any merge/deploy. Artifacts include `tested-sha.txt`, eight page screenshots, browser results and strict asset audit. The QA artifact is evidence, not a public deployment.
+
+After approval, expand P2-001 plan coverage using the same source-review gate before starting separate homepage/comparison work. Never assume this two-plan pilot completes P2-001 or the broader Phase 2 roadmap.
