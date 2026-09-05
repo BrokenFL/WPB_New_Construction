@@ -34,6 +34,13 @@ async function settle(page,route){
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
 }
 async function clickPath(page,route){
+  // On the existing mobile inquiry page, primary desktop navigation is hidden.
+  // Follow the visible brand/home link, then the homepage's Buildings link.
+  if (route === '/buildings/' && new URL(page.url()).pathname === '/inquire/'
+      && !(await page.locator('a[href="/buildings/"]:visible').count())) {
+    await page.getByRole('link', {name:'WPB New Construction home',exact:true}).click();
+    await settle(page,'/');
+  }
   await page.locator(`a[href="${route}"]:visible`).first().click();
   await settle(page,route);
 }
