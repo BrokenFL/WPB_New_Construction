@@ -52,9 +52,19 @@ jobs:
       - name: Full existing test suite
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: npm test
-      - name: Asset audit
+      - name: Remaining launch gates (independent of map-key availability)
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        run: npm run assets:audit
+        run: npm run qa:untracked-assets && npm run qa:gatekeeper
+      - name: Map fallback verification (not live Google tile verification)
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        env:
+          CI: 'false'
+        run: npm run qa:map
+      - name: Strict asset audit
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          trap 'cp docs/reports/asset-pipeline-audit-report.json .runtime/phase-2-qa/asset-audit.json 2>/dev/null || true' EXIT
+          npm run assets:audit:strict
       - name: Floor-plan browser and static verification
         if: ${{ !cancelled() && matrix.target == 'phase-2-candidate' && steps.build.outcome == 'success' }}
         env:

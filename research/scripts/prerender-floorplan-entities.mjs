@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import {
-  buildFloorplanEntities, discoverySchema, escapeFloorplanHtml, floorplanDescription,
+  buildFloorplanEntities, mergeFloorplanDiscoverySchema, escapeFloorplanHtml, floorplanDescription,
   floorplanJson, floorplanSchema, floorplanSiteUrl, floorplanTitle,
   renderFloorplanDiscovery, renderFloorplanPage,
 } from "../../src/lib/floorplanEntities.ts";
@@ -41,7 +41,11 @@ export function addDiscovery(html, route) {
   html = html.replace(/\s*<section id="wpb-floorplan-guides"[^>]*>[\s\S]*?<\/section>/g, "");
   html = html.replace(/\s*<script id="wpb-floorplan-index-schema"[^>]*>[\s\S]*?<\/script>/g, "");
   if ((html.match(/<\/main>/g) ?? []).length !== 1) throw new Error(`Expected one main landmark: ${route}`);
-  return html.replace("</main>", `${block}</main>`).replace(/\s*<\/head>/, `<script id="wpb-floorplan-index-schema" type="application/ld+json">${floorplanJson(discoverySchema(route))}</script>\n</head>`);
+  const pattern = /(<script id="wpb-static-structured-data"[^>]*>)([\s\S]*?)(<\/script>)/g;
+  if ([...html.matchAll(pattern)].length !== 1) throw new Error(`Expected one existing page graph: ${route}`);
+  html = html.replace(pattern, (_match, open, json, close) =>
+    `${open}${floorplanJson(mergeFloorplanDiscoverySchema(JSON.parse(json), route))}${close}`);
+  return html.replace("</main>", `${block}</main>`);
 }
 
 export function addSitemapEntities(xml, plans) {

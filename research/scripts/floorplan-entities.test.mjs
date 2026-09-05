@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { approvedFloorplanLibrary } from "../../src/data/floorplanApprovedLibrary.ts";
 import {
-  buildFloorplanEntities, floorplanForPath, floorplanSchema, floorplanJson,
+  buildFloorplanEntities, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanSchema, floorplanJson,
   floorplanTitle, floorplanDescription, renderFloorplanDiscovery, renderFloorplanPage,
 } from "../../src/lib/floorplanEntities.ts";
 import { addDiscovery, addSitemapEntities, renderEntityDocument } from "./prerender-floorplan-entities.mjs";
@@ -108,4 +108,24 @@ test("sitemap keeps existing URLs, stable dates, and no duplicate/parameter rout
   assert.doesNotMatch(output, /utm_|lead_capture_context/);
   assert.throws(() => addSitemapEntities(original, [...plans, plans[0]]), /Duplicate/);
   assert.throws(() => addSitemapEntities(original, [{ ...plans[0], updatedOn: '2999-01-01' }]), /Invalid/);
+});
+
+test("discovery merges into one existing graph without losing page identity", () => {
+  const original = { "@context": "https://schema.org", "@graph": [
+    { "@type": "WebSite", "@id": "https://www.wpbnewconstruction.com/#website" },
+    { "@type": "WebPage", "@id": "https://www.wpbnewconstruction.com/floorplans/" },
+  ] };
+  const merged = mergeFloorplanDiscoverySchema(original, '/floorplans/');
+  assert.equal(merged['@graph'].length, 3);
+  assert.deepEqual(merged['@graph'].slice(0, 2), original['@graph']);
+  assert.deepEqual(mergeFloorplanDiscoverySchema(merged, '/floorplans/'), merged);
+  const moved = mergeFloorplanDiscoverySchema(merged, '/projects/olara/');
+  assert.equal(moved['@graph'].length, 3);
+  assert.equal(moved['@graph'][2].itemListElement.length, 1);
+  assert.deepEqual(mergeFloorplanDiscoverySchema(moved, '/about/'), original);
+  const html = addDiscovery(fixture, '/floorplans/');
+  assert.equal((html.match(/type="application\/ld\+json"/g) ?? []).length, 1);
+  assert.match(html, /"old":true/);
+  assert.doesNotMatch(html, /id="wpb-floorplan-index-schema"/);
+  assert.throws(() => mergeFloorplanDiscoverySchema(null, '/floorplans/'), /Expected/);
 });

@@ -1,6 +1,6 @@
 import "./style.css";
 import "./floorplanEntities.css";
-import { cleanFloorplanPath, discoverySchema, floorplanForPath, floorplanJson, renderFloorplanDiscovery } from "./lib/floorplanEntities.ts";
+import { cleanFloorplanPath, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanJson, renderFloorplanDiscovery } from "./lib/floorplanEntities.ts";
 
 async function start() {
   const plan = floorplanForPath(window.location.pathname);
@@ -30,22 +30,22 @@ async function start() {
     const path = cleanFloorplanPath(window.location.pathname);
     const old = app.querySelector<HTMLElement>("#wpb-floorplan-guides");
     const html = renderFloorplanDiscovery(path);
+    const schema = document.head.querySelector<HTMLScriptElement>('script[type="application/ld+json"]');
+    if (schema?.textContent) {
+      try {
+        const merged = floorplanJson(mergeFloorplanDiscoverySchema(JSON.parse(schema.textContent), path));
+        if (schema.textContent !== merged) schema.textContent = merged;
+      } catch (error) {
+        console.warn("Could not extend the existing floor-plan discovery graph", error);
+      }
+    }
     if (!html) {
       old?.remove();
-      document.getElementById("wpb-floorplan-index-schema")?.remove();
       return;
     }
     if (old?.dataset.page === path) return;
     old?.remove();
     (app.querySelector("main") ?? app).insertAdjacentHTML("beforeend", html);
-    let schema = document.getElementById("wpb-floorplan-index-schema");
-    if (!schema) {
-      schema = document.createElement("script");
-      schema.id = "wpb-floorplan-index-schema";
-      schema.setAttribute("type", "application/ld+json");
-      document.head.append(schema);
-    }
-    schema.textContent = floorplanJson(discoverySchema(path));
   };
   // The legacy application replaces its DOM on navigation. This small,
   // idempotent enhancement also survives library filters and project rerenders.

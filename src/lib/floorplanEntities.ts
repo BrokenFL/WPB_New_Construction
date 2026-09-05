@@ -8,7 +8,8 @@ export const floorplanSiteUrl = "https://www.wpbnewconstruction.com";
 const reviewedPlans = [
   {
     projectId: "olara", slug: "residence-d", version: "v01", areaDifference: 0, areaNote: "",
-    asset: "olara-floorplans-olara-floorplan-s-digital-31126-d-v01",
+    pdf: "/assets/projects/olara/floorplans/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.pdf",
+    preview: "/assets/projects/olara/floorplans/previews/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.jpg",
     sourceUrl: "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf",
     sourcePage: "https://www.olarawestpalmbeach.com/floorplans",
     reviewedOn: "2026-09-05", updatedOn: "2026-09-05",
@@ -20,7 +21,8 @@ const reviewedPlans = [
   {
     projectId: "alba-palm-beach", slug: "residence-d", version: "v01", areaDifference: 10,
     areaNote: "The source reports 2,374 total square feet, while 1,786 interior plus 578 terrace square feet adds to 2,364. Confirm the developer’s area schedule before comparing price per square foot.",
-    asset: "alba-floorplans-residence-d-v01",
+    pdf: "/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-d-v01.pdf",
+    preview: "/assets/projects/alba-palm-beach/floorplans/previews/alba-floorplans-residence-d-v01.jpg",
     sourceUrl: "https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf",
     sourcePage: "https://www.albapalmbeach.com/residences",
     reviewedOn: "2026-09-05", updatedOn: "2026-09-05",
@@ -45,7 +47,7 @@ export function buildFloorplanEntities(library: readonly ApprovedFloorplanProjec
     const projects = library.filter((item) => item.projectId === review.projectId);
     if (projects.length !== 1) throw new Error(`Expected one project: ${review.projectId}`);
     const project = projects[0];
-    const pdf = `/assets/projects/${review.projectId}/floorplans/${review.asset}.pdf`;
+    const pdf = review.pdf;
     const matches = project.plans.filter((plan) => plan.href === pdf);
     if (matches.length !== 1) throw new Error(`Expected one approved plan: ${pdf}`);
     const plan = matches[0];
@@ -67,7 +69,7 @@ export function buildFloorplanEntities(library: readonly ApprovedFloorplanProjec
       planId: `${review.projectId}-individual-${review.slug}`, projectId: review.projectId,
       projectName: project.name, slug: review.slug, version: review.version,
       path, canonical: `${floorplanSiteUrl}${path}`, planName: plan.title, pdf,
-      preview: `/assets/projects/${review.projectId}/floorplans/previews/${review.asset}.jpg`,
+      preview: review.preview,
       sourceUrl: review.sourceUrl, sourcePage: review.sourcePage, sourceNote: review.sourceNote,
       reviewedOn: review.reviewedOn, updatedOn: review.updatedOn,
       bedrooms: plan.bedrooms!, bathrooms: plan.bathrooms!, interiorSqFt, terraceSqFt, totalSqFt,
@@ -130,8 +132,26 @@ export function floorplanSchema(plan: FloorplanEntity) {
 }
 
 export function discoverySchema(path: string) {
-  return { "@context": "https://schema.org", "@type": "ItemList", name: "Individual floor plan guides", itemListElement:
+  return { "@context": "https://schema.org", "@type": "ItemList", "@id": `${floorplanSiteUrl}${cleanFloorplanPath(path)}#wpb-floorplan-guides`, name: "Individual floor plan guides", itemListElement:
     floorplansForDiscovery(path).map((plan, index) => ({ "@type": "ListItem", position: index + 1, name: `${fullName(plan)} floor plan`, url: plan.canonical })) };
+}
+
+// Extend the existing page graph instead of installing a competing JSON-LD block.
+// Remove only our named node when navigating; preserve all existing identities.
+export function mergeFloorplanDiscoverySchema(value: unknown, path: string): Record<string, unknown> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Expected a JSON-LD object");
+  const schema = value as Record<string, unknown>;
+  const graph: unknown[] = Array.isArray(schema["@graph"]) ? schema["@graph"] : [schema];
+  const nodes = graph.filter((node) => {
+    if (!node || typeof node !== "object") return true;
+    const id = (node as Record<string, unknown>)["@id"];
+    return !(typeof id === "string" && id.startsWith(floorplanSiteUrl + "/") && id.endsWith("#wpb-floorplan-guides"));
+  });
+  const item = discoverySchema(path);
+  if (item.itemListElement.length) nodes.push(item);
+  if (Array.isArray(schema["@graph"])) return { ...schema, "@graph": nodes };
+  if (!item.itemListElement.length) return schema;
+  return { "@context": schema["@context"] ?? "https://schema.org", "@graph": nodes };
 }
 
 export function renderFloorplanDiscovery(path: string): string {

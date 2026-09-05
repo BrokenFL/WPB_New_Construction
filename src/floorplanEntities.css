@@ -14,7 +14,7 @@
 .fp-kicker { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
 .fp-page h1 { font-family: Georgia, serif; font-size: clamp(2rem, 4.5vw, 3.8rem); line-height: 1.13; font-weight: 400; letter-spacing: -.025em; max-width: 950px; margin: .75rem 0 1.25rem; text-transform: none; color: #203337; }
 .fp-page h1 span { color: #526c6a; }
-.fp-page h2 { font: 400 1.55rem/1.25 Georgia, serif; margin: 0 0 1.15rem; letter-spacing: normal; color: #203337; }
+.fp-page h2 { max-width: none; width: auto; font: 400 1.55rem/1.25 Georgia, serif; margin: 0 0 1.15rem; letter-spacing: normal; color: #203337; }
 .fp-intro { max-width: 850px; font-size: 1.08rem; }
 .fp-review { font-size: .85rem; color: #465d5d; margin: 1rem 0 2.2rem; }
 .fp-layout { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(275px, 1fr); gap: 2rem; align-items: start; }

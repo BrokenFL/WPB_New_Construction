@@ -38,6 +38,9 @@ async function checkStatic() {
       const inbound = await htmlAt(route);
       assert.ok(inbound.includes(`data-floorplan-entity-link href="${plan.path}"`), `${route}: missing link`);
       assert.equal(count(inbound, /id="wpb-floorplan-guides"/g), 1);
+      assert.equal(count(inbound, /type="application\/ld\+json"/g), 1, `${route}: one graph`);
+      const graph = JSON.parse(inbound.match(/id="wpb-static-structured-data"[^>]*>([\s\S]*?)<\/script>/)[1]);
+      assert.equal(graph['@graph'].filter((node) => node['@id']?.endsWith('#wpb-floorplan-guides')).length, 1);
     }
   }
   // Keep the already indexed document URL; no redirect/noindex migration here.
@@ -97,6 +100,7 @@ async function checkBrowser() {
             assert.doesNotMatch(JSON.stringify(events), /test@example\.com|utm_source|\?utm/);
             assert.equal(await page.locator('script[data-wpb-ga4]').count(), 0);
           }
+          if (javaScriptEnabled) await page.evaluate(() => window.wpbSetAnalyticsConsent?.('denied'));
           await page.screenshot({ path: path.join(artifactDir, `${plan.projectId}-${viewport.width}-${javaScriptEnabled ? 'js' : 'nojs'}.png`), fullPage: true });
           results.push({ path: plan.path, width: viewport.width, javaScriptEnabled, status: 'pass' });
         }
@@ -120,6 +124,10 @@ async function checkBrowser() {
           // Both crawlable and hydrated inbound navigation must survive the legacy router.
           for (const route of ['/floorplans/', `/projects/${plan.projectId}/`]) {
             await page.goto(`${origin}${route}`, { waitUntil: 'networkidle' });
+            await page.locator(`a[data-floorplan-entity-link][href="${plan.path}"]`).waitFor();
+            assert.equal(await page.locator('script[type="application/ld+json"]').count(), 1);
+            const graph = await page.locator('script[type="application/ld+json"]').evaluate((script) => JSON.parse(script.textContent));
+            assert.equal(graph['@graph'].filter((node) => node['@id']?.endsWith('#wpb-floorplan-guides')).length, 1);
             await page.locator(`a[data-floorplan-entity-link][href="${plan.path}"]`).click();
             await page.waitForURL(`${origin}${plan.path}`);
             await page.locator('[data-floorplan-id]').waitFor();
