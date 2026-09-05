@@ -1,0 +1,143 @@
+name: Commercial growth review QA (no deploy)
+on:
+  push:
+    branches: [astra-p2-002-home-buildings]
+permissions:
+  contents: read
+concurrency:
+  group: p2-commercial-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    name: Credential-free commercial candidate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node --test research/scripts/map-qa-mode.test.mjs
+      - run: npx playwright install --with-deps chromium
+      - name: Record tested revision
+        run: |
+          mkdir -p .runtime/p2-commercial
+          git rev-parse HEAD | tee .runtime/p2-commercial/tested-sha.txt
+      - name: Typecheck
+        id: typecheck
+        run: npm run typecheck
+      - name: Build without Maps credentials
+        id: build
+        if: ${{ !cancelled() && steps.typecheck.outcome == 'success' }}
+        env:
+          VITE_GA4_MEASUREMENT_ID: G-P2TEST0001
+        run: npm run build
+      - name: Full credential-free suite with explicit no-key expectations
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        env:
+          WPB_MAP_QA_MODE: no-key
+        run: npm test
+      - name: Remaining launch gates
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm run qa:untracked-assets && npm run qa:gatekeeper
+      - name: Strict asset audit
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          trap 'cp docs/reports/asset-pipeline-audit-report.json .runtime/p2-commercial/asset-audit.json 2>/dev/null || true' EXIT
+          npm run assets:audit:strict
+      - name: Commercial browser and intercepted submission checks
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm run qa:commercial -- --browser
+      - name: Preflight rejects the real no-key build without uploading
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { verifyProductionMapBundle } from './research/scripts/commercial-preflight.mjs';
+          await assert.rejects(verifyProductionMapBundle(), /loader missing/);
+          console.log('PASS: actual no-key build rejected. No deployment invoked.');
+          NODE
+      - name: Synthetic configuration verifies production entry layout only
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: P2_SYNTHETIC_NOT_A_REAL_KEY
+        run: |
+          npm run build
+          node research/scripts/commercial-preflight.mjs | tee .runtime/p2-commercial/entry-preflight.log
+      - name: Preserve credential-free review evidence (never dist)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p2-commercial-${{ github.run_id }}
+          path: .runtime/p2-commercial/
+          include-hidden-files: true
+          retention-days: 14
+  keyed-maps:
+    name: Restricted-key Maps verification (no deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Require a dedicated, restriction-reviewed test key
+        env:
+          HAS_REVIEW_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY != '' }}
+          RESTRICTIONS_CONFIRMED: ${{ vars.P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED == 'true' }}
+        run: |
+          test "$HAS_REVIEW_KEY" = true || { echo '::error::Missing repository Actions secret P2_REVIEW_GOOGLE_MAPS_API_KEY'; exit 1; }
+          test "$RESTRICTIONS_CONFIRMED" = true || { echo '::error::P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED must attest review of the dedicated key restrictions'; exit 1; }
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node --test research/scripts/map-qa-mode.test.mjs
+      - run: npx playwright install --with-deps chromium
+      - name: Build candidate with dedicated Maps key
+        id: keyed_build
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY }}
+          VITE_GA4_MEASUREMENT_ID: G-P2TEST0001
+        run: npm run build
+      - name: Read-only deployment preflight
+        run: node research/scripts/commercial-preflight.mjs
+      - name: Full suite with key-configured map check
+        env:
+          WPB_MAP_QA_PORT: '4173'
+          WPB_MAP_QA_MODE: keyed
+        run: npm test
+      - name: Key-configured commercial browser and intercepted submissions
+        if: ${{ !cancelled() && steps.keyed_build.outcome == 'success' }}
+        run: npm run qa:commercial -- --browser
+      - name: Verify real Google loader, tile images and zoom on both routes
+        if: ${{ !cancelled() && steps.keyed_build.outcome == 'success' }}
+        run: node research/scripts/check-commercial-maps-keyed.mjs
+      - name: Record tested SHA (no bundle or secret artifact)
+        if: ${{ !cancelled() && steps.keyed_build.outcome == 'success' }}
+        run: |
+          mkdir -p .runtime/p2-keyed-maps
+          printf '%s\n' '${{ github.sha }}' > .runtime/p2-keyed-maps/tested-sha.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p2-keyed-maps-${{ github.run_id }}
+          path: .runtime/p2-keyed-maps/
+          retention-days: 14
+  release-verification:
+    name: P2-002 release verification
+    if: always()
+    needs: [verify, keyed-maps]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Both candidate modes are mandatory
+        env:
+          NO_KEY: ${{ needs.verify.result }}
+          KEYED: ${{ needs.keyed-maps.result }}
+        run: test "$NO_KEY" = success && test "$KEYED" = success

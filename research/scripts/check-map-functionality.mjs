@@ -1,13 +1,20 @@
 import { spawn } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { chromium } from "playwright";
+import { assertNoKeyBuild } from "./map-qa-mode.mjs";
 
+const qaMode = process.env.WPB_MAP_QA_MODE || "auto";
+if (!["auto", "no-key", "keyed"].includes(qaMode)) throw new Error("Invalid WPB_MAP_QA_MODE");
+if (qaMode === "no-key") {
+  if (process.argv.includes("--live") || hasBuildTimeApiKey()) throw new Error("No-key mode cannot verify live or key-configured maps");
+  assertNoKeyBuild();
+}
 const liveMode = process.argv.includes("--live");
 const failures = [];
 let previewProcess;
 const baseUrl = liveMode ? (process.env.WPB_LIVE_BASE_URL ?? "https://www.wpbnewconstruction.com").replace(/\/$/, "") : await startPreview();
 const localApiKeyPresent = hasBuildTimeApiKey();
-const requireGoogleMapRender = liveMode || process.env.CI === "true" || localApiKeyPresent;
+const requireGoogleMapRender = qaMode !== "no-key" && (qaMode === "keyed" || liveMode || process.env.CI === "true" || localApiKeyPresent);
 const criticalConsolePatterns = [
   /ReferenceError/i,
   /TypeError/i,
@@ -33,7 +40,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(JSON.stringify({ mapQa: "pass", mode: liveMode ? "live" : "preview", baseUrl }, null, 2));
+  console.log(JSON.stringify({ mapQa: "pass", mode: qaMode === "no-key" ? "no-key-fallback" : (liveMode ? "live" : "keyed-or-preview"), baseUrl }, null, 2));
 }
 
 async function startPreview() {
@@ -44,7 +51,9 @@ async function startPreview() {
 
   let lastError;
   for (let attempt = 0; attempt < 2; attempt += 1) {
-    const port = String(4173 + Math.floor(Math.random() * 1500));
+    const configuredPort = process.env.WPB_MAP_QA_PORT;
+    if (configuredPort && (!/^\d+$/.test(configuredPort) || Number(configuredPort) < 1024 || Number(configuredPort) > 65535)) throw new Error("Invalid WPB_MAP_QA_PORT");
+    const port = configuredPort || String(4173 + Math.floor(Math.random() * 1500));
     const child = spawn(
       process.execPath,
       ["node_modules/vite/bin/vite.js", "preview", "--host", "127.0.0.1", "--port", port, "--strictPort"],
@@ -101,16 +110,16 @@ async function checkRoute(browser, route, label) {
   const mapRequests = [];
   page.on("console", (message) => {
     if (message.type() !== "error") return;
-    const text = message.text();
+    const text = message.text().replace(/https?:\/\/[^\s]+/g, "[URL omitted]");
     if (criticalConsolePatterns.some((pattern) => pattern.test(text))) consoleErrors.push(text);
   });
   page.on("pageerror", (error) => {
-    consoleErrors.push(error.stack ?? error.message);
+    consoleErrors.push(error.name || "BrowserError");
   });
   page.on("requestfailed", (request) => {
     const url = request.url();
     if (url.startsWith(baseUrl) || url.includes("maps.googleapis.com")) {
-      networkFailures.push(`${url} failed: ${request.failure()?.errorText ?? "unknown error"}`);
+      networkFailures.push(`${new URL(url).origin}${new URL(url).pathname} failed: ${request.failure()?.errorText ?? "unknown error"}`);
     }
   });
   page.on("request", (request) => {
@@ -151,6 +160,7 @@ async function checkRoute(browser, route, label) {
     if (state.bodyLength < 300 || state.appLength < 700) failures.push(`${route} appears blank or under-rendered.`);
     if (!state.mapContainerAppears) failures.push(`${route} does not render a map container.`);
     if (label === "map" && !state.mapControlsVisible) failures.push("/map/ does not expose map corridor/status controls.");
+    if (qaMode === "no-key" && (mapRequests.length || state.googleMapRendered || !state.fallbackRendered)) failures.push(`${route} did not satisfy explicit no-key fallback expectations.`);
     if (!state.googleMapRendered && !state.fallbackRendered) failures.push(`${route} shows neither Google map tiles nor the clean fallback.`);
     if (requireGoogleMapRender && !state.googleMapRendered) {
       const reason = mapRequests.length ? "Google Maps was requested but did not render" : "Google Maps was not requested by the bundle";
