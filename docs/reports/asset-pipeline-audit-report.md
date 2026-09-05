@@ -1,16 +1,16 @@
 # Asset Pipeline Audit Report
 
-Generated: 2026-09-02T17:10:03.666Z
+Generated: 2026-09-04T20:21:44.877Z
 
 Mode: default
 Project filter: all
 
 ## Summary
 
-- Blockers: 5
-- Strict blockers: 12
+- Blockers: 0
+- Strict blockers: 0
 - Warnings: 426
-- Safe to proceed to iCloud -> asset repo intake: no
+- Safe to proceed to iCloud -> asset repo intake: yes
 
 ## iCloud Asset Library
 
@@ -20,7 +20,7 @@ Project filter: all
 - Approved files found: 471
 - Approved projects: alba-palm-beach, alba-reserve, apogee, banyan-tree, berkeley, edgeworth, forte-on-flagler, la-clara, maison-dor, mandarin-oriental, mr-c, nora-house, olara, ritz-carlton-wpb, rosewood, rybovich-marina, shorecrest, south-flagler-house, 10-cityplace, 11-front-page-assets, alba-palm-beach, alba-reserve, berkeley-palm-beach, edgeworth, forte-on-flagler, la-clara, maison-dor, mandarin-oriental-residences-west-palm-beach, mr-c-residences-west-palm-beach, nora-house, olara-west-palm-beach, ritz-carlton-residences-west-palm-beach, shorecrest, south-flagler-house
 - Extension counts: `{"(none)":18,".png":240,".webp":22,".jpg":113,".jpeg":19,".pdf":57,".avif":1,".csv":1}`
-- Unmapped approved folders: 9
+- Unmapped approved folders: 7
 
 ### iCloud alba-palm-beach
 
@@ -402,24 +402,24 @@ Project filter: all
 - Root exists: yes
 - Branch: main
 - Origin: https://github.com/BrokenFL/WPB_New_Construction_Assets.git
-- Status: `## main...origin/main M asset-manifest.json ?? public-front-page-assets/approved-for-website/images/palm-beach-corridor-clock-tower-v01.png ?? public-projects/3031-s-ocean-palm-beach/ ?? public-projects/olin-palm-beach/`
+- Status: `## main...origin/main`
 - Git LFS configured: no
-- Project folders: 49
-- Approved folders: 18
-- Approved warehouse assets: 448
-- Total files: 1683
-- Extension counts: `{"(none)":4,".md":54,".json":162,".png":375,".jpg":609,".svg":45,".pdf":220,".webp":101,".jpeg":27,".csv":24,".xlsx":25,".ico":4,".html":32,".mjs":1}`
+- Project folders: 52
+- Approved folders: 21
+- Approved warehouse assets: 453
+- Total files: 1688
+- Extension counts: `{"(none)":4,".md":54,".json":162,".png":380,".jpg":609,".svg":45,".pdf":220,".webp":101,".jpeg":27,".csv":24,".xlsx":25,".ico":4,".html":32,".mjs":1}`
 - Missing iCloud-approved assets in asset repo by name: 73
 - Large files over 3 MB: 100
 
 ## Website Public Assets
 
 - Root exists: yes
-- Files: 455
-- Project folders: 3031-s-ocean-palm-beach, alba-palm-beach, banyan-tree, berkeley, forte-on-flagler, la-clara, maison-dor, mandarin-oriental, mr-c, nora-house, olara, olin-palm-beach, ritz-carlton-wpb, shorecrest, south-flagler-house
-- Assets by project: `{"3031-s-ocean-palm-beach":7,"alba-palm-beach":48,"banyan-tree":8,"berkeley":60,"forte-on-flagler":25,"la-clara":12,"maison-dor":37,"mandarin-oriental":12,"mr-c":90,"nora-house":48,"olara":56,"olin-palm-beach":6,"ritz-carlton-wpb":26,"shorecrest":11,"south-flagler-house":9}`
-- Assets by category: `{"amenities":55,"hero":45,"residences":53,"floorplans":291,"logos":7,"neighborhood":3,"misc":1}`
-- Image formats: `{".webp":144,".jpg":171,".png":37,".jpeg":2}`
+- Files: 460
+- Project folders: 201-arkona-court, 2085-north-flagler, 3031-s-ocean-palm-beach, alba-palm-beach, apogee-residences-wpb, banyan-tree, berkeley, forte-on-flagler, la-clara, maison-dor, mandarin-oriental, mr-c, nora-house, olara, olin-palm-beach, ritz-carlton-wpb, shorecrest, south-flagler-house
+- Assets by project: `{"201-arkona-court":1,"2085-north-flagler":1,"3031-s-ocean-palm-beach":7,"alba-palm-beach":48,"apogee-residences-wpb":3,"banyan-tree":8,"berkeley":60,"forte-on-flagler":25,"la-clara":12,"maison-dor":37,"mandarin-oriental":12,"mr-c":90,"nora-house":48,"olara":56,"olin-palm-beach":6,"ritz-carlton-wpb":26,"shorecrest":11,"south-flagler-house":9}`
+- Assets by category: `{"hero":48,"amenities":56,"residences":53,"floorplans":291,"logos":7,"neighborhood":4,"misc":1}`
+- Image formats: `{".webp":149,".jpg":171,".png":37,".jpeg":2}`
 - Unsupported files: 0
 - Oversized/unoptimized warnings: 17
 - Naming inconsistencies: 64
@@ -427,13 +427,13 @@ Project filter: all
 
 ## Website References
 
-- Scanned files: 148
-- /assets references: 1013
-- Legacy /projects references: 1458
-- Broken /assets references: 5
-- Local path leaks: 7
-- Unsupported format references: 6
-- Duplicate reference candidates: 636
+- Scanned files: 58
+- /assets references: 1106
+- Legacy /projects references: 1552
+- Broken /assets references: 0
+- Local path leaks: 0
+- Unsupported format references: 3
+- Duplicate reference candidates: 742
 - Missing hero images where website project assets exist: banyan-tree, la-clara, olara, ritz-carlton-wpb, shorecrest, south-flagler-house
 - Galleries empty where project assets exist: la-clara, olara
 
@@ -568,33 +568,23 @@ Project filter: all
 ## Slug Mismatches
 
 - iCloud: apogee at `01_PROJECTS/apogee/approved-for-website`
-- iCloud: edgeworth at `01_PROJECTS/edgeworth/approved-for-website`
 - iCloud: 11-front-page-assets at `11_FRONT_PAGE_ASSETS/approved-for-website `
 - iCloud: berkeley-palm-beach at `berkeley-palm-beach/approved-for-website`
-- iCloud: edgeworth at `edgeworth/approved-for-website`
 - iCloud: mandarin-oriental-residences-west-palm-beach at `mandarin-oriental-residences-west-palm-beach/approved-for-website`
 - iCloud: mr-c-residences-west-palm-beach at `mr-c-residences-west-palm-beach/approved-for-website`
 - iCloud: olara-west-palm-beach at `olara-west-palm-beach/approved-for-website`
 - iCloud: ritz-carlton-residences-west-palm-beach at `ritz-carlton-residences-west-palm-beach/approved-for-website`
-- assetRepo: edgeworth at `public-projects/edgeworth`
+- assetRepo: edgeworth-south at `public-projects/edgeworth-south`
+- assetRepo: apogee-wpb at `research-asset-library/projects/apogee-wpb`
+- assetRepo: edgeworth-south at `research-asset-library/projects/edgeworth-south`
 
 ## Broken References
 
-- research/scripts/article-content-policy.test.mjs: /assets/editorial/story-hero.jpg
-- research/scripts/article-content-policy.test.mjs: /assets/editorial/story-body-1.jpg
-- research/scripts/article-content-policy.test.mjs: /assets/editorial/story-hero.jpg
-- research/scripts/article-content-policy.test.mjs: /assets/editorial/story-hero.jpg
-- research/scripts/article-publish-workflow.mjs: /assets/editorial/${fileName}
+- None
 
 ## Local Path Leaks
 
-- scripts/publish-homepage-assets-from-asset-repo.mjs: /Volumes/ExternalSSD
-- scripts/publish-homepage-assets-from-asset-repo.mjs: WPB_NewConstruction_Assets
-- research/scripts/apply-approved-asset-cleanup.mjs: source-repos
-- research/scripts/check-builder-remote-images.mjs: /Volumes/ExternalSSD
-- research/scripts/expand-public-asset-library.mjs: source-repos
-- research/scripts/harvest-assets.mjs: source-repos
-- research/scripts/report-duplicate-assets.mjs: source-repos
+- None
 
 ## Duplicate Candidates
 
@@ -651,8 +641,6 @@ Project filter: all
 
 ## Recommended Next Fixes
 
-- Remove local absolute path leaks from website source/data before strict publication.
-- Fix missing /assets references before running strict mode or publishing.
 - Normalize approved iCloud filenames during intake; do not publish source names directly.
 - Review website public assets with size/dimension warnings before adding more public assets.
 - Promote one approved project at a time through iCloud, asset repo, website public assets, then registry.

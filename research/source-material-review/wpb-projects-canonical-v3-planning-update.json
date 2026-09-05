@@ -1650,6 +1650,82 @@
       "public_address": "2085 North Flagler Drive, West Palm Beach, FL 33407",
       "neighborhood": "Currie Park / North Flagler",
       "missing_or_unconfirmed": "Final acquisition and plan confirmation, approvals, architect, sales launch, pricing, delivery, fees, policies, and offering documents"
+    },
+    {
+      "include_on_site": true,
+      "city": "West Palm Beach",
+      "municipal_or_legal_note": "The Sound is a rental apartment and retail development. It must not be presented as for-sale condominium inventory.",
+      "public_residence_count": 358,
+      "municipal_residence_count": null,
+      "floor_count_display": 8,
+      "municipal_floor_count": null,
+      "tower_count": 1,
+      "developer": [
+        "Woodfield Development",
+        "Flagler Realty & Development"
+      ],
+      "architect": [
+        "Spina O’Rourke + Partners"
+      ],
+      "interior_designer": [
+        "Spina O’Rourke + Partners"
+      ],
+      "landscape_architect": [],
+      "brand_partner": [],
+      "sales_team": [],
+      "construction_team": [
+        "Verdex Construction"
+      ],
+      "price_display": "Request current leasing information",
+      "maintenance_display": "Not applicable — rental community",
+      "delivery_display": "Under construction; 2026 delivery target",
+      "size_range_display": "Approximately 500–1,388 square feet",
+      "bedroom_range_display": "Studios to 3 bedrooms",
+      "parking_summary": "Current resident and retail parking details require confirmation",
+      "ev_summary": "Not publicly confirmed",
+      "storage_summary": "Not publicly confirmed",
+      "pet_summary": "Not publicly confirmed",
+      "amenity_summary": "Coworking lounge, indoor pickleball courts, resort-style pool, top-level sky lounge, landscaped waterfront walkway, dock, and kayak or canoe launch were announced in March 2026.",
+      "service_summary": "Current leasing services and resident policies require confirmation.",
+      "residence_features": [
+        "Rental apartments rather than for-sale condominiums",
+        "Studio, one-, two-, and three-bedroom homes",
+        "90 workforce housing units within the 358-unit community",
+        "Mixed-use South Dixie setting with neighborhood retail",
+        "Waterfront walkway and canal access"
+      ],
+      "best_for": [
+        "Renters comparing new South End apartment supply",
+        "Households seeking proximity to South Dixie retail",
+        "Residents who value a mixed-use setting and waterfront public realm"
+      ],
+      "tradeoffs": [
+        "Current rents, concessions, availability, lease terms, resident policies, and exact move-in timing require direct leasing confirmation",
+        "The project is not a condominium ownership opportunity"
+      ],
+      "key_conflicts": [
+        "Project sources describe the retail program differently: Verdex lists a 21,000-square-foot neighborhood grocer with additional retail, while the March 2026 developer announcement describes 19,000 square feet of outparcel retail including a 15,000-square-foot Trader Joe’s lease."
+      ],
+      "source_urls": [
+        "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions",
+        "https://verdex.com/the-sound-apartments/",
+        "https://www.citybiz.co/article/813518/woodfield-development-and-flagler-realty-development-advance-construction-on-the-sound-apartments-and-trader-joes-in-west-palm-beach/",
+        "https://floridayimby.com/2026/03/construction-nears-completion-on-the-sound-apartments-at-8111-south-dixie-highway-in-west-palm-beach.html",
+        "https://locations.traderjoes.com/fl/west-palm-beach/796/"
+      ],
+      "human_review_required": false,
+      "confidence_level": "high",
+      "import_recommendation": "Publish as a rental-community entity page. Keep current rent, concessions, availability, lease terms, and move-in timing as direct-verification items.",
+      "project_id": "the-sound-west-palm-beach",
+      "slug": "the-sound-west-palm-beach",
+      "display_name": "The Sound Apartments",
+      "site_group": "rental_under_construction",
+      "page_type": "rental_project_page",
+      "status_badge": "Under Construction",
+      "development_stage": "under_construction_rental",
+      "public_address": "8111 South Dixie Highway, West Palm Beach, FL 33405",
+      "neighborhood": "South End / South Dixie",
+      "missing_or_unconfirmed": "Current rents, concessions, live unit availability, lease terms, resident policies, exact move-in timing, parking details, and final retail lineup"
     }
   ],
   "excluded_or_internal_only": [

@@ -692,16 +692,16 @@ function articleOutputPaths({ destination }) {
     // news:refresh regenerates this shared intelligence set for every route.
     "public/data/answer-engine-faq.json",
     "public/data/floorplans.json",
-    "public/data/image-clearance-candidates.json",
     "public/data/news-feed.json",
-    "public/data/project-asset-status.json",
-    "public/data/project-team-credits.json",
-    "public/data/published-floorplan-assets.json",
     "public/feed.json",
     "public/rss.xml",
     "public/llms.txt",
     "public/sitemap.xml",
     "research/source-material-review/image-candidate-catalog.json",
+    "research/generated/image-clearance-candidates.json",
+    "research/generated/project-asset-status.json",
+    "research/generated/project-team-credits.json",
+    "research/generated/published-floorplan-assets.json",
     "src/generated/siteData.ts",
   ];
   if (destination === "news") {

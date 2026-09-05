@@ -347,7 +347,7 @@
       "deliveryYear": 2029,
       "longitude": -80.05005,
       "latitude": 26.73135,
-      "summary": "Rosewood Residences is a North Flagler branded-residence pipeline entry at 2001 N Flagler Drive with human review required until official sales materials are public.",
+      "summary": "Rosewood Residences is a North Flagler branded-residence proposal at 2001 N Flagler Drive. The public sales program, pricing, delivery timing, and residence mix have not yet been released.",
       "floorplans": false,
       "pageState": "Pipeline / Announced / Watchlist",
       "image": "/projects/rosewood/media/user-provided-rosewood-render-01.jpg",
@@ -573,6 +573,26 @@
         "residences": "281",
         "price": "Not publicly released",
         "address": "2085 North Flagler Drive, West Palm Beach, FL 33407"
+      }
+    },
+    {
+      "publicSlug": "the-sound-west-palm-beach",
+      "rank": 25,
+      "deliveryYear": 2026,
+      "longitude": -80.0563543,
+      "latitude": 26.6452469,
+      "summary": "A 358-unit rental apartment community in West Palm Beach’s South End with 90 workforce units, neighborhood retail, and a waterfront public-realm program. This is rental housing, not for-sale condominium inventory.",
+      "floorplans": false,
+      "pageState": "Rental / Under Construction / Leasing Status to Verify",
+      "galleryImages": [],
+      "approvedFallback": {
+        "displayName": "The Sound Apartments",
+        "corridor": "South End / South Dixie",
+        "status": "Under Construction",
+        "delivery": "Under construction; 2026 delivery target",
+        "residences": "358 rental apartments",
+        "price": "Request current leasing information",
+        "address": "8111 South Dixie Highway, West Palm Beach, FL 33405"
       }
     }
   ]

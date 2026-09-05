@@ -272,6 +272,15 @@
       }
     },
     {
+      "canonicalId": "the-sound-west-palm-beach",
+      "publicSlug": "the-sound-west-palm-beach",
+      "corridorKey": "south-end",
+      "publicationState": "published",
+      "lastVerifiedDate": "2026-09-04",
+      "sourceCatalogIds": ["the-sound-west-palm-beach"],
+      "aliases": ["the-sound-apartments", "sound-apartments"]
+    },
+    {
       "canonicalId": "currie-park-towers-jeff-greene",
       "publicSlug": "currie-park-towers-jeff-greene",
       "corridorKey": "north-flagler",

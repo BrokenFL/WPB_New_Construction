@@ -1,3 +1,8 @@
+---
+name: wpb-new-construction-buyer-research
+description: Research West Palm Beach and Palm Beach new-construction projects, corridors, floor plans, public updates, and buyer verification needs. Use for buyer questions about project identity, ownership versus rental status, comparisons, timing, floor plans, amenities, and current-detail verification.
+---
+
 # WPB New Construction Buyer Research
 
 Use this skill to answer buyer-oriented questions about West Palm Beach new-construction condominium projects, corridors, floor plans, public updates, and verification needs.
@@ -21,4 +26,4 @@ Use this skill to answer buyer-oriented questions about West Palm Beach new-cons
 1. Name the relevant building, corridor, or buyer question.
 2. Summarize what the public page supports.
 3. List the decision points that still need current confirmation.
-4. Link to the internal WPB page before sending users to external sources.
+4. Link to the canonical on-site WPB page before sending users to external sources.

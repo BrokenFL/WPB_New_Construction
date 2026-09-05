@@ -9,10 +9,8 @@ const siteDataPath = path.join(workspace, "src/generated/siteData.ts");
 const appSourcePath = path.join(workspace, "src/main.ts");
 const approvedNewsPath = path.join(workspace, "research/news-review/approved-development-news.json");
 const marketNotesPath = path.join(workspace, "src/data/marketNotes.ts");
-const canonicalProjectsPath = path.join(workspace, "research/source-material-review/wpb-projects-canonical-v3-planning-update.json");
-const projectModelPath = path.join(workspace, "src/generated/projectModel.json");
+const projectModelPath = path.join(workspace, "src/generated/projectModelPublic.json");
 const projectSchemaSafePath = path.join(workspace, "src/generated/projectSchemaSafe.json");
-const rosewoodSourceIndexPath = path.join(workspace, "research/rosewood/source-index.json");
 const baseUrl = "https://www.wpbnewconstruction.com";
 
 const projectAliases = new Map([
@@ -43,6 +41,11 @@ const corridorDetails = {
     summary:
       "South Flagler is the quieter waterfront lane south of downtown, where privacy, Palm Beach proximity, boutique scale, and delivered-building benchmarks matter as much as headline amenity lists.",
   },
+  "south-end": {
+    label: "South End / South Dixie",
+    summary:
+      "The South End and South Dixie corridor is a rental and mixed-use development lane where residents should compare leasing status, neighborhood retail, traffic patterns, and current delivery details.",
+  },
   "palm-beach": {
     label: "Palm Beach",
     summary:
@@ -70,10 +73,8 @@ async function main() {
 async function loadStaticPayload(siteData) {
   const approvedNews = await readJson(approvedNewsPath, []);
   const marketNotesSource = await fs.readFile(marketNotesPath, "utf8").catch(() => "");
-  const canonicalProjects = await readJson(canonicalProjectsPath, { projects: [] });
   const projectModel = await readJson(projectModelPath, { projects: [], retiredProjects: [] });
   const projectSchemaSafe = await readJson(projectSchemaSafePath, { projects: [] });
-  const rosewoodSourceIndex = await readJson(rosewoodSourceIndexPath, { sources: [] });
   const appSource = await fs.readFile(appSourcePath, "utf8").catch(() => "");
   return {
     siteMeta: parseExport(siteData, "siteMeta"),
@@ -81,14 +82,12 @@ async function loadStaticPayload(siteData) {
     answerFaq: parseExport(siteData, "answerEngineFaq"),
     buyerIntentAnswers: parseBuyerIntentAnswers(appSource),
     researchNewsFeed: parseExport(siteData, "researchNewsFeed"),
-    projectFacts: mergeProjectFactsWithCanonicalModel(parseExport(siteData, "projectFacts"), projectModel.projects),
+    projectFacts: parseExport(siteData, "projectFacts"),
     prerenderRoutes: parseExport(siteData, "prerenderRoutes"),
     approvedNews: approvedNews.filter((item) => item.status === "published"),
     marketNotes: readTsArray(marketNotesSource, "marketNotes").filter((item) => item?.status === "published"),
-    canonicalProjects: Array.isArray(canonicalProjects.projects) ? canonicalProjects.projects : [],
     projectModel: Array.isArray(projectModel.projects) ? projectModel.projects : [],
     projectSchemaSafe: Array.isArray(projectSchemaSafe.projects) ? projectSchemaSafe.projects : [],
-    rosewoodSourceIndex: Array.isArray(rosewoodSourceIndex.sources) ? rosewoodSourceIndex.sources : [],
   };
 }
 
@@ -98,34 +97,6 @@ async function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
-}
-
-function mergeProjectFactsWithCanonicalModel(sourceFacts, modelProjects) {
-  const sourceById = new Map(sourceFacts.map((project) => [project.projectId, project]));
-  return modelProjects
-    .filter((record) => record.publicationState === "published")
-    .map((record) => {
-      const source = record.sourceCatalogIds.map((id) => sourceById.get(id)).find(Boolean) || {};
-      return {
-        ...source,
-        projectId: record.publicSlug,
-        name: record.displayName,
-        area: record.corridor,
-        pageStatus: record.status,
-        dataConfidence: record.confidenceLevel || source.dataConfidence || "review required",
-        facts: {
-          ...(source.facts || {}),
-          address: record.address,
-          status: record.status,
-          residences: record.residences,
-          completion: record.delivery,
-          pricing: record.price,
-        },
-        conflicts: [...new Set([...(source.conflicts || []), ...(record.conflicts || [])])],
-        gaps: [...new Set([...(source.gaps || []), ...(record.gaps || [])])],
-        canonicalModel: record,
-      };
-    });
 }
 
 function parseExport(siteData, name) {
@@ -242,12 +213,36 @@ function renderStaticRouteContent(route, payload) {
   if (route.path === "/corridors/") return renderCorridorsIndexRoute(route, payload);
   if (route.path === "/compare/") return renderCompareRoute(route, payload);
   if (route.path === "/about/") return renderAboutRoute(route);
+  if (route.path === "/privacy/") return renderPrivacyRoute(route);
   if (route.path === "/floorplans/") return renderFloorplansRoute(route, payload);
   if (route.path === "/answers/") return renderAnswersRoute(route, payload);
   if (route.path === "/updates/") return renderUpdatesIndex(route, payload);
   if (route.path === "/downtown-spotlight/") return renderDowntownSpotlightIndex(route, payload);
   if (route.path === "/market-notes/") return renderMarketNotesIndex(route, payload);
   return renderSimpleRoute(route);
+}
+
+function renderPrivacyRoute(route) {
+  return pageShell(
+    "privacy",
+    "How lead and site-use information is handled",
+    route.description,
+    `
+      <section>
+        <h2>Lead information</h2>
+        <p>Inquiry forms use the name, email, phone, project interest, and message a visitor chooses to submit so The Scott Gordon Group can respond. Do not submit sensitive financial records, identification documents, or confidential transaction documents through the form.</p>
+      </section>
+      <section>
+        <h2>Analytics</h2>
+        <p>When production analytics is enabled, the site may use Google Analytics to measure page, project, floorplan, comparison, article, and form-step activity. Analytics events exclude submitted contact details and message contents, omit URL query strings, and disable advertising-personalization signals.</p>
+        <p>Google Analytics may use browser storage. Production enablement must follow the applicable disclosure and consent requirements.</p>
+      </section>
+      <section>
+        <h2>Official policy and choices</h2>
+        <p><a href="https://www.elliman.com/privacy-policy" rel="noopener noreferrer">Review the Douglas Elliman privacy policy</a>. Do not submit personal information if you do not consent to its use for responding to the inquiry.</p>
+      </section>
+    `,
+  );
 }
 
 function routeKindForPath(routePath) {
@@ -422,7 +417,7 @@ function renderFloorplansRoute(route, payload) {
             <p>${project.count} floorplan records currently tracked. ${publicText(project.missingNote || "Request the current buyer packet before relying on any public floorplan record.")}</p>
             <p><a href="/floorplans/#floorplans-${escapeHtml(project.projectId)}">Open ${publicText(project.name)} in the interactive floorplan library</a></p>
             <ul>
-              ${project.plans.slice(0, 8).map((plan) => `<li>${publicText(plan.title)} - ${publicText(plan.status || plan.sourceUse || "Floorplan record")}</li>`).join("")}
+              ${project.plans.slice(0, 8).map((plan) => `<li>${publicText(plan.displayName || plan.title)} - ${publicText(String(plan.planType || "individual").replace(/-/g, " "))}</li>`).join("")}
             </ul>
           </article>
         `).join("")}
@@ -527,9 +522,11 @@ function renderProjectRoute(route, payload, slug) {
   const project = projectForSlug(payload, slug);
   if (!project) return renderSimpleRoute(route);
   const floorplans = floorplanForProject(payload, project.projectId);
+  const presentation = staticProjectPresentation(project, floorplans);
   const facts = project.facts || {};
   const sources = sourceLinksForProject(project).slice(0, 6);
   const comparisons = comparisonProjectsForStatic(payload, project).slice(0, 4);
+  const relatedUpdates = payload.approvedNews.filter((item) => relatedProjectIds(item).includes(project.projectId)).slice(0, 4);
   const hasSourcedAmenities = sources.some((href) => /amenit/i.test(href));
   const cleanStatus = facts.status && !facts.status.toLowerCase().includes("candidate") ? facts.status : "Tracked project page";
 
@@ -537,43 +534,45 @@ function renderProjectRoute(route, payload, slug) {
     `project-${slug}`,
     project.name,
     route.description,
-    `
+    `<div data-project-type="${safeHref(project.projectType)}">
       <section data-project-section="hero">
-        <p>${publicText(project.area || "West Palm Beach")} project guide</p>
+        <p>${publicText(project.area || "West Palm Beach")} ${publicText(presentation.identityLabel)}</p>
         <h2>${publicText(project.name)}</h2>
-        <p>${publicText(project.canonicalModel?.presentation?.summary || route.description)}</p>
+        <p>${publicText(project.summary || route.description)}</p>
       </section>
       <section data-project-section="overview">
         <h2>Bottom line</h2>
-        <p>${publicText(project.name)} is tracked as a ${publicText(project.area || "West Palm Beach")} project page. Use this page for orientation, then verify current pricing, availability, incentives, fees, floor-plan release status, square footage, delivery timing, and contract terms before relying on any public summary.</p>
+        <p>${publicText(presentation.bottomLine)}</p>
       </section>
       ${renderPipelineWatchlistStaticNote(project)}
+      ${renderProjectTypeContextStatic(project)}
       <section data-project-section="facts">
         <h2>Key facts to verify</h2>
         <dl>
-          ${factRow("Address", facts.address)}
+          ${factRow("Project address", facts.projectAddress)}
+          ${factRow("Sales gallery address", facts.salesGalleryAddress)}
           ${factRow("Status", facts.status && !facts.status.toLowerCase().includes("candidate") ? facts.status : "Tracked project page")}
           ${factRow("Residences", facts.residences)}
           ${factRow("Stories", facts.stories)}
           ${factRow("Delivery", facts.completion)}
           ${factRow("Pricing", facts.pricing)}
           ${factRow("Project team", facts.team)}
-          ${factRow("Floorplans", floorplans?.count ? `${floorplans.count} records tracked` : "Request current packet")}
+          ${presentation.showFloorplans ? factRow("Floorplans", `${floorplans.count} canonical plans tracked`) : ""}
         </dl>
       </section>
       <section>
-        <h2>Why this page matters</h2>
-        <p>This page gives AI crawlers and buyers one stable entity page for ${publicText(project.name)}. It separates sourced facts from items that need confirmation, links the building to its West Palm Beach corridor, and keeps the next step focused on current buyer-side verification.</p>
+        <h2>How to use this guide</h2>
+        <p>${publicText(presentation.guideCopy)}</p>
       </section>
       <section data-project-section="neighborhood">
         <h2>Location and corridor context</h2>
         <p>${publicText(project.name)} is tracked in the ${publicText(project.area || "West Palm Beach")} lane. Compare this location by daily drive pattern, Palm Beach access, waterfront or downtown orientation, view exposure, parking, and what nearby construction may mean before touring.</p>
       </section>
       ${renderProjectCorridorCta(project, payload)}
-      <section data-project-section="residences">
-        <h2>Residence and floorplan overview</h2>
-        <p>${floorplans?.count ? `${floorplans.count} floorplan records are currently tracked for this project.` : "No complete public floorplan packet is confirmed in the current catalog."} Public plans are not a substitute for the current buyer packet; confirm line, stack, exposure, square footage, fees, pricing, and availability.</p>
-        ${floorplans?.plans?.length ? `<ul>${floorplans.plans.slice(0, 6).map((plan) => `<li>${publicText(plan.title)} - ${publicText(plan.status || plan.sourceUse || "Floorplan record")}</li>`).join("")}</ul>` : ""}
+      <section data-project-section="offering">
+        <h2>${publicText(presentation.offeringHeading)}</h2>
+        <p>${publicText(presentation.offeringCopy)}</p>
+        ${floorplans?.plans?.length ? `<ul>${floorplans.plans.slice(0, 6).map((plan) => `<li>${publicText(plan.displayName || plan.title)} - ${publicText(String(plan.planType || "individual").replace(/-/g, " "))}</li>`).join("")}</ul>` : ""}
       </section>
       ${hasSourcedAmenities ? `<section data-project-section="amenities">
         <h2>Amenities</h2>
@@ -589,65 +588,140 @@ function renderProjectRoute(route, payload, slug) {
       </section>` : ""}
       
       <section data-project-section="inquiry">
-        <h2>Buyer inquiry</h2>
-        <p>Request the current buyer packet, availability, pricing, fees, floorplans, and project-specific verification notes before making a purchase decision.</p>
-        <p><a href="/inquire/?project=${encodeURIComponent(project.projectId)}&interest=availability">Ask The Scott Gordon Group about ${publicText(project.name)}</a></p>
+        <h2>${publicText(presentation.inquiryHeading)}</h2>
+        <p>${publicText(presentation.inquiryCopy)}</p>
+        <p><a href="/inquire/?project=${encodeURIComponent(project.projectId)}&interest=${encodeURIComponent(presentation.interest)}">${publicText(presentation.ctaLabel)}</a></p>
       </section>
 
-      <section class="section technical-disclosures-accordion" data-project-section="disclosures" style="margin-top: clamp(80px, 8vw, 120px); border-top: 1px solid rgba(37,42,45,0.08); padding-top: 40px;">
-        <details style="cursor: pointer; outline: none;">
-          <summary style="font-family: Georgia, serif; font-size: 1.15rem; font-weight: 500; color: var(--ink); margin-bottom: 20px; list-style: none; display: flex; align-items: center; gap: 8px;">
-            <span>Sourcing Details & Technical Disclosures</span>
-            <span style="font-size: 0.8rem; opacity: 0.6;">(Click to expand)</span>
-          </summary>
-          <div class="technical-disclosures-content" style="padding-top: 20px; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6;">
-            <p>This building profile uses published project information compiled from public records, developer announcements, and real estate filings. The details below are tracked for internal data verification and buyer risk assessment.</p>
-            
-            ${(project.missingInfo && project.missingInfo.length > 0) ? `
-              <div style="margin-bottom: 20px;">
-                <strong>Unconfirmed Details:</strong>
-                <ul style="margin: 10px 0 0 20px; padding: 0;">
-                  ${project.missingInfo.map(item => `<li>${publicText(item)}</li>`).join("")}
-                </ul>
-              </div>
-            ` : ""}
-
-            ${(project.conflicts?.length > 0 || project.gaps?.length > 0) ? `
-              <div style="margin-bottom: 20px;">
-                <strong>Conflicts & Gaps:</strong>
-                <ul style="margin: 10px 0 0 20px; padding: 0;">
-                  ${(project.conflicts || []).map(item => `<li>${publicText(item)}</li>`).join("")}
-                  ${(project.gaps || []).map(item => `<li>${publicText(item)}</li>`).join("")}
-                </ul>
-              </div>
-            ` : ""}
-
-            <div style="margin-bottom: 20px;">
-              <strong>Verification Logs:</strong>
-              <ul style="margin: 10px 0 0 20px; padding: 0;">
-                <li><strong>Database Records:</strong> ${project.sourceCounts?.official ?? 0} official, ${project.sourceCounts?.reporting ?? 0} reporting, ${project.sourceCounts?.other ?? 0} other references.</li>
-                <li><strong>Confidence Level:</strong> ${publicText(project.dataConfidence || "Draft")}</li>
-                ${sources.length ? `<li><strong>Reviewed Sources:</strong><br>${sources.map((href) => renderStaticSourceLink(href, project.projectId)).join(" · ")}</li>` : ""}
-              </ul>
-            </div>
-          </div>
-        </details>
+      <section data-project-section="sources">
+        <h2>Sources and review date</h2>
+        <p>Facts on this page were last reviewed ${publicText(project.lastReviewedDate || "recently")}. ${project.projectType === "rental" ? "Rents, concessions, availability, lease terms, and resident policies can change." : "Pricing, availability, incentives, fees, and contract terms can change."}</p>
+        ${sources.length ? `<p>${sources.map((href) => renderStaticSourceLink(href, project.projectId)).join(" · ")}</p>` : ""}
       </section>
+
+      ${relatedUpdates.length ? `<section data-project-section="updates">
+        <h2>Latest project updates</h2>
+        <ul>${relatedUpdates.map((item) => `<li><a href="/updates/${safeHref(item.slug || item.id)}/">${publicText(item.title)}</a></li>`).join("")}</ul>
+      </section>` : ""}
 
       <section data-project-section="faq">
         <h2>FAQ</h2>
         ${projectFaqForStatic(project, floorplans).map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
       </section>
+      </div>
     `,
   );
+}
+
+function renderProjectTypeContextStatic(project) {
+  if (project.projectId !== "the-sound-west-palm-beach") return "";
+  return `
+    <section>
+      <h2>Rental apartments, not condominiums</h2>
+      <p>The Sound is a 358-unit rental apartment community with 90 workforce housing units. It is not a for-sale condominium or ownership opportunity.</p>
+      <h3>Development timeline</h3>
+      <ul>
+        <li>March 2026: the development team reported that construction was nearing completion, with 2026 delivery targeted.</li>
+        <li>June 12, 2026: Trader Joe’s opened at 8111 South Dixie Highway.</li>
+        <li>July 6, 2026: the City Commission approved streetscape and right-of-way maintenance agreements tied to the project.</li>
+        <li>September 4, 2026 review: Verdex still described the project as under construction; live residential leasing status remained unconfirmed.</li>
+      </ul>
+      <h3>Amenities and South End context</h3>
+      <p>Announced amenities include a coworking lounge, indoor pickleball courts, a resort-style pool, a top-level sky lounge, a landscaped waterfront walkway, a dock, and a kayak or canoe launch. Trader Joe’s is now open at the same address, while the remaining retail lineup should be confirmed directly.</p>
+    </section>
+  `;
+}
+
+function staticProjectPresentation(project, floorplans) {
+  const hasFloorplans = Boolean(floorplans?.count);
+  const location = project.area || "West Palm Beach";
+  const common = {
+    showFloorplans: hasFloorplans,
+    guideCopy: `Use this stable ${project.name} profile for orientation, comparison, and the current details worth confirming before acting.`,
+  };
+  if (project.projectType === "rental") return {
+    ...common,
+    identityLabel: "rental community guide",
+    bottomLine: `${project.name} is a rental apartment community in ${location}, not a for-sale condominium. Confirm current rents, availability, concessions, deposits, lease terms, and move-in timing before relying on public summaries.`,
+    offeringHeading: "Rental homes and leasing context",
+    offeringCopy: hasFloorplans ? `${floorplans.count} canonical layouts are tracked for orientation. Current leasing availability and quoted rent should come from current leasing materials.` : "No public leasing floorplan set is confirmed in the current catalog. Confirm current layouts, rents, availability, concessions, and lease terms directly.",
+    inquiryHeading: "Leasing inquiry",
+    inquiryCopy: "Request current rents, availability, concessions, deposits, pet terms, and move-in timing.",
+    ctaLabel: `Check current leasing information for ${project.name}`,
+    interest: "leasing",
+  };
+  if (project.projectType === "office") return {
+    ...common,
+    identityLabel: "office development guide",
+    bottomLine: `${project.name} is an office development in ${location}, not residential inventory. Confirm current space availability, asking terms, delivery condition, parking, and tenant-improvement details.`,
+    offeringHeading: "Office space and leasing context",
+    offeringCopy: "Office plans and public project facts are for orientation. Current availability and commercial terms should come from current leasing materials.",
+    inquiryHeading: "Office leasing inquiry",
+    inquiryCopy: "Request current space availability, asking terms, parking, delivery condition, and tenant-improvement details.",
+    ctaLabel: `Request leasing information for ${project.name}`,
+    interest: "office-leasing",
+  };
+  if (project.projectType === "completed-comparable") return {
+    ...common,
+    identityLabel: "completed condominium guide",
+    bottomLine: `${project.name} is a completed ${location} condominium used as a resale comparable, not current developer inventory. Confirm active listings, condition, fees, assessments, and seller terms.`,
+    offeringHeading: "Completed residences and resale context",
+    offeringCopy: hasFloorplans ? `${floorplans.count} canonical plans are tracked for layout orientation. Confirm the specific resale residence, condition, exposure, fees, and seller terms.` : "Use this page as completed-building context, then confirm the specific resale residence, condition, exposure, fees, assessments, and seller terms.",
+    inquiryHeading: "Resale inquiry",
+    inquiryCopy: "Request current resale listings and building-specific due diligence.",
+    ctaLabel: `Request current resale availability at ${project.name}`,
+    interest: "resale-availability",
+  };
+  if (project.projectType === "condo-pipeline" || project.projectType === "mixed-use") return {
+    ...common,
+    identityLabel: project.projectType === "mixed-use" ? "mixed-use development guide" : "condominium pipeline guide",
+    bottomLine: `${project.name} is tracked as a ${location} ${project.projectType === "mixed-use" ? "mixed-use development" : "condominium pipeline project"}. Use current public status and planning signals for context, not as a promise of a sales launch, pricing, or availability.`,
+    offeringHeading: project.projectType === "mixed-use" ? "Development program and status" : "Pipeline status and future residences",
+    offeringCopy: hasFloorplans ? `${floorplans.count} canonical plans are tracked, but public status, launch timing, pricing, and availability still require current confirmation.` : "No complete public floorplan packet is confirmed. Track current approvals, program, sponsor signals, launch timing, and status before treating this as available inventory.",
+    inquiryHeading: "Project updates",
+    inquiryCopy: "Request current status, planning, launch, and public-material updates.",
+    ctaLabel: `Get updates on ${project.name}`,
+    interest: "project-updates",
+  };
+  return {
+    ...common,
+    identityLabel: project.projectType === "hotel-residences" ? "hotel and residences guide" : "condominium buyer guide",
+    bottomLine: `${project.name} is tracked as a ${location} ${String(project.projectType || "project").replace(/-/g, " ")} profile. Verify current pricing, availability, incentives, fees, floor-plan release status, delivery timing, and contract terms.`,
+    offeringHeading: project.projectType === "hotel-residences" ? "Hotel services and private residences" : "Residences and floorplans",
+    offeringCopy: hasFloorplans ? `${floorplans.count} canonical floorplans are tracked for buyer orientation. Confirm current line, stack, exposure, square footage, fees, pricing, and availability.` : "No complete public floorplan packet is confirmed in the current catalog. Request current offering materials before comparing residences.",
+    inquiryHeading: "Buyer inquiry",
+    inquiryCopy: "Request the current buyer packet, availability, pricing, fees, floorplans, and project-specific verification notes.",
+    ctaLabel: `Ask The Scott Gordon Group about ${project.name}`,
+    interest: "availability",
+  };
 }
 
 function renderCorridorRoute(route, payload, slug) {
   const corridor = corridorDetails[slug] || { label: route.title, summary: route.description };
   const projects = payload.projectFacts.filter((project) => normalize(project.area).includes(normalize(corridor.label)));
+  const activeProjects = projects.filter((project) => project.projectType === "condo-active-sales");
+  const pipelineProjects = projects.filter((project) => project.projectType === "condo-pipeline" || project.projectType === "mixed-use");
+  const latestUpdates = corridorUpdatesForStatic(payload, slug, projects);
+  const projectSections = slug === "north-flagler"
+    ? `
+      <section>
+        <h2>Active sales and construction</h2>
+        <p>These buildings have active sales or construction signals. Public pricing is guidance only; confirm residence-specific availability, fees, incentives, and contract terms from current materials.</p>
+        ${projectCards(activeProjects)}
+      </section>
+      <section>
+        <h2>Pipeline and planning watch</h2>
+        <p>These projects belong in a future-supply watchlist, not in the same inventory set as active sales. Confirm approvals, launch status, program, timing, and whether buyer materials have actually been released.</p>
+        ${projectCards(pipelineProjects)}
+      </section>`
+    : `<section><h2>Tracked projects in this corridor</h2>${projectCards(projects)}</section>`;
   return pageShell(
     `corridor-${slug}`,
-    `${corridor.label} Condos`,
+    slug === "south-end"
+      ? "South End Developments"
+      : slug === "north-flagler"
+        ? "North Flagler Condos & Waterfront New Construction"
+        : `${corridor.label} Condos`,
     route.description,
     `
       <section>
@@ -658,14 +732,18 @@ function renderCorridorRoute(route, payload, slug) {
         <h2>${publicText(corridor.label)} comparison table</h2>
         ${renderStaticComparisonTable(payload, projects)}
       </section>
-      <section>
-        <h2>Tracked projects in this corridor</h2>
-        ${projectCards(projects)}
-      </section>
+      ${projectSections}
       <section>
         <h2>Buyer fit and verification notes</h2>
         <p>${publicText(corridorBestFit(slug))} Confirm current pricing, availability, incentives, fees, floor-plan release status, stack, exposure, delivery timing, and contract terms before making a purchase decision.</p>
       </section>
+      ${renderCorridorUpdatesForStatic(latestUpdates, corridor)}
+      ${slug === "north-flagler" ? `
+        <section>
+          <h2>Build a North Flagler shortlist</h2>
+          <p><a href="/compare/">Compare North Flagler buildings side by side</a></p>
+          <p><a href="/inquire/">Request current pricing, availability, and buyer packets</a></p>
+        </section>` : ""}
       <section>
         <h2>FAQ</h2>
         ${corridorFaqForStatic(corridor, projects).map((item) => `<article><h3>${publicText(item.question)}</h3><p>${publicText(item.answer)}</p></article>`).join("")}
@@ -674,8 +752,35 @@ function renderCorridorRoute(route, payload, slug) {
   );
 }
 
+function corridorUpdatesForStatic(payload, slug, projects) {
+  const projectIds = new Set(projects.map((project) => project.projectId));
+  const normalizedSlug = normalize(slug);
+  return payload.approvedNews
+    .filter((item) => {
+      const corridorValues = [
+        ...(item.relatedCorridorIds ?? []),
+        ...(item.relatedCorridors ?? []),
+        item.relatedCorridor,
+        item.corridorLabel,
+      ].filter(Boolean).map(normalize);
+      return corridorValues.some((value) => value.includes(normalizedSlug)) || relatedProjectIds(item).some((id) => projectIds.has(id));
+    })
+    .sort((a, b) => Date.parse(b.sourcePublishedDate || b.publishedAt || 0) - Date.parse(a.sourcePublishedDate || a.publishedAt || 0))
+    .slice(0, 3);
+}
+
+function renderCorridorUpdatesForStatic(items, corridor) {
+  if (!items.length) return "";
+  return `
+    <section>
+      <h2>Latest ${publicText(corridor.label)} updates</h2>
+      ${items.map((item) => `<article><h3><a href="/updates/${escapeHtml(item.slug || item.id)}/">${publicText(item.title)}</a></h3><p>${publicText(item.summary || item.description || item.deck || "Source-linked corridor update.")}</p></article>`).join("")}
+    </section>
+  `;
+}
+
 function renderPipelineWatchlistStaticNote(project) {
-  const isWatchlist = /pipeline|watch/i.test(`${project.pageStatus || ""} ${project.facts?.status || ""} ${project.canonicalWatchlist?.developmentStage || ""}`);
+  const isWatchlist = /pipeline|planning|mixed-use/.test(project.projectType || "") || /pipeline|watch|proposed/i.test(project.facts?.status || "");
   if (!isWatchlist) return "";
   if (project.projectId === "rosewood-residences-west-palm-beach") {
     return `
@@ -714,6 +819,9 @@ function renderUpdateRoute(route, payload, slug) {
       .filter(Boolean),
   );
   const isDeckEcho = (value) => deckEchoes.has(String(value ?? "").trim().toLowerCase());
+  const relatedProjects = relatedProjectIds(item)
+    .map((projectId) => payload.projectFacts.find((project) => project.projectId === projectId))
+    .filter(Boolean);
   return pageShell(
     `update-${slug}`,
     item.title,
@@ -725,10 +833,19 @@ function renderUpdateRoute(route, payload, slug) {
         ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(stripImageTokens(section.body))}</p>${section.image ? `<figure class="market-note-inline-image"><img src="${safeHref(section.image)}" alt="${publicText(`${item.title}: ${section.heading}`)}" loading="lazy" decoding="async" /></figure>` : ""}</section>`).join("")}
         ${item.whyItMatters && !isDeckEcho(item.whyItMatters) ? `<section><h2>Why it matters</h2><p>${publicText(stripImageTokens(item.whyItMatters))}</p></section>` : ""}
         ${item.buyerContext && !isDeckEcho(item.buyerContext) ? `<section><h2>Buyer context</h2><p>${publicText(stripImageTokens(item.buyerContext))}</p></section>` : ""}
+        ${relatedProjects.length ? `<section><h2>Related project guide</h2><p>${relatedProjects.map((project) => `<a href="${projectPath(project)}">${publicText(project.name)}</a>`).join(" · ")}</p></section>` : ""}
         <section><h2>Source</h2><p><a href="${safeHref(item.canonicalUrl || item.sourceUrl || "#")}">${publicText(item.sourceName || "Original source")}</a>. Verify current project details before making a purchase decision.</p></section>
       </article>
     `,
   );
+}
+
+function relatedProjectIds(item) {
+  return [...new Set([
+    ...(item.relatedProjectIds || []),
+    ...(item.relatedProjectSlugs || []),
+    item.primaryProjectSlug,
+  ].filter(Boolean))];
 }
 
 function renderUpdatesIndex(route, payload) {
@@ -842,7 +959,7 @@ function projectCards(projects) {
       ${projects.map((project) => `
         <article>
           <h3><a href="${projectPath(project)}">${publicText(project.name)}</a></h3>
-          <p>${publicText(project.area || "West Palm Beach")} - ${publicText(project.facts?.status || project.pageStatus || "Status needs verification")}</p>
+          <p>${publicText(project.area || "West Palm Beach")} - ${publicText(project.facts?.status || "Status needs verification")}</p>
           <p>${publicText(firstVerificationNote(project))}</p>
         </article>
       `).join("")}
@@ -886,21 +1003,10 @@ function factRow(label, value) {
   return `<div><dt>${publicText(label)}</dt><dd>${publicText(v)}</dd></div>`;
 }
 
-function renderConflictAndGapSection(project) {
-  const items = [...(project.conflicts || []), ...(project.gaps || [])].filter(Boolean);
-  if (!items.length) return "";
-  return `
-    <section>
-      <h2>Items to confirm</h2>
-      <ul>${items.map((item) => `<li>${publicText(item)}</li>`).join("")}</ul>
-    </section>
-  `;
-}
-
 function priorityProjectFacts(payload) {
   return [...payload.projectFacts].sort((a, b) => {
-    const aRank = a.pageStatus === "Primary condo page" ? 0 : a.pageStatus === "Candidate project page" ? 1 : 2;
-    const bRank = b.pageStatus === "Primary condo page" ? 0 : b.pageStatus === "Candidate project page" ? 1 : 2;
+    const aRank = a.projectType === "condo-active-sales" ? 0 : a.projectType === "condo-pipeline" ? 1 : 2;
+    const bRank = b.projectType === "condo-active-sales" ? 0 : b.projectType === "condo-pipeline" ? 1 : 2;
     return aRank - bRank || a.name.localeCompare(b.name);
   });
 }
@@ -911,91 +1017,11 @@ function floorplanForProject(payload, projectId) {
   return payload.floorplanLibrary.find((project) => aliases.has(project.projectId));
 }
 
-function canonicalProjectFallbackForSlug(payload, slug) {
-  const canonicalId = slug === "rybovich-marina" ? "rybovich-marina-redevelopment" : slug;
-  const record = payload.canonicalProjects.find((project) => (project.project_id || project.slug) === canonicalId || project.slug === canonicalId);
-  if (!record || record.include_on_site !== true) return undefined;
-  const sourceBuckets = sourceBucketsForCanonicalProject(payload, record);
-  return {
-    projectId: record.project_id || record.slug,
-    name: record.display_name || record.project || record.slug,
-    area: corridorAreaFromCanonical(record),
-    pageStatus: record.status_badge || "Pipeline/watch-list",
-    dataConfidence: record.confidence_level || "Needs verification",
-    officialWebsite: "",
-    facts: {
-      address: record.public_address || "",
-      status: record.status_badge || record.development_stage || "Pipeline/watch-list",
-      residences: record.public_residence_count ? String(record.public_residence_count) : "",
-      stories: record.floor_count_display ? String(record.floor_count_display) : "",
-      completion: record.delivery_display || "Timing not publicly confirmed.",
-      pricing: record.price_display || "Not publicly confirmed",
-      team: [
-        ...asList(record.developer),
-        ...asList(record.architect),
-        ...asList(record.brand_partner),
-      ].filter(Boolean).join("; "),
-    },
-    missingInfo: [
-      !record.price_display ? "Current pricing is not publicly confirmed." : "",
-      !record.delivery_display ? "Delivery timing is not publicly confirmed." : "",
-      !record.size_range_display ? "Residence sizes and public floorplan packets should be verified." : "",
-    ].filter(Boolean),
-    conflicts: record.key_conflicts || [],
-    gaps: [
-      ...(record.tradeoffs || []),
-      record.human_review_required ? "Human review is required before treating this as a current sales offering." : "",
-    ].filter(Boolean),
-    highValueSources: [],
-    sourceCounts: {
-      official: sourceBuckets.official.length,
-      reporting: sourceBuckets.reporting.length,
-      other: sourceBuckets.other.length,
-      sourcePages: sourceBuckets.official.length + sourceBuckets.reporting.length + sourceBuckets.other.length,
-    },
-    sourceBuckets,
-    canonicalWatchlist: {
-      amenitySummary: record.amenity_summary || "",
-      serviceSummary: record.service_summary || "",
-      parkingSummary: record.parking_summary || "",
-      bestFor: record.best_for || [],
-      tradeoffs: record.tradeoffs || [],
-      developmentStage: record.development_stage || "",
-      importRecommendation: record.import_recommendation || "",
-    },
-  };
-}
-
-function sourceBucketsForCanonicalProject(payload, record) {
-  if (record.project_id === "rosewood-residences-west-palm-beach") {
-    return payload.rosewoodSourceIndex.reduce((buckets, source) => {
-      const bucket = source.type === "official_city" || source.type === "state_record"
-        ? "official"
-        : source.type?.includes("reporting")
-          ? "reporting"
-          : "other";
-      if (source.url) buckets[bucket].push(source.url);
-      return buckets;
-    }, { official: [], reporting: [], other: [] });
-  }
-  const urls = asList(record.source_urls);
-  return { official: [], reporting: urls, other: [] };
-}
-
-function corridorAreaFromCanonical(record) {
-  const neighborhood = `${record.neighborhood || ""} ${record.public_address || ""}`.toLowerCase();
-  if (record.city === "Palm Beach" || neighborhood.includes("palm beach south end")) return "Palm Beach";
-  if (neighborhood.includes("south flagler")) return "South Flagler";
-  if (neighborhood.includes("downtown") || neighborhood.includes("cityplace") || neighborhood.includes("nora")) return "Downtown";
-  return "North Flagler";
-}
-
 function projectForSlug(payload, slug) {
   const canonicalProject = payload.projectFacts.find((project) => project.projectId === slug);
   if (canonicalProject) return canonicalProject;
   const id = projectAliases.get(slug) || slug;
-  return payload.projectFacts.find((project) => project.projectId === id || project.projectId === slug) ||
-    canonicalProjectFallbackForSlug(payload, slug);
+  return payload.projectFacts.find((project) => project.projectId === id || project.projectId === slug);
 }
 
 function projectPath(project) {
@@ -1012,6 +1038,7 @@ function publicProjectId(projectId) {
 function corridorKeyForProject(project) {
   const area = normalize(project.area);
   if (area.includes("south-flagler")) return "south-flagler";
+  if (area.includes("south-end") || area.includes("south-dixie")) return "south-end";
   if (area.includes("downtown")) return "downtown";
   if (area === "palm-beach" || area.includes("palm-beach-island")) return "palm-beach";
   return "north-flagler";
@@ -1029,6 +1056,7 @@ function corridorDirectoryPathForKey(key) {
 function corridorLabelForKey(key) {
   if (key === "north-flagler") return "North Flagler";
   if (key === "south-flagler") return "South Flagler";
+  if (key === "south-end") return "South End / South Dixie";
   if (key === "palm-beach") return "Palm Beach";
   return "Downtown West Palm Beach";
 }
@@ -1068,7 +1096,7 @@ function linkLabelForAnswer(href) {
 }
 
 function firstVerificationNote(project) {
-  return project.conflicts?.[0] || project.gaps?.[0] || "Verify current pricing, availability, fees, incentives, square footage, delivery timing, and contract terms.";
+  return project.summary || "Review the current project page, then confirm pricing, availability, fees, delivery timing, and contract terms.";
 }
 
 function comparisonAuthorityProjects(payload) {
@@ -1091,15 +1119,16 @@ function comparisonAuthorityProjects(payload) {
 function renderStaticComparisonTable(payload, projects) {
   return `
     <table>
-      <thead><tr><th>Building</th><th>Corridor</th><th>Status</th><th>Delivery</th><th>Floorplans</th><th>Best fit</th><th>Verification note</th></tr></thead>
+      <thead><tr><th>Building</th><th>Corridor</th><th>Status</th><th>Delivery</th><th>Pricing guidance</th><th>Floorplans</th><th>Best fit</th><th>Buyer focus</th></tr></thead>
       <tbody>
         ${projects.map((project) => {
           const floorplans = floorplanForProject(payload, project.projectId);
           return `<tr>
             <td><a href="${projectPath(project)}">${publicText(project.name)}</a></td>
             <td>${publicText(project.area || "West Palm Beach")}</td>
-            <td>${publicText(project.facts?.status || project.pageStatus || "Needs verification")}</td>
+            <td>${publicText(project.facts?.status || "Needs verification")}</td>
             <td>${publicText(project.facts?.completion || "Needs verification")}</td>
+            <td>${publicText(project.facts?.pricing || "Request current guidance")}</td>
             <td>${floorplans?.count ? `${floorplans.count} records` : "Request current packet"}</td>
             <td>${publicText(staticBuyerFit(project))}</td>
             <td>${publicText(firstVerificationNote(project))}</td>
@@ -1111,22 +1140,35 @@ function renderStaticComparisonTable(payload, projects) {
 }
 
 function staticBuyerFit(project) {
+  const northFlaglerFits = {
+    olara: "Marina, wellness, and social-energy buyer",
+    shorecrest: "Contemporary waterfront buyer",
+    "ritz-carlton-wpb": "Branded-service and amenity buyer",
+    "alba-palm-beach": "Boutique waterfront buyer",
+    "mandarin-oriental": "Long-horizon branded-residence buyer",
+    "rybovich-marina": "Waterfront-district pipeline watcher",
+    "rosewood-residences-west-palm-beach": "Early branded-residence pipeline watcher",
+  };
+  if (northFlaglerFits[project.projectId]) return northFlaglerFits[project.projectId];
   if (floorplanSignals(project)) return "Floor-plan-first buyer";
   if (normalize(project.area).includes("downtown")) return "Walkability buyer";
   if (normalize(project.area) === "palm-beach") return "Palm Beach island buyer";
   if (normalize(project.area).includes("flagler")) return "Waterfront buyer";
-  if (/pipeline|planning|proposed/i.test(project.pageStatus || project.facts?.status || "")) return "Early pipeline watcher";
+  if (project.projectType === "rental") return "Rental resident";
+  if (project.projectType === "office") return "Commercial tenant";
+  if (/pipeline|planning|proposed/i.test(project.facts?.status || "")) return "Early pipeline watcher";
   return "Buyer-fit review needed";
 }
 
 function floorplanSignals(project) {
-  return /floorplan|floor plan/i.test(`${project.pageStatus || ""} ${project.gaps?.join(" ") || ""}`);
+  return project.projectType === "condo-active-sales";
 }
 
 function corridorBestFit(slug) {
   const key = slug === "downtown-west-palm-beach" ? "downtown" : slug;
   if (key === "north-flagler") return "North Flagler is best for waterfront buyers who want the deepest active comparison set.";
   if (key === "south-flagler") return "South Flagler is best for buyers who want quieter waterfront positioning and Palm Beach proximity.";
+  if (key === "south-end") return "The South End is best for renters and residents prioritizing South Dixie retail access and newer mixed-use development.";
   if (key === "palm-beach") return "Palm Beach is best for buyers prioritizing an island address, low-density scale, and direct ocean or lagoon setting.";
   return "Downtown West Palm Beach is best for buyers who prioritize walkability, restaurants, district energy, and hotel-style service.";
 }
@@ -1188,10 +1230,28 @@ function comparisonProjectsForStatic(payload, project) {
 }
 
 function projectFaqForStatic(project, floorplans) {
+  if (project.projectType === "rental") {
+    return [
+      {
+        question: `Is ${project.name} a condominium or rental?`,
+        answer: `${project.name} is a rental apartment community, not a for-sale condominium. Current availability and lease terms should be confirmed directly.`,
+      },
+      {
+        question: `Are current rents and floorplans available for ${project.name}?`,
+        answer: floorplans?.count
+          ? `${floorplans.count} canonical layouts are tracked for orientation, but current rents, concessions, and unit availability require direct leasing confirmation.`
+          : "No complete public leasing floorplan set is confirmed in this catalog. Request current layouts, rents, concessions, and unit availability directly.",
+      },
+      {
+        question: `What should renters verify at ${project.name}?`,
+        answer: "Confirm current rent, concessions, available units, lease length, deposits, pet policies, parking, amenities, and move-in timing.",
+      },
+    ];
+  }
   return [
     {
       question: `What is the bottom line on ${project.name}?`,
-      answer: `${project.name} is tracked as a ${project.area || "West Palm Beach"} project page with ${project.pageStatus || "buyer-guide"} status. Verify current pricing, availability, incentives, fees, square footage, delivery timing, and contract terms before relying on public summaries.`,
+      answer: `${project.name} is a ${project.area || "West Palm Beach"} ${String(project.projectType || "project").replace(/-/g, " ")} profile. Verify current pricing, availability, incentives, fees, square footage, delivery timing, and contract terms before relying on public summaries.`,
     },
     {
       question: `Are floorplans available for ${project.name}?`,
@@ -1201,18 +1261,13 @@ function projectFaqForStatic(project, floorplans) {
     },
     {
       question: `What should buyers verify before relying on ${project.name} information?`,
-      answer: firstVerificationNote(project),
+      answer: "Confirm current pricing or rent, availability, fees, floor-plan release status, delivery timing, and the terms that apply to the specific residence or space.",
     },
   ];
 }
 
 function sourceLinksForProject(project) {
-  return [
-    project.officialWebsite,
-    ...(project.highValueSources || []),
-    ...(project.sourceBuckets?.official || []),
-    ...(project.sourceBuckets?.reporting || []),
-  ].filter(Boolean).filter((href, index, list) => list.indexOf(href) === index);
+  return (project.sources || []).map((source) => source.url).filter(Boolean).filter((href, index, list) => list.indexOf(href) === index);
 }
 
 function sourceLabel(href) {
@@ -1236,31 +1291,37 @@ function renderStaticSourceLink(href, projectId) {
 
 function buildRouteSchema(route, payload, canonical) {
   const routeKind = routeKindForPath(route.path);
-  const schemaDescription = routeKind.type === "project"
-    ? `${route.title.replace(/\s+\|\s+.*$/, "")} buyer guide with source-backed project context and verification notes.`
-    : route.description;
+  const schemaDescription = route.description;
   const baseGraph = [
     {
-      "@type": payload.siteMeta.publisher?.type || "RealEstateAgent",
-      "@id": `${baseUrl}/#publisher`,
+      "@type": "Organization",
+      "@id": `${baseUrl}/#brokerage`,
       name: payload.siteMeta.publisher?.name || "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
-      url: baseUrl,
+      url: "https://www.elliman.com/",
       telephone: "+1-561-891-0186",
       areaServed: payload.siteMeta.publisher?.areaServed || "West Palm Beach, Florida",
     },
     {
-      "@type": "Person",
+      "@type": "RealEstateAgent",
       "@id": `${baseUrl}/#advisor`,
       name: payload.siteMeta.expertByline?.name || "The Scott Gordon Group",
-      jobTitle: payload.siteMeta.expertByline?.title || "Licensed Real Estate Broker Associate",
-      worksFor: { "@id": `${baseUrl}/#publisher` },
+      description: payload.siteMeta.expertByline?.title || "Palm Beach waterfront and new-construction advisory team",
+      telephone: "+1-561-891-0186",
+      parentOrganization: { "@id": `${baseUrl}/#brokerage` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${baseUrl}/#brooke-snader`,
+      name: "Brooke Matthew Snader",
+      jobTitle: "Broker Associate",
+      worksFor: { "@id": `${baseUrl}/#advisor` },
     },
     {
       "@type": "WebSite",
       "@id": `${baseUrl}/#website`,
       name: payload.siteMeta.siteName || "WPB New Construction",
       url: baseUrl,
-      publisher: { "@id": `${baseUrl}/#publisher` },
+      publisher: { "@id": `${baseUrl}/#advisor` },
     },
     {
       "@type": route.path === "/" ? "CollectionPage" : "WebPage",
@@ -1269,7 +1330,7 @@ function buildRouteSchema(route, payload, canonical) {
       url: canonical,
       description: schemaDescription,
       isPartOf: { "@id": `${baseUrl}/#website` },
-      reviewedBy: { "@id": `${baseUrl}/#advisor` },
+      reviewedBy: { "@id": `${baseUrl}/#brooke-snader` },
     },
     breadcrumbSchema(route, canonical),
   ];
@@ -1321,15 +1382,18 @@ function breadcrumbSchema(route, canonical) {
 function projectSchema(project, payload) {
   const schemaFacts = payload.projectSchemaSafe.find((item) => item.identity?.slug === project.projectId);
   const safeFields = schemaFacts?.safeFields || { name: project.name, url: `${baseUrl}${projectPath(project)}` };
-  const presentation = project.canonicalModel?.presentation;
+  const publicProject = payload.projectModel.find((item) => item.publicSlug === project.projectId);
+  const presentation = publicProject?.presentation;
   const unitCount = Number(String(safeFields.residenceCount || "").match(/\d+/)?.[0] || 0) || undefined;
   const projectLocality = normalize(project.area) === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   return {
-    "@type": "ApartmentComplex",
+    "@type": schemaTypeForProject(project.projectType),
     "@id": `${baseUrl}${projectPath(project)}#project`,
     name: safeFields.name,
     url: safeFields.url,
-    description: `${safeFields.name} buyer guide with source-backed project context and verification notes.`,
+    description: project.projectType === "rental"
+      ? `${safeFields.name} rental community guide with source-backed development, amenity, neighborhood, and leasing-verification context.`
+      : `${safeFields.name} buyer guide with source-backed project context and verification notes.`,
     address: safeFields.address ? {
       "@type": "PostalAddress",
       streetAddress: safeFields.address,
@@ -1345,8 +1409,14 @@ function projectSchema(project, payload) {
     numberOfAccommodationUnits: unitCount,
     ...(safeFields.status ? { status: safeFields.status } : {}),
     subjectOf: { "@id": `${baseUrl}${projectPath(project)}#webpage` },
-    reviewedBy: { "@id": `${baseUrl}/#advisor` },
+    reviewedBy: { "@id": `${baseUrl}/#brooke-snader` },
   };
+}
+
+function schemaTypeForProject(projectType) {
+  if (projectType === "hotel-residences") return ["Hotel", "ApartmentComplex"];
+  if (projectType === "office" || projectType === "mixed-use" || projectType === "condo-pipeline") return "Place";
+  return "ApartmentComplex";
 }
 
 function itemListSchema(canonical, name, items) {
@@ -1397,8 +1467,8 @@ function newsArticleSchema(item, canonical) {
     description: item.description || item.summary || item.deck,
     datePublished: item.publishedAt || item.sourcePublishedAt,
     dateModified: item.fetchedAt || item.publishedAt,
-    author: { "@id": `${baseUrl}/#advisor` },
-    publisher: { "@id": `${baseUrl}/#publisher` },
+    author: { "@id": `${baseUrl}/#brooke-snader` },
+    publisher: { "@id": `${baseUrl}/#advisor` },
     mainEntityOfPage: canonical,
   };
 }
@@ -1409,8 +1479,8 @@ function articleSchema(route, canonical) {
     "@id": `${canonical}#article`,
     headline: route.title.replace(/\s+\|\s+.*$/, ""),
     description: route.description,
-    author: { "@id": `${baseUrl}/#advisor` },
-    publisher: { "@id": `${baseUrl}/#publisher` },
+    author: { "@id": `${baseUrl}/#brooke-snader` },
+    publisher: { "@id": `${baseUrl}/#advisor` },
     mainEntityOfPage: canonical,
   };
 }

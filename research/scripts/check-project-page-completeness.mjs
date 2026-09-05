@@ -18,13 +18,15 @@ for (const project of projectModel.projects) {
   if (project.publicationState === "awaiting_imagery" && project.presentation) findings.push(`${project.publicSlug}: imagery-gated project must not have presentation data or a public page.`);
 }
 
-for (const section of ["hero", "facts", "residences", "neighborhood", "inquiry"]) {
+for (const section of ["hero", "facts", "neighborhood", "inquiry"]) {
   if (!main.includes(`data-project-section="${section}"`)) findings.push(`Browser project renderer is missing ${section} section contract marker.`);
   if (!prerender.includes(`data-project-section="${section}"`)) findings.push(`Prerender project renderer is missing ${section} section contract marker.`);
 }
+if (!main.includes('data-project-section="residences"')) findings.push("Browser project renderer is missing residences section contract marker.");
+if (!prerender.includes('data-project-section="offering"')) findings.push("Prerender project renderer is missing type-aware offering section contract marker.");
 
-if (!main.includes("renderProjectIdentityHeader(project, pageType)")) {
-  findings.push("Project pages do not render a shared identity header.");
+if (!main.includes("renderProjectIdentityHeader(project, rules)")) {
+  findings.push("Generic project pages do not render the shared type-aware identity header.");
 }
 
 if (!main.includes("projectLogoImages")) {
@@ -35,8 +37,8 @@ if (!main.includes("renderEmailSignup(`project_${project.id}`")) {
   findings.push("Planning/source-watch project pages do not render lightweight email signup.");
 }
 
-if (!main.includes("isCompactWatch ?")) {
-  findings.push("Project renderer does not branch for planning/source-watch pages.");
+if (!main.includes("projectPresentationRules(project")) {
+  findings.push("Project renderer does not use the shared project-type presentation policy.");
 }
 
 for (const project of projectIds) {
@@ -60,8 +62,8 @@ if (!/Not publicly confirmed/.test(main)) {
   findings.push("Missing or uncertain facts must render as Not publicly confirmed.");
 }
 
-if (!main.includes('isCompactWatch ? "Get Updates on This Project" : "Request Current Availability"')) {
-  findings.push("Compact planning/source-watch pages must use Get Updates as the primary CTA.");
+if (!main.includes('case "condo-pipeline"') || !main.includes('primaryCtaLabel: "Get Project Updates"')) {
+  findings.push("Pipeline project pages must use project-update language as the primary CTA.");
 }
 
 if (findings.length) {

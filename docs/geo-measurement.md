@@ -72,15 +72,12 @@ Inspect and monitor these first in Google Search Console and Bing Webmaster Tool
 
 ## GA4 Decision Notes
 
-- GA4 code is not installed in this phase.
-- Current site analytics are routed through the vendor-neutral wrapper in `src/lib/analytics.ts`.
-- Before GA4 implementation, decide:
-  - GA4 property and measurement ID.
-  - Whether analytics requires a consent banner or Consent Mode setup.
-  - Which events should be sent to GA4 and which should remain local only.
-  - How AI referrer classification should appear in reports.
-- Future GA4 setup should use an environment variable such as `VITE_GA4_MEASUREMENT_ID`.
-- Do not record names, emails, phone numbers, message text, private client notes, or buyer-sensitive financial details in analytics payloads.
+- The vendor-neutral wrapper in `src/lib/analytics.ts` now includes an environment-gated GA4 adapter.
+- GA4 remains disabled unless a valid production `VITE_GA4_MEASUREMENT_ID` is configured.
+- Before enabling that variable, confirm the approved GA4 property/web stream and whether a consent banner or Consent Mode setup is required.
+- The adapter disables automatic pageviews and advertising-personalization signals, uses clean path-only page locations, and sends only fields accepted by `src/lib/analyticsSafety.ts`.
+- AI referrer classification can use the sanitized `referrer_host` dimension without sending a full referrer URL.
+- Do not record names, emails, phone numbers, message text, private client notes, buyer-sensitive financial details, or URL query strings in analytics payloads.
 
 ## AI Referrer Domains To Monitor
 

@@ -27,17 +27,16 @@ import homepageCardOverridesRaw from "../content/overrides/homepage-card-overrid
 import approvedImportedProjectImagesRaw from "./data/approvedImportedProjectImages.json";
 import { marketNotes, type MarketNote } from "./data/marketNotes";
 import { track } from "./lib/analytics";
-import { applyLeadAttribution, captureLeadLandingContext, ensureSubmissionId, rememberLeadAttribution } from "./lib/leadCapture";
+import { applyLeadAttribution, captureLeadLandingContext, ensureSubmissionId, getLeadAttribution, rememberLeadAttribution } from "./lib/leadCapture";
 import { getTurnstileToken, resetTurnstile } from "./lib/turnstile";
 import type { BuildingDatabaseField } from "./lib/buildingDatabase";
 import type { CompareSection } from "./lib/buildingCompareSections";
 import { advisorProfile, teamProfile } from "./lib/contact";
-import { getSchemaSafeProjectFacts } from "./lib/projectIntelligence";
-import { resolveSourceCatalogProjectId } from "./lib/projectIntelligenceRegistry";
+import { getSchemaSafeProjectFacts } from "./lib/projectSchemaRuntime";
 import { escapeHtml, safeHref } from "./renderUtils";
 import { localIntelligence } from "./data/localIntelligence";
 import { homepageAssets, homepageProjectCardImage } from "./data/homepageAssets";
-import { generatedPublishedProjectRecords } from "./generated/projectModel";
+import { publicProjectRecords } from "./generated/projectModelPublic";
 import { resolveProjectField } from "./lib/projectFieldAccessors";
 
 captureLeadLandingContext();
@@ -62,13 +61,15 @@ type ProjectFact = {
   note?: string;
 };
 
-type CorridorKey = "north-flagler" | "downtown" | "south-flagler" | "palm-beach";
+type CorridorKey = "north-flagler" | "downtown" | "south-flagler" | "south-end" | "palm-beach";
+type PublicProjectType = "condo-active-sales" | "condo-pipeline" | "rental" | "office" | "hotel-residences" | "mixed-use" | "completed-comparable";
 
 type FeaturedProject = {
   id: string;
   name: string;
   corridor: string;
   corridorKey: CorridorKey;
+  projectType: PublicProjectType;
   status: string;
   delivery: string;
   deliveryYear: number;
@@ -94,6 +95,20 @@ type FeaturedProject = {
 };
 
 type ProjectPageType = "complete-profile" | "advisory-brief" | "planning-watch" | "source-watch" | "market-marker";
+
+type ProjectPresentationRules = {
+  identityLabel: string;
+  overviewLabel: string;
+  primaryCtaLabel: string;
+  primaryCtaHref: string;
+  secondaryCtaLabel: string;
+  inquiryInterest: string;
+  resourceLabel: string;
+  resourceHeading: string;
+  resourceCopy: string;
+  compact: boolean;
+  showFloorplans: boolean;
+};
 
 type Route =
   | { type: "home"; projectId?: undefined }
@@ -518,10 +533,11 @@ const corridorRoutePaths: Record<string, CorridorKey> = {
   "/corridors/downtown-west-palm-beach/": "downtown",
   "/corridors/downtown/": "downtown",
   "/corridors/south-flagler/": "south-flagler",
+  "/corridors/south-end/": "south-end",
   "/corridors/palm-beach/": "palm-beach",
 };
 
-const baseFeaturedProjects: FeaturedProject[] = generatedPublishedProjectRecords.map((record) => {
+const baseFeaturedProjects: FeaturedProject[] = publicProjectRecords.map((record) => {
   const presentation = record.presentation;
   if (!presentation) throw new Error(`Published project ${record.publicSlug} is missing its presentation overlay.`);
   const field = (name: "displayName" | "status" | "delivery" | "residences" | "price" | "address") =>
@@ -531,6 +547,7 @@ const baseFeaturedProjects: FeaturedProject[] = generatedPublishedProjectRecords
     name: field("displayName"),
     corridor: record.corridor,
     corridorKey: record.corridorKey,
+    projectType: record.projectType,
     status: field("status"),
     delivery: field("delivery"),
     deliveryYear: presentation.deliveryYear,
@@ -668,6 +685,7 @@ const projectFilters: ProjectFilter[] = [
   { key: "all", label: "All" },
   { key: "north-flagler", label: "North Flagler" },
   { key: "south-flagler", label: "South Flagler" },
+  { key: "south-end", label: "South End" },
   { key: "downtown", label: "Downtown" },
   { key: "palm-beach", label: "Palm Beach" },
   { key: "active-sales", label: "Active Sales" },
@@ -684,6 +702,7 @@ const projectCorridorFilters: ProjectFilter[] = [
   { key: "all", label: "All Corridors" },
   { key: "north-flagler", label: "North Flagler" },
   { key: "south-flagler", label: "South Flagler" },
+  { key: "south-end", label: "South End" },
   { key: "downtown", label: "Downtown" },
   { key: "palm-beach", label: "Palm Beach" },
 ];
@@ -740,6 +759,14 @@ const corridorSections: CorridorSection[] = [
     reviewNote: "Southern waterfront benchmark for buyers comparing scale, privacy, and Palm Beach proximity.",
     description:
       "South Flagler is an established luxury waterfront corridor known for its proximity to Palm Beach Island and broad Intracoastal views. Buyers typically compare architecture, residence size, privacy, service, and whether a completed building or new launch better fits the ownership plan.",
+  },
+  {
+    key: "south-end",
+    label: "South End",
+    detail: "The Sound Apartments and South Dixie context",
+    reviewNote: "A mixed-use and rental-development lane that stays separate from South Flagler condominium inventory.",
+    description:
+      "West Palm Beach’s South End and South Dixie corridor combine established neighborhoods with newer rental housing, neighborhood retail, and canal-side public-realm improvements. Residents should compare leasing status, daily drive patterns, retail delivery, and proximity to both central West Palm Beach and Lake Worth Beach.",
   },
   {
     key: "palm-beach",
@@ -1048,6 +1075,9 @@ function pageTypeForProject(project: FeaturedProject): ProjectPageType {
 
 function editorialIntroForProject(project: FeaturedProject) {
   const type = pageTypeForProject(project);
+  if (project.projectType === "rental") {
+    return `${project.name} is tracked as a ${project.corridor} rental community. Use this page for source-backed development, amenity, neighborhood, and leasing context, then confirm current rents, concessions, availability, lease terms, policies, parking, and move-in timing directly.`;
+  }
   if (project.id === "nora-house") {
     return "NORA House matters less as an immediately comparable sales option and more as a signal of where Downtown West Palm Beach is heading. Its value in the buyer map is tied to NORA's restaurant, retail, and walkability story, with final offering details still requiring confirmation.";
   }
@@ -2078,7 +2108,8 @@ function applySourceFactsToDraft(base: ProjectPageDraft, project: FeaturedProjec
   if (!sourceFact) return base;
   const source = sourceFact.facts;
   const sourceFacts = [
-    { label: "Address", value: source.address || project.address },
+    { label: "Project Address", value: source.projectAddress || project.address },
+    { label: "Sales Gallery", value: source.salesGalleryAddress },
     { label: "Stories", value: source.stories || "Verify" },
     { label: "Residences", value: conciseResidences(project.id, source.residences) || project.residences, note: source.residences },
     { label: "Delivery", value: conciseDelivery(source.completion) || project.delivery, note: source.completion },
@@ -2101,7 +2132,7 @@ function applySourceFactsToDraft(base: ProjectPageDraft, project: FeaturedProjec
       ...base.highlights.filter((item) => !["status", "pricing", "views"].includes(item.label.toLowerCase())),
     ],
     documents: uniqueDocuments([...documentsFromSource(project, sourceFact), ...base.documents]),
-    needed: neededFromSource(sourceFact),
+    needed: neededFromSource(),
   };
 }
 
@@ -2167,10 +2198,16 @@ type BuyerIntentCtaLocation =
   | "compare_page"
   | "corridor_page"
   | "article_page"
+  | "updates_page"
+  | "floorplans_page"
+  | "methodology_page"
+  | "map_page"
+  | "about_page"
+  | "answer_page"
   | "lead_capture";
 
 function analyticsPath() {
-  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  return window.location.pathname;
 }
 
 function analyticsPageType(routeType: Route["type"]) {
@@ -2541,7 +2578,7 @@ app.innerHTML = `
           <p class="news-empty-state" data-news-empty hidden>No updates match that filter yet.</p>
           <div class="newsroom-cta-row">
             ${renderEmailSignup("updates_archive", "Get the WPB new-construction update digest", true, undefined, "article_page")}
-            <a class="button primary" href="/inquire/?lead_capture_context=updates_page">${shortContactCtaLabel} <span aria-hidden="true">↗</span></a>
+            <a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("updates_page", shortContactCtaLabel, { leadCaptureContext: "updates_page" })}>${shortContactCtaLabel} <span aria-hidden="true">↗</span></a>
           </div>
         </section>
       </div>
@@ -2587,13 +2624,13 @@ app.innerHTML = `
             <p>Explore floor plans designed to help you understand each residence before you step inside. From room flow and bedroom placement to outdoor space, views, and everyday livability, these plans offer a clear look at how each home lives—not just how it measures.</p>
             <div class="hero-actions">
               <a class="button primary" href="#floorplan-library">Browse by building <span aria-hidden="true">↓</span></a>
-              <a class="button ghost" href="/inquire/?interest=floorplans&lead_capture_context=floorplans_page">Request current packet <span aria-hidden="true">↗</span></a>
+              <a class="button ghost" href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", "Request current packet", { leadCaptureContext: "floorplans_page" })}>Request current packet <span aria-hidden="true">↗</span></a>
             </div>
           </div>
         </section>
         <section class="section floorplan-index-section" id="floorplan-library">
           ${floorplanHubProjects.map(renderFloorplanProject).join("")}
-          <a class="home-answer-archive-link" href="/inquire/?interest=floorplans&lead_capture_context=floorplans_page">Request Floorplans <span aria-hidden="true">↗</span></a>
+          <a class="home-answer-archive-link" href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", "Request Floorplans", { leadCaptureContext: "floorplans_page" })}>Request Floorplans <span aria-hidden="true">↗</span></a>
         </section>
       </div>
 
@@ -2608,7 +2645,7 @@ app.innerHTML = `
           <div class="floorplan-viewer-actions">
             <button type="button" data-floorplan-prev>Previous</button>
             <button type="button" data-floorplan-next>Next</button>
-            <a href="/inquire/?interest=floorplans&lead_capture_context=floorplan_viewer">${shortContactCtaLabel}</a>
+            <a href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", shortContactCtaLabel, { leadCaptureContext: "floorplan_viewer" })}>${shortContactCtaLabel}</a>
           </div>
         </section>
       </div>
@@ -2722,7 +2759,7 @@ app.innerHTML = `
           <div class="market-note-actions methodology-actions">
             <a href="/answers/">Read buyer answers <span aria-hidden="true">→</span></a>
             <a href="/projects/olara/">View a project example <span aria-hidden="true">→</span></a>
-            <a href="/inquire/?lead_capture_context=methodology_page">Request Current Availability <span aria-hidden="true">↗</span></a>
+            <a href="/inquire/" ${renderCtaTrackingAttrs("methodology_page", "Request Current Availability", { leadCaptureContext: "methodology_page" })}>Request Current Availability <span aria-hidden="true">↗</span></a>
           </div>
         </section>
       </div>
@@ -2792,6 +2829,11 @@ app.innerHTML = `
               <span>Site Handling</span>
               <strong>Lead submissions may be stored only to respond to the inquiry.</strong>
               <p>Submissions are stored in the site's lead database and routed through transactional email only to respond to the inquiry. The browser does not keep a backup copy of submitted personal information. Anti-abuse checks retain hashed request signals for rate limiting and delivery status records may include provider response details. Do not submit sensitive financial records, identification documents, or confidential transaction documents through this form.</p>
+            </article>
+            <article class="profile-card">
+              <span>Analytics</span>
+              <strong>Site-use events exclude submitted contact details and message contents.</strong>
+              <p>When production analytics is enabled, the site may use Google Analytics to measure page, project, floorplan, comparison, article, and form-step activity. Event payloads use an explicit non-PII field list, omit URL query strings, and disable advertising-personalization signals. Google Analytics may use browser storage; deployment must follow the applicable disclosure and consent requirements.</p>
             </article>
             <article class="profile-card">
               <span>Brokerage Policy</span>
@@ -2963,10 +3005,10 @@ app.innerHTML = `
       </div>
       </main>
     <aside class="floating-availability-cta" data-floating-cta aria-label="Request current availability">
-    <a href="/inquire/?lead_capture_context=floating_cta" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel)}>Contact the Team</a>
+    <a href="/inquire/" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel, { leadCaptureContext: "floating_cta" })}>Contact the Team</a>
   </aside>
   <nav class="mobile-cta-bar" aria-label="Quick contact actions">
-      <a href="/inquire/?lead_capture_context=mobile_cta" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel)}>${shortContactCtaLabel}</a>
+      <a href="/inquire/" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel, { leadCaptureContext: "mobile_cta" })}>${shortContactCtaLabel}</a>
     </nav>
     <div class="lead-modal-backdrop" data-lead-modal hidden>
       <section class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" aria-describedby="lead-modal-body">
@@ -2977,7 +3019,7 @@ app.innerHTML = `
         ${renderEmailSignup("second_building_view", "Send Me Updates", true, undefined, "lead_capture")}
         <div class="lead-modal-actions">
           <button class="button ghost" type="button" data-lead-modal-dismiss>Keep Browsing</button>
-          <a class="button text-link" href="/inquire/?lead_capture_context=second_building_view" ${renderLeadCaptureTrackingAttrs("Need current pricing now? Request availability.", { leadCaptureContext: "second_building_view" })}>Need current pricing now? Request availability.</a>
+          <a class="button text-link" href="/inquire/" ${renderLeadCaptureTrackingAttrs("Need current pricing now? Request availability.", { leadCaptureContext: "second_building_view" })}>Need current pricing now? Request availability.</a>
         </div>
       </section>
     </div>
@@ -3002,7 +3044,7 @@ app.innerHTML = `
     <aside class="mobile-cta-bar" data-mobile-cta-bar hidden aria-label="Contact The Scott Gordon Group">
       <a href="${advisorProfile.mobileHref}" class="mobile-cta-action mobile-cta-action-secondary" aria-label="Call The Scott Gordon Group">Call</a>
       <a href="sms:${advisorProfile.mobileHref.replace('tel:', '')}" class="mobile-cta-action mobile-cta-action-secondary" aria-label="Text The Scott Gordon Group">Text</a>
-      <a href="/inquire/?lead_capture_context=mobile_sticky_cta" class="mobile-cta-action mobile-cta-action-primary" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel, { leadCaptureContext: "mobile_sticky_cta" })}>${shortContactCtaLabel}</a>
+      <a href="/inquire/" class="mobile-cta-action mobile-cta-action-primary" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel, { leadCaptureContext: "mobile_sticky_cta" })}>${shortContactCtaLabel}</a>
     </aside>
     <footer class="site-footer">
       <div>
@@ -3024,11 +3066,8 @@ app.innerHTML = `
   </div>
 `;
 
-document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("focusin", (event) => {
-  const target = event.currentTarget;
-  if (target instanceof HTMLFormElement) {
-    markInquiryFormStarted(target);
-  }
+document.querySelectorAll<HTMLFormElement>("[data-lead-form]").forEach((leadForm) => {
+  leadForm.addEventListener("focusin", () => markInquiryFormStarted(leadForm));
 });
 
 document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("submit", async (event) => {
@@ -3081,6 +3120,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     hasMessage: Boolean(message),
     leadCaptureContext: context,
     viewedBuildingCount: viewedBuildings.length,
+    articleId: getLeadAttribution().article_id,
   });
   if (status) {
     status.textContent = "Saving inquiry...";
@@ -3102,6 +3142,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
       corridor: selectedProjectRecord?.corridor,
       interest,
       leadCaptureContext: context,
+      articleId: getLeadAttribution().article_id,
     });
     if (status) {
       status.textContent = "Thanks — your request was received. The Scott Gordon Group will follow up with current availability and floor plan guidance.";
@@ -3123,6 +3164,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
       interest,
       leadCaptureContext: context,
       errorCode: result.code,
+      articleId: getLeadAttribution().article_id,
     });
     status.textContent = result.message ?? "We could not securely save your request. Please try again.";
   }
@@ -3181,6 +3223,29 @@ document.querySelectorAll<HTMLFormElement>('[data-lead-form="project_inquiry"]')
     event.preventDefault();
     if (projectForm.dataset.submitting === "true" || !projectForm.reportValidity()) return;
     projectForm.dataset.submitting = "true";
+    markInquiryFormStarted(projectForm);
+    const form = new FormData(projectForm);
+    const projectSlug = projectForm.dataset.leadProjectSlug || String(form.get("project") ?? "") || undefined;
+    const project = featuredProjects.find((item) => item.id === projectSlug);
+    const interest = String(form.get("interest") ?? "project_inquiry");
+    const leadCaptureContext = String(form.get("lead_capture_context") ?? projectForm.dataset.leadCtaLocation ?? "project_page");
+    const analyticsContext = {
+      location: projectForm.dataset.leadCtaLocation ?? "project_page",
+      pageType: analyticsPageType(getCurrentRoute().type),
+      path: analyticsPath(),
+      projectSlug,
+      projectName: project?.name ?? projectForm.dataset.leadProjectName,
+      corridor: project?.corridor ?? projectForm.dataset.leadCorridor,
+      interest,
+      leadCaptureContext,
+      articleId: getLeadAttribution().article_id,
+    };
+    track("contact_form_submit", {
+      ...analyticsContext,
+      hasPhone: Boolean(String(form.get("phone") ?? "").trim()),
+      hasMessage: Boolean(String(form.get("message") ?? "").trim()),
+      viewedBuildingCount: getViewedBuildings().length,
+    });
     const status = projectForm.querySelector<HTMLElement>(".form-status");
     if (status) status.textContent = "Saving inquiry...";
     const submission = await buildLeadSubmission(projectForm, "project_inquiry");
@@ -3190,11 +3255,13 @@ document.querySelectorAll<HTMLFormElement>('[data-lead-form="project_inquiry"]')
     }
     const result = await submitLeadForm(submission);
     if (result.ok) {
+      track("lead_form_submit_success", analyticsContext);
       if (status) status.textContent = "Thanks — your request was received. Brooke will follow up with current information.";
       resetTurnstile(projectForm);
       projectForm.reset();
-    } else if (status) {
-      status.textContent = result.message ?? "We could not securely save your request. Please try again.";
+    } else {
+      track("lead_form_submit_failure", { ...analyticsContext, errorCode: result.code });
+      if (status) status.textContent = result.message ?? "We could not securely save your request. Please try again.";
     }
     projectForm.dataset.submitting = "false";
   });
@@ -3297,13 +3364,14 @@ function markInquiryFormStarted(form: HTMLFormElement) {
   const projectId = String(new FormData(form).get("project") ?? "").trim();
   const project = featuredProjects.find((item) => item.id === projectId);
   track("contact_form_start", {
-    location: "inquiry_page",
+    location: form.dataset.leadCtaLocation ?? "inquiry_page",
     pageType: analyticsPageType(getCurrentRoute().type),
     path: analyticsPath(),
     projectSlug: project?.id ?? "not-sure-yet",
     projectName: project?.name,
     corridor: project?.corridor,
     leadCaptureContext: String(new FormData(form).get("lead_capture_context") ?? "").trim() || new URLSearchParams(window.location.search).get("lead_capture_context") || "contact_page",
+    articleId: getLeadAttribution().article_id,
   });
 }
 
@@ -3319,6 +3387,66 @@ function initTrackableCtas() {
     const tracked = target?.closest<HTMLElement>("[data-track-lead-capture-cta='true']");
     if (!tracked) return;
     trackLeadCaptureCta(tracked);
+  }, true);
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement | null;
+    if (!target) return;
+    const route = getCurrentRoute();
+    const routeContext = analyticsRouteContext(route);
+    const floorplanButton = target.closest<HTMLElement>("[data-floorplan-open]");
+    if (floorplanButton) {
+      track("floor_plan_click", {
+        buildingSlug: floorplanButton.dataset.floorplanProjectSlug,
+        planName: floorplanButton.dataset.floorplanTitle,
+        path: analyticsPath(),
+      });
+      return;
+    }
+
+    const anchor = target.closest<HTMLAnchorElement>("a[href]");
+    if (!anchor) return;
+    const href = anchor.getAttribute("href") ?? "";
+    if (href.startsWith("tel:")) {
+      track("phone_click", { source: routeContext.pageType, path: analyticsPath(), projectSlug: routeContext.projectSlug, articleId: getLeadAttribution().article_id });
+      return;
+    }
+    if (href.startsWith("mailto:")) {
+      track("email_click", { source: routeContext.pageType, path: analyticsPath(), projectSlug: routeContext.projectSlug, articleId: getLeadAttribution().article_id });
+      return;
+    }
+
+    let destination: URL;
+    try {
+      destination = new URL(anchor.href, window.location.origin);
+    } catch {
+      return;
+    }
+    if (route.type === "project" && destination.origin === window.location.origin && destination.pathname === "/floorplans/") {
+      track("floor_plan_click", {
+        buildingSlug: route.projectId,
+        planName: cleanCtaText(anchor.textContent ?? "Floorplan library"),
+        path: analyticsPath(),
+      });
+    }
+    if (route.type === "project" && destination.origin !== window.location.origin && anchor.classList.contains("document-card")) {
+      track("source_click", {
+        buildingSlug: route.projectId,
+        sourceHost: destination.hostname.replace(/^www\./, ""),
+        path: analyticsPath(),
+      });
+    }
+    if ((route.type === "news-detail" || route.type === "market-note-detail") && destination.origin === window.location.origin && destination.pathname.startsWith("/projects/")) {
+      const articleId = route.type === "news-detail" ? route.articleId : route.articleSlug;
+      const projectSlug = destination.pathname.split("/").filter(Boolean)[1];
+      rememberLeadAttribution({ article_id: articleId });
+      track("article_to_project_click", { articleId, projectSlug, path: analyticsPath() });
+    }
+    if (destination.origin === window.location.origin && destination.pathname === "/compare/") {
+      track("compare_opened", { path: "/compare/", sourcePath: analyticsPath(), projectSlug: routeContext.projectSlug });
+    }
+    if (destination.origin === window.location.origin && destination.pathname === "/map/") {
+      track("map_opened", { path: "/map/", sourcePath: analyticsPath() });
+    }
   }, true);
 }
 
@@ -3908,12 +4036,14 @@ function routeSeoDetails(
     "north-flagler": "North Flagler Condos | West Palm Beach Buyer Guide",
     downtown: "Downtown West Palm Beach Condos | Buyer Guide",
     "south-flagler": "South Flagler Condos | West Palm Beach Buyer Guide",
+    "south-end": "South End West Palm Beach Developments | Area Guide",
     "palm-beach": "Palm Beach New Construction Condos | Buyer Guide",
   };
   const corridorDescriptions: Record<CorridorKey, string> = {
     "north-flagler": "Compare North Flagler new-construction condos by waterfront position, Palm Beach proximity, floor plans, status, and current availability questions.",
     downtown: "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
     "south-flagler": "Compare South Flagler waterfront condo projects by privacy, boutique scale, Palm Beach views, floor plans, and current availability checks.",
+    "south-end": "Track South End West Palm Beach rental and mixed-use development by leasing status, neighborhood retail, delivery, and resident fit.",
     "palm-beach": "Track Palm Beach island condo projects by coastal setting, low-density scale, approval status, and current buyer-verification needs.",
   };
   const routeTitles: Record<string, string> = {
@@ -3936,8 +4066,13 @@ function routeSeoDetails(
   };
   const projectSchemaFacts = activeProject ? getSchemaSafeProjectFacts(activeProject.id) : undefined;
   const projectMarketSuffix = activeProject?.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
+  const projectTitleSuffix = activeProject?.projectType === "rental"
+    ? "Rental Guide"
+    : activeProject?.pageState === "Complete profile"
+      ? "New Construction Condo Guide"
+      : "Buyer Guide";
   const title = activeProject
-    ? `${projectSchemaFacts?.identity.displayName ?? activeProject.name}${new RegExp(projectMarketSuffix, "i").test(projectSchemaFacts?.identity.displayName ?? activeProject.name) ? "" : ` ${projectMarketSuffix}`} | ${activeProject.pageState === "Complete profile" ? "New Construction Condo Guide" : "Buyer Guide"}`
+    ? `${projectSchemaFacts?.identity.displayName ?? activeProject.name}${new RegExp(projectMarketSuffix, "i").test(projectSchemaFacts?.identity.displayName ?? activeProject.name) ? "" : ` ${projectMarketSuffix}`} | ${projectTitleSuffix}`
     : activeCorridor
       ? corridorTitles[activeCorridor.key]
       : activeMarketNote
@@ -3947,7 +4082,7 @@ function routeSeoDetails(
       : activeAnswer
         ? `${activeAnswer.title} | WPB Answers`
       : routeTitles[route.type] ?? siteMeta.title;
-  const description = activeAnswer?.description ?? (activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
+  const description = activeAnswer?.description ?? (activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? (activeProject?.projectType === "rental" ? `Track ${activeProject.name} at ${activeProject.address}: rental status, ${activeProject.residences}, amenities, neighborhood context, and current leasing details to verify.` : activeProject?.summary) ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
   const image = route.type === "about" ? teamProfile.photo : activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : activeNewsItem ? imageForContentItem(externalNewsImageContext(activeNewsItem)).src : siteMeta.defaultImage);
   return {
     title,
@@ -4061,7 +4196,7 @@ async function initCompareShortlist() {
     if (selectedProjects.length < 2) {
       output.innerHTML = "<p class=\"compare-route-empty\">Choose at least two different buildings to build a comparison.</p>";
       if (inquireLink) {
-        inquireLink.href = "/inquire/?lead_capture_context=compare_shortlist";
+        inquireLink.href = "/inquire/";
       }
       return;
     }
@@ -4074,7 +4209,7 @@ async function initCompareShortlist() {
     const names = selectedProjects.map((project) => project.name).join(", ");
     const message = encodeURIComponent(`I want The Scott Gordon Group to compare these buildings: ${names}.`);
     if (inquireLink) {
-      inquireLink.href = `/inquire/?lead_capture_context=compare_shortlist&message=${message}`;
+      inquireLink.href = `/inquire/?message=${message}`;
     }
   };
 
@@ -4276,7 +4411,7 @@ function metaDescriptionForRoute(routeType: string) {
     about: aboutPageDescription,
     news: "Track West Palm Beach luxury condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
     "downtown-spotlight": "Read Downtown West Palm Beach district spotlights, beginning with NORA, and follow the locations shaping condo buyer decisions.",
-    "news-detail": "Read a West Palm Beach luxury new-construction update with buyer context, related buildings, team context, and the original source link.",
+    "news-detail": "Read a West Palm Beach luxury new-construction update with buyer context, related buildings, local perspective, and the original source link.",
     "market-notes": "Read evergreen guidance for West Palm Beach luxury new-construction condos, including active sales, pipeline projects, floor plans, pricing checks, and corridors.",
     floorplans: "Browse released West Palm Beach luxury new-construction condo floor plans and request current sales packets before comparing available residences.",
     answers: "Concise answers to West Palm Beach luxury new-construction condo questions about availability, corridors, floor plans, pricing, and buyer verification.",
@@ -4325,10 +4460,10 @@ function setMetaName(name: string, content: string) {
 function updateStructuredData(routeType: string, activeProject?: FeaturedProject, activeMarketNote?: MarketNote, activeNewsItem?: ExternalNewsItem, activeAnswer?: BuyerIntentAnswerPage) {
   const baseGraph = [
     {
-      "@type": siteMeta.publisher.type,
-      "@id": `${siteMeta.baseUrl}/#publisher`,
-      name: advisorProfile.brokerage,
-      url: siteMeta.baseUrl,
+      "@type": "Organization",
+      "@id": `${siteMeta.baseUrl}/#brokerage`,
+      name: teamProfile.legalBrokerage,
+      url: "https://www.elliman.com/",
       telephone: advisorProfile.schemaTelephone,
       address: {
         "@type": "PostalAddress",
@@ -4342,16 +4477,23 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
       "@type": "RealEstateAgent",
       "@id": `${siteMeta.baseUrl}/#advisor`,
       name: teamProfile.displayName,
-      jobTitle: "Palm Beach waterfront and new-construction advisory team",
+      description: "Palm Beach waterfront and new-construction advisory team",
       telephone: advisorProfile.schemaTelephone,
-      worksFor: { "@id": `${siteMeta.baseUrl}/#publisher` },
+      parentOrganization: { "@id": `${siteMeta.baseUrl}/#brokerage` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteMeta.baseUrl}/#brooke-snader`,
+      name: "Brooke Matthew Snader",
+      jobTitle: advisorProfile.title,
+      worksFor: { "@id": `${siteMeta.baseUrl}/#advisor` },
     },
     {
       "@type": "WebSite",
       "@id": `${siteMeta.baseUrl}/#website`,
       name: siteMeta.siteName,
       url: siteMeta.baseUrl,
-      publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+      publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
     },
   ];
 
@@ -4441,8 +4583,8 @@ function buildWebPageSchema(routeType: string) {
     url: `${siteMeta.baseUrl}${path}`,
     description: metaDescriptionForRoute(routeType),
     isPartOf: { "@id": `${siteMeta.baseUrl}/#website` },
-    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
-    reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
   };
 }
 
@@ -4514,8 +4656,8 @@ function buildFaqSchema() {
     "@type": "FAQPage",
     "@id": `${siteMeta.baseUrl}/answers/#faq`,
     name: "West Palm Beach New Construction Answers",
-    author: { "@id": `${siteMeta.baseUrl}/#advisor` },
-    reviewedBy: { name: siteMeta.reviewedBy.name },
+    author: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
     mainEntity: answerEngineFaq.map((item) => ({
       "@type": "Question",
@@ -4536,8 +4678,8 @@ function buildBuyerIntentAnswerPageSchema(answer: BuyerIntentAnswerPage) {
     url: `${siteMeta.baseUrl}${buyerIntentAnswerPath(answer)}`,
     description: answer.description,
     isPartOf: { "@id": `${siteMeta.baseUrl}/#website` },
-    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
-    reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
   };
 }
 
@@ -4583,8 +4725,8 @@ function buildExternalNewsArticleSchema(item: ExternalNewsItem) {
     description: article.excerpt,
     datePublished: item.publishedAt,
     dateModified: item.fetchedAt,
-    author: { "@id": `${siteMeta.baseUrl}/#advisor` },
-    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+    author: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
     mainEntityOfPage: `${siteMeta.baseUrl}${updatePath(item)}`,
   };
 }
@@ -4599,8 +4741,8 @@ function buildMarketNoteSchema(note: MarketNote) {
     datePublished: note.datePublished,
     dateModified: note.dateModified,
     articleSection: note.category,
-    author: { "@id": `${siteMeta.baseUrl}/#advisor` },
-    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
+    author: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
     image: resolvedImage.src ? `${siteMeta.baseUrl}${resolvedImage.src}` : `${siteMeta.baseUrl}${siteMeta.defaultImage}`,
     mainEntityOfPage: `${siteMeta.baseUrl}${marketNotePath(note)}`,
   };
@@ -4611,7 +4753,7 @@ function buildProjectSchema(project: FeaturedProject) {
   const unitCount = Number(schemaFacts.safeFields.residenceCount?.match(/\d+/)?.[0] ?? 0) || undefined;
   const projectLocality = project.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   return {
-    "@type": "ApartmentComplex",
+    "@type": schemaTypeForProject(project),
     "@id": `${siteMeta.baseUrl}${projectPath(project)}#project`,
     name: schemaFacts.safeFields.name,
     ...(schemaFacts.safeFields.address
@@ -4627,7 +4769,9 @@ function buildProjectSchema(project: FeaturedProject) {
       : {}),
     latitude: project.latitude,
     longitude: project.longitude,
-    description: `${schemaFacts.safeFields.name} buyer guide with source-backed project context and verification notes.`,
+    description: project.projectType === "rental"
+      ? `${schemaFacts.safeFields.name} rental community guide with source-backed development, amenity, neighborhood, and leasing-verification context.`
+      : `${schemaFacts.safeFields.name} buyer guide with source-backed project context and verification notes.`,
     url: schemaFacts.safeFields.url,
     image: project.image ? `${siteMeta.baseUrl}${project.image}` : undefined,
     areaServed: `${projectLocality}, Florida`,
@@ -4641,7 +4785,7 @@ function buildProjectSchema(project: FeaturedProject) {
     subjectOf: [
       {
         "@type": "WebPage",
-        name: "Buyer Resources",
+        name: project.projectType === "rental" ? "Leasing Resources" : "Buyer Resources",
         url: `${siteMeta.baseUrl}${projectPath(project)}#project-resources-${project.id}`,
       },
       {
@@ -4658,9 +4802,15 @@ function buildProjectSchema(project: FeaturedProject) {
           creditText: imageSourceName(project.image),
         }]
       : [],
-    reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
     amenityFeature: getFloorplanProject(project.id)?.count ? [{ "@type": "LocationFeatureSpecification", name: "Floorplans available" }] : [],
   };
+}
+
+function schemaTypeForProject(project: FeaturedProject) {
+  if (project.projectType === "hotel-residences") return ["Hotel", "ApartmentComplex"];
+  if (["office", "mixed-use", "condo-pipeline"].includes(project.projectType)) return "Place";
+  return "ApartmentComplex";
 }
 
 function buildLegalPageSchema(routeType: string) {
@@ -4676,8 +4826,8 @@ function buildLegalPageSchema(routeType: string) {
     "@id": `${siteMeta.baseUrl}/${path}/#webpage`,
     name: `${labels[routeType] ?? routeType} | WPB New Construction`,
     url: `${siteMeta.baseUrl}/${path}/`,
-    publisher: { "@id": `${siteMeta.baseUrl}/#publisher` },
-    reviewedBy: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
+    reviewedBy: { "@id": `${siteMeta.baseUrl}/#brooke-snader` },
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
   };
 }
@@ -4711,6 +4861,7 @@ function homepageCorridorCopy(key: CorridorKey) {
   return {
     "north-flagler": "Waterfront redevelopment, marina access, and a residential feel close to downtown.",
     "south-flagler": "Palm Beach views, privacy, and a quieter waterfront setting.",
+    "south-end": "Rental housing, neighborhood retail, and South Dixie convenience.",
     downtown: "Walkability, restaurants, culture, and NORA nearby.",
     "palm-beach": "Island scarcity, low-density residences, and ocean-to-lagoon settings.",
   }[key];
@@ -5044,12 +5195,13 @@ function corridorPath(key: CorridorKey) {
 }
 
 function corridorDirectoryPath(key: CorridorKey) {
-  return `/buildings/?filter=${key}`;
+  return corridorPath(key);
 }
 
 function corridorImageId(key: CorridorKey) {
   if (key === "north-flagler") return "flagler-waterfront-corridor";
   if (key === "south-flagler") return "south-flagler-corridor";
+  if (key === "south-end") return "south-flagler-corridor";
   if (key === "palm-beach") return "wpb-geography-map-hero";
   return "rosemary-square-corridor";
 }
@@ -5057,6 +5209,7 @@ function corridorImageId(key: CorridorKey) {
 function corridorDisplayLabel(key: CorridorKey) {
   if (key === "north-flagler") return "NORTH FLAGLER";
   if (key === "south-flagler") return "SOUTH FLAGLER";
+  if (key === "south-end") return "SOUTH END / SOUTH DIXIE";
   if (key === "palm-beach") return "PALM BEACH";
   return "DOWNTOWN / ROSEMARY";
 }
@@ -5077,6 +5230,11 @@ function corridorBuyerQuestions(key: CorridorKey) {
       "Do you want a quieter waterfront address over urban walkability?",
       "How important are Palm Beach views and proximity?",
       "Are you comparing boutique privacy or larger amenity depth?",
+    ],
+    "south-end": [
+      "Are you comparing rental housing rather than condominium ownership?",
+      "How important are South Dixie retail and daily errands?",
+      "What current leasing terms and move-in timing need direct confirmation?",
     ],
     "palm-beach": [
       "Do you want an island address rather than bridge access from West Palm Beach?",
@@ -5104,6 +5262,11 @@ function corridorComparisonConsiderations(key: CorridorKey) {
       "Residence size, layout, and terrace depth",
       "Service level, privacy, and long-term positioning",
     ],
+    "south-end": [
+      "Current rental availability, rents, and concessions",
+      "South Dixie traffic and neighborhood retail access",
+      "Delivery status, parking, and canal-side public realm",
+    ],
     "palm-beach": [
       "Ocean, lagoon, and coastal exposure",
       "Approval status and construction readiness",
@@ -5116,6 +5279,7 @@ function corridorComparisonConsiderations(key: CorridorKey) {
 function corridorPageHeadline(key: CorridorKey) {
   if (key === "north-flagler") return "North Flagler Waterfront Living";
   if (key === "south-flagler") return "South Flagler Waterfront Residences";
+  if (key === "south-end") return "South End West Palm Beach Development";
   if (key === "palm-beach") return "Palm Beach Island Residences";
   return "Downtown West Palm Beach Living";
 }
@@ -5128,7 +5292,7 @@ function renderProjectMapFallback() {
       <div class="map-fallback-actions">
         <a href="/buildings/">View Buildings</a>
         <a href="/compare/">Compare Projects</a>
-        <a href="/inquire/?lead_capture_context=map_fallback">Request Current Availability</a>
+        <a href="/inquire/" ${renderCtaTrackingAttrs("map_page", "Request Current Availability", { leadCaptureContext: "map_fallback" })}>Request Current Availability</a>
       </div>
     </div>
   `;
@@ -5274,7 +5438,7 @@ function renderCorridorsRouteView() {
           <h2>${longContactCtaHeadline}</h2>
           <p>${longContactCtaBody}</p>
         </div>
-        <a class="button primary" href="/inquire/?lead_capture_context=corridors">${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+        <a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("corridor_page", shortContactCtaLabel, { leadCaptureContext: "corridors" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
         <a class="button ghost" href="/buildings/">View Projects</a>
       </section>
     </div>
@@ -5299,6 +5463,16 @@ function renderCorridorsFeatureCard(card: ReturnType<typeof corridorHubCards>[nu
 }
 
 function compareBuyerFit(project: FeaturedProject) {
+  const projectSpecificFit: Record<string, string> = {
+    olara: "Marina access, wellness, dining, and social energy.",
+    shorecrest: "Contemporary waterfront living at a more focused scale.",
+    "ritz-carlton-wpb": "Branded service and a deep amenity program.",
+    "alba-palm-beach": "Boutique waterfront scale and direct Intracoastal orientation.",
+    "mandarin-oriental": "Long-horizon branded service and future delivery.",
+    "rybovich-marina-redevelopment": "Waterfront-district and marina pipeline context.",
+    "rosewood-residences-west-palm-beach": "Early branded-residence pipeline monitoring.",
+  };
+  if (projectSpecificFit[project.id]) return projectSpecificFit[project.id];
   if (project.floorplans) return "Floor-plan-first buyer";
   if (project.corridorKey === "downtown") return "Walkability buyer";
   if (project.corridorKey === "north-flagler" || project.corridorKey === "south-flagler") return "Waterfront buyer";
@@ -5399,11 +5573,11 @@ function renderAuthorityComparisonTable(projects: FeaturedProject[]) {
   return `
     <div class="comparison-table-wrap">
       <table>
-        <thead><tr><th>Building</th><th>Status</th><th>Delivery</th><th>Floorplans</th><th>Buyer verification</th></tr></thead>
+        <thead><tr><th>Building</th><th>Status</th><th>Delivery</th><th>Pricing guidance</th><th>Floorplans</th><th>Best fit</th><th>Buyer verification</th></tr></thead>
         <tbody>${projects.map((project) => {
           const source = sourceFactForProject(project.id)?.facts;
           const floorplanProject = getFloorplanProject(project.id);
-          return `<tr><td><a href="${projectPath(project)}">${publicText(project.name)}</a></td><td>${publicText(source?.status || project.status || "Needs verification")}</td><td>${publicText(source?.completion || project.delivery || "Needs verification")}</td><td>${floorplanProject?.count ? `${floorplanProject.count} tracked records` : "Request current packet"}</td><td>${publicText(compareVerificationNeed(project))}</td></tr>`;
+          return `<tr><td><a href="${projectPath(project)}">${publicText(project.name)}</a></td><td>${publicText(source?.status || project.status || "Needs verification")}</td><td>${publicText(source?.completion || project.delivery || "Needs verification")}</td><td>${publicText(source?.pricing || project.price || "Request current guidance")}</td><td>${floorplanProject?.count ? `${floorplanProject.count} tracked records` : "Request current packet"}</td><td>${publicText(compareBuyerFit(project))}</td><td>${publicText(compareVerificationNeed(project))}</td></tr>`;
         }).join("")}</tbody>
       </table>
     </div>
@@ -5413,13 +5587,15 @@ function renderAuthorityComparisonTable(projects: FeaturedProject[]) {
 function corridorBestFit(key: CorridorKey) {
   if (key === "north-flagler") return "Waterfront shortlist with the most active comparison depth.";
   if (key === "downtown") return "Walkability, restaurants, district energy, and hotel-style service.";
+  if (key === "south-end") return "Renters and residents prioritizing South Dixie retail access and newer mixed-use development.";
+  if (key === "palm-beach") return "Island ownership, low-density scale, and ocean or lagoon settings.";
   return "Quieter waterfront ownership, privacy, and Palm Beach proximity.";
 }
 
 function renderCompareRouteView() {
   const options = rankedFeaturedProjects.map((project) => `<option value="${project.id}">${escapeHtml(project.name)}</option>`).join("");
 
-  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare West Palm Beach New Construction</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Build a focused shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/?lead_capture_context=compare_shortlist" data-compare-inquire ${renderCtaTrackingAttrs("compare_page", "Ask The Scott Gordon Group to compare these buildings", { leadCaptureContext: "compare_shortlist" })}>Ask The Scott Gordon Group to compare these buildings <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section><section class="corridors-final-cta compare-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/?lead_capture_context=compare_shortlist" ${renderCtaTrackingAttrs("compare_page", shortContactCtaLabel, { leadCaptureContext: "compare_shortlist" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a></section></div>`;
+  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare West Palm Beach New Construction</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Build a focused shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/" data-compare-inquire ${renderCtaTrackingAttrs("compare_page", "Ask The Scott Gordon Group to compare these buildings", { leadCaptureContext: "compare_shortlist" })}>Ask The Scott Gordon Group to compare these buildings <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section><section class="corridors-final-cta compare-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("compare_page", shortContactCtaLabel, { leadCaptureContext: "compare_shortlist" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a></section></div>`;
 }
 
 function renderCorridorRouteView(section: CorridorSection) {
@@ -5449,32 +5625,78 @@ function renderCorridorRouteView(section: CorridorSection) {
           <ul>
             ${corridorComparisonConsiderations(section.key).map((consideration) => `<li>${consideration}</li>`).join("")}
           </ul>
-          <a href="/inquire/?lead_capture_context=corridor&message=${encodeURIComponent(`I want help comparing ${section.label} projects.`)}" ${renderCtaTrackingAttrs("corridor_page", `${shortContactCtaLabel} for ${section.label} guidance`, { corridor: section.label, leadCaptureContext: "corridor" })}>${shortContactCtaLabel} for ${section.label} guidance <span aria-hidden="true">↗</span></a>
+          <a href="/inquire/" ${renderCtaTrackingAttrs("corridor_page", `${shortContactCtaLabel} for ${section.label} guidance`, { corridor: section.label, leadCaptureContext: "corridor" })}>${shortContactCtaLabel} for ${section.label} guidance <span aria-hidden="true">↗</span></a>
         </div>
       </section>
       ${renderCorridorAuthoritySections(section, projects)}
+      ${renderCorridorLatestUpdates(section, projects)}
+      ${renderCorridorConversionActions(section)}
       <section class="corridors-final-cta corridor-final-cta">
         <div>
           <h2>${longContactCtaHeadline}</h2>
           <p>${longContactCtaBody}</p>
         </div>
-        <a class="button primary" href="/inquire/?lead_capture_context=corridor" ${renderCtaTrackingAttrs("corridor_page", shortContactCtaLabel, { corridor: section.label, leadCaptureContext: "corridor" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+        <a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("corridor_page", shortContactCtaLabel, { corridor: section.label, leadCaptureContext: "corridor" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
       </section>
-      <section class="project-sort-shell corridor-project-shell">
-        <div class="project-sort-header">
-          <div>
-            <p class="eyebrow">Corridor Projects</p>
-            <h2>${section.label} buildings currently tracked.</h2>
-            <p class="selected-filter-summary">These are the buildings assigned to ${section.label}. Return to all buildings when you want a citywide comparison.</p>
-          </div>
-          <a class="corridor-back-link" href="/buildings/">All projects <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="front-project-grid front-project-grid-static">
-          ${projects.map(renderFeaturedProject).join("")}
-        </div>
-      </section>
+      ${renderCorridorProjectDirectory(section, projects)}
     </div>
   `;
+}
+
+function renderCorridorProjectDirectory(section: CorridorSection, projects: FeaturedProject[]) {
+  const heading = (label: string, description: string, items: FeaturedProject[]) => `
+    <section class="project-sort-shell corridor-project-shell" aria-label="${escapeHtml(label)}">
+      <div class="project-sort-header">
+        <div><p class="eyebrow">Corridor Projects</p><h2>${escapeHtml(label)}</h2><p class="selected-filter-summary">${escapeHtml(description)}</p></div>
+        <a class="corridor-back-link" href="/buildings/">All projects <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="front-project-grid front-project-grid-static">${items.map(renderFeaturedProject).join("")}</div>
+    </section>`;
+  if (section.key !== "north-flagler") {
+    return heading(`${section.label} buildings currently tracked.`, `These are the buildings assigned to ${section.label}. Return to all buildings when you want a citywide comparison.`, projects);
+  }
+  const active = projects.filter((project) => project.projectType === "condo-active-sales");
+  const pipeline = projects.filter((project) => project.projectType === "condo-pipeline" || project.projectType === "mixed-use");
+  return [
+    heading("North Flagler active sales and construction.", "Compare currently active buildings by waterfront position, service model, pricing guidance, floorplan depth, and delivery timing.", active),
+    heading("North Flagler pipeline and planning watch.", "Track future supply separately from active inventory; verify approvals, launch status, program, and whether buyer materials have been released.", pipeline),
+  ].join("");
+}
+
+function renderCorridorLatestUpdates(section: CorridorSection, projects: FeaturedProject[]) {
+  const projectIds = new Set(projects.flatMap((project) => [project.id, ...projectCopySlugs(project.id)]));
+  const items = publishedExternalNews
+    .filter((item) => {
+      const corridorValues = [...item.relatedCorridorIds, ...item.relatedCorridors, item.relatedCorridor ?? "", item.corridorLabel ?? ""];
+      const directCorridor = corridorValues.some((value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").includes(section.key));
+      const directProject = [...item.relatedProjectIds, ...item.relatedProjectSlugs].some((id) => projectIds.has(id));
+      return directCorridor || directProject;
+    })
+    .sort((a, b) => newsSortTimestamp(b) - newsSortTimestamp(a))
+    .slice(0, 3);
+  if (!items.length) return "";
+  return `
+    <section class="section corridor-latest-updates" aria-label="Latest ${escapeHtml(section.label)} updates">
+      <div class="section-heading"><p class="eyebrow">Latest Corridor Updates</p><h2>Recent signals affecting ${publicText(section.label)}.</h2><p>Use these dated updates with the stable project guides; current sales, pricing, and availability still require direct confirmation.</p></div>
+      <div class="project-note-list">
+        ${items.map((item) => {
+          const article = updateArticleContent(item);
+          return `<article class="project-note-row"><div><span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span><strong>${publicText(item.title)}</strong><p>${publicText(article.excerpt)}</p><small>Source: ${publicText(item.sourceName)}</small></div><nav aria-label="${escapeHtml(item.title)} actions"><a href="${updatePath(item)}">Read Update</a></nav></article>`;
+        }).join("")}
+      </div>
+    </section>`;
+}
+
+function renderCorridorConversionActions(section: CorridorSection) {
+  if (section.key !== "north-flagler") return "";
+  return `
+    <section class="section corridor-conversion-actions" aria-label="Build a North Flagler shortlist">
+      <div class="section-heading"><p class="eyebrow">Next Step</p><h2>Build a focused North Flagler shortlist.</h2><p>Compare the active buildings side by side, or request current residence-specific pricing, availability, fees, incentives, and buyer packets.</p></div>
+      <div class="market-note-actions">
+        <a href="/compare/" ${renderCtaTrackingAttrs("corridor_page", "Compare North Flagler buildings", { corridor: section.label, leadCaptureContext: "north_flagler_compare" })}>Compare North Flagler buildings <span aria-hidden="true">→</span></a>
+        <a href="/inquire/" ${renderCtaTrackingAttrs("corridor_page", "Request current North Flagler pricing and packets", { corridor: section.label, leadCaptureContext: "north_flagler_packet" })}>Request current pricing and packets <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>`;
 }
 
 function renderCorridorAuthoritySections(section: CorridorSection, projects: FeaturedProject[]) {
@@ -5671,7 +5893,7 @@ function renderMarketNoteWorkWithUs(note: MarketNote) {
         <p class="eyebrow">Contact The Scott Gordon Group</p>
         <h2>${longContactCtaHeadline}</h2>
         <p>${longContactCtaBody}</p>
-        <a class="button primary" href="/inquire/?interest=compare&message=${encodeURIComponent(`I want help applying this article: ${note.title}`)}&lead_capture_context=article_work_with_us" ${renderCtaTrackingAttrs("article_page", shortContactCtaLabel, { leadCaptureContext: "article_work_with_us" })}>${shortContactCtaLabel}</a>
+        <a class="button primary" href="/inquire/?interest=compare&message=${encodeURIComponent(`I want help applying this article: ${note.title}`)}" ${renderCtaTrackingAttrs("article_page", shortContactCtaLabel, { leadCaptureContext: "article_work_with_us" })}>${shortContactCtaLabel}</a>
       </div>
     </section>
   `;
@@ -6096,7 +6318,7 @@ function renderAboutRouteView() {
           <h1>Decades of waterfront excellence.</h1>
           <p>Since the early 1980s, the Scott Gordon Group has specialized in luxury oceanfront and lakefront real estate on Palm Beach Island. What began as Scott and Mindy Gordon's boutique brokerage has grown into an established Palm Beach team, now operating as Scott Gordon Luxury Properties at Douglas Elliman Real Estate.</p>
           <div class="about-hero-actions">
-            <a class="button primary" href="/inquire/?lead_capture_context=about_hero">Work With Us</a>
+            <a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("about_page", "Work With Us", { leadCaptureContext: "about_hero" })}>Work With Us</a>
             <a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a>
           </div>
         </div>
@@ -6108,7 +6330,7 @@ function renderAboutRouteView() {
           <h2>Your advocate from reservation to closing.</h2>
           <p>Investing in a new-construction residence is not just about floor plans and finishes - it is about securing a lifestyle in one of South Florida's most competitive markets. As Palm Beach waterfront and condo specialists, we track new developments from boutique villa enclaves to full-service high-rises.</p>
           <p>Our team's deep ties to builders and project insiders mean you get early insights, transparent comparisons and sharp negotiation. We will help you evaluate amenities, understand timelines and protect your interests from reservation to closing.</p>
-          <a class="button primary" href="/inquire/?interest=compare&message=I%20want%20a%20private%20WPB%20new-construction%20comparison.&lead_capture_context=about_work_with_us">Start a private comparison</a>
+          <a class="button primary" href="/inquire/?interest=compare&message=I%20want%20a%20private%20WPB%20new-construction%20comparison." ${renderCtaTrackingAttrs("about_page", "Start a private comparison", { leadCaptureContext: "about_work_with_us" })}>Start a private comparison</a>
         </div>
       </section>
 
@@ -6897,17 +7119,17 @@ function renderUpdateArticle(item: ExternalNewsItem) {
             <p>${publicText(content.buyerContext)}</p>
           </section>
           <section>
-            <h2>Team context</h2>
+            <h2>Local perspective</h2>
             <p>${publicText(content.brookeTake)}</p>
           </section>
           <aside class="verify-box">
-            <span>Newsletter-ready note</span>
+            <span>In brief</span>
             <p>${publicText(content.newsletterBlurb)}</p>
           </aside>
           <aside class="buyer-takeaway-box">
             <span>Next step</span>
             <p>${publicText(content.cta)}</p>
-            <a href="/inquire/?lead_capture_context=update_article&update=${encodeURIComponent(item.id)}" ${renderCtaTrackingAttrs("article_page", shortContactCtaLabel, { leadCaptureContext: "update_article" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+            <a href="/inquire/" ${renderCtaTrackingAttrs("article_page", shortContactCtaLabel, { leadCaptureContext: "update_article" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
           </aside>
         </div>
       </section>
@@ -7107,6 +7329,7 @@ function renderGeneratedFloorplanLink(
       data-floorplan-index="${index}"
       data-floorplan-title="${escapeHtml(title)}"
       data-floorplan-project="${escapeHtml(projectName)}"
+      data-floorplan-project-slug="${escapeHtml(project?.projectId ?? "")}"
       data-floorplan-caption="${escapeHtml(caption)}"
       data-floorplan-src=""
     >
@@ -7126,6 +7349,7 @@ function renderGeneratedFloorplanLink(
       data-floorplan-index="${index}"
       data-floorplan-title="${escapeHtml(title)}"
       data-floorplan-project="${escapeHtml(projectName)}"
+      data-floorplan-project-slug="${escapeHtml(project?.projectId ?? "")}"
       data-floorplan-caption="${escapeHtml(caption)}"
       data-floorplan-src="${safeHref(plan.href)}"
     >
@@ -7400,9 +7624,9 @@ function renderAnswerAccordionItem(item: (typeof answerEngineFaq)[number], defau
           relatedProjects.length
             ? `<div class="market-note-actions answer-question-actions">
                 ${relatedProjects.map((project) => `<a href="${projectPath(project)}">${escapeHtml(project.name)} <span aria-hidden="true">→</span></a>`).join("")}
-                <a href="/inquire/?lead_capture_context=answer_block&message=${encodeURIComponent(`I have a question about: ${item.question}`)}">Request Current Availability <span aria-hidden="true">↗</span></a>
+                <a href="/inquire/?message=${encodeURIComponent(`I have a question about: ${item.question}`)}" ${renderCtaTrackingAttrs("answer_page", "Request Current Availability", { leadCaptureContext: "answer_block" })}>Request Current Availability <span aria-hidden="true">↗</span></a>
               </div>`
-            : `<div class="market-note-actions answer-question-actions"><a href="/inquire/?lead_capture_context=answer_block">Request Current Availability <span aria-hidden="true">↗</span></a></div>`
+            : `<div class="market-note-actions answer-question-actions"><a href="/inquire/" ${renderCtaTrackingAttrs("answer_page", "Request Current Availability", { leadCaptureContext: "answer_block" })}>Request Current Availability <span aria-hidden="true">↗</span></a></div>`
         }
         ${
           sourceCitations.length
@@ -7524,8 +7748,7 @@ function projectViewSummary(project: FeaturedProject) {
 }
 
 function sourceFactForProject(projectId: string) {
-  const sourceId = resolveSourceCatalogProjectId(projectId);
-  return projectFactById.get(sourceId as (typeof projectFacts)[number]["projectId"]);
+  return projectFactById.get(projectId as (typeof projectFacts)[number]["projectId"]);
 }
 
 
@@ -7541,23 +7764,127 @@ function projectTypeLabel(type: ProjectPageType) {
   return labels[type];
 }
 
-function renderProjectIdentityHeader(project: FeaturedProject, pageType: ProjectPageType) {
+function projectPresentationRules(project: FeaturedProject, floorplanCount = 0): ProjectPresentationRules {
+  const hasFloorplans = floorplanCount > 0;
+  const inquiryHref = (interest: string) => `/inquire/?project=${project.id}&interest=${encodeURIComponent(interest)}`;
+  const currentPacketCopy = "Pricing, availability, incentives, fees, delivery timing, and contract terms should be confirmed from the current buyer packet.";
+
+  switch (project.projectType) {
+    case "rental":
+      return {
+        identityLabel: "Rental residences",
+        overviewLabel: "Rental Living",
+        primaryCtaLabel: "Check Current Leasing Information",
+        primaryCtaHref: inquiryHref("leasing"),
+        secondaryCtaLabel: "Ask About This Rental Community",
+        inquiryInterest: "Request current leasing information",
+        resourceLabel: "Leasing Resources",
+        resourceHeading: "Confirm current rents, availability, and lease terms.",
+        resourceCopy: "Rental availability, asking rents, concessions, deposits, pet terms, and move-in timing can change. Request current leasing information before relying on a public figure.",
+        compact: false,
+        showFloorplans: hasFloorplans,
+      };
+    case "office":
+      return {
+        identityLabel: "Office development",
+        overviewLabel: "Office Development",
+        primaryCtaLabel: "Request Leasing Information",
+        primaryCtaHref: inquiryHref("office-leasing"),
+        secondaryCtaLabel: "Ask About This Office Project",
+        inquiryInterest: "Request office leasing information",
+        resourceLabel: "Leasing Resources",
+        resourceHeading: "Confirm current office leasing details.",
+        resourceCopy: "Office availability, asking terms, delivery condition, parking, and tenant-improvement details should be confirmed with current leasing materials.",
+        compact: true,
+        showFloorplans: hasFloorplans,
+      };
+    case "condo-pipeline":
+      return {
+        identityLabel: "Condominium pipeline",
+        overviewLabel: "Project Brief",
+        primaryCtaLabel: "Get Project Updates",
+        primaryCtaHref: `#project-updates-${project.id}`,
+        secondaryCtaLabel: "Ask What Is Currently Known",
+        inquiryInterest: "Request project updates",
+        resourceLabel: "Project Updates",
+        resourceHeading: "Track what is known, and what is not.",
+        resourceCopy: "Pipeline pages are intentionally measured. Use them for location, sponsor, planning, and public-status signals—not as a promise of a sales launch, pricing, or availability.",
+        compact: true,
+        showFloorplans: hasFloorplans,
+      };
+    case "mixed-use":
+      return {
+        identityLabel: "Mixed-use development",
+        overviewLabel: "Development Brief",
+        primaryCtaLabel: "Get Development Updates",
+        primaryCtaHref: `#project-updates-${project.id}`,
+        secondaryCtaLabel: "Ask About This Development",
+        inquiryInterest: "Request development updates",
+        resourceLabel: "Development Updates",
+        resourceHeading: "Follow the residential, commercial, and public-realm pieces.",
+        resourceCopy: "Mixed-use projects can change by phase. Confirm the current program, approvals, timing, and any residential or commercial offering directly from current materials.",
+        compact: true,
+        showFloorplans: hasFloorplans,
+      };
+    case "completed-comparable":
+      return {
+        identityLabel: "Completed condominium",
+        overviewLabel: "Completed Residences",
+        primaryCtaLabel: hasFloorplans ? "View Floorplans" : "Request Current Resale Availability",
+        primaryCtaHref: hasFloorplans ? floorplanLibraryPath(project.id) : inquiryHref("resale-availability"),
+        secondaryCtaLabel: "Ask About Current Resales",
+        inquiryInterest: "Request current resale availability",
+        resourceLabel: "Resale Resources",
+        resourceHeading: "Compare current resale opportunities.",
+        resourceCopy: "This completed building is a market comparable, not developer inventory. Confirm current listings, condition, fees, assessments, and seller terms before relying on historical launch information.",
+        compact: false,
+        showFloorplans: hasFloorplans,
+      };
+    case "hotel-residences":
+      return {
+        identityLabel: "Hotel and residences",
+        overviewLabel: "Hotel & Residences",
+        primaryCtaLabel: hasFloorplans ? "View Residence Floorplans" : "Request Current Residence Information",
+        primaryCtaHref: hasFloorplans ? floorplanLibraryPath(project.id) : inquiryHref("residence-availability"),
+        secondaryCtaLabel: "Ask About Ownership and Hotel Services",
+        inquiryInterest: "Request current residence information",
+        resourceLabel: "Residence Resources",
+        resourceHeading: "Confirm the ownership and hotel-service details.",
+        resourceCopy: currentPacketCopy,
+        compact: false,
+        showFloorplans: hasFloorplans,
+      };
+    case "condo-active-sales":
+    default:
+      return {
+        identityLabel: projectTypeLabel(project.projectPageType ?? pageTypeForProject(project)),
+        overviewLabel: "Residences",
+        primaryCtaLabel: hasFloorplans ? "View Floorplans" : "Request Current Availability",
+        primaryCtaHref: hasFloorplans ? floorplanLibraryPath(project.id) : inquiryHref("availability"),
+        secondaryCtaLabel: "Ask About This Building",
+        inquiryInterest: "Request current availability",
+        resourceLabel: "Buyer Resources",
+        resourceHeading: longContactCtaHeadline,
+        resourceCopy: currentPacketCopy,
+        compact: false,
+        showFloorplans: hasFloorplans,
+      };
+  }
+}
+
+function renderProjectIdentityHeader(project: FeaturedProject, rules: ProjectPresentationRules) {
   const logo = project.logoImage && canShowImage(project.logoImage)
     ? `<img src="${safeHref(project.logoImage)}" alt="${escapeHtml(project.logoAlt ?? `${project.name} logo`)}" loading="lazy" decoding="async" />`
     : `<strong>${publicText(project.name)}</strong>`;
-  const heroCtaLabel = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker" ? "Get Updates" : shortContactCtaLabel;
-  const heroCtaHref = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker"
-    ? `#project-updates-${project.id}`
-    : `/inquire/?project=${project.id}&interest=availability`;
   return `
     <header class="project-identity-header">
       <div class="project-identity-mark">${logo}</div>
       <div class="project-identity-copy">
-        <p class="eyebrow">${publicText(projectTypeLabel(pageType))}</p>
+        <p class="eyebrow">${publicText(rules.identityLabel)}</p>
         <h1>${publicText(project.name)}</h1>
         <p>${publicText(project.corridor)} · ${publicText(project.status)} · ${publicText(project.address)}</p>
       </div>
-      <a class="button primary" href="${heroCtaHref}" ${renderCtaTrackingAttrs("project_page", heroCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${heroCtaLabel}</a>
+      <a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel}</a>
     </header>
   `;
 }
@@ -7597,11 +7924,11 @@ function renderProjectBuyerLens(copy: ProjectCopyPackage) {
         </article>
         <article>
           <span>Compare against</span>
-          <p>${publicText(copy.buyerComparisonNotes)}</p>
+          <p>Compare corridor, project type, delivery timing, residence scale, floor-plan depth, service model, and carrying costs against the buyer's actual shortlist.</p>
         </article>
         <article>
           <span>Information status</span>
-          <p>${publicText(copy.sourceNotes.join(" "))}</p>
+          <p>Pricing, availability, incentives, fees, delivery timing, and contract terms should be confirmed from the current buyer packet.</p>
           <small>Project details continue to be monitored.</small>
         </article>
       </div>
@@ -7621,6 +7948,56 @@ function renderProjectRelatedNews(project: FeaturedProject) {
       </div>
       <div class="project-note-list">
         ${items.map((item) => renderProjectUpdateNote(item, project)).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderProjectTypeContext(project: FeaturedProject) {
+  if (project.projectType !== "rental") return "";
+  const sourceFact = sourceFactForProject(project.id);
+  const facts = sourceFact?.facts;
+  const features = facts?.residenceFeatures ?? [];
+  const sources = projectSourceNoteLinks(sourceFact).slice(0, 6);
+  return `
+    <section class="section project-type-context project-rental-context" aria-label="${escapeHtml(project.name)} rental and neighborhood context">
+      <div class="section-heading">
+        <p class="eyebrow">Rental, Not Ownership</p>
+        <h2>${escapeHtml(project.name)} is a rental apartment community.</h2>
+        <p>This page tracks leasing and neighborhood context. It does not present ${escapeHtml(project.name)} as a condominium or ownership opportunity.</p>
+      </div>
+      <div class="project-buyer-lens-grid">
+        <article>
+          <span>Community</span>
+          <p>${escapeHtml(features[0] ?? `${project.residences} rental apartments`)}</p>
+        </article>
+        <article>
+          <span>Amenities announced</span>
+          <p>${escapeHtml(facts?.amenities || "Confirm the current amenity program directly with leasing.")}</p>
+        </article>
+        <article>
+          <span>Nearby daily-use anchor</span>
+          <p>Trader Joe’s opened at 8111 South Dixie Highway on June 12, 2026. Confirm other retail tenants and hours directly.</p>
+        </article>
+        <article>
+          <span>What to verify now</span>
+          <p>Current rents, concessions, available units, lease terms, deposits, pet policies, parking, and move-in timing.</p>
+        </article>
+      </div>
+      ${project.id === "the-sound-west-palm-beach" ? `
+        <div class="project-note-list" aria-label="The Sound development timeline">
+          <article><span>March 2026</span><h3>Construction update</h3><p>The development team reported that the 358-unit community was nearing completion, with 2026 delivery targeted.</p></article>
+          <article><span>June 12, 2026</span><h3>Trader Joe’s opened</h3><p>Trader Joe’s opened its West Palm Beach store at the same 8111 South Dixie Highway address.</p></article>
+          <article><span>July 6, 2026</span><h3>Right-of-way maintenance approved</h3><p>The City Commission approved South Dixie streetscape and right-of-way maintenance agreements tied to the project.</p></article>
+          <article><span>September 4, 2026</span><h3>Current review</h3><p>Verdex still describes the project as under construction; live residential leasing status remains a direct-verification item.</p></article>
+        </div>
+      ` : ""}
+      <div class="section-heading">
+        <p class="eyebrow">Sources & Review Date</p>
+        <p>Project and neighborhood facts were last reviewed ${escapeHtml(sourceFact?.lastReviewedDate ?? "recently")}. Current leasing terms still require direct confirmation.</p>
+      </div>
+      <div class="brochure-download-list">
+        ${sources.map((href) => renderProjectSourceLink(href, project.id)).join("")}
       </div>
     </section>
   `;
@@ -7781,7 +8158,8 @@ function renderProjectEntityBrief(
         <p>${publicText(entityBluf(project, sourceFact))}</p>
       </div>
       <div class="profile-grid">
-        ${entityFactCard("Location", source?.address || project.address, "Confirm final legal/project address before relying on it.")}
+        ${entityFactCard("Project Address", source?.projectAddress || project.address, "Confirm the residence, sales gallery, and legal addresses for the purpose you need.")}
+        ${source?.salesGalleryAddress ? entityFactCard("Sales Gallery", source.salesGalleryAddress, "Use this address for appointments only after confirming current hours and access.") : ""}
         ${entityFactCard("Status", source?.status || project.status, "Verify current construction and sales status before touring.")}
         ${entityFactCard("Residences", source?.residences || project.residences, "Counts can vary by source date or tower definition.")}
         ${entityFactCard("Delivery", source?.completion || project.delivery, "Delivery timing should be checked against the current buyer packet.")}
@@ -7822,7 +8200,7 @@ function renderProjectEntityBrief(
       <div class="section-heading">
         <p class="eyebrow">Source Notes</p>
         <h2>What this page is based on.</h2>
-        <p>Source counts: ${sourceFact?.sourceCounts?.official ?? 0} official, ${sourceFact?.sourceCounts?.reporting ?? 0} reporting, ${sourceFact?.sourceCounts?.other ?? 0} other. Conflicts and gaps are preserved rather than smoothed away.</p>
+        <p>Facts are drawn from the public sources linked below and were last reviewed ${publicText(sourceFact?.lastReviewedDate || "recently")}. Pricing, availability, incentives, fees, and contract terms can change.</p>
       </div>
       <div class="brochure-download-list">
         ${sourceLinks.length ? sourceLinks.map((href) => renderProjectSourceLink(href, floorplanProject?.projectId ?? project.id)).join("") : `<article class="document-card is-placeholder"><span>Source Review</span><strong>Needs current source refresh</strong><small>No public source link is attached to this brief.</small></article>`}
@@ -7870,16 +8248,11 @@ function entityBluf(project: FeaturedProject, sourceFact: ReturnType<typeof sour
   const facts = sourceFact?.facts;
   const status = facts?.status || project.status;
   const delivery = facts?.completion || project.delivery;
-  return `${project.name} is a ${project.corridor} project tracked for buyer comparison by status, location, residence scale, floorplan availability, and open verification notes. Current source notes show ${status}; timing is ${delivery}. Pricing, availability, incentives, fees, square footage, view exposure, delivery, and contract terms should be verified before reliance.`;
+  return `${project.name} is a ${project.corridor} project tracked for buyer comparison by status, location, residence scale, and floorplan availability. Current public information shows ${status}; timing is ${delivery}. Pricing, availability, incentives, fees, square footage, view exposure, delivery, and contract terms should be verified before reliance.`;
 }
 
 function projectSourceNoteLinks(sourceFact: ReturnType<typeof sourceFactForProject> | undefined) {
-  const links = [
-    sourceFact?.officialWebsite,
-    ...(sourceFact?.highValueSources ?? []),
-    ...(sourceFact?.sourceBuckets?.official ?? []),
-    ...(sourceFact?.sourceBuckets?.reporting ?? []),
-  ];
+  const links = (sourceFact?.sources ?? []).map((source) => source.url);
   return links
     .map((href) => String(href ?? "").trim())
     .filter(Boolean)
@@ -7938,7 +8311,7 @@ function projectEntityFaq(
     },
     {
       question: `What should buyers verify before relying on ${project.name} public information?`,
-      answer: `Verify current pricing, availability, incentives, fees, square footage, view exposure, delivery timing, contract terms, and any open verification notes. Current source notes include: ${[...(sourceFact?.conflicts ?? []), ...(sourceFact?.gaps ?? [])].slice(0, 2).join(" ") || facts?.pricing || "request current buyer-side confirmation."}`,
+      answer: `Verify current pricing, availability, incentives, fees, square footage, view exposure, delivery timing, and contract terms. ${facts?.pricing ? `The latest published pricing context is ${facts.pricing}; request current buyer-side confirmation.` : "Request current buyer-side confirmation before relying on public summaries."}`,
     },
   ];
 }
@@ -7975,65 +8348,30 @@ function residenceImageForProject(project: FeaturedProject, heroImage: string | 
 
 function renderTechnicalDisclosuresSection(project: FeaturedProject, draft: ProjectPageDraft) {
   const sourceFact = sourceFactForProject(project.id);
-  const missingInfo = project.missingInfo ?? missingInfoForProject(project) ?? [];
-  const conflicts = sourceFact?.conflicts ?? [];
-  const gaps = sourceFact?.gaps ?? [];
   const needed = draft.needed ?? [];
-  const sourceCounts = sourceFact?.sourceCounts;
-  const pageStatus = sourceFact?.pageStatus || project.projectPageType || "Market watch";
-  const confidence = sourceFact?.dataConfidence || "Draft";
-
-  const hasDisclosures = missingInfo.length > 0 || conflicts.length > 0 || gaps.length > 0 || needed.length > 0 || sourceCounts;
-  if (!hasDisclosures) return "";
+  const sources = projectSourceNoteLinks(sourceFact);
 
   return `
     <section class="section brochure-disclosures-section" id="disclosures-${project.id}" data-project-section="disclosures">
       <details class="disclosures-accordion">
         <summary class="disclosures-summary">
-          <span>Sourcing Details & Technical Disclosures</span>
+          <span>Sources and buyer checks</span>
           <svg class="summary-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </summary>
         <div class="disclosures-content">
-          <p class="disclosures-intro">This building profile uses published project information compiled from public records, developer announcements, and real estate filings. The details below are tracked for internal data verification and buyer risk assessment.</p>
+          <p class="disclosures-intro">This profile uses public project information reviewed ${publicText(sourceFact?.lastReviewedDate || "recently")}. Confirm live inventory and transaction terms before making a decision.</p>
           <div class="disclosures-grid">
-            ${missingInfo.length > 0 ? `
-              <div>
-                <h4>Unconfirmed Details</h4>
-                <ul>
-                  ${missingInfo.map((item) => `<li>${publicText(item)}</li>`).join("")}
-                </ul>
-              </div>
-            ` : ""}
-
-            ${(conflicts.length > 0 || gaps.length > 0) ? `
-              <div>
-                <h4>Conflicts & Gaps</h4>
-                <ul>
-                  ${conflicts.map((item) => `<li>${publicText(item)}</li>`).join("")}
-                  ${gaps.map((item) => `<li>${publicText(item)}</li>`).join("")}
-                </ul>
-              </div>
-            ` : ""}
-
             ${needed.length > 0 ? `
               <div>
-                <h4>Advisor Review Checklist</h4>
+                <h4>Buyer checklist</h4>
                 <ul>
                   ${needed.map((item) => `<li>${publicText(item)}</li>`).join("")}
                 </ul>
               </div>
             ` : ""}
-
-            <div>
-              <h4>Verification Logs</h4>
-              <ul>
-                ${sourceCounts ? `<li><strong>Source Database:</strong> ${sourceCounts.official ?? 0} official pages, ${sourceCounts.reporting ?? 0} reporting, ${sourceCounts.other ?? 0} other references.</li>` : ""}
-                <li><strong>Entity Class:</strong> ${publicText(pageStatus)}</li>
-                <li><strong>Confidence:</strong> ${publicText(confidence)}</li>
-              </ul>
-            </div>
+            ${sources.length ? `<div><h4>Reviewed public sources</h4><div class="brochure-download-list">${sources.slice(0, 6).map((href) => renderProjectSourceLink(href, project.id)).join("")}</div></div>` : ""}
           </div>
         </div>
       </details>
@@ -8304,6 +8642,8 @@ function berkeleyIcon(name: string) {
 
 function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackage?: ProjectCopyPackage) {
   const showcase = copyPackage?.showcase;
+  const floorplanProject = getFloorplanProject(project.id);
+  const rules = projectPresentationRules(project, floorplanProject?.count ?? 0);
   const heroImage = showcase?.heroImage?.src ?? getProjectHeroAsset(project)?.src ?? project.heroImage ?? project.image ?? siteMeta.defaultImage;
   const showcaseFloors = copyFactValue(copyPackage, /floors/i, "25")
     .replace(/\s+public-facing.*/i, "")
@@ -8335,7 +8675,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
   const residenceSectionLabel = showcase?.residenceSectionLabel ?? "Residences";
   const residenceSectionLinkText = showcase?.residenceSectionLinkText ?? "View all floor plans";
   const residenceSectionLinkHref = showcase?.residenceSectionLinkHref ?? `/inquire/?project=${project.id}&interest=floorplans`;
-  const residenceSectionHeadingHref = /floor\s*plans?|floorplans?/i.test(residenceSectionLinkText)
+  const residenceSectionHeadingHref = rules.showFloorplans && /floor\s*plans?|floorplans?/i.test(residenceSectionLinkText)
     ? floorplanLibraryPath(project.id)
     : residenceSectionLinkHref;
   const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
@@ -8351,7 +8691,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 
   return `
     <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=mandarin-waterfront-crop-20260602" />
-    <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" hidden>
+    <div class="route-view route-view-project route-view-editorial-showcase route-view-berkeley-showcase project-type-${project.projectType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="showcase" data-project-type="${project.projectType}" hidden>
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
           <span class="berkeley-brand-mark" aria-hidden="true">WPB</span>
@@ -8362,10 +8702,10 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
           <a href="/corridors/">Corridors</a>
           <a href="/market-notes/">Buyers</a>
           <a href="/about/">About Us</a>
-          <a href="${floorplanLibraryPath(project.id)}">Floorplans</a>
+          ${rules.showFloorplans ? `<a href="${floorplanLibraryPath(project.id)}">Floorplans</a>` : ""}
         </div>
         <a class="berkeley-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">${berkeleyIcon("valet")}</a>
-        <a class="berkeley-inquire" href="/inquire/?project=${project.id}&interest=availability" ${renderCtaTrackingAttrs("project_page", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
+        <a class="berkeley-inquire" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel} <span aria-hidden="true">→</span></a>
       </nav>
 
       <section class="berkeley-hero-clean" data-project-section="hero">
@@ -8385,13 +8725,13 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <section class="berkeley-intro-section" data-project-section="overview" aria-label="Project introduction">
         <p class="berkeley-kicker">Overview</p>
         <p>${publicText(intro)}</p>
-        ${renderProjectFloorplanHubLink(project)}
+        ${rules.showFloorplans ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
       </section>
 
       ${visualBreak ? `<figure class="berkeley-patio-break"><img src="${safeHref(visualBreak.src)}" alt="${publicText(visualBreak.alt ?? `${project.name} ${visualBreak.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
       ${residences.length ? `<section class="berkeley-residence-section" id="berkeley-residences" data-project-section="residences">
-        <div class="berkeley-section-heading"><p class="berkeley-kicker">${publicText(residenceSectionLabel)}</p><a href="${safeHref(residenceSectionHeadingHref)}">${publicText(residenceSectionLinkText)} <span aria-hidden="true">→</span></a></div>
+        <div class="berkeley-section-heading"><p class="berkeley-kicker">${publicText(residenceSectionLabel)}</p>${rules.showFloorplans ? `<a href="${safeHref(residenceSectionHeadingHref)}">${publicText(residenceSectionLinkText)} <span aria-hidden="true">→</span></a>` : ""}</div>
         <div class="berkeley-residence-grid">
           ${residences.map((item, index) => {
             const planIcon = ["planResidence", "planEstate", "planPenthouse"][index] ?? "residence";
@@ -8435,28 +8775,28 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <section class="berkeley-brooke-card" data-project-section="local-take" aria-label="Local take"><div><p class="berkeley-kicker">Local Take</p><p>${publicText(copyPackage?.localTake ?? copyPackage?.brookeTake ?? project.summary)}</p></div><div class="berkeley-brooke-profile"><div><h3>The Scott Gordon Group</h3><p>Douglas Elliman</p></div></div><ul><li>${advisorProfile.mobile}</li><li>${advisorProfile.email}</li><li>wpbnewconstruction.com</li></ul></section>
 
       <section class="brochure-research-contact" id="project-contact-${project.id}" data-project-section="inquiry">
-        <div class="brochure-research-panel"><p class="berkeley-kicker">Buyer Inquiry</p><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div>
-        ${renderProjectInquiryForm(project)}
+        <div class="brochure-research-panel"><p class="berkeley-kicker">${rules.resourceLabel}</p><h2>${rules.resourceHeading}</h2><p>${rules.resourceCopy}</p></div>
+        ${renderProjectInquiryForm(project, rules)}
       </section>
 
-      <section class="berkeley-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/?project=${project.id}&interest=availability" ${renderCtaTrackingAttrs("project_page", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
+      <section class="berkeley-final-cta"><div><h2>${rules.resourceHeading}</h2><p>${rules.resourceCopy}</p></div><a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel} <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
     </div>
   `;
 }
 
-function renderProjectInquiryForm(project: FeaturedProject) {
-  return `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(shortContactCtaLabel)}">
+function renderProjectInquiryForm(project: FeaturedProject, rules = projectPresentationRules(project, getFloorplanProject(project.id)?.count ?? 0)) {
+  return `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(rules.primaryCtaLabel)}">
     <input type="hidden" name="form-name" value="wpb-project-inquiry" />
     <input type="hidden" name="form_type" value="project_inquiry" />
     <input type="hidden" name="submission_id" value="" />
     <input type="hidden" name="project" value="${escapeHtml(project.id)}" />
     <input type="hidden" name="project_name" value="${escapeHtml(project.name)}" />
-    <input type="hidden" name="interest" value="Request current availability" />
+    <input type="hidden" name="interest" value="${escapeHtml(rules.inquiryInterest)}" />
     <input type="hidden" name="lead_capture_context" value="project_page_contact" />
     <input type="hidden" name="turnstile_token" value="" />
     <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
     <p class="eyebrow">Contact The Scott Gordon Group</p>
-    <h2>${shortContactCtaLabel}</h2>
+    <h2>${rules.primaryCtaLabel}</h2>
     <p>${shortTeamCtaCopy}</p>
     <label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Full name" required /></label>
     <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="Email address" required /></label>
@@ -8465,7 +8805,7 @@ function renderProjectInquiryForm(project: FeaturedProject) {
     <label class="lead-consent-row"><input type="checkbox" name="consent" required /><span>By submitting, I consent to be contacted about this real-estate inquiry. This is a request for a manual response, not consent to autodialed or prerecorded marketing calls or texts.</span></label>
     <div class="turnstile-slot" data-turnstile-slot aria-label="Spam protection"></div>
     <p class="form-security-note">Protected by Cloudflare Turnstile.</p>
-    <button type="submit">${shortContactCtaLabel}</button>
+    <button type="submit">${rules.primaryCtaLabel}</button>
     <p class="form-status" role="status" aria-live="polite"></p>
   </form>`;
 }
@@ -8479,6 +8819,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const intel = localIntelligence[project.id];
   const floorplanProject = getFloorplanProject(project.id);
   const floorplanCount = floorplanProject?.count ?? 0;
+  const rules = projectPresentationRules(project, floorplanCount);
   const brochureStats = projectBrochureStats(project, draft, floorplanCount);
   const gallery = projectBrochureGallery(project, draft);
   const approvedHeroAsset = getProjectHeroAsset(project);
@@ -8488,11 +8829,11 @@ function renderDraftProjectPage(project: FeaturedProject) {
   const verticalHeroAsset = getApprovedProjectAssets(project).find((asset) => asset.placement === "hero" && asset.variant === "vertical-exterior");
   const heroMobileImage = verticalHeroAsset?.src ?? (heroImage === project.heroImage ? project.mobileImage : undefined);
   const pageType = project.projectPageType ?? pageTypeForProject(project);
-  const isCompactWatch = pageType === "planning-watch" || pageType === "source-watch" || pageType === "market-marker";
+  const isCompactWatch = rules.compact;
   const hasGallery = gallery.some((asset) => canShowImage(asset.src));
   const hasAmenities = !isCompactWatch && amenityTiles.some((asset) => canShowImage(asset.src));
   const hasTeam = teamTiles.length > 0;
-  const primaryCta = isCompactWatch ? "Get Updates on This Project" : "Request Current Availability";
+  const primaryCta = rules.primaryCtaLabel;
   const residencesImage = residenceImageForProject(project, heroImage);
 
   const isWaterfront = project.corridor.toLowerCase().includes("waterfront") || project.address.toLowerCase().includes("flagler") || ["olara", "ritz-carlton-wpb", "shorecrest", "alba-palm-beach", "south-flagler-house", "forte-on-flagler", "maison-dor"].includes(project.id);
@@ -8512,20 +8853,18 @@ function renderDraftProjectPage(project: FeaturedProject) {
       </div>
     `).join("");
 
-  const heroPrimaryCtaLabel = isCompactWatch ? "Get Availability Updates" : "View Floorplans";
-  const heroSecondaryCtaLabel = isCompactWatch ? "Ask The Scott Gordon Group What Is Known" : "Ask The Scott Gordon Group About This Building";
-  const heroPrimaryCtaUrl = isCompactWatch
-    ? `/inquire/?project=${project.id}&interest=updates&lead_capture_context=project_hero`
-    : floorplanLibraryPath(floorplanProject?.projectId ?? project.id);
-  const heroSecondaryCtaUrl = `/inquire/?project=${project.id}&interest=availability&lead_capture_context=project_hero`;
-  const sectionNavPrimaryCtaHref = isCompactWatch ? `#project-updates-${project.id}` : `/inquire/?project=${project.id}&interest=floorplans`;
+  const heroPrimaryCtaLabel = rules.primaryCtaLabel;
+  const heroSecondaryCtaLabel = rules.secondaryCtaLabel;
+  const heroPrimaryCtaUrl = rules.primaryCtaHref;
+  const heroSecondaryCtaUrl = `/inquire/?project=${project.id}&interest=${encodeURIComponent(rules.inquiryInterest)}`;
+  const sectionNavPrimaryCtaHref = rules.primaryCtaHref;
   const sectionNavPrimaryCtaTracking = sectionNavPrimaryCtaHref.startsWith("/inquire/")
     ? renderCtaTrackingAttrs("project_page", primaryCta, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_section_nav" })
     : "";
 
   return `
-    <div class="route-view route-view-project route-view-draft-project route-view-brochure-project project-page-${pageType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="${pageType}" hidden>
-      ${renderProjectIdentityHeader(project, pageType)}
+    <div class="route-view route-view-project route-view-draft-project route-view-brochure-project project-page-${pageType} project-type-${project.projectType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="${pageType}" data-project-type="${project.projectType}" hidden>
+      ${renderProjectIdentityHeader(project, rules)}
       <section class="brochure-hero" id="${project.id}" data-project-section="hero">
         ${renderProjectHeroSlideshow(project, draft, heroImage, heroMobileImage, approvedHeroAsset)}
         <div class="brochure-hero-copy">
@@ -8550,8 +8889,8 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <a href="/buildings/">Explore Buildings</a>
         <a href="#snapshot-${project.id}">At a Glance</a>
         ${intel ? `<a href="#local-take-${project.id}">Local Take</a>` : ""}
-        <a href="${floorplanLibraryPath(project.id)}">Floor Plans</a>
-        <a href="#overview-${project.id}">Residences</a>
+        ${rules.showFloorplans ? `<a href="${floorplanLibraryPath(project.id)}">Floor Plans</a>` : ""}
+        <a href="#overview-${project.id}">${rules.overviewLabel}</a>
         ${hasGallery ? `<a href="#gallery-${project.id}">Gallery</a>` : ""}
         ${hasAmenities ? `<a href="#amenities-${project.id}">Amenities</a>` : ""}
         <a href="#location-${project.id}">Location</a>
@@ -8568,17 +8907,18 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${intel ? renderLocalTakeSection(project, intel) : ""}
 
       ${renderProjectEntityBrief(project, floorplanProject, copyPackage)}
+      ${renderProjectTypeContext(project)}
       ${renderProjectCorridorCta(project)}
       ${copyPackage ? renderProjectBuyerLens(copyPackage) : ""}
 
       <section class="brochure-module brochure-residences-module ${!residencesImage ? 'no-feature-image' : ''}" id="overview-${project.id}" data-project-section="residences">
         <div class="brochure-module-copy">
-          <p class="eyebrow">${isCompactWatch ? "Editorial Brief" : "Residences"}</p>
+          <p class="eyebrow">${rules.overviewLabel}</p>
           <h2>${isCompactWatch ? `${project.name} buyer read` : residenceSectionTitle(project)}</h2>
           <p>${publicText(copyPackage?.residenceNarrative ?? project.summary)}</p>
-          <div class="section-actions" style="margin-top: 24px;">
+          ${rules.showFloorplans ? `<div class="section-actions" style="margin-top: 24px;">
             <a class="button primary" href="${floorplanLibraryPath(floorplanProject?.projectId ?? project.id)}">View Floorplans</a>
-          </div>
+          </div>` : ""}
         </div>
         ${residencesImage ? `
         <figure class="feature-image">
@@ -8587,7 +8927,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         ` : ""}
       </section>
 
-      ${renderProjectFloorplansSection(project, floorplanProject)}
+      ${renderProjectFloorplansSection(project, floorplanProject, rules)}
 
       ${renderProjectGallerySection(project.id)}
 
@@ -8630,21 +8970,21 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
       <section class="brochure-research-contact" id="project-resources-${project.id}" data-project-section="inquiry">
         <div class="brochure-research-panel">
-          <p class="eyebrow">Buyer Resources</p>
-          <h2>${isCompactWatch ? "Track what is known, and what is not." : longContactCtaHeadline}</h2>
-          <p>${isCompactWatch ? "Planning and source-watch pages are intentionally lighter. Use them for status, location, sponsor signals, and related news, not as a promise of current availability." : longContactCtaBody}</p>
+          <p class="eyebrow">${rules.resourceLabel}</p>
+          <h2>${rules.resourceHeading}</h2>
+          <p>${rules.resourceCopy}</p>
           <div class="brochure-download-list">
             ${draft.documents.map((document) => renderProjectDocument(document, project.id)).join("")}
-            ${!isCompactWatch && floorplanProject ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
+            ${rules.showFloorplans ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
           </div>
         </div>
-        ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project, "project_page") : renderProjectInquiryForm(project)}
+        ${isCompactWatch ? renderEmailSignup(`project_${project.id}`, `Get updates on ${project.name}`, false, project, "project_page") : renderProjectInquiryForm(project, rules)}
       </section>
 
       ${renderTechnicalDisclosuresSection(project, draft)}
 
       <div class="brochure-mobile-cta-sticky">
-        <a class="button primary" href="/inquire/?project=${project.id}&interest=availability&lead_capture_context=mobile_sticky" ${renderCtaTrackingAttrs("mobile_nav", shortContactCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "mobile_sticky" })}>${shortContactCtaLabel}</a>
+        <a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("mobile_nav", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "mobile_sticky" })}>${rules.primaryCtaLabel}</a>
         <a class="button ghost" href="${advisorProfile.mobileHref.replace("tel:", "sms:")}" style="color: var(--ivory); border-color: rgba(244, 239, 229, 0.4); background: rgba(255,255,255,0.05);">Text The Scott Gordon Group</a>
       </div>
     </div>
@@ -8660,15 +9000,16 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
   const residences = resolveProjectField({ identifier: project.id, field: "residences", approvedFallback: project.residences }).value;
   const delivery = resolveProjectField({ identifier: project.id, field: "delivery", approvedFallback: project.delivery }).value;
   const pricing = resolveProjectField({ identifier: project.id, field: "price", approvedFallback: project.price }).value;
+  const isRental = project.projectType === "rental";
   const projectHeroAsset = getProjectHeroAsset(project);
   const projectHeroImage = projectHeroAsset?.src ?? curatedProjectImage(project) ?? placedImportedImageForProject(project.id, "card") ?? project.heroImage ?? project.image;
   const factFields = [
     { label: "Address", value: address },
     { label: "Stories", value: stories },
-    { label: "Residences", value: residences, note: source?.residences },
+    { label: isRental ? "Rental Homes" : "Residences", value: residences, note: source?.residences },
     { label: "Delivery", value: delivery, note: source?.completion },
     { label: "Status", value: status },
-    { label: "Pricing", value: pricing, note: source?.pricing },
+    { label: isRental ? "Current Asking Rent" : "Pricing", value: pricing, note: source?.pricing },
     { label: "Views", value: projectViewSummary(project) },
     { label: "Corridor", value: project.corridor },
   ].filter((fact) => fact.value);
@@ -8686,16 +9027,18 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
     image: projectHeroImage,
     imageAlt: projectHeroAsset?.alt ?? `${project.name} project image`,
     stage: status,
-    locationCopy: `${project.name} is tracked in the ${project.corridor} corridor. Compare it by delivery timing, price guidance, view exposure, floorplan depth, and the current buyer packet before touring.`,
+    locationCopy: isRental
+      ? `${project.name} is tracked in the ${project.corridor} corridor as a rental community. Confirm current rents, concessions, availability, lease terms, parking, policies, and move-in timing directly with leasing.`
+      : `${project.name} is tracked in the ${project.corridor} corridor. Compare it by delivery timing, price guidance, view exposure, floorplan depth, and the current buyer packet before touring.`,
     facts: factFields,
     team: teamCredits.length ? teamCredits : [
-      { role: "Project Team", name: "Project team", note: "Current project and design credits should be confirmed with the latest buyer packet." },
-      { role: "Advisory", name: advisorProfile.brokerage, note: "Buyer guidance is tailored around timing, preferred view, floorplan, and contract priorities." },
+      { role: "Project Team", name: "Project team", note: isRental ? "Current project and design credits should be confirmed with current project materials." : "Current project and design credits should be confirmed with the latest buyer packet." },
+      { role: "Advisory", name: advisorProfile.brokerage, note: isRental ? "Local guidance is tailored around timing, home type, lease terms, and neighborhood fit." : "Buyer guidance is tailored around timing, preferred view, floorplan, and contract priorities." },
     ],
     highlights: [
-      { label: "Buyer Fit", value: project.corridor, note: project.summary },
+      { label: isRental ? "Renter Fit" : "Buyer Fit", value: project.corridor, note: project.summary },
       { label: "Status", value: status, note: delivery },
-      { label: "Pricing", value: pricing, note: "Request current availability, incentives, carrying costs, and contract terms before relying on any public figure." },
+      { label: isRental ? "Leasing" : "Pricing", value: pricing, note: isRental ? "Confirm current rents, concessions, availability, recurring charges, deposits, and lease terms directly with leasing." : "Request current availability, incentives, carrying costs, and contract terms before relying on any public figure." },
       { label: "Views", value: projectViewSummary(project), note: "Confirm exact stack, floor, exposure, and future view-corridor risk." },
     ],
     gallery: projectHeroImage
@@ -8708,7 +9051,7 @@ function projectDraftFromFeatured(project: FeaturedProject): ProjectPageDraft {
         ]
       : [],
     documents: documentsFromSource(project, sourceFact),
-    needed: neededFromSource(sourceFact),
+    needed: neededFromSource(project),
   };
 }
 
@@ -8731,35 +9074,54 @@ function teamCreditsFromSource(team: string | undefined): TeamCredit[] {
         lowerName.includes("not released");
       
       if (isPlaceholder) return null;
+
+      const verifiedRole = lowerName.includes("woodfield development")
+        ? "Developer"
+        : lowerName.includes("flagler realty")
+          ? "Development Partner"
+          : lowerName.includes("spina o’rourke") || lowerName.includes("spina o'rourke")
+            ? "Architect"
+            : lowerName.includes("verdex construction")
+              ? "General Contractor"
+              : undefined;
       
       return {
-        role: roles[index] ?? "Project Team",
+        role: verifiedRole ?? roles[index] ?? "Project Team",
         name,
-        note: "Team credit captured for buyer orientation; confirm final role and scope with current materials.",
+        note: verifiedRole
+          ? "Role identified in reviewed public project materials."
+          : "Team credit captured for buyer orientation; confirm final role and scope with current materials.",
       };
     })
     .filter((credit): credit is TeamCredit => credit !== null);
 }
 
-function documentsFromSource(_project: FeaturedProject, sourceFact: ReturnType<typeof sourceFactForProject> | undefined): ProjectDocument[] {
+function documentsFromSource(project: FeaturedProject, sourceFact: ReturnType<typeof sourceFactForProject> | undefined): ProjectDocument[] {
   const docs: ProjectDocument[] = [];
-  if (sourceFact?.officialWebsite || (sourceFact?.highValueSources ?? []).length) {
+  if ((sourceFact?.sources ?? []).length) {
     docs.push({
       label: "Reviewed",
       title: "Project materials reviewed",
-      note: "Detailed review notes are kept out of the buyer page; request the buyer packet for current details.",
+      note: project.projectType === "rental"
+        ? "Public sources support the project profile; confirm live residential leasing terms directly."
+        : "Detailed review notes are kept out of the buyer page; request the buyer packet for current details.",
     });
   }
-  docs.push({ label: "Packet", title: "Request current packet", note: "Floorplans, pricing, availability, fees, and contract guidance" });
+  docs.push(project.projectType === "rental"
+    ? { label: "Leasing", title: "Request current leasing information", note: "Rents, concessions, availability, lease terms, policies, parking, and move-in timing" }
+    : { label: "Packet", title: "Request current packet", note: "Floorplans, pricing, availability, fees, and contract guidance" });
   return docs;
 }
 
-function neededFromSource(sourceFact: ReturnType<typeof sourceFactForProject> | undefined) {
-  const conflicts = sourceFact?.conflicts?.map((item) => `Confirm detail: ${item}`) ?? [];
-  const gaps = sourceFact?.gaps ?? [];
+function neededFromSource(project?: FeaturedProject) {
+  if (project?.projectType === "rental") {
+    return [
+      "Current rents, concessions, and available homes",
+      "Lease terms, deposits, recurring charges, and policies",
+      "Parking, pet policies, and move-in timing",
+    ];
+  }
   return [
-    ...conflicts,
-    ...gaps,
     "Current pricing, availability, fees, and incentives",
     "Preferred residence lines, floorplans, and view stacks",
     "Tour timing, deposit schedule, and reservation process",
@@ -8768,12 +9130,14 @@ function neededFromSource(sourceFact: ReturnType<typeof sourceFactForProject> | 
 
 function brochureHeadline(project: FeaturedProject) {
   if (project.id === "rosewood-residences-west-palm-beach") return "Rosewood Residences West Palm Beach";
+  if (project.projectType === "rental") return "New rental living with South Dixie at the doorstep";
   if (project.corridorKey === "downtown") return "Refined living in the heart of everything";
   if (project.corridorKey === "south-flagler") return "Waterfront living along South Flagler";
   return "New waterfront living on North Flagler";
 }
 
 function projectBrochureStats(project: FeaturedProject, draft: ProjectPageDraft, floorplanCount: number) {
+  const isRental = project.projectType === "rental";
   const stories = draft.facts.find((fact) => /stor/i.test(fact.label))?.value ?? "Verify";
   const residences = draft.facts.find((fact) => /residence/i.test(fact.label))?.value ?? project.residences;
   const delivery = draft.facts.find((fact) => /delivery/i.test(fact.label))?.value ?? project.delivery;
@@ -8782,12 +9146,12 @@ function projectBrochureStats(project: FeaturedProject, draft: ProjectPageDraft,
   const sqFt = draft.facts.find((fact) => /sq|size|foot/i.test(fact.label))?.value ?? "Request";
   return [
     { label: "Stories", value: stories },
-    { label: "Residences", value: residences },
+    { label: isRental ? "Rental Homes" : "Residences", value: residences },
     { label: "Bedrooms", value: bedrooms },
     { label: "Sq Ft", value: sqFt },
-    { label: "Pricing", value: pricing },
+    { label: isRental ? "Asking Rent" : "Pricing", value: pricing },
     { label: "Est. Completion", value: delivery },
-    { label: "Floorplans", value: project.id === "rosewood-residences-west-palm-beach" ? "Not public" : floorplanCount ? `${floorplanCount} plans` : "On request" },
+    { label: isRental ? "Leasing Plans" : "Floorplans", value: project.id === "rosewood-residences-west-palm-beach" ? "Not public" : floorplanCount ? `${floorplanCount} plans` : "On request" },
   ];
 }
 
@@ -9019,6 +9383,7 @@ function renderDeveloperImageDisclaimer() {
 }
 
 function residenceSectionTitle(project: FeaturedProject) {
+  if (project.projectType === "rental") return "Rental homes and current leasing context.";
   if (project.id === "ritz-carlton-wpb") return "How the residences live.";
   if (project.id === "olara") return "Residences made for water, light, and gathering.";
   if (project.id === "shorecrest") return "What is known about the residences.";
@@ -9046,6 +9411,8 @@ function teamSectionTitle(project: FeaturedProject) {
 function locationSectionTitle(project: FeaturedProject) {
   if (project.corridorKey === "downtown") return "In the center of West Palm Beach.";
   if (project.corridorKey === "south-flagler") return "A quieter waterfront address south of downtown.";
+  if (project.corridorKey === "south-end") return "In West Palm Beach’s South End along South Dixie.";
+  if (project.corridorKey === "palm-beach") return "On Palm Beach island, across the Intracoastal from West Palm Beach.";
   return "On the North Flagler waterfront spine.";
 }
 
@@ -9066,7 +9433,17 @@ function locationList(project: FeaturedProject) {
     { label: "Norton Museum", time: "10 min" },
     { label: "PBI Airport", time: "12 min" },
   ];
-  return project.corridorKey === "downtown" ? downtownList : flaglerList;
+  const southEndList = [
+    { label: "Trader Joe’s", time: "On site" },
+    { label: "South Olive / SoSo", time: "3 min" },
+    { label: "Lake Worth Beach", time: "6 min" },
+    { label: "The Park West Palm", time: "7 min" },
+    { label: "Downtown West Palm Beach", time: "12 min" },
+    { label: "PBI Airport", time: "12 min" },
+  ];
+  if (project.corridorKey === "downtown") return downtownList;
+  if (project.corridorKey === "south-end") return southEndList;
+  return flaglerList;
 }
 
 function renderProjectDocument(document: ProjectDocument, projectId?: string) {
@@ -9499,6 +9876,7 @@ function corridorDirectoryDeck(key: CorridorKey) {
   return {
     "north-flagler": "Waterfront and marina-area projects north of Downtown, with the deepest active pipeline and long-term redevelopment story.",
     "south-flagler": "Quieter waterfront projects with Palm Beach views, prestige positioning, and a more residential daily rhythm.",
+    "south-end": "Rental and mixed-use projects along South Dixie, with neighborhood retail, access, and current leasing details to verify.",
     downtown: "Walkable projects near restaurants, offices, Brightline, CityPlace, Clematis, the Kravis Center, and NORA.",
     "palm-beach": "Low-density island projects shaped by coastal approvals, scarce sites, and ocean or lagoon settings.",
   }[key];
@@ -9708,6 +10086,9 @@ function uniqueGalleryCategorizedImages<T extends { publicPath: string }>(images
 }
 
 function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageDraft) {
+  const isRental = project.projectType === "rental";
+  const rules = projectPresentationRules(project, getFloorplanProject(project.id)?.count ?? 0);
+  const lastReviewedDate = sourceFactForProject(project.id)?.lastReviewedDate ?? "recently";
   const findFactValue = (regex: RegExp, fallback = "") => {
     const fact = draft.facts.find((f) => regex.test(f.label)) || draft.highlights.find((f) => regex.test(f.label));
     return fact?.value ?? fallback;
@@ -9724,9 +10105,9 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
   }
 
   const sizingResidences = [
-    { label: "Number of Units", value: project.residences },
+    { label: isRental ? "Rental Homes" : "Number of Units", value: project.residences },
     { label: "Number of Floors", value: findFactValue(/stor(y|ies)|floor/i) },
-    { label: "Residence Types", value: findFactValue(/bed/i) },
+    { label: isRental ? "Home Types" : "Residence Types", value: findFactValue(/bed/i) },
     { label: "Square Footage Range", value: findFactValue(/sq|size|foot/i) }
   ];
 
@@ -9738,14 +10119,14 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
   ];
 
   const pricingTiming = [
-    { label: "Price Range", value: project.price },
+    { label: isRental ? "Current Asking Rent" : "Price Range", value: project.price },
     { label: "Estimated Completion", value: project.delivery },
-    { label: "Maintenance Estimate", value: findFactValue(/maintenance|carrying|fee/i) },
+    { label: isRental ? "Recurring Fees" : "Maintenance Estimate", value: findFactValue(/maintenance|carrying|fee/i) },
     { label: "Deposit Structure", value: findFactValue(/deposit|structure|payment/i) },
     { label: "Parking Allocation", value: findFactValue(/parking/i) },
     { label: "Pet Policy", value: findFactValue(/pet/i) },
     { label: "Storage", value: findFactValue(/storage|locker/i) },
-    { label: "Sales Status", value: project.status }
+    { label: isRental ? "Leasing Status" : "Sales Status", value: project.status }
   ];
 
   const isImportantField = (label: string) => {
@@ -9816,17 +10197,17 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
       <div class="snapshot-card-container">
         <div class="snapshot-card-header">
           <p class="eyebrow">At a Glance</p>
-          <h2>Building Specifications</h2>
+          <h2>${isRental ? "Community Specifications" : "Building Specifications"}</h2>
           <p>Verified project facts compiled from municipal filings and official developer disclosures.</p>
         </div>
         <div class="snapshot-columns">
-          ${renderColHtml("Sizing & Residences", col1)}
+          ${renderColHtml(isRental ? "Sizing & Rental Homes" : "Sizing & Residences", col1)}
           ${renderColHtml("Design & Development", col2)}
-          ${renderColHtml("Pricing & Timing", col3)}
+          ${renderColHtml(isRental ? "Leasing & Timing" : "Pricing & Timing", col3)}
         </div>
         <div class="snapshot-card-footer">
-          <p class="source-attribution">Information last compiled May 2026. Price ranges and residence availability are subject to daily change.</p>
-          <a class="button primary" href="/inquire/?project=${project.id}&interest=pricing&lead_capture_context=project_snapshot" ${renderCtaTrackingAttrs("project_page", "Request Current Pricing", { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_snapshot" })}>Request Current Pricing</a>
+          <p class="source-attribution">Information last reviewed ${escapeHtml(lastReviewedDate)}. ${isRental ? "Rents, concessions, lease terms, and unit availability can change." : "Price ranges and residence availability are subject to daily change."}</p>
+          <a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_snapshot" })}>${rules.primaryCtaLabel}</a>
         </div>
       </div>
     </section>
@@ -9950,7 +10331,8 @@ function renderLocalTakeSection(project: FeaturedProject, intel: any) {
   `;
 }
 
-function renderProjectFloorplansSection(project: FeaturedProject, floorplanProject: any) {
+function renderProjectFloorplansSection(project: FeaturedProject, floorplanProject: any, rules = projectPresentationRules(project, floorplanProject?.count ?? 0)) {
+  if (!rules.showFloorplans) return "";
   const plans = floorplanProject?.plans ?? [];
   const hasPlans = plans.length > 0;
   const libraryHref = floorplanLibraryPath(floorplanProject?.projectId ?? project.id);
@@ -9995,7 +10377,7 @@ function renderProjectFloorplansSection(project: FeaturedProject, floorplanProje
             ${footerHtml}
             <div class="floorplans-actions">
               <a class="button primary" href="${libraryHref}" ${renderCtaTrackingAttrs("project_page", "View Floorplans", { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>View Floorplans</a>
-            <a class="button ghost" href="/inquire/?project=${project.id}&interest=floorplans&lead_capture_context=floorplans_section_footer" ${renderCtaTrackingAttrs("project_page", "Request Current Packet", { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "floorplans_section_footer" })}>Request Current Packet</a>
+            <a class="button ghost" href="/inquire/?project=${project.id}&interest=floorplans" ${renderCtaTrackingAttrs("project_page", "Request Current Packet", { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "floorplans_section_footer" })}>Request Current Packet</a>
             </div>
           </div>
         </div>
@@ -10005,9 +10387,11 @@ function renderProjectFloorplansSection(project: FeaturedProject, floorplanProje
 
 function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDraft) {
   let developerName = "";
+  let developmentPartnerName = "";
   let architectName = "";
   let designerName = "";
   let landscapeName = "";
+  let contractorName = "";
   let salesName = "";
 
   if (project.id === "berkeley") {
@@ -10039,13 +10423,15 @@ function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDr
     };
 
     developerName = getRealName(/developer|sponsor|lead|partner/i);
+    developmentPartnerName = getRealName(/development partner/i);
     architectName = getRealName(/architect/i);
     designerName = getRealName(/interior|design/i);
-    landscapeName = getRealName(/landscape|construction/i);
+    landscapeName = getRealName(/landscape/i);
+    contractorName = getRealName(/contractor|construction/i);
     salesName = getRealName(/marketing|sales/i);
   }
 
-  const hasAnyTeam = Boolean(developerName || architectName || designerName || landscapeName || salesName);
+  const hasAnyTeam = Boolean(developerName || developmentPartnerName || architectName || designerName || landscapeName || contractorName || salesName);
   if (!hasAnyTeam) return "";
 
   return `
@@ -10054,7 +10440,7 @@ function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDr
         <div class="section-heading">
           <p class="eyebrow">Project Team</p>
           <h2>${teamSectionTitle(project)}</h2>
-          <p>The design and development firms behind ${escapeHtml(project.name)}, supporting project credibility and long-term asset value.</p>
+          <p>The publicly identified development, design, and construction firms associated with ${escapeHtml(project.name)}.</p>
         </div>
 
         <div class="project-team-box">
@@ -10063,6 +10449,12 @@ function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDr
               <li class="project-team-row">
                 <span class="project-team-role">Developer</span>
                 <strong class="project-team-name">${escapeHtml(developerName)}</strong>
+              </li>
+            ` : ""}
+            ${developmentPartnerName && developmentPartnerName !== developerName ? `
+              <li class="project-team-row">
+                <span class="project-team-role">Development Partner</span>
+                <strong class="project-team-name">${escapeHtml(developmentPartnerName)}</strong>
               </li>
             ` : ""}
             ${architectName ? `
@@ -10081,6 +10473,12 @@ function renderProjectTeamSection(project: FeaturedProject, draft: ProjectPageDr
               <li class="project-team-row">
                 <span class="project-team-role">Landscape</span>
                 <strong class="project-team-name">${escapeHtml(landscapeName)}</strong>
+              </li>
+            ` : ""}
+            ${contractorName ? `
+              <li class="project-team-row">
+                <span class="project-team-role">General Contractor</span>
+                <strong class="project-team-name">${escapeHtml(contractorName)}</strong>
               </li>
             ` : ""}
             ${salesName ? `

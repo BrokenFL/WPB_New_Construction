@@ -24,6 +24,9 @@ const blockedPatterns = [
   /\bsign[-\s]?off\b/i,
   /\bapproved by Brooke\b/i,
   /\binternal review\b/i,
+  /\bteam context\b/i,
+  /\bnewsletter-ready note\b/i,
+  /\bworkflow\/editorial scaffolding\b/i,
 ];
 
 const ignoredFragments = [

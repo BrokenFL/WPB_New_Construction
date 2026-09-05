@@ -17,7 +17,7 @@ export type ProjectIntelligenceRegistryEntry = {
   collapsedSourceCatalogIds?: string[];
   notes?: string[];
   canonicalId?: string;
-  corridorKey?: "north-flagler" | "downtown" | "south-flagler" | "palm-beach";
+  corridorKey?: "north-flagler" | "downtown" | "south-flagler" | "south-end" | "palm-beach";
   publicationState?: "published" | "awaiting_imagery";
   humanReviewRequired?: boolean;
   conflicts?: string[];

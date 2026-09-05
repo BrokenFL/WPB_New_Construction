@@ -25,6 +25,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - North Flagler condos: /corridors/north-flagler/
 - Downtown West Palm Beach condos: /corridors/downtown-west-palm-beach/
 - South Flagler condos: /corridors/south-flagler/
+- South End and South Dixie developments: /corridors/south-end/
 - Palm Beach condos: /corridors/palm-beach/
 
 ## Priority Project Pages
@@ -43,18 +44,19 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Fern & Gardenia / Related Ross Fern Street Project: /projects/fern-and-gardenia-related-ross-fern-street/
 - Rosewood Residences West Palm Beach: /projects/rosewood-residences-west-palm-beach/
 - Rybovich Marina Redevelopment: /projects/rybovich-marina-redevelopment/
+- The Sound Apartments: /projects/the-sound-west-palm-beach/
 
 ## Floorplan Coverage
 
-- Alba Palm Beach: 10 floorplan records
-- Olara: 55 floorplan records
-- Shorecrest: 9 floorplan records
-- The Ritz-Carlton Residences, West Palm Beach: 28 floorplan records
-- Mr. C Hotel & Residences West Palm Beach: 64 floorplan records
+- Alba Palm Beach: 7 floorplan records
+- Olara West Palm Beach: 28 floorplan records
+- Shorecrest: 5 floorplan records
+- The Ritz-Carlton Residences, West Palm Beach: 16 floorplan records
+- Mr. C Residences West Palm Beach: 32 floorplan records
 - The Berkeley Palm Beach: 9 floorplan records
-- NORA House: 65 floorplan records
-- Forté on Flagler: 5 floorplan records
-- Maison d'Or: 2 floorplan records
+- Nora House: 65 floorplan records
+- Forté on Flagler: 3 floorplan records
+- Maison d’Or: 1 floorplan records
 - South Flagler House North Tower: 3 floorplan records
 - South Flagler House South Tower: 3 floorplan records
 
@@ -136,6 +138,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - North Flagler Condos | West Palm Beach Buyer Guide: /corridors/north-flagler/
 - Downtown West Palm Beach Condos | Buyer Guide: /corridors/downtown-west-palm-beach/
 - South Flagler Condos | West Palm Beach Buyer Guide: /corridors/south-flagler/
+- South End West Palm Beach Developments | Area Guide: /corridors/south-end/
 - Palm Beach New Construction Condos | Buyer Guide: /corridors/palm-beach/
 - How We Verify | WPB New Construction: /methodology/
 - Fair Housing | WPB New Construction: /fair-housing/
@@ -165,6 +168,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Apogee Residences West Palm Beach | North Flagler Watch: /projects/apogee-residences-wpb/
 - 201 Arkona Court West Palm Beach | Planning Watch: /projects/201-arkona-court/
 - 2085 North Flagler West Palm Beach | Project Watch: /projects/2085-north-flagler/
+- The Sound Apartments West Palm Beach | Rental Guide: /projects/the-sound-west-palm-beach/
 
 ## Use Guidance
 

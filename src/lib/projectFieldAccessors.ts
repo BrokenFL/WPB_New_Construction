@@ -1,13 +1,12 @@
-import { canonicalProjectModel } from "../generated/projectModel";
+import { publicProjectModel } from "../generated/projectModelPublic";
 
-export type ProjectModelRecord = (typeof canonicalProjectModel.projects)[number];
+export type ProjectModelRecord = (typeof publicProjectModel.projects)[number];
 export type ProjectModelField = "displayName" | "status" | "delivery" | "residences" | "price" | "address";
 export type ProjectFieldSource = "reviewed_override" | "structured_source" | "approved_fallback" | "missing";
 
 const recordByAlias = new Map<string, ProjectModelRecord>();
-for (const record of canonicalProjectModel.projects) {
-  for (const alias of record.aliases) recordByAlias.set(normalizeIdentifier(alias), record);
-  recordByAlias.set(normalizeIdentifier(record.canonicalId), record);
+for (const record of publicProjectModel.projects) {
+  for (const alias of record.lookupAliases) recordByAlias.set(normalizeIdentifier(alias), record);
   recordByAlias.set(normalizeIdentifier(record.publicSlug), record);
 }
 
@@ -26,7 +25,8 @@ export function resolveProjectField(options: {
   if (reviewedOverride) return { value: reviewedOverride, source: "reviewed_override" as const };
 
   const record = canonicalProjectRecord(options.identifier);
-  const structuredValue = clean(options.structuredValue) || clean(record?.[options.field]);
+  const modelValue = options.field === "address" ? record?.facts.projectAddress : record?.[options.field];
+  const structuredValue = clean(options.structuredValue) || clean(modelValue);
   if (structuredValue) return { value: structuredValue, source: "structured_source" as const };
 
   const approvedFallback = clean(options.approvedFallback);

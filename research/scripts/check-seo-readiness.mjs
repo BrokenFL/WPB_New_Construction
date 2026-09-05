@@ -69,6 +69,29 @@ if (!notFoundHtml) {
   }
 }
 
+const sitemap = await fs.readFile(path.join(distRoot, "sitemap.xml"), "utf8").catch(() => "");
+if (!sitemap) {
+  findings.push("missing sitemap.xml");
+} else {
+  const today = new Date().toISOString().slice(0, 10);
+  if (sitemap.includes("<lastmod>2026-06-03</lastmod>")) findings.push("sitemap contains the retired hard-coded 2026-06-03 lastmod");
+  for (const match of sitemap.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(match[1])) findings.push(`sitemap has invalid lastmod ${match[1]}`);
+    if (match[1] > today) findings.push(`sitemap has future lastmod ${match[1]}`);
+  }
+  for (const match of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    if (/[?&#]/.test(match[1])) findings.push(`sitemap contains a parameterized URL ${match[1]}`);
+  }
+}
+
+const builtTextFiles = await listTextFiles(distRoot);
+for (const filePath of builtTextFiles) {
+  const content = await fs.readFile(filePath, "utf8");
+  for (const match of content.matchAll(/href=["']([^"']*lead_capture_context[^"']*)["']/g)) {
+    findings.push(`${path.relative(workspace, filePath)} contains a crawlable attribution parameter: ${match[1]}`);
+  }
+}
+
 let apexNextCalled = false;
 const apexRedirect = await onRequest({
   request: new Request("https://wpbnewconstruction.com/projects/olara/?source=test"),
@@ -92,3 +115,13 @@ if (findings.length) {
 }
 
 console.log(`SEO readiness QA passed for ${requiredRoutes.length} routes.`);
+
+async function listTextFiles(root) {
+  const entries = await fs.readdir(root, { withFileTypes: true }).catch(() => []);
+  const nested = await Promise.all(entries.map(async (entry) => {
+    const entryPath = path.join(root, entry.name);
+    if (entry.isDirectory()) return listTextFiles(entryPath);
+    return /\.(?:html|js)$/i.test(entry.name) ? [entryPath] : [];
+  }));
+  return nested.flat();
+}

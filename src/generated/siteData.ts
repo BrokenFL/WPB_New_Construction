@@ -30,550 +30,483 @@ export const floorplanLibrary = [
     "projectId": "alba-palm-beach",
     "name": "Alba Palm Beach",
     "area": "North Flagler",
-    "pageStatus": "Primary condo page",
-    "updatedAt": "2026-08-12",
-    "count": 10,
+    "projectType": "condo-active-sales",
+    "updatedAt": "2026-09-01",
+    "count": 7,
     "plans": [
       {
-        "title": "Alba Floorplans 19lpha Unbranded",
-        "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf",
-        "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
-      },
-      {
-        "title": "Alba Floorplans 19lphb Unbranded",
-        "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lphb-unbranded--f6e25856.pdf",
-        "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lphb-unbranded--f6e25856.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
-      },
-      {
-        "title": "Alba Floorplans A Unbranded",
+        "planId": "alba-palm-beach-individual-residence-a",
+        "projectId": "alba-palm-beach",
+        "normalizedName": "residence a",
+        "displayName": "Residence A",
+        "title": "Residence A",
+        "planType": "individual",
         "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-a-unbranded--52561765.pdf",
         "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-a-unbranded--52561765.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-a-unbranded--52561765.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Alba Floorplans B Unbranded",
+        "planId": "alba-palm-beach-individual-residence-b",
+        "projectId": "alba-palm-beach",
+        "normalizedName": "residence b",
+        "displayName": "Residence B",
+        "title": "Residence B",
+        "planType": "individual",
         "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-b-unbranded--0904612c.pdf",
         "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-b-unbranded--0904612c.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-b-unbranded--0904612c.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Alba Floorplans C Unbranded",
+        "planId": "alba-palm-beach-individual-residence-c",
+        "projectId": "alba-palm-beach",
+        "normalizedName": "residence c",
+        "displayName": "Residence C",
+        "title": "Residence C",
+        "planType": "individual",
         "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-c-unbranded--858d4e18.pdf",
         "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-c-unbranded--858d4e18.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-c-unbranded--858d4e18.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Alba Floorplans D Unbranded",
-        "href": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf",
-        "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "agent-findings"
-      },
-      {
-        "title": "Alba Floorplans D Unbranded",
+        "planId": "alba-palm-beach-individual-residence-d",
+        "projectId": "alba-palm-beach",
+        "normalizedName": "residence d",
+        "displayName": "Residence D",
+        "title": "Residence D",
+        "planType": "individual",
         "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-d-unbranded--b6510b3b.pdf",
-        "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-d-unbranded--b6510b3b.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf",
+        "publicAssetUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-d-unbranded--b6510b3b.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Alba Floorplans Lpha Unbranded",
-        "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lpha-unbranded--cfde7c5e.pdf",
-        "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lpha-unbranded--cfde7c5e.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "planId": "alba-palm-beach-individual-residence-lph-a",
+        "projectId": "alba-palm-beach",
+        "normalizedName": "residence lph a",
+        "displayName": "Residence LPH A",
+        "title": "Residence LPH A",
+        "planType": "individual",
+        "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf",
+        "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf",
+        "publicAssetUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lpha-unbranded--553224c4.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Alba Floorplans Lphb Unbranded",
-        "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lphb-unbranded--4dec1b6c.pdf",
-        "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-lphb-unbranded--4dec1b6c.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "planId": "alba-palm-beach-individual-residence-lph-b",
+        "projectId": "alba-palm-beach",
+        "normalizedName": "residence lph b",
+        "displayName": "Residence LPH B",
+        "title": "Residence LPH B",
+        "planType": "individual",
+        "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lphb-unbranded--f6e25856.pdf",
+        "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lphb-unbranded--f6e25856.pdf",
+        "publicAssetUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-19lphb-unbranded--f6e25856.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Alba Floorplans Thc Unbranded",
+        "planId": "alba-palm-beach-individual-townhouse-c",
+        "projectId": "alba-palm-beach",
+        "normalizedName": "townhouse c",
+        "displayName": "Townhouse C",
+        "title": "Townhouse C",
+        "planType": "individual",
         "href": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-thc-unbranded--2f37dd97.pdf",
         "sourceUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-thc-unbranded--2f37dd97.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/alba-palm-beach/docs/floorplans/alba-floorplans-thc-unbranded--2f37dd97.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
   },
   {
     "projectId": "mandarin-oriental",
-    "name": "Mandarin Oriental Residences, West Palm Beach",
+    "name": "Mandarin Oriental Residences West Palm Beach",
     "area": "North Flagler",
-    "pageStatus": "Candidate project page",
-    "updatedAt": "2026-08-12",
+    "projectType": "condo-pipeline",
+    "updatedAt": "2026-09-01",
     "count": 0,
     "plans": [],
     "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
   },
   {
     "projectId": "olara",
-    "name": "Olara",
+    "name": "Olara West Palm Beach",
     "area": "North Flagler",
-    "pageStatus": "Primary condo page",
-    "updatedAt": "2026-08-12",
-    "count": 55,
+    "projectType": "condo-active-sales",
+    "updatedAt": "2026-09-01",
+    "count": 28,
     "plans": [
       {
+        "planId": "olara-collection-complete-floorplan-collection",
+        "projectId": "olara",
+        "normalizedName": "complete floorplan collection",
+        "displayName": "Complete Floorplan Collection",
         "title": "Complete Floorplan Collection",
+        "planType": "collection",
         "href": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Floor-Plans-All-March-2026.pdf",
         "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Floor-Plans-All-March-2026.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Official Floor Plans Index",
+        "planId": "olara-index-floorplan-index",
+        "projectId": "olara",
+        "normalizedName": "floorplan index",
+        "displayName": "Floorplan Index",
+        "title": "Floorplan Index",
+        "planType": "index",
         "href": "https://www.olarawestpalmbeach.com/floor-plans",
         "sourceUrl": "https://www.olarawestpalmbeach.com/floor-plans",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "current-app"
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Olara Floor Plans All March 2026",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara+Floor+Plans+-+All+-+March+2026.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara+Floor+Plans+-+All+-+March+2026.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
+        "planId": "olara-individual-residence-a",
+        "projectId": "olara",
+        "normalizedName": "residence a",
+        "displayName": "Residence A",
         "title": "Residence A",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_A.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_A.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence A",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-a.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-a.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_A.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-a.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-b",
+        "projectId": "olara",
+        "normalizedName": "residence b",
+        "displayName": "Residence B",
         "title": "Residence B",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_B.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_B.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence B",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-b.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-b.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_B.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-b.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-c",
+        "projectId": "olara",
+        "normalizedName": "residence c",
+        "displayName": "Residence C",
         "title": "Residence C",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_C.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_C.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence C",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-c.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-c.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_C.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-c.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-d",
+        "projectId": "olara",
+        "normalizedName": "residence d",
+        "displayName": "Residence D",
         "title": "Residence D",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence D",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-d.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-d.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_D.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-d.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-e",
+        "projectId": "olara",
+        "normalizedName": "residence e",
+        "displayName": "Residence E",
         "title": "Residence E",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_E.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_E.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence E",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-e.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-e.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_E.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-e.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-f",
+        "projectId": "olara",
+        "normalizedName": "residence f",
+        "displayName": "Residence F",
         "title": "Residence F",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_F.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_F.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence F",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-f.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-f.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_F.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-f.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-g",
+        "projectId": "olara",
+        "normalizedName": "residence g",
+        "displayName": "Residence G",
         "title": "Residence G",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_G.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_G.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence G",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-g.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-g.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_G.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-g.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-h",
+        "projectId": "olara",
+        "normalizedName": "residence h",
+        "displayName": "Residence H",
         "title": "Residence H",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_H.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_H.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence H",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-h.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-h.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_H.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-h.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-i",
+        "projectId": "olara",
+        "normalizedName": "residence i",
+        "displayName": "Residence I",
         "title": "Residence I",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_I.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_I.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence I",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-i.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-i.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_I.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-i.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-j",
+        "projectId": "olara",
+        "normalizedName": "residence j",
+        "displayName": "Residence J",
         "title": "Residence J",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_J.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_J.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence J",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-j.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-j.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_J.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-j.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-k",
+        "projectId": "olara",
+        "normalizedName": "residence k",
+        "displayName": "Residence K",
         "title": "Residence K",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_K.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_K.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence K",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-k.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-k.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_K.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-k.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-l",
+        "projectId": "olara",
+        "normalizedName": "residence l",
+        "displayName": "Residence L",
         "title": "Residence L",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_L.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_L.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence L",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-l.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-l.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_L.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-l.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-m",
+        "projectId": "olara",
+        "normalizedName": "residence m",
+        "displayName": "Residence M",
         "title": "Residence M",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_M.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_M.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence M",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-m.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-m.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_M.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-m.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-n",
+        "projectId": "olara",
+        "normalizedName": "residence n",
+        "displayName": "Residence N",
         "title": "Residence N",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_N.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_N.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence N",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-n.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-n.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_31126_N.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-n.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-o",
+        "projectId": "olara",
+        "normalizedName": "residence o",
+        "displayName": "Residence O",
         "title": "Residence O",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_O.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_O.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence O",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-o.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-o.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_O.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-o.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-p",
+        "projectId": "olara",
+        "normalizedName": "residence p",
+        "displayName": "Residence P",
         "title": "Residence P",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_P.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_P.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence P",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-p.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-p.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_P.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-p.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-q",
+        "projectId": "olara",
+        "normalizedName": "residence q",
+        "displayName": "Residence Q",
         "title": "Residence Q",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Q.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Q.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence Q",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-q.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-q.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Q.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-q.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-t",
+        "projectId": "olara",
+        "normalizedName": "residence t",
+        "displayName": "Residence T",
         "title": "Residence T",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_T.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_T.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence T",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-t.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-t.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_T.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-t.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-u",
+        "projectId": "olara",
+        "normalizedName": "residence u",
+        "displayName": "Residence U",
         "title": "Residence U",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_U.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_U.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence U",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-u.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-u.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_U.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-u.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-v-401-501",
+        "projectId": "olara",
+        "normalizedName": "residence v 401 501",
+        "displayName": "Residence V 401 501",
         "title": "Residence V 401 501",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_V_401_501.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_V_401_501.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence V 401 501",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-v-401-501.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-v-401-501.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_V_401_501.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-v-401-501.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-w-402-502",
+        "projectId": "olara",
+        "normalizedName": "residence w 402 502",
+        "displayName": "Residence W 402 502",
         "title": "Residence W 402 502",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_W_402_502.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_W_402_502.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence W 402 502",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-w-402-502.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-w-402-502.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_W_402_502.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-w-402-502.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-x-207-307-403-503",
+        "projectId": "olara",
+        "normalizedName": "residence x 207 307 403 503",
+        "displayName": "Residence X 207 307 403 503",
         "title": "Residence X 207 307 403 503",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_X_207_307_403_503.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_X_207_307_403_503.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence X 207 307 403 503",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-x-207-307-403-503.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-x-207-307-403-503.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_X_207_307_403_503.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-x-207-307-403-503.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-y-208",
+        "projectId": "olara",
+        "normalizedName": "residence y 208",
+        "displayName": "Residence Y 208",
         "title": "Residence Y 208",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_208.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_208.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence Y 208",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-y-208.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-y-208.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_208.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-y-208.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-y-308-404-504",
+        "projectId": "olara",
+        "normalizedName": "residence y 308 404 504",
+        "displayName": "Residence Y 308 404 504",
         "title": "Residence Y 308 404 504",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_308_404_504.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_308_404_504.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence Y 308 404 504",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-y-308-404-504.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-y-308-404-504.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Y_308_404_504.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-y-308-404-504.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-z-209",
+        "projectId": "olara",
+        "normalizedName": "residence z 209",
+        "displayName": "Residence Z 209",
         "title": "Residence Z 209",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_209.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_209.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence Z 209",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-z-209.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-z-209.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_209.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-z-209.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "olara-individual-residence-z-309-405-505",
+        "projectId": "olara",
+        "normalizedName": "residence z 309 405 505",
+        "displayName": "Residence Z 309 405 505",
         "title": "Residence Z 309 405 505",
-        "href": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_309_405_505.pdf",
-        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_309_405_505.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence Z 309 405 505",
+        "planType": "individual",
         "href": "/projects/olara/docs/floorplans/olara-residence-plan-z-309-405-505.pdf",
-        "sourceUrl": "/projects/olara/docs/floorplans/olara-residence-plan-z-309-405-505.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://d3af2gfyi5943v.cloudfront.net/app/layout-pdfs/Olara_Floorplans_Digital_031126_Z_309_405_505.pdf",
+        "publicAssetUrl": "/projects/olara/docs/floorplans/olara-residence-plan-z-309-405-505.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
@@ -582,81 +515,73 @@ export const floorplanLibrary = [
     "projectId": "shorecrest",
     "name": "Shorecrest",
     "area": "North Flagler",
-    "pageStatus": "Primary condo page",
-    "updatedAt": "2026-08-12",
-    "count": 9,
+    "projectType": "condo-active-sales",
+    "updatedAt": "2026-09-01",
+    "count": 5,
     "plans": [
       {
+        "planId": "shorecrest-individual-1153-0303-floorplan",
+        "projectId": "shorecrest",
+        "normalizedName": "1153 0303 floorplan",
+        "displayName": "1153 0303 Floorplan",
         "title": "1153 0303 Floorplan",
-        "href": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
-        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "1153 0303 Floorplan",
+        "planType": "individual",
         "href": "/projects/shorecrest/docs/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
-        "sourceUrl": "/projects/shorecrest/docs/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
+        "publicAssetUrl": "/projects/shorecrest/docs/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "shorecrest-individual-1153-0704-floorplan",
+        "projectId": "shorecrest",
+        "normalizedName": "1153 0704 floorplan",
+        "displayName": "1153 0704 Floorplan",
         "title": "1153 0704 Floorplan",
-        "href": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
-        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "1153 0704 Floorplan",
+        "planType": "individual",
         "href": "/projects/shorecrest/docs/floorplans/1153-0704-floorplan--f2969c6b.pdf",
-        "sourceUrl": "/projects/shorecrest/docs/floorplans/1153-0704-floorplan--f2969c6b.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
+        "publicAssetUrl": "/projects/shorecrest/docs/floorplans/1153-0704-floorplan--f2969c6b.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Official Floor Plans Index",
+        "planId": "shorecrest-index-floorplan-index",
+        "projectId": "shorecrest",
+        "normalizedName": "floorplan index",
+        "displayName": "Floorplan Index",
+        "title": "Floorplan Index",
+        "planType": "index",
         "href": "https://www.shorecrestwpb.com/floorplans",
         "sourceUrl": "https://www.shorecrestwpb.com/floorplans",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "current-app"
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "shorecrest-individual-residence-301-floorplan",
+        "projectId": "shorecrest",
+        "normalizedName": "residence 301 floorplan",
+        "displayName": "Residence 301 Floor Plan",
         "title": "Residence 301 Floor Plan",
-        "href": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
-        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 301 Floor Plan",
+        "planType": "individual",
         "href": "/projects/shorecrest/docs/floorplans/residence-301-floor-plan--927fc847.pdf",
-        "sourceUrl": "/projects/shorecrest/docs/floorplans/residence-301-floor-plan--927fc847.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
+        "publicAssetUrl": "/projects/shorecrest/docs/floorplans/residence-301-floor-plan--927fc847.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "shorecrest-individual-residence-1602-floorplan",
+        "projectId": "shorecrest",
+        "normalizedName": "residence 1602 floorplan",
+        "displayName": "Residence 1602 Floor Plan",
         "title": "Residence 1602 Floor Plan",
-        "href": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
-        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 1602 Floor Plan",
+        "planType": "individual",
         "href": "/projects/shorecrest/docs/floorplans/residence-1602-floor-plan--4891242d.pdf",
-        "sourceUrl": "/projects/shorecrest/docs/floorplans/residence-1602-floor-plan--4891242d.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
+        "publicAssetUrl": "/projects/shorecrest/docs/floorplans/residence-1602-floor-plan--4891242d.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
@@ -665,233 +590,213 @@ export const floorplanLibrary = [
     "projectId": "ritz-carlton-wpb",
     "name": "The Ritz-Carlton Residences, West Palm Beach",
     "area": "North Flagler",
-    "pageStatus": "Primary condo page",
-    "updatedAt": "2026-08-12",
-    "count": 28,
+    "projectType": "condo-active-sales",
+    "updatedAt": "2026-09-01",
+    "count": 16,
     "plans": [
       {
+        "planId": "ritz-carlton-wpb-individual-complete-floorplan-viewer",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "complete floorplan viewer",
+        "displayName": "Complete Floorplan Viewer",
         "title": "Complete Floorplan Viewer",
+        "planType": "individual",
         "href": "https://www.flipsnack.com/relatedgroup/ritzwpb-floorplans/full-view.html",
         "sourceUrl": "https://www.flipsnack.com/relatedgroup/ritzwpb-floorplans/full-view.html",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "agent-findings"
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Lake Home 07",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Lake Home 07",
-        "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-07.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-07.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
-      },
-      {
-        "title": "Lake Home 08",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Lake Home 08",
-        "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-08.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-08.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
-      },
-      {
-        "title": "Lake Home 09",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Lake Home 09",
-        "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-09.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-09.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
-      },
-      {
-        "title": "Lake Home 10",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Lake Home 10",
-        "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-10.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-10.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
-      },
-      {
-        "title": "Lake Home 11",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Lake Home 11",
-        "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-11.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-11.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
-      },
-      {
-        "title": "Official Floor Plans Index",
+        "planId": "ritz-carlton-wpb-index-floorplan-index",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "floorplan index",
+        "displayName": "Floorplan Index",
+        "title": "Floorplan Index",
+        "planType": "index",
         "href": "https://theresidenceswestpalmbeach.com/floorplans/",
         "sourceUrl": "https://theresidenceswestpalmbeach.com/floorplans/",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "current-app"
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Res02",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
+        "planId": "ritz-carlton-wpb-individual-lake-home-07",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "lake home 07",
+        "displayName": "Lake Home 07",
+        "title": "Lake Home 07",
+        "planType": "individual",
+        "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-07.pdf",
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res07.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-07.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "ritz-carlton-wpb-individual-lake-home-08",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "lake home 08",
+        "displayName": "Lake Home 08",
+        "title": "Lake Home 08",
+        "planType": "individual",
+        "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-08.pdf",
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res08.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-08.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
+      },
+      {
+        "planId": "ritz-carlton-wpb-individual-lake-home-09",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "lake home 09",
+        "displayName": "Lake Home 09",
+        "title": "Lake Home 09",
+        "planType": "individual",
+        "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-09.pdf",
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res09.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-09.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
+      },
+      {
+        "planId": "ritz-carlton-wpb-individual-lake-home-10",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "lake home 10",
+        "displayName": "Lake Home 10",
+        "title": "Lake Home 10",
+        "planType": "individual",
+        "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-10.pdf",
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res10.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-10.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
+      },
+      {
+        "planId": "ritz-carlton-wpb-individual-lake-home-11",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "lake home 11",
+        "displayName": "Lake Home 11",
+        "title": "Lake Home 11",
+        "planType": "individual",
+        "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-11.pdf",
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res11.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-11.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
+      },
+      {
+        "planId": "ritz-carlton-wpb-individual-res02",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "res02",
+        "displayName": "Res02",
         "title": "Res02",
+        "planType": "individual",
         "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-02.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-02.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res02.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-02.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "ritz-carlton-wpb-individual-res03",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "res03",
+        "displayName": "Res03",
         "title": "Res03",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Res03",
+        "planType": "individual",
         "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-03.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-03.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res03.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-03.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "ritz-carlton-wpb-individual-res06",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "res06",
+        "displayName": "Res06",
         "title": "Res06",
+        "planType": "individual",
         "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res06.pdf",
         "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res06.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "ritz-carlton-wpb-individual-res12",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "res12",
+        "displayName": "Res12",
         "title": "Res12",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Res12",
+        "planType": "individual",
         "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-12.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-12.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-lake-home-12.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "ritz-carlton-wpb-individual-res12-1",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "res12 1",
+        "displayName": "Res12 1",
         "title": "Res12 1",
+        "planType": "individual",
         "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.1.pdf",
         "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res12.1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "ritz-carlton-wpb-individual-residence-01",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "residence 01",
+        "displayName": "Residence 01",
         "title": "Residence 01",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 01",
+        "planType": "individual",
         "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-01.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-01.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res01.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-01.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "ritz-carlton-wpb-individual-residence-04",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "residence 04",
+        "displayName": "Residence 04",
         "title": "Residence 04",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 04",
+        "planType": "individual",
         "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-04.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-04.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res04.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-04.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "ritz-carlton-wpb-individual-residence-05",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "residence 05",
+        "displayName": "Residence 05",
         "title": "Residence 05",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 05",
+        "planType": "individual",
         "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-05.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-05.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/01/Res05.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-05.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "ritz-carlton-wpb-individual-residence-06",
+        "projectId": "ritz-carlton-wpb",
+        "normalizedName": "residence 06",
+        "displayName": "Residence 06",
         "title": "Residence 06",
-        "href": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
-        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 06",
+        "planType": "individual",
         "href": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-06.pdf",
-        "sourceUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-06.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://theresidenceswestpalmbeach.com/wp-content/uploads/2025/05/Residence06.pdf",
+        "publicAssetUrl": "/projects/ritz-carlton-wpb/docs/floorplans/ritz-residence-06.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
@@ -900,531 +805,435 @@ export const floorplanLibrary = [
     "projectId": "banyan-tree",
     "name": "Banyan Tree Residences West Palm Beach",
     "area": "Downtown",
-    "pageStatus": "High-priority emerging condo page",
-    "updatedAt": "2026-08-12",
+    "projectType": "condo-pipeline",
+    "updatedAt": "2026-09-01",
     "count": 0,
     "plans": [],
     "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
   },
   {
     "projectId": "mr-c",
-    "name": "Mr. C Hotel & Residences West Palm Beach",
+    "name": "Mr. C Residences West Palm Beach",
     "area": "Downtown",
-    "pageStatus": "Primary mixed-use/hotel-residence page",
-    "updatedAt": "2026-08-12",
-    "count": 64,
+    "projectType": "condo-active-sales",
+    "updatedAt": "2026-09-01",
+    "count": 32,
     "plans": [
       {
+        "planId": "mr-c-individual-residence-01",
+        "projectId": "mr-c",
+        "normalizedName": "residence 01",
+        "displayName": "Residence 01",
         "title": "Residence 01",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 01",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res01-floorplan-illustrated-1--85f9b4cc.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Residence 01A",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
+        "planId": "mr-c-individual-residence-01a",
+        "projectId": "mr-c",
+        "normalizedName": "residence 01a",
+        "displayName": "Residence 01a",
         "title": "Residence 01a",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-01a--4c4e8025.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-01a--4c4e8025.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res01A_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-01a--4c4e8025.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-02",
+        "projectId": "mr-c",
+        "normalizedName": "residence 02",
+        "displayName": "Residence 02",
         "title": "Residence 02",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 02",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res02-floorplan-illustrated-1--c9a23ab0.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
-        "title": "Residence 02A",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
+        "planId": "mr-c-individual-residence-02a",
+        "projectId": "mr-c",
+        "normalizedName": "residence 02a",
+        "displayName": "Residence 02a",
         "title": "Residence 02a",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-02a--c0b62912.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-02a--c0b62912.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res02A_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-02a--c0b62912.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-03",
+        "projectId": "mr-c",
+        "normalizedName": "residence 03",
+        "displayName": "Residence 03",
         "title": "Residence 03",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 03",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-03--809edf7a.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-03--809edf7a.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-03--809edf7a.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-03a",
+        "projectId": "mr-c",
+        "normalizedName": "residence 03a",
+        "displayName": "Residence 03A",
         "title": "Residence 03A",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 03A",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res03A_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res03a-floorplan-illustrated-1--5bd7a0a7.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-04",
+        "projectId": "mr-c",
+        "normalizedName": "residence 04",
+        "displayName": "Residence 04",
         "title": "Residence 04",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 04",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-04--7e2f1920.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-04--7e2f1920.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-04--7e2f1920.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-04a",
+        "projectId": "mr-c",
+        "normalizedName": "residence 04a",
+        "displayName": "Residence 04A",
         "title": "Residence 04A",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 04A",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res04A_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res04a-floorplan-illustrated-1--534379f7.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-05",
+        "projectId": "mr-c",
+        "normalizedName": "residence 05",
+        "displayName": "Residence 05",
         "title": "Residence 05",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 05",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-05--a9880839.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-05--a9880839.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res05_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-05--a9880839.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-06",
+        "projectId": "mr-c",
+        "normalizedName": "residence 06",
+        "displayName": "Residence 06",
         "title": "Residence 06",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 06",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-06--5677af6f.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-06--5677af6f.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-06--5677af6f.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-06a",
+        "projectId": "mr-c",
+        "normalizedName": "residence 06a",
+        "displayName": "Residence 06A",
         "title": "Residence 06A",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 06A",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res06A_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res06a-floorplan-illustrated-1--f57905a4.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-07",
+        "projectId": "mr-c",
+        "normalizedName": "residence 07",
+        "displayName": "Residence 07",
         "title": "Residence 07",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 07",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-07--438e91d4.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-07--438e91d4.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-07--438e91d4.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-07a",
+        "projectId": "mr-c",
+        "normalizedName": "residence 07a",
+        "displayName": "Residence 07A",
         "title": "Residence 07A",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 07A",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res07A_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res07a-floorplan-illustrated-1--6616d702.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-08",
+        "projectId": "mr-c",
+        "normalizedName": "residence 08",
+        "displayName": "Residence 08",
         "title": "Residence 08",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 08",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-08--0717db7d.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-08--0717db7d.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-08--0717db7d.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-08a",
+        "projectId": "mr-c",
+        "normalizedName": "residence 08a",
+        "displayName": "Residence 08A",
         "title": "Residence 08A",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 08A",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res08A_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res08a-floorplan-illustrated-1--f250368d.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-10",
+        "projectId": "mr-c",
+        "normalizedName": "residence 10",
+        "displayName": "Residence 10",
         "title": "Residence 10",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 10",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-10--c2ea2424.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-10--c2ea2424.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res10_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-10--c2ea2424.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-11",
+        "projectId": "mr-c",
+        "normalizedName": "residence 11",
+        "displayName": "Residence 11",
         "title": "Residence 11",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 11",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-11--d43deb20.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-11--d43deb20.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res11_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-11--d43deb20.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-12",
+        "projectId": "mr-c",
+        "normalizedName": "residence 12",
+        "displayName": "Residence 12",
         "title": "Residence 12",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 12",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/residence-12--a53ea9bd.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/residence-12--a53ea9bd.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res12_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/residence-12--a53ea9bd.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-13",
+        "projectId": "mr-c",
+        "normalizedName": "residence 13",
+        "displayName": "Residence 13",
         "title": "Residence 13",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 13",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res13_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res13-floorplan-illustrated-1--509a3e5e.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-14",
+        "projectId": "mr-c",
+        "normalizedName": "residence 14",
+        "displayName": "Residence 14",
         "title": "Residence 14",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 14",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res14_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res14-floorplan-illustrated-1--9b18c4e3.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-15",
+        "projectId": "mr-c",
+        "normalizedName": "residence 15",
+        "displayName": "Residence 15",
         "title": "Residence 15",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 15",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res15_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res15-floorplan-illustrated-1--dbf7b2b7.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-16",
+        "projectId": "mr-c",
+        "normalizedName": "residence 16",
+        "displayName": "Residence 16",
         "title": "Residence 16",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 16",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res16_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res16-floorplan-illustrated-1--7e8a2c95.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-17",
+        "projectId": "mr-c",
+        "normalizedName": "residence 17",
+        "displayName": "Residence 17",
         "title": "Residence 17",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 17",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res17_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res17-floorplan-illustrated-1--a48c9cef.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-18",
+        "projectId": "mr-c",
+        "normalizedName": "residence 18",
+        "displayName": "Residence 18",
         "title": "Residence 18",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 18",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res18_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res18-floorplan-illustrated-1--c9f8621b.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-19",
+        "projectId": "mr-c",
+        "normalizedName": "residence 19",
+        "displayName": "Residence 19",
         "title": "Residence 19",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 19",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res19_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res19-floorplan-illustrated-1--ce20734e.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-211",
+        "projectId": "mr-c",
+        "normalizedName": "residence 211",
+        "displayName": "Residence 211",
         "title": "Residence 211",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 211",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res211_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res211-floorplan-illustrated-1--e8de62cf.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-215",
+        "projectId": "mr-c",
+        "normalizedName": "residence 215",
+        "displayName": "Residence 215",
         "title": "Residence 215",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 215",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res215_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res215-floorplan-illustrated-1--3faea402.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-216",
+        "projectId": "mr-c",
+        "normalizedName": "residence 216",
+        "displayName": "Residence 216",
         "title": "Residence 216",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 216",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res216_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res216-floorplan-illustrated-1--d98b753a.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-217",
+        "projectId": "mr-c",
+        "normalizedName": "residence 217",
+        "displayName": "Residence 217",
         "title": "Residence 217",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 217",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res217_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res217-floorplan-illustrated-1--baf065bd.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-813",
+        "projectId": "mr-c",
+        "normalizedName": "residence 813",
+        "displayName": "Residence 813",
         "title": "Residence 813",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 813",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res813_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res813-floorplan-illustrated-1--47517f83.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-814",
+        "projectId": "mr-c",
+        "normalizedName": "residence 814",
+        "displayName": "Residence 814",
         "title": "Residence 814",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 814",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res814_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res814-floorplan-illustrated-1--9b7e221f.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "mr-c-individual-residence-815",
+        "projectId": "mr-c",
+        "normalizedName": "residence 815",
+        "displayName": "Residence 815",
         "title": "Residence 815",
-        "href": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
-        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "Residence 815",
+        "planType": "individual",
         "href": "/projects/mr-c/docs/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
-        "sourceUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrCWPB_Res815_FloorPlan_Illustrated-1.pdf",
+        "publicAssetUrl": "/projects/mr-c/docs/floorplans/mrcwpb-res815-floorplan-illustrated-1--c7f37852.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
@@ -1433,612 +1242,980 @@ export const floorplanLibrary = [
     "projectId": "berkeley",
     "name": "The Berkeley Palm Beach",
     "area": "Downtown",
-    "pageStatus": "Candidate project page",
-    "updatedAt": "2026-08-12",
+    "projectType": "condo-active-sales",
+    "updatedAt": "2026-09-01",
     "count": 9,
     "plans": [
       {
+        "planId": "berkeley-individual-penthouse-floorplan-template",
+        "projectId": "berkeley",
+        "normalizedName": "penthouse floorplan template",
+        "displayName": "Penthouse Floorplan Template",
         "title": "Penthouse Floorplan Template",
+        "planType": "individual",
         "href": "/projects/berkeley/docs/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
         "sourceUrl": "/projects/berkeley/docs/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/berkeley/docs/floorplans/penthouse-floorplan-template--a68d7efe.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "berkeley-individual-residence-a-floorplan-template",
+        "projectId": "berkeley",
+        "normalizedName": "residence a floorplan template",
+        "displayName": "Residence A Floorplan Template",
         "title": "Residence A Floorplan Template",
+        "planType": "individual",
         "href": "/projects/berkeley/docs/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
         "sourceUrl": "/projects/berkeley/docs/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/berkeley/docs/floorplans/residence-a-floorplan-template--3f71b9ce.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "berkeley-individual-residence-b-floorplan-template",
+        "projectId": "berkeley",
+        "normalizedName": "residence b floorplan template",
+        "displayName": "Residence B Floorplan Template",
         "title": "Residence B Floorplan Template",
+        "planType": "individual",
         "href": "/projects/berkeley/docs/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
         "sourceUrl": "/projects/berkeley/docs/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/berkeley/docs/floorplans/residence-b-floorplan-template--9d9ba081.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "berkeley-individual-residence-c-floorplan-template",
+        "projectId": "berkeley",
+        "normalizedName": "residence c floorplan template",
+        "displayName": "Residence C Floorplan Template",
         "title": "Residence C Floorplan Template",
+        "planType": "individual",
         "href": "/projects/berkeley/docs/floorplans/residence-c-floorplan-template--b089a348.jpg",
         "sourceUrl": "/projects/berkeley/docs/floorplans/residence-c-floorplan-template--b089a348.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/berkeley/docs/floorplans/residence-c-floorplan-template--b089a348.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "berkeley-individual-residence-d-floorplan-template",
+        "projectId": "berkeley",
+        "normalizedName": "residence d floorplan template",
+        "displayName": "Residence D Floorplan Template",
         "title": "Residence D Floorplan Template",
+        "planType": "individual",
         "href": "/projects/berkeley/docs/floorplans/residence-d-floorplan-template--904ee317.jpg",
         "sourceUrl": "/projects/berkeley/docs/floorplans/residence-d-floorplan-template--904ee317.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/berkeley/docs/floorplans/residence-d-floorplan-template--904ee317.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "berkeley-individual-residence-e-floorplan-template",
+        "projectId": "berkeley",
+        "normalizedName": "residence e floorplan template",
+        "displayName": "Residence E Floorplan Template",
         "title": "Residence E Floorplan Template",
+        "planType": "individual",
         "href": "/projects/berkeley/docs/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
         "sourceUrl": "/projects/berkeley/docs/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/berkeley/docs/floorplans/residence-e-floorplan-template--c3bd0c2e.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "berkeley-individual-residence-f",
+        "projectId": "berkeley",
+        "normalizedName": "residence f",
+        "displayName": "Residence F",
         "title": "Residence F",
+        "planType": "individual",
         "href": "https://www.theberkeleypalmbeach.com/residence/residence-f/",
         "sourceUrl": "https://www.theberkeleypalmbeach.com/residence/residence-f/",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "github-master"
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "berkeley-individual-residence-f-floorplan-template",
+        "projectId": "berkeley",
+        "normalizedName": "residence f floorplan template",
+        "displayName": "Residence F Floorplan Template",
         "title": "Residence F Floorplan Template",
+        "planType": "individual",
         "href": "/projects/berkeley/docs/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
         "sourceUrl": "/projects/berkeley/docs/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/berkeley/docs/floorplans/residence-f-floorplan-template--5c0f8efd.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "berkeley-individual-residence-g-floorplan-template",
+        "projectId": "berkeley",
+        "normalizedName": "residence g floorplan template",
+        "displayName": "Residence G Floorplan Template",
         "title": "Residence G Floorplan Template",
+        "planType": "individual",
         "href": "/projects/berkeley/docs/floorplans/residence-g-floorplan-template--95ec6883.jpg",
         "sourceUrl": "/projects/berkeley/docs/floorplans/residence-g-floorplan-template--95ec6883.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/berkeley/docs/floorplans/residence-g-floorplan-template--95ec6883.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
   },
   {
     "projectId": "nora-house",
-    "name": "NORA House",
-    "area": "Downtown / NORA",
-    "pageStatus": "Primary condo page",
-    "updatedAt": "2026-08-12",
+    "name": "Nora House",
+    "area": "Downtown",
+    "projectType": "condo-pipeline",
+    "updatedAt": "2026-09-01",
     "count": 65,
     "plans": [
       {
+        "planId": "nora-house-individual-residence-01",
+        "projectId": "nora-house",
+        "normalizedName": "residence 01",
+        "displayName": "Residence 01",
         "title": "Residence 01",
+        "planType": "individual",
         "href": "https://norahouse.com/floorplan/residence-01/",
         "sourceUrl": "https://norahouse.com/floorplan/residence-01/",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "github-master"
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-01-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 01 floorplan",
+        "displayName": "Residence 01 Floorplan",
         "title": "Residence 01 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-01-floorplan--1f9ee4f9.webp",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-01-floorplan--1f9ee4f9.webp",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-01-floorplan--1f9ee4f9.webp",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-01-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 01 page",
+        "displayName": "Residence 01 Page",
         "title": "Residence 01 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-01-page--14027293.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-01-page--14027293.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-01-page--14027293.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-02-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 02 floorplan",
+        "displayName": "Residence 02 Floorplan",
         "title": "Residence 02 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-02-floorplan--8eaf9a11.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-02-floorplan--8eaf9a11.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-02-floorplan--8eaf9a11.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-02-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 02 page",
+        "displayName": "Residence 02 Page",
         "title": "Residence 02 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-02-page--fefc68d5.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-02-page--fefc68d5.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-02-page--fefc68d5.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-03-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 03 floorplan",
+        "displayName": "Residence 03 Floorplan",
         "title": "Residence 03 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-03-floorplan--3f2cb001.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-03-floorplan--3f2cb001.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-03-floorplan--3f2cb001.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-03-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 03 page",
+        "displayName": "Residence 03 Page",
         "title": "Residence 03 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-03-page--f645f19b.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-03-page--f645f19b.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-03-page--f645f19b.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-04-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 04 floorplan",
+        "displayName": "Residence 04 Floorplan",
         "title": "Residence 04 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-04-floorplan--1a34d859.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-04-floorplan--1a34d859.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-04-floorplan--1a34d859.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-04-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 04 page",
+        "displayName": "Residence 04 Page",
         "title": "Residence 04 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-04-page--9111aab9.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-04-page--9111aab9.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-04-page--9111aab9.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-05-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 05 floorplan",
+        "displayName": "Residence 05 Floorplan",
         "title": "Residence 05 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-05-floorplan--7b476826.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-05-floorplan--7b476826.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-05-floorplan--7b476826.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-05-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 05 page",
+        "displayName": "Residence 05 Page",
         "title": "Residence 05 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-05-page--b4d230c8.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-05-page--b4d230c8.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-05-page--b4d230c8.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-06-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 06 floorplan",
+        "displayName": "Residence 06 Floorplan",
         "title": "Residence 06 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-06-floorplan--36e6d64f.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-06-floorplan--36e6d64f.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-06-floorplan--36e6d64f.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-06-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 06 page",
+        "displayName": "Residence 06 Page",
         "title": "Residence 06 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-06-page--c05f899d.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-06-page--c05f899d.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-06-page--c05f899d.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-07-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 07 floorplan",
+        "displayName": "Residence 07 Floorplan",
         "title": "Residence 07 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-07-floorplan--82bb861e.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-07-floorplan--82bb861e.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-07-floorplan--82bb861e.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-07-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 07 page",
+        "displayName": "Residence 07 Page",
         "title": "Residence 07 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-07-page--b6de858e.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-07-page--b6de858e.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-07-page--b6de858e.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-08-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 08 floorplan",
+        "displayName": "Residence 08 Floorplan",
         "title": "Residence 08 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-08-floorplan--5a6dbe79.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-08-floorplan--5a6dbe79.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-08-floorplan--5a6dbe79.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-08-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 08 page",
+        "displayName": "Residence 08 Page",
         "title": "Residence 08 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-08-page--44bed40a.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-08-page--44bed40a.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-08-page--44bed40a.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-09-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 09 floorplan",
+        "displayName": "Residence 09 Floorplan",
         "title": "Residence 09 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-09-floorplan--4d4f0e1c.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-09-floorplan--4d4f0e1c.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-09-floorplan--4d4f0e1c.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-09-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 09 page",
+        "displayName": "Residence 09 Page",
         "title": "Residence 09 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-09-page--e0180156.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-09-page--e0180156.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-09-page--e0180156.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-10-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 10 floorplan",
+        "displayName": "Residence 10 Floorplan",
         "title": "Residence 10 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-10-floorplan--f630ef36.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-10-floorplan--f630ef36.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-10-floorplan--f630ef36.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-10-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 10 page",
+        "displayName": "Residence 10 Page",
         "title": "Residence 10 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-10-page--1f5ebd05.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-10-page--1f5ebd05.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-10-page--1f5ebd05.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-11-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 11 floorplan",
+        "displayName": "Residence 11 Floorplan",
         "title": "Residence 11 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-11-floorplan--dc05c90e.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-11-floorplan--dc05c90e.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-11-floorplan--dc05c90e.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-11-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 11 page",
+        "displayName": "Residence 11 Page",
         "title": "Residence 11 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-11-page--eab0ee84.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-11-page--eab0ee84.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-11-page--eab0ee84.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-12-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 12 floorplan",
+        "displayName": "Residence 12 Floorplan",
         "title": "Residence 12 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-12-floorplan--e5e100a6.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-12-floorplan--e5e100a6.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-12-floorplan--e5e100a6.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-12-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 12 page",
+        "displayName": "Residence 12 Page",
         "title": "Residence 12 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-12-page--23123758.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-12-page--23123758.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-12-page--23123758.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-13-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 13 floorplan",
+        "displayName": "Residence 13 Floorplan",
         "title": "Residence 13 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-13-floorplan--46f6c2f2.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-13-floorplan--46f6c2f2.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-13-floorplan--46f6c2f2.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-13-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 13 page",
+        "displayName": "Residence 13 Page",
         "title": "Residence 13 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-13-page--24424705.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-13-page--24424705.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-13-page--24424705.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-14-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 14 floorplan",
+        "displayName": "Residence 14 Floorplan",
         "title": "Residence 14 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-14-floorplan--daae34c8.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-14-floorplan--daae34c8.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-14-floorplan--daae34c8.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-14-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 14 page",
+        "displayName": "Residence 14 Page",
         "title": "Residence 14 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-14-page--d69e1283.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-14-page--d69e1283.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-14-page--d69e1283.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-15-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 15 floorplan",
+        "displayName": "Residence 15 Floorplan",
         "title": "Residence 15 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-15-floorplan--0717f2fa.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-15-floorplan--0717f2fa.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-15-floorplan--0717f2fa.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-15-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 15 page",
+        "displayName": "Residence 15 Page",
         "title": "Residence 15 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-15-page--477e093c.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-15-page--477e093c.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-15-page--477e093c.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-16-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 16 floorplan",
+        "displayName": "Residence 16 Floorplan",
         "title": "Residence 16 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-16-floorplan--ca744524.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-16-floorplan--ca744524.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-16-floorplan--ca744524.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-16-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 16 page",
+        "displayName": "Residence 16 Page",
         "title": "Residence 16 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-16-page--074cb2dd.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-16-page--074cb2dd.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-16-page--074cb2dd.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-17-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "residence 17 floorplan",
+        "displayName": "Residence 17 Floorplan",
         "title": "Residence 17 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-17-floorplan--8ef533db.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-17-floorplan--8ef533db.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-17-floorplan--8ef533db.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-residence-17-page",
+        "projectId": "nora-house",
+        "normalizedName": "residence 17 page",
+        "displayName": "Residence 17 Page",
         "title": "Residence 17 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/residence-17-page--da6ad0d2.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/residence-17-page--da6ad0d2.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/residence-17-page--da6ad0d2.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-401-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 401 floorplan",
+        "displayName": "Terrace 401 Floorplan",
         "title": "Terrace 401 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-401-floorplan--ac6acc9c.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-401-floorplan--ac6acc9c.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-401-floorplan--ac6acc9c.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-401-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 401 page",
+        "displayName": "Terrace 401 Page",
         "title": "Terrace 401 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-401-page--ca322716.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-401-page--ca322716.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-401-page--ca322716.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-402-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 402 floorplan",
+        "displayName": "Terrace 402 Floorplan",
         "title": "Terrace 402 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-402-floorplan--770a3c13.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-402-floorplan--770a3c13.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-402-floorplan--770a3c13.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-402-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 402 page",
+        "displayName": "Terrace 402 Page",
         "title": "Terrace 402 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-402-page--2bdc8766.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-402-page--2bdc8766.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-402-page--2bdc8766.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-403-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 403 floorplan",
+        "displayName": "Terrace 403 Floorplan",
         "title": "Terrace 403 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-403-floorplan--db1cd849.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-403-floorplan--db1cd849.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-403-floorplan--db1cd849.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-403-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 403 page",
+        "displayName": "Terrace 403 Page",
         "title": "Terrace 403 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-403-page--cd81fd9e.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-403-page--cd81fd9e.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-403-page--cd81fd9e.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-404-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 404 floorplan",
+        "displayName": "Terrace 404 Floorplan",
         "title": "Terrace 404 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-404-floorplan--bf2691cd.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-404-floorplan--bf2691cd.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-404-floorplan--bf2691cd.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-404-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 404 page",
+        "displayName": "Terrace 404 Page",
         "title": "Terrace 404 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-404-page--f244d534.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-404-page--f244d534.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-404-page--f244d534.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-405-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 405 floorplan",
+        "displayName": "Terrace 405 Floorplan",
         "title": "Terrace 405 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-405-floorplan--549f79c3.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-405-floorplan--549f79c3.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-405-floorplan--549f79c3.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-405-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 405 page",
+        "displayName": "Terrace 405 Page",
         "title": "Terrace 405 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-405-page--97708df6.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-405-page--97708df6.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-405-page--97708df6.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-406-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 406 floorplan",
+        "displayName": "Terrace 406 Floorplan",
         "title": "Terrace 406 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-406-floorplan--18b8b27f.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-406-floorplan--18b8b27f.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-406-floorplan--18b8b27f.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-406-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 406 page",
+        "displayName": "Terrace 406 Page",
         "title": "Terrace 406 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-406-page--58380ddc.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-406-page--58380ddc.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-406-page--58380ddc.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-407-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 407 floorplan",
+        "displayName": "Terrace 407 Floorplan",
         "title": "Terrace 407 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-407-floorplan--cd216b95.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-407-floorplan--cd216b95.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-407-floorplan--cd216b95.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-407-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 407 page",
+        "displayName": "Terrace 407 Page",
         "title": "Terrace 407 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-407-page--94093f89.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-407-page--94093f89.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-407-page--94093f89.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-409-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 409 floorplan",
+        "displayName": "Terrace 409 Floorplan",
         "title": "Terrace 409 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-409-floorplan--dfaf5596.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-409-floorplan--dfaf5596.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-409-floorplan--dfaf5596.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-409-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 409 page",
+        "displayName": "Terrace 409 Page",
         "title": "Terrace 409 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-409-page--fdf12b06.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-409-page--fdf12b06.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-409-page--fdf12b06.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-410-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 410 floorplan",
+        "displayName": "Terrace 410 Floorplan",
         "title": "Terrace 410 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-410-floorplan--c9a0d4e8.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-410-floorplan--c9a0d4e8.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-410-floorplan--c9a0d4e8.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-410-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 410 page",
+        "displayName": "Terrace 410 Page",
         "title": "Terrace 410 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-410-page--7df78566.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-410-page--7df78566.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-410-page--7df78566.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-412-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 412 floorplan",
+        "displayName": "Terrace 412 Floorplan",
         "title": "Terrace 412 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-412-floorplan--0d520fbd.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-412-floorplan--0d520fbd.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-412-floorplan--0d520fbd.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-412-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 412 page",
+        "displayName": "Terrace 412 Page",
         "title": "Terrace 412 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-412-page--a5fa19ee.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-412-page--a5fa19ee.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-412-page--a5fa19ee.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-413-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 413 floorplan",
+        "displayName": "Terrace 413 Floorplan",
         "title": "Terrace 413 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-413-floorplan--e8fddd07.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-413-floorplan--e8fddd07.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-413-floorplan--e8fddd07.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-413-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 413 page",
+        "displayName": "Terrace 413 Page",
         "title": "Terrace 413 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-413-page--07f712cd.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-413-page--07f712cd.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-413-page--07f712cd.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-414-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 414 floorplan",
+        "displayName": "Terrace 414 Floorplan",
         "title": "Terrace 414 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-414-floorplan--83c5f27b.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-414-floorplan--83c5f27b.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-414-floorplan--83c5f27b.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-414-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 414 page",
+        "displayName": "Terrace 414 Page",
         "title": "Terrace 414 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-414-page--578ac91f.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-414-page--578ac91f.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-414-page--578ac91f.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-415-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 415 floorplan",
+        "displayName": "Terrace 415 Floorplan",
         "title": "Terrace 415 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-415-floorplan--7b2cce5e.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-415-floorplan--7b2cce5e.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-415-floorplan--7b2cce5e.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-415-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 415 page",
+        "displayName": "Terrace 415 Page",
         "title": "Terrace 415 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-415-page--6af09622.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-415-page--6af09622.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-415-page--6af09622.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-416-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 416 floorplan",
+        "displayName": "Terrace 416 Floorplan",
         "title": "Terrace 416 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-416-floorplan--e8ea896d.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-416-floorplan--e8ea896d.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-416-floorplan--e8ea896d.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-416-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 416 page",
+        "displayName": "Terrace 416 Page",
         "title": "Terrace 416 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-416-page--2d7f4aa5.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-416-page--2d7f4aa5.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-416-page--2d7f4aa5.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-417-floorplan",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 417 floorplan",
+        "displayName": "Terrace 417 Floorplan",
         "title": "Terrace 417 Floorplan",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-417-floorplan--b4dd503f.jpg",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-417-floorplan--b4dd503f.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-417-floorplan--b4dd503f.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "nora-house-individual-terrace-417-page",
+        "projectId": "nora-house",
+        "normalizedName": "terrace 417 page",
+        "displayName": "Terrace 417 Page",
         "title": "Terrace 417 Page",
+        "planType": "individual",
         "href": "/projects/nora-house/docs/floorplans/terrace-417-page--7edad466.html",
         "sourceUrl": "/projects/nora-house/docs/floorplans/terrace-417-page--7edad466.html",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/nora-house/docs/floorplans/terrace-417-page--7edad466.html",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
@@ -2047,8 +2224,8 @@ export const floorplanLibrary = [
     "projectId": "edgeworth-north",
     "name": "Edgeworth North Tower",
     "area": "South Flagler",
-    "pageStatus": "High-priority pipeline condo page",
-    "updatedAt": "2026-08-12",
+    "projectType": "condo-active-sales",
+    "updatedAt": "2026-09-04",
     "count": 0,
     "plans": [],
     "missingNote": "Floorplans are available by request when the current project packet is released or supplied."
@@ -2057,76 +2234,72 @@ export const floorplanLibrary = [
     "projectId": "forte-on-flagler",
     "name": "Forté on Flagler",
     "area": "South Flagler",
-    "pageStatus": "Completed/recent-delivery condo page",
-    "updatedAt": "2026-08-12",
-    "count": 5,
+    "projectType": "completed-comparable",
+    "updatedAt": "2026-09-01",
+    "count": 3,
     "plans": [
       {
+        "planId": "forte-on-flagler-individual-north-open-kitchen-plan",
+        "projectId": "forte-on-flagler",
+        "normalizedName": "north open kitchen plan",
+        "displayName": "North Open Kitchen Plan",
         "title": "North Open Kitchen Plan",
-        "href": "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
-        "sourceUrl": "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
-        "title": "North Open Kitchen Plan",
+        "planType": "individual",
         "href": "/projects/forte-on-flagler/docs/floorplans/north-open-kitchen-plan--e3976295.pdf",
-        "sourceUrl": "/projects/forte-on-flagler/docs/floorplans/north-open-kitchen-plan--e3976295.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
+        "publicAssetUrl": "/projects/forte-on-flagler/docs/floorplans/north-open-kitchen-plan--e3976295.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "forte-on-flagler-individual-penthouse-floorplan-insert",
+        "projectId": "forte-on-flagler",
+        "normalizedName": "penthouse floorplan insert",
+        "displayName": "Penthouse Floorplan Insert",
         "title": "Penthouse Floorplan Insert",
+        "planType": "individual",
         "href": "/projects/forte-on-flagler/docs/floorplans/penthouse-floorplan-insert--44c404b2.pdf",
         "sourceUrl": "/projects/forte-on-flagler/docs/floorplans/penthouse-floorplan-insert--44c404b2.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/forte-on-flagler/docs/floorplans/penthouse-floorplan-insert--44c404b2.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "forte-on-flagler-individual-south-open-kitchen",
+        "projectId": "forte-on-flagler",
+        "normalizedName": "south open kitchen",
+        "displayName": "South Open Kitchen",
         "title": "South Open Kitchen",
-        "href": "https://fortewpb.com/wp-content/uploads/South-Open-Kitchen.pdf",
-        "sourceUrl": "https://fortewpb.com/wp-content/uploads/South-Open-Kitchen.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "agent-findings"
-      },
-      {
-        "title": "South Open Kitchen",
+        "planType": "individual",
         "href": "/projects/forte-on-flagler/docs/floorplans/south-open-kitchen--530e51d2.pdf",
-        "sourceUrl": "/projects/forte-on-flagler/docs/floorplans/south-open-kitchen--530e51d2.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://fortewpb.com/wp-content/uploads/South-Open-Kitchen.pdf",
+        "publicAssetUrl": "/projects/forte-on-flagler/docs/floorplans/south-open-kitchen--530e51d2.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
   },
   {
     "projectId": "maison-dor",
-    "name": "Maison d'Or",
+    "name": "Maison d’Or",
     "area": "South Flagler",
-    "pageStatus": "Candidate project page",
-    "updatedAt": "2026-08-12",
-    "count": 2,
+    "projectType": "condo-active-sales",
+    "updatedAt": "2026-09-01",
+    "count": 1,
     "plans": [
       {
-        "title": "MaisondOr Fact Sheet",
-        "href": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
-        "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "official project source",
-        "note": "downloaded"
-      },
-      {
+        "planId": "maison-dor-fact-sheet-maisondor-fact-sheet",
+        "projectId": "maison-dor",
+        "normalizedName": "maisondor fact sheet",
+        "displayName": "Maisondor Fact Sheet",
         "title": "Maisondor Fact Sheet",
+        "planType": "fact-sheet",
         "href": "/projects/maison-dor/docs/floorplans/maisondor-fact-sheet--f983cc62.pdf",
-        "sourceUrl": "/projects/maison-dor/docs/floorplans/maisondor-fact-sheet--f983cc62.pdf",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "sourceUrl": "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
+        "publicAssetUrl": "/projects/maison-dor/docs/floorplans/maisondor-fact-sheet--f983cc62.pdf",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
@@ -2135,33 +2308,48 @@ export const floorplanLibrary = [
     "projectId": "south-flagler-house-north",
     "name": "South Flagler House North Tower",
     "area": "South Flagler",
-    "pageStatus": "Primary condo page; pair with south tower in copy",
-    "updatedAt": "2026-08-12",
+    "projectType": "condo-active-sales",
+    "updatedAt": "2026-09-04",
     "count": 3,
     "plans": [
       {
+        "planId": "south-flagler-house-north-individual-site-plan-floors-5-9",
+        "projectId": "south-flagler-house-north",
+        "normalizedName": "site plan floors 5 9",
+        "displayName": "Site Plan Floors 5 9",
         "title": "Site Plan Floors 5 9",
+        "planType": "individual",
         "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
         "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "south-flagler-house-north-individual-site-plan-floors-10-18",
+        "projectId": "south-flagler-house-north",
+        "normalizedName": "site plan floors 10 18",
+        "displayName": "Site Plan Floors 10 18",
         "title": "Site Plan Floors 10 18",
+        "planType": "individual",
         "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
         "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "south-flagler-house-north-individual-site-plan-floors-19-20",
+        "projectId": "south-flagler-house-north",
+        "normalizedName": "site plan floors 19 20",
+        "displayName": "Site Plan Floors 19 20",
         "title": "Site Plan Floors 19 20",
+        "planType": "individual",
         "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
         "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
@@ -2170,33 +2358,48 @@ export const floorplanLibrary = [
     "projectId": "south-flagler-house-south",
     "name": "South Flagler House South Tower",
     "area": "South Flagler",
-    "pageStatus": "Primary condo page; merge content with north tower unless separate inventory is required",
-    "updatedAt": "2026-08-12",
+    "projectType": "condo-active-sales",
+    "updatedAt": "2026-09-04",
     "count": 3,
     "plans": [
       {
+        "planId": "south-flagler-house-south-individual-site-plan-floors-5-9",
+        "projectId": "south-flagler-house-south",
+        "normalizedName": "site plan floors 5 9",
+        "displayName": "Site Plan Floors 5 9",
         "title": "Site Plan Floors 5 9",
+        "planType": "individual",
         "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
         "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "south-flagler-house-south-individual-site-plan-floors-10-18",
+        "projectId": "south-flagler-house-south",
+        "normalizedName": "site plan floors 10 18",
+        "displayName": "Site Plan Floors 10 18",
         "title": "Site Plan Floors 10 18",
+        "planType": "individual",
         "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
         "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       },
       {
+        "planId": "south-flagler-house-south-individual-site-plan-floors-19-20",
+        "projectId": "south-flagler-house-south",
+        "normalizedName": "site plan floors 19 20",
+        "displayName": "Site Plan Floors 19 20",
         "title": "Site Plan Floors 19 20",
+        "planType": "individual",
         "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
         "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-        "status": "Open floorplan",
-        "sourceUse": "canonical public research copy",
-        "note": "captured public floorplan/source asset"
+        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
       }
     ],
     "missingNote": ""
@@ -3862,1176 +4065,924 @@ export const projectFacts = [
     "projectId": "alba-palm-beach",
     "name": "Alba Palm Beach",
     "area": "North Flagler",
-    "pageStatus": "Primary condo page",
-    "dataConfidence": "Working",
-    "officialWebsite": "https://www.albapalmbeach.com/",
+    "projectType": "condo-active-sales",
+    "summary": "A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "4714 N Flagler Dr",
-      "status": "Under construction / topped out",
+      "projectAddress": "4714 N. Flagler Drive, West Palm Beach, FL 33407",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Under Construction",
       "residences": "55",
       "stories": "22",
-      "completion": "Closings commence June 2026 per the official home page; other official and press items still say early/Spring 2026",
-      "pricing": "Starting just under $3M on the current official home page; verify live inventory",
-      "team": "BGI/Kenneth Baboun; Blue Road; Spina O'Rourke + Partners; Schmidt Nichols; Moss Construction; One Sotheby's"
-    },
-    "conflicts": [
-      "Delivery language differs between official popup and press coverage."
-    ],
-    "gaps": [
-      "Need live inventory and final delivery status near launch because this one is closest to completion."
-    ],
-    "highValueSources": [
-      "https://www.albapalmbeach.com/",
-      "https://www.albapalmbeach.com/wp-content/uploads/Alba-Brochure_Unbranded.pdf",
-      "https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf",
-      "https://www.albapalmbeach.com/construction-live-cam/"
-    ],
-    "sourceCounts": {
-      "official": 4,
-      "reporting": 3,
-      "other": 0,
-      "sourcePages": 5
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.albapalmbeach.com/",
-        "https://www.albapalmbeach.com/wp-content/uploads/Alba-Brochure_Unbranded.pdf",
-        "https://www.albapalmbeach.com/wp-content/uploads/Alba-Floorplans-D_Unbranded.pdf",
-        "https://www.albapalmbeach.com/construction-live-cam/"
+      "completion": "Spring 2026 estimated",
+      "pricing": "$2.5M–$7.8M",
+      "team": "BGI Companies; Blue Road Group; Spina O’Rourke + Partners",
+      "amenities": "Staffed lobby, private dining with wine storage, conference/business center, sunrise and sunset pools, TechnoGym fitness/yoga/Pilates, bocce, lawn chess, pet spa, valet, lounge/library, catering kitchen, simulator, screening room, spa, package room with cold storage.",
+      "residenceFeatures": [
+        "Oversized glass-framed terraces",
+        "Floor-to-ceiling hurricane-impact windows",
+        "Italkraft kitchens",
+        "Sub-Zero and Wolf appliances",
+        "Smart-home prewiring",
+        "Summer kitchens on terraces",
+        "Spa-style baths",
+        "Select townhomes with private plunge pool / hot tub",
+        "Private elevators and vestibules"
       ],
-      "reporting": [
-        "https://floridayimby.com/2025/08/construction-progresses-on-22-story-alba-palm-beach-at-4714-north-flagler-drive-in-northwood-west-palm-beach.html",
-        "https://floridayimby.com/2025/11/lower-penthouse-collection-debuts-at-alba-palm-beach-in-west-palm-beach.html",
-        "https://floridayimby.com/2025/04/alba-palm-beach-tops-out-at-4714-north-flagler-drive-in-west-palm-beach.html"
-      ],
-      "other": []
-    }
-  },
-  {
-    "projectId": "alba-reserve",
-    "name": "Alba Reserve",
-    "area": "North Flagler",
-    "pageStatus": "Candidate project page",
-    "dataConfidence": "Incomplete",
-    "officialWebsite": "",
-    "facts": {
-      "address": "4720, 4802 and 4804 N Flagler Dr, West Palm Beach, FL 33407",
-      "status": "Planning / approvals process",
-      "residences": "87",
-      "stories": "31",
-      "completion": "Planning-stage timing not publicly confirmed.",
-      "pricing": "Not publicly confirmed; project sponsor described a higher-budget target than Alba.",
-      "team": "BGI Capital; Carlos Ott and Spina O'Rourke + Partners; Not publicly confirmed; Not publicly confirmed"
+      "neighborhoodContext": "North Flagler waterfront",
+      "effectiveDate": "2026-09-01"
     },
-    "conflicts": [],
-    "gaps": [
-      "No official website captured.",
-      "No verified floor-plan assets in catalog.",
-      "No brochure or fact-sheet assets in catalog."
-    ],
-    "highValueSources": [],
-    "sourceCounts": {
-      "official": 0,
-      "reporting": 1,
-      "other": 0,
-      "sourcePages": 1
-    },
-    "sourceBuckets": {
-      "official": [],
-      "reporting": [
-        "https://therealdeal.com/miami/2026/01/09/bgi-capital-completes-41-million-west-palm-beach-acquisition/"
-      ],
-      "other": []
-    }
-  },
-  {
-    "projectId": "apogee-wpb",
-    "name": "Apogee West Palm Beach",
-    "area": "North Flagler",
-    "pageStatus": "Candidate project page",
-    "dataConfidence": "Incomplete",
-    "officialWebsite": "",
-    "facts": {
-      "address": "4906 N Flagler Dr, West Palm Beach, FL 33407",
-      "status": "Planning",
-      "residences": "39",
-      "stories": "21",
-      "completion": "2029 target in seed model; planning-stage timing should be verified.",
-      "pricing": "Not publicly confirmed",
-      "team": "Related Group and BH Group; Kohn Pedersen Fox; Not publicly confirmed; Not publicly confirmed"
-    },
-    "conflicts": [],
-    "gaps": [
-      "No official website captured.",
-      "No verified floor-plan assets in catalog.",
-      "No brochure or fact-sheet assets in catalog.",
-      "No downloaded image candidates."
-    ],
-    "highValueSources": [],
-    "sourceCounts": {
-      "official": 0,
-      "reporting": 1,
-      "other": 0,
-      "sourcePages": 0
-    },
-    "sourceBuckets": {
-      "official": [],
-      "reporting": [
-        "https://therealdeal.com/miami/2025/11/18/related-group-bh-group-plan-apogee-condo-in-west-palm-beach/"
-      ],
-      "other": []
-    }
-  },
-  {
-    "projectId": "mandarin-oriental",
-    "name": "Mandarin Oriental Residences, West Palm Beach",
-    "area": "North Flagler",
-    "pageStatus": "Candidate project page",
-    "dataConfidence": "Good",
-    "officialWebsite": "https://mandarinorientalwestpalmbeach.com/",
-    "facts": {
-      "address": "5400 N Flagler Dr, West Palm Beach, FL 33407",
-      "status": "Sales launched / priority interest",
-      "residences": "87",
-      "stories": "31",
-      "completion": "Anticipated opening 2031",
-      "pricing": "Starting from $3.5M per official launch site; verify current pricing.",
-      "team": "Great Gulf; Safdie Architects; Studio Munge; ENEA Landscape Architecture"
-    },
-    "conflicts": [],
-    "gaps": [
-      "No verified floor-plan assets in catalog.",
-      "No brochure or fact-sheet assets in catalog."
-    ],
-    "highValueSources": [
-      "https://mandarinorientalwestpalmbeach.com/",
-      "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
-      "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html"
-    ],
-    "sourceCounts": {
-      "official": 1,
-      "reporting": 2,
-      "other": 3,
-      "sourcePages": 6
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://mandarinorientalwestpalmbeach.com/"
-      ],
-      "reporting": [
-        "https://therealdeal.com/miami/2026/02/26/great-gulf-launches-mandarin-oriental-west-palm-beach-condos/",
-        "https://floridayimby.com/2026/05/first-interior-renderings-revealed-for-mandarin-oriental-residences-west-palm-beach.html"
-      ],
-      "other": [
-        "https://www.mandarinoriental.com/en/residences/upcoming/west-palm-beach",
-        "https://www.greatgulfgroup.com/press/release/great-gulf-announces-new-luxury-residences-by-mandarin-oriental-in-west-palm-beach-florida",
-        "https://press.mandarinoriental.com/residences-west-palm/"
-      ]
-    }
+    "sources": [
+      {
+        "url": "https://www.miamiresidence.com/preconstruction/alba-palm-beach.htm"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/vision"
+      },
+      {
+        "url": "https://d3v3ow8236o554.cloudfront.net/alba-brochure.pdf"
+      }
+    ]
   },
   {
     "projectId": "olara",
-    "name": "Olara",
+    "name": "Olara West Palm Beach",
     "area": "North Flagler",
-    "pageStatus": "Primary condo page",
-    "dataConfidence": "Needs normalization",
-    "officialWebsite": "https://www.olarawestpalmbeach.com/",
+    "projectType": "condo-active-sales",
+    "summary": "North Flagler waterfront residences at 1919 N Flagler Drive with marina access, deep amenities, Jose Andres dining, and one of the most complete released floorplan packets in the market.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "1919 N Flagler Dr",
-      "status": "Under construction",
+      "projectAddress": "1919 N Flagler Drive, West Palm Beach, FL 33407",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Under Construction",
       "residences": "275",
       "stories": "26",
-      "completion": "2028 per current official/download material",
-      "pricing": "From roughly $1.7M in official fact material; verify live availability",
-      "team": "Savanna; Arquitectonica; Gabellini Sheppard; EDSA; SavCon/Gilbane; Compass Development Marketing Group"
-    },
-    "conflicts": [
-      "Some third-party material says 2027 delivery; current official download material points to 2028.",
-      "Some third-party coverage varies on residence count; current buyer review uses Florida YIMBY's December 2025 construction-progress article and floor-plan PDFs for design-team details."
-    ],
-    "gaps": [
-      "Need official floor-plan PDF library URL(s) if detailed unit pages are being built."
-    ],
-    "highValueSources": [
-      "https://www.olarawestpalmbeach.com/",
-      "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Fact-Sheet-March-2026-2.pdf",
-      "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
-      "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara_Amenities_DigitalBrochure_032026.pdf"
-    ],
-    "sourceCounts": {
-      "official": 5,
-      "reporting": 1,
-      "other": 3,
-      "sourcePages": 5
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.olarawestpalmbeach.com/",
-        "https://www.olarawestpalmbeach.com/architecture/",
-        "https://www.olarawestpalmbeach.com/lifestyle/",
-        "https://www.olarawestpalmbeach.com/wellness/",
-        "https://www.olarawestpalmbeach.com/floor-plans"
+      "completion": "2027",
+      "pricing": "$2M–$7.5M",
+      "team": "Savanna; Arquitectonica; Gabellini Sheppard",
+      "amenities": "Nearly 80,000 sq. ft. sixth-floor amenity deck, restaurant/epicurean marketplace, 12 guest suites, private five-slip dock, leisure and lap pools, fitness by The Wright Fit, recovery spa, onsen, plunge/vitality pools, meditation, sauna/steam, private dining, game room, library/veranda, simulator, private offices/coworking.",
+      "residenceFeatures": [
+        "Floor-to-ceiling windows",
+        "10-foot-deep terraces",
+        "European kitchens",
+        "Matte lacquer cabinetry",
+        "Calacatta marble counters/backsplash/island",
+        "Professional-grade appliances",
+        "Gas cooktops",
+        "Butler closets",
+        "Spa-style bathrooms",
+        "9’6” ceilings",
+        "Wide-plank oak floors",
+        "Italian porcelain terrace tile",
+        "Gaggenau / Bosch / True / Falmec kitchen package",
+        "Hansgrohe fixtures",
+        "Duravit toilets"
       ],
-      "reporting": [
-        "https://floridayimby.com/2025/12/olara-commences-vertical-construction-at-1919-north-flagler-drive-in-west-palm-beach.html"
-      ],
-      "other": [
-        "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara-Fact-Sheet-March-2026-2.pdf",
-        "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/RackBrochure_Digital_032026.pdf",
-        "https://d3af2gfyi5943v.cloudfront.net/app/uploads/2026/03/Olara_Amenities_DigitalBrochure_032026.pdf"
-      ]
-    }
-  },
-  {
-    "projectId": "rybovich-marina",
-    "name": "Rybovich Marina Redevelopment",
-    "area": "North Flagler",
-    "pageStatus": "Pipeline/watch-list",
-    "dataConfidence": "Good",
-    "officialWebsite": "",
-    "facts": {
-      "address": "4000-4300 N Flagler Dr, West Palm Beach, FL 33407",
-      "status": "Planning / initial approval",
-      "residences": "660",
-      "stories": "",
-      "completion": "Planning / approvals timeline not publicly confirmed.",
-      "pricing": "Not publicly confirmed",
-      "team": "Huizenga Holdings and Integra Investments; Kohn Pedersen Fox; Not publicly confirmed; Not publicly confirmed"
+      "neighborhoodContext": "North Flagler waterfront",
+      "effectiveDate": "2026-09-01"
     },
-    "conflicts": [],
-    "gaps": [
-      "No official website captured."
-    ],
-    "highValueSources": [],
-    "sourceCounts": {
-      "official": 0,
-      "reporting": 1,
-      "other": 2,
-      "sourcePages": 3
-    },
-    "sourceBuckets": {
-      "official": [],
-      "reporting": [
-        "https://therealdeal.com/miami/2025/09/18/huizenga-integras-new-rybovich-marina-plans-approved/"
-      ],
-      "other": [
-        "https://www.kpf.com/news/kpfs-rybovich-marina-project-is-unveiled-in-palm-beach-post",
-        "https://www.kpf.com/news/rybovich-marina-redevelopment-receives-initial-approval-in-florida"
-      ]
-    }
+    "sources": [
+      {
+        "url": "https://www.miamiresidence.com/preconstruction/olara-west-palm-beach.htm"
+      },
+      {
+        "url": "https://olarawpb.com/wp-content/uploads/2026/03/Olara-Fact-Sheet-March-2026.pdf"
+      },
+      {
+        "url": "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf"
+      }
+    ]
   },
   {
     "projectId": "shorecrest",
     "name": "Shorecrest",
     "area": "North Flagler",
-    "pageStatus": "Primary condo page",
-    "dataConfidence": "Needs normalization",
-    "officialWebsite": "https://www.shorecrestwpb.com/",
+    "projectType": "condo-active-sales",
+    "summary": "A Related Ross waterfront tower at 1865 N Flagler Drive for buyers comparing boutique floor plates, wellness, and North Flagler construction momentum.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "1865 N Flagler Dr is the current fact-sheet/property address; some live floorplans and inquiry surfaces still expose 1901 N Flagler Dr",
-      "status": "Sales launched / under construction",
-      "residences": "Current official fact-sheet/property material points to 100 residences; the February 18, 2026 financing release still says 98",
-      "stories": "28",
-      "completion": "Expected 2027",
-      "pricing": "From about $3M in current reporting; live official floorplans currently show select residences from $3.69M",
-      "team": "Related Ross; Roger Ferris + Partners; Revuelta; Rottet Studio; DS Boca; Related Sales/Corcoran Sunshine"
-    },
-    "conflicts": [
-      "Address conflict: 1865 N Flagler vs 1901 N Flagler.",
-      "Residence-count conflict: the current Related Ross property page lists 100 units, the February 18, 2026 financing release says 98 residences, and older records can show 199."
-    ],
-    "gaps": [
-      "Decide whether app data should show 100 units from the current Related Ross property page or 98 residences from the financing release.",
-      "Confirm final legal address before publishing detailed SEO copy."
-    ],
-    "highValueSources": [
-      "https://www.shorecrestwpb.com/",
-      "https://www.relatedross.com/our-company/properties/shorecrest",
-      "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
-      "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2025-06/SHC_Rack%20Brochure_0625.pdf",
-      "https://www.shorecrestwpb.com/floorplans"
-    ],
-    "sourceCounts": {
-      "official": 9,
-      "reporting": 0,
-      "other": 0,
-      "sourcePages": 6
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.shorecrestwpb.com/",
-        "https://www.relatedross.com/our-company/properties/shorecrest",
-        "https://www.relatedross.com/press-releases/2026-02-18/related-ross-secures-157-million-construction-loan-shorecrest-west-palm",
-        "https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm",
-        "https://www.shorecrestwpb.com/residences",
-        "https://www.shorecrestwpb.com/inquire",
-        "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2026-02/Shorecrest%20West%20Palm%20Beach%20Fact%20Sheet.pdf",
-        "https://www.shorecrestwpb.com/sites/g/files/ujywhv436/files/2025-06/SHC_Rack%20Brochure_0625.pdf",
-        "https://www.shorecrestwpb.com/floorplans"
+      "projectAddress": "1865 N Flagler Drive, West Palm Beach, FL 33407",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Active Sales / Under Construction",
+      "residences": "98",
+      "stories": "27",
+      "completion": "Confirm with sales team",
+      "pricing": "$3.69M–$5.445M for reviewed available residences",
+      "team": "Related Ross; Roger Ferris + Partners; Rottet Studio",
+      "amenities": "Rooftop pool, fitness/yoga/Pilates studios, men’s and women’s spas, steam, sauna, cold plunge, hot tub, private dining, cocktail lounge, card/game lounge, coworking, executive meeting space, golf simulator, package room with refrigerated storage.",
+      "residenceFeatures": [
+        "Private terraces",
+        "Reviewed floorplans show 2- and 3-bedroom homes",
+        "Modern waterfront layouts"
       ],
-      "reporting": [],
-      "other": []
-    }
+      "neighborhoodContext": "North Flagler waterfront",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://www.shorecrestwpb.com/"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/amenities"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/team"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/floorplans"
+      }
+    ]
   },
   {
     "projectId": "ritz-carlton-wpb",
     "name": "The Ritz-Carlton Residences, West Palm Beach",
     "area": "North Flagler",
-    "pageStatus": "Primary condo page",
-    "dataConfidence": "Needs normalization",
-    "officialWebsite": "https://theresidenceswestpalmbeach.com/",
+    "projectType": "condo-active-sales",
+    "summary": "A Ritz-Carlton branded North Flagler address with public-facing address at 1745 N Flagler Drive and legal parcel references preserved for review.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "Use 1717 N Flagler Dr as project sponsor/legal address until offering docs confirm 1745 N Flagler footer reference",
-      "status": "Sales active / under construction; reported more than 70 percent pre-sold in February 2026.",
-      "residences": "138 official/project sponsor count",
+      "projectAddress": "1745 N Flagler Drive, West Palm Beach, FL 33407",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Under Construction",
+      "residences": "138",
       "stories": "27",
-      "completion": "Expected 2028",
-      "pricing": "From about $3M on current official/reviewed project material; verify live inventory",
-      "team": "Related Group; BH Group; Arquitectonica; Rockwell Group; Naturalficial"
-    },
-    "conflicts": [
-      "Address conflict: 1717 N Flagler, 1745 N Flagler, and Related/legal naming appear in different official contexts.",
-      "Some broker/vendor pages say 144 residences; official/reviewed project material supports 138."
-    ],
-    "gaps": [
-      "Confirm final public street address against offering/prospectus material."
-    ],
-    "highValueSources": [
-      "https://theresidenceswestpalmbeach.com/",
-      "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
-      "https://theresidenceswestpalmbeach.com/gallery/",
-      "https://www.flipsnack.com/relatedgroup/ritzwpb-floorplans/full-view.html",
-      "https://www.flipsnack.com/relatedgroup/ritzwpb-brochure/full-view.html"
-    ],
-    "sourceCounts": {
-      "official": 4,
-      "reporting": 1,
-      "other": 2,
-      "sourcePages": 5
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://theresidenceswestpalmbeach.com/",
-        "https://relatedgroup.com/properties/the-ritz-carlton-residences-west-palm-beach/",
-        "https://theresidenceswestpalmbeach.com/floorplans/",
-        "https://theresidenceswestpalmbeach.com/gallery/"
+      "completion": "2028",
+      "pricing": "From $3M",
+      "team": "1717 N Flagler Drive Venture, LLC; Related Group; BH Group; Arquitectonica; Rockwell Group",
+      "amenities": "Pool deck, fitness and wellness center, spa, indoor/outdoor lounges, branded service positioning, exclusive beach club membership.",
+      "residenceFeatures": [
+        "Spa-like bathrooms",
+        "Smart home systems",
+        "Balconies and indoor-outdoor layouts",
+        "Open-plan layouts"
       ],
-      "reporting": [
-        "https://floridayimby.com/2026/02/related-group-and-bh-group-break-ground-on-the-ritz-carlton-residences-west-palm-beach.html"
-      ],
-      "other": [
-        "https://www.flipsnack.com/relatedgroup/ritzwpb-floorplans/full-view.html",
-        "https://www.flipsnack.com/relatedgroup/ritzwpb-brochure/full-view.html"
-      ]
-    }
-  },
-  {
-    "projectId": "10-cityplace",
-    "name": "10 CityPlace",
-    "area": "Downtown",
-    "pageStatus": "Pipeline/watch-list",
-    "dataConfidence": "Low",
-    "officialWebsite": "https://www.relatedross.com/our-company/properties/10-cityplace",
-    "facts": {
-      "address": "10 CityPlace, West Palm Beach, FL 33401",
-      "status": "Under construction / office leasing",
-      "residences": "",
-      "stories": "21",
-      "completion": "Expected 2027 in Related Ross release; precise phasing should be verified.",
-      "pricing": "Not applicable",
-      "team": "Related Ross; Kohn Pedersen Fox; Not publicly confirmed; Not publicly confirmed"
+      "neighborhoodContext": "North Flagler waterfront",
+      "effectiveDate": "2026-09-01"
     },
-    "conflicts": [
-      "Seed/detail to verify: seed references a 21-story assumption, while Related Ross release describes a 480,000-square-foot office tower without presenting it as condo inventory."
-    ],
-    "gaps": [],
-    "highValueSources": [
-      "https://www.relatedross.com/our-company/properties/10-cityplace"
-    ],
-    "sourceCounts": {
-      "official": 2,
-      "reporting": 0,
-      "other": 0,
-      "sourcePages": 1
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.relatedross.com/our-company/properties/10-cityplace",
-        "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach"
-      ],
-      "reporting": [],
-      "other": []
-    }
-  },
-  {
-    "projectId": "15-cityplace",
-    "name": "15 CityPlace",
-    "area": "Downtown",
-    "pageStatus": "Pipeline/watch-list",
-    "dataConfidence": "Strong",
-    "officialWebsite": "https://www.relatedross.com/office/15-cityplace",
-    "facts": {
-      "address": "15 CityPlace, West Palm Beach, FL 33401",
-      "status": "Under construction / office leasing",
-      "residences": "",
-      "stories": "25",
-      "completion": "Expected 2027 in Related Ross release; leasing page may vary.",
-      "pricing": "Not applicable",
-      "team": "Related Ross; Arquitectonica; Not publicly confirmed; Kohn Pedersen Fox referenced for sky garden design context"
-    },
-    "conflicts": [],
-    "gaps": [],
-    "highValueSources": [
-      "https://www.relatedross.com/office/15-cityplace"
-    ],
-    "sourceCounts": {
-      "official": 2,
-      "reporting": 0,
-      "other": 1,
-      "sourcePages": 5
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.relatedross.com/office/15-cityplace",
-        "https://www.relatedross.com/press-releases/2025-03-13/related-ross-breaks-ground-10-and-15-cityplace-west-palm-beach"
-      ],
-      "reporting": [],
-      "other": [
-        "https://www.lifestyleoffice.com/15-cityplace"
-      ]
-    }
-  },
-  {
-    "projectId": "banyan-tree",
-    "name": "Banyan Tree Residences West Palm Beach",
-    "area": "Downtown",
-    "pageStatus": "High-priority emerging condo page",
-    "dataConfidence": "Needs normalization",
-    "officialWebsite": "https://www.banyantreeresidenceswpb.com/",
-    "facts": {
-      "address": "400 Hibiscus St",
-      "status": "Sales launched / buyer appointment now open",
-      "residences": "88 in project/sales language; city PPRC material has 86 dwelling units",
-      "stories": "25",
-      "completion": "Planning-stage timing not publicly confirmed",
-      "pricing": "Sales-launch reporting starts at about $1.9M; official site says prices are subject to change and requests current pricing",
-      "team": "Mast Capital; Curated JCZM; Banyan Group; OMA; Yabu Pushelberg; Enzo Enea"
-    },
-    "conflicts": [
-      "Residence count conflict: 88 in sales/project sponsor language vs 86 in city PPRC context.",
-      "Sources conflict: official/sales-facing materials describe 88 residences, while March 2026 planning/reporting describes an 86-unit proposal with private club and retail. Current buyer note uses the more conservative city/reporting count and flags the conflict for verification."
-    ],
-    "gaps": [
-      "Need official brochure, floor plans, and city record packet.",
-      "No verified floor-plan assets in catalog.",
-      "No brochure or fact-sheet assets in catalog."
-    ],
-    "highValueSources": [
-      "https://banyantreeresidenceswpb.com/",
-      "https://www.prnewswire.com/news-releases/banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach-302723150.html",
-      "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-march-12-2026.pdf",
-      "https://www.banyantreeresidenceswpb.com/"
-    ],
-    "sourceCounts": {
-      "official": 3,
-      "reporting": 2,
-      "other": 1,
-      "sourcePages": 4
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.banyantreeresidenceswpb.com/",
-        "https://www.wpb.org/files/assets/city/v/1/development-services/documents/plans-amp-plats-review-committee/2026-pprc-agendas/pprc-pre-app-agenda-march-12-2026.pdf",
-        "https://banyantreeresidenceswpb.com/"
-      ],
-      "reporting": [
-        "https://therealdeal.com/miami/2026/03/12/mast-capital-proposes-west-palm-beach-condos-private-club/",
-        "https://floridayimby.com/"
-      ],
-      "other": [
-        "https://commercialobserver.com/2026/03/camilo-miguel-mast-west-palm-beach/"
-      ]
-    }
-  },
-  {
-    "projectId": "mr-c",
-    "name": "Mr. C Hotel & Residences West Palm Beach",
-    "area": "Downtown",
-    "pageStatus": "Primary mixed-use/hotel-residence page",
-    "dataConfidence": "Needs normalization",
-    "officialWebsite": "https://www.mrcresidenceswpb.com/",
-    "facts": {
-      "address": "Keep 320 Lakeview Ave as common project address; note 327 Okeechobee Blvd fact-sheet location and 401 S Olive buyer appointment",
-      "status": "Under construction",
-      "residences": "146 private residences plus 110 hotel suites",
-      "stories": "27",
-      "completion": "Construction started/financed in 2025; completion needs live confirmation",
-      "pricing": "Request current pricing",
-      "team": "Terra; Sympatico; Mr. C/Cipriani; Arquitectonica; Meyer Davis; Landscape Design Workshop; Douglas Elliman Development Marketing"
-    },
-    "conflicts": [
-      "Address conflict: 320 Lakeview Ave, 327 Okeechobee Blvd, and 401 S Olive buyer appointment.",
-      "Older reporting says 25 stories; official/current residence material supports 27.",
-      "Seed notes mention some reporting conflicts between 25 and 27 stories; current data uses official residence page language for 27 stories."
-    ],
-    "gaps": [
-      "Need a clean rule for showing both project address and buyer appointment without confusing users.",
-      "Need verified current delivery date."
-    ],
-    "highValueSources": [
-      "https://www.mrcresidenceswpb.com/",
-      "https://www.mrcresidenceswpb.com/gallery/",
-      "https://www.mrcresidenceswpb.com/downloads/",
-      "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf"
-    ],
-    "sourceCounts": {
-      "official": 6,
-      "reporting": 1,
-      "other": 1,
-      "sourcePages": 5
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.mrcresidenceswpb.com/",
-        "https://www.mrcresidenceswpb.com/residences/",
-        "https://www.mrcresidenceswpb.com/amenities-services/",
-        "https://www.mrcresidenceswpb.com/downloads/",
-        "https://www.mrcresidenceswpb.com/gallery/",
-        "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf"
-      ],
-      "reporting": [
-        "https://floridayimby.com/2025/08/terra-secures-285-million-construction-loan-and-breaks-ground-on-mr-c-hotel-residences-in-west-palm-beach.html"
-      ],
-      "other": [
-        "https://www.mrcwpalmbeach.com/"
-      ]
-    }
-  },
-  {
-    "projectId": "related-ross-fern-street",
-    "name": "Related Ross Fern Street / South Dixie Condo",
-    "area": "Downtown",
-    "pageStatus": "Pipeline/watch-list",
-    "dataConfidence": "Working",
-    "officialWebsite": "",
-    "facts": {
-      "address": "430-464 Fern St, 419-435 Gardenia St, and 415-421 S Dixie Hwy, West Palm Beach, FL 33401",
-      "status": "Planning / not yet named",
-      "residences": "Reported at roughly 100 to 130 residences",
-      "stories": "",
-      "completion": "Planning-stage timing not publicly confirmed.",
-      "pricing": "Not publicly confirmed",
-      "team": "Related Ross with Wexford Real Estate Investors, 13th Floor Investments, and L&L Holding Company partnership context; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed"
-    },
-    "conflicts": [],
-    "gaps": [
-      "No official website captured."
-    ],
-    "highValueSources": [],
-    "sourceCounts": {
-      "official": 0,
-      "reporting": 1,
-      "other": 0,
-      "sourcePages": 1
-    },
-    "sourceBuckets": {
-      "official": [],
-      "reporting": [
-        "https://therealdeal.com/miami/2026/04/09/steve-ross-plans-fourth-west-palm-beach-condo-project/"
-      ],
-      "other": []
-    }
+    "sources": [
+      {
+        "url": "https://theresidenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/team/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/floorplans/"
+      },
+      {
+        "url": "https://theresidenceswestpalmbeach.com/amenities/"
+      }
+    ]
   },
   {
     "projectId": "berkeley",
     "name": "The Berkeley Palm Beach",
     "area": "Downtown",
-    "pageStatus": "Candidate project page",
-    "dataConfidence": "Working",
-    "officialWebsite": "https://www.theberkeleypalmbeach.com/",
+    "projectType": "condo-active-sales",
+    "summary": "A Clear Lake/downtown luxury project at 601-621 Clearwater Park Road for buyers comparing newer ownership near The Square, the convention-center edge, and the office core.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "550 S Australian Ave, West Palm Beach, FL 33401",
-      "status": "Now selling / under construction",
+      "projectAddress": "601–621 Clearwater Park Road, West Palm Beach, FL 33401",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Under Construction",
       "residences": "193",
       "stories": "25",
-      "completion": "2028 target in seed/reporting; verify with sales team.",
-      "pricing": "Official site now lists residences from $2M to over $10M; verify current availability.",
-      "team": "Al Adelson development team; verify legal development entity; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed"
-    },
-    "conflicts": [
-      "Official site credits Al Adelson's development legacy but the precise legal development entity should be verified. Fact-sheet contact copy appears incomplete, so sales contact uses the official site footer."
-    ],
-    "gaps": [
-      "No brochure or fact-sheet assets in catalog."
-    ],
-    "highValueSources": [
-      "https://www.theberkeleypalmbeach.com/"
-    ],
-    "sourceCounts": {
-      "official": 3,
-      "reporting": 1,
-      "other": 1,
-      "sourcePages": 1
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.theberkeleypalmbeach.com/",
-        "https://www.theberkeleypalmbeach.com/contact-information/",
-        "https://www.theberkeleypalmbeach.com/residence/residence-f/"
+      "completion": "Confirm with sales team",
+      "pricing": "$2M to over $10M",
+      "team": "Australian Properties Group; Al Adelson; Sympatico Real Estate; Bernardo Fort-Brescia / Arquitectonica; Arquitectonica Interiors",
+      "amenities": "Rooftop adult pool, family pool, private cabanas, fitness/yoga, spas, sauna, treatment rooms, private dining, chef’s kitchen, lounges, rooftop party room, board room, coworking, splash pad, dog run, golf simulator, outdoor theatre/event lawn, UPLIN Health concierge medical care.",
+      "residenceFeatures": [
+        "Snaidero Italian cabinetry",
+        "Sub-Zero and Wolf appliances",
+        "Waterworks fixtures",
+        "European white oak floors",
+        "Floor-to-ceiling windows",
+        "Smart building technology",
+        "Flow-through east and west terraces",
+        "Large private balconies",
+        "Flex room in every residence",
+        "Private elevator vestibule with butler’s pantry"
       ],
-      "reporting": [
-        "https://floridayimby.com/2025/09/the-berkeley-palm-beach-secures-62-5-million-pre-construction-loan-from-jvp-management-in-downtown-west-palm-beach.html"
-      ],
-      "other": [
-        "https://static.millionluxury.com/spinfile/Spin/Data/Estate/File/The%20Berkeley%20Palm%20Beach%20-%20Fact%20Sheet.pdf?v=259"
-      ]
-    }
+      "neighborhoodContext": "Clear Lake / west edge of downtown",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://www.theberkeleypalmbeach.com/"
+      },
+      {
+        "url": "https://www.theberkeleypalmbeach.com/residences/"
+      },
+      {
+        "url": "https://www.theberkeleypalmbeach.com/amenities/"
+      },
+      {
+        "url": "https://www.theberkeleypalmbeach.com/wp-content/uploads/2024/09/Berkeley_Broker_ToolKit_0924.pdf"
+      }
+    ]
   },
   {
     "projectId": "nora-house",
-    "name": "NORA House",
-    "area": "Downtown / NORA",
-    "pageStatus": "Primary condo page",
-    "dataConfidence": "Needs normalization",
-    "officialWebsite": "https://norahouse.com/",
+    "name": "Nora House",
+    "area": "Downtown",
+    "projectType": "condo-pipeline",
+    "summary": "Design-driven condominium living in the walkable Nora District, with rooftop wellness, social amenities, and ground-floor retail.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "Official site footer uses 955 N Railroad Avenue, Suite B as the buyer appointment; homepage schema uses 1021 N Railroad Ave; older district reporting also references 1105 N Dixie Highway",
-      "status": "Sales launched / early interest",
+      "projectAddress": "1105 N Dixie Highway, West Palm Beach, FL 33401",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Sales Launched / Pipeline",
       "residences": "117",
       "stories": "11",
-      "completion": "Construction planned 2027 with finish around 2029 per March 2026 reporting",
-      "pricing": "Official site now lists residences from the low $2Ms; March 2026 launch reporting said roughly $2M to $6.5M",
-      "team": "The Ronto Group; Wheelock Street Capital; Swedroe Architecture; Lillian Wu Studio; Conner & Gaskins; Design Studio Boca"
-    },
-    "conflicts": [
-      "Address conflict: official site schema shows 1021 N Railroad Ave, the footer uses 955 N Railroad Avenue Suite B, and older reporting uses 1105 N Dixie Highway for district context.",
-      "117 residences in new sales material vs earlier 122-condo planning coverage.",
-      "Seed notes conflict between inquiry address and earlier district reporting. Early planning coverage referenced 122 proposed condos; March 2026 sales-launch reporting says 117 residences. Current buyer note uses the newer sales-launch figure."
-    ],
-    "gaps": [
-      "Need a downloadable brochure or PDF plan packet even though public residence and terrace plan pages are now live.",
-      "Need decide whether NORA district context gets its own overview page.",
-      "No brochure or fact-sheet assets in catalog."
-    ],
-    "highValueSources": [
-      "https://norahouse.com/",
-      "https://norahouse.com/amenities/",
-      "https://norahouse.com/team/",
-      "https://norahouse.com/floorplan/residence-01/",
-      "https://norawpb.com/wp-content/uploads/2026/03/The-Real-Deal-Ronto-partners-launch-Nora-House-condos-in-West-Palm-Beach-3.23.26.pdf"
-    ],
-    "sourceCounts": {
-      "official": 6,
-      "reporting": 1,
-      "other": 0,
-      "sourcePages": 5
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://norahouse.com/",
-        "https://norahouse.com/amenities/",
-        "https://norahouse.com/team/",
-        "https://norahouse.com/floorplan/residence-01/",
-        "https://norawpb.com/wp-content/uploads/2026/03/The-Real-Deal-Ronto-partners-launch-Nora-House-condos-in-West-Palm-Beach-3.23.26.pdf",
-        "https://norawpb.com/wp-content/uploads/2025/08/The-Real-Deal-Nora-developers-plan-122-condos-350-apartments-at-West-Palm-Beach-district-8.1.25.pdf"
+      "completion": "2029 estimated; construction expected to begin 2027 per reporting",
+      "pricing": "Low $2Ms to $6.5M",
+      "team": "The Ronto Group; Wheelock Street Capital; Swedroe Architecture; Lillian Wu Studio; Connor & Gaskins",
+      "amenities": "Rooftop resort pool, level 4 lap pool, Technogym wellness center, yoga lawn, hot/cold plunges, steam, sauna, spa treatment room, lounges, outdoor bar, hosting room, boardroom, coworking, pet grooming, bicycle storage, six guest suites, pickleball, bowling, golf simulator, games lounge, bocce.",
+      "residenceFeatures": [
+        "Italkraft cabinetry",
+        "Quartzite or quartz counters with waterfall island",
+        "Wolf and Sub-Zero appliances",
+        "Miele dishwasher",
+        "Badeloft tub",
+        "Kallista fixtures",
+        "Travertine primary bath surfaces",
+        "Toto toilets",
+        "Wide-plank hardwood or tile",
+        "Floor-to-ceiling impact glass",
+        "10-foot ceilings",
+        "Large terraces"
       ],
-      "reporting": [
-        "https://profilemiamire.com/miamirealestate/2026/3/26/the-ronto-group-launches-sales-for-nora-house-in-west-palm-beachs-nora-district"
-      ],
-      "other": []
-    }
+      "neighborhoodContext": "Nora District",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://norahouse.com/"
+      },
+      {
+        "url": "https://norahouse.com/amenities/"
+      },
+      {
+        "url": "https://norahouse.com/team/"
+      },
+      {
+        "url": "https://norahouse.com/features-finishes/"
+      }
+    ]
   },
   {
-    "projectId": "edgeworth-north",
-    "name": "Edgeworth North Tower",
+    "projectId": "south-flagler-house",
+    "name": "South Flagler House",
     "area": "South Flagler",
-    "pageStatus": "High-priority pipeline condo page",
-    "dataConfidence": "Working",
-    "officialWebsite": "https://www.edgeworthwpb.com/",
+    "projectType": "condo-active-sales",
+    "summary": "RAMSA-designed waterfront residences at 1355 S Flagler Drive, positioned for buyers who want South Flagler privacy, scale, and Palm Beach-facing orientation.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "1155 S Flagler Dr",
-      "status": "Sales launched / priority list",
-      "residences": "168 in Related Ross launch material; MAWD page says 187",
-      "stories": "Two 28-story towers",
-      "completion": "Current reporting points to construction starting in 2027 with an approximately two-year build; design-team material points to 2029",
-      "pricing": "$2.5M to $35.5M in launch/reporting material",
-      "team": "Related Ross; KPF; MAWD/March and White"
-    },
-    "conflicts": [
-      "Residence count conflict: Related Ross 168 vs MAWD 187."
-    ],
-    "gaps": [
-      "Need official brochure/fact sheet/floor plans; the live official site is still interest-list led."
-    ],
-    "highValueSources": [
-      "https://edgeworthwpb.com/",
-      "https://www.relatedross.com/",
-      "https://mawd.co/",
-      "https://www.edgeworthwpb.com/"
-    ],
-    "sourceCounts": {
-      "official": 6,
-      "reporting": 1,
-      "other": 0,
-      "sourcePages": 4
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.edgeworthwpb.com/",
-        "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
-        "https://mawd.co/projects/residential/edgeworth",
-        "https://edgeworthwpb.com/",
-        "https://www.relatedross.com/",
-        "https://mawd.co/"
-      ],
-      "reporting": [
-        "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
-      ],
-      "other": []
-    }
-  },
-  {
-    "projectId": "edgeworth-south",
-    "name": "Edgeworth South Tower",
-    "area": "South Flagler",
-    "pageStatus": "High-priority pipeline condo page; pair with north tower",
-    "dataConfidence": "Working",
-    "officialWebsite": "https://www.edgeworthwpb.com/",
-    "facts": {
-      "address": "1155 S Flagler Dr",
-      "status": "Planning / priority list",
-      "residences": "Part of the full Edgeworth count",
+      "projectAddress": "1355 S Flagler Drive, West Palm Beach, FL 33401",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Under Construction",
+      "residences": "108",
       "stories": "28",
-      "completion": "2029 in design-team material",
-      "pricing": "Reported range from $2.5M to $35.5M; verify current pricing.",
-      "team": "Related Ross; KPF; MAWD/March and White"
-    },
-    "conflicts": [
-      "Same residence-count conflict as north tower."
-    ],
-    "gaps": [
-      "Need official brochure/fact sheet/floor plans."
-    ],
-    "highValueSources": [
-      "https://edgeworthwpb.com/",
-      "https://www.relatedross.com/",
-      "https://www.edgeworthwpb.com/"
-    ],
-    "sourceCounts": {
-      "official": 5,
-      "reporting": 1,
-      "other": 0,
-      "sourcePages": 4
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.edgeworthwpb.com/",
-        "https://www.relatedross.com/press-releases/2026-03-16/related-ross-debuts-edgeworth-new-ultra-luxury-condominium-along",
-        "https://mawd.co/projects/residential/edgeworth",
-        "https://edgeworthwpb.com/",
-        "https://www.relatedross.com/"
+      "completion": "2027",
+      "pricing": "$7.98M to $70M on current official tier pages",
+      "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; Rogers by Related Ross; Rogers General Contracting",
+      "amenities": "50,000 sq. ft. private-club amenities, lakefront pool/cabanas, private marina, vanishing-edge pool, 25-meter lap pool, spa, treatment rooms, beauty salon, hydrotherapy, fitness/Pilates/yoga, pickleball, restaurant, private dining, wine lounge, private bar, executive conference rooms, children’s facilities, golf simulator, Related Life programming.",
+      "residenceFeatures": [
+        "Estate-scale residences",
+        "Large all-season loggias",
+        "Some terraces 31 feet wide and select ones up to 23 feet deep",
+        "Select private elevator access",
+        "Full-floor and duplex penthouse options"
       ],
-      "reporting": [
-        "https://therealdeal.com/miami/2026/03/17/related-ross-launches-sales-for-third-west-palm-beach-condo/"
-      ],
-      "other": []
-    }
+      "neighborhoodContext": "South Flagler waterfront",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://www.southflaglerhouse.com/"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/residences"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/team"
+      }
+    ]
   },
   {
-    "projectId": "fort-partners-south-flagler",
-    "name": "Fort Partners South Flagler Assemblage",
-    "area": "South Flagler",
-    "pageStatus": "Watch-list only",
-    "dataConfidence": "Low",
-    "officialWebsite": "",
+    "projectId": "mr-c",
+    "name": "Mr. C Residences West Palm Beach",
+    "area": "Downtown",
+    "projectType": "condo-active-sales",
+    "summary": "A downtown Cipriani-branded hotel-residence tower at 327 Okeechobee Boulevard, with municipal address caveats kept out of primary display copy.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "3901 S Flagler Dr / Harbor Towers assemblage, plus nearby Washington Rd and S Flagler parcels",
-      "status": "Assemblage/watch-list; no public branded condo project yet",
-      "residences": "",
-      "stories": "",
-      "completion": "Site-assemblage timing not publicly confirmed.",
-      "pricing": "Not publicly confirmed",
-      "team": "Fort Partners / Nadim Ashi"
-    },
-    "conflicts": [],
-    "gaps": [
-      "No project name, unit count, height, architect, delivery, pricing, official site, brochure, or renderings.",
-      "No official website captured."
-    ],
-    "highValueSources": [
-      "https://therealdeal.com/",
-      "https://traded.co/"
-    ],
-    "sourceCounts": {
-      "official": 0,
-      "reporting": 4,
-      "other": 0,
-      "sourcePages": 1
-    },
-    "sourceBuckets": {
-      "official": [],
-      "reporting": [
-        "https://therealdeal.com/miami/2025/10/21/fort-partners-will-finish-harbor-towers-buyout-after-related-settlement/",
-        "https://traded.co/deals/florida/development-site/sale/3901-south-flagler-drive/",
-        "https://therealdeal.com/",
-        "https://traded.co/"
+      "projectAddress": "327 Okeechobee Boulevard, West Palm Beach, FL 33401",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Under Construction",
+      "residences": "146",
+      "stories": "27",
+      "completion": "2027 recommended; conflicts remain",
+      "pricing": "Request current pricing",
+      "team": "Lakeview Hospitality Investments, LLC; Terra; Sympatico Real Estate; Arquitectonica; Meyer Davis",
+      "amenities": "Garden-level lap pool, cabanas, pool bar/lounge, hotel rooftop pool/bar, fitness, yoga, Pilates, Peloton, spa, sauna, steam, Bellini Café/Restaurant/Rooftop lounge, billiards, outdoor cinema, library/business lounge, Little C’s playground, bocce.",
+      "residenceFeatures": [
+        "Custom kitchens with Italian cabinetry",
+        "Wolf and Sub-Zero appliances",
+        "Porcelain tile floors",
+        "Floor-to-ceiling glass",
+        "High-speed internet prewire",
+        "Motorized shade provisions",
+        "Custom Mr. C app",
+        "Private terraces",
+        "Terrazzo countertops",
+        "Solid-core doors"
       ],
-      "other": []
-    }
+      "neighborhoodContext": "Downtown West Palm Beach / Okeechobee corridor",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://www.mrcresidenceswpb.com/"
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/team/"
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/amenities-services/"
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/downloads/"
+      },
+      {
+        "url": "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf"
+      }
+    ]
+  },
+  {
+    "projectId": "maison-dor",
+    "name": "Maison d’Or",
+    "area": "South Flagler",
+    "projectType": "condo-active-sales",
+    "summary": "A 39-residence South Flagler boutique project with emerging details; exact street number, floor count, and service program remain review items.",
+    "lastReviewedDate": "2026-09-01",
+    "facts": {
+      "projectAddress": "South Flagler Drive, West Palm Beach, FL",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Preconstruction / Details Emerging",
+      "residences": "39",
+      "stories": "19",
+      "completion": "2028 reported",
+      "pricing": "Starting at $5.7M",
+      "team": "Kolter Urban; Perko Development; SB Architects / 10 Design; Hirsch Bedner Associates (HBA)",
+      "amenities": "Detailed amenity program not yet verified from official public materials.",
+      "residenceFeatures": [],
+      "neighborhoodContext": "South Flagler waterfront",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://livemaisondor.com/"
+      },
+      {
+        "url": "https://livemaisondor.com/the-team/"
+      }
+    ]
+  },
+  {
+    "projectId": "edgeworth",
+    "name": "Edgeworth",
+    "area": "South Flagler",
+    "projectType": "condo-pipeline",
+    "summary": "A combined South Flagler pipeline project at 1155 S Flagler Drive, tracked as one Edgeworth entry until official materials require a tower split.",
+    "lastReviewedDate": "2026-09-01",
+    "facts": {
+      "projectAddress": "1155 S Flagler Drive, West Palm Beach, FL",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Announced / Pipeline",
+      "residences": "168",
+      "stories": "28",
+      "completion": "Pipeline watch",
+      "pricing": "$2.5M-$35.5M reported",
+      "team": "Related Ross; Kohn Pedersen Fox; MAWD | March and White Design",
+      "amenities": "Launch reporting references more than 90,000 sq. ft. of indoor/outdoor amenities; detailed amenity program not yet verified.",
+      "residenceFeatures": [
+        "Private elevator access reported",
+        "Generous balconies reported"
+      ],
+      "neighborhoodContext": "South Flagler waterfront",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://www.relatedross.com/"
+      }
+    ]
+  },
+  {
+    "projectId": "mandarin-oriental",
+    "name": "Mandarin Oriental Residences West Palm Beach",
+    "area": "North Flagler",
+    "projectType": "condo-pipeline",
+    "summary": "An 87-residence Mandarin Oriental waterfront tower on North Flagler with Safdie architecture, private terraces, and a 2031 delivery horizon.",
+    "lastReviewedDate": "2026-09-01",
+    "facts": {
+      "projectAddress": "5400 N Flagler Drive, West Palm Beach, FL 33407",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Announced / Branded Pipeline",
+      "residences": "87",
+      "stories": "31",
+      "completion": "2031 anticipated",
+      "pricing": "From $3.5M reported",
+      "team": "Great Gulf Group; Safdie Architects / Moshe Safdie",
+      "amenities": "Official high-level materials reference serene rooftop retreat, private waterfront pool, restorative wellness experiences, and Mandarin Oriental service.",
+      "residenceFeatures": [
+        "Private elevator access",
+        "Expansive wraparound terraces",
+        "Water and skyline views"
+      ],
+      "neighborhoodContext": "North Flagler waterfront",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://mo-residenceswestpalmbeach.com/"
+      },
+      {
+        "url": "https://press.mandarinoriental.com/residences-west-palm/"
+      }
+    ]
+  },
+  {
+    "projectId": "banyan-tree",
+    "name": "Banyan Tree Residences West Palm Beach",
+    "area": "Downtown",
+    "projectType": "condo-pipeline",
+    "summary": "Banyan Group's first U.S. residential project brings a private, wellness-led hospitality experience to Downtown West Palm Beach, one block from CityPlace.",
+    "lastReviewedDate": "2026-09-01",
+    "facts": {
+      "projectAddress": "Downtown West Palm Beach — exact street address TBD",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Announced",
+      "residences": "88",
+      "stories": "25",
+      "completion": "Projected 2028",
+      "pricing": "From $1.9M",
+      "team": "Mast Capital; Curated JCZM Development; OMA; Yabu Pushelberg",
+      "amenities": "Private porte cochère, fully serviced resort-style pool, curated social and recreation spaces, wellness center and spa with treatment rooms, cryotherapy, hammam, and meditation spaces.",
+      "residenceFeatures": [],
+      "neighborhoodContext": "Downtown West Palm Beach",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/"
+      },
+      {
+        "url": "https://www.banyantreeresidenceswpb.com"
+      }
+    ]
+  },
+  {
+    "projectId": "alba-reserve",
+    "name": "Alba Reserve",
+    "area": "North Flagler",
+    "projectType": "condo-pipeline",
+    "summary": "A reported/proposed North Flagler watchlist project at 4720 N Flagler Drive, kept separate from Mandarin Oriental unless official sources prove otherwise.",
+    "lastReviewedDate": "2026-09-01",
+    "facts": {
+      "projectAddress": "4720 N Flagler Drive, West Palm Beach, FL",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Reported / Proposed",
+      "residences": "87",
+      "stories": "31",
+      "completion": "Pipeline watch",
+      "pricing": "Not released",
+      "team": "BGI Companies; Blue Road Group; Spina O’Rourke + Partners; Carlos Ott",
+      "amenities": "Not verified; watchlist/project proposal stage.",
+      "residenceFeatures": [],
+      "neighborhoodContext": "North Flagler waterfront",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://www.blueroadgroup.com/"
+      },
+      {
+        "url": "https://floridayimby.com/"
+      }
+    ]
   },
   {
     "projectId": "forte-on-flagler",
     "name": "Forté on Flagler",
     "area": "South Flagler",
-    "pageStatus": "Completed/recent-delivery condo page",
-    "dataConfidence": "Needs normalization",
-    "officialWebsite": "https://fortewpb.com/",
+    "projectType": "completed-comparable",
+    "summary": "A completed South Flagler luxury comp at 1309 S Flagler Drive, used as a benchmark rather than active preconstruction inventory.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "1309 S Flagler Dr for project context; listings may use 1333 S Flagler unit addresses",
-      "status": "Delivered / closings underway / resale benchmark",
+      "projectAddress": "1309 S Flagler Drive, West Palm Beach, FL",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Completed Comp",
       "residences": "41",
-      "stories": "25 in newer construction/reporting; older material can say 24",
-      "completion": "Official site still markets topped-out / construction-underway language, while The Real Deal reported closings underway in July 2025; request current resale availability and building confirmation",
-      "pricing": "Current resale/listing pricing varies; request current availability.",
-      "team": "Two Roads; Alpha Blue; Arquitectonica; Jean-Louis Deniot"
-    },
-    "conflicts": [
-      "Project address vs listing/unit address differences.",
-      "24 vs 25 stories across older/current material.",
-      "Official site still uses topped-out / construction-underway language while July 2025 reporting said closings were underway."
-    ],
-    "gaps": [],
-    "highValueSources": [
-      "https://fortewpb.com/",
-      "https://therealdeal.com/miami/2025/07/31/closings-start-at-forte-on-flagler-west-palm-beach-condos/",
-      "https://fortewpb.com/wp-content/uploads/Digital-Flipbook.pdf",
-      "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
-      "https://fortewpb.com/wp-content/uploads/South-Open-Kitchen.pdf"
-    ],
-    "sourceCounts": {
-      "official": 5,
-      "reporting": 2,
-      "other": 1,
-      "sourcePages": 6
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://fortewpb.com/",
-        "https://es.arquitectonica.com/architecture/project/forte-on-flagler/",
-        "https://fortewpb.com/wp-content/uploads/Digital-Flipbook.pdf",
-        "https://fortewpb.com/wp-content/uploads/North-Open-Kitchen-Plan.pdf",
-        "https://fortewpb.com/wp-content/uploads/South-Open-Kitchen.pdf"
+      "stories": "25",
+      "completion": "Completed / recently completed; occupancy/resale status to verify",
+      "pricing": "Resale inventory varies",
+      "team": "Two Roads Development; Alpha Blue Ventures; Arquitectonica; Jean-Louis Deniot",
+      "amenities": "Three levels of amenities including 75-ft lap pool with heated spa, outdoor dining/lounge, private dining for 24, great room, library, evening lounge, his/hers spas, steam, sauna, relaxation areas, treatment room, fitness center, yoga studio, card room, business center, golf simulator, two guest suites, 24-hour security/lobby attendant, valet, house cars, EV charging, concierge.",
+      "residenceFeatures": [
+        "Luxury waterfront residences",
+        "Full-floor six-bedroom penthouse referenced"
       ],
-      "reporting": [
-        "https://floridayimby.com/2024/04/forte-on-flagler-tops-off-at-1309-south-flagler-drive-in-west-palm-beach.html",
-        "https://therealdeal.com/miami/2025/07/31/closings-start-at-forte-on-flagler-west-palm-beach-condos/"
-      ],
-      "other": [
-        "https://www.vickierealestate.com/south-florida-pre-construction-condos/palm-beach-pre-construction/forte-on-flagler/"
-      ]
-    }
+      "neighborhoodContext": "South Flagler waterfront",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://fortewpb.com/"
+      },
+      {
+        "url": "https://fortewpb.com/team/"
+      },
+      {
+        "url": "https://fortewpb.com/amenities/"
+      },
+      {
+        "url": "https://arquitectonica.com/architecture/project/forte-on-flagler/"
+      }
+    ]
   },
   {
     "projectId": "la-clara",
     "name": "La Clara",
     "area": "South Flagler",
-    "pageStatus": "Completed/recent-delivery page",
-    "dataConfidence": "Incomplete",
-    "officialWebsite": "",
+    "projectType": "completed-comparable",
+    "summary": "A completed South Flagler luxury comp at 1515 S Flagler Drive for benchmarking finished waterfront product and resale alternatives.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "200 Arkona Ct / 1515 S Flagler Dr, West Palm Beach, FL 33401",
-      "status": "Recently delivered / resale inventory",
+      "projectAddress": "1515 S Flagler Drive, West Palm Beach, FL",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Completed Comp",
       "residences": "83",
       "stories": "25",
-      "completion": "Opened / delivered in 2023.",
-      "pricing": "Current resale/listing pricing varies; request current availability.",
-      "team": "Great Gulf and Terrace Mountain; Stantec architect of record; design by Hariri Pontarini Architects; Stantec; Not publicly confirmed"
+      "completion": "Completed / opened to residents in 2023",
+      "pricing": "Resale inventory varies",
+      "team": "Great Gulf; Hariri Pontarini Architects; Stantec",
+      "amenities": "Amenity/service list still needs refresh from resale/association sources.",
+      "residenceFeatures": [],
+      "neighborhoodContext": "South Flagler waterfront",
+      "effectiveDate": "2026-09-01"
     },
-    "conflicts": [],
-    "gaps": [
-      "No official website captured.",
-      "No verified floor-plan assets in catalog.",
-      "No brochure or fact-sheet assets in catalog."
-    ],
-    "highValueSources": [],
-    "sourceCounts": {
-      "official": 0,
-      "reporting": 1,
-      "other": 2,
-      "sourcePages": 3
-    },
-    "sourceBuckets": {
-      "official": [],
-      "reporting": [
-        "https://therealdeal.com/miami/2023/11/17/units-return-to-market-after-la-clara-condo-completed/"
-      ],
-      "other": [
-        "https://www.stantec.com/en/news/2023/stantec-designed-la-clara-condominiums-open-west-palm-beach-florida/_jcr_content",
-        "https://www.thorntontomasetti.com/project/la-clara"
-      ]
-    }
+    "sources": [
+      {
+        "url": "https://www.laclararesales.com/"
+      },
+      {
+        "url": "https://acppubs.com/DXC/article/03EFF514-stantec-celebrates-groundbreaking-of-la-clara-luxury-condominium-in-west-palm-beach-florida"
+      }
+    ]
   },
   {
-    "projectId": "maison-dor",
-    "name": "Maison d'Or",
-    "area": "South Flagler",
-    "pageStatus": "Candidate project page",
-    "dataConfidence": "Strong",
-    "officialWebsite": "https://livemaisondor.com/",
+    "projectId": "fern-and-gardenia-related-ross-fern-street",
+    "name": "Fern & Gardenia / Related Ross Fern Street Project",
+    "area": "Downtown",
+    "projectType": "condo-pipeline",
+    "summary": "Fern & Gardenia / Related Ross Fern Street is a Downtown pipeline entry for the reported condo repositioning at 401 S Dixie Highway and Fern Street parcels.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "3705 S Flagler Dr, West Palm Beach, FL 33405",
-      "status": "Sales launched / pre-construction",
-      "residences": "39",
-      "stories": "19",
-      "completion": "2028 timing remains reporting-led; verify with sales team.",
-      "pricing": "Starting at $5.7M per official site and January 2026 launch coverage; verify current availability.",
-      "team": "Kolter Urban; Perko Development; 10 Design with SB Architects language also appearing on the official team page; HBA Residential; EDSA; Maison d'Or Realty"
+      "projectAddress": "401 S Dixie Highway / 418 & 464 Fern Street, West Palm Beach, FL",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Pipeline / Announced",
+      "residences": "100–130 condominium units proposed in later Related Ross repositioning; prior plan referenced 340 apartments",
+      "stories": "25",
+      "completion": "Pipeline watch",
+      "pricing": "Not released",
+      "team": "Related Ross; Wexford; 13th Floor Investments; L&L Holding",
+      "amenities": "Formerly planned as a 25-story mixed-use project with apartments and commercial space; later reported as being repositioned as a 100–130 unit condominium tower.",
+      "residenceFeatures": [],
+      "neighborhoodContext": "Downtown West Palm Beach / Fern Street corridor",
+      "effectiveDate": "2026-09-01"
     },
-    "conflicts": [
-      "The official team page labels architecture as 10 Design while the supporting body copy also references SB Architects."
-    ],
-    "gaps": [
-      "No brochure asset is captured in the catalog even though the live site now exposes floorplans and team details."
-    ],
-    "highValueSources": [
-      "https://livemaisondor.com/"
-    ],
-    "sourceCounts": {
-      "official": 3,
-      "reporting": 1,
-      "other": 0,
-      "sourcePages": 5
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://livemaisondor.com/",
-        "https://livemaisondor.com/wp-content/uploads/2025/12/MaisondOr-Fact-Sheet.pdf",
-        "https://www.wpb.org/files/assets/city/v/1/city-clerk/documents/agendas/2025-agendas/2025-draft-city-commission-agendas/05_12_25_draft-city-commission-agenda.pdf"
-      ],
-      "reporting": [
-        "https://profilemiamire.com/miamirealestate/2026/1/12/kolter-urban-and-perko-development-launch-sales-for-maison-dor-in-west-palm-beach"
-      ],
-      "other": []
-    }
+    "sources": []
   },
   {
-    "projectId": "portofino-flagler-yacht-club",
-    "name": "Portofino South / Flagler Yacht Club Buyout Watch",
-    "area": "South Flagler",
-    "pageStatus": "Pipeline/watch-list",
-    "dataConfidence": "Low",
-    "officialWebsite": "",
+    "projectId": "rybovich-marina-redevelopment",
+    "name": "Rybovich Marina Redevelopment",
+    "area": "North Flagler",
+    "projectType": "mixed-use",
+    "summary": "Rybovich Marina Redevelopment is a planned 19-acre North Flagler waterfront district with residential towers, marina context, private club space, retail, restaurants, office, crew amenities, and an Intracoastal promenade.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "3800 Washington Rd and 3701 S Flagler Dr area, West Palm Beach, FL 33405",
-      "status": "Condo buyout target / pipeline watch",
-      "residences": "",
-      "stories": "",
-      "completion": "No development timeline publicly confirmed.",
-      "pricing": "Not publicly confirmed",
-      "team": "BEKO Equities / Immocorp Capital and O.D. Kobo joint venture reported as buyout bidder; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed"
+      "projectAddress": "4000–4300 N Flagler Drive, West Palm Beach, FL",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Pipeline / Planning Approved",
+      "residences": "Up to 660 residential units contemplated; initial approvals cover 259 units across two towers",
+      "stories": "34 and 36 stories for initial two towers; future towers up to 445 ft reported",
+      "completion": "Pipeline watch",
+      "pricing": "Not released",
+      "team": "Huizenga Holdings; Integra Investments",
+      "amenities": "Large-scale 19-acre marina redevelopment with waterfront condominium towers and marina context; detailed residential amenities not yet finalized publicly.",
+      "residenceFeatures": [],
+      "neighborhoodContext": "North Flagler / Rybovich waterfront",
+      "effectiveDate": "2026-09-01"
     },
-    "conflicts": [],
-    "gaps": [
-      "No official website captured."
-    ],
-    "highValueSources": [],
-    "sourceCounts": {
-      "official": 0,
-      "reporting": 1,
-      "other": 0,
-      "sourcePages": 1
-    },
-    "sourceBuckets": {
-      "official": [],
-      "reporting": [
-        "https://therealdeal.com/miami/2026/02/25/immocorp-o-d-kobo-propose-430-million-condos-buyout/"
-      ],
-      "other": []
-    }
+    "sources": []
   },
   {
-    "projectId": "south-flagler-house-north",
-    "name": "South Flagler House North Tower",
-    "area": "South Flagler",
-    "pageStatus": "Primary condo page; pair with south tower in copy",
-    "dataConfidence": "Needs normalization",
-    "officialWebsite": "https://www.southflaglerhouse.com/",
+    "projectId": "rosewood-residences-west-palm-beach",
+    "name": "Rosewood Residences West Palm Beach",
+    "area": "North Flagler",
+    "projectType": "condo-pipeline",
+    "summary": "Rosewood Residences is a North Flagler branded-residence proposal at 2001 N Flagler Drive. The public sales program, pricing, delivery timing, and residence mix have not yet been released.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "1355 S Flagler Dr",
-      "status": "Under construction",
-      "residences": "108 in official site/fact material for full project; Related Ross loan release says 105",
-      "stories": "Two 28-story towers",
-      "completion": "Expected/delivering 2027",
-      "pricing": "Current official inquiry and availability surfaces start at about $6M, while the current residences page spans roughly $7.98M to $70M including penthouses; verify the current sheet by line and tower.",
-      "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture"
+      "projectAddress": "2001 N Flagler Drive, West Palm Beach, FL",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Pipeline / Branded Residences",
+      "residences": "90",
+      "stories": "27",
+      "completion": "Timing not released",
+      "pricing": "Not released",
+      "team": "Related Group; BH Group; Arquitectonica",
+      "amenities": "Reported plan includes more than 13,000 sq. ft. of indoor amenities and a fifth-floor pool deck.",
+      "residenceFeatures": [],
+      "neighborhoodContext": "North Flagler waterfront",
+      "effectiveDate": "2026-09-01"
     },
-    "conflicts": [
-      "Residence count conflict: 108 vs 105 depending on official/project sponsor source date.",
-      "Pricing availability varies by date: the current official inquiry and availability surfaces begin at about $6M, while the current residences page spans roughly $7.98M to $70M including penthouses."
-    ],
-    "gaps": [
-      "No complete public floor-plan PDF library found beyond site-plan/tier imagery.",
-      "No verified floor-plan assets in catalog."
-    ],
-    "highValueSources": [
-      "https://www.southflaglerhouse.com/",
-      "https://www.southflaglerhouse.com/residences/",
-      "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf",
-      "https://www.relatedross.com/press-releases/2025-06-23/related-ross-secures-400-million-construction-loan-south-flagler-house"
-    ],
-    "sourceCounts": {
-      "official": 6,
-      "reporting": 0,
-      "other": 0,
-      "sourcePages": 6
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.southflaglerhouse.com/",
-        "https://www.southflaglerhouse.com/residences/",
-        "https://www.southflaglerhouse.com/architecture-design",
-        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
-        "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf",
-        "https://www.relatedross.com/press-releases/2025-06-23/related-ross-secures-400-million-construction-loan-south-flagler-house"
-      ],
-      "reporting": [],
-      "other": []
-    }
-  },
-  {
-    "projectId": "south-flagler-house-south",
-    "name": "South Flagler House South Tower",
-    "area": "South Flagler",
-    "pageStatus": "Primary condo page; merge content with north tower unless separate inventory is required",
-    "dataConfidence": "Incomplete",
-    "officialWebsite": "https://www.southflaglerhouse.com/",
-    "facts": {
-      "address": "1355 S Flagler Dr",
-      "status": "Under construction",
-      "residences": "Part of the full South Flagler House residence count",
-      "stories": "28",
-      "completion": "Expected/delivering 2027",
-      "pricing": "Current official inquiry and availability surfaces start at about $6M, while the current residences page spans roughly $7.98M to $70M including penthouses; verify the current sheet by line and tower.",
-      "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; SMI Landscape Architecture"
-    },
-    "conflicts": [
-      "Same full-project count conflicts as north tower; pricing availability varies by date, with current official inquiry surfaces beginning at about $6M while the current residences page spans roughly $7.98M to $70M including penthouses."
-    ],
-    "gaps": [
-      "Need decide whether this remains a separate card or becomes one South Flagler House page.",
-      "No verified floor-plan assets in catalog.",
-      "No downloaded image candidates."
-    ],
-    "highValueSources": [
-      "https://www.southflaglerhouse.com/",
-      "https://www.southflaglerhouse.com/residences/",
-      "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf"
-    ],
-    "sourceCounts": {
-      "official": 5,
-      "reporting": 0,
-      "other": 0,
-      "sourcePages": 5
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://www.southflaglerhouse.com/",
-        "https://www.southflaglerhouse.com/residences/",
-        "https://www.southflaglerhouse.com/architecture-design",
-        "https://www.relatedross.com/press-releases/2023-11-02/related-companies-launch-sales-south-flagler-house-west-palm-beach",
-        "https://www.southflaglerhouse.com/sites/g/files/ujywhv446/files/2025-05/SFH_Fact%20Sheet_0425.pdf"
-      ],
-      "reporting": [],
-      "other": []
-    }
+    "sources": []
   },
   {
     "projectId": "olin-palm-beach",
     "name": "OLIN Palm Beach",
     "area": "Palm Beach",
-    "pageStatus": "Public Palm Beach watch page",
-    "dataConfidence": "High with open buyer-detail gaps",
-    "officialWebsite": "https://olinpalmbeach.com/",
+    "projectType": "condo-pipeline",
+    "summary": "OLIN Palm Beach is a 32-residence, three-building ocean-to-lagoon development on Palm Beach Island, designed by OMA with interiors by GACHOT and sales now launched.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
+      "projectAddress": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
       "status": "Breaking Ground / Sales Launched",
       "residences": "32",
-      "stories": "5 across three interconnected buildings",
+      "stories": "5",
       "completion": "Timing not released",
-      "pricing": "Residence-specific pricing requires current sales verification",
-      "team": "OKO Group and Cain International; OMA and Spina O'Rourke + Partners; GACHOT; Corcoran Sunshine Marketing Group"
-    },
-    "conflicts": [
-      "Older planning and reporting referenced 41 residences; the current official project confirms 32."
-    ],
-    "gaps": [
-      "Delivery timing is not public.",
-      "Residence-specific pricing, maintenance, deposit structure, parking, policies, floor plans, and the complete amenity program require current sales materials."
-    ],
-    "highValueSources": [
-      "https://olinpalmbeach.com/",
-      "https://www.oftmw.com/projects/olin-palm-beach/"
-    ],
-    "sourceCounts": {
-      "official": 1,
-      "reporting": 1,
-      "other": 0,
-      "sourcePages": 2
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://olinpalmbeach.com/"
+      "pricing": "Inquiry pricing bands reported up to and above $40M; residence-specific pricing requires sales verification",
+      "team": "OKO Group; Cain International; OMA; Spina O'Rourke + Partners; GACHOT",
+      "amenities": "Oceanfront and lagoon setting within a landscaped low-rise campus; the full amenity program is not yet public.",
+      "residenceFeatures": [
+        "32 graciously scaled residences",
+        "Architecture by OMA",
+        "Interiors by GACHOT",
+        "Private terraces and landscaped oceanfront grounds"
       ],
-      "reporting": [
-        "https://www.oftmw.com/projects/olin-palm-beach/"
-      ],
-      "other": []
-    }
+      "neighborhoodContext": "Palm Beach South End / Condominium Row",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://olinpalmbeach.com/"
+      },
+      {
+        "url": "https://www.oftmw.com/projects/olin-palm-beach/"
+      }
+    ]
   },
   {
     "projectId": "3031-s-ocean-palm-beach",
     "name": "3031 S. Ocean",
     "area": "Palm Beach",
-    "pageStatus": "Public Palm Beach watch page",
-    "dataConfidence": "High with an open address-reference conflict and unreleased buyer details",
-    "officialWebsite": "",
+    "projectType": "condo-pipeline",
+    "summary": "A Town-approved, 12-residence villa-style redevelopment on a man-made Palm Beach peninsula, designed by Fairfax & Sammons for Copperline Partners.",
+    "lastReviewedDate": "2026-09-01",
     "facts": {
-      "address": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
+      "projectAddress": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
       "status": "Town Approved / Announced",
       "residences": "12",
-      "stories": "Up to 5",
+      "stories": "5",
       "completion": "Timing not released",
       "pricing": "Not publicly released",
-      "team": "Copperline Partners; Fairfax & Sammons Architects"
-    },
-    "conflicts": [
-      "Some coverage contains a 3301 S. Ocean typographical reference; Town and project materials identify 3031 S. Ocean Boulevard."
-    ],
-    "gaps": [
-      "Sales launch, delivery timing, and pricing have not been released.",
-      "Maintenance, deposit structure, parking, storage, policies, final floor plans, and the complete amenity program require current sales materials."
-    ],
-    "highValueSources": [
-      "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)",
-      "https://www.oftmw.com/firm/copperline-partners/",
-      "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
-    ],
-    "sourceCounts": {
-      "official": 1,
-      "reporting": 2,
-      "other": 0,
-      "sourcePages": 3
-    },
-    "sourceBuckets": {
-      "official": [
-        "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)"
+      "team": "Copperline Partners; Fairfax & Sammons Architects",
+      "amenities": "A private, low-density waterfront setting is shown in planning materials; the complete shared amenity program has not been released.",
+      "residenceFeatures": [
+        "Twelve connected villa-style residences",
+        "Italian coastal architectural references",
+        "Landscaped terraces and waterfront outdoor areas",
+        "Lake Worth Lagoon and Intracoastal frontage"
       ],
-      "reporting": [
-        "https://www.oftmw.com/firm/copperline-partners/",
-        "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+      "neighborhoodContext": "Palm Beach South End",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://palmbeachfl.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=15075,plainText=false)"
+      },
+      {
+        "url": "https://www.oftmw.com/firm/copperline-partners/"
+      },
+      {
+        "url": "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
+      }
+    ]
+  },
+  {
+    "projectId": "apogee-residences-wpb",
+    "name": "Apogee Residences",
+    "area": "North Flagler",
+    "projectType": "condo-pipeline",
+    "summary": "A 39-residence waterfront proposal at 4906 North Flagler Drive, tracked as an approved watch project while sales, timing, and the final offering program remain unreleased.",
+    "lastReviewedDate": "2026-09-01",
+    "facts": {
+      "projectAddress": "4906 North Flagler Drive, West Palm Beach, FL 33407",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Approved / Announced",
+      "residences": "39",
+      "stories": "21",
+      "completion": "Timing not released",
+      "pricing": "Not publicly released",
+      "team": "Related Group; Sieger Suarez Architects",
+      "amenities": "A waterfront pool and private-elevator concept have been reported; the final amenity program requires verification.",
+      "residenceFeatures": [
+        "Low-density waterfront condominium format",
+        "Direct Intracoastal exposure",
+        "Private elevator access reported in earlier planning coverage; verify current plans"
       ],
-      "other": []
-    }
+      "neighborhoodContext": "North End / North Flagler",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://www.oftmw.com/firm/related-group/"
+      },
+      {
+        "url": "https://www.oftmw.com/firm/sieger-suarez-architects/"
+      }
+    ]
+  },
+  {
+    "projectId": "201-arkona-court",
+    "name": "201 Arkona Court",
+    "area": "South Flagler",
+    "projectType": "condo-pipeline",
+    "summary": "A proposed 16-residence full-floor condominium beside the Norton Museum, paired with a private cultural-club concept and tracked as an early planning-stage watch project.",
+    "lastReviewedDate": "2026-09-01",
+    "facts": {
+      "projectAddress": "201 & 203 Arkona Court, West Palm Beach, FL 33401",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Announced / Planning",
+      "residences": "16",
+      "stories": "26 proposed; review open",
+      "completion": "2029 estimate",
+      "pricing": "Not publicly released",
+      "team": "Easton Street Capital; 1789 Capital; SCB",
+      "amenities": "A private cultural club of roughly 7,000 square feet and a public market or cafe concept have been reported.",
+      "residenceFeatures": [
+        "Approximately 16 full-floor residences",
+        "One principal residence per residential level",
+        "Art-oriented private club concept",
+        "Terraces shown in concept materials"
+      ],
+      "neighborhoodContext": "Cultural Quarter / Norton Museum",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://www.oftmw.com/post/easton-street-capital-and-donald-trump-jr-s-1789-capital-plan-a-26-story-full-floor-condo-and-private-club-by-the-norton-museum-in-west-palm-beach/"
+      },
+      {
+        "url": "https://www.oftmw.com/firm/1789-capital/"
+      }
+    ]
+  },
+  {
+    "projectId": "2085-north-flagler",
+    "name": "2085 North Flagler",
+    "area": "North Flagler",
+    "projectType": "condo-pipeline",
+    "summary": "An early two-tower waterfront proposal by Terra and BH Group at 2085 North Flagler, tracked as a watch page across from Currie Park with no public sales program yet.",
+    "lastReviewedDate": "2026-09-01",
+    "facts": {
+      "projectAddress": "2085 North Flagler Drive, West Palm Beach, FL 33407",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Announced / Planning",
+      "residences": "281",
+      "stories": "31 floors each",
+      "completion": "Timing not released",
+      "pricing": "Not publicly released",
+      "team": "Terra; BH Group",
+      "amenities": "Third- and ninth-floor amenity areas, a pool deck, and rooftop amenities have been reported.",
+      "residenceFeatures": [
+        "Two waterfront condominium towers",
+        "Shared podium and amenity concept",
+        "Direct Intracoastal and Currie Park exposures",
+        "Approximately 4,385 square feet of planned retail"
+      ],
+      "neighborhoodContext": "Currie Park / North Flagler",
+      "effectiveDate": "2026-09-01"
+    },
+    "sources": [
+      {
+        "url": "https://floridayimby.com/2026/06/developers-plan-two-31-story-towers-for-2085-n-flagler-dr-west-palm-beach-fl.html"
+      },
+      {
+        "url": "https://traded.co/deals/florida/development-site/sale/david-martin-of-terra-and-isaac-toledano-liat-toledano-of-bh-group-acquire-development-site-from-jeff-greene-for-100m/"
+      }
+    ]
+  },
+  {
+    "projectId": "the-sound-west-palm-beach",
+    "name": "The Sound Apartments",
+    "area": "South End / South Dixie",
+    "projectType": "rental",
+    "summary": "A 358-unit rental apartment community in West Palm Beach’s South End with 90 workforce units, neighborhood retail, and a waterfront public-realm program. This is rental housing, not for-sale condominium inventory.",
+    "lastReviewedDate": "2026-09-04",
+    "facts": {
+      "projectAddress": "8111 South Dixie Highway, West Palm Beach, FL 33405",
+      "salesGalleryAddress": "",
+      "mailingAddress": "",
+      "planningParcelAddress": "",
+      "status": "Under Construction",
+      "residences": "358",
+      "stories": "8",
+      "completion": "Under construction; 2026 delivery target",
+      "pricing": "Request current leasing information",
+      "team": "Woodfield Development; Flagler Realty & Development; Spina O’Rourke + Partners; Verdex Construction",
+      "amenities": "Coworking lounge, indoor pickleball courts, resort-style pool, top-level sky lounge, landscaped waterfront walkway, dock, and kayak or canoe launch were announced in March 2026.",
+      "residenceFeatures": [
+        "Rental apartments rather than for-sale condominiums",
+        "Studio, one-, two-, and three-bedroom homes",
+        "90 workforce housing units within the 358-unit community",
+        "Mixed-use South Dixie setting with neighborhood retail",
+        "Waterfront walkway and canal access"
+      ],
+      "neighborhoodContext": "South End / South Dixie",
+      "effectiveDate": "2026-09-04"
+    },
+    "sources": [
+      {
+        "url": "https://www.wpb.org/News-Folder/News-2026/070726-Mayor-City-Commission-CRA-Approvals-and-Decisions"
+      },
+      {
+        "url": "https://verdex.com/the-sound-apartments/"
+      },
+      {
+        "url": "https://www.citybiz.co/article/813518/woodfield-development-and-flagler-realty-development-advance-construction-on-the-sound-apartments-and-trader-joes-in-west-palm-beach/"
+      },
+      {
+        "url": "https://floridayimby.com/2026/03/construction-nears-completion-on-the-sound-apartments-at-8111-south-dixie-highway-in-west-palm-beach.html"
+      },
+      {
+        "url": "https://locations.traderjoes.com/fl/west-palm-beach/796/"
+      }
+    ]
   }
 ] as const;
 
@@ -5445,6 +5396,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/corridors/south-end/",
+    "title": "South End West Palm Beach Developments | Area Guide",
+    "description": "Track South End West Palm Beach rental and mixed-use development by leasing status, neighborhood retail, delivery, and resident fit.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
     "path": "/corridors/palm-beach/",
     "title": "Palm Beach New Construction Condos | Buyer Guide",
     "description": "Track Palm Beach island new-construction and approved condo projects by coastal setting, scale, readiness, and open buyer-verification questions.",
@@ -5617,5 +5574,11 @@ export const prerenderRoutes = [
     "title": "2085 North Flagler West Palm Beach | Project Watch",
     "description": "Track the early Terra and BH Group proposal for two 31-floor waterfront condominium towers at 2085 North Flagler across from Currie Park.",
     "ogImage": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp"
+  },
+  {
+    "path": "/projects/the-sound-west-palm-beach/",
+    "title": "The Sound Apartments West Palm Beach | Rental Guide",
+    "description": "Track The Sound Apartments at 8111 South Dixie Highway: rental status, 358 apartments, amenities, Trader Joe’s, timeline, and leasing details to verify.",
+    "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   }
 ] as const;

@@ -1,4 +1,5 @@
-import { projectFacts, siteMeta } from "../generated/siteData.ts";
+import { siteMeta } from "../generated/siteData.ts";
+import { internalProjectFacts as projectFacts } from "../generated/projectFactsInternal.ts";
 import { marketNotes, type MarketNote } from "../data/marketNotes.ts";
 import {
   projectFactOverrides,

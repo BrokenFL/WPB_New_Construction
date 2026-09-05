@@ -3,7 +3,7 @@ import path from "node:path";
 
 const workspace = process.cwd();
 const outDir = path.join(workspace, "research/source-material-review");
-const statusPath = path.join(workspace, "public/data/project-asset-status.json");
+const statusPath = path.join(workspace, "research/generated/project-asset-status.json");
 const floorplansPath = path.join(workspace, "public/data/floorplans.json");
 
 function csvCell(value) {
