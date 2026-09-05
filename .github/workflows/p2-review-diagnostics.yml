@@ -52,8 +52,17 @@ jobs:
           NODE
       - name: Assemble offline review workspace (no credentials or production upload)
         run: |
-          git ls-files -z -- src research scripts tools docs data content functions .github index.html package.json package-lock.json tsconfig.json vite.config.ts README.md AGENTS.md AI_PROJECT_GUIDE.md public/_headers public/_redirects public/sitemap.xml public/robots.txt public/llms.txt public/assets/projects/olara/floorplans public/assets/projects/alba-palm-beach/floorplans public/projects/olara/docs/floorplans public/projects/alba-palm-beach/docs/floorplans > /tmp/p2-review-paths
-          tar --null -T /tmp/p2-review-paths -czf .runtime/p2-review/review-source.tar.gz
+          python3 <<'PY'
+          import pathlib, subprocess, tarfile
+          paths = subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0')
+          text = {'.ts', '.mjs', '.js', '.json', '.md', '.css', '.html', '.yml', '.yaml', '.xml', '.txt'}
+          pilot = {'public/assets/projects/olara/floorplans/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.pdf', 'public/assets/projects/olara/floorplans/previews/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.jpg', 'public/assets/projects/alba-palm-beach/floorplans/alba-floorplans-residence-d-v01.pdf', 'public/assets/projects/alba-palm-beach/floorplans/previews/alba-floorplans-residence-d-v01.jpg', 'public/projects/olara/docs/floorplans/olara-residence-plan-d.pdf'}
+          with tarfile.open('.runtime/p2-review/review-source.tar.gz', 'w:gz') as out:
+            for name in paths:
+              p = pathlib.Path(name)
+              if p.is_file() and (name in pilot or (p.suffix in text and p.stat().st_size < 3000000) or name in {'public/_headers', 'public/_redirects'}):
+                out.add(p, arcname=name)
+          PY
           tar -czf .runtime/p2-review/review-node-modules.tar.gz node_modules
           cp dist/.vite/manifest.json .runtime/p2-review/reproduced-manifest.json
       - uses: actions/upload-artifact@v4
