@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import http from 'node:http';
 import path from 'node:path';
+import { inspectCommercialPresentation } from './commercial-visual-review.mjs';
 import { commercialPages, commercialOrigin, commercialEscape, renderCommercialGuide } from '../../src/lib/commercialContent.ts';
 
 const dist = path.resolve('dist');
@@ -79,6 +80,7 @@ if (process.argv.includes('--browser')) {
           const broken = await page.locator(`[data-route-view="${pageName}"] img:visible`).evaluateAll((images) => images.filter((img) => img.complete && !img.naturalWidth).length);
           assert.equal(broken, 0, 'Visible image failed to load');
         }
+        await inspectCommercialPresentation(page, guide, { output, pageName, width, javaScriptEnabled });
         await page.screenshot({ path:`${output}/${pageName}-${width}-${javaScriptEnabled ? 'js' : 'nojs'}.png`, fullPage:true });
         await guide.screenshot({ path:`${output}/${pageName}-guide-${width}-${javaScriptEnabled ? 'js' : 'nojs'}.png` });
         results.push({ page:pageName, width, javaScriptEnabled, browser:'pass' });

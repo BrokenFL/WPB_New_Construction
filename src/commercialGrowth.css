@@ -6,7 +6,7 @@
 .cg-guide { max-width:1360px; margin:32px auto 42px; padding:30px; border:1px solid var(--line); border-radius:8px; background:var(--ivory); color:var(--ink); }
 .cg-heading { max-width:900px; }
 .cg-guide h2 { max-width:none; font-size:clamp(25px,2.4vw,35px); line-height:1.2; margin:8px 0 14px; }
-.cg-guide h3 { font-size:20px; line-height:1.25; margin:0 0 12px; }
+.cg-guide h3 { color:var(--editorial-navy); max-width:none; font-size:20px; line-height:1.25; margin:0 0 12px; }
 .cg-guide p { font-size:16px; line-height:1.6; }
 .cg-corridors { display:flex; gap:10px; flex-wrap:wrap; margin:20px 0 24px; }
 .cg-corridors a { display:flex; align-items:center; min-height:44px; border:1px solid var(--line); padding:8px 13px; border-radius:5px; color:var(--editorial-navy); background:#fff; font-size:14px; font-weight:600; text-decoration:none; }
