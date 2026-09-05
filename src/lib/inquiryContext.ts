@@ -81,5 +81,7 @@ export function wireInquiryContext(app: HTMLElement) {
   window.addEventListener('submit', (event) => {
     if (event.target instanceof HTMLFormElement && event.target.matches('.inquiry-form')) sync();
   }, true);
+  // Apply before any optional dynamic enhancement can delay form initialization.
+  sync();
   return sync;
 }

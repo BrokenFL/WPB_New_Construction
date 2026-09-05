@@ -84,7 +84,7 @@ try{
       const received=page.waitForResponse(r=>r.url()===origin+'/api/leads'&&r.request().method()==='POST');
       const before=events.length;
       await form.locator('button[type="submit"]').click();await received;
-      await page.waitForFunction(()=>document.querySelector('.form-status')?.textContent?.includes('request was received'));
+      await page.waitForFunction(()=>document.querySelector('.inquiry-form .form-status')?.textContent?.includes('request was received'));
       assert.equal(payload.cta_context,expected);assert.equal(payload.lead_capture_context,expected);
       assert.equal(payload.project,project);assert.equal(payload.interest,interest);
       assert.equal(payload.landing_page,origin+'/');assert.equal(payload.submission_page,origin+'/inquire/');
@@ -142,9 +142,12 @@ try{
     await page.getByRole('button',{name:'Allow analytics',exact:true}).click();
     await page.waitForFunction(()=>document.querySelectorAll('script[data-wpb-ga4]').length===1);
     const configCount=()=>page.evaluate(()=>window.dataLayer.filter(e=>e[0]==='config').length);
+    const gaPageViews=()=>page.evaluate(()=>window.dataLayer.filter(e=>e[0]==='event'&&e[1]==='page_view').length);
     assert.equal(await configCount(),1);
+    assert.equal(await gaPageViews(),1);
     for(const route of ['/buildings/','/projects/olara/']){
-      const before=events.length;await clickPath(page,route);
+      const before=events.length, gaBefore=await gaPageViews();await clickPath(page,route);
+      assert.equal(await gaPageViews()-gaBefore,1,'Duplicate GA4 page view');
       assert.equal(events.slice(before).filter(e=>e.eventName==='page_view').length,1,'Duplicate route event');
       assert.equal(await page.locator('script[data-wpb-ga4]').count(),1);assert.equal(await configCount(),1);
     }
@@ -160,6 +163,7 @@ try{
     await page.locator(`a[data-floorplan-entity-link][href="${plan.path}"]`).click();await settle(page,plan.path);
     assert.equal(events.slice(before).filter(e=>e.eventName==='page_view').length,1);
     assert.equal(await page.locator('script[data-wpb-ga4]').count(),1);assert.equal(await configCount(),1);
+    assert.equal(await gaPageViews(),1,'One GA4 page view in native plan document');
     await page.goBack({waitUntil:'networkidle'});await settle(page,'/projects/olara/');
     await page.goBack({waitUntil:'networkidle'});await settle(page,'/buildings/');
     assert.equal(await page.title(),commercialPages.buildings.title);

@@ -46,3 +46,5 @@ test('postbuild composes both page families and production keeps the reachable-g
   assert.deepEqual(publishedFloorplanEntities().map(p=>p.projectId),['olara']);
   assert.ok(buildFloorplanEntities().some(p=>p.projectId==='alba-palm-beach'));
 });
+
+await import('./inquiry-bridge.test.mjs');
