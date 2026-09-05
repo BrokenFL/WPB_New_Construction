@@ -2,11 +2,11 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
 import http from "node:http";
-import { buildFloorplanEntities, floorplanSiteUrl } from "../../src/lib/floorplanEntities.ts";
+import { buildFloorplanEntities, publishedFloorplanEntities, floorplanForPath, floorplanSiteUrl } from "../../src/lib/floorplanEntities.ts";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
-const plans = buildFloorplanEntities();
+const plans = publishedFloorplanEntities();
 const htmlAt = (route) => fs.readFile(path.join(dist, route.slice(1), "index.html"), "utf8");
 const count = (html, pattern) => [...html.matchAll(pattern)].length;
 
@@ -43,6 +43,16 @@ async function checkStatic() {
       assert.equal(graph['@graph'].filter((node) => node['@id']?.endsWith('#wpb-floorplan-guides')).length, 1);
     }
   }
+  const pending = buildFloorplanEntities().find((plan) => plan.projectId === 'alba-palm-beach');
+  assert.ok(pending, 'Preserve the Alba source-reviewed implementation');
+  assert.equal(floorplanForPath(pending.path), undefined, 'Alba must not resolve as a public entity');
+  await assert.rejects(fs.access(path.join(dist, pending.path.slice(1), 'index.html')), /ENOENT/);
+  assert.ok(!sitemap.includes(pending.canonical), 'Alba must not be in the sitemap');
+  for (const route of ['/floorplans/', '/projects/alba-palm-beach/']) {
+    const html = await htmlAt(route);
+    assert.ok(!html.includes(pending.path), 'No pending entity discovery link');
+  }
+  assert.equal((await fs.readFile(path.join(dist, pending.pdf.slice(1)))).subarray(0, 5).toString(), '%PDF-');
   // Keep the already indexed document URL; no redirect/noindex migration here.
   assert.equal((await fs.readFile(path.join(dist, 'projects/olara/docs/floorplans/olara-residence-plan-d.pdf'))).subarray(0, 5).toString(), '%PDF-');
   console.log(JSON.stringify({ floorplanStaticQA: 'pass', entities: plans.length }));

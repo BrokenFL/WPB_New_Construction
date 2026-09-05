@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import {
-  buildFloorplanEntities, mergeFloorplanDiscoverySchema, escapeFloorplanHtml, floorplanDescription,
+  buildFloorplanEntities, publishedFloorplanEntities, mergeFloorplanDiscoverySchema, escapeFloorplanHtml, floorplanDescription,
   floorplanJson, floorplanSchema, floorplanSiteUrl, floorplanTitle,
   renderFloorplanDiscovery, renderFloorplanPage,
 } from "../../src/lib/floorplanEntities.ts";
@@ -37,7 +37,6 @@ export function renderEntityDocument(template, plan) {
 
 export function addDiscovery(html, route) {
   const block = renderFloorplanDiscovery(route);
-  if (!block) return html;
   html = html.replace(/\s*<section id="wpb-floorplan-guides"[^>]*>[\s\S]*?<\/section>/g, "");
   html = html.replace(/\s*<script id="wpb-floorplan-index-schema"[^>]*>[\s\S]*?<\/script>/g, "");
   if ((html.match(/<\/main>/g) ?? []).length !== 1) throw new Error(`Expected one main landmark: ${route}`);
@@ -49,8 +48,9 @@ export function addDiscovery(html, route) {
 }
 
 export function addSitemapEntities(xml, plans) {
-  const paths = new Set(plans.map((plan) => plan.canonical));
-  if (paths.size !== plans.length) throw new Error("Duplicate entity canonicals");
+  const selected = new Set(plans.map((plan) => plan.canonical));
+  const paths = new Set([...selected, ...buildFloorplanEntities().map((plan) => plan.canonical)]);
+  if (selected.size !== plans.length) throw new Error("Duplicate entity canonicals");
   if (!xml.includes("</urlset>")) throw new Error("Expected sitemap urlset");
   const clean = xml.replace(/\s*<url>[\s\S]*?<\/url>/g, (block) => {
     const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
@@ -65,7 +65,8 @@ export function addSitemapEntities(xml, plans) {
 
 export async function prerenderFloorplanEntities(root = process.cwd()) {
   const dist = path.join(root, "dist");
-  const plans = buildFloorplanEntities();
+  const plans = publishedFloorplanEntities();
+  const reviewed = buildFloorplanEntities();
   const template = await fs.readFile(path.join(dist, "index.html"), "utf8");
   // Validate every source asset before writing any route. Approved assets only.
   for (const plan of plans) {
@@ -75,12 +76,16 @@ export async function prerenderFloorplanEntities(root = process.cwd()) {
       if (!stats.isFile() || !stats.size) throw new Error(`Missing plan asset: ${asset}`);
     }
   }
+  // Standalone postbuild reruns must also remove a formerly emitted pending page.
+  for (const plan of reviewed.filter((item) => !plans.some((live) => live.path === item.path))) {
+    await fs.rm(path.join(dist, plan.path.slice(1)), { recursive: true, force: true });
+  }
   for (const plan of plans) {
     const target = path.join(dist, plan.path.slice(1), "index.html");
     await fs.mkdir(path.dirname(target), { recursive: true });
     await fs.writeFile(target, renderEntityDocument(template, plan));
   }
-  for (const route of ["/floorplans/", ...new Set(plans.map((plan) => `/projects/${plan.projectId}/`))]) {
+  for (const route of ["/floorplans/", ...new Set(reviewed.map((plan) => `/projects/${plan.projectId}/`))]) {
     const file = path.join(dist, route.slice(1), "index.html");
     await fs.writeFile(file, addDiscovery(await fs.readFile(file, "utf8"), route));
   }

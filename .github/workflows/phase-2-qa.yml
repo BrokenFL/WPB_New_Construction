@@ -13,27 +13,20 @@ concurrency:
 
 jobs:
   verify:
-    name: Verify ${{ matrix.target }}
+    name: Credential-free Olara candidate
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - target: phase-1-baseline
-            ref: fb7bf0e9b93a4c4710423dcd900d3e9d185e7605
-          - target: phase-2-candidate
-            ref: ''
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ matrix.ref || github.sha }}
+          ref: ${{ github.sha }}
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: node --test research/scripts/map-qa-mode.test.mjs
       - run: npx playwright install --with-deps chromium
       - name: Record tested revision
         run: |
@@ -48,8 +41,10 @@ jobs:
         env:
           VITE_GA4_MEASUREMENT_ID: G-P2TEST0001
         run: npm run build
-      - name: Full existing test suite (retains mandatory Maps gate)
+      - name: Full credential-free suite with explicit no-key expectations
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        env:
+          WPB_MAP_QA_MODE: no-key
         run: npm test
       - name: Remaining launch gates (independent of map-key availability)
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
@@ -60,12 +55,12 @@ jobs:
           trap 'cp docs/reports/asset-pipeline-audit-report.json .runtime/phase-2-qa/asset-audit.json 2>/dev/null || true' EXIT
           npm run assets:audit:strict
       - name: Floor-plan browser and intercepted submission checks
-        if: ${{ !cancelled() && matrix.target == 'phase-2-candidate' && steps.build.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         env:
           FLOORPLAN_EXPECT_GA4: '1'
         run: npm run qa:floorplan-entities -- --browser
       - name: Preflight rejects the real no-key build without uploading
-        if: ${{ !cancelled() && matrix.target == 'phase-2-candidate' && steps.build.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: |
           node --input-type=module <<'NODE'
           import assert from 'node:assert/strict';
@@ -74,23 +69,19 @@ jobs:
           console.log('PASS: actual no-key build rejected. No deployment invoked.');
           NODE
       - name: Synthetic configuration tests split-bundle preflight only
-        if: ${{ !cancelled() && matrix.target == 'phase-2-candidate' && steps.build.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         env:
           VITE_GOOGLE_MAPS_API_KEY: P2_SYNTHETIC_NOT_A_REAL_KEY
         run: |
           npm run build
           npm run qa:deploy-preflight | tee .runtime/phase-2-qa/split-preflight.log
-      - name: Read-only official source retrieval
-        if: ${{ !cancelled() && matrix.target == 'phase-2-candidate' }}
-        run: node research/scripts/review-floorplan-sources.mjs
       - name: Preserve credential-free review evidence (never dist)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: phase-2-${{ matrix.target }}-${{ github.run_id }}
+          name: p2-001-olara-${{ github.run_id }}
           path: |
             .runtime/phase-2-qa/
-            .runtime/p2-source-review/
           include-hidden-files: true
           retention-days: 14
 
@@ -121,18 +112,26 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: node --test research/scripts/map-qa-mode.test.mjs
       - run: npx playwright install --with-deps chromium
       - name: Build candidate with dedicated Maps key
         id: keyed_build
         env:
           VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY }}
+          VITE_GA4_MEASUREMENT_ID: G-P2TEST0001
         run: npm run build
       - name: Read-only deployment preflight
         run: npm run qa:deploy-preflight
       - name: Full suite with key-configured map check
         env:
           WPB_MAP_QA_PORT: '4173'
+          WPB_MAP_QA_MODE: keyed
         run: npm test
+      - name: Key-configured pilot browser and intercepted submissions
+        if: ${{ !cancelled() && steps.keyed_build.outcome == 'success' }}
+        env:
+          FLOORPLAN_EXPECT_GA4: '1'
+        run: npm run qa:floorplan-entities -- --browser
       - name: Verify real Google loader, tile images and zoom on both routes
         if: ${{ !cancelled() && steps.keyed_build.outcome == 'success' }}
         run: npm run qa:maps-keyed
@@ -147,3 +146,15 @@ jobs:
           name: p2-keyed-maps-${{ github.run_id }}
           path: .runtime/p2-keyed-maps/
           retention-days: 14
+
+  release-verification:
+    name: P2-001 release verification
+    if: always()
+    needs: [verify, keyed-maps]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Both candidate modes are mandatory
+        env:
+          NO_KEY: ${{ needs.verify.result }}
+          KEYED: ${{ needs.keyed-maps.result }}
+        run: test "$NO_KEY" = success && test "$KEYED" = success

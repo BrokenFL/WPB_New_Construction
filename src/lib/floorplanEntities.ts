@@ -84,14 +84,20 @@ export function cleanFloorplanPath(value: string): string {
   return `${path}/`;
 }
 
+// Public routes use this explicit release scope. Alba remains source-reviewed
+// in buildFloorplanEntities(), but cannot be routed, discovered or submitted.
+export function publishedFloorplanEntities(): FloorplanEntity[] {
+  return buildFloorplanEntities().filter((plan) => plan.projectId === "olara");
+}
+
 export function floorplanForPath(value: string): FloorplanEntity | undefined {
   const path = cleanFloorplanPath(value);
-  return buildFloorplanEntities().find((plan) => plan.path === path);
+  return publishedFloorplanEntities().find((plan) => plan.path === path);
 }
 
 export function floorplansForDiscovery(value: string): FloorplanEntity[] {
   const path = cleanFloorplanPath(value);
-  const plans = buildFloorplanEntities();
+  const plans = publishedFloorplanEntities();
   if (path === "/floorplans/" || path === "/floor-plans/") return plans;
   return plans.filter((plan) => path === `/projects/${plan.projectId}/`);
 }

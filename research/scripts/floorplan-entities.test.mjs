@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { approvedFloorplanLibrary } from "../../src/data/floorplanApprovedLibrary.ts";
 import {
-  buildFloorplanEntities, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanSchema, floorplanJson,
+  buildFloorplanEntities, publishedFloorplanEntities, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanSchema, floorplanJson,
   floorplanTitle, floorplanDescription, renderFloorplanDiscovery, renderFloorplanPage,
 } from "../../src/lib/floorplanEntities.ts";
 import { addDiscovery, addSitemapEntities, renderEntityDocument } from "./prerender-floorplan-entities.mjs";
@@ -20,7 +20,7 @@ test("pilot has exactly one entity per project/plan, not one per source", () => 
   for (const plan of plans) assert.equal(plan.path, `/floorplans/${plan.projectId}/residence-d/`);
 });
 test("clean canonical lookup strips tracking, fragments and index filename", () => {
-  for (const plan of plans) {
+  for (const plan of publishedFloorplanEntities()) {
     for (const suffix of ["?utm_source=test#details", "index.html", ""]) assert.equal(floorplanForPath(plan.path + suffix)?.canonical, plan.canonical);
     assert.equal(floorplanForPath(plan.path.slice(0, -1))?.canonical, plan.canonical);
   }
@@ -93,8 +93,8 @@ test("static template preserves assets, replaces nested app safely, and is idemp
   assert.throws(() => renderEntityDocument(fixture.replace('id="app"', 'id="different"'), plans[0]), /Unexpected template/);
 });
 test("only the library and matching project expose discovery links", () => {
-  assert.equal((renderFloorplanDiscovery('/floorplans/').match(/data-floorplan-entity-link/g) ?? []).length, 2);
-  for (const plan of plans) assert.equal((renderFloorplanDiscovery(`/projects/${plan.projectId}/`).match(/data-floorplan-entity-link/g) ?? []).length, 1);
+  assert.equal((renderFloorplanDiscovery('/floorplans/').match(/data-floorplan-entity-link/g) ?? []).length, 1);
+  for (const plan of publishedFloorplanEntities()) assert.equal((renderFloorplanDiscovery(`/projects/${plan.projectId}/`).match(/data-floorplan-entity-link/g) ?? []).length, 1);
   assert.equal(renderFloorplanDiscovery('/'), '');
   const result = addDiscovery(fixture, '/floorplans/');
   assert.equal(addDiscovery(result, '/floorplans/'), result);
@@ -149,4 +149,19 @@ test("availability CTA precedes the drawing and preserves the facts CTA", () => 
     assert.ok(html.indexOf('data-fp-placement="intro"') < html.indexOf('class="fp-drawing"'));
     assert.ok(html.includes('data-fp-placement="facts"'));
   }
+});
+
+
+test("publication scope is Olara-only while Alba source/rendering remain reviewable", () => {
+  assert.deepEqual(publishedFloorplanEntities().map((plan) => plan.projectId), ['olara']);
+  const alba = plans.find((plan) => plan.projectId === 'alba-palm-beach');
+  assert.ok(renderFloorplanPage(alba).includes('REV. 8/2022'));
+  assert.equal(floorplanForPath(alba.path), undefined);
+  assert.equal(renderFloorplanDiscovery('/projects/alba-palm-beach/'), '');
+  assert.ok(!renderFloorplanDiscovery('/floorplans/').includes(alba.path));
+  const stale = `<urlset><url><loc>${alba.canonical}</loc></url></urlset>`;
+  assert.ok(!addSitemapEntities(stale, publishedFloorplanEntities()).includes(alba.canonical));
+  const prior = addDiscovery(fixture, '/floorplans/');
+  const cleaned = addDiscovery(prior, '/projects/alba-palm-beach/');
+  assert.ok(!cleaned.includes('wpb-floorplan-guides'));
 });
