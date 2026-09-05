@@ -44,7 +44,9 @@ async function startPreview() {
 
   let lastError;
   for (let attempt = 0; attempt < 2; attempt += 1) {
-    const port = String(4173 + Math.floor(Math.random() * 1500));
+    const configuredPort = process.env.WPB_MAP_QA_PORT;
+    if (configuredPort && (!/^\d+$/.test(configuredPort) || Number(configuredPort) < 1024 || Number(configuredPort) > 65535)) throw new Error("Invalid WPB_MAP_QA_PORT");
+    const port = configuredPort || String(4173 + Math.floor(Math.random() * 1500));
     const child = spawn(
       process.execPath,
       ["node_modules/vite/bin/vite.js", "preview", "--host", "127.0.0.1", "--port", port, "--strictPort"],
@@ -101,16 +103,16 @@ async function checkRoute(browser, route, label) {
   const mapRequests = [];
   page.on("console", (message) => {
     if (message.type() !== "error") return;
-    const text = message.text();
+    const text = message.text().replace(/https?:\/\/[^\s]+/g, "[URL omitted]");
     if (criticalConsolePatterns.some((pattern) => pattern.test(text))) consoleErrors.push(text);
   });
   page.on("pageerror", (error) => {
-    consoleErrors.push(error.stack ?? error.message);
+    consoleErrors.push(error.name || "BrowserError");
   });
   page.on("requestfailed", (request) => {
     const url = request.url();
     if (url.startsWith(baseUrl) || url.includes("maps.googleapis.com")) {
-      networkFailures.push(`${url} failed: ${request.failure()?.errorText ?? "unknown error"}`);
+      networkFailures.push(`${new URL(url).origin}${new URL(url).pathname} failed: ${request.failure()?.errorText ?? "unknown error"}`);
     }
   });
   page.on("request", (request) => {

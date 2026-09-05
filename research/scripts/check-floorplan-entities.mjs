@@ -78,8 +78,13 @@ async function checkBrowser() {
         const context = await browser.newContext({ javaScriptEnabled, viewport });
         // Never send test analytics or lead submissions to a production endpoint.
         let googleRequests = 0;
+        const submissions = [];
         await context.route('**/*', async (route) => {
           const url = new URL(route.request().url());
+          if (url.origin === origin && url.pathname === '/api/leads' && route.request().method() === 'POST') {
+            submissions.push(route.request().postDataJSON());
+            return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ok: true, leadId: 'intercepted-p2-only' }) });
+          }
           if (url.origin === origin && !url.pathname.startsWith('/api/')) return route.continue();
           if (/googletagmanager|google-analytics/.test(url.hostname)) googleRequests++;
           return route.fulfill({ status: 200, contentType: 'text/javascript', body: '' });
@@ -94,6 +99,10 @@ async function checkBrowser() {
           assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), plan.canonical);
           assert.equal(await page.locator('.fp-drawing img').evaluate((image) => image.complete && image.naturalWidth > 0), true);
           assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true, `${plan.path}: overflow`);
+          const introCta = await page.locator('[data-fp-placement="intro"]').boundingBox();
+          const drawing = await page.locator('.fp-drawing').boundingBox();
+          assert.ok(introCta && drawing && introCta.y + introCta.height < drawing.y, 'CTA must precede, never cover, the drawing');
+          assert.ok(introCta.height >= 44, 'Availability CTA has a usable touch target');
           if (javaScriptEnabled) {
             await page.waitForFunction(() => Boolean(window.wpbAnalyticsQueue?.some((event) => event.eventName === 'page_view')));
             const events = await page.evaluate(() => window.wpbAnalyticsQueue);
@@ -116,7 +125,7 @@ async function checkBrowser() {
           const [download] = await Promise.all([page.waitForEvent('download'), page.locator('a[download][data-fp-action="pdf"]').click()]);
           assert.equal(await download.failure(), null);
           assert.ok((await page.evaluate(() => window.wpbAnalyticsQueue)).some((event) => event.eventName === 'floor_plan_click'));
-          await page.locator('a[data-fp-action="availability"]').click();
+          await page.locator('a[data-fp-action="availability"][data-fp-placement="intro"]').click();
           await page.waitForURL(`${origin}/inquire/`);
           const attribution = await page.evaluate(() => JSON.parse(sessionStorage.getItem('wpbLeadAttribution') ?? '{}'));
           assert.equal(attribution.cta_context, `floorplan:${plan.projectId}:${plan.slug}`);
@@ -132,6 +141,46 @@ async function checkBrowser() {
             await page.waitForURL(`${origin}${plan.path}`);
             await page.locator('[data-floorplan-id]').waitFor();
           }
+          // Exercise actual browser form validation, handler and JSON POST payload,
+          // not just sessionStorage. The endpoint and all external traffic are intercepted.
+          for (const plan of plans) {
+            for (const placement of ['intro', 'facts']) {
+              await page.evaluate(() => sessionStorage.removeItem('wpbLeadAttribution'));
+              await page.goto(`${origin}${plan.path}`, { waitUntil: 'networkidle' });
+              await page.waitForFunction(() => typeof window.wpbSetAnalyticsConsent === 'function');
+              await page.evaluate(() => window.wpbSetAnalyticsConsent('granted'));
+              await page.locator(`[data-fp-action="availability"][data-fp-placement="${placement}"]`).click();
+              await page.waitForURL(`${origin}/inquire/`);
+              const form = page.locator('.inquiry-form');
+              await form.waitFor({ state: 'visible' });
+              assert.equal(await form.locator('[name="project"]').inputValue(), plan.projectId);
+              await form.locator('[name="name"]').fill('P2 QA Example');
+              await form.locator('[name="email"]').fill('p2-qa@example.invalid');
+              await form.locator('[name="phone"]').fill('202-555-0143');
+              await form.locator('[name="message"]').fill('P2_TEST_MESSAGE_DO_NOT_SEND');
+              await form.locator('[name="consent"]').check();
+              // Test-only token injected into the existing hidden control. Production
+              // Turnstile and endpoint verification are unchanged; endpoint is intercepted.
+              await form.locator('[name="turnstile_token"]').evaluate((input) => { input.value = 'P2_INTERCEPTED_TOKEN'; });
+              const before = submissions.length;
+              const response = page.waitForResponse((r) => r.url() === `${origin}/api/leads` && r.request().method() === 'POST');
+              await form.locator('button[type="submit"]').click();
+              await response;
+              await page.waitForFunction(() => window.wpbAnalyticsQueue?.some((event) => event.eventName === 'lead_form_submit_success'));
+              assert.equal(submissions.length, before + 1);
+              const payload = submissions.at(-1);
+              assert.equal(payload.project, plan.projectId);
+              assert.equal(payload.cta_context, `floorplan:${plan.projectId}:${plan.slug}`);
+              assert.equal(payload.lead_capture_context, payload.cta_context);
+              assert.equal(payload.landing_page, `${origin}${plan.path}`);
+              assert.equal(payload.submission_page, `${origin}/inquire/`);
+              assert.equal(payload.cta_location, placement === 'intro' ? 'floorplan-entity-intro' : 'floorplan-entity');
+              const analytics = await page.evaluate(() => JSON.stringify([window.wpbAnalyticsQueue, window.dataLayer]));
+              assert.doesNotMatch(analytics, /P2 QA Example|p2-qa@|202-555-0143|P2_TEST_MESSAGE_DO_NOT_SEND|P2_INTERCEPTED_TOKEN/);
+              results.push({ path: plan.path, width: viewport.width, placement, interceptedSubmission: 'pass', project: payload.project, planContext: payload.cta_context, analyticsPii: false });
+              submissions.length = 0; // Never write test contact values into evidence.
+            }
+          }
           await page.evaluate(() => window.wpbSetAnalyticsConsent('granted'));
           if (process.env.FLOORPLAN_EXPECT_GA4 === '1') {
             await page.waitForFunction(() => document.querySelectorAll('script[data-wpb-ga4]').length === 1);
@@ -143,7 +192,7 @@ async function checkBrowser() {
       }
     }
     await fs.writeFile(path.join(artifactDir, 'results.json'), JSON.stringify(results, null, 2));
-    console.log(JSON.stringify({ floorplanBrowserQA: 'pass', views: results.length, artifacts: '.runtime/phase-2-qa' }));
+    console.log(JSON.stringify({ floorplanBrowserQA: 'pass', views: results.filter((r) => 'javaScriptEnabled' in r).length, interceptedSubmissions: results.filter((r) => r.interceptedSubmission).length, artifacts: '.runtime/phase-2-qa' }));
   } finally {
     await browser?.close();
     await new Promise((resolve) => server.close(resolve));

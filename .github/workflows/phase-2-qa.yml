@@ -42,40 +42,108 @@ jobs:
       - name: Typecheck
         id: typecheck
         run: npm run typecheck
-      - name: Build
+      - name: Build without Maps credentials
         id: build
         if: ${{ !cancelled() && steps.typecheck.outcome == 'success' }}
         env:
-          # Synthetic ID exercises the adapter; browser QA stubs all external requests.
           VITE_GA4_MEASUREMENT_ID: G-P2TEST0001
         run: npm run build
-      - name: Full existing test suite
+      - name: Full existing test suite (retains mandatory Maps gate)
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: npm test
       - name: Remaining launch gates (independent of map-key availability)
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: npm run qa:untracked-assets && npm run qa:gatekeeper
-      - name: Map fallback verification (not live Google tile verification)
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        env:
-          CI: 'false'
-        run: npm run qa:map
       - name: Strict asset audit
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: |
           trap 'cp docs/reports/asset-pipeline-audit-report.json .runtime/phase-2-qa/asset-audit.json 2>/dev/null || true' EXIT
           npm run assets:audit:strict
-      - name: Floor-plan browser and static verification
+      - name: Floor-plan browser and intercepted submission checks
         if: ${{ !cancelled() && matrix.target == 'phase-2-candidate' && steps.build.outcome == 'success' }}
         env:
           FLOORPLAN_EXPECT_GA4: '1'
         run: npm run qa:floorplan-entities -- --browser
-      - name: Preserve review evidence
+      - name: Preflight rejects the real no-key build without uploading
+        if: ${{ !cancelled() && matrix.target == 'phase-2-candidate' && steps.build.outcome == 'success' }}
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { verifyProductionMapBundle } from './research/scripts/production-map-preflight.mjs';
+          await assert.rejects(verifyProductionMapBundle(), /reachable app chunks do not include/);
+          console.log('PASS: actual no-key build rejected. No deployment invoked.');
+          NODE
+      - name: Synthetic configuration tests split-bundle preflight only
+        if: ${{ !cancelled() && matrix.target == 'phase-2-candidate' && steps.build.outcome == 'success' }}
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: P2_SYNTHETIC_NOT_A_REAL_KEY
+        run: |
+          npm run build
+          npm run qa:deploy-preflight | tee .runtime/phase-2-qa/split-preflight.log
+      - name: Read-only official source retrieval
+        if: ${{ !cancelled() && matrix.target == 'phase-2-candidate' }}
+        run: node research/scripts/review-floorplan-sources.mjs
+      - name: Preserve credential-free review evidence (never dist)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: phase-2-${{ matrix.target }}-${{ github.run_id }}
-          path: .runtime/phase-2-qa/
+          path: |
+            .runtime/phase-2-qa/
+            .runtime/p2-source-review/
           include-hidden-files: true
-          if-no-files-found: warn
+          retention-days: 14
+
+  keyed-maps:
+    name: Restricted-key Maps verification (no deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Require a dedicated, restriction-reviewed test key
+        env:
+          HAS_REVIEW_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY != '' }}
+          RESTRICTIONS_CONFIRMED: ${{ vars.P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED == 'true' }}
+        run: |
+          if [ "$HAS_REVIEW_KEY" != "true" ]; then
+            echo '::error::Missing repository Actions secret P2_REVIEW_GOOGLE_MAPS_API_KEY. Supply a dedicated Maps JavaScript API key restricted to http://127.0.0.1:4173/*; do not reuse or relax the production key.'
+            exit 1
+          fi
+          if [ "$RESTRICTIONS_CONFIRMED" != "true" ]; then
+            echo '::error::Review the dedicated key HTTP-referrer and Maps JavaScript API restrictions, then set repository Actions variable P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED=true.'
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Build candidate with dedicated Maps key
+        id: keyed_build
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY }}
+        run: npm run build
+      - name: Read-only deployment preflight
+        run: npm run qa:deploy-preflight
+      - name: Full suite with key-configured map check
+        env:
+          WPB_MAP_QA_PORT: '4173'
+        run: npm test
+      - name: Verify real Google loader, tile images and zoom on both routes
+        if: ${{ !cancelled() && steps.keyed_build.outcome == 'success' }}
+        run: npm run qa:maps-keyed
+      - name: Record tested SHA (no bundle or secret artifact)
+        if: ${{ !cancelled() && steps.keyed_build.outcome == 'success' }}
+        run: |
+          mkdir -p .runtime/p2-keyed-maps
+          printf '%s\n' '${{ github.sha }}' > .runtime/p2-keyed-maps/tested-sha.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p2-keyed-maps-${{ github.run_id }}
+          path: .runtime/p2-keyed-maps/
           retention-days: 14

@@ -103,10 +103,13 @@
     "test:article-publisher": "node --test research/scripts/article-market-note-utils.test.mjs research/scripts/article-publish-safety.test.mjs research/scripts/public-copy-safety.test.mjs research/scripts/article-content-policy.test.mjs",
     "test:building-master": "node --experimental-strip-types --test research/scripts/reconcile-proposed-building-master.test.mjs",
     "test:floorplan-entities": "node --experimental-strip-types --test research/scripts/floorplan-entities.test.mjs",
-    "test": "npm run test:floorplan-entities && npm run test:building-master && npm run test:article-publisher && npm run qa:launch:no-write && npm run qa:gatekeeper",
+    "test": "npm run test:deploy-preflight && npm run test:floorplan-entities && npm run test:building-master && npm run test:article-publisher && npm run qa:launch:no-write && npm run qa:gatekeeper",
     "test:leads": "node research/scripts/test-leads-endpoint.mjs",
     "lint": "node research/scripts/lint-public-surface.mjs",
-    "check:updates": "node research/scripts/check-imported-updates.mjs"
+    "check:updates": "node research/scripts/check-imported-updates.mjs",
+    "qa:deploy-preflight": "node research/scripts/production-map-preflight.mjs",
+    "test:deploy-preflight": "node --test research/scripts/production-map-preflight.test.mjs",
+    "qa:maps-keyed": "node research/scripts/check-maps-keyed.mjs"
   },
   "devDependencies": {
     "playwright": "^1.60.0",

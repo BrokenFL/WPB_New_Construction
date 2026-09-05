@@ -1,5 +1,6 @@
 import "./style.css";
 import "./floorplanEntities.css";
+import { wireFloorplanInquiryContext } from "./lib/floorplanInquiry.ts";
 import { cleanFloorplanPath, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanJson, renderFloorplanDiscovery } from "./lib/floorplanEntities.ts";
 
 async function start() {
@@ -14,6 +15,7 @@ async function start() {
   const app = document.getElementById("app");
   if (!app) return;
   const { track } = await import("./lib/analytics.ts");
+  const syncFloorplanInquiry = wireFloorplanInquiryContext(app);
 
   // Entity routes are full document navigations, outside the legacy router.
   // Preserve native middle/modified clicks and no-JavaScript crawlable anchors.
@@ -27,6 +29,7 @@ async function start() {
   }, true);
 
   const refresh = () => {
+    syncFloorplanInquiry();
     const path = cleanFloorplanPath(window.location.pathname);
     const old = app.querySelector<HTMLElement>("#wpb-floorplan-guides");
     const html = renderFloorplanDiscovery(path);

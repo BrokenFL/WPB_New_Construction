@@ -139,3 +139,14 @@ test("public source actions stay on the approved archive while schema retains pr
     assert.equal(floorplanSchema(plan)['@graph'][0].mainEntity.isBasedOn, plan.sourceUrl);
   }
 });
+
+
+test("availability CTA precedes the drawing and preserves the facts CTA", () => {
+  for (const plan of plans) {
+    const html = renderFloorplanPage(plan);
+    assert.equal((html.match(/data-fp-action="availability"/g) ?? []).length, 2);
+    assert.ok(html.indexOf('data-fp-placement="intro"') > html.indexOf('class="fp-intro"'));
+    assert.ok(html.indexOf('data-fp-placement="intro"') < html.indexOf('class="fp-drawing"'));
+    assert.ok(html.includes('data-fp-placement="facts"'));
+  }
+});

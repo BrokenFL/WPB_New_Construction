@@ -41,3 +41,6 @@
 .fp-discovery li a { display: inline-block; padding: .55rem 0; }
 @media (max-width: 760px) { .fp-header { align-items: flex-start; flex-direction: column; gap: .75rem; } .fp-header nav { gap: 1rem; font-size: .9rem; } .fp-main { width: 92%; padding-top: 1.25rem; } .fp-layout { grid-template-columns: minmax(0, 1fr); } .fp-breadcrumb { margin-bottom: 1.25rem; } .fp-facts { padding: 1.25rem; } .fp-page .fp-button { width: 100%; box-sizing: border-box; } }
 @media print { .fp-header nav, .fp-actions, .fp-button, .fp-footer nav, .fp-skip { display: none !important; } .fp-page, .fp-facts { background: white; } .fp-main { width: 100%; } }
+
+.fp-intro-action { margin: 1.2rem 0; }
+.fp-intro-action p { margin: .5rem 0 0; color: #465d5d; }
