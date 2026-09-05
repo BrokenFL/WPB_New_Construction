@@ -1,0 +1,71 @@
+name: Phase 2 review QA (no deploy)
+
+on:
+  push:
+    branches: [astra-phase-2-growth]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: phase-2-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Verify ${{ matrix.target }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: phase-1-baseline
+            ref: fb7bf0e9b93a4c4710423dcd900d3e9d185e7605
+          - target: phase-2-candidate
+            ref: ''
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.ref || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Record tested revision
+        run: |
+          mkdir -p .runtime/phase-2-qa
+          git rev-parse HEAD | tee .runtime/phase-2-qa/tested-sha.txt
+      - name: Typecheck
+        id: typecheck
+        run: npm run typecheck
+      - name: Build
+        id: build
+        if: ${{ !cancelled() && steps.typecheck.outcome == 'success' }}
+        env:
+          # Synthetic ID exercises the adapter; browser QA stubs all external requests.
+          VITE_GA4_MEASUREMENT_ID: G-P2TEST0001
+        run: npm run build
+      - name: Full existing test suite
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm test
+      - name: Asset audit
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm run assets:audit
+      - name: Floor-plan browser and static verification
+        if: ${{ !cancelled() && matrix.target == 'phase-2-candidate' && steps.build.outcome == 'success' }}
+        env:
+          FLOORPLAN_EXPECT_GA4: '1'
+        run: npm run qa:floorplan-entities -- --browser
+      - name: Preserve review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase-2-${{ matrix.target }}-${{ github.run_id }}
+          path: .runtime/phase-2-qa/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
