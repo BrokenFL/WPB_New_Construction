@@ -31,7 +31,7 @@ export function mountFloorplanPage(plan: FloorplanEntity) {
   track("page_view", { route: "floorplan", path: plan.path, projectId: plan.projectId });
   app.addEventListener("click", (event) => {
     const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[data-fp-action]") : null;
-    if (!link) return;
+    if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const placement = link.dataset.fpPlacement === "intro" ? "floorplan-entity-intro" : "floorplan-entity";
     const context = { path: plan.path, projectSlug: plan.projectId, projectName: plan.projectName, pageType: "floorplan", location: placement };
     switch (link.dataset.fpAction) {
@@ -46,7 +46,7 @@ export function mountFloorplanPage(plan: FloorplanEntity) {
         break;
       case "availability": {
         const leadContext = `floorplan:${plan.projectId}:${plan.slug}`;
-        rememberLeadAttribution({ cta_context: leadContext, cta_label: "Request current availability", cta_location: placement, corridor: "north-flagler" });
+        rememberLeadAttribution({ cta_context: leadContext, cta_label: "Request current availability", cta_location: placement, corridor: "north-flagler" }, { replaceRequest: true });
         track("cta_click", { ...context, ctaText: "Request current availability", leadCaptureContext: leadContext });
         break;
       }

@@ -1,0 +1,33 @@
+/* Additive commercial guides; preserve existing imagery, navigation and filters. */
+.cg-actions { display:flex; gap:12px; flex-wrap:wrap; margin:22px 0; }
+.cg-button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 18px; border:1px solid var(--editorial-navy); border-radius:6px; background:var(--editorial-navy); color:#fff; font-size:14px; font-weight:650; line-height:1.35; text-decoration:none; }
+.cg-button.cg-secondary { background:var(--ivory); color:var(--editorial-navy); }
+.cg-button:focus-visible, .cg-guide a:focus-visible { outline:3px solid var(--waterfront-blue); outline-offset:4px; }
+.cg-guide { max-width:1360px; margin:32px auto 42px; padding:30px; border:1px solid var(--line); border-radius:8px; background:var(--ivory); color:var(--ink); }
+.cg-heading { max-width:900px; }
+.cg-guide h2 { max-width:none; font-size:clamp(25px,2.4vw,35px); line-height:1.2; margin:8px 0 14px; }
+.cg-guide h3 { color:var(--editorial-navy); max-width:none; font-size:20px; line-height:1.25; margin:0 0 12px; }
+.cg-guide p { font-size:16px; line-height:1.6; }
+.cg-corridors { display:flex; gap:10px; flex-wrap:wrap; margin:20px 0 24px; }
+.cg-corridors a { display:flex; align-items:center; min-height:44px; border:1px solid var(--line); padding:8px 13px; border-radius:5px; color:var(--editorial-navy); background:#fff; font-size:14px; font-weight:600; text-decoration:none; }
+.cg-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+.cg-grid article { padding:22px; border:1px solid var(--line); border-radius:6px; background:rgba(255,255,255,.6); }
+.cg-grid a, .cg-next a { color:var(--editorial-navy); text-underline-offset:3px; font-weight:600; }
+.cg-next { border-top:1px solid var(--line); margin-top:24px; padding-top:12px; }
+.cg-note { color:var(--soft-ink); margin-top:22px; font-size:13px !important; }
+.route-view-buildings .buildings-route-hero [data-directory-title] { max-width:1000px; }
+@media (max-width:720px) {
+ .cg-actions { gap:10px; }
+ .cg-button { width:100%; }
+ .cg-guide { margin:22px 16px 30px; padding:20px; }
+ .cg-grid { grid-template-columns:1fr; gap:12px; }
+ .cg-grid article { padding:18px; }
+ .cg-corridors { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+ .cg-corridors a { font-size:13px; }
+}
+
+.cg-static-intro { max-width:1100px; margin:30px auto; padding:24px; }
+.cg-static-intro h1 { font-size:clamp(32px,4vw,48px); line-height:1.15; }
+
+.cg-stage-details summary { cursor:pointer; min-height:44px; padding:10px 0; font-weight:650; color:var(--editorial-navy); }
+.cg-stage-details[open] summary { margin-bottom:16px; }

@@ -1,0 +1,167 @@
+name: Integrated Phase 2 review (no deploy)
+on:
+  push:
+    branches: [astra-p2-integrated-release]
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+concurrency:
+  group: integrated-p2-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  credential-free:
+    name: Combined credential-free verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 10
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Verify pinned ancestry and unchanged protected surfaces
+        run: |
+          git merge-base --is-ancestor 183320c452e95565c2928bb5d0d9d9f0620eebfb HEAD
+          git merge-base --is-ancestor 95cdd3fda76b595b6449331a7a94c6bf3aa89dfa HEAD
+          git diff --exit-code fb7bf0e9b93a4c4710423dcd900d3e9d185e7605 HEAD -- src/main.ts src/lib/analytics.ts src/lib/analyticsSafety.ts functions public package-lock.json .github/workflows/deploy-cloudflare-pages.yml
+          mkdir -p .runtime/p2-integration
+          git rev-parse HEAD > .runtime/p2-integration/tested-sha.txt
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Credential-free build
+        id: build
+        env:
+          VITE_GA4_MEASUREMENT_ID: G-P2TEST0001
+        run: npm run build
+      - name: Full combined suite with explicit no-key assertions
+        env:
+          WPB_MAP_QA_MODE: no-key
+        run: npm test | tee .runtime/p2-integration/full-suite.log
+      - name: Preserved floor-plan browser checks
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        env:
+          FLOORPLAN_EXPECT_GA4: '1'
+        run: npm run qa:floorplan-entities -- --browser
+      - name: Preserved commercial browser checks
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm run qa:commercial -- --browser
+      - name: Combined journeys, native navigation, request switching and consent
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm run qa:integration | tee .runtime/p2-integration/journeys.log
+      - name: Strict asset audit
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          npm run assets:audit:strict
+          cp docs/reports/asset-pipeline-audit-report.json .runtime/p2-integration/asset-audit.json
+      - name: Expected missing-key rejection by production preflight
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import {verifyProductionMapBundle} from './research/scripts/production-map-preflight.mjs';
+          await assert.rejects(verifyProductionMapBundle(), /reachable app chunks do not include/);
+          console.log('PASS: missing-key build correctly rejected; no deployment invoked.');
+          NODE
+      - name: Synthetic loader-inclusion preflight, never working Maps evidence
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: P2_SYNTHETIC_NOT_A_REAL_KEY
+        run: |
+          npm run build
+          npm run qa:deploy-preflight | tee .runtime/p2-integration/preflight.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p2-integration-${{ github.sha }}
+          path: |
+            .runtime/p2-integration/
+            .runtime/phase-2-qa/
+            .runtime/p2-commercial/
+          retention-days: 14
+
+  keyed-maps:
+    name: Required combined real Maps verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Require dedicated restriction-reviewed key
+        env:
+          HAS_REVIEW_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY != '' }}
+          RESTRICTIONS_CONFIRMED: ${{ vars.P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED == 'true' }}
+        run: |
+          if [ "$HAS_REVIEW_KEY" != "true" ]; then
+            echo '::error::K1: P2_REVIEW_GOOGLE_MAPS_API_KEY is absent. Configure the dedicated review key; do not use or relax the production key.'
+            exit 1
+          fi
+          if [ "$RESTRICTIONS_CONFIRMED" != "true" ]; then
+            echo '::error::K1: Review Maps JavaScript API and http://127.0.0.1:4173/* restrictions, then set P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED=true.'
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - name: Approved review build, key supplied only here
+        id: build
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY }}
+          VITE_GA4_MEASUREMENT_ID: G-P2TEST0001
+        run: npm run build
+      - name: Shared production preflight without deployment
+        run: npm run qa:deploy-preflight
+      - name: Full combined keyed suite
+        env:
+          WPB_MAP_QA_MODE: keyed
+          WPB_MAP_QA_PORT: '4173'
+        run: npm test
+      - name: Both page families and combined request journeys
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        env:
+          FLOORPLAN_EXPECT_GA4: '1'
+        run: |
+          npm run qa:floorplan-entities -- --browser
+          npm run qa:commercial -- --browser
+          npm run qa:integration
+      - name: Actual Google loader, tiles and map interaction on home and map
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm run qa:maps-keyed
+      - name: Record exact keyed candidate
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          mkdir -p .runtime/p2-keyed-maps
+          git rev-parse HEAD > .runtime/p2-keyed-maps/tested-sha.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p2-integration-keyed-${{ github.sha }}
+          path: .runtime/p2-keyed-maps/
+          retention-days: 14
+
+  release-verification:
+    name: Integrated release verification
+    needs: [credential-free, keyed-maps]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Both candidate modes must succeed
+        env:
+          NO_KEY_RESULT: ${{ needs.credential-free.result }}
+          KEYED_RESULT: ${{ needs.keyed-maps.result }}
+        run: |
+          test "$NO_KEY_RESULT" = success
+          test "$KEYED_RESULT" = success

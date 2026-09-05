@@ -79,9 +79,13 @@ export function captureLeadLandingContext() {
   if (!existing.landing_page) writeStoredAttribution(urlAttribution(new URL(window.location.href)));
 }
 
-export function rememberLeadAttribution(value: LeadAttribution) {
+export function rememberLeadAttribution(value: LeadAttribution, options: { replaceRequest?: boolean } = {}) {
   if (typeof window === "undefined") return;
   const existing = readStoredAttribution();
+  // An explicit new request replaces request-scoped metadata, never first-touch attribution.
+  if (options.replaceRequest) {
+    for (const key of ['cta_context', 'cta_label', 'cta_location', 'corridor'] as const) delete existing[key];
+  }
   const clean = Object.fromEntries(
     Object.entries(value).filter(([key, entry]) => attributionFields.has(key as keyof LeadAttribution) && typeof entry === "string" && entry.trim()),
   ) as LeadAttribution;

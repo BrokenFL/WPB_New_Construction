@@ -1,6 +1,7 @@
 import "./style.css";
 import "./floorplanEntities.css";
-import { wireFloorplanInquiryContext } from "./lib/floorplanInquiry.ts";
+import "./commercialGrowth.css";
+import { wireInquiryContext } from "./lib/inquiryContext.ts";
 import { cleanFloorplanPath, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanJson, renderFloorplanDiscovery } from "./lib/floorplanEntities.ts";
 
 async function start() {
@@ -15,7 +16,9 @@ async function start() {
   const app = document.getElementById("app");
   if (!app) return;
   const { track } = await import("./lib/analytics.ts");
-  const syncFloorplanInquiry = wireFloorplanInquiryContext(app);
+  const syncFloorplanInquiry = wireInquiryContext(app);
+  const { installCommercialGrowth } = await import("./commercialGrowth.ts");
+  installCommercialGrowth();
 
   // Entity routes are full document navigations, outside the legacy router.
   // Preserve native middle/modified clicks and no-JavaScript crawlable anchors.
@@ -53,7 +56,7 @@ async function start() {
   // The legacy application replaces its DOM on navigation. This small,
   // idempotent enhancement also survives library filters and project rerenders.
   const observer = new MutationObserver(refresh);
-  observer.observe(app, { childList: true, subtree: true });
+  observer.observe(app, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
   window.addEventListener("popstate", refresh);
   refresh();
 }
