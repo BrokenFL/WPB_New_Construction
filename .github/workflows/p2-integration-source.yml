@@ -13,16 +13,27 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-          fetch-depth: 0
-      - name: Archive exact source inputs without credentials or builds
+          fetch-depth: 1
+      - name: Archive exact text implementation inputs, never credentials or builds
         run: |
           mkdir -p .runtime/integration-source
           for sha in 183320c452e95565c2928bb5d0d9d9f0620eebfb 95cdd3fda76b595b6449331a7a94c6bf3aa89dfa; do
-            git archive "$sha" .github AGENTS.md AI_PROJECT_GUIDE.md README.md src research scripts tools docs data content functions index.html package.json package-lock.json tsconfig.json vite.config.ts > /tmp/source.tar
-            gzip -c /tmp/source.tar > ".runtime/integration-source/$sha.tar.gz"
+            git fetch --depth=1 origin "$sha"
+            SHA="$sha" python3 - <<'PY'
+          import os, re, subprocess, tarfile, io
+          sha = os.environ['SHA']
+          paths = subprocess.check_output(['git','ls-tree','-r','--name-only',sha]).decode().splitlines()
+          paths = [p for p in paths if re.search(r'\.(ts|css|html|mjs|cjs|js|json|yml|yaml|md|toml|csv|txt)$', p) and not p.startswith(('public/', 'research/raw/', 'research/archive/'))]
+          with tarfile.open('.runtime/integration-source/'+sha+'.tar.gz','w:gz') as tar:
+            for p in paths:
+              data = subprocess.check_output(['git','show',sha+':'+p])
+              if len(data) > 4_000_000: continue
+              item = tarfile.TarInfo(p); item.size=len(data); item.mode=0o644
+              tar.addfile(item,io.BytesIO(data))
+          PY
           done
       - uses: actions/upload-artifact@v4
         with:
-          name: integration-pinned-sources
+          name: integration-pinned-text-sources
           path: .runtime/integration-source/
           retention-days: 3
