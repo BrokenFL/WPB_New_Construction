@@ -34,8 +34,19 @@ assert.equal(sanitizeAnalyticsEventName("invalid event name"), "");
 const analyticsSource = await fs.readFile(path.join(workspace, "src/lib/analytics.ts"), "utf8");
 const mainSource = await fs.readFile(path.join(workspace, "src/main.ts"), "utf8");
 const envExample = await fs.readFile(path.join(workspace, ".env.example"), "utf8");
+const deployWorkflow = await fs.readFile(path.join(workspace, ".github/workflows/deploy-cloudflare-pages.yml"), "utf8");
 
 assert.match(analyticsSource, /VITE_GA4_MEASUREMENT_ID/);
+assert.match(analyticsSource, /wpbAnalyticsConsentV1/);
+assert.match(analyticsSource, /analyticsConsentState\s*!==\s*"granted"/);
+assert.match(analyticsSource, /ensureAnalyticsConsentPrompt/);
+assert.match(analyticsSource, /Allow analytics/);
+assert.match(analyticsSource, /No thanks/);
+assert.match(analyticsSource, /analytics_storage:\s*"granted"/);
+assert.match(analyticsSource, /analytics_storage:\s*"denied"/);
+assert.match(analyticsSource, /ad_storage:\s*"denied"/);
+assert.match(analyticsSource, /ad_user_data:\s*"denied"/);
+assert.match(analyticsSource, /ad_personalization:\s*"denied"/);
 assert.match(analyticsSource, /send_page_view:\s*false/);
 assert.match(analyticsSource, /allow_ad_personalization_signals:\s*false/);
 assert.match(analyticsSource, /page_location:\s*cleanPageLocation\(\)/);
@@ -47,5 +58,8 @@ assert.match(mainSource, /floor_plan_click/);
 assert.match(mainSource, /phone_click/);
 assert.match(mainSource, /email_click/);
 assert.match(envExample, /VITE_GA4_MEASUREMENT_ID=/);
+assert.match(deployWorkflow, /VITE_GA4_MEASUREMENT_ID:\s*G-0LGBH6MDVX/);
 
-console.log("Analytics safety QA passed: GA4 is environment-gated, query-free, ad-personalization-disabled, and payloads are strict-allowlist sanitized.");
+console.log(
+  "Analytics safety QA passed: production GA4 is build-configured, consent-gated, query-free, ad-personalization-disabled, and payloads are strict-allowlist sanitized.",
+);

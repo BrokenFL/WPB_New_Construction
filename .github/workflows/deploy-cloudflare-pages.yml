@@ -34,6 +34,8 @@ jobs:
           VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
           VITE_GOOGLE_MAPS_MAP_ID: ${{ vars.VITE_GOOGLE_MAPS_MAP_ID }}
           VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
+          # Public GA4 web-stream measurement ID; this is browser configuration, not a secret.
+          VITE_GA4_MEASUREMENT_ID: G-0LGBH6MDVX
         run: npm run build
 
       - name: Run launch QA

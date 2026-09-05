@@ -1,15 +1,33 @@
 # Analytics Events
 
-The site uses `src/lib/analytics.ts` as a vendor-neutral wrapper. It dispatches a local `wpb:analytics` browser event, appends to `window.wpbAnalyticsQueue`, and can forward the same sanitized event to GA4 when a valid `VITE_GA4_MEASUREMENT_ID` is present in a production build.
+The site uses `src/lib/analytics.ts` as a vendor-neutral wrapper. It dispatches a local `wpb:analytics` browser event, appends to `window.wpbAnalyticsQueue`, and can forward the same sanitized event to GA4 when a valid `VITE_GA4_MEASUREMENT_ID` is present in a production build **and the visitor has allowed optional analytics**.
 
-No event may include a visitor's name, email address, phone number, sensitive financial details, full message text, or private client notes. `analyticsSafety.ts` enforces an explicit field allowlist, drops strings that resemble email addresses or phone numbers, and removes query strings and fragments from analytics paths. GA4 automatic pageviews and advertising-personalization signals are disabled. Without a valid production measurement ID, the wrapper remains local-only and loads no Google script.
+No event may include a visitor's name, email address, phone number, sensitive financial details, full message text, or private client notes. `analyticsSafety.ts` enforces an explicit field allowlist, drops strings that resemble email addresses or phone numbers, and removes query strings and fragments from analytics paths. GA4 automatic pageviews and advertising-personalization signals are disabled.
+
+## Analytics consent
+
+WPB New Construction uses a basic, privacy-conservative analytics consent model:
+
+- Google Analytics does not load or send collection requests before analytics consent is granted.
+- The visitor can choose `Allow analytics` or `No thanks` from the first-party consent prompt.
+- The choice is stored in browser local storage under `wpbAnalyticsConsentV1`.
+- When granted, `analytics_storage` is granted while `ad_storage`, `ad_user_data`, and `ad_personalization` remain denied.
+- When denied, GA4 remains inactive.
+- The site does not use this integration for Google Ads or advertising personalization.
+- The strict PII allowlist remains in force after consent.
 
 ## Production setup and verification
 
-1. Configure the approved GA4 web-stream ID as `VITE_GA4_MEASUREMENT_ID` in the Cloudflare Pages production environment. Never commit the real ID to a source file.
-2. Confirm the Privacy page and any required consent mechanism for the production audience before enabling the variable.
-3. Deploy a verified build and use GA4 DebugView or Tag Assistant plus browser network tools to confirm the clean page location and custom events.
-4. Verify that no request contains form fields, message content, query strings, email addresses, or phone numbers.
+The site is built in GitHub Actions before the generated `dist/` directory is deployed to Cloudflare Pages, so the GA4 measurement ID must be present in the GitHub Actions **Build site** environment. The approved GA4 web-stream measurement ID is public browser configuration, not an authentication secret, and is wired in the deployment workflow as `VITE_GA4_MEASUREMENT_ID`.
+
+Before and after production release:
+
+1. Build and run the analytics safety QA plus the full launch/gatekeeper suite.
+2. Confirm no Google Analytics script or collection request appears before optional analytics consent.
+3. Accept analytics and use GA4 Realtime/DebugView or Tag Assistant plus browser network tools to confirm clean page locations and approved custom events.
+4. Reject analytics in a fresh browser/session and confirm GA4 remains inactive.
+5. Verify no request contains form fields, message content, query strings, email addresses, or phone numbers.
+6. Do not enable a second Google/Cloudflare tag installation path unless it is deliberately integrated with the same consent model and proven not to double-count events.
 
 | Event | Where Triggered | Payload | Purpose |
 | --- | --- | --- | --- |
