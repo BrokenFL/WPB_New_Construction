@@ -43,7 +43,7 @@ export async function inspectCommercialPresentation(page, guide, { output, pageN
   assert.equal(headingContrasts.length, 3);
   assert.ok(headingContrasts.every((ratio) => ratio >= 4.5), 'Commercial card heading contrast must be at least 4.5:1');
   if (await details.count()) {
-    await guide.screenshot({ path: `${output}/${pageName}-guide-expanded-${width}-${suffix}.png` });
+    await page.screenshot({ path: `${output}/${pageName}-guide-expanded-${width}-${suffix}.png`, fullPage: true });
     await details.locator('summary').click();
   }
   await page.evaluate(() => window.scrollTo(0, 0));

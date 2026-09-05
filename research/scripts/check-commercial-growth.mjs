@@ -82,7 +82,7 @@ if (process.argv.includes('--browser')) {
         }
         await inspectCommercialPresentation(page, guide, { output, pageName, width, javaScriptEnabled });
         await page.screenshot({ path:`${output}/${pageName}-${width}-${javaScriptEnabled ? 'js' : 'nojs'}.png`, fullPage:true });
-        await guide.screenshot({ path:`${output}/${pageName}-guide-${width}-${javaScriptEnabled ? 'js' : 'nojs'}.png` });
+        // Full-page screenshots retain the real layout; element capture can race native details reflow.
         results.push({ page:pageName, width, javaScriptEnabled, browser:'pass' });
         if (javaScriptEnabled) {
           if (pageName === 'buildings') {
