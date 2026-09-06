@@ -1,0 +1,72 @@
+name: PR75 resumed evidence audit (read only)
+on:
+  push:
+    branches: [p2-74-release-audit]
+    paths: [.github/workflows/ga4-75-release-evidence.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Audit exact candidate job logs and preserve reviewed source text
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import base64,hashlib,json,os,pathlib,re,time,urllib.request,urllib.error,urllib.parse
+          api='https://api.github.com/repos/BrokenFL/WPB_New_Construction'
+          sha='a8af3e67e54bfcaba75a08c4a7b8074c19b96a21'
+          run_id=34053296879
+          out=pathlib.Path('evidence');out.mkdir()
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self,req,fp,code,msg,headers,newurl): return None
+          opener=urllib.request.build_opener(NoRedirect)
+          def get(url):
+            headers={'Accept':'application/vnd.github+json','User-Agent':'PR75-evidence-audit'}
+            if urllib.parse.urlparse(url).hostname=='api.github.com':headers['Authorization']='Bearer '+os.environ['GH_TOKEN']
+            req=urllib.request.Request(url,headers=headers)
+            try:
+              with opener.open(req,timeout=60) as response:return response.read()
+            except urllib.error.HTTPError as error:
+              if error.code in (301,302,303,307,308):
+                target=error.headers['Location']
+                assert urllib.parse.urlparse(target).scheme=='https'
+                return get(target)
+              raise RuntimeError('Evidence HTTP request failed with status '+str(error.code)) from None
+          def data(path):return json.loads(get(api+path))
+          for _ in range(120):
+            run=data('/actions/runs/'+str(run_id))
+            assert run['head_sha']==sha and run['run_attempt']>=2,'Unexpected candidate attempt'
+            if run['status']=='completed':break
+            time.sleep(5)
+          else:raise RuntimeError('Candidate verification not complete')
+          report={'sha':sha,'runId':run_id,'attempt':run['run_attempt'],'conclusion':run['conclusion'],'jobs':[],'sources':[]}
+          patterns=rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}'
+          jobs=data('/actions/runs/'+str(run_id)+'/jobs?filter=latest&per_page=100')['jobs']
+          for job in jobs:
+            item={'id':job['id'],'name':job['name'],'conclusion':job['conclusion'],'steps':[{'name':s['name'],'conclusion':s['conclusion']} for s in job.get('steps',[])]}
+            if job['conclusion']!='skipped':
+              blob=get(api+'/actions/jobs/'+str(job['id'])+'/logs')
+              assert not re.search(patterns,blob),'Credential-like content detected; raw content withheld'
+              (out/('job-'+str(job['id'])+'.log')).write_bytes(blob)
+              item['credentialPatternScan']='pass'
+            report['jobs'].append(item)
+          paths=['docs/P2_INTEGRATION_PROGRESS.md','docs/PHASE_2_DELIVERY_TRACKER.md','research/scripts/check-ga4-network.mjs','research/scripts/check-gtag-command-queue.mjs','src/lib/analytics.ts','.github/workflows/ga4-corrective-verification.yml']
+          for path in paths:
+            source=data('/contents/'+path+'?ref='+sha)
+            blob=base64.b64decode(source['content'])
+            assert hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()==source['sha']
+            assert not re.search(patterns,blob),'Credential-like source withheld'
+            target=out/'source'/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(blob)
+            report['sources'].append({'path':path,'blobSha':source['sha']})
+          (out/'audit.json').write_text(json.dumps(report,indent=2))
+          print(json.dumps({'sha':sha,'attempt':run['run_attempt'],'conclusion':run['conclusion'],'logsScanned':len([j for j in jobs if j['conclusion']!='skipped']),'credentialPatternScan':'pass'}))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr75-resumed-audited-evidence
+          path: evidence/
+          retention-days: 14
