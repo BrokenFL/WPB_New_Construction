@@ -1,0 +1,66 @@
+name: PR74 evidence audit (read only)
+on:
+  push:
+    branches: [p2-74-release-audit]
+    paths: [.github/workflows/p2-74-evidence-audit.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 5c7e7ca5eb0e937fc85399143c399f827c6381db
+          persist-credentials: false
+      - name: Audit completed candidate logs and artifact bytes without reading secrets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import io,json,os,re,time,urllib.request,zipfile,hashlib,pathlib
+          api='https://api.github.com/repos/BrokenFL/WPB_New_Construction'
+          out=pathlib.Path('.runtime/release-audit');out.mkdir(parents=True,exist_ok=True)
+          run_id=34010106180
+          expected='5c7e7ca5eb0e937fc85399143c399f827c6381db'
+          def get(url):
+            req=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})
+            with urllib.request.urlopen(req,timeout=60) as response:return response.read()
+          for attempt in range(100):
+            run=json.loads(get(f'{api}/actions/runs/{run_id}'))
+            assert run['head_sha']==expected, 'Unexpected verification SHA'
+            if run['status']=='completed':break
+            time.sleep(5)
+          else:raise RuntimeError('Candidate verification did not complete within audit window')
+          patterns=[rb'AIza[0-9A-Za-z_-]{30,}',rb'gh[pousr]_[0-9A-Za-z]{30,}',rb'github_pat_[0-9A-Za-z_]{30,}']
+          def safe(blob):return not any(re.search(p,blob) for p in patterns)
+          jobs=json.loads(get(f'{api}/actions/runs/{run_id}/jobs?per_page=100'))['jobs']
+          report={'candidateSha':expected,'runId':run_id,'conclusion':run['conclusion'],'jobs':[],'artifacts':[],'credentialPatternLeaks':False}
+          for job in jobs:
+            blob=get(f'{api}/actions/jobs/{job["id"]}/logs')
+            passed=safe(blob)
+            report['jobs'].append({'id':job['id'],'name':job['name'],'conclusion':job['conclusion'],'credentialPatternScan':'pass' if passed else 'fail'})
+            if passed:(out/f'job-{job["id"]}.log').write_bytes(blob)
+            else:report['credentialPatternLeaks']=True
+          artifacts=json.loads(get(f'{api}/actions/runs/{run_id}/artifacts?per_page=100'))['artifacts']
+          for artifact in artifacts:
+            blob=get(artifact['archive_download_url'])
+            archive=zipfile.ZipFile(io.BytesIO(blob))
+            passed=all(safe(archive.read(name)) for name in archive.namelist() if not name.endswith('/'))
+            report['artifacts'].append({'id':artifact['id'],'name':artifact['name'],'sha256':hashlib.sha256(blob).hexdigest(),'files':len(archive.namelist()),'credentialPatternScan':'pass' if passed else 'fail'})
+            if not passed:report['credentialPatternLeaks']=True
+          (out/'audit.json').write_text(json.dumps(report,indent=2))
+          print(json.dumps(report))
+          assert not report['credentialPatternLeaks'], 'Credential-like material detected; offending content withheld'
+          PY
+      - name: Preserve exact reviewed text sources only
+        run: |
+          git archive HEAD docs/P2_INTEGRATION_PROGRESS.md docs/PHASE_2_DELIVERY_TRACKER.md src/lib/commercialContent.ts src/lib/floorplanEntities.ts research/scripts/check-integrated-journeys.mjs research/scripts/check-maps-keyed.mjs > .runtime/release-audit/reviewed-source.tar
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr74-reviewed-evidence-audit
+          path: .runtime/release-audit/
+          retention-days: 14
