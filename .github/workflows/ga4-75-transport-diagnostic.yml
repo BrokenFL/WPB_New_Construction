@@ -1,0 +1,66 @@
+name: GA4 transport diagnosis (not a release gate)
+on:
+  push:
+    branches: [p2-74-release-audit]
+    paths: [.github/workflows/ga4-75-transport-diagnostic.yml]
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 039e6cd1b763eedb34b956792e295a0665e90cbf
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Build without Maps or deployment credentials
+        env:
+          VITE_GA4_MEASUREMENT_ID: G-0LGBH6MDVX
+        run: npm run build
+      - name: Inspect actual collector resource type and native navigation events
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('research/scripts/check-ga4-network.mjs');s=p.read_text()
+          old="event: fields.get('en'), sequence: fields.get('_s')"
+          assert s.count(old)==1
+          s=s.replace(old,"event: fields.get('en'), method: request.method(), resourceType: request.resourceType(), sequence: fields.get('_s')")
+          old="record.networkFailure = true;"
+          assert s.count(old)==1
+          s=s.replace(old,"{ record.networkFailure = true; record.failureCode = request.failure()?.errorText; }")
+          old="e.responseStatus < 300 && !e.networkFailure"
+          assert s.count(old)==1
+          s=s.replace(old,"e.responseStatus < 300")
+          # Diagnostic interpretation only: retain all event counts, PII tests and
+          # failures. This file is NOT the gated candidate and never goes live.
+          p.write_text(s)
+          PY
+          node --experimental-strip-types research/scripts/check-ga4-network.mjs
+      - name: Safe evidence scope
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import pathlib,re
+          files=[p for p in pathlib.Path('.runtime/ga4-correction/candidate').rglob('*') if p.is_file()]
+          for p in files:
+            if p.suffix not in ['.json','.png'] or re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',p.read_bytes()):
+              for f in files:f.unlink()
+              raise RuntimeError('Unsafe evidence withheld')
+          print('Safe diagnostic evidence only; no product or release-gate change')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ga4-75-transport-diagnostic
+          path: .runtime/ga4-correction/candidate/
+          retention-days: 14
