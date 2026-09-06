@@ -1,0 +1,106 @@
+name: PR74 live acceptance (no deploy)
+on:
+  push:
+    branches: [p2-74-release-audit]
+    paths: [.github/workflows/p2-74-live-audit.yml]
+permissions:
+  contents: read
+  actions: read
+defaults:
+  run:
+    shell: bash
+    working-directory: release
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: e467269bbd48fbe9aaa4da16d5abcd6dc4d3d75b
+          path: audit
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: c0ecdefd9819809ce86caa2881d66c80ad9cf5a7
+          path: release
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Wait for the one existing automatic production deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,time,urllib.request,pathlib
+          api='https://api.github.com/repos/BrokenFL/WPB_New_Construction'
+          sha='c0ecdefd9819809ce86caa2881d66c80ad9cf5a7'
+          def get(path):
+            request=urllib.request.Request(api+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+            with urllib.request.urlopen(request,timeout=30) as r:return json.load(r)
+          pr=get('/pulls/74');assert pr['merged'] and pr['merge_commit_sha']==sha
+          for attempt in range(120):
+            run=get('/actions/runs/34010760203')
+            assert run['head_sha']==sha and run['event']=='push'
+            if run['status']=='completed':break
+            time.sleep(5)
+          else:raise RuntimeError('Automatic deployment did not complete within the live-verification wait window')
+          assert run['conclusion']=='success','Automatic deployment failed; no duplicate deployment initiated'
+          jobs=get('/actions/runs/34010760203/jobs?per_page=100')['jobs']
+          assert any(s['name']=='Deploy Cloudflare Pages' and s['conclusion']=='success' for j in jobs for s in j['steps']), 'Deployment step did not succeed'
+          out=pathlib.Path('.runtime/p2-live');out.mkdir(parents=True,exist_ok=True)
+          (out/'deployment.json').write_text(json.dumps({'mergeSha':sha,'runId':34010760203,'event':run['event'],'conclusion':run['conclusion'],'runAttempt':run['run_attempt'],'completedAt':run['updated_at']},indent=2))
+          print('Verified automatic production deployment for '+sha)
+          PY
+      - name: Build exact merged source without any credential for metadata comparison
+        run: |
+          npm run build
+          mkdir -p .runtime/p2-live
+          git rev-parse HEAD > .runtime/p2-live/tested-merge-sha.txt
+          cp ../audit/research/scripts/check-p2-live-release.mjs research/scripts/check-p2-live-release.mjs
+      - name: Live HTTP, rendered routes, actual Maps and consented actual Google tag
+        id: live
+        env:
+          RELEASE_SHA: c0ecdefd9819809ce86caa2881d66c80ad9cf5a7
+        run: node --experimental-strip-types research/scripts/check-p2-live-release.mjs
+      - name: Live combined journeys with intercepted submission payloads and native navigation
+        if: ${{ !cancelled() }}
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('research/scripts/check-integrated-journeys.mjs');s=p.read_text()
+          old='const origin=`http://127.0.0.1:${server.address().port}`;'
+          assert s.count(old)==1
+          s=s.replace(old,"const origin='https://www.wpbnewconstruction.com';")
+          s=s.replace("const output='.runtime/p2-integration';","const output='.runtime/p2-live-journeys';")
+          Path('research/scripts/check-live-journeys-temp.mjs').write_text(s)
+          PY
+          node --experimental-strip-types research/scripts/check-live-journeys-temp.mjs
+      - name: Check safe artifact scope before uploading
+        if: ${{ !cancelled() }}
+        run: |
+          python3 - <<'PY'
+          import pathlib,re
+          roots=[pathlib.Path('.runtime/p2-live'),pathlib.Path('.runtime/p2-live-journeys')]
+          files=[p for root in roots for p in root.rglob('*') if p.is_file()]
+          assert files,'Live evidence is missing'
+          for p in files:
+            assert p.suffix in ['.png','.json','.txt'], 'Unexpected evidence file type'
+            if re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',p.read_bytes()):
+              for root in roots:
+                for f in root.rglob('*'):
+                  if f.is_file():f.unlink()
+              raise RuntimeError('Credential-like material detected; evidence withheld')
+          print(f'PASS: {len(files)} allowlisted live evidence files; no credential patterns')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr74-live-c0ecdefd
+          path: |
+            release/.runtime/p2-live/
+            release/.runtime/p2-live-journeys/
+          retention-days: 14
