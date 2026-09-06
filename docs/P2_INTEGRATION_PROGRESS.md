@@ -1,109 +1,107 @@
-# Phase 2 integrated release — PR #74
+# Phase 2 integrated release and GA4 corrective verification
 
-Updated: 2026-09-06 (UTC). Repository: `BrokenFL/WPB_New_Construction`.
+Updated: 2026-09-06 UTC. Repository: `BrokenFL/WPB_New_Construction`.
 
-## Release status
+## Current decision: acceptance OPEN; PR #75 remains draft
 
-**Approved, merged and deployed once. Post-deployment acceptance remains OPEN for V1: actual GA4 event transport.** The required pre-merge Maps/keyed/no-key jobs and aggregate gate passed. That result is not a claim that the later live GA4 test passed. No growth outcome has been measured.
+Brooke reports that Enhanced Measurement Page views remains enabled and its advanced **Page changes based on browser history events** option is OFF for `G-0LGBH6MDVX`. That report is acknowledged. It does not yet match the effective Google tag behavior received by the verification runners.
 
-| Release identity | Value |
+Both full candidate modes were rerun twice after that report. Both runs still fail the added real-Google-tag navigation/privacy regression. No runtime change, corrective merge, production deployment, automatic merge, real lead or new Phase 2 feature batch was performed during this continuation. The successful legacy checks do not override the failed network gate.
+
+| Identity | Exact value |
 |---|---|
-| Release PR / branch | [PR #74](https://github.com/BrokenFL/WPB_New_Construction/pull/74) / `astra-p2-integrated-release` |
-| Exact verified candidate | `f40b46d16aa9a029f8e8584791198ca46422ae1b` |
-| Merge / deployed code SHA | `c0ecdefd9819809ce86caa2881d66c80ad9cf5a7` |
-| Candidate and merge tree | `a0706b5fa044c9a992107624e997a6bb292a12ac` — identical implementation |
-| Previous production baseline | `fb7bf0e9b93a4c4710423dcd900d3e9d185e7605` |
-| Historical PR #72 head | `183320c452e95565c2928bb5d0d9d9f0620eebfb` |
-| Historical PR #73 head | `95cdd3fda76b595b6449331a7a94c6bf3aa89dfa` |
+| Corrective PR / branch | [PR #75](https://github.com/BrokenFL/WPB_New_Construction/pull/75) / `fix/ga4-command-queue` |
+| Exact candidate tested in both resumed attempts | `a8af3e67e54bfcaba75a08c4a7b8074c19b96a21` |
+| Original runtime wrapper correction | `69c4eb2921829081acc47053d890fb6c18e8748d` |
+| Main, verified unchanged before documentation closeout | `dd28320f689a3f377b6137671e702b6c58778b67` |
+| Current deployed application, original PR #74 | `c0ecdefd9819809ce86caa2881d66c80ad9cf5a7` |
+| Corrective merge / deployment / live acceptance | None / not initiated / not performed because the release gate fails |
 
-Brooke explicitly approved the combined presentation and inquiry flow conditional on the required candidate verification passing. PR #74 was marked ready and merged through the normal PR merge action with the exact expected head SHA. No separate merge action was performed for #72 or #73. GitHub subsequently marked those historical PRs merged through their included ancestry; their original branch heads and histories remain preserved.
+This document and the delivery tracker are a documentation-only successor to the tested SHA. A documentation commit is not substituted for the exact tested candidate, nor does it satisfy the failing gate. Before any future merge, obtain successful required checks on the then-current release head.
 
-## Preserved implementation
+## Root cause and preserved correction
 
-One floor-plan-aware bootstrap starts the legacy application once on existing routes, installs the immediate shared inquiry bridge and applies commercial enhancements. Olara's individual plan page mounts without the legacy app. Postbuild composes existing static routes, commercial copy and Olara entity/discovery output; the private Vite manifest and reachable-dependency production preflight remain authoritative.
+The previous wrapper queued a rest-parameter Array. PR #75 replaces that one assignment with a normal TypeScript function pushing its native `arguments` object, following [Google's documented command queue](https://developers.google.com/tag-platform/devguides/datalayer). The existing `unknown[]` callable signature and void result remain; an existing wrapper and data layer are retained.
 
-Homepage commercial SEO, both request actions, listing/filter-first Buildings with guidance below, Olara Residence D HTML/preview/PDF/introductory CTA, and discovery/sitemap links are present. The shared allowlist replaces stale commercial/plan defaults while preserving first-touch attribution and manual selections. Consent, PII sanitization, lead endpoint, approved public assets/PDFs, lockfile and production deploy workflow remain unchanged from the previous production baseline. This includes the pre-existing analytics adapter defect documented under V1.
+Only that runtime assignment changed. The consent gate, advertising-consent denial, payload sanitizer, query-free page/referrer helpers, first-touch and inquiry attribution, loader/config ownership, main/bootstrap, project content, approved assets/PDFs, public/private boundaries, lead endpoint, package/lockfile and production deployment workflow remain unchanged. Tests compile and execute the actual source assignment and reject the former Array representation.
 
-Alba's source-review implementation remains preserved; its new HTML, sitemap entry, discovery links and public entity lookup remain unpublished. REV. 8/2022 and the 10-square-foot reported-area discrepancy still require developer clarification before a later publication decision. No existing PDF URL or bytes changed.
+The second failure is independent: the real Google tag produces an additional history-driven page view beyond the application's manual calls. The request includes synthetic private initial-query markers in `dr` (page referrer), bypassing the application's sanitized manual event payload. The test blocks that request before transmission. Fixing command delivery without eliminating this behavior would violate the release requirements.
 
-## Final pre-merge verification
+## Resumed full verification
 
-[Required candidate run 34010467317](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34010467317), exact candidate `f40b46d16aa9a029f8e8584791198ca46422ae1b`:
+[Required run 34053296879](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34053296879), same exact candidate SHA above:
 
-| Gate | Result |
+| Attempt after account-change report | No-key job | Keyed job | Aggregate gate | Result |
+|---|---|---|---|---|
+| Attempt 2 | `101547054328` | `101547054455` | `101547657692` | Both modes and aggregate FAILED at real-tag privacy regression |
+| Attempt 3, fresh full retry | `101548061690` | `101548061531` | `101548765624` | Same failure; all other required checks passed |
+
+| Check | Result and scope |
 |---|---|
-| Combined credential-free job `101425277395` | SUCCESS |
-| Required combined real Maps job `101425277458` | SUCCESS |
-| Aggregate Integrated release verification `101425728477` | SUCCESS |
-| Typecheck / build / full combined suite | PASS in both modes; 60 unit regressions retained |
-| Prepared browser suites | 12 desktop/mobile JS-on/off views and 12 intercepted POSTs per mode |
-| Combined same-session inquiry sequence | 12 intercepted POSTs per mode, in addition to the prepared suites |
-| Shared deployment preflight | Keyed build PASS; actual no-key build correctly REJECTED as an expected negative test |
-| Actual Google Maps | 4/4 PASS: `/` and `/map/`, 1366px and 390px; real loader, rendered Google tiles, zoom changing loaded tiles, no Google error or fallback substitution |
-| Scope / ancestry / assets / privacy | Protected-surface comparison and original histories PASS; strict asset audit has zero blockers and 81 existing advisories |
+| `npm run typecheck`, `npm run build`, complete `npm test` | PASS in both modes in both resumed attempts; 60 existing unit regressions, launch/copy/SEO/GEO/link/privacy/forms/performance/gatekeeper retained |
+| Actual TypeScript command-queue regression | PASS; native Arguments for consent/js/config/event cases; existing queue/function retained |
+| `npm run assets:audit` and strict asset audit | PASS; existing advisories retained, not represented as a clean dependency audit |
+| Prepared floor-plan and commercial browser suites | PASS; 12 desktop/mobile, JavaScript-on/off page configurations per mode |
+| Prepared plus combined inquiry journeys | PASS; 24 intercepted POSTs per mode; same-session plan/commercial intent replacement and first-touch attribution preserved |
+| Keyed shared deployment preflight and real Maps | PASS; actual Google loader, loaded tiles and zoom at desktop/mobile on `/` and `/map/`, 4/4; fallback not accepted |
+| No-key preflight | Correctly rejects a no-key build; explicit negative assertion PASS |
+| Fresh unset consent and rejection | PASS in real-tag regression at 1440px and 390px; zero tag loads/collection requests; rejection persists across tested navigation |
+| Initial consented actual-tag page view | PASS in candidate; one primary tag, one manual command, correct ID and clean location/referrer; collector intercepted |
+| Advertising consent | PASS; analytics storage granted only after consent; ad storage, ad user data and ad personalization denied |
+| Real-tag Home to Buildings navigation | FAIL at both widths: two clean manual page views plus an additional unsafe automatic page-view attempt with private test markers in `dr` |
+| New real-tag commercial/floor-plan conversion sequence | NOT REACHED after earlier navigation/privacy failure; older passing inquiry tests are not a substitute |
+| Actual production collection for correction | NOT RUN; correction not deployed |
 
-The dedicated review secret was supplied only to the approved BUILD step. Production keys/restrictions were not changed. K1 is resolved. The confirmation variable is a human attestation, not independent administration access to Google Cloud restrictions.
+Candidate collection is always intercepted. The reported candidate HTTP 204 is a test response, not proof of receipt by Google. The eventual `--live` test requires successful responses from Google's collector for validated production page views; no claim is made from merely loading gtag.js. Client `ERR_ABORTED` after an empty 204 is retained separately from receipt status; missing receipt, duplicate or privacy failures are not ignored.
 
-Two narrow corrections were made during release verification, not a new feature batch: `5c7e7ca5` fetches full checkout ancestry so the pinned production comparison can run; `f40b46d1` fixes an inherited two-column standalone map card and adds desktop/mobile real-map geometry assertions. Final candidate and real-map screenshots were inspected after those corrections.
+Desktop/mobile screenshots from the resumed candidate were inspected. Homepage actions, listing-first Buildings and the Olara introductory CTA/drawing remain intact. No visual correction was necessary or made.
 
-## Single automatic production deployment
+## Effective configuration evidence, not an assumption about the saved UI
 
-[Deploy Cloudflare Pages run 34010760203](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34010760203), job `101426049489`, push event, attempt **1**, completed **2026-09-06T04:10:39Z**: **SUCCESS**, including the actual `Deploy to Cloudflare Pages` step. It built the merge SHA `c0ecdefd9819809ce86caa2881d66c80ad9cf5a7`. No duplicate manual deployment, second production release or production workflow alteration was initiated. Subsequent audit runs are read-only and isolated on `p2-74-release-audit`.
+A separate [read-only public-tag diagnosis](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34055994842) fetched the actual `G-0LGBH6MDVX` Google tag normally and with a diagnostic cache-busting query. It made zero collection requests and did not alter candidate code or account settings.
 
-## Live acceptance results
+At **19:47:46–47 UTC**, both responses reported `vtp_enableHistoryEvents: true` and `vtp_historyEvents: true`. At **19:53:39 UTC**, a second fresh pair still reported both true. `vtp_enablePageView: true` also remained, consistent with retaining Page views. These internal flags are diagnostic observations, not a supported configuration API.
 
-[Live audit 34011268700](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34011268700), observed deployed SHA `c0ecdefd9819809ce86caa2881d66c80ad9cf5a7`. The surface script records **29 passing checks and two failed actual-GA4 checks**; its failure is retained. The separate combined-journey step passed.
+The second pair had identical SHA-256 `0120fe9ffddd733f2a6a0860cd10159e556d0d22c06401141a0dfa72794c40a2`; the earlier pair was `bfa80b8f772d57367b7835fb119fc3026b969d68527b76958eb4f849381ebc37`. Responses carried `Cache-Control: private, max-age=900`; this does not establish how long account changes take to propagate. Fresh downloads and repeated browser results establish that the effective history behavior remained active during testing, not why the saved UI and served tag differ.
 
-| Live URL | Result |
+Google's [manual page-view guidance](https://developers.google.com/analytics/devguides/collection/ga4/views#disable_page_changes_based_on_browser_history_events) explains that `send_page_view: false` does not suppress Enhanced Measurement history events. Google also documents a separate tag-level [Manage automatic event detection](https://support.google.com/analytics/answer/12131703?hl=en) control for **Page views on browser history change**.
+
+**Next account check:** open the same `G-0LGBH6MDVX` stream, then Google tag → Configure tag settings → Show all → Manage automatic event detection. Ensure **Page views on browser history change** is OFF and save. Leave Page views enabled and the already-disabled Enhanced Measurement history option OFF. Reopen the stream to confirm its ID and persisted settings. If both already show OFF, capture those saved settings for diagnosis rather than repeatedly toggling them or assuming the UI is wrong. No available connected action could read/write these account settings; public tag inspection cannot prove their saved UI state.
+
+The code must not work around this by concealing, dropping or tolerating failed duplicate/PII assertions. No unsupported runtime history-suppression parameter was added.
+
+## Evidence ledger
+
+All artifacts below are safe summaries/screenshots, not deployed previews, key-bearing builds, HARs, client IDs or raw contact payloads.
+
+| Evidence | Artifact / digest |
 |---|---|
-| https://www.wpbnewconstruction.com/ | HTTP 200; canonical/title/description; enhanced H1, commercial actions; desktop/mobile rendered |
-| https://www.wpbnewconstruction.com/buildings/ | HTTP 200; commercial metadata; filters/listings before guidance; desktop/mobile rendered |
-| https://www.wpbnewconstruction.com/floorplans/ | HTTP 200; canonical/metadata; Olara discovery link |
-| https://www.wpbnewconstruction.com/floorplans/olara/residence-d/ | HTTP 200; canonical/metadata/H1; drawing, approved PDF and availability CTA |
-| https://www.wpbnewconstruction.com/projects/olara/ | HTTP 200; canonical/metadata; Olara plan discovery link |
-| https://www.wpbnewconstruction.com/inquire/ | HTTP 200; canonical/metadata; both request families reach the actual submit handler |
-| https://www.wpbnewconstruction.com/map/ | HTTP 200; canonical/metadata; working Google map and corridor control |
-| https://www.wpbnewconstruction.com/sitemap.xml | HTTP 200; Olara plan occurs once; Alba entity absent |
-| https://www.wpbnewconstruction.com/floorplans/alba-palm-beach/residence-d/ | HTTP 404; Alba HTML not published |
+| Final resumed attempt 3 keyed | [9996057597](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34053296879/artifacts/9996057597); SHA-256 `ec7c5d937e1ee1327b9fa3d7687ff20fd8787c5365e429b64ddd77893f18bc22` |
+| Final resumed attempt 3 no-key | [9996055585](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34053296879/artifacts/9996055585); reported SHA-256 `b58f0d1049b40ddb2489e835d6f76b9aecd750d5ca1b68858cfd1868f44634c0` |
+| First resumed attempt 2 no-key | [9995935132](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34053296879/artifacts/9995935132); SHA-256 `d2b0d794bb83908b49081a827198fd267620702b57c419536bd06f6d95d1e2db` |
+| Attempt 2 job-log/source audit | [9995943612](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34055797508/artifacts/9995943612); SHA-256 `bb9994ea18a57a6c397fbb93c70a678f2413a2d904f3f94fd1deabd07f9e6ff7` |
+| Fresh public tag configuration, second check | [9996051612](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34055994842/artifacts/9996051612); SHA-256 `39341329bd2c19ed3f4f107bdffe2d0e40f37f975889a33111b36ec1ed5a3a62` |
 
-All seven HTML routes were rendered at 1440px and 390px: **14/14 PASS** for canonical identity, one visible H1, one parseable JSON-LD graph and no horizontal overflow. Homepage/Buildings were checked for their enhanced titles and presentation. Existing legacy runtime title variants on the floor-plan library, Olara project and inquiry page differ from their prerender titles; both were recorded without changing those baseline templates or claiming universal static/runtime text equality.
+Downloaded keyed attempt 3, no-key attempt 2, source/log audit and configuration artifacts had their ZIP digests verified. All 57 files in the final keyed artifact passed a scoped Google/GitHub credential-pattern scan. Attempt 2's three job logs were separately scanned before export. These pattern scans are scoped evidence, not a universal security certification. No private test query/contact content was sent to Google or the live lead endpoint.
 
-**Live Maps 4/4 PASS:** unmocked Google loader and loaded tile images on both routes at both widths, zoom changed loaded tiles, standalone canvas filled its card, and map-page corridor controls worked without Google error codes. Fallback was not accepted.
+## Release sequence still required
 
-**Live inquiry journeys 12/12 intercepted POSTs PASS:** plan availability → Homepage availability → Buildings pricing packet → plan availability → Homepage pricing packet → Buildings availability, repeated at both widths without clearing attribution. Commercial requests select a different building to prove that Olara does not remain stuck. Native, modified and back navigation, JS-off navigation through inquiry landing, first-touch preservation, manual choices and analytics PII exclusions passed.
+1. Verify the served configuration and actual tag no longer produce extra history/unsafe requests; both full candidate modes and `GA4 corrective release gate` must pass on the release head.
+2. Under Brooke's existing conditional authorization, mark PR #75 ready and merge that exact expected SHA normally. Do not separately merge historical PR #72/#73 or enable auto-merge.
+3. Allow the existing main production workflow to deploy once; do not launch a duplicate manual deployment.
+4. Require live desktop/mobile collection receipts to `G-0LGBH6MDVX` for `/`, `/buildings/`, `/projects/olara/` and `/floorplans/olara/residence-d/`, correct clean URLs/referrers, no PII or duplicates, fresh no-consent/rejection inactivity and one loader per document. Confirm Maps/pages/assets/inquiry flows remain healthy. Synthetic leads and conversions stay intercepted; real CAPTCHA/CRM delivery is not claimed.
+5. Record merge SHA, actual deployment and live network evidence in both documents and close integrated acceptance only after live success. Stop without starting a feature batch.
 
-Every test POST was intercepted. The live production Turnstile integration was replaced only inside the test browser with a challenge callback fixture; no fixture token or synthetic contact record reached the real lead endpoint. These tests prove client UI, actual submission payload and attribution, not end-to-end production CAPTCHA validation, lead delivery or CRM receipt. No marketing emails were sent.
+## Historical PR #74 release, preserved context
 
-The live approved Olara PDF and preview returned 200 and matched repository bytes:
-- PDF: `/assets/projects/olara/floorplans/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.pdf`; SHA-256 `bdafa9399566df69f665551ecd332cdbb8b34923db310c1c07b5a000d9d8deae`.
-- Preview: `/assets/projects/olara/floorplans/previews/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.jpg`; SHA-256 `74bfbacf83693d8cc22f0e03ca88e31bc44285d9fb18876253ea1d918fd8f3e0`.
+PR #74 candidate `f40b46d16aa9a029f8e8584791198ca46422ae1b` passed required full keyed/no-key verification and aggregate [run 34010467317](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34010467317), then merged as `c0ecdefd9819809ce86caa2881d66c80ad9cf5a7`. Both share tree `a0706b5fa044c9a992107624e997a6bb292a12ac`. Original production workflow [34010760203](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34010760203) deployed successfully once, attempt 1, completed 2026-09-06T04:10:39Z. Documentation-only main closeout was `dd28320f689a3f377b6137671e702b6c58778b67` without redeployment.
 
-## V1 — live GA4 transport acceptance OPEN
+The integrated implementation retains one floor-plan-aware bootstrap, one shared allowlisted inquiry bridge, coordinated postbuild, reachable-manifest preflight, Homepage commercial SEO, Buildings filters/listings before guidance and Olara Residence D HTML/discovery/sitemap/preview/PDF. Alba's implementation/source review is preserved but its new HTML remains unpublished, absent from sitemap/discovery and returns 404; its REV. 8/2022 drawing and 10-square-foot area discrepancy still require developer clarification. Existing PDFs remain intact.
 
-At both widths, declined/unset consent produced zero analytics tag/collection requests. After consent, the actual Google tag loaded once, and the application queued one configuration and one page-view command, with contact values excluded. However, the unmodified live page produced **zero outgoing GA4 page-view collection attempts**. Actual event delivery and downstream duplicate-event acceptance therefore did **not** pass.
+Original live audit [34011268700](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34011268700) passed 29 surface checks, four actual Maps configurations and 12 intercepted same-session inquiries, but failed both actual-GA4 tests. Final stable desktop/mobile visual/log audit [34011866590](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34011866590) passed. Checked live URLs were `/`, `/buildings/`, `/floorplans/`, `/floorplans/olara/residence-d/`, `/projects/olara/`, `/inquire/`, `/map/` and `/sitemap.xml`; required routes returned 200, Alba's held route 404, and approved plan asset bytes matched. Legacy runtime/prerender title variants and startup/capture timing remain documented, not silently corrected here.
 
-`src/lib/analytics.ts` uses `(...args) => window.dataLayer?.push(args)`, producing Array commands. Google's [documented gtag wrapper](https://developers.google.com/tag-platform/devguides/datalayer) pushes the function's `arguments` object. A browser-only diagnostic control replaced the wrapper and replayed the already queued commands using that documented representation; exactly one intercepted page-view request then appeared at each width. This control did not modify production and is not counted as a passing live baseline.
+Only PR #74 was deliberately merged in the original release. GitHub marked historical #72/#73 merged through included ancestry; original heads `183320c452e95565c2928bb5d0d9d9f0620eebfb` and `95cdd3fda76b595b6449331a7a94c6bf3aa89dfa` remain preserved.
 
-The adapter is unchanged from the pre-release baseline. Earlier mocked-tag tests verified application commands, consent and sanitization, but did not establish actual Google command processing. Their results remain valid only within that narrower scope.
+The complete earlier chronological ledger and artifact digests remain in [this file at the pre-continuation SHA](https://github.com/BrokenFL/WPB_New_Construction/blob/a8af3e67e54bfcaba75a08c4a7b8074c19b96a21/docs/P2_INTEGRATION_PROGRESS.md), including original startup/native-link/map-layout fixes, initial wrapper diagnosis and rejected pre-setting candidate attempts. No earlier failure is reclassified as a pass by this current snapshot.
 
-Required closure: a focused correction to the gtag command wrapper, a regression exercising the actual Google tag with all collection requests intercepted, both full candidate modes/Maps/preflight, and a separately authorized corrective release/live rerun. Retain consent, strict PII exclusions, one tag/configuration and one delivered event per intended transition. No analytics fix or second deployment was applied during this single-deployment release task. No traffic/conversion uplift is claimed.
-
-## Evidence and visual review
-
-All evidence refers to exact tested code or the deployed merge, not a generated mockup. Final viewport captures wait for actual commercial enhancement and native discovery readiness, fonts and stable scroll rather than assuming a fixed delay. The original consent control is used; no banner or map error is hidden. Desktop/mobile Homepage, Buildings, plan, library, project, inquiry and map screens are inspected separately from analytics acceptance.
-
-| Evidence | Run / artifact | SHA-256 |
-|---|---|---|
-| Final credential-free candidate | 34010467317 / 9982334110 | `4f53c66e28bfb3ad9dfc0822773425c6750c0b06164ae0415fa4504b419ad6ab` |
-| Final keyed real Maps | 34010467317 / 9982330156 | `d6003d76a2af0f3cfedc513ac7feb3130d025b60a212be2d305d89241500f204` |
-| Pre-merge log/artifact safety | 34010485322 / 9982338261 | `d91423cff7a475c5df3afd4262b9d5865a259adfdf152f1966e66dff76e1fea4` |
-| Live results, including V1 failures and browser-only control | 34011268700 / 9982576059 | `12c56065bdcaf805f9d04826f1ef486d61ba7d0852e67b77f103fc3f54c0dc07` |
-| Final stable live viewports and production-log safety | 34011866590 / 9982730202 | `ee98e3562d1cf1d9a318bf572cce1e4336d12faff2cae8dfecd7664f155a93ac` |
-
-The independent safety audit scanned all three pre-merge job logs and all 56 artifact files for Google/GitHub credential patterns; no matches. Production job logs also passed a credential-pattern scan, with raw production logs not archived. Artifacts exclude credential-bearing builds, HAR files and raw contact submissions. This is a scoped scan and artifact review, not a blanket security certification.
-
-## Historical record and stopping point
-
-The complete pre-release integration history remains in [this document at the deployed merge](https://github.com/BrokenFL/WPB_New_Construction/blob/c0ecdefd9819809ce86caa2881d66c80ad9cf5a7/docs/P2_INTEGRATION_PROGRESS.md), plus the unchanged P2-001 and P2-002 progress documents. It records the form-initialization, mobile-navigation test and native-link contrast corrections; their earlier missing-key statuses are historical, not current blockers.
-
-This closeout changes only the integration progress document and delivery tracker. A documentation-only `[skip ci]` commit prevents an unnecessary second production deployment; it does not skip or replace the already completed release-candidate gates. No new Phase 2 feature batch was begun. Presentation is approved and deployed; **overall post-deployment acceptance is not fully green until V1 is corrected and retested**. All remaining roadmap items remain in `docs/PHASE_2_DELIVERY_TRACKER.md`.
+Existing four high-severity dependency findings, 81 asset advisories and Vite chunk-size warning remain maintenance considerations. No dependency upgrade or unrelated cleanup is included. All remaining handoff work is carried in the delivery tracker. No Phase 2 growth outcome is measured and no historical GA4 delivery is invented for the instrumentation gap.
