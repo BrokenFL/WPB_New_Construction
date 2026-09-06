@@ -2,7 +2,53 @@
 
 Updated: 2026-09-06 (UTC). Repository: `BrokenFL/WPB_New_Construction`.
 
-## Release status
+## Latest corrective release attempt — PR #75, NOT DEPLOYED
+
+Brooke authorized a focused GA4 correction, conditional merge and one normal production deployment after all required gates pass. The correction is implemented on `fix/ga4-command-queue` / [PR #75](https://github.com/BrokenFL/WPB_New_Construction/pull/75), branched from current main `dd28320f689a3f377b6137671e702b6c58778b67`. **No corrective merge or deployment has occurred. Integrated release acceptance remains OPEN.** The original PR #74 release ledger below remains historical evidence, not proof that PR #75 was released.
+
+| Corrective identity / status | Value |
+|---|---|
+| Runtime correction commit | `69c4eb2921829081acc47053d890fb6c18e8748d` |
+| Exact tested implementation | `af4226ff5be8801fbd5c196ad1562a2baa532d54` |
+| Full corrective verification | [Run 34052877189](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34052877189) |
+| Corrective merge SHA | None — release gate not satisfied |
+| Corrective deployment | Not initiated; current deployed code remains `c0ecdefd9819809ce86caa2881d66c80ad9cf5a7` |
+| Real production collection evidence for correction | Not available: correction is not deployed; candidate collection is intercepted |
+| Acceptance | OPEN for V1 and V1-H; not waived |
+
+### Root cause and implemented correction
+
+The old wrapper pushed a rest-parameter Array. The replacement is a normally declared TypeScript function with the unchanged `unknown[]` callable signature and a `void` return, pushing its native `arguments` object as required by [Google's documented data layer](https://developers.google.com/tag-platform/devguides/datalayer). The existing function/queue are retained. This is the only runtime change. The consent gate, all denied advertising settings, payload sanitizer, clean URL/referrer helpers, first-touch and inquiry attribution, page content, PDFs, Alba exclusion and production deployment workflow remain unchanged.
+
+`check-gtag-command-queue.mjs` exercises the actual TypeScript assignment through the TypeScript compiler, requiring native Arguments objects for consent, js, config and event commands and rejecting the former Array representation. It runs through the existing analytics safety check in `npm test`.
+
+`check-ga4-network.mjs` loads the actual Google tag for `G-0LGBH6MDVX`; it does not replace gtag with a mock. It checks unset/granted/denied consent, command representation, single loader/configuration, sanitized location/referrer, contact/query PII, delayed navigation events and inquiry serialization. Every candidate collection request and lead POST is intercepted. Its `--live` mode requires a real Google collector 2xx response for validated production page views; synthetic inquiries/conversions remain intercepted. The corrective workflow runs full keyed/no-key suites and a required aggregate gate, then live acceptance after the normal production deployment. No deployment credentials are available to these verification jobs.
+
+### Tested results and newly exposed blocker V1-H
+
+On the exact implementation above, both modes passed typecheck, production build, full `npm test`, `assets:audit`, strict asset audit, prepared commercial/floor-plan browser checks and combined inquiry journeys. The keyed job also passed the shared deployment preflight and actual Google Maps checks. The no-key job correctly asserted deployment rejection. Existing prepared/combined browser suites exercised 12 page configurations and 24 intercepted inquiry POSTs per mode. These do not substitute for the new real-tag transport test.
+
+The new real-tag test passes the initial clean manual page view after consent at 1440px and 390px, with one primary tag, native Arguments commands, analytics consent granted and all advertising consent denied. Fresh rejection persists through navigation with zero tag loads or collection requests.
+
+**The same real-tag test FAILS on navigation from Homepage to Buildings at both widths.** Two intended manual page-view commands are present, but an additional Google-generated `page_view` request carries the test query data in the `dr` referrer field. That unsafe request is aborted before transmission; only its event and offending field name are recorded. Separate diagnostic run [34052556760](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34052556760) also exposed a later duplicate Olara page view with a distinct event sequence. It is diagnostic evidence, not a passing release gate.
+
+This matches the documented Enhanced Measurement history behavior: [Google states](https://developers.google.com/analytics/devguides/collection/ga4/views#disable_page_changes_based_on_browser_history_events) that `send_page_view: false` does not suppress Enhanced Measurement history-generated page views. Those automatic requests bypass the application's manually sanitized event calls. The wrapper fix must not ship alone while this conflicts with the privacy/no-duplicate requirements.
+
+The collector test retains HTTP receipt status and any Chromium `net::ERR_ABORTED` diagnostic separately. An empty collector 204 was followed by that browser signal during interception; it is not treated as absence of a received HTTP response. Requests without a collector response never meet receipt acceptance. Duplicate counting and unsafe-request rejection remain enforced, including delayed history batches; no network/PII failure is blanket-ignored.
+
+**Exact account action:** GA4 → Admin → Data collection and modification → Data streams → the WPB web stream with measurement ID `G-0LGBH6MDVX` → Enhanced measurement gear → Page views → Show advanced settings → disable **Page changes based on browser history events** → Save. Leave the site's manual page views, consent controls, advertising-denial settings and production credentials unchanged. No connected GA4 settings-write action was available; the account setting has not been changed by this task.
+
+After the setting changes, re-run the current PR #75 candidate workflow, requiring both full modes and `GA4 corrective release gate` to pass. Only then mark ready, merge the exact verified head and allow the normal main workflow to deploy once. Its live job must show actual Google collector responses for `/`, `/buildings/`, `/projects/olara/` and `/floorplans/olara/residence-d/` at both widths, no duplicates or PII, rejection inactivity, healthy Maps/pages/inquiries, and only then close acceptance. A candidate receipt from an intercepted collector is not production delivery evidence.
+
+### Corrective evidence
+
+- Required no-key artifact [9995142752](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34052877189/artifacts/9995142752), SHA-256 `340d5183d853c9bf34f3b705d0afeb3a3bf43928b5958bb495135582d9c9806d`.
+- Required keyed artifact [9995144120](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34052877189/artifacts/9995144120), SHA-256 `9ea6ac9a2760a235d873c3bf81bc1b8325d886dd5dda50bb1a305a26accdf86d`.
+- Isolated transport diagnostic [9995015284](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34052556760/artifacts/9995015284), SHA-256 `355d362f02674542ec8a1d89fe9e330254a63e53dd4a3c62e40e4de41f153047`.
+
+Artifact summaries retain failures, safe event metadata and screenshots, not raw PII, client IDs, key-bearing builds or HARs. Credential-pattern scans passed. No real lead, production analytics test conversion or marketing email was sent. No Phase 2 feature batch was started. The following sections describe the already-deployed PR #74, not an additional corrective release.
+
+## PR #74 historical release status
 
 **Approved, merged and deployed once. Post-deployment acceptance remains OPEN for V1: actual GA4 event transport.** The required pre-merge Maps/keyed/no-key jobs and aggregate gate passed. That result is not a claim that the later live GA4 test passed. No growth outcome has been measured.
 
