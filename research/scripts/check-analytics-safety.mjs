@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { sanitizeAnalyticsEventName, sanitizeAnalyticsPayload } from "../../src/lib/analyticsSafety.ts";
+import "./check-gtag-command-queue.mjs";
 
 const workspace = process.cwd();
 const clean = sanitizeAnalyticsPayload({
