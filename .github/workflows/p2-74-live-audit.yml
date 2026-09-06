@@ -6,6 +6,9 @@ on:
 permissions:
   contents: read
   actions: read
+concurrency:
+  group: pr74-live-audit
+  cancel-in-progress: true
 defaults:
   run:
     shell: bash
@@ -50,7 +53,7 @@ jobs:
           else:raise RuntimeError('Automatic deployment did not complete within the live-verification wait window')
           assert run['conclusion']=='success','Automatic deployment failed; no duplicate deployment initiated'
           jobs=get('/actions/runs/34010760203/jobs?per_page=100')['jobs']
-          assert any(s['name']=='Deploy Cloudflare Pages' and s['conclusion']=='success' for j in jobs for s in j['steps']), 'Deployment step did not succeed'
+          assert any(s['name']=='Deploy to Cloudflare Pages' and s['conclusion']=='success' for j in jobs for s in j['steps']), 'Deployment step did not succeed'
           out=pathlib.Path('.runtime/p2-live');out.mkdir(parents=True,exist_ok=True)
           (out/'deployment.json').write_text(json.dumps({'mergeSha':sha,'runId':34010760203,'event':run['event'],'conclusion':run['conclusion'],'runAttempt':run['run_attempt'],'completedAt':run['updated_at']},indent=2))
           print('Verified automatic production deployment for '+sha)
