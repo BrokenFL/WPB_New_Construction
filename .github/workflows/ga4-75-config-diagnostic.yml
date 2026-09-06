@@ -1,0 +1,48 @@
+name: PR75 public Google tag configuration diagnosis
+on:
+  push:
+    branches: [p2-74-release-audit]
+    paths: [.github/workflows/ga4-75-config-diagnostic.yml]
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect served tag settings without analytics collection
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,re,time,urllib.request
+          root=pathlib.Path('config-evidence');root.mkdir()
+          url='https://www.googletagmanager.com/gtag/js?id=G-0LGBH6MDVX'
+          report={'measurementId':'G-0LGBH6MDVX','checkedAt':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'fetches':[],'collectionRequests':0,'candidateChanged':False}
+          for label,suffix in [('normal',''),('fresh-diagnostic','&qa_config_check='+str(int(time.time())))]:
+            req=urllib.request.Request(url+suffix,headers={'User-Agent':'Mozilla/5.0','Cache-Control':'no-cache'})
+            with urllib.request.urlopen(req,timeout=45) as r:blob=r.read();headers=r.headers;status=r.status
+            text=blob.decode('utf8')
+            item={'variant':label,'httpStatus':status,'sha256':hashlib.sha256(blob).hexdigest(),'date':headers.get('Date'),'age':headers.get('Age'),'cacheControl':headers.get('Cache-Control'),'resourceTags':[],'historyAndPageParameters':[]}
+            match=re.search(r'"resource"\s*:\s*',text)
+            if match:
+              try:
+                resource=json.JSONDecoder().raw_decode(text[match.end():])[0]
+                for tag in resource.get('tags',[]):
+                  selected={'function':tag.get('function')}
+                  for key,value in tag.items():
+                    if re.search(r'history|page.?view|event.?name',key,re.I):selected[key]=value
+                  if len(selected)>1 or re.search(r'history|page|ga4|ccd',str(tag.get('function')),re.I):item['resourceTags'].append(selected)
+              except (ValueError,TypeError):item['resourceParse']='unavailable'
+            for m in re.finditer(r'"([^"\n]*(?:[Hh]istory|[Pp]age[Vv]iew|page_view)[^"\n]*)"\s*:\s*(true|false|-?\d+|"[A-Za-z0-9_.-]*")',text):
+              pair={'key':m.group(1),'value':m.group(2)}
+              if pair not in item['historyAndPageParameters']:item['historyAndPageParameters'].append(pair)
+            report['fetches'].append(item)
+          encoded=json.dumps(report,indent=2)
+          assert not re.search(r'AIza[0-9A-Za-z_-]{30,}|github_pat_[0-9A-Za-z_]{30,}',encoded),'Unsafe content withheld'
+          (root/'config.json').write_text(encoded)
+          print(encoded)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr75-public-tag-config
+          path: config-evidence/
+          retention-days: 14
