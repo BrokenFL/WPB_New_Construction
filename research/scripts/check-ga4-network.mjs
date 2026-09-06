@@ -62,7 +62,10 @@ async function widthTest(width) {
     for (const record of requests.get(response.request()) || []) record.responseStatus = response.status();
   });
   context.on('requestfailed', request => {
-    for (const record of requests.get(request) || []) record.networkFailure = true;
+    for (const record of requests.get(request) || []) {
+      record.networkFailure = true;
+      record.failureCode = request.failure()?.errorText;
+    }
   });
   await context.route('**/*', async route => {
     const request = route.request(), url = new URL(request.url());
@@ -79,15 +82,16 @@ async function widthTest(width) {
           assert.equal(location.search + location.hash, '', 'Query or fragment entered page location');
           const referrer = fields.get('dr');
           if (referrer) { const parsed = new URL(referrer); assert.equal(parsed.search + parsed.hash, '', 'Referrer query leaked'); }
-          if (fields.get('en')) records.push({ event: fields.get('en'), sequence: fields.get('_s'), measurementId: measurement, pageLocation: location.origin + location.pathname, endpointHost: url.hostname, endpointPath: url.pathname, transport: transmit ? 'real-google-network' : 'intercepted', queryAndContactPiiExcluded: true });
+          if (fields.get('en')) records.push({ event: fields.get('en'), method: request.method(), resourceType: request.resourceType(), sequence: fields.get('_s'), measurementId: measurement, pageLocation: location.origin + location.pathname, endpointHost: url.hostname, endpointPath: url.pathname, transport: transmit ? 'real-google-network' : 'intercepted', queryAndContactPiiExcluded: true });
         }
         requests.set(request, records); evidence.records.push(...records);
         if (transmit) return route.continue();
         return route.fulfill({ status: 204, headers: cors, body: '' });
       } catch (error) {
         evidence.blockedUnsafeRequests++; violations.push('Unsafe collection blocked before network');
-        const piiFields = [...new Set(decodeFields(request).flatMap(fields => [...fields].filter(([, value]) => forbidden.test(value)).map(([key]) => key)))];
-        evidence.blockedChecks.push({ reason: String(error.message).split('\n')[0].slice(0,100), method: request.method(), piiFieldNames: piiFields });
+        const fields = decodeFields(request);
+        const piiFields = [...new Set(fields.flatMap(p => [...p].filter(([, value]) => forbidden.test(value)).map(([key]) => key)))];
+        evidence.blockedChecks.push({ reason: String(error.message).split('\n')[0].slice(0,100), method: request.method(), events: fields.map(p => p.get('en')).filter(Boolean), piiFieldNames: piiFields });
         return route.abort();
       }
     }
@@ -108,16 +112,22 @@ async function widthTest(width) {
   const page = await context.newPage();
   const pageViews = path => evidence.records.filter(e => e.event === 'page_view' && e.pageLocation === origin + path);
   async function onePageView(path) {
-    await until(() => pageViews(path).some(e => e.responseStatus >= 200 && e.responseStatus < 300 && !e.networkFailure), 'Google page_view response missing');
-    await pause(2200);
+    // A collector 2xx is the receipt. Chromium may report ERR_ABORTED after an
+    // empty 204 response; retain that diagnostic, not a false "no receipt".
+    // A request without a collector response NEVER satisfies this assertion.
+    // In --live mode this response comes from Google, not route.fulfill().
+    await until(() => pageViews(path).some(e => e.responseStatus >= 200 && e.responseStatus < 300), 'Google page_view response missing');
+    await pause(6000); // Include delayed Enhanced Measurement/history batches.
     assert.equal(pageViews(path).length, 1, 'Duplicate page_view collection');
+    assert.equal(evidence.blockedUnsafeRequests, 0, 'Unsafe automatic collection is a release blocker');
     const queue = await page.evaluate(() => {
       const commands = (window.dataLayer || []).filter(e => ['config', 'event', 'consent', 'js'].includes(e?.[0]));
-      return { nativeArguments: commands.every(e => Object.prototype.toString.call(e) === '[object Arguments]'), configs: commands.filter(e => e[0] === 'config').length, consent: commands.find(e => e[0] === 'consent' && e[1] === 'default')?.[2], scripts: document.querySelectorAll('script[data-wpb-ga4]').length };
+      return { nativeArguments: commands.every(e => Object.prototype.toString.call(e) === '[object Arguments]'), configs: commands.filter(e => e[0] === 'config').length, pageViewCommands: commands.filter(e => e[0] === 'event' && e[1] === 'page_view').length, consent: commands.find(e => e[0] === 'consent' && e[1] === 'default')?.[2], scripts: document.querySelectorAll('script[data-wpb-ga4]').length };
     });
     assert.equal(queue.nativeArguments, true, 'Actual application commands must be Arguments objects');
     assert.equal(queue.configs, 1); assert.equal(queue.scripts, 1);
     assert.deepEqual(queue.consent, { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    evidence.checks.push({ check: 'page-view', path, collectorReceipts: pageViews(path).length, manualCommandsInDocument: queue.pageViewCommands });
   }
   async function clickPath(path) {
     if (path === '/buildings/' && !(await page.locator('a[href="/buildings/"]:visible').count())) {
@@ -202,6 +212,8 @@ async function widthTest(width) {
     evidence.sourceLine = error.stack?.match(/check-ga4-network.mjs:(\d+)/)?.[1];
     evidence.safeCounts = { tags, tagResponses, violations: violations.length };
     evidence.localPageViews = await page.evaluate(() => (window.wpbAnalyticsQueue || []).filter(e => e.eventName === 'page_view').map(e => ({ path: e.payload.path })));
+    evidence.manualPageViewCommands = await page.evaluate(() => (window.dataLayer || []).filter(e => e?.[0] === 'event' && e[1] === 'page_view').length);
+    await page.screenshot({ path: `${output}/failed-stage-${width}.png` });
     process.exitCode = 1;
   } finally { await context.close(); }
 
