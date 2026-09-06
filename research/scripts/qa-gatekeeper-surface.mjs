@@ -93,7 +93,9 @@ function stripStaticPrerender(content) {
 
 function isAllowedTechnicalOccurrence(rel, content, phrase) {
   if (/record/i.test(phrase) && /\brecord-setting\b/i.test(content)) return true;
-  if (/^dist\/assets\/index-[^/]+\.js$/i.test(rel)) {
+  // Bootstrap emits the unchanged application as main-*.js instead of index-*.js.
+  // Preserve the same technical-context test; do not exempt visible copy or hosts.
+  if (/^dist\/assets\/(?:index|main)-[^/]+\.js$/i.test(rel)) {
     const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const technical = new RegExp(
       `(?:class|dataset|data|image|editorial|input|css|placeholder|generated)[^\\n]{0,80}${escaped}|${escaped}[^\\n]{0,80}(?:class|dataset|data|image|editorial|input|css|placeholder|generated)`,
