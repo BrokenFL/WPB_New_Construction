@@ -55,6 +55,10 @@ jobs:
           import assert from 'node:assert/strict';
           const origin='https://www.wpbnewconstruction.com',out='.runtime/p2-live-visual';
           const routes=['/','/buildings/','/floorplans/','/floorplans/olara/residence-d/','/projects/olara/','/inquire/','/map/'];
+          const expectedCommercial={
+            '/':{key:'home',title:'West Palm Beach New Construction Condos | Buildings & Plans',heading:'West Palm Beach New Construction Condos'},
+            '/buildings/':{key:'buildings',title:'West Palm Beach Condo Buildings | New Development Directory',heading:'West Palm Beach Condo Building Directory'}
+          };
           const browser=await chromium.launch();const results=[];
           try{
             for(const width of [1440,390]){
@@ -62,16 +66,24 @@ jobs:
               await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.pathname.startsWith('/api/')||/google-analytics|googletagmanager|doubleclick|googleadservices/.test(u.hostname))return r.abort();return r.continue();});
               const page=await context.newPage();
               for(const route of routes){
+                const started=Date.now();
                 await page.goto(origin+route,{waitUntil:'domcontentloaded'});
                 await page.waitForFunction(()=>window.wpbAnalyticsQueue?.some(e=>e.eventName==='page_view'));
                 const deny=page.getByRole('button',{name:'No thanks',exact:true});if(await deny.isVisible())await deny.click();
-                await page.waitForTimeout(2000);await page.evaluate(()=>document.fonts.ready);
+                const commercial=expectedCommercial[route];
+                if(commercial){
+                  await page.waitForFunction(expected=>document.title===expected.title&&[...document.querySelectorAll('[data-commercial-actions]')].some(e=>e.getAttribute('data-commercial-actions')===expected.key&&e.getBoundingClientRect().height>0),commercial);
+                  assert.equal(await page.getByRole('heading',{level:1}).innerText(),commercial.heading);
+                }
+                if(['/floorplans/','/projects/olara/'].includes(route))await page.locator('a[data-floorplan-entity-link][href="/floorplans/olara/residence-d/"]').first().waitFor({state:'attached'});
+                if(route==='/buildings/')assert.ok(await page.evaluate(()=>{const d=document.querySelector('.buildings-directory'),g=document.querySelector('[data-commercial-guide="buildings"]');return d&&g&&(d.compareDocumentPosition(g)&Node.DOCUMENT_POSITION_FOLLOWING);}));
+                await page.waitForTimeout(1000);await page.evaluate(()=>document.fonts.ready);
                 await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.waitForFunction(()=>scrollY===0);await page.waitForTimeout(300);
                 assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),origin+route);
                 assert.equal(await page.getByRole('heading',{level:1}).count(),1);
                 const label=route==='/'?'home':route.replaceAll('/','-').replace(/^-|-$/g,'');
                 await page.screenshot({path:`${out}/${label}-${width}-viewport.png`});
-                results.push({route,width,viewport:'pass',title:await page.title(),scrollY:await page.evaluate(()=>scrollY)});
+                results.push({route,width,viewport:'pass',title:await page.title(),h1:await page.getByRole('heading',{level:1}).innerText(),scrollY:await page.evaluate(()=>scrollY),captureReadyMs:Date.now()-started,commercialEnhancement:commercial?'verified':'not-applicable'});
               }
               await context.close();
             }
