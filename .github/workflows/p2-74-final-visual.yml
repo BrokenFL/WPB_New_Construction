@@ -1,0 +1,85 @@
+name: PR74 final live visual and log audit (no deploy)
+on:
+  push:
+    branches: [p2-74-release-audit]
+    paths: [.github/workflows/p2-74-final-visual.yml]
+permissions:
+  contents: read
+  actions: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Read-only production log credential scan
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,re,urllib.request,urllib.parse,pathlib
+          api='https://api.github.com/repos/BrokenFL/WPB_New_Construction'
+          class SafeRedirect(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self,req,fp,code,msg,headers,newurl):
+              r=super().redirect_request(req,fp,code,msg,headers,newurl)
+              if r and urllib.parse.urlparse(newurl).netloc!='api.github.com':r.remove_header('Authorization')
+              return r
+          opener=urllib.request.build_opener(SafeRedirect())
+          def get(path):
+            req=urllib.request.Request(api+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+            with opener.open(req,timeout=60) as r:return r.read()
+          run=json.loads(get('/actions/runs/34010760203'))
+          assert run['conclusion']=='success' and run['head_sha']=='c0ecdefd9819809ce86caa2881d66c80ad9cf5a7' and run['run_attempt']==1
+          logs=get('/actions/jobs/101426049489/logs')
+          clean=not re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',logs)
+          out=pathlib.Path('.runtime/p2-live-visual');out.mkdir(parents=True,exist_ok=True)
+          (out/'production-log-audit.json').write_text(json.dumps({'mergeSha':run['head_sha'],'deploymentRun':run['id'],'attempt':run['run_attempt'],'credentialPatternScan':'pass' if clean else 'fail','rawLogArchived':False},indent=2))
+          assert clean,'Credential-like content detected; raw log withheld'
+          print('Production log credential-pattern scan PASS; raw log not archived.')
+          PY
+      - name: Stable live desktop and mobile viewport screenshots
+        run: |
+          node --input-type=module <<'JS'
+          import {chromium} from 'playwright';
+          import fs from 'node:fs/promises';
+          import assert from 'node:assert/strict';
+          const origin='https://www.wpbnewconstruction.com',out='.runtime/p2-live-visual';
+          const routes=['/','/buildings/','/floorplans/','/floorplans/olara/residence-d/','/projects/olara/','/inquire/','/map/'];
+          const browser=await chromium.launch();const results=[];
+          try{
+            for(const width of [1440,390]){
+              const context=await browser.newContext({viewport:{width,height:1000},serviceWorkers:'block'});
+              await context.route('**/*',r=>{const u=new URL(r.request().url());if(u.pathname.startsWith('/api/')||/google-analytics|googletagmanager|doubleclick|googleadservices/.test(u.hostname))return r.abort();return r.continue();});
+              const page=await context.newPage();
+              for(const route of routes){
+                await page.goto(origin+route,{waitUntil:'domcontentloaded'});
+                await page.waitForFunction(()=>window.wpbAnalyticsQueue?.some(e=>e.eventName==='page_view'));
+                const deny=page.getByRole('button',{name:'No thanks',exact:true});if(await deny.isVisible())await deny.click();
+                await page.waitForTimeout(2000);await page.evaluate(()=>document.fonts.ready);
+                await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.waitForFunction(()=>scrollY===0);await page.waitForTimeout(300);
+                assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),origin+route);
+                assert.equal(await page.getByRole('heading',{level:1}).count(),1);
+                const label=route==='/'?'home':route.replaceAll('/','-').replace(/^-|-$/g,'');
+                await page.screenshot({path:`${out}/${label}-${width}-viewport.png`});
+                results.push({route,width,viewport:'pass',title:await page.title(),scrollY:await page.evaluate(()=>scrollY)});
+              }
+              await context.close();
+            }
+          }finally{await browser.close();await fs.writeFile(`${out}/results.json`,JSON.stringify({releaseSha:'c0ecdefd9819809ce86caa2881d66c80ad9cf5a7',results},null,2));}
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr74-live-visual-c0ecdefd
+          path: .runtime/p2-live-visual/
+          retention-days: 14
