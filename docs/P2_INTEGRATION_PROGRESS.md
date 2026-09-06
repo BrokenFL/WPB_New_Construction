@@ -1,86 +1,109 @@
-# Phase 2 combined release candidate
+# Phase 2 integrated release — PR #74
 
-Review branch: `astra-p2-integrated-release` · Draft PR #74.
-Inputs: PR #72 at `183320c452e95565c2928bb5d0d9d9f0620eebfb`; PR #73 at `95cdd3fda76b595b6449331a7a94c6bf3aa89dfa`.
-Read-only main: `fb7bf0e9b93a4c4710423dcd900d3e9d185e7605`.
+Updated: 2026-09-06 (UTC). Repository: `BrokenFL/WPB_New_Construction`.
 
-## Integration, not another growth batch
+## Release status
 
-The candidate retains both source histories and leaves their refs unchanged. The integration commit has PR #73 as an additional parent and PR #72 in its first-parent ancestry. No force push, main write, production deployment or auto-merge was performed. The two original PRs remain reviewable, unmerged drafts; PR #74 is the single combined release-review target.
+**Approved, merged and deployed once. Post-deployment acceptance remains OPEN for V1: actual GA4 event transport.** The required pre-merge Maps/keyed/no-key jobs and aggregate gate passed. That result is not a claim that the later live GA4 test passed. No growth outcome has been measured.
 
-## Reconciled implementation
-
-- `index.html` uses the floor-plan-aware `src/bootstrap.ts`. Published Olara routes mount the plan page without the legacy app. Existing routes start the legacy app once, install the shared inquiry bridge and then attach commercial enhancements. No second tag loader or app startup.
-- Postbuild composes the existing static routes, the Homepage/Buildings copy, and finally Olara entity/discovery generation. The existing Vite manifest lifecycle and reachable-dependency production guard remain authoritative. Redundant commercial entry/preflight and branch-specific QA workflows are not used by this candidate.
-- Buildings filters/listings precede the educational guidance in DOM and visible layout. The guidance remains below the directory, with its existing expandable details. Static no-JavaScript output follows the same listing-first order.
-- `src/lib/inquiryContext.ts` is the single allowlisted form owner for both prepared request families. A new commercial request clears stale plan building/corridor/CTA metadata; a new floor-plan request replaces packet defaults with the plan's current-availability context. First-touch landing/referrer/campaign data is retained. Manual building and inquiry-type edits are respected.
-- The bridge applies immediately rather than waiting for optional module loading. A dedicated unit regression exercises immediate initialization, commercial/plan transitions and manual selections.
-- Existing PDF bytes and URLs, approved public assets/source data, `src/main.ts`, the lead endpoint, analytics adapter/sanitizer, lockfile and production deployment workflow remain unchanged against main. CI checks those protected paths and both input ancestries.
-- Only Olara Residence D is emitted as a new HTML entity. Alba's implementation/source-review snapshot is preserved, but its HTML, sitemap entry, discovery links and public entity lookup remain excluded. Developer clarification is still required before its future publication.
-
-## Test interpretation
-
-Credential-free verification is a full combined suite under explicit `WPB_MAP_QA_MODE=no-key`, followed by both prepared browser suites and the new combined journeys. It requires clean fallback behavior with zero Maps requests and explicitly asserts missing-key preflight rejection. A synthetic nonsecret build proves reachable loader inclusion only. It does not prove a working API key or live map.
-
-The separate required keyed job receives the dedicated review key ONLY during BUILD. It requires the full combined suite, shared production preflight, both browser suites, combined request journeys and a separate unmocked Google loader/tile/zoom check on `/` and `/map/`. The aggregate Integrated release verification requires both jobs to succeed. Bash pipefail is explicit, and failures are not blanket-ignored. No built credential-bearing bundles or production credentials are in artifacts.
-
-Combined browser journeys keep the same session and attribution storage across floor-plan -> commercial availability -> pricing packet -> floor-plan -> commercial packet -> availability. Actual form UI and submit handlers are exercised; JSON POSTs are intercepted. No real leads or marketing emails are sent. Synthetic contact fields/tokens are asserted absent from analytics and are not saved in report payloads.
-
-Metadata/schema/sitemap and desktop/mobile checks cover native plan navigation, modified middle-click in a new tab, back navigation, first-visit consent, denied consent across navigation, and granted consent with one tag/configuration and one local/GA4 page view per tested route transition. JavaScript-disabled journeys verify navigable HTML through the inquiry page, not a no-JavaScript form submission capability.
-
-## Verification history
-
-Initial integrated SHA `62e92056e5178d466fad87c0296a93ceab5d04c1`, run 33990921804: typecheck/build/full credential-free suite and preflight passed, but browser assertions exposed delayed initial form defaults. The combined test also watched an unrelated `.form-status`, causing a timeout after its intercepted POST. The runtime initialization was corrected, direct regression coverage added, and the selector scoped to `.inquiry-form .form-status`. No existing form assertion or release requirement was removed.
-
-Follow-up SHA `12a58e26155e6a06eb40b3fbff2dc1fc62c7295d`, run 33991231793: both prepared browser suites passed. The combined test then stopped on mobile because the desktop primary-navigation link is hidden on the existing inquiry page. The test was corrected to follow the visible brand/home link and then Buildings, preserving the session and every attribution/consent assertion. No navigation feature or production UI change was added for this test correction.
-
-Pre-final SHA `b626d12b51ace4b72b1092fb520945f901a9303a`, run 33991514626: the entire combined credential-free job passed (60 unit regressions, both original browser suites, all 12 same-session combined submissions, consent/tag/event checks, native/mobile/no-JavaScript navigation, strict asset audit and both preflight cases). Artifact 9976811199 was downloaded and its SHA-256 verified as `ac16593f32cb2caab55a36b64b0324a5edadc40c6d532d646528d03d0b7c8a09`.
-
-Manual screenshot review then caught a visibility defect outside the older contrast assertions: native project-heading links inherited pale text on the two no-JavaScript commercial pages. SHA `4c8dfbfa338fb5083797f8d8ad6a8fad55c9a61e` adds narrowly scoped static-page link styling and computed native-link contrast checks. The normal hydrated design, source content, URLs and release gate remain unchanged. Final evidence must come from this follow-up or a later fully tested revision, not the earlier passing artifact.
-
-## Final tested implementation and evidence
-
-**Exact tested implementation SHA: `4c8dfbfa338fb5083797f8d8ad6a8fad55c9a61e`.**
-This progress note and reconciled tracker are a documentation-only follow-up. Their later commit is not substituted for the implementation SHA in the evidence.
-
-Run: https://github.com/BrokenFL/WPB_New_Construction/actions/runs/33991911537
-Credential-free job `101375534721`: **SUCCESS**. Required keyed job `101375534929`: blocked before checkout/build. Aggregate `101376009836`: blocked, as intended until both modes succeed.
-
-| Check on exact implementation | Result |
+| Release identity | Value |
 |---|---|
-| Both input ancestries and protected-surface diff | PASS; original histories retained, approved PDFs/public assets and endpoint/analytics/lockfile/deploy workflow unchanged |
-| Full repository typecheck and production build | PASS; 99 existing routes plus 1 published Olara HTML entity |
-| Full combined npm test, explicit no-key mode | PASS; all existing launch, copy, SEO/GEO, links, privacy/analytics, form, performance and gatekeeper checks retained |
-| Unit regressions | 60/60 PASS: integration/mode 6, shared preflight 11, floor-plan 16, commercial 6, building 6, article 15 |
-| Prepared floor-plan browser suite | 4/4 desktop/mobile JS-on/off views and 4/4 intercepted submissions PASS |
-| Prepared commercial browser suite | 8/8 desktop/mobile JS-on/off views and 8/8 intercepted submissions PASS |
-| Combined same-session request switching | 12/12 intercepted submissions PASS; two complete six-request sequences at 1440px and 390px |
-| Full Home → Buildings → Olara → plan → inquiry journeys | PASS desktop/mobile, including native and modified plan links, browser back navigation, canonicals, one schema graph and H1 |
-| No-JavaScript native navigation | PASS desktop/mobile through inquiry landing; no claim of no-JavaScript form submission |
-| Consent/tag/event checks | PASS: zero analytics requests when denied; one tag/configuration and one local/GA4 page view per tested transition after consent; contact details/tokens excluded |
-| Buildings order and native-link visibility | PASS: filters/listings precede guide; 24 directory and 16 homepage native heading links tested at both widths, minimum contrast 12.39:1 |
-| Olara discovery/sitemap and Alba exclusion | PASS: Olara once in sitemap and discoverable; Alba HTML/sitemap/discovery/public lookup excluded; all existing PDFs preserved |
-| Strict asset audit | PASS: 0 blockers/strict blockers; 81 existing advisories |
-| Actual no-key shared preflight | Correctly REJECTED; expected negative assertion PASS |
-| Synthetic configured shared preflight | PASS; 16 reachable chunks, Maps loader only in reachable `assets/main-DM_Klw1G.js`; not working-key evidence |
-| Required real Maps suite / aggregate release gate | BLOCKED, not passed or waived |
+| Release PR / branch | [PR #74](https://github.com/BrokenFL/WPB_New_Construction/pull/74) / `astra-p2-integrated-release` |
+| Exact verified candidate | `f40b46d16aa9a029f8e8584791198ca46422ae1b` |
+| Merge / deployed code SHA | `c0ecdefd9819809ce86caa2881d66c80ad9cf5a7` |
+| Candidate and merge tree | `a0706b5fa044c9a992107624e997a6bb292a12ac` — identical implementation |
+| Previous production baseline | `fb7bf0e9b93a4c4710423dcd900d3e9d185e7605` |
+| Historical PR #72 head | `183320c452e95565c2928bb5d0d9d9f0620eebfb` |
+| Historical PR #73 head | `95cdd3fda76b595b6449331a7a94c6bf3aa89dfa` |
 
-There are **24 intercepted POSTs total** across the two prepared suites and combined journeys. None reached the real lead endpoint. New request metadata replaces stale plan/commercial defaults while first-touch landing attribution survives; explicit manual selections are preserved. No raw contact payload is archived.
+Brooke explicitly approved the combined presentation and inquiry flow conditional on the required candidate verification passing. PR #74 was marked ready and merged through the normal PR merge action with the exact expected head SHA. No separate merge action was performed for #72 or #73. GitHub subsequently marked those historical PRs merged through their included ancestry; their original branch heads and histories remain preserved.
 
-Final artifact: https://github.com/BrokenFL/WPB_New_Construction/actions/runs/33991911537/artifacts/9976928496
-Artifact ZIP SHA-256: `cfa5b7e51c5b98ae6849fec233ba52ef60d1abf3af4fa9864923de55eb6cf0e7`.
-Downloaded `p2-integration/tested-sha.txt` matches the exact SHA above. The ZIP contains real page screenshots, safe journey/contrast results, the full suite log, asset audit and preflight output. It does not contain a key-bearing build, deployment credentials, HAR files or raw contact submissions.
+## Preserved implementation
 
-## Final visual review
+One floor-plan-aware bootstrap starts the legacy application once on existing routes, installs the immediate shared inquiry bridge and applies commercial enhancements. Olara's individual plan page mounts without the legacy app. Postbuild composes existing static routes, commercial copy and Olara entity/discovery output; the private Vite manifest and reachable-dependency production preflight remain authoritative.
 
-Inspected final desktop/mobile Homepage, listing-first Buildings, Olara plan, no-JavaScript commercial pages, expanded guide below listings and the original first-visit consent UI. The narrow native-link correction is visible and readable; the normal hydrated presentation is preserved. Guide controls and plan CTA do not overlay the plan. Clean commercial captures follow the real No thanks control; the consent banner was not removed. The pre-existing mobile contact bar remains unchanged. Contrast assertions cover the specified new/native links and guide headings, not a full-site accessibility certification.
+Homepage commercial SEO, both request actions, listing/filter-first Buildings with guidance below, Olara Residence D HTML/preview/PDF/introductory CTA, and discovery/sitemap links are present. The shared allowlist replaces stale commercial/plan defaults while preserving first-touch attribution and manual selections. Consent, PII sanitization, lead endpoint, approved public assets/PDFs, lockfile and production deploy workflow remain unchanged from the previous production baseline. This includes the pre-existing analytics adapter defect documented under V1.
 
-The downloadable preview sheets are crops/compositions of those actual screenshots, labeled with the tested SHA and credential-free/non-deployed state. They are not generated architectural images or a live preview deployment.
+Alba's source-review implementation remains preserved; its new HTML, sitemap entry, discovery links and public entity lookup remain unpublished. REV. 8/2022 and the 10-square-foot reported-area discrepancy still require developer clarification before a later publication decision. No existing PDF URL or bytes changed.
 
-## Remaining release requirements
+## Final pre-merge verification
 
-**K1 — account configuration:** the required job could not build because `P2_REVIEW_GOOGLE_MAPS_API_KEY` is absent; the restriction-review variable is not confirmed. In repository Settings → Secrets and variables → Actions, add the dedicated review secret and, after verifying its restrictions, set `P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED=true`. Use a separate billing/API-enabled key restricted to Maps JavaScript API and HTTP referrer `http://127.0.0.1:4173/*`. Do not put the key in chat/commits or reuse/relax production credentials. Re-run the combined keyed full suite, preflight, unmocked real Maps `/` and `/map/` checks, and aggregate gate on the reviewed candidate.
+[Required candidate run 34010467317](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34010467317), exact candidate `f40b46d16aa9a029f8e8584791198ca46422ae1b`:
 
-**Approval:** Brooke must approve the combined presentation and inquiry flows, then explicitly authorize release. Until then keep PR #74 draft. Alba clarification is a future publication condition, not a blocker to this Olara-only candidate.
+| Gate | Result |
+|---|---|
+| Combined credential-free job `101425277395` | SUCCESS |
+| Required combined real Maps job `101425277458` | SUCCESS |
+| Aggregate Integrated release verification `101425728477` | SUCCESS |
+| Typecheck / build / full combined suite | PASS in both modes; 60 unit regressions retained |
+| Prepared browser suites | 12 desktop/mobile JS-on/off views and 12 intercepted POSTs per mode |
+| Combined same-session inquiry sequence | 12 intercepted POSTs per mode, in addition to the prepared suites |
+| Shared deployment preflight | Keyed build PASS; actual no-key build correctly REJECTED as an expected negative test |
+| Actual Google Maps | 4/4 PASS: `/` and `/map/`, 1366px and 390px; real loader, rendered Google tiles, zoom changing loaded tiles, no Google error or fallback substitution |
+| Scope / ancestry / assets / privacy | Protected-surface comparison and original histories PASS; strict asset audit has zero blockers and 81 existing advisories |
 
-The prior shared-entry compatibility gap is now implemented and tested in the combined candidate; separately merging PR #72 and #73 is not the proposed release path. Their branches remain unchanged. Nothing is approved, deployed or measured, and no next feature batch was added. The reconciled delivery tracker retains every remaining handoff task with independent blockers/next actions.
+The dedicated review secret was supplied only to the approved BUILD step. Production keys/restrictions were not changed. K1 is resolved. The confirmation variable is a human attestation, not independent administration access to Google Cloud restrictions.
+
+Two narrow corrections were made during release verification, not a new feature batch: `5c7e7ca5` fetches full checkout ancestry so the pinned production comparison can run; `f40b46d1` fixes an inherited two-column standalone map card and adds desktop/mobile real-map geometry assertions. Final candidate and real-map screenshots were inspected after those corrections.
+
+## Single automatic production deployment
+
+[Deploy Cloudflare Pages run 34010760203](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34010760203), job `101426049489`, push event, attempt **1**, completed **2026-09-06T04:10:39Z**: **SUCCESS**, including the actual `Deploy to Cloudflare Pages` step. It built the merge SHA `c0ecdefd9819809ce86caa2881d66c80ad9cf5a7`. No duplicate manual deployment, second production release or production workflow alteration was initiated. Subsequent audit runs are read-only and isolated on `p2-74-release-audit`.
+
+## Live acceptance results
+
+[Live audit 34011268700](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34011268700), observed deployed SHA `c0ecdefd9819809ce86caa2881d66c80ad9cf5a7`. The surface script records **29 passing checks and two failed actual-GA4 checks**; its failure is retained. The separate combined-journey step passed.
+
+| Live URL | Result |
+|---|---|
+| https://www.wpbnewconstruction.com/ | HTTP 200; canonical/title/description; enhanced H1, commercial actions; desktop/mobile rendered |
+| https://www.wpbnewconstruction.com/buildings/ | HTTP 200; commercial metadata; filters/listings before guidance; desktop/mobile rendered |
+| https://www.wpbnewconstruction.com/floorplans/ | HTTP 200; canonical/metadata; Olara discovery link |
+| https://www.wpbnewconstruction.com/floorplans/olara/residence-d/ | HTTP 200; canonical/metadata/H1; drawing, approved PDF and availability CTA |
+| https://www.wpbnewconstruction.com/projects/olara/ | HTTP 200; canonical/metadata; Olara plan discovery link |
+| https://www.wpbnewconstruction.com/inquire/ | HTTP 200; canonical/metadata; both request families reach the actual submit handler |
+| https://www.wpbnewconstruction.com/map/ | HTTP 200; canonical/metadata; working Google map and corridor control |
+| https://www.wpbnewconstruction.com/sitemap.xml | HTTP 200; Olara plan occurs once; Alba entity absent |
+| https://www.wpbnewconstruction.com/floorplans/alba-palm-beach/residence-d/ | HTTP 404; Alba HTML not published |
+
+All seven HTML routes were rendered at 1440px and 390px: **14/14 PASS** for canonical identity, one visible H1, one parseable JSON-LD graph and no horizontal overflow. Homepage/Buildings were checked for their enhanced titles and presentation. Existing legacy runtime title variants on the floor-plan library, Olara project and inquiry page differ from their prerender titles; both were recorded without changing those baseline templates or claiming universal static/runtime text equality.
+
+**Live Maps 4/4 PASS:** unmocked Google loader and loaded tile images on both routes at both widths, zoom changed loaded tiles, standalone canvas filled its card, and map-page corridor controls worked without Google error codes. Fallback was not accepted.
+
+**Live inquiry journeys 12/12 intercepted POSTs PASS:** plan availability → Homepage availability → Buildings pricing packet → plan availability → Homepage pricing packet → Buildings availability, repeated at both widths without clearing attribution. Commercial requests select a different building to prove that Olara does not remain stuck. Native, modified and back navigation, JS-off navigation through inquiry landing, first-touch preservation, manual choices and analytics PII exclusions passed.
+
+Every test POST was intercepted. The live production Turnstile integration was replaced only inside the test browser with a challenge callback fixture; no fixture token or synthetic contact record reached the real lead endpoint. These tests prove client UI, actual submission payload and attribution, not end-to-end production CAPTCHA validation, lead delivery or CRM receipt. No marketing emails were sent.
+
+The live approved Olara PDF and preview returned 200 and matched repository bytes:
+- PDF: `/assets/projects/olara/floorplans/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.pdf`; SHA-256 `bdafa9399566df69f665551ecd332cdbb8b34923db310c1c07b5a000d9d8deae`.
+- Preview: `/assets/projects/olara/floorplans/previews/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.jpg`; SHA-256 `74bfbacf83693d8cc22f0e03ca88e31bc44285d9fb18876253ea1d918fd8f3e0`.
+
+## V1 — live GA4 transport acceptance OPEN
+
+At both widths, declined/unset consent produced zero analytics tag/collection requests. After consent, the actual Google tag loaded once, and the application queued one configuration and one page-view command, with contact values excluded. However, the unmodified live page produced **zero outgoing GA4 page-view collection attempts**. Actual event delivery and downstream duplicate-event acceptance therefore did **not** pass.
+
+`src/lib/analytics.ts` uses `(...args) => window.dataLayer?.push(args)`, producing Array commands. Google's [documented gtag wrapper](https://developers.google.com/tag-platform/devguides/datalayer) pushes the function's `arguments` object. A browser-only diagnostic control replaced the wrapper and replayed the already queued commands using that documented representation; exactly one intercepted page-view request then appeared at each width. This control did not modify production and is not counted as a passing live baseline.
+
+The adapter is unchanged from the pre-release baseline. Earlier mocked-tag tests verified application commands, consent and sanitization, but did not establish actual Google command processing. Their results remain valid only within that narrower scope.
+
+Required closure: a focused correction to the gtag command wrapper, a regression exercising the actual Google tag with all collection requests intercepted, both full candidate modes/Maps/preflight, and a separately authorized corrective release/live rerun. Retain consent, strict PII exclusions, one tag/configuration and one delivered event per intended transition. No analytics fix or second deployment was applied during this single-deployment release task. No traffic/conversion uplift is claimed.
+
+## Evidence and visual review
+
+All evidence refers to exact tested code or the deployed merge, not a generated mockup. Final viewport captures wait for actual commercial enhancement and native discovery readiness, fonts and stable scroll rather than assuming a fixed delay. The original consent control is used; no banner or map error is hidden. Desktop/mobile Homepage, Buildings, plan, library, project, inquiry and map screens are inspected separately from analytics acceptance.
+
+| Evidence | Run / artifact | SHA-256 |
+|---|---|---|
+| Final credential-free candidate | 34010467317 / 9982334110 | `4f53c66e28bfb3ad9dfc0822773425c6750c0b06164ae0415fa4504b419ad6ab` |
+| Final keyed real Maps | 34010467317 / 9982330156 | `d6003d76a2af0f3cfedc513ac7feb3130d025b60a212be2d305d89241500f204` |
+| Pre-merge log/artifact safety | 34010485322 / 9982338261 | `d91423cff7a475c5df3afd4262b9d5865a259adfdf152f1966e66dff76e1fea4` |
+| Live results, including V1 failures and browser-only control | 34011268700 / 9982576059 | `12c56065bdcaf805f9d04826f1ef486d61ba7d0852e67b77f103fc3f54c0dc07` |
+| Final stable live viewports and production-log safety | 34011866590 / 9982730202 | `ee98e3562d1cf1d9a318bf572cce1e4336d12faff2cae8dfecd7664f155a93ac` |
+
+The independent safety audit scanned all three pre-merge job logs and all 56 artifact files for Google/GitHub credential patterns; no matches. Production job logs also passed a credential-pattern scan, with raw production logs not archived. Artifacts exclude credential-bearing builds, HAR files and raw contact submissions. This is a scoped scan and artifact review, not a blanket security certification.
+
+## Historical record and stopping point
+
+The complete pre-release integration history remains in [this document at the deployed merge](https://github.com/BrokenFL/WPB_New_Construction/blob/c0ecdefd9819809ce86caa2881d66c80ad9cf5a7/docs/P2_INTEGRATION_PROGRESS.md), plus the unchanged P2-001 and P2-002 progress documents. It records the form-initialization, mobile-navigation test and native-link contrast corrections; their earlier missing-key statuses are historical, not current blockers.
+
+This closeout changes only the integration progress document and delivery tracker. A documentation-only `[skip ci]` commit prevents an unnecessary second production deployment; it does not skip or replace the already completed release-candidate gates. No new Phase 2 feature batch was begun. Presentation is approved and deployed; **overall post-deployment acceptance is not fully green until V1 is corrected and retested**. All remaining roadmap items remain in `docs/PHASE_2_DELIVERY_TRACKER.md`.
