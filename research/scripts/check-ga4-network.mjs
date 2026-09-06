@@ -36,6 +36,7 @@ function decodeFields(request) {
 }
 const forbidden = /QA_PRIVATE_NAME|qa\.person@|202-555-0184|QA_PRIVATE_MESSAGE|QA_PRIVATE_HASH|GA4_INTERCEPTED_TOKEN|email=|phone=|message=|name=/i;
 const piiQuery = '?email=qa.person%40example.invalid&phone=202-555-0184&name=QA_PRIVATE_NAME&message=QA_PRIVATE_MESSAGE#QA_PRIVATE_HASH';
+const cors = { 'access-control-allow-origin': origin, 'access-control-allow-credentials': 'true', 'access-control-allow-methods': 'GET, POST, OPTIONS', 'access-control-allow-headers': 'content-type' };
 async function ready(page, route) {
   await page.waitForFunction(path => location.pathname === path && window.wpbAnalyticsQueue?.some(e => e.eventName === 'page_view'), route);
   if (route === '/' || route === '/buildings/') await page.locator(`[data-commercial-guide="${route === '/' ? 'home' : 'buildings'}"]`).waitFor({ state: 'attached' });
@@ -45,7 +46,7 @@ async function ready(page, route) {
 }
 async function widthTest(width) {
   const context = await browser.newContext({ viewport: { width, height: 900 }, serviceWorkers: 'block' });
-  const evidence = { width, status: 'running', records: [], blockedUnsafeRequests: 0, interceptedLeads: 0, checks: [] };
+  const evidence = { width, status: 'running', records: [], blockedUnsafeRequests: 0, blockedChecks: [], interceptedLeads: 0, checks: [] };
   report.results.push(evidence);
   let approved = false, transmit = live, tags = 0, tagResponses = 0, stage = 'fresh context', payload;
   const requests = new WeakMap();
@@ -68,6 +69,7 @@ async function widthTest(width) {
     if (isCollection(url)) {
       try {
         assert.ok(approved, 'Collection before consent');
+        if (request.method() === 'OPTIONS' && !transmit) return route.fulfill({ status: 204, headers: cors, body: '' });
         const records = [];
         for (const fields of decodeFields(request)) {
           assert.ok(!forbidden.test([...fields.values()].join('\n')), 'PII entered Google transport');
@@ -77,13 +79,15 @@ async function widthTest(width) {
           assert.equal(location.search + location.hash, '', 'Query or fragment entered page location');
           const referrer = fields.get('dr');
           if (referrer) { const parsed = new URL(referrer); assert.equal(parsed.search + parsed.hash, '', 'Referrer query leaked'); }
-          if (fields.get('en')) records.push({ event: fields.get('en'), measurementId: measurement, pageLocation: location.origin + location.pathname, endpointHost: url.hostname, endpointPath: url.pathname, transport: transmit ? 'real-google-network' : 'intercepted', queryAndContactPiiExcluded: true });
+          if (fields.get('en')) records.push({ event: fields.get('en'), sequence: fields.get('_s'), measurementId: measurement, pageLocation: location.origin + location.pathname, endpointHost: url.hostname, endpointPath: url.pathname, transport: transmit ? 'real-google-network' : 'intercepted', queryAndContactPiiExcluded: true });
         }
         requests.set(request, records); evidence.records.push(...records);
         if (transmit) return route.continue();
-        return route.fulfill({ status: 204, body: '' });
-      } catch {
+        return route.fulfill({ status: 204, headers: cors, body: '' });
+      } catch (error) {
         evidence.blockedUnsafeRequests++; violations.push('Unsafe collection blocked before network');
+        const piiFields = [...new Set(decodeFields(request).flatMap(fields => [...fields].filter(([, value]) => forbidden.test(value)).map(([key]) => key)))];
+        evidence.blockedChecks.push({ reason: String(error.message).split('\n')[0].slice(0,100), method: request.method(), piiFieldNames: piiFields });
         return route.abort();
       }
     }
@@ -104,7 +108,7 @@ async function widthTest(width) {
   const page = await context.newPage();
   const pageViews = path => evidence.records.filter(e => e.event === 'page_view' && e.pageLocation === origin + path);
   async function onePageView(path) {
-    await until(() => pageViews(path).some(e => e.responseStatus >= 200 && e.responseStatus < 300), 'Google page_view response missing');
+    await until(() => pageViews(path).some(e => e.responseStatus >= 200 && e.responseStatus < 300 && !e.networkFailure), 'Google page_view response missing');
     await pause(2200);
     assert.equal(pageViews(path).length, 1, 'Duplicate page_view collection');
     const queue = await page.evaluate(() => {
@@ -149,12 +153,11 @@ async function widthTest(width) {
     for (const path of ['/', '/buildings/', '/projects/olara/', plan.path]) assert.equal(pageViews(path).length, 1);
     evidence.checks.push({ check: 'tracked-navigation', pageViews: 4, duplicatePageViews: false, nativeDocumentCount: documents.size, tagLoads: tags });
 
-    // Inspect real-tag event serialization with contact fields present, but do not
-    // transmit synthetic conversion events or real leads even during live checks.
+    // Actual-tag serialization with contact fields present; synthetic conversions
+    // and lead requests never reach Google or the real lead endpoint.
     transmit = false;
     async function submit(expected, project) {
       const form = page.locator('.inquiry-form'); await form.waitFor();
-      await until(async () => true, 'form');
       await page.waitForFunction(value => document.querySelector('.inquiry-form [name="lead_capture_context"]')?.value === value, expected);
       assert.equal(await form.locator('[name="project"]').inputValue(), expected.startsWith('floorplan:') ? 'olara' : '');
       const interest = expected.endsWith('pricing-packet') ? 'Request private floor-plan packet' : 'Request current availability';
@@ -198,6 +201,7 @@ async function widthTest(width) {
     evidence.status = 'fail'; evidence.stage = stage; evidence.errorType = error.name;
     evidence.sourceLine = error.stack?.match(/check-ga4-network.mjs:(\d+)/)?.[1];
     evidence.safeCounts = { tags, tagResponses, violations: violations.length };
+    evidence.localPageViews = await page.evaluate(() => (window.wpbAnalyticsQueue || []).filter(e => e.eventName === 'page_view').map(e => ({ path: e.payload.path })));
     process.exitCode = 1;
   } finally { await context.close(); }
 
@@ -248,7 +252,7 @@ async function liveHealth() {
       await page.goto(production + path); await ready(page, path);
       await page.getByRole('button', { name: 'No thanks', exact: true }).click();
       const card = page.locator('.home-hero-map-card:visible').first(); await card.scrollIntoViewIfNeeded();
-      await page.waitForFunction(() => [...document.querySelectorAll('.home-hero-map-card')].some(c => !c.closest('[data-route-view]')?.hidden && c.getAttribute('data-map-state') === 'ready' && !c.querySelector('.gm-err-container') && [...c.querySelectorAll('.gm-style img')].some(i => { const u = new URL(i.currentSrc || i.src); return /(^|\.)(googleapis\.com|google\.com|gstatic\.com)$/.test(u.hostname) && /\/vt(?:\/|$)|\/maps\/vt|\/kh\/|\/maps\/tiles/.test(u.pathname) && i.complete && i.naturalWidth >= 128; })), null, { timeout: 30000 });
+      await page.waitForFunction(() => [...document.querySelectorAll('.home-hero-map-card')].some(c => !c.closest('[data-route-view]')?.hidden && c.getAttribute('data-map-state') === 'ready' && !c.querySelector('.gm-err-container') && [...c.querySelectorAll('.gm-style img')].some(i => { try { const u = new URL(i.currentSrc || i.src); return /(^|\.)(googleapis\.com|google\.com|gstatic\.com)$/.test(u.hostname) && /\/vt(?:\/|$)|\/maps\/vt|\/kh\/|\/maps\/tiles/.test(u.pathname) && i.complete && i.naturalWidth >= 128; } catch { return false; } })), null, { timeout: 30000 });
       assert.ok(loaders > 0);
       const before = await card.locator('.gm-style img').evaluateAll(images => images.filter(i => i.complete && i.naturalWidth >= 128).map(i => i.currentSrc || i.src));
       await card.getByRole('button', { name: 'Zoom in', exact: true }).click();
