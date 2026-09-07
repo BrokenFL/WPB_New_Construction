@@ -1,0 +1,88 @@
+name: PR75 remote source isolation (no deploy)
+on:
+  push:
+    branches: [p2-74-release-audit]
+    paths: [.github/workflows/ga4-75-source-isolation.yml]
+permissions:
+  contents: read
+jobs:
+  isolate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: f9fe17c55ae4785766fb40a179c7ce76650cd969
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Compare measurement ID, associated Google tag ID and cache-busted responses
+        run: |
+          mkdir -p .runtime/ga4-source-isolation
+          python3 - <<'PY'
+          import json,re,time,hashlib,urllib.request,pathlib
+          root=pathlib.Path('.runtime/ga4-source-isolation');records=[]
+          for id in ['G-0LGBH6MDVX','GT-M3LVS6X8']:
+            for variant,suffix in [('normal',''),('fresh','&source_probe='+str(time.time_ns()))]:
+              req=urllib.request.Request('https://www.googletagmanager.com/gtag/js?id='+id+suffix,headers={'User-Agent':'Mozilla/5.0','Cache-Control':'no-cache','Pragma':'no-cache'})
+              with urllib.request.urlopen(req,timeout=40) as r:blob=r.read();headers=r.headers;status=r.status
+              text=blob.decode();m=re.search(r'"resource"\s*:\s*',text);resource=json.JSONDecoder().raw_decode(text[m.end():])[0]
+              m=re.search(r'"blob"\s*:\s*',text);meta=json.JSONDecoder().raw_decode(text[m.end():])[0]
+              rec={'requestId':id,'variant':variant,'retrievedAt':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'sha256':hashlib.sha256(blob).hexdigest(),'status':status,'date':headers.get('Date'),'age':headers.get('Age'),'cacheControl':headers.get('Cache-Control'),'tagAliases':meta.get('10'),'canonicalContainerId':meta.get('6'),'destinations':meta.get('55'),'destinationTags':[t for t in resource['tags'] if t['function'] in ['__ogt_auto_events','__ccd_em_page_view','__dest_ga','__gct']]}
+              records.append(rec)
+              assert not re.search(rb'AIza[0-9A-Za-z_-]{30,}|github_pat_[0-9A-Za-z_]{30,}',blob)
+              (root/(id+'-'+variant+'.js')).write_bytes(blob)
+          (root/'alias-and-cache.json').write_text(json.dumps(records,indent=2));print(json.dumps(records))
+          PY
+      - name: Diagnostic-only causal removal of individual remote flags; not a supported production fix
+        run: |
+          cat > .runtime/ga4-source-isolation/isolate.mjs <<'JS'
+          import http from 'node:http';import fs from 'node:fs/promises';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';import {chromium} from 'playwright';
+          const root='.runtime/ga4-source-isolation',id='G-0LGBH6MDVX',origin='http://127.0.0.1:4173';
+          const source=await fs.readFile(root+'/'+id+'-fresh.js','utf8');
+          const cases=[['unchanged-replay',source],['destination-history-off',source.replace('"vtp_historyEvents":true','"vtp_historyEvents":false')],['tag-history-blocked',source.replace('"vtp_enableHistoryEvents":true','"vtp_enableHistoryEvents":false')],['live-alias-unmodified',null]];
+          const server=http.createServer((q,s)=>{s.writeHead(200,{'Content-Type':'text/html'});s.end('<!doctype html><title>Remote setting isolation</title><div style="height:3000px">Fixture</div>');});await new Promise(r=>server.listen(4173,'127.0.0.1',r));
+          const browser=await chromium.launch(),results=[];
+          for(const [label,text] of cases){
+            const c=await browser.newContext({serviceWorkers:'block'}),page=await c.newPage(),row={label,sourceModified:label!=='unchanged-replay'&&text!==null,sourceSha:text?createHash('sha256').update(text).digest('hex'):null,collections:[],scripts:[],passes:false};results.push(row);
+            await c.route('**/*',async r=>{const q=r.request(),u=new URL(q.url());
+              if(/google-analytics\.com$|analytics\.google\.com$/.test(u.hostname)||u.pathname.endsWith('/collect')){for(const line of(q.postData()||'').split('\n')){const p=new URLSearchParams(u.search);for(const[k,v]of new URLSearchParams(line))p.set(k,v);if(p.get('en')){const loc=new URL(p.get('dl'));row.collections.push({event:p.get('en'),path:loc.pathname,measurement:p.get('tid'),privateFields:[...p].filter(([k,v])=>/QA_PRIVATE|qa\.person|email=/.test(v)).map(([k])=>k)});}}return r.fulfill({status:204,headers:{'access-control-allow-origin':origin,'access-control-allow-credentials':'true'},body:''});}
+              if(u.hostname==='www.googletagmanager.com'&&u.pathname==='/gtag/js'){row.scripts.push(u.searchParams.get('id'));if(text!==null)return r.fulfill({status:200,contentType:'text/javascript',body:text});}
+              if(/googleadservices\.com$|doubleclick\.net$/.test(u.hostname))return r.abort();return r.continue();});
+            try{
+              await page.goto(origin+'/?email=qa.person%40example.invalid&marker=QA_PRIVATE');
+              await page.evaluate(({id,alias,origin})=>{window.dataLayer=[];window.gtag=function(){dataLayer.push(arguments);};gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config',id,{send_page_view:false,page_location:origin+'/',page_referrer:'',allow_google_signals:false,allow_ad_personalization_signals:false});gtag('event','page_view',{send_to:id,page_location:origin+'/',page_referrer:''});const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+alias;document.head.append(s);},{id,alias:label==='live-alias-unmodified'?'GT-M3LVS6X8':id,origin});
+              await page.waitForFunction(()=>window.google_tag_manager);await page.waitForTimeout(2500);
+              await page.evaluate(({id,origin})=>{history.pushState({},'','/buildings/');gtag('event','page_view',{send_to:id,page_location:origin+'/buildings/',page_referrer:''});},{id,origin});await page.waitForTimeout(8000);
+              row.historySignals=await page.evaluate(()=>dataLayer.filter(e=>e.event==='gtm.historyChange-v2').length);
+              row.manualCommands=await page.evaluate(()=>dataLayer.filter(e=>e?.[0]==='event'&&e[1]==='page_view').length);
+              row.passCriteria={pageViews:row.collections.filter(e=>e.event==='page_view').length,privateRequests:row.collections.filter(e=>e.privateFields.length).length};
+              if(['destination-history-off','tag-history-blocked'].includes(label)){assert.equal(row.passCriteria.pageViews,2);assert.equal(row.passCriteria.privateRequests,0);}
+              row.passes=true;
+            }catch(e){row.errorType=e.name;row.passes=false;}
+            await c.close();
+          }
+          await browser.close();await new Promise(r=>server.close(r));await fs.writeFile(root+'/isolation-results.json',JSON.stringify({diagnosticOnly:true,notReleaseEvidence:true,allCollectionIntercepted:true,results},null,2));console.log(JSON.stringify(results));
+          JS
+          node .runtime/ga4-source-isolation/isolate.mjs
+      - name: Reproduce the exact unchanged PR75 real-tag privacy regression
+        env:
+          VITE_GA4_MEASUREMENT_ID: G-0LGBH6MDVX
+        run: |
+          npm run build
+          set +e
+          node --experimental-strip-types research/scripts/check-ga4-network.mjs
+          code=$?
+          set -e
+          printf '%s\n' "$code" > .runtime/ga4-source-isolation/unchanged-network-exit.txt
+          cp -R .runtime/ga4-correction/candidate .runtime/ga4-source-isolation/unchanged-candidate
+          printf 'Diagnostic baseline exit: %s (this workflow is NOT the release gate)\n' "$code"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr75-remote-history-source-isolation
+          path: .runtime/ga4-source-isolation/
+          retention-days: 14
