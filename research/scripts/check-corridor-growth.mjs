@@ -15,14 +15,17 @@ const server=http.createServer(async(req,res)=>{try{let file=path.resolve(dist,'
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const origin=`http://127.0.0.1:${server.address().port}`;
 let browser;
-async function ready(page,route){
+async function ready(page,route,javaScriptEnabled=true){
+  // Static fallback HTML is intentionally visible before the legacy app loads.
+  // JS journeys must wait for the enhanced element inside #app, not that fallback.
+  const scope=javaScriptEnabled ? '#app ' : '';
   await page.waitForURL(origin+route);
   const key=Object.keys(pages).find(k=>pages[k].path===route);
-  if(key)await page.locator(`[data-corridor-growth="${key}"]:visible`).waitFor();
-  else if(route==='/')await page.locator('[data-commercial-guide="home"]:visible').waitFor();
-  else if(route==='/buildings/')await page.locator('[data-commercial-guide="buildings"]:visible').waitFor();
-  else if(route==='/inquire/')await page.locator('.inquiry-form').waitFor();
-  else if(route==='/projects/olara/')await page.locator('#wpb-floorplan-guides').waitFor();
+  if(key)await page.locator(`${scope}[data-corridor-growth="${key}"]:visible`).waitFor();
+  else if(route==='/')await page.locator(`${scope}[data-commercial-guide="home"]:visible`).waitFor();
+  else if(route==='/buildings/')await page.locator(`${scope}[data-commercial-guide="buildings"]:visible`).waitFor();
+  else if(route==='/inquire/')await page.locator(`${scope}.inquiry-form`).waitFor();
+  else if(route==='/projects/olara/')await page.locator(`${scope}#wpb-floorplan-guides`).waitFor();
   // The legacy router sets its metadata after its DOM. Wait for the existing
   // enhancement's final title rather than accepting or racing the old title.
   const expectedTitle=key?pages[key].title:route==='/'?commercialPages.home.title:route==='/buildings/'?commercialPages.buildings.title:undefined;
@@ -58,7 +61,7 @@ try{
     });
     const page=await context.newPage();page.on('pageerror',err=>errors.push(err.name));
     for(const [key,c]of Object.entries(pages)){
-      await page.goto(origin+c.path,{waitUntil:'networkidle'});await ready(page,c.path);
+      await page.goto(origin+c.path,{waitUntil:'networkidle'});await ready(page,c.path,javaScriptEnabled);
       const guide=page.locator(`[data-corridor-growth="${key}"]:visible`);
       assert.equal(await page.title(),c.title);assert.equal(await page.getByRole('heading',{level:1}).innerText(),c.heading);
       assert.equal(await page.getByRole('heading',{level:1}).count(),1);
@@ -80,7 +83,7 @@ try{
       // Primary project link preserves native navigation; browser back restores corridor metadata.
       await guide.locator('.cr-project h3 a').first().click();
       await page.waitForURL(origin+'/projects/'+c.projects[0].slug+'/');
-      await page.goBack();await ready(page,c.path);assert.equal(await page.title(),c.title);
+      await page.goBack();await ready(page,c.path,javaScriptEnabled);assert.equal(await page.title(),c.title);
     }
     if(javaScriptEnabled){
       assert.equal(tagLoads,0,'Rejection persists across navigation');
