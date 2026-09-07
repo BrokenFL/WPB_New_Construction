@@ -274,7 +274,11 @@ function initializeGa4(id: string) {
   ga4Initialized = true;
   window.wpbAnalyticsDestination = "ga4";
   window.dataLayer = window.dataLayer ?? [];
-  window.gtag = window.gtag ?? ((...args: unknown[]) => window.dataLayer?.push(args));
+  // gtag.js command messages require native Arguments objects, not rest Arrays.
+  // https://developers.google.com/tag-platform/devguides/datalayer
+  window.gtag = window.gtag ?? function gtag(..._args: unknown[]): void {
+    window.dataLayer?.push(arguments);
+  };
   window.gtag("consent", "default", grantedGoogleConsent());
   window.gtag("js", new Date());
   window.gtag("config", id, {

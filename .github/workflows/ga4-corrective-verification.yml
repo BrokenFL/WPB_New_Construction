@@ -1,0 +1,176 @@
+name: GA4 corrective release verification
+on:
+  push:
+    branches: [fix/ga4-command-queue]
+  workflow_run:
+    workflows: [Deploy Cloudflare Pages]
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: read
+  actions: read
+defaults:
+  run:
+    shell: bash
+concurrency:
+  group: ga4-correction-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  candidate:
+    if: github.event_name == 'push'
+    name: Full candidate (${{ matrix.mode }})
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [no-key, keyed]
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Verify focused corrective scope
+        run: |
+          git merge-base --is-ancestor dd28320f689a3f377b6137671e702b6c58778b67 HEAD
+          git diff --exit-code dd28320f689a3f377b6137671e702b6c58778b67 HEAD -- src/main.ts src/bootstrap.ts src/lib/analyticsSafety.ts src/lib/leadCapture.ts src/lib/inquiryContext.ts src/lib/floorplanEntities.ts src/lib/commercialContent.ts src/commercialGrowth.ts src/commercialGrowth.css public functions package.json package-lock.json .github/workflows/deploy-cloudflare-pages.yml
+          mkdir -p .runtime/ga4-correction
+          git rev-parse HEAD > .runtime/ga4-correction/tested-sha.txt
+      - name: Require reviewed key only for keyed mode
+        if: matrix.mode == 'keyed'
+        env:
+          HAS_REVIEW_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY != '' }}
+          RESTRICTIONS_CONFIRMED: ${{ vars.P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED == 'true' }}
+        run: |
+          test "$HAS_REVIEW_KEY" = true
+          test "$RESTRICTIONS_CONFIRMED" = true
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - name: Build approved candidate (review key is build-only)
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: ${{ matrix.mode == 'keyed' && secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY || '' }}
+          VITE_GA4_MEASUREMENT_ID: G-0LGBH6MDVX
+        run: npm run build
+      - name: Full repository verification, including queue semantics
+        env:
+          WPB_MAP_QA_MODE: ${{ matrix.mode }}
+          WPB_MAP_QA_PORT: '4173'
+        run: npm test
+      - name: Asset audits
+        run: |
+          npm run assets:audit
+          npm run assets:audit:strict
+          cp docs/reports/asset-pipeline-audit-report.json .runtime/ga4-correction/asset-audit.json
+      - name: Prepared and combined browser journeys
+        env:
+          FLOORPLAN_EXPECT_GA4: '1'
+        run: |
+          npm run qa:floorplan-entities -- --browser
+          npm run qa:commercial -- --browser
+          npm run qa:integration
+      - name: Real Google tag and privacy-checked collection regression
+        run: node --experimental-strip-types research/scripts/check-ga4-network.mjs
+      - name: Actual keyed deployment preflight and Google Maps
+        if: matrix.mode == 'keyed' && !cancelled()
+        run: |
+          npm run qa:deploy-preflight
+          npm run qa:maps-keyed
+      - name: Explicit missing-key deployment rejection
+        if: matrix.mode == 'no-key' && !cancelled()
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import { verifyProductionMapBundle } from './research/scripts/production-map-preflight.mjs';
+          await assert.rejects(verifyProductionMapBundle(), /reachable app chunks do not include/);
+          console.log('PASS: credential-free build rejected for deployment as expected.');
+          JS
+      - name: Safe evidence only (no compiled bundles or raw requests)
+        if: ${{ !cancelled() }}
+        run: |
+          python3 - <<'PY'
+          import pathlib,re
+          roots=[pathlib.Path(p) for p in ['.runtime/ga4-correction','.runtime/p2-keyed-maps','.runtime/phase-2-qa','.runtime/p2-commercial','.runtime/p2-integration']]
+          files=[p for root in roots for p in root.rglob('*') if p.is_file()]
+          bad=any(re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',p.read_bytes()) for p in files)
+          if bad:
+            for p in files:p.unlink()
+            raise RuntimeError('Credential-like evidence withheld')
+          print('PASS: evidence credential-pattern scan; no build bundles uploaded')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ga4-candidate-${{ matrix.mode }}-${{ github.sha }}
+          path: |
+            .runtime/ga4-correction/
+            .runtime/p2-keyed-maps/
+            .runtime/phase-2-qa/
+            .runtime/p2-commercial/
+            .runtime/p2-integration/
+          retention-days: 14
+
+  release-verification:
+    name: GA4 corrective release gate
+    if: ${{ always() && github.event_name == 'push' }}
+    needs: candidate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Both full suites and real-network regression must pass
+        env:
+          RESULT: ${{ needs.candidate.result }}
+        run: test "$RESULT" = success
+
+  live:
+    name: Live GA4 collection acceptance
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Record the automatic deployment being verified
+        env:
+          DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
+          DEPLOY_RUN: ${{ github.event.workflow_run.id }}
+          DEPLOY_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$DEPLOYED_SHA"
+          mkdir -p .runtime/ga4-correction/live
+          node -e 'require("fs").writeFileSync(".runtime/ga4-correction/live/deployment.json",JSON.stringify({sha:process.env.DEPLOYED_SHA,runId:process.env.DEPLOY_RUN,attempt:process.env.DEPLOY_ATTEMPT},null,2))'
+      - name: Real production collection, consent, native navigation, inquiry and Maps
+        run: node --experimental-strip-types research/scripts/check-ga4-network.mjs --live
+      - name: Existing live Maps check
+        if: ${{ !cancelled() }}
+        run: npm run qa:map -- --live
+      - name: Scan live evidence before upload
+        if: ${{ !cancelled() }}
+        run: |
+          python3 - <<'PY'
+          import pathlib,re
+          files=[p for p in pathlib.Path('.runtime/ga4-correction/live').rglob('*') if p.is_file()]
+          bad=any(p.suffix not in ['.json','.png','.txt'] or re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',p.read_bytes()) for p in files)
+          if bad:
+            for p in files:p.unlink()
+            raise RuntimeError('Unsafe live evidence withheld')
+          print('PASS: allowlisted live summaries/screenshots; no credential patterns')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ga4-live-${{ github.event.workflow_run.head_sha }}
+          path: .runtime/ga4-correction/live/
+          retention-days: 14
