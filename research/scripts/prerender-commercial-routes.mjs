@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { commercialPages, commercialOrigin, commercialEscape as e, commercialJson, commercialSchema, renderCommercialActions, renderCommercialGuide } from '../../src/lib/commercialContent.ts';
+import { prerenderCorridorGrowth } from './prerender-corridor-growth.mjs';
 
 export function renderCommercialDocument(source, page) {
   const copy = commercialPages[page];
@@ -40,6 +41,7 @@ export async function prerenderCommercialRoutes(root = process.cwd()) {
     const file = path.join(root, 'dist', copy.path.slice(1), 'index.html');
     await fs.writeFile(file, renderCommercialDocument(await fs.readFile(file, 'utf8'), page));
   }
+  await prerenderCorridorGrowth(root);
   console.log(JSON.stringify({ commercialPrerender: 'pass', routes: Object.values(commercialPages).map((page) => page.path) }));
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {

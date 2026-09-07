@@ -19,6 +19,8 @@ async function start() {
   const syncFloorplanInquiry = wireInquiryContext(app);
   const { installCommercialGrowth } = await import("./commercialGrowth.ts");
   installCommercialGrowth();
+  const { installCorridorGrowth } = await import("./corridorGrowth.ts");
+  installCorridorGrowth();
 
   // Entity routes are full document navigations, outside the legacy router.
   // Preserve native middle/modified clicks and no-JavaScript crawlable anchors.
