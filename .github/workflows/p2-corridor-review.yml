@@ -1,0 +1,34 @@
+name: Corridor growth review (no deploy)
+on:
+  push:
+    branches: [p2-corridor-seo-downtown-south-flagler-palm-beach]
+permissions:
+  contents: read
+jobs:
+  source-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Export tracked source for isolated review
+        run: |
+          mkdir -p /tmp/corridor-source
+          python3 - <<'PY'
+          import pathlib,subprocess,tarfile
+          roots=('src/','docs/','research/scripts/','scripts/','config/','data/','content/overrides/','.github/workflows/')
+          names={'AGENTS.md','AI_PROJECT_GUIDE.md','README.md','package.json','package-lock.json','tsconfig.json','vite.config.ts','index.html','public/sitemap.xml','public/_headers','public/_redirects','.gitignore'}
+          files=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          with tarfile.open('/tmp/corridor-source/source.tar.gz','w:gz') as archive:
+            for f in files:
+              p=pathlib.Path(f)
+              if f and (f in names or f.startswith(roots)) and p.is_file() and p.suffix.lower() in {'.md','.ts','.css','.json','.mjs','.py','.yml','.yaml','.html','.txt','.csv',''}:
+                archive.add(f,arcname=f)
+          pathlib.Path('/tmp/corridor-source/source-sha.txt').write_text(subprocess.check_output(['git','rev-parse','HEAD']).decode())
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: corridor-source-review
+          path: /tmp/corridor-source/
+          retention-days: 7
