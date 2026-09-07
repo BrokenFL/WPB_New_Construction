@@ -1,9 +1,16 @@
 import { floorplanForPath } from './floorplanEntities.ts';
 import { commercialLabels, parseCommercialContext } from './commercialContent.ts';
+import { corridorActionLabels, parseCorridorContext } from './corridorGrowthContent.ts';
 import { getLeadAttribution } from './leadCapture.ts';
 
-/** A single allowlisted owner for both prepared request families. */
+/** A single allowlisted owner for commercial, floor-plan and corridor requests. */
 export function resolveInquiryContext(value: unknown) {
+  const corridor = parseCorridorContext(value);
+  if (corridor) return {
+    context: String(value), label: corridorActionLabels[corridor.intent],
+    interest: corridor.intent === 'availability' ? 'Request current availability' : 'Request private floor-plan packet',
+    location: `corridor-${corridor.key}-intro`, project: '', projectName: '', corridor: corridor.key,
+  };
   const commercial = parseCommercialContext(value);
   if (commercial) return {
     context: String(value), label: commercialLabels[commercial.intent],
@@ -72,6 +79,7 @@ export function wireInquiryContext(app: HTMLElement) {
     delete form.dataset.leadCorridor;
     const name = form.querySelector<HTMLInputElement>('[name="project_name"]');
     if (name) name.value = '';
+    if (origin.context.startsWith('corridor:')) form.dataset.leadCorridor = origin.corridor;
     if (origin.project && project.value === origin.project) {
       form.dataset.leadProjectName = origin.projectName;
       form.dataset.leadCorridor = origin.corridor;
