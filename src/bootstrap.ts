@@ -2,6 +2,7 @@ import { comparisonForPath } from './lib/shortlist.ts';
 import "./style.css";
 import "./floorplanEntities.css";
 import "./commercialGrowth.css";
+import "./shortlistSummary.css";
 import { wireInquiryContext } from "./lib/inquiryContext.ts";
 import { cleanFloorplanPath, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanJson, renderFloorplanDiscovery } from "./lib/floorplanEntities.ts";
 
