@@ -1,0 +1,89 @@
+name: PR76 live corridor acceptance (no deploy)
+on:
+  push:
+    branches: [p2-76-live-verification]
+    paths: [.github/workflows/p2-76-live-verification.yml]
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Verify exact deployed source and production corridors
+        run: |
+          git diff --exit-code 8128f7a5a24706a8fc743f156f2f1d0505f1b462 HEAD -- src public functions package.json package-lock.json research/scripts
+          python3 - <<'PY'
+          from pathlib import Path
+          s=Path('research/scripts/check-corridor-growth.mjs').read_text()
+          s=s.replace("const origin=`http://127.0.0.1:${server.address().port}`;", "const origin=commercialOrigin;")
+          start=s.index("  const sitemap=await fs.readFile('dist/sitemap.xml','utf8');")
+          end=s.index("  browser=await chromium.launch",start)
+          s=s[:start]+'''  async function getLive(route){
+            const r=await fetch(origin+route,{headers:{'Cache-Control':'no-cache'}});
+            assert.equal(r.status,200,`Live GET failed: ${route}`);return r.text();
+          }
+          const sitemap=await getLive('/sitemap.xml');
+          const checked=new Set();
+          for(const [key,c]of Object.entries(pages)){
+            const html=await getLive(c.path);
+            assert.ok(html.includes(renderGrowthCorridor(key)),`Production content mismatch: ${key}`);
+            assert.ok(html.includes(`<title>${e(c.title)}</title>`));
+            assert.equal((html.match(/rel="canonical"/g)||[]).length,1);
+            const entry=sitemap.match(new RegExp('<url>\\\\s*<loc>'+commercialOrigin.replaceAll('.','\\\\.')+c.path+'</loc>[\\\\s\\\\S]*?</url>'))?.[0];
+            assert.ok(entry?.includes('<lastmod>2026-09-07</lastmod>'),`Sitemap date ${key}`);
+            const graph=JSON.parse(html.match(/id="wpb-static-structured-data"[^>]*>([\\s\\S]*?)<\\/script>/)[1]);graphCheck(graph,key);
+            for(const [,href] of renderGrowthCorridor(key).matchAll(/(?:href|src)="(\\/[^"?#]*)"/g)){
+              if(checked.has(href))continue;checked.add(href);
+              const response=await fetch(origin+href,{method:'HEAD'});
+              assert.equal(response.status,200,`Broken live link ${href}`);
+            }
+            results.push({check:'live-static',key,canonical:commercialOrigin+c.path,status:'pass',lastmod:'2026-09-07'});
+          }
+          assert.ok(!sitemap.includes('/floorplans/alba-palm-beach/residence-d/'));
+          assert.equal((await fetch(origin+'/floorplans/alba-palm-beach/residence-d/')).status,404);
+          results.push({check:'live-links',count:checked.size,status:'pass',albaHTML:404});
+          '''+s[end:]
+          # The original suite keeps an ephemeral local server. It is not used here;
+          # all page loads/GETs target the production origin, and lead POSTs are intercepted.
+          s=s.replace("testedSha:sha,status:","testedSha:sha,deployedSha:'8128f7a5a24706a8fc743f156f2f1d0505f1b462',origin,checkedAt:new Date().toISOString(),status:")
+          Path('research/scripts/check-corridor-live.tmp.mjs').write_text(s)
+          PY
+          node --experimental-strip-types research/scripts/check-corridor-live.tmp.mjs
+      - name: Save safe source and evidence
+        if: always()
+        run: |
+          mkdir -p .runtime/release-source
+          git archive --format=tar.gz 8128f7a5a24706a8fc743f156f2f1d0505f1b462 src research/scripts docs content data config public/data package.json package-lock.json vite.config.ts tsconfig.json AGENTS.md AI_PROJECT_GUIDE.md README.md index.html .github/workflows > .runtime/release-source/source.tar.gz
+          printf '%s\n' 8128f7a5a24706a8fc743f156f2f1d0505f1b462 > .runtime/release-source/source-sha.txt
+          python3 - <<'PY'
+          import pathlib,re
+          files=[p for p in pathlib.Path('.runtime/p2-corridors').rglob('*') if p.is_file()]
+          for p in files:
+            if re.search(rb'AIza[0-9A-Za-z_-]{30,}|github_pat_[0-9A-Za-z_]{30,}|gh[pousr]_[0-9A-Za-z]{30,}',p.read_bytes()):
+              for f in files:f.unlink()
+              raise RuntimeError('Unsafe artifact withheld')
+          print('Safe summaries/screenshots only; no raw requests or compiled production bundles')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr76-live-corridors
+          path: .runtime/p2-corridors/
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr76-release-source
+          path: .runtime/release-source/
+          retention-days: 7
