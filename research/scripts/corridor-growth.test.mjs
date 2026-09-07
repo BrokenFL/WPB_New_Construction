@@ -70,3 +70,13 @@ test('source-conflicted timing and island approvals are not turned into inventor
   assert.match(pages['south-flagler'].projects.find(p=>p.slug==='la-clara').stage,/Completed/);
   assert.ok(!Object.values(pages).some(c=>JSON.stringify(c).includes('/floorplans/alba-palm-beach/')));
 });
+test('regional reports retain their links without claiming corridor-local coverage',()=>{
+  const key='palm-beach',c=pages[key];
+  const metas=[['name','description'],['property','og:title'],['property','og:description'],['name','twitter:title'],['name','twitter:description']].map(([a,n])=>`<meta ${a}="${n}" content="old" />`).join('');
+  const source=`<html><head><title>old</title>${metas}<link rel="canonical" href="${origin+c.path}"/><script id="wpb-static-structured-data" type="application/ld+json">{"@graph":[]}</script></head><body><main class="static-prerender"><section><h1>Old</h1></section><section><h2>Latest Palm Beach updates</h2><article><a href="/updates/regional-example/">Regional reporting</a></article></section></main></body></html>`;
+  const out=renderCorridorDocument(source,key);
+  assert.match(out,/<h2>Regional development reporting<\/h2>/);
+  assert.ok(out.includes('href="/updates/regional-example/"'));
+  assert.ok(!out.includes('Latest Palm Beach updates'));
+  assert.equal(renderCorridorDocument(out,key),out);
+});

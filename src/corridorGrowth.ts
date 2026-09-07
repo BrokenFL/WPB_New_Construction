@@ -17,8 +17,17 @@ export function installCorridorGrowth() {
     const copy = corridorGrowthPages[key];
     if (!view.querySelector(`[data-corridor-growth="${key}"]`)) {
       // Keep existing dated reporting, below the source-backed buyer guide.
-      const updates = view.querySelector('.corridor-latest-updates')?.outerHTML ?? '';
-      view.innerHTML = renderGrowthCorridor(key) + updates;
+      const updates = view.querySelector<HTMLElement>('.corridor-latest-updates')?.cloneNode(true) as HTMLElement | undefined;
+      if (updates) {
+        updates.setAttribute('aria-label', 'Regional development reporting');
+        const heading = updates.querySelector('h2');
+        if (heading) heading.textContent = 'Regional development reporting';
+        const kicker = updates.querySelector('.eyebrow');
+        if (kicker) kicker.textContent = 'Dated updates';
+        const note = updates.querySelector('.section-heading > p:not(.eyebrow)');
+        if (note) note.textContent = 'These regional reports add context; not every project is in this corridor. Confirm the location and date in each article before adding a building to your shortlist.';
+      }
+      view.innerHTML = renderGrowthCorridor(key) + (updates?.outerHTML ?? '');
     }
     if (document.title !== copy.title) document.title = copy.title;
     for (const [selector, text] of [

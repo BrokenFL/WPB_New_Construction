@@ -17,7 +17,11 @@ export function renderCorridorDocument(source, key) {
   for (const [attr, name, value] of [['name','description',copy.description],['property','og:title',copy.title],['property','og:description',copy.description],['name','twitter:title',copy.title],['name','twitter:description',copy.description]]) {
     replaceOne(new RegExp(`<meta ${attr}="${name}" content="[^"]*"\\s*/?>`), `<meta ${attr}="${name}" content="${e(value)}" />`, name);
   }
-  const recent = (html.match(/<section(?: class="cr-static-updates")?>\s*<h2>Latest [\s\S]*?<\/section>/)?.[0] ?? '').replace('<section>', '<section class="cr-static-updates">');
+  // Existing date-sorted news can include regional stories. Keep its links but
+  // do not describe mainland reporting as Palm Beach island-local activity.
+  const recent = (html.match(/<section(?: class="cr-static-updates")?>\s*<h2>(?:Latest |Regional development reporting)[\s\S]*?<\/section>/)?.[0] ?? '')
+    .replace('<section>', '<section class="cr-static-updates">')
+    .replace(/<h2>[\s\S]*?<\/h2>/, '<h2>Regional development reporting</h2>');
   replaceOne(/<main class="static-prerender"[^>]*>[\s\S]*?<\/main>/, `<main class="static-prerender" data-static-prerender="corridor-${key}">${renderGrowthCorridor(key)}${recent}</main>`, 'main');
   const pattern = /(<script id="wpb-static-structured-data"[^>]*>)([\s\S]*?)(<\/script>)/g;
   if ([...html.matchAll(pattern)].length !== 1) throw new Error('Expected one corridor schema graph');
