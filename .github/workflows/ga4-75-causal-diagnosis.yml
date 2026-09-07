@@ -1,0 +1,105 @@
+name: PR75 causal Google history diagnosis (no deploy)
+on:
+  push:
+    branches: [p2-74-release-audit]
+    paths: [.github/workflows/ga4-75-causal-diagnosis.yml]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: f9fe17c55ae4785766fb40a179c7ce76650cd969
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Preserve public Google source and fresh cache evidence (no collections)
+        run: |
+          mkdir -p .runtime/ga4-causal
+          python3 - <<'PY'
+          import json,re,time,hashlib,urllib.request,pathlib
+          out=pathlib.Path('.runtime/ga4-causal')
+          report={'measurementId':'G-0LGBH6MDVX','retrievals':[],'accountMutation':False}
+          url='https://www.googletagmanager.com/gtag/js?id=G-0LGBH6MDVX'
+          for label,suffix in [('normal',''),('fresh','&causal_probe='+str(time.time_ns()))]:
+            req=urllib.request.Request(url+suffix,headers={'User-Agent':'Mozilla/5.0','Cache-Control':'no-cache','Pragma':'no-cache'})
+            with urllib.request.urlopen(req,timeout=40) as r:blob=r.read();headers=dict(r.headers);status=r.status
+            text=blob.decode(); resource={}
+            m=re.search(r'"resource"\s*:\s*',text)
+            if m:resource=json.JSONDecoder().raw_decode(text[m.end():])[0]
+            entry={'variant':label,'retrievedAt':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'status':status,'sha256':hashlib.sha256(blob).hexdigest(),'headers':{k:v for k,v in headers.items() if k.lower() in ['date','age','cache-control','expires','last-modified','etag','vary']},'resource':resource}
+            report['retrievals'].append(entry)
+            assert not re.search(rb'AIza[0-9A-Za-z_-]{30,}|github_pat_[0-9A-Za-z_]{30,}',blob)
+            (out/(label+'-public-gtag.js')).write_bytes(blob)
+          (out/'retrievals.json').write_text(json.dumps(report,indent=2))
+          print(json.dumps({'retrievals':[dict((k,v) for k,v in x.items() if k!='resource') for x in report['retrievals']]}))
+          PY
+          git archive HEAD src/lib/analytics.ts src/lib/analyticsSafety.ts src/bootstrap.ts research/scripts/check-ga4-network.mjs research/scripts/check-gtag-command-queue.mjs docs/P2_INTEGRATION_PROGRESS.md docs/PHASE_2_DELIVERY_TRACKER.md > .runtime/ga4-causal/reviewed-source.tar
+      - name: Isolate history collection without the application and compare supported commands
+        run: |
+          cat > .runtime/ga4-causal/probe.mjs <<'JS'
+          import http from 'node:http';
+          import fs from 'node:fs/promises';
+          import {createHash} from 'node:crypto';
+          import {chromium} from 'playwright';
+          const root='.runtime/ga4-causal',id='G-0LGBH6MDVX';
+          const server=http.createServer((q,s)=>{s.writeHead(200,{'Content-Type':'text/html'});s.end('<!doctype html><title>GA4 controlled diagnosis</title><h1>Controlled diagnosis</h1>');});
+          await new Promise(r=>server.listen(4173,'127.0.0.1',r));
+          const origin='http://127.0.0.1:4173',browser=await chromium.launch(),results=[];
+          const clean=u=>{try{const x=new URL(u);return x.origin+x.pathname;}catch{return '';}};
+          for(const mode of ['config-only-history','manual-with-history','global-false-with-history','global-object-false-with-history','manual-without-history']){
+            const context=await browser.newContext({serviceWorkers:'block'}),page=await context.newPage();
+            const result={mode,requests:[],scriptLoads:[],initiators:[],errors:[]};results.push(result);
+            await context.route('**/*',async r=>{
+              const q=r.request(),u=new URL(q.url());
+              if(/(^|\.)(google-analytics\.com|analytics\.google\.com)$/.test(u.hostname)||u.pathname.endsWith('/collect')){
+                for(const line of (q.postData()||'').split('\n')){const p=new URLSearchParams(u.search);for(const[k,v]of new URLSearchParams(line))p.set(k,v);if(p.get('en'))result.requests.push({event:p.get('en'),measurement:p.get('tid'),location:clean(p.get('dl')),referrer:clean(p.get('dr')),privateFields:[...p].filter(([k,v])=>/qa\.person|QA_PRIVATE|email=/.test(v)).map(([k])=>k),sequence:p.get('_s')});}
+                return r.fulfill({status:204,headers:{'access-control-allow-origin':origin,'access-control-allow-credentials':'true'},body:''});
+              }
+              if(/googleadservices\.com$|doubleclick\.net$/.test(u.hostname))return r.abort();
+              return r.continue();
+            });
+            const cdp=await context.newCDPSession(page);await cdp.send('Network.enable');
+            cdp.on('Network.requestWillBeSent',e=>{if(/google-analytics\.com/.test(e.request.url)){result.initiators.push({type:e.initiator.type,frames:(e.initiator.stack?.callFrames||[]).slice(0,12).map(f=>({functionName:f.functionName,url:clean(f.url),line:f.lineNumber,column:f.columnNumber}))});}});
+            page.on('response',async r=>{const u=new URL(r.url());if(/googletagmanager\.com$/.test(u.hostname)&&r.request().resourceType()==='script'){const b=await r.body().catch(()=>Buffer.from(''));result.scriptLoads.push({path:u.pathname,id:u.searchParams.get('id'),status:r.status(),sha256:createHash('sha256').update(b).digest('hex')});}});
+            try{
+              await page.goto(origin+'/?email=qa.person%40example.invalid&test=QA_PRIVATE_QUERY');
+              await page.evaluate(({mode,id,origin})=>{
+                window.dataLayer=[];window.gtag=function(){window.dataLayer.push(arguments);};
+                window.gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+                if(mode==='global-false-with-history')window.gtag('set','send_page_view',false);
+                if(mode==='global-object-false-with-history')window.gtag('set',{send_page_view:false});
+                window.gtag('js',new Date());window.gtag('config',id,{send_page_view:false,page_location:origin+'/',page_referrer:'',allow_google_signals:false,allow_ad_personalization_signals:false});
+                if(mode!=='config-only-history')window.gtag('event','page_view',{page_location:origin+'/',page_referrer:'',send_to:id});
+                const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.append(s);
+              },{mode,id,origin});
+              await page.waitForFunction(()=>!!window.google_tag_manager);await page.waitForTimeout(3000);
+              result.beforeHistoryCount=result.requests.length;
+              await page.evaluate(({mode,id,origin})=>{
+                if(mode!=='manual-without-history')history.pushState({},'', '/buildings/');
+                if(mode!=='config-only-history')window.gtag('event','page_view',{page_location:origin+'/buildings/',page_referrer:'',send_to:id});
+              },{mode,id,origin});
+              await page.waitForTimeout(8000);
+              result.commands=await page.evaluate(()=>window.dataLayer.map(e=>Object.prototype.toString.call(e)==='[object Arguments]'?{kind:'command',command:e[0],target:typeof e[1]==='string'?e[1]:null,sendPageView:e[2]?.send_page_view}:({kind:'object',event:e.event,keys:Object.keys(e)})));
+              result.managerKeys=await page.evaluate(()=>Object.keys(window.google_tag_manager||{}));
+              result.googleTagData=await page.evaluate(()=>{const d=window.google_tag_data;return {keys:Object.keys(d||{}),destinationKeys:Object.keys(d?.destination||{}),containerKeys:Object.keys(d?.container||{}),autoKeys:Object.keys(d?.autoEventsSettings||{})};});
+            }catch(e){result.errors.push({name:e.name,message:String(e.message).replace(/https?:\/\/\S+/g,'[URL]').slice(0,120)});}
+            await context.close();
+          }
+          await browser.close();await new Promise(r=>server.close(r));
+          await fs.writeFile(root+'/causal-results.json',JSON.stringify({testedCandidate:'f9fe17c55ae4785766fb40a179c7ce76650cd969',actualGoogleCodeUnmodified:true,allCollectionsIntercepted:true,experiments:results},null,2));
+          console.log(JSON.stringify(results.map(r=>({mode:r.mode,events:r.requests,errors:r.errors}))));
+          JS
+          node .runtime/ga4-causal/probe.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr75-causal-google-source-and-probes
+          path: .runtime/ga4-causal/
+          retention-days: 14
