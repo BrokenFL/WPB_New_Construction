@@ -27,9 +27,10 @@ jobs:
           from pathlib import Path
           s=Path('research/scripts/check-corridor-growth.mjs').read_text()
           s=s.replace("const origin=`http://127.0.0.1:${server.address().port}`;", "const origin=commercialOrigin;")
-          # Prerender fallback also lives in #app. Only .site-shell establishes
-          # interactive legacy app readiness; no arbitrary delay or weaker assertion.
+          # Static fallback is also inside #app. Wait for the actual interactive
+          # shell, or the standalone plan's local initialization event.
           s=s.replace("javaScriptEnabled ? '#app ' : ''", "javaScriptEnabled ? '#app .site-shell ' : ''")
+          s=s.replace("  // The legacy router sets its metadata", "  if(javaScriptEnabled && route==='/floorplans/olara/residence-d/')await page.waitForFunction(()=>window.wpbAnalyticsQueue?.some(e=>e.eventName==='page_view'&&e.payload.route==='floorplan'));\n  // The legacy router sets its metadata")
           start=s.index("  const sitemap=await fs.readFile('dist/sitemap.xml','utf8');")
           end=s.index("  browser=await chromium.launch",start)
           s=s[:start]+'''  async function getLive(route){
