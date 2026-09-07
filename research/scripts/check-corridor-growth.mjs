@@ -23,6 +23,10 @@ async function ready(page,route){
   else if(route==='/buildings/')await page.locator('[data-commercial-guide="buildings"]:visible').waitFor();
   else if(route==='/inquire/')await page.locator('.inquiry-form').waitFor();
   else if(route==='/projects/olara/')await page.locator('#wpb-floorplan-guides').waitFor();
+  // The legacy router sets its metadata after its DOM. Wait for the existing
+  // enhancement's final title rather than accepting or racing the old title.
+  const expectedTitle=key?pages[key].title:route==='/'?commercialPages.home.title:route==='/buildings/'?commercialPages.buildings.title:undefined;
+  if(expectedTitle)await page.waitForFunction(title=>document.title===title,expectedTitle);
   assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),commercialOrigin+route);
 }
 function graphCheck(graph,key){const c=pages[key],nodes=graph['@graph'];assert.equal(nodes.filter(n=>n['@type']==='CollectionPage').length,1);assert.equal(nodes.find(n=>n['@type']==='CollectionPage').url,commercialOrigin+c.path);assert.equal(nodes.find(n=>n['@type']==='ItemList').numberOfItems,c.projects.length);assert.equal(nodes.filter(n=>n['@type']==='BreadcrumbList').length,1);assert.ok(!nodes.some(n=>n['@type']==='FAQPage'));}

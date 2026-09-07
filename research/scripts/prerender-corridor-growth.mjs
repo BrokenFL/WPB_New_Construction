@@ -17,7 +17,7 @@ export function renderCorridorDocument(source, key) {
   for (const [attr, name, value] of [['name','description',copy.description],['property','og:title',copy.title],['property','og:description',copy.description],['name','twitter:title',copy.title],['name','twitter:description',copy.description]]) {
     replaceOne(new RegExp(`<meta ${attr}="${name}" content="[^"]*"\\s*/?>`), `<meta ${attr}="${name}" content="${e(value)}" />`, name);
   }
-  const recent = html.match(/<section>\s*<h2>Latest [\s\S]*?<\/section>/)?.[0] ?? '';
+  const recent = (html.match(/<section(?: class="cr-static-updates")?>\s*<h2>Latest [\s\S]*?<\/section>/)?.[0] ?? '').replace('<section>', '<section class="cr-static-updates">');
   replaceOne(/<main class="static-prerender"[^>]*>[\s\S]*?<\/main>/, `<main class="static-prerender" data-static-prerender="corridor-${key}">${renderGrowthCorridor(key)}${recent}</main>`, 'main');
   const pattern = /(<script id="wpb-static-structured-data"[^>]*>)([\s\S]*?)(<\/script>)/g;
   if ([...html.matchAll(pattern)].length !== 1) throw new Error('Expected one corridor schema graph');
@@ -25,9 +25,21 @@ export function renderCorridorDocument(source, key) {
   return html;
 }
 export async function prerenderCorridorGrowth(root = process.cwd()) {
+  // Keep corridor-only CSS out of the shared entry budget, and load it for
+  // no-JavaScript readers from Vite's exact dependency graph (not a glob).
+  const manifest = JSON.parse(await fs.readFile(path.join(root, '.runtime/build/manifest.json'), 'utf8'));
+  const styles = manifest['src/corridorGrowth.ts']?.css;
+  if (!Array.isArray(styles) || styles.length === 0) throw new Error('Missing corridor CSS build dependencies');
+  for (const file of styles) {
+    if (typeof file !== 'string' || !/^assets\/[a-zA-Z0-9_-]+\.css$/.test(file)) throw new Error('Unsafe corridor CSS dependency');
+    await fs.access(path.join(root, 'dist', file));
+  }
   for (const [key, copy] of Object.entries(corridorGrowthPages)) {
     const file = path.join(root, 'dist', copy.path.slice(1), 'index.html');
-    await fs.writeFile(file, renderCorridorDocument(await fs.readFile(file, 'utf8'), key));
+    let html = renderCorridorDocument(await fs.readFile(file, 'utf8'), key);
+    html = html.replace(/<link data-corridor-styles[^>]*>\s*/g, '');
+    html = html.replace('</head>', styles.map(css => `<link data-corridor-styles rel="stylesheet" href="/${css}" />`).join('\n') + '\n</head>');
+    await fs.writeFile(file, html);
   }
   const file = path.join(root, 'dist', 'sitemap.xml');
   let sitemap = await fs.readFile(file, 'utf8');

@@ -1,3 +1,4 @@
+import "./corridorGrowth.css";
 import { track } from './lib/analytics.ts';
 import { rememberLeadAttribution } from './lib/leadCapture.ts';
 import { corridorActionLabels, corridorGrowthForPath, corridorGrowthPages, corridorGrowthSchema, corridorJson, parseCorridorContext, renderGrowthCorridor } from './lib/corridorGrowthContent.ts';
