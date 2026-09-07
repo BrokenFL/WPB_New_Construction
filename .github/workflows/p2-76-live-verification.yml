@@ -1,4 +1,4 @@
-name: PR76 live corridor acceptance (no deploy)
+name: PR76 live corridor click diagnosis (no deploy)
 on:
   push:
     branches: [p2-76-live-verification]
@@ -8,11 +8,10 @@ permissions:
 jobs:
   live:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
@@ -20,65 +19,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - name: Verify exact deployed source and production corridors
-        run: |
-          git diff --exit-code 8128f7a5a24706a8fc743f156f2f1d0505f1b462 HEAD -- src public functions package.json package-lock.json research/scripts
-          python3 - <<'PY'
-          from pathlib import Path
-          s=Path('research/scripts/check-corridor-growth.mjs').read_text()
-          s=s.replace("const origin=`http://127.0.0.1:${server.address().port}`;", "const origin=commercialOrigin;")
-          start=s.index("  const sitemap=await fs.readFile('dist/sitemap.xml','utf8');")
-          end=s.index("  browser=await chromium.launch",start)
-          s=s[:start]+'''  async function getLive(route){
-            const r=await fetch(origin+route,{headers:{'Cache-Control':'no-cache'}});
-            assert.equal(r.status,200,`Live GET failed: ${route}`);return r.text();
-          }
-          const sitemap=await getLive('/sitemap.xml');
-          const checked=new Set();
-          for(const [key,c]of Object.entries(pages)){
-            const html=await getLive(c.path);
-            assert.ok(html.includes(renderGrowthCorridor(key)),`Production content mismatch: ${key}`);
-            assert.ok(html.includes(`<title>${e(c.title)}</title>`));
-            assert.equal((html.match(/rel="canonical"/g)||[]).length,1);
-            const entry=sitemap.match(new RegExp('<url>\\\\s*<loc>'+commercialOrigin.replaceAll('.','\\\\.')+c.path+'</loc>[\\\\s\\\\S]*?</url>'))?.[0];
-            assert.ok(entry?.includes('<lastmod>2026-09-07</lastmod>'),`Sitemap date ${key}`);
-            const graph=JSON.parse(html.match(/id="wpb-static-structured-data"[^>]*>([\\s\\S]*?)<\\/script>/)[1]);graphCheck(graph,key);
-            for(const [,href] of renderGrowthCorridor(key).matchAll(/(?:href|src)="(\\/[^"?#]*)"/g)){
-              if(checked.has(href))continue;checked.add(href);
-              const response=await fetch(origin+href,{method:'HEAD'});
-              assert.equal(response.status,200,`Broken live link ${href}`);
-            }
-            results.push({check:'live-static',key,canonical:commercialOrigin+c.path,status:'pass',lastmod:'2026-09-07'});
-          }
-          assert.ok(!sitemap.includes('/floorplans/alba-palm-beach/residence-d/'));
-          assert.equal((await fetch(origin+'/floorplans/alba-palm-beach/residence-d/')).status,404);
-          results.push({check:'live-links',count:checked.size,status:'pass',albaHTML:404});
-          '''+s[end:]
-          s=s.replace('let browser;',"let browser;let lastPage;let phase='setup';")
-          s=s.replace('const page=await context.newPage();', 'const page=await context.newPage();lastPage=page;')
-          s=s.replace('  await page.waitForURL(origin+route);', "  phase='ready:'+route;await page.waitForURL(origin+route);")
-          s=s.replace('        await page.waitForFunction(v=>', "        phase=expected+':context';await page.waitForFunction(v=>")
-          s=s.replace("        await page.waitForFunction(()=>document.querySelector('.inquiry-form .form-status')", "        phase=expected+':result';await page.waitForFunction(()=>document.querySelector('.inquiry-form .form-status')")
-          s=s.replace("}catch(error){results.push(", "}catch(error){console.log(JSON.stringify({phase,snapshot:await lastPage?.evaluate(()=>({path:location.pathname,title:document.title,context:document.querySelector('.inquiry-form [name=lead_capture_context]')?.value,savedContext:JSON.parse(sessionStorage.getItem('wpbLeadAttribution')||'{}').cta_context,status:document.querySelector('.inquiry-form .form-status')?.textContent?.slice(0,180)})).catch(()=>null),stack:error.stack?.split('\\n').slice(0,5)}));results.push(")
-          s=s.replace("testedSha:sha,status:","testedSha:sha,deployedSha:'8128f7a5a24706a8fc743f156f2f1d0505f1b462',origin,checkedAt:new Date().toISOString(),status:")
-          Path('research/scripts/check-corridor-live.tmp.mjs').write_text(s)
-          PY
-          node --experimental-strip-types research/scripts/check-corridor-live.tmp.mjs
-      - name: Save safe evidence
-        if: always()
-        run: |
-          python3 - <<'PY'
-          import pathlib,re
-          files=[p for p in pathlib.Path('.runtime/p2-corridors').rglob('*') if p.is_file()]
-          for p in files:
-            if re.search(rb'AIza[0-9A-Za-z_-]{30,}|github_pat_[0-9A-Za-z_]{30,}|gh[pousr]_[0-9A-Za-z]{30,}',p.read_bytes()):
-              for f in files:f.unlink()
-              raise RuntimeError('Unsafe artifact withheld')
-          print('Safe summaries/screenshots only; no raw requests or compiled production bundles')
-          PY
+      - name: Actual click trace (all mutations blocked)
+        run: node research/scripts/corridor-click-probe.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: pr76-live-corridors
-          path: .runtime/p2-corridors/
+          name: pr76-live-click-trace
+          path: .runtime/p2-76-probe/
           retention-days: 14
