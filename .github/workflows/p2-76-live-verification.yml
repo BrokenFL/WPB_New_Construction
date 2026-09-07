@@ -54,18 +54,19 @@ jobs:
           assert.equal((await fetch(origin+'/floorplans/alba-palm-beach/residence-d/')).status,404);
           results.push({check:'live-links',count:checked.size,status:'pass',albaHTML:404});
           '''+s[end:]
-          # The original suite keeps an ephemeral local server. It is not used here;
-          # all page loads/GETs target the production origin, and lead POSTs are intercepted.
+          s=s.replace('let browser;',"let browser;let lastPage;let phase='setup';")
+          s=s.replace('const page=await context.newPage();', 'const page=await context.newPage();lastPage=page;')
+          s=s.replace('  await page.waitForURL(origin+route);', "  phase='ready:'+route;await page.waitForURL(origin+route);")
+          s=s.replace('        await page.waitForFunction(v=>', "        phase=expected+':context';await page.waitForFunction(v=>")
+          s=s.replace("        await page.waitForFunction(()=>document.querySelector('.inquiry-form .form-status')", "        phase=expected+':result';await page.waitForFunction(()=>document.querySelector('.inquiry-form .form-status')")
+          s=s.replace("}catch(error){results.push(", "}catch(error){console.log(JSON.stringify({phase,snapshot:await lastPage?.evaluate(()=>({path:location.pathname,title:document.title,context:document.querySelector('.inquiry-form [name=lead_capture_context]')?.value,savedContext:JSON.parse(sessionStorage.getItem('wpbLeadAttribution')||'{}').cta_context,status:document.querySelector('.inquiry-form .form-status')?.textContent?.slice(0,180)})).catch(()=>null),stack:error.stack?.split('\\n').slice(0,5)}));results.push(")
           s=s.replace("testedSha:sha,status:","testedSha:sha,deployedSha:'8128f7a5a24706a8fc743f156f2f1d0505f1b462',origin,checkedAt:new Date().toISOString(),status:")
           Path('research/scripts/check-corridor-live.tmp.mjs').write_text(s)
           PY
           node --experimental-strip-types research/scripts/check-corridor-live.tmp.mjs
-      - name: Save safe source and evidence
+      - name: Save safe evidence
         if: always()
         run: |
-          mkdir -p .runtime/release-source
-          git archive --format=tar.gz 8128f7a5a24706a8fc743f156f2f1d0505f1b462 src research/scripts docs content data config public/data package.json package-lock.json vite.config.ts tsconfig.json AGENTS.md AI_PROJECT_GUIDE.md README.md index.html .github/workflows > .runtime/release-source/source.tar.gz
-          printf '%s\n' 8128f7a5a24706a8fc743f156f2f1d0505f1b462 > .runtime/release-source/source-sha.txt
           python3 - <<'PY'
           import pathlib,re
           files=[p for p in pathlib.Path('.runtime/p2-corridors').rglob('*') if p.is_file()]
@@ -81,9 +82,3 @@ jobs:
           name: pr76-live-corridors
           path: .runtime/p2-corridors/
           retention-days: 14
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: pr76-release-source
-          path: .runtime/release-source/
-          retention-days: 7
