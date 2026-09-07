@@ -4,6 +4,31 @@ Updated: September 7, 2026 (UTC). Repository: `BrokenFL/WPB_New_Construction`.
 Branch: `p2-corridor-seo-downtown-south-flagler-palm-beach`.
 Production baseline: `dd28320f689a3f377b6137671e702b6c58778b67`.
 
+## Current verified candidate — September 7 orchestrator review
+
+**Exact tested HEAD: `04544146bc0187c46ec7fd1c90247fbffc5aee0d`.** This supersedes the earlier verification ledger below; earlier results are retained as history, not erased.
+
+[No-deploy run 34146486527](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34146486527) was checked directly through GitHub:
+
+| Job | ID | Result |
+|---|---:|---|
+| Corridor candidate (keyed) | 101819538484 | SUCCESS |
+| Corridor candidate (no-key) | 101819538652 | SUCCESS |
+| Corridor batch review verification | 101820510446 | SUCCESS |
+
+Both modes passed typecheck, production build, complete npm test, standard/strict assets, existing commercial/floor-plan/combined regressions, and corridor checks. The keyed job passed the deployment preflight and real Maps checks; the no-key job passed explicit expected deployment rejection.
+
+The latest keyed artifact was downloaded and independently inspected during this orchestrator review. Its `tested-sha.txt` and corridor `results.json` both identify `04544146bc0187c46ec7fd1c90247fbffc5aee0d`. Results include 3 static corridor checks, 12 desktop/mobile JavaScript-on/off views, 18 intercepted corridor/request-switching submissions, and 4 real Maps checks. Its desktop/mobile corridor screenshots, top sections and full-page desktop layouts were visually reviewed. This is review of recorded CI evidence and selected source changes, not a new execution of the application or a new verification of every external project fact.
+
+- [Keyed artifact 10027937467](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34146486527/artifacts/10027937467): downloaded SHA-256 verified as `74c3035964c6db0124bf1ae9cd8183ee17f7225e9ef7b68f39d31e63840691c3`.
+- [No-key artifact 10027928146](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34146486527/artifacts/10027928146): GitHub-reported SHA-256 `f4e01349cfb94c858dd5f2b4c94da65412adbe0516a6249dcef263b2a1b19528`; job success verified, archive not separately downloaded in this review.
+
+The last implementation commit changes browser-test readiness to wait for the hydrated application. Screenshots and safe results from the current run now supplement the earlier application-revision visual review. No additional code correction was identified in this scoped review.
+
+**Recommendation: ready for Brooke's release decision.** This recommendation is not Brooke's approval. PR #76 remains draft, unmerged, undeployed and unmeasured. Main and PR #75 remain untouched. Lead POSTs and analytics were intercepted; neither production CAPTCHA/CRM delivery nor GA4 transport is certified by these tests. Any documentation-only successor to the tested HEAD must be distinguished from that tested code revision.
+
+Next: Brooke reviews the screenshots and authorizes or declines release. Following approval, verify the then-current diff/checks, use one normal main-branch deployment and check the three live corridor routes plus inquiry navigation. Batch 2 comparisons can proceed independently from then-current production main; improve existing comparison canonicals rather than duplicating them. PR #75 is not a growth dependency.
+
 ## Review status
 
 **Implemented and tested; draft PR #76 awaits Brooke's review. Not approved, deployed or measured.** The current instruction parks PR #75 / GA4 Admin diagnosis as **blocked / non-critical / revisit separately**. Its branch, PR and tests were not modified or diagnosed. Production analytics and consent source files remain byte-for-byte unchanged; this independent growth batch does not depend on the parked correction.
@@ -66,10 +91,10 @@ The single `src/lib/inquiryContext.ts` bridge adds `corridor:<key>:<availability
 
 CI verifies unchanged production surfaces: core `src/main.ts`; analytics, consent and sanitizer; lead-capture store; commercial content/runtime/styles; floor-plan definitions; generated/public/project data and PDFs; functions; package/lockfile; production deployment workflow. North Flagler and unrelated pages are not rewritten.
 
-## Exact verification ledger
+## Historical verification ledger — superseded by the current candidate above
 
 **Tested implementation: `1e9d469907553f28a7abed286784007cd925f6a0`.**
-[Final no-deploy run 34145165695](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34145165695): keyed job `101815507868` SUCCESS; no-key job `101815508191` SUCCESS; aggregate **Corridor batch review verification** `101816509300` SUCCESS.
+[Historical no-deploy run 34145165695](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34145165695): keyed job `101815507868` SUCCESS; no-key job `101815508191` SUCCESS; aggregate **Corridor batch review verification** `101816509300` SUCCESS.
 
 | Check | Result |
 |---|---|
@@ -85,7 +110,7 @@ CI verifies unchanged production surfaces: core `src/main.ts`; analytics, consen
 | Credential-free deployment preflight | Expected missing-loader rejection explicitly asserted; PASS |
 | Source/artifact credential-pattern scans | PASS; no key-bearing compiled bundles or raw contact submissions archived |
 
-Both final artifacts were downloaded and their SHA-256 digests verified:
+Both historical artifacts were downloaded and their SHA-256 digests verified in the earlier implementation review:
 - [Keyed artifact 10027482355](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34145165695/artifacts/10027482355): `1f133057fc4ce5f506ef6bada5ccf8f00fe1be310c499130ad007b96af78dadf`.
 - [No-key artifact 10027463491](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34145165695/artifacts/10027463491): `57a72afd44bf09048c3936af77e999ae3150c771e6ae39d1433533f58c8a8ae1`.
 
