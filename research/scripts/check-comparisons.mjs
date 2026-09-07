@@ -52,6 +52,10 @@ try{
     await page.waitForFunction(exp=>document.querySelector('.inquiry-form [name=lead_capture_context]')?.value===exp,expected);
     const summary=page.locator('[data-shortlist-review]');if(parseShortlist(expected))assert.equal(await summary.count(),1);else assert.equal(await summary.count(),0);
     await form.locator('select[name=project]').selectOption(primary);
+    if(parseShortlist(expected)) {
+      const visual=await summary.locator('h3').evaluate(el=>({color:getComputedStyle(el).color,width:el.getBoundingClientRect().width}));
+      assert.equal(visual.color,'rgb(23, 45, 56)');assert.ok(visual.width>200);
+    }
     if(parseShortlist(expected)&&posts.length===0)await page.screenshot({path:path.join(out,`inquiry-shortlist-${width}.png`),fullPage:true});
     await form.locator('[name=name]').fill('QA Synthetic Buyer');await form.locator('[name=email]').fill('qa-shortlist@example.invalid');await form.locator('[name=message]').fill('SYNTHETIC_PRIVATE_NOTE_DO_NOT_TRACK');await form.locator('[name=consent]').check();
     await form.evaluate(el=>{let f=el.querySelector('[name=turnstile_token]');if(!f){f=document.createElement('input');f.type='hidden';f.name='turnstile_token';el.append(f);}f.value='qa-intercepted-token';});

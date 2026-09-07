@@ -61,3 +61,14 @@ test('no duplicate initializer, tracking adapter, server mutation, or contact pa
  assert.doesNotMatch(app,/gtag|google-analytics|name=.?email|fetch\(/);
  const entry=await fs.readFile('src/bootstrap.ts','utf8');assert.ok(entry.indexOf('mountComparison(comparison)')<entry.indexOf('import("./main.ts")'));
 });
+
+test('restricted developer destinations retain cited provenance without forbidden outbound links',()=>{
+ for(const key of ['flagler','trio']){
+  const html=renderComparison(key);
+  assert.doesNotMatch(html,/href="https?:\/\/(?:www\.)?(?:shorecrestwpb|relatedross|southflaglerhouse)\.com/);
+  assert.match(html,/<cite>Shorecrest: two- and three-bedroom residences<\/cite>/);
+  const citations=comparisonSchema(key)['@graph'].find(n=>n['@type']==='WebPage').citation;
+  assert.ok(citations.includes('https://www.shorecrestwpb.com/residences'));
+  assert.ok(html.includes('href="/projects/shorecrest/"'));
+ }
+});
