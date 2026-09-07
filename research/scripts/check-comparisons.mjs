@@ -52,6 +52,7 @@ try{
     await page.waitForFunction(exp=>document.querySelector('.inquiry-form [name=lead_capture_context]')?.value===exp,expected);
     const summary=page.locator('[data-shortlist-review]');if(parseShortlist(expected))assert.equal(await summary.count(),1);else assert.equal(await summary.count(),0);
     await form.locator('select[name=project]').selectOption(primary);
+    if(parseShortlist(expected)&&posts.length===0)await page.screenshot({path:path.join(out,`inquiry-shortlist-${width}.png`),fullPage:true});
     await form.locator('[name=name]').fill('QA Synthetic Buyer');await form.locator('[name=email]').fill('qa-shortlist@example.invalid');await form.locator('[name=message]').fill('SYNTHETIC_PRIVATE_NOTE_DO_NOT_TRACK');await form.locator('[name=consent]').check();
     await form.evaluate(el=>{let f=el.querySelector('[name=turnstile_token]');if(!f){f=document.createElement('input');f.type='hidden';f.name='turnstile_token';el.append(f);}f.value='qa-intercepted-token';});
     const before=posts.length;await form.locator('button[type=submit]').click();await page.waitForFunction(()=>document.querySelector('.inquiry-form .form-status')?.textContent?.includes('request was received'));
@@ -64,7 +65,7 @@ try{
    await page.goto(origin+comparisonPaths.trio+'?email=PRIVATE_QUERY#shortlist');await ready(page,comparisonPaths.trio);
    // An actual subset, never a list inferred from previously visited buildings.
    await page.locator('input[value="ritz-carlton-wpb"]').uncheck();
-   await page.locator('input[value="shorecrest"]').uncheck();await page.locator('[data-shortlist-submit]').click();assert.equal(new URL(page.url()).pathname,comparisonPaths.trio);assert.equal(posts.length,0);
+   await page.locator('input[value="shorecrest"]').uncheck();assert.equal(await page.locator('[data-shortlist-submit]').getAttribute('aria-disabled'),'true');await page.locator('[data-shortlist-submit]').press('Enter');assert.equal(new URL(page.url()).pathname,comparisonPaths.trio);assert.equal(posts.length,0);
    await page.locator('input[value="shorecrest"]').check();
    assert.equal(await page.evaluate(()=>window.wpbAnalyticsQueue.filter(e=>e.eventName==='page_view').length),1);
    assert.ok(!(await page.evaluate(()=>JSON.stringify(window.wpbAnalyticsQueue))).includes('PRIVATE_QUERY'));
@@ -75,7 +76,7 @@ try{
    await page.goto(origin+comparisonPaths.flagler);await ready(page,comparisonPaths.flagler);await page.locator('[data-shortlist-submit]').click();await submit(encodeShortlist('flagler',['olara','south-flagler-house']),'south-flagler-house');
    await page.goto(origin+'/floorplans/olara/residence-d/');await ready(page,'/floorplans/olara/residence-d/');await page.locator('a[data-fp-action="availability"]').first().click();await submit('floorplan:olara:residence-d','olara');
    await page.goto(origin+'/corridors/south-flagler/');await ready(page,'/corridors/south-flagler/');await page.locator('.site-shell [data-corridor-intent="pricing-packet"]').click();await submit('corridor:south-flagler:pricing-packet','south-flagler-house');
-   await page.goto(origin+'/buildings/');await ready(page,'/buildings/');await page.locator('.site-shell [data-commercial-intent="availability"]').click();await submit('commercial:buildings:availability','olara');
+   await page.goto(origin+'/buildings/');await ready(page,'/buildings/');await page.locator('.site-shell [data-commercial-origin="buildings"][data-commercial-intent="availability"]:visible').click();await submit('commercial:buildings:availability','olara');
    await page.goto(origin+'/answers/');await ready(page,'/answers/');await page.locator('.site-shell [data-comparison-discovery]').waitFor();await page.locator(`.site-shell [data-comparison-discovery] a[href="${comparisonPaths.trio}"]`).click();await ready(page,comparisonPaths.trio);
    results.push({check:'discovery-navigation',width,status:'pass'});
   }

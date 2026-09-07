@@ -46,5 +46,8 @@ export async function prerenderComparisons(root=process.cwd()){
     if(count>1)throw new Error('Duplicate comparison sitemap entry');
     if(!count)sm=sm.replace('</urlset>',`<url><loc>${url}</loc><lastmod>${comparisonReviewed}</lastmod></url>\n</urlset>`);
   }
-  await fs.writeFile(sf,sm);console.log(JSON.stringify({comparisonPrerender:'pass',routes:Object.values(comparisonPages).map(c=>c.path)}));
+  await fs.writeFile(sf,sm);
+  const llmsFile=path.join(dist,'llms.txt');let llms=await fs.readFile(llmsFile,'utf8');
+  for(const c of Object.values(comparisonPages)){if(!llms.includes(c.path))llms+=`\n- [${c.heading}](${commercialOrigin+c.path}): source-backed buyer differences and a selected-building comparison request.\n`;}
+  await fs.writeFile(llmsFile,llms);console.log(JSON.stringify({comparisonPrerender:'pass',routes:Object.values(comparisonPages).map(c=>c.path)}));
 }
