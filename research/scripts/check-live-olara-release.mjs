@@ -55,6 +55,7 @@ try {
       const response = await page.goto(`${origin}${plan.path}`, { waitUntil: "networkidle" });
       assert.equal(response?.status(), 200, `${plan.slug}: status`);
       await page.locator("[data-floorplan-id]").waitFor();
+      await page.waitForFunction(() => window.wpbAnalyticsQueue?.some((event) => event.eventName === "page_view"));
       assert.equal(await page.locator("h1").count(), 1);
       assert.equal(await page.locator('link[rel="canonical"]').getAttribute("href"), plan.canonical);
       assert.ok((await page.title()).toLowerCase().includes(plan.slug.replace("residence-", "residence ")) || (await page.title()).toLowerCase().includes(plan.slug.replace("-", " ")));
@@ -74,15 +75,24 @@ try {
       await page.waitForURL(`${origin}/inquire/`);
       const form = page.locator(".inquiry-form");
       await form.waitFor({ state: "visible" });
+      await page.waitForFunction(() => typeof window.wpbSetAnalyticsConsent === "function");
       assert.equal(await form.locator('[name="project"]').inputValue(), "olara");
       await form.locator('[name="name"]').fill("Live Olara QA Example");
       await form.locator('[name="email"]').fill("live-olara-qa@example.invalid");
       await form.locator('[name="phone"]').fill("202-555-0191");
       await form.locator('[name="message"]').fill("LIVE_OLARA_TEST_DO_NOT_SEND");
       await form.locator('[name="consent"]').check();
-      await form.locator('[name="turnstile_token"]').evaluate((input) => { input.value = "LIVE_OLARA_INTERCEPTED_TOKEN"; });
+      // Test-only Turnstile stand-in. The lead endpoint is intercepted above, so
+      // this validates the production form handler/payload without contacting
+      // Cloudflare verification or a real inbox/CRM.
+      await page.evaluate(() => {
+        window.turnstile = {
+          render: (_element, options) => { options.callback("LIVE_OLARA_INTERCEPTED_TOKEN"); return "live-olara-qa-widget"; },
+          reset: () => {},
+        };
+      });
       const before = submissions.length;
-      const intercepted = page.waitForResponse((res) => res.url() === `${origin}/api/leads` && res.request().method() === "POST");
+      const intercepted = page.waitForResponse((res) => res.url() === `${origin}/api/leads` && res.request().method() === "POST", { timeout: 15000 });
       await form.locator('button[type="submit"]').click();
       await intercepted;
       assert.equal(submissions.length, before + 1);
@@ -92,6 +102,8 @@ try {
       assert.equal(payload.cta_context, `floorplan:olara:${plan.slug}`);
       assert.equal(payload.lead_capture_context, payload.cta_context);
       assert.equal(payload.landing_page, plan.canonical);
+      const analytics = await page.evaluate(() => JSON.stringify([window.wpbAnalyticsQueue, window.dataLayer]));
+      assert.doesNotMatch(analytics, /Live Olara QA Example|live-olara-qa@|202-555-0191|LIVE_OLARA_TEST_DO_NOT_SEND|LIVE_OLARA_INTERCEPTED_TOKEN/);
       results.push({ path: plan.path, width: viewport.width, image: "pass", pdf: "pass", canonical: "pass", schema: "pass", interceptedInquiry: "pass", planContext: payload.cta_context });
     }
 
@@ -116,7 +128,7 @@ const output = {
   plans: plans.length,
   viewResults: results.length,
   results,
-  limitations: ["All inquiry POSTs were intercepted in-browser; no real lead was sent.", "This audit does not certify inbox, CRM, CAPTCHA server verification, GA4 transport, or measured growth."],
+  limitations: ["All inquiry POSTs were intercepted in-browser; no real lead was sent.", "Turnstile was replaced only inside the intercepted test browser; CAPTCHA server verification was not tested.", "This audit does not certify inbox, CRM, GA4 transport, or measured growth."],
 };
 await fs.writeFile(path.join(artifactDir, "results.json"), JSON.stringify(output, null, 2));
 console.log(JSON.stringify({ liveOlaraRelease: "pass", plans: plans.length, views: results.length }, null, 2));
