@@ -25,6 +25,7 @@ type Batch4Project = {
 
 const cleanPath = (value: string) => value === "/" ? value : `${value.replace(/\/+$/, "")}/`;
 const esc = (value: string) => value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char] ?? char));
+const batch4InquiryInterests = new Set(["Request current availability", "Pricing + floor-plan packet"]);
 
 let recordsPromise: Promise<Batch4Project[]> | null = null;
 async function loadRecords() {
@@ -139,8 +140,7 @@ function installForRecord(app: HTMLElement, record: Batch4Project) {
   ensureStyles();
   updateHead(record);
   // The legacy shell's route identity uses the canonical project slug, while
-  // `projectId` is the lead payload identity (Rosewood intentionally differs).
-  // Scope only the matching route H1 and leave inquiry attribution untouched.
+  // `projectId` is the public Batch 4 request alias (Rosewood intentionally differs).
   const projectView = Array.from(app.querySelectorAll<HTMLElement>('[data-route-view="project"][data-project-id]'))
     .find((view) => view.dataset.projectId === record.slug);
   const h1 = projectView?.querySelector<HTMLHeadingElement>("h1");
@@ -154,10 +154,63 @@ function installForRecord(app: HTMLElement, record: Batch4Project) {
   else main.insertAdjacentHTML("afterbegin", renderGuide(record));
 }
 
+export function batch4InquiryRequest(records: Batch4Project[], pathname: string, search: string) {
+  if (!/^\/inquire\/?$/.test(pathname)) return undefined;
+  const params = new URLSearchParams(search);
+  const projectId = params.get("project");
+  const interest = params.get("interest");
+  if (!projectId || !interest || !batch4InquiryInterests.has(interest)) return undefined;
+  const record = records.find((candidate) => candidate.projectId === projectId);
+  return record ? { record, interest, fingerprint: `${pathname}?${params.toString()}` } : undefined;
+}
+
+function ensureBatch4InterestOption(select: HTMLSelectElement, interest: string) {
+  if (Array.from(select.options).some((option) => option.value === interest)) return;
+  const option = document.createElement("option");
+  option.value = interest;
+  option.textContent = interest;
+  select.append(option);
+}
+
 export async function installProjectSeoBatch4(app: HTMLElement) {
   const records = await loadRecords();
   let current = "";
+  let inquiryFingerprint = "";
+
+  const syncInquiryRequest = () => {
+    const request = batch4InquiryRequest(records, location.pathname, location.search);
+    if (!request) {
+      inquiryFingerprint = "";
+      return;
+    }
+    if (request.fingerprint === inquiryFingerprint) return;
+
+    const form = app.querySelector<HTMLFormElement>(".inquiry-form");
+    const project = form?.querySelector<HTMLSelectElement>('select[name="project"]');
+    const interest = form?.querySelector<HTMLSelectElement>('select[name="interest"]');
+    if (!form || !project || !interest) return;
+
+    // Batch 4 is the only request family whose public packet label is not an
+    // existing legacy select option. Apply the explicit query request once per
+    // navigation, after the legacy router has run, then leave buyer edits alone.
+    project.value = request.record.slug;
+    ensureBatch4InterestOption(interest, request.interest);
+    interest.value = request.interest;
+    form.querySelector<HTMLInputElement>('[name="source_page"]')?.setAttribute("value", location.href);
+    form.querySelector<HTMLElement>('[data-shortlist-review]')?.remove();
+
+    // Remove metadata owned by a prior remembered request family. The legacy
+    // query initializer already refreshes the canonical project name/corridor;
+    // first-touch landing/referrer/campaign attribution remains untouched in the
+    // existing lead-attribution store.
+    delete form.dataset.leadProjectSlug;
+    delete form.dataset.leadCtaLabel;
+    delete form.dataset.leadCtaLocation;
+    inquiryFingerprint = request.fingerprint;
+  };
+
   const refresh = () => {
+    syncInquiryRequest();
     const path = cleanPath(location.pathname);
     const record = records.find((candidate) => cleanPath(candidate.path) === path);
     if (!record) {
@@ -169,8 +222,13 @@ export async function installProjectSeoBatch4(app: HTMLElement) {
     current = `${path}:${record.reviewedOn}`;
     installForRecord(app, record);
   };
+
   const observer = new MutationObserver(refresh);
   observer.observe(app, { childList: true, subtree: true });
   window.addEventListener("popstate", refresh);
+  // The legacy SPA router handles internal clicks synchronously at document
+  // level. Queue one refresh after that event finishes so the new request URL
+  // and form are synchronized without another router or a render-loop reset.
+  app.addEventListener("click", () => queueMicrotask(refresh));
   refresh();
 }
