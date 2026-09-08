@@ -138,8 +138,13 @@ function renderGuide(record: Batch4Project) {
 function installForRecord(app: HTMLElement, record: Batch4Project) {
   ensureStyles();
   updateHead(record);
-  const h1 = app.querySelector<HTMLHeadingElement>("h1");
-  if (h1 && h1.textContent !== record.h1) h1.textContent = record.h1;
+  // The legacy shell renders every project route into the DOM and toggles them
+  // with `hidden`. Scope the Batch 4 heading update to this exact project rather
+  // than mutating the first H1 in the application (which belongs to Home).
+  const projectView = Array.from(app.querySelectorAll<HTMLElement>('[data-route-view="project"][data-project-id]'))
+    .find((view) => view.dataset.projectId === record.projectId);
+  const h1 = projectView?.querySelector<HTMLHeadingElement>("h1");
+  if (h1 && h1.textContent?.trim() !== record.h1) h1.textContent = record.h1;
   const existing = app.querySelector<HTMLElement>("#wpb-project-seo-batch4");
   if (existing?.dataset.projectId === record.projectId) return;
   existing?.remove();
