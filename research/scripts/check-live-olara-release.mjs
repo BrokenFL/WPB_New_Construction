@@ -32,6 +32,7 @@ try {
   for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
     const context = await browser.newContext({ viewport });
     const submissions = [];
+    const firstTouch = plans[0].canonical;
     let externalAnalytics = 0;
     await context.route("**/*", async (route) => {
       const req = route.request();
@@ -82,9 +83,6 @@ try {
       await form.locator('[name="phone"]').fill("202-555-0191");
       await form.locator('[name="message"]').fill("LIVE_OLARA_TEST_DO_NOT_SEND");
       await form.locator('[name="consent"]').check();
-      // Test-only Turnstile stand-in. The lead endpoint is intercepted above, so
-      // this validates the production form handler/payload without contacting
-      // Cloudflare verification or a real inbox/CRM.
       await page.evaluate(() => {
         window.turnstile = {
           render: (_element, options) => { options.callback("LIVE_OLARA_INTERCEPTED_TOKEN"); return "live-olara-qa-widget"; },
@@ -101,10 +99,13 @@ try {
       assert.equal(payload.interest, "Request current availability");
       assert.equal(payload.cta_context, `floorplan:olara:${plan.slug}`);
       assert.equal(payload.lead_capture_context, payload.cta_context);
-      assert.equal(payload.landing_page, plan.canonical);
+      // First-touch attribution intentionally remains the first Residence viewed
+      // in this browser session; exact current-plan attribution must still switch.
+      assert.equal(payload.landing_page, firstTouch);
+      assert.equal(payload.submission_page, `${origin}/inquire/`);
       const analytics = await page.evaluate(() => JSON.stringify([window.wpbAnalyticsQueue, window.dataLayer]));
       assert.doesNotMatch(analytics, /Live Olara QA Example|live-olara-qa@|202-555-0191|LIVE_OLARA_TEST_DO_NOT_SEND|LIVE_OLARA_INTERCEPTED_TOKEN/);
-      results.push({ path: plan.path, width: viewport.width, image: "pass", pdf: "pass", canonical: "pass", schema: "pass", interceptedInquiry: "pass", planContext: payload.cta_context });
+      results.push({ path: plan.path, width: viewport.width, image: "pass", pdf: "pass", canonical: "pass", schema: "pass", interceptedInquiry: "pass", planContext: payload.cta_context, firstTouchPreserved: payload.landing_page });
     }
 
     for (const discoveryPath of ["/floorplans/", "/projects/olara/"]) {
