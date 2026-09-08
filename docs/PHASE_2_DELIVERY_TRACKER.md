@@ -1,85 +1,86 @@
 # Phase 2 delivery tracker — WPB New Construction
 
-Updated September 7, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
-Requirements: `docs/ASTRA_PHASE_2_GROWTH_HANDOFF.md` and Brooke's September 7 instructions.
+Updated September 8, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
+Requirements: `docs/ASTRA_PHASE_2_GROWTH_HANDOFF.md` and Brooke's growth/release instructions.
 
 ## Current direction
 
-**PR #76 is approved, merged, deployed and live-verified. Batch 2 is implemented and tested in draft PR #78, for review only.** Deployed application: `8128f7a5a24706a8fc743f156f2f1d0505f1b462`. Normal production deployment ran once. Main documentation successor: `df77653322cf064f76c9946766609733bdc78490`. See `docs/P2_76_RELEASE_VERIFICATION.md`.
+**PR #76 and PR #78 are approved, merged, deployed and live-verified for initialized-page journeys. Batch 3 is authorized for implementation and separate draft review ONLY.** Current deployed application: `de5fd3d1581df372712d0f02ad54305d8f4f1b4b`. PR78's normal production workflow ran once. No duplicate manual deployment. See `docs/P2_COMPARISONS_IMPLEMENTATION_PROGRESS.md` and `docs/P2_76_RELEASE_VERIFICATION.md`.
 
-**PR #75 / GA4 Admin diagnosis remains PARKED — blocked / non-critical / revisit separately.** Its code, PR and account configuration are untouched. Parked does not mean fixed; it is not a growth dependency. No GA4 delivery or measured uplift is claimed.
+**PR #75 / GA4 Admin diagnosis remains PARKED — blocked / non-critical / revisit separately.** Its code, PR and account configuration are untouched; parked does not mean fixed. It is not a growth dependency. No actual GA4 transport or measured growth is claimed. Declined Search Console authorization was not retried.
 
-Batch 2 branch `p2-buyer-comparisons-shortlist` was created from updated production main after live success. [Draft PR #78](https://github.com/BrokenFL/WPB_New_Construction/pull/78) is not approved, merged, deployed or measured. Full sources/results: `docs/P2_COMPARISONS_IMPLEMENTATION_PROGRESS.md`.
-
-Historical ledgers remain in `docs/P2_CORRIDOR_IMPLEMENTATION_PROGRESS.md`, `docs/P2_INTEGRATION_PROGRESS.md` and [the post-release main tracker](https://github.com/BrokenFL/WPB_New_Construction/blob/df77653322cf064f76c9946766609733bdc78490/docs/PHASE_2_DELIVERY_TRACKER.md). Earlier failures are not retroactively changed to passes.
+Historical full ledgers remain in the corridor/comparison/integration progress documents and their approved Git history. Earlier timeouts/failures are not retroactively recast as passes. This documentation-only release closeout does not change the deployed application or authorize another production workflow.
 
 ## Status contract
 
-Planned = scoped. Implemented = code/content exists. Tested = exact revision/evidence recorded. Approved = Brooke authorized it. Deployed = actual authorized publication. Measured = observed post-release first-party outcomes. Blocked = specific dependency, never a reason to halt unrelated tasks.
+Planned = scoped. Implemented = code/content exists. Tested = exact revision and evidence recorded. Approved = Brooke authorized presentation/release. Deployed = actual authorized production publication. Measured = post-release first-party outcomes observed. Blocked = a specific missing dependency, never a reason to stop independent work.
 
 ## Delivery ledger
 
 | Task | Status | Branch / PR | Evidence | Blocker | Next action |
 |---|---|---|---|---|---|
-| Olara Residence D HTML/discovery | Implemented, tested, approved, deployed via #74; not measured | Production main | Existing PDF/preview/canonical/sitemap; live switching retained in #76 | None for retention | Verified expansion only in Batch 3 |
-| Alba Residence D HTML | Implemented source hold; blocked, unpublished | Preserved implementation | August 2022 / 10-square-foot discrepancy; live 404 and sitemap exclusion | Developer source clarification | Preserve PDFs; no uncertain HTML |
-| Homepage / Buildings | Implemented, tested, approved, deployed via #74; not measured | Production main | Distinct intent, listings before guidance, availability/packet | None for retention | Preserve during independent work |
-| Batch 1: Downtown / South Flagler / Palm Beach | Implemented, tested, approved, deployed, live-verified; not measured | Merged #76 / `8128f7a5a24706a8fc743f156f2f1d0505f1b462` | Candidate34150578884; production34152334484; live34153465427 | No release blocker | Observe post-release GSC |
-| Corridor availability + pricing/floor-plan packet | Implemented, tested, approved, deployed | #76 | 18 live intercepted POSTs; intent/building/corridor/first-touch/switching | Interception is not CRM certification | Retain separate request products |
-| Batch 2: North/South Flagler and Olara/Ritz/Shorecrest | Implemented, tested; not approved/deployed/measured | `p2-buyer-comparisons-shortlist` / draft #78 | Existing canonical improved; one new substantive comparison; full ledger below | Brooke's independent copy/source/layout/flow review | No deployment under #76 approval |
-| Compare my shortlist | Implemented, tested; not approved/deployed | Draft #78 | Explicit checked IDs survive payload and unchanged server normalizer; visible summary/edit; independent primary choice | Same review | Team fulfillment manual; no CRM claim |
-| Authorship audit | Audit complete; implementation separately planned | #76 progress doc | Existing Brooke/team schema; per-article responsibility gap | Approved profile facts and actual responsibility | Real bylines/authorId/reviewerId; no fictional staff |
-| PR #75 / GA4 diagnosis | Blocked / non-critical / parked | Existing #75 untouched | Historical evidence on its branch; not rerun | Separate future authorization/account work | Revisit separately |
-| Very early / no-JavaScript attribution | Boundary documented; separate hardening planned | Live audit only; no runtime fix | Visible prerender can precede handlers; interactive tests require readiness | Progressive-enhancement design | Keep native navigation; do not confuse fallback visibility with attribution readiness |
+| Olara Residence D HTML/discovery | Implemented, tested, approved, deployed via #74; not measured | Production main | Live #78 markup and exact preview/PDF hashes pass | None for retention | Add 4–6 defensible distinct plans using the existing framework in Batch 3 |
+| Alba Residence D HTML | Implemented source hold; blocked, unpublished | Preserved implementation | August2022 / 10-square-foot discrepancy; live404 and sitemap exclusion | Developer source clarification | Preserve PDFs; no uncertain new HTML |
+| Homepage / Buildings | Implemented, tested, approved, deployed via #74; not measured | Production main | Existing commercial and inquiry regressions remain green | None for retention | Preserve during independent work |
+| Downtown / South Flagler / Palm Beach | Implemented, tested, approved, deployed via #76; live-verified, not measured | #76 / `8128f7a5a24706a8fc743f156f2f1d0505f1b462` | Production34152334484; live34153465427; repeated live #78 regressions pass | No scoped release blocker | Observe GSC when authorized; preserve current content |
+| Corridor availability + pricing/floor-plan packet | Implemented, tested, approved, deployed | #76 | 18 live intercepted POSTs repeated after #78; request/first-touch/selected-building context | Interception is not CRM certification | Retain distinct intent products |
+| North/South and Olara/Ritz/Shorecrest comparisons | Implemented, tested, approved, deployed, live-verified; not measured | Merged #78 / `de5fd3d1581df372712d0f02ad54305d8f4f1b4b` | Candidate34177737077; production34178444416; live34178933079 | No initialized-flow release blocker | Retain sources/canonicals and historical caveats |
+| Compare my shortlist | Implemented, tested, approved, deployed | #78 | 12 live intercepted POSTs; edit/restore, independent primary choice and server normalization | Team fulfillment remains manual; no inbox/CRM certification | Preserve explicit selected IDs and separate request intent |
+| Authorship | Audit complete; implementation planned separately | Corridor progress doc | Brooke/team identity exists; per-article responsibility gap | Approved profile facts and real editorial responsibility | Explicit author/reviewer fields and visible real-person bylines; no invented staff |
+| PR #75 / GA4 diagnosis | Blocked / non-critical / parked | Existing #75 untouched | Historical evidence retained on its branch; no diagnostic rerun | Separate future authorization/account work | Revisit independently |
+| Very early / no-JavaScript context transfer | Boundary documented; hardening planned separately | Live audit harnesses, no runtime fix | Visible prerender/form can precede click/navigation listeners | Progressive enhancement design | Preserve native navigation; do not call delayed-startup tests a production fix |
 
-## PR #76 release evidence
+## PR #78 release evidence
 
-Approved code `04544146bc0187c46ec7fd1c90247fbffc5aee0d`; docs successor `ef5cf83136f43e85c417fd141b126b933bb978b9`; merge/deployment `8128f7a5a24706a8fc743f156f2f1d0505f1b462`.
+Approved implementation `1b4ecc49693dafd09bb2be3abea9b93edff16c21`; docs successor `db5b5c0b79f9990cd39a1ec1e16c3f9d0451e4a4`; no-file-change verification commit `133e01510ce4632002794c53821ad81a71d7b75d`; merge/deployment `de5fd3d1581df372712d0f02ad54305d8f4f1b4b`. The successor, verification commit and merge have identical application code; main had no intervening work.
 
-Both candidate modes and aggregate passed before merge. Automatic production run **34152334484** succeeded, attempt 1, without duplicate manual deployment. Live run **34153465427** passed at **2026-09-07T18:57:28.444Z**: 3 static corridors, 12 desktop/mobile/JS-on/off views, 18 intercepted inquiries and 33 links/assets. Three sitemap dates are `2026-09-07`; Alba HTML remains 404. Artifact **10030217258**, verified SHA-256 `0ec881f1095640bf0a59243e0ffb9b8b63fb9ca90ad2f341a7d4fd9906aed13b`.
+[Candidate run34177737077](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34177737077): final keyed101911442455, no-key101911442956, aggregate101912248497 all SUCCESS. Both full repository modes, assets, source protections, comparisons/corridors/commercial/plans/inquiries passed; keyed preflight and actual Maps passed. Expected no-key deployment rejection remains enforced.
 
-No-JavaScript covers content/navigation, not submissions. Interception does not certify production CAPTCHA or CRM delivery. No real lead or marketing email. Analytics/consent/sanitizer and production credentials remain unchanged. Very early clicks are outside initialized-flow assertions. The release documentation commit triggered no workflow.
+[Production run34178444416](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34178444416), attempt1, normal main push, job101912413148: build, launchQA, gatekeeper and Cloudflare deployment SUCCESS. No manual deploy.
 
-## Batch 2 verification and measurement
+[Live run34178933079](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34178933079), audit job101913834233 SUCCESS: two comparison static documents, 8 comparison desktop/mobile/JS-on/off views, 12 intercepted comparison POSTs, 2 native discovery journeys, five static discovery blocks, 3 corridor documents, 12 corridor views, 18 intercepted corridor POSTs, approved Olara D image/PDF bytes and 4 real Maps loader/tile/zoom checks. Metadata/canonical/schema and comparison sitemap dates `2026-09-07` pass. Alba stays404/excluded. Live detail timestamp `2026-09-08T02:12:47.657Z`.
 
-**Exact tested implementation: `1b4ecc49693dafd09bb2be3abea9b93edff16c21`.** [Run 34159423436](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34159423436) passed: keyed101859747256, no-key101859748088 (successful original no-key result carried forward), aggregate101860776135.
+[Live artifact10038314335](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34178933079/artifacts/10038314335), downloaded/hash-verified: `2174f0b8d7659a9b79357c7226d64d21cc44fce6bb700c989682f0540a907fb3`. Desktop/mobile comparison and inquiry screenshots inspected. Safe source/results/screenshots only, no credential-bearing builds/raw lead payloads.
 
-Both modes passed typecheck/build/full npm test (75 unit tests, 8 new comparison contracts), SEO/gatekeeper, standard/strict assets (0 blockers, 81 existing advisories), protected-source checks, existing commercial/floor-plan/integration and corridor journeys. New comparisons: 2 static pages, 8 browser views, 12 intercepted POSTs and 2 discovery navigations per mode. Existing suites: 24 prepared views and 42 intercepted POSTs per mode. Keyed preflight and 4 actual Maps tile/zoom checks passed; no-key missing-loader rejection is explicitly enforced.
+**Historical failures retained:** original implementation run34159423436 had a commercial-filter-reset timeout at `check-commercial-growth.mjs:97`; full failed keyed job passed unchanged on retry, root cause unproven. Release run34177737077 initially failed one desktop Maps completion check; other cases and complete suite passed; entire keyed job passed unchanged on retry, not claimed fixed. First live run34178483898 hit Edit-shortlist before lazy navigation initialization; final audit waits for full initialized shell/resources. No application correction was deployed, no assertion removed, and early clicks are not certified. Full records and digests are in the comparison progress document.
 
-An initial keyed attempt at the same SHA timed out resetting an existing commercial status filter. The entire failed job reran unchanged and passed. The underlying timeout cause is unproven, not described as fixed; no assertion waived. Full chronology, sources, screenshots and limits are in the comparison progress document.
+All buyer-journey POSTs and third-party analytics are intercepted. No real leads/emails sent. Normalizer tests are local; production CAPTCHA, inbox/CRM/email delivery, GA4 transport and measured growth are NOT certified. No-JavaScript covers research/navigation, not automatic shortlist transfer. Production analytics/consent code and credentials/restrictions are unchanged.
 
-Verified archives: [keyed10032381849](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34159423436/artifacts/10032381849), SHA-256 `c3200a913d83bdaad0ecdfb0472ff0db776bbf7024efc0756048f11c97436a6c`; [no-key10032177416](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34159423436/artifacts/10032177416), SHA-256 `5662a0befda64f50e11478908e5c286453daba9fd3f5e7a7cbb536c641aa28ba`. Desktop/mobile pages and pre-contact-entry inquiry screenshots were inspected. No key-bearing compiled bundles or raw contact submissions archived.
+## PR #76 history
 
-These final documents are a documentation-only successor to the tested code, identified in PR #78. No-JavaScript covers research/navigation, not automatic shortlist transfer. No production CRM/CAPTCHA or GA4 transport certification. Brooke's separate #78 review remains required.
+Approved04544146; docsef5cf831; merge/deploy8128f7a5. Production34152334484 succeeded once. Live34153465427 at2026-09-07T18:57:28.444Z: 3 static corridors, 12 views, 18 intercepted POSTs, 33 links/assets. Corridor sitemap dates2026-09-07; Alba404. Artifact10030217258 digest `0ec881f1095640bf0a59243e0ffb9b8b63fb9ca90ad2f341a7d4fd9906aed13b`. Full identities/limitations retained in `docs/P2_76_RELEASE_VERIFICATION.md`.
 
-Fresh Search Console access was requested and declined; not retried. Last verified finalized **August 8–September 4** data remains baseline, not a fresh Batch 2 retrieval: Downtown49 impressions/0 clicks; South Flagler21/0; Palm Beach absent from returned rows, not assumed zero; North Flagler351/8; existing Olara/Shorecrest Market Note16/1. Official source coverage and Brooke's priorities justify the comparison; no invented exact-match demand or post-release uplift.
+## Measurement baseline
+
+The declined fresh Search Console authorization was not retried. Last verified finalized August8–September4 data is baseline context only: Downtown49 impressions/0 clicks; South Flagler21/0; Palm Beach absent from returned rows, not assumed zero; North Flagler351/8; existing Olara/Shorecrest Market Note16/1. Official source coverage and Brooke's priorities justified comparisons. No invented exact-match demand, retrospective GA4 data or post-release uplift.
 
 ## Complete remaining roadmap
 
-Each independent batch starts from then-current production main and gets verified sources, full checks, desktop/mobile evidence, exact tested SHA and draft PR. Only separately approved batches deploy.
+Independent batches start from then-current production main, use verified sources, full checks, desktop/mobile evidence and exact tested SHAs. Only separately approved batches deploy.
 
-| Item | Status | Evidence / scope | Dependency | Next action |
+| Item | Status | Scope / evidence | Dependency | Next action |
 |---|---|---|---|---|
-| P2-001 / Batch 3 verified plans | Planned | Additional actual Olara plans first, then clean official project sources | Matching current PDF/preview/facts | One entity per plan; preserve PDFs/context/compare/availability/mobile/schema/sitemap; Alba held |
-| P2-002 priority project SEO | Planned | Rosewood, Maison d'Or, Fern/Gardenia/464 Fern, Rybovich | Official facts and GSC | Independent brand-intent work; no invented inventory/pricing/delivery |
-| P2-003 curated comparisons | North/South and trio implemented/tested in #78; further work planned | Downtown/waterfront, preconstruction/completed; Alba/Shorecrest only if defensible | Comparable facts, not GA4 | Review #78 separately; no mass pairwise pages |
-| P2-004 contextual leads | Availability/packet deployed; shortlist tested/in review; others planned | Explicit project/plan/corridor/shortlist, source and first touch | Product/fulfillment review | Keep PII boundary; tour/strategy requests and alerts separately |
-| P2-005 Buyer Intelligence Report | Planned | Monthly changes, active-sales comparisons, pipeline/status, dated pricing where verified, plans, corridor snapshots, buyer questions | Verified period, owner, fulfillment | Gate assembled report only; evergreen research stays crawlable |
-| P2-005 newsletter/preferences | Planned; no emails sent | Weekly changes and distinct monthly/project subscriptions | Explicit opt-in, preferences/unsubscribe, approved provider | Reuse editorial workflow; no unapproved automation |
-| P2-006 real authors/reviewers | Audit done; implementation planned | Brooke Snader, Scott Gordon, other actual justified members | Approved facts and editorial responsibility | Visible profiles/bylines, explicit ownership and Person schema; truthful dates |
-| P2-007 buyer due diligence | Planned | Deposits/contracts, assignments/resale, fees/closing costs, parking/storage, pets, docks, branded services, elevators, delays, plans | Authoritative current sources; general education | Useful linked guides; no individualized legal/financial advice |
-| P2-008 lifestyle/feature guides | Planned | Marina access, branded, wellness, private elevators, pet-friendly, walkability, boutique/large-scale | Enough verified project-specific facts | Confirm rights/rules/costs; no thin pages or invented policies |
-| P2-009 links/query ownership | Home/Buildings/corridors deployed; comparison discovery tested/in review; broader pass planned | Market=Home; browse=Buildings; geography=corridors; brand=projects; layout=plans; decision=comparisons; process=answers; dated news=updates | Useful context and GSC | Preserve canonical equity; link news to permanent entities; overlap is not proof of cannibalization |
-| P2-010 GSC/GA4 measurement | GSC baseline available; outcomes unmeasured | 7-day instrumentation, 28-day search/journeys, 60–90-day conversion evaluation | Observation time; GA4 parked separately | Use GSC when authorized; no retrospective GA4 or fabricated uplift |
+| P2-001 / Batch 3 Olara plans | Planned; implementation/review authorized, NOT deployment | Target4–6 distinct individual layouts, fewer if sources uncertain | Current official PDF matches approved preview/download/facts | Extend existing entity framework; retain revision uncertainty, actual review dates, plan/building inquiry context and discovery; Alba held |
+| Additional project plans | Planned | Other projects only with clean current official sources | Defensible drawings/facts | No duplicate mirrors/version pages or page-count inflation |
+| P2-002 priority project SEO | Planned | Rosewood, Maison d'Or, Fern/Gardenia/464 Fern, Rybovich | Official facts and authorized GSC | Independent brand intent; no invented inventory/prices/delivery |
+| P2-003 further curated comparisons | North/South/trio deployed; others planned | Downtown/waterfront, preconstruction/completed; Alba/Shorecrest only if defensible | Comparable source depth, not GA4 | No thin mass pairwise pages |
+| P2-004 contextual lead flows | Availability/packet/shortlist deployed; further products planned | Explicit project/plan/corridor/shortlist and first touch | Product/fulfillment review | Protect PII, manual selections and deliberate consent; tour/strategy separately |
+| P2-005 Buyer Intelligence Report | Planned | Monthly project changes, active-sales comparisons, pipeline, dated pricing when verified, plans/corridors/buyer questions | Verified period, owner, fulfillment | Gate assembled report only; evergreen research remains crawlable |
+| P2-005 newsletter/preferences | Planned; no emails sent | Weekly changes and separate monthly/project subscriptions | Explicit opt-in/preferences/unsubscribe/approved provider | Reuse editorial workflow; no unapproved marketing automation |
+| P2-006 real authors/reviewers | Audit complete; implementation planned | Brooke Snader, Scott Gordon and justified actual team members | Approved facts/editorial responsibility | Person profiles/bylines, authorId/reviewerId and truthful review dates |
+| P2-007 buyer due diligence | Planned | Deposits/contracts, assignments/resale, fees/closing costs, parking/storage, pets/docks/services/elevators/delays/plans | Authoritative current sources | Useful linked general education; no individualized legal/financial advice |
+| P2-008 lifestyle/feature guides | Planned | Marina, branded, wellness, private elevators, pet-friendly, walkability, boutique/large-scale | Verified project facts and rights/rules/costs | No invented policies or thin feature pages |
+| P2-009 linking/query ownership | Home/Buildings/corridors/comparison discovery deployed; broader work planned | Market=Home; browse=Buildings; place=corridors; brand=projects; layout=plans; decision=comparisons; process=answers; news=updates | Useful context and authorized GSC | Preserve canonicals/equity; news-to-entity links; overlap alone is not cannibalization |
+| P2-010 measurement | GSC baseline exists; outcomes unmeasured | 7-day instrumentation, 28-day search/journeys, 60–90-day conversion evaluation | Observation time/authorized GSC; GA4 parked separately | No manufactured uplift or retrospective GA4 |
 
 ## Lead-product register
 
 | Product | State | Fulfillment / next action |
 |---|---|---|
-| Send current availability | Home/Buildings/Olara/corridors deployed | Team confirmation, not live-inventory promise |
-| Pricing + floor-plan packet | Home/Buildings/corridors deployed | Current team packet; open underlying research |
-| Compare my shortlist | Implemented, tested, draft #78 review; not deployed | Explicit selected IDs and intent retained; team comparison response |
-| Project-change alerts | Planned | Project-specific opt-in, preferences/unsubscribe, approved delivery |
-| Monthly WPB New Construction Buyer Intelligence Report | Planned | Verified cadence/owner, assembled report, separate subscription consent |
+| Send current availability | Home/Buildings/Olara/corridors deployed | Current team confirmation, not a live-inventory promise |
+| Pricing + floor-plan packet | Home/Buildings/corridors deployed | Team-prepared current packet; underlying drawings remain open |
+| Compare my shortlist | Approved/deployed/live initialized-flow verified via #78 | Explicit selected IDs retained; team comparison response |
+| Project-change alerts | Planned | Project-specific opt-in/preferences/unsubscribe and approved delivery |
+| Monthly WPB New Construction Buyer Intelligence Report | Planned | Verified cadence/owner/assembled report and separate subscription consent |
 
-Four existing high-severity dependency findings, 81 asset advisories and large-chunk warnings remain separate maintenance. No unrelated cleanup. Nothing authorizes #78 deployment or changes parked #75.
+Four existing high-severity dependency findings, 81 asset advisories and large-chunk warnings remain separate maintenance. No unrelated cleanup. Batch3 and later features require separate release approval; PR75 remains untouched.

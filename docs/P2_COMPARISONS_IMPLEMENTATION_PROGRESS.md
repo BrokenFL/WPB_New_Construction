@@ -1,96 +1,85 @@
-# Phase 2 buyer comparisons — Batch 2 / draft PR #78
+# Phase 2 buyer comparisons — Batch 2 / PR #78
 
-Updated September 7, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
-Branch: `p2-buyer-comparisons-shortlist`.
-Base: `df77653322cf064f76c9946766609733bdc78490`.
+Release recorded September 8, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
 
-## Decision and authorization
+## Current status
 
-**Implemented and tested; draft PR #78 awaits Brooke's separate review. Not approved, merged, deployed or measured.**
+**Brooke approved PR #78. It is merged, deployed once and live-verified for initialized-page journeys. Search/lead growth is not measured.** The approval covers Batch 2 only. Additional Olara plans require a separate branch, draft PR and review before deployment. PR #75 / GA4 configuration remains PARKED — blocked / non-critical / revisit separately; neither its code, PR nor settings were changed or diagnosed.
 
-PR #76 was approved, merged as `8128f7a5a24706a8fc743f156f2f1d0505f1b462`, deployed once by automatic run 34152334484, and live-verified by run 34153465427 before this branch was created. Its 3 corridors, 12 desktop/mobile/JavaScript configurations, 18 intercepted inquiry POSTs and 33 links/assets are recorded in `docs/P2_76_RELEASE_VERIFICATION.md`. Main's documentation-only successor triggered no additional workflow.
+## Release identity and checks
 
-Brooke's release approval covers #76 only. PR #75 remains **PARKED — blocked / non-critical / revisit separately**. Its branch, PR and analytics configuration were not changed or diagnosed here. No real leads, marketing emails, CRM-delivery certification or Batch 2 deployment.
-
-## Canonical scope
-
-- Improve the existing `/answers/north-flagler-vs-south-flagler-new-condos/`: individual block/bridge routines, layouts, service/cost differences and new-development versus completed alternatives.
-- Add one substantive `/answers/olara-vs-ritz-carlton-vs-shorecrest/` for a three-project buyer decision, not mass-generated pairs.
-- Add discovery from existing Answers, Compare and Olara/Ritz-Carlton/Shorecrest project guides. Preserve the existing Olara/Shorecrest Market Note URL.
-- Link actual Olara Residence D HTML and preserved PDF/library, plan-comparison and fee answers. No new floor-plan entity; Alba remains held and excluded.
-
-Each page has one H1, differentiated title/description, a clean canonical, matching WebPage/BreadcrumbList/ItemList, source citations and a truthful source-review date. Sitemap dates are September 7; generated `llms.txt` includes the new canonical. No fictional authors, offers, ratings, live inventory or guaranteed delivery. Global project facts remain unchanged.
-
-## Official-source ledger
-
-Sources checked September 7, 2026. Marketing is not available-unit inventory; completion guidance is dated and qualified.
-
-| Source | Use and qualification |
+| Identity | Value |
 |---|---|
-| [Olara residences](https://www.olarawestpalmbeach.com/residences/) / [lifestyle](https://www.olarawestpalmbeach.com/lifestyle/) | Layout/terrace orientation, marketed 80,000+ sq. ft. amenities and marina. Slip rights, allocation, fees and shared amenities require documents. |
-| [Gilbane Olara](https://www.gilbaneco.com/projects/olara-residences-gilbane-building/) | 1919 North Flagler, two- to four-bedroom-plus-den layouts and construction description. No disputed count or current closing date asserted. |
-| [Ritz-Carlton residences](https://theresidenceswestpalmbeach.com/residences/) / [amenities](https://theresidenceswestpalmbeach.com/amenities/) | Dedicated elevator arrival, foyers, balconies, 10/11-foot ceiling description and service positioning. Verify selected-line and included/optional service details. |
-| [BH Group](https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/) | 138 residences, selling/under construction, February 2026 groundbreaking and 2028 target. Counts are not available units. Official 1717/1745 street-number discrepancy is disclosed, not guessed away. |
-| [Shorecrest residences](https://www.shorecrestwpb.com/residences) / [amenities](https://www.shorecrestwpb.com/amenities) | Two/three bedrooms, rooftop pool, spa, concierge and Lifestyle Director. Confirm current inclusions and partnership scope. |
-| [Related Ross April 3 release](https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm) | Dated groundbreaking, 98 residences, four per floor and 1865 North Flagler. Reported 2027 completion requires a current update. |
-| [South Flagler House](https://www.southflaglerhouse.com/) / [RAMSA](https://www.ramsa.com/news/article/south-flagler-house-tops-out-west-palm-beach) | Loggias, two- to five-bedroom offering, 50,000 sq. ft. club program, November 2025 topping out. Conflicting counts omitted; structural milestone is not occupancy. |
-| [La Clara contractor](https://www.jm-a.com/portfolio/la-clara/) | Completed alternative; contractor records 2024 completion. No resale inventory, original finish condition or fee quote asserted. |
+| Approved implementation | `1b4ecc49693dafd09bb2be3abea9b93edff16c21` |
+| Approved documentation successor | `db5b5c0b79f9990cd39a1ec1e16c3f9d0451e4a4` |
+| Identical-tree verification commit | `133e01510ce4632002794c53821ad81a71d7b75d` — no files changed |
+| Merge / deployed application | `de5fd3d1581df372712d0f02ad54305d8f4f1b4b` |
+| Exact release tree | `6f068d62b9c5be3f18d7d807eae8f58d68c17be2` |
+| Production base before release | `df77653322cf064f76c9946766609733bdc78490` |
+| Candidate run | [34177737077](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34177737077) |
+| Final candidate jobs | keyed `101911442455`, no-key `101911442956`, aggregate `101912248497`: SUCCESS |
+| Automatic production run | [34178444416](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34178444416), attempt 1, main push |
+| Production job | `101912413148`: build, launch QA, gatekeeper and actual Cloudflare deployment SUCCESS |
+| Live audit run | [34178933079](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34178933079), job `101913834233` SUCCESS |
+| Audit-only revision | `0e007830e72c47c127851e478fcf83d6c46848dc`, branch `p2-78-live-verification` |
 
-Buyer-fit guidance compares features and routines, not demographics or investment returns. Detailed cards are limited to this sourced set; broader corridor guides retain other projects. The existing outbound-domain policy is preserved: restricted developer sources have visible citation labels and full schema/ledger provenance rather than forbidden outbound anchors. No gatekeeper exemption or disguised redirect.
+Main was rechecked before merging; there was no intervening production change. GitHub comparison confirmed the approved successor changed only the two documentation files. Because that successor skipped CI, a no-file-change commit reran both complete candidate modes on its identical tree. PR #78 was marked ready and merged normally with an expected-head SHA, without a force push or administrative bypass. There was no manual production deployment. This documentation closeout contains no application changes and is committed with `[skip ci]` to avoid another production run.
 
-## Search Console limitation
+## Live verification
 
-The fresh retrieval required authorization and was declined; it was not retried. The last verified finalized August 8–September 4 snapshot is baseline context, not a new API result: North Flagler 8 clicks/351 impressions; South Flagler 0/21; existing Olara/Shorecrest Market Note 1/16; small North/South answer query sample of 2 impressions. The trio follows Brooke's priorities and source coverage, not invented exact-match demand. No post-release uplift or GA4 outcome claimed.
+Production origin: `https://www.wpbnewconstruction.com`.
 
-## Shortlist and implementation
+- `/answers/north-flagler-vs-south-flagler-new-condos/`
+- `/answers/olara-vs-ritz-carlton-vs-shorecrest/`
+- Discovery on `/answers/`, `/compare/`, `/projects/olara/`, `/projects/ritz-carlton-wpb/`, `/projects/shorecrest/`.
+- Existing Downtown, South Flagler and Palm Beach corridor routes; `/floorplans/olara/residence-d/`; `/inquire/`; `/`; `/map/`; `/sitemap.xml`; `/llms.txt`.
 
-`src/lib/shortlist.ts` permits only two comparison identities and their public project IDs. Minimum two distinct buildings, canonical order, bounded length; duplicate, arbitrary, cross-page and contaminated input is rejected. All 30 valid subsets are tested. Context such as `shortlist:trio:olara,shorecrest` stays within the existing analytics and server field limits.
-
-The explicit checked IDs survive `lead_capture_context`/`cta_context` and the unchanged `normalizeLead()` function. Existing storage and notification code already consume CTA context; no database or endpoint change. The inquiry displays all selected names and an edit link. Its primary-building field does not delete the full list. New corridor/commercial/plan requests replace stale shortlist context; first touch and manual selections remain intact. Selection is not inferred from viewing history.
-
-Shared content/schema: `src/lib/comparisonContent.ts`. Page startup/styles: `src/comparisonPage.ts` / `.css`. Discovery: `src/comparisonDiscovery.ts`. Bootstrap routes these two exact pages before the unchanged legacy core and retains native document navigation. Small `src/shortlistSummary.css` loads eagerly before the form bridge; the larger comparison styles remain lazy.
-
-`research/scripts/prerender-comparisons.mjs` composes into the existing commercial postbuild adapter before floor-plan generation, using the private Vite manifest for static stylesheet references. Package scripts/lockfile stay unchanged. New contracts run through the existing integration test entry; browser verification lives in `check-comparisons.mjs`. The new branch-only workflow has read-only repository permission and no deployment action; the reviewed Maps key is supplied only to BUILD.
-
-CI verifies byte-identical protected production surfaces: `src/main.ts`; analytics, consent, sanitizer and lead storage; corridor content/runtime/styles; existing commercial content/runtime/styles; floor-plan definitions; generated/public assets and PDFs; functions; package/lockfile; production deployment workflow.
-
-## Exact tested revision and final results
-
-**Tested implementation: `1b4ecc49693dafd09bb2be3abea9b93edff16c21`.**
-
-[Run 34159423436](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34159423436): keyed **101859747256 SUCCESS**, no-key **101859748088 SUCCESS** (carried forward from initial successful job 101857931290), aggregate **101860776135 SUCCESS**.
-
-| Check | Result |
+| Live check | Result |
 |---|---|
-| Typecheck, build, complete npm test | PASS both modes; 75 unit tests including 8 new comparison contracts |
-| SEO/GEO, links, public-data/PII, performance, gatekeeper | PASS; no relaxed assertions or budgets |
-| Standard/strict assets | PASS; 0 blockers, 81 existing advisories |
-| Comparison static and browser checks | 2/2 static, 8/8 desktop/mobile/JS-on/off views per mode |
-| Comparison intercepted submissions | 12/12 per mode; subset, edit/restore, primary choice and family switching |
-| Corridor regressions | 12 views and 18 intercepted POSTs per mode |
-| Existing commercial/floor-plan/integration | 12 prepared views and 24 intercepted POSTs per mode |
-| Comparison discovery | 2/2 native journeys per mode |
-| Keyed preflight and actual Maps | PASS; 4/4 loader/tile/zoom checks on home/map |
-| No-key preflight | PASS expected missing-loader rejection; not working Maps |
-| Protected-source/credential scans | PASS |
+| Two comparison static documents | PASS; exact approved content, metadata, clean canonicals, matching schema, one sitemap entry each dated `2026-09-07` |
+| Desktop/mobile, JavaScript on/off | 8/8 comparison views PASS; screenshots inspected |
+| Shortlist editing / primary-building choice / switching requests | 12/12 intercepted comparison POSTs PASS; explicit selected IDs survive actual payload and local server normalization |
+| Native comparison discovery | 2/2 journeys PASS; five static discovery pages match the approved block exactly once |
+| Existing corridors | 3 static pages, 12 browser views and 18 intercepted POSTs PASS |
+| Existing Olara D HTML, preview and PDF | PASS; live markup matches source and both asset SHA-256 digests match approved repository bytes |
+| Google Maps | 4/4 actual loader, rendered tiles and zoom checks PASS on home/map at desktop/mobile; fallback not accepted |
+| Alba held page | Live 404; excluded from sitemap |
+| Public discovery | New comparison retained in `llms.txt`; linked internal resources returned successful responses |
 
-Final downloaded archives have verified SHA-256 hashes:
-- [Keyed artifact 10032381849](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34159423436/artifacts/10032381849): `c3200a913d83bdaad0ecdfb0472ff0db776bbf7024efc0756048f11c97436a6c`.
-- [No-key artifact 10032177416](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34159423436/artifacts/10032177416): `5662a0befda64f50e11478908e5c286453daba9fd3f5e7a7cbb536c641aa28ba`.
-- Comparison timestamps: keyed `2026-09-07T20:41:15.905Z`; no-key `2026-09-07T20:31:26.851Z`.
+Comparison results: `2026-09-08T02:10:07.651Z`; corridor results: `2026-09-08T02:12:46.763Z`; detailed discovery/assets: `2026-09-08T02:12:47.657Z`. [Live artifact 10038314335](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34178933079/artifacts/10038314335) was downloaded and SHA-256 verified: `2174f0b8d7659a9b79357c7226d64d21cc44fce6bb700c989682f0540a907fb3`. It includes safe desktop/mobile screenshots, results and deployed-source identity. No compiled key-bearing bundles, raw contact payloads or HARs are archived.
 
-Desktop/mobile comparison and inquiry screenshots were inspected. The inquiry shows Olara and Shorecrest while Shorecrest independently remains primary; screenshots precede synthetic contact entry. Consent prompts are shown as actually rendered. No key-bearing compiled bundles or raw contact payloads are archived.
+**No real leads were sent.** All lead POSTs and third-party analytics in the buyer journeys were intercepted. Server normalization is exercised locally, not via production CRM. Production CAPTCHA validation, inbox/email delivery, CRM delivery, actual GA4 transport and measured growth are NOT certified. Names/contact values are absent from the inspected local analytics queues. No-JavaScript verifies research and native navigation, not automatic shortlist transfer. Modified/new-tab and pre-hydration attribution remain explicit boundaries.
 
-## Review fixes and historical failures
+## Initialization boundary and preserved failure records
 
-Initial run 34157894443 caught missing new-route `llms.txt` discovery; fixed the generator, not the check. The disabled-shortlist test now explicitly checks `aria-disabled` and keyboard activation, retaining no-navigation/no-submission assertions. Run 34158318304 caught forbidden outbound developer anchors; source labels/provenance were retained without changing global policy. Visual review caught pale inquiry heading inheritance.
+The first live audit [34178483898](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34178483898) passed the static comparison pages, the initial desktop shortlist submission, all corridor journeys, asset/discovery checks and real Maps. It timed out returning through **Edit my shortlist** before the lazy navigation enhancement was ready. The form bridge is installed earlier than the comparison-discovery module. A visible form therefore does not establish complete navigation initialization on the real network.
 
-Run 34158945303 exposed summary styles arriving after the form bridge. The final code eagerly loads only the tiny summary stylesheet, preserving the shared performance budget and immediate color/width assertion rather than waiting to conceal the defect.
+The final audit waits for the initialized shell and completed lazy resource loading before interacting with legacy pages. All original editing, subset, primary-choice, payload, consent/PII, schema and event-count assertions remain. It then passed against the SAME deployed application. This audit-harness change is not a production fix or certification of early-click behavior. Track early-click navigation/attribution hardening separately. The original failed artifact `10038153771` and run remain evidence.
 
-An initial keyed attempt of the final SHA timed out in an existing commercial status-filter reset (`check-commercial-growth.mjs:97`). Full repository checks, new comparisons, corridors, assets and Maps passed. The entire failed keyed job reran unchanged and passed. Its underlying timeout cause was not established or labeled fixed; the earlier result/artifact remains historical evidence. No assertion was waived.
+The release candidate's first keyed attempt in run34177737077 did not complete one desktop home Maps check; the other three Maps cases and all repository, comparison, corridor and inquiry checks passed. The failed keyed job was rerun unchanged and passed in full. No source, key restriction, assertion or budget was changed. Its root cause is not established or described as fixed. First keyed artifact `10037915976` is retained, digest `ca7cd2fe498e6c4b5dc52c882f75bca59899aabfbc43de0739fa956e373e5fb3`.
 
-## Limitations and next approval
+**Historical commercial-filter timeout preserved:** an initial keyed attempt at implementation `1b4ecc49693dafd09bb2be3abea9b93edff16c21`, run34159423436, timed out resetting an existing commercial status filter (`check-commercial-growth.mjs:97`). Full repository, comparison, corridor, asset and Maps checks passed. The entire failed keyed job reran unchanged and passed. The underlying timeout was not established or labeled fixed; no assertion was waived.
 
-All lead POSTs and third-party analytics in journey tests are intercepted. Server normalization is exercised locally; production CAPTCHA, CRM/email delivery and actual GA4 transport are not certified. No real leads or marketing emails were sent. No-JavaScript verifies research/navigation, not automatic shortlist transfer; modified/new-tab and pre-hydration context transfer are not certified. The comparison controls stay disabled until initialized, with honest no-JavaScript instructions.
+Earlier implementation review corrected missing new-route `llms.txt` discovery, forbidden outbound developer anchors, and lazy arrival of the new inquiry-summary styles. The tiny summary stylesheet now loads before the form bridge; larger comparison styles remain lazy. Existing budgets and the immediate heading-color assertion were retained. The disabled-selection regression checks `aria-disabled`, keyboard activation and no navigation/submission.
 
-Brooke reviews the two pages' copy/source qualifications, desktop/mobile presentation and selected-building flow before any separate release approval. This document and the tracker are a documentation-only successor to the tested code; PR #78 records that successor. Documentation CI skipping does not imply a newly tested application. Future plans, authorship and lead products remain separate. No next feature batch was begun.
+## Implemented scope and source record
+
+The existing North/South answer canonical was improved, not duplicated. One substantive Olara/Ritz-Carlton/Shorecrest comparison was added, with useful location, service/cost, scale, layout, timing and buyer-verification differences. No mass-generated pairs, fake authors, offers, ratings, inventory/prices/incentives or guaranteed dates were introduced. Source review was September 7, 2026; the release date is not a new fact-review date.
+
+Official-source ledger:
+- [Olara residences](https://www.olarawestpalmbeach.com/residences/), [lifestyle](https://www.olarawestpalmbeach.com/lifestyle/), [Gilbane](https://www.gilbaneco.com/projects/olara-residences-gilbane-building/): layouts, amenities and marina positioning. Slip rights, fees and shared amenities require documents. No disputed residence count or current closing date asserted.
+- [Ritz-Carlton residences](https://theresidenceswestpalmbeach.com/residences/), [amenities](https://theresidenceswestpalmbeach.com/amenities/), [BH Group](https://www.bhgroupmiami.com/projects/the-ritz-carlton-residences-at-west-palm-beach/): dedicated elevator arrival, services and dated construction guidance. Official 1717/1745 address discrepancy is disclosed. Residence counts do not mean available units; advertised completion is a target.
+- [Shorecrest residences](https://www.shorecrestwpb.com/residences), [amenities](https://www.shorecrestwpb.com/amenities), [Related Ross April 3 release](https://www.relatedross.com/press-releases/2026-04-03/related-ross-breaks-ground-shorecrest-ushering-new-chapter-west-palm): two/three bedrooms, smaller published collection, rooftop/club and dated groundbreaking. Current inclusions/timing need confirmation.
+- [South Flagler House](https://www.southflaglerhouse.com/), [RAMSA](https://www.ramsa.com/news/article/south-flagler-house-tops-out-west-palm-beach), [La Clara contractor](https://www.jm-a.com/portfolio/la-clara/): loggias, club program, structural milestone versus completed alternative. Conflicting counts omitted; no resale inventory asserted.
+
+The existing outbound-domain policy remains; restricted destinations use visible citation labels and schema/ledger provenance, not disguised redirects or gatekeeper exemptions. Buyer fit compares routines/features, not demographics or investment returns. Core router, production analytics/consent/sanitizer, lead storage, corridors, existing commercial surfaces, plan definitions, generated/public assets/PDFs, functions, package/lockfile and production workflow remained unchanged by Batch 2.
+
+`shortlist.ts` accepts only the two comparison identities and their public IDs; at least two unique buildings, canonical order, bounded length. All 30 valid subsets are tested. Selection is explicit, never inferred from viewing history. Context survives the unchanged normalizer and existing CTA storage/notification fields; no endpoint/database configuration changed. The full list remains independent of the primary-building field; fresh corridor/commercial/plan requests replace stale shortlist metadata while preserving first touch.
+
+## Prior implementation verification and search limitations
+
+Original full passing run [34159423436](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34159423436): keyed101859747256; no-key101859748088 (carried-forward original success); aggregate101860776135. Both modes passed typecheck, build, full npm test (75 units including eight comparison contracts), SEO/GEO, links, privacy, performance, gatekeeper, standard/strict assets (zero blockers; 81 advisories), 8 comparison views/12 intercepted POSTs/2 discovery journeys, 12 corridor views/18 POSTs, 12 commercial/plan/integration views/24 POSTs, keyed preflight/4 real Maps checks and expected no-key rejection.
+
+Historical verified artifacts: keyed10032381849 SHA-256 `c3200a913d83bdaad0ecdfb0472ff0db776bbf7024efc0756048f11c97436a6c`; no-key10032177416 `5662a0befda64f50e11478908e5c286453daba9fd3f5e7a7cbb536c641aa28ba`. The complete pre-release document is preserved in [approved history](https://github.com/BrokenFL/WPB_New_Construction/blob/db5b5c0b79f9990cd39a1ec1e16c3f9d0451e4a4/docs/P2_COMPARISONS_IMPLEMENTATION_PROGRESS.md).
+
+Fresh Search Console authorization was declined and was NOT retried in the release. The last verified August 8–September 4 snapshot remains baseline context, not fresh data or measured uplift: North Flagler8 clicks/351 impressions, South Flagler0/21, Olara/Shorecrest Market Note1/16, small North/South answer query sample2 impressions. The comparison follows source coverage and Brooke's priorities, not invented demand. PR #76's prior live release remains documented in `docs/P2_76_RELEASE_VERIFICATION.md`.
