@@ -4,22 +4,121 @@ on:
     branches: [p2-olara-verified-plan-expansion]
 permissions:
   contents: read
+concurrency:
+  group: olara-plans-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  sources:
+  candidate:
+    name: Olara plan candidate (${{ matrix.mode }})
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [no-key, keyed]
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Collect official drawings and existing approved previews for visual review
-        run: node --experimental-strip-types research/scripts/review-olara-plan-sources.mjs --collect
+          cache: npm
+      - name: Verify production ancestry and protected surfaces
+        run: |
+          git merge-base --is-ancestor b3f3af776af5dadbdb68fb302ea1db74012cef01 HEAD
+          git diff --exit-code b3f3af776af5dadbdb68fb302ea1db74012cef01 HEAD -- src/main.ts src/corridorGrowth.ts src/corridorGrowth.css src/lib/corridorGrowthContent.ts src/lib/analytics.ts src/lib/analyticsSafety.ts src/lib/leadCapture.ts src/bootstrap.ts src/floorplanPage.ts src/floorplanEntities.css src/lib/inquiryContext.ts src/lib/commercialContent.ts src/commercialGrowth.ts src/commercialGrowth.css src/comparisonPage.ts src/comparisonPage.css src/comparisonDiscovery.ts src/shortlistSummary.css src/lib/comparisonContent.ts src/lib/shortlist.ts src/data/floorplanApprovedLibrary.ts src/generated public functions package.json package-lock.json .github/workflows/deploy-cloudflare-pages.yml
+          mkdir -p .runtime/olara-plan-review
+          git rev-parse HEAD > .runtime/olara-plan-review/tested-sha.txt
+      - name: Require the reviewed dedicated Maps key
+        if: matrix.mode == 'keyed'
+        env:
+          HAS_REVIEW_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY != '' }}
+          RESTRICTIONS_CONFIRMED: ${{ vars.P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED == 'true' }}
+        run: |
+          test "$HAS_REVIEW_KEY" = true
+          test "$RESTRICTIONS_CONFIRMED" = true
+      - name: Verify the current official PDFs still match the reviewed source snapshots
+        run: node --experimental-strip-types research/scripts/review-olara-plan-sources.mjs
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - name: Build candidate (review key is BUILD only)
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: ${{ matrix.mode == 'keyed' && secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY || '' }}
+          VITE_GA4_MEASUREMENT_ID: G-0LGBH6MDVX
+        run: npm run build
+      - name: Full repository tests, including corridor contracts, SEO and gatekeeper
+        env:
+          WPB_MAP_QA_MODE: ${{ matrix.mode }}
+          WPB_MAP_QA_PORT: '4173'
+        run: npm test
+      - name: Standard and strict asset audit
+        run: |
+          npm run assets:audit
+          npm run assets:audit:strict
+          cp docs/reports/asset-pipeline-audit-report.json .runtime/olara-plan-review/asset-audit.json
+      - name: Existing commercial, floor-plan and combined journey regressions
+        env:
+          FLOORPLAN_EXPECT_GA4: '1'
+        run: |
+          npm run qa:floorplan-entities -- --browser
+          npm run qa:commercial -- --browser
+          npm run qa:integration
+      - name: Corridor desktop/mobile, native navigation and intercepted inquiry payloads
+        if: ${{ !cancelled() }}
+        run: node --experimental-strip-types research/scripts/check-corridor-growth.mjs
+      - name: Comparison pages, actual shortlist submissions and source normalization
+        if: ${{ !cancelled() }}
+        run: node --experimental-strip-types research/scripts/check-comparisons.mjs
+      - name: Keyed preflight and actual Google Maps
+        if: matrix.mode == 'keyed' && !cancelled()
+        run: |
+          npm run qa:deploy-preflight
+          npm run qa:maps-keyed
+      - name: No-key build must reject deployment
+        if: matrix.mode == 'no-key' && !cancelled()
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import { verifyProductionMapBundle } from './research/scripts/production-map-preflight.mjs';
+          await assert.rejects(verifyProductionMapBundle(), /reachable app chunks do not include/);
+          console.log('PASS: missing-key deployment rejection is enforced');
+          JS
+      - name: Preserve reviewed source and safe evidence
+        if: ${{ !cancelled() }}
+        run: |
+          git archive --format=tar HEAD src/data/olaraPlanExpansion.ts src/data/floorplanApprovedLibrary.ts src/lib/floorplanEntities.ts research/scripts/floorplan-entities.test.mjs research/scripts/olara-plan-expansion.test.mjs research/scripts/check-floorplan-entities.mjs research/scripts/review-olara-plan-sources.mjs research/source-material-review/olara-plan-expansion-verified.json .github/workflows/p2-olara-plans-review.yml > .runtime/olara-plan-review/reviewed-source.tar
+          python3 - <<'PY'
+          import pathlib,re
+          roots=[pathlib.Path(p) for p in ['.runtime/olara-plan-review','.runtime/olara-source-review','.runtime/p2-comparisons','.runtime/p2-corridors','.runtime/p2-keyed-maps','.runtime/phase-2-qa','.runtime/p2-commercial','.runtime/p2-integration']]
+          files=[p for root in roots for p in root.rglob('*') if p.is_file()]
+          if any(re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',p.read_bytes()) for p in files):
+            for p in files:p.unlink()
+            raise RuntimeError('Unsafe evidence withheld')
+          print('PASS: source/screenshots/summaries scanned; no credential-bearing builds archived')
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: olara-plan-source-review
-          path: .runtime/olara-source-review/
+          name: olara-plan-review-${{ matrix.mode }}-${{ github.sha }}
+          path: |
+            .runtime/olara-plan-review/
+            .runtime/olara-source-review/
+            .runtime/p2-comparisons/
+            .runtime/p2-corridors/
+            .runtime/p2-keyed-maps/
+            .runtime/phase-2-qa/
+            .runtime/p2-commercial/
+            .runtime/p2-integration/
           retention-days: 14
+  review-gate:
+    name: Olara plan batch review verification
+    if: always()
+    needs: candidate
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          RESULT: ${{ needs.candidate.result }}
+        run: test "$RESULT" = success

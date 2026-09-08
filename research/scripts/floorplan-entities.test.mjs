@@ -14,10 +14,10 @@ const fixture = '<!doctype html><html lang="en"><head><title>Old</title>' +
   '<meta name="robots" content="index,follow" /><link rel="canonical" href="https://www.wpbnewconstruction.com/" /><script id="wpb-static-structured-data" type="application/ld+json">{"old":true}</script></head><body><div id="app"><main><h1>Old</h1><div><div>nested</div></div></main></div><script>window.__WPB_PRERENDER_PATH__="/";</script><script type="module" src="/assets/index.js"></script></body></html>';
 
 test("pilot has exactly one entity per project/plan, not one per source", () => {
-  assert.equal(plans.length, 2);
-  assert.equal(new Set(plans.map((plan) => plan.planId)).size, 2);
-  assert.equal(new Set(plans.map((plan) => plan.canonical)).size, 2);
-  for (const plan of plans) assert.equal(plan.path, `/floorplans/${plan.projectId}/residence-d/`);
+  assert.equal(plans.length, 7);
+  assert.equal(new Set(plans.map((plan) => plan.planId)).size, 7);
+  assert.equal(new Set(plans.map((plan) => plan.canonical)).size, 7);
+  for (const plan of plans) assert.equal(plan.path, `/floorplans/${plan.projectId}/${plan.slug}/`);
 });
 test("clean canonical lookup strips tracking, fragments and index filename", () => {
   for (const plan of publishedFloorplanEntities()) {
@@ -93,8 +93,8 @@ test("static template preserves assets, replaces nested app safely, and is idemp
   assert.throws(() => renderEntityDocument(fixture.replace('id="app"', 'id="different"'), plans[0]), /Unexpected template/);
 });
 test("only the library and matching project expose discovery links", () => {
-  assert.equal((renderFloorplanDiscovery('/floorplans/').match(/data-floorplan-entity-link/g) ?? []).length, 1);
-  for (const plan of publishedFloorplanEntities()) assert.equal((renderFloorplanDiscovery(`/projects/${plan.projectId}/`).match(/data-floorplan-entity-link/g) ?? []).length, 1);
+  assert.equal((renderFloorplanDiscovery('/floorplans/').match(/data-floorplan-entity-link/g) ?? []).length, 6);
+  for (const plan of publishedFloorplanEntities()) assert.equal((renderFloorplanDiscovery(`/projects/${plan.projectId}/`).match(/data-floorplan-entity-link/g) ?? []).length, 6);
   assert.equal(renderFloorplanDiscovery('/'), '');
   const result = addDiscovery(fixture, '/floorplans/');
   assert.equal(addDiscovery(result, '/floorplans/'), result);
@@ -121,7 +121,7 @@ test("discovery merges into one existing graph without losing page identity", ()
   assert.deepEqual(mergeFloorplanDiscoverySchema(merged, '/floorplans/'), merged);
   const moved = mergeFloorplanDiscoverySchema(merged, '/projects/olara/');
   assert.equal(moved['@graph'].length, 3);
-  assert.equal(moved['@graph'][2].itemListElement.length, 1);
+  assert.equal(moved['@graph'][2].itemListElement.length, 6);
   assert.deepEqual(mergeFloorplanDiscoverySchema(moved, '/about/'), original);
   const html = addDiscovery(fixture, '/floorplans/');
   assert.equal((html.match(/type="application\/ld\+json"/g) ?? []).length, 1);
@@ -153,15 +153,13 @@ test("availability CTA precedes the drawing and preserves the facts CTA", () => 
 
 
 test("publication scope is Olara-only while Alba source/rendering remain reviewable", () => {
-  assert.deepEqual(publishedFloorplanEntities().map((plan) => plan.projectId), ['olara']);
-  const alba = plans.find((plan) => plan.projectId === 'alba-palm-beach');
-  assert.ok(renderFloorplanPage(alba).includes('REV. 8/2022'));
-  assert.equal(floorplanForPath(alba.path), undefined);
+  assert.deepEqual(publishedFloorplanEntities().map((plan) => plan.projectId), Array(6).fill('olara'));
+  assert.equal(floorplanForPath('/floorplans/alba-palm-beach/residence-d/'), undefined);
   assert.equal(renderFloorplanDiscovery('/projects/alba-palm-beach/'), '');
-  assert.ok(!renderFloorplanDiscovery('/floorplans/').includes(alba.path));
-  const stale = `<urlset><url><loc>${alba.canonical}</loc></url></urlset>`;
-  assert.ok(!addSitemapEntities(stale, publishedFloorplanEntities()).includes(alba.canonical));
-  const prior = addDiscovery(fixture, '/floorplans/');
-  const cleaned = addDiscovery(prior, '/projects/alba-palm-beach/');
-  assert.ok(!cleaned.includes('wpb-floorplan-guides'));
+  assert.ok(renderFloorplanPage(plans[1]).includes('Area clarification'));
+  const original = '<urlset><url><loc>https://www.wpbnewconstruction.com/floorplans/alba-palm-beach/residence-d/</loc></url></urlset>';
+  const output = addSitemapEntities(original, publishedFloorplanEntities());
+  assert.doesNotMatch(output, /alba-palm-beach/);
 });
+
+import "./olara-plan-expansion.test.mjs";
