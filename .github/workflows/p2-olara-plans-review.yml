@@ -1,0 +1,25 @@
+name: Olara verified plans review (no deploy)
+on:
+  push:
+    branches: [p2-olara-verified-plan-expansion]
+permissions:
+  contents: read
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Collect official drawings and existing approved previews for visual review
+        run: node --experimental-strip-types research/scripts/review-olara-plan-sources.mjs --collect
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: olara-plan-source-review
+          path: .runtime/olara-source-review/
+          retention-days: 14
