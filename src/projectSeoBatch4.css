@@ -1,0 +1,139 @@
+.p2-project-guide {
+  margin: 0;
+  padding: clamp(2rem, 5vw, 4.5rem) 1rem;
+  background: #f7f2e8;
+  color: #162736;
+}
+
+.p2-project-guide__inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.p2-project-guide__eyebrow {
+  margin: 0 0 .65rem;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.p2-project-guide h2,
+.p2-project-guide h3 {
+  color: #162736;
+}
+
+.p2-project-guide h2 {
+  margin: 0 0 .8rem;
+  font-size: clamp(1.8rem, 3vw, 2.65rem);
+}
+
+.p2-project-guide h3 {
+  margin: 0 0 .45rem;
+  font-size: 1.05rem;
+}
+
+.p2-project-guide p,
+.p2-project-guide li {
+  line-height: 1.65;
+}
+
+.p2-project-guide__opening {
+  max-width: 76ch;
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+}
+
+.p2-project-guide__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: 1.35rem 0 2rem;
+}
+
+.p2-project-guide__actions .btn {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.p2-project-guide__grid,
+.p2-project-guide__status {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.p2-project-guide__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.p2-project-guide__status {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.p2-project-guide article,
+.p2-project-guide__links,
+.p2-project-guide__sources {
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(22, 39, 54, .17);
+  background: rgba(255, 255, 255, .58);
+}
+
+.p2-project-guide ul {
+  margin: .55rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.p2-project-guide__links {
+  margin-top: 1rem;
+}
+
+.p2-project-guide__links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem 1.15rem;
+}
+
+.p2-project-guide__links a,
+.p2-project-guide__sources a {
+  color: #123f5c;
+  text-underline-offset: .18em;
+}
+
+.p2-project-guide__sources {
+  margin-top: 1rem;
+}
+
+.p2-project-guide__sources summary {
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 720px) {
+  .p2-project-guide {
+    padding-inline: .85rem;
+  }
+
+  .p2-project-guide__grid,
+  .p2-project-guide__status {
+    grid-template-columns: 1fr;
+  }
+
+  .p2-project-guide__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .p2-project-guide__actions .btn {
+    width: 100%;
+  }
+
+  .p2-project-guide__links ul {
+    display: block;
+  }
+}
