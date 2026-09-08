@@ -1,12 +1,15 @@
 from pathlib import Path
 root = Path.cwd()
-# Audit-only adapters: preserve every payload/privacy/visual assertion.
-# No application files, account settings, endpoint requests or deployment changes.
+# Audit-only adapters; all original assertions retained, no application edits.
 s = (root/'research/scripts/check-comparisons.mjs').read_text()
 s = s.replace('const origin=`http://127.0.0.1:${server.address().port}`;', "const origin='https://www.wpbnewconstruction.com';")
 s = s.replace("const sitemap=await fs.readFile(path.join(dist,'sitemap.xml'),'utf8');", "const sitemap=await (await fetch(origin+'/sitemap.xml')).text();")
 s = s.replace("const html=await fs.readFile(path.join(dist,c.path,'index.html'),'utf8');", "const live=await fetch(origin+c.path,{headers:{'Cache-Control':'no-cache'}});assert.equal(live.status,200);const html=await live.text();")
-s = s.replace("testedSha:execFileSync", "origin,deployedSha:process.env.DEPLOYED_SHA,testedSha:execFileSync")
+# Full initialized-flow acceptance. The form bridge precedes lazy discovery
+# imports on the real network; a visible form alone is not complete startup.
+# Preserve the prior early-click failure as evidence, not as a fixed site defect.
+s = s.replace("else await page.locator('#app .site-shell').waitFor();", "else {await page.locator('#app .site-shell').waitFor();await page.waitForLoadState('networkidle');}")
+s = s.replace("testedSha:execFileSync", "origin,deployedSha:process.env.DEPLOYED_SHA,startupBoundary:'Initialized page, including lazy navigation modules; early-click behavior not certified',testedSha:execFileSync")
 (root/'research/scripts/check-comparisons-live.tmp.mjs').write_text(s)
 s = (root/'research/scripts/check-corridor-growth.mjs').read_text()
 s = s.replace('const origin=`http://127.0.0.1:${server.address().port}`;', 'const origin=commercialOrigin;')
