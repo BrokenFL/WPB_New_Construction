@@ -1,0 +1,98 @@
+[
+  {
+    "projectId": "rosewood",
+    "slug": "rosewood-residences-west-palm-beach",
+    "path": "/projects/rosewood-residences-west-palm-beach/",
+    "canonical": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/",
+    "title": "Rosewood Residences West Palm Beach | North Flagler Buyer Guide",
+    "description": "Buyer guide to Rosewood Residences West Palm Beach at 2001 N Flagler Drive: approved planning status, 90-residence program, buyer fit, and what remains unconfirmed.",
+    "h1": "Rosewood Residences West Palm Beach Buyer Guide",
+    "eyebrow": "North Flagler · Approved pipeline / prelaunch",
+    "opening": "Rosewood Residences West Palm Beach is an approved 90-residence North Flagler proposal at 2001 N Flagler Drive. It belongs on an early branded-residence shortlist, but buyers should separate the approved development program from a public sales launch: current pricing, released residence inventory, complete floor plans, delivery timing and final service details are not publicly verified.",
+    "buyerFit": "Best suited to buyers who want to monitor a Rosewood-branded North Flagler residence before a mature public sales packet exists, and who are comfortable comparing an approved pipeline project against active buildings with deeper current floor-plan and availability information.",
+    "location": "The site is at 2001 North Flagler Drive on the North Flagler waterfront corridor, north of downtown West Palm Beach. Compare it with nearby North Flagler projects by waterfront exposure, Palm Beach access, building scale, service model and how much verified buyer material is actually available today.",
+    "status": {
+      "marketing": "No comprehensive public sales launch or current public price list is confirmed in the reviewed sources.",
+      "construction": "The City of West Palm Beach Planning Board agenda identifies a 90-unit proposal at 2001 N Flagler Drive; June 2026 reporting says the project received city approval. A construction start is not confirmed here.",
+      "availability": "No residence-specific current inventory is asserted. Request current availability only as a buyer-side verification request."
+    },
+    "verifiedFacts": [
+      "City planning record: 90-unit multifamily residential development at 2001 N Flagler Drive on an approximately 0.78-acre site.",
+      "Current project reporting identifies Related Group and BH Group as developers, Arquitectonica as architect and Rosewood as the residential brand.",
+      "Reporting on the approved plan describes a 27-story tower, more than 13,000 square feet of indoor amenities and a fifth-floor pool deck; treat those as planning-program details until final sales materials are reviewed.",
+      "No complete public floor-plan packet, pricing schedule or delivery date is treated as verified on this page."
+    ],
+    "amenities": [
+      "Planning/reporting indicates more than 13,000 square feet of indoor amenity space.",
+      "A fifth-floor pool deck is described in current planning coverage.",
+      "Final Rosewood service, hospitality and amenity details remain a buyer-verification item until official sales materials are released."
+    ],
+    "residences": [
+      "The approved planning record supports 90 residences.",
+      "No complete current residence mix or individual floor-plan packet is published in the site's verified library.",
+      "Do not infer current availability from the approved unit count."
+    ],
+    "links": [
+      {"label":"North Flagler buyer guide","href":"/corridors/north-flagler/"},
+      {"label":"Compare West Palm Beach buildings","href":"/compare/"},
+      {"label":"Olara buyer guide","href":"/projects/olara/"},
+      {"label":"Ritz-Carlton Residences buyer guide","href":"/projects/ritz-carlton-wpb/"},
+      {"label":"North Flagler vs South Flagler","href":"/answers/north-flagler-vs-south-flagler-new-condos/"}
+    ],
+    "availabilityHref": "/inquire/?project=rosewood&interest=Request%20current%20availability",
+    "packetHref": "/inquire/?project=rosewood&interest=Pricing%20%2B%20floor-plan%20packet",
+    "reviewedOn": "2026-09-08",
+    "sources": [
+      {"label":"City of West Palm Beach Planning Board agenda, May 19, 2026 — Case SP-25100073","url":"https://www.wpb.org/files/assets/city/v/1/development-services/documents/planning-board/2026-pb-agendas/pb-agenda-2026.5.19.pdf","kind":"official"},
+      {"label":"The Real Deal — city approval and filed-plan program, June 24, 2026","url":"https://therealdeal.com/miami/2026/06/24/related-group-bh-group-greenlighted-for-rosewood-residences/","kind":"reporting"}
+    ]
+  },
+  {
+    "projectId": "maison-dor",
+    "slug": "maison-dor",
+    "path": "/projects/maison-dor/",
+    "canonical": "https://www.wpbnewconstruction.com/projects/maison-dor/",
+    "title": "Maison d’Or West Palm Beach | South Flagler Buyer Guide",
+    "description": "Buyer guide to Maison d’Or West Palm Beach: 39 South Flagler waterfront residences, released layouts, amenities, buyer fit, and current availability checks.",
+    "h1": "Maison d’Or West Palm Beach Buyer Guide",
+    "eyebrow": "South Flagler · Official sales materials available",
+    "opening": "Maison d’Or is a 39-residence boutique waterfront condominium marketed on South Flagler Drive. Its official materials now provide enough residence and amenity detail for a substantive buyer comparison: two- to four-bedroom layouts, expansive terraces, private elevator access and a broad waterfront amenity program. The released drawings and starting-price language are useful orientation, not proof that a particular residence is currently available.",
+    "buyerFit": "Best suited to buyers prioritizing a small residence count, large flow-through layouts, east-and-west outdoor space and a quieter South Flagler setting over the scale and social energy of larger waterfront towers.",
+    "location": "Maison d’Or is marketed on the South Flagler waterfront, with Intracoastal and Palm Beach orientation. Because address references have differed across public materials and records, this guide does not turn an unverified street number into a buyer fact; confirm the legal project address in current offering documents.",
+    "status": {
+      "marketing": "The official project site is actively marketing a limited collection of 39 residences and currently advertises starting pricing from $5.7 million.",
+      "construction": "The reviewed official pages do not establish a construction milestone or guaranteed completion date, so this guide does not publish one.",
+      "availability": "Official marketing describes the offered collection, but residence-specific availability and current pricing require a current buyer packet."
+    },
+    "verifiedFacts": [
+      "Official project materials describe 39 waterfront residences.",
+      "The official residence page publishes two- to four-bedroom layouts across Residence, Estate and Penthouse collections.",
+      "Published layouts include private residential elevator-lobby access, expansive exterior terraces and Sub-Zero/Wolf appliance packages.",
+      "Official marketing currently states starting pricing from $5.7 million; current residence-specific pricing and availability still require verification."
+    ],
+    "amenities": [
+      "Official marketing describes a waterfront resort-style pool and spa, fitness and wellness spaces, private dining, screening room and other resident amenities.",
+      "The project site also describes guest suites, wine-oriented spaces and waterfront programming; service levels and operating costs should be confirmed from current offering materials.",
+      "Amenity marketing is not presented as a guarantee of future access terms or association fees."
+    ],
+    "residences": [
+      "Official floor plans span two- to four-bedroom residences, generally with dens and expansive terraces.",
+      "The official Residence Collection includes approximately 3,411 to 5,123 square feet in published plans; larger Estate and Penthouse plans extend beyond that range.",
+      "Published plan dimensions are useful for layout comparison but do not establish current inventory."
+    ],
+    "links": [
+      {"label":"South Flagler buyer guide","href":"/corridors/south-flagler/"},
+      {"label":"North Flagler vs South Flagler","href":"/answers/north-flagler-vs-south-flagler-new-condos/"},
+      {"label":"Compare West Palm Beach buildings","href":"/compare/"},
+      {"label":"South Flagler House buyer guide","href":"/projects/south-flagler-house-north/"},
+      {"label":"Browse released floor plans","href":"/floorplans/"}
+    ],
+    "availabilityHref": "/inquire/?project=maison-dor&interest=Request%20current%20availability",
+    "packetHref": "/inquire/?project=maison-dor&interest=Pricing%20%2B%20floor-plan%20packet",
+    "reviewedOn": "2026-09-08",
+    "sources": [
+      {"label":"Maison d’Or official site — building overview","url":"https://livemaisondor.com/","kind":"official"},
+      {"label":"Maison d’Or official residence and floor-plan page","url":"https://livemaisondor.com/the-residences/","kind":"official"}
+    ]
+  }
+]
