@@ -1,5 +1,3 @@
-import "./projectSeoBatch4.css";
-
 type Batch4Link = { label: string; href: string };
 type Batch4Source = { label: string; url: string; kind: "official" | "reporting" };
 type Batch4Project = {
@@ -36,6 +34,15 @@ async function loadRecords() {
       return response.json() as Promise<Batch4Project[]>;
     });
   return recordsPromise;
+}
+
+function ensureStyles() {
+  if (document.head.querySelector('link[data-project-seo-batch4-style]')) return;
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "/project-seo-batch4.css";
+  link.dataset.projectSeoBatch4Style = "true";
+  document.head.append(link);
 }
 
 function meta(name: string, content: string, property = false) {
@@ -129,6 +136,7 @@ function renderGuide(record: Batch4Project) {
 }
 
 function installForRecord(app: HTMLElement, record: Batch4Project) {
+  ensureStyles();
   updateHead(record);
   const h1 = app.querySelector<HTMLHeadingElement>("h1");
   if (h1 && h1.textContent !== record.h1) h1.textContent = record.h1;
