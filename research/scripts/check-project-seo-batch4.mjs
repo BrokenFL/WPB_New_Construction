@@ -110,9 +110,19 @@ async function browserChecks() {
           await page.evaluate(() => window.wpbSetAnalyticsConsent?.("denied"));
           for (const [action, interest] of [["availability", "Request current availability"], ["pricing-packet", "Pricing + floor-plan packet"]]) {
             await page.goto(`${origin}${record.path}`, { waitUntil: "networkidle" });
-            await page.locator(`#wpb-project-seo-batch4 [data-project-growth-action="${action}"]`).waitFor();
-            await page.locator(`#wpb-project-seo-batch4 [data-project-growth-action="${action}"]`).click();
-            await page.waitForURL(`${origin}/inquire/`);
+            const actionLink = page.locator(`#wpb-project-seo-batch4 [data-project-growth-action="${action}"]`);
+            await actionLink.waitFor();
+            const href = await actionLink.getAttribute("href");
+            assert.ok(href, `${record.projectId}:${action}: inquiry href missing`);
+            const expected = new URL(href, origin);
+            assert.equal(expected.pathname, "/inquire/");
+            assert.equal(expected.searchParams.get("project"), record.projectId);
+            assert.equal(expected.searchParams.get("interest"), interest);
+            await actionLink.click();
+            // Inquiry links intentionally carry project + request context in the
+            // query string. Validate the route by pathname instead of requiring
+            // the query-bearing URL to equal the bare /inquire/ URL.
+            await page.waitForURL((url) => url.origin === origin && url.pathname === "/inquire/");
             const form = page.locator(".inquiry-form");
             await form.waitFor({ state: "visible" });
             assert.equal(await form.locator('[name="project"]').inputValue(), record.projectId);
