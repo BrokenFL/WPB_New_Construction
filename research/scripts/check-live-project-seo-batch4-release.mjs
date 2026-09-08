@@ -118,7 +118,12 @@ async function runSequence(browser, width, sequence, sequenceName) {
       await form.locator('[name="phone"]').fill("202-555-0180");
       await form.locator('[name="message"]').fill("PR80_LIVE_QA_DO_NOT_SEND");
       await form.locator('[name="consent"]').check();
-      await form.locator('[name="turnstile_token"]').evaluate((input) => { input.value = "PR80_INTERCEPTED_TOKEN"; });
+      await page.evaluate(() => {
+        window.turnstile = {
+          render: (_element, options) => { options.callback("PR80_INTERCEPTED_TOKEN"); return "pr80-live-qa-widget"; },
+          reset: () => {},
+        };
+      });
       const before = submissions.length;
       const intercepted = page.waitForResponse((response) => response.url() === `${origin}/api/leads` && response.request().method() === "POST", { timeout: 15000 });
       await form.locator('button[type="submit"]').click();
@@ -213,9 +218,11 @@ async function verifyExistingJourneys(browser, width) {
 const browser = await chromium.launch({ headless: true });
 const results = { documents: [], sequences: [], maps: [], existingJourneys: [] };
 try {
-  const sitemapResponse = await (await browser.newPage()).request.get(`${origin}/sitemap.xml`);
+  const sitemapPage = await browser.newPage();
+  const sitemapResponse = await sitemapPage.request.get(`${origin}/sitemap.xml`);
   assert.equal(sitemapResponse.ok(), true, "sitemap response");
   const sitemap = await sitemapResponse.text();
+  await sitemapPage.close();
   for (const record of records) {
     const start = sitemap.indexOf(`<loc>${record.canonical}</loc>`);
     assert.ok(start >= 0, `${record.projectId}: sitemap entry`);
@@ -251,11 +258,12 @@ try {
 const output = {
   verifiedAt: new Date().toISOString(),
   productionOrigin: origin,
-  deployedMergeSha: "9041493a48c573658872d79445c4f1e796643c8c",
+  deployedMergeSha: "cdf8240a8a5c6b1bf482f0e48ce9e496fd9b0ebe",
   results,
   limitations: [
     "All automated inquiry POSTs were intercepted in-browser; no real lead was sent.",
-    "Turnstile production verification, database/email/CRM delivery and duplicate prevention were not exercised by this automated release audit.",
+    "Turnstile was replaced only inside the intercepted test browser; production CAPTCHA server verification was not tested.",
+    "Database/email/CRM delivery and duplicate prevention were not exercised by this automated release audit.",
     "Third-party analytics transport was blocked; this audit does not certify GA4 delivery or measured growth.",
   ],
 };
