@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
 import http from "node:http";
-import { buildFloorplanEntities, publishedFloorplanEntities, floorplanForPath, floorplanSiteUrl } from "../../src/lib/floorplanEntities.ts";
+import { buildFloorplanEntities, publishedFloorplanEntities, floorplanForPath, floorplanSiteUrl, floorplanTitle, floorplanDescription, escapeFloorplanHtml } from "../../src/lib/floorplanEntities.ts";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
@@ -14,6 +14,8 @@ async function checkStatic() {
   const sitemap = await fs.readFile(path.join(dist, "sitemap.xml"), "utf8");
   for (const plan of plans) {
     const html = await htmlAt(plan.path);
+    assert.ok(html.includes(`<title>${escapeFloorplanHtml(floorplanTitle(plan))}</title>`));
+    assert.ok(html.includes(`name="description" content="${escapeFloorplanHtml(floorplanDescription(plan))}"`));
     assert.equal(count(html, /<h1(?:\s[^>]*)?>/g), 1, `${plan.path}: H1`);
     assert.equal(count(html, /rel="canonical"/g), 1, `${plan.path}: canonical count`);
     assert.ok(html.includes(`rel="canonical" href="${plan.canonical}"`));
@@ -105,6 +107,7 @@ async function checkBrowser() {
         for (const plan of plans) {
           await page.goto(`${origin}${plan.path}?utm_source=test%40example.com#drawing`, { waitUntil: 'networkidle' });
           await page.locator('[data-floorplan-id]').waitFor();
+          assert.equal(await page.title(), floorplanTitle(plan));
           assert.equal(await page.locator('h1').count(), 1);
           assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), plan.canonical);
           assert.equal(await page.locator('.fp-drawing img').evaluate((image) => image.complete && image.naturalWidth > 0), true);
@@ -120,7 +123,7 @@ async function checkBrowser() {
             assert.equal(await page.locator('script[data-wpb-ga4]').count(), 0);
           }
           if (javaScriptEnabled) await page.evaluate(() => window.wpbSetAnalyticsConsent?.('denied'));
-          await page.screenshot({ path: path.join(artifactDir, `${plan.projectId}-${viewport.width}-${javaScriptEnabled ? 'js' : 'nojs'}.png`), fullPage: true });
+          await page.screenshot({ path: path.join(artifactDir, `${plan.projectId}-${plan.slug}-${viewport.width}-${javaScriptEnabled ? 'js' : 'nojs'}.png`), fullPage: true });
           results.push({ path: plan.path, width: viewport.width, javaScriptEnabled, status: 'pass' });
         }
         assert.equal(googleRequests, 0, 'Analytics request before consent');
@@ -151,6 +154,15 @@ async function checkBrowser() {
             await page.waitForURL(`${origin}${plan.path}`);
             await page.locator('[data-floorplan-id]').waitFor();
           }
+          for (const discovered of plans.slice(1)) {
+            await page.goto(`${origin}/projects/olara/`, { waitUntil: 'networkidle' });
+            const link = page.locator(`.site-shell a[data-floorplan-entity-link][href="${discovered.path}"]`);
+            await link.waitFor(); await link.click();
+            await page.waitForURL(`${origin}${discovered.path}`);
+            await page.waitForFunction(() => window.wpbAnalyticsQueue?.some((event) => event.eventName === 'page_view'));
+            assert.equal(await page.locator('[data-floorplan-id]').getAttribute('data-floorplan-id'), discovered.planId);
+            results.push({check:'native-plan-discovery',path:discovered.path,width:viewport.width,status:'pass'});
+          }
           // Exercise actual browser form validation, handler and JSON POST payload,
           // not just sessionStorage. The endpoint and all external traffic are intercepted.
           for (const plan of plans) {
@@ -164,6 +176,7 @@ async function checkBrowser() {
               const form = page.locator('.inquiry-form');
               await form.waitFor({ state: 'visible' });
               assert.equal(await form.locator('[name="project"]').inputValue(), plan.projectId);
+              if (placement === 'intro') await page.screenshot({path:path.join(artifactDir, `${plan.projectId}-${plan.slug}-inquiry-${viewport.width}.png`),fullPage:true});
               await form.locator('[name="name"]').fill('P2 QA Example');
               await form.locator('[name="email"]').fill('p2-qa@example.invalid');
               await form.locator('[name="phone"]').fill('202-555-0143');
@@ -180,6 +193,7 @@ async function checkBrowser() {
               assert.equal(submissions.length, before + 1);
               const payload = submissions.at(-1);
               assert.equal(payload.project, plan.projectId);
+              assert.equal(payload.interest, 'Request current availability');
               assert.equal(payload.cta_context, `floorplan:${plan.projectId}:${plan.slug}`);
               assert.equal(payload.lead_capture_context, payload.cta_context);
               assert.equal(payload.landing_page, `${origin}${plan.path}`);
@@ -190,6 +204,42 @@ async function checkBrowser() {
               results.push({ path: plan.path, width: viewport.width, placement, interceptedSubmission: 'pass', project: payload.project, planContext: payload.cta_context, analyticsPii: false });
               submissions.length = 0; // Never write test contact values into evidence.
             }
+          }
+          // Same-session cross-plan requests: intentionally retain the first touch.
+          // Neither this sequence nor fresh requests send a lead to production.
+          await page.evaluate(() => sessionStorage.removeItem('wpbLeadAttribution'));
+          await page.goto(`${origin}${plans[0].path}`, {waitUntil:'networkidle'});
+          for (const current of [...plans.slice(1), plans[0]]) {
+            await page.goto(`${origin}${current.path}`, {waitUntil:'networkidle'});
+            await page.waitForFunction(() => window.wpbAnalyticsQueue?.some(e=>e.eventName==='page_view'));
+            await page.locator('[data-fp-action="availability"][data-fp-placement="intro"]').click();
+            await page.waitForURL(`${origin}/inquire/`);
+            const form=page.locator('.inquiry-form'); await form.waitFor();
+            await page.waitForFunction(expected=>document.querySelector('.inquiry-form [name="lead_capture_context"]')?.value===expected,`floorplan:olara:${current.slug}`);
+            assert.equal(await form.locator('[name="project"]').inputValue(),'olara');
+            await form.locator('[name="name"]').fill('P2 QA Example');
+            await form.locator('[name="email"]').fill('p2-qa@example.invalid');
+            await form.locator('[name="phone"]').fill('202-555-0143');
+            await form.locator('[name="message"]').fill('P2_TEST_MESSAGE_DO_NOT_SEND');
+            await form.locator('[name="consent"]').check();
+            await form.locator('[name="turnstile_token"]').evaluate(input=>{input.value='P2_INTERCEPTED_TOKEN';});
+            const before=submissions.length;
+            const response=page.waitForResponse(r=>r.url()===`${origin}/api/leads`&&r.request().method()==='POST');
+            await form.locator('button[type="submit"]').click(); await response;
+            await page.waitForFunction(()=>window.wpbAnalyticsQueue?.some(e=>e.eventName==='lead_form_submit_success'));
+            assert.equal(submissions.length,before+1);
+            const payload=submissions.at(-1);
+            assert.equal(payload.project,'olara');assert.equal(payload.corridor,'north-flagler');
+            assert.equal(payload.interest,'Request current availability');
+            assert.equal(payload.cta_context,`floorplan:olara:${current.slug}`);
+            assert.equal(payload.lead_capture_context,payload.cta_context);
+            assert.equal(payload.landing_page,`${origin}${plans[0].path}`);
+            assert.equal(payload.submission_page,`${origin}/inquire/`);
+            const events=await page.evaluate(()=>window.wpbAnalyticsQueue||[]);
+            for(const name of ['contact_form_submit','lead_form_submit_success'])assert.equal(events.filter(e=>e.eventName===name).length,1);
+            assert.doesNotMatch(await page.evaluate(()=>JSON.stringify([window.wpbAnalyticsQueue,window.dataLayer])),/P2 QA Example|p2-qa@|202-555-0143|P2_TEST_MESSAGE_DO_NOT_SEND|P2_INTERCEPTED_TOKEN/);
+            results.push({check:'same-session-plan-switch',path:current.path,width:viewport.width,interceptedSubmission:'pass',project:payload.project,planContext:payload.cta_context,firstTouchPreserved:true,analyticsPii:false});
+            submissions.length=0;
           }
           await page.evaluate(() => window.wpbSetAnalyticsConsent('granted'));
           if (process.env.FLOORPLAN_EXPECT_GA4 === '1') {
@@ -203,6 +253,10 @@ async function checkBrowser() {
     }
     await fs.writeFile(path.join(artifactDir, 'results.json'), JSON.stringify(results, null, 2));
     console.log(JSON.stringify({ floorplanBrowserQA: 'pass', views: results.filter((r) => 'javaScriptEnabled' in r).length, interceptedSubmissions: results.filter((r) => r.interceptedSubmission).length, artifacts: '.runtime/phase-2-qa' }));
+  } catch(error) {
+    results.push({check:'failure',status:'fail',type:error.name,message:String(error.message).slice(0,500)});
+    await fs.writeFile(path.join(artifactDir,'results.json'),JSON.stringify(results,null,2));
+    throw error;
   } finally {
     await browser?.close();
     await new Promise((resolve) => server.close(resolve));
