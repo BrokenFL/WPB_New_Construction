@@ -1,3 +1,4 @@
+import { parseShortlist, shortlistProjects } from './shortlist.ts';
 import { floorplanForPath } from './floorplanEntities.ts';
 import { commercialLabels, parseCommercialContext } from './commercialContent.ts';
 import { corridorActionLabels, parseCorridorContext } from './corridorGrowthContent.ts';
@@ -5,6 +6,11 @@ import { getLeadAttribution } from './leadCapture.ts';
 
 /** A single allowlisted owner for commercial, floor-plan and corridor requests. */
 export function resolveInquiryContext(value: unknown) {
+  const shortlist = parseShortlist(value);
+  if (shortlist) return {
+    context: String(value), label: 'Compare my shortlist', interest: 'Compare buildings',
+    location: `comparison-${shortlist.key}`, project: shortlist.ids[0], projectName: shortlistProjects[shortlist.ids[0]].name, corridor: shortlist.corridor,
+  };
   const corridor = parseCorridorContext(value);
   if (corridor) return {
     context: String(value), label: corridorActionLabels[corridor.intent],
@@ -43,6 +49,18 @@ export function wireInquiryContext(app: HTMLElement) {
     if (['project', 'interest', 'lead_capture_context'].some((key) => query.has(key))) return;
     const saved = getLeadAttribution();
     const origin = resolveInquiryContext(saved.cta_context);
+    const shortlist = parseShortlist(saved.cta_context);
+    let review = form.querySelector<HTMLElement>('[data-shortlist-review]');
+    if (!shortlist) review?.remove();
+    else if (review?.dataset.context !== saved.cta_context) {
+      if (!review) { review = document.createElement('section'); review.className = 'bc-shortlist-review'; review.dataset.shortlistReview = ''; form.prepend(review); }
+      review.replaceChildren(); review.dataset.context = saved.cta_context;
+      const heading = document.createElement('h3'); heading.textContent = 'Your comparison shortlist';
+      const names = document.createElement('p'); names.textContent = shortlist.names.join(' · ');
+      const note = document.createElement('p'); note.textContent = 'All of these buildings accompany your request. The building field below selects a primary focus; it does not replace the shortlist.';
+      const edit = document.createElement('a'); edit.href = shortlist.path + '#shortlist'; edit.textContent = 'Edit my shortlist';
+      review.append(heading, names, note, edit);
+    }
     const previous = applied.get(form);
     const hidden = form.querySelector<HTMLInputElement>('[name="lead_capture_context"]');
     const project = form.querySelector<HTMLSelectElement>('select[name="project"]');

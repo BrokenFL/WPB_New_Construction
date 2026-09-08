@@ -1,10 +1,18 @@
+import { comparisonForPath } from './lib/shortlist.ts';
 import "./style.css";
 import "./floorplanEntities.css";
 import "./commercialGrowth.css";
+import "./shortlistSummary.css";
 import { wireInquiryContext } from "./lib/inquiryContext.ts";
 import { cleanFloorplanPath, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanJson, renderFloorplanDiscovery } from "./lib/floorplanEntities.ts";
 
 async function start() {
+  const comparison = comparisonForPath(location.pathname);
+  if (comparison) {
+    const { mountComparison } = await import('./comparisonPage.ts');
+    mountComparison(comparison);
+    return;
+  }
   const plan = floorplanForPath(window.location.pathname);
   if (plan) {
     const { mountFloorplanPage } = await import("./floorplanPage.ts");
@@ -21,6 +29,8 @@ async function start() {
   installCommercialGrowth();
   const { installCorridorGrowth } = await import("./corridorGrowth.ts");
   installCorridorGrowth();
+  const { installComparisonDiscovery } = await import('./comparisonDiscovery.ts');
+  installComparisonDiscovery(app);
 
   // Entity routes are full document navigations, outside the legacy router.
   // Preserve native middle/modified clicks and no-JavaScript crawlable anchors.

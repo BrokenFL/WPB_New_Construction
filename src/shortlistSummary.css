@@ -1,0 +1,5 @@
+/* Eager, tiny form styles: the shared inquiry bridge mounts before lazy discovery. */
+.bc-shortlist-review{padding:18px;border:1px solid #b6bcae;border-radius:4px;background:#eee9df;color:#172d38;grid-column:1/-1}
+.bc-shortlist-review p,.bc-shortlist-review a{color:#174955}
+.bc-shortlist-review a{display:inline-flex;min-height:44px;align-items:center}
+.inquiry-form .bc-shortlist-review h3{color:#172d38;font-size:26px;line-height:1.2;width:auto;max-width:none;margin:0 0 12px}
