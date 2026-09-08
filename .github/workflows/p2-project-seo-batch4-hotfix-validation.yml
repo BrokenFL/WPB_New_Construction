@@ -1,0 +1,29 @@
+name: PR80 release hotfix validation
+on:
+  push:
+    branches: [p2-project-seo-batch4-hotfix-validation]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - run: npm run build
+      - name: Full repository suite
+        env:
+          WPB_MAP_QA_MODE: no-key
+          WPB_MAP_QA_PORT: '4173'
+        run: npm test
+      - run: npm run test:project-seo-batch4
+      - run: npm run qa:project-seo-batch4
