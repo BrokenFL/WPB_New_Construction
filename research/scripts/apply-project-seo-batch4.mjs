@@ -8,6 +8,7 @@ const records = JSON.parse(await fs.readFile(path.join(root, "public/data/projec
 const esc = (value) => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
 const jsonForHtml = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
 const list = (items) => `<ul>${items.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>`;
+const styleLink = '<link rel="stylesheet" href="/project-seo-batch4.css" data-project-seo-batch4-style="true" />';
 
 function guide(record) {
   return `<section id="wpb-project-seo-batch4" class="p2-project-guide" data-project-id="${esc(record.projectId)}">
@@ -67,6 +68,7 @@ for (const record of records) {
     .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${esc(record.description)}" />`)
     .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${esc(record.canonical)}" />`)
     .replace(/<h1(?:\s[^>]*)?>[\s\S]*?<\/h1>/, `<h1>${esc(record.h1)}</h1>`);
+  if (!html.includes('data-project-seo-batch4-style="true"')) html = html.replace("</head>", `  ${styleLink}\n</head>`);
   html = patchGraph(html, record);
   if (!html.includes('id="wpb-project-seo-batch4"')) html = html.replace("</main>", `${guide(record)}</main>`);
   await fs.writeFile(file, html);
