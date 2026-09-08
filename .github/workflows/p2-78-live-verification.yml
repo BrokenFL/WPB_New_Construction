@@ -1,0 +1,72 @@
+name: PR78 live acceptance (no deploy)
+on:
+  push:
+    branches: [p2-78-live-verification]
+    paths: [.github/workflows/p2-78-live-verification.yml, research/scripts/prepare-78-live.py, research/scripts/check-78-live-details.mjs]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      DEPLOYED_SHA: de5fd3d1581df372712d0f02ad54305d8f4f1b4b
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Confirm audit-only source differences
+        run: |
+          git diff --exit-code "$DEPLOYED_SHA" HEAD -- src public functions package.json package-lock.json vite.config.ts research/scripts ':!research/scripts/prepare-78-live.py' ':!research/scripts/check-78-live-details.mjs' .github/workflows/deploy-cloudflare-pages.yml
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Wait for the one existing automatic production deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run watch 34178444416 --repo "$GITHUB_REPOSITORY" --exit-status
+      - name: Prepare read-only production checks
+        run: python3 research/scripts/prepare-78-live.py
+      - name: Live comparison pages and intercepted shortlist submissions
+        run: node --experimental-strip-types research/scripts/check-comparisons-live.tmp.mjs
+      - name: Live corridor regression journeys (intercepted)
+        if: ${{ !cancelled() }}
+        run: node --experimental-strip-types research/scripts/check-corridors-live.tmp.mjs
+      - name: Live discovery, exact approved plan image and PDF
+        if: ${{ !cancelled() }}
+        run: node --experimental-strip-types research/scripts/check-78-live-details.mjs
+      - name: Actual production Maps tiles and zoom, never fallback
+        if: ${{ !cancelled() }}
+        run: node research/scripts/check-maps-live.tmp.mjs
+      - name: Preserve source identity and safe evidence
+        if: ${{ !cancelled() }}
+        run: |
+          mkdir -p .runtime/release-source
+          git archive --format=tar "$DEPLOYED_SHA" docs/P2_COMPARISONS_IMPLEMENTATION_PROGRESS.md docs/PHASE_2_DELIVERY_TRACKER.md src/data/floorplanApprovedLibrary.ts src/lib/floorplanEntities.ts research/scripts/floorplan-entities.test.mjs research/scripts/check-floorplan-entities.mjs > .runtime/release-source/source.tar
+          printf '%s\n' "$DEPLOYED_SHA" > .runtime/release-source/deployed-sha.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          roots=[Path('.runtime')/p for p in ['p2-comparisons','p2-corridors','p2-keyed-maps','p2-live-details','release-source']]
+          files=[p for root in roots for p in root.rglob('*') if p.is_file()]
+          if any(re.search(rb'AIza[0-9A-Za-z_-]{30,}|github_pat_[0-9A-Za-z_]{30,}|gh[pousr]_[0-9A-Za-z]{30,}',p.read_bytes()) for p in files):
+            for p in files:p.unlink()
+            raise RuntimeError('Unsafe evidence withheld')
+          print('Safe screenshots, source and summaries only; no credential-bearing bundles or raw lead payloads')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr78-live-acceptance
+          path: |
+            .runtime/p2-comparisons/
+            .runtime/p2-corridors/
+            .runtime/p2-keyed-maps/
+            .runtime/p2-live-details/
+            .runtime/release-source/
+          retention-days: 14
