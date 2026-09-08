@@ -97,6 +97,9 @@ async function runSequence(browser, width, sequence, sequenceName) {
       const record = byId.get(projectId);
       assert.ok(record, `${sequenceName}: record ${projectId}`);
       await page.goto(`${origin}${record.path}`, { waitUntil: "networkidle" });
+      // The intercepted-success UI is intentionally dismissed between actions;
+      // sessionStorage and request state remain intact for the switching check.
+      await page.locator("[data-lead-modal]").evaluateAll((nodes) => nodes.forEach((node) => node.remove()));
       await page.locator("#wpb-project-seo-batch4").waitFor({ state: "visible" });
       if (!firstTouch) firstTouch = `${origin}${record.path}`;
       const link = page.locator(actionSelector(action));
