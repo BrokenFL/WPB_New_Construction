@@ -7,6 +7,7 @@ const mainPath = path.join(workspace, "src/main.ts");
 const siteDataPath = path.join(workspace, "src/generated/siteData.ts");
 const findings = [];
 const ignoredPrefixes = ["/assets/", "/data/", "/maps/", "/projects/", "/hero/", "/team-logos/", "/favicon"];
+const staticFileHrefPattern = /\.(css|json|xml|txt|pdf|svg|jpg|jpeg|png|webp)(?:$|[?#])/i;
 
 async function walk(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true }).catch(() => []);
@@ -29,6 +30,10 @@ function routeFile(route) {
   return route === "/" ? path.join(distRoot, "index.html") : path.join(distRoot, route, "index.html");
 }
 
+function staticFileForHref(href) {
+  return path.join(distRoot, href.split("#")[0].split("?")[0].slice(1));
+}
+
 const htmlFiles = await walk(distRoot);
 const checked = new Set();
 for (const file of htmlFiles) {
@@ -37,9 +42,9 @@ for (const file of htmlFiles) {
     const href = match[1];
     if (!href.startsWith("/") || href.startsWith("//")) continue;
     if (ignoredPrefixes.some((prefix) => href.startsWith(prefix))) continue;
-    if (/\.(json|xml|txt|pdf|svg|jpg|jpeg|png|webp)(?:$|[?#])/i.test(href)) {
+    if (staticFileHrefPattern.test(href)) {
       try {
-        await fs.access(path.join(distRoot, href.split("#")[0].split("?")[0].slice(1)));
+        await fs.access(staticFileForHref(href));
       } catch {
         findings.push(`${path.relative(workspace, file)} links to missing file ${href}`);
       }
@@ -65,7 +70,7 @@ for (const match of source.matchAll(/href=["`]([^"`$]+)["`]/g)) {
   const href = match[1];
   if (!href.startsWith("/") || href.startsWith("//")) continue;
   if (ignoredPrefixes.some((prefix) => href.startsWith(prefix))) continue;
-  if (/\.(json|xml|txt|pdf|svg|jpg|jpeg|png|webp)(?:$|[?#])/i.test(href)) continue;
+  if (staticFileHrefPattern.test(href)) continue;
   const route = routePathForHref(href);
   checked.add(`src:${route}`);
   if (!prerenderedRoutes.has(route)) findings.push(`src/main.ts links to non-prerendered route ${href}`);

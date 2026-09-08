@@ -31,6 +31,8 @@ async function start() {
   installCorridorGrowth();
   const { installComparisonDiscovery } = await import('./comparisonDiscovery.ts');
   installComparisonDiscovery(app);
+  const { installProjectSeoBatch4 } = await import('./projectSeoBatch4.ts');
+  await installProjectSeoBatch4(app);
 
   // Entity routes are full document navigations, outside the legacy router.
   // Preserve native middle/modified clicks and no-JavaScript crawlable anchors.
