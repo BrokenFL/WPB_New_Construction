@@ -10,6 +10,10 @@ const artifactDir = path.join(root, ".runtime/phase-2-project-seo");
 await fs.mkdir(artifactDir, { recursive: true });
 
 const mime = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp", ".svg": "image/svg+xml", ".pdf": "application/pdf", ".woff2": "font/woff2", ".xml": "application/xml" };
+const actions = {
+  availability: "Request current availability",
+  "pricing-packet": "Pricing + floor-plan packet",
+};
 
 async function htmlAt(record) {
   return fs.readFile(path.join(dist, record.path.slice(1), "index.html"), "utf8");
@@ -72,6 +76,7 @@ async function browserChecks() {
         const context = await browser.newContext({ javaScriptEnabled, viewport });
         const submissions = [];
         let googleRequests = 0;
+        let firstTouchLanding;
         await context.route("**/*", async (route) => {
           const request = route.request();
           const url = new URL(request.url());
@@ -87,6 +92,51 @@ async function browserChecks() {
         const errors = [];
         page.on("pageerror", (error) => errors.push(error.message));
 
+        const submitBatch4Request = async (record, action, transition) => {
+          const interest = actions[action];
+          await page.goto(`${origin}${record.path}`, { waitUntil: "networkidle" });
+          const actionLink = page.locator(`#wpb-project-seo-batch4 [data-project-growth-action="${action}"]`);
+          await actionLink.waitFor();
+          const href = await actionLink.getAttribute("href");
+          assert.ok(href, `${transition}: inquiry href missing`);
+          const expected = new URL(href, origin);
+          assert.equal(expected.pathname, "/inquire/", `${transition}: CTA path`);
+          assert.equal(expected.searchParams.get("project"), record.projectId, `${transition}: CTA project alias`);
+          assert.equal(expected.searchParams.get("interest"), interest, `${transition}: CTA interest`);
+          await actionLink.click();
+          await page.waitForURL((url) => url.origin === origin && url.pathname === "/inquire/");
+          const inquiryUrl = new URL(page.url());
+          assert.equal(inquiryUrl.searchParams.get("project"), record.projectId, `${transition}: request project alias`);
+          assert.equal(inquiryUrl.searchParams.get("interest"), interest, `${transition}: request interest`);
+          const form = page.locator(".inquiry-form");
+          await form.waitFor({ state: "visible" });
+          assert.equal(await form.locator('[name="project"]').inputValue(), record.slug, `${transition}: canonical form project`);
+          assert.equal(await form.locator('[name="interest"]').inputValue(), interest, `${transition}: current form interest`);
+          await form.locator('[name="name"]').fill("Batch 4 QA Example");
+          await form.locator('[name="email"]').fill("batch4-qa@example.invalid");
+          await form.locator('[name="phone"]').fill("202-555-0188");
+          await form.locator('[name="message"]').fill("BATCH4_TEST_MESSAGE_DO_NOT_SEND");
+          await form.locator('[name="consent"]').check();
+          await form.locator('[name="turnstile_token"]').evaluate((input) => { input.value = "BATCH4_INTERCEPTED_TOKEN"; });
+          const before = submissions.length;
+          const response = page.waitForResponse((response) => response.url() === `${origin}/api/leads` && response.request().method() === "POST");
+          await form.locator('button[type="submit"]').click();
+          await response;
+          assert.equal(submissions.length, before + 1, `${transition}: exactly one intercepted submission`);
+          const payload = submissions.at(-1);
+          assert.equal(payload.project, record.slug, `${transition}: canonical payload project`);
+          assert.equal(payload.interest, interest, `${transition}: current payload interest`);
+          const sourcePage = new URL(payload.source_page);
+          assert.equal(sourcePage.pathname, "/inquire/", `${transition}: source page path`);
+          assert.equal(sourcePage.searchParams.get("project"), record.projectId, `${transition}: source page alias`);
+          assert.equal(sourcePage.searchParams.get("interest"), interest, `${transition}: source page interest`);
+          if (firstTouchLanding === undefined) firstTouchLanding = payload.landing_page;
+          assert.equal(payload.landing_page, firstTouchLanding, `${transition}: first-touch landing page changed`);
+          const analytics = await page.evaluate(() => JSON.stringify([window.wpbAnalyticsQueue, window.dataLayer]));
+          assert.doesNotMatch(analytics, /Batch 4 QA Example|batch4-qa@|202-555-0188|BATCH4_TEST_MESSAGE_DO_NOT_SEND|BATCH4_INTERCEPTED_TOKEN/, `${transition}: contact PII leaked to analytics`);
+          results.push({ project: record.slug, requestAlias: record.projectId, width: viewport.width, action, transition, interceptedSubmission: "pass", interest });
+        };
+
         for (const record of records) {
           await page.goto(`${origin}${record.path}`, { waitUntil: "networkidle" });
           await page.locator("#wpb-project-seo-batch4").waitFor();
@@ -95,60 +145,58 @@ async function browserChecks() {
           assert.equal(await canonicalH1.isVisible(), true);
           assert.equal(await page.locator('link[rel="canonical"]').getAttribute("href"), record.canonical);
           assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true, `${record.path}: overflow`);
-          const actions = page.locator(".p2-project-guide__actions a");
-          assert.equal(await actions.count(), 2);
-          for (let index = 0; index < 2; index += 1) assert.ok((await actions.nth(index).boundingBox())?.height >= 44);
+          const pageActions = page.locator(".p2-project-guide__actions a");
+          assert.equal(await pageActions.count(), 2);
+          for (let index = 0; index < 2; index += 1) assert.ok((await pageActions.nth(index).boundingBox())?.height >= 44);
           await page.screenshot({ path: path.join(artifactDir, `${record.projectId}-${viewport.width}-${javaScriptEnabled ? "js" : "nojs"}.png`), fullPage: true });
           results.push({ path: record.path, width: viewport.width, javaScriptEnabled, presentation: "pass" });
 
           if (!javaScriptEnabled) continue;
           await page.waitForFunction(() => typeof window.wpbSetAnalyticsConsent === "function");
           await page.evaluate(() => window.wpbSetAnalyticsConsent?.("denied"));
-          for (const [action, interest] of [["availability", "Request current availability"], ["pricing-packet", "Pricing + floor-plan packet"]]) {
-            await page.goto(`${origin}${record.path}`, { waitUntil: "networkidle" });
-            const actionLink = page.locator(`#wpb-project-seo-batch4 [data-project-growth-action="${action}"]`);
-            await actionLink.waitFor();
-            const href = await actionLink.getAttribute("href");
-            assert.ok(href, `${record.projectId}:${action}: inquiry href missing`);
-            const expected = new URL(href, origin);
-            assert.equal(expected.pathname, "/inquire/");
-            assert.equal(expected.searchParams.get("project"), record.projectId);
-            assert.equal(expected.searchParams.get("interest"), interest);
-            await actionLink.click();
-            await page.waitForURL((url) => url.origin === origin && url.pathname === "/inquire/");
-            const inquiryUrl = new URL(page.url());
-            assert.equal(inquiryUrl.searchParams.get("project"), record.projectId);
-            assert.equal(inquiryUrl.searchParams.get("interest"), interest);
-            const form = page.locator(".inquiry-form");
-            await form.waitFor({ state: "visible" });
-            // The existing inquiry page resolves public aliases to the canonical
-            // project slug before submission. Preserve that production behavior:
-            // link/query identity is the Batch 4 request alias, payload identity
-            // is the canonical building slug, and interest remains exact.
-            assert.equal(await form.locator('[name="project"]').inputValue(), record.slug);
-            await form.locator('[name="name"]').fill("Batch 4 QA Example");
-            await form.locator('[name="email"]').fill("batch4-qa@example.invalid");
-            await form.locator('[name="phone"]').fill("202-555-0188");
-            await form.locator('[name="message"]').fill("BATCH4_TEST_MESSAGE_DO_NOT_SEND");
-            await form.locator('[name="consent"]').check();
-            await form.locator('[name="turnstile_token"]').evaluate((input) => { input.value = "BATCH4_INTERCEPTED_TOKEN"; });
-            const before = submissions.length;
-            const response = page.waitForResponse((response) => response.url() === `${origin}/api/leads` && response.request().method() === "POST");
-            await form.locator('button[type="submit"]').click();
-            await response;
-            assert.equal(submissions.length, before + 1);
-            const payload = submissions.at(-1);
-            assert.equal(payload.project, record.slug);
-            assert.equal(payload.interest, interest);
-            const sourcePage = new URL(payload.source_page);
-            assert.equal(sourcePage.pathname, "/inquire/");
-            assert.equal(sourcePage.searchParams.get("project"), record.projectId);
-            assert.equal(sourcePage.searchParams.get("interest"), interest);
-            const analytics = await page.evaluate(() => JSON.stringify([window.wpbAnalyticsQueue, window.dataLayer]));
-            assert.doesNotMatch(analytics, /Batch 4 QA Example|batch4-qa@|202-555-0188|BATCH4_TEST_MESSAGE_DO_NOT_SEND|BATCH4_INTERCEPTED_TOKEN/);
-            results.push({ project: record.slug, requestAlias: record.projectId, width: viewport.width, action, interceptedSubmission: "pass", interest });
-          }
+          await submitBatch4Request(record, "availability", `${record.projectId}:availability->pricing setup`);
+          await submitBatch4Request(record, "pricing-packet", `${record.projectId}:availability->pricing`);
         }
+
+        if (javaScriptEnabled && viewport.width === 1440) {
+          const rosewood = records.find((record) => record.projectId === "rosewood");
+          const maison = records.find((record) => record.projectId === "maison-dor");
+          assert.ok(rosewood && maison);
+
+          // At this point the same browser session ends on Maison pricing. These
+          // additional transitions exercise the reverse directions and project
+          // switching without resetting storage or creating a fresh context.
+          await submitBatch4Request(maison, "availability", "D maison pricing->availability");
+          await submitBatch4Request(rosewood, "pricing-packet", "F maison->rosewood");
+          await submitBatch4Request(rosewood, "availability", "B rosewood pricing->availability");
+
+          // Existing explicit Olara query flow -> Batch 4. This intentionally
+          // reuses the same context and first-touch storage.
+          await page.goto(`${origin}/inquire/?project=olara&interest=availability`, { waitUntil: "networkidle" });
+          const legacyForm = page.locator(".inquiry-form");
+          await legacyForm.waitFor({ state: "visible" });
+          assert.equal(await legacyForm.locator('[name="project"]').inputValue(), "olara", "G legacy Olara canonical project");
+          assert.equal(await legacyForm.locator('[name="interest"]').inputValue(), "Request current availability", "G legacy Olara interest");
+          await submitBatch4Request(maison, "pricing-packet", "G Olara->Batch4");
+
+          // Batch 4 -> existing clean-URL corridor request. Corridor attribution
+          // intentionally lives in the shared request store rather than query
+          // parameters; verify it replaces Batch 4 state without stale project or
+          // packet intent, while retaining the first-touch session.
+          await page.goto(`${origin}/corridors/south-flagler/`, { waitUntil: "networkidle" });
+          const corridorLink = page.locator('a[data-corridor-origin="south-flagler"][data-corridor-intent="availability"]').first();
+          await corridorLink.waitFor();
+          assert.equal(new URL(await corridorLink.getAttribute("href"), origin).pathname, "/inquire/", "H corridor clean inquiry URL");
+          await corridorLink.click();
+          await page.waitForURL((url) => url.origin === origin && url.pathname === "/inquire/");
+          const corridorForm = page.locator(".inquiry-form");
+          await corridorForm.waitFor({ state: "visible" });
+          assert.equal(await corridorForm.locator('[name="project"]').inputValue(), "", "H stale Batch 4 project cleared");
+          assert.equal(await corridorForm.locator('[name="interest"]').inputValue(), "Request current availability", "H corridor interest replaces Batch 4 intent");
+          assert.equal(await corridorForm.locator('[name="lead_capture_context"]').inputValue(), "corridor:south-flagler:availability", "H corridor context replaces Batch 4 context");
+          results.push({ transition: "H Batch4->corridor", width: viewport.width, requestFamilySwitch: "pass" });
+        }
+
         assert.equal(errors.length, 0, errors.join("\n"));
         assert.equal(googleRequests, 0, "No third-party analytics should leave the QA browser without consent");
         await context.close();
