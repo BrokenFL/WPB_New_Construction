@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import { resolveInquiryContext } from '../../src/lib/inquiryContext.ts';
 import { rememberLeadAttribution } from '../../src/lib/leadCapture.ts';
 import { publishedFloorplanEntities, buildFloorplanEntities } from '../../src/lib/floorplanEntities.ts';
+import { batch4InquiryRequest } from '../../src/projectSeoBatch4.ts';
 
 test('one resolver admits both prepared request families but not unpublished Alba or arbitrary input', () => {
   assert.equal(resolveInquiryContext('floorplan:olara:residence-d').project, 'olara');
@@ -28,6 +29,22 @@ test('explicit new request replaces stale CTA/corridor while preserving first to
     const next=JSON.parse(storage.get('wpbLeadAttribution'));
     assert.equal(next.cta_label,undefined);assert.equal(next.corridor,'north-flagler');
   } finally {if(previous===undefined) delete globalThis.window; else globalThis.window=previous;}
+});
+test('Batch 4 enhancer owns only exact Batch 4 query requests and fingerprints the current navigation', () => {
+  const records=[
+    {projectId:'rosewood',slug:'rosewood-residences-west-palm-beach'},
+    {projectId:'maison-dor',slug:'maison-dor'},
+  ];
+  const availability=batch4InquiryRequest(records,'/inquire/','?project=rosewood&interest=Request%20current%20availability');
+  assert.equal(availability.record.slug,'rosewood-residences-west-palm-beach');
+  assert.equal(availability.interest,'Request current availability');
+  const packet=batch4InquiryRequest(records,'/inquire/','?project=rosewood&interest=Pricing%20%2B%20floor-plan%20packet');
+  assert.equal(packet.record.slug,'rosewood-residences-west-palm-beach');
+  assert.equal(packet.interest,'Pricing + floor-plan packet');
+  assert.notEqual(packet.fingerprint,availability.fingerprint);
+  assert.equal(batch4InquiryRequest(records,'/inquire/','?project=olara&interest=availability'),undefined);
+  assert.equal(batch4InquiryRequest(records,'/inquire/','?project=rosewood&interest=Schedule%20private%20tour'),undefined);
+  assert.equal(batch4InquiryRequest(records,'/projects/rosewood-residences-west-palm-beach/','?project=rosewood&interest=Pricing%20%2B%20floor-plan%20packet'),undefined);
 });
 test('integrated entry starts legacy app once and installs one shared form bridge', async () => {
   const entry=await fs.readFile('src/bootstrap.ts','utf8');
