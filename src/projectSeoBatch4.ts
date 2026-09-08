@@ -1,3 +1,5 @@
+import "./projectSeoBatch4.css";
+
 type Batch4Link = { label: string; href: string };
 type Batch4Source = { label: string; url: string; kind: "official" | "reporting" };
 type Batch4Project = {
