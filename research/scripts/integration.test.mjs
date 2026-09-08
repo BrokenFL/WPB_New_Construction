@@ -49,5 +49,5 @@ test('postbuild composes both page families and production keeps the reachable-g
 
 await import('./inquiry-bridge.test.mjs');
 await import('./corridor-growth.test.mjs');
-
 await import('./comparisons.test.mjs');
+await import('./check-internal-links.test.mjs');
