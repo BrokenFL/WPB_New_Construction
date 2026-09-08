@@ -90,10 +90,6 @@ async function browserChecks() {
         for (const record of records) {
           await page.goto(`${origin}${record.path}`, { waitUntil: "networkidle" });
           await page.locator("#wpb-project-seo-batch4").waitFor();
-          // The crawlable prerender above is required to contain exactly one H1.
-          // With JavaScript enabled, the legacy single-page shell keeps multiple
-          // route headings in its DOM, so verify the one canonical buyer-guide H1
-          // by exact accessible name and require that exact heading to be visible.
           const canonicalH1 = page.getByRole("heading", { level: 1, name: record.h1, exact: true });
           assert.equal(await canonicalH1.count(), 1);
           assert.equal(await canonicalH1.isVisible(), true);
@@ -119,13 +115,17 @@ async function browserChecks() {
             assert.equal(expected.searchParams.get("project"), record.projectId);
             assert.equal(expected.searchParams.get("interest"), interest);
             await actionLink.click();
-            // Inquiry links intentionally carry project + request context in the
-            // query string. Validate the route by pathname instead of requiring
-            // the query-bearing URL to equal the bare /inquire/ URL.
             await page.waitForURL((url) => url.origin === origin && url.pathname === "/inquire/");
+            const inquiryUrl = new URL(page.url());
+            assert.equal(inquiryUrl.searchParams.get("project"), record.projectId);
+            assert.equal(inquiryUrl.searchParams.get("interest"), interest);
             const form = page.locator(".inquiry-form");
             await form.waitFor({ state: "visible" });
-            assert.equal(await form.locator('[name="project"]').inputValue(), record.projectId);
+            // The existing inquiry page resolves public aliases to the canonical
+            // project slug before submission. Preserve that production behavior:
+            // link/query identity is the Batch 4 request alias, payload identity
+            // is the canonical building slug, and interest remains exact.
+            assert.equal(await form.locator('[name="project"]').inputValue(), record.slug);
             await form.locator('[name="name"]').fill("Batch 4 QA Example");
             await form.locator('[name="email"]').fill("batch4-qa@example.invalid");
             await form.locator('[name="phone"]').fill("202-555-0188");
@@ -138,12 +138,15 @@ async function browserChecks() {
             await response;
             assert.equal(submissions.length, before + 1);
             const payload = submissions.at(-1);
-            assert.equal(payload.project, record.projectId);
+            assert.equal(payload.project, record.slug);
             assert.equal(payload.interest, interest);
-            assert.match(payload.cta_context ?? payload.lead_capture_context ?? "", new RegExp(record.projectId));
+            const sourcePage = new URL(payload.source_page);
+            assert.equal(sourcePage.pathname, "/inquire/");
+            assert.equal(sourcePage.searchParams.get("project"), record.projectId);
+            assert.equal(sourcePage.searchParams.get("interest"), interest);
             const analytics = await page.evaluate(() => JSON.stringify([window.wpbAnalyticsQueue, window.dataLayer]));
             assert.doesNotMatch(analytics, /Batch 4 QA Example|batch4-qa@|202-555-0188|BATCH4_TEST_MESSAGE_DO_NOT_SEND|BATCH4_INTERCEPTED_TOKEN/);
-            results.push({ project: record.projectId, width: viewport.width, action, interceptedSubmission: "pass", interest });
+            results.push({ project: record.slug, requestAlias: record.projectId, width: viewport.width, action, interceptedSubmission: "pass", interest });
           }
         }
         assert.equal(errors.length, 0, errors.join("\n"));
