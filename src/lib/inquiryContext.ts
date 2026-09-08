@@ -31,31 +31,8 @@ export function resolveInquiryContext(value: unknown) {
   } : undefined;
 }
 
-/**
- * Convert only known query-driven inquiry intents to form values.
- * Batch 4 intentionally uses its buyer-facing packet label as the submitted
- * interest; arbitrary query text must never become a form option.
- */
-export function resolveQueryInquiryInterest(value: string | null) {
-  if (value === 'availability' || value === 'Request current availability') return 'Request current availability';
-  if (value === 'floorplans') return 'Request private floor-plan packet';
-  if (value === 'compare') return 'Compare buildings';
-  if (value === 'Pricing + floor-plan packet') return 'Pricing + floor-plan packet';
-  return undefined;
-}
-
-function ensureInterestOption(select: HTMLSelectElement, value: string) {
-  if (Array.from(select.options).some((option) => option.value === value)) return;
-  const option = document.createElement('option');
-  option.value = value;
-  option.textContent = value;
-  select.append(option);
-}
-
 export function wireInquiryContext(app: HTMLElement) {
   const applied = new WeakMap<HTMLFormElement, { context: string; projectEdited: boolean; interestEdited: boolean }>();
-  let explicitRequestFingerprint = '';
-
   app.addEventListener('change', (event) => {
     const field = event.target;
     if (!(field instanceof HTMLSelectElement) || !field.form) return;
@@ -63,77 +40,13 @@ export function wireInquiryContext(app: HTMLElement) {
     if (state && field.name === 'project') state.projectEdited = true;
     if (state && field.name === 'interest') state.interestEdited = true;
   });
-
-  const syncExplicitQuery = (form: HTMLFormElement) => {
-    if (!/^\/inquire\/?$/.test(location.pathname)) {
-      explicitRequestFingerprint = '';
-      return false;
-    }
-
-    const query = new URLSearchParams(location.search);
-    const hasExplicitRequest = ['project', 'interest', 'lead_capture_context', 'message'].some((key) => query.has(key));
-    if (!hasExplicitRequest) {
-      explicitRequestFingerprint = '';
-      return false;
-    }
-
-    // The URL itself is the request fingerprint. A new SPA navigation gets one
-    // initialization pass; later DOM mutations or submit-time synchronization
-    // cannot undo a buyer's manual selection for that request.
-    const fingerprint = `${location.pathname}?${query.toString()}`;
-    if (fingerprint === explicitRequestFingerprint) return true;
-
-    const project = form.querySelector<HTMLSelectElement>('select[name="project"]');
-    const interest = form.querySelector<HTMLSelectElement>('select[name="interest"]');
-    const hidden = form.querySelector<HTMLInputElement>('[name="lead_capture_context"]');
-    const sourcePage = form.querySelector<HTMLInputElement>('[name="source_page"]');
-    const message = form.querySelector<HTMLTextAreaElement>('textarea[name="message"]');
-    if (!project || !interest || !hidden) return true;
-
-    const rawProject = query.get('project');
-    // Canonical alias normalization remains owned by the existing route query
-    // initializer. Direct canonical IDs are safe to apply here as a fallback;
-    // aliases that are not select options are left untouched.
-    if (rawProject && Array.from(project.options).some((option) => option.value === rawProject)) {
-      project.value = rawProject;
-    }
-
-    const requestedInterest = resolveQueryInquiryInterest(query.get('interest'));
-    if (requestedInterest) {
-      ensureInterestOption(interest, requestedInterest);
-      interest.value = requestedInterest;
-    }
-
-    const queryMessage = query.get('message');
-    if (message && queryMessage !== null) message.value = queryMessage;
-    hidden.value = query.get('lead_capture_context') ?? 'contact_page';
-    if (sourcePage) sourcePage.value = location.href;
-
-    // An explicit query-driven request supersedes remembered auto-population.
-    // Remove bridge-owned metadata from the prior request family; canonical
-    // project selection and first-touch attribution live in their existing owners.
-    form.querySelector<HTMLElement>('[data-shortlist-review]')?.remove();
-    delete form.dataset.leadProjectSlug;
-    delete form.dataset.leadCtaLabel;
-    delete form.dataset.leadCtaLocation;
-    applied.set(form, { context: `query:${fingerprint}`, projectEdited: false, interestEdited: false });
-    explicitRequestFingerprint = fingerprint;
-    return true;
-  };
-
   const sync = () => {
-    if (!/^\/inquire\/?$/.test(location.pathname)) {
-      explicitRequestFingerprint = '';
-      return;
-    }
+    if (!/^\/inquire\/?$/.test(location.pathname)) return;
     const form = app.querySelector<HTMLFormElement>('.inquiry-form');
     if (!form) return;
-
-    // Explicit query requests outrank remembered origins. Unlike the legacy
-    // one-shot initializer, this path fingerprints each SPA navigation so a
-    // changed request is applied exactly once in the same browser session.
-    if (syncExplicitQuery(form)) return;
-
+    const query = new URLSearchParams(location.search);
+    // Explicit legacy query flows outrank remembered origins.
+    if (['project', 'interest', 'lead_capture_context'].some((key) => query.has(key))) return;
     const saved = getLeadAttribution();
     const origin = resolveInquiryContext(saved.cta_context);
     const shortlist = parseShortlist(saved.cta_context);
@@ -191,16 +104,10 @@ export function wireInquiryContext(app: HTMLElement) {
       if (name) name.value = origin.projectName;
     }
   };
-
-  // The legacy router handles internal links synchronously. This listener is
-  // installed after it, so a microtask observes the new URL/form state without
-  // creating another router, endpoint, or mutation loop.
-  app.addEventListener('click', () => queueMicrotask(sync));
-  window.addEventListener('popstate', sync);
   window.addEventListener('submit', (event) => {
     if (event.target instanceof HTMLFormElement && event.target.matches('.inquiry-form')) sync();
   }, true);
-  // Apply after the legacy app's initial route/query initialization.
+  // Apply before any optional dynamic enhancement can delay form initialization.
   sync();
   return sync;
 }
