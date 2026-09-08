@@ -138,11 +138,11 @@ function renderGuide(record: Batch4Project) {
 function installForRecord(app: HTMLElement, record: Batch4Project) {
   ensureStyles();
   updateHead(record);
-  // The legacy shell renders every project route into the DOM and toggles them
-  // with `hidden`. Scope the Batch 4 heading update to this exact project rather
-  // than mutating the first H1 in the application (which belongs to Home).
+  // The legacy shell's route identity uses the canonical project slug, while
+  // `projectId` is the lead payload identity (Rosewood intentionally differs).
+  // Scope only the matching route H1 and leave inquiry attribution untouched.
   const projectView = Array.from(app.querySelectorAll<HTMLElement>('[data-route-view="project"][data-project-id]'))
-    .find((view) => view.dataset.projectId === record.projectId);
+    .find((view) => view.dataset.projectId === record.slug);
   const h1 = projectView?.querySelector<HTMLHeadingElement>("h1");
   if (h1 && h1.textContent?.trim() !== record.h1) h1.textContent = record.h1;
   const existing = app.querySelector<HTMLElement>("#wpb-project-seo-batch4");
