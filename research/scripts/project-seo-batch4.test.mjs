@@ -29,6 +29,12 @@ test("request links retain exact project and explicit intent", () => {
   }
 });
 
+test("Batch 4 project links use canonical published project paths", () => {
+  assert.ok(byId.get("rosewood").links.some((link) => link.href === "/projects/olara/"));
+  assert.ok(byId.get("maison-dor").links.some((link) => link.href === "/projects/south-flagler-house/"));
+  assert.equal(byId.get("maison-dor").links.some((link) => link.href === "/projects/south-flagler-house-north/"), false);
+});
+
 test("Rosewood separates approved planning from public sales and availability", () => {
   const rosewood = byId.get("rosewood");
   assert.match(rosewood.opening, /approved 90-residence/i);
