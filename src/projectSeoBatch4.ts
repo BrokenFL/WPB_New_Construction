@@ -52,7 +52,57 @@ function meta(name: string, content: string, property = false) {
   if (node) node.content = content;
 }
 
-function updateHead(record: Batch4Project) {
+function canonicalSchemaScript() {
+  return document.head.querySelector<HTMLScriptElement>('#wpb-static-structured-data[type="application/ld+json"]');
+}
+
+function patchCanonicalPageNode(script: HTMLScriptElement, record: Batch4Project) {
+  if (!script.textContent) return;
+  const schema = JSON.parse(script.textContent) as { "@graph"?: Array<Record<string, unknown>> };
+  if (!Array.isArray(schema["@graph"])) throw new Error(`${record.path}: canonical schema has no @graph`);
+  const page = schema["@graph"].find((node) => node["@id"] === `${record.canonical}#webpage`);
+  if (!page) throw new Error(`${record.path}: canonical WebPage node missing`);
+  page.name = record.h1;
+  page.description = record.description;
+  page.dateModified = record.reviewedOn;
+  script.textContent = JSON.stringify(schema);
+}
+
+async function syncCanonicalSchema(record: Batch4Project) {
+  // Batch 4 used to append #wpb-project-seo-batch4-schema at runtime. Remove
+  // that obsolete path if a stale hydrated DOM ever contains it; the site
+  // contract is one canonical static graph.
+  document.head.querySelector('#wpb-project-seo-batch4-schema')?.remove();
+  document.head.querySelector('#wpb-authorship-schema')?.remove();
+
+  const current = canonicalSchemaScript();
+  if (!current) throw new Error(`${record.path}: canonical static schema script missing`);
+  const currentPath = cleanPath(current.dataset.staticPath || "");
+  const targetPath = cleanPath(record.path);
+
+  if (currentPath !== targetPath) {
+    const response = await fetch(targetPath, {
+      credentials: "same-origin",
+      cache: "no-store",
+      headers: { Accept: "text/html" },
+    });
+    if (!response.ok) throw new Error(`${record.path}: could not load canonical schema source (${response.status})`);
+    const html = await response.text();
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const target = doc.head.querySelector<HTMLScriptElement>('#wpb-static-structured-data[type="application/ld+json"]');
+    if (!target?.textContent) throw new Error(`${record.path}: fetched canonical schema script missing`);
+    // Validate before replacing the live graph.
+    const parsed = JSON.parse(target.textContent) as { "@graph"?: unknown[] };
+    if (!Array.isArray(parsed["@graph"])) throw new Error(`${record.path}: fetched canonical schema has no @graph`);
+    if (cleanPath(location.pathname) !== targetPath) return;
+    current.textContent = target.textContent;
+    current.dataset.staticPath = targetPath;
+  }
+
+  patchCanonicalPageNode(current, record);
+}
+
+async function updateHead(record: Batch4Project) {
   document.title = record.title;
   meta("description", record.description);
   meta("og:title", record.title, true);
@@ -62,36 +112,7 @@ function updateHead(record: Batch4Project) {
   meta("twitter:description", record.description);
   const canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (canonical) canonical.href = record.canonical;
-
-  let script = document.head.querySelector<HTMLScriptElement>('#wpb-project-seo-batch4-schema');
-  if (!script) {
-    script = document.createElement("script");
-    script.id = "wpb-project-seo-batch4-schema";
-    script.type = "application/ld+json";
-    document.head.append(script);
-  }
-  script.textContent = JSON.stringify({
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${record.canonical}#buyer-guide`,
-        url: record.canonical,
-        name: record.h1,
-        description: record.description,
-        dateModified: record.reviewedOn,
-        about: { "@type": "Residence", name: record.h1.replace(/ Buyer Guide$/, "") },
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.wpbnewconstruction.com/" },
-          { "@type": "ListItem", position: 2, name: "Buildings", item: "https://www.wpbnewconstruction.com/buildings/" },
-          { "@type": "ListItem", position: 3, name: record.h1.replace(/ Buyer Guide$/, ""), item: record.canonical },
-        ],
-      },
-    ],
-  });
+  await syncCanonicalSchema(record);
 }
 
 function list(items: string[]) {
@@ -136,11 +157,10 @@ function renderGuide(record: Batch4Project) {
     </section>`;
 }
 
-function installForRecord(app: HTMLElement, record: Batch4Project) {
+async function installForRecord(app: HTMLElement, record: Batch4Project) {
   ensureStyles();
-  updateHead(record);
-  // The legacy shell's route identity uses the canonical project slug, while
-  // `projectId` is the public Batch 4 request alias (Rosewood intentionally differs).
+  await updateHead(record);
+  if (cleanPath(location.pathname) !== cleanPath(record.path)) return;
   const projectView = Array.from(app.querySelectorAll<HTMLElement>('[data-route-view="project"][data-project-id]'))
     .find((view) => view.dataset.projectId === record.slug);
   const h1 = projectView?.querySelector<HTMLHeadingElement>("h1");
@@ -176,6 +196,7 @@ export async function installProjectSeoBatch4(app: HTMLElement) {
   const records = await loadRecords();
   let current = "";
   let inquiryFingerprint = "";
+  let refreshSequence = 0;
 
   const syncInquiryRequest = () => {
     const request = batch4InquiryRequest(records, location.pathname, location.search);
@@ -190,26 +211,19 @@ export async function installProjectSeoBatch4(app: HTMLElement) {
     const interest = form?.querySelector<HTMLSelectElement>('select[name="interest"]');
     if (!form || !project || !interest) return;
 
-    // Batch 4 is the only request family whose public packet label is not an
-    // existing legacy select option. Apply the explicit query request once per
-    // navigation, after the legacy router has run, then leave buyer edits alone.
     project.value = request.record.slug;
     ensureBatch4InterestOption(interest, request.interest);
     interest.value = request.interest;
     form.querySelector<HTMLInputElement>('[name="source_page"]')?.setAttribute("value", location.href);
     form.querySelector<HTMLElement>('[data-shortlist-review]')?.remove();
-
-    // Remove metadata owned by a prior remembered request family. The legacy
-    // query initializer already refreshes the canonical project name/corridor;
-    // first-touch landing/referrer/campaign attribution remains untouched in the
-    // existing lead-attribution store.
     delete form.dataset.leadProjectSlug;
     delete form.dataset.leadCtaLabel;
     delete form.dataset.leadCtaLocation;
     inquiryFingerprint = request.fingerprint;
   };
 
-  const refresh = () => {
+  const refresh = async () => {
+    const sequence = ++refreshSequence;
     syncInquiryRequest();
     const path = cleanPath(location.pathname);
     const record = records.find((candidate) => cleanPath(candidate.path) === path);
@@ -218,17 +232,17 @@ export async function installProjectSeoBatch4(app: HTMLElement) {
       current = "";
       return;
     }
-    if (current === `${path}:${record.reviewedOn}` && app.querySelector("#wpb-project-seo-batch4")) return;
-    current = `${path}:${record.reviewedOn}`;
-    installForRecord(app, record);
+    const fingerprint = `${path}:${record.reviewedOn}`;
+    if (current === fingerprint && app.querySelector("#wpb-project-seo-batch4")) return;
+    await installForRecord(app, record);
+    if (sequence !== refreshSequence || cleanPath(location.pathname) !== path) return;
+    current = fingerprint;
   };
 
-  const observer = new MutationObserver(refresh);
+  const scheduleRefresh = () => { void refresh().catch((error) => console.error("Unable to synchronize Batch 4 project guide", error)); };
+  const observer = new MutationObserver(scheduleRefresh);
   observer.observe(app, { childList: true, subtree: true });
-  window.addEventListener("popstate", refresh);
-  // The legacy SPA router handles internal clicks synchronously at document
-  // level. Queue one refresh after that event finishes so the new request URL
-  // and form are synchronized without another router or a render-loop reset.
-  app.addEventListener("click", () => queueMicrotask(refresh));
-  refresh();
+  window.addEventListener("popstate", scheduleRefresh);
+  app.addEventListener("click", () => queueMicrotask(scheduleRefresh));
+  await refresh();
 }
