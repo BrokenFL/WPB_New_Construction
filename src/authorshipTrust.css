@@ -51,6 +51,19 @@
   font-weight: 600;
 }
 
+/* The legacy project template rendered the compact identity label and hero as
+   simultaneous H1s. Runtime normalization keeps the hero as the document H1
+   while preserving the identity label's existing visual treatment. */
+.project-identity-copy .project-identity-title {
+  margin: 6px 0;
+  color: inherit;
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: clamp(1.9rem, 3.8vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
 @media (max-width: 640px) {
   .wpb-authorship-trust {
     display: block;
