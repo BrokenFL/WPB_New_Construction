@@ -19,7 +19,6 @@ function normalizeActiveProjectHeading(app: HTMLElement) {
   const identityHeading = main.querySelector<HTMLHeadingElement>(".project-identity-copy > h1");
   const heroHeading = main.querySelector<HTMLHeadingElement>('[data-project-section="hero"] h1');
   if (!identityHeading || !heroHeading || identityHeading === heroHeading) return;
-
   const identityTitle = document.createElement("p");
   identityTitle.className = "project-identity-title";
   identityTitle.textContent = identityHeading.textContent;
@@ -39,13 +38,13 @@ async function start() {
     mountFloorplanPage(plan);
     return;
   }
-  // Keep the existing application/router unchanged for every existing route.
   await import("./main.ts");
   const app = document.getElementById("app");
   if (!app) return;
   normalizeActiveProjectHeading(app);
   const { track } = await import("./lib/analytics.ts");
   const syncFloorplanInquiry = wireInquiryContext(app);
+  const { enhanceRequestForms } = await import("./requestPresentation.ts");
   const { installCommercialGrowth } = await import("./commercialGrowth.ts");
   installCommercialGrowth();
   const { installCorridorGrowth } = await import("./corridorGrowth.ts");
@@ -57,8 +56,6 @@ async function start() {
   const { installAuthorshipTrust } = await import('./authorshipTrust.ts');
   await installAuthorshipTrust(app);
 
-  // Entity routes are full document navigations, outside the legacy router.
-  // Preserve native middle/modified clicks and no-JavaScript crawlable anchors.
   window.addEventListener("click", (event) => {
     const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[data-floorplan-entity-link]") : null;
     if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -71,6 +68,7 @@ async function start() {
   const refresh = () => {
     normalizeActiveProjectHeading(app);
     syncFloorplanInquiry();
+    enhanceRequestForms(app);
     const path = cleanFloorplanPath(window.location.pathname);
     const old = app.querySelector<HTMLElement>("#wpb-floorplan-guides");
     const html = renderFloorplanDiscovery(path);
@@ -91,8 +89,6 @@ async function start() {
     old?.remove();
     (app.querySelector("main") ?? app).insertAdjacentHTML("beforeend", html);
   };
-  // The legacy application replaces its DOM on navigation. This small,
-  // idempotent enhancement also survives library filters and project rerenders.
   const observer = new MutationObserver(refresh);
   observer.observe(app, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
   window.addEventListener("popstate", refresh);
@@ -101,5 +97,4 @@ async function start() {
 
 start().catch((error: unknown) => {
   console.error("Unable to initialize the page", error);
-  // Preserve the useful server-rendered page when optional enhancement fails.
 });
