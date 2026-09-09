@@ -6,7 +6,6 @@ type ConciergeContext = { path: string; project?: string; corridor?: string; pla
 type ConciergeLink = { label: string; href: string; intent?: RequestIntentId; context?: ConciergeContext };
 
 function inquiryHref(intent: RequestIntentId, context: ConciergeContext) {
-  const definition = requestIntentDefinitions[intent];
   const url = new URL("/inquire/", location.origin);
   const legacyInterest: Record<RequestIntentId, string> = {
     availability: "Request current availability",
