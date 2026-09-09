@@ -3,6 +3,7 @@ import "./style.css";
 import "./floorplanEntities.css";
 import "./commercialGrowth.css";
 import "./shortlistSummary.css";
+import "./authorshipTrust.css";
 import { wireInquiryContext } from "./lib/inquiryContext.ts";
 import { cleanFloorplanPath, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanJson, renderFloorplanDiscovery } from "./lib/floorplanEntities.ts";
 
@@ -33,6 +34,8 @@ async function start() {
   installComparisonDiscovery(app);
   const { installProjectSeoBatch4 } = await import('./projectSeoBatch4.ts');
   await installProjectSeoBatch4(app);
+  const { installAuthorshipTrust } = await import('./authorshipTrust.ts');
+  await installAuthorshipTrust(app);
 
   // Entity routes are full document navigations, outside the legacy router.
   // Preserve native middle/modified clicks and no-JavaScript crawlable anchors.
