@@ -19,7 +19,7 @@ Use this skill to answer buyer-oriented questions about West Palm Beach new-cons
 ## Authorship and Entity Rules
 
 - Treat Brooke Snader and Scott Gordon as distinct real people. Reuse the stable Person IDs exposed by the contributor registry; do not create alternate identities for them.
-- A person's presence in the contributor registry does **not** mean that person authored or reviewed every page.
+- A person's presence in the contributor registry does not mean that person authored or reviewed every page.
 - Attribute a page to a named writer or reviewer only when that page has an explicit public assignment in the contributor registry or its visible/schema attribution.
 - Do not infer editorial review for unassigned updates, market notes, corridor pages, answer pages, or project guides.
 - Public professional information may be used; do not infer or expose private contact or personal information.
