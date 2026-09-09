@@ -19,14 +19,11 @@ function contextForPath(pathname: string): ConciergeContext {
 
 export function installBuyerConciergeLauncher() {
   if (document.querySelector("[data-buyer-concierge-root]")) return;
-  document.querySelector<HTMLElement>("[data-chat-panel]")?.remove();
-  document.querySelector<HTMLElement>("[data-chat-toggle]")?.remove();
 
   const root = document.createElement("div");
   root.className = "buyer-concierge-root";
   root.dataset.buyerConciergeRoot = "";
   if (/^\/inquire\/?$/.test(location.pathname)) root.classList.add("is-inquiry");
-  if (document.querySelector('a[href^="sms:"]')) root.classList.add("has-project-actions");
   const button = document.createElement("button");
   button.type = "button";
   button.className = "buyer-concierge-launcher";
@@ -35,11 +32,21 @@ export function installBuyerConciergeLauncher() {
   button.setAttribute("aria-expanded", "false");
   button.setAttribute("aria-label", "Open Ask WPB buyer concierge");
   root.append(button);
-
-  const footer = document.querySelector("footer");
-  if (root.classList.contains("is-inquiry") && footer?.parentNode) footer.parentNode.insertBefore(root, footer);
-  else document.body.append(root);
+  document.body.append(root);
   document.documentElement.classList.add("has-buyer-concierge");
+
+  const syncOwnedControls = () => {
+    document.querySelector<HTMLElement>("[data-chat-panel]")?.remove();
+    document.querySelector<HTMLElement>("[data-chat-toggle]")?.remove();
+    root.classList.toggle("has-project-actions", Boolean(document.querySelector('a[href^="sms:"]')));
+    if (root.classList.contains("is-inquiry")) {
+      const footer = document.querySelector("footer");
+      if (footer?.parentNode && root.nextElementSibling !== footer) footer.parentNode.insertBefore(root, footer);
+    }
+  };
+  syncOwnedControls();
+  const observer = new MutationObserver(syncOwnedControls);
+  observer.observe(document.body, { childList: true, subtree: true });
 
   let opening = false;
   button.addEventListener("click", async () => {
