@@ -35,6 +35,7 @@ await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
 const origin = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ headless: true });
 const routes = ["/", "/buildings/", "/map/", "/floorplans/", "/projects/olara/", "/projects/rosewood-residences-west-palm-beach/", "/projects/maison-dor/", "/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/corridors/south-flagler/", "/inquire/", "/floorplans/olara/residence-d/"];
+const screenshotRoutes = new Set(["/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/floorplans/olara/residence-d/"]);
 const results = [];
 const requestExamples = [];
 
@@ -47,7 +48,7 @@ async function gotoReady(page, target) {
 try {
   for (const width of [1440, 390]) {
     for (const route of routes) {
-      const context = await browser.newContext({ viewport: { width, height: width < 600 ? 844 : 1000 } });
+      const context = await browser.newContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: "reduce" });
       const page = await context.newPage();
       const requested = [];
       page.on("request", (request) => requested.push(new URL(request.url()).pathname));
@@ -67,7 +68,10 @@ try {
       await panel.waitFor({ state: "visible", timeout: 15000 });
       assert.equal(requested.includes(conciergePath), true, `${route}:${width}:lazy body did not load`);
       for (const heading of ["Research", "Current information", "Talk to the team"]) assert.equal(await panel.getByRole("heading", { name: heading }).count(), 1);
-      await page.screenshot({ path: path.join(out, `${route.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") || "home"}-${width}.png`), fullPage: false });
+      if (screenshotRoutes.has(route)) {
+        const label = route.includes("answers") ? "comparison" : "floorplan";
+        await page.screenshot({ path: path.join(out, `${label}-concierge-open-${width}.png`), animations: "disabled" });
+      }
       await page.keyboard.press("Escape");
       assert.equal(await launcher.getAttribute("aria-expanded"), "false");
       assert.equal(await launcher.evaluate((el) => document.activeElement === el), true, `${route}:${width}:focus return`);
@@ -106,7 +110,7 @@ try {
     const visibleSummary = (await form.locator("[data-request-summary]").innerText()).trim();
     assert.equal(await form.locator('select[name="interest"]').inputValue(), definition.interest, `${id}: canonical browser interest`);
     assert.equal(await form.locator('input[name="request_intent"]').inputValue(), id, `${id}: browser intent id`);
-    assert.match(visibleSummary, new RegExp(definition.buttonLabel.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), `${id}: visible action`);
+    assert.ok(visibleSummary.includes(definition.buttonLabel), `${id}: visible action`);
     assert.match(visibleSummary, /Olara/i, `${id}: visible subject`);
     const body = { form_type: "inquiry", name: "QA Example", email: "qa@example.invalid", consent: "true", project: "olara", request_intent: id, interest: definition.interest };
     const normalizedLead = normalizeServerRequestIntent(body, normalizeLead(body, new Request("https://www.wpbnewconstruction.com/api/leads", { method: "POST" })));
@@ -120,8 +124,7 @@ try {
     await page.close();
   }
 
-  // Back/forward preserves native navigation and restores the optional launcher.
-  const navContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const navContext = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
   const nav = await navContext.newPage();
   await gotoReady(nav, `${origin}/projects/olara/`);
   await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
@@ -136,8 +139,6 @@ try {
   await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
   await navContext.close();
 
-  // JavaScript-off keeps useful native/crawlable page content and links; the
-  // optional concierge is not required for fallback navigation.
   for (const route of ["/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/floorplans/olara/residence-d/"]) {
     const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
     const page = await context.newPage();
