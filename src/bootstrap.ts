@@ -35,18 +35,20 @@ async function installConcierge() {
 }
 
 async function start() {
+  // The launcher is optional but should become available independently of the
+  // heavier legacy enhancement chain. The panel body remains interaction-lazy.
+  void installConcierge();
+
   const comparison = comparisonForPath(location.pathname);
   if (comparison) {
     const { mountComparison } = await import('./comparisonPage.ts');
     mountComparison(comparison);
-    void installConcierge();
     return;
   }
   const plan = floorplanForPath(window.location.pathname);
   if (plan) {
     const { mountFloorplanPage } = await import("./floorplanPage.ts");
     mountFloorplanPage(plan);
-    void installConcierge();
     return;
   }
   await import("./main.ts");
@@ -104,7 +106,6 @@ async function start() {
   observer.observe(app, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
   window.addEventListener("popstate", refresh);
   refresh();
-  void installConcierge();
 }
 
 start().catch((error: unknown) => {
