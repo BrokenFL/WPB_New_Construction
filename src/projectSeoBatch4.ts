@@ -53,7 +53,18 @@ function meta(name: string, content: string, property = false) {
 }
 
 function canonicalSchemaScript() {
-  return document.head.querySelector<HTMLScriptElement>('#wpb-static-structured-data[type="application/ld+json"]');
+  const canonical = document.head.querySelector<HTMLScriptElement>('#wpb-static-structured-data[type="application/ld+json"]');
+  if (canonical) return canonical;
+
+  // The legacy SPA router replaces the prerendered static script with its
+  // single #wpb-structured-data graph on a pathname change. Adopt that same
+  // node instead of allowing a parallel schema script; syncCanonicalSchema()
+  // then replaces its contents with the target route's fully postbuilt graph.
+  const legacyRuntime = document.head.querySelector<HTMLScriptElement>('#wpb-structured-data[type="application/ld+json"]');
+  if (!legacyRuntime) return null;
+  legacyRuntime.id = "wpb-static-structured-data";
+  delete legacyRuntime.dataset.staticPath;
+  return legacyRuntime;
 }
 
 function patchCanonicalPageNode(script: HTMLScriptElement, record: Batch4Project) {
@@ -69,14 +80,12 @@ function patchCanonicalPageNode(script: HTMLScriptElement, record: Batch4Project
 }
 
 async function syncCanonicalSchema(record: Batch4Project) {
-  // Batch 4 used to append #wpb-project-seo-batch4-schema at runtime. Remove
-  // that obsolete path if a stale hydrated DOM ever contains it; the site
-  // contract is one canonical static graph.
+  // Remove obsolete parallel graphs if a stale hydrated DOM ever contains one.
   document.head.querySelector('#wpb-project-seo-batch4-schema')?.remove();
   document.head.querySelector('#wpb-authorship-schema')?.remove();
 
   const current = canonicalSchemaScript();
-  if (!current) throw new Error(`${record.path}: canonical static schema script missing`);
+  if (!current) throw new Error(`${record.path}: canonical schema script missing`);
   const currentPath = cleanPath(current.dataset.staticPath || "");
   const targetPath = cleanPath(record.path);
 
@@ -91,7 +100,6 @@ async function syncCanonicalSchema(record: Batch4Project) {
     const doc = new DOMParser().parseFromString(html, "text/html");
     const target = doc.head.querySelector<HTMLScriptElement>('#wpb-static-structured-data[type="application/ld+json"]');
     if (!target?.textContent) throw new Error(`${record.path}: fetched canonical schema script missing`);
-    // Validate before replacing the live graph.
     const parsed = JSON.parse(target.textContent) as { "@graph"?: unknown[] };
     if (!Array.isArray(parsed["@graph"])) throw new Error(`${record.path}: fetched canonical schema has no @graph`);
     if (cleanPath(location.pathname) !== targetPath) return;
