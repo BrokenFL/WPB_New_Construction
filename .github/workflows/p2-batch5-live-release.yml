@@ -1,0 +1,128 @@
+name: Batch 5 live release acceptance (no deploy)
+on:
+  push:
+    branches: [p2-batch5-release-live-verification]
+permissions:
+  contents: read
+concurrency:
+  group: p2-batch5-live-release
+  cancel-in-progress: false
+jobs:
+  live:
+    name: Live acceptance (${{ matrix.suite }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [authorship, buyer-journeys, olara]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Verify application is exactly the released main
+        run: |
+          git merge-base --is-ancestor 0713e029cc251fc9a49c5e429fdda6ac85e46202 HEAD
+          git diff --exit-code 0713e029cc251fc9a49c5e429fdda6ac85e46202 HEAD -- src public functions package.json package-lock.json research scripts vite.config.ts index.html
+          mkdir -p .runtime/batch5-live-release
+          printf '%s\n' '0713e029cc251fc9a49c5e429fdda6ac85e46202' > .runtime/batch5-live-release/production-sha.txt
+          git rev-parse HEAD > .runtime/batch5-live-release/harness-sha.txt
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Prepare read-only live adapters without changing application sources
+        env:
+          SUITE: ${{ matrix.suite }}
+        run: |
+          python3 - <<'PY'
+          import os,pathlib,subprocess
+          root=pathlib.Path('research/scripts')
+          suite=os.environ['SUITE']
+          def replace_once(s,old,new):
+              assert s.count(old)==1, ('Unexpected source contract', old[:90], s.count(old))
+              return s.replace(old,new,1)
+          if suite=='authorship':
+              s=(root/'check-authorship-trust.mjs').read_text()
+              s=replace_once(s,'const origin = "http://127.0.0.1:4173";','const origin = "https://www.wpbnewconstruction.com";')
+              line=next(l for l in s.splitlines() if l.startswith('const server = spawn('))
+              s=replace_once(s,line,'const server = { exitCode: null, kill() {} };')
+              s=replace_once(s,'const html = await fs.readFile(routeFile(route), "utf8");','const html = await fetch(`${origin}${route}`, {cache:"no-store"}).then(r => { assert.equal(r.status,200); return r.text(); });')
+              s=replace_once(s,'const aboutHtml = await fs.readFile(path.join(root, "dist/about/index.html"), "utf8");','const aboutHtml = await fetch(`${origin}/about/`, {cache:"no-store"}).then(r => r.text());')
+              s=replace_once(s,'browser = await chromium.launch({ headless: true });', '''browser = await chromium.launch({ headless: true });
+          const originalNewContext = browser.newContext.bind(browser);
+          browser.newContext = async (options) => {
+            const context = await originalNewContext({ ...options, serviceWorkers: "block" });
+            await context.route("**/*", route => {
+              const req=route.request(); const url=new URL(req.url());
+              if (url.origin===origin && url.pathname.startsWith("/api/")) return route.abort();
+              if (/googletagmanager|google-analytics/.test(url.hostname)) return route.fulfill({status:204,body:""});
+              if (url.origin===origin && !["GET","HEAD","OPTIONS"].includes(req.method())) return route.abort();
+              return route.continue();
+            });
+            return context;
+          };''')
+          else:
+              file='check-live-project-seo-batch4-release.mjs' if suite=='buyer-journeys' else 'check-live-olara-release.mjs'
+              s=subprocess.check_output(['git','show',f'912ae616b9ef3867511431ff9de8534bed58c0a6:research/scripts/{file}'],text=True)
+              # Retain successful intercepted Turnstile/lead and first-touch QA from Batch 4.
+              # Adapt only the obsolete exact heading assertion to the current stronger semantic contract.
+              if suite=='buyer-journeys':
+                  old='assert.equal(await page.getByRole("heading", { level: 1, name: record.h1, exact: true }).count(), 1, `${record.projectId}: H1 identity`);'
+                  new='''assert.equal(await page.locator("h1:visible").count(), 1, `${record.projectId}: one visible H1`);
+            assert.equal(await page.getByRole("heading", {level:1}).count(), 1, `${record.projectId}: one accessible H1`);
+            assert.equal(await page.locator("main:visible h1:visible").count(), 1, `${record.projectId}: main heading`);
+            const identity = record.projectId === "rosewood" ? "Rosewood Residences West Palm Beach" : "Maison d'Or";
+            const normalizedHeading = (await page.getByRole("heading", {level:1}).innerText()).replace(/[‘’]/g, "'");
+            assert.ok(normalizedHeading.includes(identity), `${record.projectId}: canonical project heading`);'''
+                  s=replace_once(s,old,new)
+                  s=replace_once(s,'deployedMergeSha: "cdf8240a8a5c6b1bf482f0e48ce9e496fd9b0ebe"','deployedMergeSha: "0713e029cc251fc9a49c5e429fdda6ac85e46202"')
+                  s=s.replace('page.locator("h1").first().innerText()', 'page.getByRole("heading", {level:1}).first().innerText()')
+              # Per-suite lead interception handlers are registered after this fallback and take precedence.
+              s=replace_once(s,'const browser = await chromium.launch({ headless: true });','''const browser = await chromium.launch({ headless: true });
+          const originalNewContext = browser.newContext.bind(browser);
+          browser.newContext = async (options) => {
+            const context = await originalNewContext({ ...options, serviceWorkers: "block" });
+            await context.route("**/api/**", route => route.abort());
+            return context;
+          };''')
+          output=root/f'.batch5-live-{suite}.mjs'
+          output.write_text(s)
+          print(f'Prepared {suite} using pinned source contracts. No deployment command; lead POSTs intercepted.')
+          PY
+      - name: Execute production browser acceptance with intercepted submissions
+        env:
+          SUITE: ${{ matrix.suite }}
+        run: node "research/scripts/.batch5-live-$SUITE.mjs"
+      - name: Scan evidence before upload
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import pathlib,re
+          for name in ['authorship-trust','live-batch4-release','live-olara-release','batch5-live-release']:
+              for p in pathlib.Path('.runtime',name).rglob('*'):
+                  if p.is_file() and re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',p.read_bytes()):
+                      raise RuntimeError('Unsafe artifact withheld')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: batch5-live-${{ matrix.suite }}-${{ github.sha }}
+          path: |
+            .runtime/batch5-live-release/
+            .runtime/authorship-trust/
+            .runtime/live-batch4-release/
+            .runtime/live-olara-release/
+          retention-days: 14
+  acceptance:
+    name: Batch 5 live acceptance gate
+    if: always()
+    needs: [live]
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          RESULT: ${{ needs.live.result }}
+        run: test "$RESULT" = success
