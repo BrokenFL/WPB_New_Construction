@@ -6,6 +6,7 @@ const readJson = async (relative) => JSON.parse(await fs.readFile(new URL(`../..
 const registry = await readJson("public/data/contributors.json");
 const siteMeta = await readJson("public/data/site-meta.json");
 const skill = await fs.readFile(new URL("../../public/.well-known/agent-skills/wpb-new-construction-buyer-research/SKILL.md", import.meta.url), "utf8");
+const builtLlms = await fs.readFile(new URL("../../dist/llms.txt", import.meta.url), "utf8");
 
 const people = new Map(registry.contributors.map((person) => [person.id, person]));
 const assignments = [
@@ -77,4 +78,12 @@ test("Agent Skill teaches agents to use stable people without inferring authorsh
   assert.match(skill, /does not mean that person authored or reviewed every page/i);
   assert.match(skill, /methodology/i);
   assert.match(skill, /official\/public sources/i);
+});
+
+test("built llms discovery metadata exposes the human-entity contract without blanket attribution", () => {
+  assert.match(builtLlms, /## Human Authorship and Review/);
+  assert.match(builtLlms, /Public contributor registry: \/data\/contributors\.json/);
+  assert.match(builtLlms, /Do not infer that Brooke Snader or Scott Gordon authored or reviewed an unassigned page/);
+  assert.match(builtLlms, /The Scott Gordon Team/);
+  assert.doesNotMatch(builtLlms, /The Scott Gordon Group/);
 });
