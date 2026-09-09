@@ -8,12 +8,13 @@ const root = process.cwd();
 const dist = path.join(root, "dist");
 const out = path.join(root, ".runtime/batch6-concierge");
 await fs.mkdir(out, { recursive: true });
-const manifest = JSON.parse(await fs.readFile(path.join(dist, ".vite/manifest.json"), "utf8"));
-const fileFor = (source) => Object.values(manifest).find((entry) => entry.src === source)?.file;
-const conciergeBody = fileFor("src/buyerConcierge.ts");
-const mainBundle = fileFor("src/main.ts");
+const builtAssets = await fs.readdir(path.join(dist, "assets"));
+const conciergeBody = builtAssets.find((name) => /^buyerConcierge-.*\.js$/.test(name));
+const mainBundle = builtAssets.find((name) => /^main-.*\.js$/.test(name));
 assert.ok(conciergeBody, "buyer concierge must be a separate lazy chunk");
 assert.ok(mainBundle, "legacy main bundle must remain identifiable");
+const conciergePath = `/assets/${conciergeBody}`;
+const mainPath = `/assets/${mainBundle}`;
 
 const mime = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".svg": "image/svg+xml", ".pdf": "application/pdf", ".woff2": "font/woff2", ".xml": "application/xml" };
 const server = http.createServer(async (req, res) => {
@@ -46,23 +47,23 @@ try {
       assert.equal(response?.status(), 200, `${route}:${width}:status`);
       const launcher = page.getByRole("button", { name: "Open Ask WPB buyer concierge" });
       await launcher.waitFor({ state: "visible" });
-      assert.equal(requested.some((value) => value.endsWith(conciergeBody)), false, `${route}:${width}:body must be lazy`);
-      if ((route.includes("/answers/olara-vs-") || route === "/floorplans/olara/residence-d/")) {
-        assert.equal(requested.some((value) => value.endsWith(mainBundle)), false, `${route}:${width}:lightweight route imported legacy main`);
+      assert.equal(requested.includes(conciergePath), false, `${route}:${width}:body must be lazy`);
+      if (route.includes("/answers/olara-vs-") || route === "/floorplans/olara/residence-d/") {
+        assert.equal(requested.includes(mainPath), false, `${route}:${width}:lightweight route imported legacy main`);
       }
       if (width === 390) assert.equal(await page.locator(".mobile-cta-bar:visible").count(), 0, `${route}: generic mobile bar must not overlap concierge`);
       if (route === "/inquire/") assert.notEqual(await page.locator("[data-buyer-concierge-root]").evaluate((el) => getComputedStyle(el).position), "fixed");
       await launcher.click();
       const panel = page.getByRole("dialog", { name: "Ask WPB" });
       await panel.waitFor({ state: "visible" });
-      assert.equal(requested.some((value) => value.endsWith(conciergeBody)), true, `${route}:${width}:lazy body did not load`);
+      assert.equal(requested.includes(conciergePath), true, `${route}:${width}:lazy body did not load`);
       for (const heading of ["Research", "Current information", "Talk to the team"]) assert.equal(await panel.getByRole("heading", { name: heading }).count(), 1);
       await page.keyboard.press("Escape");
       assert.equal(await launcher.getAttribute("aria-expanded"), "false");
       assert.equal(await launcher.evaluate((el) => document.activeElement === el), true, `${route}:${width}:focus return`);
       assert.deepEqual(errors, [], `${route}:${width}:page errors`);
       await page.screenshot({ path: path.join(out, `${route.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") || "home"}-${width}.png`), fullPage: false });
-      results.push({ route, width, status: "pass" });
+      results.push({ route, width, status: "pass", conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
       await context.close();
     }
   }
