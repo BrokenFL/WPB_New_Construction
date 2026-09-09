@@ -218,7 +218,7 @@ export async function installAuthorshipTrust(app: HTMLElement) {
       if (!main) return;
       const current = document.getElementById(trustId);
       const path = cleanPath(location.pathname);
-      if (current?.dataset.path === path && main.contains(current)) return;
+      if (current?.dataset.path === path && main.contains(current) && isRendered(current)) return;
       mountForCurrentRoute(app, registry);
     });
   };
@@ -232,3 +232,8 @@ export async function installAuthorshipTrust(app: HTMLElement) {
   window.addEventListener("popstate", refresh);
   refresh();
 }
+
+start().catch((error: unknown) => {
+  console.error("Unable to initialize the page", error);
+  // Preserve the useful server-rendered page when optional enhancement fails.
+});
