@@ -19,7 +19,7 @@
       "brokerage": "Douglas Elliman Real Estate",
       "geographicFocus": ["West Palm Beach", "Palm Beach"],
       "expertise": ["West Palm Beach new-construction research", "Palm Beach residential real estate"],
-      "bio": "Brooke Snader is a Broker Associate with The Scott Gordon Team at Douglas Elliman. On WPB New Construction, Brooke is responsible for buyer-facing research, project-guide context and source-backed comparisons assigned to him on the site.",
+      "bio": "Brooke Snader is a Broker Associate with The Scott Gordon Team at Douglas Elliman. On WPB New Construction, Brooke is responsible for buyer-facing research, project-guide context and source-backed comparisons explicitly assigned to him on the site.",
       "profileUrl": "https://www.wpbnewconstruction.com/about/#brooke-snader",
       "sameAs": ["https://www.elliman.com/agent/brooke-snader/1025144"],
       "verification": {
@@ -53,15 +53,26 @@
   "assignmentPolicy": {
     "about": {"author": "brooke-snader", "reviewer": "scott-gordon"},
     "methodology": {"author": "brooke-snader", "reviewer": "scott-gordon"},
-    "compare": {"reviewer": "brooke-snader"},
-    "project": {"reviewer": "brooke-snader"},
-    "corridor": {"reviewer": "brooke-snader"},
-    "answer": {"reviewer": "brooke-snader"},
+    "compare": {},
+    "project": {},
+    "corridor": {},
+    "answer": {},
     "update": {},
     "market-note": {},
     "downtown-spotlight": {}
   },
+  "routeAssignments": {
+    "/compare/": {"reviewer": "brooke-snader"},
+    "/projects/rosewood-residences-west-palm-beach/": {"reviewer": "brooke-snader"},
+    "/projects/maison-dor/": {"reviewer": "brooke-snader"},
+    "/corridors/north-flagler/": {"reviewer": "brooke-snader"},
+    "/corridors/south-flagler/": {"reviewer": "brooke-snader"},
+    "/corridors/downtown-west-palm-beach/": {"reviewer": "brooke-snader"},
+    "/corridors/palm-beach/": {"reviewer": "brooke-snader"},
+    "/answers/north-flagler-vs-south-flagler-new-condos/": {"reviewer": "brooke-snader"}
+  },
   "assignmentNotes": {
-    "legacyArticles": "Updates, market notes and downtown-spotlight articles are intentionally not assigned to a person until real editorial ownership or review is confirmed page by page. Batch 5 must not retroactively invent authorship."
+    "legacyArticles": "Updates, market notes and downtown-spotlight articles are intentionally not assigned to a person until real editorial ownership or review is confirmed page by page. Batch 5 must not retroactively invent authorship.",
+    "unassignedEvergreen": "Other buyer guides and answer pages remain unassigned until responsibility is confirmed rather than inheriting a mechanical site-wide byline."
   }
 }
