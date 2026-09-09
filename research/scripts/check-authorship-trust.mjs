@@ -67,6 +67,18 @@ async function assertActiveHeadingContract(page, route, javaScriptEnabled) {
   return diagnostics;
 }
 
+async function assertCanonicalNoJsHeading(page, route) {
+  const diagnostics = await headingDiagnostics(page);
+  const staticMain = page.locator("main.static-prerender");
+  assert.equal(await staticMain.count(), 1, `${route}: one canonical no-JavaScript prerender main`);
+  assert.equal(await staticMain.locator("h1").count(), 1, `${route}: canonical no-JavaScript prerender has one H1`);
+  assert.ok((await staticMain.locator("h1").innerText()).trim().length > 0, `${route}: canonical no-JavaScript H1 has text`);
+  assert.equal(diagnostics.totalH1, 1, `${route}: no-JavaScript document contains one H1 total`);
+  assert.equal(diagnostics.visibleH1, 1, `${route}: no-JavaScript H1 is visible`);
+  assert.equal(diagnostics.accessibleH1, 1, `${route}: no-JavaScript H1 is exposed to assistive technology`);
+  return diagnostics;
+}
+
 let browser;
 const results = [];
 try {
@@ -137,7 +149,7 @@ try {
       for (const route of unassigned) {
         const response = await page.goto(`${origin}${route}`, { waitUntil: javaScriptEnabled ? "networkidle" : "domcontentloaded" });
         assert.equal(response?.status(), 200, `${route}: status`);
-        const headings = await assertActiveHeadingContract(page, route, javaScriptEnabled);
+        const headings = javaScriptEnabled ? await headingDiagnostics(page) : await assertCanonicalNoJsHeading(page, route);
         assert.equal(await page.locator("#wpb-authorship-trust").count(), 0, `${route}: no invented visible attribution`);
         assert.equal(await page.locator("#wpb-authorship-schema").count(), 0, `${route}: no invented attribution schema`);
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true, `${route}: no horizontal overflow`);
