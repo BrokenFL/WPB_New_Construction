@@ -1,0 +1,159 @@
+name: Batch 6 conversion audit and regression review (no deploy)
+on:
+  push:
+    branches: [p2-batch6-conversion-concierge]
+    paths:
+      - research/scripts/audit-batch6-conversion.mjs
+      - .github/workflows/p2-batch6-review.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - research/scripts/audit-batch6-conversion.mjs
+      - .github/workflows/p2-batch6-review.yml
+permissions:
+  contents: read
+concurrency:
+  group: p2-batch6-review-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  audit:
+    name: Production conversion inventory (${{ matrix.width }}px)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        width: [1440, 390]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Require released production ancestry and unchanged application
+        run: |
+          git merge-base --is-ancestor 0713e029cc251fc9a49c5e429fdda6ac85e46202 HEAD
+          git diff --exit-code 0713e029cc251fc9a49c5e429fdda6ac85e46202 HEAD -- src public functions package.json package-lock.json vite.config.ts index.html .github/workflows/deploy-cloudflare-pages.yml
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - name: Build no-key local artifact only for duplicate-footprint comparison
+        run: npm run build
+      - name: Collect live controls, panels, metadata, application JS and screenshots without submitting
+        run: node research/scripts/audit-batch6-conversion.mjs ${{ matrix.width }}
+      - name: Scan audit evidence
+        id: scan
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import pathlib,re
+          for p in pathlib.Path('.runtime/batch6-audit').rglob('*'):
+              if p.is_file() and re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',p.read_bytes()):
+                  raise RuntimeError('Unsafe evidence withheld')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() && steps.scan.outcome == 'success' }}
+        with:
+          name: batch6-production-audit-${{ matrix.width }}-${{ github.sha }}
+          path: .runtime/batch6-audit/
+          retention-days: 14
+  candidate:
+    name: Batch 6 regression (${{ matrix.mode }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [keyed, no-key]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Production ancestry and protected application
+        run: |
+          git merge-base --is-ancestor 0713e029cc251fc9a49c5e429fdda6ac85e46202 HEAD
+          git diff --exit-code 0713e029cc251fc9a49c5e429fdda6ac85e46202 HEAD -- src public functions package.json package-lock.json vite.config.ts index.html .github/workflows/deploy-cloudflare-pages.yml
+          mkdir -p .runtime/batch6-candidate
+          git rev-parse HEAD > .runtime/batch6-candidate/tested-sha.txt
+      - name: Require restricted review Maps key
+        if: matrix.mode == 'keyed'
+        env:
+          HAS_REVIEW_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY != '' }}
+          RESTRICTIONS_CONFIRMED: ${{ vars.P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED == 'true' }}
+        run: |
+          test "$HAS_REVIEW_KEY" = true
+          test "$RESTRICTIONS_CONFIRMED" = true
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run typecheck
+      - name: Build reviewed candidate
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: ${{ matrix.mode == 'keyed' && secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY || '' }}
+          VITE_GA4_MEASUREMENT_ID: G-0LGBH6MDVX
+        run: npm run build
+      - name: Retain Batch 5 source and browser contracts
+        run: |
+          node --test research/scripts/authorship-trust.test.mjs
+          node research/scripts/check-authorship-trust.mjs
+      - name: Full repository suite
+        env:
+          WPB_MAP_QA_MODE: ${{ matrix.mode }}
+          WPB_MAP_QA_PORT: '4173'
+        run: npm test
+      - name: Assets SEO agent discovery and gatekeeper
+        run: |
+          npm run assets:audit
+          npm run assets:audit:strict
+          npm run qa:seo
+          npm run qa:agent-skills
+          npm run qa:gatekeeper
+      - name: Existing contextual buyer journeys with intercepted submissions
+        env:
+          FLOORPLAN_EXPECT_GA4: '1'
+        run: |
+          npm run qa:floorplan-entities -- --browser
+          npm run qa:commercial -- --browser
+          npm run qa:integration
+          node --experimental-strip-types research/scripts/check-corridor-growth.mjs
+          node --experimental-strip-types research/scripts/check-comparisons.mjs
+          npm run qa:project-seo-batch4
+      - name: Keyed preflight and real Maps
+        if: matrix.mode == 'keyed' && !cancelled()
+        run: |
+          npm run qa:deploy-preflight
+          npm run qa:maps-keyed
+      - name: No-key production deployment must remain rejected
+        if: matrix.mode == 'no-key' && !cancelled()
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import {verifyProductionMapBundle} from './research/scripts/production-map-preflight.mjs';
+          await assert.rejects(verifyProductionMapBundle(), /reachable app chunks do not include/);
+          console.log('PASS: missing-key production rejection retained');
+          JS
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: batch6-regression-${{ matrix.mode }}-${{ github.sha }}
+          path: .runtime/batch6-candidate/
+          retention-days: 14
+  review-gate:
+    name: Batch 6 audit review gate
+    if: always()
+    needs: [audit, candidate]
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          AUDIT: ${{ needs.audit.result }}
+          CANDIDATE: ${{ needs.candidate.result }}
+        run: |
+          test "$AUDIT" = success
+          test "$CANDIDATE" = success
