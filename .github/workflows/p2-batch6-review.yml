@@ -45,6 +45,7 @@ jobs:
       - name: Collect live controls, panels, metadata, application JS and screenshots without submitting
         run: node research/scripts/audit-batch6-conversion.mjs ${{ matrix.width }}
       - name: Scan audit evidence
+        id: scan
         if: always()
         run: |
           python3 - <<'PY'
@@ -54,7 +55,7 @@ jobs:
                   raise RuntimeError('Unsafe evidence withheld')
           PY
       - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() && steps.scan.outcome != 'failure' }}
+        if: ${{ !cancelled() && steps.scan.outcome == 'success' }}
         with:
           name: batch6-production-audit-${{ matrix.width }}-${{ github.sha }}
           path: .runtime/batch6-audit/
