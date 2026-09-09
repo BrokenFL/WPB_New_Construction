@@ -57,7 +57,9 @@ try {
       for (const expected of assigned) {
         const response = await page.goto(`${origin}${expected.path}`, { waitUntil: javaScriptEnabled ? "networkidle" : "domcontentloaded" });
         assert.equal(response?.status(), 200, `${expected.path}: status`);
-        assert.equal(await page.locator("h1").count(), 1, `${expected.path}: one H1`);
+        const activeHeadings = page.locator('h1:visible:not([aria-hidden="true"])');
+        assert.equal(await activeHeadings.count(), 1, `${expected.path}: one active route H1`);
+        assert.ok((await activeHeadings.first().innerText()).trim().length > 0, `${expected.path}: active H1 has text`);
         const trust = page.locator("#wpb-authorship-trust");
         await trust.waitFor({ state: "visible" });
         assert.equal(await trust.count(), 1, `${expected.path}: one trust strip`);
@@ -66,7 +68,7 @@ try {
         assert.ok(trustText.includes(expected.wording), `${expected.path}: ${expected.wording}`);
         assert.ok(trustText.includes(expected.person), `${expected.path}: person`);
         assert.ok(trustText.includes(expected.date), `${expected.path}: human date label`);
-        assert.equal(await trust.locator('a[href="/methodology/"]').count(), expected.path === "/methodology/" ? 1 : 1, `${expected.path}: methodology link`);
+        assert.equal(await trust.locator('a[href="/methodology/"]').count(), 1, `${expected.path}: methodology link`);
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true, `${expected.path}: no horizontal overflow`);
         assert.doesNotMatch(await page.locator("body").innerText(), /WPB New Construction Review Desk/i);
         assert.doesNotMatch(trustText, /@[a-z0-9.-]+\.[a-z]{2,}|\b\d{3}[-.)\s]+\d{3}[-.\s]+\d{4}\b/i, `${expected.path}: no contact PII in trust strip`);
