@@ -25,17 +25,28 @@ function normalizeActiveProjectHeading(app: HTMLElement) {
   identityHeading.replaceWith(identityTitle);
 }
 
+async function installConcierge() {
+  try {
+    const { installBuyerConciergeLauncher } = await import("./conciergeLauncher.ts");
+    installBuyerConciergeLauncher();
+  } catch (error) {
+    console.warn("Ask WPB concierge enhancement was not loaded", error);
+  }
+}
+
 async function start() {
   const comparison = comparisonForPath(location.pathname);
   if (comparison) {
     const { mountComparison } = await import('./comparisonPage.ts');
     mountComparison(comparison);
+    void installConcierge();
     return;
   }
   const plan = floorplanForPath(window.location.pathname);
   if (plan) {
     const { mountFloorplanPage } = await import("./floorplanPage.ts");
     mountFloorplanPage(plan);
+    void installConcierge();
     return;
   }
   await import("./main.ts");
@@ -93,6 +104,7 @@ async function start() {
   observer.observe(app, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
   window.addEventListener("popstate", refresh);
   refresh();
+  void installConcierge();
 }
 
 start().catch((error: unknown) => {
