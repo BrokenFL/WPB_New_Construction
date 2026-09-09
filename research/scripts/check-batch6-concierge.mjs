@@ -3,6 +3,9 @@ import fs from "node:fs/promises";
 import http from "node:http";
 import path from "node:path";
 import { chromium } from "playwright";
+import { requestIntentDefinitions } from "../../shared/request-intents.js";
+import { normalizeLead } from "../../functions/_shared/lead-utils.js";
+import { normalizeServerRequestIntent } from "../../functions/api/leads.js";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
@@ -33,6 +36,7 @@ const origin = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ headless: true });
 const routes = ["/", "/buildings/", "/map/", "/floorplans/", "/projects/olara/", "/projects/rosewood-residences-west-palm-beach/", "/projects/maison-dor/", "/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/corridors/south-flagler/", "/inquire/", "/floorplans/olara/residence-d/"];
 const results = [];
+const requestExamples = [];
 
 async function gotoReady(page, target) {
   const response = await page.goto(target, { waitUntil: "domcontentloaded", timeout: 30000 });
@@ -63,11 +67,11 @@ try {
       await panel.waitFor({ state: "visible", timeout: 15000 });
       assert.equal(requested.includes(conciergePath), true, `${route}:${width}:lazy body did not load`);
       for (const heading of ["Research", "Current information", "Talk to the team"]) assert.equal(await panel.getByRole("heading", { name: heading }).count(), 1);
+      await page.screenshot({ path: path.join(out, `${route.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") || "home"}-${width}.png`), fullPage: false });
       await page.keyboard.press("Escape");
       assert.equal(await launcher.getAttribute("aria-expanded"), "false");
       assert.equal(await launcher.evaluate((el) => document.activeElement === el), true, `${route}:${width}:focus return`);
       assert.deepEqual(errors, [], `${route}:${width}:page errors`);
-      await page.screenshot({ path: path.join(out, `${route.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") || "home"}-${width}.png`), fullPage: false });
       results.push({ route, width, status: "pass", conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
       await context.close();
     }
@@ -86,18 +90,67 @@ try {
     await page.close();
   }
 
-  const inquire = await browser.newPage();
-  await gotoReady(inquire, `${origin}/inquire/?interest=Request%20private%20floor-plan%20packet&project=olara`);
-  const form = inquire.locator(".inquiry-form");
-  await form.waitFor({ timeout: 15000 });
-  assert.equal(await form.locator('select[name="interest"]').inputValue(), "Get pricing + floor-plan packet");
-  assert.equal(await form.locator('input[name="request_intent"]').inputValue(), "pricing_packet");
-  assert.match(await form.locator("[data-request-summary]").innerText(), /pricing \+ floor-plan packet/i);
-  assert.match(await form.locator("[data-request-summary]").innerText(), /Olara/i);
-  await inquire.close();
+  const legacyByIntent = {
+    availability: "Request current availability",
+    pricing_packet: "Request private floor-plan packet",
+    compare_shortlist: "Compare buildings",
+    project_question: "Ask the team about this building",
+    conversation_tour: "Schedule private tour",
+  };
+  for (const [id, definition] of Object.entries(requestIntentDefinitions)) {
+    const page = await browser.newPage();
+    const legacy = legacyByIntent[id];
+    await gotoReady(page, `${origin}/inquire/?interest=${encodeURIComponent(legacy)}&project=olara`);
+    const form = page.locator(".inquiry-form");
+    await form.waitFor({ timeout: 15000 });
+    const visibleSummary = (await form.locator("[data-request-summary]").innerText()).trim();
+    assert.equal(await form.locator('select[name="interest"]').inputValue(), definition.interest, `${id}: canonical browser interest`);
+    assert.equal(await form.locator('input[name="request_intent"]').inputValue(), id, `${id}: browser intent id`);
+    assert.match(visibleSummary, new RegExp(definition.buttonLabel.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), `${id}: visible action`);
+    assert.match(visibleSummary, /Olara/i, `${id}: visible subject`);
+    const body = { form_type: "inquiry", name: "QA Example", email: "qa@example.invalid", consent: "true", project: "olara", request_intent: id, interest: definition.interest };
+    const normalizedLead = normalizeServerRequestIntent(body, normalizeLead(body, new Request("https://www.wpbnewconstruction.com/api/leads", { method: "POST" })));
+    requestExamples.push({
+      id,
+      legacyInput: legacy,
+      visibleSummary,
+      submitted: { request_intent: id, interest: definition.interest, project: "olara" },
+      normalized: { request_intent: normalizedLead.request_intent, interest: normalizedLead.interest, project_id: normalizedLead.project_id },
+    });
+    await page.close();
+  }
+
+  // Back/forward preserves native navigation and restores the optional launcher.
+  const navContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const nav = await navContext.newPage();
+  await gotoReady(nav, `${origin}/projects/olara/`);
+  await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
+  await gotoReady(nav, `${origin}/floorplans/`);
+  await nav.goBack({ waitUntil: "domcontentloaded" });
+  await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
+  assert.equal(new URL(nav.url()).pathname, "/projects/olara/");
+  await nav.goForward({ waitUntil: "domcontentloaded" });
+  await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
+  assert.equal(new URL(nav.url()).pathname, "/floorplans/");
+  await nav.reload({ waitUntil: "domcontentloaded" });
+  await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
+  await navContext.close();
+
+  // JavaScript-off keeps useful native/crawlable page content and links; the
+  // optional concierge is not required for fallback navigation.
+  for (const route of ["/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/floorplans/olara/residence-d/"]) {
+    const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+    const page = await context.newPage();
+    await gotoReady(page, `${origin}${route}`);
+    assert.ok((await page.locator("h1").first().innerText()).trim().length > 3, `${route}: JS-off H1`);
+    assert.ok(await page.locator('a[href^="/"]').count() > 0, `${route}: JS-off native research/navigation links`);
+    assert.equal(await page.locator("[data-buyer-concierge-root]").count(), 0, `${route}: optional concierge should not replace JS-off content`);
+    await context.close();
+  }
 } finally {
   await browser.close();
   server.close();
 }
-await fs.writeFile(path.join(out, "results.json"), JSON.stringify({ conciergeBody, mainBundle, results }, null, 2));
-console.log(JSON.stringify({ batch6Concierge: "pass", views: results.length, conciergeBody, mainBundle }, null, 2));
+await fs.writeFile(path.join(out, "request-examples.json"), JSON.stringify(requestExamples, null, 2));
+await fs.writeFile(path.join(out, "results.json"), JSON.stringify({ conciergeBody, mainBundle, results, requestExamples: requestExamples.map(({ id, submitted, normalized }) => ({ id, submitted, normalized })) }, null, 2));
+console.log(JSON.stringify({ batch6Concierge: "pass", views: results.length, requestExamples: requestExamples.length, conciergeBody, mainBundle }, null, 2));
