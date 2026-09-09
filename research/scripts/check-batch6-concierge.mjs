@@ -54,6 +54,7 @@ try {
       page.on("request", (request) => requested.push(new URL(request.url()).pathname));
       const errors = [];
       page.on("pageerror", (error) => errors.push(error.message));
+      console.log(`concierge view ${route} ${width}`);
       await gotoReady(page, `${origin}${route}`);
       const launcher = page.getByRole("button", { name: "Open Ask WPB buyer concierge" });
       await launcher.waitFor({ state: "visible", timeout: 15000 });
@@ -73,8 +74,11 @@ try {
         await page.screenshot({ path: path.join(out, `${label}-concierge-open-${width}.png`), animations: "disabled" });
       }
       await page.keyboard.press("Escape");
-      assert.equal(await launcher.getAttribute("aria-expanded"), "false");
-      assert.equal(await launcher.evaluate((el) => document.activeElement === el), true, `${route}:${width}:focus return`);
+      const closeState = await page.evaluate(() => {
+        const current = document.querySelector<HTMLButtonElement>(".buyer-concierge-launcher");
+        return { exists: Boolean(current), expanded: current?.getAttribute("aria-expanded") ?? null, focused: document.activeElement === current };
+      });
+      assert.deepEqual(closeState, { exists: true, expanded: "false", focused: true }, `${route}:${width}: Escape closes and returns focus`);
       assert.deepEqual(errors, [], `${route}:${width}:page errors`);
       results.push({ route, width, status: "pass", conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
       await context.close();
@@ -129,13 +133,13 @@ try {
   await gotoReady(nav, `${origin}/projects/olara/`);
   await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
   await gotoReady(nav, `${origin}/floorplans/`);
-  await nav.goBack({ waitUntil: "domcontentloaded" });
+  await nav.goBack({ waitUntil: "domcontentloaded", timeout: 15000 });
   await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
   assert.equal(new URL(nav.url()).pathname, "/projects/olara/");
-  await nav.goForward({ waitUntil: "domcontentloaded" });
+  await nav.goForward({ waitUntil: "domcontentloaded", timeout: 15000 });
   await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
   assert.equal(new URL(nav.url()).pathname, "/floorplans/");
-  await nav.reload({ waitUntil: "domcontentloaded" });
+  await nav.reload({ waitUntil: "domcontentloaded", timeout: 15000 });
   await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
   await navContext.close();
 
