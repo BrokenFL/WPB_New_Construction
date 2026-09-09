@@ -1,0 +1,54 @@
+name: Apply Batch 6C postbuild wiring
+on:
+  push:
+    branches: [p2-batch6-social-previews]
+permissions:
+  contents: write
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Wire raw/prerender normalization into postbuild
+        run: |
+          python3 - <<'PY'
+          import json
+          p='package.json'
+          data=json.load(open(p))
+          cmd=data['scripts']['postbuild']
+          suffix=' && node research/scripts/normalize-social-previews.mjs'
+          if suffix not in cmd:
+              data['scripts']['postbuild']=cmd+suffix
+          open(p,'w').write(json.dumps(data,indent=2)+'\n')
+          PY
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - name: Verify built social tags are absolute HTTPS
+        run: |
+          python3 - <<'PY'
+          import pathlib,re
+          files=list(pathlib.Path('dist').rglob('*.html'))
+          assert files
+          for p in files:
+              s=p.read_text()
+              for pat in [r'<meta property="og:image" content="([^"]+)"',r'<meta name="twitter:image" content="([^"]+)"']:
+                  for u in re.findall(pat,s):
+                      assert u.startswith('https://'), (p,u)
+          print('PASS',len(files),'html files')
+          PY
+      - name: Commit postbuild wiring and remove one-time workflow
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git rm .github/workflows/p2-batch6-social-apply.yml
+          git add package.json
+          git commit -m 'Batch 6C: wire social preview normalization into postbuild'
+          git push origin HEAD:p2-batch6-social-previews
