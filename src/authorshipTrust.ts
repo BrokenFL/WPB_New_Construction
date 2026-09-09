@@ -232,8 +232,3 @@ export async function installAuthorshipTrust(app: HTMLElement) {
   window.addEventListener("popstate", refresh);
   refresh();
 }
-
-start().catch((error: unknown) => {
-  console.error("Unable to initialize the page", error);
-  // Preserve the useful server-rendered page when optional enhancement fails.
-});
