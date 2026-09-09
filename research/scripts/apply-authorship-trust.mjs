@@ -54,42 +54,63 @@ function profilesHtml() {
   return `<section id="wpb-contributor-profiles" class="wpb-contributor-profiles" aria-labelledby="wpb-contributor-profiles-title"><h2 id="wpb-contributor-profiles-title">Real-person contributor profiles</h2><p>WPB New Construction names a writer or reviewer only where that responsibility is actually assigned. Project facts are assembled from official and public sources; current pricing, availability, incentives, fees and contract terms still require direct confirmation.</p><div class="wpb-contributor-profiles__grid">${registry.contributors.map(profileHtml).join("")}</div><p><a href="/methodology/">Read the source and review methodology</a></p></section>`;
 }
 
-function schemaFor(route, family, assignment) {
+function personNode(person) {
+  return {
+    "@type": "Person",
+    "@id": person.schemaId,
+    name: person.name,
+    url: person.profileUrl,
+    jobTitle: person.role,
+    worksFor: { "@id": registry.organization.id },
+    knowsAbout: person.expertise,
+    areaServed: person.geographicFocus,
+    sameAs: person.sameAs,
+  };
+}
+
+function pageNodeFor(graph, canonical) {
+  const exact = graph.find((node) => node?.["@id"] === `${canonical}#webpage`);
+  if (exact) return exact;
+  return graph.find((node) => {
+    const types = Array.isArray(node?.["@type"]) ? node["@type"] : [node?.["@type"]];
+    return types.some((type) => typeof type === "string" && (type === "WebPage" || type === "AboutPage" || type === "CollectionPage" || type.endsWith("Page")));
+  });
+}
+
+function mergeSchema(html, route, family, assignment) {
+  const pattern = /<script id="wpb-static-structured-data" type="application\/ld\+json"([^>]*)>([\s\S]*?)<\/script>/;
+  const match = html.match(pattern);
+  if (!match) throw new Error(`${route}: canonical static schema not found`);
+  const schema = JSON.parse(match[2]);
+  if (!Array.isArray(schema?.["@graph"])) throw new Error(`${route}: canonical static schema has no @graph`);
+  const graph = schema["@graph"];
   const canonical = `https://www.wpbnewconstruction.com${route}`;
+  const page = pageNodeFor(graph, canonical);
+  if (!page) throw new Error(`${route}: canonical page node not found`);
+
   const author = personFor(assignment.author);
   const reviewer = personFor(assignment.reviewer);
-  const page = {
-    "@type": family === "about" ? "AboutPage" : "WebPage",
-    "@id": `${canonical}#authorship-webpage`,
-    url: canonical,
-    isPartOf: { "@id": "https://www.wpbnewconstruction.com/#website" },
-  };
   if (author) page.author = { "@id": author.schemaId };
+  else delete page.author;
   if (reviewer) page.reviewedBy = { "@id": reviewer.schemaId };
+  else delete page.reviewedBy;
   if (assignment.reviewedOn || assignment.updatedOn) page.dateModified = assignment.reviewedOn || assignment.updatedOn;
-  const graph = [page];
-  if (family === "about") {
-    for (const person of registry.contributors) {
-      graph.push({
-        "@type": "Person",
-        "@id": person.schemaId,
-        name: person.name,
-        url: person.profileUrl,
-        jobTitle: person.role,
-        worksFor: { "@id": registry.organization.id },
-        knowsAbout: person.expertise,
-        areaServed: person.geographicFocus,
-        sameAs: person.sameAs,
-      });
-    }
-    graph.push({
-      "@type": registry.organization.type,
-      "@id": registry.organization.id,
-      name: registry.organization.name,
-      url: registry.organization.url,
-    });
+
+  const requiredPeople = family === "about"
+    ? registry.contributors
+    : [author, reviewer].filter(Boolean);
+  for (const person of requiredPeople) {
+    const indexes = graph.map((node, index) => node?.["@id"] === person.schemaId ? index : -1).filter((index) => index >= 0);
+    if (indexes.length > 1) throw new Error(`${route}: duplicate stable Person @id ${person.schemaId}`);
+    if (indexes.length === 1) graph[indexes[0]] = { ...graph[indexes[0]], ...personNode(person) };
+    else graph.push(personNode(person));
   }
-  return { "@context": "https://schema.org", "@graph": graph };
+
+  if (family === "about" && !graph.some((node) => node?.["@id"] === registry.organization.id)) {
+    graph.push({ "@type": registry.organization.type, "@id": registry.organization.id, name: registry.organization.name, url: registry.organization.url });
+  }
+
+  return html.replace(pattern, `<script id="wpb-static-structured-data" type="application/ld+json"${match[1]}>${jsonForHtml(schema)}</script>`);
 }
 
 async function htmlFiles(dir) {
@@ -132,14 +153,10 @@ for (const file of await htmlFiles(distRoot)) {
     html = `${html.slice(0, mainEnd)}${profilesHtml()}${html.slice(mainEnd)}`;
     profiles += 1;
   }
-  if (needsSchema) {
-    html = html.replace("</head>", `<script id="wpb-authorship-schema" type="application/ld+json" data-authorship-path="${escapeHtml(route)}">${jsonForHtml(schemaFor(route, family, assignment))}</script></head>`);
-  }
+  if (needsSchema) html = mergeSchema(html, route, family, assignment);
   await fs.writeFile(file, html);
 }
 
-// llms.txt is a generated discovery surface. Keep its existing route inventory,
-// but make the public human-entity contract explicit without duplicating content.
 const llmsPath = path.join(distRoot, "llms.txt");
 try {
   let llms = await fs.readFile(llmsPath, "utf8");
