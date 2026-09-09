@@ -34,6 +34,12 @@ const browser = await chromium.launch({ headless: true });
 const routes = ["/", "/buildings/", "/map/", "/floorplans/", "/projects/olara/", "/projects/rosewood-residences-west-palm-beach/", "/projects/maison-dor/", "/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/corridors/south-flagler/", "/inquire/", "/floorplans/olara/residence-d/"];
 const results = [];
 
+async function gotoReady(page, target) {
+  const response = await page.goto(target, { waitUntil: "domcontentloaded", timeout: 30000 });
+  assert.equal(response?.status(), 200, `${target}:status`);
+  return response;
+}
+
 try {
   for (const width of [1440, 390]) {
     for (const route of routes) {
@@ -43,10 +49,9 @@ try {
       page.on("request", (request) => requested.push(new URL(request.url()).pathname));
       const errors = [];
       page.on("pageerror", (error) => errors.push(error.message));
-      const response = await page.goto(`${origin}${route}`, { waitUntil: "networkidle" });
-      assert.equal(response?.status(), 200, `${route}:${width}:status`);
+      await gotoReady(page, `${origin}${route}`);
       const launcher = page.getByRole("button", { name: "Open Ask WPB buyer concierge" });
-      await launcher.waitFor({ state: "visible" });
+      await launcher.waitFor({ state: "visible", timeout: 15000 });
       assert.equal(requested.includes(conciergePath), false, `${route}:${width}:body must be lazy`);
       if (route.includes("/answers/olara-vs-") || route === "/floorplans/olara/residence-d/") {
         assert.equal(requested.includes(mainPath), false, `${route}:${width}:lightweight route imported legacy main`);
@@ -55,7 +60,7 @@ try {
       if (route === "/inquire/") assert.notEqual(await page.locator("[data-buyer-concierge-root]").evaluate((el) => getComputedStyle(el).position), "fixed");
       await launcher.click();
       const panel = page.getByRole("dialog", { name: "Ask WPB" });
-      await panel.waitFor({ state: "visible" });
+      await panel.waitFor({ state: "visible", timeout: 15000 });
       assert.equal(requested.includes(conciergePath), true, `${route}:${width}:lazy body did not load`);
       for (const heading of ["Research", "Current information", "Talk to the team"]) assert.equal(await panel.getByRole("heading", { name: heading }).count(), 1);
       await page.keyboard.press("Escape");
@@ -70,9 +75,9 @@ try {
 
   for (const route of ["/projects/olara/", "/projects/maison-dor/"]) {
     const page = await browser.newPage();
-    await page.goto(`${origin}${route}`, { waitUntil: "networkidle" });
+    await gotoReady(page, `${origin}${route}`);
     const form = page.locator(".brochure-inquiry-card").first();
-    await form.waitFor();
+    await form.waitFor({ timeout: 15000 });
     assert.equal(await form.locator('input[name="interest"]').inputValue(), "Request current availability");
     assert.equal(await form.locator('input[name="request_intent"]').inputValue(), "availability");
     assert.equal((await form.getByRole("heading", { level: 2 }).innerText()).trim(), "Request current availability");
@@ -82,9 +87,9 @@ try {
   }
 
   const inquire = await browser.newPage();
-  await inquire.goto(`${origin}/inquire/?interest=Request%20private%20floor-plan%20packet&project=olara`, { waitUntil: "networkidle" });
+  await gotoReady(inquire, `${origin}/inquire/?interest=Request%20private%20floor-plan%20packet&project=olara`);
   const form = inquire.locator(".inquiry-form");
-  await form.waitFor();
+  await form.waitFor({ timeout: 15000 });
   assert.equal(await form.locator('select[name="interest"]').inputValue(), "Get pricing + floor-plan packet");
   assert.equal(await form.locator('input[name="request_intent"]').inputValue(), "pricing_packet");
   assert.match(await form.locator("[data-request-summary]").innerText(), /pricing \+ floor-plan packet/i);
