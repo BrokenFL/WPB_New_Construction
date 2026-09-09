@@ -32,6 +32,7 @@ const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
 })[character]);
 const jsonForHtml = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
+const humanDate = (value) => value ? new Date(`${value}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }) : "";
 
 function trustHtml(route, assignment) {
   const author = personFor(assignment.author);
@@ -40,6 +41,8 @@ function trustHtml(route, assignment) {
   const people = [];
   if (author) people.push(`Written by <a href="${escapeHtml(author.profileUrl)}">${escapeHtml(author.name)}</a>`);
   if (reviewer) people.push(`Reviewed by <a href="${escapeHtml(reviewer.profileUrl)}">${escapeHtml(reviewer.name)}</a>`);
+  if (assignment.reviewedOn) people.push(`Reviewed ${escapeHtml(humanDate(assignment.reviewedOn))}`);
+  else if (assignment.updatedOn) people.push(`Updated ${escapeHtml(humanDate(assignment.updatedOn))}`);
   return `<aside id="wpb-authorship-trust" data-path="${escapeHtml(route)}" class="wpb-authorship-trust" aria-label="Editorial responsibility"><div class="wpb-authorship-trust__people">${people.join(" <span aria-hidden=\"true\">·</span> ")}</div><div class="wpb-authorship-trust__method"><a href="/methodology/">How we verify project information</a></div></aside>`;
 }
 
@@ -48,7 +51,7 @@ function profileHtml(person) {
 }
 
 function profilesHtml() {
-  return `<section id="wpb-contributor-profiles" class="wpb-contributor-profiles" aria-labelledby="wpb-contributor-profiles-title"><h2 id="wpb-contributor-profiles-title">People responsible for this guide</h2><p>WPB New Construction uses named real people only where editorial responsibility is assigned. Project facts are assembled from official and public sources; current pricing, availability, incentives, fees and contract terms still require direct confirmation.</p><div class="wpb-contributor-profiles__grid">${registry.contributors.map(profileHtml).join("")}</div><p><a href="/methodology/">Read the source and review methodology</a></p></section>`;
+  return `<section id="wpb-contributor-profiles" class="wpb-contributor-profiles" aria-labelledby="wpb-contributor-profiles-title"><h2 id="wpb-contributor-profiles-title">Real-person contributor profiles</h2><p>WPB New Construction names a writer or reviewer only where that responsibility is actually assigned. Project facts are assembled from official and public sources; current pricing, availability, incentives, fees and contract terms still require direct confirmation.</p><div class="wpb-contributor-profiles__grid">${registry.contributors.map(profileHtml).join("")}</div><p><a href="/methodology/">Read the source and review methodology</a></p></section>`;
 }
 
 function schemaFor(route, family, assignment) {
@@ -57,12 +60,13 @@ function schemaFor(route, family, assignment) {
   const reviewer = personFor(assignment.reviewer);
   const page = {
     "@type": family === "about" ? "AboutPage" : "WebPage",
-    "@id": `${canonical}#webpage`,
+    "@id": `${canonical}#authorship-webpage`,
     url: canonical,
     isPartOf: { "@id": "https://www.wpbnewconstruction.com/#website" },
   };
   if (author) page.author = { "@id": author.schemaId };
   if (reviewer) page.reviewedBy = { "@id": reviewer.schemaId };
+  if (assignment.reviewedOn || assignment.updatedOn) page.dateModified = assignment.reviewedOn || assignment.updatedOn;
   const graph = [page];
   if (family === "about") {
     for (const person of registry.contributors) {
