@@ -5,6 +5,7 @@ import "./commercialGrowth.css";
 import "./shortlistSummary.css";
 import "./authorshipTrust.css";
 import { wireInquiryContext } from "./lib/inquiryContext.ts";
+import { installSocialPreviewNormalization } from "./lib/socialPreview.ts";
 import { cleanFloorplanPath, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanJson, renderFloorplanDiscovery } from "./lib/floorplanEntities.ts";
 
 function isRendered(element: HTMLElement) {
@@ -27,6 +28,7 @@ function normalizeActiveProjectHeading(app: HTMLElement) {
 }
 
 async function start() {
+  installSocialPreviewNormalization();
   const comparison = comparisonForPath(location.pathname);
   if (comparison) {
     const { mountComparison } = await import('./comparisonPage.ts');
