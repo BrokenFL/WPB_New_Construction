@@ -46,6 +46,8 @@ jobs:
         run: npm run build
       - name: Five-intent server/browser contract
         run: node --test research/scripts/request-intents.test.mjs
+      - name: Controlled lead endpoint retry/deduplication contract
+        run: npm run test:leads
       - name: Concierge desktop/mobile and lightweight boundary
         run: node research/scripts/check-batch6-concierge.mjs
       - name: Full repository suite
