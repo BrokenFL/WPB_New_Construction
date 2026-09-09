@@ -82,7 +82,7 @@ jobs:
           npm run assets:audit
           npm run assets:audit:strict
           npm run qa:seo
-          npm run qa:agent-skill
+          npm run qa:agent-skills
           npm run qa:gatekeeper
       - name: Existing buyer journeys
         env:
