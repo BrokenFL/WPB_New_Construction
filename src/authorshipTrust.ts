@@ -20,6 +20,7 @@ type Registry = {
   organization: { id: string; name: string; type: string; url: string };
   contributors: Contributor[];
   assignmentPolicy: Record<string, Assignment>;
+  routeAssignments?: Record<string, Assignment>;
 };
 
 const schemaScriptId = "wpb-authorship-schema";
@@ -46,6 +47,11 @@ function routeFamily(pathname: string) {
   return "";
 }
 
+function assignmentFor(registry: Registry, pathname: string, family: string): Assignment {
+  const path = cleanPath(pathname);
+  return registry.routeAssignments?.[path] ?? registry.assignmentPolicy[family] ?? {};
+}
+
 function escapeHtml(value: string) {
   return value.replace(/[&<>"']/g, (character) => ({
     "&": "&amp;",
@@ -65,14 +71,14 @@ function canonicalUrl() {
   return canonical || `${location.origin}${cleanPath(location.pathname)}`;
 }
 
-function visibleTrustHtml(registry: Registry, assignment: Assignment) {
+function visibleTrustHtml(registry: Registry, assignment: Assignment, path: string) {
   const author = contributorById(registry, assignment.author);
   const reviewer = contributorById(registry, assignment.reviewer);
   if (!author && !reviewer) return "";
   const parts: string[] = [];
   if (author) parts.push(`Written by <a href="${escapeHtml(author.profileUrl)}">${escapeHtml(author.name)}</a>`);
   if (reviewer) parts.push(`Reviewed by <a href="${escapeHtml(reviewer.profileUrl)}">${escapeHtml(reviewer.name)}</a>`);
-  return `<aside id="${trustId}" class="wpb-authorship-trust" aria-label="Editorial responsibility">
+  return `<aside id="${trustId}" data-path="${escapeHtml(path)}" class="wpb-authorship-trust" aria-label="Editorial responsibility">
     <div class="wpb-authorship-trust__people">${parts.join(" <span aria-hidden=\"true\">·</span> ")}</div>
     <div class="wpb-authorship-trust__method"><a href="/methodology/">How we verify project information</a></div>
   </aside>`;
@@ -100,13 +106,15 @@ function profilesHtml(registry: Registry) {
 function schemaFor(registry: Registry, assignment: Assignment, family: string) {
   const url = canonicalUrl();
   const pageRef: Record<string, unknown> = {
-    "@type": family === "about" ? "AboutPage" : family === "methodology" ? "WebPage" : "WebPage",
+    "@type": family === "about" ? "AboutPage" : "WebPage",
     "@id": `${url}#webpage`,
     url,
     isPartOf: { "@id": "https://www.wpbnewconstruction.com/#website" },
   };
-  if (assignment.author) pageRef.author = { "@id": contributorById(registry, assignment.author)?.schemaId };
-  if (assignment.reviewer) pageRef.reviewedBy = { "@id": contributorById(registry, assignment.reviewer)?.schemaId };
+  const author = contributorById(registry, assignment.author);
+  const reviewer = contributorById(registry, assignment.reviewer);
+  if (author) pageRef.author = { "@id": author.schemaId };
+  if (reviewer) pageRef.reviewedBy = { "@id": reviewer.schemaId };
 
   const graph: Record<string, unknown>[] = [pageRef];
   if (family === "about") {
@@ -144,14 +152,14 @@ async function loadRegistry(): Promise<Registry | null> {
 
 function mountForCurrentRoute(app: HTMLElement, registry: Registry) {
   const family = routeFamily(location.pathname);
+  const path = cleanPath(location.pathname);
   document.getElementById(trustId)?.remove();
-  if (!family) {
-    document.getElementById(schemaScriptId)?.remove();
-    return;
-  }
-  const assignment = registry.assignmentPolicy[family] || {};
+  document.getElementById(schemaScriptId)?.remove();
+  if (!family) return;
+
+  const assignment = assignmentFor(registry, path, family);
   const main = app.querySelector("main") ?? app;
-  const trustHtml = visibleTrustHtml(registry, assignment);
+  const trustHtml = visibleTrustHtml(registry, assignment, path);
   if (trustHtml) {
     const h1 = main.querySelector("h1");
     const insertionTarget = h1?.closest("section, header, article") ?? h1;
@@ -163,12 +171,11 @@ function mountForCurrentRoute(app: HTMLElement, registry: Registry) {
     main.insertAdjacentHTML("beforeend", profilesHtml(registry));
   }
 
-  const existingSchema = document.getElementById(schemaScriptId);
-  existingSchema?.remove();
+  if (!assignment.author && !assignment.reviewer && family !== "about") return;
   const script = document.createElement("script");
   script.id = schemaScriptId;
   script.type = "application/ld+json";
-  script.dataset.authorshipPath = cleanPath(location.pathname);
+  script.dataset.authorshipPath = path;
   script.textContent = JSON.stringify(schemaFor(registry, assignment, family));
   document.head.appendChild(script);
 }
@@ -183,9 +190,9 @@ export async function installAuthorshipTrust(app: HTMLElement) {
     queueMicrotask(() => {
       scheduled = false;
       const current = document.getElementById(trustId);
-      if (current?.dataset.path === cleanPath(location.pathname)) return;
+      const path = cleanPath(location.pathname);
+      if (current?.dataset.path === path) return;
       mountForCurrentRoute(app, registry);
-      document.getElementById(trustId)?.setAttribute("data-path", cleanPath(location.pathname));
     });
   };
   const observer = new MutationObserver(refresh);
