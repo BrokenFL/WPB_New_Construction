@@ -77,6 +77,17 @@ function canonicalUrl() {
   return canonical || `${location.origin}${cleanPath(location.pathname)}`;
 }
 
+function isRendered(element: HTMLElement) {
+  if (element.hidden || element.closest("[hidden]")) return false;
+  const style = window.getComputedStyle(element);
+  if (style.display === "none" || style.visibility === "hidden") return false;
+  return element.getClientRects().length > 0;
+}
+
+function activeRouteMain(app: HTMLElement) {
+  return Array.from(app.querySelectorAll<HTMLElement>("main")).find(isRendered) ?? null;
+}
+
 function visibleTrustHtml(registry: Registry, assignment: Assignment, path: string) {
   const author = contributorById(registry, assignment.author);
   const reviewer = contributorById(registry, assignment.reviewer);
@@ -162,31 +173,36 @@ async function loadRegistry(): Promise<Registry | null> {
 function mountForCurrentRoute(app: HTMLElement, registry: Registry) {
   const family = routeFamily(location.pathname);
   const path = cleanPath(location.pathname);
+  const main = activeRouteMain(app);
+  if (!main) return false;
+
   document.getElementById(trustId)?.remove();
   document.getElementById(schemaScriptId)?.remove();
-  if (!family) return;
+  const existingProfiles = document.getElementById(profilesId);
+  if (existingProfiles && !main.contains(existingProfiles)) existingProfiles.remove();
+  if (!family) return true;
 
   const assignment = assignmentFor(registry, path, family);
-  const main = app.querySelector("main") ?? app;
   const trustHtml = visibleTrustHtml(registry, assignment, path);
   if (trustHtml) {
-    const h1 = main.querySelector("h1");
+    const h1 = Array.from(main.querySelectorAll<HTMLElement>("h1")).find(isRendered) ?? main.querySelector("h1");
     const insertionTarget = h1?.closest("section, header, article") ?? h1;
     if (insertionTarget) insertionTarget.insertAdjacentHTML("afterend", trustHtml);
     else main.insertAdjacentHTML("afterbegin", trustHtml);
   }
 
-  if (family === "about" && !document.getElementById(profilesId)) {
+  if (family === "about" && !main.querySelector(`#${profilesId}`)) {
     main.insertAdjacentHTML("beforeend", profilesHtml(registry));
   }
 
-  if (!assignment.author && !assignment.reviewer && family !== "about") return;
+  if (!assignment.author && !assignment.reviewer && family !== "about") return true;
   const script = document.createElement("script");
   script.id = schemaScriptId;
   script.type = "application/ld+json";
   script.dataset.authorshipPath = path;
   script.textContent = JSON.stringify(schemaFor(registry, assignment, family));
   document.head.appendChild(script);
+  return true;
 }
 
 export async function installAuthorshipTrust(app: HTMLElement) {
@@ -198,14 +214,21 @@ export async function installAuthorshipTrust(app: HTMLElement) {
     scheduled = true;
     queueMicrotask(() => {
       scheduled = false;
+      const main = activeRouteMain(app);
+      if (!main) return;
       const current = document.getElementById(trustId);
       const path = cleanPath(location.pathname);
-      if (current?.dataset.path === path) return;
+      if (current?.dataset.path === path && main.contains(current)) return;
       mountForCurrentRoute(app, registry);
     });
   };
   const observer = new MutationObserver(refresh);
-  observer.observe(app, { childList: true, subtree: true });
+  observer.observe(app, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["hidden", "class", "style", "aria-hidden"],
+  });
   window.addEventListener("popstate", refresh);
   refresh();
 }
