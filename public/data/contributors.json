@@ -18,7 +18,7 @@
       "team": "The Scott Gordon Team",
       "brokerage": "Douglas Elliman Real Estate",
       "geographicFocus": ["West Palm Beach", "Palm Beach"],
-      "expertise": ["West Palm Beach new-construction research", "Palm Beach residential real estate"],
+      "expertise": ["West Palm Beach new-construction buyer research", "Palm Beach and West Palm Beach residential real estate"],
       "bio": "Brooke Snader is a Broker Associate with The Scott Gordon Team at Douglas Elliman. On WPB New Construction, Brooke is responsible for buyer-facing research, project-guide context and source-backed comparisons explicitly assigned to him on the site.",
       "profileUrl": "https://www.wpbnewconstruction.com/about/#brooke-snader",
       "sameAs": ["https://www.elliman.com/agent/brooke-snader/1025144"],
@@ -38,8 +38,8 @@
       "team": "The Scott Gordon Team",
       "brokerage": "Douglas Elliman Real Estate",
       "geographicFocus": ["Palm Beach", "West Palm Beach"],
-      "expertise": ["Palm Beach residential real estate", "Waterfront real estate"],
-      "bio": "Scott Gordon is a Broker Associate with The Scott Gordon Team at Douglas Elliman. On WPB New Construction, Scott is used as a named reviewer only on pages for which review responsibility is explicitly assigned.",
+      "expertise": ["Palm Beach residential real estate"],
+      "bio": "Scott Gordon is a Broker Associate with The Scott Gordon Team at Douglas Elliman. On WPB New Construction, Scott is identified as a contributor and is named as a reviewer only when that review responsibility has been specifically confirmed.",
       "profileUrl": "https://www.wpbnewconstruction.com/about/#scott-gordon",
       "sameAs": ["https://www.elliman.com/agent/scott-gordon-pa/1195935"],
       "verification": {
@@ -51,8 +51,8 @@
     }
   ],
   "assignmentPolicy": {
-    "about": {"author": "brooke-snader", "reviewer": "scott-gordon"},
-    "methodology": {"author": "brooke-snader", "reviewer": "scott-gordon"},
+    "about": {"author": "brooke-snader", "updatedOn": "2026-09-08"},
+    "methodology": {"author": "brooke-snader", "updatedOn": "2026-09-08"},
     "compare": {},
     "project": {},
     "corridor": {},
@@ -62,17 +62,12 @@
     "downtown-spotlight": {}
   },
   "routeAssignments": {
-    "/compare/": {"reviewer": "brooke-snader"},
-    "/projects/rosewood-residences-west-palm-beach/": {"reviewer": "brooke-snader"},
-    "/projects/maison-dor/": {"reviewer": "brooke-snader"},
-    "/corridors/north-flagler/": {"reviewer": "brooke-snader"},
-    "/corridors/south-flagler/": {"reviewer": "brooke-snader"},
-    "/corridors/downtown-west-palm-beach/": {"reviewer": "brooke-snader"},
-    "/corridors/palm-beach/": {"reviewer": "brooke-snader"},
-    "/answers/north-flagler-vs-south-flagler-new-condos/": {"reviewer": "brooke-snader"}
+    "/projects/rosewood-residences-west-palm-beach/": {"reviewer": "brooke-snader", "reviewedOn": "2026-09-08"},
+    "/projects/maison-dor/": {"reviewer": "brooke-snader", "reviewedOn": "2026-09-08"}
   },
   "assignmentNotes": {
+    "scottReview": "Scott Gordon is not presented as a reviewer in this draft until an actual page review is specifically confirmed.",
     "legacyArticles": "Updates, market notes and downtown-spotlight articles are intentionally not assigned to a person until real editorial ownership or review is confirmed page by page. Batch 5 must not retroactively invent authorship.",
-    "unassignedEvergreen": "Other buyer guides and answer pages remain unassigned until responsibility is confirmed rather than inheriting a mechanical site-wide byline."
+    "unassignedEvergreen": "Other buyer guides, corridor pages, comparisons and answer pages remain unassigned until responsibility is confirmed rather than inheriting a mechanical site-wide byline."
   }
 }
