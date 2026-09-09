@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "methodologyUrl": "https://www.wpbnewconstruction.com/methodology/",
+  "aboutUrl": "https://www.wpbnewconstruction.com/about/",
+  "organization": {
+    "id": "https://www.wpbnewconstruction.com/#douglas-elliman-florida",
+    "name": "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
+    "type": "RealEstateAgent",
+    "url": "https://www.elliman.com/"
+  },
+  "contributors": [
+    {
+      "id": "brooke-snader",
+      "schemaId": "https://www.wpbnewconstruction.com/about/#brooke-snader",
+      "name": "Brooke Snader",
+      "role": "Broker Associate",
+      "license": "BK3291335",
+      "team": "The Scott Gordon Team",
+      "brokerage": "Douglas Elliman Real Estate",
+      "geographicFocus": ["West Palm Beach", "Palm Beach"],
+      "expertise": ["West Palm Beach new-construction research", "Palm Beach residential real estate"],
+      "bio": "Brooke Snader is a Broker Associate with The Scott Gordon Team at Douglas Elliman. On WPB New Construction, Brooke is responsible for buyer-facing research, project-guide context and source-backed comparisons assigned to him on the site.",
+      "profileUrl": "https://www.wpbnewconstruction.com/about/#brooke-snader",
+      "sameAs": ["https://www.elliman.com/agent/brooke-snader/1025144"],
+      "verification": {
+        "source": "Douglas Elliman agent/team directory",
+        "url": "https://www.elliman.com/agent/brooke-snader/1025144",
+        "verifiedOn": "2026-09-08",
+        "facts": ["Broker Associate", "Florida license BK3291335", "The Scott Gordon Team membership"]
+      }
+    },
+    {
+      "id": "scott-gordon",
+      "schemaId": "https://www.wpbnewconstruction.com/about/#scott-gordon",
+      "name": "Scott Gordon",
+      "role": "Broker Associate",
+      "license": "BK383426",
+      "team": "The Scott Gordon Team",
+      "brokerage": "Douglas Elliman Real Estate",
+      "geographicFocus": ["Palm Beach", "West Palm Beach"],
+      "expertise": ["Palm Beach residential real estate", "Waterfront real estate"],
+      "bio": "Scott Gordon is a Broker Associate with The Scott Gordon Team at Douglas Elliman. On WPB New Construction, Scott is used as a named reviewer only on pages for which review responsibility is explicitly assigned.",
+      "profileUrl": "https://www.wpbnewconstruction.com/about/#scott-gordon",
+      "sameAs": ["https://www.elliman.com/agent/scott-gordon-pa/1195935"],
+      "verification": {
+        "source": "Douglas Elliman agent/team directory",
+        "url": "https://www.elliman.com/agent/scott-gordon-pa/1195935",
+        "verifiedOn": "2026-09-08",
+        "facts": ["Broker Associate", "Florida license BK383426", "The Scott Gordon Team membership"]
+      }
+    }
+  ],
+  "assignmentPolicy": {
+    "about": {"author": "brooke-snader", "reviewer": "scott-gordon"},
+    "methodology": {"author": "brooke-snader", "reviewer": "scott-gordon"},
+    "compare": {"reviewer": "brooke-snader"},
+    "project": {"reviewer": "brooke-snader"},
+    "corridor": {"reviewer": "brooke-snader"},
+    "answer": {"reviewer": "brooke-snader"},
+    "update": {},
+    "market-note": {},
+    "downtown-spotlight": {}
+  },
+  "assignmentNotes": {
+    "legacyArticles": "Updates, market notes and downtown-spotlight articles are intentionally not assigned to a person until real editorial ownership or review is confirmed page by page. Batch 5 must not retroactively invent authorship."
+  }
+}
