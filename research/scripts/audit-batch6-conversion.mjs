@@ -15,6 +15,12 @@ const out = path.resolve('.runtime/batch6-audit', String(width));
 await fs.mkdir(out, { recursive: true });
 const routes = ['/', '/buildings/', '/map/', '/floorplans/', '/projects/olara/', '/projects/rosewood-residences-west-palm-beach/', '/projects/maison-dor/', '/answers/olara-vs-ritz-carlton-vs-shorecrest/', '/corridors/south-flagler/', '/inquire/'];
 const safeUrl = value => { const u = new URL(value, origin); return u.origin === origin ? u.pathname + u.search : u.origin + u.pathname; };
+// Public browser Maps keys still do not belong in review artifacts. The independent
+// workflow scan remains fail-closed; this does not weaken production/preflight QA.
+async function writeJson(file, value) {
+  const text=JSON.stringify(value,null,2).replace(/AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}/g,'[credential-redacted]');
+  await fs.writeFile(file,text);
+}
 const results = [];
 const browser = await chromium.launch({ headless: true });
 
@@ -41,7 +47,7 @@ async function snapshot(page) {
         return {tag:e.tagName.toLowerCase(), label:text(e).slice(0,200), href:e.getAttribute('href'), attributes:attrs(e), section:section?.id || section?.className || section?.tagName || '', sectionHeading:section?.querySelector('h1,h2,h3')?.textContent?.trim(), documentY:Math.round(r.y+scrollY), x:Math.round(r.x), width:Math.round(r.width), height:Math.round(r.height), inViewport:r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth, fixedOrSticky:fixed};
       }),
       forms: [...document.forms].filter(visible).map(form => ({className:form.className, action:form.getAttribute('action'), attributes:attrs(form), text:form.innerText, fields:[...form.elements].map(e => ({tag:e.tagName.toLowerCase(), name:e.name, type:e.type, required:e.required, label:e.labels?.[0]?.innerText, placeholder:e.getAttribute('placeholder'), options:e.tagName==='SELECT'?[...e.options].map(o=>({value:o.value,label:o.text})):undefined, contextValue:['project','interest','lead_capture_context','project_name'].includes(e.name)?e.value:undefined}))})),
-      scripts:[...document.scripts].map(s=>s.getAttribute('src')).filter(Boolean),
+      scripts:[...document.scripts].map(s=>s.getAttribute('src')).filter(Boolean).map(src=>{const u=new URL(src,location.href);return u.origin===location.origin?u.pathname:u.origin+u.pathname;}),
       timings: performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/')&&/\.js(?:\?|$)/.test(r.name)).map(r=>({path:new URL(r.name).pathname,transferBytes:r.transferSize,encodedBytes:r.encodedBodySize,decodedBytes:r.decodedBodySize,initiator:r.initiatorType}))
     };
   });
@@ -99,7 +105,6 @@ try {
         await page.screenshot({path:path.join(out,`${name}-ask.png`)});
         await page.keyboard.press('Escape'); await page.waitForTimeout(200);
         result.ask.escapeFocusRestored=await ask.evaluate(e=>document.activeElement===e);
-        // Reset the page without submitting so contact evaluation is independent.
         await page.goto(origin+routePath,{waitUntil:'domcontentloaded'}); await page.waitForTimeout(1800);
       }
       const contact=await firstVisible(page.getByRole('button',{name:/^contact the team$/i})) || await firstVisible(page.getByRole('link',{name:/^contact the team$/i}));
@@ -120,7 +125,7 @@ try {
     } finally {
       result.blockedRequests=blocked; result.pageErrors=pageErrors;
       results.push(result);
-      await fs.writeFile(path.join(out,'routes.json'),JSON.stringify({productionSha,harnessSha:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),collectedAt:new Date().toISOString(),results},null,2));
+      await writeJson(path.join(out,'routes.json'),{productionSha,harnessSha:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),collectedAt:new Date().toISOString(),results});
       console.log(JSON.stringify({path:routePath,width,status:result.status,error:result.error,controls:result.baseline?.controls.length,ask:!!result.ask,contact:!!result.contact,social:result.baseline?.social}));
       await context.close();
     }
@@ -143,7 +148,7 @@ for(const root of ['public','dist']) {
   const duplicates=[...groups.values()].filter(g=>g.paths.length>1).sort((a,b)=>b.size*(b.paths.length-1)-a.size*(a.paths.length-1));
   footprints.push({root,files:count,totalBytes,duplicateGroups:duplicates.length,redundantCopies:duplicates.reduce((s,g)=>s+g.paths.length-1,0),redundantBytes:duplicates.reduce((s,g)=>s+g.size*(g.paths.length-1),0),groups:duplicates});
 }
-await fs.writeFile(path.join(out,'duplicate-assets.json'),JSON.stringify({note:'Byte-identical media groups; not permission to delete. dist is a no-key audit build of production code; not a measurement of per-visitor transfer.',footprints},null,2));
+await writeJson(path.join(out,'duplicate-assets.json'),{note:'Byte-identical media groups; not permission to delete. dist is a no-key audit build of production code; not a measurement of per-visitor transfer.',footprints});
 const sourcePaths=['src/main.ts','src/index.ts','src/lib/inquiryContext.ts','src/lib/leadCapture.ts','src/lib/analyticsSafety.ts','vite.config.ts',...await filesUnder('functions'),...await filesUnder('research/scripts')].filter((p,i,a)=>a.indexOf(p)===i);
 const sourceEvidence=[];
 for(const file of sourcePaths) {
@@ -154,6 +159,6 @@ for(const file of sourcePaths) {
   const ranges=[];for(const i of indices){const from=Math.max(0,i-8),to=Math.min(lines.length,i+35);const last=ranges.at(-1);if(last&&from<=last.to)last.to=Math.max(last.to,to);else ranges.push({from,to});}
   sourceEvidence.push({file,ranges:ranges.map(r=>({start:r.from+1,end:r.to,content:lines.slice(r.from,r.to).join('\n')}))});
 }
-await fs.writeFile(path.join(out,'source-evidence.json'),JSON.stringify(sourceEvidence,null,2));
+await writeJson(path.join(out,'source-evidence.json'),sourceEvidence);
 assert.equal(results.filter(r=>r.status!=='collected').length,0,'One or more route collections failed; inspect evidence before drawing conclusions.');
 console.log(JSON.stringify({audit:'collected',width,routes:results.length,productionSha,realLeadsSent:0}));
