@@ -52,14 +52,19 @@ function meta(name: string, content: string, property = false) {
   if (node) node.content = content;
 }
 
+function isRendered(element: HTMLElement) {
+  if (element.hidden || element.closest("[hidden]")) return false;
+  const style = window.getComputedStyle(element);
+  return style.display !== "none" && style.visibility !== "hidden" && element.getClientRects().length > 0;
+}
+
+function activeMain(app: HTMLElement) {
+  return Array.from(app.querySelectorAll<HTMLElement>("main")).find(isRendered) ?? app.querySelector<HTMLElement>("main");
+}
+
 function canonicalSchemaScript() {
   const canonical = document.head.querySelector<HTMLScriptElement>('#wpb-static-structured-data[type="application/ld+json"]');
   if (canonical) return canonical;
-
-  // The legacy SPA router replaces the prerendered static script with its
-  // single #wpb-structured-data graph on a pathname change. Adopt that same
-  // node instead of allowing a parallel schema script; syncCanonicalSchema()
-  // then replaces its contents with the target route's fully postbuilt graph.
   const legacyRuntime = document.head.querySelector<HTMLScriptElement>('#wpb-structured-data[type="application/ld+json"]');
   if (!legacyRuntime) return null;
   legacyRuntime.id = "wpb-static-structured-data";
@@ -80,7 +85,6 @@ function patchCanonicalPageNode(script: HTMLScriptElement, record: Batch4Project
 }
 
 async function syncCanonicalSchema(record: Batch4Project) {
-  // Remove obsolete parallel graphs if a stale hydrated DOM ever contains one.
   document.head.querySelector('#wpb-project-seo-batch4-schema')?.remove();
   document.head.querySelector('#wpb-authorship-schema')?.remove();
 
@@ -169,17 +173,21 @@ async function installForRecord(app: HTMLElement, record: Batch4Project) {
   ensureStyles();
   await updateHead(record);
   if (cleanPath(location.pathname) !== cleanPath(record.path)) return;
-  const projectView = Array.from(app.querySelectorAll<HTMLElement>('[data-route-view="project"][data-project-id]'))
-    .find((view) => view.dataset.projectId === record.slug);
-  const h1 = projectView?.querySelector<HTMLHeadingElement>("h1");
+
+  // Batch 5 demotes the duplicate compact project identity H1. Batch 4 must
+  // therefore synchronize the approved buyer-guide title onto the one active
+  // semantic H1, rather than targeting the old project-view heading slot.
+  const main = activeMain(app);
+  const h1 = main ? Array.from(main.querySelectorAll<HTMLHeadingElement>("h1")).find(isRendered) ?? main.querySelector<HTMLHeadingElement>("h1") : null;
   if (h1 && h1.textContent?.trim() !== record.h1) h1.textContent = record.h1;
+
   const existing = app.querySelector<HTMLElement>("#wpb-project-seo-batch4");
   if (existing?.dataset.projectId === record.projectId) return;
   existing?.remove();
-  const main = app.querySelector("main") ?? app;
-  const firstSection = main.querySelector(":scope > section");
+  const guideMain = main ?? app;
+  const firstSection = guideMain.querySelector(":scope > section");
   if (firstSection) firstSection.insertAdjacentHTML("afterend", renderGuide(record));
-  else main.insertAdjacentHTML("afterbegin", renderGuide(record));
+  else guideMain.insertAdjacentHTML("afterbegin", renderGuide(record));
 }
 
 export function batch4InquiryRequest(records: Batch4Project[], pathname: string, search: string) {
