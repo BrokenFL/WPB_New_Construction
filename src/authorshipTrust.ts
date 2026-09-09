@@ -13,7 +13,7 @@ type Contributor = {
   sameAs: string[];
 };
 
-type Assignment = { author?: string; reviewer?: string };
+type Assignment = { author?: string; reviewer?: string; updatedOn?: string; reviewedOn?: string };
 type Registry = {
   methodologyUrl: string;
   aboutUrl: string;
@@ -66,6 +66,12 @@ function contributorById(registry: Registry, id?: string) {
   return id ? registry.contributors.find((item) => item.id === id) : undefined;
 }
 
+function humanDate(value?: string) {
+  if (!value) return "";
+  const date = new Date(`${value}T00:00:00Z`);
+  return Number.isNaN(date.valueOf()) ? value : date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
+
 function canonicalUrl() {
   const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href;
   return canonical || `${location.origin}${cleanPath(location.pathname)}`;
@@ -78,6 +84,8 @@ function visibleTrustHtml(registry: Registry, assignment: Assignment, path: stri
   const parts: string[] = [];
   if (author) parts.push(`Written by <a href="${escapeHtml(author.profileUrl)}">${escapeHtml(author.name)}</a>`);
   if (reviewer) parts.push(`Reviewed by <a href="${escapeHtml(reviewer.profileUrl)}">${escapeHtml(reviewer.name)}</a>`);
+  if (assignment.reviewedOn) parts.push(`Reviewed ${escapeHtml(humanDate(assignment.reviewedOn))}`);
+  else if (assignment.updatedOn) parts.push(`Updated ${escapeHtml(humanDate(assignment.updatedOn))}`);
   return `<aside id="${trustId}" data-path="${escapeHtml(path)}" class="wpb-authorship-trust" aria-label="Editorial responsibility">
     <div class="wpb-authorship-trust__people">${parts.join(" <span aria-hidden=\"true\">·</span> ")}</div>
     <div class="wpb-authorship-trust__method"><a href="/methodology/">How we verify project information</a></div>
@@ -96,8 +104,8 @@ function profileHtml(contributor: Contributor) {
 
 function profilesHtml(registry: Registry) {
   return `<section id="${profilesId}" class="wpb-contributor-profiles" aria-labelledby="wpb-contributor-profiles-title">
-    <h2 id="wpb-contributor-profiles-title">People responsible for this guide</h2>
-    <p>WPB New Construction uses named real people only where editorial responsibility is assigned. Project facts are assembled from official and public sources; current pricing, availability, incentives, fees and contract terms still require direct confirmation.</p>
+    <h2 id="wpb-contributor-profiles-title">Real-person contributor profiles</h2>
+    <p>WPB New Construction names a writer or reviewer only where that responsibility is actually assigned. Project facts are assembled from official and public sources; current pricing, availability, incentives, fees and contract terms still require direct confirmation.</p>
     <div class="wpb-contributor-profiles__grid">${registry.contributors.map(profileHtml).join("")}</div>
     <p><a href="/methodology/">Read the source and review methodology</a></p>
   </section>`;
@@ -107,7 +115,7 @@ function schemaFor(registry: Registry, assignment: Assignment, family: string) {
   const url = canonicalUrl();
   const pageRef: Record<string, unknown> = {
     "@type": family === "about" ? "AboutPage" : "WebPage",
-    "@id": `${url}#webpage`,
+    "@id": `${url}#authorship-webpage`,
     url,
     isPartOf: { "@id": "https://www.wpbnewconstruction.com/#website" },
   };
@@ -115,6 +123,7 @@ function schemaFor(registry: Registry, assignment: Assignment, family: string) {
   const reviewer = contributorById(registry, assignment.reviewer);
   if (author) pageRef.author = { "@id": author.schemaId };
   if (reviewer) pageRef.reviewedBy = { "@id": reviewer.schemaId };
+  if (assignment.reviewedOn || assignment.updatedOn) pageRef.dateModified = assignment.reviewedOn || assignment.updatedOn;
 
   const graph: Record<string, unknown>[] = [pageRef];
   if (family === "about") {
