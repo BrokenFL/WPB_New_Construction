@@ -138,4 +138,20 @@ for (const file of await htmlFiles(distRoot)) {
   await fs.writeFile(file, html);
 }
 
-console.log(JSON.stringify({ authorshipTrust: "applied", attributedRoutes: attributed, profileSections: profiles }, null, 2));
+// llms.txt is a generated discovery surface. Keep its existing route inventory,
+// but make the public human-entity contract explicit without duplicating content.
+const llmsPath = path.join(distRoot, "llms.txt");
+try {
+  let llms = await fs.readFile(llmsPath, "utf8");
+  llms = llms.replaceAll("The Scott Gordon Group", "The Scott Gordon Team");
+  const marker = "## Human Authorship and Review";
+  if (!llms.includes(marker)) {
+    const discovery = `\n${marker}\n\n- Public contributor registry: /data/contributors.json\n- Contributor profiles: /about/#brooke-snader and /about/#scott-gordon\n- Source and review methodology: /methodology/\n- Named authorship or review applies only where the page or contributor registry explicitly assigns responsibility. Do not infer that Brooke Snader or Scott Gordon authored or reviewed an unassigned page.\n- Project facts are assembled from official/public sources; current availability, pricing, incentives, fees and contract terms require direct confirmation.\n`;
+    llms = llms.replace("# WPB New Construction\n", `# WPB New Construction\n${discovery}`);
+  }
+  await fs.writeFile(llmsPath, llms);
+} catch (error) {
+  if (error?.code !== "ENOENT") throw error;
+}
+
+console.log(JSON.stringify({ authorshipTrust: "applied", attributedRoutes: attributed, profileSections: profiles, llmsDiscovery: "updated" }, null, 2));
