@@ -1,6 +1,6 @@
 # Phase 2 delivery tracker — WPB New Construction
 
-Updated September 8, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
+Updated September 9, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
 Requirements: `docs/ASTRA_PHASE_2_GROWTH_HANDOFF.md` and Brooke's growth/release instructions.
 
 ## Current direction
@@ -9,9 +9,11 @@ Requirements: `docs/ASTRA_PHASE_2_GROWTH_HANDOFF.md` and Brooke's growth/release
 
 Final live acceptance workflow `34280040979` completed successfully after the hotfix. The PR #80 production verification and six-page live Olara regression audit were both successful. The final live audit used only intercepted QA submissions; no real lead was sent.
 
+**Batch 5 real-person authorship + trust is IMPLEMENTED / TESTED and remains DRAFT / NOT APPROVED / NOT DEPLOYED.** Exact final tested corrective SHA: `f8e6b8f3a7bdf7b8a0f0fc880d056af5351909d4`; complete keyed/no-key workflow `34309439506` passed both candidates and the aggregate review gate. PR #83 remains draft pending Brooke's presentation review.
+
 **PR #75 / GA4 Admin diagnosis remains PARKED — blocked / non-critical / revisit separately.** No GA4 configuration was changed and no actual GA4 transport or measured growth is claimed.
 
-Batch 3 / PR #79 remains a separate review-gated batch. Alba’s unpublished HTML state remains preserved. 3D map and Three.js floor-plan implementation remain outside this work.
+Alba’s unpublished HTML state remains preserved. 3D map and Three.js floor-plan implementation remain outside this work.
 
 ## Status contract
 
@@ -23,13 +25,13 @@ Planned = scoped. Implemented = code/content exists. Tested = exact revision and
 |---|---|---|---|---|
 | Rosewood + Maison d’Or project SEO / Batch 4 | **Implemented, tested, approved, deployed, live-verified; NOT measured** | `p2-project-seo-rosewood-maison-dor` / PR #80 + PR #81 hotfix | Tested app `b0f0f216`; implementation run `34266304318`; PR80 merge `9041493a`; final prod `cdf8240a`; final live `34280040979` SUCCESS | Real production lead delivery and outcome measurement remain separate |
 | Olara Residence D HTML/discovery | Implemented, tested, approved, deployed; not measured | Production main | Existing live markup, preview/PDF and regression evidence retained | Preserve |
-| Five additional Olara plans A/C/F/I/L | Implemented, tested; NOT approved/deployed/measured | `p2-olara-verified-plan-expansion` / draft #79 | Exact SHA `30191b911d90a5299d6abf7adbd91587bc2d6cf8`; run `34180784091` | Separate Brooke review before release |
+| Five additional Olara plans A/C/F/I/L | Implemented, tested, approved, deployed; not measured | PR #79 / production main | Existing six-page Olara regression remains green in later workflows | Preserve; Alba remains held |
 | Homepage / Buildings | Implemented, tested, approved, deployed; not measured | Production main | Commercial/inquiry regressions remain green | Preserve |
 | Downtown / South Flagler / Palm Beach corridors | Implemented, tested, approved, deployed, live-verified; not measured | PR #76 | Production `34152334484`; live `34153465427`; later regressions green | Preserve |
 | Corridor availability + pricing/floor-plan packet | Implemented, tested, approved, deployed | PR #76 | Intercepted live request/first-touch context retained by later regressions | Real fulfillment acceptance still separate |
 | North/South and Olara/Ritz/Shorecrest comparisons | Implemented, tested, approved, deployed, live-verified; not measured | PR #78 | Candidate `34177737077`; production `34178444416`; live `34178933079`; Batch4 live regressions pass | Preserve |
 | Compare my shortlist | Implemented, tested, approved, deployed | PR #78 | Existing live/intercepted shortlist regression coverage remains green | Real fulfillment remains manual |
-| Real-person authorship / trust layer — Batch 5 | **In progress, separate draft release gate** | New branch/draft PR from current production main | Audit and implementation follow Batch4 closeout | Verify every public professional fact; no invented identities |
+| Real-person authorship / trust layer — Batch 5 | **Implemented, tested; NOT approved/deployed/measured** | `p2-real-person-authorship-trust-layer` / draft PR #83 | Corrective test SHA `f8e6b8f3`; final green workflow `34309439506`; keyed + no-key + aggregate PASS; 48 authorship/schema/browser checks PASS | Brooke visual/presentation review before approval or deployment |
 | Alba Residence D HTML | Implemented source hold; blocked, unpublished | Preserved implementation | Existing source discrepancy; live exclusion retained | Do not publish without source clarification |
 | PR #75 / GA4 diagnosis | **PARKED** | Existing #75 untouched | Historical evidence only | Do not revisit in Batch5 |
 
@@ -73,13 +75,43 @@ All automated QA lead POSTs were intercepted. **No real lead was sent.** Product
 
 Full Batch 4 implementation/release ledger: `docs/P2_PROJECT_SEO_BATCH4_PROGRESS.md`.
 
+## Batch 5 authorship + trust review evidence
+
+PR #83 uses a deliberately narrow real-person responsibility model:
+
+- `https://www.wpbnewconstruction.com/about/#brooke-snader` — Brooke Snader stable Person `@id`.
+- `https://www.wpbnewconstruction.com/about/#scott-gordon` — Scott Gordon stable Person `@id`.
+- Brooke is visibly assigned as author on `/about/` and `/methodology/`.
+- Brooke is visibly assigned as reviewer on `/projects/rosewood-residences-west-palm-beach/` and `/projects/maison-dor/`.
+- Scott is present as a verified contributor profile but is **not** assigned as author/reviewer until responsibility is specifically confirmed.
+- Other project, corridor, answer, update and market-note pages do not inherit mechanical or invented attribution.
+
+Schema and heading contract:
+
+- Attributed pages retain one canonical `wpb-static-structured-data` JSON-LD script and one `@graph`; no standalone authorship graph is emitted.
+- Stable Person IDs are reused without page-specific aliases or duplicates.
+- Existing WebPage/project/Breadcrumb/Organization relationships remain present.
+- The project-heading correction preserves one active/visible H1 and one accessibility-tree H1. The compact duplicate project heading is not treated as a second active semantic H1.
+- The stale Batch 4 regression now validates the single active semantic H1 against the canonical project entity while retaining desktop/mobile, JS-on/off, CTA, inquiry, source and layout coverage.
+
+Historical evidence retained:
+
+- `34304036063` — implementation functionally green, final failure caused by workflow typo `qa:agent-skill` vs existing `qa:agent-skills`.
+- `34308247126` — workflow typo fixed; exposed stale Batch 4 exact-H1 selector in Existing buyer journeys.
+- Corrective regression commit `f8e6b8f3a7bdf7b8a0f0fc880d056af5351909d4` updated only the stale Batch 4 heading QA contract and documented the Batch 5 semantic reason.
+- `34309439506` — **FINAL GREEN**: keyed candidate SUCCESS, no-key candidate SUCCESS, aggregate Batch 5 review verification SUCCESS. Existing buyer journeys, Batch 4 regression, 48 Batch 5 browser/schema checks, complete repository suite, assets, SEO/GEO, Agent Skills, accessibility, gatekeeper, privacy/PII, keyed deployment preflight/actual Maps and expected no-key rejection all passed.
+
+Screenshots are retained in the keyed/no-key workflow artifacts under the Batch 5 authorship and Batch 4 project-SEO evidence directories. This is review evidence only; PR #83 remains draft and no production deployment has occurred.
+
+Remaining limitations: visible responsibility is intentionally sparse rather than retroactively assigned; Scott has no page-review assignment yet; production outcomes are unmeasured; real lead fulfillment and actual GA4 transport are outside this Batch 5 review.
+
 ## Other retained release evidence
 
 PR #78 remains approved/deployed/live-verified at merge/deployment `de5fd3d1581df372712d0f02ad54305d8f4f1b4b`; production workflow `34178444416` and live workflow `34178933079` succeeded. PR #76 remains approved/deployed/live-verified at merge/deployment `8128f7a5a24706a8fc743f156f2f1d0505f1b462`; production `34152334484` and live `34153465427` succeeded. Historical failure detail and artifact hashes remain in their dedicated progress/release documents and Git history.
 
 ## Measurement baseline
 
-No post-Batch4 growth claim is made. Existing finalized Search Console baselines remain historical context only; no retrospective GA4 data or manufactured uplift is inferred. Batch 4 is **not measured** until an appropriate observation window and authorized first-party evidence exist.
+No post-Batch4 or Batch5 growth claim is made. Existing finalized Search Console baselines remain historical context only; no retrospective GA4 data or manufactured uplift is inferred. Batch 4 and Batch 5 are **not measured** until an appropriate observation window and authorized first-party evidence exist.
 
 ## Complete remaining roadmap
 
@@ -87,14 +119,14 @@ Independent batches start from then-current production main, use verified source
 
 | Item | Status | Scope / evidence | Dependency | Next action |
 |---|---|---|---|---|
-| P2-001 / Batch 3 Olara plans | Implemented/tested; separate approval required | Five additional A/C/F/I/L pages in draft #79; D retained | Brooke review | No deployment before approval |
+| P2-001 / Batch 3 Olara plans | Implemented/tested/approved/deployed | A/C/D/F/I/L canonical Olara pages retained and regression-tested | None for published plans | Preserve; Alba remains held |
 | Additional project plans | Planned | Other projects only with clean current official sources | Defensible drawings/facts | Alba remains held |
 | P2-002 priority project SEO | **Rosewood + Maison d’Or complete through live verification**; remaining priority projects planned | Batch4 final prod `cdf8240a`; live `34280040979` | Official facts for later projects | Later project batches remain separate |
 | P2-003 further curated comparisons | North/South/trio deployed; others planned | Downtown/waterfront, preconstruction/completed | Comparable source depth | Avoid thin mass pairwise pages |
 | P2-004 contextual lead flows | Availability/packet/shortlist deployed; Batch4 live exact switching verified | Explicit request and first-touch ownership | Real fulfillment acceptance separate | Preserve PII/consent boundaries |
 | P2-005 Buyer Intelligence Report | Planned | Monthly project changes and verified buyer intelligence | Verified period/owner/fulfillment | Separate future batch |
 | P2-005 newsletter/preferences | Planned; no emails sent | Weekly/monthly/project subscriptions | Explicit opt-in/unsubscribe/provider | No unapproved automation |
-| P2-006 real authors/reviewers — Batch 5 | **Started separately from current production main** | Real-person profiles, compact bylines, review/update metadata, stable Person schema and About/Methodology connections | Verified public professional facts + genuine responsibility | Draft PR only; no deployment before Brooke review |
+| P2-006 real authors/reviewers — Batch 5 | **Implemented/tested; draft review pending** | PR #83; final tested corrective SHA `f8e6b8f3`; final green `34309439506`; real-person profiles, compact bylines/review labels, stable Person schema and About/Methodology connections | Brooke presentation review | Keep draft; no deployment before approval |
 | P2-007 buyer due diligence | Planned | Deposits/contracts/fees/parking/storage/pets/services/delays | Authoritative sources | General education only |
 | P2-008 lifestyle/feature guides | Planned | Marina/branded/wellness/private elevators/etc. | Verified project facts | Avoid invented policies/thin pages |
 | P2-009 linking/query ownership | Existing discovery/query ownership deployed and live-regressed | Market/browse/place/brand/layout/decision/process/news roles | Useful context | Preserve canonicals/equity |

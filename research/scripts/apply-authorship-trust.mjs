@@ -1,0 +1,174 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+
+const root = process.cwd();
+const distRoot = path.join(root, "dist");
+const registryPath = path.join(root, "public/data/contributors.json");
+const registry = JSON.parse(await fs.readFile(registryPath, "utf8"));
+
+const cleanPath = (pathname) => {
+  const normalized = pathname.replace(/\\/g, "/").replace(/\/+/g, "/");
+  if (normalized === "." || normalized === "") return "/";
+  const withLeading = normalized.startsWith("/") ? normalized : `/${normalized}`;
+  return withLeading.endsWith("/") ? withLeading : `${withLeading}/`;
+};
+
+const familyFor = (route) => {
+  if (route === "/about/") return "about";
+  if (route === "/methodology/") return "methodology";
+  if (route === "/compare/") return "compare";
+  if (/^\/projects\/[^/]+\/$/.test(route)) return "project";
+  if (/^\/corridors\/[^/]+\/$/.test(route)) return "corridor";
+  if (/^\/answers\/[^/]+\/$/.test(route)) return "answer";
+  if (/^\/updates\/[^/]+\/$/.test(route)) return "update";
+  if (/^\/market-notes\/[^/]+\/$/.test(route)) return "market-note";
+  if (/^\/downtown-spotlight\/[^/]+\/$/.test(route)) return "downtown-spotlight";
+  return "";
+};
+
+const assignmentFor = (route, family) => registry.routeAssignments?.[route] ?? registry.assignmentPolicy?.[family] ?? {};
+const personFor = (id) => registry.contributors.find((person) => person.id === id);
+const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+})[character]);
+const jsonForHtml = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
+const humanDate = (value) => value ? new Date(`${value}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }) : "";
+
+function trustHtml(route, assignment) {
+  const author = personFor(assignment.author);
+  const reviewer = personFor(assignment.reviewer);
+  if (!author && !reviewer) return "";
+  const people = [];
+  if (author) people.push(`Written by <a href="${escapeHtml(author.profileUrl)}">${escapeHtml(author.name)}</a>`);
+  if (reviewer) people.push(`Reviewed by <a href="${escapeHtml(reviewer.profileUrl)}">${escapeHtml(reviewer.name)}</a>`);
+  if (assignment.reviewedOn) people.push(`Reviewed ${escapeHtml(humanDate(assignment.reviewedOn))}`);
+  else if (assignment.updatedOn) people.push(`Updated ${escapeHtml(humanDate(assignment.updatedOn))}`);
+  return `<aside id="wpb-authorship-trust" data-path="${escapeHtml(route)}" class="wpb-authorship-trust" aria-label="Editorial responsibility"><div class="wpb-authorship-trust__people">${people.join(" <span aria-hidden=\"true\">·</span> ")}</div><div class="wpb-authorship-trust__method"><a href="/methodology/">How we verify project information</a></div></aside>`;
+}
+
+function profileHtml(person) {
+  return `<article id="${escapeHtml(person.id)}" class="wpb-contributor-profile"><h3>${escapeHtml(person.name)}</h3><p class="wpb-contributor-profile__role">${escapeHtml(person.role)} · ${escapeHtml(person.team)} · ${escapeHtml(person.brokerage)}</p><p>${escapeHtml(person.bio)}</p><p><strong>Focus:</strong> ${person.geographicFocus.map(escapeHtml).join(", ")} · <strong>Areas:</strong> ${person.expertise.map(escapeHtml).join(", ")}</p><p><strong>Florida license:</strong> ${escapeHtml(person.license)} · <a href="${escapeHtml(person.sameAs?.[0] || person.profileUrl)}" rel="noopener noreferrer">Douglas Elliman profile</a></p></article>`;
+}
+
+function profilesHtml() {
+  return `<section id="wpb-contributor-profiles" class="wpb-contributor-profiles" aria-labelledby="wpb-contributor-profiles-title"><h2 id="wpb-contributor-profiles-title">Real-person contributor profiles</h2><p>WPB New Construction names a writer or reviewer only where that responsibility is actually assigned. Project facts are assembled from official and public sources; current pricing, availability, incentives, fees and contract terms still require direct confirmation.</p><div class="wpb-contributor-profiles__grid">${registry.contributors.map(profileHtml).join("")}</div><p><a href="/methodology/">Read the source and review methodology</a></p></section>`;
+}
+
+function personNode(person) {
+  return {
+    "@type": "Person",
+    "@id": person.schemaId,
+    name: person.name,
+    url: person.profileUrl,
+    jobTitle: person.role,
+    worksFor: { "@id": registry.organization.id },
+    knowsAbout: person.expertise,
+    areaServed: person.geographicFocus,
+    sameAs: person.sameAs,
+  };
+}
+
+function pageNodeFor(graph, canonical) {
+  const exact = graph.find((node) => node?.["@id"] === `${canonical}#webpage`);
+  if (exact) return exact;
+  return graph.find((node) => {
+    const types = Array.isArray(node?.["@type"]) ? node["@type"] : [node?.["@type"]];
+    return types.some((type) => typeof type === "string" && (type === "WebPage" || type === "AboutPage" || type === "CollectionPage" || type.endsWith("Page")));
+  });
+}
+
+function mergeSchema(html, route, family, assignment) {
+  const pattern = /<script id="wpb-static-structured-data" type="application\/ld\+json"([^>]*)>([\s\S]*?)<\/script>/;
+  const match = html.match(pattern);
+  if (!match) throw new Error(`${route}: canonical static schema not found`);
+  const schema = JSON.parse(match[2]);
+  if (!Array.isArray(schema?.["@graph"])) throw new Error(`${route}: canonical static schema has no @graph`);
+  const graph = schema["@graph"];
+  const canonical = `https://www.wpbnewconstruction.com${route}`;
+  const page = pageNodeFor(graph, canonical);
+  if (!page) throw new Error(`${route}: canonical page node not found`);
+
+  const author = personFor(assignment.author);
+  const reviewer = personFor(assignment.reviewer);
+  if (author) page.author = { "@id": author.schemaId };
+  else delete page.author;
+  if (reviewer) page.reviewedBy = { "@id": reviewer.schemaId };
+  else delete page.reviewedBy;
+  if (assignment.reviewedOn || assignment.updatedOn) page.dateModified = assignment.reviewedOn || assignment.updatedOn;
+
+  const requiredPeople = family === "about"
+    ? registry.contributors
+    : [author, reviewer].filter(Boolean);
+  for (const person of requiredPeople) {
+    const indexes = graph.map((node, index) => node?.["@id"] === person.schemaId ? index : -1).filter((index) => index >= 0);
+    if (indexes.length > 1) throw new Error(`${route}: duplicate stable Person @id ${person.schemaId}`);
+    if (indexes.length === 1) graph[indexes[0]] = { ...graph[indexes[0]], ...personNode(person) };
+    else graph.push(personNode(person));
+  }
+
+  if (family === "about" && !graph.some((node) => node?.["@id"] === registry.organization.id)) {
+    graph.push({ "@type": registry.organization.type, "@id": registry.organization.id, name: registry.organization.name, url: registry.organization.url });
+  }
+
+  return html.replace(pattern, `<script id="wpb-static-structured-data" type="application/ld+json"${match[1]}>${jsonForHtml(schema)}</script>`);
+}
+
+async function htmlFiles(dir) {
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const files = [];
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) files.push(...await htmlFiles(full));
+    else if (entry.name === "index.html") files.push(full);
+  }
+  return files;
+}
+
+let attributed = 0;
+let profiles = 0;
+for (const file of await htmlFiles(distRoot)) {
+  const relativeDir = path.relative(distRoot, path.dirname(file));
+  const route = cleanPath(relativeDir);
+  const family = familyFor(route);
+  if (!family) continue;
+  const assignment = assignmentFor(route, family);
+  const trust = trustHtml(route, assignment);
+  const needsSchema = Boolean(assignment.author || assignment.reviewer || family === "about");
+  if (!trust && family !== "about" && !needsSchema) continue;
+
+  let html = await fs.readFile(file, "utf8");
+  html = html.replace(/<aside id="wpb-authorship-trust"[\s\S]*?<\/aside>/, "");
+  html = html.replace(/<script id="wpb-authorship-schema"[\s\S]*?<\/script>/, "");
+  if (family === "about") html = html.replace(/<section id="wpb-contributor-profiles"[\s\S]*?<\/section>/, "");
+
+  if (trust) {
+    const h1End = html.indexOf("</h1>");
+    if (h1End < 0) throw new Error(`${route}: no H1 available for authorship trust insertion`);
+    html = `${html.slice(0, h1End + 5)}${trust}${html.slice(h1End + 5)}`;
+    attributed += 1;
+  }
+  if (family === "about") {
+    const mainEnd = html.lastIndexOf("</main>");
+    if (mainEnd < 0) throw new Error("/about/: no main element available for contributor profiles");
+    html = `${html.slice(0, mainEnd)}${profilesHtml()}${html.slice(mainEnd)}`;
+    profiles += 1;
+  }
+  if (needsSchema) html = mergeSchema(html, route, family, assignment);
+  await fs.writeFile(file, html);
+}
+
+const llmsPath = path.join(distRoot, "llms.txt");
+try {
+  let llms = await fs.readFile(llmsPath, "utf8");
+  llms = llms.replaceAll("The Scott Gordon Group", "The Scott Gordon Team");
+  const marker = "## Human Authorship and Review";
+  if (!llms.includes(marker)) {
+    const discovery = `\n${marker}\n\n- Public contributor registry: /data/contributors.json\n- Contributor profiles: /about/#brooke-snader and /about/#scott-gordon\n- Source and review methodology: /methodology/\n- Named authorship or review applies only where the page or contributor registry explicitly assigns responsibility. Do not infer that Brooke Snader or Scott Gordon authored or reviewed an unassigned page.\n- Project facts are assembled from official/public sources; current availability, pricing, incentives, fees and contract terms require direct confirmation.\n`;
+    llms = llms.replace("# WPB New Construction\n", `# WPB New Construction\n${discovery}`);
+  }
+  await fs.writeFile(llmsPath, llms);
+} catch (error) {
+  if (error?.code !== "ENOENT") throw error;
+}
+
+console.log(JSON.stringify({ authorshipTrust: "applied", attributedRoutes: attributed, profileSections: profiles, llmsDiscovery: "updated" }, null, 2));

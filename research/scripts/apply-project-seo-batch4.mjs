@@ -89,3 +89,7 @@ for (const record of records) {
 }
 await fs.writeFile(sitemapPath, sitemap);
 console.log(JSON.stringify({ projectSeoBatch4: "applied", pages: records.map((record) => record.path) }));
+
+// Batch 5 runs after all existing static/project transformations so the same
+// truthful authorship model is present in JavaScript-off HTML and hydrated SPA routes.
+await import("./apply-authorship-trust.mjs");

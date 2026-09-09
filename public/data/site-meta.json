@@ -10,17 +10,12 @@
     "brokerageLicense": "CQ1020232"
   },
   "expertByline": {
-    "name": "The Scott Gordon Group",
+    "name": "The Scott Gordon Team",
     "title": "Palm Beach waterfront and new-construction advisory team",
     "role": "West Palm Beach new-construction advisory team",
-    "license": "BK3291335",
-    "group": "The Scott Gordon Group",
+    "group": "The Scott Gordon Team",
     "phone": "561-891-0186",
     "brokerage": "Douglas Elliman Florida, LLC d/b/a Douglas Elliman"
-  },
-  "reviewedBy": {
-    "name": "WPB New Construction Review Desk",
-    "role": "Project source review"
   },
   "defaultImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
 }

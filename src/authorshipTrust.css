@@ -1,0 +1,83 @@
+.wpb-authorship-trust {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  margin: 0.65rem auto 1.15rem;
+  padding: 0.65rem 0;
+  width: min(100% - 2rem, 1180px);
+  border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.wpb-authorship-trust a,
+.wpb-contributor-profiles a {
+  text-underline-offset: 0.15em;
+}
+
+.wpb-authorship-trust__people {
+  font-weight: 600;
+}
+
+.wpb-authorship-trust__method {
+  text-align: right;
+}
+
+.wpb-contributor-profiles {
+  width: min(100% - 2rem, 1180px);
+  margin: 2rem auto;
+}
+
+.wpb-contributor-profiles__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.wpb-contributor-profile {
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  border-radius: 0.75rem;
+}
+
+.wpb-contributor-profile h3 {
+  margin-top: 0;
+}
+
+.wpb-contributor-profile__role {
+  font-weight: 600;
+}
+
+/* The legacy project template rendered the compact identity label and hero as
+   simultaneous H1s. Runtime normalization keeps the hero as the document H1
+   while preserving the identity label's existing visual treatment. */
+.project-identity-copy .project-identity-title {
+  margin: 6px 0;
+  color: inherit;
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: clamp(1.9rem, 3.8vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+@media (max-width: 640px) {
+  .wpb-authorship-trust {
+    display: block;
+    margin-top: 0.4rem;
+    padding: 0.5rem 0;
+    font-size: 0.78rem;
+  }
+
+  .wpb-authorship-trust__method {
+    margin-top: 0.25rem;
+    text-align: left;
+  }
+
+  .wpb-contributor-profiles__grid {
+    grid-template-columns: 1fr;
+  }
+}

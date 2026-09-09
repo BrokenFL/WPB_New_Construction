@@ -14,6 +14,7 @@ const actions = {
   availability: "Request current availability",
   "pricing-packet": "Pricing + floor-plan packet",
 };
+const normalizeHeadingText = (value) => String(value ?? "").replace(/[‘’]/g, "'").replace(/\s+/g, " ").trim();
 
 async function htmlAt(record) {
   return fs.readFile(path.join(dist, record.path.slice(1), "index.html"), "utf8");
@@ -140,16 +141,39 @@ async function browserChecks() {
         for (const record of records) {
           await page.goto(`${origin}${record.path}`, { waitUntil: "networkidle" });
           await page.locator("#wpb-project-seo-batch4").waitFor();
-          const canonicalH1 = page.getByRole("heading", { level: 1, name: record.h1, exact: true });
-          assert.equal(await canonicalH1.count(), 1);
-          assert.equal(await canonicalH1.isVisible(), true);
+
+          // Batch 5 corrected project heading semantics by demoting the compact
+          // duplicate heading and keeping the canonical hero/project identity as
+          // the single H1. Validate the active semantic structure rather than the
+          // old Batch 4 heading-slot selector so this regression cannot reintroduce
+          // the duplicate-H1 architecture.
+          const activeMain = page.locator("main:visible");
+          assert.equal(await activeMain.count(), 1, `${record.path}: one active main`);
+          const activeH1 = activeMain.locator("h1:visible");
+          assert.equal(await activeH1.count(), 1, `${record.path}: one active visible H1`);
+          const accessibleH1 = page.getByRole("heading", { level: 1 });
+          assert.equal(await accessibleH1.count(), 1, `${record.path}: one accessibility-tree H1`);
+          assert.equal(await activeH1.isVisible(), true, `${record.path}: active H1 visible`);
+
+          const schemaScript = page.locator('#wpb-static-structured-data[type="application/ld+json"]');
+          assert.equal(await schemaScript.count(), 1, `${record.path}: canonical schema available for project identity`);
+          const schema = JSON.parse(await schemaScript.textContent());
+          const graph = schema["@graph"] ?? [];
+          const projectEntity = graph.find((node) => node["@id"] === `${record.canonical}#project`);
+          assert.ok(projectEntity?.name, `${record.path}: canonical project identity missing from schema`);
+          const expectedProjectIdentity = normalizeHeadingText(projectEntity.name);
+          const activeH1Text = normalizeHeadingText(await activeH1.innerText());
+          const accessibleH1Text = normalizeHeadingText(await accessibleH1.innerText());
+          assert.ok(activeH1Text.startsWith(expectedProjectIdentity), `${record.path}: H1 must preserve canonical project identity (${expectedProjectIdentity}); got ${activeH1Text}`);
+          assert.equal(accessibleH1Text, activeH1Text, `${record.path}: visible and accessibility-tree H1 must agree`);
+
           assert.equal(await page.locator('link[rel="canonical"]').getAttribute("href"), record.canonical);
           assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true, `${record.path}: overflow`);
           const pageActions = page.locator(".p2-project-guide__actions a");
           assert.equal(await pageActions.count(), 2);
           for (let index = 0; index < 2; index += 1) assert.ok((await pageActions.nth(index).boundingBox())?.height >= 44);
           await page.screenshot({ path: path.join(artifactDir, `${record.projectId}-${viewport.width}-${javaScriptEnabled ? "js" : "nojs"}.png`), fullPage: true });
-          results.push({ path: record.path, width: viewport.width, javaScriptEnabled, presentation: "pass" });
+          results.push({ path: record.path, width: viewport.width, javaScriptEnabled, presentation: "pass", activeH1: activeH1Text, projectIdentity: expectedProjectIdentity });
 
           if (!javaScriptEnabled) continue;
           await page.waitForFunction(() => typeof window.wpbSetAnalyticsConsent === "function");
