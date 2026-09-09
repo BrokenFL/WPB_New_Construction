@@ -1,0 +1,195 @@
+type Contributor = {
+  id: string;
+  schemaId: string;
+  name: string;
+  role: string;
+  license: string;
+  team: string;
+  brokerage: string;
+  geographicFocus: string[];
+  expertise: string[];
+  bio: string;
+  profileUrl: string;
+  sameAs: string[];
+};
+
+type Assignment = { author?: string; reviewer?: string };
+type Registry = {
+  methodologyUrl: string;
+  aboutUrl: string;
+  organization: { id: string; name: string; type: string; url: string };
+  contributors: Contributor[];
+  assignmentPolicy: Record<string, Assignment>;
+};
+
+const schemaScriptId = "wpb-authorship-schema";
+const trustId = "wpb-authorship-trust";
+const profilesId = "wpb-contributor-profiles";
+let registryPromise: Promise<Registry | null> | null = null;
+
+function cleanPath(pathname: string) {
+  const normalized = pathname.replace(/\/+/g, "/");
+  return normalized.endsWith("/") ? normalized : `${normalized}/`;
+}
+
+function routeFamily(pathname: string) {
+  const path = cleanPath(pathname);
+  if (path === "/about/") return "about";
+  if (path === "/methodology/") return "methodology";
+  if (path === "/compare/") return "compare";
+  if (/^\/projects\/[^/]+\/$/.test(path)) return "project";
+  if (/^\/corridors\/[^/]+\/$/.test(path)) return "corridor";
+  if (/^\/answers\/[^/]+\/$/.test(path)) return "answer";
+  if (/^\/updates\/[^/]+\/$/.test(path)) return "update";
+  if (/^\/market-notes\/[^/]+\/$/.test(path)) return "market-note";
+  if (/^\/downtown-spotlight\/[^/]+\/$/.test(path)) return "downtown-spotlight";
+  return "";
+}
+
+function escapeHtml(value: string) {
+  return value.replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  })[character] ?? character);
+}
+
+function contributorById(registry: Registry, id?: string) {
+  return id ? registry.contributors.find((item) => item.id === id) : undefined;
+}
+
+function canonicalUrl() {
+  const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href;
+  return canonical || `${location.origin}${cleanPath(location.pathname)}`;
+}
+
+function visibleTrustHtml(registry: Registry, assignment: Assignment) {
+  const author = contributorById(registry, assignment.author);
+  const reviewer = contributorById(registry, assignment.reviewer);
+  if (!author && !reviewer) return "";
+  const parts: string[] = [];
+  if (author) parts.push(`Written by <a href="${escapeHtml(author.profileUrl)}">${escapeHtml(author.name)}</a>`);
+  if (reviewer) parts.push(`Reviewed by <a href="${escapeHtml(reviewer.profileUrl)}">${escapeHtml(reviewer.name)}</a>`);
+  return `<aside id="${trustId}" class="wpb-authorship-trust" aria-label="Editorial responsibility">
+    <div class="wpb-authorship-trust__people">${parts.join(" <span aria-hidden=\"true\">·</span> ")}</div>
+    <div class="wpb-authorship-trust__method"><a href="/methodology/">How we verify project information</a></div>
+  </aside>`;
+}
+
+function profileHtml(contributor: Contributor) {
+  return `<article id="${escapeHtml(contributor.id)}" class="wpb-contributor-profile">
+    <h3>${escapeHtml(contributor.name)}</h3>
+    <p class="wpb-contributor-profile__role">${escapeHtml(contributor.role)} · ${escapeHtml(contributor.team)} · ${escapeHtml(contributor.brokerage)}</p>
+    <p>${escapeHtml(contributor.bio)}</p>
+    <p><strong>Focus:</strong> ${contributor.geographicFocus.map(escapeHtml).join(", ")} · <strong>Areas:</strong> ${contributor.expertise.map(escapeHtml).join(", ")}</p>
+    <p><strong>Florida license:</strong> ${escapeHtml(contributor.license)} · <a href="${escapeHtml(contributor.sameAs[0] || contributor.profileUrl)}" rel="noopener noreferrer">Douglas Elliman profile</a></p>
+  </article>`;
+}
+
+function profilesHtml(registry: Registry) {
+  return `<section id="${profilesId}" class="wpb-contributor-profiles" aria-labelledby="wpb-contributor-profiles-title">
+    <h2 id="wpb-contributor-profiles-title">People responsible for this guide</h2>
+    <p>WPB New Construction uses named real people only where editorial responsibility is assigned. Project facts are assembled from official and public sources; current pricing, availability, incentives, fees and contract terms still require direct confirmation.</p>
+    <div class="wpb-contributor-profiles__grid">${registry.contributors.map(profileHtml).join("")}</div>
+    <p><a href="/methodology/">Read the source and review methodology</a></p>
+  </section>`;
+}
+
+function schemaFor(registry: Registry, assignment: Assignment, family: string) {
+  const url = canonicalUrl();
+  const pageRef: Record<string, unknown> = {
+    "@type": family === "about" ? "AboutPage" : family === "methodology" ? "WebPage" : "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    isPartOf: { "@id": "https://www.wpbnewconstruction.com/#website" },
+  };
+  if (assignment.author) pageRef.author = { "@id": contributorById(registry, assignment.author)?.schemaId };
+  if (assignment.reviewer) pageRef.reviewedBy = { "@id": contributorById(registry, assignment.reviewer)?.schemaId };
+
+  const graph: Record<string, unknown>[] = [pageRef];
+  if (family === "about") {
+    for (const contributor of registry.contributors) {
+      graph.push({
+        "@type": "Person",
+        "@id": contributor.schemaId,
+        name: contributor.name,
+        url: contributor.profileUrl,
+        jobTitle: contributor.role,
+        worksFor: { "@id": registry.organization.id },
+        knowsAbout: contributor.expertise,
+        areaServed: contributor.geographicFocus,
+        sameAs: contributor.sameAs,
+      });
+    }
+    graph.push({
+      "@type": registry.organization.type,
+      "@id": registry.organization.id,
+      name: registry.organization.name,
+      url: registry.organization.url,
+    });
+  }
+  return { "@context": "https://schema.org", "@graph": graph };
+}
+
+async function loadRegistry(): Promise<Registry | null> {
+  if (!registryPromise) {
+    registryPromise = fetch("/data/contributors.json", { credentials: "same-origin" })
+      .then(async (response) => response.ok ? await response.json() as Registry : null)
+      .catch(() => null);
+  }
+  return registryPromise;
+}
+
+function mountForCurrentRoute(app: HTMLElement, registry: Registry) {
+  const family = routeFamily(location.pathname);
+  document.getElementById(trustId)?.remove();
+  if (!family) {
+    document.getElementById(schemaScriptId)?.remove();
+    return;
+  }
+  const assignment = registry.assignmentPolicy[family] || {};
+  const main = app.querySelector("main") ?? app;
+  const trustHtml = visibleTrustHtml(registry, assignment);
+  if (trustHtml) {
+    const h1 = main.querySelector("h1");
+    const insertionTarget = h1?.closest("section, header, article") ?? h1;
+    if (insertionTarget) insertionTarget.insertAdjacentHTML("afterend", trustHtml);
+    else main.insertAdjacentHTML("afterbegin", trustHtml);
+  }
+
+  if (family === "about" && !document.getElementById(profilesId)) {
+    main.insertAdjacentHTML("beforeend", profilesHtml(registry));
+  }
+
+  const existingSchema = document.getElementById(schemaScriptId);
+  existingSchema?.remove();
+  const script = document.createElement("script");
+  script.id = schemaScriptId;
+  script.type = "application/ld+json";
+  script.dataset.authorshipPath = cleanPath(location.pathname);
+  script.textContent = JSON.stringify(schemaFor(registry, assignment, family));
+  document.head.appendChild(script);
+}
+
+export async function installAuthorshipTrust(app: HTMLElement) {
+  const registry = await loadRegistry();
+  if (!registry) return;
+  let scheduled = false;
+  const refresh = () => {
+    if (scheduled) return;
+    scheduled = true;
+    queueMicrotask(() => {
+      scheduled = false;
+      const current = document.getElementById(trustId);
+      if (current?.dataset.path === cleanPath(location.pathname)) return;
+      mountForCurrentRoute(app, registry);
+      document.getElementById(trustId)?.setAttribute("data-path", cleanPath(location.pathname));
+    });
+  };
+  const observer = new MutationObserver(refresh);
+  observer.observe(app, { childList: true, subtree: true });
+  window.addEventListener("popstate", refresh);
+  refresh();
+}
