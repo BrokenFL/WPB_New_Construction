@@ -1,54 +1,71 @@
 # P2 Project SEO Batch 4 — Rosewood + Maison d’Or
 
-Updated September 8, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`. Draft PR: #80.
+Updated September 8, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
 
-## Release state
+## Final status
 
-**Implemented and fully tested; NOT approved, merged, deployed or measured.** Brooke review remains the release gate. PR #80 must remain draft until that review. This correction did not start another non-3D growth batch and did not change PR #75, analytics, Maps behavior, Alba’s unpublished state, or any 3D work.
+**IMPLEMENTED / TESTED / APPROVED / DEPLOYED / LIVE-VERIFIED — NOT MEASURED.**
 
-Batch 4 improves only the existing canonical Rosewood Residences West Palm Beach and Maison d’Or buyer-guide pages. Copy, source qualifications, schema/metadata, target-page-only CSS, H1 correction, inquiry attribution, and the previously corrected CSS static-file link validation are retained.
+Batch 4 improved the canonical Rosewood Residences West Palm Beach and Maison d’Or buyer guides, including buyer-facing status/source qualification, metadata/schema, internal discovery, request-intent handling and same-session inquiry switching. Brooke approved PR #80 for release after the exact tested implementation and documentation-head workflows were green.
 
-## Deterministic same-session request defect
+PR #75 remains **PARKED**. GA4 configuration was not revisited. Alba’s unpublished HTML state, 3D map work and Three.js floor-plan implementation were not modified by this release.
 
-Historical failed candidate [run 34264240516](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34264240516) at `d061b8883cf6a33deb79e0054c50f6be373e3263` is preserved. Both keyed and no-key modes reached the Batch 4 browser contract and failed the same deterministic transition: after a prior availability request, the next explicit pricing-packet URL carried `Pricing + floor-plan packet`, but the inquiry form and submitted payload retained `Request current availability`. Rosewood alias normalization and `source_page` were already correct.
+## Approved candidate and PR #80 release
 
-Root cause: the legacy route/query initializer recognizes the existing inquiry values (`availability`, `floorplans`, `compare`) but has no select option or mapping for Batch 4’s exact buyer-facing `Pricing + floor-plan packet` value. The shared inquiry bridge deliberately defers whenever an explicit query-driven request is present. Therefore, within one SPA session, a new Batch 4 query could inherit the previous auto-populated interest.
+- Exact tested application: `b0f0f216f73abb4d42466c6c0aeaeb50325f380f`.
+- Final green implementation workflow: `34266304318`.
+- Documentation-only PR head at approval: `16b206fae117e8b92710d3a1f22eed58bf92b6c1`.
+- Final green documentation-head workflow: `34267585008`.
+- PR #80 merge SHA: `9041493a48c573658872d79445c4f1e796643c8c`.
+- PR #80 normal production workflow: `34277677628`.
 
-The narrowest architecture-consistent correction is scoped to the existing Batch 4 enhancer, not the shared inquiry bridge or a new endpoint. Corrective implementation commit `e04b83908b789b075997ef02905668049134a7b1` adds an allowlisted Batch 4 inquiry-request resolver and a per-navigation request fingerprint. On a changed, explicit Batch 4 `/inquire/` query, it applies the canonical project and exact requested interest once, adds the packet option only when required, refreshes `source_page`, and clears only stale request-family presentation metadata. Repeated DOM mutations for the same fingerprint do not reset buyer edits. First-touch landing/referrer/campaign attribution remains owned by the existing attribution store and is not cleared or rewritten.
+The normal main-branch production workflow was allowed to deploy the approved release once. No duplicate manual deployment was initiated.
 
-An intermediate attempt to put this synchronization in the shared inquiry bridge was rejected by the workflow’s protected-surface guard. The bridge was restored byte-for-byte before the final candidate. This is retained as architecture evidence rather than recast as a passing candidate.
+## Live acceptance, canonical-link failure and PR #81
 
-## Regression coverage
+The first live acceptance audit correctly found one production defect: Maison d’Or linked to the unpublished `/projects/south-flagler-house-north/` route instead of the canonical published `/projects/south-flagler-house/` route. The failure was not waived.
 
-Focused coverage now verifies Batch 4 query ownership and real same-browser transitions without clearing session storage or creating a new context for every CTA. The browser contract verifies CTA alias, URL interest, canonical form project, exact form interest, canonical payload project, exact payload interest, explicit `source_page`, preserved first-touch `landing_page`, one intercepted submission per action, and no contact PII in analytics.
+A release-only hotfix was prepared as PR #81. It changed the Maison d’Or internal link to the canonical South Flagler House route and added focused regression coverage; it did not alter analytics, inquiry runtime, Alba, PR #75, Maps behavior or 3D work.
 
-Same-session coverage includes Rosewood availability → pricing packet, Rosewood pricing packet → availability, Maison d’Or availability → pricing packet, Maison d’Or pricing packet → availability, Rosewood ↔ Maison d’Or switching, an existing Olara request → Batch 4, and Batch 4 → an existing corridor request. Existing commercial, corridor, comparison, shortlist, floor-plan and inquiry regressions remain part of the complete candidate suite. The fingerprint applies each changed Batch 4 request once so later form changes remain buyer-controlled rather than being reset by a MutationObserver/render loop.
+- PR #81 hotfix validation workflow: `34278719639` — SUCCESS.
+- Final production SHA after PR #81: `cdf8240a8a5c6b1bf482f0e48ce9e496fd9b0ebe`.
+- PR #81 normal production workflow: `34278996546` — SUCCESS, including Cloudflare deployment.
+- Final live acceptance workflow: `34280040979` — SUCCESS.
 
-## Final green implementation candidate
+The final live acceptance passed the PR #80 production verification and the six-page live Olara regression audit, including desktop/mobile coverage and retained existing buyer journeys. Batch 4 is therefore live-verified.
 
-**Exact tested implementation SHA: `b0f0f216f73abb4d42466c6c0aeaeb50325f380f`.**
+## QA-harness-only corrections during live verification
 
-Final implementation [run 34266304318](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34266304318) is fully green:
+Two corrections made while completing production acceptance were limited to the verification harness and were **not application changes**:
 
-- Live six-page Olara audit: SUCCESS, job `102196476654`.
-- Keyed candidate: SUCCESS, job `102196476903`.
-- No-key candidate: SUCCESS, job `102196476943`.
-- Aggregate Batch 4 review gate: SUCCESS, job `102198970372`.
-- Both candidate modes passed production ancestry/protected-surface checks, typecheck, build, complete `npm test`, Batch 4 source/browser/inquiry contracts, standard and strict asset audits, SEO, gatekeeper, and all existing commercial/corridor/comparison/floor-plan/integration journeys.
-- Keyed mode passed deployment preflight and actual Google Maps verification.
-- No-key mode passed the expected production-deployment rejection.
-- Batch 4 desktop/mobile, JavaScript-on/off screenshots and inquiry evidence were generated and retained in the candidate artifacts.
+1. The intercepted production-safe inquiry test used a browser-only Turnstile stub so no real CAPTCHA/server delivery path was invoked.
+2. The harness dismissed/reset the successful lead modal between same-session test actions so the modal did not block the next CTA.
 
-Artifacts:
+Those harness changes did not weaken the application assertions or alter production application SHA `cdf8240a8a5c6b1bf482f0e48ce9e496fd9b0ebe`.
 
-- Keyed `10072221163`, SHA-256 `9d2e9a90c31bbbad836c883a38c39122c32ccceaac12d1a0cf2815deebf24b8b`.
-- No-key `10072232379`, SHA-256 `f9b6b63ebef670358fb1372ab3bde14594d34ecf3c9a2fc32fea86e94ed0580f`.
-- Live Olara `10072055929`, SHA-256 `42db7b4871d583595982f168f1c8fb5f131ffa8e719477af3e2a063ab9ca38b2`.
+## What live acceptance verified
 
-The earlier stylesheet/internal-link failure [run 34257823442](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34257823442) remains historical evidence. It is resolved and was not revisited during this correction.
+The live audit covered the Rosewood and Maison d’Or canonical routes, titles/descriptions/canonicals/H1 identity, structured data and sitemap dates, buyer summaries and status/source qualifications, project imagery and internal links, availability and pricing/floor-plan packet CTAs, Rosewood alias normalization, exact current interest at the form and intercepted payload, forward/reverse same-session request switching, Rosewood ↔ Maison switching, first-touch attribution preservation, responsive overflow, actual Maps behavior and existing Olara/corridor/comparison/commercial journeys.
 
-## Limitations
+All automated QA lead POSTs were intercepted. **No real lead was sent.**
 
-All lead submissions in candidate browser QA are intercepted; no real lead, email, CRM delivery or CAPTCHA production path is certified by this draft review. The live Olara audit validates the already deployed six-page Olara release, not deployment of Batch 4. PR #80 has not been deployed, so there is no production Batch 4 live verification or measured search/conversion outcome yet. Existing dependency findings, asset advisories and chunk-size warnings remain separate maintenance items rather than Batch 4 regressions.
+## Remaining limitations / not certified
 
-No merge or deployment is authorized by this record. Brooke’s final review is required.
+This release does **not** certify:
+
+- production Turnstile server-side verification;
+- actual inbox/email notification delivery;
+- database or CRM delivery;
+- duplicate behavior from a real production submission;
+- actual GA4 network transport;
+- measured search, lead or conversion growth.
+
+Those items require a separately controlled real-world acceptance/measurement step. Batch 4’s release status is therefore **live-verified but not measured**.
+
+## Separate visual backlog
+
+Non-blocking and intentionally not modified during release: evaluate moving/integrating the Batch 4 buyer-summary content below the visual hero or At-a-Glance section and reducing repeated facts, especially on mobile.
+
+## Historical implementation note
+
+Historical candidate failures remain valid evidence rather than being recast as passes. In particular, run `34264240516` exposed the deterministic same-session request-intent inheritance defect. The final Batch 4 enhancer resolved that behavior using explicit allowlisted request ownership while preserving first-touch attribution and buyer edits. Historical stylesheet/internal-link failures also remain in Git history. The final implementation candidate `b0f0f216...`, release merges and live workflow identities above are the authoritative closeout record.
