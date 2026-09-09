@@ -48,6 +48,18 @@ async function headingDiagnostics(page) {
   };
 }
 
+async function assertNoJsDocumentHeading(page, route, diagnostics = null) {
+  const headingState = diagnostics ?? await headingDiagnostics(page);
+  const main = page.locator("main");
+  assert.equal(await main.count(), 1, `${route}: one no-JavaScript main landmark`);
+  assert.equal(await main.locator("h1").count(), 1, `${route}: no-JavaScript main contains one H1`);
+  assert.ok((await main.locator("h1").innerText()).trim().length > 0, `${route}: no-JavaScript H1 has text`);
+  assert.equal(headingState.totalH1, 1, `${route}: no-JavaScript document contains one H1 total`);
+  assert.equal(headingState.visibleH1, 1, `${route}: no-JavaScript H1 is visible`);
+  assert.equal(headingState.accessibleH1, 1, `${route}: no-JavaScript H1 is exposed to assistive technology`);
+  return headingState;
+}
+
 async function assertActiveHeadingContract(page, route, javaScriptEnabled) {
   const diagnostics = await headingDiagnostics(page);
   assert.equal(diagnostics.visibleH1, 1, `${route}: one visible active H1`);
@@ -58,25 +70,12 @@ async function assertActiveHeadingContract(page, route, javaScriptEnabled) {
   assert.equal(await activeMain.locator("h1:visible").count(), 1, `${route}: active main owns one H1`);
   assert.ok((await activeMain.locator("h1:visible").innerText()).trim().length > 0, `${route}: active H1 has text`);
 
-  if (!javaScriptEnabled) {
-    const staticMain = page.locator("main.static-prerender");
-    assert.equal(await staticMain.count(), 1, `${route}: one canonical no-JavaScript prerender main`);
-    assert.equal(await staticMain.locator("h1").count(), 1, `${route}: canonical no-JavaScript prerender has one H1`);
-    assert.equal(diagnostics.totalH1, 1, `${route}: no-JavaScript document contains one H1 total`);
-  }
+  if (!javaScriptEnabled) await assertNoJsDocumentHeading(page, route, diagnostics);
   return diagnostics;
 }
 
 async function assertCanonicalNoJsHeading(page, route) {
-  const diagnostics = await headingDiagnostics(page);
-  const staticMain = page.locator("main.static-prerender");
-  assert.equal(await staticMain.count(), 1, `${route}: one canonical no-JavaScript prerender main`);
-  assert.equal(await staticMain.locator("h1").count(), 1, `${route}: canonical no-JavaScript prerender has one H1`);
-  assert.ok((await staticMain.locator("h1").innerText()).trim().length > 0, `${route}: canonical no-JavaScript H1 has text`);
-  assert.equal(diagnostics.totalH1, 1, `${route}: no-JavaScript document contains one H1 total`);
-  assert.equal(diagnostics.visibleH1, 1, `${route}: no-JavaScript H1 is visible`);
-  assert.equal(diagnostics.accessibleH1, 1, `${route}: no-JavaScript H1 is exposed to assistive technology`);
-  return diagnostics;
+  return await assertNoJsDocumentHeading(page, route);
 }
 
 let browser;
