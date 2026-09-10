@@ -17,18 +17,37 @@ function isRendered(element: HTMLElement) {
 function normalizeActiveProjectHeading(app: HTMLElement) {
   const main = Array.from(app.querySelectorAll<HTMLElement>("main")).find(isRendered);
   if (!main) return;
-  const identityHeading = main.querySelector<HTMLHeadingElement>(".project-identity-copy > h1");
-  const heroHeading = main.querySelector<HTMLHeadingElement>('[data-project-section="hero"] h1');
+  const activeProjectView = Array.from(main.querySelectorAll<HTMLElement>('[data-route-view="project"]')).find((view) => {
+    if (!isRendered(view)) return false;
+    const identity = view.querySelector<HTMLElement>(".project-identity-copy");
+    const hero = view.querySelector<HTMLElement>('[data-project-section="hero"]');
+    return Boolean(identity && hero && isRendered(identity) && isRendered(hero));
+  });
+  if (!activeProjectView) return;
+  const identityHeading = Array.from(activeProjectView.querySelectorAll<HTMLHeadingElement>(".project-identity-copy > h1")).find(isRendered);
+  const heroHeading = Array.from(activeProjectView.querySelectorAll<HTMLHeadingElement>('[data-project-section="hero"] h1')).find(isRendered);
   if (!identityHeading || !heroHeading || identityHeading === heroHeading) return;
-
   const identityTitle = document.createElement("p");
   identityTitle.className = "project-identity-title";
   identityTitle.textContent = identityHeading.textContent;
   identityHeading.replaceWith(identityTitle);
 }
 
+async function installConcierge() {
+  try {
+    const { installBuyerConciergeLauncher } = await import("./conciergeLauncher.ts");
+    installBuyerConciergeLauncher();
+  } catch (error) {
+    console.warn("Ask WPB concierge enhancement was not loaded", error);
+  }
+}
+
 async function start() {
   installSocialPreviewNormalization();
+  // The launcher is optional but should become available independently of the
+  // heavier legacy enhancement chain. The panel body remains interaction-lazy.
+  void installConcierge();
+
   const comparison = comparisonForPath(location.pathname);
   if (comparison) {
     const { mountComparison } = await import('./comparisonPage.ts');
@@ -41,13 +60,13 @@ async function start() {
     mountFloorplanPage(plan);
     return;
   }
-  // Keep the existing application/router unchanged for every existing route.
   await import("./main.ts");
   const app = document.getElementById("app");
   if (!app) return;
   normalizeActiveProjectHeading(app);
   const { track } = await import("./lib/analytics.ts");
   const syncFloorplanInquiry = wireInquiryContext(app);
+  const { enhanceRequestForms } = await import("./requestPresentation.ts");
   const { installCommercialGrowth } = await import("./commercialGrowth.ts");
   installCommercialGrowth();
   const { installCorridorGrowth } = await import("./corridorGrowth.ts");
@@ -59,8 +78,6 @@ async function start() {
   const { installAuthorshipTrust } = await import('./authorshipTrust.ts');
   await installAuthorshipTrust(app);
 
-  // Entity routes are full document navigations, outside the legacy router.
-  // Preserve native middle/modified clicks and no-JavaScript crawlable anchors.
   window.addEventListener("click", (event) => {
     const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[data-floorplan-entity-link]") : null;
     if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -73,6 +90,7 @@ async function start() {
   const refresh = () => {
     normalizeActiveProjectHeading(app);
     syncFloorplanInquiry();
+    enhanceRequestForms(app);
     const path = cleanFloorplanPath(window.location.pathname);
     const old = app.querySelector<HTMLElement>("#wpb-floorplan-guides");
     const html = renderFloorplanDiscovery(path);
@@ -93,15 +111,39 @@ async function start() {
     old?.remove();
     (app.querySelector("main") ?? app).insertAdjacentHTML("beforeend", html);
   };
-  // The legacy application replaces its DOM on navigation. This small,
-  // idempotent enhancement also survives library filters and project rerenders.
-  const observer = new MutationObserver(refresh);
-  observer.observe(app, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
-  window.addEventListener("popstate", refresh);
+
+  const observerOptions: MutationObserverInit = {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["hidden"],
+  };
+  const observer = new MutationObserver((mutations) => {
+    // Google Maps owns and continuously mutates the DOM below its canvas. Those
+    // internal mutations are not app content changes and must not retrigger the
+    // site-wide enhancement pass.
+    const onlyMapInternals = mutations.length > 0 && mutations.every((mutation) =>
+      mutation.target instanceof Element && Boolean(mutation.target.closest("[data-hero-google-map]")),
+    );
+    if (onlyMapInternals) return;
+
+    // refresh() itself can normalize or inject DOM. Disconnect while it runs so
+    // those idempotent enhancement writes cannot recursively schedule refresh.
+    observer.disconnect();
+    try {
+      refresh();
+    } finally {
+      observer.observe(app, observerOptions);
+    }
+  });
+
+  // Complete the initial enhancement pass before subscribing to mutations. This
+  // prevents initial normalization from seeding an observer-feedback loop.
   refresh();
+  observer.observe(app, observerOptions);
+  window.addEventListener("popstate", refresh);
 }
 
 start().catch((error: unknown) => {
   console.error("Unable to initialize the page", error);
-  // Preserve the useful server-rendered page when optional enhancement fails.
 });

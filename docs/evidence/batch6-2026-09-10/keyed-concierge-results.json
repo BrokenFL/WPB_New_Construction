@@ -1,0 +1,2786 @@
+{
+  "conciergeBody": "buyerConcierge-8CiVlZBo.js",
+  "mainBundle": "main-xEY1LCLg.js",
+  "results": [
+    {
+      "route": "/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 108,
+      "launchMs": 329,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/buildings/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 41,
+      "launchMs": 285,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/map/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 42,
+      "launchMs": 242,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/floorplans/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 43,
+      "launchMs": 360,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/projects/olara/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 47,
+      "launchMs": 316,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/projects/rosewood-residences-west-palm-beach/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 41,
+      "launchMs": 290,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/projects/maison-dor/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 66,
+      "launchMs": 412,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 43,
+      "launchMs": 59,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": false
+    },
+    {
+      "route": "/corridors/south-flagler/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 66,
+      "launchMs": 261,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/inquire/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 51,
+      "launchMs": 228,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "width": 1440,
+      "status": "pass",
+      "openMs": 39,
+      "launchMs": 51,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": false
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 40,
+      "launchMs": 268,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/buildings/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 38,
+      "launchMs": 290,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/map/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 45,
+      "launchMs": 268,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/floorplans/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 43,
+      "launchMs": 387,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/projects/olara/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 58,
+      "launchMs": 259,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/projects/rosewood-residences-west-palm-beach/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 39,
+      "launchMs": 348,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/projects/maison-dor/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 52,
+      "launchMs": 311,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 41,
+      "launchMs": 65,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": false
+    },
+    {
+      "route": "/corridors/south-flagler/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 42,
+      "launchMs": 234,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/inquire/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 41,
+      "launchMs": 272,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": true
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "width": 390,
+      "status": "pass",
+      "openMs": 46,
+      "launchMs": 45,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mainRequested": false
+    }
+  ],
+  "formContracts": [
+    {
+      "route": "/projects/olara/",
+      "presentation": {
+        "textContent": "Request current availability",
+        "innerText": "REQUEST CURRENT AVAILABILITY",
+        "value": "",
+        "textTransform": "uppercase"
+      },
+      "accessibleName": "- button \"Request current availability\"",
+      "submitted": {
+        "interest": "Request current availability",
+        "request_intent": "availability"
+      },
+      "normalized": {
+        "interest": "Request current availability",
+        "request_intent": "availability",
+        "project_id": "olara"
+      }
+    },
+    {
+      "route": "/projects/maison-dor/",
+      "presentation": {
+        "textContent": "Request current availability",
+        "innerText": "REQUEST CURRENT AVAILABILITY",
+        "value": "",
+        "textTransform": "uppercase"
+      },
+      "accessibleName": "- button \"Request current availability\"",
+      "submitted": {
+        "interest": "Request current availability",
+        "request_intent": "availability"
+      },
+      "normalized": {
+        "interest": "Request current availability",
+        "request_intent": "availability",
+        "project_id": "maison-dor"
+      }
+    }
+  ],
+  "lifecycle": [
+    {
+      "label": "/:1440:page.close",
+      "result": "closed",
+      "ms": 14
+    },
+    {
+      "label": "/:1440:context.close",
+      "result": "closed",
+      "ms": 9
+    },
+    {
+      "label": "/buildings/:1440:page.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "/buildings/:1440:context.close",
+      "result": "closed",
+      "ms": 3
+    },
+    {
+      "label": "/map/:1440:page.close",
+      "result": "closed",
+      "ms": 18
+    },
+    {
+      "label": "/map/:1440:context.close",
+      "result": "closed",
+      "ms": 5
+    },
+    {
+      "label": "/floorplans/:1440:page.close",
+      "result": "closed",
+      "ms": 10
+    },
+    {
+      "label": "/floorplans/:1440:context.close",
+      "result": "closed",
+      "ms": 2
+    },
+    {
+      "label": "/projects/olara/:1440:page.close",
+      "result": "closed",
+      "ms": 3
+    },
+    {
+      "label": "/projects/olara/:1440:context.close",
+      "result": "closed",
+      "ms": 5
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440:page.close",
+      "result": "closed",
+      "ms": 12
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440:context.close",
+      "result": "closed",
+      "ms": 11
+    },
+    {
+      "label": "/projects/maison-dor/:1440:page.close",
+      "result": "closed",
+      "ms": 7
+    },
+    {
+      "label": "/projects/maison-dor/:1440:context.close",
+      "result": "closed",
+      "ms": 4
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440:page.close",
+      "result": "closed",
+      "ms": 1
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440:context.close",
+      "result": "closed",
+      "ms": 4
+    },
+    {
+      "label": "/corridors/south-flagler/:1440:page.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "/corridors/south-flagler/:1440:context.close",
+      "result": "closed",
+      "ms": 4
+    },
+    {
+      "label": "/inquire/:1440:page.close",
+      "result": "closed",
+      "ms": 31
+    },
+    {
+      "label": "/inquire/:1440:context.close",
+      "result": "closed",
+      "ms": 2
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440:page.close",
+      "result": "closed",
+      "ms": 1
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440:context.close",
+      "result": "closed",
+      "ms": 5
+    },
+    {
+      "label": "/:390:page.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "/:390:context.close",
+      "result": "closed",
+      "ms": 2
+    },
+    {
+      "label": "/buildings/:390:page.close",
+      "result": "closed",
+      "ms": 5
+    },
+    {
+      "label": "/buildings/:390:context.close",
+      "result": "closed",
+      "ms": 3
+    },
+    {
+      "label": "/map/:390:page.close",
+      "result": "closed",
+      "ms": 8
+    },
+    {
+      "label": "/map/:390:context.close",
+      "result": "closed",
+      "ms": 3
+    },
+    {
+      "label": "/floorplans/:390:page.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "/floorplans/:390:context.close",
+      "result": "closed",
+      "ms": 3
+    },
+    {
+      "label": "/projects/olara/:390:page.close",
+      "result": "closed",
+      "ms": 5
+    },
+    {
+      "label": "/projects/olara/:390:context.close",
+      "result": "closed",
+      "ms": 2
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390:page.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390:context.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "/projects/maison-dor/:390:page.close",
+      "result": "closed",
+      "ms": 9
+    },
+    {
+      "label": "/projects/maison-dor/:390:context.close",
+      "result": "closed",
+      "ms": 4
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390:page.close",
+      "result": "closed",
+      "ms": 1
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390:context.close",
+      "result": "closed",
+      "ms": 4
+    },
+    {
+      "label": "/corridors/south-flagler/:390:page.close",
+      "result": "closed",
+      "ms": 15
+    },
+    {
+      "label": "/corridors/south-flagler/:390:context.close",
+      "result": "closed",
+      "ms": 2
+    },
+    {
+      "label": "/inquire/:390:page.close",
+      "result": "closed",
+      "ms": 7
+    },
+    {
+      "label": "/inquire/:390:context.close",
+      "result": "closed",
+      "ms": 3
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390:page.close",
+      "result": "closed",
+      "ms": 2
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390:context.close",
+      "result": "closed",
+      "ms": 2
+    },
+    {
+      "label": "form:/projects/olara/:page.close",
+      "result": "closed",
+      "ms": 3
+    },
+    {
+      "label": "form:/projects/olara/:context.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "form:/projects/maison-dor/:page.close",
+      "result": "closed",
+      "ms": 7
+    },
+    {
+      "label": "form:/projects/maison-dor/:context.close",
+      "result": "closed",
+      "ms": 3
+    },
+    {
+      "label": "intent:availability:page.close",
+      "result": "closed",
+      "ms": 9
+    },
+    {
+      "label": "intent:availability:context.close",
+      "result": "closed",
+      "ms": 4
+    },
+    {
+      "label": "intent:pricing_packet:page.close",
+      "result": "closed",
+      "ms": 7
+    },
+    {
+      "label": "intent:pricing_packet:context.close",
+      "result": "closed",
+      "ms": 11
+    },
+    {
+      "label": "intent:compare_shortlist:page.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "intent:compare_shortlist:context.close",
+      "result": "closed",
+      "ms": 3
+    },
+    {
+      "label": "intent:project_question:page.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "intent:project_question:context.close",
+      "result": "closed",
+      "ms": 9
+    },
+    {
+      "label": "intent:conversation_tour:page.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "intent:conversation_tour:context.close",
+      "result": "closed",
+      "ms": 5
+    },
+    {
+      "label": "navigation:page.close",
+      "result": "closed",
+      "ms": 6
+    },
+    {
+      "label": "navigation:context.close",
+      "result": "closed",
+      "ms": 4
+    },
+    {
+      "label": "js-off:/answers/olara-vs-ritz-carlton-vs-shorecrest/:page.close",
+      "result": "closed",
+      "ms": 1
+    },
+    {
+      "label": "js-off:/answers/olara-vs-ritz-carlton-vs-shorecrest/:context.close",
+      "result": "closed",
+      "ms": 4
+    },
+    {
+      "label": "js-off:/floorplans/olara/residence-d/:page.close",
+      "result": "closed",
+      "ms": 2
+    },
+    {
+      "label": "js-off:/floorplans/olara/residence-d/:context.close",
+      "result": "closed",
+      "ms": 3
+    },
+    {
+      "label": "browser.close",
+      "result": "closed",
+      "ms": 27
+    }
+  ],
+  "stageTimings": [
+    {
+      "label": "/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 81
+    },
+    {
+      "label": "/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 2
+    },
+    {
+      "label": "/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 34
+    },
+    {
+      "label": "/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 108
+    },
+    {
+      "label": "/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 47
+    },
+    {
+      "label": "/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 478
+    },
+    {
+      "label": "/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 78
+    },
+    {
+      "label": "/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 185
+    },
+    {
+      "label": "/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 111
+    },
+    {
+      "label": "/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 33
+    },
+    {
+      "label": "/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 101
+    },
+    {
+      "label": "/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 10
+    },
+    {
+      "label": "/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 11
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 61
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 27
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 41
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 456
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 87
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 81
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 120
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 119
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 46
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 85
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 14
+    },
+    {
+      "label": "/buildings/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 26
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 59
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 31
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 42
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 432
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 95
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 83
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 101
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 106
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 35
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 89
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 19
+    },
+    {
+      "label": "/map/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 37
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 59
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 34
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 43
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 412
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 197
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 141
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 181
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 141
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 38
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 95
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 16
+    },
+    {
+      "label": "/floorplans/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 25
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 56
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 31
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 47
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 447
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 289
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 87
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 226
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 52
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 38
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 136
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 8
+    },
+    {
+      "label": "/projects/olara/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 2
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 52
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 30
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 41
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 420
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 85
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 66
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 102
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 146
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 41
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 131
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 11
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 20
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 75
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 38
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 66
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 367
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 168
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 116
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 175
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 203
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 34
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 155
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 10
+    },
+    {
+      "label": "/projects/maison-dor/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 16
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 52
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 29
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 43
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 46
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 19
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 3
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 28
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 27
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 4
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 8
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 2
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 3
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 49
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 28
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 66
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 380
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 83
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 89
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 163
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 64
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 34
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 80
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 10
+    },
+    {
+      "label": "/corridors/south-flagler/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 19
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 60
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 33
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 51
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 51
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 409
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 90
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "assert.inquire-position",
+      "result": "pass",
+      "ms": 22
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 113
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 66
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 49
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 133
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 16
+    },
+    {
+      "label": "/inquire/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 5
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 61
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 28
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 39
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 46
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 22
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 4
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 24
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 25
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 2
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 7
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 2
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:1440",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 45
+    },
+    {
+      "label": "/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 29
+    },
+    {
+      "label": "/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 40
+    },
+    {
+      "label": "/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 413
+    },
+    {
+      "label": "/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 100
+    },
+    {
+      "label": "/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 66
+    },
+    {
+      "label": "/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 29
+    },
+    {
+      "label": "/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 119
+    },
+    {
+      "label": "/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 111
+    },
+    {
+      "label": "/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 38
+    },
+    {
+      "label": "/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 102
+    },
+    {
+      "label": "/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 9
+    },
+    {
+      "label": "/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 15
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 57
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 31
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 38
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 406
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 88
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 60
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 49
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 106
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 146
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 38
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 114
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 22
+    },
+    {
+      "label": "/buildings/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 11
+    },
+    {
+      "label": "/map/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 55
+    },
+    {
+      "label": "/map/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/map/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 29
+    },
+    {
+      "label": "/map/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 45
+    },
+    {
+      "label": "/map/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 32
+    },
+    {
+      "label": "/map/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 435
+    },
+    {
+      "label": "/map/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 88
+    },
+    {
+      "label": "/map/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 30
+    },
+    {
+      "label": "/map/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 114
+    },
+    {
+      "label": "/map/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 109
+    },
+    {
+      "label": "/map/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 45
+    },
+    {
+      "label": "/map/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 75
+    },
+    {
+      "label": "/map/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 12
+    },
+    {
+      "label": "/map/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 34
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 56
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 36
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 43
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 395
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 148
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 159
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 30
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 196
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 139
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 52
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 81
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 9
+    },
+    {
+      "label": "/floorplans/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 12
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 55
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 29
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 58
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 35
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 441
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 145
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 44
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 137
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 63
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 59
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 133
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 14
+    },
+    {
+      "label": "/projects/olara/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 13
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 54
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 28
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 39
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 386
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 100
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 67
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 27
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 131
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 167
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 50
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 106
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 10
+    },
+    {
+      "label": "/projects/rosewood-residences-west-palm-beach/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 13
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 51
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 27
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 52
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 377
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 172
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 82
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 36
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 100
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 130
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 80
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 125
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 13
+    },
+    {
+      "label": "/projects/maison-dor/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 51
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 52
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 29
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 41
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 36
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 21
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 3
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 37
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 25
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 3
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 7
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 3
+    },
+    {
+      "label": "/answers/olara-vs-ritz-carlton-vs-shorecrest/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 45
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 28
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 42
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 391
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 95
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 89
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 26
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 122
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 69
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 43
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 75
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 11
+    },
+    {
+      "label": "/corridors/south-flagler/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 40
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 60
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 29
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 41
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 346
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 81
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 84
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 27
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "assert.inquire-position",
+      "result": "pass",
+      "ms": 27
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 89
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 127
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 56
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 118
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 13
+    },
+    {
+      "label": "/inquire/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 27
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 55
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 30
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 46
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 34
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "launcher.exists",
+      "result": "pass",
+      "ms": 19
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 3
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "assert.mobile-ownership",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 17
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 26
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 2
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "assert.dialog-content",
+      "result": "pass",
+      "ms": 10
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "escape",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "/floorplans/olara/residence-d/:390",
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "form:/projects/olara/",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 50
+    },
+    {
+      "label": "form:/projects/olara/",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "form:/projects/olara/",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 28
+    },
+    {
+      "label": "form:/projects/olara/",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 45
+    },
+    {
+      "label": "form:/projects/olara/",
+      "stage": "form.intent-ready",
+      "result": "pass",
+      "ms": 1310
+    },
+    {
+      "label": "form:/projects/maison-dor/",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 62
+    },
+    {
+      "label": "form:/projects/maison-dor/",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "form:/projects/maison-dor/",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 41
+    },
+    {
+      "label": "form:/projects/maison-dor/",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 42
+    },
+    {
+      "label": "form:/projects/maison-dor/",
+      "stage": "form.intent-ready",
+      "result": "pass",
+      "ms": 1026
+    },
+    {
+      "label": "intent:availability",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 77
+    },
+    {
+      "label": "intent:availability",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "intent:availability",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 38
+    },
+    {
+      "label": "intent:availability",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 44
+    },
+    {
+      "label": "intent:availability",
+      "stage": "form.intent-ready",
+      "result": "pass",
+      "ms": 710
+    },
+    {
+      "label": "intent:pricing_packet",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 79
+    },
+    {
+      "label": "intent:pricing_packet",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "intent:pricing_packet",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 35
+    },
+    {
+      "label": "intent:pricing_packet",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 44
+    },
+    {
+      "label": "intent:pricing_packet",
+      "stage": "form.intent-ready",
+      "result": "pass",
+      "ms": 619
+    },
+    {
+      "label": "intent:compare_shortlist",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 75
+    },
+    {
+      "label": "intent:compare_shortlist",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "intent:compare_shortlist",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 35
+    },
+    {
+      "label": "intent:compare_shortlist",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 46
+    },
+    {
+      "label": "intent:compare_shortlist",
+      "stage": "form.intent-ready",
+      "result": "pass",
+      "ms": 764
+    },
+    {
+      "label": "intent:project_question",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 77
+    },
+    {
+      "label": "intent:project_question",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "intent:project_question",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 36
+    },
+    {
+      "label": "intent:project_question",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 58
+    },
+    {
+      "label": "intent:project_question",
+      "stage": "form.intent-ready",
+      "result": "pass",
+      "ms": 646
+    },
+    {
+      "label": "intent:conversation_tour",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 78
+    },
+    {
+      "label": "intent:conversation_tour",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "intent:conversation_tour",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 42
+    },
+    {
+      "label": "intent:conversation_tour",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 52
+    },
+    {
+      "label": "intent:conversation_tour",
+      "stage": "form.intent-ready",
+      "result": "pass",
+      "ms": 746
+    },
+    {
+      "label": "navigation",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 79
+    },
+    {
+      "label": "navigation",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 1
+    },
+    {
+      "label": "navigation",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 33
+    },
+    {
+      "label": "navigation:olara",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 84
+    },
+    {
+      "label": "navigation:olara",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 400
+    },
+    {
+      "label": "navigation:floorplans",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 160
+    },
+    {
+      "label": "navigation",
+      "stage": "goBack",
+      "result": "pass",
+      "ms": 62
+    },
+    {
+      "label": "navigation:back",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 421
+    },
+    {
+      "label": "navigation",
+      "stage": "goForward",
+      "result": "pass",
+      "ms": 164
+    },
+    {
+      "label": "navigation:forward",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 32
+    },
+    {
+      "label": "navigation",
+      "stage": "reload",
+      "result": "pass",
+      "ms": 33
+    },
+    {
+      "label": "navigation:reload",
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 26
+    },
+    {
+      "label": "js-off:/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 53
+    },
+    {
+      "label": "js-off:/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "js-off:/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 29
+    },
+    {
+      "label": "js-off:/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 15
+    },
+    {
+      "label": "js-off:/floorplans/olara/residence-d/",
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 48
+    },
+    {
+      "label": "js-off:/floorplans/olara/residence-d/",
+      "stage": "context.route-install",
+      "result": "pass",
+      "ms": 0
+    },
+    {
+      "label": "js-off:/floorplans/olara/residence-d/",
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 30
+    },
+    {
+      "label": "js-off:/floorplans/olara/residence-d/",
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 15
+    }
+  ],
+  "requestExamples": [
+    {
+      "id": "availability",
+      "submitted": {
+        "request_intent": "availability",
+        "interest": "Request current availability",
+        "project": "olara"
+      },
+      "normalized": {
+        "request_intent": "availability",
+        "interest": "Request current availability",
+        "project_id": "olara"
+      }
+    },
+    {
+      "id": "pricing_packet",
+      "submitted": {
+        "request_intent": "pricing_packet",
+        "interest": "Get pricing + floor-plan packet",
+        "project": "olara"
+      },
+      "normalized": {
+        "request_intent": "pricing_packet",
+        "interest": "Get pricing + floor-plan packet",
+        "project_id": "olara"
+      }
+    },
+    {
+      "id": "compare_shortlist",
+      "submitted": {
+        "request_intent": "compare_shortlist",
+        "interest": "Compare my shortlist",
+        "project": "olara"
+      },
+      "normalized": {
+        "request_intent": "compare_shortlist",
+        "interest": "Compare my shortlist",
+        "project_id": "olara"
+      }
+    },
+    {
+      "id": "project_question",
+      "submitted": {
+        "request_intent": "project_question",
+        "interest": "Ask about this project / plan",
+        "project": "olara"
+      },
+      "normalized": {
+        "request_intent": "project_question",
+        "interest": "Ask about this project / plan",
+        "project_id": "olara"
+      }
+    },
+    {
+      "id": "conversation_tour",
+      "submitted": {
+        "request_intent": "conversation_tour",
+        "interest": "Schedule a conversation or tour",
+        "project": "olara"
+      },
+      "normalized": {
+        "request_intent": "conversation_tour",
+        "interest": "Schedule a conversation or tour",
+        "project_id": "olara"
+      }
+    }
+  ]
+}

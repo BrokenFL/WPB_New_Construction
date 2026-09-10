@@ -7,6 +7,7 @@ import http from 'node:http';
 import { chromium } from 'playwright';
 import { publishedFloorplanEntities } from '../../src/lib/floorplanEntities.ts';
 import { commercialPages, commercialOrigin } from '../../src/lib/commercialContent.ts';
+import { normalizeRequestIntent } from '../../shared/request-intents.js';
 const plan=publishedFloorplanEntities()[0];
 const output='.runtime/p2-integration';
 await fs.mkdir(output,{recursive:true});
@@ -74,11 +75,14 @@ try{
     const page=await context.newPage();page.on('pageerror',error=>errors.push(error.name));
     async function submit(expected,project='olara'){
       const form=page.locator('.inquiry-form');await form.waitFor({state:'visible'});
+      await page.waitForFunction(()=>document.querySelector('.inquiry-form')?.dataset.batch6IntentWired==='true');
       assert.equal(await form.locator('[name="lead_capture_context"]').inputValue(),expected);
       const isPlan=expected.startsWith('floorplan:');
       if(isPlan) assert.equal(await form.locator('[name="project"]').inputValue(),'olara');
       else assert.equal(await form.locator('[name="project"]').inputValue(),'','New commercial request inherited a building');
-      const interest=expected.endsWith('pricing-packet')?'Request private floor-plan packet':'Request current availability';
+      const requestIntent=normalizeRequestIntent(expected.endsWith('pricing-packet')?'pricing-packet':'availability');
+      assert.ok(requestIntent,`Unknown integration journey intent: ${expected}`);
+      const interest=requestIntent.interest;
       assert.equal(await form.locator('[name="interest"]').inputValue(),interest);
       await form.locator('[name="project"]').selectOption(project);
       await form.locator('[name="name"]').fill('Integrated QA Person');
@@ -93,7 +97,7 @@ try{
       await form.locator('button[type="submit"]').click();await received;
       await page.waitForFunction(()=>document.querySelector('.inquiry-form .form-status')?.textContent?.includes('request was received'));
       assert.equal(payload.cta_context,expected);assert.equal(payload.lead_capture_context,expected);
-      assert.equal(payload.project,project);assert.equal(payload.interest,interest);
+      assert.equal(payload.project,project);assert.equal(payload.interest,interest);assert.equal(payload.request_intent,requestIntent.id);
       assert.equal(payload.landing_page,origin+'/');assert.equal(payload.submission_page,origin+'/inquire/');
       if(!isPlan){assert.notEqual(payload.project_name,'Olara');assert.ok(!payload.cta_location.startsWith('floorplan'));assert.ok(!payload.corridor);}
       const serialized=await page.evaluate(()=>JSON.stringify([window.wpbAnalyticsQueue,window.dataLayer]));

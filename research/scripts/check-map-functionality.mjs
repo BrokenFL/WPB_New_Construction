@@ -132,7 +132,32 @@ async function checkRoute(browser, route, label) {
     if (label === "home") {
       await page.locator(".route-view-home:not([hidden]) .home-hero-map-card").scrollIntoViewIfNeeded();
     }
-    await page.waitForTimeout(label === "map" ? 3500 : 2500);
+    if (requireGoogleMapRender) {
+      await page.waitForFunction(() => {
+        const isVisible = (element) => {
+          if (!element) return false;
+          const style = getComputedStyle(element);
+          const rect = element.getBoundingClientRect();
+          return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
+        };
+        const card = [...document.querySelectorAll(".home-hero-map-card")].find((item) => {
+          if (item.closest("[data-route-view]")?.hidden || !isVisible(item)) return false;
+          return isVisible(item.querySelector("[data-hero-google-map]"));
+        });
+        const mapCanvas = card?.querySelector("[data-hero-google-map]");
+        if (!card || card.getAttribute("data-map-state") !== "ready" || card.querySelector(".gm-err-container") || !mapCanvas) return false;
+        return [...card.querySelectorAll(".gm-style img")].some((img) => {
+          try {
+            const url = new URL(img.currentSrc || img.src);
+            return /(^|\.)(googleapis\.com|google\.com|gstatic\.com)$/.test(url.hostname)
+              && /\/vt(?:\/|$)|\/maps\/vt|\/kh\/|\/maps\/tiles/.test(url.pathname)
+              && img.complete && img.naturalWidth >= 128 && img.naturalHeight >= 128;
+          } catch { return false; }
+        });
+      }, null, { timeout: 30000 });
+    } else {
+      await page.waitForTimeout(label === "map" ? 3500 : 2500);
+    }
 
     const state = await page.evaluate(() => {
       const card = [...document.querySelectorAll(".home-hero-map-card")].find(

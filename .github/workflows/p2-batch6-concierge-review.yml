@@ -1,14 +1,15 @@
-name: Batch 6C social preview review (no deploy)
+name: Batch 6 concierge implementation review (no deploy)
 on:
-  push:
-    branches: [p2-batch6-social-previews]
   pull_request:
     branches: [main]
 permissions:
   contents: read
+concurrency:
+  group: batch6-concierge-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 jobs:
   candidate:
-    name: Batch 6C social previews (${{ matrix.mode }})
+    name: Batch 6 concierge (${{ matrix.mode }})
     runs-on: ubuntu-latest
     timeout-minutes: 45
     strategy:
@@ -28,14 +29,6 @@ jobs:
         run: |
           git merge-base --is-ancestor 0713e029cc251fc9a49c5e429fdda6ac85e46202 HEAD
           ! git diff --name-only 0713e029cc251fc9a49c5e429fdda6ac85e46202 HEAD | grep -Ei '(^|/)(three|3d|cesium|blender)|\.glb$|\.blend$|alba.*(html|publish)'
-      # PR #87's file allowlist describes that isolated social change. Later PRs
-      # still run every social regression below without inheriting its file scope.
-      - name: Require independent scope for the original social branch
-        if: github.head_ref == 'p2-batch6-social-previews' || github.ref_name == 'p2-batch6-social-previews'
-        run: |
-          ALLOWED='^(index\.html|package\.json|src/bootstrap\.ts|src/lib/socialPreview\.ts|shared/public-social-url\.(js|d\.ts)|research/scripts/(normalize-social-previews|check-social-previews)\.mjs|\.github/workflows/p2-batch6-social-review\.yml)$'
-          BAD=$(git diff --name-only 0713e029cc251fc9a49c5e429fdda6ac85e46202 HEAD | grep -Ev "$ALLOWED" || true)
-          test -z "$BAD" || { echo "$BAD"; exit 1; }
       - name: Require restricted review Maps key
         if: matrix.mode == 'keyed'
         env:
@@ -47,28 +40,44 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run typecheck
-      - name: Build reviewed candidate
+      - name: Build candidate
         env:
           VITE_GOOGLE_MAPS_API_KEY: ${{ matrix.mode == 'keyed' && secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY || '' }}
           VITE_GA4_MEASUREMENT_ID: G-0LGBH6MDVX
         run: npm run build
-      - name: Raw JS-off hydrated SPA and image verification
-        run: node research/scripts/check-social-previews.mjs
-      - name: Complete repository suite
+      - name: Five-intent server/browser contract
+        run: node --test research/scripts/request-intents.test.mjs
+      - name: Controlled lead endpoint retry/deduplication contract
+        run: npm run test:leads
+      - name: Isolated map semantic readiness probe
+        run: timeout 90s node research/scripts/check-batch6-map-probe.mjs
+      - name: Concierge desktop/mobile and lightweight boundary
+        run: timeout 180s node research/scripts/check-batch6-concierge.mjs
+      - name: Capture concierge desktop/mobile evidence
+        run: node research/scripts/capture-batch6-concierge-screens.mjs
+      - name: Full repository suite
         env:
           WPB_MAP_QA_MODE: ${{ matrix.mode }}
           WPB_MAP_QA_PORT: '4173'
         run: npm test
-      - name: Retain authorship SEO assets and privacy contracts
+      - name: Retain authorship H1 schema and buyer journey regressions
+        env:
+          FLOORPLAN_EXPECT_GA4: '1'
         run: |
           node --test research/scripts/authorship-trust.test.mjs
           node research/scripts/check-authorship-trust.mjs
+          npm run qa:floorplan-entities -- --browser
+          npm run qa:commercial -- --browser
+          npm run qa:integration
+          node --experimental-strip-types research/scripts/check-corridor-growth.mjs
+          node --experimental-strip-types research/scripts/check-comparisons.mjs
+          npm run qa:project-seo-batch4
           npm run assets:audit
           npm run assets:audit:strict
           npm run qa:seo
           npm run qa:geo
           npm run qa:agent-skills
-          npm run qa:internal-links
+          npm run qa:a11y-forms
           npm run qa:gatekeeper
       - name: Keyed preflight and actual Maps
         if: matrix.mode == 'keyed'
@@ -84,23 +93,31 @@ jobs:
           await assert.rejects(verifyProductionMapBundle(), /reachable app chunks do not include/);
           JS
       - name: Scan evidence before upload
+        id: evidence-scan
         if: always()
         run: |
           python3 - <<'PY'
           import pathlib,re
-          root=pathlib.Path('.runtime/batch6-social-previews')
-          for p in root.rglob('*') if root.exists() else []:
+          for name in ('.runtime/batch6-concierge', '.runtime/p2-keyed-maps'):
+            root=pathlib.Path(name)
+            for p in root.rglob('*') if root.exists() else []:
               if p.is_file() and re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',p.read_bytes()):
-                  raise RuntimeError('Unsafe evidence withheld')
+                raise RuntimeError('Unsafe evidence withheld')
           PY
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && steps.evidence-scan.outcome == 'success'
         with:
-          name: batch6-social-${{ matrix.mode }}-${{ github.sha }}
-          path: .runtime/batch6-social-previews/
+          name: batch6-concierge-${{ matrix.mode }}-${{ github.sha }}
+          path: .runtime/batch6-concierge/
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always() && matrix.mode == 'keyed' && steps.evidence-scan.outcome == 'success'
+        with:
+          name: batch6-keyed-maps-${{ github.sha }}
+          path: .runtime/p2-keyed-maps/
           retention-days: 14
   gate:
-    name: Batch 6C aggregate gate
+    name: Batch 6 concierge aggregate gate
     needs: candidate
     runs-on: ubuntu-latest
     if: always()

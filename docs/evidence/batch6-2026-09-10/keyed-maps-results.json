@@ -1,0 +1,54 @@
+[
+  {
+    "route": "/",
+    "width": 1366,
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 944.171875,
+      "canvasWidth": 944.171875
+    },
+    "fallbackAccepted": false
+  },
+  {
+    "route": "/map/",
+    "width": 1366,
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 925.9375,
+      "canvasWidth": 923.9375
+    },
+    "fallbackAccepted": false
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 349,
+      "canvasWidth": 349
+    },
+    "fallbackAccepted": false
+  },
+  {
+    "route": "/map/",
+    "width": 390,
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 362,
+      "canvasWidth": 360
+    },
+    "fallbackAccepted": false
+  }
+]

@@ -21,7 +21,13 @@ try {
   assert.ok(ready, 'Dedicated review server did not become ready.');
   browser = await chromium.launch({ headless: true });
   for (const width of [1366, 390]) for (const route of ['/', '/map/']) {
-    const context = await browser.newContext({ viewport: { width, height: 900 } });
+    const context = await browser.newContext({
+      viewport: { width, height: 900 },
+      // This audit is about the real keyed Maps surface. Keep the unrelated
+      // optional analytics prompt out of the page, as the concierge capture
+      // audit does, so consent timing cannot intercept map controls.
+      storageState: { cookies: [], origins: [{ origin, localStorage: [{ name: 'wpbAnalyticsConsentV1', value: 'denied' }] }] },
+    });
     await context.route('**/*', (request) => {
       const url = new URL(request.request().url());
       if (url.pathname.startsWith('/api/') || /googletagmanager\.com|google-analytics\.com/.test(url.hostname)) return request.abort();
@@ -39,12 +45,16 @@ try {
       if (code) errors.push(code);
     });
     page.on('pageerror', () => errors.push('UncaughtBrowserError'));
+    let failurePhase = 'navigation';
     try {
       assert.equal((await page.goto(origin + route, { waitUntil: 'domcontentloaded' })).status(), 200);
+      failurePhase = 'consent';
       const deny = page.getByRole('button', { name: 'No thanks', exact: true });
       if (await deny.isVisible()) await deny.click();
+      failurePhase = 'map-card';
       const card = page.locator('.home-hero-map-card:visible').first();
       await card.scrollIntoViewIfNeeded();
+      failurePhase = 'map-readiness-and-tiles';
       await page.waitForFunction(() => {
         const card = [...document.querySelectorAll('.home-hero-map-card')].find((el) => !el.closest('[data-route-view]')?.hidden);
         if (card?.getAttribute('data-map-state') !== 'ready' || card.querySelector('.gm-err-container')) return false;
@@ -57,22 +67,30 @@ try {
           } catch { return false; }
         });
       }, null, { timeout: 30000 });
+      failurePhase = 'real-loader-response';
       assert.ok(loaderResponses > 0, 'A real Maps loader response is required.');
+      failurePhase = 'pre-zoom-errors';
       assert.deepEqual(errors, [], 'Google Maps/browser error codes');
+      failurePhase = 'map-layout';
       const dimensions = await card.evaluate((el) => ({ cardWidth: el.getBoundingClientRect().width, canvasWidth: el.querySelector('[data-hero-google-map]').getBoundingClientRect().width }));
       if (route === '/map/') assert.ok(dimensions.canvasWidth >= dimensions.cardWidth - 4, 'Standalone map must fill its card; no empty inherited second column.');
       const previousTiles = await card.locator('.gm-style img').evaluateAll((imgs) => imgs.filter(i => i.complete && i.naturalWidth >= 128).map(i => i.currentSrc || i.src));
+      failurePhase = 'zoom-control';
       await card.getByRole('button', { name: 'Zoom in', exact: true }).click();
+      failurePhase = 'zoom-tiles';
       await page.waitForFunction((old) => [...document.querySelectorAll('.home-hero-map-card')].filter(c => !c.closest('[data-route-view]')?.hidden).flatMap(c => [...c.querySelectorAll('.gm-style img')]).some(i => i.complete && i.naturalWidth >= 128 && !old.includes(i.currentSrc || i.src)), previousTiles, { timeout: 15000 });
       await page.waitForTimeout(1000);
+      failurePhase = 'post-zoom-map-state';
       assert.equal(await card.getAttribute('data-map-state'), 'ready');
+      failurePhase = 'post-zoom-errors';
       assert.deepEqual(errors, [], 'Errors after interacting with the actual map');
       const label = `${route === '/' ? 'home' : 'map'}-${width}`;
+      failurePhase = 'screenshots';
       await page.screenshot({ path: `${artifactDir}/${label}-working-map.png`, fullPage: true });
       await card.screenshot({ path: `${artifactDir}/${label}-map-card.png` });
       results.push({ route, width, status: 'pass', realLoaderResponse: true, loadedMapTileImages: true, zoomChangedTiles: true, dimensions, fallbackAccepted: false });
     } catch {
-      results.push({ route, width, status: 'fail', errorCodes: [...new Set(errors)], reason: 'Real loader, rendered tile imagery, map-card layout or zoom verification did not complete.' });
+      results.push({ route, width, status: 'fail', failurePhase, errorCodes: [...new Set(errors)], reason: `Keyed Maps verification failed during ${failurePhase}.` });
     }
     await context.close();
   }
