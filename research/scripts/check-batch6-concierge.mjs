@@ -37,6 +37,7 @@ const browser = await chromium.launch({ headless: true });
 const routes = ["/", "/buildings/", "/map/", "/floorplans/", "/projects/olara/", "/projects/rosewood-residences-west-palm-beach/", "/projects/maison-dor/", "/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/corridors/south-flagler/", "/inquire/", "/floorplans/olara/residence-d/"];
 const results = [];
 const requestExamples = [];
+const lifecycle = [];
 
 async function createAuditContext(options = {}) {
   const context = await browser.newContext({ serviceWorkers: "block", ...options });
@@ -49,41 +50,60 @@ async function createAuditContext(options = {}) {
 }
 
 async function gotoReady(page, target) {
+  const started = Date.now();
   const response = await page.goto(target, { waitUntil: "domcontentloaded", timeout: 30000 });
   assert.equal(response?.status(), 200, `${target}:status`);
-  return response;
+  return Date.now() - started;
 }
 
-async function closeContext(context) {
-  await Promise.race([
-    context.close(),
-    new Promise((resolve) => setTimeout(resolve, 3000)),
-  ]);
+async function bounded(label, fn, timeoutMs = 5000) {
+  const started = Date.now();
+  let timer;
+  try {
+    const result = await Promise.race([
+      Promise.resolve().then(fn).then(() => "closed"),
+      new Promise((resolve) => { timer = setTimeout(() => resolve("timeout"), timeoutMs); }),
+    ]);
+    return { label, result, ms: Date.now() - started };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function closePageAndContext(page, context, label) {
+  const pageClose = page && !page.isClosed()
+    ? await bounded(`${label}:page.close`, () => page.close({ runBeforeUnload: false }), 5000)
+    : { label: `${label}:page.close`, result: "already-closed", ms: 0 };
+  const contextClose = await bounded(`${label}:context.close`, () => context.close(), 5000);
+  lifecycle.push(pageClose, contextClose);
+  console.log(`lifecycle ${label} page=${pageClose.result}/${pageClose.ms}ms context=${contextClose.result}/${contextClose.ms}ms`);
 }
 
 try {
   for (const width of [1440, 390]) {
     for (const route of routes) {
       const context = await createAuditContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: "reduce" });
+      let page;
+      const label = `${route}:${width}`;
       try {
-        const page = await context.newPage();
+        page = await context.newPage();
         const errors = [];
         const requested = [];
         page.on("pageerror", (error) => errors.push(error.message));
         page.on("request", (request) => requested.push(new URL(request.url()).pathname));
         console.log(`concierge view ${route} ${width}`);
-        await gotoReady(page, `${origin}${route}`);
+        const openMs = await gotoReady(page, `${origin}${route}`);
         const launcher = page.getByRole("button", { name: "Open Ask WPB buyer concierge" });
         await launcher.waitFor({ state: "visible", timeout: 15000 });
         assert.equal(requested.includes(conciergePath), false, `${route}:${width}:body must be lazy`);
-        if (route.includes("/answers/olara-vs-") || route === "/floorplans/olara/residence-d/") {
-          assert.equal(requested.includes(mainPath), false, `${route}:${width}:lightweight route imported legacy main`);
-        }
+        if (route.includes("/answers/olara-vs-") || route === "/floorplans/olara/residence-d/") assert.equal(requested.includes(mainPath), false, `${route}:${width}:lightweight route imported legacy main`);
         if (width === 390) assert.equal(await page.locator(".mobile-cta-bar:visible").count(), 0, `${route}: generic mobile bar must not overlap concierge`);
         if (route === "/inquire/") assert.notEqual(await page.locator("[data-buyer-concierge-root]").evaluate((el) => getComputedStyle(el).position), "fixed");
+        const launchStarted = Date.now();
         await launcher.click();
         const panel = page.getByRole("dialog", { name: "Ask WPB" });
         await panel.waitFor({ state: "visible", timeout: 15000 });
+        const launchMs = Date.now() - launchStarted;
         assert.equal(requested.includes(conciergePath), true, `${route}:${width}:lazy body did not load`);
         for (const heading of ["Research", "Current information", "Talk to the team"]) assert.equal(await panel.getByRole("heading", { name: heading }).count(), 1);
         await page.keyboard.press("Escape");
@@ -93,18 +113,19 @@ try {
         });
         assert.deepEqual(closeState, { exists: true, expanded: "false", focused: true }, `${route}:${width}: Escape closes and returns focus`);
         assert.deepEqual(errors, [], `${route}:${width}:page errors`);
-        results.push({ route, width, status: "pass", conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
-        console.log(`concierge pass ${route} ${width}`);
+        results.push({ route, width, status: "pass", openMs, launchMs, conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
+        console.log(`concierge pass ${route} ${width} open=${openMs}ms launch=${launchMs}ms`);
       } finally {
-        await closeContext(context);
+        await closePageAndContext(page, context, label);
       }
     }
   }
 
   for (const route of ["/projects/olara/", "/projects/maison-dor/"]) {
     const context = await createAuditContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+    let page;
     try {
-      const page = await context.newPage();
+      page = await context.newPage();
       await gotoReady(page, `${origin}${route}`);
       const form = page.locator(".brochure-inquiry-card").first();
       await form.waitFor({ timeout: 15000 });
@@ -113,22 +134,15 @@ try {
       assert.equal((await form.getByRole("heading", { level: 2 }).innerText()).trim(), "Request current availability");
       assert.equal((await form.locator('button[type="submit"]').innerText()).trim(), "Request current availability");
       assert.equal(await form.locator("[data-request-summary]").count(), 1);
-    } finally {
-      await closeContext(context);
-    }
+    } finally { await closePageAndContext(page, context, `form:${route}`); }
   }
 
-  const legacyByIntent = {
-    availability: "Request current availability",
-    pricing_packet: "Request private floor-plan packet",
-    compare_shortlist: "Compare buildings",
-    project_question: "Ask the team about this building",
-    conversation_tour: "Schedule private tour",
-  };
+  const legacyByIntent = { availability: "Request current availability", pricing_packet: "Request private floor-plan packet", compare_shortlist: "Compare buildings", project_question: "Ask the team about this building", conversation_tour: "Schedule private tour" };
   for (const [id, definition] of Object.entries(requestIntentDefinitions)) {
     const context = await createAuditContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+    let page;
     try {
-      const page = await context.newPage();
+      page = await context.newPage();
       const legacy = legacyByIntent[id];
       await gotoReady(page, `${origin}/inquire/?interest=${encodeURIComponent(legacy)}&project=olara`);
       const form = page.locator(".inquiry-form");
@@ -140,21 +154,14 @@ try {
       assert.match(visibleSummary, /Olara/i, `${id}: visible subject`);
       const body = { form_type: "inquiry", name: "QA Example", email: "qa@example.invalid", consent: "true", project: "olara", request_intent: id, interest: definition.interest };
       const normalizedLead = normalizeServerRequestIntent(body, normalizeLead(body, new Request("https://www.wpbnewconstruction.com/api/leads", { method: "POST" })));
-      requestExamples.push({
-        id,
-        legacyInput: legacy,
-        visibleSummary,
-        submitted: { request_intent: id, interest: definition.interest, project: "olara" },
-        normalized: { request_intent: normalizedLead.request_intent, interest: normalizedLead.interest, project_id: normalizedLead.project_id },
-      });
-    } finally {
-      await closeContext(context);
-    }
+      requestExamples.push({ id, legacyInput: legacy, visibleSummary, submitted: { request_intent: id, interest: definition.interest, project: "olara" }, normalized: { request_intent: normalizedLead.request_intent, interest: normalizedLead.interest, project_id: normalizedLead.project_id } });
+    } finally { await closePageAndContext(page, context, `intent:${id}`); }
   }
 
   const navContext = await createAuditContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
+  let nav;
   try {
-    const nav = await navContext.newPage();
+    nav = await navContext.newPage();
     await gotoReady(nav, `${origin}/projects/olara/`);
     await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
     await gotoReady(nav, `${origin}/floorplans/`);
@@ -166,26 +173,25 @@ try {
     assert.equal(new URL(nav.url()).pathname, "/floorplans/");
     await nav.reload({ waitUntil: "domcontentloaded", timeout: 15000 });
     await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
-  } finally {
-    await closeContext(navContext);
-  }
+  } finally { await closePageAndContext(nav, navContext, "navigation"); }
 
   for (const route of ["/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/floorplans/olara/residence-d/"]) {
     const context = await createAuditContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+    let page;
     try {
-      const page = await context.newPage();
+      page = await context.newPage();
       await gotoReady(page, `${origin}${route}`);
       assert.ok((await page.locator("h1").first().innerText()).trim().length > 3, `${route}: JS-off H1`);
       assert.ok(await page.locator('a[href^="/"]').count() > 0, `${route}: JS-off native research/navigation links`);
       assert.equal(await page.locator("[data-buyer-concierge-root]").count(), 0, `${route}: optional concierge should not replace JS-off content`);
-    } finally {
-      await closeContext(context);
-    }
+    } finally { await closePageAndContext(page, context, `js-off:${route}`); }
   }
 } finally {
-  await browser.close();
+  const browserClose = await bounded("browser.close", () => browser.close(), 10000);
+  lifecycle.push(browserClose);
+  console.log(`lifecycle browser.close=${browserClose.result}/${browserClose.ms}ms`);
   server.close();
 }
 await fs.writeFile(path.join(out, "request-examples.json"), JSON.stringify(requestExamples, null, 2));
-await fs.writeFile(path.join(out, "results.json"), JSON.stringify({ conciergeBody, mainBundle, results, requestExamples: requestExamples.map(({ id, submitted, normalized }) => ({ id, submitted, normalized })) }, null, 2));
+await fs.writeFile(path.join(out, "results.json"), JSON.stringify({ conciergeBody, mainBundle, results, lifecycle, requestExamples: requestExamples.map(({ id, submitted, normalized }) => ({ id, submitted, normalized })) }, null, 2));
 console.log(JSON.stringify({ batch6Concierge: "pass", views: results.length, requestExamples: requestExamples.length, conciergeBody, mainBundle }, null, 2));
