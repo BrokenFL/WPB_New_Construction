@@ -1,0 +1,124 @@
+name: Intelligence processor Phase A review
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/types/developmentIntelligence.ts'
+      - 'research/scripts/intel/**'
+      - 'research/intel-fixtures/**'
+      - 'docs/P2_INTELLIGENCE_PROCESSOR_PHASE_A.md'
+      - 'package.json'
+      - '.github/workflows/intel-phase-a-review.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: intel-phase-a-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  phase-a:
+    name: Intelligence Phase A (${{ matrix.mode }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [keyed, no-key]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Require restricted review Maps key
+        if: matrix.mode == 'keyed'
+        env:
+          HAS_REVIEW_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY != '' }}
+          RESTRICTIONS_CONFIRMED: ${{ vars.P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED == 'true' }}
+        run: |
+          test "$HAS_REVIEW_KEY" = true
+          test "$RESTRICTIONS_CONFIRMED" = true
+      - run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Phase A focused tests
+        run: npm run test:intel:phase-a
+      - name: Four-row dry-run fixture
+        run: |
+          npm run intel:process -- --csv research/intel-fixtures/current-intel.csv --offline \
+            --row wpb-intel-2026-09-08-001 \
+            --row wpb-intel-2026-09-09-001 \
+            --row wpb-intel-2026-09-09-002 \
+            --row wpb-intel-2026-09-09-003
+      - name: Verify dry-run outcomes and zero side effects
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises';
+          const ids = [
+            'wpb-intel-2026-09-08-001',
+            'wpb-intel-2026-09-09-001',
+            'wpb-intel-2026-09-09-002',
+            'wpb-intel-2026-09-09-003',
+          ];
+          for (const id of ids) {
+            const report = JSON.parse(await fs.readFile(`.runtime/intel/${id}/validation-report.json`, 'utf8'));
+            if (report.mutation_count !== 0) throw new Error(`${id}: mutation_count`);
+            if (report.recommendation !== 'human_review') throw new Error(`${id}: expected human_review, got ${report.recommendation}`);
+            const candidate = JSON.parse(await fs.readFile(`.runtime/intel/${id}/candidate.json`, 'utf8'));
+            if (candidate !== null) throw new Error(`${id}: unadjudicated/high-risk fixture must not emit factual candidate fields`);
+          }
+          const sfh = JSON.parse(await fs.readFile('.runtime/intel/wpb-intel-2026-09-08-001/validation-report.json','utf8'));
+          if (sfh.dedupe_classification !== 'conflicting_event') throw new Error('South Flagler must remain temporal-conflict fixture');
+          // Preserve claimed relationships for review without presenting them as verified facts.
+          const dt = JSON.parse(await fs.readFile('.runtime/intel/wpb-intel-2026-09-09-003/intake-snapshot.json','utf8'));
+          const idsForReview = (value) => String(value || '').split(',').map((id) => id.trim()).filter(Boolean);
+          if (JSON.stringify(idsForReview(dt.related_project_ids)) !== JSON.stringify(['915-s-dixie','534-datura'])) throw new Error('Downtown project relationships changed');
+          if (JSON.stringify(idsForReview(dt.related_corridor_ids)) !== JSON.stringify(['downtown','south-flagler'])) throw new Error('Downtown corridor relationships changed');
+          NODE
+          git diff --exit-code
+          test -z "$(git status --porcelain --untracked-files=all | grep -v '^?? .runtime/intel/' || true)"
+      - name: Install Chromium for repository browser QA
+        run: npx playwright install --with-deps chromium
+      - name: Build production-shaped site for repository QA
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: ${{ matrix.mode == 'keyed' && secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY || '' }}
+          VITE_GA4_MEASUREMENT_ID: G-0LGBH6MDVX
+        run: npm run build
+      - name: Full repository tests
+        env:
+          WPB_MAP_QA_MODE: ${{ matrix.mode }}
+          WPB_MAP_QA_PORT: '4173'
+        run: npm test
+      - name: Keyed Maps preflight
+        if: matrix.mode == 'keyed'
+        run: |
+          npm run qa:deploy-preflight
+          npm run qa:maps-keyed
+      - name: Expected no-key deployment rejection
+        if: matrix.mode == 'no-key'
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { verifyProductionMapBundle } from './research/scripts/production-map-preflight.mjs';
+          await assert.rejects(verifyProductionMapBundle(), /reachable app chunks do not include/);
+          NODE
+      - name: Upload dry-run review artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: intel-phase-a-${{ matrix.mode }}-${{ github.event.pull_request.head.sha }}
+          path: .runtime/intel/
+          retention-days: 14
+  gate:
+    name: Intelligence Phase A aggregate gate
+    needs: phase-a
+    runs-on: ubuntu-24.04
+    if: always()
+    steps:
+      - run: test '${{ needs.phase-a.result }}' = success

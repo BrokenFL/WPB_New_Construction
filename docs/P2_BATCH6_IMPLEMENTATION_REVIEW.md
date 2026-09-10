@@ -4,14 +4,18 @@ September 10, 2026 · PR [#86](https://github.com/BrokenFL/WPB_New_Construction/
 
 ## Disposition and revision evidence
 
-**PR acceptance: PASS — all nine keyed/no-key/aggregate jobs are green.** The draft remains open and undeployed, awaiting Brooke's review and release authorization.
+**PR acceptance: PASS — all nine keyed/no-key/aggregate jobs are green.** Approved PR #86 head is `e8483fc3a7a43aabd1827b98667f60f64ff0deb1`; merge commit/production is `2d0175eed5157afa58b57cfb8327ec590e2dda95`. Final live acceptance is blocked by a confirmed mobile hit-target overlap, so it is not LIVE-VERIFIED.
 
 | Evidence | Exact revision/result |
 | --- | --- |
 | Last application change | `85eeae70d59fdbc87f169692dc6464128910bbbf`; application sources are unchanged in subsequent QA/workflow/documentation commits |
 | Retained screenshots/evidence | QA revision `593abf507ed302b8b422f95b2510892b87173156`; provenance is preserved in [Screenshots](#screenshots) |
 | Pushed QA revision | `3cc9052c0c52d094aa888ce5a4c42d90c3b71f48`; legacy keyed Maps readiness-wait correction only |
-| Synthetic test merge | `eb95c9057c67349acb2929789a931f7e55fc9c35`, against production `c568746b545804bfab48cda8a9e7f214ddda9d36` |
+| Approved PR head / merge / production | PR head `e8483fc3a7a43aabd1827b98667f60f64ff0deb1`; merge commit/production `2d0175eed5157afa58b57cfb8327ec590e2dda95` at `2026-09-10T19:58:49Z`; normal deploy `34523585398` succeeded at `https://c0498f38.wpbnewconstruction.pages.dev`; no duplicate manual deploy |
+| Synthetic 3cc QA merge | `eb95c9057c67349acb2929789a931f7e55fc9c35`, against production `c568746b545804bfab48cda8a9e7f214ddda9d36`; this is the retained QA-source acceptance context, not the current e848 PR acceptance |
+| Approved PR #86 synthetic merge | `74a9da5b8b3a262588f37cf62117629fe9041a12`, for approved PR head `e8483fc3a7a43aabd1827b98667f60f64ff0deb1` |
+
+The retained [final acceptance JSON](evidence/batch6-2026-09-10/final-acceptance.json) is the acceptance record for QA source `3cc9052c0c52d094aa888ce5a4c42d90c3b71f48`, with synthetic merge `eb95c9057c67349acb2929789a931f7e55fc9c35`; it is not the current approved `e8483fc3a7a43aabd1827b98667f60f64ff0deb1` acceptance record. The approved head's synthetic merge context is `74a9da5b8b3a262588f37cf62117629fe9041a12`; use the current CI and production records above for PR #86.
 
 The `3cc9052c0c52d094aa888ce5a4c42d90c3b71f48` QA correction changes `research/scripts/check-map-functionality.mjs`: keyed legacy map checks wait up to 30 seconds for a visible ready Google map with a loaded tile of real dimensions; the no-key path retains its fixed 2.5-second homepage / 3.5-second standalone-map waits. It does not change application code. Commit `8401e8dc70c063c42115e1c5aefee5ef3f9702f6` scopes the historical Batch 5 protected-file freeze to its original authorship branch, preserving ancestry, deferred-track exclusions and complete Batch 5 regressions; that removes the earlier pre-build rejection of authorized Batch 6 inquiry/lead changes.
 
@@ -19,13 +23,15 @@ The `3cc9052c0c52d094aa888ce5a4c42d90c3b71f48` QA correction changes `research/s
 
 | Workflow | Run | Required jobs | Result |
 | --- | --- | --- | --- |
-| Batch 6 concierge implementation review (no deploy) | [34467536610](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536610) | keyed / no-key / aggregate | **SUCCESS**; 3/3 jobs green |
-| P2 Batch 5 complete authorship verification (no deploy) | [34467536644](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536644) | keyed / no-key / aggregate | **SUCCESS**; 3/3 jobs green |
-| Batch 6C social preview review (no deploy) | [34467536649](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536649) | keyed / no-key / aggregate | **SUCCESS**; 3/3 jobs green |
+| Batch 6 concierge implementation review (no deploy) | [34468567260](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34468567260) | keyed / no-key / aggregate | **SUCCESS**; 3/3 jobs green |
+| P2 Batch 5 complete authorship verification (no deploy) | [34468567325](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34468567325) | keyed / no-key / aggregate | **SUCCESS**; 3/3 jobs green |
+| Batch 6C social preview review (no deploy) | [34468567278](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34468567278) | keyed / no-key / aggregate | **SUCCESS**; 3/3 jobs green |
 
 All 9/9 jobs passed at the tested revision. The [final acceptance record](evidence/batch6-2026-09-10/final-acceptance.json) retains exact workflow/job identities, results and artifact references. Documentation-only successors do not change the application, QA or workflows; inspect the current PR description/checks for their head and verification status.
 
-Recheck current refs/checks and obtain Brooke's authorization before any merge or release.
+The production manifest at `/Volumes/ExternalSSD/WPB_PR86_Review/.runtime/batch6-live-2026-09-10/manifest.json` records 11 representative routes × desktop/mobile, six Olara plans × desktop/mobile, real Maps tile/zoom checks, an explicit shortlist submission, hydrated metadata checks, and intercepted inquiries only. Those live probes pass. The focused 390px `/map/` Ask WPB/Maps Zoom-out check failed with a 1,495px² overlap and pointer interception; do not mark the release LIVE-VERIFIED. See the [durable live evidence](evidence/batch6-live-2026-09-10/README.md).
+
+Draft PR #93 (`fix/batch6-mobile-map-controls`) is **candidate-only, not approved or deployed**. Candidate revision `ae076dc5926baeebedb30b8d45b23a2ade710c05` carries application source `f761a0057460a98a45c333b2ffb16fad5b22e59d` against production base `2d0175eed5157afa58b57cfb8327ec590e2dda95` and moves the shared native Google Maps zoom controls with `zoomControlOptions` `LEFT_CENTER`. Local typecheck, build, 22 concierge views and no-key Maps checks pass, and a candidate-only real-Maps override reports zero overlap. Revision-specific CI is linked at [concierge 34531549077](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531549077) and [social 34531549133](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531549133); the latest conclusion belongs to [PR #93](https://github.com/BrokenFL/WPB_New_Construction/pull/93). The final QA contract retains six scenarios for bounded native-control readiness and independent fresh-context mobile zoom directions. A complete successful check set and separate Brooke release approval are required; production remains blocked by the recorded overlap and one authorized deploy has already been used.
 
 ## Corrections
 
@@ -74,4 +80,4 @@ Source artifacts for the retained `593abf507ed302b8b422f95b2510892b87173156` evi
 
 All automated lead submissions are intercepted or use controlled endpoint/storage mocks. Real production Turnstile, D1 persistence, email/CRM delivery and human fulfillment remain unverified. No real lead was sent. The concierge routes research and human follow-up; it does not promise current inventory, pricing, automated booking or generative answers. No traffic, ranking, GA4 transport, conversion or revenue uplift is established.
 
-No merge or deployment occurred in this continuation. No live article publication or deployment was invoked; automated publisher QA used isolated fixtures. Production remains `c568746b545804bfab48cda8a9e7f214ddda9d36` pending a fresh check before any authorized release. PR #89 has a separate **hold** recommendation; see the [authoritative handoff](WPB_CODEX_MASTER_HANDOFF.md) for its safety findings, exact Codex/Sheet intake architecture, preserved publishing/model boundaries and next work.
+PR #86 was approved, merged and deployed through the single normal workflow `34523585398` at `https://c0498f38.wpbnewconstruction.pages.dev`; no manual or duplicate deployment occurred. Live Maps, shortlist and hydrated metadata probes pass in the retained production manifest, with all inquiries intercepted and no real lead sent. The focused 390px `/map/` Ask WPB/Maps Zoom-out check failed with a 1,495px² overlap and pointer interception, so final LIVE-VERIFIED status is withheld. No live article publication was invoked; PR #89 has a separate **MERGE INTERNAL TOOLING ONLY recommendation after a passed safety review, but remains NOT APPROVED / NOT MERGED / NOT DEPLOYED pending separate Brooke authorization.** See the [durable live evidence](evidence/batch6-live-2026-09-10/README.md) and the [authoritative handoff](WPB_CODEX_MASTER_HANDOFF.md) for its safety findings, exact Codex/Sheet intake architecture, preserved publishing/model boundaries and next work.

@@ -1,0 +1,224 @@
+{
+  "verifiedAt": "2026-09-10T20:22:01.663Z",
+  "productionOrigin": "https://www.wpbnewconstruction.com",
+  "productionSha": "2d0175eed5157afa58b57cfb8327ec590e2dda95",
+  "deploymentRun": 34523585398,
+  "routes": [
+    "/",
+    "/buildings/",
+    "/map/",
+    "/floorplans/",
+    "/projects/olara/",
+    "/projects/rosewood-residences-west-palm-beach/",
+    "/projects/maison-dor/",
+    "/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+    "/corridors/south-flagler/",
+    "/inquire/",
+    "/floorplans/olara/residence-d/"
+  ],
+  "results": [
+    {
+      "route": "/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/",
+      "ogImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "twitterImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "ogUrl": "https://www.wpbnewconstruction.com/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 7,
+      "graphIds": [
+        "wpb-static-structured-data"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    },
+    {
+      "route": "/buildings/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/buildings/",
+      "ogImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "twitterImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "ogUrl": "https://www.wpbnewconstruction.com/buildings/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 7,
+      "graphIds": [
+        "wpb-static-structured-data"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    },
+    {
+      "route": "/map/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/map/",
+      "ogImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "twitterImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "ogUrl": "https://www.wpbnewconstruction.com/map/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 6,
+      "graphIds": [
+        "wpb-static-structured-data"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    },
+    {
+      "route": "/floorplans/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/floorplans/",
+      "ogImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "twitterImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "ogUrl": "https://www.wpbnewconstruction.com/floorplans/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 8,
+      "graphIds": [
+        "wpb-static-structured-data"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    },
+    {
+      "route": "/projects/olara/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/projects/olara/",
+      "ogImage": "https://www.wpbnewconstruction.com/projects/olara/media/olara-hero-exterior-1536x1024.jpg",
+      "twitterImage": "https://www.wpbnewconstruction.com/projects/olara/media/olara-hero-exterior-1536x1024.jpg",
+      "ogUrl": "https://www.wpbnewconstruction.com/projects/olara/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 8,
+      "graphIds": [
+        "wpb-static-structured-data"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    },
+    {
+      "route": "/projects/rosewood-residences-west-palm-beach/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/",
+      "ogImage": "https://www.wpbnewconstruction.com/projects/rosewood/media/user-provided-rosewood-render-01.jpg",
+      "twitterImage": "https://www.wpbnewconstruction.com/projects/rosewood/media/user-provided-rosewood-render-01.jpg",
+      "ogUrl": "https://www.wpbnewconstruction.com/projects/rosewood-residences-west-palm-beach/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 8,
+      "graphIds": [
+        "wpb-static-structured-data"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    },
+    {
+      "route": "/projects/maison-dor/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/projects/maison-dor/",
+      "ogImage": "https://www.wpbnewconstruction.com/assets/projects/maison-dor/hero/maison-dor-hero-exterior-v01.webp",
+      "twitterImage": "https://www.wpbnewconstruction.com/assets/projects/maison-dor/hero/maison-dor-hero-exterior-v01.webp",
+      "ogUrl": "https://www.wpbnewconstruction.com/projects/maison-dor/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 8,
+      "graphIds": [
+        "wpb-static-structured-data"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    },
+    {
+      "route": "/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "ogImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "twitterImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "ogUrl": "https://www.wpbnewconstruction.com/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 4,
+      "graphIds": [
+        "wpb-comparison-schema"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    },
+    {
+      "route": "/corridors/south-flagler/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/corridors/south-flagler/",
+      "ogImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "twitterImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "ogUrl": "https://www.wpbnewconstruction.com/corridors/south-flagler/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 7,
+      "graphIds": [
+        "wpb-static-structured-data"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    },
+    {
+      "route": "/inquire/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/inquire/",
+      "ogImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "twitterImage": "https://www.wpbnewconstruction.com/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png",
+      "ogUrl": "https://www.wpbnewconstruction.com/inquire/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 6,
+      "graphIds": [
+        "wpb-static-structured-data"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "status": "pass",
+      "httpStatus": 200,
+      "canonical": "https://www.wpbnewconstruction.com/floorplans/olara/residence-d/",
+      "ogImage": "https://www.wpbnewconstruction.com/assets/projects/olara/floorplans/previews/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.jpg",
+      "twitterImage": "https://www.wpbnewconstruction.com/assets/projects/olara/floorplans/previews/olara-floorplans-olara-floorplan-s-digital-31126-d-v01.jpg",
+      "ogUrl": "https://www.wpbnewconstruction.com/floorplans/olara/residence-d/",
+      "jsonLdScriptCount": 1,
+      "graphScriptCount": 1,
+      "graphNodeCount": 2,
+      "graphIds": [
+        "wpb-floorplan-schema"
+      ],
+      "absoluteHttpsImages": true,
+      "singleHydratedGraph": true,
+      "criticalErrors": []
+    }
+  ],
+  "status": "pass",
+  "limitations": [
+    "This checks hydrated DOM metadata and JSON-LD on the production routes; it does not invoke social crawler fetches or claim ranking/indexing.",
+    "All external requests were blocked; no forms were submitted."
+  ]
+}

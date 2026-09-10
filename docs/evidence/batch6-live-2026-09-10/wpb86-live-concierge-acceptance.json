@@ -1,0 +1,96 @@
+{
+  "origin": "https://www.wpbnewconstruction.com",
+  "coreViews": [
+    {
+      "route": "/",
+      "width": 1440,
+      "concierge": "pass"
+    },
+    {
+      "route": "/projects/olara/",
+      "width": 1440,
+      "concierge": "pass"
+    },
+    {
+      "route": "/projects/maison-dor/",
+      "width": 1440,
+      "concierge": "pass"
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "concierge": "pass"
+    },
+    {
+      "route": "/projects/olara/",
+      "width": 390,
+      "concierge": "pass"
+    },
+    {
+      "route": "/projects/maison-dor/",
+      "width": 390,
+      "concierge": "pass"
+    }
+  ],
+  "intentQueries": [
+    {
+      "id": "availability",
+      "legacyInput": "Request current availability",
+      "canonicalInterest": "Request current availability",
+      "requestIntent": "availability"
+    },
+    {
+      "id": "pricing_packet",
+      "legacyInput": "Request private floor-plan packet",
+      "canonicalInterest": "Get pricing + floor-plan packet",
+      "requestIntent": "pricing_packet"
+    },
+    {
+      "id": "compare_shortlist",
+      "legacyInput": "Compare buildings",
+      "canonicalInterest": "Compare my shortlist",
+      "requestIntent": "compare_shortlist"
+    },
+    {
+      "id": "project_question",
+      "legacyInput": "Ask the team about this building",
+      "canonicalInterest": "Ask about this project / plan",
+      "requestIntent": "project_question"
+    },
+    {
+      "id": "conversation_tour",
+      "legacyInput": "Schedule private tour",
+      "canonicalInterest": "Schedule a conversation or tour",
+      "requestIntent": "conversation_tour"
+    }
+  ],
+  "blockedPostRequests": [],
+  "externalRequestsBlocked": 19,
+  "limitations": [
+    "All lead POSTs were intercepted in-browser; no real lead was sent.",
+    "Turnstile and external analytics requests were blocked in this browser.",
+    "This checks deployed route/intent behavior only; it does not certify production Turnstile, D1, email/CRM, GA4 or fulfillment."
+  ],
+  "productionSha": "2d0175eed5157afa58b57cfb8327ec590e2dda95",
+  "deploymentRun": 34523585398,
+  "deploymentUrl": "https://c0498f38.wpbnewconstruction.pages.dev",
+  "interceptedSubmissionCount": 1,
+  "interceptedSubmissionContracts": [
+    {
+      "form-name": "wpb-project-inquiry",
+      "form_type": "project_inquiry",
+      "project": "olara",
+      "project_name": "Olara West Palm Beach",
+      "interest": "Request current availability",
+      "request_intent": "availability",
+      "lead_capture_context": "project_page_contact",
+      "cta_context": "project_page_contact",
+      "cta_label": "Request current availability",
+      "cta_location": "project_page",
+      "corridor": "North Flagler",
+      "landing_page": "https://www.wpbnewconstruction.com/projects/olara/",
+      "submission_page": "https://www.wpbnewconstruction.com/projects/olara/",
+      "source_page": "https://www.wpbnewconstruction.com/projects/olara/"
+    }
+  ]
+}

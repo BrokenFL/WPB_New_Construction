@@ -1,0 +1,36 @@
+{
+  "verifiedAt": "2026-09-10T20:20:26.396Z",
+  "productionOrigin": "https://www.wpbnewconstruction.com",
+  "productionSha": "2d0175eed5157afa58b57cfb8327ec590e2dda95",
+  "deploymentRun": 34523585398,
+  "status": "pass",
+  "comparisonRoute": "/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+  "selectedShortlist": [
+    "olara",
+    "shorecrest"
+  ],
+  "manuallySelectedPrimaryProject": "shorecrest",
+  "formInterest": "Compare my shortlist",
+  "requestIntent": "compare_shortlist",
+  "contextValue": "shortlist:trio:olara,shorecrest",
+  "interceptedSubmissionCount": 1,
+  "interceptedPayloadContract": {
+    "project": "shorecrest",
+    "interest": "Compare my shortlist",
+    "request_intent": "compare_shortlist",
+    "cta_context": "shortlist:trio:olara,shorecrest",
+    "lead_capture_context": "shortlist:trio:olara,shorecrest",
+    "landing_page": "https://www.wpbnewconstruction.com/",
+    "submission_page": "https://www.wpbnewconstruction.com/inquire/",
+    "viewed_buildings": "[]"
+  },
+  "firstTouchPreserved": true,
+  "blockedWrites": [],
+  "externalBlockedCount": 4,
+  "consoleErrors": [],
+  "pageErrors": [],
+  "limitations": [
+    "The lead POST was intercepted in-browser; no real lead was sent.",
+    "Turnstile and external analytics were blocked or stubbed in this browser; production CAPTCHA/GA4 transport and D1/email/CRM fulfillment were not tested."
+  ]
+}

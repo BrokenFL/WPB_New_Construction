@@ -1,0 +1,116 @@
+{
+  "verifiedAt": "2026-09-10T20:17:31.080Z",
+  "productionOrigin": "https://www.wpbnewconstruction.com",
+  "productionSha": "2d0175eed5157afa58b57cfb8327ec590e2dda95",
+  "deploymentRun": 34523585398,
+  "routes": [
+    "/",
+    "/map/"
+  ],
+  "viewports": [
+    {
+      "width": 1366,
+      "height": 900
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "results": [
+    {
+      "route": "/",
+      "width": 1366,
+      "height": 900,
+      "status": "pass",
+      "realLoaderResponse": true,
+      "loadedMapTileImages": true,
+      "tileRequestCount": 30,
+      "zoomChangedTiles": true,
+      "mapState": "ready",
+      "postZoomMapState": "ready",
+      "dimensions": {
+        "cardWidth": 944,
+        "canvasWidth": 944,
+        "canvasHeight": 469
+      },
+      "fallbackAccepted": false,
+      "consoleErrorCodes": [],
+      "pageErrors": [],
+      "sameOriginFailures": [],
+      "blockedWrites": []
+    },
+    {
+      "route": "/map/",
+      "width": 1366,
+      "height": 900,
+      "status": "pass",
+      "realLoaderResponse": true,
+      "loadedMapTileImages": true,
+      "tileRequestCount": 35,
+      "zoomChangedTiles": true,
+      "mapState": "ready",
+      "postZoomMapState": "ready",
+      "dimensions": {
+        "cardWidth": 926,
+        "canvasWidth": 924,
+        "canvasHeight": 708
+      },
+      "fallbackAccepted": false,
+      "consoleErrorCodes": [],
+      "pageErrors": [],
+      "sameOriginFailures": [],
+      "blockedWrites": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "status": "pass",
+      "realLoaderResponse": true,
+      "loadedMapTileImages": true,
+      "tileRequestCount": 10,
+      "zoomChangedTiles": true,
+      "mapState": "ready",
+      "postZoomMapState": "ready",
+      "dimensions": {
+        "cardWidth": 349,
+        "canvasWidth": 349,
+        "canvasHeight": 249
+      },
+      "fallbackAccepted": false,
+      "consoleErrorCodes": [],
+      "pageErrors": [],
+      "sameOriginFailures": [],
+      "blockedWrites": []
+    },
+    {
+      "route": "/map/",
+      "width": 390,
+      "height": 844,
+      "status": "pass",
+      "realLoaderResponse": true,
+      "loadedMapTileImages": true,
+      "tileRequestCount": 15,
+      "zoomChangedTiles": true,
+      "mapState": "ready",
+      "postZoomMapState": "ready",
+      "dimensions": {
+        "cardWidth": 362,
+        "canvasWidth": 360,
+        "canvasHeight": 489
+      },
+      "fallbackAccepted": false,
+      "consoleErrorCodes": [],
+      "pageErrors": [],
+      "sameOriginFailures": [],
+      "blockedWrites": []
+    }
+  ],
+  "status": "pass",
+  "limitations": [
+    "Google Maps, not analytics/Turnstile, was the only external service allowed; the public browser key was used by the production bundle and never recorded.",
+    "No forms were submitted and all same-origin non-GET requests were blocked.",
+    "This proves real loader/tile/zoom rendering on these two map surfaces; it does not certify Maps billing, quota, key restriction policy, GA4, Turnstile, D1, email/CRM or lead fulfillment."
+  ]
+}

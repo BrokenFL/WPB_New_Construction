@@ -1,8 +1,8 @@
 # Phase 2 delivery tracker — WPB New Construction
 
-Current continuation state: [authoritative Codex handoff](WPB_CODEX_MASTER_HANDOFF.md), updated September 10, 2026. The production and PR statuses below are historical; use the handoff and fresh repository/CI evidence before continuing.
+Current continuation state: [authoritative Codex handoff](WPB_CODEX_MASTER_HANDOFF.md), updated September 10, 2026. PR #86 is released to production; final live acceptance is blocked by a confirmed mobile hit-target overlap and it is not LIVE-VERIFIED. Use the handoff and fresh repository/CI evidence before continuing.
 
-Updated September 9, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
+Updated September 10, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
 Requirements: `docs/ASTRA_PHASE_2_GROWTH_HANDOFF.md` and Brooke's growth/release instructions.
 
 ## Current direction
@@ -11,11 +11,13 @@ Requirements: `docs/ASTRA_PHASE_2_GROWTH_HANDOFF.md` and Brooke's growth/release
 
 Final live acceptance workflow `34280040979` completed successfully after the hotfix. The PR #80 production verification and six-page live Olara regression audit were both successful. The final live audit used only intercepted QA submissions; no real lead was sent.
 
-**Batch 5 real-person authorship + trust is IMPLEMENTED / TESTED and remains DRAFT / NOT APPROVED / NOT DEPLOYED.** Exact final tested corrective SHA: `f8e6b8f3a7bdf7b8a0f0fc880d056af5351909d4`; complete keyed/no-key workflow `34309439506` passed both candidates and the aggregate review gate. PR #83 remains draft pending Brooke's presentation review.
+**Batch 5 real-person authorship + trust is IMPLEMENTED / TESTED / APPROVED / DEPLOYED / LIVE-VERIFIED; NOT MEASURED.** Production merge/deployment is `0713e029cc251fc9a49c5e429fdda6ac85e46202`; live acceptance `34410472433`. Historical corrective test SHA `f8e6b8f3a7bdf7b8a0f0fc880d056af5351909d4` and workflow `34309439506` remain recorded below.
+
+**Batch 6 concierge/intents is IMPLEMENTED / TESTED / APPROVED / MERGED / DEPLOYED; final live acceptance is BLOCKED by a confirmed mobile hit-target overlap and it is not LIVE-VERIFIED.** Approved PR head `e8483fc3a7a43aabd1827b98667f60f64ff0deb1` reached production via merge commit `2d0175eed5157afa58b57cfb8327ec590e2dda95` at `2026-09-10T19:58:49Z` through normal deploy `34523585398` at `https://c0498f38.wpbnewconstruction.pages.dev`; no manual or duplicate deploy occurred. All nine CI jobs passed in concierge `34468567260`, Batch 5 `34468567325`, and social `34468567278`. Real Maps tile/zoom, explicit shortlist, and hydrated metadata probes pass; the focused 390px `/map/` Ask WPB/Maps Zoom-out check failed with a 1,495px² overlap and pointer interception. See the [durable live evidence](evidence/batch6-live-2026-09-10/README.md).
 
 **PR #75 / GA4 Admin diagnosis remains PARKED — blocked / non-critical / revisit separately.** No GA4 configuration was changed and no actual GA4 transport or measured growth is claimed.
 
-Alba’s unpublished HTML state remains preserved. 3D map and Three.js floor-plan implementation remain outside this work.
+Alba’s unpublished HTML state remains preserved. The MapLibre-selected 3D city map and separate Three.js floor-plan/property dollhouse remain outside this work.
 
 ## Status contract
 
@@ -33,7 +35,9 @@ Planned = scoped. Implemented = code/content exists. Tested = exact revision and
 | Corridor availability + pricing/floor-plan packet | Implemented, tested, approved, deployed | PR #76 | Intercepted live request/first-touch context retained by later regressions | Real fulfillment acceptance still separate |
 | North/South and Olara/Ritz/Shorecrest comparisons | Implemented, tested, approved, deployed, live-verified; not measured | PR #78 | Candidate `34177737077`; production `34178444416`; live `34178933079`; Batch4 live regressions pass | Preserve |
 | Compare my shortlist | Implemented, tested, approved, deployed | PR #78 | Existing live/intercepted shortlist regression coverage remains green | Real fulfillment remains manual |
-| Real-person authorship / trust layer — Batch 5 | **Implemented, tested; NOT approved/deployed/measured** | `p2-real-person-authorship-trust-layer` / draft PR #83 | Corrective test SHA `f8e6b8f3`; final green workflow `34309439506`; keyed + no-key + aggregate PASS; 48 authorship/schema/browser checks PASS | Brooke visual/presentation review before approval or deployment |
+| Real-person authorship / trust layer — Batch 5 | **Implemented, tested, approved, deployed, live-verified; NOT measured** | Production merge/deployment `0713e029`; live acceptance `34410472433`; historical corrective test SHA `f8e6b8f3`; final green workflow `34309439506` | 48 authorship/schema/browser checks PASS; production outcomes remain unmeasured | Preserve; no retroactive attribution |
+| Concierge/intents — Batch 6 / PR #86 | **Implemented, tested, approved, merged, deployed; final live acceptance blocked** | Approved PR head `e8483fc3`; merge/production `2d0175ee`; normal deploy `34523585398` SUCCESS; all nine CI jobs green | Production manifest records route/Olara/Maps/shortlist/metadata probes; focused 390px `/map/` check failed with 1,495px² Ask WPB/Zoom-out overlap and pointer interception | Do not mark LIVE-VERIFIED; bounded fix and retest required |
+| Mobile Maps controls correction — PR #93 | **Open draft, candidate-only, not approved/deployed** | `fix/batch6-mobile-map-controls`; candidate `ae076dc5926baeebedb30b8d45b23a2ade710c05`; application source `f761a0057460a98a45c333b2ffb16fad5b22e59d`; base production `2d0175eed5157afa58b57cfb8327ec590e2dda95`; shared native Google Maps `zoomControlOptions` `LEFT_CENTER`; local typecheck/build/22 concierge views/no-key Maps pass; candidate-only real-Maps override reports zero overlap; revision-specific CI [34531549077](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531549077) / [34531549133](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531549133) is recorded on [PR #93](https://github.com/BrokenFL/WPB_New_Construction/pull/93) | Final QA retains six bounded native-control readiness and independent fresh-context mobile zoom-direction scenarios; complete successful checks and separate Brooke release approval are required; production remains blocked by the recorded 1,495px² `/map/` overlap |
 | Alba Residence D HTML | Implemented source hold; blocked, unpublished | Preserved implementation | Existing source discrepancy; live exclusion retained | Do not publish without source clarification |
 | PR #75 / GA4 diagnosis | **PARKED** | Existing #75 untouched | Historical evidence only | Do not revisit in Batch5 |
 
@@ -77,7 +81,44 @@ All automated QA lead POSTs were intercepted. **No real lead was sent.** Product
 
 Full Batch 4 implementation/release ledger: `docs/P2_PROJECT_SEO_BATCH4_PROGRESS.md`.
 
-## Batch 5 authorship + trust review evidence
+## Batch 6 release and blocked live acceptance
+
+PR #86 approved head `e8483fc3a7a43aabd1827b98667f60f64ff0deb1` was merged at
+`2026-09-10T19:58:49Z` as merge commit/production `2d0175eed5157afa58b57cfb8327ec590e2dda95`.
+The single normal deploy `34523585398` succeeded at
+`https://c0498f38.wpbnewconstruction.pages.dev`; no manual or duplicate deploy
+was run. Concierge `34468567260`, Batch 5 `34468567325`, and social
+`34468567278` were all green, nine jobs total.
+
+The retained manifest at
+`/Volumes/ExternalSSD/WPB_PR86_Review/.runtime/batch6-live-2026-09-10/manifest.json`
+records 11 representative routes × desktop/mobile, six Olara plans ×
+desktop/mobile, real Maps tile/zoom checks, an explicit shortlist submission,
+hydrated metadata checks, and intercepted inquiries only. Those probes pass.
+A focused 390px `/map/` Ask WPB/Maps Zoom-out check failed: the launcher
+overlaps the native Zoom-out control by 1,495px², and the center/top-left
+pointer checks hit Ask WPB. Batch 6 must not be marked LIVE-VERIFIED; a bounded
+fix and retest are required. See the [durable live evidence](evidence/batch6-live-2026-09-10/README.md).
+
+### PR #93 candidate correction — not deployed
+
+Draft PR #93 (`fix/batch6-mobile-map-controls`) is **candidate-only, not approved
+or deployed**. Candidate revision
+`ae076dc5926baeebedb30b8d45b23a2ade710c05` carries application source
+`f761a0057460a98a45c333b2ffb16fad5b22e59d` against production base
+`2d0175eed5157afa58b57cfb8327ec590e2dda95` and moves the shared native Google
+Maps zoom controls with `zoomControlOptions` `LEFT_CENTER`. Local typecheck,
+build, 22 concierge views and no-key Maps checks pass, and a candidate-only
+real-Maps override reports zero overlap. Revision-specific CI is linked at
+[concierge 34531549077](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531549077)
+and [social 34531549133](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531549133);
+the latest conclusion belongs to [PR #93](https://github.com/BrokenFL/WPB_New_Construction/pull/93).
+The final QA contract retains six scenarios for bounded native-control readiness
+and independent fresh-context mobile zoom directions. A complete successful
+check set and separate Brooke release approval are required; production remains
+blocked by the recorded overlap and one authorized deploy has already been used.
+
+## Historical Batch 5 authorship + trust review evidence
 
 PR #83 uses a deliberately narrow real-person responsibility model:
 
@@ -103,7 +144,7 @@ Historical evidence retained:
 - Corrective regression commit `f8e6b8f3a7bdf7b8a0f0fc880d056af5351909d4` updated only the stale Batch 4 heading QA contract and documented the Batch 5 semantic reason.
 - `34309439506` — **FINAL GREEN**: keyed candidate SUCCESS, no-key candidate SUCCESS, aggregate Batch 5 review verification SUCCESS. Existing buyer journeys, Batch 4 regression, 48 Batch 5 browser/schema checks, complete repository suite, assets, SEO/GEO, Agent Skills, accessibility, gatekeeper, privacy/PII, keyed deployment preflight/actual Maps and expected no-key rejection all passed.
 
-Screenshots are retained in the keyed/no-key workflow artifacts under the Batch 5 authorship and Batch 4 project-SEO evidence directories. This is review evidence only; PR #83 remains draft and no production deployment has occurred.
+Screenshots are retained in the keyed/no-key workflow artifacts under the Batch 5 authorship and Batch 4 project-SEO evidence directories. This section is historical test/review evidence; the current deployed/live-verified state is recorded above.
 
 Remaining limitations: visible responsibility is intentionally sparse rather than retroactively assigned; Scott has no page-review assignment yet; production outcomes are unmeasured; real lead fulfillment and actual GA4 transport are outside this Batch 5 review.
 
@@ -128,7 +169,7 @@ Independent batches start from then-current production main, use verified source
 | P2-004 contextual lead flows | Availability/packet/shortlist deployed; Batch4 live exact switching verified | Explicit request and first-touch ownership | Real fulfillment acceptance separate | Preserve PII/consent boundaries |
 | P2-005 Buyer Intelligence Report | Planned | Monthly project changes and verified buyer intelligence | Verified period/owner/fulfillment | Separate future batch |
 | P2-005 newsletter/preferences | Planned; no emails sent | Weekly/monthly/project subscriptions | Explicit opt-in/unsubscribe/provider | No unapproved automation |
-| P2-006 real authors/reviewers — Batch 5 | **Implemented/tested; draft review pending** | PR #83; final tested corrective SHA `f8e6b8f3`; final green `34309439506`; real-person profiles, compact bylines/review labels, stable Person schema and About/Methodology connections | Brooke presentation review | Keep draft; no deployment before approval |
+| P2-006 real authors/reviewers — Batch 5 | **Implemented/tested/approved/deployed/live-verified; not measured** | PR #83; production merge/deployment `0713e029`; live `34410472433`; historical final tested corrective SHA `f8e6b8f3`; final green `34309439506`; real-person profiles, compact bylines/review labels, stable Person schema and About/Methodology connections | Measurement and ongoing responsibility review | Preserve; no retroactive attribution |
 | P2-007 buyer due diligence | Planned | Deposits/contracts/fees/parking/storage/pets/services/delays | Authoritative sources | General education only |
 | P2-008 lifestyle/feature guides | Planned | Marina/branded/wellness/private elevators/etc. | Verified project facts | Avoid invented policies/thin pages |
 | P2-009 linking/query ownership | Existing discovery/query ownership deployed and live-regressed | Market/browse/place/brand/layout/decision/process/news roles | Useful context | Preserve canonicals/equity |
