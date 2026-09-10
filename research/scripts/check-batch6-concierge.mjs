@@ -71,7 +71,14 @@ async function step(label, stage, fn, timeoutMs = 15000) {
 }
 
 async function createAuditContext(options = {}, label = "context") {
-  const context = await step(label, "context.create", () => browser.newContext({ serviceWorkers: "block", ...options }), 10000);
+  // This suite audits concierge behavior, not the separate analytics-consent UX.
+  // Start each browser context with an explicit denied preference so the consent
+  // dialog correctly remains absent instead of intercepting unrelated clicks.
+  const storageState = {
+    cookies: [],
+    origins: [{ origin, localStorage: [{ name: "wpbAnalyticsConsentV1", value: "denied" }] }],
+  };
+  const context = await step(label, "context.create", () => browser.newContext({ serviceWorkers: "block", storageState, ...options }), 10000);
   await step(label, "context.route-install", () => context.route("**/*", async (route) => {
     const requestUrl = new URL(route.request().url());
     if (requestUrl.origin === origin) await route.continue();
