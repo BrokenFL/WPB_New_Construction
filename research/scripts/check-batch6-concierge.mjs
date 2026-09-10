@@ -75,7 +75,7 @@ try {
       }
       await page.keyboard.press("Escape");
       const closeState = await page.evaluate(() => {
-        const current = document.querySelector<HTMLButtonElement>(".buyer-concierge-launcher");
+        const current = document.querySelector(".buyer-concierge-launcher");
         return { exists: Boolean(current), expanded: current?.getAttribute("aria-expanded") ?? null, focused: document.activeElement === current };
       });
       assert.deepEqual(closeState, { exists: true, expanded: "false", focused: true }, `${route}:${width}: Escape closes and returns focus`);
