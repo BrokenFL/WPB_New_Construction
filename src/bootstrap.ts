@@ -104,18 +104,37 @@ async function start() {
     old?.remove();
     (app.querySelector("main") ?? app).insertAdjacentHTML("beforeend", html);
   };
+
+  const observerOptions: MutationObserverInit = {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["hidden"],
+  };
   const observer = new MutationObserver((mutations) => {
     // Google Maps owns and continuously mutates the DOM below its canvas. Those
     // internal mutations are not app content changes and must not retrigger the
-    // site-wide enhancement pass, which can otherwise starve unrelated UI work.
+    // site-wide enhancement pass.
     const onlyMapInternals = mutations.length > 0 && mutations.every((mutation) =>
       mutation.target instanceof Element && Boolean(mutation.target.closest("[data-hero-google-map]")),
     );
-    if (!onlyMapInternals) refresh();
+    if (onlyMapInternals) return;
+
+    // refresh() itself can normalize or inject DOM. Disconnect while it runs so
+    // those idempotent enhancement writes cannot recursively schedule refresh.
+    observer.disconnect();
+    try {
+      refresh();
+    } finally {
+      observer.observe(app, observerOptions);
+    }
   });
-  observer.observe(app, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
-  window.addEventListener("popstate", refresh);
+
+  // Complete the initial enhancement pass before subscribing to mutations. This
+  // prevents initial normalization from seeding an observer-feedback loop.
   refresh();
+  observer.observe(app, observerOptions);
+  window.addEventListener("popstate", refresh);
 }
 
 start().catch((error: unknown) => {
