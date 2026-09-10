@@ -1,11 +1,12 @@
 name: Batch 6 concierge implementation review (no deploy)
 on:
-  push:
-    branches: [p2-batch6-concierge-intents]
   pull_request:
     branches: [main]
 permissions:
   contents: read
+concurrency:
+  group: batch6-concierge-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 jobs:
   candidate:
     name: Batch 6 concierge (${{ matrix.mode }})
