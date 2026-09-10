@@ -11,6 +11,56 @@ await fs.mkdir(artifactDir, { recursive: true });
 const server = spawn(process.execPath, ['node_modules/vite/bin/vite.js', 'preview', '--host', '127.0.0.1', '--port', '4173', '--strictPort'], { stdio: 'ignore' });
 let browser;
 const results = [];
+
+async function assertMobileMapControls(page, card, route) {
+  const geometry = await card.evaluate((card) => {
+    const visible = (element) => {
+      if (!element) return false;
+      const rect = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden';
+    };
+    const rectOf = (element) => {
+      const rect = element.getBoundingClientRect();
+      return { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height };
+    };
+    const overlapArea = (a, b) => Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left))
+      * Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
+    const launcher = document.querySelector('.buyer-concierge-launcher');
+    const count = card.querySelector('.home-map-count');
+    const controls = {};
+    for (const label of ['Zoom in', 'Zoom out']) {
+      const button = [...card.querySelectorAll(`button[aria-label="${label}"]`)].find(visible);
+      if (!button) return { error: `Visible ${label} control was not found.` };
+      const rect = rectOf(button);
+      const center = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      const hit = document.elementFromPoint(center.x, center.y);
+      controls[label] = {
+        rect,
+        center,
+        centerContainsHit: Boolean(hit && button.contains(hit)),
+        hit: { tag: hit?.tagName ?? null, className: hit?.getAttribute('class') ?? null, ariaLabel: hit?.getAttribute('aria-label') ?? null },
+        overlapAreaWithLauncher: overlapArea(rect, rectOf(launcher)),
+        overlapAreaWithCount: count && visible(count) ? overlapArea(rect, rectOf(count)) : 0,
+      };
+    }
+    return {
+      controls,
+      launcher: { rect: rectOf(launcher), expanded: launcher.getAttribute('aria-expanded') },
+      count: count && visible(count) ? { rect: rectOf(count), pointerEvents: getComputedStyle(count).pointerEvents } : null,
+    };
+  });
+  assert.equal(geometry.error, undefined, `${route} mobile Maps controls`);
+  for (const label of ['Zoom in', 'Zoom out']) {
+    const control = geometry.controls[label];
+    assert.equal(control.centerContainsHit, true, `${route} mobile ${label} center must hit its native Google control`);
+    assert.equal(control.overlapAreaWithLauncher, 0, `${route} mobile ${label} must clear the concierge launcher`);
+    assert.equal(control.overlapAreaWithCount, 0, `${route} mobile ${label} must clear the map count panel`);
+  }
+  assert.equal(geometry.launcher.expanded, 'false', `${route} mobile launcher should start closed`);
+  return geometry;
+}
+
 try {
   let ready = false;
   for (let attempt = 0; attempt < 120; attempt++) {
@@ -22,7 +72,7 @@ try {
   browser = await chromium.launch({ headless: true });
   for (const width of [1366, 390]) for (const route of ['/', '/map/']) {
     const context = await browser.newContext({
-      viewport: { width, height: 900 },
+      viewport: { width, height: width === 390 ? 844 : 900 },
       // This audit is about the real keyed Maps surface. Keep the unrelated
       // optional analytics prompt out of the page, as the concierge capture
       // audit does, so consent timing cannot intercept map controls.
@@ -74,6 +124,19 @@ try {
       failurePhase = 'map-layout';
       const dimensions = await card.evaluate((el) => ({ cardWidth: el.getBoundingClientRect().width, canvasWidth: el.querySelector('[data-hero-google-map]').getBoundingClientRect().width }));
       if (route === '/map/') assert.ok(dimensions.canvasWidth >= dimensions.cardWidth - 4, 'Standalone map must fill its card; no empty inherited second column.');
+      let mobileControlGeometry;
+      if (width === 390) {
+        failurePhase = 'mobile-control-layout';
+        await page.locator('.buyer-concierge-launcher').waitFor({ state: 'visible', timeout: 10000 });
+        mobileControlGeometry = await assertMobileMapControls(page, card, route);
+        failurePhase = 'mobile-zoom-out-hit-test';
+        const preZoomOutTiles = await card.locator('.gm-style img').evaluateAll((imgs) => imgs.filter(i => i.complete && i.naturalWidth >= 128).map(i => i.currentSrc || i.src));
+        const zoomOut = mobileControlGeometry.controls['Zoom out'].center;
+        await page.mouse.click(zoomOut.x, zoomOut.y);
+        assert.equal(await page.locator('.buyer-concierge-launcher').getAttribute('aria-expanded'), 'false', `${route} mobile Zoom out must not open concierge`);
+        await page.waitForFunction((old) => [...document.querySelectorAll('.home-hero-map-card')].filter(c => !c.closest('[data-route-view]')?.hidden).flatMap(c => [...c.querySelectorAll('.gm-style img')]).some(i => i.complete && i.naturalWidth >= 128 && !old.includes(i.currentSrc || i.src)), preZoomOutTiles, { timeout: 15000 });
+        await page.waitForFunction(() => [...document.querySelectorAll('.home-hero-map-card')].find(c => !c.closest('[data-route-view]')?.hidden)?.getAttribute('data-map-state') === 'ready', null, { timeout: 5000 });
+      }
       const previousTiles = await card.locator('.gm-style img').evaluateAll((imgs) => imgs.filter(i => i.complete && i.naturalWidth >= 128).map(i => i.currentSrc || i.src));
       failurePhase = 'zoom-control';
       await card.getByRole('button', { name: 'Zoom in', exact: true }).click();
@@ -84,11 +147,21 @@ try {
       assert.equal(await card.getAttribute('data-map-state'), 'ready');
       failurePhase = 'post-zoom-errors';
       assert.deepEqual(errors, [], 'Errors after interacting with the actual map');
+      if (width === 390) {
+        failurePhase = 'mobile-launcher-hit-test';
+        const launcher = page.locator('.buyer-concierge-launcher');
+        const launcherBox = await launcher.boundingBox();
+        assert.ok(launcherBox, `${route} mobile concierge launcher must be visible`);
+        await page.mouse.click(launcherBox.x + launcherBox.width / 2, launcherBox.y + launcherBox.height / 2);
+        await page.waitForFunction(() => document.querySelector('.buyer-concierge-launcher')?.getAttribute('aria-expanded') === 'true', null, { timeout: 5000 });
+        await page.keyboard.press('Escape');
+        await page.waitForFunction(() => document.querySelector('.buyer-concierge-launcher')?.getAttribute('aria-expanded') === 'false', null, { timeout: 5000 });
+      }
       const label = `${route === '/' ? 'home' : 'map'}-${width}`;
       failurePhase = 'screenshots';
       await page.screenshot({ path: `${artifactDir}/${label}-working-map.png`, fullPage: true });
       await card.screenshot({ path: `${artifactDir}/${label}-map-card.png` });
-      results.push({ route, width, status: 'pass', realLoaderResponse: true, loadedMapTileImages: true, zoomChangedTiles: true, dimensions, fallbackAccepted: false });
+      results.push({ route, width, status: 'pass', realLoaderResponse: true, loadedMapTileImages: true, zoomChangedTiles: true, dimensions, mobileControlGeometry, fallbackAccepted: false });
     } catch {
       results.push({ route, width, status: 'fail', failurePhase, errorCodes: [...new Set(errors)], reason: `Keyed Maps verification failed during ${failurePhase}.` });
     }

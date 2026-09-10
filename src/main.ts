@@ -286,6 +286,9 @@ type GoogleMapsNamespace = {
   LatLngBounds: new () => {
     extend: (position: { lat: number; lng: number }) => void;
   };
+  ControlPosition: {
+    LEFT_CENTER: unknown;
+  };
   SymbolPath: {
     CIRCLE: unknown;
   };
@@ -6621,13 +6624,18 @@ function projectMapMarkerIcon(maps: GoogleMapsNamespace, priority: "primary" | "
   };
 }
 
-function googleMapBaseOptions(center: { lat: number; lng: number }, zoom: number): Record<string, unknown> {
+function googleMapBaseOptions(
+  maps: GoogleMapsNamespace,
+  center: { lat: number; lng: number },
+  zoom: number,
+): Record<string, unknown> {
   const mapOptions: Record<string, unknown> = {
     center,
     zoom,
     styles: cleanProjectMapStyles,
     disableDefaultUI: true,
     zoomControl: true,
+    zoomControlOptions: { position: maps.ControlPosition.LEFT_CENTER },
     mapTypeControl: false,
     streetViewControl: false,
     fullscreenControl: false,
@@ -6672,7 +6680,7 @@ function initHeroGoogleMap() {
       if (!canvas.isConnected) return;
       const focusProject = rankedFeaturedProjects.find((project) => project.id === card.dataset.focusProjectId);
       const focusPosition = focusProject ? { lat: focusProject.latitude, lng: focusProject.longitude } : undefined;
-      const map = new maps.Map(canvas, googleMapBaseOptions(focusPosition ?? { lat: 26.7134, lng: -80.0564 }, focusPosition ? 15 : 13));
+      const map = new maps.Map(canvas, googleMapBaseOptions(maps, focusPosition ?? { lat: 26.7134, lng: -80.0564 }, focusPosition ? 15 : 13));
       let expanded = false;
       let markers: GoogleMarkerHandle[] = [];
 
@@ -6807,7 +6815,7 @@ function initProjectLocationMaps() {
         }
 
         const position = { lat: latitude, lng: longitude };
-        const map = new maps.Map(element, googleMapBaseOptions(position, 15));
+        const map = new maps.Map(element, googleMapBaseOptions(maps, position, 15));
         createMapMarker(
           maps,
           map,
