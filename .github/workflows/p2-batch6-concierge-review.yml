@@ -50,6 +50,8 @@ jobs:
         run: npm run test:leads
       - name: Concierge desktop/mobile and lightweight boundary
         run: node research/scripts/check-batch6-concierge.mjs
+      - name: Capture concierge desktop/mobile evidence
+        run: node research/scripts/capture-batch6-concierge-screens.mjs
       - name: Full repository suite
         env:
           WPB_MAP_QA_MODE: ${{ matrix.mode }}
