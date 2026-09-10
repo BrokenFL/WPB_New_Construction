@@ -1,0 +1,106 @@
+name: Batch 6C live verification (no deploy)
+
+on:
+  push:
+    branches: [p2-batch6-social-previews-live-verification]
+
+permissions:
+  contents: read
+
+jobs:
+  verify-live:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Verify production raw JS-off hydrated and Maps health
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import fs from 'node:fs/promises';
+          import { chromium } from 'playwright';
+          const base='https://www.wpbnewconstruction.com';
+          const routes=['/','/projects/rosewood-residences-west-palm-beach/','/answers/olara-vs-ritz-carlton-vs-shorecrest/','/floorplans/olara/residence-d/'];
+          const evidence={sha:'c568746b545804bfab48cda8a9e7f214ddda9d36',routes:[],maps:null};
+          function head(html,name,property=false){
+            const attr=property?'property':'name';
+            const re=new RegExp(`<meta[^>]+${attr}=["']${name}["'][^>]+content=["']([^"']+)["']|<meta[^>]+content=["']([^"']+)["'][^>]+${attr}=["']${name}["']`,'i');
+            const m=html.match(re); return m?.[1]||m?.[2]||'';
+          }
+          function canonical(html){ return html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']|<link[^>]+href=["']([^"']+)["'][^>]+rel=["']canonical["']/i)?.slice(1).find(Boolean)||''; }
+          for(const route of routes){
+            const res=await fetch(base+route,{headers:{'user-agent':'WPB-Batch6C-LiveVerifier/1.0'}});
+            assert.equal(res.status,200,`${route}: raw status`);
+            const html=await res.text();
+            const og=head(html,'og:image',true), tw=head(html,'twitter:image'), can=canonical(html);
+            for(const [label,url] of [['og',og],['twitter',tw]]){
+              assert.match(url,/^https:\/\//,`${route}: ${label} absolute HTTPS`);
+              const image=await fetch(url,{method:'HEAD'});
+              assert.ok(image.ok,`${route}: ${label} image reachable`);
+              assert.match(image.headers.get('content-type')||'',/^image\//i,`${route}: ${label} image MIME`);
+            }
+            assert.equal(og,tw,`${route}: approved social artwork consistent`);
+            assert.equal(can,base+route,`${route}: canonical unchanged`);
+            evidence.routes.push({route,raw:{og,tw,canonical:can}});
+          }
+          const browser=await chromium.launch({headless:true});
+          try{
+            for(const javaScriptEnabled of [false,true]){
+              const context=await browser.newContext({javaScriptEnabled});
+              try{
+                for(const route of routes){
+                  const page=await context.newPage();
+                  const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+                  const response=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:30000});
+                  assert.equal(response?.status(),200,`${route}: browser status`);
+                  const meta=await page.evaluate(()=>({
+                    og:document.querySelector('meta[property="og:image"]')?.getAttribute('content')||'',
+                    tw:document.querySelector('meta[name="twitter:image"]')?.getAttribute('content')||'',
+                    canonical:document.querySelector('link[rel="canonical"]')?.getAttribute('href')||'',
+                    h1:document.querySelectorAll('h1').length,
+                    graphs:document.querySelectorAll('script[type="application/ld+json"]').length,
+                    inquiryLinks:document.querySelectorAll('a[href^="/inquire/"]').length
+                  }));
+                  assert.match(meta.og,/^https:\/\//,`${route}: browser og`);
+                  assert.match(meta.tw,/^https:\/\//,`${route}: browser twitter`);
+                  assert.equal(meta.canonical,base+route,`${route}: browser canonical`);
+                  assert.equal(meta.h1,1,`${route}: one H1`);
+                  assert.ok(meta.graphs<=1,`${route}: no duplicate JSON-LD graph`);
+                  assert.ok(meta.inquiryLinks>=1 || route==='/',`${route}: buyer journey link`);
+                  if(javaScriptEnabled) assert.deepEqual(errors,[],`${route}: hydrated page errors`);
+                  evidence.routes.find(r=>r.route===route)[javaScriptEnabled?'hydrated':'jsOff']=meta;
+                  await page.close();
+                }
+              } finally { await context.close(); }
+            }
+            const context=await browser.newContext();
+            try{
+              const page=await context.newPage(); const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+              const response=await page.goto(base+'/map/',{waitUntil:'domcontentloaded',timeout:30000});
+              assert.equal(response?.status(),200,'map status');
+              await page.waitForTimeout(3000);
+              const map=await page.evaluate(()=>({h1:document.querySelectorAll('h1').length,canvas:document.querySelectorAll('canvas').length,mapNodes:document.querySelectorAll('[class*="map" i],gmp-map').length}));
+              assert.equal(map.h1,1,'map one H1');
+              assert.ok(map.canvas>0 || map.mapNodes>0,'map UI rendered');
+              assert.deepEqual(errors,[],'map page errors');
+              evidence.maps=map;
+            } finally { await context.close(); }
+          } finally { await browser.close(); }
+          await fs.mkdir('.runtime/batch6c-live',{recursive:true});
+          await fs.writeFile('.runtime/batch6c-live/evidence.json',JSON.stringify(evidence,null,2));
+          console.log(JSON.stringify(evidence,null,2));
+          NODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: batch6c-live-c568746b
+          path: .runtime/batch6c-live/
+          retention-days: 14
