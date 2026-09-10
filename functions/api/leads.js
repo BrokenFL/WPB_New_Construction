@@ -9,6 +9,7 @@ import {
   verifyTurnstile,
 } from "../_shared/lead-utils.js";
 import { deliverLead } from "../_shared/lead-delivery.js";
+import { normalizeRequestIntentPair } from "../../shared/request-intents.js";
 
 const RATE_LIMIT_WINDOW_MINUTES = 10;
 const RATE_LIMIT_MAX = 5;
@@ -26,7 +27,6 @@ async function isRateLimited(db, ipHash) {
 async function insertLead(db, lead) {
   const existing = await db.prepare("SELECT * FROM leads WHERE submission_id = ? LIMIT 1").bind(lead.submission_id).first();
   if (existing) return { lead: existing, duplicate: true };
-
   try {
     await db.prepare(`
       INSERT INTO leads (
@@ -59,10 +59,20 @@ async function insertLead(db, lead) {
 }
 
 function methodResponse(method) {
-  return jsonResponse({ ok: false, code: "method_not_allowed", message: `${method} is not allowed.` }, {
-    status: 405,
-    headers: { Allow: "POST, OPTIONS" },
-  });
+  return jsonResponse({ ok: false, code: "method_not_allowed", message: `${method} is not allowed.` }, { status: 405, headers: { Allow: "POST, OPTIONS" } });
+}
+
+export function normalizeServerRequestIntent(body, lead) {
+  if (lead.form_type === "email_updates") return lead;
+  const normalized = normalizeRequestIntentPair(body.request_intent ?? body.requestIntent, lead.interest);
+  if (normalized.error) {
+    throw Object.assign(new Error("Choose a valid inquiry type and try again."), { status: 400, code: normalized.error });
+  }
+  if (normalized.definition) {
+    lead.request_intent = normalized.definition.id;
+    lead.interest = normalized.definition.interest;
+  }
+  return lead;
 }
 
 export async function onRequest(context) {
@@ -74,10 +84,9 @@ export async function onRequest(context) {
 
   try {
     const body = await parseRequestBody(request);
-    const lead = normalizeLead(body, request);
+    const lead = normalizeServerRequestIntent(body, normalizeLead(body, request));
     const validationError = validateLead(lead);
     if (validationError) throw Object.assign(new Error(validationError.message), { status: 400, code: validationError.code });
-
     const honeypot = String(body.company ?? body.website ?? "").trim();
     if (honeypot) {
       lead.spam_status = "honeypot";
@@ -88,22 +97,10 @@ export async function onRequest(context) {
     await addRequestSignals(lead, request, env);
     const db = env.LEADS_DB;
     if (await isRateLimited(db, lead.ip_hash)) throw Object.assign(new Error("Too many requests"), { status: 429, code: "rate_limited" });
-
     const inserted = await insertLead(db, lead);
-    if (inserted.duplicate) {
-      return jsonResponse({ ok: true, duplicate: true, leadId: inserted.lead.id, message: "Your request was already received." }, { status: 200 });
-    }
-
+    if (inserted.duplicate) return jsonResponse({ ok: true, duplicate: true, leadId: inserted.lead.id, message: "Your request was already received." }, { status: 200 });
     const delivery = await deliverLead(env, db, lead);
-    return jsonResponse({
-      ok: true,
-      leadId: lead.id,
-      message: "Your request was received.",
-      delivery: {
-        notification: delivery.notification,
-        acknowledgment: delivery.acknowledgment,
-      },
-    }, { status: 201 });
+    return jsonResponse({ ok: true, leadId: lead.id, message: "Your request was received.", delivery: { notification: delivery.notification, acknowledgment: delivery.acknowledgment } }, { status: 201 });
   } catch (error) {
     return errorResponse(error);
   }

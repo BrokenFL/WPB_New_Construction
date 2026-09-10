@@ -33,6 +33,7 @@ import type { BuildingDatabaseField } from "./lib/buildingDatabase";
 import type { CompareSection } from "./lib/buildingCompareSections";
 import { advisorProfile, teamProfile } from "./lib/contact";
 import { getSchemaSafeProjectFacts } from "./lib/projectSchemaRuntime";
+import { normalizeRequestIntent } from "./lib/requestIntents.ts";
 import { escapeHtml, safeHref } from "./renderUtils";
 import { localIntelligence } from "./data/localIntelligence";
 import { homepageAssets, homepageProjectCardImage } from "./data/homepageAssets";
@@ -4142,12 +4143,14 @@ function syncInquiryContext() {
     }
   }
 
-  if (interestSelect && interest === "floorplans") {
-    interestSelect.value = "Request private floor-plan packet";
-  } else if (interestSelect && interest === "compare") {
-    interestSelect.value = "Compare buildings";
-  } else if (interestSelect && interest === "availability") {
-    interestSelect.value = "Request current availability";
+  const requestedIntent = interest === "compare"
+    ? normalizeRequestIntent("Compare buildings")
+    : normalizeRequestIntent(interest);
+  if (interestSelect && requestedIntent) {
+    const matchingOption = Array.from(interestSelect.options).find((option) =>
+      normalizeRequestIntent(option.value || option.textContent || "")?.id === requestedIntent.id,
+    );
+    if (matchingOption) interestSelect.value = matchingOption.value;
   }
 
   if (messageField && message) {

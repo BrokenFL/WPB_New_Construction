@@ -1,0 +1,173 @@
+{
+  "repository": "BrokenFL/WPB_New_Construction",
+  "testedHeadSha": "3cc9052c0c52d094aa888ce5a4c42d90c3b71f48",
+  "syntheticTestMergeSha": "eb95c9057c67349acb2929789a931f7e55fc9c35",
+  "baseProductionSha": "c568746b545804bfab48cda8a9e7f214ddda9d36",
+  "lastApplicationRevision": "85eeae70d59fdbc87f169692dc6464128910bbbf",
+  "allNineJobs": "SUCCESS",
+  "workflows": [
+    {
+      "conclusion": "success",
+      "databaseId": 34467536610,
+      "event": "pull_request",
+      "headSha": "3cc9052c0c52d094aa888ce5a4c42d90c3b71f48",
+      "jobs": [
+        {
+          "databaseId": 102839709513,
+          "name": "Batch 6 concierge (keyed)",
+          "conclusion": "success",
+          "startedAt": "2026-09-10T10:44:03Z",
+          "completedAt": "2026-09-10T10:53:34Z",
+          "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536610/job/102839709513"
+        },
+        {
+          "databaseId": 102839709710,
+          "name": "Batch 6 concierge (no-key)",
+          "conclusion": "success",
+          "startedAt": "2026-09-10T10:44:04Z",
+          "completedAt": "2026-09-10T10:52:30Z",
+          "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536610/job/102839709710"
+        },
+        {
+          "databaseId": 102842345729,
+          "name": "Batch 6 concierge aggregate gate",
+          "conclusion": "success",
+          "startedAt": "2026-09-10T10:53:36Z",
+          "completedAt": "2026-09-10T10:53:40Z",
+          "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536610/job/102842345729"
+        }
+      ],
+      "name": "Batch 6 concierge implementation review (no deploy)",
+      "status": "completed",
+      "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536610",
+      "artifacts": [
+        {
+          "id": 10148482462,
+          "name": "batch6-keyed-maps-eb95c9057c67349acb2929789a931f7e55fc9c35",
+          "expired": false,
+          "expires_at": "2026-09-24T10:53:31Z"
+        },
+        {
+          "id": 10148481863,
+          "name": "batch6-concierge-keyed-eb95c9057c67349acb2929789a931f7e55fc9c35",
+          "expired": false,
+          "expires_at": "2026-09-24T10:53:30Z"
+        },
+        {
+          "id": 10148446800,
+          "name": "batch6-concierge-no-key-eb95c9057c67349acb2929789a931f7e55fc9c35",
+          "expired": false,
+          "expires_at": "2026-09-24T10:52:26Z"
+        }
+      ]
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 34467536644,
+      "event": "pull_request",
+      "headSha": "3cc9052c0c52d094aa888ce5a4c42d90c3b71f48",
+      "jobs": [
+        {
+          "databaseId": 102839637301,
+          "name": "Batch 5 candidate (no-key)",
+          "conclusion": "success",
+          "startedAt": "2026-09-10T10:43:48Z",
+          "completedAt": "2026-09-10T10:52:52Z",
+          "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536644/job/102839637301"
+        },
+        {
+          "databaseId": 102839637571,
+          "name": "Batch 5 candidate (keyed)",
+          "conclusion": "success",
+          "startedAt": "2026-09-10T10:43:48Z",
+          "completedAt": "2026-09-10T10:52:44Z",
+          "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536644/job/102839637571"
+        },
+        {
+          "databaseId": 102842152833,
+          "name": "Batch 5 review verification",
+          "conclusion": "success",
+          "startedAt": "2026-09-10T10:52:54Z",
+          "completedAt": "2026-09-10T10:52:56Z",
+          "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536644/job/102842152833"
+        }
+      ],
+      "name": "P2 Batch 5 complete authorship verification (no deploy)",
+      "status": "completed",
+      "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536644",
+      "artifacts": [
+        {
+          "id": 10148459243,
+          "name": "p2-authorship-trust-no-key-eb95c9057c67349acb2929789a931f7e55fc9c35",
+          "expired": false,
+          "expires_at": "2026-09-24T10:52:46Z"
+        },
+        {
+          "id": 10148455032,
+          "name": "p2-authorship-trust-keyed-eb95c9057c67349acb2929789a931f7e55fc9c35",
+          "expired": false,
+          "expires_at": "2026-09-24T10:52:38Z"
+        }
+      ]
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 34467536649,
+      "event": "pull_request",
+      "headSha": "3cc9052c0c52d094aa888ce5a4c42d90c3b71f48",
+      "jobs": [
+        {
+          "databaseId": 102839517612,
+          "name": "Batch 6C social previews (no-key)",
+          "conclusion": "success",
+          "startedAt": "2026-09-10T10:43:23Z",
+          "completedAt": "2026-09-10T10:45:40Z",
+          "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536649/job/102839517612"
+        },
+        {
+          "databaseId": 102839517813,
+          "name": "Batch 6C social previews (keyed)",
+          "conclusion": "success",
+          "startedAt": "2026-09-10T10:43:23Z",
+          "completedAt": "2026-09-10T10:46:01Z",
+          "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536649/job/102839517813"
+        },
+        {
+          "databaseId": 102840258487,
+          "name": "Batch 6C aggregate gate",
+          "conclusion": "success",
+          "startedAt": "2026-09-10T10:46:04Z",
+          "completedAt": "2026-09-10T10:46:08Z",
+          "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536649/job/102840258487"
+        }
+      ],
+      "name": "Batch 6C social preview review (no deploy)",
+      "status": "completed",
+      "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536649",
+      "artifacts": [
+        {
+          "id": 10148221301,
+          "name": "batch6-social-keyed-eb95c9057c67349acb2929789a931f7e55fc9c35",
+          "expired": false,
+          "expires_at": "2026-09-24T10:45:57Z"
+        },
+        {
+          "id": 10148209331,
+          "name": "batch6-social-no-key-eb95c9057c67349acb2929789a931f7e55fc9c35",
+          "expired": false,
+          "expires_at": "2026-09-24T10:45:37Z"
+        }
+      ]
+    }
+  ],
+  "retainedScreenshots": {
+    "captureHeadSha": "593abf507ed302b8b422f95b2510892b87173156",
+    "manifest": "manifest.json",
+    "applicationSourcesUnchanged": true
+  },
+  "limitations": [
+    "Candidate verification only; no merge or deployment.",
+    "Lead submissions intercepted or controlled; production delivery is unverified.",
+    "Actions artifacts expire; selected screenshots are retained in the repository."
+  ]
+}

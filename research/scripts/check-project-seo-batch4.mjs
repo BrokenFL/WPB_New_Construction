@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
 import http from "node:http";
+import { normalizeRequestIntent } from "../../shared/request-intents.js";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
@@ -95,6 +96,8 @@ async function browserChecks() {
 
         const submitBatch4Request = async (record, action, transition) => {
           const interest = actions[action];
+          const requestIntent = normalizeRequestIntent(interest);
+          assert.ok(requestIntent, `${transition}: unknown request intent`);
           await page.goto(`${origin}${record.path}`, { waitUntil: "networkidle" });
           const actionLink = page.locator(`#wpb-project-seo-batch4 [data-project-growth-action="${action}"]`);
           await actionLink.waitFor();
@@ -109,10 +112,10 @@ async function browserChecks() {
           const inquiryUrl = new URL(page.url());
           assert.equal(inquiryUrl.searchParams.get("project"), record.projectId, `${transition}: request project alias`);
           assert.equal(inquiryUrl.searchParams.get("interest"), interest, `${transition}: request interest`);
-          const form = page.locator(".inquiry-form");
+          const form = page.locator('.inquiry-form[data-batch6-intent-wired="true"]');
           await form.waitFor({ state: "visible" });
           assert.equal(await form.locator('[name="project"]').inputValue(), record.slug, `${transition}: canonical form project`);
-          assert.equal(await form.locator('[name="interest"]').inputValue(), interest, `${transition}: current form interest`);
+          assert.equal(await form.locator('[name="interest"]').inputValue(), requestIntent.interest, `${transition}: current form interest`);
           await form.locator('[name="name"]').fill("Batch 4 QA Example");
           await form.locator('[name="email"]').fill("batch4-qa@example.invalid");
           await form.locator('[name="phone"]').fill("202-555-0188");
@@ -126,7 +129,8 @@ async function browserChecks() {
           assert.equal(submissions.length, before + 1, `${transition}: exactly one intercepted submission`);
           const payload = submissions.at(-1);
           assert.equal(payload.project, record.slug, `${transition}: canonical payload project`);
-          assert.equal(payload.interest, interest, `${transition}: current payload interest`);
+          assert.equal(payload.interest, requestIntent.interest, `${transition}: current payload interest`);
+          assert.equal(payload.request_intent, requestIntent.id, `${transition}: current payload intent`);
           const sourcePage = new URL(payload.source_page);
           assert.equal(sourcePage.pathname, "/inquire/", `${transition}: source page path`);
           assert.equal(sourcePage.searchParams.get("project"), record.projectId, `${transition}: source page alias`);
@@ -135,7 +139,7 @@ async function browserChecks() {
           assert.equal(payload.landing_page, firstTouchLanding, `${transition}: first-touch landing page changed`);
           const analytics = await page.evaluate(() => JSON.stringify([window.wpbAnalyticsQueue, window.dataLayer]));
           assert.doesNotMatch(analytics, /Batch 4 QA Example|batch4-qa@|202-555-0188|BATCH4_TEST_MESSAGE_DO_NOT_SEND|BATCH4_INTERCEPTED_TOKEN/, `${transition}: contact PII leaked to analytics`);
-          results.push({ project: record.slug, requestAlias: record.projectId, width: viewport.width, action, transition, interceptedSubmission: "pass", interest });
+          results.push({ project: record.slug, requestAlias: record.projectId, width: viewport.width, action, transition, interceptedSubmission: "pass", legacyUrlInterest: interest, interest: requestIntent.interest });
         };
 
         for (const record of records) {

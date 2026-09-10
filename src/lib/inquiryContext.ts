@@ -3,6 +3,7 @@ import { floorplanForPath } from './floorplanEntities.ts';
 import { commercialLabels, parseCommercialContext } from './commercialContent.ts';
 import { corridorActionLabels, parseCorridorContext } from './corridorGrowthContent.ts';
 import { getLeadAttribution } from './leadCapture.ts';
+import { normalizeRequestIntent } from './requestIntents.ts';
 
 /** A single allowlisted owner for commercial, floor-plan and corridor requests. */
 export function resolveInquiryContext(value: unknown) {
@@ -33,6 +34,26 @@ export function resolveInquiryContext(value: unknown) {
 
 export function wireInquiryContext(app: HTMLElement) {
   const applied = new WeakMap<HTMLFormElement, { context: string; projectEdited: boolean; interestEdited: boolean }>();
+  const dispatchSynchronizedChange = (form: HTMLFormElement, field: HTMLSelectElement, editedKey: 'projectEdited' | 'interestEdited') => {
+    field.dispatchEvent(new Event('change', { bubbles: true }));
+    const state = applied.get(form);
+    if (state) state[editedKey] = false;
+  };
+  const setProjectSelection = (field: HTMLSelectElement, value: string) => {
+    if (field.value === value) return false;
+    field.value = value;
+    return true;
+  };
+  const setInterestSelection = (field: HTMLSelectElement, value: string) => {
+    const definition = normalizeRequestIntent(value);
+    if (!definition) return false;
+    const option = Array.from(field.options).find((candidate) =>
+      normalizeRequestIntent(candidate.value || candidate.textContent || '')?.id === definition.id,
+    );
+    if (!option || field.value === option.value) return false;
+    field.value = option.value;
+    return true;
+  };
   app.addEventListener('change', (event) => {
     const field = event.target;
     if (!(field instanceof HTMLSelectElement) || !field.form) return;
@@ -79,15 +100,16 @@ export function wireInquiryContext(app: HTMLElement) {
       }
       return;
     }
-    if (!previous || previous.context !== origin.context) {
+    const isNewContext = !previous || previous.context !== origin.context;
+    if (isNewContext) {
       // A new explicit request must not inherit the previous request's selections.
-      project.value = origin.project;
-      interest.value = origin.interest;
       applied.set(form, { context: origin.context, projectEdited: false, interestEdited: false });
     }
     const state = applied.get(form)!;
-    if (!state.projectEdited && origin.project) project.value = origin.project;
-    if (!state.interestEdited) interest.value = origin.interest;
+    const projectSynchronized = !state.projectEdited && (isNewContext || origin.project)
+      ? setProjectSelection(project, origin.project)
+      : false;
+    const interestSynchronized = !state.interestEdited ? setInterestSelection(interest, origin.interest) : false;
     hidden.value = origin.context;
     form.dataset.leadCtaLabel = origin.label;
     form.dataset.leadCtaLocation = origin.project && saved.cta_location === 'floorplan-entity-intro' ? 'floorplan-entity-intro' : origin.location;
@@ -103,6 +125,8 @@ export function wireInquiryContext(app: HTMLElement) {
       form.dataset.leadCorridor = origin.corridor;
       if (name) name.value = origin.projectName;
     }
+    if (isNewContext || projectSynchronized) dispatchSynchronizedChange(form, project, 'projectEdited');
+    if (isNewContext || interestSynchronized) dispatchSynchronizedChange(form, interest, 'interestEdited');
   };
   window.addEventListener('submit', (event) => {
     if (event.target instanceof HTMLFormElement && event.target.matches('.inquiry-form')) sync();

@@ -1,0 +1,153 @@
+{
+  "status": "pass",
+  "route": "/map/",
+  "timings": [
+    {
+      "stage": "context.create",
+      "result": "pass",
+      "ms": 12
+    },
+    {
+      "stage": "page.create",
+      "result": "pass",
+      "ms": 41
+    },
+    {
+      "stage": "page.goto",
+      "result": "pass",
+      "ms": 56
+    },
+    {
+      "stage": "application.shell",
+      "result": "pass",
+      "ms": 387
+    },
+    {
+      "stage": "launcher.attached",
+      "result": "pass",
+      "ms": 143
+    },
+    {
+      "stage": "launcher.visible",
+      "result": "pass",
+      "ms": 40
+    },
+    {
+      "stage": "launcher.click",
+      "result": "pass",
+      "ms": 63
+    },
+    {
+      "stage": "dialog.attached",
+      "result": "pass",
+      "ms": 66
+    },
+    {
+      "stage": "dialog.post-mount-state",
+      "result": "pass",
+      "ms": 4
+    },
+    {
+      "stage": "dialog.visible",
+      "result": "pass",
+      "ms": 21
+    },
+    {
+      "stage": "escape",
+      "result": "pass",
+      "ms": 8
+    },
+    {
+      "stage": "focus-return",
+      "result": "pass",
+      "ms": 2
+    }
+  ],
+  "postMountState": {
+    "root": {
+      "connected": true,
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1",
+      "position": "fixed",
+      "width": 103.125,
+      "height": 48,
+      "top": 934,
+      "right": 1424,
+      "bottom": 982,
+      "left": 1320.875
+    },
+    "launcher": {
+      "connected": true,
+      "hidden": false,
+      "display": "inline-block",
+      "visibility": "visible",
+      "opacity": "1",
+      "position": "static",
+      "width": 103.125,
+      "height": 48,
+      "top": 934,
+      "right": 1424,
+      "bottom": 982,
+      "left": 1320.875
+    },
+    "panel": {
+      "connected": true,
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1",
+      "position": "absolute",
+      "width": 360,
+      "height": 660,
+      "top": 264,
+      "right": 1424,
+      "bottom": 924,
+      "left": 1064
+    },
+    "launcherExpanded": "true",
+    "activeTag": "BUTTON",
+    "activeClass": "buyer-concierge-close"
+  },
+  "pageErrors": [],
+  "consoleMessages": [],
+  "network": [
+    {
+      "event": "request",
+      "url": "http://127.0.0.1:41775/assets/leadAttributionStore-CT-WSaIw.js"
+    },
+    {
+      "event": "response",
+      "url": "http://127.0.0.1:41775/assets/leadAttributionStore-CT-WSaIw.js",
+      "status": 200
+    },
+    {
+      "event": "request",
+      "url": "http://127.0.0.1:41775/assets/conciergeLauncher-N8p7dyiv.js"
+    },
+    {
+      "event": "request",
+      "url": "http://127.0.0.1:41775/assets/conciergeLauncher-B0ts2198.css"
+    },
+    {
+      "event": "response",
+      "url": "http://127.0.0.1:41775/assets/conciergeLauncher-B0ts2198.css",
+      "status": 200
+    },
+    {
+      "event": "response",
+      "url": "http://127.0.0.1:41775/assets/conciergeLauncher-N8p7dyiv.js",
+      "status": 200
+    },
+    {
+      "event": "request",
+      "url": "http://127.0.0.1:41775/assets/buyerConcierge-CKhhGAbg.js"
+    },
+    {
+      "event": "response",
+      "url": "http://127.0.0.1:41775/assets/buyerConcierge-CKhhGAbg.js",
+      "status": 200
+    }
+  ]
+}
