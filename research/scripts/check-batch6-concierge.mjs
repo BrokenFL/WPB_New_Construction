@@ -151,9 +151,7 @@ try {
         const launchStarted = Date.now();
         await step(label, "launcher.click", () => launcher.click({ timeout: 10000 }), 12000);
         const panel = page.getByRole("dialog", { name: "Ask WPB" });
-        await step(label, "dialog.exists", async () => {
-          assert.equal(await panel.count(), 1, `${label}: dialog attached exactly once`);
-        }, 10000);
+        await step(label, "dialog.attached", () => panel.waitFor({ state: "attached", timeout: 10000 }), 12000);
         await step(label, "dialog.visible", () => panel.waitFor({ state: "visible", timeout: 10000 }), 12000);
         const launchMs = Date.now() - launchStarted;
 
