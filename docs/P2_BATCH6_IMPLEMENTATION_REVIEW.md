@@ -4,7 +4,7 @@ September 10, 2026 · PR [#86](https://github.com/BrokenFL/WPB_New_Construction/
 
 ## Disposition and revision evidence
 
-**PASS — ready for Brooke's review; open draft and undeployed.**
+**Batch 6 application verification: PASS. Open draft and undeployed; all current PR checks remain a release prerequisite.**
 
 | Evidence | Exact revision/result |
 | --- | --- |
@@ -14,7 +14,9 @@ September 10, 2026 · PR [#86](https://github.com/BrokenFL/WPB_New_Construction/
 | Concierge implementation review | [34464411041](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34464411041): keyed **SUCCESS**, no-key **SUCCESS**, aggregate **SUCCESS** |
 | Social regression review | [34464411029](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34464411029): keyed **SUCCESS**, no-key **SUCCESS**, aggregate **SUCCESS** |
 
-This report, the authoritative handoff and retained evidence are a documentation-only successor to the tested revision. Application, QA scripts and workflow sources remain identical to that green revision. Recheck current head/checks and obtain Brooke's authorization before any merge or release.
+Application and QA script sources match the green revision above. Documentation/evidence successor `ea524231834bac5963dddc214ae4d0ee87fc9acd` also passed both complete Batch 6 workflows: [concierge 34465568121](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34465568121) and [social 34465568344](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34465568344).
+
+The tracker link in that documentation update additionally activated the older Batch 5 complete-review workflow. Its historical protected-file freeze rejected the authorized Batch 6 inquiry/lead changes before building; subsequent preflight failures were missing-build cascades. The follow-up scopes that original freeze to its original authorship branch, while retaining ancestry, deferred-track exclusions and every actual Batch 5 regression. No application or QA-script change accompanies this workflow maintenance. Consult the [current PR checks](https://github.com/BrokenFL/WPB_New_Construction/pull/86/checks) and PR description for the final workflow-only successor and all nine job results. Recheck current refs/checks and obtain Brooke's authorization before any merge or release.
 
 ## Corrections
 
