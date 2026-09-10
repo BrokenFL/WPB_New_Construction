@@ -70,12 +70,16 @@ jobs:
             const report = JSON.parse(await fs.readFile(`.runtime/intel/${id}/validation-report.json`, 'utf8'));
             if (report.mutation_count !== 0) throw new Error(`${id}: mutation_count`);
             if (report.recommendation !== 'human_review') throw new Error(`${id}: expected human_review, got ${report.recommendation}`);
+            const candidate = JSON.parse(await fs.readFile(`.runtime/intel/${id}/candidate.json`, 'utf8'));
+            if (candidate !== null) throw new Error(`${id}: unadjudicated/high-risk fixture must not emit factual candidate fields`);
           }
           const sfh = JSON.parse(await fs.readFile('.runtime/intel/wpb-intel-2026-09-08-001/validation-report.json','utf8'));
           if (sfh.dedupe_classification !== 'conflicting_event') throw new Error('South Flagler must remain temporal-conflict fixture');
-          const dt = JSON.parse(await fs.readFile('.runtime/intel/wpb-intel-2026-09-09-003/candidate.json','utf8'));
-          if (JSON.stringify(dt.related_project_ids) !== JSON.stringify(['915-s-dixie','534-datura'])) throw new Error('Downtown project relationships changed');
-          if (JSON.stringify(dt.related_corridor_ids) !== JSON.stringify(['downtown','south-flagler'])) throw new Error('Downtown corridor relationships changed');
+          // Preserve claimed relationships for review without presenting them as verified facts.
+          const dt = JSON.parse(await fs.readFile('.runtime/intel/wpb-intel-2026-09-09-003/intake-snapshot.json','utf8'));
+          const idsForReview = (value) => String(value || '').split(',').map((id) => id.trim()).filter(Boolean);
+          if (JSON.stringify(idsForReview(dt.related_project_ids)) !== JSON.stringify(['915-s-dixie','534-datura'])) throw new Error('Downtown project relationships changed');
+          if (JSON.stringify(idsForReview(dt.related_corridor_ids)) !== JSON.stringify(['downtown','south-flagler'])) throw new Error('Downtown corridor relationships changed');
           NODE
           git diff --exit-code
           test -z "$(git status --porcelain --untracked-files=all | grep -v '^?? .runtime/intel/' || true)"

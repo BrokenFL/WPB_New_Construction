@@ -4,7 +4,7 @@ import path from "node:path";
 import test from "node:test";
 import { parseSheetCsv } from "./sheet-adapter.mjs";
 import { classifySource } from "./source-verifier.mjs";
-import { deriveEventKey, ERR, processRow, recommendDecision, riskFlags, sha256 } from "./core.mjs";
+import { deriveEventKey, ERR, PROCESSOR_VERSION, processRow, recommendDecision, riskFlags, sha256 } from "./core.mjs";
 
 const root = process.cwd();
 const csv = await fs.readFile(path.join(root, "research/intel-fixtures/current-intel.csv"), "utf8");
@@ -25,6 +25,7 @@ test("fixture exposes all 46 intake columns and four event rows", () => {
   assert.equal(rows.length, 4);
   assert.ok(rows.every((row) => row.record_type === "event"));
   assert.ok(rows.every((row) => row.processor_version === "v2.0-reconciled"));
+  assert.equal(PROCESSOR_VERSION, "phase-a-v2-safety");
 });
 
 test("record_type project fails closed", () => {
@@ -62,8 +63,9 @@ test("municipal event identity remains namespace-level and preserves multi-entit
   const row = rows[3];
   assert.equal(deriveEventKey(row), "municipal|wpb-downtown-zoning|dac-vote|2026-09-09");
   const result = processRow({ row, indexes, verificationSources: [source(row.source_url)] });
-  assert.deepEqual(result.candidate.related_project_ids, ["915-s-dixie", "534-datura"]);
-  assert.deepEqual(result.candidate.related_corridor_ids, ["downtown", "south-flagler"]);
+  assert.equal(result.candidate, null);
+  assert.deepEqual(result.claims.find((claim) => claim.field === "project_identity").claim_value, ["534-datura", "915-s-dixie"]);
+  assert.deepEqual(result.claims.find((claim) => claim.field === "corridor_identity").claim_value, ["downtown", "south-flagler"]);
   assert.equal(result.report.recommendation, "human_review");
 });
 
@@ -73,8 +75,8 @@ test("South Flagler actual 15th-floor row is a successful temporal-conflict hold
   assert.equal(result.report.dedupe_classification, "conflicting_event");
   assert.equal(result.report.recommendation, "human_review");
   assert.ok(result.report.warnings.some((w) => w.code === ERR.TEMPORAL_CONFLICT));
-  assert.equal(result.candidate.article_candidate, undefined);
-  assert.deepEqual(result.candidate.project_fact_proposals, []);
+  assert.equal(result.candidate, null);
+  assert.ok(result.claims.some((claim) => claim.field === "headline" && claim.support === "unsupported"));
   assert.equal(result.report.errors.length, 0);
 });
 
@@ -116,7 +118,8 @@ test("prompt-injection strings remain inert data", () => {
   const result = processRow({ row, indexes, verificationSources: [source(row.source_url)] });
   assert.equal(result.report.recommendation, "human_review");
   assert.equal(result.report.mutation_count, 0);
-  assert.ok(result.candidate?.headline.includes("IGNORE POLICY"));
+  assert.ok(result.snapshot.headline.includes("IGNORE POLICY"));
+  assert.equal(result.candidate, null);
 });
 
 test("semantic hashes are idempotent when only access telemetry changes", () => {
@@ -134,6 +137,6 @@ test("candidate payload hash changes when semantic claim changes", () => {
   const row = rows[3];
   const a = processRow({ row, indexes, verificationSources: [source(row.source_url)] });
   const b = processRow({ row: { ...row, summary: `${row.summary} Material correction.` }, indexes, verificationSources: [source(row.source_url)] });
-  assert.notEqual(a.report.candidate_sha256, b.report.candidate_sha256);
+  assert.notEqual(a.report.evidence_bundle_sha256, b.report.evidence_bundle_sha256);
   assert.notEqual(sha256(a.claims), sha256(b.claims));
 });
