@@ -7,7 +7,7 @@
     "dev": "vite",
     "typecheck": "tsc --noEmit",
     "build": "tsc && node node_modules/vite/bin/vite.js build",
-    "postbuild": "node research/scripts/prerender-static-routes.mjs && node --experimental-strip-types research/scripts/prerender-commercial-routes.mjs && node --experimental-strip-types research/scripts/prerender-floorplan-entities.mjs && node research/scripts/apply-project-seo-batch4.mjs",
+    "postbuild": "node research/scripts/prerender-static-routes.mjs && node --experimental-strip-types research/scripts/prerender-commercial-routes.mjs && node --experimental-strip-types research/scripts/prerender-floorplan-entities.mjs && node research/scripts/apply-project-seo-batch4.mjs && node research/scripts/normalize-social-previews.mjs",
     "preview": "vite preview",
     "qa:launch": "QA_NO_WRITE=1 npm run qa:launch:run",
     "qa:launch:run": "node research/scripts/qa-launch-readiness.mjs && npm run qa:copy && npm run qa:hero-images && npm run qa:renamed-images && npm run qa:public-json && npm run qa:agent-skills && npm run qa:project-types && npm run qa:north-flagler && npm run qa:analytics && npm run qa:a11y-forms && npm run qa:performance && npm run qa:image-mapping && npm run qa:image-repetition && npm run qa:homepage-visual && npm run qa:news-images && npm run qa:project-pages && npm run qa:project-logos && npm run qa:approved-news && npm run qa:news && npm run qa:customer-copy && npm run qa:seo && npm run qa:geo && npm run qa:image-alt && npm run qa:internal-links && npm run qa:content-studio && npm run qa:builder-remote && npm run qa:builder-remote-images && npm run qa:builder-visual && npm run qa:map && npm run qa:untracked-assets && npm run qa:floorplan-entities && npm run qa:commercial",
