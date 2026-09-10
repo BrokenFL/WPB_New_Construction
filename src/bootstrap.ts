@@ -5,6 +5,7 @@ import "./commercialGrowth.css";
 import "./shortlistSummary.css";
 import "./authorshipTrust.css";
 import { wireInquiryContext } from "./lib/inquiryContext.ts";
+import { installSocialPreviewNormalization } from "./lib/socialPreview.ts";
 import { cleanFloorplanPath, mergeFloorplanDiscoverySchema, floorplanForPath, floorplanJson, renderFloorplanDiscovery } from "./lib/floorplanEntities.ts";
 
 function isRendered(element: HTMLElement) {
@@ -35,6 +36,7 @@ async function installConcierge() {
 }
 
 async function start() {
+  installSocialPreviewNormalization();
   // The launcher is optional but should become available independently of the
   // heavier legacy enhancement chain. The panel body remains interaction-lazy.
   void installConcierge();
