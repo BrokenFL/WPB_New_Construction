@@ -38,6 +38,16 @@ const routes = ["/", "/buildings/", "/map/", "/floorplans/", "/projects/olara/",
 const results = [];
 const requestExamples = [];
 
+async function createAuditContext(options = {}) {
+  const context = await browser.newContext({ serviceWorkers: "block", ...options });
+  await context.route("**/*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    if (requestUrl.origin === origin) await route.continue();
+    else await route.abort();
+  });
+  return context;
+}
+
 async function gotoReady(page, target) {
   const response = await page.goto(target, { waitUntil: "domcontentloaded", timeout: 30000 });
   assert.equal(response?.status(), 200, `${target}:status`);
@@ -46,7 +56,7 @@ async function gotoReady(page, target) {
 
 try {
   for (const width of [1440, 390]) {
-    const context = await browser.newContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: "reduce" });
+    const context = await createAuditContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: "reduce" });
     const page = await context.newPage();
     const errors = [];
     page.on("pageerror", (error) => errors.push(error.message));
@@ -84,7 +94,7 @@ try {
     await context.close();
   }
 
-  const formContext = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+  const formContext = await createAuditContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
   const formPage = await formContext.newPage();
   for (const route of ["/projects/olara/", "/projects/maison-dor/"]) {
     await gotoReady(formPage, `${origin}${route}`);
@@ -105,7 +115,7 @@ try {
     project_question: "Ask the team about this building",
     conversation_tour: "Schedule private tour",
   };
-  const intentContext = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+  const intentContext = await createAuditContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
   const intentPage = await intentContext.newPage();
   for (const [id, definition] of Object.entries(requestIntentDefinitions)) {
     const legacy = legacyByIntent[id];
@@ -129,7 +139,7 @@ try {
   }
   await intentContext.close();
 
-  const navContext = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
+  const navContext = await createAuditContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
   const nav = await navContext.newPage();
   await gotoReady(nav, `${origin}/projects/olara/`);
   await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
@@ -144,7 +154,7 @@ try {
   await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
   await navContext.close();
 
-  const jsOffContext = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+  const jsOffContext = await createAuditContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   const jsOff = await jsOffContext.newPage();
   for (const route of ["/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/floorplans/olara/residence-d/"]) {
     await gotoReady(jsOff, `${origin}${route}`);
