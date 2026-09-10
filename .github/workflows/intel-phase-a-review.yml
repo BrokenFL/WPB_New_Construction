@@ -20,8 +20,13 @@ concurrency:
 
 jobs:
   phase-a:
+    name: Intelligence Phase A (${{ matrix.mode }})
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [keyed, no-key]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,6 +36,14 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Require restricted review Maps key
+        if: matrix.mode == 'keyed'
+        env:
+          HAS_REVIEW_KEY: ${{ secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY != '' }}
+          RESTRICTIONS_CONFIRMED: ${{ vars.P2_REVIEW_MAPS_KEY_RESTRICTIONS_CONFIRMED == 'true' }}
+        run: |
+          test "$HAS_REVIEW_KEY" = true
+          test "$RESTRICTIONS_CONFIRMED" = true
       - run: npm ci
       - name: Typecheck
         run: npm run typecheck
@@ -69,13 +82,39 @@ jobs:
       - name: Install Chromium for repository browser QA
         run: npx playwright install --with-deps chromium
       - name: Build production-shaped site for repository QA
+        env:
+          VITE_GOOGLE_MAPS_API_KEY: ${{ matrix.mode == 'keyed' && secrets.P2_REVIEW_GOOGLE_MAPS_API_KEY || '' }}
+          VITE_GA4_MEASUREMENT_ID: G-0LGBH6MDVX
         run: npm run build
       - name: Full repository tests
+        env:
+          WPB_MAP_QA_MODE: ${{ matrix.mode }}
+          WPB_MAP_QA_PORT: '4173'
         run: npm test
+      - name: Keyed Maps preflight
+        if: matrix.mode == 'keyed'
+        run: |
+          npm run qa:deploy-preflight
+          npm run qa:maps-keyed
+      - name: Expected no-key deployment rejection
+        if: matrix.mode == 'no-key'
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { verifyProductionMapBundle } from './research/scripts/production-map-preflight.mjs';
+          await assert.rejects(verifyProductionMapBundle(), /reachable app chunks do not include/);
+          NODE
       - name: Upload dry-run review artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: intel-phase-a-${{ github.event.pull_request.head.sha }}
+          name: intel-phase-a-${{ matrix.mode }}-${{ github.event.pull_request.head.sha }}
           path: .runtime/intel/
           retention-days: 14
+  gate:
+    name: Intelligence Phase A aggregate gate
+    needs: phase-a
+    runs-on: ubuntu-24.04
+    if: always()
+    steps:
+      - run: test '${{ needs.phase-a.result }}' = success
