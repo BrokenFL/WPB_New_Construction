@@ -104,7 +104,15 @@ async function start() {
     old?.remove();
     (app.querySelector("main") ?? app).insertAdjacentHTML("beforeend", html);
   };
-  const observer = new MutationObserver(refresh);
+  const observer = new MutationObserver((mutations) => {
+    // Google Maps owns and continuously mutates the DOM below its canvas. Those
+    // internal mutations are not app content changes and must not retrigger the
+    // site-wide enhancement pass, which can otherwise starve unrelated UI work.
+    const onlyMapInternals = mutations.length > 0 && mutations.every((mutation) =>
+      mutation.target instanceof Element && Boolean(mutation.target.closest("[data-hero-google-map]")),
+    );
+    if (!onlyMapInternals) refresh();
+  });
   observer.observe(app, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
   window.addEventListener("popstate", refresh);
   refresh();
