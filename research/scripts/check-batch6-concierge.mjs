@@ -54,6 +54,10 @@ async function gotoReady(page, target) {
   return response;
 }
 
+function releasePage(page) {
+  void page.close({ runBeforeUnload: false }).catch(() => {});
+}
+
 try {
   for (const width of [1440, 390]) {
     const context = await createAuditContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: "reduce" });
@@ -87,7 +91,7 @@ try {
       assert.deepEqual(errors, [], `${route}:${width}:page errors`);
       results.push({ route, width, status: "pass", conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
       console.log(`concierge pass ${route} ${width}`);
-      await page.close({ runBeforeUnload: false });
+      releasePage(page);
     }
     await context.close();
   }
@@ -103,7 +107,7 @@ try {
     assert.equal((await form.getByRole("heading", { level: 2 }).innerText()).trim(), "Request current availability");
     assert.equal((await form.locator('button[type="submit"]').innerText()).trim(), "Request current availability");
     assert.equal(await form.locator("[data-request-summary]").count(), 1);
-    await formPage.close({ runBeforeUnload: false });
+    releasePage(formPage);
   }
   await formContext.close();
 
@@ -135,7 +139,7 @@ try {
       submitted: { request_intent: id, interest: definition.interest, project: "olara" },
       normalized: { request_intent: normalizedLead.request_intent, interest: normalizedLead.interest, project_id: normalizedLead.project_id },
     });
-    await intentPage.close({ runBeforeUnload: false });
+    releasePage(intentPage);
   }
   await intentContext.close();
 
@@ -161,7 +165,7 @@ try {
     assert.ok((await jsOff.locator("h1").first().innerText()).trim().length > 3, `${route}: JS-off H1`);
     assert.ok(await jsOff.locator('a[href^="/"]').count() > 0, `${route}: JS-off native research/navigation links`);
     assert.equal(await jsOff.locator("[data-buyer-concierge-root]").count(), 0, `${route}: optional concierge should not replace JS-off content`);
-    await jsOff.close({ runBeforeUnload: false });
+    releasePage(jsOff);
   }
   await jsOffContext.close();
 } finally {
