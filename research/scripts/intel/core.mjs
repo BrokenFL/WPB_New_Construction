@@ -272,6 +272,9 @@ export function processRow({ row, verificationSources = [], indexes = {}, truste
     claim_ledger_sha256: claimLedgerHash,
     event_identity_sha256: sha256(derived),
     candidate_sha256: sha256(semanticCandidate),
+    // Retrieval/provenance diagnostics remain separate from claim support and
+    // are retained even when the factual candidate is held or null.
+    verification_sources: normalizedSources,
     repository_index_sha256: repositoryIndexHash,
     processor_identity_sha256: processorIdentityHash,
     evidence_bundle_sha256: evidenceBundleHash,

@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { parseSheetCsv } from "./sheet-adapter.mjs";
 import { classifySource } from "./source-verifier.mjs";
+import { run } from "./process-intel.mjs";
 import { deriveEventKey, ERR, PROCESSOR_VERSION, processRow, recommendDecision, riskFlags, sha256 } from "./core.mjs";
 
 const root = process.cwd();
@@ -111,6 +113,45 @@ test("Portofino pricing/termination sensitivity remains human review", () => {
   assert.ok(flags.includes("pricing"));
   assert.ok(flags.some((f) => /termination|legal/.test(f)));
   assert.equal(recommendDecision(row, "new_event", flags), "human_review");
+});
+
+test("held CLI bundle retains retrieval diagnostics separately from claim support", async (t) => {
+  const row = rows[2];
+  const body = "bounded fetched source evidence";
+  const contentHash = sha256(body);
+  const verificationSource = {
+    url: row.source_url,
+    source_name: row.source_name,
+    source_tier: 2,
+    source_type: "trade",
+    reachable: true,
+    http_status: 200,
+    body_bytes: Buffer.byteLength(body),
+    retrieval_status: "fetched",
+    retrieval_attested: true,
+    content_hash: contentHash,
+    source_revision: contentHash,
+    claims_supported: ["forged-claim-support"],
+  };
+  const workspace = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-intel-held-bundle-"));
+  t.after(() => fs.rm(workspace, { recursive: true, force: true }));
+  const [output] = await run(["--row", row.id], {
+    root: workspace,
+    csvText: csv,
+    indexes,
+    verificationSources: { [row.id]: [verificationSource] },
+  });
+  assert.equal(output.result.candidate, null);
+  assert.ok(output.result.claims.every((claim) => claim.support !== "supported"));
+  const reportPath = path.join(workspace, ".runtime", "intel", row.id, "validation-report.json");
+  const report = JSON.parse(await fs.readFile(reportPath, "utf8"));
+  assert.equal(report.verification_sources.length, 1);
+  assert.equal(report.verification_sources[0].url, row.source_url);
+  assert.equal(report.verification_sources[0].source_tier, 2);
+  assert.equal(report.verification_sources[0].content_hash, contentHash);
+  assert.equal(report.verification_sources[0].retrieval_status, "fetched");
+  assert.equal(report.verification_sources[0].verification_status, "unadjudicated");
+  assert.deepEqual(report.verification_sources[0].claims_supported, []);
 });
 
 test("prompt-injection strings remain inert data", () => {

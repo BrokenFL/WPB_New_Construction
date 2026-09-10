@@ -333,6 +333,7 @@ export function normalizeVerificationSources(sources = [], { classifySource } = 
       support_state: "unadjudicated",
       claims_supported: [],
       claimed_support_ignored: Array.isArray(input.claims_supported) && input.claims_supported.length > 0,
+      verification_error: normalizeText(input.verification_error) || undefined,
       error: classified.error,
     };
   }).map((source, _index, all) => {

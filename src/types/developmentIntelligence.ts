@@ -20,6 +20,10 @@ export type VerificationSource = {
   content_type?: string | null;
   final_url?: string;
   redirect_chain?: string[];
+  hint_url?: string;
+  hint_source_name?: string;
+  support_state?: "unadjudicated" | "supported" | "conflicted" | "unsupported";
+  verification_error?: string;
   verification_status?: VerificationStatus;
   claims_supported: string[];
 };
@@ -119,6 +123,7 @@ export type IntelValidationReport = {
   claim_ledger_sha256: string;
   event_identity_sha256: string;
   candidate_sha256: string;
+  verification_sources: VerificationSource[];
   repository_index_sha256?: string;
   evidence_bundle_sha256?: string;
   processor_identity_sha256?: string;

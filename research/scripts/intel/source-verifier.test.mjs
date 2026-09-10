@@ -115,6 +115,18 @@ test("a persisted redirect snapshot is classified from its final URL", () => {
   assert.equal(source.source_type, "aggregator");
 });
 
+test("persisted retrieval failures remain source diagnostics", () => {
+  const [source] = normalizeVerificationSources([{
+    url: "https://example.com/slow",
+    verification_error: "ERR_SOURCE_TIMEOUT",
+    reachable: false,
+    retrieval_status: "unavailable",
+  }], { classifySource });
+  assert.equal(source.verification_error, "ERR_SOURCE_TIMEOUT");
+  assert.equal(source.retrieval_status, "unavailable");
+  assert.equal(source.verification_status, "unadjudicated");
+});
+
 test("timeouts and oversized responses fail closed", async () => {
   const timeout = await verifySourceHint({
     url: "https://example.com/slow",
