@@ -144,13 +144,6 @@ function ensureAnalyticsConsentPrompt() {
   panel.setAttribute("aria-label", "Optional analytics preference");
   panel.setAttribute("aria-live", "polite");
   Object.assign(panel.style, {
-    position: "fixed",
-    left: "16px",
-    right: "16px",
-    bottom: "16px",
-    zIndex: "2147483000",
-    maxWidth: "760px",
-    margin: "0 auto",
     padding: "18px",
     border: "1px solid rgba(255,255,255,.18)",
     borderRadius: "14px",
@@ -187,7 +180,12 @@ function ensureAnalyticsConsentPrompt() {
 
   actions.append(reject, allow, privacy);
   panel.append(title, copy, actions);
-  document.body.append(panel);
+  const app = document.getElementById("app");
+  if (app?.parentNode) {
+    app.parentNode.insertBefore(panel, app);
+  } else {
+    document.body.prepend(panel);
+  }
 }
 
 function consentButton(label: string, primary: boolean) {
