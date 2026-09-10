@@ -41,7 +41,13 @@ const requestExamples = [];
 async function createAuditContext(options = {}) {
   const context = await browser.newContext({ serviceWorkers: "block", ...options });
   await context.route("**/*", async (route) => {
-    const requestUrl = new URL(route.request().url());
+    const request = route.request();
+    const resourceType = request.resourceType();
+    if (["image", "media", "font"].includes(resourceType)) {
+      await route.abort();
+      return;
+    }
+    const requestUrl = new URL(request.url());
     if (requestUrl.origin === origin) await route.continue();
     else await route.abort();
   });
