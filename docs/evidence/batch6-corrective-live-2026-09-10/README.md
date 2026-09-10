@@ -10,7 +10,7 @@ Selected production evidence captured September 10, 2026 after PR #93 and PR #89
 - A fresh 390×844 first visit still has a consent ownership defect: Zoom-out center `(45,619.86)` is hit by `ASIDE#wpb-analytics-consent`, the consent surface covers the launcher, and a background map control remains actionable. The consent surface exposes `role="dialog"` without `aria-modal`. Whole Batch 6 therefore remains **NOT LIVE-VERIFIED / NOT MEASURED**.
 - PR #89 (`f5198ca5842af608828aaf9cbbc087e83e57fbfd`) is approved, merged as current main `baac91f5aa1a25d1013dcc762528cad558668512` and deployed once by [34535997309](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34535997309) at `https://05e16046.wpbnewconstruction.pages.dev` as internal tooling only. Its buyer-facing bundles match the PR #93 baseline; Phase A remains `apply:false` and review-only.
 
-The next review target is the unnumbered candidate branch `fix/batch6-consent-control-ownership`, current reviewed application commit `c14c5b3ff542b98a5b91737cbcdbed6a7c2d2f93`. It is not release-approved or deployed. The screenshots distinguish consent, dismissed-controls and concierge-open states; they do not establish zero overlap between the launcher and the decorative map-count panel.
+The next review target is [PR #94](https://github.com/BrokenFL/WPB_New_Construction/pull/94), branch `fix/batch6-consent-control-ownership`, current reviewed application commit `a639c26056ee038d91767c423d6378990b4f8048`. It is not release-approved or deployed. The screenshots distinguish consent, dismissed-controls and concierge-open states; they do not establish zero overlap between the launcher and the decorative map-count panel.
 
 ## Files
 
