@@ -1,0 +1,405 @@
+{
+  "evidence": "PR93 mobile map consent/control ownership verification",
+  "verifiedAt": null,
+  "production": {
+    "expectedSourceSha": "2469a470c4d7cd0391682e9566ef79d44ee417e4",
+    "deployRun": 34534298501,
+    "productionOrigin": "https://www.wpbnewconstruction.com",
+    "approvedIndexBundle": "/assets/index-DySYUyj2.js"
+  },
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "firstVisit": {
+    "status": "fail",
+    "failures": [
+      "Zoom out:pointer-center-not-owned-by-native-control",
+      "Zoom out:overlaps-consent-dialog",
+      "consent-dialog-visually-overlaps:Zoom out,Ask WPB launcher",
+      "consent-pointer-ownership-covers-background-control",
+      "consent-focus-reaches-background-control"
+    ],
+    "promptPresent": true,
+    "loaderResponses": 1,
+    "tileResponses": 9,
+    "zoomIn": {
+      "rect": {
+        "left": 25,
+        "top": 558.859375,
+        "right": 65,
+        "bottom": 598.859375,
+        "width": 40,
+        "height": 40
+      },
+      "center": {
+        "x": 45,
+        "y": 578.859375
+      },
+      "hit": {
+        "tag": "BUTTON",
+        "id": null,
+        "className": "gm-control-active",
+        "ariaLabel": "Zoom in"
+      },
+      "centerHitOwnControl": true,
+      "overlapAreaWithLauncher": 0,
+      "overlapAreaWithCount": 0,
+      "overlapAreaWithConsent": 0
+    },
+    "zoomOut": {
+      "rect": {
+        "left": 25,
+        "top": 599.859375,
+        "right": 65,
+        "bottom": 639.859375,
+        "width": 40,
+        "height": 40
+      },
+      "center": {
+        "x": 45,
+        "y": 619.859375
+      },
+      "hit": {
+        "tag": "ASIDE",
+        "id": "wpb-analytics-consent",
+        "className": null,
+        "ariaLabel": "Optional analytics preference"
+      },
+      "centerHitOwnControl": false,
+      "overlapAreaWithLauncher": 0,
+      "overlapAreaWithCount": 0,
+      "overlapAreaWithConsent": 1313.125
+    },
+    "launcher": {
+      "rect": {
+        "left": 276.171875,
+        "top": 704,
+        "right": 378,
+        "bottom": 752,
+        "width": 101.828125,
+        "height": 48
+      },
+      "hit": {
+        "tag": "P",
+        "id": null,
+        "className": null,
+        "ariaLabel": null
+      }
+    },
+    "consent": {
+      "rect": {
+        "left": 16,
+        "top": 607.03125,
+        "right": 374,
+        "bottom": 828,
+        "width": 358,
+        "height": 220.96875
+      },
+      "role": "dialog",
+      "ariaModal": null,
+      "ariaLive": "polite",
+      "pointerEvents": "auto",
+      "hitAtZoomOut": {
+        "tag": "ASIDE",
+        "id": "wpb-analytics-consent",
+        "role": "dialog",
+        "ariaLabel": "Optional analytics preference"
+      },
+      "hitAtLauncher": {
+        "tag": "P",
+        "id": null,
+        "role": null,
+        "ariaLabel": null
+      }
+    },
+    "overflow": {
+      "bodyScrollWidth": 390,
+      "documentScrollWidth": 390,
+      "viewportWidth": 390
+    }
+  },
+  "afterNoThanks": {
+    "status": "pass",
+    "zoomIn": {
+      "rect": {
+        "left": 25,
+        "top": 558.859375,
+        "right": 65,
+        "bottom": 598.859375,
+        "width": 40,
+        "height": 40
+      },
+      "center": {
+        "x": 45,
+        "y": 578.859375
+      },
+      "hit": {
+        "tag": "BUTTON",
+        "id": null,
+        "className": "gm-control-active",
+        "ariaLabel": "Zoom in"
+      },
+      "centerHitOwnControl": true,
+      "overlapAreaWithLauncher": 0,
+      "overlapAreaWithCount": 0,
+      "overlapAreaWithConsent": 0
+    },
+    "zoomOut": {
+      "rect": {
+        "left": 25,
+        "top": 599.859375,
+        "right": 65,
+        "bottom": 639.859375,
+        "width": 40,
+        "height": 40
+      },
+      "center": {
+        "x": 45,
+        "y": 619.859375
+      },
+      "hit": {
+        "tag": "BUTTON",
+        "id": null,
+        "className": "gm-control-active",
+        "ariaLabel": "Zoom out"
+      },
+      "centerHitOwnControl": true,
+      "overlapAreaWithLauncher": 0,
+      "overlapAreaWithCount": 0,
+      "overlapAreaWithConsent": 0
+    },
+    "launcher": {
+      "rect": {
+        "left": 276.171875,
+        "top": 704,
+        "right": 378,
+        "bottom": 752,
+        "width": 101.828125,
+        "height": 48
+      },
+      "hit": {
+        "tag": "BUTTON",
+        "id": null,
+        "className": "buyer-concierge-launcher",
+        "ariaLabel": "Open Ask WPB buyer concierge"
+      }
+    },
+    "consent": null,
+    "overflow": {
+      "bodyScrollWidth": 390,
+      "documentScrollWidth": 390,
+      "viewportWidth": 390
+    },
+    "pointerOwnership": {
+      "Zoom in": {
+        "target": {
+          "tag": "BUTTON",
+          "id": null,
+          "className": "gm-control-active",
+          "ariaLabel": "Zoom in"
+        },
+        "hit": {
+          "tag": "BUTTON",
+          "id": null,
+          "className": "gm-control-active",
+          "ariaLabel": "Zoom in"
+        },
+        "hitOwnTarget": true
+      },
+      "Zoom out": {
+        "target": {
+          "tag": "BUTTON",
+          "id": null,
+          "className": "gm-control-active",
+          "ariaLabel": "Zoom out"
+        },
+        "hit": {
+          "tag": "BUTTON",
+          "id": null,
+          "className": "gm-control-active",
+          "ariaLabel": "Zoom out"
+        },
+        "hitOwnTarget": true
+      },
+      "Ask WPB launcher": {
+        "target": {
+          "tag": "BUTTON",
+          "id": null,
+          "className": "buyer-concierge-launcher",
+          "ariaLabel": "Open Ask WPB buyer concierge"
+        },
+        "hit": {
+          "tag": "BUTTON",
+          "id": null,
+          "className": "buyer-concierge-launcher",
+          "ariaLabel": "Open Ask WPB buyer concierge"
+        },
+        "hitOwnTarget": true
+      }
+    },
+    "focusOwnership": {
+      "Zoom in": {
+        "active": {
+          "tag": "BUTTON",
+          "id": null,
+          "className": "gm-control-active",
+          "ariaLabel": "Zoom in"
+        },
+        "focusReachedTarget": true
+      },
+      "Zoom out": {
+        "active": {
+          "tag": "BUTTON",
+          "id": null,
+          "className": "gm-control-active",
+          "ariaLabel": "Zoom out"
+        },
+        "focusReachedTarget": true
+      },
+      "Ask WPB launcher": {
+        "active": {
+          "tag": "BUTTON",
+          "id": null,
+          "className": "buyer-concierge-launcher",
+          "ariaLabel": "Open Ask WPB buyer concierge"
+        },
+        "focusReachedTarget": true
+      }
+    }
+  },
+  "deniedFreshContexts": [
+    {
+      "label": "denied:in:/map/:390x844:fresh-context",
+      "direction": "in",
+      "status": "pass",
+      "actualGoogleTiles": true,
+      "mapLoaderResponses": 1,
+      "mapTileResponses": 16,
+      "zoom": {
+        "beforeCount": 9,
+        "afterCount": 3,
+        "newTileCount": 1,
+        "tileHashes": [
+          "8dc39dbf327e1f6d26f2db338a0f195dbb7fab64bfabca1f493a23da051ffac3"
+        ]
+      },
+      "pan": {
+        "start": {
+          "x": 202.20000000000002,
+          "y": 589.346875
+        },
+        "end": {
+          "x": 284.20000000000005,
+          "y": 617.346875
+        },
+        "before": {
+          "hash": "65c4497f8328e08d20107b3745365087508780c611f4c9b8164f02a673ca00b5",
+          "tileCount": 3
+        },
+        "after": {
+          "hash": "545ed04c1653b5bb733e9ba835c7b194d1a5cab42aeced4e61399f86a4302801",
+          "tileCount": 7
+        },
+        "changed": true
+      },
+      "concierge": {
+        "openState": {
+          "expanded": "true",
+          "activeClass": "buyer-concierge-close"
+        },
+        "closedByButton": {
+          "expanded": "false"
+        },
+        "closedByEscape": {
+          "expanded": "false",
+          "focusReturned": true
+        }
+      },
+      "diagnostics": {
+        "pageErrors": [],
+        "meaningfulConsoleErrors": [],
+        "googleMapsErrors": [],
+        "mapFailedRequests": [
+          {
+            "host": "maps.gstatic.com",
+            "path": "/mapfiles/transparent.png",
+            "method": "GET"
+          }
+        ]
+      }
+    },
+    {
+      "label": "denied:out:/map/:390x844:fresh-context",
+      "direction": "out",
+      "status": "pass",
+      "actualGoogleTiles": true,
+      "mapLoaderResponses": 1,
+      "mapTileResponses": 10,
+      "zoom": {
+        "beforeCount": 9,
+        "afterCount": 6,
+        "newTileCount": 1,
+        "tileHashes": [
+          "5b0ee2f12a3b1e34bd6fedd8c8b5cbf796d37a45ae0fc9cb8bf6eade5608a74a"
+        ]
+      },
+      "pan": {
+        "start": {
+          "x": 202.20000000000002,
+          "y": 589.346875
+        },
+        "end": {
+          "x": 284.20000000000005,
+          "y": 617.346875
+        },
+        "before": {
+          "hash": "5cb1bb2dd30e7a24438f536f4fbc4ff9d36e66ee81531adbd499ffb3bbb92644",
+          "tileCount": 6
+        },
+        "after": {
+          "hash": "cfad06fb7d75eca332986dd10a00b4bd513e2bb11eeb9f6539e2c25b8b0afa81",
+          "tileCount": 5
+        },
+        "changed": true
+      },
+      "concierge": {
+        "openState": {
+          "expanded": "true",
+          "activeClass": "buyer-concierge-close"
+        },
+        "closedByButton": {
+          "expanded": "false"
+        },
+        "closedByEscape": {
+          "expanded": "false",
+          "focusReturned": true
+        }
+      },
+      "diagnostics": {
+        "pageErrors": [],
+        "meaningfulConsoleErrors": [],
+        "googleMapsErrors": [],
+        "mapFailedRequests": [
+          {
+            "host": "maps.gstatic.com",
+            "path": "/mapfiles/transparent.png",
+            "method": "GET"
+          }
+        ]
+      }
+    }
+  ],
+  "interpretation": "The original PR93 native-control collision is clear after consent dismissal. A fresh first-visit state still has an actionable consent ownership defect: Zoom-out center (45,619.86) is hit by ASIDE#wpb-analytics-consent, and the launcher center is also covered. The consent element has role=dialog but aria-modal=null, so background controls remain focusable. Fresh denied contexts pass real tiles, zoom in/out, pan, concierge open/close/Escape/focus, safe-area containment and overflow.",
+  "limitations": [
+    "Consent-present background pointer/focus ownership is evaluated as a strict collision; the modal is reported separately from denied-state map controls.",
+    "All same-origin non-read requests were aborted. No lead form was opened or submitted, and no real lead, D1, email, CRM, analytics, or Turnstile delivery is claimed.",
+    "Google Maps loader, tiles, and required external Maps viewport RPC were allowed for real-map verification; other third-party traffic was blocked.",
+    "Chromium does not emulate a hardware safe-area inset; env()-resolved CSS and viewport containment are recorded."
+  ],
+  "source": {
+    "path": "/Volumes/ExternalSSD/WPB_MapControl_Review/.runtime/batch6-corrective-live-2026-09-10/mobile-final/results.json",
+    "sha256": "a43ef26e54445c0981e60fad3e21379a98db778b74f5c337083aea80dbc446b9",
+    "bytes": 47759
+  }
+}

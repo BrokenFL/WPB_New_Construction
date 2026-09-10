@@ -1,0 +1,86 @@
+{
+  "evidenceSet": "batch6-corrective-live-2026-09-10",
+  "generatedAt": "2026-09-10T22:31:29.618Z",
+  "sourceRoot": "/Volumes/ExternalSSD/WPB_MapControl_Review/.runtime/batch6-corrective-live-2026-09-10",
+  "selectedSourceArtifacts": {
+    "representative": {
+      "path": "/Volumes/ExternalSSD/WPB_MapControl_Review/.runtime/batch6-corrective-live-2026-09-10/representative/representative-results.json",
+      "sha256": "4020ed740380fa61236588b5575d77375c97f2fda3e53f4a3fc989aa76c23683",
+      "bytes": 18085
+    },
+    "mobileFinal": {
+      "path": "/Volumes/ExternalSSD/WPB_MapControl_Review/.runtime/batch6-corrective-live-2026-09-10/mobile-final/results.json",
+      "sha256": "a43ef26e54445c0981e60fad3e21379a98db778b74f5c337083aea80dbc446b9",
+      "bytes": 47759
+    },
+    "pr89Merge": {
+      "path": "/Volumes/ExternalSSD/WPB_MapControl_Review/.runtime/batch6-corrective-live-2026-09-10/pr89-merge-proof.json",
+      "sha256": "2d7d076b21ad3ac702bc83e495205d3e970e4377daf28cbd8e09f34bf73e9735",
+      "bytes": 11231
+    },
+    "pr93Deployment": {
+      "path": "/Volumes/ExternalSSD/WPB_MapControl_Review/.runtime/batch6-corrective-live-2026-09-10/deployment-proof.json",
+      "sha256": "4b758a6c6863a55bb127d1a8410219e21a3d8b050bea28e7cb396c1b5abfd530",
+      "bytes": 4045
+    }
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3138,
+      "sha256": "5c570117aecc3f44dcececc5694751e2083e05eb1d1074c13f7d502d5a9d9c67",
+      "type": "documentation"
+    },
+    {
+      "path": "pr93-representative-live.json",
+      "bytes": 12158,
+      "sha256": "847720ece1247ce88eddf89ec9d2d11e6643b46b7f9ff1d9e144e27406c9b3b6",
+      "type": "proof"
+    },
+    {
+      "path": "pr93-mobile-consent-control.json",
+      "bytes": 11033,
+      "sha256": "84b2cd322e74fcf34821a4788e9546e7f3dd889bdac798b21e47e306fdb7ad03",
+      "type": "proof"
+    },
+    {
+      "path": "pr93-deployment-proof.json",
+      "bytes": 2054,
+      "sha256": "51573b41eb0a8a25a2b87509f8431ad6c9203b967884502109375ee356b4c9c9",
+      "type": "proof"
+    },
+    {
+      "path": "pr89-merge-proof.json",
+      "bytes": 4882,
+      "sha256": "7b013ea84a89107bd4146496d75da8d0296c4d13e5682bbabb3da131a7fa354a",
+      "type": "proof"
+    },
+    {
+      "path": "consent-first-visit.png",
+      "bytes": 122872,
+      "sha256": "d7a8fac20c791e57323fb94d44d3ac3397a316be7ff33fcdf6236d75323bd299",
+      "type": "screenshot"
+    },
+    {
+      "path": "consent-dismissed-controls.png",
+      "bytes": 258452,
+      "sha256": "8285f695a1280825a08553185ecc77318b2bd05aec8a71514a657ca092129c17",
+      "type": "screenshot"
+    },
+    {
+      "path": "consent-dismissed-concierge.png",
+      "bytes": 223065,
+      "sha256": "08e0486beaff6c2ff70b5104ac603dcbbdb33e281f524493942d5025124e5331",
+      "type": "screenshot"
+    }
+  ],
+  "redaction": {
+    "status": "pass",
+    "policy": "Compact JSON was allowlist-derived from runtime evidence; contact names, email addresses, phone numbers, tokens and free-form message text were omitted. Selected screenshots were visually reviewed and contain no user-entered PII or credentials."
+  },
+  "scope": {
+    "pr93": "approved/merged/deployed; native control collision resolved after consent dismissal, first-visit consent ownership remains open",
+    "pr89": "approved/merged/deployed as internal tooling; buyer-facing bundles unchanged",
+    "candidate": "fix/batch6-consent-control-ownership is review-only and not released/deployed"
+  }
+}
