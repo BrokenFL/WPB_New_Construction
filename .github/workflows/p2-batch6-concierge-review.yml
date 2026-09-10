@@ -93,20 +93,28 @@ jobs:
           await assert.rejects(verifyProductionMapBundle(), /reachable app chunks do not include/);
           JS
       - name: Scan evidence before upload
+        id: evidence-scan
         if: always()
         run: |
           python3 - <<'PY'
           import pathlib,re
-          root=pathlib.Path('.runtime/batch6-concierge')
-          for p in root.rglob('*') if root.exists() else []:
-            if p.is_file() and re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',p.read_bytes()):
-              raise RuntimeError('Unsafe evidence withheld')
+          for name in ('.runtime/batch6-concierge', '.runtime/p2-keyed-maps'):
+            root=pathlib.Path(name)
+            for p in root.rglob('*') if root.exists() else []:
+              if p.is_file() and re.search(rb'AIza[0-9A-Za-z_-]{30,}|gh[pousr]_[0-9A-Za-z]{30,}|github_pat_[0-9A-Za-z_]{30,}',p.read_bytes()):
+                raise RuntimeError('Unsafe evidence withheld')
           PY
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && steps.evidence-scan.outcome == 'success'
         with:
           name: batch6-concierge-${{ matrix.mode }}-${{ github.sha }}
           path: .runtime/batch6-concierge/
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always() && matrix.mode == 'keyed' && steps.evidence-scan.outcome == 'success'
+        with:
+          name: batch6-keyed-maps-${{ github.sha }}
+          path: .runtime/p2-keyed-maps/
           retention-days: 14
   gate:
     name: Batch 6 concierge aggregate gate

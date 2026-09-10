@@ -7,6 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
 import { commercialOrigin, commercialEscape as e, commercialPages } from '../../src/lib/commercialContent.ts';
 import { corridorGrowthPages as pages, renderGrowthCorridor } from '../../src/lib/corridorGrowthContent.ts';
+import { normalizeRequestIntent } from '../../shared/request-intents.js';
 const dist=path.resolve('dist'),output='.runtime/p2-corridors',results=[];
 await fs.mkdir(output,{recursive:true});
 const sha=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
@@ -94,10 +95,13 @@ try{
       await page.evaluate(()=>window.wpbSetAnalyticsConsent?.('granted'));
       async function submit(expected,project,expectedCorridor=''){
         await ready(page,'/inquire/');
+        await page.waitForFunction(()=>document.querySelector('.inquiry-form')?.dataset.batch6IntentWired==='true');
         await page.waitForFunction(v=>document.querySelector('.inquiry-form [name="lead_capture_context"]')?.value===v,expected);
         const form=page.locator('.inquiry-form');
         assert.equal(await form.locator('[name="project"]').inputValue(),expected.startsWith('floorplan:')?'olara':'');
-        const interest=expected.endsWith('pricing-packet')?'Request private floor-plan packet':'Request current availability';
+        const requestIntent=normalizeRequestIntent(expected.endsWith('pricing-packet')?'pricing-packet':'availability');
+        assert.ok(requestIntent,`Unknown corridor journey intent: ${expected}`);
+        const interest=requestIntent.interest;
         assert.equal(await form.locator('[name="interest"]').inputValue(),interest);
         await form.locator('[name="project"]').selectOption(project);
         await form.locator('[name="name"]').fill('Corridor QA Person');await form.locator('[name="email"]').fill('corridor-qa@example.invalid');await form.locator('[name="phone"]').fill('202-555-0158');await form.locator('[name="message"]').fill('CORRIDOR_QA_DO_NOT_SEND');await form.locator('[name="consent"]').check();await form.locator('[name="turnstile_token"]').evaluate(i=>i.value='CORRIDOR_INTERCEPTED_TOKEN');
@@ -106,7 +110,7 @@ try{
         await form.locator('button[type="submit"]').click();await response;
         await page.waitForFunction(()=>document.querySelector('.inquiry-form .form-status')?.textContent?.includes('request was received'));
         assert.equal(payload.cta_context,expected);assert.equal(payload.lead_capture_context,expected);assert.equal(payload.project,project);assert.equal(payload.interest,interest);
-        assert.equal(payload.landing_page,origin+'/');assert.equal(payload.submission_page,origin+'/inquire/');
+        assert.equal(payload.landing_page,origin+'/');assert.equal(payload.submission_page,origin+'/inquire/');assert.equal(payload.request_intent,requestIntent.id);
         assert.equal(payload.corridor||'',expectedCorridor);
         if(!expected.startsWith('floorplan:'))assert.notEqual(payload.project_name,'Olara');
         assert.doesNotMatch(await page.evaluate(()=>JSON.stringify([window.wpbAnalyticsQueue,window.dataLayer])),/Corridor QA Person|corridor-qa@|202-555-0158|CORRIDOR_QA_DO_NOT_SEND|CORRIDOR_INTERCEPTED_TOKEN/);

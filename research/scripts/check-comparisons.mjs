@@ -7,6 +7,7 @@ import {chromium} from 'playwright';
 import {comparisonPages,comparisonSchema} from '../../src/lib/comparisonContent.ts';
 import {comparisonPaths,comparisonProjectIds,parseShortlist,encodeShortlist} from '../../src/lib/shortlist.ts';
 import {normalizeLead} from '../../functions/_shared/lead-utils.js';
+import {normalizeRequestIntent} from '../../shared/request-intents.js';
 const dist=path.resolve('dist'),out=path.resolve('.runtime/p2-comparisons');await fs.mkdir(out,{recursive:true});
 const results=[];const mime={'.js':'text/javascript','.css':'text/css','.html':'text/html','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.pdf':'application/pdf'};
 const server=http.createServer(async(req,res)=>{try{const u=new URL(req.url,'http://local');let file=path.join(dist,decodeURIComponent(u.pathname));if(u.pathname.endsWith('/'))file=path.join(file,'index.html');const data=await fs.readFile(file);res.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');res.end(data);}catch{res.statusCode=404;res.end('Not found');}});
@@ -49,8 +50,11 @@ try{
    await page.evaluate(()=>window.wpbSetAnalyticsConsent('granted'));
    const submit=async(expected,primary)=>{
     await ready(page,'/inquire/');const form=page.locator('.inquiry-form');await form.locator('[name=lead_capture_context]').waitFor({state:'attached'});
+    await page.waitForFunction(()=>document.querySelector('.inquiry-form')?.dataset.batch6IntentWired==='true');
     await page.waitForFunction(exp=>document.querySelector('.inquiry-form [name=lead_capture_context]')?.value===exp,expected);
     const summary=page.locator('[data-shortlist-review]');if(parseShortlist(expected))assert.equal(await summary.count(),1);else assert.equal(await summary.count(),0);
+    const requestIntent=normalizeRequestIntent(parseShortlist(expected)?'compare_shortlist':expected.endsWith('pricing-packet')?'pricing-packet':'availability');
+    assert.ok(requestIntent,`Unknown comparison journey intent: ${expected}`);
     await form.locator('select[name=project]').selectOption(primary);
     if(parseShortlist(expected)) {
       const visual=await summary.locator('h3').evaluate(el=>({color:getComputedStyle(el).color,width:el.getBoundingClientRect().width}));
@@ -61,7 +65,8 @@ try{
     await form.evaluate(el=>{let f=el.querySelector('[name=turnstile_token]');if(!f){f=document.createElement('input');f.type='hidden';f.name='turnstile_token';el.append(f);}f.value='qa-intercepted-token';});
     const before=posts.length;await form.locator('button[type=submit]').click();await page.waitForFunction(()=>document.querySelector('.inquiry-form .form-status')?.textContent?.includes('request was received'));
     assert.equal(posts.length,before+1);const body=posts.at(-1);assert.equal(body.project,primary);assert.equal(body.cta_context,expected);assert.equal(body.lead_capture_context,expected);assert.equal(body.landing_page,origin+comparisonPaths.flagler);assert.equal(body.submission_page,origin+'/inquire/');
-    if(parseShortlist(expected)){assert.deepEqual(parseShortlist(normalizeLead(body,new Request(origin+'/api/leads')).cta_context).ids,parseShortlist(expected).ids);assert.equal(body.interest,'Compare buildings');}
+    assert.equal(body.interest,requestIntent.interest);assert.equal(body.request_intent,requestIntent.id);
+    if(parseShortlist(expected)){assert.deepEqual(parseShortlist(normalizeLead(body,new Request(origin+'/api/leads')).cta_context).ids,parseShortlist(expected).ids);}
     const analytics=await page.evaluate(()=>window.wpbAnalyticsQueue||[]);const encoded=JSON.stringify(analytics);assert.ok(!encoded.includes('qa-shortlist@'));assert.ok(!encoded.includes('SYNTHETIC_PRIVATE'));assert.ok(!encoded.includes('QA Synthetic Buyer'));
     assert.equal(analytics.filter(e=>e.eventName==='contact_form_submit').length,1);assert.equal(analytics.filter(e=>e.eventName==='lead_form_submit_success').length,1);
     results.push({check:'intercepted-inquiry',width,context:expected,primary,status:'pass',normalizedSelectionPreserved:true});
