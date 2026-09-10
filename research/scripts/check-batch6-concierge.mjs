@@ -189,7 +189,7 @@ try {
     try {
       page = await step(label, "page.create", () => context.newPage(), 10000);
       await gotoReady(page, `${origin}${route}`, label);
-      const form = page.locator(".brochure-inquiry-card").first();
+      const form = page.locator(".brochure-inquiry-card:visible").first();
       await step(label, "form.visible", () => form.waitFor({ timeout: 15000 }), 17000);
       assert.equal(await form.locator('input[name="interest"]').inputValue(), "Request current availability");
       assert.equal(await form.locator('input[name="request_intent"]').inputValue(), "availability");
