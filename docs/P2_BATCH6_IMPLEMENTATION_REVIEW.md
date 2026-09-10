@@ -4,19 +4,28 @@ September 10, 2026 · PR [#86](https://github.com/BrokenFL/WPB_New_Construction/
 
 ## Disposition and revision evidence
 
-**Batch 6 application verification: PASS. Open draft and undeployed; all current PR checks remain a release prerequisite.**
+**PR acceptance: PASS — all nine keyed/no-key/aggregate jobs are green.** The draft remains open and undeployed, awaiting Brooke's review and release authorization.
 
 | Evidence | Exact revision/result |
 | --- | --- |
-| Tested feature + QA revision | `593abf507ed302b8b422f95b2510892b87173156` |
-| Last application change | `85eeae70d59fdbc87f169692dc6464128910bbbf`; successor changes the unit-test fixture only |
-| CI synthetic test merge | `a22a3f9f9bd603693ac864d6b3cdfaa69e190b49`, against production `c568746b545804bfab48cda8a9e7f214ddda9d36` |
-| Concierge implementation review | [34464411041](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34464411041): keyed **SUCCESS**, no-key **SUCCESS**, aggregate **SUCCESS** |
-| Social regression review | [34464411029](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34464411029): keyed **SUCCESS**, no-key **SUCCESS**, aggregate **SUCCESS** |
+| Last application change | `85eeae70d59fdbc87f169692dc6464128910bbbf`; application sources are unchanged in subsequent QA/workflow/documentation commits |
+| Retained screenshots/evidence | QA revision `593abf507ed302b8b422f95b2510892b87173156`; provenance is preserved in [Screenshots](#screenshots) |
+| Pushed QA revision | `3cc9052c0c52d094aa888ce5a4c42d90c3b71f48`; legacy keyed Maps readiness-wait correction only |
+| Synthetic test merge | `eb95c9057c67349acb2929789a931f7e55fc9c35`, against production `c568746b545804bfab48cda8a9e7f214ddda9d36` |
 
-Application and QA script sources match the green revision above. Documentation/evidence successor `ea524231834bac5963dddc214ae4d0ee87fc9acd` also passed both complete Batch 6 workflows: [concierge 34465568121](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34465568121) and [social 34465568344](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34465568344).
+The `3cc9052c0c52d094aa888ce5a4c42d90c3b71f48` QA correction changes `research/scripts/check-map-functionality.mjs`: keyed legacy map checks wait up to 30 seconds for a visible ready Google map with a loaded tile of real dimensions; the no-key path retains its fixed 2.5-second homepage / 3.5-second standalone-map waits. It does not change application code. Commit `8401e8dc70c063c42115e1c5aefee5ef3f9702f6` scopes the historical Batch 5 protected-file freeze to its original authorship branch, preserving ancestry, deferred-track exclusions and complete Batch 5 regressions; that removes the earlier pre-build rejection of authorized Batch 6 inquiry/lead changes.
 
-The tracker link in that documentation update additionally activated the older Batch 5 complete-review workflow. Its historical protected-file freeze rejected the authorized Batch 6 inquiry/lead changes before building; subsequent preflight failures were missing-build cascades. The follow-up scopes that original freeze to its original authorship branch, while retaining ancestry, deferred-track exclusions and every actual Batch 5 regression. No application or QA-script change accompanies this workflow maintenance. Consult the [current PR checks](https://github.com/BrokenFL/WPB_New_Construction/pull/86/checks) and PR description for the final workflow-only successor and all nine job results. Recheck current refs/checks and obtain Brooke's authorization before any merge or release.
+## Final CI acceptance
+
+| Workflow | Run | Required jobs | Result |
+| --- | --- | --- | --- |
+| Batch 6 concierge implementation review (no deploy) | [34467536610](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536610) | keyed / no-key / aggregate | **SUCCESS**; 3/3 jobs green |
+| P2 Batch 5 complete authorship verification (no deploy) | [34467536644](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536644) | keyed / no-key / aggregate | **SUCCESS**; 3/3 jobs green |
+| Batch 6C social preview review (no deploy) | [34467536649](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34467536649) | keyed / no-key / aggregate | **SUCCESS**; 3/3 jobs green |
+
+All 9/9 jobs passed at the tested revision. The [final acceptance record](evidence/batch6-2026-09-10/final-acceptance.json) retains exact workflow/job identities, results and artifact references. Documentation-only successors do not change the application, QA or workflows; inspect the current PR description/checks for their head and verification status.
+
+Recheck current refs/checks and obtain Brooke's authorization before any merge or release.
 
 ## Corrections
 
@@ -30,15 +39,15 @@ Legacy input URLs remain covered. Integration, corridor, comparison and Batch 4 
 
 **Screenshots exposed inherited style conflicts.** The concierge sets scoped heading/control typography and colors. Brochure request summaries use dark text on an opaque pale background. Normal-resource desktop/mobile captures start with declined analytics consent and dismiss the separate Building Watch prompt through its own control.
 
-**Review harness corrections preserve the release gates.** PR #87's social-only file allowlist now applies to its original social branch; all later PRs retain social behavior, ancestry, deferred-track exclusions and full keyed/no-key checks. A local probe also demonstrated that analytics consent was absent at `domcontentloaded` but appeared 50 ms later, defeating the keyed Maps check's one-time visibility check. Maps QA now starts with the same explicit denied preference and records safe failure-phase labels. It still requires a real loader response, real rendered tiles, correct dimensions and changed tiles after zoom; no fallback is accepted. The earlier cold homepage CI failure had insufficient diagnostics to assign a definitive cause. The resolved `/map/` runtime correction was not reopened.
+**Review harness corrections preserve the release gates.** PR #87's social-only file allowlist now applies to its original social branch; all later PRs retain social behavior, ancestry, deferred-track exclusions and full keyed/no-key checks. A local probe also demonstrated that analytics consent was absent at `domcontentloaded` but appeared 50 ms later, defeating the keyed Maps check's one-time visibility check. Maps QA now starts with the same explicit denied preference and records safe failure-phase labels. The `3cc9052c0c52d094aa888ce5a4c42d90c3b71f48` correction replaces the keyed legacy map check's fixed 2.5-second homepage / 3.5-second standalone-map wait with a bounded wait of up to 30 seconds for visible semantic readiness and loaded Google tile evidence; the no-key waits are unchanged. The dedicated keyed Maps checker still requires a real loader response, real rendered tiles, correct dimensions and changed tiles after zoom; no fallback is accepted. The earlier cold homepage CI failure had insufficient diagnostics to assign a definitive cause. The resolved `/map/` runtime correction was not reopened.
 
 The concierge workflow retains keyed Maps results/screenshots as a separate artifact, scans both evidence directories, and permits upload only after a successful scan. The production deploy workflow is unchanged.
 
 ## Verification record
 
-Local verification uses an ordinary production build with the environment-specific `--configLoader runner` option: the default Vite loader occasionally stalled on this Mac. CI must independently pass ordinary `npm run build` on Ubuntu. Earlier corrective commit `d2ba843405f9737f721cec2c5d9da4a782ddd135` passed both CI builds, focused contracts, the full repository suite, authorship, floor-plan and commercial checks, before the legacy integration expectation stopped concierge run `34462532925`. Social run `34462532910` passed all non-Maps checks and its entire no-key job; its first desktop homepage keyed Maps probe failed while the other three Maps views passed. Those runs are diagnostic history, not final acceptance. Revision `85eeae7` subsequently exposed an outdated unit-test Select mock; `593abf5` models native option matching and bubbling for both legacy and canonical option sets. The complete local no-key suite and both final CI workflows then passed.
+Local verification used the environment-specific `npm run build -- --configLoader runner` option because the default Vite loader occasionally stalled on this Mac. All three final CI workflows independently passed ordinary `npm run build` on Ubuntu. The complete local no-key suite also passed. The corrected Select fixture models native option matching and bubbling across legacy/canonical option sets; it retains replacement and manual-choice coverage.
 
-Both complete CI workflows passed. Retained coverage:
+Final CI coverage:
 
 - Typecheck and production build; 14 five-intent contracts; controlled lead validation, dedupe, retry and storage mocks.
 - Isolated `/map/` readiness; all 22 concierge views (11 desktop/mobile routes), lazy launcher/dialog/focus/Escape, lightweight ownership, bounded browser lifecycle, and five real DOM form examples with normalized server interest.
@@ -49,7 +58,7 @@ Both complete CI workflows passed. Retained coverage:
 
 ## Screenshots
 
-Final CI evidence is retained with a [SHA-256 manifest](evidence/batch6-2026-09-10/manifest.json), [semantic/form/lifecycle results](evidence/batch6-2026-09-10/concierge-results.json), [keyed Maps results](evidence/batch6-2026-09-10/keyed-maps-results.json), and exact workflow snapshots. All ten retained screenshots were visually reviewed; the six focused screenshots are byte-identical to the earlier application-revision CI captures.
+Retained screenshots/results were captured at QA revision `593abf507ed302b8b422f95b2510892b87173156`. Application sources are unchanged since `85eeae70d59fdbc87f169692dc6464128910bbbf`; the final acceptance record above separately identifies the latest QA/workflow revision. It is stored with a [SHA-256 manifest](evidence/batch6-2026-09-10/manifest.json), [semantic/form/lifecycle results](evidence/batch6-2026-09-10/concierge-results.json), [keyed Maps results](evidence/batch6-2026-09-10/keyed-maps-results.json), and exact workflow snapshots. All ten retained screenshots were visually reviewed; the six focused screenshots are byte-identical to the earlier application-revision CI captures.
 
 | Surface | Desktop | Mobile |
 | --- | --- | --- |
@@ -59,10 +68,10 @@ Final CI evidence is retained with a [SHA-256 manifest](evidence/batch6-2026-09-
 | Keyed homepage map | [Screenshot](evidence/batch6-2026-09-10/home-1366-map-card.png) | [Screenshot](evidence/batch6-2026-09-10/home-390-map-card.png) |
 | Keyed standalone map | [Screenshot](evidence/batch6-2026-09-10/map-1366-map-card.png) | [Screenshot](evidence/batch6-2026-09-10/map-390-map-card.png) |
 
-Source artifacts: [no-key concierge](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34464411041/artifacts/10147208149), [keyed concierge](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34464411041/artifacts/10147236226), [keyed Maps including full-page captures](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34464411041/artifacts/10147236885). These are candidate-build screenshots, not live production evidence. GitHub Actions artifacts expire after 14 days; the selected repository copies remain reviewable.
+Source artifacts for the retained `593abf507ed302b8b422f95b2510892b87173156` evidence: [no-key concierge](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34464411041/artifacts/10147208149), [keyed concierge](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34464411041/artifacts/10147236226), [keyed Maps including full-page captures](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34464411041/artifacts/10147236885). These are candidate-build screenshots, not live production evidence. Artifact references from the successful `3cc9052c0c52d094aa888ce5a4c42d90c3b71f48` workflows are also preserved in the final acceptance record. GitHub Actions artifacts expire after 14 days; the selected repository copies remain reviewable.
 
 ## Limitations and release boundary
 
 All automated lead submissions are intercepted or use controlled endpoint/storage mocks. Real production Turnstile, D1 persistence, email/CRM delivery and human fulfillment remain unverified. No real lead was sent. The concierge routes research and human follow-up; it does not promise current inventory, pricing, automated booking or generative answers. No traffic, ranking, GA4 transport, conversion or revenue uplift is established.
 
-No merge or deployment occurred in this continuation. Production remains `c568746b545804bfab48cda8a9e7f214ddda9d36` pending a fresh check before any authorized release. PR #89 has a separate **hold** recommendation; see the [authoritative handoff](WPB_CODEX_MASTER_HANDOFF.md) for its safety findings, exact Codex/Sheet intake architecture, preserved publishing/model boundaries and next work.
+No merge or deployment occurred in this continuation. No live article publication or deployment was invoked; automated publisher QA used isolated fixtures. Production remains `c568746b545804bfab48cda8a9e7f214ddda9d36` pending a fresh check before any authorized release. PR #89 has a separate **hold** recommendation; see the [authoritative handoff](WPB_CODEX_MASTER_HANDOFF.md) for its safety findings, exact Codex/Sheet intake architecture, preserved publishing/model boundaries and next work.
