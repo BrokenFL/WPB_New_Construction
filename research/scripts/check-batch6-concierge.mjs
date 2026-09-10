@@ -47,40 +47,47 @@ async function gotoReady(page, target) {
 
 try {
   for (const width of [1440, 390]) {
-    for (const route of routes) {
-      const context = await browser.newContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: "reduce" });
-      const page = await context.newPage();
-      const requested = [];
-      page.on("request", (request) => requested.push(new URL(request.url()).pathname));
-      const errors = [];
-      page.on("pageerror", (error) => errors.push(error.message));
-      console.log(`concierge view ${route} ${width}`);
-      await gotoReady(page, `${origin}${route}`);
-      const launcher = page.getByRole("button", { name: "Open Ask WPB buyer concierge" });
-      await launcher.waitFor({ state: "visible", timeout: 15000 });
-      assert.equal(requested.includes(conciergePath), false, `${route}:${width}:body must be lazy`);
-      if (route.includes("/answers/olara-vs-") || route === "/floorplans/olara/residence-d/") {
-        assert.equal(requested.includes(mainPath), false, `${route}:${width}:lightweight route imported legacy main`);
+    const context = await browser.newContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: "reduce" });
+    try {
+      for (const route of routes) {
+        const page = await context.newPage();
+        try {
+          const requested = [];
+          page.on("request", (request) => requested.push(new URL(request.url()).pathname));
+          const errors = [];
+          page.on("pageerror", (error) => errors.push(error.message));
+          console.log(`concierge view ${route} ${width}`);
+          await gotoReady(page, `${origin}${route}`);
+          const launcher = page.getByRole("button", { name: "Open Ask WPB buyer concierge" });
+          await launcher.waitFor({ state: "visible", timeout: 15000 });
+          assert.equal(requested.includes(conciergePath), false, `${route}:${width}:body must be lazy`);
+          if (route.includes("/answers/olara-vs-") || route === "/floorplans/olara/residence-d/") {
+            assert.equal(requested.includes(mainPath), false, `${route}:${width}:lightweight route imported legacy main`);
+          }
+          if (width === 390) assert.equal(await page.locator(".mobile-cta-bar:visible").count(), 0, `${route}: generic mobile bar must not overlap concierge`);
+          if (route === "/inquire/") assert.notEqual(await page.locator("[data-buyer-concierge-root]").evaluate((el) => getComputedStyle(el).position), "fixed");
+          await launcher.click();
+          const panel = page.getByRole("dialog", { name: "Ask WPB" });
+          await panel.waitFor({ state: "visible", timeout: 15000 });
+          assert.equal(requested.includes(conciergePath), true, `${route}:${width}:lazy body did not load`);
+          for (const heading of ["Research", "Current information", "Talk to the team"]) assert.equal(await panel.getByRole("heading", { name: heading }).count(), 1);
+          if (screenshotRoutes.has(route)) {
+            const label = route.includes("answers") ? "comparison" : "floorplan";
+            await page.screenshot({ path: path.join(out, `${label}-concierge-open-${width}.png`), animations: "disabled" });
+          }
+          await page.keyboard.press("Escape");
+          const closeState = await page.evaluate(() => {
+            const current = document.querySelector(".buyer-concierge-launcher");
+            return { exists: Boolean(current), expanded: current?.getAttribute("aria-expanded") ?? null, focused: document.activeElement === current };
+          });
+          assert.deepEqual(closeState, { exists: true, expanded: "false", focused: true }, `${route}:${width}: Escape closes and returns focus`);
+          assert.deepEqual(errors, [], `${route}:${width}:page errors`);
+          results.push({ route, width, status: "pass", conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
+        } finally {
+          await page.close();
+        }
       }
-      if (width === 390) assert.equal(await page.locator(".mobile-cta-bar:visible").count(), 0, `${route}: generic mobile bar must not overlap concierge`);
-      if (route === "/inquire/") assert.notEqual(await page.locator("[data-buyer-concierge-root]").evaluate((el) => getComputedStyle(el).position), "fixed");
-      await launcher.click();
-      const panel = page.getByRole("dialog", { name: "Ask WPB" });
-      await panel.waitFor({ state: "visible", timeout: 15000 });
-      assert.equal(requested.includes(conciergePath), true, `${route}:${width}:lazy body did not load`);
-      for (const heading of ["Research", "Current information", "Talk to the team"]) assert.equal(await panel.getByRole("heading", { name: heading }).count(), 1);
-      if (screenshotRoutes.has(route)) {
-        const label = route.includes("answers") ? "comparison" : "floorplan";
-        await page.screenshot({ path: path.join(out, `${label}-concierge-open-${width}.png`), animations: "disabled" });
-      }
-      await page.keyboard.press("Escape");
-      const closeState = await page.evaluate(() => {
-        const current = document.querySelector(".buyer-concierge-launcher");
-        return { exists: Boolean(current), expanded: current?.getAttribute("aria-expanded") ?? null, focused: document.activeElement === current };
-      });
-      assert.deepEqual(closeState, { exists: true, expanded: "false", focused: true }, `${route}:${width}: Escape closes and returns focus`);
-      assert.deepEqual(errors, [], `${route}:${width}:page errors`);
-      results.push({ route, width, status: "pass", conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
+    } finally {
       await context.close();
     }
   }
