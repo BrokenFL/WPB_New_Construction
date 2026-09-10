@@ -126,6 +126,15 @@ try {
       if (route === '/map/') assert.ok(dimensions.canvasWidth >= dimensions.cardWidth - 4, 'Standalone map must fill its card; no empty inherited second column.');
       let mobileControlGeometry;
       if (width === 390) {
+        failurePhase = 'mobile-control-readiness';
+        await page.waitForFunction(() => {
+          const card = [...document.querySelectorAll('.home-hero-map-card')].find((element) => !element.closest('[data-route-view]')?.hidden);
+          return card && ['Zoom in', 'Zoom out'].every((label) => [...card.querySelectorAll(`button[aria-label="${label}"]`)].some((button) => {
+            const rect = button.getBoundingClientRect();
+            const style = getComputedStyle(button);
+            return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden';
+          }));
+        }, null, { timeout: 10000 });
         failurePhase = 'mobile-control-layout';
         await page.locator('.buyer-concierge-launcher').waitFor({ state: 'visible', timeout: 10000 });
         mobileControlGeometry = await assertMobileMapControls(page, card, route);
