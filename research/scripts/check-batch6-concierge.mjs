@@ -57,14 +57,12 @@ async function gotoReady(page, target) {
 try {
   for (const width of [1440, 390]) {
     const context = await createAuditContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: "reduce" });
-    const page = await context.newPage();
-    const errors = [];
-    page.on("pageerror", (error) => errors.push(error.message));
     for (const route of routes) {
+      const page = await context.newPage();
+      const errors = [];
       const requested = [];
-      const onRequest = (request) => requested.push(new URL(request.url()).pathname);
-      page.on("request", onRequest);
-      errors.length = 0;
+      page.on("pageerror", (error) => errors.push(error.message));
+      page.on("request", (request) => requested.push(new URL(request.url()).pathname));
       console.log(`concierge view ${route} ${width}`);
       await gotoReady(page, `${origin}${route}`);
       const launcher = page.getByRole("button", { name: "Open Ask WPB buyer concierge" });
@@ -88,15 +86,14 @@ try {
       assert.deepEqual(closeState, { exists: true, expanded: "false", focused: true }, `${route}:${width}: Escape closes and returns focus`);
       assert.deepEqual(errors, [], `${route}:${width}:page errors`);
       results.push({ route, width, status: "pass", conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
-      page.off("request", onRequest);
       console.log(`concierge pass ${route} ${width}`);
     }
     await context.close();
   }
 
   const formContext = await createAuditContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
-  const formPage = await formContext.newPage();
   for (const route of ["/projects/olara/", "/projects/maison-dor/"]) {
+    const formPage = await formContext.newPage();
     await gotoReady(formPage, `${origin}${route}`);
     const form = formPage.locator(".brochure-inquiry-card").first();
     await form.waitFor({ timeout: 15000 });
@@ -116,8 +113,8 @@ try {
     conversation_tour: "Schedule private tour",
   };
   const intentContext = await createAuditContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
-  const intentPage = await intentContext.newPage();
   for (const [id, definition] of Object.entries(requestIntentDefinitions)) {
+    const intentPage = await intentContext.newPage();
     const legacy = legacyByIntent[id];
     await gotoReady(intentPage, `${origin}/inquire/?interest=${encodeURIComponent(legacy)}&project=olara`);
     const form = intentPage.locator(".inquiry-form");
@@ -155,8 +152,8 @@ try {
   await navContext.close();
 
   const jsOffContext = await createAuditContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
-  const jsOff = await jsOffContext.newPage();
   for (const route of ["/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/floorplans/olara/residence-d/"]) {
+    const jsOff = await jsOffContext.newPage();
     await gotoReady(jsOff, `${origin}${route}`);
     assert.ok((await jsOff.locator("h1").first().innerText()).trim().length > 3, `${route}: JS-off H1`);
     assert.ok(await jsOff.locator('a[href^="/"]').count() > 0, `${route}: JS-off native research/navigation links`);
