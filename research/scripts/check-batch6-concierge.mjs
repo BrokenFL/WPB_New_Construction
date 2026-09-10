@@ -35,7 +35,6 @@ await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
 const origin = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ headless: true });
 const routes = ["/", "/buildings/", "/map/", "/floorplans/", "/projects/olara/", "/projects/rosewood-residences-west-palm-beach/", "/projects/maison-dor/", "/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/corridors/south-flagler/", "/inquire/", "/floorplans/olara/residence-d/"];
-const screenshotRoutes = new Set(["/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/floorplans/olara/residence-d/"]);
 const results = [];
 const requestExamples = [];
 
@@ -71,10 +70,6 @@ try {
           await panel.waitFor({ state: "visible", timeout: 15000 });
           assert.equal(requested.includes(conciergePath), true, `${route}:${width}:lazy body did not load`);
           for (const heading of ["Research", "Current information", "Talk to the team"]) assert.equal(await panel.getByRole("heading", { name: heading }).count(), 1);
-          if (screenshotRoutes.has(route)) {
-            const label = route.includes("answers") ? "comparison" : "floorplan";
-            await page.screenshot({ path: path.join(out, `${label}-concierge-open-${width}.png`), animations: "disabled" });
-          }
           await page.keyboard.press("Escape");
           const closeState = await page.evaluate(() => {
             const current = document.querySelector(".buyer-concierge-launcher");
