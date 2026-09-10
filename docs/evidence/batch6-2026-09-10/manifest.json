@@ -1,0 +1,100 @@
+{
+  "testedFeatureSha": "593abf507ed302b8b422f95b2510892b87173156",
+  "applicationRevision": "85eeae70d59fdbc87f169692dc6464128910bbbf",
+  "testMergeSha": "a22a3f9f9bd603693ac864d6b3cdfaa69e190b49",
+  "conciergeWorkflow": 34464411041,
+  "socialWorkflow": 34464411029,
+  "artifactIds": {
+    "conciergeNoKey": 10147208149,
+    "conciergeKeyed": 10147236226,
+    "keyedMaps": 10147236885
+  },
+  "source": "GitHub Actions candidate builds, not production",
+  "files": [
+    {
+      "path": "after-comparison-desktop.png",
+      "bytes": 236783,
+      "sha256": "501966bab48f03489154a891575a959a794d994568b1cff116372121544d76e1"
+    },
+    {
+      "path": "after-comparison-mobile.png",
+      "bytes": 74960,
+      "sha256": "07d91ed35025aaac54c4e27e43f43e7019cd338933ed8a2e79d3e9c3a7656c2a"
+    },
+    {
+      "path": "after-maison-dor-form-desktop.png",
+      "bytes": 70333,
+      "sha256": "9c2f1d381ee24765d07cb84cb28753990d244cc833643a0135424e836b5341b5"
+    },
+    {
+      "path": "after-maison-dor-form-mobile.png",
+      "bytes": 68670,
+      "sha256": "6511104df494852e2c27b2cb55953328e0d112931fc5d9b5f1bc02a0f82c8baf"
+    },
+    {
+      "path": "after-olara-form-desktop.png",
+      "bytes": 73033,
+      "sha256": "062861ffa795213d750ebabb439d723be203fab554874437dcc4cffa80e02d3a"
+    },
+    {
+      "path": "after-olara-form-mobile.png",
+      "bytes": 71126,
+      "sha256": "3e761029009493c1b4da6490a1756728f91189f2fa541f7a32fcd910515a5d3c"
+    },
+    {
+      "path": "concierge-map-probe.json",
+      "bytes": 3190,
+      "sha256": "d8504f756b3d05a74a1bb34e45d37bd77d8c96769ee393215b2edefd54c410a7"
+    },
+    {
+      "path": "concierge-request-examples.json",
+      "bytes": 2852,
+      "sha256": "37267b9012670a791d1e02d405d5680250263b88da4cdea6cad2cdf6d8204d16"
+    },
+    {
+      "path": "concierge-results.json",
+      "bytes": 61546,
+      "sha256": "73a1719dbdd2ba5e3ecd8fb8bd93a8bde4f8b968ca89c9846e04445e7d371032"
+    },
+    {
+      "path": "concierge-workflow.json",
+      "bytes": 9752,
+      "sha256": "aaab26af244aa9a73599a96c0c581b0387ee10b694d72b05d2c6306dca1493f1"
+    },
+    {
+      "path": "home-1366-map-card.png",
+      "bytes": 129574,
+      "sha256": "06437731d74a440e95580fd47f3cd754f13330fe63ce8c4da465c39e64c68284"
+    },
+    {
+      "path": "home-390-map-card.png",
+      "bytes": 37311,
+      "sha256": "bad7e72355dbbecf53889e645972f71f475ebfb147ef35bcf910bd5ec8211e47"
+    },
+    {
+      "path": "keyed-concierge-results.json",
+      "bytes": 61549,
+      "sha256": "d35dc68c0edf08c5d5f54edf3c4b735efeebdf7934a01c2d53c2d30c22ba8c95"
+    },
+    {
+      "path": "keyed-maps-results.json",
+      "bytes": 1108,
+      "sha256": "6374954d24cd9259b4b14be4ace33ed2f1f0b98c7781a20de43ef199286d5d9c"
+    },
+    {
+      "path": "map-1366-map-card.png",
+      "bytes": 166330,
+      "sha256": "e29e9c421bf806c2f02bac6a3e571b7353edd0dd92c4da05b9718cc4d2d7c233"
+    },
+    {
+      "path": "map-390-map-card.png",
+      "bytes": 75398,
+      "sha256": "67cff1f8257104ba29233b743dc3c480f9dedb06ab170413877f0a92f4b90658"
+    },
+    {
+      "path": "social-workflow.json",
+      "bytes": 8363,
+      "sha256": "eb7e566747ac06603c0b903e805a6d8870bf2f67d9c4ee42d0eb791787c24c74"
+    }
+  ]
+}

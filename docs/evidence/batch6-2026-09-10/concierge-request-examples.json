@@ -1,0 +1,77 @@
+[
+  {
+    "id": "availability",
+    "legacyInput": "Request current availability",
+    "visibleSummary": "YOUR REQUEST\n\nRequest current availability\n\nFor: Olara West Palm Beach\n\nBrooke and the team will confirm the current information and respond.",
+    "submitted": {
+      "request_intent": "availability",
+      "interest": "Request current availability",
+      "project": "olara"
+    },
+    "normalized": {
+      "request_intent": "availability",
+      "interest": "Request current availability",
+      "project_id": "olara"
+    }
+  },
+  {
+    "id": "pricing_packet",
+    "legacyInput": "Request private floor-plan packet",
+    "visibleSummary": "YOUR REQUEST\n\nGet pricing + floor-plan packet\n\nFor: Olara West Palm Beach\n\nBrooke and the team will prepare or confirm the current packet and respond.",
+    "submitted": {
+      "request_intent": "pricing_packet",
+      "interest": "Get pricing + floor-plan packet",
+      "project": "olara"
+    },
+    "normalized": {
+      "request_intent": "pricing_packet",
+      "interest": "Get pricing + floor-plan packet",
+      "project_id": "olara"
+    }
+  },
+  {
+    "id": "compare_shortlist",
+    "legacyInput": "Compare buildings",
+    "visibleSummary": "YOUR REQUEST\n\nCompare my shortlist\n\nFor: Olara West Palm Beach\n\nBrooke and the team will review the buildings you explicitly selected and respond.",
+    "submitted": {
+      "request_intent": "compare_shortlist",
+      "interest": "Compare my shortlist",
+      "project": "olara"
+    },
+    "normalized": {
+      "request_intent": "compare_shortlist",
+      "interest": "Compare my shortlist",
+      "project_id": "olara"
+    }
+  },
+  {
+    "id": "project_question",
+    "legacyInput": "Ask the team about this building",
+    "visibleSummary": "YOUR REQUEST\n\nAsk about this project / plan\n\nFor: Olara West Palm Beach\n\nBrooke and the team will review your question and respond with the current information they can verify.",
+    "submitted": {
+      "request_intent": "project_question",
+      "interest": "Ask about this project / plan",
+      "project": "olara"
+    },
+    "normalized": {
+      "request_intent": "project_question",
+      "interest": "Ask about this project / plan",
+      "project_id": "olara"
+    }
+  },
+  {
+    "id": "conversation_tour",
+    "legacyInput": "Schedule private tour",
+    "visibleSummary": "YOUR REQUEST\n\nSchedule a conversation or tour\n\nFor: Olara West Palm Beach\n\nBrooke and the team will respond to confirm a conversation or tour; this request does not book an appointment.",
+    "submitted": {
+      "request_intent": "conversation_tour",
+      "interest": "Schedule a conversation or tour",
+      "project": "olara"
+    },
+    "normalized": {
+      "request_intent": "conversation_tour",
+      "interest": "Schedule a conversation or tour",
+      "project_id": "olara"
+    }
+  }
+]

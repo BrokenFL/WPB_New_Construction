@@ -1,5 +1,7 @@
 # Phase 2 delivery tracker — WPB New Construction
 
+Current continuation state: [authoritative Codex handoff](WPB_CODEX_MASTER_HANDOFF.md), updated September 10, 2026. The production and PR statuses below are historical; use the handoff and fresh repository/CI evidence before continuing.
+
 Updated September 9, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
 Requirements: `docs/ASTRA_PHASE_2_GROWTH_HANDOFF.md` and Brooke's growth/release instructions.
 
