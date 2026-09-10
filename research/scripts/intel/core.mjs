@@ -109,12 +109,18 @@ export function classifyDedupe(row, derivedEventKey, indexes) {
 }
 
 export function recommendDecision(row, dedupe, flags) {
-  if (["duplicate", "additional_source", "existing_known_fact"].includes(dedupe)) return dedupe === "additional_source" ? "additional_source" : "duplicate";
   if (dedupe === "conflicting_event" || row.verification_status === "conflicting") return "human_review";
   if (bool(row.requires_human_review)) return "human_review";
   if (flags.some((f) => /(pricing|inventory|legal|termination|financing|regulatory|approval|zoning|permit)/i.test(f))) return "human_review";
+  if (["duplicate", "additional_source", "existing_known_fact"].includes(dedupe)) return dedupe === "additional_source" ? "additional_source" : "duplicate";
   if (csvList(row.related_project_ids).length === 0 && row.related_project_slug) return "new_project_candidate";
   return "project_update_only";
+}
+
+function semanticSource(source) {
+  if (!source || typeof source !== "object") return source;
+  const { accessed_at, reachable, http_status, content_type, verification_error, ...semantic } = source;
+  return semantic;
 }
 
 export function processRow({ row, verificationSources = [], indexes = {} }) {
@@ -155,13 +161,14 @@ export function processRow({ row, verificationSources = [], indexes = {} }) {
     project_fact_proposals: [],
     sheet_intel_ids: [row.id],
   } : null;
+  const semanticCandidate = candidate ? { ...candidate, verification_sources: candidate.verification_sources.map(semanticSource) } : null;
   const report = {
     processor_version: PROCESSOR_VERSION,
     intel_id: row.id,
     row_sha256: rowHash,
     claim_ledger_sha256: sha256(claims),
     event_identity_sha256: sha256(derived),
-    candidate_sha256: sha256(candidate),
+    candidate_sha256: sha256(semanticCandidate),
     supplied_event_key: supplied || undefined,
     derived_event_key: derived,
     dedupe_classification: dedupe.classification,
