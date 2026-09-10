@@ -41,13 +41,7 @@ const requestExamples = [];
 async function createAuditContext(options = {}) {
   const context = await browser.newContext({ serviceWorkers: "block", ...options });
   await context.route("**/*", async (route) => {
-    const request = route.request();
-    const resourceType = request.resourceType();
-    if (["image", "media", "font"].includes(resourceType)) {
-      await route.abort();
-      return;
-    }
-    const requestUrl = new URL(request.url());
+    const requestUrl = new URL(route.request().url());
     if (requestUrl.origin === origin) await route.continue();
     else await route.abort();
   });
@@ -60,62 +54,69 @@ async function gotoReady(page, target) {
   return response;
 }
 
-function releasePage(page) {
-  void page.close({ runBeforeUnload: false }).catch(() => {});
+async function closeContext(context) {
+  await Promise.race([
+    context.close(),
+    new Promise((resolve) => setTimeout(resolve, 3000)),
+  ]);
 }
 
 try {
   for (const width of [1440, 390]) {
-    const context = await createAuditContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: "reduce" });
     for (const route of routes) {
-      const page = await context.newPage();
-      const errors = [];
-      const requested = [];
-      page.on("pageerror", (error) => errors.push(error.message));
-      page.on("request", (request) => requested.push(new URL(request.url()).pathname));
-      console.log(`concierge view ${route} ${width}`);
-      await gotoReady(page, `${origin}${route}`);
-      const launcher = page.getByRole("button", { name: "Open Ask WPB buyer concierge" });
-      await launcher.waitFor({ state: "visible", timeout: 15000 });
-      assert.equal(requested.includes(conciergePath), false, `${route}:${width}:body must be lazy`);
-      if (route.includes("/answers/olara-vs-") || route === "/floorplans/olara/residence-d/") {
-        assert.equal(requested.includes(mainPath), false, `${route}:${width}:lightweight route imported legacy main`);
+      const context = await createAuditContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: "reduce" });
+      try {
+        const page = await context.newPage();
+        const errors = [];
+        const requested = [];
+        page.on("pageerror", (error) => errors.push(error.message));
+        page.on("request", (request) => requested.push(new URL(request.url()).pathname));
+        console.log(`concierge view ${route} ${width}`);
+        await gotoReady(page, `${origin}${route}`);
+        const launcher = page.getByRole("button", { name: "Open Ask WPB buyer concierge" });
+        await launcher.waitFor({ state: "visible", timeout: 15000 });
+        assert.equal(requested.includes(conciergePath), false, `${route}:${width}:body must be lazy`);
+        if (route.includes("/answers/olara-vs-") || route === "/floorplans/olara/residence-d/") {
+          assert.equal(requested.includes(mainPath), false, `${route}:${width}:lightweight route imported legacy main`);
+        }
+        if (width === 390) assert.equal(await page.locator(".mobile-cta-bar:visible").count(), 0, `${route}: generic mobile bar must not overlap concierge`);
+        if (route === "/inquire/") assert.notEqual(await page.locator("[data-buyer-concierge-root]").evaluate((el) => getComputedStyle(el).position), "fixed");
+        await launcher.click();
+        const panel = page.getByRole("dialog", { name: "Ask WPB" });
+        await panel.waitFor({ state: "visible", timeout: 15000 });
+        assert.equal(requested.includes(conciergePath), true, `${route}:${width}:lazy body did not load`);
+        for (const heading of ["Research", "Current information", "Talk to the team"]) assert.equal(await panel.getByRole("heading", { name: heading }).count(), 1);
+        await page.keyboard.press("Escape");
+        const closeState = await page.evaluate(() => {
+          const current = document.querySelector(".buyer-concierge-launcher");
+          return { exists: Boolean(current), expanded: current?.getAttribute("aria-expanded") ?? null, focused: document.activeElement === current };
+        });
+        assert.deepEqual(closeState, { exists: true, expanded: "false", focused: true }, `${route}:${width}: Escape closes and returns focus`);
+        assert.deepEqual(errors, [], `${route}:${width}:page errors`);
+        results.push({ route, width, status: "pass", conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
+        console.log(`concierge pass ${route} ${width}`);
+      } finally {
+        await closeContext(context);
       }
-      if (width === 390) assert.equal(await page.locator(".mobile-cta-bar:visible").count(), 0, `${route}: generic mobile bar must not overlap concierge`);
-      if (route === "/inquire/") assert.notEqual(await page.locator("[data-buyer-concierge-root]").evaluate((el) => getComputedStyle(el).position), "fixed");
-      await launcher.click();
-      const panel = page.getByRole("dialog", { name: "Ask WPB" });
-      await panel.waitFor({ state: "visible", timeout: 15000 });
-      assert.equal(requested.includes(conciergePath), true, `${route}:${width}:lazy body did not load`);
-      for (const heading of ["Research", "Current information", "Talk to the team"]) assert.equal(await panel.getByRole("heading", { name: heading }).count(), 1);
-      await page.keyboard.press("Escape");
-      const closeState = await page.evaluate(() => {
-        const current = document.querySelector(".buyer-concierge-launcher");
-        return { exists: Boolean(current), expanded: current?.getAttribute("aria-expanded") ?? null, focused: document.activeElement === current };
-      });
-      assert.deepEqual(closeState, { exists: true, expanded: "false", focused: true }, `${route}:${width}: Escape closes and returns focus`);
-      assert.deepEqual(errors, [], `${route}:${width}:page errors`);
-      results.push({ route, width, status: "pass", conciergeRequestedBeforeOpen: false, conciergeRequestedAfterOpen: true, mainRequested: requested.includes(mainPath) });
-      console.log(`concierge pass ${route} ${width}`);
-      releasePage(page);
     }
-    await context.close();
   }
 
-  const formContext = await createAuditContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
   for (const route of ["/projects/olara/", "/projects/maison-dor/"]) {
-    const formPage = await formContext.newPage();
-    await gotoReady(formPage, `${origin}${route}`);
-    const form = formPage.locator(".brochure-inquiry-card").first();
-    await form.waitFor({ timeout: 15000 });
-    assert.equal(await form.locator('input[name="interest"]').inputValue(), "Request current availability");
-    assert.equal(await form.locator('input[name="request_intent"]').inputValue(), "availability");
-    assert.equal((await form.getByRole("heading", { level: 2 }).innerText()).trim(), "Request current availability");
-    assert.equal((await form.locator('button[type="submit"]').innerText()).trim(), "Request current availability");
-    assert.equal(await form.locator("[data-request-summary]").count(), 1);
-    releasePage(formPage);
+    const context = await createAuditContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+    try {
+      const page = await context.newPage();
+      await gotoReady(page, `${origin}${route}`);
+      const form = page.locator(".brochure-inquiry-card").first();
+      await form.waitFor({ timeout: 15000 });
+      assert.equal(await form.locator('input[name="interest"]').inputValue(), "Request current availability");
+      assert.equal(await form.locator('input[name="request_intent"]').inputValue(), "availability");
+      assert.equal((await form.getByRole("heading", { level: 2 }).innerText()).trim(), "Request current availability");
+      assert.equal((await form.locator('button[type="submit"]').innerText()).trim(), "Request current availability");
+      assert.equal(await form.locator("[data-request-summary]").count(), 1);
+    } finally {
+      await closeContext(context);
+    }
   }
-  await formContext.close();
 
   const legacyByIntent = {
     availability: "Request current availability",
@@ -124,56 +125,63 @@ try {
     project_question: "Ask the team about this building",
     conversation_tour: "Schedule private tour",
   };
-  const intentContext = await createAuditContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
   for (const [id, definition] of Object.entries(requestIntentDefinitions)) {
-    const intentPage = await intentContext.newPage();
-    const legacy = legacyByIntent[id];
-    await gotoReady(intentPage, `${origin}/inquire/?interest=${encodeURIComponent(legacy)}&project=olara`);
-    const form = intentPage.locator(".inquiry-form");
-    await form.waitFor({ timeout: 15000 });
-    const visibleSummary = (await form.locator("[data-request-summary]").innerText()).trim();
-    assert.equal(await form.locator('select[name="interest"]').inputValue(), definition.interest, `${id}: canonical browser interest`);
-    assert.equal(await form.locator('input[name="request_intent"]').inputValue(), id, `${id}: browser intent id`);
-    assert.ok(visibleSummary.includes(definition.buttonLabel), `${id}: visible action`);
-    assert.match(visibleSummary, /Olara/i, `${id}: visible subject`);
-    const body = { form_type: "inquiry", name: "QA Example", email: "qa@example.invalid", consent: "true", project: "olara", request_intent: id, interest: definition.interest };
-    const normalizedLead = normalizeServerRequestIntent(body, normalizeLead(body, new Request("https://www.wpbnewconstruction.com/api/leads", { method: "POST" })));
-    requestExamples.push({
-      id,
-      legacyInput: legacy,
-      visibleSummary,
-      submitted: { request_intent: id, interest: definition.interest, project: "olara" },
-      normalized: { request_intent: normalizedLead.request_intent, interest: normalizedLead.interest, project_id: normalizedLead.project_id },
-    });
-    releasePage(intentPage);
+    const context = await createAuditContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce" });
+    try {
+      const page = await context.newPage();
+      const legacy = legacyByIntent[id];
+      await gotoReady(page, `${origin}/inquire/?interest=${encodeURIComponent(legacy)}&project=olara`);
+      const form = page.locator(".inquiry-form");
+      await form.waitFor({ timeout: 15000 });
+      const visibleSummary = (await form.locator("[data-request-summary]").innerText()).trim();
+      assert.equal(await form.locator('select[name="interest"]').inputValue(), definition.interest, `${id}: canonical browser interest`);
+      assert.equal(await form.locator('input[name="request_intent"]').inputValue(), id, `${id}: browser intent id`);
+      assert.ok(visibleSummary.includes(definition.buttonLabel), `${id}: visible action`);
+      assert.match(visibleSummary, /Olara/i, `${id}: visible subject`);
+      const body = { form_type: "inquiry", name: "QA Example", email: "qa@example.invalid", consent: "true", project: "olara", request_intent: id, interest: definition.interest };
+      const normalizedLead = normalizeServerRequestIntent(body, normalizeLead(body, new Request("https://www.wpbnewconstruction.com/api/leads", { method: "POST" })));
+      requestExamples.push({
+        id,
+        legacyInput: legacy,
+        visibleSummary,
+        submitted: { request_intent: id, interest: definition.interest, project: "olara" },
+        normalized: { request_intent: normalizedLead.request_intent, interest: normalizedLead.interest, project_id: normalizedLead.project_id },
+      });
+    } finally {
+      await closeContext(context);
+    }
   }
-  await intentContext.close();
 
   const navContext = await createAuditContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
-  const nav = await navContext.newPage();
-  await gotoReady(nav, `${origin}/projects/olara/`);
-  await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
-  await gotoReady(nav, `${origin}/floorplans/`);
-  await nav.goBack({ waitUntil: "domcontentloaded", timeout: 15000 });
-  await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
-  assert.equal(new URL(nav.url()).pathname, "/projects/olara/");
-  await nav.goForward({ waitUntil: "domcontentloaded", timeout: 15000 });
-  await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
-  assert.equal(new URL(nav.url()).pathname, "/floorplans/");
-  await nav.reload({ waitUntil: "domcontentloaded", timeout: 15000 });
-  await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
-  await navContext.close();
-
-  const jsOffContext = await createAuditContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
-  for (const route of ["/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/floorplans/olara/residence-d/"]) {
-    const jsOff = await jsOffContext.newPage();
-    await gotoReady(jsOff, `${origin}${route}`);
-    assert.ok((await jsOff.locator("h1").first().innerText()).trim().length > 3, `${route}: JS-off H1`);
-    assert.ok(await jsOff.locator('a[href^="/"]').count() > 0, `${route}: JS-off native research/navigation links`);
-    assert.equal(await jsOff.locator("[data-buyer-concierge-root]").count(), 0, `${route}: optional concierge should not replace JS-off content`);
-    releasePage(jsOff);
+  try {
+    const nav = await navContext.newPage();
+    await gotoReady(nav, `${origin}/projects/olara/`);
+    await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
+    await gotoReady(nav, `${origin}/floorplans/`);
+    await nav.goBack({ waitUntil: "domcontentloaded", timeout: 15000 });
+    await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
+    assert.equal(new URL(nav.url()).pathname, "/projects/olara/");
+    await nav.goForward({ waitUntil: "domcontentloaded", timeout: 15000 });
+    await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
+    assert.equal(new URL(nav.url()).pathname, "/floorplans/");
+    await nav.reload({ waitUntil: "domcontentloaded", timeout: 15000 });
+    await nav.getByRole("button", { name: "Open Ask WPB buyer concierge" }).waitFor({ state: "visible", timeout: 15000 });
+  } finally {
+    await closeContext(navContext);
   }
-  await jsOffContext.close();
+
+  for (const route of ["/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/floorplans/olara/residence-d/"]) {
+    const context = await createAuditContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+    try {
+      const page = await context.newPage();
+      await gotoReady(page, `${origin}${route}`);
+      assert.ok((await page.locator("h1").first().innerText()).trim().length > 3, `${route}: JS-off H1`);
+      assert.ok(await page.locator('a[href^="/"]').count() > 0, `${route}: JS-off native research/navigation links`);
+      assert.equal(await page.locator("[data-buyer-concierge-root]").count(), 0, `${route}: optional concierge should not replace JS-off content`);
+    } finally {
+      await closeContext(context);
+    }
+  }
 } finally {
   await browser.close();
   server.close();
