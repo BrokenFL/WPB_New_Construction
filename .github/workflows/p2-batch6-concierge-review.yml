@@ -49,6 +49,8 @@ jobs:
         run: node --test research/scripts/request-intents.test.mjs
       - name: Controlled lead endpoint retry/deduplication contract
         run: npm run test:leads
+      - name: Isolated map semantic readiness probe
+        run: timeout 90s node research/scripts/check-batch6-map-probe.mjs
       - name: Concierge desktop/mobile and lightweight boundary
         run: timeout 180s node research/scripts/check-batch6-concierge.mjs
       - name: Capture concierge desktop/mobile evidence
