@@ -1,0 +1,69 @@
+{
+  "evidence": "PR93 approved release/deployment proof",
+  "pr": 93,
+  "workflow": {
+    "id": 34534298501,
+    "job_id": 103062194143,
+    "event": "push",
+    "head_sha": "2469a470c4d7cd0391682e9566ef79d44ee417e4",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34534298501"
+  },
+  "refs": {
+    "main": "2469a470c4d7cd0391682e9566ef79d44ee417e4",
+    "merged_pr_head": "ae076dc5926baeebedb30b8d45b23a2ade710c05",
+    "base_before_merge": "2d0175eed5157afa58b57cfb8327ec590e2dda95",
+    "merge_parents": [
+      "2d0175eed5157afa58b57cfb8327ec590e2dda95",
+      "ae076dc5926baeebedb30b8d45b23a2ade710c05"
+    ]
+  },
+  "duplicateCheck": {
+    "query": "actions/runs?head_sha=2469a470c4d7cd0391682e9566ef79d44ee417e4",
+    "count": 1,
+    "matching_run_ids": [
+      34534298501
+    ]
+  },
+  "deployment": {
+    "url": "https://de109853.wpbnewconstruction.pages.dev",
+    "project": "wpbnewconstruction",
+    "version": "4.93.0",
+    "uploadSummary": {
+      "files_total": 1132,
+      "files_already_uploaded": 1015,
+      "files_uploaded": 117
+    }
+  },
+  "workflowSteps": {
+    "build": "success",
+    "launch_qa": "success",
+    "gatekeeper_qa": "success",
+    "wrangler_deploy": "success"
+  },
+  "liveBundle": {
+    "index": {
+      "path": "/assets/index-DySYUyj2.js",
+      "status": 200,
+      "bytes": 56033,
+      "sha256": "0b43057eb4443143a7b34f67741ca2aaf82cdbef5b4c54041d96a3a9e9e0611c"
+    },
+    "main": {
+      "path": "/assets/main-gWsCBQwE.js",
+      "status": 200,
+      "bytes": 528613,
+      "sha256": "875b5f7f90ba1e623d27dcc3f2b7a67f47a35b7b89393e6f22195708b4a17082",
+      "markers": {
+        "zoomControlOptions": true,
+        "LEFT_CENTER": true,
+        "ControlPosition": true
+      }
+    }
+  },
+  "source": {
+    "path": "/Volumes/ExternalSSD/WPB_MapControl_Review/.runtime/batch6-corrective-live-2026-09-10/deployment-proof.json",
+    "sha256": "4b758a6c6863a55bb127d1a8410219e21a3d8b050bea28e7cb396c1b5abfd530",
+    "bytes": 4045
+  }
+}

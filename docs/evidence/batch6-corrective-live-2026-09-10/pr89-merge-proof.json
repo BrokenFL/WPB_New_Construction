@@ -1,0 +1,146 @@
+{
+  "evidence": "PR89 internal-tooling merge/deployment proof",
+  "verifiedAt": "2026-09-10T22:13:32.192Z",
+  "merge": {
+    "sha": "baac91f5aa1a25d1013dcc762528cad558668512",
+    "baseSha": "2469a470c4d7cd0391682e9566ef79d44ee417e4",
+    "remoteMain": "baac91f5aa1a25d1013dcc762528cad558668512",
+    "expectedParent": "2469a470c4d7cd0391682e9566ef79d44ee417e4",
+    "comparisonStatus": "ahead",
+    "aheadBy": 23
+  },
+  "workflow": {
+    "runId": 34535997309,
+    "jobId": 103067627059,
+    "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34535997309",
+    "conclusion": "success",
+    "event": "push",
+    "headSha": "baac91f5aa1a25d1013dcc762528cad558668512"
+  },
+  "deployment": {
+    "url": "https://05e16046.wpbnewconstruction.pages.dev",
+    "canonicalOrigin": "https://www.wpbnewconstruction.com",
+    "automaticPushOnly": true,
+    "duplicatePushRunCountForSha": 1
+  },
+  "diffScope": {
+    "changedPathCount": 34,
+    "sourcePaths": [
+      "src/types/developmentIntelligence.ts"
+    ],
+    "sourceDiffPass": true,
+    "forbiddenPaths": [],
+    "buildDeployPaths": [],
+    "noBuyerFacingSourceChange": true
+  },
+  "liveHttp": {
+    "allHttp200": true,
+    "allMetadataHttps": true,
+    "canonicalIndexExpected": true,
+    "checks": [
+      {
+        "site": "deployment-preview",
+        "route": "/",
+        "status": 200,
+        "indexPath": "/assets/index-DySYUyj2.js",
+        "canonical": "https://www.wpbnewconstruction.com/",
+        "ogUrl": "https://www.wpbnewconstruction.com/",
+        "jsonLdCount": 1,
+        "h1Count": 1
+      },
+      {
+        "site": "deployment-preview",
+        "route": "/map/",
+        "status": 200,
+        "indexPath": "/assets/index-DySYUyj2.js",
+        "canonical": "https://www.wpbnewconstruction.com/map/",
+        "ogUrl": "https://www.wpbnewconstruction.com/map/",
+        "jsonLdCount": 1,
+        "h1Count": 1
+      },
+      {
+        "site": "deployment-preview",
+        "route": "/inquire/",
+        "status": 200,
+        "indexPath": "/assets/index-DySYUyj2.js",
+        "canonical": "https://www.wpbnewconstruction.com/inquire/",
+        "ogUrl": "https://www.wpbnewconstruction.com/inquire/",
+        "jsonLdCount": 1,
+        "h1Count": 1
+      },
+      {
+        "site": "canonical-production",
+        "route": "/",
+        "status": 200,
+        "indexPath": "/assets/index-DySYUyj2.js",
+        "canonical": "https://www.wpbnewconstruction.com/",
+        "ogUrl": "https://www.wpbnewconstruction.com/",
+        "jsonLdCount": 1,
+        "h1Count": 1
+      },
+      {
+        "site": "canonical-production",
+        "route": "/map/",
+        "status": 200,
+        "indexPath": "/assets/index-DySYUyj2.js",
+        "canonical": "https://www.wpbnewconstruction.com/map/",
+        "ogUrl": "https://www.wpbnewconstruction.com/map/",
+        "jsonLdCount": 1,
+        "h1Count": 1
+      },
+      {
+        "site": "canonical-production",
+        "route": "/inquire/",
+        "status": 200,
+        "indexPath": "/assets/index-DySYUyj2.js",
+        "canonical": "https://www.wpbnewconstruction.com/inquire/",
+        "ogUrl": "https://www.wpbnewconstruction.com/inquire/",
+        "jsonLdCount": 1,
+        "h1Count": 1
+      }
+    ]
+  },
+  "bundles": {
+    "allIdenticalToBatch6Baseline": true,
+    "checks": [
+      {
+        "site": "deployment-preview",
+        "asset": "/assets/index-DySYUyj2.js",
+        "status": 200,
+        "bytes": 56033,
+        "sha256": "0b43057eb4443143a7b34f67741ca2aaf82cdbef5b4c54041d96a3a9e9e0611c",
+        "identicalToBatch6Baseline": true
+      },
+      {
+        "site": "deployment-preview",
+        "asset": "/assets/main-gWsCBQwE.js",
+        "status": 200,
+        "bytes": 528613,
+        "sha256": "875b5f7f90ba1e623d27dcc3f2b7a67f47a35b7b89393e6f22195708b4a17082",
+        "identicalToBatch6Baseline": true
+      },
+      {
+        "site": "canonical-production",
+        "asset": "/assets/index-DySYUyj2.js",
+        "status": 200,
+        "bytes": 56033,
+        "sha256": "0b43057eb4443143a7b34f67741ca2aaf82cdbef5b4c54041d96a3a9e9e0611c",
+        "identicalToBatch6Baseline": true
+      },
+      {
+        "site": "canonical-production",
+        "asset": "/assets/main-gWsCBQwE.js",
+        "status": 200,
+        "bytes": 528613,
+        "sha256": "875b5f7f90ba1e623d27dcc3f2b7a67f47a35b7b89393e6f22195708b4a17082",
+        "identicalToBatch6Baseline": true
+      }
+    ]
+  },
+  "safetyBoundary": "45 focused safety tests, 4 offline rows and 12 CI jobs passed before merge; candidate/apply outputs remain review-only with apply=false and no canonical, Sheet, article or production mutation.",
+  "source": {
+    "path": "/Volumes/ExternalSSD/WPB_MapControl_Review/.runtime/batch6-corrective-live-2026-09-10/pr89-merge-proof.json",
+    "sha256": "2d7d076b21ad3ac702bc83e495205d3e970e4377daf28cbd8e09f34bf73e9735",
+    "bytes": 11231
+  }
+}

@@ -11783,6 +11783,16 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   text-transform: uppercase;
 }
 
+@media (max-width: 720px) {
+  .consent {
+    position: static !important;
+  }
+
+  .consent ~ #app [data-active-route="inquire"] .site-nav {
+    position: sticky;
+  }
+}
+
 /* Mobile sticky CTA bar */
 .mobile-cta-bar {
   position: fixed;

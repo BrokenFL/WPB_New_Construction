@@ -1,12 +1,12 @@
 # P2 Development Intelligence Processor — Phase A
 
-Status: **safety review passed — MERGE INTERNAL TOOLING ONLY recommended; Brooke approval pending; NOT APPROVED / NOT MERGED / NOT DEPLOYED**
-Branch: `p2-development-intelligence-processor-v1`
-Base: released production main after PR #86 (`2d0175eed5157afa58b57cfb8327ec590e2dda95`)
+Status: **safety review passed — APPROVED / MERGED / DEPLOYED as INTERNAL TOOLING ONLY; no buyer-facing release change; Phase B remains unauthorized**
+Branch: `p2-development-intelligence-processor-v1` (approved head `f5198ca5842af608828aaf9cbbc087e83e57fbfd`)
+Implementation base: released production main after PR #86 (`2d0175eed5157afa58b57cfb8327ec590e2dda95`); current production main is `baac91f5aa1a25d1013dcc762528cad558668512` after the one normal PR #89 deploy.
 
 ## Purpose
 
-Phase A turns one or more explicitly selected `Incoming_Intel` event rows into deterministic local review artifacts. It does **not** write to Google Sheets, repository canonical data, GitHub, or production. Verified source revision `7953d4a66e13b37e4d9ffc02447ca19735d603bf` passes the focused 45-test safety set, typecheck, four offline rows, bundle-hash and unchanged-canonical checks. All four required CI runs and 12 jobs are green; this supports an internal-tooling merge recommendation only and does not authorize approval, merge or deployment. See the [compact safety acceptance](evidence/intel-phase-a-safety-2026-09-10/acceptance.json); full runtime records remain under `.runtime/intel-safety-review-2026-09-10/`.
+Phase A turns one or more explicitly selected `Incoming_Intel` event rows into deterministic local review artifacts. It does **not** write to Google Sheets, repository canonical data, GitHub, or production. Verified source revision `7953d4a66e13b37e4d9ffc02447ca19735d603bf` passes the focused 45-test safety set, typecheck, four offline rows, bundle-hash and unchanged-canonical checks. The approved head `f5198ca5842af608828aaf9cbbc087e83e57fbfd` also passed its four final CI workflows and 12 jobs: [34531981015](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531981015), [34531981157](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531981157), [34531981206](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531981206) and [34531981031](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531981031). It merged as `baac91f5aa1a25d1013dcc762528cad558668512` and deployed once at `https://05e16046.wpbnewconstruction.pages.dev`; buyer-facing bundles are unchanged. The earlier source-revision CI runs remain historical in the [compact safety acceptance](evidence/intel-phase-a-safety-2026-09-10/acceptance.json). Full runtime records remain under `.runtime/intel-safety-review-2026-09-10/`.
 
 ```bash
 npm run intel:process -- --row <intel-id>
@@ -186,9 +186,11 @@ A later separately approved Phase B may take an accepted Phase A bundle, create 
 
 Phase A contains **none** of those side effects.
 ---
-## Follow-on integration boundary — not active
+## Follow-on integration boundary — conditional, not active
 
 See [P2 Intelligence Convergence Design](P2_INTELLIGENCE_CONVERGENCE_DESIGN.md) for the shared Codex/article and Gemini/Sheet contract. This future slice does not change Phase A or authorize Sheet writeback, fact application, publication, repository mutation, Git/GitHub automation, or deployment.
+
+The PR #89 merge precondition is now met: the approved internal-tooling head is in production current main `baac91f5aa1a25d1013dcc762528cad558668512`, and its buyer-facing bundles match the PR #93 baseline. The separate Batch 6 live-pass precondition is not met because a fresh first-visit consent surface still owns the mobile map Zoom-out center and covers the launcher. Candidate branch `fix/batch6-consent-control-ownership` is not release-approved or deployed. No Phase B activation follows from the #89 merge.
 
 The eventual controlled path is:
 ```text

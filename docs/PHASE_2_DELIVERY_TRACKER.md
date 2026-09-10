@@ -1,6 +1,6 @@
 # Phase 2 delivery tracker — WPB New Construction
 
-Current continuation state: [authoritative Codex handoff](WPB_CODEX_MASTER_HANDOFF.md), updated September 10, 2026. PR #86 is released to production; final live acceptance is blocked by a confirmed mobile hit-target overlap and it is not LIVE-VERIFIED. Use the handoff and fresh repository/CI evidence before continuing.
+Current continuation state: [authoritative Codex handoff](WPB_CODEX_MASTER_HANDOFF.md), updated September 10, 2026. PR #93 is the current approved and deployed buyer-facing Batch 6 correction; representative live checks pass, but a fresh first-visit consent ownership defect keeps whole Batch 6 from LIVE-VERIFIED. PR #89 is approved, merged and deployed as internal tooling only, with no buyer-facing bundle change. Use the handoff and [corrective live evidence](evidence/batch6-corrective-live-2026-09-10/README.md) before continuing.
 
 Updated September 10, 2026 UTC. Repository: `BrokenFL/WPB_New_Construction`.
 Requirements: `docs/ASTRA_PHASE_2_GROWTH_HANDOFF.md` and Brooke's growth/release instructions.
@@ -13,7 +13,9 @@ Final live acceptance workflow `34280040979` completed successfully after the ho
 
 **Batch 5 real-person authorship + trust is IMPLEMENTED / TESTED / APPROVED / DEPLOYED / LIVE-VERIFIED; NOT MEASURED.** Production merge/deployment is `0713e029cc251fc9a49c5e429fdda6ac85e46202`; live acceptance `34410472433`. Historical corrective test SHA `f8e6b8f3a7bdf7b8a0f0fc880d056af5351909d4` and workflow `34309439506` remain recorded below.
 
-**Batch 6 concierge/intents is IMPLEMENTED / TESTED / APPROVED / MERGED / DEPLOYED; final live acceptance is BLOCKED by a confirmed mobile hit-target overlap and it is not LIVE-VERIFIED.** Approved PR head `e8483fc3a7a43aabd1827b98667f60f64ff0deb1` reached production via merge commit `2d0175eed5157afa58b57cfb8327ec590e2dda95` at `2026-09-10T19:58:49Z` through normal deploy `34523585398` at `https://c0498f38.wpbnewconstruction.pages.dev`; no manual or duplicate deploy occurred. All nine CI jobs passed in concierge `34468567260`, Batch 5 `34468567325`, and social `34468567278`. Real Maps tile/zoom, explicit shortlist, and hydrated metadata probes pass; the focused 390px `/map/` Ask WPB/Maps Zoom-out check failed with a 1,495px² overlap and pointer interception. See the [durable live evidence](evidence/batch6-live-2026-09-10/README.md).
+**Batch 6 concierge/intents is IMPLEMENTED / TESTED / APPROVED / MERGED / DEPLOYED; current representative live checks pass, but final live acceptance is BLOCKED by a fresh first-visit consent ownership defect and it is not LIVE-VERIFIED.** PR #93 head `ae076dc5926baeebedb30b8d45b23a2ade710c05` carries application source `f761a0057460a98a45c333b2ffb16fad5b22e59d`; it reached production via merge commit `2469a470c4d7cd0391682e9566ef79d44ee417e4` through normal deploy `34534298501` at `https://de109853.wpbnewconstruction.pages.dev`; no manual or duplicate deploy occurred. The representative live review passed 9 route/viewport cases and 7 intercepted inquiry proofs, including five canonical intents, legacy prefills, manual selection, floor-plan context and first-touch preservation. After consent dismissal the original native-control collision is clear and fresh denied-consent zoom-in/out contexts pass. On a fresh 390×844 first visit, consent owns the Zoom-out center and covers the launcher; see the [corrective live evidence](evidence/batch6-corrective-live-2026-09-10/README.md). The original PR #86 collision remains historical evidence.
+
+**PR #89 Phase A is APPROVED / MERGED / DEPLOYED — INTERNAL TOOLING ONLY.** Verified source revision `7953d4a66e13b37e4d9ffc02447ca19735d603bf` passed the focused 45-test safety set, four offline rows, typecheck, unchanged-canonical/bundle checks and all 12 CI jobs. It merged as current main `baac91f5aa1a25d1013dcc762528cad558668512` and deployed once through `34535997309` at `https://05e16046.wpbnewconstruction.pages.dev`; buyer-facing bundles match the PR #93 baseline. `apply:false`, review-only output and no Phase B/Sheet/fact/publication side effects remain required.
 
 **PR #75 / GA4 Admin diagnosis remains PARKED — blocked / non-critical / revisit separately.** No GA4 configuration was changed and no actual GA4 transport or measured growth is claimed.
 
@@ -36,8 +38,9 @@ Planned = scoped. Implemented = code/content exists. Tested = exact revision and
 | North/South and Olara/Ritz/Shorecrest comparisons | Implemented, tested, approved, deployed, live-verified; not measured | PR #78 | Candidate `34177737077`; production `34178444416`; live `34178933079`; Batch4 live regressions pass | Preserve |
 | Compare my shortlist | Implemented, tested, approved, deployed | PR #78 | Existing live/intercepted shortlist regression coverage remains green | Real fulfillment remains manual |
 | Real-person authorship / trust layer — Batch 5 | **Implemented, tested, approved, deployed, live-verified; NOT measured** | Production merge/deployment `0713e029`; live acceptance `34410472433`; historical corrective test SHA `f8e6b8f3`; final green workflow `34309439506` | 48 authorship/schema/browser checks PASS; production outcomes remain unmeasured | Preserve; no retroactive attribution |
-| Concierge/intents — Batch 6 / PR #86 | **Implemented, tested, approved, merged, deployed; final live acceptance blocked** | Approved PR head `e8483fc3`; merge/production `2d0175ee`; normal deploy `34523585398` SUCCESS; all nine CI jobs green | Production manifest records route/Olara/Maps/shortlist/metadata probes; focused 390px `/map/` check failed with 1,495px² Ask WPB/Zoom-out overlap and pointer interception | Do not mark LIVE-VERIFIED; bounded fix and retest required |
-| Mobile Maps controls correction — PR #93 | **Open draft, candidate-only, not approved/deployed** | `fix/batch6-mobile-map-controls`; candidate `ae076dc5926baeebedb30b8d45b23a2ade710c05`; application source `f761a0057460a98a45c333b2ffb16fad5b22e59d`; base production `2d0175eed5157afa58b57cfb8327ec590e2dda95`; shared native Google Maps `zoomControlOptions` `LEFT_CENTER`; local typecheck/build/22 concierge views/no-key Maps pass; candidate-only real-Maps override reports zero overlap; revision-specific CI [34531549077](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531549077) / [34531549133](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531549133) is recorded on [PR #93](https://github.com/BrokenFL/WPB_New_Construction/pull/93) | Final QA retains six bounded native-control readiness and independent fresh-context mobile zoom-direction scenarios; complete successful checks and separate Brooke release approval are required; production remains blocked by the recorded 1,495px² `/map/` overlap |
+| Concierge/intents — historical Batch 6 / PR #86 | **Implemented, tested, approved, merged, deployed; final live acceptance blocked** | Approved PR head `e8483fc3`; merge/production `2d0175ee`; normal deploy `34523585398` SUCCESS; all nine CI jobs green | Historical production manifest records route/Olara/Maps/shortlist/metadata probes; focused 390px `/map/` check failed with 1,495px² Ask WPB/Zoom-out overlap and pointer interception | Superseded on buyer-facing production by PR #93; preserve as historical evidence |
+| Mobile Maps controls correction — PR #93 | **Approved, merged, deployed; representative live checks passed; whole Batch 6 live verification blocked** | Approved head `ae076dc5926baeebedb30b8d45b23a2ade710c05`; application source `f761a0057460a98a45c333b2ffb16fad5b22e59d`; merge/production `2469a470c4d7cd0391682e9566ef79d44ee417e4`; normal deploy `34534298501` SUCCESS at `https://de109853.wpbnewconstruction.pages.dev`; current buyer-facing baseline | 9 route/viewport cases and 7 intercepted inquiry proofs pass; after consent dismissal native-control ownership passes and fresh denied-consent zoom contexts pass. Fresh 390×844 first visit still lets consent own Zoom-out center and cover the launcher; [corrective evidence](evidence/batch6-corrective-live-2026-09-10/README.md) | Review `fix/batch6-consent-control-ownership`; no release approval/deployment yet |
+| Development intelligence Phase A — PR #89 | **Approved, merged, deployed — internal tooling only** | Verified source `7953d4a66e13b37e4d9ffc02447ca19735d603bf`; merge/current main `baac91f5aa1a25d1013dcc762528cad558668512`; normal deploy `34535997309` SUCCESS at `https://05e16046.wpbnewconstruction.pages.dev` | 45 focused tests, four offline rows, typecheck, unchanged-canonical/bundle checks and all 12 CI jobs pass; buyer-facing bundles unchanged; `apply:false`, review-only | Preserve no Phase B, Sheet writeback, canonical fact application or publication |
 | Alba Residence D HTML | Implemented source hold; blocked, unpublished | Preserved implementation | Existing source discrepancy; live exclusion retained | Do not publish without source clarification |
 | PR #75 / GA4 diagnosis | **PARKED** | Existing #75 untouched | Historical evidence only | Do not revisit in Batch5 |
 
@@ -83,6 +86,8 @@ Full Batch 4 implementation/release ledger: `docs/P2_PROJECT_SEO_BATCH4_PROGRESS
 
 ## Batch 6 release and blocked live acceptance
 
+The original PR #86 record below is retained as historical evidence. PR #93 is the current buyer-facing corrective release; PR #89 later changed only internal tooling and left its bundles identical.
+
 PR #86 approved head `e8483fc3a7a43aabd1827b98667f60f64ff0deb1` was merged at
 `2026-09-10T19:58:49Z` as merge commit/production `2d0175eed5157afa58b57cfb8327ec590e2dda95`.
 The single normal deploy `34523585398` succeeded at
@@ -100,23 +105,28 @@ overlaps the native Zoom-out control by 1,495px², and the center/top-left
 pointer checks hit Ask WPB. Batch 6 must not be marked LIVE-VERIFIED; a bounded
 fix and retest are required. See the [durable live evidence](evidence/batch6-live-2026-09-10/README.md).
 
-### PR #93 candidate correction — not deployed
+### PR #93 corrective release — deployed, consent follow-up remains
 
-Draft PR #93 (`fix/batch6-mobile-map-controls`) is **candidate-only, not approved
-or deployed**. Candidate revision
-`ae076dc5926baeebedb30b8d45b23a2ade710c05` carries application source
-`f761a0057460a98a45c333b2ffb16fad5b22e59d` against production base
-`2d0175eed5157afa58b57cfb8327ec590e2dda95` and moves the shared native Google
-Maps zoom controls with `zoomControlOptions` `LEFT_CENTER`. Local typecheck,
-build, 22 concierge views and no-key Maps checks pass, and a candidate-only
-real-Maps override reports zero overlap. Revision-specific CI is linked at
-[concierge 34531549077](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531549077)
-and [social 34531549133](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34531549133);
-the latest conclusion belongs to [PR #93](https://github.com/BrokenFL/WPB_New_Construction/pull/93).
-The final QA contract retains six scenarios for bounded native-control readiness
-and independent fresh-context mobile zoom directions. A complete successful
-check set and separate Brooke release approval are required; production remains
-blocked by the recorded overlap and one authorized deploy has already been used.
+PR #93 (`fix/batch6-mobile-map-controls`) is **approved, merged and deployed**.
+Approved head `ae076dc5926baeebedb30b8d45b23a2ade710c05` carries application source
+`f761a0057460a98a45c333b2ffb16fad5b22e59d`; it merged as
+`2469a470c4d7cd0391682e9566ef79d44ee417e4` and deployed through
+[34534298501](https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34534298501)
+at `https://de109853.wpbnewconstruction.pages.dev`. The production representative
+review passed 9 route/viewport cases and 7 intercepted inquiry proofs covering
+the five canonical intents, legacy prefills, manual selection, floor-plan
+context and first-touch preservation. After consent dismissal the original
+native-control collision is clear, and fresh denied-consent zoom-in/out contexts
+pass their real-tile, pan, concierge, focus/Escape, safe-area and overflow checks.
+
+The remaining blocker is a fresh 390×844 first visit: consent owns the Zoom-out
+center and covers the launcher while the background control remains actionable.
+The selected [corrective live evidence](evidence/batch6-corrective-live-2026-09-10/README.md)
+records the exact hit target and three screenshots. Whole Batch 6 remains
+**NOT LIVE-VERIFIED / NOT MEASURED**. Review-only candidate branch
+`fix/batch6-consent-control-ownership` contains the next proposed fix; it is not
+release-approved or deployed. The conditional live proof is already authorized
+after one separately approved corrective release.
 
 ## Historical Batch 5 authorship + trust review evidence
 
@@ -174,6 +184,7 @@ Independent batches start from then-current production main, use verified source
 | P2-008 lifestyle/feature guides | Planned | Marina/branded/wellness/private elevators/etc. | Verified project facts | Avoid invented policies/thin pages |
 | P2-009 linking/query ownership | Existing discovery/query ownership deployed and live-regressed | Market/browse/place/brand/layout/decision/process/news roles | Useful context | Preserve canonicals/equity |
 | P2-010 measurement | Baseline exists; outcomes unmeasured | 7/28/60–90 day evaluation windows | Observation time + authorized first-party data | No manufactured uplift; GA4 remains parked |
+| P2-011 first-visit consent control ownership | **Candidate review only; not release-approved/deployed** | `fix/batch6-consent-control-ownership`, reviewed application commit `a639c26056ee038d91767c423d6378990b4f8048`; local typecheck/build, analytics checks and 9/10 broader layout cases pass; fresh keyed CI and final PR checks pending. The 320px homepage `.home-section-jump` 12px overflow is a pre-existing maintenance limitation. | Batch 6 first-visit live-pass; Brooke release approval | Review candidate, then use the already-authorized conditional live proof only after one approved corrective release |
 
 ## Lead-product register
 

@@ -1,0 +1,339 @@
+{
+  "evidence": "PR93 representative production verification",
+  "verifiedAt": "2026-09-10T22:07:04.529Z",
+  "productionMergeSha": "2469a470c4d7cd0391682e9566ef79d44ee417e4",
+  "productionOrigin": "https://www.wpbnewconstruction.com",
+  "sourceBundleExpected": "/assets/index-DySYUyj2.js",
+  "routeChecks": [
+    {
+      "id": "map-desktop",
+      "path": "/map/",
+      "viewport": 1440,
+      "status": "pass",
+      "h1": 1,
+      "jsonLd": 1,
+      "socialHttps": true,
+      "overflow": true,
+      "meaningfulConsoleErrors": 0
+    },
+    {
+      "id": "home-desktop",
+      "path": "/",
+      "viewport": 1440,
+      "status": "pass",
+      "h1": 1,
+      "jsonLd": 1,
+      "socialHttps": true,
+      "overflow": true,
+      "meaningfulConsoleErrors": 0
+    },
+    {
+      "id": "home-mobile",
+      "path": "/",
+      "viewport": 390,
+      "status": "pass",
+      "h1": 1,
+      "jsonLd": 1,
+      "socialHttps": true,
+      "overflow": true,
+      "meaningfulConsoleErrors": 0
+    },
+    {
+      "id": "olara-desktop",
+      "path": "/projects/olara/",
+      "viewport": 1440,
+      "status": "pass",
+      "h1": 1,
+      "jsonLd": 1,
+      "socialHttps": true,
+      "overflow": true,
+      "meaningfulConsoleErrors": 0
+    },
+    {
+      "id": "olara-mobile",
+      "path": "/projects/olara/",
+      "viewport": 390,
+      "status": "pass",
+      "h1": 1,
+      "jsonLd": 1,
+      "socialHttps": true,
+      "overflow": true,
+      "meaningfulConsoleErrors": 0
+    },
+    {
+      "id": "floorplan-desktop",
+      "path": "/floorplans/olara/residence-d/",
+      "viewport": 1440,
+      "status": "pass",
+      "h1": 1,
+      "jsonLd": 1,
+      "socialHttps": true,
+      "overflow": true,
+      "meaningfulConsoleErrors": 0
+    },
+    {
+      "id": "floorplan-mobile",
+      "path": "/floorplans/olara/residence-d/",
+      "viewport": 390,
+      "status": "pass",
+      "h1": 1,
+      "jsonLd": 1,
+      "socialHttps": true,
+      "overflow": true,
+      "meaningfulConsoleErrors": 0
+    },
+    {
+      "id": "inquire-desktop",
+      "path": "/inquire/",
+      "viewport": 1440,
+      "status": "pass",
+      "h1": 1,
+      "jsonLd": 1,
+      "socialHttps": true,
+      "overflow": true,
+      "meaningfulConsoleErrors": 0
+    },
+    {
+      "id": "inquire-mobile",
+      "path": "/inquire/",
+      "viewport": 390,
+      "status": "pass",
+      "h1": 1,
+      "jsonLd": 1,
+      "socialHttps": true,
+      "overflow": true,
+      "meaningfulConsoleErrors": 0
+    }
+  ],
+  "routePassCount": 9,
+  "intentContracts": [
+    {
+      "id": "availability",
+      "legacyInput": "Request current availability",
+      "canonicalInterest": "Request current availability",
+      "manualContext": "live-representative:availability",
+      "firstTouchPreserved": true,
+      "submission": {
+        "interest": "Request current availability",
+        "request_intent": "availability",
+        "project": "olara",
+        "cta_context": "live-representative:availability",
+        "lead_capture_context": "live-representative:availability",
+        "landing_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/projects/olara/",
+          "search": ""
+        },
+        "submission_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Request%20current%20availability&project=olara&lead_capture_context=live-representative%3Aavailability"
+        },
+        "source_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Request%20current%20availability&project=olara&lead_capture_context=live-representative%3Aavailability"
+        },
+        "cta_location": "inquiry_page"
+      }
+    },
+    {
+      "id": "pricing_packet",
+      "legacyInput": "Request private floor-plan packet",
+      "canonicalInterest": "Get pricing + floor-plan packet",
+      "manualContext": "live-representative:pricing_packet",
+      "firstTouchPreserved": true,
+      "submission": {
+        "interest": "Get pricing + floor-plan packet",
+        "request_intent": "pricing_packet",
+        "project": "olara",
+        "cta_context": "live-representative:pricing_packet",
+        "lead_capture_context": "live-representative:pricing_packet",
+        "landing_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/projects/olara/",
+          "search": ""
+        },
+        "submission_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Request%20private%20floor-plan%20packet&project=olara&lead_capture_context=live-representative%3Apricing_packet"
+        },
+        "source_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Request%20private%20floor-plan%20packet&project=olara&lead_capture_context=live-representative%3Apricing_packet"
+        },
+        "cta_location": "inquiry_page"
+      }
+    },
+    {
+      "id": "compare_shortlist",
+      "legacyInput": "Compare buildings",
+      "canonicalInterest": "Compare my shortlist",
+      "manualContext": "live-representative:compare_shortlist",
+      "firstTouchPreserved": true,
+      "submission": {
+        "interest": "Compare my shortlist",
+        "request_intent": "compare_shortlist",
+        "project": "olara",
+        "cta_context": "live-representative:compare_shortlist",
+        "lead_capture_context": "live-representative:compare_shortlist",
+        "landing_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/projects/olara/",
+          "search": ""
+        },
+        "submission_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Compare%20buildings&project=olara&lead_capture_context=live-representative%3Acompare_shortlist"
+        },
+        "source_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Compare%20buildings&project=olara&lead_capture_context=live-representative%3Acompare_shortlist"
+        },
+        "cta_location": "inquiry_page"
+      }
+    },
+    {
+      "id": "project_question",
+      "legacyInput": "Ask the team about this building",
+      "canonicalInterest": "Ask about this project / plan",
+      "manualContext": "live-representative:project_question",
+      "firstTouchPreserved": true,
+      "submission": {
+        "interest": "Ask about this project / plan",
+        "request_intent": "project_question",
+        "project": "olara",
+        "cta_context": "live-representative:project_question",
+        "lead_capture_context": "live-representative:project_question",
+        "landing_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/projects/olara/",
+          "search": ""
+        },
+        "submission_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Ask%20the%20team%20about%20this%20building&project=olara&lead_capture_context=live-representative%3Aproject_question"
+        },
+        "source_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Ask%20the%20team%20about%20this%20building&project=olara&lead_capture_context=live-representative%3Aproject_question"
+        },
+        "cta_location": "inquiry_page"
+      }
+    },
+    {
+      "id": "conversation_tour",
+      "legacyInput": "Schedule private tour",
+      "canonicalInterest": "Schedule a conversation or tour",
+      "manualContext": "live-representative:conversation_tour",
+      "firstTouchPreserved": true,
+      "submission": {
+        "interest": "Schedule a conversation or tour",
+        "request_intent": "conversation_tour",
+        "project": "olara",
+        "cta_context": "live-representative:conversation_tour",
+        "lead_capture_context": "live-representative:conversation_tour",
+        "landing_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/projects/olara/",
+          "search": ""
+        },
+        "submission_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Schedule%20private%20tour&project=olara&lead_capture_context=live-representative%3Aconversation_tour"
+        },
+        "source_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Schedule%20private%20tour&project=olara&lead_capture_context=live-representative%3Aconversation_tour"
+        },
+        "cta_location": "inquiry_page"
+      }
+    },
+    {
+      "id": "manual-choice",
+      "legacyInput": null,
+      "canonicalInterest": "Compare my shortlist",
+      "manualContext": "live-representative:manual-choice",
+      "firstTouchPreserved": true,
+      "submission": {
+        "interest": "Compare my shortlist",
+        "request_intent": "compare_shortlist",
+        "project": "rosewood-residences-west-palm-beach",
+        "cta_context": "live-representative:manual-choice",
+        "lead_capture_context": "live-representative:manual-choice",
+        "landing_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/projects/olara/",
+          "search": ""
+        },
+        "submission_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Request%20current%20availability&project=olara&lead_capture_context=live-representative%3Amanual-choice"
+        },
+        "source_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": "?interest=Request%20current%20availability&project=olara&lead_capture_context=live-representative%3Amanual-choice"
+        },
+        "cta_location": "inquiry_page"
+      }
+    },
+    {
+      "id": "floorplan-context",
+      "legacyInput": null,
+      "canonicalInterest": "Request current availability",
+      "manualContext": "floorplan:olara:residence-d",
+      "firstTouchPreserved": null,
+      "submission": {
+        "interest": "Request current availability",
+        "request_intent": "availability",
+        "project": "olara",
+        "cta_context": "floorplan:olara:residence-d",
+        "lead_capture_context": "floorplan:olara:residence-d",
+        "landing_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/projects/olara/",
+          "search": ""
+        },
+        "submission_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": ""
+        },
+        "source_page": {
+          "origin": "https://www.wpbnewconstruction.com",
+          "pathname": "/inquire/",
+          "search": ""
+        },
+        "cta_location": "floorplan-entity-intro"
+      }
+    }
+  ],
+  "intentPassCount": 7,
+  "screenshots": [
+    "representative-live-map-desktop.png",
+    "representative-live-home-mobile.png",
+    "representative-live-olara-mobile.png",
+    "representative-live-floorplan-mobile.png",
+    "representative-live-inquire-mobile.png"
+  ],
+  "limitations": [
+    "All inquiry submissions were intercepted in-browser; no real lead, Turnstile verification, D1 write, email, or analytics transport was exercised.",
+    "Map route was checked for render, metadata, H1, schema, overflow, and errors only; comprehensive mobile map controls/consent/dialog/zoom/pan evidence belongs to the separate map audit.",
+    "Analytics and all non-GET mutations were blocked by the browser harness."
+  ],
+  "source": {
+    "path": "/Volumes/ExternalSSD/WPB_MapControl_Review/.runtime/batch6-corrective-live-2026-09-10/representative/representative-results.json",
+    "sha256": "4020ed740380fa61236588b5575d77375c97f2fda3e53f4a3fc989aa76c23683",
+    "bytes": 18085
+  }
+}

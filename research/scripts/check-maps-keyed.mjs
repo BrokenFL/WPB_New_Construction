@@ -18,11 +18,64 @@ const scenarios = [
   { route: '/', width: 390, direction: 'out' },
   { route: '/map/', width: 390, direction: 'in' },
   { route: '/map/', width: 390, direction: 'out' },
+  { route: '/map/', width: 320, direction: 'in', firstVisit: true },
+  { route: '/map/', width: 390, direction: 'out', firstVisit: true },
 ];
 
 function safeErrorMessage(error) {
   const message = error instanceof Error ? error.message : String(error);
   return message.replace(/https?:\/\/\S+/g, '[URL omitted]').replace(/AIza[0-9A-Za-z_-]{20,}/g, '[key omitted]');
+}
+
+// Check the initial viewport before scrolling, then repeat with the map in view.
+// Consent stays unset throughout interaction; normal-flow content may scroll offscreen.
+async function assertFirstVisitOwnership(page) {
+  const state = await page.evaluate(() => {
+    const prompt = document.getElementById('wpb-analytics-consent');
+    const app = document.getElementById('app');
+    const rectOf = (el) => {
+      const r = el.getBoundingClientRect();
+      return { left: r.left, top: r.top, right: r.right, bottom: r.bottom, width: r.width, height: r.height };
+    };
+    const visible = (el) => {
+      const r = el.getBoundingClientRect(), css = getComputedStyle(el);
+      return r.width > 0 && r.height > 0 && css.display !== 'none' && css.visibility !== 'hidden';
+    };
+    const fixedAncestor = (el) => {
+      for (let node = el; node; node = node.parentElement) if (getComputedStyle(node).position === 'fixed') return true;
+      return false;
+    };
+    if (!prompt || !app || !visible(prompt)) return { error: 'Consent notice must remain rendered.' };
+    const consent = rectOf(prompt);
+    const targets = [...document.querySelectorAll('button,a,input,select,textarea,[role="button"]')].filter((el) =>
+      !prompt.contains(el) && visible(el) && (fixedAncestor(el) || ['Zoom in', 'Zoom out'].includes(el.getAttribute('aria-label'))),
+    ).map((el) => {
+      const rect = rectOf(el), x = (rect.left + rect.right) / 2, y = (rect.top + rect.bottom) / 2;
+      const inViewport = x >= 0 && y >= 0 && x < innerWidth && y < innerHeight;
+      return {
+        label: el.getAttribute('aria-label') || el.textContent?.trim().slice(0, 60), rect, inViewport,
+        ownsCenter: !inViewport || el.contains(document.elementFromPoint(x, y)),
+        overlap: Math.max(0, Math.min(rect.right, consent.right) - Math.max(rect.left, consent.left))
+          * Math.max(0, Math.min(rect.bottom, consent.bottom) - Math.max(rect.top, consent.top)),
+      };
+    });
+    return {
+      consent, targets, stored: localStorage.getItem('wpbAnalyticsConsentV1'),
+      beforeApp: Boolean(prompt.compareDocumentPosition(app) & Node.DOCUMENT_POSITION_FOLLOWING),
+      inFlow: !['fixed', 'absolute', 'sticky'].includes(getComputedStyle(prompt).position),
+      overflow: Math.max(document.body.scrollWidth, document.documentElement.scrollWidth) > innerWidth + 1,
+    };
+  });
+  assert.equal(state.error, undefined, 'First-visit consent is present');
+  assert.equal(state.stored, null, 'QA must not preselect or dismiss consent');
+  assert.equal(state.beforeApp, true, 'Consent must precede the page');
+  assert.equal(state.inFlow, true, 'Mobile consent must occupy normal page flow');
+  assert.equal(state.overflow, false, 'No mobile horizontal overflow');
+  for (const target of state.targets) {
+    assert.equal(target.overlap, 0, `${target.label} must clear consent`);
+    assert.equal(target.ownsCenter, true, `${target.label} must own its visible center`);
+  }
+  return state;
 }
 
 async function assertMobileMapControls(page, card, route) {
@@ -88,17 +141,19 @@ try {
   }
   assert.ok(ready, 'Dedicated review server did not become ready.');
   browser = await chromium.launch({ headless: true });
-  for (const { route, width, direction } of scenarios) {
+  for (const { route, width, direction, firstVisit = false } of scenarios) {
     const context = await browser.newContext({
-      viewport: { width, height: width === 390 ? 844 : 900 },
-      // This audit is about the real keyed Maps surface. Keep the unrelated
-      // optional analytics prompt out of the page, as the concierge capture
-      // audit does, so consent timing cannot intercept map controls.
-      storageState: { cookies: [], origins: [{ origin, localStorage: [{ name: 'wpbAnalyticsConsentV1', value: 'denied' }] }] },
+      viewport: { width, height: width < 500 ? 844 : 900 },
+      serviceWorkers: 'block',
+      reducedMotion: 'reduce',
+      // Retain denied-consent regressions and add independent fresh first visits.
+      storageState: firstVisit ? { cookies: [], origins: [] }
+        : { cookies: [], origins: [{ origin, localStorage: [{ name: 'wpbAnalyticsConsentV1', value: 'denied' }] }] },
     });
     await context.route('**/*', (request) => {
       const url = new URL(request.request().url());
-      if (url.pathname.startsWith('/api/') || /googletagmanager\.com|google-analytics\.com/.test(url.hostname)) return request.abort();
+      if (url.pathname.startsWith('/api/') || url.pathname === '/cdn-cgi/rum'
+        || /googletagmanager\.com|google-analytics\.com|challenges\.cloudflare\.com/.test(url.hostname)) return request.abort();
       return request.continue();
     });
     const page = await context.newPage();
@@ -115,11 +170,18 @@ try {
     page.on('pageerror', () => errors.push('UncaughtBrowserError'));
     let failurePhase = 'navigation';
     let mobileControlGeometry;
+    let initialConsentGeometry, scrolledConsentGeometry;
+    const scenarioLabel = `${route === '/' ? 'home' : 'map'}-${width}-zoom-${direction}${firstVisit ? '-first-visit' : ''}`;
     try {
       assert.equal((await page.goto(origin + route, { waitUntil: 'domcontentloaded' })).status(), 200);
       failurePhase = 'consent';
       const deny = page.getByRole('button', { name: 'No thanks', exact: true });
-      if (await deny.isVisible()) await deny.click();
+      if (firstVisit) {
+        await page.locator('#wpb-analytics-consent').waitFor({ state: 'visible', timeout: 15000 });
+        await page.locator('.buyer-concierge-launcher').waitFor({ state: 'visible', timeout: 10000 });
+        initialConsentGeometry = await assertFirstVisitOwnership(page);
+        await page.screenshot({ path: `${artifactDir}/${scenarioLabel}-initial.png` });
+      } else if (await deny.isVisible()) await deny.click();
       failurePhase = 'map-card';
       const card = page.locator('.home-hero-map-card:visible').first();
       await card.scrollIntoViewIfNeeded();
@@ -143,7 +205,7 @@ try {
       failurePhase = 'map-layout';
       const dimensions = await card.evaluate((el) => ({ cardWidth: el.getBoundingClientRect().width, canvasWidth: el.querySelector('[data-hero-google-map]').getBoundingClientRect().width }));
       if (route === '/map/') assert.ok(dimensions.canvasWidth >= dimensions.cardWidth - 4, 'Standalone map must fill its card; no empty inherited second column.');
-      if (width === 390) {
+      if (width < 500) {
         failurePhase = 'mobile-control-readiness';
         await page.waitForFunction(() => {
           const card = [...document.querySelectorAll('.home-hero-map-card')].find((element) => !element.closest('[data-route-view]')?.hidden);
@@ -156,11 +218,12 @@ try {
         failurePhase = 'mobile-control-layout';
         await page.locator('.buyer-concierge-launcher').waitFor({ state: 'visible', timeout: 10000 });
         mobileControlGeometry = await assertMobileMapControls(page, card, route);
+        if (firstVisit) scrolledConsentGeometry = await assertFirstVisitOwnership(page);
       }
       const previousTiles = await card.locator('.gm-style img').evaluateAll((imgs) => imgs.filter(i => i.complete && i.naturalWidth >= 128).map(i => i.currentSrc || i.src));
       const label = direction === 'in' ? 'Zoom in' : 'Zoom out';
       failurePhase = `zoom-${direction}-control`;
-      if (width === 390) {
+      if (width < 500) {
         const control = mobileControlGeometry.controls[label].center;
         await page.mouse.click(control.x, control.y);
         assert.equal(await page.locator('.buyer-concierge-launcher').getAttribute('aria-expanded'), 'false', `${route} mobile ${label} must not open concierge`);
@@ -175,24 +238,62 @@ try {
       assert.equal(await card.getAttribute('data-map-state'), 'ready');
       failurePhase = 'post-zoom-errors';
       assert.deepEqual(errors, [], 'Errors after interacting with the actual map');
-      if (width === 390) {
+      if (firstVisit) {
+        failurePhase = 'first-visit-pan';
+        const tilePositions = () => card.locator('.gm-style img').evaluateAll((imgs) => JSON.stringify(imgs
+          .filter((img) => img.complete && img.naturalWidth >= 128)
+          .map((img) => { const r = img.getBoundingClientRect(); return [img.currentSrc || img.src, r.left, r.top]; })));
+        const beforePan = await tilePositions();
+        const box = await card.locator('[data-hero-google-map]').boundingBox();
+        assert.ok(box && box.width > 120 && box.height > 120, 'Real map canvas is draggable');
+        await page.mouse.move(box.x + box.width * .5, box.y + box.height * .45);
+        await page.mouse.down();
+        await page.mouse.move(box.x + box.width * .75, box.y + box.height * .5, { steps: 12 });
+        await page.mouse.up();
+        await page.waitForFunction((old) => {
+          const card = [...document.querySelectorAll('.home-hero-map-card')].find((el) => !el.closest('[data-route-view]')?.hidden);
+          const now = JSON.stringify([...card.querySelectorAll('.gm-style img')]
+            .filter((img) => img.complete && img.naturalWidth >= 128)
+            .map((img) => { const r = img.getBoundingClientRect(); return [img.currentSrc || img.src, r.left, r.top]; }));
+          return old !== now;
+        }, beforePan, { timeout: 10000 });
+        await assertFirstVisitOwnership(page);
+      }
+      if (width < 500) {
         failurePhase = 'mobile-launcher-hit-test';
         const launcher = page.locator('.buyer-concierge-launcher');
         const launcherBox = await launcher.boundingBox();
         assert.ok(launcherBox, `${route} mobile concierge launcher must be visible`);
         await page.mouse.click(launcherBox.x + launcherBox.width / 2, launcherBox.y + launcherBox.height / 2);
         await page.waitForFunction(() => document.querySelector('.buyer-concierge-launcher')?.getAttribute('aria-expanded') === 'true', null, { timeout: 5000 });
+        const dialog = page.getByRole('dialog', { name: 'Ask WPB', exact: true });
+        await dialog.waitFor({ state: 'visible', timeout: 5000 });
+        if (firstVisit) await page.screenshot({ path: `${artifactDir}/${scenarioLabel}-dialog.png` });
         await page.keyboard.press('Escape');
         await page.waitForFunction(() => document.querySelector('.buyer-concierge-launcher')?.getAttribute('aria-expanded') === 'false', null, { timeout: 5000 });
+        assert.equal(await launcher.evaluate((el) => document.activeElement === el), true, 'Escape returns focus to launcher');
       }
-      const scenarioLabel = `${route === '/' ? 'home' : 'map'}-${width}-zoom-${direction}`;
+
       failurePhase = 'screenshots';
       await page.screenshot({ path: `${artifactDir}/${scenarioLabel}-working-map.png`, fullPage: true });
       await card.screenshot({ path: `${artifactDir}/${scenarioLabel}-map-card.png` });
-      results.push({ route, width, direction, status: 'pass', realLoaderResponse: true, loadedMapTileImages: true, zoomChangedTiles: true, dimensions, mobileControlGeometry, fallbackAccepted: false });
+      if (firstVisit) {
+        failurePhase = 'consent-dismissal-persistence';
+        await deny.click();
+        await page.waitForFunction(() => !document.getElementById('wpb-analytics-consent')
+          && localStorage.getItem('wpbAnalyticsConsentV1') === 'denied');
+        await card.scrollIntoViewIfNeeded();
+        await assertMobileMapControls(page, card, route);
+        await page.reload({ waitUntil: 'domcontentloaded' });
+        await page.waitForFunction(() => window.wpbAnalyticsConsent === 'denied'
+          && localStorage.getItem('wpbAnalyticsConsentV1') === 'denied'
+          && !document.getElementById('wpb-analytics-consent'), null, { timeout: 15000 });
+      }
+      assert.deepEqual(errors, [], 'No Google Maps or application error after final interaction');
+      results.push({ route, width, direction, firstVisit, initialConsentGeometry, scrolledConsentGeometry, status: 'pass', realLoaderResponse: true, loadedMapTileImages: true, zoomChangedTiles: true, dimensions, mobileControlGeometry, fallbackAccepted: false });
     } catch (error) {
       const diagnostics = error && typeof error === 'object' && 'mobileControlGeometry' in error ? error.mobileControlGeometry : mobileControlGeometry;
-      results.push({ route, width, direction, status: 'fail', failurePhase, errorCodes: [...new Set(errors)], assertion: safeErrorMessage(error), ...(diagnostics ? { mobileControlGeometry: diagnostics } : {}), reason: `Keyed Maps verification failed during ${failurePhase}.` });
+      results.push({ route, width, direction, firstVisit, status: 'fail', failurePhase, errorCodes: [...new Set(errors)], assertion: safeErrorMessage(error), ...(diagnostics ? { mobileControlGeometry: diagnostics } : {}), reason: `Keyed Maps verification failed during ${failurePhase}.` });
     }
     await context.close();
   }
