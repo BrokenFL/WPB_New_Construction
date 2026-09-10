@@ -17,8 +17,15 @@ function isRendered(element: HTMLElement) {
 function normalizeActiveProjectHeading(app: HTMLElement) {
   const main = Array.from(app.querySelectorAll<HTMLElement>("main")).find(isRendered);
   if (!main) return;
-  const identityHeading = main.querySelector<HTMLHeadingElement>(".project-identity-copy > h1");
-  const heroHeading = main.querySelector<HTMLHeadingElement>('[data-project-section="hero"] h1');
+  const activeProjectView = Array.from(main.querySelectorAll<HTMLElement>('[data-route-view="project"]')).find((view) => {
+    if (!isRendered(view)) return false;
+    const identity = view.querySelector<HTMLElement>(".project-identity-copy");
+    const hero = view.querySelector<HTMLElement>('[data-project-section="hero"]');
+    return Boolean(identity && hero && isRendered(identity) && isRendered(hero));
+  });
+  if (!activeProjectView) return;
+  const identityHeading = Array.from(activeProjectView.querySelectorAll<HTMLHeadingElement>(".project-identity-copy > h1")).find(isRendered);
+  const heroHeading = Array.from(activeProjectView.querySelectorAll<HTMLHeadingElement>('[data-project-section="hero"] h1')).find(isRendered);
   if (!identityHeading || !heroHeading || identityHeading === heroHeading) return;
   const identityTitle = document.createElement("p");
   identityTitle.className = "project-identity-title";

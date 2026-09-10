@@ -37,6 +37,7 @@ const browser = await chromium.launch({ headless: true });
 const routes = ["/", "/buildings/", "/map/", "/floorplans/", "/projects/olara/", "/projects/rosewood-residences-west-palm-beach/", "/projects/maison-dor/", "/answers/olara-vs-ritz-carlton-vs-shorecrest/", "/corridors/south-flagler/", "/inquire/", "/floorplans/olara/residence-d/"];
 const results = [];
 const requestExamples = [];
+const formContracts = [];
 const lifecycle = [];
 const stageTimings = [];
 
@@ -189,12 +190,28 @@ try {
     try {
       page = await step(label, "page.create", () => context.newPage(), 10000);
       await gotoReady(page, `${origin}${route}`, label);
-      const form = page.locator(".brochure-inquiry-card:visible").first();
-      await step(label, "form.visible", () => form.waitFor({ timeout: 15000 }), 17000);
-      assert.equal(await form.locator('input[name="interest"]').inputValue(), "Request current availability");
-      assert.equal(await form.locator('input[name="request_intent"]').inputValue(), "availability");
-      assert.equal((await form.getByRole("heading", { level: 2 }).innerText()).trim(), "Request current availability");
-      assert.equal((await form.locator('button[type="submit"]').innerText()).trim(), "Request current availability");
+      const form = page.locator('.brochure-inquiry-card[data-batch6-intent-wired="true"]:visible').first();
+      await step(label, "form.intent-ready", () => form.waitFor({ timeout: 15000 }), 17000);
+      const definition = requestIntentDefinitions.availability;
+      assert.equal(await form.locator('input[name="interest"]').inputValue(), definition.interest);
+      assert.equal(await form.locator('input[name="request_intent"]').inputValue(), definition.id);
+      assert.equal((await form.getByRole("heading", { level: 2 }).textContent()).trim(), definition.buttonLabel);
+      const submit = form.locator('button[type="submit"]');
+      // Existing CSS uppercases the displayed button (innerText). The DOM and
+      // accessible name retain the canonical human-readable request contract.
+      assert.equal((await submit.textContent()).trim(), definition.buttonLabel);
+      assert.equal(await form.getByRole("button", { name: definition.buttonLabel, exact: true }).count(), 1);
+      const presentation = await submit.evaluate((button) => ({
+        textContent: button.textContent.trim(), innerText: button.innerText.trim(),
+        value: button.value, textTransform: getComputedStyle(button).textTransform,
+      }));
+      const body = await form.evaluate((element) => Object.fromEntries(new FormData(element)));
+      const normalized = normalizeServerRequestIntent(body, normalizeLead(body, new Request(`${origin}/api/leads`, { method: "POST" })));
+      assert.equal(normalized.interest, definition.interest, `${route}: normalized form interest`);
+      assert.equal(normalized.request_intent, definition.id, `${route}: normalized form intent`);
+      formContracts.push({ route, presentation, accessibleName: await submit.ariaSnapshot(),
+        submitted: { interest: body.interest, request_intent: body.request_intent },
+        normalized: { interest: normalized.interest, request_intent: normalized.request_intent, project_id: normalized.project_id } });
       assert.equal(await form.locator("[data-request-summary]").count(), 1);
     } finally { await closePageAndContext(page, context, label); }
   }
@@ -208,16 +225,19 @@ try {
       page = await step(label, "page.create", () => context.newPage(), 10000);
       const legacy = legacyByIntent[id];
       await gotoReady(page, `${origin}/inquire/?interest=${encodeURIComponent(legacy)}&project=olara`, label);
-      const form = page.locator(".inquiry-form");
-      await step(label, "form.visible", () => form.waitFor({ timeout: 15000 }), 17000);
+      const form = page.locator('.inquiry-form[data-batch6-intent-wired="true"]');
+      await step(label, "form.intent-ready", () => form.waitFor({ timeout: 15000 }), 17000);
       const visibleSummary = (await form.locator("[data-request-summary]").innerText()).trim();
       assert.equal(await form.locator('select[name="interest"]').inputValue(), definition.interest, `${id}: canonical browser interest`);
       assert.equal(await form.locator('input[name="request_intent"]').inputValue(), id, `${id}: browser intent id`);
       assert.ok(visibleSummary.includes(definition.buttonLabel), `${id}: visible action`);
       assert.match(visibleSummary, /Olara/i, `${id}: visible subject`);
-      const body = { form_type: "inquiry", name: "QA Example", email: "qa@example.invalid", consent: "true", project: "olara", request_intent: id, interest: definition.interest };
+      const body = await form.evaluate((element) => Object.fromEntries(new FormData(element)));
       const normalizedLead = normalizeServerRequestIntent(body, normalizeLead(body, new Request("https://www.wpbnewconstruction.com/api/leads", { method: "POST" })));
-      requestExamples.push({ id, legacyInput: legacy, visibleSummary, submitted: { request_intent: id, interest: definition.interest, project: "olara" }, normalized: { request_intent: normalizedLead.request_intent, interest: normalizedLead.interest, project_id: normalizedLead.project_id } });
+      assert.equal(normalizedLead.request_intent, id, `${id}: normalized form intent`);
+      assert.equal(normalizedLead.interest, definition.interest, `${id}: normalized form interest`);
+      assert.equal(normalizedLead.project_id, "olara", `${id}: normalized form project`);
+      requestExamples.push({ id, legacyInput: legacy, visibleSummary, submitted: { request_intent: body.request_intent, interest: body.interest, project: body.project }, normalized: { request_intent: normalizedLead.request_intent, interest: normalizedLead.interest, project_id: normalizedLead.project_id } });
     } finally { await closePageAndContext(page, context, label); }
   }
 
@@ -257,5 +277,5 @@ try {
   server.close();
 }
 await fs.writeFile(path.join(out, "request-examples.json"), JSON.stringify(requestExamples, null, 2));
-await fs.writeFile(path.join(out, "results.json"), JSON.stringify({ conciergeBody, mainBundle, results, lifecycle, stageTimings, requestExamples: requestExamples.map(({ id, submitted, normalized }) => ({ id, submitted, normalized })) }, null, 2));
+await fs.writeFile(path.join(out, "results.json"), JSON.stringify({ conciergeBody, mainBundle, results, formContracts, lifecycle, stageTimings, requestExamples: requestExamples.map(({ id, submitted, normalized }) => ({ id, submitted, normalized })) }, null, 2));
 console.log(JSON.stringify({ batch6Concierge: "pass", views: results.length, requestExamples: requestExamples.length, conciergeBody, mainBundle }, null, 2));
