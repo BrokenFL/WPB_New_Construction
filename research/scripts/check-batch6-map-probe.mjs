@@ -10,6 +10,7 @@ const out = path.join(root, ".runtime/batch6-concierge");
 await fs.mkdir(out, { recursive: true });
 
 const mime = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".svg": "image/svg+xml", ".pdf": "application/pdf", ".woff2": "font/woff2", ".xml": "application/xml" };
+const nonBehavioralLocalAsset = new Set([".png", ".jpg", ".jpeg", ".webp", ".svg", ".pdf", ".woff2"]);
 const server = http.createServer(async (req, res) => {
   try {
     const pathname = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
@@ -17,7 +18,18 @@ const server = http.createServer(async (req, res) => {
     if (file !== dist && !file.startsWith(`${dist}${path.sep}`)) throw new Error("invalid path");
     const stat = await fs.stat(file);
     if (stat.isDirectory()) file = path.join(file, "index.html");
-    res.setHeader("Content-Type", mime[path.extname(file)] ?? "application/octet-stream");
+    const ext = path.extname(file);
+    // This probe exercises route/bootstrap/concierge behavior, not visual fidelity.
+    // Avoid HTTP/1.1 same-origin connection starvation from large local media while
+    // preserving real HTML/CSS/JS and normal external Maps networking. Screenshots
+    // and the keyed Maps gate exercise the normal visual/resource path separately.
+    if (nonBehavioralLocalAsset.has(ext)) {
+      res.writeHead(204, { "Cache-Control": "no-store" });
+      res.end();
+      return;
+    }
+    res.setHeader("Content-Type", mime[ext] ?? "application/octet-stream");
+    res.setHeader("Cache-Control", "no-store");
     res.end(await fs.readFile(file));
   } catch {
     res.writeHead(404);
