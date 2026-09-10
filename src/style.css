@@ -11783,30 +11783,12 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
   text-transform: uppercase;
 }
 
-/* Keep the optional consent notice out of the fixed mobile control layer. */
-#wpb-analytics-consent {
-  box-sizing: border-box;
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  left: 16px;
-  z-index: 2147483000;
-  max-width: 760px;
-  margin: 0 auto;
-}
-
 @media (max-width: 720px) {
-  #wpb-analytics-consent {
-    position: relative;
-    inset: auto;
-    z-index: auto;
-    width: calc(100% - 24px);
-    max-width: 760px;
-    margin: 12px auto;
+  .consent {
+    position: static !important;
   }
 
-  /* Keep the existing inquiry header in flow while the notice is present. */
-  body:has(#wpb-analytics-consent) .site-shell[data-active-route="inquire"] .site-nav {
+  .consent ~ #app [data-active-route="inquire"] .site-nav {
     position: sticky;
   }
 }

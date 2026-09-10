@@ -140,10 +140,19 @@ function ensureAnalyticsConsentPrompt() {
 
   const panel = document.createElement("aside");
   panel.id = analyticsConsentPromptId;
+  panel.className = "consent";
   panel.setAttribute("role", "dialog");
   panel.setAttribute("aria-label", "Optional analytics preference");
   panel.setAttribute("aria-live", "polite");
   Object.assign(panel.style, {
+    position: "fixed",
+    left: "16px",
+    right: "16px",
+    bottom: "16px",
+    zIndex: "2147483000",
+    maxWidth: "760px",
+    margin: "0 auto",
+    width: "calc(100% - 32px)",
     padding: "18px",
     border: "1px solid rgba(255,255,255,.18)",
     borderRadius: "14px",
