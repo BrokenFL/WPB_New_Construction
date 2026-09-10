@@ -49,7 +49,13 @@ export function installBuyerConciergeLauncher() {
     return foundLegacyControls;
   };
   syncOwnedControls();
-  const observer = new MutationObserver(() => {
+  const observer = new MutationObserver((mutations) => {
+    // Third-party Maps markup can mutate continuously. It cannot create any of
+    // the legacy controls this observer owns, so ignore that subtree entirely.
+    const onlyMapInternals = mutations.length > 0 && mutations.every((mutation) =>
+      mutation.target instanceof Element && Boolean(mutation.target.closest("[data-hero-google-map]")),
+    );
+    if (onlyMapInternals) return;
     if (syncOwnedControls()) observer.disconnect();
   });
   observer.observe(document.body, { childList: true, subtree: true });
