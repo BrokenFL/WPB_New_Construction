@@ -55,13 +55,39 @@ const browser = await chromium.launch({ headless: true });
 let context;
 let page;
 const pageErrors = [];
+const network = [];
+const consoleMessages = [];
 let postMountState = null;
+let failure = null;
 try {
   context = await step("context.create", () => browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce", serviceWorkers: "block" }), 10000);
   page = await step("page.create", () => context.newPage(), 10000);
   page.on("pageerror", (error) => {
     pageErrors.push(error.message);
     console.log(`map-probe pageerror ${error.message}`);
+  });
+  page.on("console", (message) => {
+    if (message.type() === "error" || message.type() === "warning") {
+      const entry = { type: message.type(), text: message.text() };
+      consoleMessages.push(entry);
+      console.log(`map-probe console.${entry.type} ${entry.text}`);
+    }
+  });
+  const relevant = (url) => /buyerConcierge|leadAttributionStore|conciergeLauncher/.test(url);
+  page.on("request", (request) => {
+    if (!relevant(request.url())) return;
+    network.push({ event: "request", url: request.url() });
+    console.log(`map-probe network.request ${request.url()}`);
+  });
+  page.on("response", (response) => {
+    if (!relevant(response.url())) return;
+    network.push({ event: "response", url: response.url(), status: response.status() });
+    console.log(`map-probe network.response ${response.status()} ${response.url()}`);
+  });
+  page.on("requestfailed", (request) => {
+    if (!relevant(request.url())) return;
+    network.push({ event: "requestfailed", url: request.url(), failure: request.failure()?.errorText ?? "unknown" });
+    console.log(`map-probe network.requestfailed ${request.url()} ${request.failure()?.errorText ?? "unknown"}`);
   });
   page.once("domcontentloaded", () => console.log("map-probe event.DOMContentLoaded:observed"));
   page.once("load", () => console.log("map-probe event.load:observed"));
@@ -91,20 +117,7 @@ try {
       if (!(el instanceof HTMLElement)) return null;
       const css = getComputedStyle(el);
       const rect = el.getBoundingClientRect();
-      return {
-        connected: el.isConnected,
-        hidden: el.hidden,
-        display: css.display,
-        visibility: css.visibility,
-        opacity: css.opacity,
-        position: css.position,
-        width: rect.width,
-        height: rect.height,
-        top: rect.top,
-        right: rect.right,
-        bottom: rect.bottom,
-        left: rect.left,
-      };
+      return { connected: el.isConnected, hidden: el.hidden, display: css.display, visibility: css.visibility, opacity: css.opacity, position: css.position, width: rect.width, height: rect.height, top: rect.top, right: rect.right, bottom: rect.bottom, left: rect.left };
     };
     return {
       root: describe(root),
@@ -129,11 +142,25 @@ try {
   assert.deepEqual(closeState, { exists: true, expanded: "false", focused: true });
   assert.deepEqual(pageErrors, [], "/map/: application exceptions");
 
-  await fs.writeFile(path.join(out, "map-probe.json"), JSON.stringify({ status: "pass", route: "/map/", timings, postMountState, pageErrors }, null, 2));
-  console.log(JSON.stringify({ mapProbe: "pass", timings, postMountState }, null, 2));
+  await fs.writeFile(path.join(out, "map-probe.json"), JSON.stringify({ status: "pass", route: "/map/", timings, postMountState, pageErrors, consoleMessages, network }, null, 2));
+  console.log(JSON.stringify({ mapProbe: "pass", timings, postMountState, network }, null, 2));
+} catch (error) {
+  failure = error;
+  const domState = page && !page.isClosed() ? await page.evaluate(() => ({
+    launcherCount: document.querySelectorAll(".buyer-concierge-launcher").length,
+    rootCount: document.querySelectorAll("[data-buyer-concierge-root]").length,
+    panelCount: document.querySelectorAll("[data-buyer-concierge-panel]").length,
+    launcherExpanded: document.querySelector(".buyer-concierge-launcher")?.getAttribute("aria-expanded") ?? null,
+    bodyChildren: document.body.childElementCount,
+  })).catch(() => null) : null;
+  const diagnostic = { status: "fail", route: "/map/", error: error instanceof Error ? error.message : String(error), timings, postMountState, pageErrors, consoleMessages, network, domState };
+  await fs.writeFile(path.join(out, "map-probe-failure.json"), JSON.stringify(diagnostic, null, 2));
+  console.log(`map-probe diagnostic ${JSON.stringify(diagnostic)}`);
 } finally {
   if (page && !page.isClosed()) await step("page.close", () => page.close({ runBeforeUnload: false }), 5000).catch(() => {});
   if (context) await step("context.close", () => context.close(), 5000).catch(() => {});
   await step("browser.close", () => browser.close(), 10000).catch(() => {});
   server.close();
 }
+
+if (failure) throw failure;
