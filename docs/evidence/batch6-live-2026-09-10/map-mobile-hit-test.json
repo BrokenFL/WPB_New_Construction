@@ -1,0 +1,713 @@
+{
+  "verifiedAt": "2026-09-10T20:29:45.401Z",
+  "productionOrigin": "https://www.wpbnewconstruction.com",
+  "productionSha": "2d0175eed5157afa58b57cfb8327ec590e2dda95",
+  "deploymentRun": 34523585398,
+  "route": "/map/",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "initialScrollY": 0,
+  "scrollYAfterCard": 56,
+  "geometry": {
+    "scrollY": 56,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "cardRect": {
+      "left": 14,
+      "top": 353.859375,
+      "right": 376,
+      "bottom": 845.375,
+      "width": 362,
+      "height": 491.515625
+    },
+    "launcher": {
+      "tag": "BUTTON",
+      "className": "buyer-concierge-launcher",
+      "ariaLabel": "Open Ask WPB buyer concierge",
+      "title": null,
+      "rect": {
+        "left": 276.171875,
+        "top": 782,
+        "right": 378,
+        "bottom": 830,
+        "width": 101.828125,
+        "height": 48
+      },
+      "pointerEvents": "auto",
+      "zIndex": "auto",
+      "expanded": "false"
+    },
+    "launcherVisible": true,
+    "buttonInfo": [
+      {
+        "label": "Zoom in",
+        "tag": "BUTTON",
+        "className": "gm-control-active",
+        "ariaLabel": "Zoom in",
+        "title": "Zoom in",
+        "rect": {
+          "left": 325,
+          "top": 738.375,
+          "right": 365,
+          "bottom": 778.375,
+          "width": 40,
+          "height": 40
+        },
+        "pointerEvents": "auto",
+        "zIndex": "auto",
+        "overlapAreaWithLauncher": 0,
+        "centerHit": {
+          "x": 345,
+          "y": 758.375,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom in",
+            "title": "Zoom in",
+            "rect": {
+              "left": 325,
+              "top": 738.375,
+              "right": 365,
+              "bottom": 778.375,
+              "width": 40,
+              "height": 40
+            },
+            "pointerEvents": "auto",
+            "zIndex": "auto"
+          },
+          "targetContainsHit": true,
+          "stack": [
+            {
+              "tag": "BUTTON",
+              "className": "gm-control-active",
+              "ariaLabel": "Zoom in",
+              "title": "Zoom in",
+              "rect": {
+                "left": 325,
+                "top": 738.375,
+                "right": 365,
+                "bottom": 778.375,
+                "width": 40,
+                "height": 40
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 325,
+                "top": 738.375,
+                "right": 365,
+                "bottom": 819.375,
+                "width": 40,
+                "height": 81
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": "gmnoprint",
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 325,
+                "top": 738.375,
+                "right": 365,
+                "bottom": 819.375,
+                "width": 40,
+                "height": 81
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 15,
+                "top": 354.859375,
+                "right": 375,
+                "bottom": 843.375,
+                "width": 360,
+                "height": 488.515625
+              },
+              "pointerEvents": "auto",
+              "zIndex": "3"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 298,
+                "top": 507.109375,
+                "right": 554,
+                "bottom": 763.109375,
+                "width": 256,
+                "height": 256
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 298,
+                "top": 507.109375,
+                "right": 554,
+                "bottom": 763.109375,
+                "width": 256,
+                "height": 256
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 298,
+                "top": 507.109375,
+                "right": 554,
+                "bottom": 763.109375,
+                "width": 256,
+                "height": 256
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "IMG",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 298,
+                "top": 507.109375,
+                "right": 554,
+                "bottom": 763.109375,
+                "width": 256,
+                "height": 256
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            }
+          ]
+        },
+        "topLeftHit": {
+          "x": 329,
+          "y": 742.375,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom in",
+            "title": "Zoom in",
+            "rect": {
+              "left": 325,
+              "top": 738.375,
+              "right": 365,
+              "bottom": 778.375,
+              "width": 40,
+              "height": 40
+            },
+            "pointerEvents": "auto",
+            "zIndex": "auto"
+          },
+          "targetContainsHit": true,
+          "stack": [
+            {
+              "tag": "BUTTON",
+              "className": "gm-control-active",
+              "ariaLabel": "Zoom in",
+              "title": "Zoom in",
+              "rect": {
+                "left": 325,
+                "top": 738.375,
+                "right": 365,
+                "bottom": 778.375,
+                "width": 40,
+                "height": 40
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 325,
+                "top": 738.375,
+                "right": 365,
+                "bottom": 819.375,
+                "width": 40,
+                "height": 81
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": "gmnoprint",
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 325,
+                "top": 738.375,
+                "right": 365,
+                "bottom": 819.375,
+                "width": 40,
+                "height": 81
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 15,
+                "top": 354.859375,
+                "right": 375,
+                "bottom": 843.375,
+                "width": 360,
+                "height": 488.515625
+              },
+              "pointerEvents": "auto",
+              "zIndex": "3"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 298,
+                "top": 507.109375,
+                "right": 554,
+                "bottom": 763.109375,
+                "width": 256,
+                "height": 256
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 298,
+                "top": 507.109375,
+                "right": 554,
+                "bottom": 763.109375,
+                "width": 256,
+                "height": 256
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 298,
+                "top": 507.109375,
+                "right": 554,
+                "bottom": 763.109375,
+                "width": 256,
+                "height": 256
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "IMG",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 298,
+                "top": 507.109375,
+                "right": 554,
+                "bottom": 763.109375,
+                "width": 256,
+                "height": 256
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            }
+          ]
+        },
+        "disabled": false
+      },
+      {
+        "label": "Zoom out",
+        "tag": "BUTTON",
+        "className": "gm-control-active",
+        "ariaLabel": "Zoom out",
+        "title": "Zoom out",
+        "rect": {
+          "left": 325,
+          "top": 779.375,
+          "right": 365,
+          "bottom": 819.375,
+          "width": 40,
+          "height": 40
+        },
+        "pointerEvents": "auto",
+        "zIndex": "auto",
+        "overlapAreaWithLauncher": 1495,
+        "centerHit": {
+          "x": 345,
+          "y": 799.375,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "buyer-concierge-launcher",
+            "ariaLabel": "Open Ask WPB buyer concierge",
+            "title": null,
+            "rect": {
+              "left": 276.171875,
+              "top": 782,
+              "right": 378,
+              "bottom": 830,
+              "width": 101.828125,
+              "height": 48
+            },
+            "pointerEvents": "auto",
+            "zIndex": "auto"
+          },
+          "targetContainsHit": false,
+          "stack": [
+            {
+              "tag": "BUTTON",
+              "className": "buyer-concierge-launcher",
+              "ariaLabel": "Open Ask WPB buyer concierge",
+              "title": null,
+              "rect": {
+                "left": 276.171875,
+                "top": 782,
+                "right": 378,
+                "bottom": 830,
+                "width": 101.828125,
+                "height": 48
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": "buyer-concierge-root",
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 276.171875,
+                "top": 782,
+                "right": 378,
+                "bottom": 830,
+                "width": 101.828125,
+                "height": 48
+              },
+              "pointerEvents": "auto",
+              "zIndex": "1200"
+            },
+            {
+              "tag": "SPAN",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 91.375,
+                "top": 785.46875,
+                "right": 346,
+                "bottom": 811.03125,
+                "width": 254.625,
+                "height": 25.5625
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-map-count",
+              "ariaLabel": "Map project count",
+              "title": null,
+              "rect": {
+                "left": 29,
+                "top": 770.140625,
+                "right": 361,
+                "bottom": 826.375,
+                "width": 332,
+                "height": 56.234375
+              },
+              "pointerEvents": "auto",
+              "zIndex": "5"
+            },
+            {
+              "tag": "BUTTON",
+              "className": "gm-control-active",
+              "ariaLabel": "Zoom out",
+              "title": "Zoom out",
+              "rect": {
+                "left": 325,
+                "top": 779.375,
+                "right": 365,
+                "bottom": 819.375,
+                "width": 40,
+                "height": 40
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 325,
+                "top": 738.375,
+                "right": 365,
+                "bottom": 819.375,
+                "width": 40,
+                "height": 81
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": "gmnoprint",
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 325,
+                "top": 738.375,
+                "right": 365,
+                "bottom": 819.375,
+                "width": 40,
+                "height": 81
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 15,
+                "top": 354.859375,
+                "right": 375,
+                "bottom": 843.375,
+                "width": 360,
+                "height": 488.515625
+              },
+              "pointerEvents": "auto",
+              "zIndex": "3"
+            }
+          ]
+        },
+        "topLeftHit": {
+          "x": 329,
+          "y": 783.375,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "buyer-concierge-launcher",
+            "ariaLabel": "Open Ask WPB buyer concierge",
+            "title": null,
+            "rect": {
+              "left": 276.171875,
+              "top": 782,
+              "right": 378,
+              "bottom": 830,
+              "width": 101.828125,
+              "height": 48
+            },
+            "pointerEvents": "auto",
+            "zIndex": "auto"
+          },
+          "targetContainsHit": false,
+          "stack": [
+            {
+              "tag": "BUTTON",
+              "className": "buyer-concierge-launcher",
+              "ariaLabel": "Open Ask WPB buyer concierge",
+              "title": null,
+              "rect": {
+                "left": 276.171875,
+                "top": 782,
+                "right": 378,
+                "bottom": 830,
+                "width": 101.828125,
+                "height": 48
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": "buyer-concierge-root",
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 276.171875,
+                "top": 782,
+                "right": 378,
+                "bottom": 830,
+                "width": 101.828125,
+                "height": 48
+              },
+              "pointerEvents": "auto",
+              "zIndex": "1200"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-map-count",
+              "ariaLabel": "Map project count",
+              "title": null,
+              "rect": {
+                "left": 29,
+                "top": 770.140625,
+                "right": 361,
+                "bottom": 826.375,
+                "width": 332,
+                "height": 56.234375
+              },
+              "pointerEvents": "auto",
+              "zIndex": "5"
+            },
+            {
+              "tag": "BUTTON",
+              "className": "gm-control-active",
+              "ariaLabel": "Zoom out",
+              "title": "Zoom out",
+              "rect": {
+                "left": 325,
+                "top": 779.375,
+                "right": 365,
+                "bottom": 819.375,
+                "width": 40,
+                "height": 40
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 325,
+                "top": 738.375,
+                "right": 365,
+                "bottom": 819.375,
+                "width": 40,
+                "height": 81
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": "gmnoprint",
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 325,
+                "top": 738.375,
+                "right": 365,
+                "bottom": 819.375,
+                "width": 40,
+                "height": 81
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 15,
+                "top": 354.859375,
+                "right": 375,
+                "bottom": 843.375,
+                "width": 360,
+                "height": 488.515625
+              },
+              "pointerEvents": "auto",
+              "zIndex": "3"
+            },
+            {
+              "tag": "DIV",
+              "className": null,
+              "ariaLabel": null,
+              "title": null,
+              "rect": {
+                "left": 298,
+                "top": 763.109375,
+                "right": 554,
+                "bottom": 1019.109375,
+                "width": 256,
+                "height": 256
+              },
+              "pointerEvents": "auto",
+              "zIndex": "auto"
+            }
+          ]
+        },
+        "disabled": false
+      }
+    ],
+    "mapState": "ready",
+    "fallbackVisible": false
+  },
+  "clickResults": [
+    {
+      "label": "Zoom in",
+      "status": "pass"
+    },
+    {
+      "label": "Zoom out",
+      "status": "pass"
+    }
+  ],
+  "blockedWrites": [],
+  "externalBlockedCount": 1,
+  "consoleErrors": [],
+  "pageErrors": [],
+  "status": "fail",
+  "screenshot": "/Volumes/ExternalSSD/WPB_PR86_Review/.runtime/batch6-live-2026-09-10/real-map-screenshots/map-390-hit-test.png",
+  "limitations": [
+    "This check reproduces the live Maps probe scroll position: initial page scroll, then card.scrollIntoViewIfNeeded(); Google native controls were measured after asynchronous insertion.",
+    "The launcher was left closed (aria-expanded=false).",
+    "A positive rectangle intersection or hit-target interception is reported as a failure even if a control remains visually partly visible."
+  ]
+}

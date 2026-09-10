@@ -1,0 +1,34 @@
+{
+  "verifiedAt": "2026-09-10T20:12:28.793778+00:00",
+  "productionSha": "2d0175eed5157afa58b57cfb8327ec590e2dda95",
+  "workflowRun": 34523585398,
+  "workflowUrl": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34523585398",
+  "deploymentUrl": "https://c0498f38.wpbnewconstruction.pages.dev",
+  "wrangler": "4.93.0",
+  "credentials": "workflow log showed HAS_CLOUDFLARE_TOKEN=true; token/account values masked",
+  "localBuildEntry": "assets/index-BNfunLZT.js",
+  "upload": "Uploading (1132/1132); Success! Uploaded 121 files (1011 already uploaded)",
+  "functionsBundle": "uploaded",
+  "deployment": "complete at https://c0498f38.wpbnewconstruction.pages.dev",
+  "workflowPostDeployHomepageStatus": 200,
+  "workflowImmediatePostDeployBundle": "assets/index-DkrALstQ.js",
+  "workflowWarning": "workflow reported live bundle did not change immediately; current no-cache probes below now serve the new local entry",
+  "currentPublicProbes": [
+    {
+      "host": "https://www.wpbnewconstruction.com",
+      "status": 200,
+      "indexJs": "assets/index-BNfunLZT.js",
+      "indexCss": "assets/index--wq5Do8O.css"
+    },
+    {
+      "host": "https://c0498f38.wpbnewconstruction.pages.dev",
+      "status": 200,
+      "indexJs": "assets/index-BNfunLZT.js",
+      "indexCss": "assets/index--wq5Do8O.css"
+    }
+  ],
+  "mapPreflightInDeployLog": "liveMapsVerified=false",
+  "limitations": [
+    "This proves Wrangler upload/deployment and current public HTML bundle resolution. It does not prove real Google Maps tiles, Turnstile, D1, email/CRM, GA4 or lead fulfillment."
+  ]
+}

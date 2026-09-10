@@ -1,12 +1,12 @@
 # P2 Development Intelligence Processor — Phase A
 
-Status: **implementation review only — zero external side effects**  
-Branch: `p2-development-intelligence-processor-v1`  
-Base: production main after Batch 6C / PR #87 (`c568746b545804bfab48cda8a9e7f214ddda9d36`)
+Status: **safety review passed — MERGE INTERNAL TOOLING ONLY recommended; Brooke approval pending; NOT APPROVED / NOT MERGED / NOT DEPLOYED**
+Branch: `p2-development-intelligence-processor-v1`
+Base: released production main after PR #86 (`2d0175eed5157afa58b57cfb8327ec590e2dda95`)
 
 ## Purpose
 
-Phase A turns one or more explicitly selected `Incoming_Intel` event rows into deterministic local review artifacts. It does **not** write to Google Sheets, repository canonical data, GitHub, or production.
+Phase A turns one or more explicitly selected `Incoming_Intel` event rows into deterministic local review artifacts. It does **not** write to Google Sheets, repository canonical data, GitHub, or production. Verified source revision `7953d4a66e13b37e4d9ffc02447ca19735d603bf` passes the focused 45-test safety set, typecheck, four offline rows, bundle-hash and unchanged-canonical checks. All four required CI runs and 12 jobs are green; this supports an internal-tooling merge recommendation only and does not authorize approval, merge or deployment. See the [compact safety acceptance](evidence/intel-phase-a-safety-2026-09-10/acceptance.json); full runtime records remain under `.runtime/intel-safety-review-2026-09-10/`.
 
 ```bash
 npm run intel:process -- --row <intel-id>
@@ -22,10 +22,10 @@ Multiple `--row` arguments are allowed. The processor reads only the selected ID
 
 ## Allowed output
 
-Only:
+Only these six fixed files, under a validated ID:
 
 ```text
-.runtime/intel/<intel-id>/
+.runtime/intel/<validated-intel-id>/
   intake-snapshot.json
   claim-ledger.json
   candidate.json
@@ -36,6 +36,17 @@ Only:
 
 Generated runtime artifacts are evidence only and are not committed.
 
+`intel-id` must match `[A-Za-z0-9][A-Za-z0-9_-]{0,127}`; path traversal,
+absolute, encoded, empty, and typed-invalid IDs fail before input reads or
+writes. The writer validates the canonical workspace → `.runtime` → `intel` →
+ID chain and rejects symlink ancestors/targets plus symlink, non-regular, or
+hard-linked artifact files. It uses exclusive temporary files and per-file
+atomic renames; it never recursively deletes or removes a runtime/repository
+root. A bundle is not whole-bundle atomic, so interruption can leave partial
+files and consumers must verify the manifest. This is bounded to one trusted
+local worker; Node path APIs do not provide an openat-style guarantee against a
+concurrent hostile filesystem race.
+
 ## Pipeline
 
 ```text
@@ -45,7 +56,8 @@ selected row
 → structural / record-type validation
 → project/corridor relationship normalization
 → lead/source hint normalization
-→ independent source classification/read-only verification
+→ independent source classification/read-only fetch (unadjudicated)
+→ separate trusted local evidence review API when supplied
 → claim ledger
 → deterministic event-key derivation
 → supplied-vs-derived event-key comparison
@@ -58,6 +70,24 @@ selected row
 → validation report + manifest
 ```
 
+## Source evidence boundary
+
+`verifySourceHint` applies bounded HTTP(S) retrieval, redirect, DNS, private-address,
+timeout, and byte checks, then records the fetched URL, content hash, source
+revision, and retrieval attestation. A fetched source remains `unadjudicated`:
+HTTP success, reachability, source tier, and any intake `claims_supported` value
+do not support a claim. Source bytes are used only through the recorded digest.
+
+`applyTrustedEvidence` is a separate local review API
+(`research/scripts/intel/normalizer.mjs:338-494`). Each accepted record must bind
+the exact intake snapshot hash, claim ID or exact field/type/value/text, one or
+more exact verification source references, fetched source content hash/revision,
+and reviewer plus valid review time. It accepts explicit supported, conflicted,
+or unsupported decisions and rejects unbound records. The CLI exposes only row,
+CSV, and offline inputs (`research/scripts/intel/process-intel.mjs:9-21`); it does
+not activate adjudication. `trustedEvidence` is an injected local dependency for
+a separately controlled review harness, not an unattended CLI input.
+
 ## Safety rules
 
 - `record_type` must equal `event`; no inference from other cells.
@@ -69,7 +99,12 @@ selected row
 - only HTTP(S) source URLs are accepted; credentials embedded in URLs are rejected.
 - pricing, inventory, legal/termination, financing, approvals/zoning/permits, and chronology conflicts preserve or strengthen human review.
 - duplicate/additional-source/human-review are successful processor outcomes, not process errors.
-- project-fact proposals always have `apply: false`; Phase A never edits canonical facts.
+- unsupported material claims or a `human_review` recommendation produce
+  `candidate: null`; the report retains held claims and raw relationships remain
+  in the immutable snapshot while normalized claim relationships stay separate.
+- project-fact proposals always have `apply: false`; supported proposals remain
+  pending human review and unsupported/conflicting proposals are held; Phase A
+  never edits canonical facts.
 
 ## Current four-row expected behavior
 
@@ -113,10 +148,18 @@ Phase A reads existing canonical/reviewed sources without modifying them:
 - `research/news-review/approved-development-news.json`
 - `src/data/approvedExternalNews.ts`
 - `src/data/importedUpdates.json` when present
-- `src/data/projectFactOverrides.ts`
+- `content/overrides/project-fact-overrides.json`
 - optional `.runtime/intel/open-pr-index.json` when a harness supplies review-only PR metadata
 
 Event identity, chronology, project/corridor relationships, and content overlap are used together; title/slug equality is never the only dedupe key.
+
+The approved-news JSON, reviewed project-fact-overrides JSON, and generated
+news TypeScript input are required: missing or unreadable inputs, invalid JSON
+in the JSON files, or an invalid expected shape fail closed with
+`ERR_REPOSITORY_INDEX`. The imported
+updates and open-PR indexes are optional only when absent; if present, they
+must still parse and match their expected array shape or fail closed. Each
+index revision is hashed into the report.
 
 ## Error taxonomy
 
@@ -129,6 +172,11 @@ Machine-readable codes include:
 - `ERR_EVIDENCE_CONFLICT`
 - `ERR_UNSAFE_SOURCE`
 - `ERR_TEMPORAL_CONFLICT`
+- `ERR_REPOSITORY_INDEX`
+- `ERR_UNSAFE_INTEL_ID`
+- `ERR_UNSAFE_INTEL_ARTIFACT`
+- `ERR_REVIEW_SNAPSHOT_BINDING` / `ERR_REVIEW_CLAIM_BINDING`
+- `ERR_REVIEW_SOURCE_BINDING` / `ERR_REVIEW_CONTENT_BINDING`
 
 Normal editorial/dedupe outcomes are not errors.
 
@@ -137,118 +185,23 @@ Normal editorial/dedupe outcomes are not errors.
 A later separately approved Phase B may take an accepted Phase A bundle, create a dedicated branch, make repository changes, run tests, open a DRAFT PR, and perform allowlisted Sheet writeback. It still must not auto-merge or auto-deploy.
 
 Phase A contains **none** of those side effects.
-
 ---
+## Follow-on integration boundary — not active
 
-## Follow-on integration requirement — unified project-fact maintenance
+See [P2 Intelligence Convergence Design](P2_INTELLIGENCE_CONVERGENCE_DESIGN.md) for the shared Codex/article and Gemini/Sheet contract. This future slice does not change Phase A or authorize Sheet writeback, fact application, publication, repository mutation, Git/GitHub automation, or deployment.
 
-This section records the approved product direction for the **next integration slice only**. It does not change Phase A behavior or authorize Phase B, Sheet writeback, repository mutation, publication, or unattended production permissions.
-
-The eventual intelligence system must maintain canonical project information as well as dated editorial updates. The existing Codex article-ingestion stream and the Gemini/Sheet intake stream remain valid inputs, but both must converge on one shared verification, event-identity, deduplication, and project-fact proposal contract before any repository change is considered.
-
-### Independent outcomes
-
-A verified event may produce three independent proposed outcomes:
-
-1. **Dated Update/article only** — preserve the historical event without changing a current project fact.
-2. **Canonical project-fact change only** — update a current fact when evidence supports the field-level change even if no standalone article is warranted.
-3. **Both** — release the dated Update/article and canonical fact change coherently from the same verified evidence bundle.
-
-A newer source is not automatically a newer underlying event. Historical articles remain dated snapshots and must not be rewritten to reflect later facts. Construction milestones must not be used to infer delivery, availability, pricing, legal status, approvals, or other unrelated state.
-
-### Existing ingestion and canonical-data reconciliation
-
-Before implementation of this follow-on slice, inventory the actual repository Codex ingestion entry point, its stage/publish/ship path, and any scheduled/local automation that cannot be independently inspected. Repository code must be distinguished from external jobs. Existing machinery should be reused rather than replaced.
-
-The project-fact path must extend the existing project-data architecture and preserve reviewed overrides and their current precedence. Automated evidence may create a proposal, but must never be labeled as a human review or silently outrank a reviewed override.
-
-### Field-level fact proposal contract
-
-Each proposed canonical fact change must carry at least:
-
-```ts
-type CanonicalProjectFactProposal = {
-  proposal_id: string;
-  project_id: string;
-  field: string;
-  old_value: unknown;
-  new_value: unknown;
-  effective_date?: string;
-  event_key?: string;
-  supporting_claim_ids: string[];
-  verification_source_ref_ids: string[];
-  risk: "low" | "medium" | "high";
-  review_requirement: "allowlisted_low_risk" | "human_review" | "blocked";
-  supersedes_proposal_id?: string;
-  rollback: {
-    previous_value: unknown;
-    source_revision: string;
-  };
-};
-```
-
-The application layer must reject stale overwrites when a proposal describes an older underlying event/effective state than the currently accepted fact, even when the reporting article itself is newer.
-
-### Propagation contract
-
-For every future allowlisted project field, trace the canonical source through all current-information surfaces before enabling automated application:
-
-```text
-canonical project data
-→ project page
-→ building cards
-→ comparisons
-→ corridor/discovery surfaces
-→ map presentation
-→ floor-plan project context
-→ schema/structured data
-→ feeds/AI discovery where applicable
-```
-
-The inventory must identify hardcoded current facts or derived copies that would remain stale after a canonical update. Approved propagation must occur from canonical data/generated outputs rather than page-by-page manual edits.
-
-A required isolated regression fixture must prove that one project-field change reaches every applicable current-information surface, changes no unrelated project, and does not rewrite historical Update/article content.
-
-### Coordinated release path
-
-Both intake streams should ultimately use the same controlled path:
-
+The eventual controlled path is:
 ```text
 Codex ingestion OR Gemini/Sheet intake
-→ shared source verification
-→ shared claim ledger
-→ shared event identity/dedupe
-→ independent outcome decision
-   ├─ dated Update/article proposal
-   ├─ canonical project-fact proposal
-   └─ both
-→ reviewed canonical data change
-→ generated outputs
-→ full repository tests
-→ controlled deployment
-→ live cross-surface consistency verification
+→ shared source verification and claim ledger
+→ event identity, dedupe, chronology/conflict, and risk decision
+→ independent dated-article and canonical-fact proposals
+→ human-reviewed canonical change
+→ generated surfaces and controlled verification
 ```
 
-The contract must prevent duplicate processing across the two intake streams and reject stale fact overwrites.
+A verified event may produce an Update/article proposal, a canonical project-fact proposal, both, or neither. A newer source is not automatically a new event; historical Update/article content remains a dated snapshot. Construction milestones must not infer delivery, availability, pricing, legal status, approvals, or unrelated state.
 
-### Future unattended allowlist
+Current fact proposals remain `apply: false`, pending human review when supported and held when unsupported or conflicting. The existing canonical model, resolver, accessors, and reviewed precedence remain the authority. `content/overrides/project-fact-overrides.json` is the existing Brooke-reviewed/manual JSON target only; future automated facts must preserve explicit automated/source provenance and must not write into or impersonate that override layer. No automated authority slot or new database is activated here.
 
-The follow-on design may propose a narrow unattended allowlist only for low-risk, objectively source-backed fields whose propagation and rollback are deterministic. Candidate classes may include simple verified construction-stage markers or other factual status fields **only after field-specific evidence and propagation tests exist**.
-
-Pricing, inventory, incentives, delivery/completion promises, financing, legal disputes, condo termination/buyouts, assessments, zoning/approval interpretation, conflicting timelines, and ambiguous entity identity remain review-required unless a later separately approved policy explicitly narrows that restriction.
-
-Human approval of a fact proposal should trigger automatic propagation through canonical/generated surfaces; it should not require manual page-by-page editing.
-
-### Phase A invariant
-
-Nothing in this section changes the tested Phase A guarantee:
-
-```text
-processor repository mutations = 0
-Sheet mutations = 0
-Git/GitHub mutations by processor = 0
-publication/deployment actions = 0
-project-fact proposals apply = false
-```
-
-Implementation of this unified fact-maintenance path requires a separately reviewed integration slice after PR #89 review and does not belong in PR #86.
+After separate approval of the next slice, one disposable single-field propagation proof must cover project pages, cards, comparisons, corridor/discovery, map, floorplan context, schema, feeds, and AI outputs without rewriting historical articles or unrelated projects. Activation/application requires separate approval of the proposal schema, field allowlist, review owner, stale-revision handling, provenance model, and proof results.

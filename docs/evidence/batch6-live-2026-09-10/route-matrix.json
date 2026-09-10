@@ -1,0 +1,448 @@
+{
+  "verifiedAt": "2026-09-10T20:11:33.942Z",
+  "productionOrigin": "https://www.wpbnewconstruction.com",
+  "routes": [
+    "/",
+    "/buildings/",
+    "/map/",
+    "/floorplans/",
+    "/projects/olara/",
+    "/projects/rosewood-residences-west-palm-beach/",
+    "/projects/maison-dor/",
+    "/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+    "/corridors/south-flagler/",
+    "/inquire/",
+    "/floorplans/olara/residence-d/"
+  ],
+  "widths": [
+    1440,
+    390
+  ],
+  "results": [
+    {
+      "route": "/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 5472,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 2
+    },
+    {
+      "route": "/buildings/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 6481,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/map/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 584,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 2
+    },
+    {
+      "route": "/floorplans/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 4976,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/projects/olara/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 3803,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 2
+    },
+    {
+      "route": "/projects/rosewood-residences-west-palm-beach/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 7282,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 2
+    },
+    {
+      "route": "/projects/maison-dor/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 6413,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 2
+    },
+    {
+      "route": "/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 6042,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/corridors/south-flagler/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 4731,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/inquire/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 641,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": true,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "width": 1440,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 2392,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": null,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 5472,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 2
+    },
+    {
+      "route": "/buildings/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 6481,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/map/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 584,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 2
+    },
+    {
+      "route": "/floorplans/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 4976,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/projects/olara/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 3803,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 2
+    },
+    {
+      "route": "/projects/rosewood-residences-west-palm-beach/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 7282,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 2
+    },
+    {
+      "route": "/projects/maison-dor/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 6413,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 2
+    },
+    {
+      "route": "/answers/olara-vs-ritz-carlton-vs-shorecrest/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 6042,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/corridors/south-flagler/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 4731,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/inquire/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 641,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": true,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "width": 390,
+      "status": "pass",
+      "httpStatus": 200,
+      "h1Count": 1,
+      "bodyTextLength": 2392,
+      "overflow": false,
+      "conciergeRequestedBeforeOpen": false,
+      "conciergeRequestedAfterOpen": true,
+      "mobileOwnership": 0,
+      "manualResponseText": null,
+      "focusState": {
+        "tag": "BUTTON",
+        "expanded": "false",
+        "launcher": true
+      },
+      "externalBlockedCount": 1
+    }
+  ],
+  "productionSha": "2d0175eed5157afa58b57cfb8327ec590e2dda95",
+  "deploymentRun": 34523585398,
+  "limitations": [
+    "All non-GET same-origin requests were blocked; this probe submitted no forms.",
+    "All external requests were blocked, so this is not evidence of Google Maps tiles, Turnstile, GA4 transport, D1, email/CRM or fulfillment.",
+    "Shortlist submit behavior was covered by candidate/local QA, not this production route probe."
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "scrollY": 56,
+  "launcher": {
+    "rect": {
+      "left": 276.171875,
+      "top": 782,
+      "right": 378,
+      "bottom": 830,
+      "width": 101.828125,
+      "height": 48
+    },
+    "expanded": "false"
+  },
+  "points": {
+    "Zoom in": {
+      "rect": {
+        "left": 325,
+        "top": 738.375,
+        "right": 365,
+        "bottom": 778.375,
+        "width": 40,
+        "height": 40
+      },
+      "point": {
+        "x": 345,
+        "y": 758.375
+      },
+      "hit": {
+        "tag": "BUTTON",
+        "className": "gm-control-active",
+        "ariaLabel": "Zoom in"
+      },
+      "containsHit": true
+    },
+    "Zoom out": {
+      "rect": {
+        "left": 325,
+        "top": 779.375,
+        "right": 365,
+        "bottom": 819.375,
+        "width": 40,
+        "height": 40
+      },
+      "point": {
+        "x": 345,
+        "y": 799.375
+      },
+      "hit": {
+        "tag": "BUTTON",
+        "className": "buyer-concierge-launcher",
+        "ariaLabel": "Open Ask WPB buyer concierge"
+      },
+      "containsHit": false
+    }
+  },
+  "directPointerResults": [
+    {
+      "label": "Zoom in",
+      "point": {
+        "x": 345,
+        "y": 758.375
+      },
+      "before": {
+        "expanded": "false"
+      },
+      "after": {
+        "expanded": "false",
+        "hit": {
+          "tag": "BUTTON",
+          "className": "gm-control-active",
+          "ariaLabel": "Zoom in"
+        }
+      }
+    },
+    {
+      "label": "Zoom out",
+      "point": {
+        "x": 345,
+        "y": 799.375
+      },
+      "before": {
+        "expanded": "false"
+      },
+      "after": {
+        "expanded": "true",
+        "hit": {
+          "tag": "BUTTON",
+          "className": "buyer-concierge-launcher",
+          "ariaLabel": "Open Ask WPB buyer concierge"
+        }
+      }
+    }
+  ]
+}

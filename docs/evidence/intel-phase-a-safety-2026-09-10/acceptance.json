@@ -1,0 +1,453 @@
+{
+  "record_type": "intel-phase-a-safety-acceptance",
+  "generated_at": "2026-09-10T20:49:01.303Z",
+  "status": "passed_for_internal_tooling_review",
+  "recommendation": "MERGE_INTERNAL_TOOLING_ONLY",
+  "release_boundary": {
+    "pull_request": 89,
+    "approved": false,
+    "merged": false,
+    "deployed": false,
+    "separate_brooke_authorization_required": true,
+    "phase_b_sheet_writeback_fact_application_external_publication": "unauthorized"
+  },
+  "source": {
+    "repository": "BrokenFL/WPB_New_Construction",
+    "pull_request_url": "https://github.com/BrokenFL/WPB_New_Construction/pull/89",
+    "head_branch": "p2-development-intelligence-processor-v1",
+    "head_sha": "7953d4a66e13b37e4d9ffc02447ca19735d603bf",
+    "base_branch": "main",
+    "base_sha": "2d0175eed5157afa58b57cfb8327ec590e2dda95",
+    "synthetic_merge_ref": "refs/pull/89/merge",
+    "synthetic_merge_sha": "a24fb427151c05fb54264993eb8f27d3f4cf57d0",
+    "mergeable_at_capture": true,
+    "actual_merge_commit": null
+  },
+  "ci": {
+    "run_count": 4,
+    "job_count": 12,
+    "artifact_count": 9,
+    "ci_runs_green": true,
+    "all_jobs_green": true,
+    "all_steps_terminal_success_or_skipped": true,
+    "artifacts_present_unexpired": true,
+    "workflows": [
+      {
+        "run_id": 34527256629,
+        "run_number": 64,
+        "workflow_name": "Batch 6 concierge implementation review (no deploy)",
+        "workflow_path": ".github/workflows/p2-batch6-concierge-review.yml",
+        "event": "pull_request",
+        "head_sha": "7953d4a66e13b37e4d9ffc02447ca19735d603bf",
+        "head_branch": "p2-development-intelligence-processor-v1",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34527256629",
+        "jobs": [
+          {
+            "job_id": 103039060934,
+            "name": "Batch 6 concierge (keyed)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "job_id": 103039061337,
+            "name": "Batch 6 concierge (no-key)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "job_id": 103042105094,
+            "name": "Batch 6 concierge aggregate gate",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ],
+        "artifacts": [
+          {
+            "artifact_id": 10172383668,
+            "name": "batch6-keyed-maps-a24fb427151c05fb54264993eb8f27d3f4cf57d0",
+            "expired": false
+          },
+          {
+            "artifact_id": 10172382476,
+            "name": "batch6-concierge-keyed-a24fb427151c05fb54264993eb8f27d3f4cf57d0",
+            "expired": false
+          },
+          {
+            "artifact_id": 10172349224,
+            "name": "batch6-concierge-no-key-a24fb427151c05fb54264993eb8f27d3f4cf57d0",
+            "expired": false
+          }
+        ]
+      },
+      {
+        "run_id": 34527256644,
+        "run_number": 36,
+        "workflow_name": "P2 Batch 5 complete authorship verification (no deploy)",
+        "workflow_path": ".github/workflows/p2-authorship-trust-complete-review.yml",
+        "event": "pull_request",
+        "head_sha": "7953d4a66e13b37e4d9ffc02447ca19735d603bf",
+        "head_branch": "p2-development-intelligence-processor-v1",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34527256644",
+        "jobs": [
+          {
+            "job_id": 103039061379,
+            "name": "Batch 5 candidate (keyed)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "job_id": 103039061715,
+            "name": "Batch 5 candidate (no-key)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "job_id": 103041970311,
+            "name": "Batch 5 review verification",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ],
+        "artifacts": [
+          {
+            "artifact_id": 10172368231,
+            "name": "p2-authorship-trust-keyed-a24fb427151c05fb54264993eb8f27d3f4cf57d0",
+            "expired": false
+          },
+          {
+            "artifact_id": 10172357976,
+            "name": "p2-authorship-trust-no-key-a24fb427151c05fb54264993eb8f27d3f4cf57d0",
+            "expired": false
+          }
+        ]
+      },
+      {
+        "run_id": 34527256689,
+        "run_number": 34,
+        "workflow_name": "Batch 6C social preview review (no deploy)",
+        "workflow_path": ".github/workflows/p2-batch6-social-review.yml",
+        "event": "pull_request",
+        "head_sha": "7953d4a66e13b37e4d9ffc02447ca19735d603bf",
+        "head_branch": "p2-development-intelligence-processor-v1",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34527256689",
+        "jobs": [
+          {
+            "job_id": 103039061007,
+            "name": "Batch 6C social previews (keyed)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "job_id": 103039061362,
+            "name": "Batch 6C social previews (no-key)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "job_id": 103039968673,
+            "name": "Batch 6C aggregate gate",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ],
+        "artifacts": [
+          {
+            "artifact_id": 10172134535,
+            "name": "batch6-social-no-key-a24fb427151c05fb54264993eb8f27d3f4cf57d0",
+            "expired": false
+          },
+          {
+            "artifact_id": 10172133019,
+            "name": "batch6-social-keyed-a24fb427151c05fb54264993eb8f27d3f4cf57d0",
+            "expired": false
+          }
+        ]
+      },
+      {
+        "run_id": 34527256679,
+        "run_number": 6,
+        "workflow_name": "Intelligence processor Phase A review",
+        "workflow_path": ".github/workflows/intel-phase-a-review.yml",
+        "event": "pull_request",
+        "head_sha": "7953d4a66e13b37e4d9ffc02447ca19735d603bf",
+        "head_branch": "p2-development-intelligence-processor-v1",
+        "status": "completed",
+        "conclusion": "success",
+        "run_attempt": 1,
+        "url": "https://github.com/BrokenFL/WPB_New_Construction/actions/runs/34527256679",
+        "jobs": [
+          {
+            "job_id": 103039061388,
+            "name": "Intelligence Phase A (no-key)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "job_id": 103039061734,
+            "name": "Intelligence Phase A (keyed)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "job_id": 103039618364,
+            "name": "Intelligence Phase A aggregate gate",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ],
+        "artifacts": [
+          {
+            "artifact_id": 10172092988,
+            "name": "intel-phase-a-keyed-7953d4a66e13b37e4d9ffc02447ca19735d603bf",
+            "expired": false
+          },
+          {
+            "artifact_id": 10172086800,
+            "name": "intel-phase-a-no-key-7953d4a66e13b37e4d9ffc02447ca19735d603bf",
+            "expired": false
+          }
+        ]
+      }
+    ]
+  },
+  "phase_a": {
+    "focused_tests": {
+      "tests": 45,
+      "passed": 45,
+      "failed": 0,
+      "log_job_id": 103039061388,
+      "step_conclusion": "success"
+    },
+    "four_row_offline": {
+      "rows": [
+        {
+          "intel_id": "wpb-intel-2026-09-08-001",
+          "recommendation": "human_review",
+          "dedupe": "conflicting_event",
+          "expected_dedupe": "conflicting_event",
+          "candidate_null": true,
+          "mutation_count": 0,
+          "verification_source_count": 2,
+          "claim_support_values": [
+            "unsupported"
+          ],
+          "artifact_files_exact": true,
+          "manifest_hashes_match": true
+        },
+        {
+          "intel_id": "wpb-intel-2026-09-09-001",
+          "recommendation": "human_review",
+          "dedupe": "duplicate",
+          "expected_dedupe": "duplicate",
+          "candidate_null": true,
+          "mutation_count": 0,
+          "verification_source_count": 1,
+          "claim_support_values": [
+            "unsupported"
+          ],
+          "artifact_files_exact": true,
+          "manifest_hashes_match": true
+        },
+        {
+          "intel_id": "wpb-intel-2026-09-09-002",
+          "recommendation": "human_review",
+          "dedupe": "new_event",
+          "expected_dedupe": "new_event",
+          "candidate_null": true,
+          "mutation_count": 0,
+          "verification_source_count": 1,
+          "claim_support_values": [
+            "unsupported"
+          ],
+          "artifact_files_exact": true,
+          "manifest_hashes_match": true
+        },
+        {
+          "intel_id": "wpb-intel-2026-09-09-003",
+          "recommendation": "human_review",
+          "dedupe": "new_event",
+          "expected_dedupe": "new_event",
+          "candidate_null": true,
+          "mutation_count": 0,
+          "verification_source_count": 1,
+          "claim_support_values": [
+            "unsupported"
+          ],
+          "artifact_files_exact": true,
+          "manifest_hashes_match": true
+        }
+      ],
+      "all_human_review": true,
+      "all_candidates_null": true,
+      "expected_dedupe_matches": true,
+      "zero_mutations": true,
+      "ci_step_conclusion": "success",
+      "ci_outcome_verification_step_conclusion": "success"
+    },
+    "no_key_deployment_rejection": {
+      "step": "Expected no-key deployment rejection",
+      "conclusion": "success",
+      "assertion": "verifyProductionMapBundle() rejects a no-key production bundle"
+    },
+    "full_repository_test_count_from_no_key_log": 84
+  },
+  "canonical_input_hash_audit": {
+    "inputs": [
+      {
+        "path": "research/intel-fixtures/current-intel.csv",
+        "before_sha256": "de252d77f5d3bc10239a8cb60675b3cf0e348293158bcfe16fb429b59e684ba9",
+        "after_sha256": "de252d77f5d3bc10239a8cb60675b3cf0e348293158bcfe16fb429b59e684ba9",
+        "before_bytes": 5057,
+        "after_bytes": 5057,
+        "unchanged": true
+      },
+      {
+        "path": "research/news-review/approved-development-news.json",
+        "before_sha256": "c4f6ba8301033f09728871e97bddb8751998f1b99de4c174f2993957cd70a931",
+        "after_sha256": "c4f6ba8301033f09728871e97bddb8751998f1b99de4c174f2993957cd70a931",
+        "before_bytes": 139342,
+        "after_bytes": 139342,
+        "unchanged": true
+      },
+      {
+        "path": "src/data/importedUpdates.json",
+        "before_sha256": "4faac35df922adaa87edd2103972753a62225738e3109e0e932ed1070c39ecef",
+        "after_sha256": "4faac35df922adaa87edd2103972753a62225738e3109e0e932ed1070c39ecef",
+        "before_bytes": 528,
+        "after_bytes": 528,
+        "unchanged": true
+      },
+      {
+        "path": "content/overrides/project-fact-overrides.json",
+        "before_sha256": "f4f4c11c7d97d05bf1d2e8b5c646343326088cada567a375bc05c073a305cdba",
+        "after_sha256": "f4f4c11c7d97d05bf1d2e8b5c646343326088cada567a375bc05c073a305cdba",
+        "before_bytes": 674,
+        "after_bytes": 674,
+        "unchanged": true
+      },
+      {
+        "path": "src/data/approvedExternalNews.ts",
+        "before_sha256": "3d4661f8c9dac0f6d79c1ddf37558951c4ad0a0f2c66613cb8ad1e135cd420c1",
+        "after_sha256": "3d4661f8c9dac0f6d79c1ddf37558951c4ad0a0f2c66613cb8ad1e135cd420c1",
+        "before_bytes": 142413,
+        "after_bytes": 142413,
+        "unchanged": true
+      },
+      {
+        "path": "research/scripts/intel/repo-index.mjs",
+        "before_sha256": "ad8c601c3e9db5007c2ac21f85e569746d3de0aa953a1dffc683c8410b74871c",
+        "after_sha256": "ad8c601c3e9db5007c2ac21f85e569746d3de0aa953a1dffc683c8410b74871c",
+        "before_bytes": 3195,
+        "after_bytes": 3195,
+        "unchanged": true
+      }
+    ],
+    "all_unchanged": true
+  },
+  "no_write_proof": {
+    "local_verification_requested_commit": "33dadfc9f4b346ac5d54890a5cf46e854ac8b67a",
+    "local_head_before": "33dadfc9f4b346ac5d54890a5cf46e854ac8b67a",
+    "local_head_after": "33dadfc9f4b346ac5d54890a5cf46e854ac8b67a",
+    "local_head_matches_requested": true,
+    "ci_tested_source": "7953d4a66e13b37e4d9ffc02447ca19735d603bf",
+    "ci_remote_ref": "refs/heads/p2-development-intelligence-processor-v1",
+    "ci_source_remote_verified": true,
+    "non_docs_tracked_state_unchanged": true,
+    "docs_excluded_from_equality": true,
+    "working_tree_changes_preexisting_or_owned_review_changes": true,
+    "artifact_root": ".runtime/intel/",
+    "artifact_allowlist": [
+      "intake-snapshot.json",
+      "claim-ledger.json",
+      "candidate.json",
+      "validation-report.json",
+      "validation-report.md",
+      "manifest.json"
+    ],
+    "runtime_evidence": ".runtime/intel-safety-review-2026-09-10/verification.json",
+    "note": "The local before/after fixture audit was captured at 33dad before the retained-source-diagnostics commit; CI exercised 7953, which contains those owned changes. The local audit hashes and working-tree provenance are preserved above."
+  },
+  "adversarial_review": {
+    "categories": [
+      {
+        "category": "artifact_path_containment",
+        "coverage": "strict IDs, literal and encoded traversal, absolute/root IDs, empty/dot/NUL/wrong-type/overlong IDs, symlinked workspace/runtime/intel/target components, symlinked and hard-linked artifact files, fixed-name allowlist, atomic rerun, disposable .git and canonical sentinels",
+        "tests": [
+          "research/scripts/intel/artifact-containment.test.mjs"
+        ],
+        "result": "pass"
+      },
+      {
+        "category": "source_egress_and_fetch_limits",
+        "coverage": "credentials, file/private/loopback/link-local/reserved and transition addresses, unsafe redirects, bounded redirects, DNS private answers, timeout and oversized/slow responses",
+        "tests": [
+          "research/scripts/intel/source-verifier.test.mjs"
+        ],
+        "result": "pass; injected fetch and DNS fixtures were used where appropriate"
+      },
+      {
+        "category": "claim_evidence_binding",
+        "coverage": "intake verification claims, exact snapshot/claim/value/content/source binding, duplicate source references and explicit dissent",
+        "tests": [
+          "research/scripts/intel/claims-proposals.test.mjs",
+          "research/scripts/intel/process-intel.test.mjs"
+        ],
+        "result": "pass"
+      },
+      {
+        "category": "event_identity_chronology_and_risk",
+        "coverage": "supplied/derived event-key conflicts, duplicate/new/conflicting events, chronology conflicts and delivery/incentive/fee/ownership risk holds",
+        "tests": [
+          "research/scripts/intel/process-intel.test.mjs",
+          "research/scripts/intel/claims-proposals.test.mjs"
+        ],
+        "result": "pass"
+      },
+      {
+        "category": "prompt_injection_inertness",
+        "coverage": "prompt-like intake strings remain data and do not alter processing",
+        "tests": [
+          "research/scripts/intel/process-intel.test.mjs"
+        ],
+        "result": "pass"
+      },
+      {
+        "category": "fact_proposal_apply_guard",
+        "coverage": "supported proposals retain apply=false and canonical rollback binding; absent/impossible dates and stale canonical values remain held",
+        "tests": [
+          "research/scripts/intel/claims-proposals.test.mjs"
+        ],
+        "result": "pass"
+      },
+      {
+        "category": "idempotency_and_artifact_integrity",
+        "coverage": "semantic hash stability, deterministic six-file bundle, manifest hashes and per-file atomic replacement",
+        "tests": [
+          "research/scripts/intel/process-intel.test.mjs",
+          "research/scripts/intel/artifact-containment.test.mjs"
+        ],
+        "result": "pass"
+      }
+    ],
+    "limits": [
+      "Trusted single local worker only; Node path APIs do not provide an openat-style guarantee against a concurrent hostile filesystem race.",
+      "Writes are per-file atomic, not whole-bundle atomic; an interruption can leave a partial bundle and consumers must verify the manifest.",
+      "Source retrieval is bounded and unadjudicated; HTTP reachability, tier and intake claims_supported do not support a claim. Adjudication remains a separately injected trusted local review API and is not a CLI activation.",
+      "Phase A remains dry-run/local-only: no Sheet, canonical-data, Git/GitHub, publication, deployment or fact application path is authorized; proposals remain apply=false or held.",
+      "Adversarial network checks used stubs/injected DNS and did not contact real metadata or private services; focused tests and CI do not establish general source understanding or external-service fulfillment."
+    ]
+  },
+  "runtime_records": {
+    "ci_acceptance_full_record": "/Volumes/ExternalSSD/WPB_PR89_Review/.runtime/intel-safety-review-2026-09-10/ci-acceptance.json",
+    "verification_full_record": "/Volumes/ExternalSSD/WPB_PR89_Review/.runtime/intel-safety-review-2026-09-10/verification.json"
+  }
+}
