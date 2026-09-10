@@ -66,6 +66,8 @@ jobs:
           NODE
           git diff --exit-code
           test -z "$(git status --porcelain --untracked-files=all | grep -v '^?? .runtime/intel/' || true)"
+      - name: Install Chromium for repository browser QA
+        run: npx playwright install --with-deps chromium
       - name: Build production-shaped site for repository QA
         run: npm run build
       - name: Full repository tests
