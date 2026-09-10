@@ -137,3 +137,118 @@ Normal editorial/dedupe outcomes are not errors.
 A later separately approved Phase B may take an accepted Phase A bundle, create a dedicated branch, make repository changes, run tests, open a DRAFT PR, and perform allowlisted Sheet writeback. It still must not auto-merge or auto-deploy.
 
 Phase A contains **none** of those side effects.
+
+---
+
+## Follow-on integration requirement — unified project-fact maintenance
+
+This section records the approved product direction for the **next integration slice only**. It does not change Phase A behavior or authorize Phase B, Sheet writeback, repository mutation, publication, or unattended production permissions.
+
+The eventual intelligence system must maintain canonical project information as well as dated editorial updates. The existing Codex article-ingestion stream and the Gemini/Sheet intake stream remain valid inputs, but both must converge on one shared verification, event-identity, deduplication, and project-fact proposal contract before any repository change is considered.
+
+### Independent outcomes
+
+A verified event may produce three independent proposed outcomes:
+
+1. **Dated Update/article only** — preserve the historical event without changing a current project fact.
+2. **Canonical project-fact change only** — update a current fact when evidence supports the field-level change even if no standalone article is warranted.
+3. **Both** — release the dated Update/article and canonical fact change coherently from the same verified evidence bundle.
+
+A newer source is not automatically a newer underlying event. Historical articles remain dated snapshots and must not be rewritten to reflect later facts. Construction milestones must not be used to infer delivery, availability, pricing, legal status, approvals, or other unrelated state.
+
+### Existing ingestion and canonical-data reconciliation
+
+Before implementation of this follow-on slice, inventory the actual repository Codex ingestion entry point, its stage/publish/ship path, and any scheduled/local automation that cannot be independently inspected. Repository code must be distinguished from external jobs. Existing machinery should be reused rather than replaced.
+
+The project-fact path must extend the existing project-data architecture and preserve reviewed overrides and their current precedence. Automated evidence may create a proposal, but must never be labeled as a human review or silently outrank a reviewed override.
+
+### Field-level fact proposal contract
+
+Each proposed canonical fact change must carry at least:
+
+```ts
+type CanonicalProjectFactProposal = {
+  proposal_id: string;
+  project_id: string;
+  field: string;
+  old_value: unknown;
+  new_value: unknown;
+  effective_date?: string;
+  event_key?: string;
+  supporting_claim_ids: string[];
+  verification_source_ref_ids: string[];
+  risk: "low" | "medium" | "high";
+  review_requirement: "allowlisted_low_risk" | "human_review" | "blocked";
+  supersedes_proposal_id?: string;
+  rollback: {
+    previous_value: unknown;
+    source_revision: string;
+  };
+};
+```
+
+The application layer must reject stale overwrites when a proposal describes an older underlying event/effective state than the currently accepted fact, even when the reporting article itself is newer.
+
+### Propagation contract
+
+For every future allowlisted project field, trace the canonical source through all current-information surfaces before enabling automated application:
+
+```text
+canonical project data
+→ project page
+→ building cards
+→ comparisons
+→ corridor/discovery surfaces
+→ map presentation
+→ floor-plan project context
+→ schema/structured data
+→ feeds/AI discovery where applicable
+```
+
+The inventory must identify hardcoded current facts or derived copies that would remain stale after a canonical update. Approved propagation must occur from canonical data/generated outputs rather than page-by-page manual edits.
+
+A required isolated regression fixture must prove that one project-field change reaches every applicable current-information surface, changes no unrelated project, and does not rewrite historical Update/article content.
+
+### Coordinated release path
+
+Both intake streams should ultimately use the same controlled path:
+
+```text
+Codex ingestion OR Gemini/Sheet intake
+→ shared source verification
+→ shared claim ledger
+→ shared event identity/dedupe
+→ independent outcome decision
+   ├─ dated Update/article proposal
+   ├─ canonical project-fact proposal
+   └─ both
+→ reviewed canonical data change
+→ generated outputs
+→ full repository tests
+→ controlled deployment
+→ live cross-surface consistency verification
+```
+
+The contract must prevent duplicate processing across the two intake streams and reject stale fact overwrites.
+
+### Future unattended allowlist
+
+The follow-on design may propose a narrow unattended allowlist only for low-risk, objectively source-backed fields whose propagation and rollback are deterministic. Candidate classes may include simple verified construction-stage markers or other factual status fields **only after field-specific evidence and propagation tests exist**.
+
+Pricing, inventory, incentives, delivery/completion promises, financing, legal disputes, condo termination/buyouts, assessments, zoning/approval interpretation, conflicting timelines, and ambiguous entity identity remain review-required unless a later separately approved policy explicitly narrows that restriction.
+
+Human approval of a fact proposal should trigger automatic propagation through canonical/generated surfaces; it should not require manual page-by-page editing.
+
+### Phase A invariant
+
+Nothing in this section changes the tested Phase A guarantee:
+
+```text
+processor repository mutations = 0
+Sheet mutations = 0
+Git/GitHub mutations by processor = 0
+publication/deployment actions = 0
+project-fact proposals apply = false
+```
+
+Implementation of this unified fact-maintenance path requires a separately reviewed integration slice after PR #89 review and does not belong in PR #86.
