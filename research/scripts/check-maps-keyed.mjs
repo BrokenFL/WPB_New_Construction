@@ -11,6 +11,19 @@ await fs.mkdir(artifactDir, { recursive: true });
 const server = spawn(process.execPath, ['node_modules/vite/bin/vite.js', 'preview', '--host', '127.0.0.1', '--port', '4173', '--strictPort'], { stdio: 'ignore' });
 let browser;
 const results = [];
+const scenarios = [
+  { route: '/', width: 1366, direction: 'in' },
+  { route: '/map/', width: 1366, direction: 'in' },
+  { route: '/', width: 390, direction: 'in' },
+  { route: '/', width: 390, direction: 'out' },
+  { route: '/map/', width: 390, direction: 'in' },
+  { route: '/map/', width: 390, direction: 'out' },
+];
+
+function safeErrorMessage(error) {
+  const message = error instanceof Error ? error.message : String(error);
+  return message.replace(/https?:\/\/\S+/g, '[URL omitted]').replace(/AIza[0-9A-Za-z_-]{20,}/g, '[key omitted]');
+}
 
 async function assertMobileMapControls(page, card, route) {
   const geometry = await card.evaluate((card) => {
@@ -50,14 +63,19 @@ async function assertMobileMapControls(page, card, route) {
       count: count && visible(count) ? { rect: rectOf(count), pointerEvents: getComputedStyle(count).pointerEvents } : null,
     };
   });
-  assert.equal(geometry.error, undefined, `${route} mobile Maps controls`);
-  for (const label of ['Zoom in', 'Zoom out']) {
-    const control = geometry.controls[label];
-    assert.equal(control.centerContainsHit, true, `${route} mobile ${label} center must hit its native Google control`);
-    assert.equal(control.overlapAreaWithLauncher, 0, `${route} mobile ${label} must clear the concierge launcher`);
-    assert.equal(control.overlapAreaWithCount, 0, `${route} mobile ${label} must clear the map count panel`);
+  try {
+    assert.equal(geometry.error, undefined, `${route} mobile Maps controls`);
+    for (const label of ['Zoom in', 'Zoom out']) {
+      const control = geometry.controls[label];
+      assert.equal(control.centerContainsHit, true, `${route} mobile ${label} center must hit its native Google control`);
+      assert.equal(control.overlapAreaWithLauncher, 0, `${route} mobile ${label} must clear the concierge launcher`);
+      assert.equal(control.overlapAreaWithCount, 0, `${route} mobile ${label} must clear the map count panel`);
+    }
+    assert.equal(geometry.launcher.expanded, 'false', `${route} mobile launcher should start closed`);
+  } catch (error) {
+    if (error && typeof error === 'object') error.mobileControlGeometry = geometry;
+    throw error;
   }
-  assert.equal(geometry.launcher.expanded, 'false', `${route} mobile launcher should start closed`);
   return geometry;
 }
 
@@ -70,7 +88,7 @@ try {
   }
   assert.ok(ready, 'Dedicated review server did not become ready.');
   browser = await chromium.launch({ headless: true });
-  for (const width of [1366, 390]) for (const route of ['/', '/map/']) {
+  for (const { route, width, direction } of scenarios) {
     const context = await browser.newContext({
       viewport: { width, height: width === 390 ? 844 : 900 },
       // This audit is about the real keyed Maps surface. Keep the unrelated
@@ -96,6 +114,7 @@ try {
     });
     page.on('pageerror', () => errors.push('UncaughtBrowserError'));
     let failurePhase = 'navigation';
+    let mobileControlGeometry;
     try {
       assert.equal((await page.goto(origin + route, { waitUntil: 'domcontentloaded' })).status(), 200);
       failurePhase = 'consent';
@@ -124,7 +143,6 @@ try {
       failurePhase = 'map-layout';
       const dimensions = await card.evaluate((el) => ({ cardWidth: el.getBoundingClientRect().width, canvasWidth: el.querySelector('[data-hero-google-map]').getBoundingClientRect().width }));
       if (route === '/map/') assert.ok(dimensions.canvasWidth >= dimensions.cardWidth - 4, 'Standalone map must fill its card; no empty inherited second column.');
-      let mobileControlGeometry;
       if (width === 390) {
         failurePhase = 'mobile-control-readiness';
         await page.waitForFunction(() => {
@@ -138,18 +156,19 @@ try {
         failurePhase = 'mobile-control-layout';
         await page.locator('.buyer-concierge-launcher').waitFor({ state: 'visible', timeout: 10000 });
         mobileControlGeometry = await assertMobileMapControls(page, card, route);
-        failurePhase = 'mobile-zoom-out-hit-test';
-        const preZoomOutTiles = await card.locator('.gm-style img').evaluateAll((imgs) => imgs.filter(i => i.complete && i.naturalWidth >= 128).map(i => i.currentSrc || i.src));
-        const zoomOut = mobileControlGeometry.controls['Zoom out'].center;
-        await page.mouse.click(zoomOut.x, zoomOut.y);
-        assert.equal(await page.locator('.buyer-concierge-launcher').getAttribute('aria-expanded'), 'false', `${route} mobile Zoom out must not open concierge`);
-        await page.waitForFunction((old) => [...document.querySelectorAll('.home-hero-map-card')].filter(c => !c.closest('[data-route-view]')?.hidden).flatMap(c => [...c.querySelectorAll('.gm-style img')]).some(i => i.complete && i.naturalWidth >= 128 && !old.includes(i.currentSrc || i.src)), preZoomOutTiles, { timeout: 15000 });
-        await page.waitForFunction(() => [...document.querySelectorAll('.home-hero-map-card')].find(c => !c.closest('[data-route-view]')?.hidden)?.getAttribute('data-map-state') === 'ready', null, { timeout: 5000 });
       }
       const previousTiles = await card.locator('.gm-style img').evaluateAll((imgs) => imgs.filter(i => i.complete && i.naturalWidth >= 128).map(i => i.currentSrc || i.src));
-      failurePhase = 'zoom-control';
-      await card.getByRole('button', { name: 'Zoom in', exact: true }).click();
-      failurePhase = 'zoom-tiles';
+      const label = direction === 'in' ? 'Zoom in' : 'Zoom out';
+      failurePhase = `zoom-${direction}-control`;
+      if (width === 390) {
+        const control = mobileControlGeometry.controls[label].center;
+        await page.mouse.click(control.x, control.y);
+        assert.equal(await page.locator('.buyer-concierge-launcher').getAttribute('aria-expanded'), 'false', `${route} mobile ${label} must not open concierge`);
+      } else {
+        assert.equal(direction, 'in', 'Desktop Maps scenario must exercise Zoom in.');
+        await card.getByRole('button', { name: label, exact: true }).click();
+      }
+      failurePhase = `zoom-${direction}-tiles`;
       await page.waitForFunction((old) => [...document.querySelectorAll('.home-hero-map-card')].filter(c => !c.closest('[data-route-view]')?.hidden).flatMap(c => [...c.querySelectorAll('.gm-style img')]).some(i => i.complete && i.naturalWidth >= 128 && !old.includes(i.currentSrc || i.src)), previousTiles, { timeout: 15000 });
       await page.waitForTimeout(1000);
       failurePhase = 'post-zoom-map-state';
@@ -166,13 +185,14 @@ try {
         await page.keyboard.press('Escape');
         await page.waitForFunction(() => document.querySelector('.buyer-concierge-launcher')?.getAttribute('aria-expanded') === 'false', null, { timeout: 5000 });
       }
-      const label = `${route === '/' ? 'home' : 'map'}-${width}`;
+      const scenarioLabel = `${route === '/' ? 'home' : 'map'}-${width}-zoom-${direction}`;
       failurePhase = 'screenshots';
-      await page.screenshot({ path: `${artifactDir}/${label}-working-map.png`, fullPage: true });
-      await card.screenshot({ path: `${artifactDir}/${label}-map-card.png` });
-      results.push({ route, width, status: 'pass', realLoaderResponse: true, loadedMapTileImages: true, zoomChangedTiles: true, dimensions, mobileControlGeometry, fallbackAccepted: false });
-    } catch {
-      results.push({ route, width, status: 'fail', failurePhase, errorCodes: [...new Set(errors)], reason: `Keyed Maps verification failed during ${failurePhase}.` });
+      await page.screenshot({ path: `${artifactDir}/${scenarioLabel}-working-map.png`, fullPage: true });
+      await card.screenshot({ path: `${artifactDir}/${scenarioLabel}-map-card.png` });
+      results.push({ route, width, direction, status: 'pass', realLoaderResponse: true, loadedMapTileImages: true, zoomChangedTiles: true, dimensions, mobileControlGeometry, fallbackAccepted: false });
+    } catch (error) {
+      const diagnostics = error && typeof error === 'object' && 'mobileControlGeometry' in error ? error.mobileControlGeometry : mobileControlGeometry;
+      results.push({ route, width, direction, status: 'fail', failurePhase, errorCodes: [...new Set(errors)], assertion: safeErrorMessage(error), ...(diagnostics ? { mobileControlGeometry: diagnostics } : {}), reason: `Keyed Maps verification failed during ${failurePhase}.` });
     }
     await context.close();
   }
