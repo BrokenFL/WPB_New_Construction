@@ -1,0 +1,76 @@
+name: Intelligence processor Phase A review
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/types/developmentIntelligence.ts'
+      - 'research/scripts/intel/**'
+      - 'research/intel-fixtures/**'
+      - 'docs/P2_INTELLIGENCE_PROCESSOR_PHASE_A.md'
+      - 'package.json'
+      - '.github/workflows/intel-phase-a-review.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: intel-phase-a-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  phase-a:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Phase A focused tests
+        run: npm run test:intel:phase-a
+      - name: Four-row dry-run fixture
+        run: |
+          npm run intel:process -- --csv research/intel-fixtures/current-intel.csv --offline \
+            --row wpb-intel-2026-09-08-001 \
+            --row wpb-intel-2026-09-09-001 \
+            --row wpb-intel-2026-09-09-002 \
+            --row wpb-intel-2026-09-09-003
+      - name: Verify dry-run outcomes and zero side effects
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises';
+          const ids = [
+            'wpb-intel-2026-09-08-001',
+            'wpb-intel-2026-09-09-001',
+            'wpb-intel-2026-09-09-002',
+            'wpb-intel-2026-09-09-003',
+          ];
+          for (const id of ids) {
+            const report = JSON.parse(await fs.readFile(`.runtime/intel/${id}/validation-report.json`, 'utf8'));
+            if (report.mutation_count !== 0) throw new Error(`${id}: mutation_count`);
+            if (report.recommendation !== 'human_review') throw new Error(`${id}: expected human_review, got ${report.recommendation}`);
+          }
+          const sfh = JSON.parse(await fs.readFile('.runtime/intel/wpb-intel-2026-09-08-001/validation-report.json','utf8'));
+          if (sfh.dedupe_classification !== 'conflicting_event') throw new Error('South Flagler must remain temporal-conflict fixture');
+          const dt = JSON.parse(await fs.readFile('.runtime/intel/wpb-intel-2026-09-09-003/candidate.json','utf8'));
+          if (JSON.stringify(dt.related_project_ids) !== JSON.stringify(['915-s-dixie','534-datura'])) throw new Error('Downtown project relationships changed');
+          if (JSON.stringify(dt.related_corridor_ids) !== JSON.stringify(['downtown','south-flagler'])) throw new Error('Downtown corridor relationships changed');
+          NODE
+          git diff --exit-code
+          test -z "$(git status --porcelain --untracked-files=all | grep -v '^?? .runtime/intel/' || true)"
+      - name: Full repository tests
+        run: npm test
+      - name: Upload dry-run review artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: intel-phase-a-${{ github.event.pull_request.head.sha }}
+          path: .runtime/intel/
+          retention-days: 14
