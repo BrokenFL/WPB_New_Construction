@@ -4,6 +4,7 @@ import { readSelectedRows } from "./sheet-adapter.mjs";
 import { verifySourceHint, classifySource } from "./source-verifier.mjs";
 import { processRow, stableJson, sha256 } from "./core.mjs";
 import { buildRepositoryIndexes } from "./repo-index.mjs";
+import { validateIntelId, writeArtifactBundle } from "./artifact-containment.mjs";
 
 function parseArgs(argv) {
   const ids = [];
@@ -15,7 +16,8 @@ function parseArgs(argv) {
     else if (argv[i] === "--offline") offline = true;
     else throw new Error(`ERR_UNKNOWN_ARGUMENT:${argv[i]}`);
   }
-  if (!ids.length || ids.some((id) => !id)) throw new Error("ERR_NO_SELECTED_ROWS");
+  if (!ids.length || ids.some((id) => id === undefined)) throw new Error("ERR_NO_SELECTED_ROWS");
+  ids.forEach(validateIntelId);
   return { ids, csvFile, offline };
 }
 
@@ -61,20 +63,12 @@ function humanReport(result) {
     "## Errors",
     ...(r.errors.length ? r.errors.map((e) => `- \`${e.code}\` — ${e.message}`) : ["- none"]),
     "",
-    "Phase A generated local candidate evidence only. It did not write to the Sheet, repository, GitHub, or production.",
+    "Wrote only local runtime review artifacts; no Sheet, canonical/tracked project data, GitHub or production mutation.",
     "",
   ].join("\n");
 }
 
 async function writeBundle(root, result) {
-  const dir = path.join(root, ".runtime", "intel", result.report.intel_id);
-  await fs.rm(dir, { recursive: true, force: true });
-  await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(path.join(dir, "intake-snapshot.json"), `${stableJson(result.snapshot)}\n`);
-  await fs.writeFile(path.join(dir, "claim-ledger.json"), `${stableJson(result.claims)}\n`);
-  await fs.writeFile(path.join(dir, "candidate.json"), `${stableJson(result.candidate)}\n`);
-  await fs.writeFile(path.join(dir, "validation-report.json"), `${stableJson(result.report)}\n`);
-  await fs.writeFile(path.join(dir, "validation-report.md"), humanReport(result));
   const manifest = {
     processor_version: result.report.processor_version,
     intel_id: result.report.intel_id,
@@ -87,8 +81,15 @@ async function writeBundle(root, result) {
     mutation_count: 0,
     output_root: `.runtime/intel/${result.report.intel_id}/`,
   };
-  await fs.writeFile(path.join(dir, "manifest.json"), `${stableJson(manifest)}\n`);
-  return { dir, manifest };
+  const location = await writeArtifactBundle(root, result.report.intel_id, {
+    "intake-snapshot.json": `${stableJson(result.snapshot)}\n`,
+    "claim-ledger.json": `${stableJson(result.claims)}\n`,
+    "candidate.json": `${stableJson(result.candidate)}\n`,
+    "validation-report.json": `${stableJson(result.report)}\n`,
+    "validation-report.md": humanReport(result),
+    "manifest.json": `${stableJson(manifest)}\n`,
+  });
+  return { dir: location.artifactDir, manifest };
 }
 
 export async function run(argv = process.argv.slice(2), deps = {}) {
