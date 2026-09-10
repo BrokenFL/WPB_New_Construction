@@ -55,6 +55,7 @@ const browser = await chromium.launch({ headless: true });
 let context;
 let page;
 const pageErrors = [];
+let postMountState = null;
 try {
   context = await step("context.create", () => browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce", serviceWorkers: "block" }), 10000);
   page = await step("page.create", () => context.newPage(), 10000);
@@ -82,6 +83,39 @@ try {
   await step("launcher.click", () => launcher.click({ timeout: 10000 }), 12000);
   const dialog = page.getByRole("dialog", { name: "Ask WPB" });
   await step("dialog.attached", () => dialog.waitFor({ state: "attached", timeout: 10000 }), 12000);
+  postMountState = await step("dialog.post-mount-state", () => page.evaluate(() => {
+    const root = document.querySelector("[data-buyer-concierge-root]");
+    const launcher = document.querySelector(".buyer-concierge-launcher");
+    const panel = document.querySelector("[data-buyer-concierge-panel]");
+    const describe = (el) => {
+      if (!(el instanceof HTMLElement)) return null;
+      const css = getComputedStyle(el);
+      const rect = el.getBoundingClientRect();
+      return {
+        connected: el.isConnected,
+        hidden: el.hidden,
+        display: css.display,
+        visibility: css.visibility,
+        opacity: css.opacity,
+        position: css.position,
+        width: rect.width,
+        height: rect.height,
+        top: rect.top,
+        right: rect.right,
+        bottom: rect.bottom,
+        left: rect.left,
+      };
+    };
+    return {
+      root: describe(root),
+      launcher: describe(launcher),
+      panel: describe(panel),
+      launcherExpanded: launcher?.getAttribute("aria-expanded") ?? null,
+      activeTag: document.activeElement?.tagName ?? null,
+      activeClass: document.activeElement?.getAttribute("class") ?? null,
+    };
+  }), 5000);
+  console.log(`map-probe post-mount-state ${JSON.stringify(postMountState)}`);
   await step("dialog.visible", () => dialog.waitFor({ state: "visible", timeout: 10000 }), 12000);
   for (const heading of ["Research", "Current information", "Talk to the team"]) {
     assert.equal(await dialog.getByRole("heading", { name: heading }).count(), 1, `/map/: ${heading}`);
@@ -95,8 +129,8 @@ try {
   assert.deepEqual(closeState, { exists: true, expanded: "false", focused: true });
   assert.deepEqual(pageErrors, [], "/map/: application exceptions");
 
-  await fs.writeFile(path.join(out, "map-probe.json"), JSON.stringify({ status: "pass", route: "/map/", timings, pageErrors }, null, 2));
-  console.log(JSON.stringify({ mapProbe: "pass", timings }, null, 2));
+  await fs.writeFile(path.join(out, "map-probe.json"), JSON.stringify({ status: "pass", route: "/map/", timings, postMountState, pageErrors }, null, 2));
+  console.log(JSON.stringify({ mapProbe: "pass", timings, postMountState }, null, 2));
 } finally {
   if (page && !page.isClosed()) await step("page.close", () => page.close({ runBeforeUnload: false }), 5000).catch(() => {});
   if (context) await step("context.close", () => context.close(), 5000).catch(() => {});
