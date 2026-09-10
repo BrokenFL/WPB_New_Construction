@@ -36,16 +36,22 @@ export function installBuyerConciergeLauncher() {
   document.documentElement.classList.add("has-buyer-concierge");
 
   const syncOwnedControls = () => {
-    document.querySelector<HTMLElement>("[data-chat-panel]")?.remove();
-    document.querySelector<HTMLElement>("[data-chat-toggle]")?.remove();
+    const legacyPanel = document.querySelector<HTMLElement>("[data-chat-panel]");
+    const legacyToggle = document.querySelector<HTMLElement>("[data-chat-toggle]");
+    const foundLegacyControls = Boolean(legacyPanel || legacyToggle);
+    legacyPanel?.remove();
+    legacyToggle?.remove();
     root.classList.toggle("has-project-actions", Boolean(document.querySelector('a[href^="sms:"]')));
     if (root.classList.contains("is-inquiry")) {
       const footer = document.querySelector("footer");
       if (footer?.parentNode && root.nextElementSibling !== footer) footer.parentNode.insertBefore(root, footer);
     }
+    return foundLegacyControls;
   };
   syncOwnedControls();
-  const observer = new MutationObserver(syncOwnedControls);
+  const observer = new MutationObserver(() => {
+    if (syncOwnedControls()) observer.disconnect();
+  });
   observer.observe(document.body, { childList: true, subtree: true });
 
   let opening = false;
@@ -54,6 +60,7 @@ export function installBuyerConciergeLauncher() {
     opening = true;
     try {
       const { mountBuyerConcierge } = await import("./buyerConcierge.ts");
+      if (!root.isConnected) document.body.append(root);
       mountBuyerConcierge(root, button, contextForPath(location.pathname));
     } finally {
       opening = false;
