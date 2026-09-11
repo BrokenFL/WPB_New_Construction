@@ -49,6 +49,10 @@ export const canonicalProjectModel = {
         "https://www.albapalmbeach.com/vision",
         "https://d3v3ow8236o554.cloudfront.net/alba-brochure.pdf"
       ],
+      "reviewedFields": {
+        "delivery": "2Q 2026",
+        "address": "4714 N. Flagler Drive, West Palm Beach, FL 33407"
+      },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -113,6 +117,7 @@ export const canonicalProjectModel = {
         "https://olarawpb.com/wp-content/uploads/2026/03/Olara-Fact-Sheet-March-2026.pdf",
         "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -180,6 +185,7 @@ export const canonicalProjectModel = {
         "https://www.shorecrestwpb.com/team",
         "https://www.shorecrestwpb.com/floorplans"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -245,6 +251,7 @@ export const canonicalProjectModel = {
         "https://theresidenceswestpalmbeach.com/floorplans/",
         "https://theresidenceswestpalmbeach.com/amenities/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -313,6 +320,7 @@ export const canonicalProjectModel = {
         "https://www.theberkeleypalmbeach.com/amenities/",
         "https://www.theberkeleypalmbeach.com/wp-content/uploads/2024/09/Berkeley_Broker_ToolKit_0924.pdf"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -379,6 +387,7 @@ export const canonicalProjectModel = {
         "https://norahouse.com/team/",
         "https://norahouse.com/features-finishes/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -449,6 +458,7 @@ export const canonicalProjectModel = {
         "https://www.southflaglerhouse.com/amenities",
         "https://www.southflaglerhouse.com/team"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -517,6 +527,7 @@ export const canonicalProjectModel = {
         "https://www.mrcresidenceswpb.com/downloads/",
         "https://www.mrcresidenceswpb.com/wp-content/uploads/MrC_FactSheet_Aug24_digi_1.pdf"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -579,6 +590,7 @@ export const canonicalProjectModel = {
         "https://livemaisondor.com/",
         "https://livemaisondor.com/the-team/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -647,6 +659,7 @@ export const canonicalProjectModel = {
       "sourceUrls": [
         "https://www.relatedross.com/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -711,6 +724,7 @@ export const canonicalProjectModel = {
         "https://mo-residenceswestpalmbeach.com/",
         "https://press.mandarinoriental.com/residences-west-palm/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -774,6 +788,7 @@ export const canonicalProjectModel = {
         "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/",
         "https://www.banyantreeresidenceswpb.com"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -836,6 +851,7 @@ export const canonicalProjectModel = {
         "https://www.blueroadgroup.com/",
         "https://floridayimby.com/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -900,6 +916,7 @@ export const canonicalProjectModel = {
         "https://fortewpb.com/amenities/",
         "https://arquitectonica.com/architecture/project/forte-on-flagler/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -963,6 +980,7 @@ export const canonicalProjectModel = {
         "https://www.laclararesales.com/",
         "https://acppubs.com/DXC/article/03EFF514-stantec-celebrates-groundbreaking-of-la-clara-luxury-condominium-in-west-palm-beach-florida"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -1035,6 +1053,7 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -1094,6 +1113,7 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -1151,6 +1171,7 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -1216,6 +1237,7 @@ export const canonicalProjectModel = {
         "https://olinpalmbeach.com/",
         "https://www.oftmw.com/projects/olin-palm-beach/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -1307,6 +1329,7 @@ export const canonicalProjectModel = {
         "https://www.oftmw.com/firm/copperline-partners/",
         "https://www.yahoo.com/news/articles/palm-beach-design-board-approves-091005812.html"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -1399,6 +1422,7 @@ export const canonicalProjectModel = {
         "https://www.oftmw.com/firm/related-group/",
         "https://www.oftmw.com/firm/sieger-suarez-architects/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -1478,6 +1502,7 @@ export const canonicalProjectModel = {
         "https://www.oftmw.com/post/easton-street-capital-and-donald-trump-jr-s-1789-capital-plan-a-26-story-full-floor-condo-and-private-club-by-the-norton-museum-in-west-palm-beach/",
         "https://www.oftmw.com/firm/1789-capital/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -1551,6 +1576,7 @@ export const canonicalProjectModel = {
         "https://floridayimby.com/2026/06/developers-plan-two-31-story-towers-for-2085-n-flagler-dr-west-palm-beach-fl.html",
         "https://traded.co/deals/florida/development-site/sale/david-martin-of-terra-and-isaac-toledano-liat-toledano-of-bh-group-acquire-development-site-from-jeff-greene-for-100m/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -1626,6 +1652,7 @@ export const canonicalProjectModel = {
         "https://floridayimby.com/2026/03/construction-nears-completion-on-the-sound-apartments-at-8111-south-dixie-highway-in-west-palm-beach.html",
         "https://locations.traderjoes.com/fl/west-palm-beach/796/"
       ],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
@@ -1685,6 +1712,7 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [],
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "missing",
         "status": "missing",

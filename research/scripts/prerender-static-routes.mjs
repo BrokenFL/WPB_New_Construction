@@ -76,17 +76,18 @@ async function loadStaticPayload(siteData) {
   const projectModel = await readJson(projectModelPath, { projects: [], retiredProjects: [] });
   const projectSchemaSafe = await readJson(projectSchemaSafePath, { projects: [] });
   const appSource = await fs.readFile(appSourcePath, "utf8").catch(() => "");
+  const projectModelProjects = Array.isArray(projectModel.projects) ? projectModel.projects : [];
   return {
     siteMeta: parseExport(siteData, "siteMeta"),
     floorplanLibrary: parseExport(siteData, "floorplanLibrary"),
     answerFaq: parseExport(siteData, "answerEngineFaq"),
     buyerIntentAnswers: parseBuyerIntentAnswers(appSource),
     researchNewsFeed: parseExport(siteData, "researchNewsFeed"),
-    projectFacts: parseExport(siteData, "projectFacts"),
+    projectFacts: applyReviewedFieldsToFacts(parseExport(siteData, "projectFacts"), projectModelProjects),
     prerenderRoutes: parseExport(siteData, "prerenderRoutes"),
     approvedNews: approvedNews.filter((item) => item.status === "published"),
     marketNotes: readTsArray(marketNotesSource, "marketNotes").filter((item) => item?.status === "published"),
-    projectModel: Array.isArray(projectModel.projects) ? projectModel.projects : [],
+    projectModel: projectModelProjects,
     projectSchemaSafe: Array.isArray(projectSchemaSafe.projects) ? projectSchemaSafe.projects : [],
   };
 }
@@ -97,6 +98,42 @@ async function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
+}
+
+// Public model-field name -> siteData projectFacts key. The reviewedFields
+// projection on each public model record is already qualified and sanitized at
+// generation time (reviewed-field-projection.mjs); this map only translates
+// display keys — it contains no precedence or review-qualification logic.
+const reviewedFieldToFactKey = {
+  status: "status",
+  delivery: "completion",
+  residences: "residences",
+  price: "pricing",
+  address: "projectAddress",
+};
+
+function applyReviewedFieldsToFacts(projectFacts, projectModelProjects) {
+  const reviewedBySlug = new Map();
+  for (const record of Array.isArray(projectModelProjects) ? projectModelProjects : []) {
+    if (record?.publicSlug && record?.reviewedFields && typeof record.reviewedFields === "object") {
+      reviewedBySlug.set(record.publicSlug, record.reviewedFields);
+    }
+  }
+  if (!Array.isArray(projectFacts) || !reviewedBySlug.size) return projectFacts;
+  return projectFacts.map((project) => {
+    const reviewed = reviewedBySlug.get(project?.projectId);
+    if (!reviewed || !project?.facts) return project;
+    const facts = { ...project.facts };
+    let changed = false;
+    for (const [modelField, factKey] of Object.entries(reviewedFieldToFactKey)) {
+      const value = typeof reviewed[modelField] === "string" ? reviewed[modelField].trim() : "";
+      if (value) {
+        facts[factKey] = value;
+        changed = true;
+      }
+    }
+    return changed ? { ...project, facts } : project;
+  });
 }
 
 function parseExport(siteData, name) {
