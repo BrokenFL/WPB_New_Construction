@@ -38,7 +38,7 @@ import { escapeHtml, safeHref } from "./renderUtils";
 import { localIntelligence } from "./data/localIntelligence";
 import { homepageAssets, homepageProjectCardImage } from "./data/homepageAssets";
 import { publicProjectRecords } from "./generated/projectModelPublic";
-import { resolveProjectField, reviewedProjectFactOverride } from "./lib/projectFieldAccessors";
+import { resolveProjectField, resolvePublicFactDisplay, type ProjectModelField } from "./lib/projectFieldAccessors";
 
 captureLeadLandingContext();
 
@@ -2111,14 +2111,33 @@ function applySourceFactsToDraft(base: ProjectPageDraft, project: FeaturedProjec
   const sourceFact = sourceFactForProject(project.id);
   if (!sourceFact) return base;
   const source = sourceFact.facts;
+  const display = (
+    field: ProjectModelField,
+    sourceValue: string | undefined,
+    fallbackValue: string,
+    formatSource?: (value: string) => string,
+  ) =>
+    resolvePublicFactDisplay({
+      identifier: project.id,
+      field,
+      sourceValue,
+      sourceNote: sourceValue,
+      fallbackValue,
+      formatSource,
+    });
+  const address = display("address", source.projectAddress, project.address);
+  const residences = display("residences", source.residences, project.residences, (value) => conciseResidences(project.id, value));
+  const delivery = display("delivery", source.completion, project.delivery, conciseDelivery);
+  const pricing = display("price", source.pricing, project.price, concisePricing);
+  const status = display("status", source.status, project.status);
   const sourceFacts = [
-    { label: "Project Address", value: reviewedProjectFactOverride(project.id, "address") || source.projectAddress || project.address },
+    { label: "Project Address", value: address.value },
     { label: "Sales Gallery", value: source.salesGalleryAddress },
     { label: "Stories", value: source.stories || "Verify" },
-    { label: "Residences", value: reviewedProjectFactOverride(project.id, "residences") || conciseResidences(project.id, source.residences) || project.residences, note: source.residences },
-    { label: "Delivery", value: reviewedProjectFactOverride(project.id, "delivery") || conciseDelivery(source.completion) || project.delivery, note: source.completion },
-    { label: "Pricing", value: reviewedProjectFactOverride(project.id, "price") || concisePricing(source.pricing) || project.price, note: source.pricing },
-    { label: "Status", value: reviewedProjectFactOverride(project.id, "status") || source.status || project.status },
+    { label: "Residences", value: residences.value, note: residences.note },
+    { label: "Delivery", value: delivery.value, note: delivery.note },
+    { label: "Pricing", value: pricing.value, note: pricing.note },
+    { label: "Status", value: status.value },
     { label: "Views", value: projectViewSummary(project) },
   ].filter((fact) => fact.value);
   const sourceLabels = new Set(sourceFacts.map((fact) => fact.label.toLowerCase()));
@@ -2126,12 +2145,12 @@ function applySourceFactsToDraft(base: ProjectPageDraft, project: FeaturedProjec
   const team = project.id === "ritz-carlton-wpb" ? base.team : teamCreditsFromSource(source.team);
   return {
     ...base,
-    stage: reviewedProjectFactOverride(project.id, "status") || source.status || base.stage,
+    stage: status.value || base.stage,
     facts,
     team: team.length ? team : base.team,
     highlights: [
-      { label: "Status", value: reviewedProjectFactOverride(project.id, "status") || source.status || project.status, note: source.completion || project.delivery },
-      { label: "Pricing", value: reviewedProjectFactOverride(project.id, "price") || concisePricing(source.pricing) || project.price, note: "Request current availability, incentives, carrying costs, and contract terms before relying on any public figure." },
+      { label: "Status", value: status.value, note: delivery.value },
+      { label: "Pricing", value: pricing.value, note: "Request current availability, incentives, carrying costs, and contract terms before relying on any public figure." },
       { label: "Views", value: projectViewSummary(project), note: "Confirm exact stack, floor, exposure, and future view-corridor risk." },
       ...base.highlights.filter((item) => !["status", "pricing", "views"].includes(item.label.toLowerCase())),
     ],
@@ -5583,7 +5602,10 @@ function renderAuthorityComparisonTable(projects: FeaturedProject[]) {
         <tbody>${projects.map((project) => {
           const source = sourceFactForProject(project.id)?.facts;
           const floorplanProject = getFloorplanProject(project.id);
-          return `<tr><td><a href="${projectPath(project)}">${publicText(project.name)}</a></td><td>${publicText(reviewedProjectFactOverride(project.id, "status") || source?.status || project.status || "Needs verification")}</td><td>${publicText(reviewedProjectFactOverride(project.id, "delivery") || source?.completion || project.delivery || "Needs verification")}</td><td>${publicText(reviewedProjectFactOverride(project.id, "price") || source?.pricing || project.price || "Request current guidance")}</td><td>${floorplanProject?.count ? `${floorplanProject.count} tracked records` : "Request current packet"}</td><td>${publicText(compareBuyerFit(project))}</td><td>${publicText(compareVerificationNeed(project))}</td></tr>`;
+          const status = resolvePublicFactDisplay({ identifier: project.id, field: "status", sourceValue: source?.status, fallbackValue: project.status }).value;
+          const delivery = resolvePublicFactDisplay({ identifier: project.id, field: "delivery", sourceValue: source?.completion, fallbackValue: project.delivery }).value;
+          const pricing = resolvePublicFactDisplay({ identifier: project.id, field: "price", sourceValue: source?.pricing, fallbackValue: project.price }).value;
+          return `<tr><td><a href="${projectPath(project)}">${publicText(project.name)}</a></td><td>${publicText(status || "Needs verification")}</td><td>${publicText(delivery || "Needs verification")}</td><td>${publicText(pricing || "Request current guidance")}</td><td>${floorplanProject?.count ? `${floorplanProject.count} tracked records` : "Request current packet"}</td><td>${publicText(compareBuyerFit(project))}</td><td>${publicText(compareVerificationNeed(project))}</td></tr>`;
         }).join("")}</tbody>
       </table>
     </div>
@@ -8169,12 +8191,12 @@ function renderProjectEntityBrief(
         <p>${publicText(entityBluf(project, sourceFact))}</p>
       </div>
       <div class="profile-grid">
-        ${entityFactCard("Project Address", reviewedProjectFactOverride(project.id, "address") || source?.projectAddress || project.address, "Confirm the residence, sales gallery, and legal addresses for the purpose you need.")}
+        ${entityFactCard("Project Address", resolvePublicFactDisplay({ identifier: project.id, field: "address", sourceValue: source?.projectAddress, fallbackValue: project.address }).value, "Confirm the residence, sales gallery, and legal addresses for the purpose you need.")}
         ${source?.salesGalleryAddress ? entityFactCard("Sales Gallery", source.salesGalleryAddress, "Use this address for appointments only after confirming current hours and access.") : ""}
-        ${entityFactCard("Status", reviewedProjectFactOverride(project.id, "status") || source?.status || project.status, "Verify current construction and sales status before touring.")}
-        ${entityFactCard("Residences", reviewedProjectFactOverride(project.id, "residences") || source?.residences || project.residences, "Counts can vary by source date or tower definition.")}
-        ${entityFactCard("Delivery", reviewedProjectFactOverride(project.id, "delivery") || source?.completion || project.delivery, "Delivery timing should be checked against the current buyer packet.")}
-        ${entityFactCard("Pricing", reviewedProjectFactOverride(project.id, "price") || source?.pricing || project.price, "Public pricing can lag live inventory and incentives.")}
+        ${entityFactCard("Status", resolvePublicFactDisplay({ identifier: project.id, field: "status", sourceValue: source?.status, fallbackValue: project.status }).value, "Verify current construction and sales status before touring.")}
+        ${entityFactCard("Residences", resolvePublicFactDisplay({ identifier: project.id, field: "residences", sourceValue: source?.residences, fallbackValue: project.residences }).value, "Counts can vary by source date or tower definition.")}
+        ${entityFactCard("Delivery", resolvePublicFactDisplay({ identifier: project.id, field: "delivery", sourceValue: source?.completion, fallbackValue: project.delivery }).value, "Delivery timing should be checked against the current buyer packet.")}
+        ${entityFactCard("Pricing", resolvePublicFactDisplay({ identifier: project.id, field: "price", sourceValue: source?.pricing, fallbackValue: project.price }).value, "Public pricing can lag live inventory and incentives.")}
         ${entityFactCard("Floorplans", floorplanCount ? `${floorplanCount} tracked records` : "Request current packet", "Confirm line, stack, exposure, and whether the plan is still available.")}
       </div>
     </section>

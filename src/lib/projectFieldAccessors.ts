@@ -1,18 +1,8 @@
 import { publicProjectModel } from "../generated/projectModelPublic.ts";
-import { projectFactOverrides } from "../data/projectFactOverrides.ts";
-import type { ProjectFactFieldKey } from "../data/projectFactOverrides.ts";
 
 export type ProjectModelRecord = (typeof publicProjectModel.projects)[number];
 export type ProjectModelField = "displayName" | "status" | "delivery" | "residences" | "price" | "address";
 export type ProjectFieldSource = "reviewed_override" | "structured_source" | "approved_fallback" | "missing";
-
-const factFieldByModelField: Partial<Record<ProjectModelField, ProjectFactFieldKey>> = {
-  status: "status",
-  delivery: "deliveryTiming",
-  residences: "residenceCount",
-  price: "priceDisplay",
-  address: "address",
-};
 
 const recordByAlias = new Map<string, ProjectModelRecord>();
 for (const record of publicProjectModel.projects) {
@@ -24,15 +14,16 @@ export function canonicalProjectRecord(identifier: string) {
   return recordByAlias.get(normalizeIdentifier(identifier));
 }
 
+// Reviewed overrides reach the browser only through the sanitized
+// `reviewedFields` projection emitted into the generated public model at build
+// time (research/scripts/reviewed-field-projection.mjs). The raw internal
+// override file — reviewer identity, timestamps, notes, provenance — is
+// build-time/tooling data and is never imported here.
 export function reviewedProjectFactOverride(identifier: string, field: ProjectModelField) {
-  const factField = factFieldByModelField[field];
-  if (!factField) return "";
   const record = canonicalProjectRecord(identifier);
-  const slug = record?.publicSlug ?? normalizeIdentifier(identifier);
-  const override = projectFactOverrides.projects[slug]?.[factField];
-  if (!override || override.source !== "manual_review") return "";
-  if (!clean(override.reviewedBy) || !clean(override.reviewedAt)) return "";
-  return clean(override.value);
+  const reviewedFields = (record as { reviewedFields?: Partial<Record<ProjectModelField, string>> } | undefined)
+    ?.reviewedFields;
+  return clean(reviewedFields?.[field]);
 }
 
 export function resolveProjectField(options: {
@@ -54,6 +45,33 @@ export function resolveProjectField(options: {
   if (approvedFallback) return { value: approvedFallback, source: "approved_fallback" as const };
 
   return { value: "", source: "missing" as const };
+}
+
+// Display helper for surfaces that pair a public fact with a source-catalog
+// note. Runs the canonical precedence (reviewed override -> structured source
+// -> approved fallback -> missing) and suppresses the source note whenever the
+// source value did not win, so a superseded value can never sit beside a
+// reviewed override. Generic guidance notes stay at the call site.
+export function resolvePublicFactDisplay(options: {
+  identifier: string;
+  field: ProjectModelField;
+  sourceValue?: string;
+  sourceNote?: string;
+  fallbackValue?: string;
+  formatSource?: (value: string) => string;
+}) {
+  const resolved = resolveProjectField({
+    identifier: options.identifier,
+    field: options.field,
+    structuredValue: options.sourceValue,
+    approvedFallback: options.fallbackValue,
+  });
+  const value =
+    resolved.source === "structured_source" && options.formatSource
+      ? options.formatSource(resolved.value)
+      : resolved.value;
+  const note = resolved.source === "structured_source" ? clean(options.sourceNote) : "";
+  return { value, source: resolved.source, note };
 }
 
 function clean(value: unknown) {

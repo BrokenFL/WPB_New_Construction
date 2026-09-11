@@ -11,7 +11,6 @@ const approvedNewsPath = path.join(workspace, "research/news-review/approved-dev
 const marketNotesPath = path.join(workspace, "src/data/marketNotes.ts");
 const projectModelPath = path.join(workspace, "src/generated/projectModelPublic.json");
 const projectSchemaSafePath = path.join(workspace, "src/generated/projectSchemaSafe.json");
-const projectFactOverridesPath = path.join(workspace, "content/overrides/project-fact-overrides.json");
 const baseUrl = "https://www.wpbnewconstruction.com";
 
 const projectAliases = new Map([
@@ -76,19 +75,19 @@ async function loadStaticPayload(siteData) {
   const marketNotesSource = await fs.readFile(marketNotesPath, "utf8").catch(() => "");
   const projectModel = await readJson(projectModelPath, { projects: [], retiredProjects: [] });
   const projectSchemaSafe = await readJson(projectSchemaSafePath, { projects: [] });
-  const projectFactOverrides = await readJson(projectFactOverridesPath, { projects: {} });
   const appSource = await fs.readFile(appSourcePath, "utf8").catch(() => "");
+  const projectModelProjects = Array.isArray(projectModel.projects) ? projectModel.projects : [];
   return {
     siteMeta: parseExport(siteData, "siteMeta"),
     floorplanLibrary: parseExport(siteData, "floorplanLibrary"),
     answerFaq: parseExport(siteData, "answerEngineFaq"),
     buyerIntentAnswers: parseBuyerIntentAnswers(appSource),
     researchNewsFeed: parseExport(siteData, "researchNewsFeed"),
-    projectFacts: applyReviewedFactOverrides(parseExport(siteData, "projectFacts"), projectFactOverrides),
+    projectFacts: applyReviewedFieldsToFacts(parseExport(siteData, "projectFacts"), projectModelProjects),
     prerenderRoutes: parseExport(siteData, "prerenderRoutes"),
     approvedNews: approvedNews.filter((item) => item.status === "published"),
     marketNotes: readTsArray(marketNotesSource, "marketNotes").filter((item) => item?.status === "published"),
-    projectModel: Array.isArray(projectModel.projects) ? projectModel.projects : [],
+    projectModel: projectModelProjects,
     projectSchemaSafe: Array.isArray(projectSchemaSafe.projects) ? projectSchemaSafe.projects : [],
   };
 }
@@ -101,32 +100,33 @@ async function readJson(filePath, fallback) {
   }
 }
 
-const factOverrideFieldMap = {
+// Public model-field name -> siteData projectFacts key. The reviewedFields
+// projection on each public model record is already qualified and sanitized at
+// generation time (reviewed-field-projection.mjs); this map only translates
+// display keys — it contains no precedence or review-qualification logic.
+const reviewedFieldToFactKey = {
   status: "status",
-  completion: "deliveryTiming",
-  residences: "residenceCount",
-  pricing: "priceDisplay",
-  projectAddress: "address",
+  delivery: "completion",
+  residences: "residences",
+  price: "pricing",
+  address: "projectAddress",
 };
 
-function reviewedOverrideValue(entry) {
-  if (!entry || entry.source !== "manual_review") return "";
-  const value = typeof entry.value === "string" ? entry.value.trim() : "";
-  const reviewedBy = typeof entry.reviewedBy === "string" ? entry.reviewedBy.trim() : "";
-  const reviewedAt = typeof entry.reviewedAt === "string" ? entry.reviewedAt.trim() : "";
-  return value && reviewedBy && reviewedAt ? value : "";
-}
-
-function applyReviewedFactOverrides(projectFacts, overrides) {
-  const projects = overrides?.projects;
-  if (!Array.isArray(projectFacts) || !projects || typeof projects !== "object") return projectFacts;
+function applyReviewedFieldsToFacts(projectFacts, projectModelProjects) {
+  const reviewedBySlug = new Map();
+  for (const record of Array.isArray(projectModelProjects) ? projectModelProjects : []) {
+    if (record?.publicSlug && record?.reviewedFields && typeof record.reviewedFields === "object") {
+      reviewedBySlug.set(record.publicSlug, record.reviewedFields);
+    }
+  }
+  if (!Array.isArray(projectFacts) || !reviewedBySlug.size) return projectFacts;
   return projectFacts.map((project) => {
-    const fields = projects[project?.projectId];
-    if (!fields || !project?.facts) return project;
+    const reviewed = reviewedBySlug.get(project?.projectId);
+    if (!reviewed || !project?.facts) return project;
     const facts = { ...project.facts };
     let changed = false;
-    for (const [factKey, overrideKey] of Object.entries(factOverrideFieldMap)) {
-      const value = reviewedOverrideValue(fields[overrideKey]);
+    for (const [modelField, factKey] of Object.entries(reviewedFieldToFactKey)) {
+      const value = typeof reviewed[modelField] === "string" ? reviewed[modelField].trim() : "";
       if (value) {
         facts[factKey] = value;
         changed = true;
