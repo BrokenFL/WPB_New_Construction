@@ -16,6 +16,10 @@ export const publicProjectModel = {
       "delivery": "Spring 2026 estimated",
       "residences": "55",
       "price": "$2.5M–$7.8M",
+      "reviewedFields": {
+        "delivery": "2Q 2026",
+        "address": "4714 N. Flagler Drive, West Palm Beach, FL 33407"
+      },
       "facts": {
         "projectAddress": "4714 N. Flagler Drive, West Palm Beach, FL 33407",
         "salesGalleryAddress": "",
@@ -91,6 +95,7 @@ export const publicProjectModel = {
       "delivery": "2027",
       "residences": "275",
       "price": "$2M–$7.5M",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "1919 N Flagler Drive, West Palm Beach, FL 33407",
         "salesGalleryAddress": "",
@@ -174,6 +179,7 @@ export const publicProjectModel = {
       "delivery": "Confirm with sales team",
       "residences": "98",
       "price": "$3.69M–$5.445M for reviewed available residences",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "1865 N Flagler Drive, West Palm Beach, FL 33407",
         "salesGalleryAddress": "",
@@ -246,6 +252,7 @@ export const publicProjectModel = {
       "delivery": "2028",
       "residences": "138",
       "price": "From $3M",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "1745 N Flagler Drive, West Palm Beach, FL 33407",
         "salesGalleryAddress": "",
@@ -320,6 +327,7 @@ export const publicProjectModel = {
       "delivery": "Confirm with sales team",
       "residences": "193",
       "price": "$2M to over $10M",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "601–621 Clearwater Park Road, West Palm Beach, FL 33401",
         "salesGalleryAddress": "",
@@ -401,6 +409,7 @@ export const publicProjectModel = {
       "delivery": "2029 estimated; construction expected to begin 2027 per reporting",
       "residences": "117",
       "price": "Low $2Ms to $6.5M",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "1105 N Dixie Highway, West Palm Beach, FL 33401",
         "salesGalleryAddress": "",
@@ -484,6 +493,7 @@ export const publicProjectModel = {
       "delivery": "2027",
       "residences": "108",
       "price": "$7.98M to $70M on current official tier pages",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "1355 S Flagler Drive, West Palm Beach, FL 33401",
         "salesGalleryAddress": "",
@@ -558,6 +568,7 @@ export const publicProjectModel = {
       "delivery": "2027 recommended; conflicts remain",
       "residences": "146",
       "price": "Request current pricing",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "327 Okeechobee Boulevard, West Palm Beach, FL 33401",
         "salesGalleryAddress": "",
@@ -640,6 +651,7 @@ export const publicProjectModel = {
       "delivery": "2028 reported",
       "residences": "39",
       "price": "Starting at $5.7M",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "South Flagler Drive, West Palm Beach, FL",
         "salesGalleryAddress": "",
@@ -706,6 +718,7 @@ export const publicProjectModel = {
       "delivery": "Pipeline watch",
       "residences": "168",
       "price": "$2.5M-$35.5M reported",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "1155 S Flagler Drive, West Palm Beach, FL",
         "salesGalleryAddress": "",
@@ -774,6 +787,7 @@ export const publicProjectModel = {
       "delivery": "2031 anticipated",
       "residences": "87",
       "price": "From $3.5M reported",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "5400 N Flagler Drive, West Palm Beach, FL 33407",
         "salesGalleryAddress": "",
@@ -843,6 +857,7 @@ export const publicProjectModel = {
       "delivery": "Projected 2028",
       "residences": "88",
       "price": "From $1.9M",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "Downtown West Palm Beach — exact street address TBD",
         "salesGalleryAddress": "",
@@ -910,6 +925,7 @@ export const publicProjectModel = {
       "delivery": "Pipeline watch",
       "residences": "87",
       "price": "Not released",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "4720 N Flagler Drive, West Palm Beach, FL",
         "salesGalleryAddress": "",
@@ -975,6 +991,7 @@ export const publicProjectModel = {
       "delivery": "Completed / recently completed; occupancy/resale status to verify",
       "residences": "41",
       "price": "Resale inventory varies",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "1309 S Flagler Drive, West Palm Beach, FL",
         "salesGalleryAddress": "",
@@ -1045,6 +1062,7 @@ export const publicProjectModel = {
       "delivery": "Completed / opened to residents in 2023",
       "residences": "83",
       "price": "Resale inventory varies",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "1515 S Flagler Drive, West Palm Beach, FL",
         "salesGalleryAddress": "",
@@ -1124,6 +1142,7 @@ export const publicProjectModel = {
       "delivery": "Pipeline watch",
       "residences": "100–130 condominium units proposed in later Related Ross repositioning; prior plan referenced 340 apartments",
       "price": "Not released",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "401 S Dixie Highway / 418 & 464 Fern Street, West Palm Beach, FL",
         "salesGalleryAddress": "",
@@ -1186,6 +1205,7 @@ export const publicProjectModel = {
       "delivery": "Pipeline watch",
       "residences": "Up to 660 residential units contemplated; initial approvals cover 259 units across two towers",
       "price": "Not released",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "4000–4300 N Flagler Drive, West Palm Beach, FL",
         "salesGalleryAddress": "",
@@ -1246,6 +1266,7 @@ export const publicProjectModel = {
       "delivery": "Timing not released",
       "residences": "90",
       "price": "Not released",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "2001 N Flagler Drive, West Palm Beach, FL",
         "salesGalleryAddress": "",
@@ -1307,6 +1328,7 @@ export const publicProjectModel = {
       "delivery": "Timing not released",
       "residences": "32",
       "price": "Inquiry pricing bands reported up to and above $40M; residence-specific pricing requires sales verification",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
         "salesGalleryAddress": "",
@@ -1403,6 +1425,7 @@ export const publicProjectModel = {
       "delivery": "Timing not released",
       "residences": "12",
       "price": "Not publicly released",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "3031 South Ocean Boulevard, Palm Beach, FL 33480",
         "salesGalleryAddress": "",
@@ -1497,6 +1520,7 @@ export const publicProjectModel = {
       "delivery": "Timing not released",
       "residences": "39",
       "price": "Not publicly released",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "4906 North Flagler Drive, West Palm Beach, FL 33407",
         "salesGalleryAddress": "",
@@ -1577,6 +1601,7 @@ export const publicProjectModel = {
       "delivery": "2029 estimate",
       "residences": "16",
       "price": "Not publicly released",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "201 & 203 Arkona Court, West Palm Beach, FL 33401",
         "salesGalleryAddress": "",
@@ -1653,6 +1678,7 @@ export const publicProjectModel = {
       "delivery": "Timing not released",
       "residences": "281",
       "price": "Not publicly released",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "2085 North Flagler Drive, West Palm Beach, FL 33407",
         "salesGalleryAddress": "",
@@ -1729,6 +1755,7 @@ export const publicProjectModel = {
       "delivery": "Under construction; 2026 delivery target",
       "residences": "358",
       "price": "Request current leasing information",
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "8111 South Dixie Highway, West Palm Beach, FL 33405",
         "salesGalleryAddress": "",
