@@ -1,8 +1,18 @@
-import { publicProjectModel } from "../generated/projectModelPublic";
+import { publicProjectModel } from "../generated/projectModelPublic.ts";
+import { projectFactOverrides } from "../data/projectFactOverrides.ts";
+import type { ProjectFactFieldKey } from "../data/projectFactOverrides.ts";
 
 export type ProjectModelRecord = (typeof publicProjectModel.projects)[number];
 export type ProjectModelField = "displayName" | "status" | "delivery" | "residences" | "price" | "address";
 export type ProjectFieldSource = "reviewed_override" | "structured_source" | "approved_fallback" | "missing";
+
+const factFieldByModelField: Partial<Record<ProjectModelField, ProjectFactFieldKey>> = {
+  status: "status",
+  delivery: "deliveryTiming",
+  residences: "residenceCount",
+  price: "priceDisplay",
+  address: "address",
+};
 
 const recordByAlias = new Map<string, ProjectModelRecord>();
 for (const record of publicProjectModel.projects) {
@@ -14,6 +24,17 @@ export function canonicalProjectRecord(identifier: string) {
   return recordByAlias.get(normalizeIdentifier(identifier));
 }
 
+export function reviewedProjectFactOverride(identifier: string, field: ProjectModelField) {
+  const factField = factFieldByModelField[field];
+  if (!factField) return "";
+  const record = canonicalProjectRecord(identifier);
+  const slug = record?.publicSlug ?? normalizeIdentifier(identifier);
+  const override = projectFactOverrides.projects[slug]?.[factField];
+  if (!override || override.source !== "manual_review") return "";
+  if (!clean(override.reviewedBy) || !clean(override.reviewedAt)) return "";
+  return clean(override.value);
+}
+
 export function resolveProjectField(options: {
   identifier: string;
   field: ProjectModelField;
@@ -21,7 +42,7 @@ export function resolveProjectField(options: {
   structuredValue?: string;
   approvedFallback?: string;
 }) {
-  const reviewedOverride = clean(options.reviewedOverride);
+  const reviewedOverride = clean(options.reviewedOverride) || reviewedProjectFactOverride(options.identifier, options.field);
   if (reviewedOverride) return { value: reviewedOverride, source: "reviewed_override" as const };
 
   const record = canonicalProjectRecord(options.identifier);

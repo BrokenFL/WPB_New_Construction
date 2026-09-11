@@ -11,6 +11,7 @@ const approvedNewsPath = path.join(workspace, "research/news-review/approved-dev
 const marketNotesPath = path.join(workspace, "src/data/marketNotes.ts");
 const projectModelPath = path.join(workspace, "src/generated/projectModelPublic.json");
 const projectSchemaSafePath = path.join(workspace, "src/generated/projectSchemaSafe.json");
+const projectFactOverridesPath = path.join(workspace, "content/overrides/project-fact-overrides.json");
 const baseUrl = "https://www.wpbnewconstruction.com";
 
 const projectAliases = new Map([
@@ -75,6 +76,7 @@ async function loadStaticPayload(siteData) {
   const marketNotesSource = await fs.readFile(marketNotesPath, "utf8").catch(() => "");
   const projectModel = await readJson(projectModelPath, { projects: [], retiredProjects: [] });
   const projectSchemaSafe = await readJson(projectSchemaSafePath, { projects: [] });
+  const projectFactOverrides = await readJson(projectFactOverridesPath, { projects: {} });
   const appSource = await fs.readFile(appSourcePath, "utf8").catch(() => "");
   return {
     siteMeta: parseExport(siteData, "siteMeta"),
@@ -82,7 +84,7 @@ async function loadStaticPayload(siteData) {
     answerFaq: parseExport(siteData, "answerEngineFaq"),
     buyerIntentAnswers: parseBuyerIntentAnswers(appSource),
     researchNewsFeed: parseExport(siteData, "researchNewsFeed"),
-    projectFacts: parseExport(siteData, "projectFacts"),
+    projectFacts: applyReviewedFactOverrides(parseExport(siteData, "projectFacts"), projectFactOverrides),
     prerenderRoutes: parseExport(siteData, "prerenderRoutes"),
     approvedNews: approvedNews.filter((item) => item.status === "published"),
     marketNotes: readTsArray(marketNotesSource, "marketNotes").filter((item) => item?.status === "published"),
@@ -97,6 +99,41 @@ async function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
+}
+
+const factOverrideFieldMap = {
+  status: "status",
+  completion: "deliveryTiming",
+  residences: "residenceCount",
+  pricing: "priceDisplay",
+  projectAddress: "address",
+};
+
+function reviewedOverrideValue(entry) {
+  if (!entry || entry.source !== "manual_review") return "";
+  const value = typeof entry.value === "string" ? entry.value.trim() : "";
+  const reviewedBy = typeof entry.reviewedBy === "string" ? entry.reviewedBy.trim() : "";
+  const reviewedAt = typeof entry.reviewedAt === "string" ? entry.reviewedAt.trim() : "";
+  return value && reviewedBy && reviewedAt ? value : "";
+}
+
+function applyReviewedFactOverrides(projectFacts, overrides) {
+  const projects = overrides?.projects;
+  if (!Array.isArray(projectFacts) || !projects || typeof projects !== "object") return projectFacts;
+  return projectFacts.map((project) => {
+    const fields = projects[project?.projectId];
+    if (!fields || !project?.facts) return project;
+    const facts = { ...project.facts };
+    let changed = false;
+    for (const [factKey, overrideKey] of Object.entries(factOverrideFieldMap)) {
+      const value = reviewedOverrideValue(fields[overrideKey]);
+      if (value) {
+        facts[factKey] = value;
+        changed = true;
+      }
+    }
+    return changed ? { ...project, facts } : project;
+  });
 }
 
 function parseExport(siteData, name) {
