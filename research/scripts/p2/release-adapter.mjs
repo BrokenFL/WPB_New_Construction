@@ -16,6 +16,16 @@ export function planRelease({ entry }) {
   return {
     enabled: false,
     reason: "release adapter disabled — design/test only",
+    article: {
+      decision: entry.article_decision,
+      eligible: entry.article_decision === "AUTO_ELIGIBLE" || entry.article_state === "approved",
+      enabled: false,
+    },
+    fact_change: {
+      decision: entry.fact_change_decision,
+      eligible: entry.fact_change_decision === "AUTO_ELIGIBLE" || entry.fact_change_state === "approved",
+      enabled: false,
+    },
     steps: [
       { step: "content_diff", detail: "generate allowlisted article/update files via existing publisher libraries", status: "mocked" },
       { step: "required_tests", detail: "npm run test + qa:launch:no-write + qa:gatekeeper", status: "mocked" },
@@ -36,8 +46,8 @@ export const WRITEBACK_FIELDS = Object.freeze(["status", "output_decision", "sit
 export function planWriteback({ entry, liveVerifiedUrl }) {
   const payload = {
     status: liveVerifiedUrl ? "published" : "processed",
-    output_decision: entry.decision,
-    site_update_id: entry.candidate?.update_id || "",
+    output_decision: `ARTICLE:${entry.article_decision}|FACT:${entry.fact_change_decision}`,
+    site_update_id: entry.review_object?.article?.update_id || "",
     canonical_update_url: liveVerifiedUrl || "",
     published_at: liveVerifiedUrl ? new Date().toISOString() : "",
     processed_at: new Date().toISOString(),

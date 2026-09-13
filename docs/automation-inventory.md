@@ -63,6 +63,24 @@ Inspected on Brooke's Mac against `origin/main` @ `2d1b82f`. States: **configure
 - `npm run qa:content-studio` checks that Brooke Content Studio remains local-only and validates override files.
 - `npm run content:studio` starts Brooke Content Studio at `http://localhost:8787`.
 - `npm run assets:duplicates` writes a duplicate-asset inventory for review.
+- `npm run test:p2:shadow` verifies the trusted-evidence, independent article/fact policy, scanner, approval, StoryWriter, and disabled-release contracts.
+- `npm run p2:shadow:demo` generates deterministic private-runtime examples only. It does not publish, mutate canonical facts, write the Sheet, send email, or deploy.
+- `npm run p2:shadow:snapshot -- --csv /private/snapshot.csv` classifies an authorized offline snapshot conservatively; the snapshot is never committed.
+
+## Issue Producer Classification and Eventual Ownership
+
+The scheduled issue jobs are not trusted article inputs:
+
+| Producer | Current artifact | Classification | Eventual disposition |
+|---|---|---|---|
+| `live-news-agent-task.yml` | A task issue telling an agent to research and run the existing workflow | assignment/reminder | retire after scanner ownership is proven |
+| `biweekly-content-agent-task.yml` | A broader content task issue | assignment/reminder | retire after scanner ownership is proven |
+| Legacy GPT/news-candidate issue import | Source packet plus possible editorial draft | untrusted source packet/editorial draft | keep manual-only during migration, then retire if redundant |
+
+The eventual processing owner should be one authenticated P2 processor consuming
+private scanner dispatches and immutable snapshots. Assignment issue text must
+never be treated as evidence or article body. Do not disable schedules in this
+slice; retirement is a later, explicitly authorized activation step.
 
 ## LaunchAgents Found
 
