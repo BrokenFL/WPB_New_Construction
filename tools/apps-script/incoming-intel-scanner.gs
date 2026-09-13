@@ -15,14 +15,23 @@
  * hashes only — never private research text or credentials.
  *
  * Required Script Properties (set manually, never committed):
- *   DISPATCH_ENDPOINT   — private ingest URL on the runner
- *   DISPATCH_SECRET     — HMAC shared secret
+ *   SCANNER_MODE        — "test" (no network) or "shadow" (dispatch only)
+ *   SHEET_ID            — expected private spreadsheet ID
  *   POLICY_VERSION      — e.g. "p2-shadow-policy-v2"
+ *   DISPATCH_ENDPOINT   — private ingest URL on the runner (shadow only)
+ *   DISPATCH_SECRET     — HMAC shared secret (shadow only; 32+ chars)
+ *
+ * Test mode is the safe installation check: it reads and validates the
+ * configured tab, computes the exact would-dispatch envelope, records health,
+ * and performs no POST or hash acknowledgment. There is no release mode.
  */
 
 var SHEET_NAME = "Incoming_Intel";
 var SCAN_INTERVAL_MINUTES = 15;
 var PROP_PREFIX = "p2scan:";
+var HEALTH_PROPERTY = PROP_PREFIX + "health";
+var MIN_SECRET_LENGTH = 32;
+var REQUIRED_EVENT_FIELDS = ["id", "status", "headline", "record_type", "category", "source_url"];
 
 // Intake-authored fields (content hash).
 var CONTENT_FIELDS = [
@@ -42,7 +51,8 @@ var CONTENT_FIELDS = [
 // Reviewer/fact-check fields (evidence hash). Changes here re-dispatch for
 // re-review but never alone authorize output.
 var EVIDENCE_FIELDS = [
-  "verification_status", "verification_summary", "review_notes"
+  "verification_status", "verification_summary", "review_notes",
+  "fact_check_handoff_json"
 ];
 
 // Processor writeback fields — excluded from change detection entirely so a
@@ -101,11 +111,12 @@ function dispatchSnapshotHash(sheetId, sheetName, records) {
   }));
 }
 
-function dispatchId(snapshotHash, records) {
+function dispatchId(snapshotHash, records, policyVersion) {
   var ids = records.map(function (record) { return record.intel_id; }).sort();
   return "disp-" + sha256Hex(stableJson({
     snapshotSha256: snapshotHash,
-    recordIds: ids
+    recordIds: ids,
+    policyVersion: policyVersion
   })).slice(0, 16);
 }
 
@@ -117,11 +128,97 @@ function validateAck(resp, expectedDispatchId) {
     body.ok === true && body.durable === true && body.dispatch_id === expectedDispatchId;
 }
 
+function scannerConfig(props, actualSheetId) {
+  var mode = String(props.getProperty("SCANNER_MODE") || "test").toLowerCase();
+  if (mode !== "test" && mode !== "shadow") throw new Error("SCANNER_MODE must be test or shadow");
+  var expectedSheetId = String(props.getProperty("SHEET_ID") || "");
+  if (!expectedSheetId || expectedSheetId !== actualSheetId) throw new Error("SHEET_ID does not match active spreadsheet");
+  var policyVersion = String(props.getProperty("POLICY_VERSION") || "");
+  if (!policyVersion) throw new Error("POLICY_VERSION not configured");
+  var endpoint = String(props.getProperty("DISPATCH_ENDPOINT") || "");
+  var secret = String(props.getProperty("DISPATCH_SECRET") || "");
+  if (mode === "shadow") {
+    // Keep credentials and ambiguous/whitespace-bearing URLs out of the
+    // network boundary. Apps Script's URL parser is not exposed as a strict
+    // validation primitive, so accept only an ordinary HTTPS origin/path.
+    if (!/^https:\/\/[A-Za-z0-9.-]+(?::[0-9]+)?(?:[/?#]|$)/i.test(endpoint) || /\s|@/.test(endpoint)) {
+      throw new Error("DISPATCH_ENDPOINT must be a credential-free HTTPS URL in shadow mode");
+    }
+    if (secret.length < MIN_SECRET_LENGTH) throw new Error("DISPATCH_SECRET must be at least 32 characters in shadow mode");
+  }
+  return { mode: mode, endpoint: endpoint, secret: secret, policyVersion: policyVersion };
+}
+
+function healthErrorCode(error) {
+  var message = String(error && error.message || error || "unknown");
+  if (/configured|SCANNER_MODE|SHEET_ID|POLICY_VERSION|HTTPS|characters/.test(message)) return "configuration_error";
+  if (/missing required|header|partial/.test(message)) return "schema_error";
+  if (/dispatch failed|ack/.test(message)) return "dispatch_error";
+  if (/already in progress/.test(message)) return "busy";
+  return "runtime_error";
+}
+
+function writeHealth(props, values) {
+  var previous = {};
+  try { previous = JSON.parse(props.getProperty(HEALTH_PROPERTY) || "{}"); } catch (e) { previous = {}; }
+  var health = {
+    status: values.status || previous.status || "unknown",
+    mode: values.mode || previous.mode || null,
+    last_scan_at: values.last_scan_at || previous.last_scan_at || null,
+    last_success_at: values.last_success_at || previous.last_success_at || null,
+    last_error_code: values.last_error_code || null,
+    dispatched: Number(values.dispatched == null ? previous.dispatched || 0 : values.dispatched),
+    would_dispatch: Number(values.would_dispatch == null ? previous.would_dispatch || 0 : values.would_dispatch),
+    quarantined: Number(values.quarantined == null ? previous.quarantined || 0 : values.quarantined),
+    stale: Number(values.stale == null ? previous.stale || 0 : values.stale),
+    attempts: Number(values.attempts == null ? previous.attempts || 0 : values.attempts)
+  };
+  props.setProperty(HEALTH_PROPERTY, JSON.stringify(health));
+  return health;
+}
+
+function getScannerHealth() {
+  var raw = PropertiesService.getScriptProperties().getProperty(HEALTH_PROPERTY);
+  if (!raw) return { status: "never_run", mode: null, last_scan_at: null, last_success_at: null, last_error_code: null, dispatched: 0, would_dispatch: 0, quarantined: 0, stale: 0, attempts: 0 };
+  try { return JSON.parse(raw); } catch (e) { return { status: "health_corrupt" }; }
+}
+
+function missingRequiredFields(row, headers) {
+  return REQUIRED_EVENT_FIELDS.filter(function (field) {
+    var index = headers.indexOf(field);
+    return index < 0 || String(row[index] == null ? "" : row[index]).trim() === "";
+  });
+}
+
 function scanIncomingIntel() {
   var lock = LockService.getScriptLock();
-  if (!lock.tryLock(1000)) throw new Error("scan already in progress");
+  if (!lock.tryLock(1000)) {
+    writeHealth(PropertiesService.getScriptProperties(), { status: "busy", last_scan_at: new Date().toISOString(), last_error_code: "busy" });
+    throw new Error("scan already in progress");
+  }
   try {
-    return scanIncomingIntelLocked();
+    var result = scanIncomingIntelLocked();
+    var now = new Date().toISOString();
+    writeHealth(PropertiesService.getScriptProperties(), {
+      status: result.mode === "test" ? "test_ok" : "ok",
+      mode: result.mode,
+      last_scan_at: now,
+      last_success_at: now,
+      last_error_code: null,
+      dispatched: result.dispatched || 0,
+      would_dispatch: result.would_dispatch || 0,
+      quarantined: result.quarantined || 0,
+      stale: result.stale || 0,
+      attempts: result.attempts || 0
+    });
+    return result;
+  } catch (error) {
+    writeHealth(PropertiesService.getScriptProperties(), {
+      status: "error",
+      last_scan_at: new Date().toISOString(),
+      last_error_code: healthErrorCode(error)
+    });
+    throw error;
   } finally {
     lock.releaseLock();
   }
@@ -129,14 +226,14 @@ function scanIncomingIntel() {
 
 function scanIncomingIntelLocked() {
   var props = PropertiesService.getScriptProperties();
-  var endpoint = props.getProperty("DISPATCH_ENDPOINT");
-  var secret = props.getProperty("DISPATCH_SECRET");
-  var policyVersion = props.getProperty("POLICY_VERSION") || "p2-shadow-policy-v2";
-  if (!endpoint || !secret) throw new Error("DISPATCH_ENDPOINT/DISPATCH_SECRET not configured");
+  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  var sheetId = spreadsheet.getId();
+  var config = scannerConfig(props, sheetId);
 
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  var sheet = spreadsheet.getSheetByName(SHEET_NAME);
+  if (!sheet) throw new Error("Incoming_Intel sheet tab not found");
   var values = sheet.getDataRange().getDisplayValues();
-  if (!values.length) return { dispatched: 0 };
+  if (!values.length) return { mode: config.mode, dispatched: 0, would_dispatch: 0, quarantined: 0 };
   var headers = values[0].map(String);
   var idCol = headers.indexOf("id");
   var typeCol = headers.indexOf("record_type");
@@ -172,39 +269,55 @@ function scanIncomingIntelLocked() {
       evidence_hash: evidenceHash
     };
     if (positions.length > 1) {
-      quarantined.push({ intel_id: rid, positions: positions });
+      quarantined.push({ intel_id: rid, positions: positions, reason: "duplicate_id" });
       continue; // ambiguous — never dispatched
     }
     if (String(row[typeCol] || "") !== "event") {
       quarantined.push({ intel_id: rid, positions: positions, reason: "record_type!=event" });
       continue;
     }
+    var missing = missingRequiredFields(row, headers);
+    if (missing.length) {
+      quarantined.push({ intel_id: rid, positions: positions, reason: "partial_row", missing_fields: missing });
+      continue;
+    }
     var prior = props.getProperty(PROP_PREFIX + rid);
-    var priorObj = prior ? JSON.parse(prior) : null;
-    if (!priorObj || priorObj.content_hash !== contentHash || priorObj.evidence_hash !== evidenceHash) {
+    var priorObj = null;
+    try { priorObj = prior ? JSON.parse(prior) : null; } catch (e) { priorObj = null; }
+    if (!priorObj || priorObj.content_hash !== contentHash || priorObj.evidence_hash !== evidenceHash || priorObj.policy_version !== config.policyVersion) {
       changed.push(record);
     }
   }
 
-  if (!changed.length) return { dispatched: 0, quarantined: quarantined.length };
+  if (!changed.length) return { mode: config.mode, dispatched: 0, would_dispatch: 0, quarantined: quarantined.length };
 
   changed.sort(function (a, b) {
     return a.intel_id < b.intel_id ? -1 : a.intel_id > b.intel_id ? 1 : 0;
   });
-  var sheetId = SpreadsheetApp.getActiveSpreadsheet().getId();
   var snapshotHash = dispatchSnapshotHash(sheetId, SHEET_NAME, changed);
   var envelope = {
     contract_version: "p2-dispatch-v1",
-    dispatch_id: dispatchId(snapshotHash, changed),
+    dispatch_id: dispatchId(snapshotHash, changed, config.policyVersion),
     sheet_id: sheetId,
     sheet_name: SHEET_NAME,
     snapshot_sha256: snapshotHash,
-    policy_version: policyVersion,
+    policy_version: config.policyVersion,
     issued_at: new Date().toISOString(),
     nonce: Utilities.getUuid(),
     records: changed
   };
-  envelope.signature = hmacHex(secret, stableJson(envelope));
+  envelope.signature = hmacHex(config.secret || "test-mode-no-dispatch", stableJson(envelope));
+
+  if (config.mode === "test") {
+    return {
+      mode: "test",
+      dispatched: 0,
+      would_dispatch: changed.length,
+      quarantined: quarantined.length,
+      snapshot_sha256: snapshotHash,
+      dispatch_id: envelope.dispatch_id
+    };
+  }
 
   // Bounded retries with durable ack: the runner returns the dispatch_id it
   // persisted; a retry of an already-acked dispatch is a no-op server-side.
@@ -213,7 +326,7 @@ function scanIncomingIntelLocked() {
   while (attempts < maxAttempts) {
     attempts++;
     try {
-      var resp = UrlFetchApp.fetch(endpoint, {
+      var resp = UrlFetchApp.fetch(config.endpoint, {
         method: "post",
         contentType: "application/json",
         payload: JSON.stringify(envelope),
@@ -222,9 +335,10 @@ function scanIncomingIntelLocked() {
       if (validateAck(resp, envelope.dispatch_id)) {
         // Persist only the version that was actually dispatched. A row may
         // have changed while the endpoint was processing the envelope.
+        var stale = 0;
         changed.forEach(function (rec) {
           var currentRow = sheet.getDataRange().getDisplayValues()[rec.record_position - 1];
-          if (!currentRow) return;
+          if (!currentRow) { stale++; return; }
           var currentId = String(currentRow[idCol] || "");
           var currentHashes = recordHashes(currentRow, headers);
           if (currentId === rec.intel_id &&
@@ -232,11 +346,12 @@ function scanIncomingIntelLocked() {
               currentHashes.evidence_hash === rec.evidence_hash) {
             props.setProperty(PROP_PREFIX + rec.intel_id, JSON.stringify({
               content_hash: rec.content_hash,
-              evidence_hash: rec.evidence_hash
+              evidence_hash: rec.evidence_hash,
+              policy_version: config.policyVersion
             }));
-          }
+          } else stale++;
         });
-        return { dispatched: changed.length, quarantined: quarantined.length, attempts: attempts };
+        return { mode: "shadow", dispatched: changed.length, quarantined: quarantined.length, stale: stale, attempts: attempts };
       }
     } catch (e) {
       // fall through to retry

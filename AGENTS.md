@@ -44,6 +44,7 @@ unless Brooke explicitly authorizes a migration.
 | Phase A intelligence processor | `docs/P2_INTELLIGENCE_PROCESSOR_PHASE_A.md` |
 | P2 convergence and policy direction | `docs/P2_INTELLIGENCE_CONVERGENCE_DESIGN.md` |
 | P2 trusted evidence, shadow runner, scanner, approval, StoryWriter | `docs/P2_CLOUD_HANDOFF_APPROVAL.md` |
+| P2 live-shadow owner, credentials, installation, rollback | `docs/P2_LIVE_SHADOW_OPERATIONS.md` |
 | Canonical project intelligence and Builder review | `docs/project-intelligence-architecture.md` |
 | Existing automation and issue producers | `docs/automation-inventory.md` |
 | News/update source pipeline | `docs/news-update-pipeline.md` |

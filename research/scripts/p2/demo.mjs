@@ -10,6 +10,7 @@ import { factTestTargetSha256 } from "./fact-mutation.mjs";
 import { POLICY_VERSION } from "./policy-engine.mjs";
 import { shadowRun } from "./shadow-run.mjs";
 import { createStaticStoryWriterProvider } from "./story-writer.mjs";
+import { buildShadowDigest } from "./shadow-digest.mjs";
 
 // Deterministic end-to-end shadow demonstration. All artifacts are written to
 // a temporary private directory and every release/writeback plan stays disabled.
@@ -187,6 +188,15 @@ const both = await runScenario(root, factRow("both"), {
   provider: true,
   factTests: { status: [{ name: "canonical-fact-contract", status: "passed" }] },
 });
+const residenceCount = await runScenario(root, factRow("residence-count", {
+  field: "residenceCount",
+  current: 55,
+  proposed: 56,
+  material_updates: "The verified residence count changed from 55 to 56.",
+}), {
+  indexes: indexesFor("residenceCount", 55),
+  factTests: { residenceCount: [{ name: "canonical-fact-contract", status: "passed" }] },
+});
 const approval = await runScenario(root, factRow("approval-exception", {
   field: "deliveryTiming",
   current: "2027",
@@ -216,6 +226,12 @@ const concise = ({ bundle, result }) => ({
   writeback_plan: result.writeback_plan,
 });
 
+const combinedDigest = buildShadowDigest({
+  dispatchId: "synthetic-shadow-demo",
+  generatedAt: NOW_ISO,
+  results: [articleOnly.result, factOnly.result, both.result, residenceCount.result, approval.result, conflict.result],
+});
+
 console.log(JSON.stringify({
   mode: "shadow",
   production_side_effects: false,
@@ -224,7 +240,14 @@ console.log(JSON.stringify({
     article_only: concise(articleOnly),
     fact_only: concise(factOnly),
     both: concise(both),
+    residence_count_fact_only: concise(residenceCount),
     approval_exception: concise(approval),
     hold_conflict: concise(conflict),
+  },
+  shadow_digest: combinedDigest,
+  canonical_fact_shadow_proofs: {
+    status: factOnly.result.fact_mutations[0],
+    residenceCount: residenceCount.result.fact_mutations[0],
+    deliveryTiming: approval.result.fact_mutations[0],
   },
 }, null, 2));

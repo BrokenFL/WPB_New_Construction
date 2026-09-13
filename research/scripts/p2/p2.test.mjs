@@ -30,6 +30,7 @@ import { createApprovalServer, mintApprovalToken, verifyApprovalToken } from "./
 import { planRelease, planWriteback, RELEASE_DISABLED, WRITEBACK_FIELDS } from "./release-adapter.mjs";
 import { shadowRun } from "./shadow-run.mjs";
 import { createStaticStoryWriterProvider } from "./story-writer.mjs";
+import { FACT_CHECK_HANDOFF_CONTRACT_VERSION } from "./fact-check-handoff.mjs";
 
 const SECRET = "test-secret";
 const NOW_ISO = "2026-09-13T12:00:00.000Z";
@@ -367,6 +368,9 @@ test("dispatch schema is signed, deterministic, replay-safe, stale-safe, and bou
   assert.equal(verifyDispatch({ envelope: stale, secret: SECRET, now: NOW }).code, "ERR_DISPATCH_SIGNATURE");
   const staleSigned = signDispatch({ secret: SECRET, sheetId: "sheet-1", sheetName: "Incoming_Intel", records: envelope.records, policyVersion: POLICY_VERSION, issuedAt: "2026-01-01T00:00:00.000Z", nonce: "stale-nonce" });
   assert.equal(verifyDispatch({ envelope: staleSigned, secret: SECRET, now: NOW }).code, "ERR_DISPATCH_STALE");
+  const newPolicy = signDispatch({ secret: SECRET, sheetId: "sheet-1", sheetName: "Incoming_Intel", records: envelope.records, policyVersion: "p2-shadow-policy-v3", issuedAt: NOW_ISO, nonce: "new-policy-nonce" });
+  assert.notEqual(newPolicy.dispatch_id, envelope.dispatch_id);
+  assert.equal(verifyDispatch({ envelope: newPolicy, secret: SECRET, now: NOW }).ok, true);
   assert.deepEqual(createDispatchAck({ dispatchId: envelope.dispatch_id, ackedAt: NOW_ISO }), { contract_version: "p2-dispatch-ack-v1", ok: true, durable: true, dispatch_id: envelope.dispatch_id, replayed: false, acked_at: NOW_ISO });
 });
 
@@ -403,6 +407,70 @@ async function runScenario(t, r, { provider, indexes = indexesFor(), includeBund
     now: NOW,
   });
 }
+
+test("shadow runner ingests a provider-neutral fact-check handoff before policy", async (t) => {
+  const root = await workspace(t);
+  const r = row("external-fact-check");
+  const indexes = indexesFor();
+  const sources = [fetchedSource()];
+  const preliminary = processRow({ row: r, verificationSources: sources, indexes });
+  const direct = bundleFor(r, preliminary, sources);
+  const reviewerId = "chatgpt-task-42";
+  const reviewerName = "WPB Fact Checker";
+  const bundlePayload = {
+    ...direct,
+    reviewer_identity: `${reviewerId} (${reviewerName})`,
+  };
+  delete bundlePayload.review_bundle_sha256;
+  const evidenceBundleSha256 = reviewBundleHash(bundlePayload);
+  const sourceById = new Map(preliminary.verificationSources.map((source) => [source.source_ref_id, source]));
+  const handoff = {
+    contract_version: FACT_CHECK_HANDOFF_CONTRACT_VERSION,
+    intel_id: r.id,
+    intake_snapshot_sha256: preliminary.report.row_sha256,
+    event_key: preliminary.report.derived_event_key,
+    claims: direct.claims.map((claim) => ({
+      claim_id: claim.claim_id,
+      claim_type: claim.claim_type,
+      field: claim.field,
+      claim_text: claim.claim_text,
+      claim_value: claim.claim_value,
+      verdict: claim.support_verdict,
+      evidence: claim.verification_sources.map((source) => ({
+        source_ref_id: source.source_ref_id,
+        source_url: source.verification_source_url,
+        fetched_content_sha256: source.fetched_content_sha256,
+        source_revision: sourceById.get(source.source_ref_id).source_revision,
+        source_revision_sha256: source.source_revision_sha256,
+      })),
+    })),
+    verification_timestamp: direct.verification_timestamp,
+    reviewer_type: direct.reviewer_type,
+    reviewer_id: reviewerId,
+    reviewer_name: reviewerName,
+    reviewer_version: direct.reviewer_version,
+    policy_version: direct.policy_version,
+    evidence_bundle_sha256: evidenceBundleSha256,
+  };
+  const csvText = toCsv([r]);
+  const output = await shadowRun({
+    root,
+    envelope: dispatchFor(csvText, [r.id]),
+    secret: SECRET,
+    snapshotCsv: csvText,
+    factCheckHandoffs: { [r.id]: handoff },
+    storyWriterProviders: { [r.id]: createStaticStoryWriterProvider() },
+    indexes,
+    verificationSources: { [r.id]: sources },
+    ackStore: createAckStore(),
+    now: NOW,
+  });
+  assert.equal(output.ok, true);
+  assert.equal(output.results[0].evidence_bundle_sha256, evidenceBundleSha256);
+  assert.equal(output.results[0].article_decision, DECISION.AUTO_ELIGIBLE);
+  assert.equal(output.results[0].release_plan.enabled, false);
+  assert.equal(output.results[0].writeback_plan.enabled, false);
+});
 
 test("shadow outcomes stay independent: article-only, fact-only, both, and neither", async (t) => {
   const articleOnly = await runScenario(t, row("article-only"), { provider: createStaticStoryWriterProvider() });
@@ -473,8 +541,7 @@ test("durable dispatch replay is a no-op", async (t) => {
   const firstEnvelope = dispatchFor(csvText, [r.id]);
   const first = await shadowRun({ root, envelope: firstEnvelope, secret: SECRET, snapshotCsv: csvText, evidenceBundles: { [r.id]: evidence }, indexes: indexesFor(), verificationSources: { [r.id]: sources }, ackStore, now: NOW });
   assert.equal(first.results.length, 1);
-  const retry = signDispatch({ secret: SECRET, sheetId: "sheet-1", sheetName: "Incoming_Intel", records: firstEnvelope.records, policyVersion: POLICY_VERSION, issuedAt: NOW_ISO, nonce: "fresh-retry-nonce" });
-  const second = await shadowRun({ root, envelope: retry, secret: SECRET, snapshotCsv: csvText, evidenceBundles: { [r.id]: evidence }, indexes: indexesFor(), verificationSources: { [r.id]: sources }, ackStore, now: NOW });
+  const second = await shadowRun({ root, envelope: firstEnvelope, secret: SECRET, snapshotCsv: csvText, evidenceBundles: { [r.id]: evidence }, indexes: indexesFor(), verificationSources: { [r.id]: sources }, ackStore, now: NOW });
   assert.equal(second.replayed, true);
   assert.equal(second.results.length, 0);
   assert.equal(second.ack.durable, true);
@@ -595,4 +662,7 @@ test("shadow runner has zero production side effects and writes only private run
   assert.deepEqual(await fs.readdir(root), [".runtime"]);
   assert.equal(out.results[0].release_plan.enabled, false);
   assert.equal(out.results[0].writeback_plan.enabled, false);
+  assert.match(out.results[0].fact_check_packet_sha256, /^[a-f0-9]{64}$/);
+  const packetStat = await fs.stat(out.results[0].fact_check_packet_file);
+  assert.equal(packetStat.mode & 0o777, 0o600);
 });

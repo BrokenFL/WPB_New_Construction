@@ -82,6 +82,23 @@ private scanner dispatches and immutable snapshots. Assignment issue text must
 never be treated as evidence or article body. Do not disable schedules in this
 slice; retirement is a later, explicitly authorized activation step.
 
+### Recommended end state (not activated)
+
+| Responsibility | One owner | Eventual state |
+|---|---|---|
+| Discovery/intake | Google/Gemini/manual intake into private `Incoming_Intel` | enable after private scanner test |
+| Independent evidence review | one approved ChatGPT/API/human verifier using `p2-fact-check-handoff-v1` | consolidate current prose review into the structured contract |
+| Processing/orchestration | one repository checkout running `p2:shadow:owner` on a small cloud VM | enable first in shadow only; no laptop dependency |
+| Site health | independent site-health QA | retain separately from intelligence decisions |
+| Exceptions | Brooke through exact candidate/evidence/policy-bound review | enable only after authenticated preview security review |
+| Scheduled GitHub issue producers | `live-news-agent-task.yml`, `biweekly-content-agent-task.yml` | retire after scanner/owner soak proves coverage |
+| Legacy GPT issue import and local LaunchAgents | manual/disconnected paths | keep manual during soak, then retire if redundant |
+
+The selected v1 processor is the Node owner documented in
+`P2_LIVE_SHADOW_OPERATIONS.md`, not `repository_dispatch`: enqueue acceptance
+cannot provide the scanner's exact processing-complete durable acknowledgment.
+No schedules were enabled, disabled, or modified in this slice.
+
 ## LaunchAgents Found
 
 - Old local LaunchAgents may exist in historical checkouts or user Library folders, but they are not the desired current control surface.

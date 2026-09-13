@@ -6,13 +6,23 @@ import vm from "node:vm";
 import { bindSnapshotToDispatch, verifyDispatch } from "./dispatch.mjs";
 
 const source = fs.readFileSync("tools/apps-script/incoming-intel-scanner.gs", "utf8");
+const SECRET = "scanner-test-secret-012345678901234567890";
+const HEADERS = ["id", "status", "headline", "record_type", "category", "source_url", "verification_status", "review_notes", "last_updated", "fact_check_handoff_json"];
+
+function eventRow(id = "intel-1", headline = "Original", status = "queued") {
+  return [id, status, headline, "event", "development", "https://example.com/source", "", "", "", ""];
+}
 
 function load(overrides = {}) {
   const state = {
-    props: new Map(),
+    props: new Map([
+      ["SCANNER_MODE", "test"],
+      ["SHEET_ID", "sheet-1"],
+      ["POLICY_VERSION", "p2-shadow-policy-v2"],
+    ]),
     rows: [
-      ["id", "record_type", "headline", "status"],
-      ["intel-1", "event", "Original", "queued"],
+      HEADERS,
+      eventRow(),
     ],
     posts: 0,
     ...overrides,
@@ -66,12 +76,16 @@ test("stableJson and named field hashes are stable and exclude writeback fields"
   const before = context.fieldHash(["i", "Same", "queued"], headers, ["id", "headline"]);
   const after = context.fieldHash(["i", "Same", "processed"], headers, ["id", "headline"]);
   assert.equal(before, after);
+  const evidenceBefore = context.fieldHash(["", ""], ["review_notes", "fact_check_handoff_json"], context.EVIDENCE_FIELDS);
+  const evidenceAfter = context.fieldHash(["", "{\"contract_version\":\"p2-fact-check-handoff-v1\"}"], ["review_notes", "fact_check_handoff_json"], context.EVIDENCE_FIELDS);
+  assert.notEqual(evidenceBefore, evidenceAfter);
 });
 
 test("Apps Script envelope verifies against the Node dispatch contract", () => {
   const { state, context } = load();
+  state.props.set("SCANNER_MODE", "shadow");
   state.props.set("DISPATCH_ENDPOINT", "https://runner.invalid");
-  state.props.set("DISPATCH_SECRET", "secret");
+  state.props.set("DISPATCH_SECRET", SECRET);
   context.UrlFetchApp.fetch = (_url, options) => {
     state.envelope = JSON.parse(options.payload);
     return {
@@ -80,8 +94,8 @@ test("Apps Script envelope verifies against the Node dispatch contract", () => {
     };
   };
   context.scanIncomingIntel();
-  assert.equal(verifyDispatch({ envelope: state.envelope, secret: "secret" }).ok, true);
-  const csv = "id,record_type,headline,status\nintel-1,event,Original,queued";
+  assert.equal(verifyDispatch({ envelope: state.envelope, secret: SECRET }).ok, true);
+  const csv = "id,status,headline,record_type,category,source_url,verification_status,review_notes,last_updated,fact_check_handoff_json\nintel-1,queued,Original,event,development,https://example.com/source,,,,";
   assert.equal(bindSnapshotToDispatch({ dispatch: state.envelope, snapshotCsv: csv }).ok, true);
   assert.equal(Object.prototype.hasOwnProperty.call(state.envelope, "quarantined"), false);
 });
@@ -96,26 +110,55 @@ test("duplicate, partial, and non-event records are quarantined without a POST",
       ["note", "note", "N"],
     ],
   });
+  state.props.set("SCANNER_MODE", "shadow");
   state.props.set("DISPATCH_ENDPOINT", "https://runner.invalid");
-  state.props.set("DISPATCH_SECRET", "secret");
+  state.props.set("DISPATCH_SECRET", SECRET);
   const result = context.scanIncomingIntel();
   assert.equal(result.dispatched, 0);
   assert.equal(result.quarantined, 4);
   assert.equal(state.posts, 0);
 });
 
+test("duplicate IDs are quarantined while an unrelated valid event continues", () => {
+  const { state, context } = load({
+    rows: [
+      HEADERS,
+      eventRow("dup", "A"),
+      eventRow("dup", "B"),
+      eventRow("valid", "Valid event"),
+    ],
+  });
+  state.props.set("SCANNER_MODE", "shadow");
+  state.props.set("DISPATCH_ENDPOINT", "https://runner.invalid");
+  state.props.set("DISPATCH_SECRET", SECRET);
+  context.UrlFetchApp.fetch = (_url, options) => {
+    const envelope = JSON.parse(options.payload);
+    state.envelope = envelope;
+    return {
+      getResponseCode: () => 200,
+      getContentText: () => JSON.stringify({ contract_version: "p2-dispatch-ack-v1", ok: true, durable: true, dispatch_id: envelope.dispatch_id }),
+    };
+  };
+  const result = context.scanIncomingIntel();
+  assert.equal(result.dispatched, 1);
+  assert.equal(result.quarantined, 2);
+  assert.equal(state.envelope.records[0].intel_id, "valid");
+});
+
 test("missing record_type schema fails closed before dispatch", () => {
   const { state, context } = load({ rows: [["id", "headline"], ["intel-1", "Partial"]] });
+  state.props.set("SCANNER_MODE", "shadow");
   state.props.set("DISPATCH_ENDPOINT", "https://runner.invalid");
-  state.props.set("DISPATCH_SECRET", "secret");
+  state.props.set("DISPATCH_SECRET", SECRET);
   assert.throws(() => context.scanIncomingIntel(), /missing required record_type header/);
   assert.equal(state.posts, 0);
 });
 
 test("bad ack is rejected and does not persist hashes", () => {
   const { state, context } = load();
+  state.props.set("SCANNER_MODE", "shadow");
   state.props.set("DISPATCH_ENDPOINT", "https://runner.invalid");
-  state.props.set("DISPATCH_SECRET", "secret");
+  state.props.set("DISPATCH_SECRET", SECRET);
   state.response = { getResponseCode: () => 200, getContentText: () => JSON.stringify({ ok: true }) };
   assert.throws(() => context.scanIncomingIntel(), /dispatch failed after 3 attempts/);
   assert.equal(state.posts, 3);
@@ -124,8 +167,9 @@ test("bad ack is rejected and does not persist hashes", () => {
 
 test("changed row after durable ack is not marked as processed", () => {
   const { state, context } = load();
+  state.props.set("SCANNER_MODE", "shadow");
   state.props.set("DISPATCH_ENDPOINT", "https://runner.invalid");
-  state.props.set("DISPATCH_SECRET", "secret");
+  state.props.set("DISPATCH_SECRET", SECRET);
   state.onFetch = (current) => {
     current.rows[1][2] = "Changed while processing";
     current.response = {
@@ -144,5 +188,67 @@ test("changed row after durable ack is not marked as processed", () => {
   };
   const result = context.scanIncomingIntel();
   assert.equal(result.dispatched, 1);
+  assert.equal(result.stale, 1);
   assert.equal(state.props.has("p2scan:intel-1"), false);
+});
+
+test("test mode never POSTs or acknowledges hashes and exposes health", () => {
+  const { state, context } = load();
+  const result = context.scanIncomingIntel();
+  assert.equal(result.mode, "test");
+  assert.equal(result.would_dispatch, 1);
+  assert.equal(result.dispatched, 0);
+  assert.equal(state.posts, 0);
+  assert.equal(state.props.has("p2scan:intel-1"), false);
+  assert.equal(context.getScannerHealth().status, "test_ok");
+});
+
+test("event rows missing Phase A required fields are quarantined", () => {
+  const { state, context } = load({ rows: [HEADERS, eventRow("partial", "", "queued").map((value, index) => index === 5 ? "" : value)] });
+  const result = context.scanIncomingIntel();
+  assert.equal(result.would_dispatch, 0);
+  assert.equal(result.quarantined, 1);
+  assert.equal(state.posts, 0);
+});
+
+test("shadow mode rejects weak secrets and records configuration health", () => {
+  const { state, context } = load();
+  state.props.set("SCANNER_MODE", "shadow");
+  state.props.set("DISPATCH_ENDPOINT", "https://runner.invalid");
+  state.props.set("DISPATCH_SECRET", "short");
+  assert.throws(() => context.scanIncomingIntel(), /at least 32 characters/);
+  assert.equal(context.getScannerHealth().last_error_code, "configuration_error");
+});
+
+test("shadow mode rejects malformed or credential-bearing dispatch endpoints", () => {
+  for (const endpoint of ["https://", "https://user@example.com/dispatch", "https://runner.invalid/has space", "http://runner.invalid/dispatch"]) {
+    const { state, context } = load();
+    state.props.set("SCANNER_MODE", "shadow");
+    state.props.set("DISPATCH_ENDPOINT", endpoint);
+    state.props.set("DISPATCH_SECRET", SECRET);
+    assert.throws(() => context.scanIncomingIntel(), /credential-free HTTPS URL/);
+    assert.equal(state.posts, 0);
+  }
+});
+
+test("policy version changes force a new dispatch instead of reusing an old acknowledgment", () => {
+  const { state, context } = load();
+  state.props.set("SCANNER_MODE", "shadow");
+  state.props.set("DISPATCH_ENDPOINT", "https://runner.invalid/dispatch");
+  state.props.set("DISPATCH_SECRET", SECRET);
+  const ids = [];
+  context.UrlFetchApp.fetch = (_url, options) => {
+    const envelope = JSON.parse(options.payload);
+    ids.push(envelope.dispatch_id);
+    return {
+      getResponseCode: () => 200,
+      getContentText: () => JSON.stringify({ contract_version: "p2-dispatch-ack-v1", ok: true, durable: true, dispatch_id: envelope.dispatch_id }),
+    };
+  };
+  assert.equal(context.scanIncomingIntel().dispatched, 1);
+  assert.equal(context.scanIncomingIntel().dispatched, 0);
+  state.props.set("POLICY_VERSION", "p2-shadow-policy-v3");
+  assert.equal(context.scanIncomingIntel().dispatched, 1);
+  assert.equal(ids.length, 2);
+  assert.notEqual(ids[0], ids[1]);
 });

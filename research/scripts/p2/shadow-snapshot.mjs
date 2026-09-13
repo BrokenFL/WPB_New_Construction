@@ -57,42 +57,49 @@ const factChange = { AUTO_ELIGIBLE: 0, NEEDS_DECISION: 0, HOLD: 0, NONE: 0 };
 let dispatchId = null;
 let results = [];
 let queueStats = { total: 0, article, fact_change: factChange };
+let digest = null;
 
 if (records.length) {
-  const runtimeRoot = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-p2-shadow-eval-"));
-  const secret = process.env.P2_DISPATCH_SECRET || "offline-shadow-evaluation-only";
-  const envelope = signDispatch({
-    secret,
-    sheetId: SHEET_ID,
-    sheetName: SHEET_NAME,
-    records,
-    policyVersion: POLICY_VERSION,
-  });
-  const indexes = await buildRepositoryIndexes(repoRoot);
-  const output = await shadowRun({
-    root: runtimeRoot,
-    envelope,
-    secret,
-    snapshotCsv,
-    indexes,
-    ackStore: createAckStore(),
-  });
-  if (!output.ok) {
-    console.error(JSON.stringify({ ok: false, stage: output.stage, code: output.code }, null, 2));
-    process.exitCode = 2;
-  } else {
-    dispatchId = output.dispatch_id;
-    results = output.results.map((result) => ({
-      intel_id: result.intel_id,
-      article: result.article_decision,
-      fact_change: result.fact_change_decision,
-      reasons: result.reasons,
-    }));
-    queueStats = output.queue_stats;
-    for (const result of output.results) {
-      article[result.article_decision] += 1;
-      factChange[result.fact_change_decision] += 1;
+  let runtimeRoot;
+  try {
+    runtimeRoot = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-p2-shadow-eval-"));
+    const secret = process.env.P2_DISPATCH_SECRET || "offline-shadow-evaluation-only";
+    const envelope = signDispatch({
+      secret,
+      sheetId: SHEET_ID,
+      sheetName: SHEET_NAME,
+      records,
+      policyVersion: POLICY_VERSION,
+    });
+    const indexes = await buildRepositoryIndexes(repoRoot);
+    const output = await shadowRun({
+      root: runtimeRoot,
+      envelope,
+      secret,
+      snapshotCsv,
+      indexes,
+      ackStore: createAckStore(),
+    });
+    if (!output.ok) {
+      console.error(JSON.stringify({ ok: false, stage: output.stage, code: output.code }, null, 2));
+      process.exitCode = 2;
+    } else {
+      dispatchId = output.dispatch_id;
+      results = output.results.map((result) => ({
+        intel_id: result.intel_id,
+        article: result.article_decision,
+        fact_change: result.fact_change_decision,
+        reasons: result.reasons,
+      }));
+      queueStats = output.queue_stats;
+      digest = output.digest;
+      for (const result of output.results) {
+        article[result.article_decision] += 1;
+        factChange[result.fact_change_decision] += 1;
+      }
     }
+  } finally {
+    if (runtimeRoot) await fs.rm(runtimeRoot, { recursive: true, force: true });
   }
 }
 
@@ -110,5 +117,6 @@ console.log(JSON.stringify({
   article,
   fact_change: factChange,
   queue_stats: queueStats,
+  digest,
   results,
 }, null, 2));

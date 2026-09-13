@@ -28,6 +28,7 @@ export const CONTENT_FIELDS = Object.freeze([
 
 export const EVIDENCE_FIELDS = Object.freeze([
   "verification_status", "verification_summary", "review_notes",
+  "fact_check_handoff_json",
 ]);
 
 export const WRITEBACK_FIELDS = Object.freeze([
@@ -89,8 +90,8 @@ export function dispatchSnapshotSha256({ sheetId, sheetName, records }) {
   return sha256({ sheet_id: sheetId, sheet_name: sheetName, records: normalizedRecords(records) });
 }
 
-function dispatchIdFor(snapshotSha256, records) {
-  return `disp-${sha256({ snapshotSha256, recordIds: records.map((record) => record.intel_id).sort() }).slice(0, 16)}`;
+function dispatchIdFor(snapshotSha256, records, policyVersion) {
+  return `disp-${sha256({ snapshotSha256, recordIds: records.map((record) => record.intel_id).sort(), policyVersion }).slice(0, 16)}`;
 }
 
 export function signDispatch({ secret, sheetId, sheetName, snapshotSha256, records, policyVersion, issuedAt = new Date().toISOString(), nonce = crypto.randomUUID() }) {
@@ -100,7 +101,7 @@ export function signDispatch({ secret, sheetId, sheetName, snapshotSha256, recor
   if (snapshotSha256 && snapshotSha256 !== computedSnapshot) throw new Error(DISPATCH_ERR.SNAPSHOT_MISMATCH);
   const envelope = {
     contract_version: DISPATCH_CONTRACT_VERSION,
-    dispatch_id: dispatchIdFor(computedSnapshot, normalized),
+    dispatch_id: dispatchIdFor(computedSnapshot, normalized, policyVersion),
     sheet_id: sheetId,
     sheet_name: sheetName,
     snapshot_sha256: computedSnapshot,
@@ -134,7 +135,7 @@ export function verifyDispatch({ envelope, secret, now = Date.now(), seenNonces 
   const expectedRecords = normalizedRecords(unsigned.records);
   if (stableJson(expectedRecords) !== stableJson(unsigned.records)) return { ok: false, code: DISPATCH_ERR.MALFORMED };
   const expectedSnapshot = dispatchSnapshotSha256({ sheetId: unsigned.sheet_id, sheetName: unsigned.sheet_name, records: unsigned.records });
-  if (unsigned.snapshot_sha256 !== expectedSnapshot || unsigned.dispatch_id !== dispatchIdFor(expectedSnapshot, unsigned.records)) return { ok: false, code: DISPATCH_ERR.SNAPSHOT_MISMATCH };
+  if (unsigned.snapshot_sha256 !== expectedSnapshot || unsigned.dispatch_id !== dispatchIdFor(expectedSnapshot, unsigned.records, unsigned.policy_version)) return { ok: false, code: DISPATCH_ERR.SNAPSHOT_MISMATCH };
   const issued = Date.parse(unsigned.issued_at || "");
   if (!Number.isFinite(issued) || Math.abs(now - issued) > DISPATCH_MAX_AGE_MS) return { ok: false, code: DISPATCH_ERR.STALE };
   if (seenNonces.has(unsigned.nonce)) return { ok: false, code: DISPATCH_ERR.REPLAY };

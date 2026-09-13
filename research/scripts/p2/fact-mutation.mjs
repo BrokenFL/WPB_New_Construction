@@ -31,6 +31,18 @@ export const REQUIRED_AUTO_FACT_TESTS = Object.freeze({
   name: Object.freeze(["canonical-fact-contract", "project-identity-contract"]),
 });
 
+export const CANONICAL_PROPAGATION_SURFACES = Object.freeze([
+  "project_pages",
+  "project_and_building_cards",
+  "comparisons",
+  "corridor_and_discovery_pages",
+  "map_summaries",
+  "floorplan_project_context",
+  "json_ld_and_schema",
+  "feeds_and_search",
+  "ai_and_llm_discovery",
+]);
+
 export function classifyFactField(field) {
   if (HUMAN_REQUIRED_FIELDS.has(field)) return "human_required";
   if (AUTO_FACT_FIELDS.has(field)) return "auto_fact_allowlist";
@@ -165,6 +177,12 @@ export function buildFactMutation({
       previous_value: current,
       source_revision: expectedCanonicalRevision,
       rollback_identifier: `rollback-${sha256({ projectId, field, current, expectedCanonicalRevision }).slice(0, 16)}`,
+    },
+    shadow_propagation: {
+      architecture: "pr95-reviewed-canonical-propagation",
+      downstream_surfaces: [...CANONICAL_PROPAGATION_SURFACES],
+      historical_articles: "unchanged",
+      apply: false,
     },
     apply: false,
   };

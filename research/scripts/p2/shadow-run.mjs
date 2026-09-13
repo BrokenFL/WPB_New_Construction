@@ -9,6 +9,9 @@ import { buildEmailPreview, writeEmailPreview } from "./email-preview.mjs";
 import { mintApprovalToken } from "./approval-server.mjs";
 import { planRelease, planWriteback } from "./release-adapter.mjs";
 import { createEditorialBrief, runStoryWriter } from "./story-writer.mjs";
+import { buildShadowDigest, writeShadowDigest } from "./shadow-digest.mjs";
+import { ingestFactCheckHandoff } from "./fact-check-handoff.mjs";
+import { buildFactCheckPacket, writeFactCheckPacket } from "./fact-check-packet.mjs";
 
 export const REVIEW_OBJECT_CONTRACT_VERSION = "p2-shadow-review-object-v1";
 
@@ -54,6 +57,7 @@ export async function shadowRun({
   secret,
   snapshotCsv,
   evidenceBundles = {},
+  factCheckHandoffs = {},
   storyWriterProviders = {},
   factTestResults = {},
   indexes = {},
@@ -66,10 +70,12 @@ export async function shadowRun({
   approvalBaseUrl = "http://127.0.0.1:8790",
   approvalSecret = secret,
 }) {
-  const verified = verifyDispatch({ envelope, secret, seenNonces, now });
+  // Authenticate and freshness-check first, then consult durable state before
+  // nonce replay state. This lets an exact network retry recover the already
+  // persisted ack without processing twice.
+  const verified = verifyDispatch({ envelope, secret, seenNonces: new Set(), now });
   if (!verified.ok) return { ok: false, stage: "dispatch", ...verified };
   if (verified.dispatch.policy_version !== POLICY_VERSION) return { ok: false, stage: "dispatch", code: "ERR_DISPATCH_POLICY_MISMATCH" };
-  seenNonces.add(verified.dispatch.nonce);
 
   if (await ackStore.isAcked(verified.dispatch.dispatch_id)) {
     return {
@@ -80,6 +86,8 @@ export async function shadowRun({
       ack: createDispatchAck({ dispatchId: verified.dispatch.dispatch_id, replayed: true }),
     };
   }
+  if (seenNonces.has(verified.dispatch.nonce)) return { ok: false, stage: "dispatch", code: "ERR_DISPATCH_REPLAY" };
+  seenNonces.add(verified.dispatch.nonce);
 
   const boundSnapshot = bindSnapshotToDispatch({ dispatch: verified.dispatch, snapshotCsv });
   if (!boundSnapshot.ok) return { ok: false, stage: "snapshot", ...boundSnapshot };
@@ -92,8 +100,35 @@ export async function shadowRun({
   for (const row of rows) {
     const sources = verificationSources[row.id] || [];
     const preliminary = processRow({ row, verificationSources: sources, indexes });
-    const bundle = evidenceBundles[row.id];
-    const boundReview = bundle ? validateEvidenceBundle({
+    const factCheckPacket = buildFactCheckPacket({
+      preliminary,
+      policyVersion: POLICY_VERSION,
+      reviewerVersion,
+      createdAt: new Date(now).toISOString(),
+    });
+    const factCheckPacketFile = await writeFactCheckPacket(root, factCheckPacket);
+    const suppliedBundle = evidenceBundles[row.id];
+    const suppliedHandoff = factCheckHandoffs[row.id];
+    let bundle = suppliedBundle;
+    let handoffResult = null;
+    if (suppliedBundle && suppliedHandoff) {
+      handoffResult = { bound: false, code: "ERR_FACT_CHECK_MULTIPLE_INPUTS", errors: ["supply either a trusted bundle or a fact-check handoff, never both"], claims_all_supported: false };
+      bundle = null;
+    } else if (suppliedHandoff) {
+      handoffResult = ingestFactCheckHandoff({
+        handoff: suppliedHandoff,
+        expectedClaims: preliminary.claims,
+        expectedSources: preliminary.verificationSources,
+        intelId: row.id,
+        intakeSnapshotSha256: preliminary.report.row_sha256,
+        eventKey: preliminary.report.derived_event_key,
+        policyVersion: POLICY_VERSION,
+        reviewerVersion,
+        now,
+      });
+      bundle = handoffResult.ok ? handoffResult.bundle : null;
+    }
+    const boundReview = handoffResult && !handoffResult.ok ? handoffResult : bundle ? validateEvidenceBundle({
       bundle,
       intelId: row.id,
       intakeSnapshotSha256: preliminary.report.row_sha256,
@@ -108,7 +143,7 @@ export async function shadowRun({
     const result = boundReview.bound
       ? processRow({ row, verificationSources: sources, indexes, trustedEvidence: toPhaseATrustedEvidence(bundle, preliminary.verificationSources) })
       : preliminary;
-    if (bundle && !boundReview.bound) result.report.warnings.push({ code: boundReview.code, message: boundReview.errors?.join("; ") || "Trusted evidence bundle rejected" });
+    if ((suppliedBundle || suppliedHandoff) && !boundReview.bound) result.report.warnings.push({ code: boundReview.code, message: boundReview.errors?.join("; ") || "Trusted evidence input rejected" });
 
     let articleCandidate = null;
     let storyError = null;
@@ -183,18 +218,28 @@ export async function shadowRun({
       fact_mutations: factMutations,
       review_object: candidate,
       preview_file: previewFile,
+      fact_check_packet_sha256: factCheckPacket.packet_sha256,
+      fact_check_packet_file: factCheckPacketFile,
       release_plan: planRelease({ entry }),
       writeback_plan: planWriteback({ entry, liveVerifiedUrl: null }),
     });
   }
 
   await queue.save();
+  const digest = buildShadowDigest({
+    results,
+    dispatchId: verified.dispatch.dispatch_id,
+    generatedAt: new Date(now).toISOString(),
+  });
+  const digestFiles = await writeShadowDigest(root, digest);
   const persistedAck = await ackStore.ack(verified.dispatch.dispatch_id);
   return {
     ok: true,
     dispatch_id: verified.dispatch.dispatch_id,
     results,
     queue_stats: queue.stats(),
+    digest,
+    digest_files: digestFiles,
     tokens,
     ack: createDispatchAck({ dispatchId: verified.dispatch.dispatch_id, replayed: persistedAck.duplicate, ackedAt: persistedAck.acked_at }),
   };

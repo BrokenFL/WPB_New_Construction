@@ -7,6 +7,8 @@ orchestrator, exception approval contract, Apps Script dispatch, and
 StoryWriter boundary. It supersedes the earlier design-only prototype text in
 this file. Phase A's no-mutation contract remains authoritative in
 `P2_INTELLIGENCE_PROCESSOR_PHASE_A.md`.
+The exact owner provisioning, credentials, fact-check round trip, activation,
+and rollback package is in `P2_LIVE_SHADOW_OPERATIONS.md`.
 
 ## Review sequencing (verified 2026-09-13)
 
@@ -110,6 +112,24 @@ The following never satisfy claim verification: confidence alone, the Sheet's
 in `review_notes`/`verification_summary`. Source and Sheet strings are always
 untrusted data; embedded instructions have no control effect.
 
+### Provider-neutral fact-check handoff
+
+Every first pass writes a private, mode-0600 `p2-fact-check-packet-v1` under
+`.runtime/p2/fact-check-packets/`. The packet supplies the independent verifier
+with exact Phase A claim IDs/text/values, row SHA, event key, fetched source
+revisions, reviewer/policy versions, and explicit zero authority. It contains
+no fetched source body.
+
+`fact-check-handoff.mjs` exact-key validates the verifier's
+`p2-fact-check-handoff-v1`, deterministically derives the trusted bundle, and
+rejects altered/missing claims, source revisions, reviewer/policy drift, stale
+timestamps, extra fields, or a wrong bundle SHA. The live-shadow Sheet bridge
+uses the private `fact_check_handoff_json` column; that value is included only
+in the scanner's evidence hash and is never sent in dispatch. The owner re-reads
+it from the bound private snapshot and re-fetches every public evidence URL.
+Adding the column or changing the external verifier task remains an activation
+step and was not performed by this PR.
+
 ## Policy and canonical fact changes
 
 `policy-engine.mjs` returns separate article and fact decisions.
@@ -206,11 +226,34 @@ nonce replays, changed rows, duplicate IDs, and durable dispatch replays.
 Single-worker v1 is sufficient; the Apps Script lock only prevents overlapping
 invocations and is not a distributed-lock design.
 
+## Single processing owner and digest
+
+`shadow-owner-server.mjs` is the single host-neutral Node owner. It exposes only
+the signed POST dispatch route and a non-sensitive health response. The
+recommended v1 host is one small Google Compute Engine VM with an attached
+read-only Sheet service account and encrypted persistent disk. It authenticates
+before Sheet access, binds the fresh row before evidence retrieval, writes the
+private queue/fact-check packets/digest, asserts every release/writeback/apply
+switch remains false, persists the ack, and returns aggregate results only.
+
+Direct GitHub `repository_dispatch` is not the v1 owner because its accepted
+response is not proof that processing completed or that the exact durable ack
+was stored. GitHub identity is unnecessary in shadow mode. Any future branch
+writer needs separately authorized GitHub App/fine-grained credentials; do not
+assume the default `GITHUB_TOKEN` will trigger a downstream workflow.
+
+`p2-shadow-digest-v1` counts processed, auto-eligible article/fact candidates,
+duplicates, holds, and decisions requiring Brooke. Only `NEEDS_DECISION` items
+are expanded with project/event, exact article/fact outcomes, canonical diff,
+evidence links, and risk reasons. It writes local private JSON/Markdown and
+sends no email.
+
 ### Deployment instructions (not authorization)
 
 1. Create a Sheet-bound Apps Script from the checked-in `.gs` source.
-2. Set Script Properties `DISPATCH_ENDPOINT`, `DISPATCH_SECRET`, and optional
-   `POLICY_VERSION=p2-shadow-policy-v2`.
+2. Set Script Properties `SCANNER_MODE=test`, the fixed `SHEET_ID`,
+   `POLICY_VERSION=p2-shadow-policy-v2`, and—only after provisioning—the HTTPS
+   `DISPATCH_ENDPOINT` and shared `DISPATCH_SECRET`.
 3. Grant the minimum Sheet read scope; do not publish the Sheet.
 4. Manually create a time-driven trigger for `scanIncomingIntel` at about
    15-minute cadence.
@@ -247,6 +290,10 @@ npm run build
 npm run qa:gatekeeper
 ```
 
+The current P2 suite contains 64 tests, including scanner, fact-check packet
+and handoff, live owner/HTTP boundary, read-only Google provider, replay/stale
+handling, digest, approval, StoryWriter, policy, and zero-side-effect cases.
+
 To evaluate an authorized private export without committing it:
 
 ```bash
@@ -262,11 +309,11 @@ automatic results are valid and must not be "fixed" by weakening policy.
 An authorized export from the private `Incoming_Intel` Sheet was evaluated and
 then removed from temporary storage; no row content or export was committed.
 
-- 14 rows discovered;
-- 12 unique event records dispatched;
+- 17 rows discovered;
+- 15 unique event records dispatched;
 - one duplicate-ID group covering two rows quarantined;
-- article: 0 `AUTO_ELIGIBLE`, 0 `NEEDS_DECISION`, 10 `HOLD`, 2 `DUPLICATE`;
-- fact change: 0 `AUTO_ELIGIBLE`, 0 `NEEDS_DECISION`, 7 `HOLD`, 5 `NONE`.
+- article: 0 `AUTO_ELIGIBLE`, 0 `NEEDS_DECISION`, 13 `HOLD`, 2 `DUPLICATE`;
+- fact change: 0 `AUTO_ELIGIBLE`, 0 `NEEDS_DECISION`, 10 `HOLD`, 5 `NONE`.
 
 No current row had a separately supplied `p2-trusted-evidence-v1` bundle, so
 the zero-automatic result is expected. This is dated evaluation evidence, not
