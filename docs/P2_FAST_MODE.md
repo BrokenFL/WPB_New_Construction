@@ -32,12 +32,17 @@ push to main ──> deploy-cloudflare-pages.yml (normal deploy)
 
 ## Processing owner: GitHub Actions
 
-`.github/workflows/intel-fast-cycle.yml` runs `npm run p2:fast:cycle` every
-15 minutes (plus `repository_dispatch` / `workflow_dispatch`). The Sheet is
-the durable workflow state — a missed or failed run self-heals because
-non-terminal rows stay actionable until the next cycle. The GCE owner from
-the shadow architecture is not required: dispatches are advisory pokes, all
-idempotency lives in Sheet columns and Story_Queue rows.
+`tools/github-workflows/intel-fast-cycle.yml` is the prepared workflow —
+staged outside `.github/workflows/` because the push token lacks the OAuth
+`workflow` scope. Activation copies it to
+`.github/workflows/intel-fast-cycle.yml` (web UI or a `workflow`-scoped
+token — one-time step). Once installed it runs `npm run p2:fast:cycle`
+every 15 minutes (plus `repository_dispatch` / `workflow_dispatch`). The
+Sheet is the durable workflow state — a missed or failed run self-heals
+because non-terminal rows stay actionable until the next cycle. The GCE
+owner from the shadow architecture is not required: dispatches are
+advisory pokes, all idempotency lives in Sheet columns and Story_Queue
+rows.
 
 Apps Script `scanBothQueues()` remains available as an optional dispatcher
 (`p2-story-dispatch-v1` envelopes) but the cron schedule alone is
@@ -74,6 +79,8 @@ automated ones.
 - `research/scripts/p2/fast-cycle-cli.mjs` — CLI (`npm run p2:fast:cycle`)
 - `research/scripts/p2/fast-digest.mjs` — outcome digest
 - `research/scripts/p2/google-sheets-io.mjs` — Sheets read/write transport
+- `tools/github-workflows/intel-fast-cycle.yml` — staged Actions workflow
+  (copy to `.github/workflows/` at activation)
 - `tools/apps-script/incoming-intel-scanner.gs` — `scanBothQueues`,
   `ensureStoryQueueTab`
 - `docs/WPB_GEMINI_INTELLIGENCE_SCOUT_PROMPT.md`
@@ -83,22 +90,28 @@ automated ones.
 
 ## One-time activation steps
 
-1. Google Cloud: create a service account, share the private spreadsheet
+1. GitHub: install the workflow — copy
+   `tools/github-workflows/intel-fast-cycle.yml` to
+   `.github/workflows/intel-fast-cycle.yml` on main (web UI commit, or
+   `gh auth refresh -h github.com -s workflow` then a normal push).
+2. Google Cloud: create a service account, share the private spreadsheet
    with its `client_email` (Editor), download the key JSON.
-2. GitHub repo secrets: add `P2_GOOGLE_SERVICE_ACCOUNT_JSON` (key JSON)
+3. GitHub repo secrets: add `P2_GOOGLE_SERVICE_ACCOUNT_JSON` (key JSON)
    and `P2_PUBLISH_PAT` (a token that can push to main and trigger the
    push-event deploy; `GITHUB_TOKEN` pushes don't fire it — without the
    PAT the cycle falls back to `workflow_dispatch` on the deploy
    workflow).
-3. Apps Script (optional dispatcher): run `ensureStoryQueueTab()` once,
+4. Apps Script (optional dispatcher): run `ensureStoryQueueTab()` once,
    set Script Properties `SCANNER_MODE=shadow`, `SHEET_ID`,
    `POLICY_VERSION=p2-fast-policy-v1`, `DISPATCH_ENDPOINT`,
    `DISPATCH_SECRET` (32+ chars), then install the 15-minute
    `scanBothQueues` trigger. Skippable — the Actions cron suffices.
-4. ChatGPT: create the two scheduled tasks from the prompt docs.
+   Note: the first `p2:fast:cycle` run also auto-creates Story_Queue via
+   `ensureTab`, so the Apps Script step is belt-and-suspenders.
+5. ChatGPT: create the two scheduled tasks from the prompt docs.
    Fact Check every ~2 hours in the day; Story Writer on the half-hour
    offset.
-5. Gemini: replace the current automation prompt with the scout prompt.
+6. Gemini: replace the current automation prompt with the scout prompt.
 
 ## Digest
 
