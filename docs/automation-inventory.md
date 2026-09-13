@@ -1,9 +1,41 @@
 # WPB New Construction Automation Inventory
 
-## Confirmed Active Automations
+## Verified Automation Audit — 2026-09-12
 
-- Codex automation `WPB Site Health Check` is the broad safety net. It runs build, launch QA, news QA, and live QA, then reports blockers only.
-- The desired news automation is a review-only morning Codex job that prepares up to two article drafts and image recommendations for Brooke approval.
+Inspected on Brooke's Mac against `origin/main` @ `2d1b82f`. States: **configured active** (schedule exists), **executed** (ran), **useful output** (produced a review artifact), **blocked safely** (preflight stop), **paused**, **disconnected** (producer with no consumer), **unknown** (not inspectable from this environment).
+
+### Codex automations (`~/.codex/automations/`)
+
+| Automation | Schedule | State | Evidence |
+|---|---|---|---|
+| `wpb-content-scout-safe-daily-publish` ("WPB Content Scout — route-aware daily publish") | Daily 09:15 local | configured active, executed | `memory.md` shows runs through 2026-09-12. Recent runs are preflight stops (SSD checkout on `codex/wpb-3d-city-map` until the 2026-09-11 repair) or clean no-write editorial skips. A safe preflight stop is not a completed research run. No publish evidence. |
+| `wpb-launch-qa-check` ("WPB Site Health Check") | Fri 09:00 local | **paused** | `status = "PAUSED"` in `automation.toml`. Earlier prose in this file calling it "confirmed active" was stale. |
+| `wpb-development-desk-morning-drafts` | Daily 07:00 local | paused | `status = "PAUSED"`. This is the desired review-only morning job — currently off. |
+| `wpb-source-and-news-refresh` | Mon 08:30 local | paused | `status = "PAUSED"`. |
+| `daily-wpb-project-fact-refresh` | Daily 08:00 local | paused | `status = "PAUSED"`. |
+| `restats-mls-refresh` | Every 2 days 07:45 local | configured active | Unrelated to WPB site (ReStats MLS). |
+
+### GitHub scheduled workflows
+
+| Workflow | Schedule | State | Evidence |
+|---|---|---|---|
+| `live-news-agent-task.yml` | Mon/Wed/Fri 13:30 UTC | configured active, **disconnected** | Creates deduped `live-news-agent` issues (latest #96, 2026-09-11). 10 open issues 2026-08-21→09-11 accumulate; no consumer runs. `news:process-gpt-issues` is manual-only. |
+| `biweekly-content-agent-task.yml` | Mon 14:00 UTC, even weeks | configured active, **disconnected** | 8 open `content-agent` issues 2026-05-25→08-31 accumulate unprocessed. |
+
+### LaunchAgents (`~/Library/LaunchAgents/`)
+
+| Agent | State | Evidence |
+|---|---|---|
+| `com.brooke.builder-cloudflare-tunnel` | **loaded** (KeepAlive) | cloudflared tunnel exposing the local Builder. Review remote-exposure/auth before relying on it. |
+| `com.brooke.wpb-news-review-queue` | plist present, **not loaded** | Target `tools/launchers/run-news-review-queue.sh` does not exist in the repo — dead config. |
+| `com.brooke.wpb-condo-scan` | plist present, **not loaded** | Points at `/Volumes/ExternalSSD/openclaw-lab`, not this repo. |
+
+### External tasks (not inspectable from this environment)
+
+| Task | State | Evidence |
+|---|---|---|
+| ChatGPT "WPB Daily Fact Check" (`6aa382b5…`) | configured active | ChatGPT-side confirmation: enabled, daily 06:00 Eastern, last run ~06:04 ET 2026-09-12, push/email flags off. Report/designated-review-column writeback only — no Sheet-write for the processor. |
+| Gemini actions / Apps Script | unknown | No Apps Script deployment or script ID exists in the repo. Sheet gviz export returns a login page from this environment; neither Sheet is publicly readable here. |
 
 ## Repo Scripts That Can Be Automated
 
