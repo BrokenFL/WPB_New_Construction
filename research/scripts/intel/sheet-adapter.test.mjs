@@ -14,7 +14,15 @@ const dupCsv = [
   baseRow("wpb-intel-2026-09-10-001", "La Fontana tail"),
   baseRow("wpb-intel-2026-09-10-001", "Alba tail"),
   baseRow("wpb-intel-2026-09-10-002"),
+  baseRow("wpb-intel-2026-09-10-003"),
 ].join("\n");
+
+test("empty selection throws ERR_NO_SELECTED_ROWS", async () => {
+  await assert.rejects(
+    () => readSelectedRows({ ids: [], csvText: dupCsv }),
+    /ERR_NO_SELECTED_ROWS/,
+  );
+});
 
 test("unique selection returns the matching row unchanged", async () => {
   const [row] = await readSelectedRows({ ids: ["wpb-intel-2026-09-10-002"], csvText: dupCsv });
@@ -51,10 +59,9 @@ test("mixed valid and ambiguous selection rejects the whole batch", async () => 
   );
 });
 
-test("repeated CLI selection of a unique ID returns one row", async () => {
-  const rows = await readSelectedRows({ ids: ["wpb-intel-2026-09-10-002", "wpb-intel-2026-09-10-002"], csvText: dupCsv });
-  assert.equal(rows.length, 1);
-  assert.equal(rows[0].id, "wpb-intel-2026-09-10-002");
+test("multiple unique selections preserve order and dedupe repeated IDs", async () => {
+  const rows = await readSelectedRows({ ids: ["wpb-intel-2026-09-10-002", "wpb-intel-2026-09-10-003", "wpb-intel-2026-09-10-002"], csvText: dupCsv });
+  assert.deepEqual(rows.map((row) => row.id), ["wpb-intel-2026-09-10-002", "wpb-intel-2026-09-10-003"]);
 });
 
 test("quoted multiline fields do not shift record-position diagnostics", async () => {
