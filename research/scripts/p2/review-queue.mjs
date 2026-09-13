@@ -3,12 +3,6 @@ import path from "node:path";
 import { sha256, stableJson } from "../intel/core.mjs";
 import { idempotencyKey } from "./dispatch.mjs";
 
-// Consolidated private review queue. Lives under gitignored .runtime/p2/ —
-// raw intake, internal reviews, and approval tokens never enter tracked or
-// public data. Entries are keyed by idempotency key so a retry of the same
-// event + candidate revision + policy version can never create a second
-// article, approval request, or deployment.
-
 export const QUEUE_STATE = Object.freeze({
   PENDING_REVIEW: "pending_review",
   AUTO_ELIGIBLE: "auto_eligible_pending_release",
@@ -16,7 +10,25 @@ export const QUEUE_STATE = Object.freeze({
   HELD: "held",
   REJECTED: "rejected",
   RELEASED: "released",
+  NONE: "none",
+  MIXED: "mixed",
 });
+
+function stateForDecision(decision) {
+  if (decision === "AUTO_ELIGIBLE") return QUEUE_STATE.AUTO_ELIGIBLE;
+  if (decision === "NEEDS_DECISION") return QUEUE_STATE.PENDING_REVIEW;
+  if (decision === "HOLD") return QUEUE_STATE.HELD;
+  if (decision === "DUPLICATE") return QUEUE_STATE.REJECTED;
+  return QUEUE_STATE.NONE;
+}
+
+function aggregateState(articleState, factState) {
+  return articleState === factState ? articleState : QUEUE_STATE.MIXED;
+}
+
+export function reviewCandidateSha256(reviewObject) {
+  return sha256(reviewObject);
+}
 
 export class ReviewQueue {
   constructor(root) {
@@ -28,34 +40,52 @@ export class ReviewQueue {
   async load() {
     try {
       const data = JSON.parse(await fs.readFile(this.file, "utf8"));
-      for (const entry of data.entries || []) this.entries.set(entry.idempotency_key, entry);
-    } catch {}
+      if (!data || typeof data !== "object" || Array.isArray(data) || Object.keys(data).length !== 1 || !Array.isArray(data.entries)) throw new Error("ERR_REVIEW_QUEUE_MALFORMED");
+      for (const entry of data.entries) {
+        if (!entry || typeof entry !== "object" || Array.isArray(entry)
+          || typeof entry.idempotency_key !== "string" || !entry.idempotency_key
+          || typeof entry.candidate_sha256 !== "string" || !entry.candidate_sha256
+          || typeof entry.policy_version !== "string" || !entry.policy_version
+          || this.entries.has(entry.idempotency_key)) throw new Error("ERR_REVIEW_QUEUE_MALFORMED");
+        this.entries.set(entry.idempotency_key, entry);
+      }
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
+    }
     return this;
   }
 
   async save() {
     await fs.mkdir(this.dir, { recursive: true });
-    await fs.writeFile(this.file, `${stableJson({ entries: [...this.entries.values()] })}\n`);
+    const temp = `${this.file}.${process.pid}.tmp`;
+    await fs.writeFile(temp, `${stableJson({ entries: [...this.entries.values()] })}\n`, { mode: 0o600 });
+    await fs.rename(temp, this.file);
   }
 
   key({ eventKey, candidateSha256, policyVersion }) {
     return idempotencyKey({ eventKey, candidateSha256, policyVersion });
   }
 
-  // Returns { entry, created } — created=false on replayed dispatch.
-  enqueue({ eventKey, candidateSha256, policyVersion, intelId, decision, candidate, binding, provenance }) {
+  enqueue({ eventKey, policyVersion, intelId, articleDecision, factChangeDecision, reviewObject, binding, provenance }) {
+    const candidateSha256 = reviewCandidateSha256(reviewObject);
     const key = this.key({ eventKey, candidateSha256, policyVersion });
     const existing = this.entries.get(key);
     if (existing) return { entry: existing, created: false };
+    const articleState = stateForDecision(articleDecision);
+    const factState = stateForDecision(factChangeDecision);
     const entry = {
       idempotency_key: key,
       intel_id: intelId,
       event_key: eventKey,
       candidate_sha256: candidateSha256,
+      evidence_bundle_sha256: binding?.review_bundle_sha256 || null,
       policy_version: policyVersion,
-      decision,
-      state: decision === "AUTO_ELIGIBLE" ? QUEUE_STATE.AUTO_ELIGIBLE : decision === "DUPLICATE" ? QUEUE_STATE.REJECTED : decision === "HOLD" ? QUEUE_STATE.HELD : QUEUE_STATE.PENDING_REVIEW,
-      candidate,
+      article_decision: articleDecision,
+      fact_change_decision: factChangeDecision,
+      article_state: articleState,
+      fact_change_state: factState,
+      state: aggregateState(articleState, factState),
+      review_object: reviewObject,
       binding,
       provenance,
       approvals: [],
@@ -69,41 +99,53 @@ export class ReviewQueue {
     return this.entries.get(key);
   }
 
-  // Approval is bound to the exact candidate revision: stale or repeated
-  // approvals are rejected, and a changed candidate_sha256 never inherits an
-  // earlier approval.
-  approve({ key, approvalToken, candidateSha256, now = new Date() }) {
+  act({ key, approvalToken, action, scope, now = new Date() }) {
     const entry = this.entries.get(key);
     if (!entry) return { ok: false, code: "ERR_QUEUE_ENTRY_NOT_FOUND" };
-    if (Date.parse(approvalToken.expires_at) < now.getTime()) return { ok: false, code: "ERR_APPROVAL_EXPIRED" };
-    if (entry.candidate_sha256 !== candidateSha256) return { ok: false, code: "ERR_STALE_APPROVAL" };
-    if (entry.approvals.some((a) => a.token_id === approvalToken.token_id)) return { ok: false, code: "ERR_REPEATED_APPROVAL" };
-    if (entry.state === QUEUE_STATE.APPROVED || entry.state === QUEUE_STATE.RELEASED) return { ok: false, code: "ERR_REPEATED_APPROVAL" };
-    if (entry.state === QUEUE_STATE.REJECTED) return { ok: false, code: "ERR_ENTRY_REJECTED" };
-    entry.approvals.push({ token_id: approvalToken.token_id, approved_at: now.toISOString(), approver: approvalToken.approver });
-    entry.state = QUEUE_STATE.APPROVED;
+    if (!approvalToken || Date.parse(approvalToken.expires_at) < now.getTime()) return { ok: false, code: "ERR_APPROVAL_EXPIRED" };
+    const actualSha = reviewCandidateSha256(entry.review_object);
+    if (actualSha !== entry.candidate_sha256) return { ok: false, code: "ERR_ALTERED_CANDIDATE" };
+    if (approvalToken.candidate_sha256 !== entry.candidate_sha256
+      || approvalToken.evidence_bundle_sha256 !== entry.evidence_bundle_sha256
+      || approvalToken.policy_version !== entry.policy_version) return { ok: false, code: "ERR_STALE_APPROVAL" };
+    if (!approvalToken.scopes?.includes(scope) || !["article", "fact_change"].includes(scope)) return { ok: false, code: "ERR_APPROVAL_SCOPE" };
+    if (entry.approvals.some((item) => item.token_id === approvalToken.token_id && item.scope === scope)) return { ok: false, code: "ERR_REPEATED_APPROVAL" };
+    if (!["approve", "hold", "reject"].includes(action)) return { ok: false, code: "ERR_APPROVAL_ACTION" };
+    const stateKey = scope === "article" ? "article_state" : "fact_change_state";
+    if (entry[stateKey] !== QUEUE_STATE.PENDING_REVIEW) return { ok: false, code: "ERR_STALE_APPROVAL" };
+    entry.approvals.push({ token_id: approvalToken.token_id, scope, action, acted_at: now.toISOString(), approver: approvalToken.approver });
+    if (action === "approve") {
+      entry[stateKey] = QUEUE_STATE.APPROVED;
+    } else if (action === "hold") {
+      entry[stateKey] = QUEUE_STATE.HELD;
+      entry.hold_reason = "approver_hold";
+    } else {
+      entry[stateKey] = QUEUE_STATE.REJECTED;
+      entry.reject_reason = "approver_reject";
+    }
+    entry.state = aggregateState(entry.article_state, entry.fact_change_state);
     return { ok: true, entry };
   }
 
-  hold(key, reason) {
-    const entry = this.entries.get(key);
-    if (!entry) return { ok: false, code: "ERR_QUEUE_ENTRY_NOT_FOUND" };
-    entry.state = QUEUE_STATE.HELD;
-    entry.hold_reason = reason;
-    return { ok: true, entry };
+  approve({ key, approvalToken, scope, now = new Date() }) {
+    return this.act({ key, approvalToken, action: "approve", scope, now });
   }
 
-  reject(key, reason) {
-    const entry = this.entries.get(key);
-    if (!entry) return { ok: false, code: "ERR_QUEUE_ENTRY_NOT_FOUND" };
-    entry.state = QUEUE_STATE.REJECTED;
-    entry.reject_reason = reason;
-    return { ok: true, entry };
+  hold({ key, approvalToken, scope, now = new Date() }) {
+    return this.act({ key, approvalToken, action: "hold", scope, now });
+  }
+
+  reject({ key, approvalToken, scope, now = new Date() }) {
+    return this.act({ key, approvalToken, action: "reject", scope, now });
   }
 
   stats() {
-    const counts = {};
-    for (const entry of this.entries.values()) counts[entry.state] = (counts[entry.state] || 0) + 1;
-    return { total: this.entries.size, by_state: counts };
+    const article = {};
+    const factChange = {};
+    for (const entry of this.entries.values()) {
+      article[entry.article_state] = (article[entry.article_state] || 0) + 1;
+      factChange[entry.fact_change_state] = (factChange[entry.fact_change_state] || 0) + 1;
+    }
+    return { total: this.entries.size, article, fact_change: factChange };
   }
 }
