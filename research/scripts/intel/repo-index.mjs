@@ -23,10 +23,21 @@ export async function buildRepositoryIndexes(root = process.cwd()) {
     readInput(root, "research/news-review/approved-development-news.json", { json: true, shape: Array.isArray }),
     readInput(root, "src/data/importedUpdates.json", { optional: true, json: true, shape: Array.isArray }),
     readInput(root, "content/overrides/project-fact-overrides.json", { json: true, shape: (v) => v && typeof v === "object" && !Array.isArray(v) && v.projects && typeof v.projects === "object" && !Array.isArray(v.projects) }),
+    readInput(root, "content/overrides/project-fact-automated.json", { optional: true, json: true, shape: (v) => v && typeof v === "object" && !Array.isArray(v) && v.projects && typeof v.projects === "object" && !Array.isArray(v.projects) }),
     readInput(root, "src/data/approvedExternalNews.ts", { shape: (v) => v.trim().length > 0 }),
     readInput(root, ".runtime/intel/open-pr-index.json", { optional: true, json: true, shape: Array.isArray }),
   ]);
-  const [approved, imported, reviewedFacts, generatedNews, runtimeOpenPrIndex] = inputs.map((input) => input.value);
+  const [approved, imported, manualFacts, automatedFacts, generatedNews, runtimeOpenPrIndex] = inputs.map((input) => input.value);
+  // Canonical fact view = automated Fast Mode entries underneath Brooke's
+  // manual reviewed overrides (manual always wins per project+field).
+  const mergedProjects = {};
+  for (const [slug, fields] of Object.entries(automatedFacts?.projects || {})) {
+    mergedProjects[slug] = { ...(fields || {}) };
+  }
+  for (const [slug, fields] of Object.entries(manualFacts?.projects || {})) {
+    mergedProjects[slug] = { ...(mergedProjects[slug] || {}), ...(fields || {}) };
+  }
+  const reviewedFacts = { ...(manualFacts || {}), projects: mergedProjects };
   const facts = JSON.stringify(reviewedFacts);
   const publicCorpus = [JSON.stringify(approved), JSON.stringify(imported), facts, generatedNews].join("\n");
   const events = [];

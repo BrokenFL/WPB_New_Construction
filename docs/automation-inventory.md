@@ -97,6 +97,20 @@ slice; retirement is a later, explicitly authorized activation step.
 The selected v1 processor is the Node owner documented in
 `P2_LIVE_SHADOW_OPERATIONS.md`, not `repository_dispatch`: enqueue acceptance
 cannot provide the scanner's exact processing-complete durable acknowledgment.
+
+### Fast Mode update (p2-fast-policy-v1)
+
+The Fast Mode path supersedes the shadow-owner rationale: the Sheet itself is
+the durable workflow state, so dispatches are advisory pokes and a missed run
+self-heals on the next cycle. The selected Fast Mode processing owner is the
+15-minute GitHub Actions workflow `.github/workflows/intel-fast-cycle.yml`
+running `npm run p2:fast:cycle` — not the GCE VM. See `docs/P2_FAST_MODE.md`.
+
+`live-news-agent-task.yml` and `biweekly-content-agent-task.yml` remain
+disconnected issue producers. Once the Fast Mode pipeline soaks successfully,
+disable both schedules (delete or comment out the `schedule:` triggers) so
+three research systems stop producing duplicate story candidates. Historical
+issues are kept, not deleted.
 No schedules were enabled, disabled, or modified in this slice.
 
 ## LaunchAgents Found

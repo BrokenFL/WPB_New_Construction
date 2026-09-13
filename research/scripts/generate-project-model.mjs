@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
-import { buildReviewedFieldsProjection } from "./reviewed-field-projection.mjs";
+import { buildAutomatedFieldsProjection, buildReviewedFieldsProjection, mergeFieldProjections } from "./reviewed-field-projection.mjs";
 
 const workspace = process.cwd();
 const canonicalPath = path.join(workspace, "research/source-material-review/wpb-projects-canonical-v3-planning-update.json");
 const decisionsPath = path.join(workspace, "content/project-identity-decisions.json");
 const overlaysPath = path.join(workspace, "content/project-page-overlays.json");
 const factOverridesPath = path.join(workspace, "content/overrides/project-fact-overrides.json");
+const automatedFactsPath = path.join(workspace, "content/overrides/project-fact-automated.json");
 const generatedTsPath = path.join(workspace, "src/generated/projectModel.ts");
 const generatedJsonPath = path.join(workspace, "src/generated/projectModel.json");
 const generatedPublicTsPath = path.join(workspace, "src/generated/projectModelPublic.ts");
@@ -18,7 +19,11 @@ const canonical = readJson(canonicalPath);
 const decisions = readJson(decisionsPath);
 const overlays = readJson(overlaysPath);
 const factOverrides = readJson(factOverridesPath);
-const reviewedFieldsBySlug = buildReviewedFieldsProjection(factOverrides);
+const automatedFacts = readJson(automatedFactsPath);
+const reviewedFieldsBySlug = mergeFieldProjections(
+  buildAutomatedFieldsProjection(automatedFacts),
+  buildReviewedFieldsProjection(factOverrides),
+);
 const errors = [];
 
 if (!Array.isArray(canonical.projects)) errors.push("Canonical project snapshot must contain a projects array.");

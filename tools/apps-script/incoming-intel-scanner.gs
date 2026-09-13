@@ -1,8 +1,10 @@
 /**
  * WPB Incoming_Intel change scanner — Apps Script source (NOT DEPLOYED).
  *
- * Design: a time-driven trigger every ~15 minutes calls scanIncomingIntel().
- * onEdit alone is NOT sufficient — API/script writes do not reliably fire it.
+ * Design: a time-driven trigger every ~15 minutes calls scanBothQueues(),
+ * which scans Incoming_Intel (intake changes) and Story_Queue (publication
+ * pickup). onEdit alone is NOT sufficient — API/script writes do not
+ * reliably fire it.
  *
  * Change detection uses two per-record hashes stored in Script Properties:
  *   content_hash  — intake-authored fields only
@@ -17,7 +19,7 @@
  * Required Script Properties (set manually, never committed):
  *   SCANNER_MODE        — "test" (no network) or "shadow" (dispatch only)
  *   SHEET_ID            — expected private spreadsheet ID
- *   POLICY_VERSION      — e.g. "p2-shadow-policy-v2"
+ *   POLICY_VERSION      — "p2-fast-policy-v1" for Fast Mode
  *   DISPATCH_ENDPOINT   — private ingest URL on the runner (shadow only)
  *   DISPATCH_SECRET     — HMAC shared secret (shadow only; 32+ chars)
  *
@@ -361,6 +363,194 @@ function scanIncomingIntelLocked() {
   throw new Error("dispatch failed after " + maxAttempts + " attempts");
 }
 
+// ---------------------------------------------------------------------------
+// Story_Queue — publication pickup scanner (Fast Mode, p2-fast-policy-v1)
+//
+// The same 15-minute trigger can call scanBothQueues(), which runs the
+// Incoming_Intel scan and the Story_Queue scan under one lock. Story_Queue
+// rows are dispatched when the writer marks status="ready_to_publish" or a
+// prior publish attempt failed (status="error") — the processor owns retry
+// bookkeeping, the scanner only signals "this story row needs a cycle".
+// ---------------------------------------------------------------------------
+
+var STORY_SHEET_NAME = "Story_Queue";
+var STORY_PROP_PREFIX = "p2story:";
+
+// Authoritative Story_Queue schema — keep in sync with
+// research/scripts/p2/story-queue.mjs STORY_QUEUE_COLUMNS.
+var STORY_QUEUE_COLUMNS = [
+  "story_id", "status", "created_at", "updated_at", "intel_ids", "event_key",
+  "project_ids", "corridor_ids", "headline", "deck", "summary",
+  "article_body", "seo_title", "seo_description", "social_copy",
+  "sources_json", "verified_facts_json", "qualified_facts_json",
+  "canonical_fact_proposals_json", "story_package_json",
+  "writer_name", "writer_version", "policy_version", "article_decision",
+  "publish_status", "published_url", "commit_sha", "error", "publish_attempts"
+];
+
+// Story fields that constitute publishable content. Status and publish-*
+// columns are workflow state and excluded so publisher writeback cannot
+// self-trigger another dispatch.
+var STORY_CONTENT_FIELDS = [
+  "headline", "deck", "summary", "article_body", "seo_title",
+  "seo_description", "social_copy", "story_package_json",
+  "verified_facts_json", "qualified_facts_json", "sources_json",
+  "canonical_fact_proposals_json", "writer_name", "writer_version"
+];
+
+// Story statuses that mean "the processor should look at this row now".
+var STORY_ACTIONABLE = { ready_to_publish: true, error: true };
+
+/**
+ * Idempotent Story_Queue tab installer/validator. Creates the tab with the
+ * exact schema header if absent; verifies the header matches when present.
+ * Safe to run manually from the editor or from scan setup — it never touches
+ * existing data rows.
+ */
+function ensureStoryQueueTab() {
+  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = spreadsheet.getSheetByName(STORY_SHEET_NAME);
+  if (!sheet) {
+    sheet = spreadsheet.insertSheet(STORY_SHEET_NAME);
+    sheet.getRange(1, 1, 1, STORY_QUEUE_COLUMNS.length)
+      .setValues([STORY_QUEUE_COLUMNS.slice()]);
+    sheet.setFrozenRows(1);
+    return { created: true, headerWritten: true, rows: 0 };
+  }
+  var existing = sheet.getRange(1, 1, 1, STORY_QUEUE_COLUMNS.length).getDisplayValues()[0];
+  var mismatch = [];
+  STORY_QUEUE_COLUMNS.forEach(function (column, index) {
+    if (String(existing[index] || "") !== column) mismatch.push({ index: index + 1, expected: column, actual: existing[index] });
+  });
+  if (mismatch.length) {
+    throw new Error("Story_Queue header mismatch — refusing to alter existing data: " + JSON.stringify(mismatch));
+  }
+  return { created: false, headerWritten: false, rows: Math.max(0, sheet.getLastRow() - 1) };
+}
+
+function scanStoryQueue() {
+  var lock = LockService.getScriptLock();
+  if (!lock.tryLock(1000)) {
+    throw new Error("story scan already in progress");
+  }
+  try {
+    return scanStoryQueueLocked();
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function scanStoryQueueLocked() {
+  var props = PropertiesService.getScriptProperties();
+  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  var sheetId = spreadsheet.getId();
+  var config = scannerConfig(props, sheetId);
+
+  var sheet = spreadsheet.getSheetByName(STORY_SHEET_NAME);
+  if (!sheet) return { mode: config.mode, queue: "story", dispatched: 0, would_dispatch: 0, note: "Story_Queue tab absent" };
+  var values = sheet.getDataRange().getDisplayValues();
+  if (values.length < 2) return { mode: config.mode, queue: "story", dispatched: 0, would_dispatch: 0 };
+  var headers = values[0].map(String);
+  var idCol = headers.indexOf("story_id");
+  var statusCol = headers.indexOf("status");
+  var eventCol = headers.indexOf("event_key");
+  if (idCol < 0 || statusCol < 0 || eventCol < 0) throw new Error("Story_Queue missing story_id/status/event_key headers");
+
+  var changed = [];
+  for (var r = 1; r < values.length; r++) {
+    var row = values[r];
+    var sid = String(row[idCol] || "");
+    var status = String(row[statusCol] || "");
+    if (!sid || !STORY_ACTIONABLE[status]) continue;
+    var contentHash = fieldHash(row, headers, STORY_CONTENT_FIELDS);
+    var record = {
+      story_id: sid,
+      event_key: String(row[eventCol] || ""),
+      status: status,
+      record_position: r + 1,
+      content_hash: contentHash
+    };
+    var priorKey = STORY_PROP_PREFIX + sid;
+    var priorObj = null;
+    try { priorObj = JSON.parse(props.getProperty(priorKey) || "null"); } catch (e) { priorObj = null; }
+    if (!priorObj || priorObj.content_hash !== contentHash || priorObj.status !== status) {
+      changed.push(record);
+    }
+  }
+
+  if (!changed.length) return { mode: config.mode, queue: "story", dispatched: 0, would_dispatch: 0 };
+
+  changed.sort(function (a, b) {
+    return a.story_id < b.story_id ? -1 : a.story_id > b.story_id ? 1 : 0;
+  });
+  var snapshotHash = sha256Hex(stableJson({ sheet_id: sheetId, sheet_name: STORY_SHEET_NAME, records: changed }));
+  var envelope = {
+    contract_version: "p2-story-dispatch-v1",
+    dispatch_id: "story-" + dispatchId(snapshotHash, changed.map(function (rec) {
+      return { intel_id: rec.story_id };
+    }), config.policyVersion),
+    sheet_id: sheetId,
+    sheet_name: STORY_SHEET_NAME,
+    snapshot_sha256: snapshotHash,
+    policy_version: config.policyVersion,
+    issued_at: new Date().toISOString(),
+    nonce: Utilities.getUuid(),
+    records: changed
+  };
+  envelope.signature = hmacHex(config.secret || "test-mode-no-dispatch", stableJson(envelope));
+
+  if (config.mode === "test") {
+    return { mode: "test", queue: "story", dispatched: 0, would_dispatch: changed.length, dispatch_id: envelope.dispatch_id };
+  }
+
+  var attempts = 0;
+  var maxAttempts = 3;
+  while (attempts < maxAttempts) {
+    attempts++;
+    try {
+      var resp = UrlFetchApp.fetch(config.endpoint, {
+        method: "post",
+        contentType: "application/json",
+        payload: JSON.stringify(envelope),
+        muteHttpExceptions: true
+      });
+      if (validateAck(resp, envelope.dispatch_id)) {
+        var stale = 0;
+        changed.forEach(function (rec) {
+          var currentRow = sheet.getDataRange().getDisplayValues()[rec.record_position - 1];
+          if (!currentRow) { stale++; return; }
+          if (String(currentRow[idCol] || "") === rec.story_id &&
+              String(currentRow[statusCol] || "") === rec.status &&
+              fieldHash(currentRow, headers, STORY_CONTENT_FIELDS) === rec.content_hash) {
+            props.setProperty(STORY_PROP_PREFIX + rec.story_id, JSON.stringify({
+              content_hash: rec.content_hash,
+              status: rec.status
+            }));
+          } else stale++;
+        });
+        return { mode: "shadow", queue: "story", dispatched: changed.length, stale: stale, attempts: attempts };
+      }
+    } catch (e) {
+      // fall through to retry
+    }
+    Utilities.sleep(2000 * attempts);
+  }
+  throw new Error("story dispatch failed after " + maxAttempts + " attempts");
+}
+
+/**
+ * One trigger, both queues. Install this single time-driven trigger rather
+ * than two separate ones — the scans share a script lock and each tolerates
+ * the other's busy state.
+ */
+function scanBothQueues() {
+  var intel = scanIncomingIntel();
+  var story;
+  try { story = scanStoryQueue(); } catch (e) { story = { error: String(e && e.message || e) }; }
+  return { incoming_intel: intel, story_queue: story };
+}
+
 // Install manually when activating — NOT installed by this source file:
-//   ScriptApp.newTrigger("scanIncomingIntel").timeBased()
+//   ScriptApp.newTrigger("scanBothQueues").timeBased()
 //     .everyMinutes(SCAN_INTERVAL_MINUTES).create();
+// Also run ensureStoryQueueTab() once from the editor to create the tab.

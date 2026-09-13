@@ -1,0 +1,65 @@
+name: Intel Fast Cycle
+
+# Fast Mode processing owner. Runs the full cycle every 15 minutes:
+#   Incoming_Intel -> fact packets/decisions -> Story_Queue -> publish ->
+#   canonical fact application -> regenerate -> commit/push -> normal deploy.
+#
+# The Sheet is the durable workflow state; a missed run self-heals because
+# unprocessed rows keep their non-terminal status until the next cycle.
+#
+# One-time setup (repo secrets):
+#   P2_GOOGLE_SERVICE_ACCOUNT_JSON  service-account key JSON with Sheets
+#                                 read/write on the intelligence spreadsheet
+#   P2_PUBLISH_PAT                  (optional but recommended) token so
+#                                   article/fact pushes fire the normal
+#                                   push-event deploy workflow. Without it,
+#                                   GITHUB_TOKEN pushes do not trigger
+#                                   deploy-cloudflare-pages.yml and the
+#                                   cycle falls back to workflow_dispatch.
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  repository_dispatch:
+    types: [wpb-intel-scan]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: intel-fast-cycle
+  cancel-in-progress: false
+
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      P2_GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.P2_GOOGLE_SERVICE_ACCOUNT_JSON }}
+      P2_PUBLISH_PAT: ${{ secrets.P2_PUBLISH_PAT }}
+      P2_DRY_RUN: ${{ vars.P2_DRY_RUN }}
+      P2_SKIP_PUBLISH: ${{ vars.P2_SKIP_PUBLISH }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.P2_PUBLISH_PAT || github.token }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure git identity
+        run: |
+          git config user.name "wpb-intel-bot"
+          git config user.email "wpb-intel-bot@users.noreply.github.com"
+
+      - name: Run fast cycle
+        run: npm run p2:fast:cycle

@@ -23,6 +23,44 @@ export function qualifyReviewedOverrideValue(entry) {
   return value;
 }
 
+// Automated Fast Mode entries project publicly when they carry a value, a
+// source URL, and provenance. Provenance itself never reaches the public
+// model — only the qualified value does.
+export function qualifyAutomatedOverrideValue(entry) {
+  if (!entry || typeof entry !== "object") return "";
+  if (entry.source !== "automated_intel") return "";
+  const value = cleanString(entry.value);
+  if (!value) return "";
+  if (!cleanString(entry.sourceUrl) || !cleanString(entry.appliedAt)) return "";
+  return value;
+}
+
+// Returns { [publicSlug]: { [modelField]: publicValue } } for automated
+// entries. Manual reviewed values always win: callers merge manual over this.
+export function buildAutomatedFieldsProjection(automated) {
+  const projection = {};
+  const projects = automated?.projects;
+  if (!projects || typeof projects !== "object") return projection;
+  for (const [slug, fields] of Object.entries(projects)) {
+    if (!fields || typeof fields !== "object") continue;
+    const auto = {};
+    for (const [factKey, modelField] of Object.entries(REVIEWED_FACT_FIELD_MAP)) {
+      const value = qualifyAutomatedOverrideValue(fields[factKey]);
+      if (value) auto[modelField] = value;
+    }
+    if (Object.keys(auto).length) projection[slug] = auto;
+  }
+  return projection;
+}
+
+// Manual reviewed projection wins over automated for the same slug+field.
+export function mergeFieldProjections(automated, manual) {
+  const merged = {};
+  for (const [slug, fields] of Object.entries(automated || {})) merged[slug] = { ...fields };
+  for (const [slug, fields] of Object.entries(manual || {})) merged[slug] = { ...(merged[slug] || {}), ...fields };
+  return merged;
+}
+
 // Returns { [publicSlug]: { [modelField]: publicValue } } containing only
 // qualified public values. Unqualified or unmapped entries are dropped.
 export function buildReviewedFieldsProjection(overrides) {
