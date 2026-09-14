@@ -733,6 +733,7 @@ test("Fast Cycle workflow uses its job-scoped write token and explicitly dispatc
   assert.equal(installed, template);
   assert.match(installed, /permissions:\n\s+contents: write\n\s+actions: write/);
   assert.match(installed, /token: \$\{\{ github\.token \}\}/);
+  assert.match(installed, /npx playwright install --with-deps chromium/);
   assert.match(installed, /gh workflow run deploy-cloudflare-pages\.yml --ref main/);
   assert.doesNotMatch(installed, /P2_PUBLISH_PAT/);
 });
