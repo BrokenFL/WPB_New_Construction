@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
@@ -463,6 +464,23 @@ test("Fast Mode V2: synthesized status never regresses a later canonical milesto
   assert.equal(decision.synthesized_fact_proposals.some((proposal) => proposal.field === "status"), false);
 });
 
+test("Fast Mode V2: completed construction milestone does not mark the whole project Completed", () => {
+  const projectId = "south-flagler-house";
+  const r = row("fast-milestone-not-project-completion", {
+    project_name: "South Flagler House",
+    related_project_ids: projectId,
+    headline: "South Flagler House construction milestone",
+    summary: "South Flagler House reached a documented structural milestone.",
+    material_updates: "Structural topping out completed.",
+  });
+  const indexes = indexesForProject(projectId, { status: "Under Construction" });
+  const prepared = prepareFast(r, { indexes });
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview, indexes });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  assert.equal(decision.synthesized_fact_proposals.some((proposal) => proposal.field === "status"), false);
+  assert.equal(decision.fact_mutations.some((mutation) => mutation.field === "status"), false);
+});
+
 test("Fast Mode V2: duplicate 464 Fern article does not suppress supported canonical reconciliation", () => {
   const intakeProjectId = "464-fern-street";
   const projectId = "fern-and-gardenia-related-ross-fern-street";
@@ -660,12 +678,53 @@ test("source retry falls back to reviewed canonical project URLs only after ever
   assert.equal(sources[0].url, alternate);
 });
 
-test("fact commits allow only the automated layer and generated output families", () => {
+test("fact commits allow only the automated layer and exact fact-dependent generated outputs", () => {
   assert.equal(isAllowedFactOutputPath("content/overrides/project-fact-automated.json"), true);
   assert.equal(isAllowedFactOutputPath("src/generated/projectModelPublic.json"), true);
-  assert.equal(isAllowedFactOutputPath("public/data/site-meta.json"), true);
+  assert.equal(isAllowedFactOutputPath("src/generated/siteData.ts"), true);
+  assert.equal(isAllowedFactOutputPath("public/data/site-meta.json"), false);
+  assert.equal(isAllowedFactOutputPath("research/source-material-review/image-candidate-catalog.json"), false);
   assert.equal(isAllowedFactOutputPath("src/main.ts"), false);
   assert.equal(isAllowedFactOutputPath("research/news-review/approved-development-news.json"), false);
+});
+
+test("narrow fact projection preserves dollar-prefixed price text literally", async (t) => {
+  const fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), "p2-fact-projection-"));
+  t.after(() => fs.rm(fixtureRoot, { recursive: true, force: true }));
+  const generated = path.join(fixtureRoot, "src/generated");
+  await fs.mkdir(generated, { recursive: true });
+  await fs.writeFile(path.join(generated, "projectModelPublic.json"), JSON.stringify({ projects: [{
+    publicSlug: "fixture",
+    displayName: "Fixture",
+    corridor: "Downtown",
+    projectType: "condo-active-sales",
+    status: "Under Construction",
+    price: "$1M to over $2M",
+    presentation: { summary: "Fixture summary" },
+    sourceUrls: ["https://example.com/source"],
+    facts: {
+      lastVerifiedDate: "2026-09-14",
+      projectAddress: "1 Test Street",
+      salesGalleryAddress: "",
+      mailingAddress: "",
+      planningParcelAddress: "",
+      canonicalResidenceCount: "10",
+      stories: "12",
+      expectedDeliveryCurrent: "2028",
+      projectTeam: ["Fixture Developer"],
+      amenitySummary: [],
+      residenceFeatures: [],
+      neighborhoodContext: "Downtown",
+      factEffectiveDate: "2026-09-14",
+    },
+  }] }));
+  await fs.writeFile(path.join(generated, "siteData.ts"), "export const projectFacts = [] as const;\n\nexport const prerenderRoutes = [] as const;\n");
+  const scriptPath = path.join(process.cwd(), "research/scripts/p2/refresh-fact-projection.mjs");
+  const run = spawnSync(process.execPath, [scriptPath], { cwd: fixtureRoot, encoding: "utf8" });
+  assert.equal(run.status, 0, run.stderr);
+  const output = await fs.readFile(path.join(generated, "siteData.ts"), "utf8");
+  assert.match(output, /"pricing": "\$1M to over \$2M"/);
+  assert.match(output, /export const prerenderRoutes = \[\] as const;/);
 });
 
 test("Fast Cycle workflow uses its job-scoped write token and explicitly dispatches deploy after a content push", async () => {

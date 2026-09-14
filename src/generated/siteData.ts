@@ -3881,9 +3881,9 @@ export const researchNewsFeed = [
     ],
     "rewrittenSummary": "Mandarin Oriental is still a long-horizon North Flagler option, but interior imagery gives buyers a better read on service tone, finish direction, and whether the brand premium belongs in the same shortlist as Olara, Ritz-Carlton, and Shorecrest.",
     "image": {
-      "path": "/maps/wpb-atlas-map-editorial.svg",
-      "sourceUrl": "/maps/wpb-atlas-map-editorial.svg",
-      "credit": "Source: WPB New Construction map"
+      "path": "",
+      "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+      "credit": "Source: Mandarin Oriental Residences, West Palm Beach original project materials"
     },
     "citations": [
       "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
@@ -4346,7 +4346,7 @@ export const projectFacts = [
     "projectId": "south-flagler-house",
     "name": "South Flagler House",
     "area": "South Flagler",
-    "projectType": "completed-comparable",
+    "projectType": "condo-active-sales",
     "summary": "RAMSA-designed waterfront residences at 1355 S Flagler Drive, positioned for buyers who want South Flagler privacy, scale, and Palm Beach-facing orientation.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
@@ -4354,7 +4354,7 @@ export const projectFacts = [
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Completed",
+      "status": "Under Construction",
       "residences": "108",
       "stories": "28",
       "completion": "2027",
@@ -4369,7 +4369,7 @@ export const projectFacts = [
         "Full-floor and duplex penthouse options"
       ],
       "neighborhoodContext": "South Flagler waterfront",
-      "effectiveDate": "2026-04-09"
+      "effectiveDate": "2026-09-01"
     },
     "sources": [
       {

@@ -4,7 +4,7 @@ import { sha256, stableJson } from "../intel/core.mjs";
 // signed handoffs remain usable. The processor revision is separate: changing
 // it forces already-decided rows through the corrected Fast Mode V2 engine.
 export const FAST_MODE_POLICY_VERSION = "p2-fast-policy-v1";
-export const FAST_MODE_PROCESSOR_VERSION = "p2-fast-mode-v2-throughput-r2";
+export const FAST_MODE_PROCESSOR_VERSION = "p2-fast-mode-v2-throughput-r3";
 
 export const ARTICLE_DECISION = Object.freeze({
   AUTO_PUBLISH: "AUTO_PUBLISH",
@@ -196,7 +196,13 @@ function derivedValuesForClaim(claim) {
   const priceMatches = uniqueMatches(text, /\b(?:prices?|pricing)\s+(?:start(?:ing)?|begin(?:ning)?|from)\s+(?:at\s+)?(\$[0-9]+(?:\.[0-9]+)?\s*(?:m|million|k|thousand)?)\b/gi, (value) => `From ${String(value).replace(/\s+/g, "").toUpperCase()}`);
   if (priceMatches.length === 1) values.priceDisplay = priceMatches[0];
 
-  if (/\b(?:completed|completion complete|move[- ]?ins? (?:are )?underway|residents? (?:are )?moving in)\b/i.test(text)) values.status = "Completed";
+  // "Completed" must describe the whole project or occupancy, not a completed
+  // construction milestone such as topping out, a floor pour, or financing.
+  const projectCompleted = /\b(?:project|tower|building|construction)\s+(?:is|was|has been|has)\s+completed\b/i.test(text)
+    || /\b(?:completed construction|construction (?:is|was|has been) complete)\b/i.test(text)
+    || /\bmove[- ]?ins? (?:are )?underway\b/i.test(text)
+    || /\bresidents? (?:are )?moving in\b/i.test(text);
+  if (projectCompleted) values.status = "Completed";
   else if (/\b(?:broke ground|groundbreaking|construction (?:has )?(?:begun|started)|under construction)\b/i.test(text)) values.status = "Under Construction";
   else if (/\b(?:sales (?:have )?launched|sales launch|now selling)\b/i.test(text)) values.status = "Active Sales";
   else if (/\b(?:plans? (?:were )?filed|proposed plans?|approved the proposal|received approval)\b/i.test(text)) values.status = "Planning";

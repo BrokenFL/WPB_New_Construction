@@ -420,7 +420,7 @@ export const canonicalProjectModel = {
       "corridor": "South Flagler",
       "publicationState": "published",
       "displayName": "South Flagler House",
-      "status": "Completed",
+      "status": "Under Construction",
       "delivery": "2027",
       "residences": "108",
       "price": "$7.98M to $70M on current official tier pages",
@@ -460,12 +460,10 @@ export const canonicalProjectModel = {
         "https://www.southflaglerhouse.com/amenities",
         "https://www.southflaglerhouse.com/team"
       ],
-      "reviewedFields": {
-        "status": "Completed"
-      },
+      "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
-        "status": "reviewed_override",
+        "status": "canonical",
         "delivery": "canonical",
         "residences": "canonical",
         "price": "canonical",
