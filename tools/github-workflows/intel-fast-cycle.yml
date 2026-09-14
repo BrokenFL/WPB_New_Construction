@@ -37,6 +37,10 @@ jobs:
     env:
       P2_DRY_RUN: ${{ vars.P2_DRY_RUN || '1' }}
       P2_SKIP_PUBLISH: ${{ vars.P2_SKIP_PUBLISH || '1' }}
+      # This workflow has no Maps browser key. Article publication still runs
+      # map QA against the approved no-key fallback; keyed rendering remains a
+      # required PR check in the Batch 6 review matrix.
+      WPB_MAP_QA_MODE: no-key
     steps:
       - name: Validate runtime configuration
         shell: bash
