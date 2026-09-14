@@ -3881,9 +3881,9 @@ export const researchNewsFeed = [
     ],
     "rewrittenSummary": "Mandarin Oriental is still a long-horizon North Flagler option, but interior imagery gives buyers a better read on service tone, finish direction, and whether the brand premium belongs in the same shortlist as Olara, Ritz-Carlton, and Shorecrest.",
     "image": {
-      "path": "",
-      "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
-      "credit": "Source: Mandarin Oriental Residences, West Palm Beach original project materials"
+      "path": "/maps/wpb-atlas-map-editorial.svg",
+      "sourceUrl": "/maps/wpb-atlas-map-editorial.svg",
+      "credit": "Source: WPB New Construction map"
     },
     "citations": [
       "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
@@ -4169,7 +4169,7 @@ export const projectFacts = [
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Active Sales / Under Construction",
+      "status": "Under Construction",
       "residences": "98",
       "stories": "27",
       "completion": "Confirm with sales team",
@@ -4182,7 +4182,7 @@ export const projectFacts = [
         "Modern waterfront layouts"
       ],
       "neighborhoodContext": "North Flagler waterfront",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-05-22"
     },
     "sources": [
       {
@@ -4346,7 +4346,7 @@ export const projectFacts = [
     "projectId": "south-flagler-house",
     "name": "South Flagler House",
     "area": "South Flagler",
-    "projectType": "condo-active-sales",
+    "projectType": "completed-comparable",
     "summary": "RAMSA-designed waterfront residences at 1355 S Flagler Drive, positioned for buyers who want South Flagler privacy, scale, and Palm Beach-facing orientation.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
@@ -4354,7 +4354,7 @@ export const projectFacts = [
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Under Construction",
+      "status": "Completed",
       "residences": "108",
       "stories": "28",
       "completion": "2027",
@@ -4369,7 +4369,7 @@ export const projectFacts = [
         "Full-floor and duplex penthouse options"
       ],
       "neighborhoodContext": "South Flagler waterfront",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-04-09"
     },
     "sources": [
       {
@@ -4688,7 +4688,7 @@ export const projectFacts = [
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Pipeline / Announced",
-      "residences": "100–130 condominium units proposed in later Related Ross repositioning; prior plan referenced 340 apartments",
+      "residences": "194",
       "stories": "25",
       "completion": "Pipeline watch",
       "pricing": "Not released",
@@ -4696,7 +4696,7 @@ export const projectFacts = [
       "amenities": "Formerly planned as a 25-story mixed-use project with apartments and commercial space; later reported as being repositioned as a 100–130 unit condominium tower.",
       "residenceFeatures": [],
       "neighborhoodContext": "Downtown West Palm Beach / Fern Street corridor",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-09-08"
     },
     "sources": []
   },

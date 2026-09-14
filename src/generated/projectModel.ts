@@ -148,7 +148,7 @@ export const canonicalProjectModel = {
       "corridor": "North Flagler",
       "publicationState": "published",
       "displayName": "Shorecrest",
-      "status": "Active Sales / Under Construction",
+      "status": "Under Construction",
       "delivery": "Confirm with sales team",
       "residences": "98",
       "price": "$3.69M–$5.445M for reviewed available residences",
@@ -185,10 +185,12 @@ export const canonicalProjectModel = {
         "https://www.shorecrestwpb.com/team",
         "https://www.shorecrestwpb.com/floorplans"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Under Construction"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
+        "status": "reviewed_override",
         "delivery": "approved_fallback",
         "residences": "canonical",
         "price": "canonical",
@@ -418,7 +420,7 @@ export const canonicalProjectModel = {
       "corridor": "South Flagler",
       "publicationState": "published",
       "displayName": "South Flagler House",
-      "status": "Under Construction",
+      "status": "Completed",
       "delivery": "2027",
       "residences": "108",
       "price": "$7.98M to $70M on current official tier pages",
@@ -458,10 +460,12 @@ export const canonicalProjectModel = {
         "https://www.southflaglerhouse.com/amenities",
         "https://www.southflaglerhouse.com/team"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Completed"
+      },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
+        "status": "reviewed_override",
         "delivery": "canonical",
         "residences": "canonical",
         "price": "canonical",
@@ -1026,7 +1030,7 @@ export const canonicalProjectModel = {
       "displayName": "Fern & Gardenia / Related Ross Fern Street Project",
       "status": "Pipeline / Announced",
       "delivery": "Pipeline watch",
-      "residences": "100–130 condominium units proposed in later Related Ross repositioning; prior plan referenced 340 apartments",
+      "residences": "194",
       "price": "Not released",
       "address": "401 S Dixie Highway / 418 & 464 Fern Street, West Palm Beach, FL",
       "developmentStage": "planning_repositioned_to_condo_watchlist",
@@ -1054,12 +1058,14 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "residences": "194"
+      },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
         "delivery": "approved_fallback",
-        "residences": "canonical",
+        "residences": "reviewed_override",
         "price": "approved_fallback",
         "address": "canonical"
       },

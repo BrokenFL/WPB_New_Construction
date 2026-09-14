@@ -1,6 +1,97 @@
 {
   "version": 1,
   "policyVersion": "p2-fast-policy-v1",
-  "updatedAt": "",
-  "projects": {}
+  "updatedAt": "2026-09-14T15:58:32.174Z",
+  "projects": {
+    "fern-and-gardenia-related-ross-fern-street": {
+      "residenceCount": {
+        "value": "194",
+        "source": "automated_intel",
+        "asOf": "2026-09-08",
+        "effectiveDate": "2026-09-08",
+        "sourceUrl": "https://floridayimby.com/2026/08/plans-filed-for-25-story-residences-at-464-fern-street-in-downtown-west-palm-beach.html",
+        "sourceName": "Discover South Florida / Florida YIMBY / City of WPB Records",
+        "intelId": "wpb-intel-2026-09-09-001",
+        "evidenceBundleSha256": "6bfb2cdff5efa9f3af5de9853fa13ef7198e228ea959a5b91c1075dc5e624efa",
+        "sources": [
+          {
+            "source_ref_id": "source-bb1a6d623a1ef0e6",
+            "url": "https://floridayimby.com/2026/08/plans-filed-for-25-story-residences-at-464-fern-street-in-downtown-west-palm-beach.html",
+            "name": "Discover South Florida / Florida YIMBY / City of WPB Records",
+            "tier": 2,
+            "type": "trade",
+            "published_date": "2026-09-08",
+            "content_sha256": "2d1bb2c0e94dc97a9dc201a0913d3c01fbcb0a149a5f9eaa451d0dff0a75bdb8",
+            "revision": "2d1bb2c0e94dc97a9dc201a0913d3c01fbcb0a149a5f9eaa451d0dff0a75bdb8"
+          }
+        ],
+        "policyVersion": "p2-fast-policy-v1",
+        "appliedAt": "2026-09-14T15:58:32.174Z",
+        "appliedBy": "p2-fast-cycle",
+        "rollback": {
+          "previous_value": "100–130 condominium units proposed in later Related Ross repositioning; prior plan referenced 340 apartments"
+        }
+      }
+    },
+    "south-flagler-house": {
+      "status": {
+        "value": "Completed",
+        "source": "automated_intel",
+        "asOf": "2026-04-09",
+        "effectiveDate": "2026-04-09",
+        "sourceUrl": "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html",
+        "sourceName": "The Real Deal",
+        "intelId": "wpb-intel-2026-09-10-003",
+        "evidenceBundleSha256": "0fef2d758d8d96072d91ed9696892cfc30058c2b2130a0db5d82fe98e1e9a28a",
+        "sources": [
+          {
+            "source_ref_id": "source-440b0557ac1497c8",
+            "url": "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html",
+            "name": "The Real Deal",
+            "tier": 2,
+            "type": "trade",
+            "published_date": "2026-04-09",
+            "content_sha256": "2f293918129a8c83e33ef99d5bb37905aa8112a4be2710f8a98370457c107a79",
+            "revision": "2f293918129a8c83e33ef99d5bb37905aa8112a4be2710f8a98370457c107a79"
+          }
+        ],
+        "policyVersion": "p2-fast-policy-v1",
+        "appliedAt": "2026-09-14T15:58:32.174Z",
+        "appliedBy": "p2-fast-cycle",
+        "rollback": {
+          "previous_value": "Under Construction"
+        }
+      }
+    },
+    "shorecrest": {
+      "status": {
+        "value": "Under Construction",
+        "source": "automated_intel",
+        "asOf": "2026-05-22",
+        "effectiveDate": "2026-05-22",
+        "sourceUrl": "https://southfloridaagentmagazine.com/slideshows/related-ross-shorecrest-groundbreaking/",
+        "sourceName": "The Real Deal / South Florida Agent Magazine",
+        "intelId": "wpb-intel-2026-09-13-003",
+        "evidenceBundleSha256": "c4c49ba9698cf90765e67e0feb6b1bbf9cc7bea17a5cf6bc37c916a019694a79",
+        "sources": [
+          {
+            "source_ref_id": "source-80c21415b29b25ae",
+            "url": "https://southfloridaagentmagazine.com/slideshows/related-ross-shorecrest-groundbreaking/",
+            "name": "The Real Deal / South Florida Agent Magazine",
+            "tier": 2,
+            "type": "trade",
+            "published_date": "2026-05-22",
+            "content_sha256": "c72be7cafd05e2193b4e541ce3dba01d53551042a9a154c56af08c60b547cd6f",
+            "revision": "c72be7cafd05e2193b4e541ce3dba01d53551042a9a154c56af08c60b547cd6f"
+          }
+        ],
+        "policyVersion": "p2-fast-policy-v1",
+        "appliedAt": "2026-09-14T15:58:32.174Z",
+        "appliedBy": "p2-fast-cycle",
+        "rollback": {
+          "previous_value": "Active Sales / Under Construction"
+        }
+      }
+    }
+  }
 }

@@ -175,11 +175,13 @@ export const publicProjectModel = {
       "corridor": "North Flagler",
       "displayName": "Shorecrest",
       "projectType": "condo-active-sales",
-      "status": "Active Sales / Under Construction",
+      "status": "Under Construction",
       "delivery": "Confirm with sales team",
       "residences": "98",
       "price": "$3.69M–$5.445M for reviewed available residences",
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Under Construction"
+      },
       "facts": {
         "projectAddress": "1865 N Flagler Drive, West Palm Beach, FL 33407",
         "salesGalleryAddress": "",
@@ -202,11 +204,11 @@ export const publicProjectModel = {
           "Modern waterfront layouts"
         ],
         "neighborhoodContext": "North Flagler waterfront",
-        "factEffectiveDate": "2026-09-01",
+        "factEffectiveDate": "2026-05-22",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
           "displayName": "canonical",
-          "status": "canonical",
+          "status": "reviewed_override",
           "delivery": "approved_fallback",
           "residences": "canonical",
           "price": "canonical",
@@ -488,12 +490,14 @@ export const publicProjectModel = {
       "corridorKey": "south-flagler",
       "corridor": "South Flagler",
       "displayName": "South Flagler House",
-      "projectType": "condo-active-sales",
-      "status": "Under Construction",
+      "projectType": "completed-comparable",
+      "status": "Completed",
       "delivery": "2027",
       "residences": "108",
       "price": "$7.98M to $70M on current official tier pages",
-      "reviewedFields": {},
+      "reviewedFields": {
+        "status": "Completed"
+      },
       "facts": {
         "projectAddress": "1355 S Flagler Drive, West Palm Beach, FL 33401",
         "salesGalleryAddress": "",
@@ -520,11 +524,11 @@ export const publicProjectModel = {
           "Full-floor and duplex penthouse options"
         ],
         "neighborhoodContext": "South Flagler waterfront",
-        "factEffectiveDate": "2026-09-01",
+        "factEffectiveDate": "2026-04-09",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
           "displayName": "canonical",
-          "status": "canonical",
+          "status": "reviewed_override",
           "delivery": "canonical",
           "residences": "canonical",
           "price": "canonical",
@@ -1140,15 +1144,17 @@ export const publicProjectModel = {
       "projectType": "condo-pipeline",
       "status": "Pipeline / Announced",
       "delivery": "Pipeline watch",
-      "residences": "100–130 condominium units proposed in later Related Ross repositioning; prior plan referenced 340 apartments",
+      "residences": "194",
       "price": "Not released",
-      "reviewedFields": {},
+      "reviewedFields": {
+        "residences": "194"
+      },
       "facts": {
         "projectAddress": "401 S Dixie Highway / 418 & 464 Fern Street, West Palm Beach, FL",
         "salesGalleryAddress": "",
         "mailingAddress": "",
         "planningParcelAddress": "",
-        "canonicalResidenceCount": "100–130 condominium units proposed in later Related Ross repositioning; prior plan referenced 340 apartments",
+        "canonicalResidenceCount": "194",
         "historicalResidenceCounts": [],
         "expectedDeliveryCurrent": "Pipeline watch",
         "priorDeliveryGuidance": [],
@@ -1162,13 +1168,13 @@ export const publicProjectModel = {
         "amenitySummary": "Formerly planned as a 25-story mixed-use project with apartments and commercial space; later reported as being repositioned as a 100–130 unit condominium tower.",
         "residenceFeatures": [],
         "neighborhoodContext": "Downtown West Palm Beach / Fern Street corridor",
-        "factEffectiveDate": "2026-09-01",
+        "factEffectiveDate": "2026-09-08",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
           "displayName": "canonical",
           "status": "canonical",
           "delivery": "approved_fallback",
-          "residences": "canonical",
+          "residences": "reviewed_override",
           "price": "approved_fallback",
           "address": "canonical"
         }
