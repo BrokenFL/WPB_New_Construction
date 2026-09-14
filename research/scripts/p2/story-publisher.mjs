@@ -195,7 +195,13 @@ const PUBLISH_SOURCE_IMAGE_FILES = Object.freeze([
 ]);
 
 function projectFallbackImages(projectIds = []) {
-  return projectIds.flatMap((value) => PROJECT_IMAGE_FALLBACKS[String(value).trim().toLowerCase()] || []);
+  return projectIds.flatMap((value) => PROJECT_IMAGE_FALLBACKS[String(value).trim().toLowerCase()] || [])
+    .map((image, index) => ({
+      ...image,
+      key: index === 0 ? "hero" : `story-context-${index}`,
+      credit: "User-provided project image, optimized for site use.",
+      mode: "approved-local",
+    }));
 }
 
 function fallbackImages(corridorIds = []) {
