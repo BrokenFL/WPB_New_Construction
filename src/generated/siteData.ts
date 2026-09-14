@@ -5085,6 +5085,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+    "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler | WPB Updates",
+    "description": "The 22-story, 55-residence tower at 4714 N. Flagler Drive has completed construction, giving buyers a move-in-ready new-construction option on North Flagler.",
+    "ogImage": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp"
+  },
+  {
     "path": "/updates/shorecrest-breaks-ground-157m-financing-2026-09-14/",
     "title": "Shorecrest Breaks Ground with $157M Construction Financing | WPB Updates",
     "description": "Related Ross has broken ground on 28-story Shorecrest on North Flagler, with 98 residences and $157 million in construction financing.",

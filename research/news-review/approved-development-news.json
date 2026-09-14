@@ -1,5 +1,80 @@
 [
   {
+    "id": "intel-story-544ca384b5f936f2",
+    "slug": "alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14",
+    "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+    "sourceName": "Florida YIMBY",
+    "sourceUrl": "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html",
+    "canonicalUrl": "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html",
+    "sourceTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+    "publishedAt": "2026-09-14T18:56:38.846Z",
+    "sourcePublishedAt": "2026-06-22",
+    "sourcePublishedDate": "2026-06-22",
+    "eventDate": "2026-09-14",
+    "dateDiscovered": "2026-09-14",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-14T18:56:38.846Z",
+    "deck": "The 22-story, 55-residence tower at 4714 N. Flagler Drive has completed construction, giving buyers a move-in-ready new-construction option on North Flagler.",
+    "description": "The 22-story, 55-residence tower at 4714 N. Flagler Drive has completed construction, giving buyers a move-in-ready new-construction option on North Flagler.",
+    "summary": "Alba Palm Beach is complete and move-in ready, with 55 residences across 22 stories at 4714 N. Flagler Drive on North Flagler.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Alba Palm Beach has completed construction at 4714 N. Flagler Drive and is now move-in ready. Florida YIMBY reports the project as a completed 22-story residential tower with 55 residences, designed by Spina O'Rourke.\n\nThat makes Alba materially different from many of the new-construction options buyers are comparing elsewhere in West Palm Beach: this is no longer a future-delivery story. The building has reached completion, and the current project status can be evaluated from the standpoint of occupancy rather than construction timing.",
+        "image": "/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp"
+      },
+      {
+        "heading": "Why it matters for buyers",
+        "body": "For buyers who want new construction without waiting through a multi-year build, completion changes the conversation. A move-in-ready building removes one of the biggest variables in pre-construction purchasing: when the residence will actually be available.\n\nAlba's 55-residence scale also gives buyers a relatively compact building to compare with the larger towers rising elsewhere along the waterfront. The useful facts here are straightforward — 22 stories, 55 residences and completed construction — without relying on unverified amenity or availability claims."
+      },
+      {
+        "heading": "What to watch",
+        "body": "The next meaningful updates are current inventory, pricing and any resale activity as the building moves from construction into normal occupancy. Those details can change quickly and should be checked against current listings and official sales information rather than assumed from the completion announcement.\n\nFor now, Alba has crossed the most important threshold: it is a completed, move-in-ready new-construction option on North Flagler."
+      }
+    ],
+    "whyItMatters": "Completion removes construction-timing uncertainty and gives buyers a finished building to evaluate now.",
+    "buyerContext": "Use the verified completion, 22-story scale and 55-residence count as the current anchors; verify live inventory and pricing separately.",
+    "buyerTakeaway": "Alba offers buyers a completed, move-in-ready new-construction option rather than a future-delivery commitment.",
+    "marketSignal": "A North Flagler new-construction project has moved from active construction into completed inventory.",
+    "bestFor": "Buyers prioritizing completed new construction and near-term occupancy on North Flagler.",
+    "watchPoints": "Current inventory, pricing and resale activity as the building transitions into normal occupancy.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+    "newsletterBlurb": "The 22-story, 55-residence tower at 4714 N. Flagler Drive has completed construction, giving buyers a move-in-ready new-construction option on North Flagler.",
+    "newsletterCta": "Read the article",
+    "query": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+    "category": "development",
+    "relatedProjectIds": [
+      "alba-palm-beach"
+    ],
+    "relatedCorridorIds": [
+      "north-flagler"
+    ],
+    "relatedProjectSlugs": [
+      "alba-palm-beach"
+    ],
+    "relatedCorridors": [
+      "north-flagler"
+    ],
+    "primaryProjectSlug": "alba-palm-beach",
+    "corridorLabel": "North Flagler",
+    "imagePath": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+    "sourceLinks": [
+      {
+        "label": "Florida YIMBY",
+        "url": "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "intel-story-021fb59946a118d4",
     "slug": "shorecrest-breaks-ground-157m-financing-2026-09-14",
     "title": "Shorecrest Breaks Ground with $157M Construction Financing",
