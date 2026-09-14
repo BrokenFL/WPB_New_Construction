@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-04T19:19:09.317Z",
+  "generatedAt": "2026-09-14T17:45:43.164Z",
   "usageNote": "Floorplan inventory from project sources and current packet references. Request the latest sales packet for pricing, availability, and line-by-line guidance.",
   "projects": [
     {
       "projectId": "alba-palm-beach",
       "name": "Alba Palm Beach",
       "area": "North Flagler",
-      "projectType": "condo-active-sales",
+      "projectType": "completed-comparable",
       "updatedAt": "2026-09-01",
       "count": 7,
       "plans": [

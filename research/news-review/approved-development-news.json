@@ -1,5 +1,80 @@
 [
   {
+    "id": "intel-story-421da79099c9ed00",
+    "slug": "olaras-completion-horizon-is-set-for-2028-2026-09-14",
+    "title": "Olara’s Completion Horizon Is Set for 2028",
+    "sourceName": "Florida YIMBY",
+    "sourceUrl": "https://floridayimby.com/2025/12/olara-commences-vertical-construction-at-1919-north-flagler-drive-in-west-palm-beach.html",
+    "canonicalUrl": "https://floridayimby.com/2025/12/olara-commences-vertical-construction-at-1919-north-flagler-drive-in-west-palm-beach.html",
+    "sourceTitle": "Olara’s Completion Horizon Is Set for 2028",
+    "publishedAt": "2026-09-14T17:45:41.227Z",
+    "sourcePublishedAt": "2026-07-07",
+    "sourcePublishedDate": "2026-07-07",
+    "eventDate": "2026-09-14",
+    "dateDiscovered": "2026-09-14",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-14T17:45:41.227Z",
+    "deck": "The latest verified project timing points to 2028 completion for Olara on North Flagler, giving buyers a clearer planning horizon.",
+    "description": "The latest verified project timing points to 2028 completion for Olara on North Flagler, giving buyers a clearer planning horizon.",
+    "summary": "Olara’s current completion horizon is 2028, a useful timing marker for buyers evaluating when the North Flagler project may fit their plans.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Olara’s current completion horizon is 2028. That is the clearest project update here: the timing gives buyers a firmer reference point for planning around a future West Palm Beach residence. The project is identified with the North Flagler corridor, one of the city’s most closely watched areas for new residential development.",
+        "image": "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg"
+      },
+      {
+        "heading": "Why it matters for buyers",
+        "body": "A 2028 completion horizon matters because timing is one of the first filters in a new-construction decision. Buyers who want near-term occupancy may approach the project differently from buyers who are comfortable planning several years ahead. The date can also shape when a buyer begins comparing alternatives, organizing financing, thinking about an existing-home sale, or deciding how much flexibility to keep in a seasonal-housing plan.\n\nThe useful takeaway is not to over-read secondary transaction chatter. For this update, the dependable point is the 2028 completion horizon. Buyers can use that as the anchor and treat future pricing, contract activity and construction-stage details as separate questions that should be checked when they become current and attributable."
+      },
+      {
+        "heading": "What to watch",
+        "body": "The next meaningful updates are the ones that make the 2028 horizon more concrete: construction milestones, any revised completion guidance and eventual occupancy or closing information. Those later details can change the practical buyer calculus even when the broad completion year stays the same.\n\nFor now, 2028 is the working timeline. That gives Olara shoppers something more useful than rumor: a clear date range around which to compare other North Flagler options."
+      }
+    ],
+    "whyItMatters": "Timing is a core decision variable in new construction; 2028 gives buyers a clearer basis for comparison.",
+    "buyerContext": "Treat the 2028 horizon as the dependable update and verify future pricing or transaction details separately.",
+    "buyerTakeaway": "Use 2028 as the current planning horizon when comparing Olara with other West Palm Beach new-construction options.",
+    "marketSignal": "A confirmed completion horizon gives buyers a clearer timing benchmark for North Flagler inventory.",
+    "bestFor": "Buyers comfortable planning around a 2028 completion horizon.",
+    "watchPoints": "Construction milestones, revised completion guidance and future occupancy or closing updates.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Olara’s Completion Horizon Is Set for 2028",
+    "newsletterBlurb": "The latest verified project timing points to 2028 completion for Olara on North Flagler, giving buyers a clearer planning horizon.",
+    "newsletterCta": "Read the article",
+    "query": "Olara’s Completion Horizon Is Set for 2028",
+    "category": "development",
+    "relatedProjectIds": [
+      "olara-wpb"
+    ],
+    "relatedCorridorIds": [
+      "north-flagler"
+    ],
+    "relatedProjectSlugs": [
+      "olara-wpb"
+    ],
+    "relatedCorridors": [
+      "north-flagler"
+    ],
+    "primaryProjectSlug": "olara-wpb",
+    "corridorLabel": "North Flagler",
+    "imagePath": "/assets/editorial/flagler-waterfront-corridor.jpg",
+    "sourceLinks": [
+      {
+        "label": "Florida YIMBY",
+        "url": "https://floridayimby.com/2025/12/olara-commences-vertical-construction-at-1919-north-flagler-drive-in-west-palm-beach.html",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "downtown-plan-advances-without-waterfront-height-incentive-2026-09-14",
     "slug": "downtown-plan-advances-without-waterfront-height-incentive-2026-09-14",
     "title": "West Palm’s downtown plan advances without the 25-story waterfront incentive",

@@ -25,7 +25,7 @@ export const floorplanLibrary = [
     "projectId": "alba-palm-beach",
     "name": "Alba Palm Beach",
     "area": "North Flagler",
-    "projectType": "condo-active-sales",
+    "projectType": "completed-comparable",
     "updatedAt": "2026-09-01",
     "count": 7,
     "plans": [
@@ -3876,9 +3876,9 @@ export const researchNewsFeed = [
     ],
     "rewrittenSummary": "Mandarin Oriental is still a long-horizon North Flagler option, but interior imagery gives buyers a better read on service tone, finish direction, and whether the brand premium belongs in the same shortlist as Olara, Ritz-Carlton, and Shorecrest.",
     "image": {
-      "path": "",
-      "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
-      "credit": "Source: Mandarin Oriental Residences, West Palm Beach original project materials"
+      "path": "/maps/wpb-atlas-map-editorial.svg",
+      "sourceUrl": "/maps/wpb-atlas-map-editorial.svg",
+      "credit": "Source: WPB New Construction map"
     },
     "citations": [
       "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
@@ -5083,6 +5083,12 @@ export const prerenderRoutes = [
     "title": "West Palm Beach Condo Updates | Construction, Sales & Planning",
     "description": "Track West Palm Beach condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
+  },
+  {
+    "path": "/updates/olaras-completion-horizon-is-set-for-2028-2026-09-14/",
+    "title": "Olara’s Completion Horizon Is Set for 2028 | WPB Updates",
+    "description": "The latest verified project timing points to 2028 completion for Olara on North Flagler, giving buyers a clearer planning horizon.",
+    "ogImage": "/assets/editorial/flagler-waterfront-corridor.jpg"
   },
   {
     "path": "/updates/downtown-plan-advances-without-waterfront-height-incentive-2026-09-14/",
