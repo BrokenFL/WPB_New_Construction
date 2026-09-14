@@ -1,5 +1,76 @@
 [
   {
+    "id": "intel-story-03ccad51e240cf82",
+    "slug": "534-datura-25-story-tower-west-palm-beach-2026-09-14",
+    "title": "25-Story 534 Datura Tower Planned in West Palm Beach",
+    "sourceName": "Florida YIMBY",
+    "sourceUrl": "https://floridayimby.com/2026/09/two-developers-plan-25-story-534-datura-for-534-datura-st-west-palm-beach-fl.html",
+    "canonicalUrl": "https://floridayimby.com/2026/09/two-developers-plan-25-story-534-datura-for-534-datura-st-west-palm-beach-fl.html",
+    "sourceTitle": "25-Story 534 Datura Tower Planned in West Palm Beach",
+    "publishedAt": "2026-09-14T17:46:36.281Z",
+    "sourcePublishedAt": "2026-09-11",
+    "sourcePublishedDate": "2026-09-11",
+    "eventDate": "2026-09-14",
+    "dateDiscovered": "2026-09-14",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-14T17:46:36.281Z",
+    "deck": "Rybak Development and Gold Standard of Care plan a 25-story, 281,000-square-foot tower with 261 residences, retail and a large amenity deck.",
+    "description": "Rybak Development and Gold Standard of Care plan a 25-story, 281,000-square-foot tower with 261 residences, retail and a large amenity deck.",
+    "summary": "Plans for 534 Datura call for a 25-story tower with 261 residences, 4,600 square feet of retail and a 6,371-square-foot pool deck.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Rybak Development and Gold Standard of Care have unveiled plans for 534 Datura, a 25-story, roughly 281,000-square-foot tower with 261 residences. The proposal also includes about 4,600 square feet of retail and a 6,371-square-foot pool deck.\n\nFlorida YIMBY reports that the design is by IMC Architecture. The program includes 64 parking spaces, plus amenity space associated with the pool deck, spa, co-working and fitness uses. The project would replace an existing 200-bed nursing home on a roughly half-acre site.",
+        "image": "/assets/editorial/downtown-spotlight-night-skyline-hero.jpg"
+      },
+      {
+        "heading": "Why it matters for buyers",
+        "body": "The proposal is notable because it would add a sizable new residential building to the Datura Street area with a relatively compact parking count and a meaningful ground-floor retail component. The residential program also includes a workforce-housing component under the Live Local framework, although the exact unit breakdown should be treated cautiously until the project’s numbers are fully reconciled.\n\nFor buyers, the practical point is that 534 Datura represents another major residential proposal in the central West Palm Beach development pipeline. Its scale, retail space and amenity program make it more than a small infill project, while the replacement of an existing institutional use would materially change the site."
+      },
+      {
+        "heading": "What to watch",
+        "body": "The biggest item to watch is how the plan moves through public review and whether the current program changes. Exact workforce-housing counts deserve particular attention because published figures have not been perfectly consistent.\n\nAlso watch for revisions to the residential count, parking plan, retail square footage or amenity program. At this stage, the useful buyer takeaway is the broad proposal: 25 stories, 261 residences and a mixed residential-retail program at 534 Datura."
+      }
+    ],
+    "whyItMatters": "The proposal would replace an existing nursing-home site with a large residential and retail development.",
+    "buyerContext": "Use the broad 25-story, 261-residence program as the current anchor and treat the exact workforce-housing unit count cautiously.",
+    "buyerTakeaway": "534 Datura is a substantial 25-story residential proposal with 261 residences, retail and a large amenity program.",
+    "marketSignal": "Another sizable residential project is entering West Palm Beach’s central development pipeline.",
+    "bestFor": "Buyers tracking future central West Palm Beach residential inventory.",
+    "watchPoints": "Public-review progress and any revisions to residence count, workforce-housing breakdown, parking, retail or amenities.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "25-Story 534 Datura Tower Planned in West Palm Beach",
+    "newsletterBlurb": "Rybak Development and Gold Standard of Care plan a 25-story, 281,000-square-foot tower with 261 residences, retail and a large amenity deck.",
+    "newsletterCta": "Read the article",
+    "query": "25-Story 534 Datura Tower Planned in West Palm Beach",
+    "category": "development",
+    "relatedProjectIds": [
+      "534-datura"
+    ],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [
+      "534-datura"
+    ],
+    "relatedCorridors": [],
+    "primaryProjectSlug": "534-datura",
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/downtown-core-corridor.jpg",
+    "sourceLinks": [
+      {
+        "label": "Florida YIMBY",
+        "url": "https://floridayimby.com/2026/09/two-developers-plan-25-story-534-datura-for-534-datura-st-west-palm-beach-fl.html",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "intel-story-d3bca9259771220e",
     "slug": "alida-residences-tribute-portfolio-break-ground-brightline-2026-09-14",
     "title": "Alida Residences and Tribute Portfolio Hotel Break Ground by Brightline",

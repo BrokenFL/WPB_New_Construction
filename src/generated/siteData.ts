@@ -5085,6 +5085,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/534-datura-25-story-tower-west-palm-beach-2026-09-14/",
+    "title": "25-Story 534 Datura Tower Planned in West Palm Beach | WPB Updates",
+    "description": "Rybak Development and Gold Standard of Care plan a 25-story, 281,000-square-foot tower with 261 residences, retail and a large amenity deck.",
+    "ogImage": "/assets/editorial/downtown-core-corridor.jpg"
+  },
+  {
     "path": "/updates/alida-residences-tribute-portfolio-break-ground-brightline-2026-09-14/",
     "title": "Alida Residences and Tribute Portfolio Hotel Break Ground by Brightline | WPB Updates",
     "description": "Groundbreaking is underway for the 21-story Alida Residences, with 181 homes and a Tribute Portfolio hotel component beside Brightline.",
