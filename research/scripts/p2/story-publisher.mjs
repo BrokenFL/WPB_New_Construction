@@ -271,7 +271,13 @@ export function runArticlePublish({ root, inputFile, args = ["--publish"], timeo
     child.on("close", (code) => {
       clearTimeout(timer);
       const result = parseTrailingJson(stdout);
-      resolve({ ok: result?.ok === true, code, result, stderr: stderr.slice(-2000) });
+      resolve({
+        ok: result?.ok === true,
+        code,
+        result,
+        stdoutTail: stdout.slice(-6000),
+        stderr: stderr.slice(-2000),
+      });
     });
   });
 }
@@ -300,14 +306,16 @@ export async function publishStory({ root, story, run = runArticlePublish }) {
   const inputFile = await writeStoryInput(root, enriched.story.story_id, prepared.input);
   const outcome = await run({ root, inputFile });
   if (!outcome.ok) {
-    const detail = outcome.error
-      || outcome.result?.error
-      || outcome.result?.errors?.join("; ")
-      || outcome.stderr?.trim()
-      || `publisher exit ${outcome.code}`;
+    const detail = [
+      outcome.error,
+      outcome.result?.error,
+      outcome.result?.errors?.join("; "),
+      outcome.stdoutTail?.trim(),
+      outcome.stderr?.trim(),
+    ].filter(Boolean).join("\n") || `publisher exit ${outcome.code}`;
     return {
       ok: false,
-      error: String(detail).slice(-2000),
+      error: String(detail).slice(-4000),
       publisherReason: outcome.result?.reason || "publisher-error",
     };
   }

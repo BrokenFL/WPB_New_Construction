@@ -733,6 +733,7 @@ test("Fast Cycle workflow uses its job-scoped write token and explicitly dispatc
   assert.equal(installed, template);
   assert.match(installed, /permissions:\n\s+contents: write\n\s+actions: write/);
   assert.match(installed, /token: \$\{\{ github\.token \}\}/);
+  assert.match(installed, /npx playwright install --with-deps chromium/);
   assert.match(installed, /gh workflow run deploy-cloudflare-pages\.yml --ref main/);
   assert.doesNotMatch(installed, /P2_PUBLISH_PAT/);
 });
@@ -1215,10 +1216,12 @@ test("story publisher enforces policy/writer/source boundaries and enriches appr
       ok: false,
       code: 1,
       result: { ok: false, error: "Article publishing requires branch main; found detached HEAD.", reason: "wrong-branch" },
+      stdoutTail: "Project-specific QA detail: news image mapping failed.",
     }),
   });
   assert.equal(failed.ok, false);
-  assert.equal(failed.error, "Article publishing requires branch main; found detached HEAD.");
+  assert.match(failed.error, /Article publishing requires branch main/);
+  assert.match(failed.error, /Project-specific QA detail: news image mapping failed/);
   assert.equal(failed.publisherReason, "wrong-branch");
 });
 

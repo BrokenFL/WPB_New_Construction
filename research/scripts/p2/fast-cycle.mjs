@@ -536,7 +536,9 @@ export async function runFastCycle({
     } else {
       story.status = STORY_STATUS.ERROR;
       story.publish_status = "error";
-      story.error = String(outcome.error || "publish failed").slice(0, 500);
+      // Keep the tail because the article publisher streams the individual QA
+      // result before its final generic failure envelope.
+      story.error = String(outcome.error || "publish failed").slice(-4000);
       publishActions.push({ story_id: story.story_id, ok: false, outcome: "retrying", error: story.error });
     }
     publishDirtyStories.add(story);

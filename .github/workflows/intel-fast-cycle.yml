@@ -73,6 +73,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Playwright Chromium for article QA
+        if: env.P2_DRY_RUN == '0' && env.P2_SKIP_PUBLISH == '0'
+        run: npx playwright install --with-deps chromium
+
       - name: Configure git identity
         run: |
           git config user.name "wpb-intel-bot"
