@@ -4,7 +4,7 @@ import { sha256, stableJson } from "../intel/core.mjs";
 // signed handoffs remain usable. The processor revision is separate: changing
 // it forces already-decided rows through the corrected Fast Mode V2 engine.
 export const FAST_MODE_POLICY_VERSION = "p2-fast-policy-v1";
-export const FAST_MODE_PROCESSOR_VERSION = "p2-fast-mode-v2-throughput-r3";
+export const FAST_MODE_PROCESSOR_VERSION = "p2-fast-mode-v2-throughput-r4";
 
 export const ARTICLE_DECISION = Object.freeze({
   AUTO_PUBLISH: "AUTO_PUBLISH",
@@ -187,7 +187,10 @@ function derivedValuesForClaim(claim) {
   const residenceCounts = uniqueMatches(text, /\b([0-9]{1,4})\s+(?:exclusive\s+|luxury\s+|corner\s+)*(?:residences?|units?|condominiums?|condos?)\b/gi, (value) => String(Number(value)));
   if (residenceCounts.length === 1) values.residenceCount = residenceCounts[0];
 
-  const deliveryYears = uniqueMatches(text, /\b(?:delivery|completion|opening|move[- ]?ins?|occupancy)[^.;]{0,48}?\b(20\d{2})\b/gi);
+  const deliveryYears = [...new Set([
+    ...uniqueMatches(text, /\b(?:delivery|completion|opening|move[- ]?ins?|occupancy)[^.;]{0,48}?\b(20\d{2})\b/gi),
+    ...uniqueMatches(text, /\b(20\d{2})\b[^.;]{0,32}?\b(?:delivery|completion|opening|move[- ]?ins?|occupancy)\b/gi),
+  ])];
   if (deliveryYears.length === 1) values.deliveryTiming = deliveryYears[0];
 
   const addresses = uniqueMatches(text, /\b([0-9]{2,5}\s+[A-Z0-9][A-Za-z0-9.'’ -]{1,55}\s(?:Street|St\.?|Avenue|Ave\.?|Boulevard|Blvd\.?|Drive|Dr\.?|Road|Rd\.?|Way|Place|Pl\.?|Lane|Ln\.?))(?:,?\s+West Palm Beach(?:,?\s+FL(?:\s+\d{5})?)?)?/gi, (_value, match) => match[0].replace(/[.;,]+$/, "").trim());

@@ -1,7 +1,7 @@
 # P2 Fast Mode — Operations
 
 Fast Mode (`p2-fast-policy-v1`, processor revision
-`p2-fast-mode-v2-throughput-r3`) is the live intelligence pipeline. It
+`p2-fast-mode-v2-throughput-r4`) is the live intelligence pipeline. It
 replaces the review-heavy shadow policy: credible events publish
 automatically, canonical facts update independently, and humans only see
 genuine conflicts.

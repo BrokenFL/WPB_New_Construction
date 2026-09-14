@@ -398,20 +398,27 @@ test("Fast Mode V2: Shorecrest core milestone publishes with conflicting deliver
 });
 
 test("Fast Mode V2: Olara 2028 delivery publishes without an unsupported $6.9M headline detail", () => {
+  const intakeProjectId = "olara-wpb";
+  const projectId = "olara";
   const r = row("fast-olara", {
     project_name: "Olara",
+    related_project_ids: intakeProjectId,
     headline: "Olara contracts reach $6.9M as 2028 delivery is confirmed",
     summary: "Olara is now expected to deliver in 2028.",
-    material_updates: "Delivery is expected in 2028.",
+    material_updates: "2028 completion confirmed",
   });
-  const first = prepareFast(r);
+  const indexes = indexesForProject(projectId, { deliveryTiming: "2027" });
+  indexes.project_aliases = { [intakeProjectId]: projectId };
+  const first = prepareFast(r, { indexes });
   const headline = first.preliminary.claims.find((claim) => claim.field === "headline");
-  const prepared = prepareFast(r, { verdicts: { [headline.claim_id]: "unsupported" } });
-  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview });
+  const prepared = prepareFast(r, { indexes, verdicts: { [headline.claim_id]: "unsupported" } });
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview, indexes });
   assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  assert.equal(decision.fact_change_decision, FACT_DECISION.AUTO_APPLY);
+  assert.equal(decision.fact_mutations.find((mutation) => mutation.field === "deliveryTiming")?.value, "2028");
   const seed = storySeedFields({ row: r, result: prepared.result, boundReview: prepared.boundReview, decision });
   assert.equal(seed.headline.includes("$6.9M"), false);
-  assert.match(seed.headline, /Delivery is expected in 2028|Olara is now expected to deliver in 2028/);
+  assert.match(seed.headline, /2028 completion confirmed|Olara is now expected to deliver in 2028/);
 });
 
 test("Fast Mode V2: unsupported corridor and incorrect event-key date are removable metadata", () => {

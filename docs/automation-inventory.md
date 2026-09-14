@@ -97,7 +97,7 @@ slice; retirement is a later, explicitly authorized activation step.
 This table records the earlier shadow-only plan. It is not the Fast Mode
 activation plan. The active Fast Mode owner and retirement gate are below.
 
-### Fast Mode V2 throughput update (`p2-fast-mode-v2-throughput-r3`)
+### Fast Mode V2 throughput update (`p2-fast-mode-v2-throughput-r4`)
 
 The Fast Mode path supersedes the shadow-owner rationale: the Sheet itself is
 the durable workflow state, so dispatches are advisory pokes and a missed run
