@@ -7,11 +7,13 @@ name: Intel Fast Cycle
 # The Sheet is the durable workflow state; a missed run self-heals because
 # unprocessed rows keep their non-terminal status until the next cycle.
 #
-# One-time setup (repo secrets):
+# One-time setup (repo secret):
 #   P2_GOOGLE_SERVICE_ACCOUNT_JSON  service-account key JSON with Sheets
 #                                 read/write on the intelligence spreadsheet
-#   P2_PUBLISH_PAT                  required token so article/fact pushes fire
-#                                   the normal push-event deployment workflow.
+#
+# Article/fact commits use the job-scoped github.token. Because pushes made by
+# that token do not start another workflow, a successful content push is
+# followed by an explicit deploy workflow_dispatch.
 
 on:
   schedule:
@@ -22,6 +24,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: intel-fast-cycle
@@ -39,15 +42,10 @@ jobs:
         shell: bash
         env:
           P2_GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.P2_GOOGLE_SERVICE_ACCOUNT_JSON }}
-          P2_PUBLISH_PAT: ${{ secrets.P2_PUBLISH_PAT }}
         run: |
           missing=0
           if [[ -z "${P2_GOOGLE_SERVICE_ACCOUNT_JSON:-}" ]]; then
             echo "::error::Missing repository secret P2_GOOGLE_SERVICE_ACCOUNT_JSON"
-            missing=1
-          fi
-          if [[ -z "${P2_PUBLISH_PAT:-}" ]]; then
-            echo "::error::Missing repository secret P2_PUBLISH_PAT"
             missing=1
           fi
           if [[ "${P2_DRY_RUN}" != "0" && "${P2_DRY_RUN}" != "1" ]]; then
@@ -64,7 +62,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
-          token: ${{ secrets.P2_PUBLISH_PAT }}
+          token: ${{ github.token }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -83,5 +81,21 @@ jobs:
       - name: Run fast cycle
         env:
           P2_GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.P2_GOOGLE_SERVICE_ACCOUNT_JSON }}
-          P2_PUBLISH_PAT: ${{ secrets.P2_PUBLISH_PAT }}
         run: npm run p2:fast:cycle
+
+      - name: Dispatch deployment after a Fast Cycle content push
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          remote_head="$(git ls-remote origin refs/heads/main | cut -f1)"
+          if [[ -z "${remote_head}" ]]; then
+            echo "::error::Could not resolve remote main after Fast Cycle"
+            exit 1
+          fi
+          if [[ "${remote_head}" == "${{ github.sha }}" ]]; then
+            echo "Fast Cycle made no content push; no deployment dispatch needed."
+            exit 0
+          fi
+          gh workflow run deploy-cloudflare-pages.yml --ref main
+          echo "Dispatched Cloudflare deployment for ${remote_head}."

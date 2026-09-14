@@ -6,9 +6,6 @@
 //   P2_GOOGLE_SERVICE_ACCOUNT_JSON  service account with Sheets read/write on
 //                                   the private intelligence spreadsheet
 //   P2_GOOGLE_SHEET_ID              (defaults to the primary spreadsheet)
-// Required for live mode:
-//   P2_PUBLISH_PAT                  workflow checkout/push token so the normal
-//                                   push-event deploy workflow fires
 // Optional:
 //   P2_SKIP_PUBLISH=1               process intel/facts only (sheet cycle)
 //   P2_DRY_RUN=1                    run everything except git push/publish
@@ -174,8 +171,8 @@ export function isAllowedFactOutputPath(file) {
 }
 
 async function pushMain() {
-  // actions/checkout configures the selected token without putting it in the
-  // remote URL. Never persist P2_PUBLISH_PAT in .git/config.
+  // The processing owner configures a job-scoped repository token through
+  // actions/checkout. Never put a credential in the remote URL.
   const push = await run("git", ["push", "origin", "main"]);
   return { ok: push.code === 0, stderr: push.stderr.slice(-400) };
 }
@@ -245,8 +242,6 @@ export async function main() {
   // Activation is explicit: absent/misspelled variables stay safe.
   const dryRun = process.env.P2_DRY_RUN !== "0";
   const skipPublish = process.env.P2_SKIP_PUBLISH !== "0";
-  if (!dryRun && !process.env.P2_PUBLISH_PAT) throw new Error("ERR_P2_PUBLISH_PAT_MISSING");
-
   const cycle = await runFastCycle({
     root,
     sheets,
