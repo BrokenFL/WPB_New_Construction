@@ -5090,6 +5090,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/downtown-plan-advances-without-waterfront-height-incentive-2026-09-14/",
+    "title": "West Palm’s downtown plan advances without the 25-story waterfront incentive | WPB Updates",
+    "description": "West Palm Beach’s downtown plan advances after a waterfront-height revision. The Planning Board hearing is scheduled for September 15.",
+    "ogImage": "/assets/editorial/downtown-plan-advances-without-waterfront-height-incentive-2026-09-14-hero.jpg"
+  },
+  {
     "path": "/updates/related-ross-files-25-story-464-fern-plan-2026-08-20/",
     "title": "Related Ross files a 25-story plan for 464 Fern | WPB Updates",
     "description": "Related Ross has filed a 25-story residential plan for 464 Fern Street, shifting one of downtown West Palm Beach's last large blocks back into review.",
