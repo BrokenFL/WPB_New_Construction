@@ -1,10 +1,10 @@
 /**
  * WPB Incoming_Intel change scanner — Apps Script source (NOT DEPLOYED).
  *
- * Design: a time-driven trigger every ~15 minutes calls scanBothQueues(),
- * which scans Incoming_Intel (intake changes) and Story_Queue (publication
- * pickup). onEdit alone is NOT sufficient — API/script writes do not
- * reliably fire it.
+ * Optional helper only. GitHub Actions `Intel Fast Cycle` is the sole primary
+ * 15-minute scheduler. Run scanBothQueues() manually for diagnostics or wire
+ * it to an explicitly configured private wake-up endpoint; do not install a
+ * second time-driven trigger. onEdit alone is NOT sufficient for API writes.
  *
  * Change detection uses two per-record hashes stored in Script Properties:
  *   content_hash  — intake-authored fields only
@@ -29,7 +29,6 @@
  */
 
 var SHEET_NAME = "Incoming_Intel";
-var SCAN_INTERVAL_MINUTES = 15;
 var PROP_PREFIX = "p2scan:";
 var HEALTH_PROPERTY = PROP_PREFIX + "health";
 var MIN_SECRET_LENGTH = 32;
@@ -43,7 +42,7 @@ var CONTENT_FIELDS = [
   "source_quality", "confidence_score", "recommended_status", "flags_json",
   "requires_human_review", "article_body", "seo_title", "seo_description",
   "social_copy", "record_type", "event_key", "lead_source_url",
-  "primary_source_url", "related_project_ids", "related_corridor_ids",
+  "primary_source_url", "discovery_sources_json", "related_project_ids", "related_corridor_ids",
   "created_at", "event_date", "effective_date", "fact_proposals_json",
   "project_fact_proposals_json", "fact_proposal_json", "proposed_facts_json",
   "project_fact_field", "project_fact_project_id", "project_fact_old_value",
@@ -366,8 +365,8 @@ function scanIncomingIntelLocked() {
 // ---------------------------------------------------------------------------
 // Story_Queue — publication pickup scanner (Fast Mode, p2-fast-policy-v1)
 //
-// The same 15-minute trigger can call scanBothQueues(), which runs the
-// Incoming_Intel scan and the Story_Queue scan under one lock. Story_Queue
+// An optional manual diagnostic/wake-up can call scanBothQueues(), which runs
+// the Incoming_Intel scan and the Story_Queue scan under one lock. Story_Queue
 // rows are dispatched when the writer marks status="ready_to_publish" or a
 // prior publish attempt failed (status="error") — the processor owns retry
 // bookkeeping, the scanner only signals "this story row needs a cycle".
@@ -539,9 +538,8 @@ function scanStoryQueueLocked() {
 }
 
 /**
- * One trigger, both queues. Install this single time-driven trigger rather
- * than two separate ones — the scans share a script lock and each tolerates
- * the other's busy state.
+ * Optional manual diagnostic/wake-up for both queues. GitHub Actions owns the
+ * recurring schedule; do not install this as a time-driven trigger.
  */
 function scanBothQueues() {
   var intel = scanIncomingIntel();
@@ -550,7 +548,5 @@ function scanBothQueues() {
   return { incoming_intel: intel, story_queue: story };
 }
 
-// Install manually when activating — NOT installed by this source file:
-//   ScriptApp.newTrigger("scanBothQueues").timeBased()
-//     .everyMinutes(SCAN_INTERVAL_MINUTES).create();
-// Also run ensureStoryQueueTab() once from the editor to create the tab.
+// No scheduled Apps Script installation is required. `ensureStoryQueueTab()`
+// remains available as an explicit schema helper.

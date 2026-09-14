@@ -82,7 +82,7 @@ private scanner dispatches and immutable snapshots. Assignment issue text must
 never be treated as evidence or article body. Do not disable schedules in this
 slice; retirement is a later, explicitly authorized activation step.
 
-### Recommended end state (not activated)
+### Historical shadow end state (superseded by Fast Mode)
 
 | Responsibility | One owner | Eventual state |
 |---|---|---|
@@ -94,9 +94,8 @@ slice; retirement is a later, explicitly authorized activation step.
 | Scheduled GitHub issue producers | `live-news-agent-task.yml`, `biweekly-content-agent-task.yml` | retire after scanner/owner soak proves coverage |
 | Legacy GPT issue import and local LaunchAgents | manual/disconnected paths | keep manual during soak, then retire if redundant |
 
-The selected v1 processor is the Node owner documented in
-`P2_LIVE_SHADOW_OPERATIONS.md`, not `repository_dispatch`: enqueue acceptance
-cannot provide the scanner's exact processing-complete durable acknowledgment.
+This table records the earlier shadow-only plan. It is not the Fast Mode
+activation plan. The active Fast Mode owner and retirement gate are below.
 
 ### Fast Mode update (p2-fast-policy-v1)
 
@@ -107,11 +106,22 @@ self-heals on the next cycle. The selected Fast Mode processing owner is the
 running `npm run p2:fast:cycle` — not the GCE VM. See `docs/P2_FAST_MODE.md`.
 
 `live-news-agent-task.yml` and `biweekly-content-agent-task.yml` remain
-disconnected issue producers. Once the Fast Mode pipeline soaks successfully,
-disable both schedules (delete or comment out the `schedule:` triggers) so
-three research systems stop producing duplicate story candidates. Historical
-issues are kept, not deleted.
-No schedules were enabled, disabled, or modified in this slice.
+disconnected issue producers. Retire their schedules only after Fast Mode has
+proved all four observable stages against the real Sheet:
+
+1. a GitHub Actions cycle reads `Incoming_Intel` successfully;
+2. at least one `p2-fact-check-packet-v1` is written;
+3. at least one valid `p2-fact-check-handoff-v2` is accepted; and
+4. at least one row is created in `Story_Queue`.
+
+Until then both legacy schedules remain active. Once all four conditions are
+met, remove only their `schedule:` triggers and retain `workflow_dispatch` for
+manual diagnostics if useful. Keep all historical GitHub issues. Do not use a
+vague soak period as a substitute for these four checks.
+
+Apps Script is not a scheduled owner in Fast Mode. Its checked-in helpers may
+be run manually for schema repair, diagnostics, or an immediate private wake-up;
+do not install a second 15-minute Apps Script trigger. No GCE owner is required.
 
 ## LaunchAgents Found
 

@@ -32,21 +32,20 @@ push to main ──> deploy-cloudflare-pages.yml (normal deploy)
 
 ## Processing owner: GitHub Actions
 
-`tools/github-workflows/intel-fast-cycle.yml` is the prepared workflow —
-staged outside `.github/workflows/` because the push token lacks the OAuth
-`workflow` scope. Activation copies it to
-`.github/workflows/intel-fast-cycle.yml` (web UI or a `workflow`-scoped
-token — one-time step). Once installed it runs `npm run p2:fast:cycle`
-every 15 minutes (plus `repository_dispatch` / `workflow_dispatch`). The
-Sheet is the durable workflow state — a missed or failed run self-heals
-because non-terminal rows stay actionable until the next cycle. The GCE
-owner from the shadow architecture is not required: dispatches are
-advisory pokes, all idempotency lives in Sheet columns and Story_Queue
-rows.
+`.github/workflows/intel-fast-cycle.yml` is the installed processing owner.
+The matching reviewable template remains at
+`tools/github-workflows/intel-fast-cycle.yml`. It runs
+`npm run p2:fast:cycle` every 15 minutes and also accepts explicit
+`workflow_dispatch` and `repository_dispatch` wake-ups. Workflow concurrency
+serializes cycles. The Sheet is durable workflow state: packet, evidence, and
+fact-commit states are idempotent and a fact is not acknowledged as committed
+until its main-branch push succeeds. The GCE owner from the earlier shadow
+architecture is not used.
 
-Apps Script `scanBothQueues()` remains available as an optional dispatcher
-(`p2-story-dispatch-v1` envelopes) but the cron schedule alone is
-sufficient.
+Apps Script `scanBothQueues()` and `ensureStoryQueueTab()` remain optional
+manual schema, diagnostic, and private wake-up helpers. Do not install an Apps
+Script time-driven trigger; the GitHub Actions cron is the sole recurring
+Fast Mode scheduler.
 
 ## Policy summary
 
@@ -59,14 +58,20 @@ Pricing, delivery, financing, approvals, zoning, buyouts, and sales pace
 do not gate publication — they gate only the canonical fact update, and
 only via evidence strength.
 
-Facts AUTO_APPLY for objective fields (status, constructionStage,
-toppingOut, groundbreaking, completion, moveInStatus, name,
-residenceCount, floorCount, address, developer) and for dynamic fields
-(pricing, priceDisplay, startingPrice, deliveryTiming, inventory,
-availability, salesPace) when they carry a source URL and as-of date.
-Legal, termination, buyout, zoning conclusions, and unknown fields stay
-human. Manual `project-fact-overrides.json` entries always win over
-automated ones.
+Facts AUTO_APPLY only for end-to-end projectable objective fields (`status`,
+`name`, `residenceCount`, `address`) and projectable dynamic fields
+(`priceDisplay`, `deliveryTiming`). Every automatic mutation must bind its exact
+supported claim, active policy, evidence bundle, reputable fetched source, and
+known prior canonical value. Dynamic facts additionally require a real as-of
+date. Other fields stay human until they have an explicit canonical/public
+projection contract. Manual `project-fact-overrides.json` entries always win
+over automated ones.
+
+`discovery_sources_json` is part of the intake content hash. Each safe unique
+HTTP(S) source in the list, plus the legacy `source_url`, `lead_source_url`, and
+`primary_source_url` fields, is independently fetched. Name, publication date,
+and source-type hint flow into the private fact-check packet; an unreachable
+source is retried rather than producing an unusable packet.
 
 ## Files
 
@@ -79,8 +84,8 @@ automated ones.
 - `research/scripts/p2/fast-cycle-cli.mjs` — CLI (`npm run p2:fast:cycle`)
 - `research/scripts/p2/fast-digest.mjs` — outcome digest
 - `research/scripts/p2/google-sheets-io.mjs` — Sheets read/write transport
-- `tools/github-workflows/intel-fast-cycle.yml` — staged Actions workflow
-  (copy to `.github/workflows/` at activation)
+- `.github/workflows/intel-fast-cycle.yml` — installed Actions workflow
+- `tools/github-workflows/intel-fast-cycle.yml` — matching review template
 - `tools/apps-script/incoming-intel-scanner.gs` — `scanBothQueues`,
   `ensureStoryQueueTab`
 - `docs/WPB_GEMINI_INTELLIGENCE_SCOUT_PROMPT.md`
@@ -90,31 +95,32 @@ automated ones.
 
 ## One-time activation steps
 
-1. GitHub: install the workflow — copy
-   `tools/github-workflows/intel-fast-cycle.yml` to
-   `.github/workflows/intel-fast-cycle.yml` on main (web UI commit, or
-   `gh auth refresh -h github.com -s workflow` then a normal push).
+1. GitHub: merge the installed `.github/workflows/intel-fast-cycle.yml` through
+   the normal reviewed PR path.
 2. Google Cloud: create a service account, share the private spreadsheet
    with its `client_email` (Editor), download the key JSON.
 3. GitHub repo secrets: add `P2_GOOGLE_SERVICE_ACCOUNT_JSON` (key JSON)
-   and `P2_PUBLISH_PAT` (a token that can push to main and trigger the
-   push-event deploy; `GITHUB_TOKEN` pushes don't fire it — without the
-   PAT the cycle falls back to `workflow_dispatch` on the deploy
-   workflow).
-4. Apps Script (optional dispatcher): run `ensureStoryQueueTab()` once,
-   set Script Properties `SCANNER_MODE=shadow`, `SHEET_ID`,
-   `POLICY_VERSION=p2-fast-policy-v1`, `DISPATCH_ENDPOINT`,
-   `DISPATCH_SECRET` (32+ chars), then install the 15-minute
-   `scanBothQueues` trigger. Skippable — the Actions cron suffices.
-   Note: the first `p2:fast:cycle` run also auto-creates Story_Queue via
-   `ensureTab`, so the Apps Script step is belt-and-suspenders.
-5. ChatGPT: create the two scheduled tasks from the prompt docs.
-   Fact Check every ~2 hours in the day; Story Writer on the half-hour
-   offset.
-6. Gemini: replace the current automation prompt with the scout prompt.
+   and `P2_PUBLISH_PAT` (required token that can push to main and trigger the
+   ordinary push-event deployment). The workflow validates both names without
+   logging their values.
+4. Set repository variables `P2_DRY_RUN=1` and `P2_SKIP_PUBLISH=1`. Dispatch one
+   real-Sheet cycle, verify sanitized Sheet counts and unchanged Git HEAD/status,
+   then set both to `0` only after that cycle succeeds.
+5. Apps Script: no scheduled installation. Run `ensureStoryQueueTab()` or
+   `scanBothQueues()` manually only when an explicit schema/diagnostic/private
+   wake-up is needed.
+6. ChatGPT: the Fact Check and Story Writer schedules are configured outside
+   this repository. Their exact write contracts remain in the prompt docs.
+7. Gemini: replace the current automation prompt with the scout prompt.
+
+Do not retire `live-news-agent-task.yml` or
+`biweekly-content-agent-task.yml` merely because the dry cycle passes. Remove
+only their schedule triggers after the real path has (1) read the Sheet,
+(2) written at least one packet, (3) accepted at least one valid handoff, and
+(4) created at least one `Story_Queue` row. Historical issues remain intact.
 
 ## Digest
 
 `writeFastDigest` reports outcomes, not a review queue: stories published,
-facts applied, duplicates skipped, errors retrying, holds, and
-`needs_brooke` — which defaults to 0.
+stories returned to the writer, stories held, facts applied, duplicates
+skipped, transient errors retrying, and `needs_brooke` — which defaults to 0.

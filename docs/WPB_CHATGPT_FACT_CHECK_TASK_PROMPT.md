@@ -5,8 +5,8 @@ Recommended cadence: **every 2 hours during the day** (e.g. 8am–8pm ET).
 
 The task verifies `Incoming_Intel` rows the processor marked
 `status = awaiting_fact_check`. It reads the processor-emitted fact-check
-packet in `p2_packet_json`, checks the claims against the listed sources
-(and quick supplemental search when needed), and writes a structured
+packet in `p2_packet_json`, checks the claims against the listed sources,
+and writes a structured
 handoff into `fact_check_handoff_json`. It does **not** decide publication.
 
 Contract: `p2-fact-check-handoff-v2` (see
@@ -33,7 +33,7 @@ EACH RUN
    event_key, policy_version, reviewer_version, claims[] (each with
    claim_id, claim_type, field, claim_value, claim_text, material), and
    available_sources[] (each with source_ref_id, url, source_name,
-   source_tier, retrieved).
+   source_tier, source_type, source_type_hint, published_date, retrieved).
 3. Open the URLs in available_sources that are marked retrieved=true.
    For each claim in claims[], decide a verdict:
    - "supported"    — a cited source materially supports the claim text
@@ -75,6 +75,8 @@ STRICT RULES
   no more, no fewer.
 - evidence_source_ref_ids must be non-empty and drawn ONLY from
   packet.available_sources.
+- Treat source_type_hint and published_date as discovery metadata, not proof.
+  Base every verdict on the retrieved source itself and its exact source_ref_id.
 - reviewer_type, reviewer_id, reviewer_name, reviewer_version must be
   exactly the values shown above.
 - Write ONLY the fact_check_handoff_json cell. Never touch status,

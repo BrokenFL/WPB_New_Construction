@@ -20,6 +20,24 @@ test("classification uses exact host boundaries and ignores source labels", () =
   assert.equal(classifySource("https://example.com/story", "Official Tier 1").source_tier, 3);
 });
 
+test("classification recognizes the active Fast Mode official and local/trade watchlist", () => {
+  for (const url of [
+    "https://www.wpb.org/project",
+    "https://www.pbcpao.gov/parcel",
+    "https://www.mypalmbeachclerk.com/record",
+    "https://therealdeal.com/miami/story",
+    "https://www.bizjournals.com/southflorida/news/story",
+    "https://floridayimby.com/story",
+    "https://www.oftmw.com/story",
+    "https://www.palmbeachdailynews.com/story",
+    "https://southfloridaagentmagazine.com/story",
+    "https://www.wptv.com/story",
+    "https://www.cbs12.com/story",
+    "https://www.wlrn.org/story",
+  ]) assert.ok(classifySource(url).source_tier <= 2, url);
+  assert.equal(classifySource("https://news.yahoo.com/syndicated-story").source_tier, 3);
+});
+
 test("safe URL policy rejects credentials and private/transition address forms", () => {
   for (const url of [
     "file:///etc/passwd",
@@ -90,6 +108,9 @@ test("a safe redirect changes provenance tier and preserves the original hint", 
   const body = "final public source";
   const result = await verifySourceHint({
     url: "https://relatedross.com/start",
+    source_name: "Related Ross release",
+    published_date: "2026-09-12",
+    source_type_hint: "developer_press_release",
     fetchImpl: async (url) => {
       calls += 1;
       if (calls === 1) return stubResponse({ status: 302, url, body: "", values: { location: "https://example.com/final" } });
@@ -100,6 +121,9 @@ test("a safe redirect changes provenance tier and preserves the original hint", 
   assert.equal(result.source_type, "aggregator");
   assert.equal(result.url, "https://example.com/final");
   assert.equal(result.hint_url, "https://relatedross.com/start");
+  assert.equal(result.source_name, "Related Ross release");
+  assert.equal(result.published_date, "2026-09-12");
+  assert.equal(result.hint_source_type, "developer_press_release");
 });
 
 test("a persisted redirect snapshot is classified from its final URL", () => {

@@ -44,32 +44,21 @@ const ARTICLE_HOLD_WARNING_CODES = new Set([
   "ERR_REVIEW_REVIEWER_VERSION_MISMATCH",
 ]);
 
-// Objective project attributes that may be auto-applied.
+// Objective project attributes that may be auto-applied. Keep this allowlist
+// aligned with REVIEWED_FACT_FIELD_MAP so every accepted mutation reaches the
+// canonical public project model rather than becoming silent internal data.
 export const FAST_AUTO_FACT_FIELDS = new Set([
   "status",
-  "constructionStage",
-  "toppingOut",
-  "groundbreaking",
-  "completionStatus",
-  "completion",
-  "moveInStatus",
   "name",
   "residenceCount",
-  "floorCount",
   "address",
-  "developer",
 ]);
 
 // Dynamic facts may also auto-apply, but only when they carry a valid as-of
 // date and at least one source URL so the stored value is honestly dated.
 export const FAST_DYNAMIC_FACT_FIELDS = new Set([
-  "pricing",
   "priceDisplay",
-  "startingPrice",
   "deliveryTiming",
-  "inventory",
-  "availability",
-  "salesPace",
 ]);
 
 // Legal conclusions, identity merges, and anything unrecognized stay human.
@@ -112,9 +101,10 @@ function credibleSourceTiers(result) {
   );
 }
 
-function supportedClaimsWithCredibleSource(result) {
+function supportedCoreClaimsWithCredibleSource(result) {
   const credible = credibleSourceTiers(result);
-  return (result.claims || []).filter((claim) => claim.support === "supported"
+  return (result.claims || []).filter((claim) => isCoreClaim(claim)
+    && claim.support === "supported"
     && (claim.supporting_source_ref_ids || []).some((id) => credible.has(id)));
 }
 
@@ -141,6 +131,7 @@ function hardGate({ row, result }) {
 }
 
 function brookeDecisionRequired(row) {
+  if (/^(true|1|yes)$/i.test(String(row.requires_human_review || "").trim())) return true;
   try { return JSON.parse(row.flags_json || "{}").brooke_decision_required === true; } catch { return false; }
 }
 
@@ -155,8 +146,8 @@ function decideFastArticle({ row, result, boundReview }) {
       qualified_claims: [],
     };
   }
-  const supported = supportedClaimsWithCredibleSource(result);
-  if (!supported.length) return { decision: ARTICLE_DECISION.HOLD, reasons: ["no_credible_attributable_source"], qualified_claims: [] };
+  const supported = supportedCoreClaimsWithCredibleSource(result);
+  if (!supported.length) return { decision: ARTICLE_DECISION.HOLD, reasons: ["no_credible_source_supports_core_event"], qualified_claims: [] };
   // Secondary claims that are unsupported or conflicted do not block the
   // story; they are handed to the writer as qualify-or-omit guidance.
   const qualified = (result.claims || [])
@@ -171,17 +162,34 @@ function proposalSources(result, proposal) {
   return (result.verificationSources || []).filter((source) => refs.has(source.source_ref_id) && !source.error);
 }
 
-function acceptableFastSourceClass(sources, field) {
-  const tier1 = sources.filter((source) => source.source_tier === 1);
-  if (field === "name") return tier1.length > 0;
-  if (tier1.length > 0) return true;
-  const tier2Hosts = new Set(sources.filter((source) => source.source_tier === 2).map((source) => {
-    try { return new URL(source.url).hostname; } catch { return ""; }
-  }).filter(Boolean));
-  return tier2Hosts.size >= 2;
+function acceptableFastSourceClass(sources) {
+  // Fast Mode intentionally accepts one independently classified official or
+  // reputable source after the exact claim has been bound by the fact checker.
+  return sources.some((source) => source.source_tier === 1 || source.source_tier === 2);
 }
 
-function decideFastFacts({ result, boundReview }) {
+function isRealDateOnly(value) {
+  const date = String(value || "").slice(0, 10);
+  if (!/^20\d{2}-\d{2}-\d{2}$/.test(date)) return false;
+  const parsed = new Date(`${date}T00:00:00.000Z`);
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === date;
+}
+
+function proposalClaimsAreSupported(result, boundReview, proposal) {
+  const claimIds = new Set(proposal.supporting_claim_ids || []);
+  if (!claimIds.size) return false;
+  const resultClaims = new Map((result.claims || []).map((claim) => [claim.claim_id, claim]));
+  const reviewClaims = new Map((boundReview?.bundle?.claims || []).map((claim) => [claim.claim_id, claim]));
+  return [...claimIds].every((claimId) => {
+    const resultClaim = resultClaims.get(claimId);
+    const reviewClaim = reviewClaims.get(claimId);
+    return resultClaim?.support === "supported"
+      && reviewClaim?.support_verdict === "supported"
+      && (resultClaim.supporting_source_ref_ids || []).some((ref) => (proposal.verification_source_ref_ids || []).includes(ref));
+  });
+}
+
+function decideFastFacts({ row, result, boundReview }) {
   const proposals = result.projectFactProposals || [];
   const held = result.heldProjectFactProposals || [];
   if (!proposals.length) {
@@ -201,17 +209,22 @@ function decideFastFacts({ result, boundReview }) {
       blocked.push(`${proposal.field}:no_bound_evidence`);
       continue;
     }
+    if (!proposalClaimsAreSupported(result, boundReview, proposal)) {
+      blocked.push(`${proposal.field}:proposal_claim_not_supported`);
+      continue;
+    }
     if (stableJson(proposal.old_value) === stableJson(proposal.proposed_value)) {
       blocked.push(`${proposal.field}:no_change`);
       continue;
     }
     const sources = proposalSources(result, proposal);
-    if (!sources.length || !acceptableFastSourceClass(sources, proposal.field)) {
+    if (!sources.length || !acceptableFastSourceClass(sources)) {
       blocked.push(`${proposal.field}:source_class_unacceptable`);
       continue;
     }
+    const credibleSources = sources.filter((source) => source.source_tier === 1 || source.source_tier === 2);
     const asOf = String(proposal.effective_date || "").slice(0, 10);
-    if (fieldClass === "auto_dynamic" && !/^20\d{2}-\d{2}-\d{2}$/.test(asOf)) {
+    if (fieldClass === "auto_dynamic" && !isRealDateOnly(asOf)) {
       blocked.push(`${proposal.field}:dynamic_fact_requires_as_of`);
       continue;
     }
@@ -221,8 +234,18 @@ function decideFastFacts({ result, boundReview }) {
       previous_value: proposal.old_value,
       value: proposal.proposed_value,
       as_of: asOf || null,
-      source_url: sources[0]?.url || null,
-      source_name: sources[0]?.source_name || null,
+      source_url: credibleSources[0]?.url || null,
+      source_name: credibleSources[0]?.source_name || null,
+      sources: credibleSources.map((source) => ({
+        source_ref_id: source.source_ref_id,
+        url: source.url,
+        name: source.source_name || null,
+        tier: source.source_tier,
+        type: source.source_type || null,
+        published_date: source.published_date || null,
+        content_sha256: source.content_hash || null,
+        revision: source.source_revision || source.content_hash || null,
+      })),
       proposal_id: proposal.proposal_id,
       event_key: proposal.event_key,
       effective_date: proposal.effective_date,
@@ -239,6 +262,9 @@ function decideFastFacts({ result, boundReview }) {
     ...blocked,
     ...held.map((item) => `held:${item.field}`),
   ];
+  if (brookeDecisionRequired(row)) {
+    return { decision: FACT_DECISION.NEEDS_DECISION, reasons: ["requires_human_review", ...reasons], mutations: [] };
+  }
   if (human.length) return { decision: FACT_DECISION.NEEDS_DECISION, reasons, mutations };
   if (mutations.length) return { decision: FACT_DECISION.AUTO_APPLY, reasons, mutations };
   return { decision: FACT_DECISION.HOLD, reasons: reasons.length ? reasons : ["no_auto_applicable_facts"], mutations };
@@ -257,7 +283,7 @@ export function decideFast({ row, result, boundReview }) {
     };
   }
   const article = decideFastArticle({ row, result, boundReview });
-  const facts = decideFastFacts({ result, boundReview });
+  const facts = decideFastFacts({ row, result, boundReview });
   return {
     policy_version: FAST_MODE_POLICY_VERSION,
     article_decision: article.decision,

@@ -9,7 +9,11 @@ import {
 import { projectFactOverrides } from "../../src/data/projectFactOverrides.ts";
 import { getSchemaSafeProjectFacts } from "../../src/lib/projectIntelligence.ts";
 import {
+  ACTIVE_AUTOMATED_FACT_POLICY_VERSION,
+  buildAutomatedFactAsOfProjection,
+  buildAutomatedFieldsProjection,
   buildReviewedFieldsProjection,
+  qualifyAutomatedOverrideValue,
   qualifyReviewedOverrideValue,
   REVIEWED_FACT_FIELD_MAP,
 } from "./reviewed-field-projection.mjs";
@@ -29,6 +33,18 @@ const reviewedEntry = (value, extra = {}) => ({
   reviewedAt: "2026-09-10T00:00:00.000Z",
   note: "",
   schemaSafe: false,
+  ...extra,
+});
+
+const automatedEntry = (value, extra = {}) => ({
+  value,
+  source: "automated_intel",
+  sourceUrl: "https://www.wpb.org/project",
+  intelId: "wpb-intel-2026-09-13-120000-test",
+  evidenceBundleSha256: "a".repeat(64),
+  policyVersion: ACTIVE_AUTOMATED_FACT_POLICY_VERSION,
+  appliedAt: "2026-09-13T12:00:00.000Z",
+  asOf: "2026-09-12",
   ...extra,
 });
 
@@ -144,6 +160,43 @@ test("projection: unmapped fact keys are not projected", () => {
     },
   });
   assert.equal(projection["fixture-slug"], undefined);
+});
+
+test("projection: bound active-policy automated facts project without private provenance", () => {
+  const automated = {
+    policyVersion: ACTIVE_AUTOMATED_FACT_POLICY_VERSION,
+    projects: {
+      "fixture-slug": {
+        status: automatedEntry(MARKER),
+        deliveryTiming: automatedEntry("2029", { asOf: "2026-09-13" }),
+      },
+    },
+  };
+  const projection = buildAutomatedFieldsProjection(automated);
+  assert.deepEqual(projection["fixture-slug"], { status: MARKER, delivery: "2029" });
+  assert.deepEqual(buildAutomatedFactAsOfProjection(automated), { "fixture-slug": "2026-09-13" });
+  const serialized = JSON.stringify(projection);
+  assert.equal(serialized.includes("sourceUrl"), false);
+  assert.equal(serialized.includes("intelId"), false);
+  assert.equal(serialized.includes("evidenceBundleSha256"), false);
+});
+
+test("projection: stale policy and invalid dynamic as-of fail closed", () => {
+  const stale = automatedEntry("2029", { policyVersion: "old-policy" });
+  const impossibleDate = automatedEntry("2029", { asOf: "2026-02-30" });
+  assert.equal(qualifyAutomatedOverrideValue(stale, { requireAsOf: true }), "");
+  assert.equal(qualifyAutomatedOverrideValue(impossibleDate, { requireAsOf: true }), "");
+  assert.deepEqual(buildAutomatedFieldsProjection({ policyVersion: "old-policy", projects: { s: { status: automatedEntry(MARKER) } } }), {});
+});
+
+test("projection: any manual entry suppresses the automated field even when the manual value cannot publish", () => {
+  const automated = {
+    policyVersion: ACTIVE_AUTOMATED_FACT_POLICY_VERSION,
+    projects: { s: { status: automatedEntry("Automated status") } },
+  };
+  const manual = { projects: { s: { status: { value: "Manual draft", source: "manual_review" } } } };
+  assert.deepEqual(buildAutomatedFieldsProjection(automated, manual), {});
+  assert.deepEqual(buildAutomatedFactAsOfProjection(automated, manual), {});
 });
 
 // --- Resolver precedence (single canonical contract) ---

@@ -19,7 +19,7 @@ export const CONTENT_FIELDS = Object.freeze([
   "source_quality", "confidence_score", "recommended_status", "flags_json",
   "requires_human_review", "article_body", "seo_title", "seo_description",
   "social_copy", "record_type", "event_key", "lead_source_url",
-  "primary_source_url", "related_project_ids", "related_corridor_ids",
+  "primary_source_url", "discovery_sources_json", "related_project_ids", "related_corridor_ids",
   "created_at", "event_date", "effective_date", "fact_proposals_json",
   "project_fact_proposals_json", "fact_proposal_json", "proposed_facts_json",
   "project_fact_field", "project_fact_project_id", "project_fact_old_value",

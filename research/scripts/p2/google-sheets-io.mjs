@@ -50,6 +50,11 @@ function columnName(index) {
   return name;
 }
 
+export function exactHeaderMatch(actual = [], expected = []) {
+  return actual.length === expected.length
+    && expected.every((header, index) => actual[index] === header);
+}
+
 export function createGoogleSheetsIo({
   serviceAccountJson,
   accessTokenProvider,
@@ -122,8 +127,9 @@ export function createGoogleSheetsIo({
       await request("POST", `/values/${encodeURIComponent(range)}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`, { majorDimension: "ROWS", values: [cells] });
     },
 
-    /** Idempotent tab ensure: creates the tab if absent, writes the header
-     * row when missing/different. Returns { created, headerWritten }. */
+    /** Idempotent tab ensure: creates the tab if absent and writes a header
+     * only for a new/empty tab. Existing non-empty schemas are validated and
+     * never rewritten in place. */
     async ensureTab(tab, headers) {
       const meta = await request("GET", "?fields=sheets.properties.title");
       const titles = new Set((meta?.sheets || []).map((sheet) => sheet?.properties?.title));
@@ -132,9 +138,19 @@ export function createGoogleSheetsIo({
         await request("POST", ":batchUpdate", { requests: [{ addSheet: { properties: { title: tab } } }] });
         created = true;
       }
-      const existing = await this.readValues(`${escTab(tab)}!1:1`).catch(() => []);
+      // Do not translate a read/auth failure into an apparently empty tab:
+      // that could overwrite a live schema. Inspect the first two rows so an
+      // existing tab with a blank header and data below also fails closed.
+      const existing = created ? [] : await this.readValues(`${escTab(tab)}!1:2`);
       const headerRow = existing?.[0] || [];
-      const needsHeader = created || headers.some((header, index) => headerRow[index] !== header);
+      const hasDataBelowHeader = (existing || []).slice(1).some((row) => (row || []).some((cell) => String(cell ?? "").trim()));
+      if (!created && headerRow.length === 0 && hasDataBelowHeader) {
+        throw new Error(`ERR_GOOGLE_SHEETS_SCHEMA:${tab}`);
+      }
+      const needsHeader = created || (headerRow.length === 0 && !hasDataBelowHeader);
+      if (!needsHeader && !exactHeaderMatch(headerRow, headers)) {
+        throw new Error(`ERR_GOOGLE_SHEETS_SCHEMA:${tab}`);
+      }
       if (needsHeader) await this.updateRow(tab, 1, headers);
       return { created, headerWritten: needsHeader };
     },

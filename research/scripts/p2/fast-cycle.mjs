@@ -6,8 +6,10 @@ import { buildFastFactCheckPacket, FAST_FACT_CHECK_HANDOFF_VERSION, ingestFastFa
 import { toPhaseATrustedEvidence, DEFAULT_REVIEWER_VERSION } from "./evidence-review.mjs";
 import {
   STORY_QUEUE_COLUMNS,
+  STORY_QUEUE_SEED_WRITEBACK_COLUMNS,
   STORY_QUEUE_SHEET,
   STORY_STATUS,
+  STORY_QUEUE_WRITEBACK_COLUMNS,
   enqueueStory,
   storyRowToCells,
   storySeedFields,
@@ -28,6 +30,15 @@ export const INTEL_WRITEBACK_COLUMNS = Object.freeze([
   "p2_content_hash", "p2_evidence_hash",
 ]);
 
+export const REQUIRED_INTEL_HEADERS = Object.freeze([
+  "id", "status", "headline", "project_name", "record_type", "source_url",
+  "category", "summary", "material_updates", "source_published_date",
+  "event_date", "related_project_ids", "related_corridor_ids",
+  "requires_human_review", "flags_json", "fact_proposals_json",
+  "discovery_sources_json", "fact_check_handoff_json",
+  ...INTEL_WRITEBACK_COLUMNS,
+]);
+
 // Mirror of the scanner's intake/evidence field lists — keep in sync with
 // tools/apps-script/incoming-intel-scanner.gs.
 export const INTEL_CONTENT_FIELDS = Object.freeze([
@@ -37,7 +48,7 @@ export const INTEL_CONTENT_FIELDS = Object.freeze([
   "source_quality", "confidence_score", "recommended_status", "flags_json",
   "requires_human_review", "article_body", "seo_title", "seo_description",
   "social_copy", "record_type", "event_key", "lead_source_url",
-  "primary_source_url", "related_project_ids", "related_corridor_ids",
+  "primary_source_url", "discovery_sources_json", "related_project_ids", "related_corridor_ids",
   "created_at", "event_date", "effective_date", "fact_proposals_json",
   "project_fact_proposals_json", "fact_proposal_json", "proposed_facts_json",
   "project_fact_field", "project_fact_project_id", "project_fact_old_value",
@@ -67,6 +78,20 @@ function valuesToRows(values) {
     rows.push(row);
   }
   return { headers, rows };
+}
+
+export function validateSheetHeaders(headers, expected, { exact = false, tab = "sheet" } = {}) {
+  if (!Array.isArray(headers) || headers.some((header) => !String(header || "").trim())) {
+    throw new Error(`ERR_SHEET_SCHEMA:${tab}:blank_header`);
+  }
+  const duplicates = [...new Set(headers.filter((header, index) => headers.indexOf(header) !== index))];
+  if (duplicates.length) throw new Error(`ERR_SHEET_SCHEMA:${tab}:duplicate:${duplicates.join(",")}`);
+  const missing = expected.filter((header) => !headers.includes(header));
+  if (missing.length) throw new Error(`ERR_SHEET_SCHEMA:${tab}:missing:${missing.join(",")}`);
+  if (exact && (headers.length !== expected.length || expected.some((header, index) => headers[index] !== header))) {
+    throw new Error(`ERR_SHEET_SCHEMA:${tab}:header_order_or_extra_columns`);
+  }
+  return true;
 }
 
 function writebackCells(headers, rowNumber, values, tab) {
@@ -141,6 +166,13 @@ async function safeFetchSources(fetchSources, row) {
   try { return await fetchSources(row); } catch { return []; }
 }
 
+function fetchedEvidenceCount(sources = []) {
+  return sources.filter((source) => !source.error
+    && source.retrieval_status === "fetched"
+    && source.retrieval_attested === true
+    && source.reachable === true).length;
+}
+
 async function defaultApplyFacts({ root, mutations, intelId, now }) {
   const automated = await readAutomatedFacts(root, FAST_MODE_POLICY_VERSION);
   const manual = await readManualFacts(root);
@@ -155,6 +187,51 @@ const STATUS_BY_ARTICLE_DECISION = Object.freeze({
   HOLD: "held",
   NEEDS_DECISION: "needs_decision",
 });
+
+const FACT_COMMIT_PENDING = "PENDING_COMMIT";
+const FACT_COMMIT_COMPLETE = "COMMITTED";
+
+function outputDecisionValue(decision, factState) {
+  return `ARTICLE:${decision.article_decision}|FACT:${decision.fact_change_decision}|FACT_STATE:${factState}`;
+}
+
+function rowNeedsFactRetry(row) {
+  const decision = String(row.output_decision || "");
+  return decision.includes(`FACT_STATE:${FACT_COMMIT_PENDING}`)
+    || decision.includes("PROCESS_STATE:REVIEW_RETRY");
+}
+
+function cellsForColumns(row, columns) {
+  return Object.fromEntries(columns.map((column) => [column, row[column] ?? ""]));
+}
+
+function rawFactProposals(row) {
+  for (const field of ["fact_proposals_json", "project_fact_proposals_json", "fact_proposal_json", "proposed_facts_json"]) {
+    const raw = row[field];
+    if (!String(raw || "").trim()) continue;
+    try {
+      const parsed = typeof raw === "string" ? JSON.parse(raw) : raw;
+      return Array.isArray(parsed) ? parsed : parsed && typeof parsed === "object" ? [parsed] : [];
+    } catch {
+      return [];
+    }
+  }
+  return [];
+}
+
+function durableFactAlreadyPresent(indexes, row, intelId) {
+  return rawFactProposals(row).some((proposal) => {
+    const projectId = String(proposal.project_id || proposal.projectId || "").trim();
+    const field = String(proposal.field || proposal.project_fact_field || "").trim();
+    const value = Object.prototype.hasOwnProperty.call(proposal, "new_value") ? proposal.new_value : proposal.proposed_value;
+    const entry = indexes?.reviewed_facts?.projects?.[projectId]?.[field];
+    const expected = typeof value === "string" ? value : stableJson(value);
+    return entry?.source === "automated_intel"
+      && entry.intelId === intelId
+      && entry.policyVersion === FAST_MODE_POLICY_VERSION
+      && stableJson(entry.value) === stableJson(expected);
+  });
+}
 
 /**
  * One full Fast Mode cycle. All side effects go through injected providers:
@@ -182,25 +259,70 @@ export async function runFastCycle({
   const storyActions = [];
   const publishActions = [];
   const cellUpdates = [];
-  const dirtyStories = new Set();
-
-  await sheets.ensureTab(STORY_QUEUE_SHEET, [...STORY_QUEUE_COLUMNS]);
+  const createdStories = new Set();
+  const reseededStories = new Set();
+  const publishDirtyStories = new Set();
+  const reopenedStoryIds = new Set();
+  const pendingFactApplications = [];
+  const pendingDecisionWritebacks = [];
+  const pendingPublishedIntelWritebacks = [];
 
   const intel = valuesToRows(await sheets.readValues(INCOMING_INTEL_SHEET));
+  validateSheetHeaders(intel.headers, REQUIRED_INTEL_HEADERS, { tab: INCOMING_INTEL_SHEET });
+  // Validate Incoming_Intel before even creating/repairing Story_Queue so a
+  // malformed intake tab causes no Sheet mutation.
+  await sheets.ensureTab(STORY_QUEUE_SHEET, [...STORY_QUEUE_COLUMNS]);
   const queue = valuesToRows(await sheets.readValues(STORY_QUEUE_SHEET));
+  validateSheetHeaders(queue.headers, STORY_QUEUE_COLUMNS, { exact: true, tab: STORY_QUEUE_SHEET });
   const stories = queue.rows;
   const indexesValue = indexes || await buildRepositoryIndexes(root);
 
   // ---- Pass A + B: intake rows ------------------------------------------
-  const seenIds = new Set();
+  const positionsById = new Map();
+  for (const rawRow of intel.rows) {
+    const id = String(rawRow.id || "").trim();
+    if (!id) continue;
+    const positions = positionsById.get(id) || [];
+    positions.push(rawRow.__rowNumber);
+    positionsById.set(id, positions);
+  }
+  const reportedQuarantineIds = new Set();
   for (const rawRow of intel.rows) {
     const rowNumber = rawRow.__rowNumber;
     const row = { ...rawRow };
     delete row.__rowNumber;
     const id = String(row.id || "").trim();
-    if (!id || seenIds.has(id)) continue;
-    seenIds.add(id);
-    if (quarantineReason(row)) continue;
+    if (!id) {
+      results.push({ stage: "quarantined", quarantine_reason: "missing_id", row_numbers: [rowNumber] });
+      cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
+        status: "quarantined", processed_at: startedAt, processor_version: FAST_MODE_POLICY_VERSION,
+        output_decision: "QUARANTINE:MISSING_ID",
+      }, INCOMING_INTEL_SHEET));
+      continue;
+    }
+    const duplicatePositions = positionsById.get(id) || [];
+    if (duplicatePositions.length > 1) {
+      if (!reportedQuarantineIds.has(id)) {
+        results.push({ intel_id: id, stage: "quarantined", quarantine_reason: "duplicate_id", row_numbers: duplicatePositions });
+        for (const duplicateRowNumber of duplicatePositions) {
+          cellUpdates.push(...writebackCells(intel.headers, duplicateRowNumber, {
+            status: "quarantined", processed_at: startedAt, processor_version: FAST_MODE_POLICY_VERSION,
+            output_decision: "QUARANTINE:DUPLICATE_ID",
+          }, INCOMING_INTEL_SHEET));
+        }
+        reportedQuarantineIds.add(id);
+      }
+      continue;
+    }
+    const quarantine = quarantineReason(row);
+    if (quarantine) {
+      results.push({ intel_id: id, stage: "quarantined", quarantine_reason: quarantine, row_numbers: [rowNumber] });
+      cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
+        status: "quarantined", processed_at: startedAt, processor_version: FAST_MODE_POLICY_VERSION,
+        output_decision: `QUARANTINE:${quarantine.toUpperCase()}`,
+      }, INCOMING_INTEL_SHEET));
+      continue;
+    }
 
     const { content_hash, evidence_hash } = intelRowHashes(row);
     const hasHandoff = String(row.fact_check_handoff_json || "").trim().length > 0;
@@ -213,6 +335,28 @@ export async function runFastCycle({
       }
       const sources = await safeFetchSources(fetchSources, row);
       const preliminary = processRow({ row: intakeSnapshotRow(row), verificationSources: sources, indexes: indexesValue });
+      if (preliminary.report.errors.length) {
+        const codes = preliminary.report.errors.map((error) => error.code);
+        cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
+          status: "held",
+          output_decision: `INTAKE_HOLD:${codes.join(",")}`,
+          processed_at: startedAt,
+          processor_version: FAST_MODE_POLICY_VERSION,
+        }, INCOMING_INTEL_SHEET));
+        results.push({ intel_id: id, stage: "held", reasons: codes });
+        continue;
+      }
+      const fetchedCount = fetchedEvidenceCount(preliminary.verificationSources);
+      if (!fetchedCount) {
+        cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
+          status: "source_retry",
+          output_decision: "SOURCE_RETRY:NO_FETCHED_SOURCE",
+          processed_at: startedAt,
+          processor_version: FAST_MODE_POLICY_VERSION,
+        }, INCOMING_INTEL_SHEET));
+        results.push({ intel_id: id, stage: "source_retry" });
+        continue;
+      }
       const packet = buildFastFactCheckPacket({ result: preliminary, policyVersion: FAST_MODE_POLICY_VERSION, reviewerVersion });
       cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
         status: "awaiting_fact_check",
@@ -226,7 +370,20 @@ export async function runFastCycle({
       continue;
     }
 
-    if (String(row.p2_content_hash || "") === content_hash && String(row.p2_evidence_hash || "") === evidence_hash) continue;
+    const hashesMatch = String(row.p2_content_hash || "") === content_hash
+      && String(row.p2_evidence_hash || "") === evidence_hash;
+    if (hashesMatch
+      && String(row.output_decision || "").includes(`FACT_STATE:${FACT_COMMIT_PENDING}`)
+      && durableFactAlreadyPresent(indexesValue, row, id)) {
+      cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
+        output_decision: String(row.output_decision).replace(`FACT_STATE:${FACT_COMMIT_PENDING}`, `FACT_STATE:${FACT_COMMIT_COMPLETE}`),
+        processed_at: startedAt,
+        processor_version: FAST_MODE_POLICY_VERSION,
+      }, INCOMING_INTEL_SHEET));
+      results.push({ intel_id: id, stage: "fact_commit_reconciled" });
+      continue;
+    }
+    if (hashesMatch && !rowNeedsFactRetry(row)) continue;
 
     // ---- decision pass ----
     // The intake snapshot must not include the verifier's own handoff cell or
@@ -235,6 +392,16 @@ export async function runFastCycle({
     const intakeRow = intakeSnapshotRow(row);
     const sources = await safeFetchSources(fetchSources, row);
     const preliminary = processRow({ row: intakeRow, verificationSources: sources, indexes: indexesValue });
+    if (!fetchedEvidenceCount(preliminary.verificationSources)) {
+      cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
+        status: "source_retry",
+        output_decision: "SOURCE_RETRY:NO_FETCHED_SOURCE",
+        processed_at: startedAt,
+        processor_version: FAST_MODE_POLICY_VERSION,
+      }, INCOMING_INTEL_SHEET));
+      results.push({ intel_id: id, stage: "source_retry" });
+      continue;
+    }
     let handoff = null;
     try { handoff = JSON.parse(row.fact_check_handoff_json); } catch { handoff = null; }
     const { ingest, boundReview } = handoff
@@ -254,6 +421,7 @@ export async function runFastCycle({
       article_decision: decision.article_decision,
       fact_change_decision: decision.fact_change_decision,
       reasons: decision.reasons,
+      review_retry: !boundReview.bound,
     };
 
     if (decision.article_decision === "AUTO_PUBLISH") {
@@ -263,44 +431,62 @@ export async function runFastCycle({
         fields: storySeedFields({ row, result, boundReview, decision }),
         now: new Date(now),
       });
-      dirtyStories.add(story);
+      if (created) createdStories.add(story);
+      else if (reused === "error_retry") {
+        reseededStories.add(story);
+        reopenedStoryIds.add(story.story_id);
+      }
       storyActions.push({ action: created ? "queued_for_writer" : `reused_${reused}`, story_id: story.story_id, event_key: story.event_key });
       outcome.story_id = story.story_id;
     }
 
     // Facts are independent from the article decision.
-    if (decision.fact_change_decision === "AUTO_APPLY" && decision.fact_mutations.length) {
-      const apply = applyFacts || defaultApplyFacts;
-      const applied = await apply({ root, mutations: decision.fact_mutations, intelId: id, now: new Date(now) });
-      outcome.applied_facts = applied.applied;
-      outcome.skipped_facts = applied.skipped;
+    if (["AUTO_APPLY", "NEEDS_DECISION"].includes(decision.fact_change_decision) && decision.fact_mutations.length) {
+      pendingFactApplications.push({ outcome, mutations: decision.fact_mutations, intelId: id });
     }
 
-    cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
-      status: STATUS_BY_ARTICLE_DECISION[decision.article_decision] || "processed",
-      output_decision: `ARTICLE:${decision.article_decision}|FACT:${decision.fact_change_decision}`,
-      processed_at: startedAt,
-      processor_version: FAST_MODE_POLICY_VERSION,
-      p2_content_hash: content_hash,
-      p2_evidence_hash: evidence_hash,
-    }, INCOMING_INTEL_SHEET));
+    pendingDecisionWritebacks.push({
+      rowNumber,
+      decision,
+      outcome,
+      content_hash,
+      evidence_hash,
+      retryPacket: !boundReview.bound
+        ? buildFastFactCheckPacket({ result: preliminary, policyVersion: FAST_MODE_POLICY_VERSION, reviewerVersion })
+        : null,
+    });
     results.push(outcome);
   }
 
   // ---- Pass C: publish ready stories -------------------------------------
-  const publishedEventKeys = new Set(stories.filter((story) => story.status === STORY_STATUS.PUBLISHED).map((story) => story.event_key));
-  for (const story of stories) {
+  // Re-read immediately before publishing so a writer update that landed
+  // during intake processing is not overwritten from the stale snapshot.
+  const freshQueue = valuesToRows(await sheets.readValues(STORY_QUEUE_SHEET));
+  validateSheetHeaders(freshQueue.headers, STORY_QUEUE_COLUMNS, { exact: true, tab: STORY_QUEUE_SHEET });
+  const publishedEventKeys = new Set(freshQueue.rows
+    .filter((story) => story.status === STORY_STATUS.PUBLISHED)
+    .map((story) => story.event_key));
+  for (const story of freshQueue.rows) {
     if (![STORY_STATUS.READY_TO_PUBLISH, STORY_STATUS.ERROR].includes(story.status)) continue;
+    if (reopenedStoryIds.has(story.story_id)) continue;
     if (publishedEventKeys.has(story.event_key)) {
       story.status = STORY_STATUS.DUPLICATE;
       story.error = "event already published by another story row";
       story.updated_at = new Date(now).toISOString();
-      dirtyStories.add(story);
-      publishActions.push({ story_id: story.story_id, ok: true, deduplicated: true });
+      publishDirtyStories.add(story);
+      publishActions.push({ story_id: story.story_id, ok: true, outcome: "deduplicated", deduplicated: true });
       continue;
     }
     const attempts = Number(story.publish_attempts || 0);
-    if (attempts >= maxPublishAttempts) continue;
+    if (attempts >= maxPublishAttempts) {
+      story.status = STORY_STATUS.HELD;
+      story.publish_status = "held_max_attempts";
+      story.error = `maximum publish attempts reached (${maxPublishAttempts})`;
+      story.updated_at = new Date(now).toISOString();
+      publishDirtyStories.add(story);
+      publishActions.push({ story_id: story.story_id, ok: true, outcome: "held", reason: "max_attempts" });
+      continue;
+    }
     if (typeof publish !== "function") continue;
     const outcome = await publish({ root, story });
     story.publish_attempts = String(attempts + 1);
@@ -312,28 +498,112 @@ export async function runFastCycle({
       story.commit_sha = outcome.commitSha || "";
       story.error = "";
       publishedEventKeys.add(story.event_key);
-      publishActions.push({ story_id: story.story_id, ok: true, url: outcome.liveUrl });
+      publishActions.push({
+        story_id: story.story_id,
+        ok: true,
+        outcome: "published",
+        published: true,
+        recovered: outcome.alreadyPublished === true,
+        url: outcome.liveUrl,
+      });
+      const publishedAt = new Date(now).toISOString();
+      for (const intelId of String(story.intel_ids || "").split(",").map((value) => value.trim()).filter(Boolean)) {
+        const rowNumbers = positionsById.get(intelId) || [];
+        if (rowNumbers.length !== 1) continue;
+        pendingPublishedIntelWritebacks.push(...writebackCells(intel.headers, rowNumbers[0], {
+          status: "published",
+          site_update_id: `intel-${story.story_id}`,
+          canonical_update_url: outcome.liveUrl || "",
+          published_at: publishedAt,
+        }, INCOMING_INTEL_SHEET));
+      }
+    } else if (outcome.retryable === false && outcome.disposition === "rewrite") {
+      story.status = STORY_STATUS.READY_FOR_WRITER;
+      story.publish_status = "needs_rewrite";
+      story.error = String(outcome.error || "story package needs rewrite").slice(0, 500);
+      publishActions.push({ story_id: story.story_id, ok: true, outcome: "rewrite", reason: story.error });
+    } else if (outcome.retryable === false) {
+      story.status = STORY_STATUS.HELD;
+      story.publish_status = "held";
+      story.error = String(outcome.error || "story is not publishable").slice(0, 500);
+      publishActions.push({ story_id: story.story_id, ok: true, outcome: "held", reason: story.error });
     } else {
       story.status = STORY_STATUS.ERROR;
       story.publish_status = "error";
       story.error = String(outcome.error || "publish failed").slice(0, 500);
-      publishActions.push({ story_id: story.story_id, ok: false, error: story.error });
+      publishActions.push({ story_id: story.story_id, ok: false, outcome: "retrying", error: story.error });
     }
-    dirtyStories.add(story);
+    publishDirtyStories.add(story);
   }
 
-  // ---- persist Story_Queue changes ---------------------------------------
-  const queueHeaders = queue.headers.length ? queue.headers : [...STORY_QUEUE_COLUMNS];
-  for (const story of dirtyStories) {
-    if (!story.story_id || !story.event_key) continue;
-    const cells = storyRowToCells(story);
-    if (story.__rowNumber) {
-      const updates = {};
-      cells.forEach((value, index) => { updates[STORY_QUEUE_COLUMNS[index]] = value; });
-      cellUpdates.push(...writebackCells(queueHeaders, story.__rowNumber, updates, STORY_QUEUE_SHEET));
-    } else {
-      await sheets.appendRow(STORY_QUEUE_SHEET, cells);
+  // Apply facts only after article publishing has finished. The existing
+  // publisher requires a clean main checkout; writing the automated fact layer
+  // first would make every ready story fail its clean-worktree preflight.
+  for (const pending of pendingFactApplications) {
+    const apply = applyFacts || defaultApplyFacts;
+    const applied = await apply({ root, mutations: pending.mutations, intelId: pending.intelId, now: new Date(now) });
+    pending.outcome.applied_facts = applied.applied || [];
+    pending.outcome.skipped_facts = applied.skipped || [];
+  }
+
+  const factCommitWritebacks = [];
+  for (const pending of pendingDecisionWritebacks) {
+    const { decision, outcome } = pending;
+    const applied = outcome.applied_facts || [];
+    const skipped = outcome.skipped_facts || [];
+    const hasDryRunSkip = skipped.some((item) => item.reason === "dry_run_no_fact_write");
+    let factState = "NONE";
+    if (applied.length || hasDryRunSkip) factState = FACT_COMMIT_PENDING;
+    else if (decision.fact_mutations.length) factState = "RESOLVED_NO_COMMIT";
+    else if (decision.fact_change_decision === "NEEDS_DECISION") factState = "HUMAN_REQUIRED";
+    else if (decision.fact_change_decision === "HOLD") factState = "HELD";
+    const outputDecision = `${outputDecisionValue(decision, factState)}${outcome.review_retry ? "|PROCESS_STATE:REVIEW_RETRY" : ""}`;
+    outcome.fact_commit_state = factState;
+    cellUpdates.push(...writebackCells(intel.headers, pending.rowNumber, {
+      status: outcome.review_retry ? "awaiting_fact_check" : STATUS_BY_ARTICLE_DECISION[decision.article_decision] || "processed",
+      output_decision: outputDecision,
+      processed_at: startedAt,
+      processor_version: FAST_MODE_POLICY_VERSION,
+      ...(pending.retryPacket ? {
+        p2_packet_json: JSON.stringify(pending.retryPacket),
+        p2_row_sha256: pending.retryPacket.intake_snapshot_sha256,
+        p2_event_key: pending.retryPacket.event_key,
+      } : {}),
+      p2_content_hash: pending.content_hash,
+      p2_evidence_hash: pending.evidence_hash,
+    }, INCOMING_INTEL_SHEET));
+    if (factState === FACT_COMMIT_PENDING) {
+      factCommitWritebacks.push({
+        rowNumber: pending.rowNumber,
+        columnIndex: intel.headers.indexOf("output_decision") + 1,
+        value: outputDecision.replace(`FACT_STATE:${FACT_COMMIT_PENDING}`, `FACT_STATE:${FACT_COMMIT_COMPLETE}`),
+      });
     }
+  }
+  cellUpdates.push(...pendingPublishedIntelWritebacks);
+
+  // ---- persist Story_Queue changes ---------------------------------------
+  const queueHeaders = freshQueue.headers;
+  for (const story of createdStories) {
+    if (story.story_id && story.event_key) await sheets.appendRow(STORY_QUEUE_SHEET, storyRowToCells(story));
+  }
+  for (const story of reseededStories) {
+    if (!story.story_id || !story.event_key || !story.__rowNumber) continue;
+    cellUpdates.push(...writebackCells(
+      queueHeaders,
+      story.__rowNumber,
+      cellsForColumns(story, STORY_QUEUE_SEED_WRITEBACK_COLUMNS),
+      STORY_QUEUE_SHEET,
+    ));
+  }
+  for (const story of publishDirtyStories) {
+    if (!story.story_id || !story.event_key || !story.__rowNumber) continue;
+    cellUpdates.push(...writebackCells(
+      queueHeaders,
+      story.__rowNumber,
+      cellsForColumns(story, STORY_QUEUE_WRITEBACK_COLUMNS),
+      STORY_QUEUE_SHEET,
+    ));
   }
 
   // Flush cell updates grouped per tab.
@@ -350,13 +620,15 @@ export async function runFastCycle({
   const digest = buildFastDigest({ results, storyActions, publishActions, generatedAt: startedAt });
   const digestFiles = await writeFastDigest(root, digest);
   return {
-    ok: true,
+    ok: publishActions.every((action) => action.ok),
     contract_version: FAST_CYCLE_CONTRACT_VERSION,
     policy_version: FAST_MODE_POLICY_VERSION,
     results,
     storyActions,
     publishActions,
     factsChanged: results.some((result) => result.applied_facts?.length),
+    factCommitWritebacks,
+    story_queue_row_count: freshQueue.rows.length + createdStories.size,
     digest,
     digest_files: digestFiles,
   };

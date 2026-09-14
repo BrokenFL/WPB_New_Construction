@@ -25,12 +25,26 @@ import {
   enqueueStory,
   storyIdFor,
   storyRowToCells,
+  storySeedFields,
   validateStoryRow,
 } from "./story-queue.mjs";
 import { applyAutomatedFacts, automatedEntryForMutation, emptyAutomatedFacts } from "./fast-facts.mjs";
-import { intakeSnapshotRow, runFastCycle } from "./fast-cycle.mjs";
-import { articleInputFromStory } from "./story-publisher.mjs";
+import { intelRowHashes, intakeSnapshotRow, runFastCycle, validateSheetHeaders } from "./fast-cycle.mjs";
+import {
+  dryRunFactApplier,
+  fetchSources,
+  isAllowedFactOutputPath,
+  sourceHintsFromRow,
+  summarizeSheetState,
+} from "./fast-cycle-cli.mjs";
+import {
+  articleInputFromStory,
+  enrichStoryWithApprovedImages,
+  publishStory,
+  validatePublishableStory,
+} from "./story-publisher.mjs";
 import { buildFastDigest, fastDigestMarkdown } from "./fast-digest.mjs";
+import { createGoogleSheetsIo, exactHeaderMatch } from "./google-sheets-io.mjs";
 
 const NOW_ISO = "2026-09-13T12:00:00.000Z";
 const NOW = Date.parse(NOW_ISO);
@@ -60,6 +74,7 @@ function row(id, overrides = {}) {
     fact_proposals_json: "",
     lead_source_url: "",
     primary_source_url: "",
+    discovery_sources_json: "",
     ...overrides,
   };
 }
@@ -121,9 +136,9 @@ function handoffFor(r, preliminary, { verdicts = {}, sourcePicker } = {}) {
   };
 }
 
-function prepareFast(r, { sources = [fetchedSource()], indexes = indexesFor(), verdicts = {} } = {}) {
+function prepareFast(r, { sources = [fetchedSource()], indexes = indexesFor(), verdicts = {}, sourcePicker } = {}) {
   const preliminary = processRow({ row: r, verificationSources: sources, indexes });
-  const handoff = handoffFor(r, preliminary, { verdicts });
+  const handoff = handoffFor(r, preliminary, { verdicts, sourcePicker });
   const ingest = ingestFastFactCheckHandoff({
     handoff,
     expectedClaims: preliminary.claims,
@@ -196,9 +211,9 @@ const INTEL_HEADERS = [
   "summary", "material_updates", "source_published_date", "event_date", "related_project_ids",
   "related_corridor_ids", "requires_human_review", "verification_status", "verification_summary",
   "review_notes", "event_key", "flags_json", "fact_proposals_json", "lead_source_url",
-  "primary_source_url", "fact_check_handoff_json", "p2_packet_json", "p2_row_sha256",
+  "primary_source_url", "discovery_sources_json", "fact_check_handoff_json", "p2_packet_json", "p2_row_sha256",
   "p2_event_key", "p2_content_hash", "p2_evidence_hash", "processed_at",
-  "processor_version", "output_decision",
+  "processor_version", "output_decision", "site_update_id", "canonical_update_url", "published_at",
 ];
 
 function intelValues(rows) {
@@ -222,13 +237,34 @@ test("fast policy: article auto-publishes when core event is supported and a sec
   assert.equal(decision.policy_version, FAST_MODE_POLICY_VERSION);
   assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
   assert.ok(decision.qualified_claims.some((claim) => claim.field === "material_updates"));
+  const seed = storySeedFields({ row: r, result: rerun.result, boundReview: rerun.boundReview, decision });
+  assert.equal(rerun.result.candidate, null);
+  assert.equal(seed.project_ids, "alba-palm-beach");
+  assert.equal(seed.corridor_ids, "north-flagler");
+  assert.equal(JSON.parse(seed.story_package_json).sourceUrl, "https://www.wpb.org/government/development-services");
 });
 
-test("fast policy: requires_human_review=TRUE does not force hold", () => {
+test("fast policy: a reputable source must support the core event, not only a secondary detail", () => {
+  const r = row("fast-core-source");
+  const sources = [
+    fetchedSource("https://example.com/unclassified", "lower-tier core evidence"),
+    fetchedSource("https://therealdeal.com/miami/secondary", "reputable secondary evidence"),
+  ];
+  const { result, boundReview } = prepareFast(r, {
+    sources,
+    sourcePicker: (claim, sourceIds) => claim.field === "summary" ? [sourceIds[1]] : [sourceIds[0]],
+  });
+  const decision = decideFast({ row: r, result, boundReview });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.HOLD);
+  assert.deepEqual(decision.reasons.article, ["no_credible_source_supports_core_event"]);
+});
+
+test("fast policy: requires_human_review=TRUE routes genuine problems to a decision", () => {
   const r = row("fast-flag", { requires_human_review: "TRUE", summary: "Pricing starts at $3.5M according to the report." });
   const { result, boundReview } = prepareFast(r);
   const decision = decideFast({ row: r, result, boundReview });
-  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  assert.equal(decision.article_decision, ARTICLE_DECISION.NEEDS_DECISION);
+  assert.equal(decision.fact_mutations.length, 0);
 });
 
 test("fast policy: pricing/delivery flags alone do not block", () => {
@@ -306,6 +342,17 @@ test("fast policy: objective fact auto-applies without an article candidate requ
   assert.equal(mutation.policy_version, FAST_MODE_POLICY_VERSION);
 });
 
+test("fast policy: fact auto-apply remains bound to its exact supported claim", () => {
+  const r = factRow("fast-fact-claim");
+  const prepared = prepareFast(r);
+  const proposal = prepared.result.projectFactProposals[0];
+  const claim = prepared.result.claims.find((item) => proposal.supporting_claim_ids.includes(item.claim_id));
+  claim.support = "unsupported";
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview });
+  assert.equal(decision.fact_change_decision, FACT_DECISION.HOLD);
+  assert.ok(decision.reasons.fact_change.includes("status:proposal_claim_not_supported"));
+});
+
 test("fast policy: dynamic fact auto-applies with as-of + source provenance", () => {
   const r = factRow("fast-price", { field: "priceDisplay", current: "from $3M", proposed: "from $3.5M" });
   const { result, boundReview } = prepareFast(r, { indexes: indexesFor("priceDisplay", "from $3M") });
@@ -347,6 +394,75 @@ test("fact-check packet carries copy-verbatim hashes and fetched source refs", (
   assert.ok(packet.available_sources[0].retrieved);
 });
 
+test("discovery_sources_json changes the intake hash and preserves every valid source hint", async () => {
+  const primary = "https://www.wpb.org/government/development-services";
+  const discovery = JSON.stringify([
+    { name: "City of West Palm Beach", url: primary, published_date: "2026-09-11", source_type: "government" },
+    { name: "The Real Deal", url: "https://therealdeal.com/miami/story", published_date: "2026-09-12", source_type: "trade_news" },
+    { url: "https://www.wptv.com/no-metadata", source_type: "local_news" },
+    { name: "Unsafe", url: "file:///etc/passwd", published_date: "2026-09-12", source_type: "other" },
+  ]);
+  const base = row("sources-1", {
+    source_name: "Primary City Source",
+    source_url: primary,
+    lead_source_url: "https://wpbf.com/article/example",
+    primary_source_url: "https://floridayimby.com/example",
+  });
+  assert.notEqual(
+    intelRowHashes(base).content_hash,
+    intelRowHashes({ ...base, discovery_sources_json: discovery }).content_hash,
+  );
+  const hints = sourceHintsFromRow({ ...base, discovery_sources_json: discovery });
+  assert.equal(hints.length, 5);
+  assert.equal(hints[0].source_name, "City of West Palm Beach");
+  assert.equal(hints[0].published_date, "2026-09-11");
+  assert.equal(hints[0].source_type_hint, "government");
+  const noMetadata = hints.find((hint) => hint.url === "https://www.wptv.com/no-metadata");
+  assert.equal(noMetadata.source_name, "");
+  assert.equal(noMetadata.published_date, undefined);
+  assert.ok(hints.every((hint) => /^https?:/.test(hint.url)));
+
+  const called = [];
+  const verified = await fetchSources({ ...base, discovery_sources_json: discovery }, {
+    verify: async (hint) => {
+      called.push(hint.url);
+      if (hint.url.includes("wpbf.com")) throw new Error("isolated source failure");
+      return {
+        ...fetchedSource(hint.url),
+        source_name: hint.source_name,
+        published_date: hint.published_date,
+        hint_source_type: hint.source_type_hint,
+      };
+    },
+  });
+  assert.equal(called.length, 5);
+  assert.equal(verified.length, 4);
+  const preliminary = processRow({ row: { ...base, discovery_sources_json: discovery }, verificationSources: verified, indexes: indexesFor() });
+  const packet = buildFastFactCheckPacket({ result: preliminary, policyVersion: FAST_MODE_POLICY_VERSION, reviewerVersion: REVIEWER });
+  const city = packet.available_sources.find((source) => source.source_name === "City of West Palm Beach");
+  assert.equal(city.published_date, "2026-09-11");
+  assert.equal(city.source_type_hint, "government");
+});
+
+test("malformed discovery source JSON is ignored while legacy sources remain compatible", () => {
+  const hints = sourceHintsFromRow(row("sources-bad", {
+    discovery_sources_json: "{not-json",
+    lead_source_url: "https://therealdeal.com/miami/legacy",
+  }));
+  assert.deepEqual(hints.map((hint) => hint.url), [
+    "https://www.wpb.org/government/development-services",
+    "https://therealdeal.com/miami/legacy",
+  ]);
+});
+
+test("fact commits allow only the automated layer and generated output families", () => {
+  assert.equal(isAllowedFactOutputPath("content/overrides/project-fact-automated.json"), true);
+  assert.equal(isAllowedFactOutputPath("src/generated/projectModelPublic.json"), true);
+  assert.equal(isAllowedFactOutputPath("public/data/site-meta.json"), true);
+  assert.equal(isAllowedFactOutputPath("src/main.ts"), false);
+  assert.equal(isAllowedFactOutputPath("research/news-review/approved-development-news.json"), false);
+});
+
 test("story queue: idempotent enqueue, error retry reuses the row, event_key dedupe", () => {
   const rows = [];
   const first = enqueueStory(rows, { eventKey: "project|alba|construction|topping-out|2026-09", intelIds: ["i-1"], fields: { headline: "Alba tops out" } });
@@ -370,7 +486,7 @@ test("automated facts: apply once, manual override wins, provenance recorded", (
   const manual = { projects: { "alba-palm-beach": { deliveryTiming: { value: "2Q 2026", source: "manual_review", reviewedBy: "Brooke", reviewedAt: "2026-06-18" } } } };
   const mutations = [
     { project_id: "alba-palm-beach", field: "status", value: "completed", previous_value: "under_construction", as_of: "2026-09-10", effective_date: "2026-09-10", source_url: "https://example.com/a", source_name: "Example", policy_version: FAST_MODE_POLICY_VERSION, evidence_bundle_sha256: "b".repeat(64), apply: true },
-    { project_id: "alba-palm-beach", field: "deliveryTiming", value: "3Q 2026", as_of: "2026-09-10", effective_date: "2026-09-10", source_url: "https://example.com/b", policy_version: FAST_MODE_POLICY_VERSION, apply: true },
+    { project_id: "alba-palm-beach", field: "deliveryTiming", value: "3Q 2026", as_of: "2026-09-10", effective_date: "2026-09-10", source_url: "https://example.com/b", evidence_bundle_sha256: "c".repeat(64), policy_version: FAST_MODE_POLICY_VERSION, apply: true },
   ];
   const outcome = applyAutomatedFacts({ automated, manual, mutations, intelId: "i-1", now: new Date(NOW) });
   assert.equal(outcome.changed, true);
@@ -394,6 +510,128 @@ test("automated entry shape carries source/as-of context for dynamic facts", () 
   assert.equal(entry.asOf, "2026-09-13");
   assert.equal(entry.sourceUrl, "https://example.com");
   assert.equal(entry.source, "automated_intel");
+});
+
+test("automated facts reject prototype keys and stale or same-date conflicting updates", () => {
+  const baseMutation = {
+    project_id: "alba-palm-beach",
+    field: "status",
+    value: "completed",
+    previous_value: "under_construction",
+    as_of: "2026-09-10",
+    effective_date: "2026-09-10",
+    source_url: "https://www.wpb.org/project",
+    policy_version: FAST_MODE_POLICY_VERSION,
+    evidence_bundle_sha256: "d".repeat(64),
+    apply: true,
+  };
+  const polluted = applyAutomatedFacts({
+    automated: emptyAutomatedFacts(FAST_MODE_POLICY_VERSION),
+    manual: { projects: {} },
+    mutations: [{ ...baseMutation, project_id: "__proto__" }],
+    intelId: "bad-key",
+    now: new Date(NOW),
+  });
+  assert.equal(polluted.changed, false);
+  assert.equal(polluted.skipped[0].reason, "invalid_project_id");
+  assert.equal(Object.prototype.status, undefined);
+
+  const automated = emptyAutomatedFacts(FAST_MODE_POLICY_VERSION);
+  automated.projects["alba-palm-beach"] = {
+    status: automatedEntryForMutation({ mutation: baseMutation, intelId: "newer", now: new Date(NOW) }),
+  };
+  automated.projects["alba-palm-beach"].status.asOf = "2026-09-12";
+  const stale = applyAutomatedFacts({ automated, manual: { projects: {} }, mutations: [{ ...baseMutation, as_of: "2026-09-11" }], intelId: "stale", now: new Date(NOW) });
+  assert.equal(stale.skipped[0].reason, "stale_as_of");
+  const conflict = applyAutomatedFacts({
+    automated,
+    manual: { projects: {} },
+    mutations: [{ ...baseMutation, value: "sales_launched", previous_value: "completed", as_of: "2026-09-12", evidence_bundle_sha256: "e".repeat(64) }],
+    intelId: "conflict",
+    now: new Date(NOW),
+  });
+  assert.equal(conflict.skipped[0].reason, "same_as_of_conflict");
+});
+
+test("Sheet schemas reject duplicate headers before any tab mutation", async () => {
+  assert.throws(
+    () => validateSheetHeaders(["id", "status", "status"], ["id", "status"], { tab: "Incoming_Intel" }),
+    /duplicate:status/,
+  );
+  let ensured = false;
+  const sheets = {
+    async readValues() { return [["id", "status", "status"]]; },
+    async ensureTab() { ensured = true; },
+  };
+  await assert.rejects(
+    runFastCycle({ root: process.cwd(), sheets, indexes: indexesFor(), now: NOW }),
+    /ERR_SHEET_SCHEMA:Incoming_Intel/,
+  );
+  assert.equal(ensured, false);
+});
+
+test("Google Sheet schema validation never converts a header-read failure into a write", async () => {
+  const calls = [];
+  const io = createGoogleSheetsIo({
+    expectedSheetId: "sheet-id",
+    accessTokenProvider: async () => "token",
+    fetchImpl: async (url, options) => {
+      calls.push({ url, method: options.method });
+      if (url.endsWith("?fields=sheets.properties.title")) {
+        return { ok: true, status: 200, json: async () => ({ sheets: [{ properties: { title: STORY_QUEUE_SHEET } }] }) };
+      }
+      return { ok: false, status: 503, json: async () => ({}) };
+    },
+  });
+  await assert.rejects(io.ensureTab(STORY_QUEUE_SHEET, [...STORY_QUEUE_COLUMNS]), /ERR_GOOGLE_SHEETS_GET:503/);
+  assert.equal(calls.length, 2);
+  assert.equal(calls.some((call) => ["PUT", "POST"].includes(call.method)), false);
+  assert.equal(exactHeaderMatch(["a", "b"], ["a", "b"]), true);
+  assert.equal(exactHeaderMatch(["b", "a"], ["a", "b"]), false);
+});
+
+test("cycle quarantines every row in a duplicate-ID group while processing unrelated rows", async (t) => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-fast-duplicates-"));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const sheets = memorySheets({
+    Incoming_Intel: intelValues([
+      row("same-id", { headline: "First duplicate" }),
+      row("same-id", { headline: "Second duplicate" }),
+      row("unique-id"),
+    ]),
+  });
+  const cycle = await runFastCycle({
+    root: dir,
+    sheets,
+    indexes: indexesFor(),
+    fetchSources: async () => [fetchedSource()],
+    now: NOW,
+  });
+  const duplicate = cycle.results.find((result) => result.quarantine_reason === "duplicate_id");
+  assert.deepEqual(duplicate.row_numbers, [2, 3]);
+  assert.equal(cycle.results.filter((result) => result.quarantine_reason === "duplicate_id").length, 1);
+  const values = await sheets.readValues("Incoming_Intel");
+  const statusColumn = INTEL_HEADERS.indexOf("status");
+  assert.equal(values[1][statusColumn], "quarantined");
+  assert.equal(values[2][statusColumn], "quarantined");
+  assert.equal(values[3][statusColumn], "awaiting_fact_check");
+  assert.ok(values[3][INTEL_HEADERS.indexOf("p2_packet_json")]);
+});
+
+test("cycle retries unavailable sources instead of emitting an unusable fact-check packet", async (t) => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-fast-source-retry-"));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const sheets = memorySheets({ Incoming_Intel: intelValues([row("source-retry-1")]) });
+  const unavailable = { ...fetchedSource(), reachable: false, retrieval_status: "unavailable", retrieval_attested: false };
+  const first = await runFastCycle({ root: dir, sheets, indexes: indexesFor(), fetchSources: async () => [unavailable], now: NOW });
+  assert.equal(first.results[0].stage, "source_retry");
+  let sheetRow = (await sheets.readValues("Incoming_Intel"))[1];
+  assert.equal(sheetRow[INTEL_HEADERS.indexOf("status")], "source_retry");
+  assert.equal(sheetRow[INTEL_HEADERS.indexOf("p2_packet_json")], "");
+  const second = await runFastCycle({ root: dir, sheets, indexes: indexesFor(), fetchSources: async () => [fetchedSource()], now: NOW });
+  assert.equal(second.results[0].stage, "awaiting_fact_check");
+  sheetRow = (await sheets.readValues("Incoming_Intel"))[1];
+  assert.ok(sheetRow[INTEL_HEADERS.indexOf("p2_packet_json")]);
 });
 
 test("cycle: end-to-end packet -> handoff -> story queued -> publish -> published, with idempotent retry", async (t) => {
@@ -436,6 +674,9 @@ test("cycle: end-to-end packet -> handoff -> story queued -> publish -> publishe
 
   // Writer fills the package and marks ready_to_publish; publisher succeeds.
   storyRows[0].status = STORY_STATUS.READY_TO_PUBLISH;
+  storyRows[0].article_body = "Writer-owned final body";
+  storyRows[0].writer_name = "chatgpt-story-writer";
+  storyRows[0].writer_version = "story-writer-v1";
   storyRows[0].story_package_json = JSON.stringify({
     destination: "news",
     title: "Alba reaches construction milestone",
@@ -461,6 +702,10 @@ test("cycle: end-to-end packet -> handoff -> story queued -> publish -> publishe
   assert.equal(publishedRows[0].status, STORY_STATUS.PUBLISHED);
   assert.equal(publishedRows[0].published_url, "https://www.wpbnewconstruction.com/updates/alba/");
   assert.equal(publishedRows[0].commit_sha, "abc123");
+  assert.equal(publishedRows[0].article_body, "Writer-owned final body");
+  const publishedIntelRow = (await sheets3.readValues("Incoming_Intel"))[1];
+  assert.equal(publishedIntelRow[INTEL_HEADERS.indexOf("status")], "published");
+  assert.equal(publishedIntelRow[INTEL_HEADERS.indexOf("canonical_update_url")], "https://www.wpbnewconstruction.com/updates/alba/");
 
   // Cycle re-run: already published -> no second publish call.
   let calls = 0;
@@ -474,6 +719,93 @@ test("cycle: end-to-end packet -> handoff -> story queued -> publish -> publishe
   });
   assert.equal(calls, 0);
   assert.equal(rerun.publishActions.length, 0);
+});
+
+test("cycle: dry-run facts remain pending and are applied by the next live cycle", async (t) => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-fast-dry-facts-"));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  await fs.mkdir(path.join(dir, "content/overrides"), { recursive: true });
+  const empty = emptyAutomatedFacts(FAST_MODE_POLICY_VERSION);
+  await fs.writeFile(path.join(dir, "content/overrides/project-fact-automated.json"), `${JSON.stringify(empty)}\n`);
+  await fs.writeFile(path.join(dir, "content/overrides/project-fact-overrides.json"), JSON.stringify({ version: 1, projects: {} }));
+
+  const intake = factRow("dry-fact-1");
+  const sources = [fetchedSource()];
+  const packetSheets = memorySheets({ Incoming_Intel: intelValues([intake]) });
+  await runFastCycle({ root: dir, sheets: packetSheets, indexes: indexesFor(), fetchSources: async () => sources, now: NOW });
+  const packetRow = (await packetSheets.readValues("Incoming_Intel"))[1];
+  const packet = JSON.parse(packetRow[INTEL_HEADERS.indexOf("p2_packet_json")]);
+  const materialized = Object.fromEntries(INTEL_HEADERS.map((header) => [header, String(intake[header] ?? "")]));
+  const preliminary = processRow({ row: intakeSnapshotRow(materialized), verificationSources: sources, indexes: indexesFor() });
+  const handoff = handoffFor(materialized, preliminary);
+  const liveSheets = memorySheets({
+    Incoming_Intel: intelValues([{
+      ...intake,
+      status: "fact_checked",
+      fact_check_handoff_json: JSON.stringify(handoff),
+      p2_packet_json: JSON.stringify(packet),
+      p2_content_hash: packetRow[INTEL_HEADERS.indexOf("p2_content_hash")],
+      p2_row_sha256: packet.intake_snapshot_sha256,
+      p2_event_key: packet.event_key,
+    }]),
+  });
+
+  const before = await fs.readFile(path.join(dir, "content/overrides/project-fact-automated.json"), "utf8");
+  const dry = await runFastCycle({
+    root: dir,
+    sheets: liveSheets,
+    indexes: indexesFor(),
+    fetchSources: async () => sources,
+    applyFacts: dryRunFactApplier,
+    now: NOW,
+  });
+  assert.equal(dry.factsChanged, false);
+  assert.equal(dry.results[0].fact_commit_state, "PENDING_COMMIT");
+  assert.equal(await fs.readFile(path.join(dir, "content/overrides/project-fact-automated.json"), "utf8"), before);
+  const afterDryRow = (await liveSheets.readValues("Incoming_Intel"))[1];
+  assert.match(afterDryRow[INTEL_HEADERS.indexOf("output_decision")], /FACT_STATE:PENDING_COMMIT/);
+
+  const live = await runFastCycle({
+    root: dir,
+    sheets: liveSheets,
+    indexes: indexesFor(),
+    fetchSources: async () => sources,
+    now: NOW,
+  });
+  assert.equal(live.factsChanged, true);
+  const stored = JSON.parse(await fs.readFile(path.join(dir, "content/overrides/project-fact-automated.json"), "utf8"));
+  assert.equal(stored.projects["alba-palm-beach"].status.value, "completed");
+});
+
+test("cycle: a pushed automated fact with a lost Sheet ack reconciles without reapplying", async (t) => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-fast-fact-reconcile-"));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const pending = factRow("reconcile-fact-1", {
+    fact_check_handoff_json: "{\"already\":\"bound\"}",
+    output_decision: "ARTICLE:HOLD|FACT:AUTO_APPLY|FACT_STATE:PENDING_COMMIT",
+  });
+  const hashes = intelRowHashes(pending);
+  Object.assign(pending, { p2_content_hash: hashes.content_hash, p2_evidence_hash: hashes.evidence_hash });
+  const indexes = indexesFor();
+  indexes.reviewed_facts.projects["alba-palm-beach"].status = {
+    value: "completed",
+    source: "automated_intel",
+    intelId: "reconcile-fact-1",
+    policyVersion: FAST_MODE_POLICY_VERSION,
+  };
+  const sheets = memorySheets({ Incoming_Intel: intelValues([pending]) });
+  let fetchCalls = 0;
+  const cycle = await runFastCycle({
+    root: dir,
+    sheets,
+    indexes,
+    fetchSources: async () => { fetchCalls += 1; return [fetchedSource()]; },
+    now: NOW,
+  });
+  assert.equal(fetchCalls, 0);
+  assert.equal(cycle.results[0].stage, "fact_commit_reconciled");
+  const storedRow = (await sheets.readValues("Incoming_Intel"))[1];
+  assert.match(storedRow[INTEL_HEADERS.indexOf("output_decision")], /FACT_STATE:COMMITTED/);
 });
 
 test("cycle: failed publish marks error in place and retries without duplicating", async (t) => {
@@ -524,6 +856,109 @@ test("article input mapping prefers package fields and requires title/deck/body"
   assert.ok(bad.error);
 });
 
+test("story publisher enforces policy/writer/source boundaries and enriches approved images", async () => {
+  const sourceUrl = "https://www.wpb.org/government/development-services";
+  const valid = {
+    story_id: "story-live-1",
+    intel_ids: "wpb-intel-2026-09-13-120000-alba-update",
+    event_key: "project|alba-palm-beach|construction|development-update|2026-09-13",
+    project_ids: "alba-palm-beach",
+    corridor_ids: "north-flagler",
+    headline: "Alba reaches a construction milestone",
+    deck: "The project moved forward.",
+    summary: "The project moved forward.",
+    policy_version: FAST_MODE_POLICY_VERSION,
+    article_decision: "AUTO_PUBLISH",
+    writer_name: "chatgpt-story-writer",
+    writer_version: "story-writer-v1",
+    sources_json: JSON.stringify([{ source_ref_id: "source-1", url: sourceUrl, name: "City of West Palm Beach", tier: 1 }]),
+    verified_facts_json: JSON.stringify([{ claim_id: "claim-1", field: "headline", value: "Alba reaches a construction milestone", source_ref_ids: ["source-1"] }]),
+    story_package_json: JSON.stringify({
+      destination: "news",
+      title: "Alba reaches a construction milestone",
+      deck: "The project moved forward.",
+      sections: [{ heading: "What changed", body: "A source-backed milestone was reported." }],
+      sourceName: "City of West Palm Beach",
+      sourceUrl,
+      sourceLinks: [{ label: "City of West Palm Beach", url: sourceUrl, type: "government" }],
+      relatedProjectIds: ["alba-palm-beach"],
+      relatedCorridorIds: ["north-flagler"],
+    }),
+  };
+  assert.equal(validatePublishableStory(valid).error, undefined);
+  const outside = {
+    ...valid,
+    story_package_json: JSON.stringify({ ...JSON.parse(valid.story_package_json), sourceUrl: "https://example.com/not-bound" }),
+  };
+  assert.equal(validatePublishableStory(outside).disposition, "rewrite");
+  const unbound = {
+    ...valid,
+    sources_json: JSON.stringify([{ source_ref_id: "source-other", url: sourceUrl, name: "City of West Palm Beach", tier: 1 }]),
+  };
+  assert.equal(validatePublishableStory(unbound).disposition, "hold");
+  const synthetic = { ...valid, story_id: "story-synthetic-fixture" };
+  assert.equal(validatePublishableStory(synthetic).disposition, "hold");
+
+  const enriched = await enrichStoryWithApprovedImages({ root: process.cwd(), story: valid });
+  assert.equal(enriched.error, undefined);
+  const pkg = JSON.parse(enriched.story.story_package_json);
+  assert.ok(pkg.heroImage.path.startsWith("/assets/"));
+  assert.equal(pkg.bodyImages.length, 1);
+  assert.notEqual(pkg.heroImage.path, pkg.bodyImages[0].path);
+  const mapped = articleInputFromStory(enriched.story).input;
+  assert.equal(mapped.sections[0].imageKey, pkg.bodyImages[0].key);
+});
+
+test("story publisher recovers a prior commit after a crash without publishing twice", async (t) => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-fast-existing-story-"));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  await fs.mkdir(path.join(dir, "research/news-review"), { recursive: true });
+  await fs.writeFile(path.join(dir, "research/news-review/approved-development-news.json"), JSON.stringify([
+    { id: "intel-story-existing-1", slug: "intel-existing-1", title: "Already committed" },
+  ]));
+  const sourceUrl = "https://www.wpb.org/government/development-services";
+  const story = {
+    story_id: "story-existing-1",
+    intel_ids: "wpb-intel-2026-09-13-130000-existing",
+    event_key: "project|alba-palm-beach|construction|development-update|2026-09-13",
+    headline: "Already committed",
+    deck: "Already committed deck",
+    policy_version: FAST_MODE_POLICY_VERSION,
+    article_decision: "AUTO_PUBLISH",
+    writer_name: "chatgpt-story-writer",
+    writer_version: "story-writer-v1",
+    sources_json: JSON.stringify([{ source_ref_id: "source-1", url: sourceUrl, tier: 1 }]),
+    verified_facts_json: JSON.stringify([{ claim_id: "claim-1", field: "headline", value: "Already committed", source_ref_ids: ["source-1"] }]),
+    story_package_json: JSON.stringify({
+      title: "Already committed",
+      deck: "Already committed deck",
+      slug: "intel-existing-1",
+      sections: [{ heading: "What changed", body: "Already committed body" }],
+      sourceUrl,
+    }),
+  };
+  let calls = 0;
+  const outcome = await publishStory({ root: dir, story, run: async () => { calls += 1; return { ok: true }; } });
+  assert.equal(outcome.ok, true);
+  assert.equal(outcome.alreadyPublished, true);
+  assert.equal(calls, 0);
+});
+
+test("sanitized Sheet summary reports counts without row contents", () => {
+  const summary = summarizeSheetState({
+    intelValues: intelValues([
+      row("same", { status: "awaiting_fact_check", p2_packet_json: "{}" }),
+      row("same", { status: "quarantined" }),
+    ]),
+    storyValues: [STORY_QUEUE_COLUMNS.slice(), storyRowToCells({ story_id: "s", status: STORY_STATUS.READY_FOR_WRITER })],
+  });
+  assert.equal(summary.awaiting_fact_check, 1);
+  assert.equal(summary.packets_present, 1);
+  assert.equal(summary.duplicate_id_groups, 1);
+  assert.equal(summary.story_queue_rows, 1);
+  assert.equal(JSON.stringify(summary).includes("same"), false);
+});
+
 test("digest reports outcomes, not review queue", () => {
   const digest = buildFastDigest({
     results: [
@@ -532,7 +967,7 @@ test("digest reports outcomes, not review queue", () => {
       { intel_id: "c", stage: "awaiting_fact_check" },
     ],
     storyActions: [{ action: "queued_for_writer" }],
-    publishActions: [{ ok: true }, { ok: false, error: "x" }],
+    publishActions: [{ ok: true, outcome: "published", published: true }, { ok: false, outcome: "retrying", error: "x" }],
     generatedAt: NOW_ISO,
   });
   assert.equal(digest.summary.stories_published, 1);

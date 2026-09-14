@@ -86,6 +86,15 @@ export function enqueueStory(existingRows, { eventKey, intelIds = [], fields = {
     if (existing.status === STORY_STATUS.ERROR) {
       existing.status = STORY_STATUS.READY_FOR_WRITER;
       existing.error = "";
+      existing.publish_status = "";
+      existing.published_url = "";
+      existing.commit_sha = "";
+      existing.article_body = "";
+      existing.seo_title = "";
+      existing.seo_description = "";
+      existing.social_copy = "";
+      existing.writer_name = "";
+      existing.writer_version = "";
       existing.updated_at = timestamp;
       Object.assign(existing, fields);
       return { row: existing, created: false, reused: "error_retry" };
@@ -124,6 +133,37 @@ export const STORY_QUEUE_WRITEBACK_COLUMNS = Object.freeze([
   "status", "updated_at", "publish_status", "published_url", "commit_sha", "error", "publish_attempts",
 ]);
 
+// Existing rows are updated by ownership boundary. The processor may refresh
+// these seed/evidence fields only when it intentionally reopens a failed story
+// after a changed intake/evidence revision. Ordinary publish writeback uses
+// STORY_QUEUE_WRITEBACK_COLUMNS so it cannot clobber a concurrent writer edit.
+export const STORY_QUEUE_SEED_WRITEBACK_COLUMNS = Object.freeze([
+  "status", "updated_at", "intel_ids", "event_key", "project_ids", "corridor_ids",
+  "headline", "deck", "summary", "article_body", "seo_title", "seo_description",
+  "social_copy", "sources_json", "verified_facts_json", "qualified_facts_json",
+  "canonical_fact_proposals_json", "story_package_json", "writer_name", "writer_version",
+  "policy_version", "article_decision", "publish_status", "published_url", "commit_sha", "error",
+]);
+
+const CORE_STORY_CLAIM_FIELDS = new Set([
+  "headline", "project_identity", "corridor_identity", "event_identity",
+]);
+
+function supportedClaim(result, field) {
+  return (result.claims || []).find((claim) => claim.field === field && claim.support === "supported");
+}
+
+function stringList(value) {
+  if (Array.isArray(value)) return value.map((item) => String(item).trim()).filter(Boolean);
+  return String(value || "").split(",").map((item) => item.trim()).filter(Boolean);
+}
+
+function textValue(value) {
+  if (typeof value === "string") return value;
+  if (value === undefined || value === null) return "";
+  return String(value);
+}
+
 /**
  * Build the Story_Queue seed fields for an AUTO_PUBLISH intel result. The
  * writer task fills headline/deck/article_body/seo/social/story_package_json;
@@ -138,30 +178,57 @@ export function storySeedFields({ row, result, boundReview, decision, now = new 
       value: claim.claim_value,
       source_ref_ids: claim.supporting_source_ref_ids || [],
     }));
+  const boundSourceRefs = new Set(verifiedFacts.flatMap((fact) => fact.source_ref_ids));
+  const credibleCoreSourceRefs = new Set(verifiedFacts
+    .filter((fact) => CORE_STORY_CLAIM_FIELDS.has(fact.field))
+    .flatMap((fact) => fact.source_ref_ids));
   const sources = (result.verificationSources || [])
-    .filter((source) => !source.error && source.url)
-    .map((source) => ({ source_ref_id: source.source_ref_id, url: source.url, name: source.source_name || null, tier: source.source_tier ?? null }));
+    .filter((source) => !source.error
+      && source.url
+      && source.retrieval_status === "fetched"
+      && source.retrieval_attested === true
+      && source.reachable === true
+      && boundSourceRefs.has(source.source_ref_id))
+    .map((source) => ({
+      source_ref_id: source.source_ref_id,
+      url: source.url,
+      name: source.source_name || null,
+      tier: source.source_tier ?? null,
+      type: source.source_type || null,
+      type_hint: source.hint_source_type || null,
+      published_date: source.published_date || null,
+    }));
+  const primarySource = sources.find((source) => credibleCoreSourceRefs.has(source.source_ref_id) && (source.tier === 1 || source.tier === 2)) || sources[0];
+  const projectIds = stringList(supportedClaim(result, "project_identity")?.claim_value);
+  const corridorIds = stringList(supportedClaim(result, "corridor_identity")?.claim_value);
+  const title = textValue(supportedClaim(result, "headline")?.claim_value || row.headline);
+  const summary = textValue(supportedClaim(result, "summary")?.claim_value);
+  const deck = summary || title;
+  const eventDate = textValue(supportedClaim(result, "event_date")?.claim_value);
+  const category = textValue(supportedClaim(result, "category")?.claim_value);
+  const buyerContext = textValue(supportedClaim(result, "buyer_context")?.claim_value);
   const packageSeed = {
     destination: "news",
-    title: String(row.headline || ""),
-    deck: String(row.summary || ""),
-    summary: String(row.summary || ""),
-    sourceName: String(row.source_name || ""),
-    sourceUrl: String(row.source_url || ""),
+    title,
+    deck,
+    summary,
+    sourceName: primarySource?.name || "",
+    sourceUrl: primarySource?.url || "",
+    sourcePublishedDate: primarySource?.published_date || "",
     sourceLinks: sources.map((source) => ({ label: source.name || source.url, url: source.url, type: "news" })),
-    relatedProjectIds: result.candidate?.related_project_ids || [],
-    relatedCorridorIds: result.candidate?.related_corridor_ids || [],
-    eventDate: result.candidate?.event_date || String(row.event_date || ""),
-    category: result.candidate?.category || String(row.category || ""),
-    buyerContext: result.candidate?.buyer_context || String(row.buyer_angle || ""),
-    whyItMatters: String(row.why_it_matters || ""),
+    relatedProjectIds: projectIds,
+    relatedCorridorIds: corridorIds,
+    eventDate,
+    category,
+    buyerContext,
+    whyItMatters: "",
   };
   return {
-    project_ids: (result.candidate?.related_project_ids || []).join(","),
-    corridor_ids: (result.candidate?.related_corridor_ids || []).join(","),
-    headline: String(row.headline || ""),
-    deck: String(row.summary || ""),
-    summary: String(row.summary || ""),
+    project_ids: projectIds.join(","),
+    corridor_ids: corridorIds.join(","),
+    headline: title,
+    deck,
+    summary,
     sources_json: stableJson(sources),
     verified_facts_json: stableJson(verifiedFacts),
     qualified_facts_json: stableJson(decision.qualified_claims || []),
