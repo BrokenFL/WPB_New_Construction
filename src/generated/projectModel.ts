@@ -85,7 +85,7 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "Olara West Palm Beach",
       "status": "Under Construction",
-      "delivery": "2027",
+      "delivery": "2028",
       "residences": "275",
       "price": "$2M–$7.5M",
       "address": "1919 N Flagler Drive, West Palm Beach, FL 33407",
@@ -118,11 +118,13 @@ export const canonicalProjectModel = {
         "https://olarawpb.com/wp-content/uploads/2026/03/Olara-Fact-Sheet-March-2026.pdf",
         "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf"
       ],
-      "reviewedFields": {},
+      "reviewedFields": {
+        "delivery": "2028"
+      },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
-        "delivery": "canonical",
+        "delivery": "reviewed_override",
         "residences": "canonical",
         "price": "canonical",
         "address": "canonical"

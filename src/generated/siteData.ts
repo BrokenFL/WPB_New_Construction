@@ -4116,7 +4116,7 @@ export const projectFacts = [
       "status": "Under Construction",
       "residences": "275",
       "stories": "26",
-      "completion": "2027",
+      "completion": "2028",
       "pricing": "$2M–$7.5M",
       "team": "Savanna; Arquitectonica; Gabellini Sheppard",
       "amenities": "Nearly 80,000 sq. ft. sixth-floor amenity deck, restaurant/epicurean marketplace, 12 guest suites, private five-slip dock, leisure and lap pools, fitness by The Wright Fit, recovery spa, onsen, plunge/vitality pools, meditation, sauna/steam, private dining, game room, library/veranda, simulator, private offices/coworking.",
@@ -4138,7 +4138,7 @@ export const projectFacts = [
         "Duravit toilets"
       ],
       "neighborhoodContext": "North Flagler waterfront",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-07-07"
     },
     "sources": [
       {

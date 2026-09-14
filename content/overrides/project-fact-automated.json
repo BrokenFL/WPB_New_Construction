@@ -1,7 +1,7 @@
 {
   "version": 1,
   "policyVersion": "p2-fast-policy-v1",
-  "updatedAt": "2026-09-14T16:45:25.800Z",
+  "updatedAt": "2026-09-14T18:56:30.823Z",
   "projects": {
     "fern-and-gardenia-related-ross-fern-street": {
       "residenceCount": {
@@ -90,6 +90,36 @@
         "appliedBy": "p2-fast-cycle",
         "rollback": {
           "previous_value": "Under Construction"
+        }
+      }
+    },
+    "olara": {
+      "deliveryTiming": {
+        "value": "2028",
+        "source": "automated_intel",
+        "asOf": "2026-07-07",
+        "effectiveDate": "2026-07-07",
+        "sourceUrl": "https://floridayimby.com/2025/12/olara-commences-vertical-construction-at-1919-north-flagler-drive-in-west-palm-beach.html",
+        "sourceName": "The Real Deal",
+        "intelId": "wpb-intel-2026-09-10-002",
+        "evidenceBundleSha256": "9788495bd041cf488c1824b33a71c7946eeb353923668f7742062c1bd3f38a9b",
+        "sources": [
+          {
+            "source_ref_id": "source-5b9ae43d74fd0f7c",
+            "url": "https://floridayimby.com/2025/12/olara-commences-vertical-construction-at-1919-north-flagler-drive-in-west-palm-beach.html",
+            "name": "The Real Deal",
+            "tier": 2,
+            "type": "trade",
+            "published_date": "2026-07-07",
+            "content_sha256": "bc264aa8507d31909948ff41983c26cf5e1cf62b2ebb8ccf93f1a67ac3c76731",
+            "revision": "bc264aa8507d31909948ff41983c26cf5e1cf62b2ebb8ccf93f1a67ac3c76731"
+          }
+        ],
+        "policyVersion": "p2-fast-policy-v1",
+        "appliedAt": "2026-09-14T18:56:30.823Z",
+        "appliedBy": "p2-fast-cycle",
+        "rollback": {
+          "previous_value": "2027"
         }
       }
     }

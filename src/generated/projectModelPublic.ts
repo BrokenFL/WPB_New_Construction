@@ -93,10 +93,12 @@ export const publicProjectModel = {
       "displayName": "Olara West Palm Beach",
       "projectType": "condo-active-sales",
       "status": "Under Construction",
-      "delivery": "2027",
+      "delivery": "2028",
       "residences": "275",
       "price": "$2M–$7.5M",
-      "reviewedFields": {},
+      "reviewedFields": {
+        "delivery": "2028"
+      },
       "facts": {
         "projectAddress": "1919 N Flagler Drive, West Palm Beach, FL 33407",
         "salesGalleryAddress": "",
@@ -104,7 +106,7 @@ export const publicProjectModel = {
         "planningParcelAddress": "",
         "canonicalResidenceCount": "275",
         "historicalResidenceCounts": [],
-        "expectedDeliveryCurrent": "2027",
+        "expectedDeliveryCurrent": "2028",
         "priorDeliveryGuidance": [],
         "stories": "26",
         "projectTeam": [
@@ -131,12 +133,12 @@ export const publicProjectModel = {
           "Duravit toilets"
         ],
         "neighborhoodContext": "North Flagler waterfront",
-        "factEffectiveDate": "2026-09-01",
+        "factEffectiveDate": "2026-07-07",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
           "displayName": "canonical",
           "status": "canonical",
-          "delivery": "canonical",
+          "delivery": "reviewed_override",
           "residences": "canonical",
           "price": "canonical",
           "address": "canonical"
