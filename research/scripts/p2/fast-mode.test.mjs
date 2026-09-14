@@ -1234,7 +1234,8 @@ test("story publisher skips saturated fallback images before publish preflight",
     "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
     "/assets/editorial/wall-street-south-office-arrival.jpg",
   ];
-  for (const publicPath of [saturated, ...alternatives]) {
+  const projectImage = "/assets/home/banyan-tree-project-card-main-v01.jpg";
+  for (const publicPath of [saturated, projectImage, ...alternatives]) {
     const file = path.join(dir, "public", publicPath.replace(/^\//, ""));
     await fs.mkdir(path.dirname(file), { recursive: true });
     await fs.writeFile(file, "fixture-image");
@@ -1256,7 +1257,7 @@ test("story publisher skips saturated fallback images before publish preflight",
     story_id: "story-live-saturated-image",
     intel_ids: "wpb-intel-2026-09-14-saturated-image",
     event_key: "company|office-lease|signed|2026-09-14",
-    project_ids: "",
+    project_ids: "banyan-tree",
     corridor_ids: "downtown",
     policy_version: FAST_MODE_POLICY_VERSION,
     article_decision: "AUTO_PUBLISH",
@@ -1272,7 +1273,7 @@ test("story publisher skips saturated fallback images before publish preflight",
       sourceName: "City of West Palm Beach",
       sourceUrl,
       sourceLinks: [{ label: "City of West Palm Beach", url: sourceUrl, type: "government" }],
-      relatedProjectIds: [],
+      relatedProjectIds: ["banyan-tree"],
       relatedCorridorIds: ["downtown"],
     }),
   };
@@ -1280,7 +1281,9 @@ test("story publisher skips saturated fallback images before publish preflight",
   assert.equal(enriched.error, undefined);
   const pkg = JSON.parse(enriched.story.story_package_json);
   assert.ok(![pkg.heroImage.path, ...pkg.bodyImages.map((image) => image.path)].includes(saturated));
-  assert.deepEqual([pkg.heroImage.path, pkg.bodyImages[0].path], alternatives);
+  assert.deepEqual([pkg.heroImage.path, pkg.bodyImages[0].path], [projectImage, alternatives[0]]);
+  assert.match(pkg.heroImage.credit, /User-provided project image/);
+  assert.match(pkg.bodyImages[0].credit, /User-provided editorial image/);
 });
 
 test("story publisher requires reputable evidence for the semantic occurrence rather than identity metadata", () => {
