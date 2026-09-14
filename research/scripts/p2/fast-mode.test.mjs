@@ -664,6 +664,16 @@ test("fact commits allow only the automated layer and generated output families"
   assert.equal(isAllowedFactOutputPath("research/news-review/approved-development-news.json"), false);
 });
 
+test("Fast Cycle workflow uses its job-scoped write token and explicitly dispatches deploy after a content push", async () => {
+  const installed = await fs.readFile(".github/workflows/intel-fast-cycle.yml", "utf8");
+  const template = await fs.readFile("tools/github-workflows/intel-fast-cycle.yml", "utf8");
+  assert.equal(installed, template);
+  assert.match(installed, /permissions:\n\s+contents: write\n\s+actions: write/);
+  assert.match(installed, /token: \$\{\{ github\.token \}\}/);
+  assert.match(installed, /gh workflow run deploy-cloudflare-pages\.yml --ref main/);
+  assert.doesNotMatch(installed, /P2_PUBLISH_PAT/);
+});
+
 test("story queue: idempotent enqueue, error retry reuses the row, event_key dedupe", () => {
   const rows = [];
   const first = enqueueStory(rows, { eventKey: "project|alba|construction|topping-out|2026-09", intelIds: ["i-1"], fields: { headline: "Alba tops out" } });

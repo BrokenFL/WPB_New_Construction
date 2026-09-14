@@ -25,7 +25,7 @@ ChatGPT Story Writer ──> story_package_json + status=ready_to_publish
 processor publish pass ──> article-publish-cli --publish
       │                    (existing publisher: normalize, QA, commit, push)
       v
-push to main ──> deploy-cloudflare-pages.yml (normal deploy)
+push to main ──> explicit deploy-cloudflare-pages.yml dispatch
       │
       └─ canonical facts ──> content/overrides/project-fact-automated.json
                              -> generate-project-model -> derived surfaces
@@ -115,10 +115,10 @@ notes never substitute for retrieved evidence.
    the normal reviewed PR path.
 2. Google Cloud: create a service account, share the private spreadsheet
    with its `client_email` (Editor), download the key JSON.
-3. GitHub repo secrets: add `P2_GOOGLE_SERVICE_ACCOUNT_JSON` (key JSON)
-   and `P2_PUBLISH_PAT` (required token that can push to main and trigger the
-   ordinary push-event deployment). The workflow validates both names without
-   logging their values.
+3. GitHub repo secret: add `P2_GOOGLE_SERVICE_ACCOUNT_JSON` (key JSON). The
+   workflow uses its short-lived job token for same-repository article/fact
+   pushes. If a Fast Cycle changes `main`, it explicitly dispatches
+   `deploy-cloudflare-pages.yml`; no long-lived publish PAT is required.
 4. Set repository variables `P2_DRY_RUN=1` and `P2_SKIP_PUBLISH=1`. Dispatch one
    real-Sheet cycle, verify sanitized Sheet counts and unchanged Git HEAD/status,
    then set both to `0` only after that cycle succeeds.
