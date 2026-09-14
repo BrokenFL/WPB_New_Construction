@@ -4,7 +4,7 @@ import { sha256, stableJson } from "../intel/core.mjs";
 // signed handoffs remain usable. The processor revision is separate: changing
 // it forces already-decided rows through the corrected Fast Mode V2 engine.
 export const FAST_MODE_POLICY_VERSION = "p2-fast-policy-v1";
-export const FAST_MODE_PROCESSOR_VERSION = "p2-fast-mode-v2-throughput";
+export const FAST_MODE_PROCESSOR_VERSION = "p2-fast-mode-v2-throughput-r2";
 
 export const ARTICLE_DECISION = Object.freeze({
   AUTO_PUBLISH: "AUTO_PUBLISH",
@@ -230,7 +230,8 @@ function supportedProjectId(result, indexes) {
     .flatMap((claim) => String(claim.claim_value || "").split(","))
     .map((value) => value.trim())
     .filter(Boolean);
-  const unique = [...new Set(values)];
+  const resolved = values.map((value) => indexes?.project_aliases?.[value] || value);
+  const unique = [...new Set(resolved)];
   if (unique.length !== 1 || !indexes?.reviewed_facts?.projects?.[unique[0]]) return null;
   return unique[0];
 }

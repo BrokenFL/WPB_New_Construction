@@ -47,6 +47,7 @@ export async function buildRepositoryIndexes(root = process.cwd()) {
   }
   const reviewedFacts = { ...(manualFacts || {}), projects: mergedProjects };
   const projectSources = canonicalProjectSources(canonical, decisions);
+  const projectAliases = canonicalProjectAliases(decisions);
   const facts = JSON.stringify(reviewedFacts);
   const publicCorpus = [JSON.stringify(approved), JSON.stringify(imported), facts, generatedNews].join("\n");
   const events = [];
@@ -58,7 +59,29 @@ export async function buildRepositoryIndexes(root = process.cwd()) {
     if (title.includes("464 fern") && /file|plan/.test(title)) events.push({ event_key: "project|464-fern-street|municipal|site-plan-filing|2026-08-20", source: "approved-development-news", id: item.id });
     if (projects.length === 1 && eventDate && item.category) events.push({ event_key: `project|${projects[0]}|${item.category}|development-update|${eventDate}`, source: "approved-development-news", id: item.id });
   }
-  return { approved, imported, reviewed_facts: reviewedFacts, project_sources: projectSources, facts_text: facts, generated_news_text: generatedNews, public_corpus: publicCorpus, events, open_prs: runtimeOpenPrIndex, source_revisions: inputs.map((input) => input.revision) };
+  return { approved, imported, reviewed_facts: reviewedFacts, project_sources: projectSources, project_aliases: projectAliases, facts_text: facts, generated_news_text: generatedNews, public_corpus: publicCorpus, events, open_prs: runtimeOpenPrIndex, source_revisions: inputs.map((input) => input.revision) };
+}
+
+function canonicalProjectAliases(decisions) {
+  const aliases = {};
+  for (const decision of decisions?.projects || []) {
+    if (!decision?.publicSlug || decision.publicationState === "retired_merged") continue;
+    const identifiers = [
+      decision.canonicalId,
+      decision.publicSlug,
+      decision.compareDatabaseId,
+      decision.compareDatabaseSlug,
+      ...(decision.sourceCatalogIds || []),
+      ...(decision.aliases || []),
+    ].map((value) => String(value || "").trim()).filter(Boolean);
+    for (const identifier of new Set(identifiers)) {
+      if (aliases[identifier] && aliases[identifier] !== decision.publicSlug) {
+        throw new Error(`ERR_REPOSITORY_INDEX: conflicting project alias ${identifier}`);
+      }
+      aliases[identifier] = decision.publicSlug;
+    }
+  }
+  return aliases;
 }
 
 function canonicalProjectSources(canonical, decisions) {

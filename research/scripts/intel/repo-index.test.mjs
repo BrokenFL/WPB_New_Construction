@@ -13,7 +13,7 @@ async function fixture(t) {
     "content/overrides/project-fact-overrides.json": JSON.stringify({ version: 1, projects: { olara: { residenceCount: { value: 275, source: "manual_review" } } } }),
     "content/overrides/project-fact-automated.json": JSON.stringify({ version: 1, policyVersion: "p2-fast-policy-v1", projects: {} }),
     "research/source-material-review/wpb-projects-canonical-v3-planning-update.json": JSON.stringify({ projects: [{ project_id: "olara", display_name: "Olara", status_badge: "Under Construction", public_residence_count: 274, source_urls: ["https://www.olarawestpalmbeach.com/"] }] }),
-    "content/project-identity-decisions.json": JSON.stringify({ projects: [{ canonicalId: "olara", publicSlug: "olara", publicationState: "published" }] }),
+    "content/project-identity-decisions.json": JSON.stringify({ projects: [{ canonicalId: "olara", publicSlug: "olara", publicationState: "published", aliases: ["olara-wpb"] }] }),
     "src/data/approvedExternalNews.ts": "export const approvedExternalNews = [];",
   })) {
     await fs.mkdir(path.dirname(path.join(root, file)), { recursive: true });
@@ -30,6 +30,7 @@ test("indexes read actual reviewed overrides and record deterministic source rev
   assert.equal(before.reviewed_facts.projects.olara.residenceCount.value, 275);
   assert.equal(before.reviewed_facts.projects.olara.residenceCount.source, "manual_review");
   assert.deepEqual(before.project_sources.olara, [{ url: "https://www.olarawestpalmbeach.com/", source_name: "olara canonical source" }]);
+  assert.equal(before.project_aliases["olara-wpb"], "olara");
   assert.deepEqual(before, await buildRepositoryIndexes(root));
   assert.deepEqual(before.source_revisions.find((r) => r.path.endsWith("importedUpdates.json")), { path: "src/data/importedUpdates.json", present: false });
   await fs.writeFile(path.join(root, "content/overrides/project-fact-overrides.json"), JSON.stringify({ version: 1, projects: { olara: { residenceCount: { value: 276, source: "manual_review" } } } }));
