@@ -76,6 +76,81 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "intel-story-021fb59946a118d4",
+    "slug": "shorecrest-breaks-ground-157m-financing-2026-09-14",
+    "title": "Shorecrest Breaks Ground with $157M Construction Financing",
+    "sourceName": "South Florida Agent Magazine",
+    "sourceUrl": "https://southfloridaagentmagazine.com/slideshows/related-ross-shorecrest-groundbreaking/",
+    "canonicalUrl": "https://southfloridaagentmagazine.com/slideshows/related-ross-shorecrest-groundbreaking/",
+    "sourceTitle": "Shorecrest Breaks Ground with $157M Construction Financing",
+    "publishedAt": "2026-09-14T18:23:06.500Z",
+    "sourcePublishedAt": "2026-05-22",
+    "sourcePublishedDate": "2026-05-22",
+    "eventDate": "2026-09-14",
+    "dateDiscovered": "2026-09-14",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-14T18:23:06.500Z",
+    "deck": "Related Ross has broken ground on 28-story Shorecrest on North Flagler, with 98 residences and $157 million in construction financing.",
+    "description": "Related Ross has broken ground on 28-story Shorecrest on North Flagler, with 98 residences and $157 million in construction financing.",
+    "summary": "Groundbreaking is underway at Shorecrest, a 28-story North Flagler project with 98 residences and $157 million in construction financing.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Related Ross has broken ground on Shorecrest, a 28-story residential project on North Flagler with 98 residences. The current residential program includes two- and three-bedroom homes, with four residences per floor.\n\nThe project is also backed by $157 million in construction financing, giving the groundbreaking a second concrete milestone: construction is moving forward with a substantial financing package in place.",
+        "image": "/assets/editorial/flagler-waterfront-corridor.jpg"
+      },
+      {
+        "heading": "Why it matters for buyers",
+        "body": "For buyers tracking North Flagler, a groundbreaking is more meaningful than another rendering or pre-launch announcement. It marks the transition into active construction and gives shoppers a clearer way to compare Shorecrest with projects that remain earlier in the pipeline.\n\nThe 98-residence count also places Shorecrest in a relatively contained scale for a 28-story building, while four homes per floor gives buyers a useful sense of the planned density. The financing adds confidence that the project has moved beyond an early planning stage, although buyers should still evaluate future construction milestones separately."
+      },
+      {
+        "heading": "What to watch",
+        "body": "The next useful updates are physical construction progress and any revised timing guidance that can be tied to current project materials. Published completion-year references have not been perfectly consistent, so this update does not rely on a specific delivery year.\n\nAlso watch for any later changes to the residence program as construction advances. For now, the dependable facts are substantial enough on their own: Shorecrest has broken ground, it is planned at 28 stories and 98 residences, and $157 million in construction financing has been secured."
+      }
+    ],
+    "whyItMatters": "Groundbreaking and construction financing make Shorecrest a materially more advanced project than a proposal still on paper.",
+    "buyerContext": "Use the verified scale and financing as the current anchors; avoid relying on conflicting delivery-year references.",
+    "buyerTakeaway": "Shorecrest has moved into active construction with a 28-story, 98-residence program and substantial financing in place.",
+    "marketSignal": "Another major North Flagler residential project has transitioned from planning into construction.",
+    "bestFor": "Buyers comparing active-construction options on North Flagler.",
+    "watchPoints": "Construction milestones and updated delivery guidance from current project materials.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Shorecrest Breaks Ground with $157M Construction Financing",
+    "newsletterBlurb": "Related Ross has broken ground on 28-story Shorecrest on North Flagler, with 98 residences and $157 million in construction financing.",
+    "newsletterCta": "Read the article",
+    "query": "Shorecrest Breaks Ground with $157M Construction Financing",
+    "category": "development",
+    "relatedProjectIds": [
+      "shorecrest"
+    ],
+    "relatedCorridorIds": [
+      "north-flagler"
+    ],
+    "relatedProjectSlugs": [
+      "shorecrest"
+    ],
+    "relatedCorridors": [
+      "north-flagler"
+    ],
+    "primaryProjectSlug": "shorecrest",
+    "corridorLabel": "North Flagler",
+    "imagePath": "/assets/home/shorecrest-project-card-main-v01.jpg",
+    "sourceLinks": [
+      {
+        "label": "South Florida Agent Magazine",
+        "url": "https://southfloridaagentmagazine.com/slideshows/related-ross-shorecrest-groundbreaking/",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "intel-story-fad9e4204ed36dae",
     "slug": "banyan-tree-residences-unanimous-dac-approval-2026-09-14",
     "title": "Banyan Tree Residences Wins Unanimous DAC Approval",

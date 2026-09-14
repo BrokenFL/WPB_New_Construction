@@ -5085,6 +5085,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/shorecrest-breaks-ground-157m-financing-2026-09-14/",
+    "title": "Shorecrest Breaks Ground with $157M Construction Financing | WPB Updates",
+    "description": "Related Ross has broken ground on 28-story Shorecrest on North Flagler, with 98 residences and $157 million in construction financing.",
+    "ogImage": "/assets/home/shorecrest-project-card-main-v01.jpg"
+  },
+  {
     "path": "/updates/banyan-tree-residences-unanimous-dac-approval-2026-09-14/",
     "title": "Banyan Tree Residences Wins Unanimous DAC Approval | WPB Updates",
     "description": "Banyan Tree Residences West Palm Beach received unanimous Downtown Action Committee approval for its 25-story proposal at 400 Hibiscus.",
