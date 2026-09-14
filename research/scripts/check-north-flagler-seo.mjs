@@ -32,10 +32,24 @@ const requiredLinks = [
   "/projects/rosewood-residences-west-palm-beach/",
   "/compare/",
   "/inquire/",
-  "/updates/rosewood-north-flagler-planning-board-2026-06-05/",
 ];
 for (const href of requiredLinks) {
   if (!html.includes(`href="${href}"`)) findings.push(`${route}: missing internal link ${href}.`);
+}
+
+// The corridor page intentionally shows the three newest matching updates, so
+// pinning this gate to one historical slug makes a successful new publish push
+// that slug out and then fail the very next publish. Keep the safety check tied
+// to the rendered update section and verify every current link resolves.
+const latestUpdatesSection = html.match(/<section[^>]*>\s*<h2>Latest North Flagler updates<\/h2>[\s\S]*?<\/section>/i)?.[0] || "";
+const latestUpdateLinks = [...latestUpdatesSection.matchAll(/href="(\/updates\/[^"]+\/)"/g)].map((match) => match[1]);
+if (!latestUpdateLinks.length) {
+  findings.push(`${route}: Latest North Flagler updates has no internal article link.`);
+}
+for (const href of latestUpdateLinks) {
+  const linkedHtml = path.join(workspace, "dist", href.replace(/^\//, ""), "index.html");
+  const exists = await fs.stat(linkedHtml).then((stat) => stat.isFile()).catch(() => false);
+  if (!exists) findings.push(`${route}: current update link does not resolve in the build: ${href}.`);
 }
 
 const schemaMatch = html.match(/<script id="wpb-static-structured-data"[^>]*>([\s\S]*?)<\/script>/);
