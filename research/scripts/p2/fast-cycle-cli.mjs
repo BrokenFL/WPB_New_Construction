@@ -129,10 +129,14 @@ async function publishWithSha({ story }) {
 }
 
 async function commitFactOutputs() {
-  // Regenerate derived surfaces first so the commit carries the propagated
-  // model/schema/site-data output in one shot.
-  const regen = await run("npm", ["run", "research:site-intelligence"], { maxBuffer: 32 * 1024 * 1024 });
-  if (regen.code !== 0) return { ok: false, error: `research:site-intelligence failed: ${regen.stderr.slice(-800)}` };
+  // Regenerate only the public project model and its embedded siteData
+  // projection. The full site-intelligence build inspects local media assets;
+  // GitHub runners do not carry that working library and must not erase image
+  // metadata while applying an unrelated canonical fact.
+  const modelRegen = await run("npm", ["run", "research:project-model"], { maxBuffer: 32 * 1024 * 1024 });
+  if (modelRegen.code !== 0) return { ok: false, error: `research:project-model failed: ${modelRegen.stderr.slice(-800)}` };
+  const siteDataRegen = await run("node", ["research/scripts/p2/refresh-fact-projection.mjs"], { maxBuffer: 32 * 1024 * 1024 });
+  if (siteDataRegen.code !== 0) return { ok: false, error: `refresh-fact-projection failed: ${siteDataRegen.stderr.slice(-800)}` };
   const [tracked, untracked] = await Promise.all([
     run("git", ["diff", "--name-only", "-z"]),
     run("git", ["ls-files", "--others", "--exclude-standard", "-z"]),
@@ -154,20 +158,15 @@ async function commitFactOutputs() {
 
 const FACT_OUTPUT_FILES = new Set([
   "content/overrides/project-fact-automated.json",
-  "public/feed.json",
-  "public/rss.xml",
-  "public/llms.txt",
-  "public/robots.txt",
-  "public/sitemap.xml",
-  "research/source-material-review/floorplan-library.md",
-  "research/source-material-review/image-candidate-catalog.md",
-  "research/source-material-review/image-candidate-catalog.json",
-  "research/source-material-review/metadata-answer-engine-plan.md",
+  "src/generated/projectModel.json",
+  "src/generated/projectModel.ts",
+  "src/generated/projectModelPublic.json",
+  "src/generated/projectModelPublic.ts",
+  "src/generated/siteData.ts",
 ]);
-const FACT_OUTPUT_PREFIXES = ["src/generated/", "public/data/", "research/generated/"];
 
 export function isAllowedFactOutputPath(file) {
-  return FACT_OUTPUT_FILES.has(file) || FACT_OUTPUT_PREFIXES.some((prefix) => file.startsWith(prefix));
+  return FACT_OUTPUT_FILES.has(file);
 }
 
 async function pushMain() {

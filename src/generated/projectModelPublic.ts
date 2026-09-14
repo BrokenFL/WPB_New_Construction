@@ -490,14 +490,12 @@ export const publicProjectModel = {
       "corridorKey": "south-flagler",
       "corridor": "South Flagler",
       "displayName": "South Flagler House",
-      "projectType": "completed-comparable",
-      "status": "Completed",
+      "projectType": "condo-active-sales",
+      "status": "Under Construction",
       "delivery": "2027",
       "residences": "108",
       "price": "$7.98M to $70M on current official tier pages",
-      "reviewedFields": {
-        "status": "Completed"
-      },
+      "reviewedFields": {},
       "facts": {
         "projectAddress": "1355 S Flagler Drive, West Palm Beach, FL 33401",
         "salesGalleryAddress": "",
@@ -524,11 +522,11 @@ export const publicProjectModel = {
           "Full-floor and duplex penthouse options"
         ],
         "neighborhoodContext": "South Flagler waterfront",
-        "factEffectiveDate": "2026-04-09",
+        "factEffectiveDate": "2026-09-01",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
           "displayName": "canonical",
-          "status": "reviewed_override",
+          "status": "canonical",
           "delivery": "canonical",
           "residences": "canonical",
           "price": "canonical",

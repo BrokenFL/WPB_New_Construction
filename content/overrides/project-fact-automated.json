@@ -1,7 +1,7 @@
 {
   "version": 1,
   "policyVersion": "p2-fast-policy-v1",
-  "updatedAt": "2026-09-14T15:58:32.174Z",
+  "updatedAt": "2026-09-14T16:02:18.000Z",
   "projects": {
     "fern-and-gardenia-related-ross-fern-street": {
       "residenceCount": {
@@ -30,36 +30,6 @@
         "appliedBy": "p2-fast-cycle",
         "rollback": {
           "previous_value": "100–130 condominium units proposed in later Related Ross repositioning; prior plan referenced 340 apartments"
-        }
-      }
-    },
-    "south-flagler-house": {
-      "status": {
-        "value": "Completed",
-        "source": "automated_intel",
-        "asOf": "2026-04-09",
-        "effectiveDate": "2026-04-09",
-        "sourceUrl": "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html",
-        "sourceName": "The Real Deal",
-        "intelId": "wpb-intel-2026-09-10-003",
-        "evidenceBundleSha256": "0fef2d758d8d96072d91ed9696892cfc30058c2b2130a0db5d82fe98e1e9a28a",
-        "sources": [
-          {
-            "source_ref_id": "source-440b0557ac1497c8",
-            "url": "https://floridayimby.com/2025/11/south-flagler-house-tops-out-at-1355-south-flagler-drive-in-west-palm-beach.html",
-            "name": "The Real Deal",
-            "tier": 2,
-            "type": "trade",
-            "published_date": "2026-04-09",
-            "content_sha256": "2f293918129a8c83e33ef99d5bb37905aa8112a4be2710f8a98370457c107a79",
-            "revision": "2f293918129a8c83e33ef99d5bb37905aa8112a4be2710f8a98370457c107a79"
-          }
-        ],
-        "policyVersion": "p2-fast-policy-v1",
-        "appliedAt": "2026-09-14T15:58:32.174Z",
-        "appliedBy": "p2-fast-cycle",
-        "rollback": {
-          "previous_value": "Under Construction"
         }
       }
     },

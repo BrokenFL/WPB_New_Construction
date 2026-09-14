@@ -1,10 +1,15 @@
 # P2 Fast Mode — Operations
 
 Fast Mode (`p2-fast-policy-v1`, processor revision
-`p2-fast-mode-v2-throughput-r2`) is the live intelligence pipeline. It
+`p2-fast-mode-v2-throughput-r3`) is the live intelligence pipeline. It
 replaces the review-heavy shadow policy: credible events publish
 automatically, canonical facts update independently, and humans only see
 genuine conflicts.
+
+Automated fact commits regenerate only the reviewed public project model and
+the matching `siteData` fact projection. They never run the media-dependent
+full site-intelligence build on a GitHub runner, so a fact update cannot erase
+locally reviewed image metadata.
 
 ## Pipeline
 
