@@ -76,6 +76,81 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "intel-story-fad9e4204ed36dae",
+    "slug": "banyan-tree-residences-unanimous-dac-approval-2026-09-14",
+    "title": "Banyan Tree Residences Wins Unanimous DAC Approval",
+    "sourceName": "Florida YIMBY",
+    "sourceUrl": "https://floridayimby.com/2026/08/banyan-tree-residences-west-palm-beach-secures-unanimous-downtown-action-committee-approval.html",
+    "canonicalUrl": "https://floridayimby.com/2026/08/banyan-tree-residences-west-palm-beach-secures-unanimous-downtown-action-committee-approval.html",
+    "sourceTitle": "Banyan Tree Residences Wins Unanimous DAC Approval",
+    "publishedAt": "2026-09-14T18:22:37.867Z",
+    "sourcePublishedAt": "2026-08-19",
+    "sourcePublishedDate": "2026-08-19",
+    "eventDate": "2026-09-14",
+    "dateDiscovered": "2026-09-14",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-14T18:22:37.867Z",
+    "deck": "Banyan Tree Residences West Palm Beach received unanimous Downtown Action Committee approval for its 25-story proposal at 400 Hibiscus.",
+    "description": "Banyan Tree Residences West Palm Beach received unanimous Downtown Action Committee approval for its 25-story proposal at 400 Hibiscus.",
+    "summary": "The Downtown Action Committee unanimously approved the 25-story Banyan Tree Residences West Palm Beach proposal, advancing the project’s public-review milestone.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Banyan Tree Residences West Palm Beach has received unanimous approval from the Downtown Action Committee for its 25-story proposal at 400 Hibiscus. The verified milestone is specifically the DAC vote, an important step for the project as it moves through West Palm Beach’s development process.\n\nThe project’s planned wellness program includes a full-floor offering with features such as a hammam, cryotherapy and a meditation garden. Sales are being led by Douglas Elliman Development Marketing.",
+        "image": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg"
+      },
+      {
+        "heading": "Why it matters for buyers",
+        "body": "For buyers following branded new construction in central West Palm Beach, the DAC vote moves Banyan Tree Residences from concept discussion into a more concrete stage of municipal review. It does not require buyers to rely on disputed residence counts or unsupported pricing claims to understand the significance of the update.\n\nThe wellness component also gives the project a clearly defined positioning. Rather than treating the building as simply another luxury tower, buyers can evaluate whether a deep wellness program is genuinely important to the way they expect to use a residence."
+      },
+      {
+        "heading": "What to watch",
+        "body": "The next useful milestones are the project’s subsequent approvals, any updated public plans and the final residence program presented to buyers. Published unit-count figures have not been perfectly consistent, so buyers should use the project’s current official materials when comparing layouts and total inventory.\n\nFor now, the clean takeaway is straightforward: Banyan Tree Residences has secured unanimous DAC approval for a 25-story proposal at 400 Hibiscus, and its wellness-led residential concept continues to advance."
+      }
+    ],
+    "whyItMatters": "The unanimous DAC vote is a concrete municipal milestone for the project.",
+    "buyerContext": "Focus on the approved 25-story concept and wellness program; verify current residence count and pricing from official sales materials.",
+    "buyerTakeaway": "The key update is unanimous DAC approval for the 25-story Banyan Tree Residences proposal at 400 Hibiscus.",
+    "marketSignal": "A branded residential project with a strong wellness focus is advancing through West Palm Beach’s review process.",
+    "bestFor": "Buyers tracking branded residences and wellness-focused new construction in central West Palm Beach.",
+    "watchPoints": "Subsequent approvals, updated public plans and a reconciled residence count.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Banyan Tree Residences Wins Unanimous DAC Approval",
+    "newsletterBlurb": "Banyan Tree Residences West Palm Beach received unanimous Downtown Action Committee approval for its 25-story proposal at 400 Hibiscus.",
+    "newsletterCta": "Read the article",
+    "query": "Banyan Tree Residences Wins Unanimous DAC Approval",
+    "category": "development",
+    "relatedProjectIds": [
+      "banyan-tree"
+    ],
+    "relatedCorridorIds": [
+      "downtown"
+    ],
+    "relatedProjectSlugs": [
+      "banyan-tree"
+    ],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "primaryProjectSlug": "banyan-tree",
+    "corridorLabel": "Downtown",
+    "imagePath": "/assets/home/banyan-tree-project-card-main-v01.jpg",
+    "sourceLinks": [
+      {
+        "label": "Florida YIMBY",
+        "url": "https://floridayimby.com/2026/08/banyan-tree-residences-west-palm-beach-secures-unanimous-downtown-action-committee-approval.html",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "intel-story-6509ddad48c25f5c",
     "slug": "andreessen-horowitz-cityplace-tower-west-palm-beach-2026-09-14",
     "title": "Andreessen Horowitz Leases Office at CityPlace Tower",

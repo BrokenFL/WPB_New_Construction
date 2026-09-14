@@ -5085,6 +5085,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/banyan-tree-residences-unanimous-dac-approval-2026-09-14/",
+    "title": "Banyan Tree Residences Wins Unanimous DAC Approval | WPB Updates",
+    "description": "Banyan Tree Residences West Palm Beach received unanimous Downtown Action Committee approval for its 25-story proposal at 400 Hibiscus.",
+    "ogImage": "/assets/home/banyan-tree-project-card-main-v01.jpg"
+  },
+  {
     "path": "/updates/andreessen-horowitz-cityplace-tower-west-palm-beach-2026-09-14/",
     "title": "Andreessen Horowitz Leases Office at CityPlace Tower | WPB Updates",
     "description": "Andreessen Horowitz has signed a lease at CityPlace Tower, adding a major venture-capital tenant focused on technology and defense-related investing.",
