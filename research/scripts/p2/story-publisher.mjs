@@ -158,6 +158,7 @@ const CORRIDOR_IMAGE_FALLBACKS = Object.freeze({
   "north-flagler": [
     { path: "/assets/editorial/flagler-waterfront-corridor.jpg", alt: "Flagler Drive waterfront and West Palm Beach skyline", caption: "Flagler Drive waterfront context in West Palm Beach." },
     { path: "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg", alt: "Aerial view of West Palm Beach development corridors", caption: "West Palm Beach corridor context for the development update." },
+    { path: "/assets/home/north-flagler-3-buildings-daytime-v01.jpg", alt: "North Flagler waterfront skyline in West Palm Beach", caption: "North Flagler waterfront context in West Palm Beach." },
   ],
   "south-flagler": [
     { path: "/assets/editorial/south-flagler-corridor.jpg", alt: "South Flagler waterfront corridor in West Palm Beach", caption: "South Flagler waterfront context in West Palm Beach." },
@@ -166,12 +167,36 @@ const CORRIDOR_IMAGE_FALLBACKS = Object.freeze({
   downtown: [
     { path: "/assets/editorial/downtown-core-corridor.jpg", alt: "Downtown West Palm Beach skyline and streets", caption: "Downtown West Palm Beach provides the setting for this development update." },
     { path: "/assets/editorial/downtown-spotlight-night-skyline-hero.jpg", alt: "Downtown West Palm Beach skyline at night", caption: "Downtown West Palm Beach skyline context." },
+    { path: "/assets/home/downtown-corridor-bridge-daytime-v01.jpg", alt: "Downtown West Palm Beach skyline and bridge", caption: "Downtown West Palm Beach context for the development update." },
+    { path: "/assets/editorial/wall-street-south-office-arrival.jpg", alt: "Downtown West Palm Beach office district", caption: "Downtown West Palm Beach office-market context." },
+    { path: "/assets/editorial/west-palm-move-downtown-mobility-hero.jpg", alt: "Downtown West Palm Beach streets and skyline", caption: "Downtown West Palm Beach context for the development update." },
   ],
   nora: [
     { path: "/assets/editorial/nora-growth-corridor.jpg", alt: "NORA growth corridor in West Palm Beach", caption: "NORA district growth context in West Palm Beach." },
     { path: "/assets/editorial/nora-district-aerial-evening-hero.jpg", alt: "Aerial evening view of the NORA district", caption: "NORA district context in West Palm Beach." },
   ],
 });
+
+const PROJECT_IMAGE_FALLBACKS = Object.freeze({
+  "banyan-tree": [
+    { path: "/assets/home/banyan-tree-project-card-main-v01.jpg", alt: "Banyan Tree Residences West Palm Beach exterior rendering", caption: "Banyan Tree Residences West Palm Beach." },
+  ],
+  shorecrest: [
+    { path: "/assets/home/shorecrest-project-card-main-v01.jpg", alt: "Shorecrest waterfront tower rendering", caption: "Shorecrest on North Flagler Drive in West Palm Beach." },
+  ],
+});
+
+const PUBLISH_SOURCE_IMAGE_FILES = Object.freeze([
+  "src/main.ts",
+  "src/data/marketNotes.ts",
+  "src/data/approvedExternalNews.ts",
+  "src/data/editorialImagery.ts",
+  "content/overrides/homepage-card-overrides.json",
+]);
+
+function projectFallbackImages(projectIds = []) {
+  return projectIds.flatMap((value) => PROJECT_IMAGE_FALLBACKS[String(value).trim().toLowerCase()] || []);
+}
 
 function fallbackImages(corridorIds = []) {
   const normalized = corridorIds.map((value) => String(value).trim().toLowerCase());
@@ -188,6 +213,13 @@ async function existsWithinBudget(root, publicPath) {
   const file = path.join(root, "public", publicPath.replace(/^\//, ""));
   const stat = await fs.stat(file).catch(() => null);
   return Boolean(stat?.isFile() && stat.size > 0 && stat.size <= 750 * 1024);
+}
+
+async function sourceImageUseCounter(root) {
+  const sourceTexts = await Promise.all(PUBLISH_SOURCE_IMAGE_FILES.map((file) => (
+    fs.readFile(path.join(root, file), "utf8").catch(() => "")
+  )));
+  return (publicPath) => sourceTexts.reduce((count, source) => count + source.split(publicPath).length - 1, 0);
 }
 
 export async function enrichStoryWithApprovedImages({ root, story }) {
@@ -218,12 +250,14 @@ export async function enrichStoryWithApprovedImages({ root, story }) {
   const corridorIds = Array.isArray(pkg.relatedCorridorIds) && pkg.relatedCorridorIds.length
     ? pkg.relatedCorridorIds
     : String(story.corridor_ids || "").split(",").filter(Boolean);
+  candidates.push(...projectFallbackImages(projectIds));
   candidates.push(...fallbackImages(corridorIds));
 
   const usable = [];
   const seen = new Set();
+  const sourceImageUses = await sourceImageUseCounter(root);
   for (const candidate of candidates) {
-    if (!candidate?.path || seen.has(candidate.path) || !(await existsWithinBudget(root, candidate.path))) continue;
+    if (!candidate?.path || seen.has(candidate.path) || sourceImageUses(candidate.path) >= 3 || !(await existsWithinBudget(root, candidate.path))) continue;
     seen.add(candidate.path);
     usable.push(candidate);
   }

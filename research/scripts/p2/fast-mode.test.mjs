@@ -1226,6 +1226,63 @@ test("story publisher enforces policy/writer/source boundaries and enriches appr
   assert.equal(failed.publisherReason, "wrong-branch");
 });
 
+test("story publisher skips saturated fallback images before publish preflight", async (t) => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-fast-story-images-"));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const saturated = "/assets/editorial/downtown-core-corridor.jpg";
+  const alternatives = [
+    "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+    "/assets/editorial/wall-street-south-office-arrival.jpg",
+  ];
+  for (const publicPath of [saturated, ...alternatives]) {
+    const file = path.join(dir, "public", publicPath.replace(/^\//, ""));
+    await fs.mkdir(path.dirname(file), { recursive: true });
+    await fs.writeFile(file, "fixture-image");
+  }
+  const sourceFiles = [
+    "src/main.ts",
+    "src/data/marketNotes.ts",
+    "src/data/approvedExternalNews.ts",
+    "src/data/editorialImagery.ts",
+    "content/overrides/homepage-card-overrides.json",
+  ];
+  for (const [index, file] of sourceFiles.entries()) {
+    const target = path.join(dir, file);
+    await fs.mkdir(path.dirname(target), { recursive: true });
+    await fs.writeFile(target, index === 0 ? `${saturated}\n${saturated}\n${saturated}\n` : "");
+  }
+  const sourceUrl = "https://www.wpb.org/government/development-services";
+  const story = {
+    story_id: "story-live-saturated-image",
+    intel_ids: "wpb-intel-2026-09-14-saturated-image",
+    event_key: "company|office-lease|signed|2026-09-14",
+    project_ids: "",
+    corridor_ids: "downtown",
+    policy_version: FAST_MODE_POLICY_VERSION,
+    article_decision: "AUTO_PUBLISH",
+    writer_name: "chatgpt-story-writer",
+    writer_version: "story-writer-v1",
+    sources_json: JSON.stringify([{ source_ref_id: "source-1", url: sourceUrl, name: "City of West Palm Beach", tier: 1 }]),
+    verified_facts_json: JSON.stringify([{ claim_id: "claim-1", field: "material_updates", value: "A company signed an office lease.", source_ref_ids: ["source-1"] }]),
+    story_package_json: JSON.stringify({
+      destination: "news",
+      title: "Company signs a downtown office lease",
+      deck: "A verified office lease was signed in downtown West Palm Beach.",
+      sections: [{ heading: "What happened", body: "A source-backed office lease was signed." }],
+      sourceName: "City of West Palm Beach",
+      sourceUrl,
+      sourceLinks: [{ label: "City of West Palm Beach", url: sourceUrl, type: "government" }],
+      relatedProjectIds: [],
+      relatedCorridorIds: ["downtown"],
+    }),
+  };
+  const enriched = await enrichStoryWithApprovedImages({ root: dir, story });
+  assert.equal(enriched.error, undefined);
+  const pkg = JSON.parse(enriched.story.story_package_json);
+  assert.ok(![pkg.heroImage.path, ...pkg.bodyImages.map((image) => image.path)].includes(saturated));
+  assert.deepEqual([pkg.heroImage.path, pkg.bodyImages[0].path], alternatives);
+});
+
 test("story publisher requires reputable evidence for the semantic occurrence rather than identity metadata", () => {
   const identityUrl = "https://www.wpb.org/government/development-services";
   const occurrenceUrl = "https://example.com/project-milestone";
