@@ -5085,6 +5085,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/alida-residences-tribute-portfolio-break-ground-brightline-2026-09-14/",
+    "title": "Alida Residences and Tribute Portfolio Hotel Break Ground by Brightline | WPB Updates",
+    "description": "Groundbreaking is underway for the 21-story Alida Residences, with 181 homes and a Tribute Portfolio hotel component beside Brightline.",
+    "ogImage": "/assets/editorial/downtown-core-corridor.jpg"
+  },
+  {
     "path": "/updates/olaras-completion-horizon-is-set-for-2028-2026-09-14/",
     "title": "Olara’s Completion Horizon Is Set for 2028 | WPB Updates",
     "description": "The latest verified project timing points to 2028 completion for Olara on North Flagler, giving buyers a clearer planning horizon.",

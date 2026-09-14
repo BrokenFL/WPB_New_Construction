@@ -1,5 +1,80 @@
 [
   {
+    "id": "intel-story-d3bca9259771220e",
+    "slug": "alida-residences-tribute-portfolio-break-ground-brightline-2026-09-14",
+    "title": "Alida Residences and Tribute Portfolio Hotel Break Ground by Brightline",
+    "sourceName": "Florida YIMBY",
+    "sourceUrl": "https://floridayimby.com/2026/07/construction-begins-on-alida-residences-and-tribute-portfolio-by-marriott-hotel-in-downtown-west-palm-beach.html",
+    "canonicalUrl": "https://floridayimby.com/2026/07/construction-begins-on-alida-residences-and-tribute-portfolio-by-marriott-hotel-in-downtown-west-palm-beach.html",
+    "sourceTitle": "Alida Residences and Tribute Portfolio Hotel Break Ground by Brightline",
+    "publishedAt": "2026-09-14T17:46:09.196Z",
+    "sourcePublishedAt": "2026-08-31",
+    "sourcePublishedDate": "2026-08-31",
+    "eventDate": "2026-09-14",
+    "dateDiscovered": "2026-09-14",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-14T17:46:09.196Z",
+    "deck": "Groundbreaking is underway for the 21-story Alida Residences, with 181 homes and a Tribute Portfolio hotel component beside Brightline.",
+    "description": "Groundbreaking is underway for the 21-story Alida Residences, with 181 homes and a Tribute Portfolio hotel component beside Brightline.",
+    "summary": "Alida Residences has broken ground beside West Palm Beach’s Brightline station; the residential component is planned at 21 stories with 181 residences.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Groundbreaking is underway for Alida Residences beside the West Palm Beach Brightline station. The residential component is planned at 21 stories with 181 residences, and the broader development package includes a Tribute Portfolio hotel component.\n\nThe project’s transit relationship is central to the story. Its location is directly integrated with Brightline, putting a substantial new residential offering and hotel use next to one of downtown West Palm Beach’s key regional transportation links.",
+        "image": "/assets/editorial/downtown-spotlight-night-skyline-hero.jpg"
+      },
+      {
+        "heading": "Why it matters for buyers",
+        "body": "For buyers who value mobility, this is a meaningful addition to the downtown pipeline. Direct proximity to Brightline can change the way a residence functions for people who regularly move between West Palm Beach and other South Florida cities. It also adds new housing density beside an existing transportation hub rather than on an isolated site.\n\nThe important distinction is that the verified facts support the Alida residential program, the 181-residence count, the 21-story scale, the hotel component and the transit-oriented location. Buyers do not need to rely on broader labels about exactly how the residential and hotel pieces are physically organized to understand the practical takeaway: this is a substantial new development rising beside Brightline."
+      },
+      {
+        "heading": "What to watch",
+        "body": "Now that groundbreaking is underway, the next useful signals will be visible construction milestones and more detailed information about the residential offering as the project advances. Buyers should also watch how the hotel and residential components are ultimately presented together on the site and in public-facing project materials.\n\nFor downtown shoppers, Alida adds another option to the emerging transit-oriented cluster around Datura Street and the Brightline station."
+      }
+    ],
+    "whyItMatters": "The project combines meaningful residential scale with direct transit access in the downtown core.",
+    "buyerContext": "Focus on the 21-story, 181-residence Alida program and its Brightline connection; avoid over-reading uncertain building-configuration details.",
+    "buyerTakeaway": "Alida adds a large new residential option directly tied to Brightline access in downtown West Palm Beach.",
+    "marketSignal": "Transit-oriented residential and hospitality development is advancing around the Brightline station.",
+    "bestFor": "Buyers who prioritize downtown living with direct regional rail access.",
+    "watchPoints": "Construction progress and future residential details as the project advances.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Alida Residences and Tribute Portfolio Hotel Break Ground by Brightline",
+    "newsletterBlurb": "Groundbreaking is underway for the 21-story Alida Residences, with 181 homes and a Tribute Portfolio hotel component beside Brightline.",
+    "newsletterCta": "Read the article",
+    "query": "Alida Residences and Tribute Portfolio Hotel Break Ground by Brightline",
+    "category": "development",
+    "relatedProjectIds": [
+      "alida-residences-brightline"
+    ],
+    "relatedCorridorIds": [
+      "downtown"
+    ],
+    "relatedProjectSlugs": [
+      "alida-residences-brightline"
+    ],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "primaryProjectSlug": "alida-residences-brightline",
+    "corridorLabel": "Downtown",
+    "imagePath": "/assets/editorial/downtown-core-corridor.jpg",
+    "sourceLinks": [
+      {
+        "label": "Florida YIMBY",
+        "url": "https://floridayimby.com/2026/07/construction-begins-on-alida-residences-and-tribute-portfolio-by-marriott-hotel-in-downtown-west-palm-beach.html",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "intel-story-421da79099c9ed00",
     "slug": "olaras-completion-horizon-is-set-for-2028-2026-09-14",
     "title": "Olara’s Completion Horizon Is Set for 2028",
