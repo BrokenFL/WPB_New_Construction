@@ -1,13 +1,19 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
-import { buildReviewedFieldsProjection } from "./reviewed-field-projection.mjs";
+import {
+  buildAutomatedFactAsOfProjection,
+  buildAutomatedFieldsProjection,
+  buildReviewedFieldsProjection,
+  mergeFieldProjections,
+} from "./reviewed-field-projection.mjs";
 
 const workspace = process.cwd();
 const canonicalPath = path.join(workspace, "research/source-material-review/wpb-projects-canonical-v3-planning-update.json");
 const decisionsPath = path.join(workspace, "content/project-identity-decisions.json");
 const overlaysPath = path.join(workspace, "content/project-page-overlays.json");
 const factOverridesPath = path.join(workspace, "content/overrides/project-fact-overrides.json");
+const automatedFactsPath = path.join(workspace, "content/overrides/project-fact-automated.json");
 const generatedTsPath = path.join(workspace, "src/generated/projectModel.ts");
 const generatedJsonPath = path.join(workspace, "src/generated/projectModel.json");
 const generatedPublicTsPath = path.join(workspace, "src/generated/projectModelPublic.ts");
@@ -18,7 +24,13 @@ const canonical = readJson(canonicalPath);
 const decisions = readJson(decisionsPath);
 const overlays = readJson(overlaysPath);
 const factOverrides = readJson(factOverridesPath);
-const reviewedFieldsBySlug = buildReviewedFieldsProjection(factOverrides);
+const automatedFacts = readJson(automatedFactsPath);
+const automatedFactAsOfBySlug = buildAutomatedFactAsOfProjection(automatedFacts, factOverrides);
+const automatedFieldsBySlug = buildAutomatedFieldsProjection(automatedFacts, factOverrides);
+const reviewedFieldsBySlug = mergeFieldProjections(
+  automatedFieldsBySlug,
+  buildReviewedFieldsProjection(factOverrides),
+);
 const errors = [];
 
 if (!Array.isArray(canonical.projects)) errors.push("Canonical project snapshot must contain a projects array.");
@@ -46,8 +58,13 @@ const projects = (decisions.projects ?? []).map((decision) => {
   const candidate = decision.candidateFacts ?? {};
   const overlay = overlayBySlug.get(decision.publicSlug);
   const fallback = overlay?.approvedFallback ?? {};
+  const automated = automatedFieldsBySlug[decision.publicSlug] ?? {};
   const fieldSources = {};
-  const pick = (field, canonicalValue, candidateValue, fallbackValue) => {
+  const pick = (field, automatedValue, canonicalValue, candidateValue, fallbackValue) => {
+    if (hasValue(automatedValue)) {
+      fieldSources[field] = "reviewed_override";
+      return String(automatedValue);
+    }
     if (hasValue(canonicalValue)) {
       fieldSources[field] = "canonical";
       return String(canonicalValue);
@@ -102,12 +119,12 @@ const projects = (decisions.projects ?? []).map((decision) => {
     corridorKey: decision.corridorKey,
     corridor: corridorLabel(decision.corridorKey),
     publicationState: decision.publicationState,
-    displayName: pick("displayName", canonicalProject?.display_name, candidate.displayName, fallback.displayName),
-    status: pick("status", canonicalProject?.status_badge, candidate.status, fallback.status),
-    delivery: pick("delivery", canonicalProject?.delivery_display, candidate.delivery, fallback.delivery),
-    residences: pick("residences", canonicalProject?.public_residence_count, candidate.residences, fallback.residences),
-    price: pick("price", canonicalProject?.price_display, candidate.price, fallback.price),
-    address: pick("address", canonicalProject?.public_address, candidate.address, fallback.address),
+    displayName: pick("displayName", automated.displayName, canonicalProject?.display_name, candidate.displayName, fallback.displayName),
+    status: pick("status", automated.status, canonicalProject?.status_badge, candidate.status, fallback.status),
+    delivery: pick("delivery", automated.delivery, canonicalProject?.delivery_display, candidate.delivery, fallback.delivery),
+    residences: pick("residences", automated.residences, canonicalProject?.public_residence_count, candidate.residences, fallback.residences),
+    price: pick("price", automated.price, canonicalProject?.price_display, candidate.price, fallback.price),
+    address: pick("address", automated.address, canonicalProject?.public_address, candidate.address, fallback.address),
     developmentStage: canonicalProject?.development_stage || candidate.developmentStage || "",
     pageType: canonicalProject?.page_type || candidate.pageType || "",
     siteGroup: canonicalProject?.site_group || candidate.siteGroup || "",
@@ -198,7 +215,7 @@ const publicProjects = publishedProjects.map((project) => ({
     amenitySummary: canonicalById.get(project.canonicalId)?.amenity_summary ?? "",
     residenceFeatures: canonicalById.get(project.canonicalId)?.residence_features ?? [],
     neighborhoodContext: canonicalById.get(project.canonicalId)?.neighborhood ?? "",
-    factEffectiveDate: project.lastVerifiedDate,
+    factEffectiveDate: automatedFactAsOfBySlug[project.publicSlug] || project.lastVerifiedDate,
     lastVerifiedDate: project.lastVerifiedDate,
     sourcePriority: project.fieldSources,
   },

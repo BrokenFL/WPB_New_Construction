@@ -10,7 +10,10 @@ async function fixture(t) {
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   for (const [file, text] of Object.entries({
     "research/news-review/approved-development-news.json": "[]",
-    "content/overrides/project-fact-overrides.json": JSON.stringify({ version: 1, projects: { olara: { residences: 275 } } }),
+    "content/overrides/project-fact-overrides.json": JSON.stringify({ version: 1, projects: { olara: { residenceCount: { value: 275, source: "manual_review" } } } }),
+    "content/overrides/project-fact-automated.json": JSON.stringify({ version: 1, policyVersion: "p2-fast-policy-v1", projects: {} }),
+    "research/source-material-review/wpb-projects-canonical-v3-planning-update.json": JSON.stringify({ projects: [{ project_id: "olara", display_name: "Olara", status_badge: "Under Construction", public_residence_count: 274 }] }),
+    "content/project-identity-decisions.json": JSON.stringify({ projects: [{ canonicalId: "olara", publicSlug: "olara", publicationState: "published" }] }),
     "src/data/approvedExternalNews.ts": "export const approvedExternalNews = [];",
   })) {
     await fs.mkdir(path.dirname(path.join(root, file)), { recursive: true });
@@ -22,12 +25,21 @@ async function fixture(t) {
 test("indexes read actual reviewed overrides and record deterministic source revisions", async (t) => {
   const root = await fixture(t);
   const before = await buildRepositoryIndexes(root);
-  assert.deepEqual(before.reviewed_facts.projects.olara, { residences: 275 });
+  assert.equal(before.reviewed_facts.projects.olara.name.value, "Olara");
+  assert.equal(before.reviewed_facts.projects.olara.status.value, "Under Construction");
+  assert.equal(before.reviewed_facts.projects.olara.residenceCount.value, 275);
+  assert.equal(before.reviewed_facts.projects.olara.residenceCount.source, "manual_review");
   assert.deepEqual(before, await buildRepositoryIndexes(root));
   assert.deepEqual(before.source_revisions.find((r) => r.path.endsWith("importedUpdates.json")), { path: "src/data/importedUpdates.json", present: false });
-  await fs.writeFile(path.join(root, "content/overrides/project-fact-overrides.json"), JSON.stringify({ version: 1, projects: { olara: { residences: 276 } } }));
+  await fs.writeFile(path.join(root, "content/overrides/project-fact-overrides.json"), JSON.stringify({ version: 1, projects: { olara: { residenceCount: { value: 276, source: "manual_review" } } } }));
   const after = await buildRepositoryIndexes(root);
   assert.notDeepEqual(before.source_revisions, after.source_revisions);
+});
+
+test("automated fact policy-version drift fails the repository index closed", async (t) => {
+  const root = await fixture(t);
+  await fs.writeFile(path.join(root, "content/overrides/project-fact-automated.json"), JSON.stringify({ version: 1, policyVersion: "old-policy", projects: {} }));
+  await assert.rejects(buildRepositoryIndexes(root), /policy version mismatch/);
 });
 
 test("required missing or malformed repository inputs fail closed instead of becoming empty indexes", async (t) => {

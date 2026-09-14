@@ -1,0 +1,87 @@
+name: Intel Fast Cycle
+
+# Fast Mode processing owner. Runs the full cycle every 15 minutes:
+#   Incoming_Intel -> fact packets/decisions -> Story_Queue -> publish ->
+#   canonical fact application -> regenerate -> commit/push -> normal deploy.
+#
+# The Sheet is the durable workflow state; a missed run self-heals because
+# unprocessed rows keep their non-terminal status until the next cycle.
+#
+# One-time setup (repo secrets):
+#   P2_GOOGLE_SERVICE_ACCOUNT_JSON  service-account key JSON with Sheets
+#                                 read/write on the intelligence spreadsheet
+#   P2_PUBLISH_PAT                  required token so article/fact pushes fire
+#                                   the normal push-event deployment workflow.
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  repository_dispatch:
+    types: [wpb-intel-scan]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: intel-fast-cycle
+  cancel-in-progress: false
+
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      P2_DRY_RUN: ${{ vars.P2_DRY_RUN || '1' }}
+      P2_SKIP_PUBLISH: ${{ vars.P2_SKIP_PUBLISH || '1' }}
+    steps:
+      - name: Validate runtime configuration
+        shell: bash
+        env:
+          P2_GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.P2_GOOGLE_SERVICE_ACCOUNT_JSON }}
+          P2_PUBLISH_PAT: ${{ secrets.P2_PUBLISH_PAT }}
+        run: |
+          missing=0
+          if [[ -z "${P2_GOOGLE_SERVICE_ACCOUNT_JSON:-}" ]]; then
+            echo "::error::Missing repository secret P2_GOOGLE_SERVICE_ACCOUNT_JSON"
+            missing=1
+          fi
+          if [[ -z "${P2_PUBLISH_PAT:-}" ]]; then
+            echo "::error::Missing repository secret P2_PUBLISH_PAT"
+            missing=1
+          fi
+          if [[ "${P2_DRY_RUN}" != "0" && "${P2_DRY_RUN}" != "1" ]]; then
+            echo "::error::P2_DRY_RUN must be 0 or 1"
+            missing=1
+          fi
+          if [[ "${P2_SKIP_PUBLISH}" != "0" && "${P2_SKIP_PUBLISH}" != "1" ]]; then
+            echo "::error::P2_SKIP_PUBLISH must be 0 or 1"
+            missing=1
+          fi
+          exit "${missing}"
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.P2_PUBLISH_PAT }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure git identity
+        run: |
+          git config user.name "wpb-intel-bot"
+          git config user.email "wpb-intel-bot@users.noreply.github.com"
+
+      - name: Run fast cycle
+        env:
+          P2_GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.P2_GOOGLE_SERVICE_ACCOUNT_JSON }}
+          P2_PUBLISH_PAT: ${{ secrets.P2_PUBLISH_PAT }}
+        run: npm run p2:fast:cycle

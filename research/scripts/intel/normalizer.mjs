@@ -313,6 +313,7 @@ export function normalizeVerificationSources(sources = [], { classifySource } = 
       url,
       hint_url: input.hint_url || (hintUrl && hintUrl !== url ? hintUrl : undefined),
       hint_source_name: normalizeText(input.hint_source_name),
+      hint_source_type: normalizeText(input.hint_source_type || input.source_type_hint) || undefined,
       hostname: new URL(url).hostname.toLowerCase().replace(/\.$/, ""),
       source_name: normalizeText(input.source_name) || new URL(url).hostname,
       source_tier: classified.source_tier,

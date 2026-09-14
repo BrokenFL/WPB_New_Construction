@@ -13,14 +13,35 @@ export const SOURCE_LIMITS = Object.freeze({
 
 const hostRules = [
   ["wpb.org", [1, "government"]],
+  ["wpbgov.com", [1, "government"]],
   ["pbcgov.org", [1, "government"]],
+  ["pbcpao.gov", [1, "government"]],
+  ["mypalmbeachclerk.com", [1, "government"]],
+  ["civicclerk.com", [1, "government"]],
   ["relatedross.com", [1, "developer"]],
   ["southflaglerhouse.com", [1, "project"]],
   ["sec.gov", [1, "filing"]],
   ["therealdeal.com", [2, "trade"]],
+  ["bizjournals.com", [2, "business_journalism"]],
   ["floridayimby.com", [2, "trade"]],
+  ["oftmw.com", [2, "trade"]],
+  ["palmbeachpost.com", [2, "local_journalism"]],
+  ["palmbeachdailynews.com", [2, "local_journalism"]],
+  ["commercialobserver.com", [2, "trade"]],
+  ["bisnow.com", [2, "trade"]],
+  ["southfloridaagentmagazine.com", [2, "trade"]],
+  ["wptv.com", [2, "local_journalism"]],
+  ["wpbf.com", [2, "local_journalism"]],
+  ["wflx.com", [2, "local_journalism"]],
+  ["cbs12.com", [2, "local_journalism"]],
+  ["stetnews.org", [2, "local_journalism"]],
+  ["wlrn.org", [2, "local_journalism"]],
+  ["businesswire.com", [2, "press_release"]],
+  ["prnewswire.com", [2, "press_release"]],
   ["discoversouthflorida.com", [2, "trade"]],
-  ["yahoo.com", [2, "journalism"]],
+  // Syndication is a lead to the attributable original, not a Fast Mode
+  // reputation signal by itself.
+  ["yahoo.com", [3, "aggregator"]],
 ];
 
 function hostMatches(hostname, registeredHost) {
@@ -261,7 +282,7 @@ async function fetchInjected(urlValue, fetchImpl, { timeoutMs, maxBytes, maxRedi
   throw makeError("ERR_SOURCE_REDIRECT_LIMIT", "Source redirects exceeded the bounded limit");
 }
 
-export async function verifySourceHint({ url, source_name, published_date, claims_supported = [], fetchImpl, accessed_at, timeoutMs = SOURCE_LIMITS.timeoutMs, maxBytes = SOURCE_LIMITS.maxBytes, maxRedirects = SOURCE_LIMITS.maxRedirects, lookupImpl = dns.lookup } = {}) {
+export async function verifySourceHint({ url, source_name, published_date, source_type_hint, claims_supported = [], fetchImpl, accessed_at, timeoutMs = SOURCE_LIMITS.timeoutMs, maxBytes = SOURCE_LIMITS.maxBytes, maxRedirects = SOURCE_LIMITS.maxRedirects, lookupImpl = dns.lookup } = {}) {
   const classified = classifySource(url, source_name);
   if (classified.error) return classified;
   const headers = { "user-agent": "WPBNewConstruction-IntelVerifier/1.0", accept: "text/html,application/xhtml+xml,text/plain;q=0.9,*/*;q=0.1" };
@@ -273,13 +294,14 @@ export async function verifySourceHint({ url, source_name, published_date, claim
     if (!finalUrl) throw makeError("ERR_UNSAFE_SOURCE", "Fetched source resolved to an unsafe URL");
     const body = response.body;
     const contentHash = body ? digestBytes(body) : undefined;
-    const finalSource = finalUrl === classified.url ? classified : classifySource(finalUrl, "");
+    const finalSource = finalUrl === classified.url ? classified : classifySource(finalUrl, classified.source_name);
     if (finalSource?.error) throw makeError("ERR_UNSAFE_SOURCE", "Fetched source could not be independently classified after redirect");
     const status = Number(response.status || 0);
     const verifiedFetch = {
       ...finalSource,
       hint_url: classified.url,
       hint_source_name: classified.source_name,
+      hint_source_type: source_type_hint || undefined,
       published_date: published_date || undefined,
       accessed_at: accessed_at || new Date().toISOString(),
       final_url: finalUrl,
@@ -306,6 +328,7 @@ export async function verifySourceHint({ url, source_name, published_date, claim
       ...classified,
       hint_url: classified.url,
       hint_source_name: classified.source_name,
+      hint_source_type: source_type_hint || undefined,
       published_date: published_date || undefined,
       accessed_at: accessed_at || new Date().toISOString(),
       reachable: false,

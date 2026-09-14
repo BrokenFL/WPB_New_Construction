@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
+import { FAST_MODE_POLICY_VERSION } from "../p2/fast-policy.mjs";
 
 async function readInput(root, relativePath, { optional = false, json = false, shape } = {}) {
   let text;
@@ -23,10 +24,28 @@ export async function buildRepositoryIndexes(root = process.cwd()) {
     readInput(root, "research/news-review/approved-development-news.json", { json: true, shape: Array.isArray }),
     readInput(root, "src/data/importedUpdates.json", { optional: true, json: true, shape: Array.isArray }),
     readInput(root, "content/overrides/project-fact-overrides.json", { json: true, shape: (v) => v && typeof v === "object" && !Array.isArray(v) && v.projects && typeof v.projects === "object" && !Array.isArray(v.projects) }),
+    readInput(root, "content/overrides/project-fact-automated.json", { optional: true, json: true, shape: (v) => v && typeof v === "object" && !Array.isArray(v) && v.projects && typeof v.projects === "object" && !Array.isArray(v.projects) }),
     readInput(root, "src/data/approvedExternalNews.ts", { shape: (v) => v.trim().length > 0 }),
     readInput(root, ".runtime/intel/open-pr-index.json", { optional: true, json: true, shape: Array.isArray }),
+    readInput(root, "research/source-material-review/wpb-projects-canonical-v3-planning-update.json", { optional: true, json: true, shape: (v) => v && Array.isArray(v.projects) }),
+    readInput(root, "content/project-identity-decisions.json", { optional: true, json: true, shape: (v) => v && Array.isArray(v.projects) }),
   ]);
-  const [approved, imported, reviewedFacts, generatedNews, runtimeOpenPrIndex] = inputs.map((input) => input.value);
+  const [approved, imported, manualFacts, automatedFacts, generatedNews, runtimeOpenPrIndex, canonical, decisions] = inputs.map((input) => input.value);
+  if (automatedFacts?.policyVersion && automatedFacts.policyVersion !== FAST_MODE_POLICY_VERSION) {
+    throw new Error("ERR_REPOSITORY_INDEX: automated fact policy version mismatch");
+  }
+  // Canonical fact view = automated Fast Mode entries underneath Brooke's
+  // manual reviewed overrides (manual always wins per project+field). The
+  // reviewed canonical snapshot supplies the baseline so safe proposals for
+  // projects without an override can still prove their old value.
+  const mergedProjects = canonicalFactBaseline(canonical, decisions);
+  for (const [slug, fields] of Object.entries(automatedFacts?.projects || {})) {
+    mergedProjects[slug] = { ...(mergedProjects[slug] || {}), ...(fields || {}) };
+  }
+  for (const [slug, fields] of Object.entries(manualFacts?.projects || {})) {
+    mergedProjects[slug] = { ...(mergedProjects[slug] || {}), ...(fields || {}) };
+  }
+  const reviewedFacts = { ...(manualFacts || {}), projects: mergedProjects };
   const facts = JSON.stringify(reviewedFacts);
   const publicCorpus = [JSON.stringify(approved), JSON.stringify(imported), facts, generatedNews].join("\n");
   const events = [];
@@ -39,4 +58,32 @@ export async function buildRepositoryIndexes(root = process.cwd()) {
     if (projects.length === 1 && eventDate && item.category) events.push({ event_key: `project|${projects[0]}|${item.category}|development-update|${eventDate}`, source: "approved-development-news", id: item.id });
   }
   return { approved, imported, reviewed_facts: reviewedFacts, facts_text: facts, generated_news_text: generatedNews, public_corpus: publicCorpus, events, open_prs: runtimeOpenPrIndex, source_revisions: inputs.map((input) => input.revision) };
+}
+
+function canonicalFactBaseline(canonical, decisions) {
+  const projects = {};
+  const canonicalById = new Map((canonical?.projects || []).map((project) => [project.project_id, project]));
+  for (const decision of decisions?.projects || []) {
+    if (!decision?.publicSlug || decision.publicationState === "retired_merged") continue;
+    const source = canonicalById.get(decision.canonicalId) || {};
+    const candidate = decision.candidateFacts || {};
+    const values = {
+      name: firstPresent(source.display_name, candidate.displayName),
+      status: firstPresent(source.status_badge, candidate.status),
+      deliveryTiming: firstPresent(source.delivery_display, candidate.delivery),
+      residenceCount: firstPresent(source.public_residence_count, candidate.residences),
+      priceDisplay: firstPresent(source.price_display, candidate.price),
+      address: firstPresent(source.public_address, candidate.address),
+    };
+    const fields = {};
+    for (const [field, value] of Object.entries(values)) {
+      if (value !== undefined) fields[field] = { value, source: "canonical_model" };
+    }
+    if (Object.keys(fields).length) projects[decision.publicSlug] = fields;
+  }
+  return projects;
+}
+
+function firstPresent(...values) {
+  return values.find((value) => value !== undefined && value !== null && String(value).trim() !== "");
 }

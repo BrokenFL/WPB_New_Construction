@@ -1,6 +1,12 @@
 # P2 Shadow Automation Pipeline
 
-Status: **working shadow implementation; production activation prohibited**.
+Status: **historical shadow contract; production activation prohibited for this
+shadow path**.
+
+Fast Mode activation is governed by `docs/P2_FAST_MODE.md`. In Fast Mode,
+GitHub Actions is the sole recurring processor, no GCE owner is provisioned,
+and no scheduled Apps Script trigger is installed. The shadow material below
+remains authoritative only for the older `p2-shadow-policy-v2` contracts.
 
 This document is authoritative for the trusted-evidence bridge, shadow
 orchestrator, exception approval contract, Apps Script dispatch, and
@@ -190,8 +196,11 @@ code only; no paid writing API is integrated.
 
 ## Scanner and dispatch
 
-`tools/apps-script/incoming-intel-scanner.gs` is deployment source only; it is
-not installed. Its target is a roughly 15-minute time trigger, never `onEdit`.
+`tools/apps-script/incoming-intel-scanner.gs` is optional deployment source; it
+is not installed. The historical shadow design targeted a roughly 15-minute
+time trigger, never `onEdit`. Fast Mode supersedes that scheduler: use the
+GitHub Actions `Intel Fast Cycle` cron and keep `scanBothQueues()` and
+`ensureStoryQueueTab()` manual-only.
 It uses `getDisplayValues()`, a short ScriptLock overlap guard, unique-ID and
 `record_type=event` quarantine, per-row content/evidence hashes, HMAC signing,
 bounded retries, strict durable acknowledgment validation, and a row re-read
@@ -248,7 +257,7 @@ are expanded with project/event, exact article/fact outcomes, canonical diff,
 evidence links, and risk reasons. It writes local private JSON/Markdown and
 sends no email.
 
-### Deployment instructions (not authorization)
+### Historical shadow deployment instructions (not Fast Mode authorization)
 
 1. Create a Sheet-bound Apps Script from the checked-in `.gs` source.
 2. Set Script Properties `SCANNER_MODE=test`, the fixed `SHEET_ID`,
@@ -259,7 +268,9 @@ sends no email.
    15-minute cadence.
 5. Keep the processor master/release/fact switches off during shadow soak.
 
-These steps are intentionally not performed by this PR.
+These steps are intentionally not performed by this PR and must not be used to
+install a second Fast Mode scheduler. See `docs/P2_FAST_MODE.md` for the live
+GitHub Actions activation path.
 
 ## Exception approval
 
