@@ -1207,6 +1207,50 @@ test("story publisher enforces policy/writer/source boundaries and enriches appr
   assert.notEqual(pkg.heroImage.path, pkg.bodyImages[0].path);
   const mapped = articleInputFromStory(enriched.story).input;
   assert.equal(mapped.sections[0].imageKey, pkg.bodyImages[0].key);
+
+  const failed = await publishStory({
+    root: process.cwd(),
+    story: valid,
+    run: async () => ({
+      ok: false,
+      code: 1,
+      result: { ok: false, error: "Article publishing requires branch main; found detached HEAD.", reason: "wrong-branch" },
+    }),
+  });
+  assert.equal(failed.ok, false);
+  assert.equal(failed.error, "Article publishing requires branch main; found detached HEAD.");
+  assert.equal(failed.publisherReason, "wrong-branch");
+});
+
+test("story publisher requires reputable evidence for the semantic occurrence rather than identity metadata", () => {
+  const identityUrl = "https://www.wpb.org/government/development-services";
+  const occurrenceUrl = "https://example.com/project-milestone";
+  const story = {
+    story_id: "story-semantic-core",
+    intel_ids: "wpb-intel-2026-09-14-semantic-core",
+    event_key: "project|alba-palm-beach|construction|development-update|2026-09-14",
+    policy_version: FAST_MODE_POLICY_VERSION,
+    article_decision: "AUTO_PUBLISH",
+    writer_name: "chatgpt-story-writer",
+    writer_version: "story-writer-v1",
+    sources_json: JSON.stringify([
+      { source_ref_id: "identity-source", url: identityUrl, tier: 1 },
+      { source_ref_id: "occurrence-source", url: occurrenceUrl, tier: 3 },
+    ]),
+    verified_facts_json: JSON.stringify([
+      { claim_id: "identity", field: "project_identity", value: "alba-palm-beach", source_ref_ids: ["identity-source"] },
+      { claim_id: "occurrence", field: "material_updates", value: "The project reached a construction milestone.", source_ref_ids: ["occurrence-source"] },
+    ]),
+    story_package_json: JSON.stringify({
+      title: "Alba reaches a construction milestone",
+      deck: "The project moved forward.",
+      sections: [{ heading: "What changed", body: "A source-backed milestone was reported." }],
+      sourceUrl: occurrenceUrl,
+      sourceLinks: [{ label: "Milestone source", url: occurrenceUrl }],
+    }),
+  };
+  assert.equal(validatePublishableStory(story).disposition, "rewrite");
+  assert.match(validatePublishableStory(story).error, /reputable source bound to a verified core-event claim/);
 });
 
 test("story publisher recovers a prior commit after a crash without publishing twice", async (t) => {

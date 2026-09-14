@@ -106,8 +106,11 @@ export function validatePublishableStory(story) {
   }
   const verifiedFacts = parseJsonArray(story.verified_facts_json);
   const verifiedSourceRefs = new Set(verifiedFacts.flatMap((fact) => Array.isArray(fact?.source_ref_ids) ? fact.source_ref_ids : []));
+  // The publish bridge must enforce the same semantic occurrence contract as
+  // Fast Mode policy. Project/corridor identity and the internal event key are
+  // metadata; they do not establish that the real-world action occurred.
   const coreSourceRefs = new Set(verifiedFacts
-    .filter((fact) => ["headline", "project_identity", "corridor_identity", "event_identity"].includes(fact?.field))
+    .filter((fact) => ["material_updates", "summary", "headline"].includes(fact?.field))
     .flatMap((fact) => Array.isArray(fact?.source_ref_ids) ? fact.source_ref_ids : []));
   const sources = parseJsonArray(story.sources_json)
     .filter((source) => source && typeof source === "object" && safeHttpUrl(source.url));
@@ -296,7 +299,18 @@ export async function publishStory({ root, story, run = runArticlePublish }) {
   if (prepared.error) return { ok: false, retryable: false, disposition: "rewrite", error: prepared.error };
   const inputFile = await writeStoryInput(root, enriched.story.story_id, prepared.input);
   const outcome = await run({ root, inputFile });
-  if (!outcome.ok) return { ok: false, error: outcome.error || outcome.result?.errors?.join("; ") || `publisher exit ${outcome.code}` };
+  if (!outcome.ok) {
+    const detail = outcome.error
+      || outcome.result?.error
+      || outcome.result?.errors?.join("; ")
+      || outcome.stderr?.trim()
+      || `publisher exit ${outcome.code}`;
+    return {
+      ok: false,
+      error: String(detail).slice(-2000),
+      publisherReason: outcome.result?.reason || "publisher-error",
+    };
+  }
   return {
     ok: true,
     liveUrl: outcome.result?.liveUrl || null,
