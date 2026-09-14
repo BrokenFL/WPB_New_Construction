@@ -1,5 +1,71 @@
 [
   {
+    "id": "intel-story-6509ddad48c25f5c",
+    "slug": "andreessen-horowitz-cityplace-tower-west-palm-beach-2026-09-14",
+    "title": "Andreessen Horowitz Leases Office at CityPlace Tower",
+    "sourceName": "Commercial Observer",
+    "sourceUrl": "https://commercialobserver.com/2026/09/andreessen-horowitz-a16z-stephen-related-ross-cityplace-tower-west-palm-beach/",
+    "canonicalUrl": "https://commercialobserver.com/2026/09/andreessen-horowitz-a16z-stephen-related-ross-cityplace-tower-west-palm-beach/",
+    "sourceTitle": "Andreessen Horowitz Leases Office at CityPlace Tower",
+    "publishedAt": "2026-09-14T18:05:40.938Z",
+    "sourcePublishedAt": "2026-09-10",
+    "sourcePublishedDate": "2026-09-10",
+    "eventDate": "2026-09-14",
+    "dateDiscovered": "2026-09-14",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-14T18:05:40.938Z",
+    "deck": "Andreessen Horowitz has signed a lease at CityPlace Tower, adding a major venture-capital tenant focused on technology and defense-related investing.",
+    "description": "Andreessen Horowitz has signed a lease at CityPlace Tower, adding a major venture-capital tenant focused on technology and defense-related investing.",
+    "summary": "Andreessen Horowitz is taking office space at CityPlace Tower at 525 Okeechobee Boulevard, expanding West Palm Beach’s roster of major corporate tenants.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Andreessen Horowitz has signed a new office lease at CityPlace Tower, 525 Okeechobee Boulevard, in West Palm Beach. The venture-capital firm’s office is tied to its technology and defense-related investment activity.\n\nThe lease adds another prominent corporate tenant to Related Ross’s West Palm Beach commercial portfolio. It also fits a broader pattern of major firms establishing or expanding a presence in the city.",
+        "image": "/assets/editorial/wall-street-south-office-arrival.jpg"
+      },
+      {
+        "heading": "Why it matters for buyers",
+        "body": "For residential buyers, the useful takeaway is not a promise about condo prices or resale demand. One office lease cannot prove either. What it can show is continued corporate activity in the central West Palm Beach market, adding another high-profile employer and business presence to the area.\n\nThat matters when comparing neighborhoods because the residential market does not exist in isolation. Office growth can influence how people think about commute patterns, walkability, weekday activity and proximity to business districts. The safest way to use this information is as a market-context signal rather than as an investment forecast."
+      },
+      {
+        "heading": "What to watch",
+        "body": "Watch for the timing and scale of the firm’s local office build-out, along with additional tenant announcements across the city’s newer commercial buildings. Those details will help show whether this is an isolated lease or part of a continuing wave of corporate expansion.\n\nFor buyers evaluating central West Palm Beach, the a16z lease is one more concrete data point: major firms continue to choose the city for operating space."
+      }
+    ],
+    "whyItMatters": "The lease adds another high-profile corporate user to CityPlace Tower and the broader West Palm Beach office market.",
+    "buyerContext": "Useful as market context; avoid turning one lease into an unsupported claim about residential values.",
+    "buyerTakeaway": "Treat the lease as a corporate-growth signal, not proof of future condo appreciation or resale demand.",
+    "marketSignal": "A major venture-capital firm is adding office space to West Palm Beach’s commercial core.",
+    "bestFor": "Buyers who care about proximity to the city’s growing business district and weekday activity.",
+    "watchPoints": "Office opening details and additional major tenant announcements in West Palm Beach.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Andreessen Horowitz Leases Office at CityPlace Tower",
+    "newsletterBlurb": "Andreessen Horowitz has signed a lease at CityPlace Tower, adding a major venture-capital tenant focused on technology and defense-related investing.",
+    "newsletterCta": "Read the article",
+    "query": "Andreessen Horowitz Leases Office at CityPlace Tower",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+    "sourceLinks": [
+      {
+        "label": "Commercial Observer",
+        "url": "https://commercialobserver.com/2026/09/andreessen-horowitz-a16z-stephen-related-ross-cityplace-tower-west-palm-beach/",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "intel-story-03ccad51e240cf82",
     "slug": "534-datura-25-story-tower-west-palm-beach-2026-09-14",
     "title": "25-Story 534 Datura Tower Planned in West Palm Beach",

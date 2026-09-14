@@ -5085,6 +5085,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/andreessen-horowitz-cityplace-tower-west-palm-beach-2026-09-14/",
+    "title": "Andreessen Horowitz Leases Office at CityPlace Tower | WPB Updates",
+    "description": "Andreessen Horowitz has signed a lease at CityPlace Tower, adding a major venture-capital tenant focused on technology and defense-related investing.",
+    "ogImage": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg"
+  },
+  {
     "path": "/updates/534-datura-25-story-tower-west-palm-beach-2026-09-14/",
     "title": "25-Story 534 Datura Tower Planned in West Palm Beach | WPB Updates",
     "description": "Rybak Development and Gold Standard of Care plan a 25-story, 281,000-square-foot tower with 261 residences, retail and a large amenity deck.",
