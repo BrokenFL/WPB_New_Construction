@@ -197,6 +197,19 @@ export function summarizeSheetState({ intelValues = [], storyValues = [] } = {})
   };
 }
 
+export function summarizeCycleActivity(cycle = {}) {
+  const results = Array.isArray(cycle.results) ? cycle.results : [];
+  const storyActions = Array.isArray(cycle.storyActions) ? cycle.storyActions : [];
+  return {
+    packets_emitted: results.filter((result) => result.packet_emitted === true).length,
+    rows_transitioned_to_awaiting_fact_check: results.filter((result) => result.packet_emitted === true).length,
+    valid_handoffs_accepted: results.filter((result) => result.stage === "decided" && result.review_retry === false).length,
+    story_queue_items_created: storyActions.filter((action) => action.action === "queued_for_writer").length,
+    source_retries: results.filter((result) => result.stage === "source_retry").length,
+    duplicate_groups_quarantined: results.filter((result) => result.stage === "quarantined" && result.quarantine_reason === "duplicate_id").length,
+  };
+}
+
 export async function main() {
   const beforeHead = (await run("git", ["rev-parse", "HEAD"])).stdout.trim();
   const sheets = createGoogleSheetsIo({
@@ -251,6 +264,7 @@ export async function main() {
     skip_publish: skipPublish,
     policy_version: cycle.policy_version,
     digest: cycle.digest.summary,
+    cycle_activity: summarizeCycleActivity(cycle),
     story_queue_row_count: cycle.story_queue_row_count,
     quarantined_duplicate_groups: cycle.results.filter((result) => result.stage === "quarantined" && result.quarantine_reason === "duplicate_id").length,
     publish_actions: cycle.publishActions.length,

@@ -366,7 +366,12 @@ export async function runFastCycle({
         p2_content_hash: content_hash,
         processor_version: FAST_MODE_POLICY_VERSION,
       }, INCOMING_INTEL_SHEET));
-      results.push({ intel_id: id, stage: "awaiting_fact_check", event_key: packet.event_key });
+      results.push({
+        intel_id: id,
+        stage: "awaiting_fact_check",
+        event_key: packet.event_key,
+        packet_emitted: true,
+      });
       continue;
     }
 

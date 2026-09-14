@@ -35,6 +35,7 @@ import {
   fetchSources,
   isAllowedFactOutputPath,
   sourceHintsFromRow,
+  summarizeCycleActivity,
   summarizeSheetState,
 } from "./fast-cycle-cli.mjs";
 import {
@@ -957,6 +958,32 @@ test("sanitized Sheet summary reports counts without row contents", () => {
   assert.equal(summary.duplicate_id_groups, 1);
   assert.equal(summary.story_queue_rows, 1);
   assert.equal(JSON.stringify(summary).includes("same"), false);
+});
+
+test("sanitized cycle activity distinguishes new packets, accepted handoffs, and new stories", () => {
+  const summary = summarizeCycleActivity({
+    results: [
+      { intel_id: "a", stage: "awaiting_fact_check", packet_emitted: true },
+      { intel_id: "b", stage: "awaiting_fact_check" },
+      { intel_id: "c", stage: "decided", review_retry: false },
+      { intel_id: "d", stage: "decided", review_retry: true },
+      { intel_id: "e", stage: "source_retry" },
+      { intel_id: "f", stage: "quarantined", quarantine_reason: "duplicate_id" },
+    ],
+    storyActions: [
+      { action: "queued_for_writer" },
+      { action: "reused_active" },
+    ],
+  });
+  assert.deepEqual(summary, {
+    packets_emitted: 1,
+    rows_transitioned_to_awaiting_fact_check: 1,
+    valid_handoffs_accepted: 1,
+    story_queue_items_created: 1,
+    source_retries: 1,
+    duplicate_groups_quarantined: 1,
+  });
+  assert.equal(JSON.stringify(summary).includes("intel_id"), false);
 });
 
 test("digest reports outcomes, not review queue", () => {
