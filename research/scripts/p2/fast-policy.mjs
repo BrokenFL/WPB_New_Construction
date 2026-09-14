@@ -1,12 +1,10 @@
 import { sha256, stableJson } from "../intel/core.mjs";
 
-// Fast Mode policy (p2-fast-policy-v1). Intentionally looser than the shadow
-// policy: a credible, attributable core event auto-publishes even when
-// secondary details are uncertain; the writer omits or qualifies them.
-// Canonical facts auto-apply for objective fields and for dynamic fields that
-// carry source + as-of provenance. Humans are reserved for genuine conflicts,
-// unresolved identity, legal conclusions, and destructive merges.
+// The evidence handoff stays on the already-live v1 policy binding so current
+// signed handoffs remain usable. The processor revision is separate: changing
+// it forces already-decided rows through the corrected Fast Mode V2 engine.
 export const FAST_MODE_POLICY_VERSION = "p2-fast-policy-v1";
+export const FAST_MODE_PROCESSOR_VERSION = "p2-fast-mode-v2-throughput";
 
 export const ARTICLE_DECISION = Object.freeze({
   AUTO_PUBLISH: "AUTO_PUBLISH",
@@ -22,31 +20,19 @@ export const FACT_DECISION = Object.freeze({
   NONE: "NONE",
 });
 
-// Claims that define the event itself. If one of these is unsupported or
-// conflicted there is no responsible story; secondary claims may be dropped
-// or qualified instead of blocking publication.
-const CORE_CLAIM_FIELDS = new Set(["headline", "project_identity", "corridor_identity", "event_identity"]);
+// A publishable event is semantic: an identifiable entity plus an occurrence.
+// Headline, event_key, corridor, dates, and buyer context are editorial or
+// workflow fields. They may help describe the event, but their literal intake
+// representation is never itself a blocking core contract.
+const IDENTITY_CLAIM_FIELDS = new Set(["project_identity", "project_name"]);
+const OCCURRENCE_CLAIM_FIELDS = new Set(["material_updates", "summary", "headline"]);
 
-// Warnings that always block an article: the core event is contradicted, the
-// entity cannot be resolved, or the source set is unsafe/corrupt.
 const ARTICLE_HOLD_WARNING_CODES = new Set([
   "ERR_TEMPORAL_CONFLICT",
   "ERR_ENTITY_AMBIGUOUS",
   "ERR_UNSAFE_SOURCE",
-  "ERR_EVENT_KEY_CONFLICT",
-  "ERR_REVIEW_BUNDLE_MALFORMED",
-  "ERR_REVIEW_BUNDLE_HASH",
-  "ERR_REVIEW_SNAPSHOT_MISMATCH",
-  "ERR_REVIEW_EVENT_MISMATCH",
-  "ERR_REVIEW_CLAIMS_MISMATCH",
-  "ERR_REVIEW_SOURCE_MISMATCH",
-  "ERR_REVIEW_POLICY_MISMATCH",
-  "ERR_REVIEW_REVIEWER_VERSION_MISMATCH",
 ]);
 
-// Objective project attributes that may be auto-applied. Keep this allowlist
-// aligned with REVIEWED_FACT_FIELD_MAP so every accepted mutation reaches the
-// canonical public project model rather than becoming silent internal data.
 export const FAST_AUTO_FACT_FIELDS = new Set([
   "status",
   "name",
@@ -54,14 +40,11 @@ export const FAST_AUTO_FACT_FIELDS = new Set([
   "address",
 ]);
 
-// Dynamic facts may also auto-apply, but only when they carry a valid as-of
-// date and at least one source URL so the stored value is honestly dated.
 export const FAST_DYNAMIC_FACT_FIELDS = new Set([
   "priceDisplay",
   "deliveryTiming",
 ]);
 
-// Legal conclusions, identity merges, and anything unrecognized stay human.
 export const FAST_HUMAN_FACT_FIELDS = new Set([
   "legal",
   "termination",
@@ -81,91 +64,95 @@ export function classifyFastFactField(field) {
   return "human_required";
 }
 
-function isCoreClaim(claim) {
-  return CORE_CLAIM_FIELDS.has(claim.field);
+function isFetchedCredibleSource(source) {
+  return !source?.error
+    && source.url
+    && (source.source_tier === 1 || source.source_tier === 2)
+    && source.retrieval_status === "fetched"
+    && source.retrieval_attested === true
+    && source.reachable === true;
 }
 
-function conflictingCoreClaims(result) {
-  return (result.claims || []).filter((claim) => isCoreClaim(claim) && claim.support === "conflicted");
+function credibleSourceRefs(result) {
+  return new Set((result.verificationSources || []).filter(isFetchedCredibleSource).map((source) => source.source_ref_id));
 }
 
-function unsupportedCoreClaims(result) {
-  return (result.claims || []).filter((claim) => isCoreClaim(claim) && claim.material && claim.support !== "supported");
+function claimHasCredibleSupport(claim, credibleRefs) {
+  return claim?.support === "supported"
+    && (claim.supporting_source_ref_ids || []).some((id) => credibleRefs.has(id));
 }
 
-function credibleSourceTiers(result) {
-  return new Set(
-    (result.verificationSources || [])
-      .filter((source) => !source.error && source.url && (source.source_tier === 1 || source.source_tier === 2))
-      .map((source) => source.source_ref_id),
-  );
+export function semanticArticleEvidence(result) {
+  const credibleRefs = credibleSourceRefs(result);
+  const claims = result.claims || [];
+  const identityClaims = claims.filter((claim) => IDENTITY_CLAIM_FIELDS.has(claim.field) && claim.support === "supported");
+  const occurrenceClaims = claims.filter((claim) => OCCURRENCE_CLAIM_FIELDS.has(claim.field)
+    && String(claim.claim_value ?? "").trim()
+    && claimHasCredibleSupport(claim, credibleRefs));
+  return {
+    credible_source_refs: [...credibleRefs],
+    identity_claim_ids: identityClaims.map((claim) => claim.claim_id),
+    occurrence_claim_ids: occurrenceClaims.map((claim) => claim.claim_id),
+    identifiable: identityClaims.length > 0,
+    supported_occurrence: occurrenceClaims.length > 0,
+  };
 }
 
-function supportedCoreClaimsWithCredibleSource(result) {
-  const credible = credibleSourceTiers(result);
-  return (result.claims || []).filter((claim) => isCoreClaim(claim)
-    && claim.support === "supported"
-    && (claim.supporting_source_ref_ids || []).some((id) => credible.has(id)));
-}
-
-function hardGate({ row, result }) {
-  const report = result.report;
-  if (["duplicate", "additional_source"].includes(report.dedupe_classification)) {
-    return { article: ARTICLE_DECISION.DUPLICATE, fact: FACT_DECISION.NONE, articleReasons: [`dedupe:${report.dedupe_classification}`], factReasons: ["duplicate_event_has_no_fact_change"] };
-  }
-  if (report.errors.length) {
-    const codes = report.errors.map((error) => error.code);
-    return { article: ARTICLE_DECISION.HOLD, fact: FACT_DECISION.HOLD, articleReasons: codes, factReasons: codes };
-  }
-  if (report.dedupe_classification === "conflicting_event" || row.verification_status === "conflicting") {
-    const reasons = ["core_event_contradicted", ...report.warnings.map((warning) => warning.code)];
-    return { article: ARTICLE_DECISION.HOLD, fact: FACT_DECISION.HOLD, articleReasons: reasons, factReasons: reasons };
-  }
-  const blocking = report.warnings.filter((warning) => ARTICLE_HOLD_WARNING_CODES.has(warning.code)).map((warning) => warning.code);
-  const conflictedCore = conflictingCoreClaims(result);
-  if (conflictedCore.length) blocking.push(`core_claim_conflict:${conflictedCore.map((claim) => claim.claim_id).join(",")}`);
-  if (blocking.length) {
-    return { article: ARTICLE_DECISION.HOLD, fact: FACT_DECISION.HOLD, articleReasons: blocking, factReasons: blocking };
-  }
-  return null;
-}
-
-function brookeDecisionRequired(row) {
-  if (/^(true|1|yes)$/i.test(String(row.requires_human_review || "").trim())) return true;
+function explicitBrookeDecisionRequired(row) {
   try { return JSON.parse(row.flags_json || "{}").brooke_decision_required === true; } catch { return false; }
 }
 
+function qualifiedClaims(result) {
+  return (result.claims || [])
+    .filter((claim) => (claim.material || ["headline", "event_date", "corridor_identity", "buyer_context"].includes(claim.field))
+      && claim.support !== "supported"
+      && claim.field !== "event_identity")
+    .map((claim) => ({
+      claim_id: claim.claim_id,
+      field: claim.field,
+      value: claim.claim_value,
+      support: claim.support,
+      disposition: claim.support === "conflicted" ? "qualify_or_omit" : "omit",
+    }));
+}
+
 function decideFastArticle({ row, result, boundReview }) {
-  if (!boundReview?.bound) return { decision: ARTICLE_DECISION.HOLD, reasons: [boundReview?.code || "no_verified_evidence"], qualified_claims: [] };
-  const flagged = brookeDecisionRequired(row);
-  const unsupportedCore = unsupportedCoreClaims(result);
-  if (unsupportedCore.length) {
-    return {
-      decision: flagged ? ARTICLE_DECISION.NEEDS_DECISION : ARTICLE_DECISION.HOLD,
-      reasons: [`unsupported_core_claims:${unsupportedCore.map((claim) => claim.field).join(",")}`],
-      qualified_claims: [],
-    };
+  if (!boundReview?.bound) {
+    return { decision: ARTICLE_DECISION.HOLD, reasons: [boundReview?.code || "no_verified_evidence"], qualified_claims: [], evidence: semanticArticleEvidence(result) };
   }
-  const supported = supportedCoreClaimsWithCredibleSource(result);
-  if (!supported.length) return { decision: ARTICLE_DECISION.HOLD, reasons: ["no_credible_source_supports_core_event"], qualified_claims: [] };
-  // Secondary claims that are unsupported or conflicted do not block the
-  // story; they are handed to the writer as qualify-or-omit guidance.
-  const qualified = (result.claims || [])
-    .filter((claim) => claim.material && !isCoreClaim(claim) && claim.support !== "supported")
-    .map((claim) => ({ claim_id: claim.claim_id, field: claim.field, support: claim.support }));
-  if (flagged) return { decision: ARTICLE_DECISION.NEEDS_DECISION, reasons: ["brooke_decision_required_flag"], qualified_claims: qualified };
-  return { decision: ARTICLE_DECISION.AUTO_PUBLISH, reasons: ["credible_attributable_core_event"], qualified_claims: qualified };
+  const report = result.report;
+  if (["duplicate", "additional_source"].includes(report.dedupe_classification)) {
+    return { decision: ARTICLE_DECISION.DUPLICATE, reasons: [`dedupe:${report.dedupe_classification}`], qualified_claims: qualifiedClaims(result), evidence: semanticArticleEvidence(result) };
+  }
+  if (report.dedupe_classification === "conflicting_event") {
+    return { decision: ARTICLE_DECISION.HOLD, reasons: ["core_event_contradicted"], qualified_claims: qualifiedClaims(result), evidence: semanticArticleEvidence(result) };
+  }
+  const blocking = (report.warnings || []).filter((warning) => ARTICLE_HOLD_WARNING_CODES.has(warning.code)).map((warning) => warning.code);
+  if (blocking.length) {
+    return { decision: ARTICLE_DECISION.HOLD, reasons: blocking, qualified_claims: qualifiedClaims(result), evidence: semanticArticleEvidence(result) };
+  }
+  const evidence = semanticArticleEvidence(result);
+  if (!evidence.identifiable) {
+    return { decision: ARTICLE_DECISION.HOLD, reasons: ["unresolved_entity_identity"], qualified_claims: qualifiedClaims(result), evidence };
+  }
+  if (!evidence.supported_occurrence) {
+    return { decision: ARTICLE_DECISION.HOLD, reasons: ["no_credible_source_supports_core_occurrence"], qualified_claims: qualifiedClaims(result), evidence };
+  }
+  const qualified = qualifiedClaims(result);
+  if (explicitBrookeDecisionRequired(row)) {
+    return { decision: ARTICLE_DECISION.NEEDS_DECISION, reasons: ["brooke_decision_required_flag"], qualified_claims: qualified, evidence };
+  }
+  return {
+    decision: ARTICLE_DECISION.AUTO_PUBLISH,
+    reasons: ["credible_attributable_semantic_occurrence", ...(qualified.length ? [`secondary_claims_qualified_or_omitted:${qualified.length}`] : [])],
+    qualified_claims: qualified,
+    evidence,
+  };
 }
 
 function proposalSources(result, proposal) {
   const refs = new Set(proposal.verification_source_ref_ids || []);
-  return (result.verificationSources || []).filter((source) => refs.has(source.source_ref_id) && !source.error);
-}
-
-function acceptableFastSourceClass(sources) {
-  // Fast Mode intentionally accepts one independently classified official or
-  // reputable source after the exact claim has been bound by the fact checker.
-  return sources.some((source) => source.source_tier === 1 || source.source_tier === 2);
+  return (result.verificationSources || []).filter((source) => refs.has(source.source_ref_id) && isFetchedCredibleSource(source));
 }
 
 function isRealDateOnly(value) {
@@ -189,12 +176,132 @@ function proposalClaimsAreSupported(result, boundReview, proposal) {
   });
 }
 
-function decideFastFacts({ row, result, boundReview }) {
-  const proposals = result.projectFactProposals || [];
+function uniqueMatches(text, regex, transform = (value) => value) {
+  const values = [...String(text || "").matchAll(regex)].map((match) => transform(match[1], match)).filter((value) => value !== null && value !== undefined && value !== "");
+  return [...new Set(values.map(String))];
+}
+
+function derivedValuesForClaim(claim) {
+  const text = String(claim.claim_value ?? "").replace(/\s+/g, " ").trim();
+  const values = {};
+  const residenceCounts = uniqueMatches(text, /\b([0-9]{1,4})\s+(?:exclusive\s+|luxury\s+|corner\s+)*(?:residences?|units?|condominiums?|condos?)\b/gi, (value) => String(Number(value)));
+  if (residenceCounts.length === 1) values.residenceCount = residenceCounts[0];
+
+  const deliveryYears = uniqueMatches(text, /\b(?:delivery|completion|opening|move[- ]?ins?|occupancy)[^.;]{0,48}?\b(20\d{2})\b/gi);
+  if (deliveryYears.length === 1) values.deliveryTiming = deliveryYears[0];
+
+  const addresses = uniqueMatches(text, /\b([0-9]{2,5}\s+[A-Z0-9][A-Za-z0-9.'’ -]{1,55}\s(?:Street|St\.?|Avenue|Ave\.?|Boulevard|Blvd\.?|Drive|Dr\.?|Road|Rd\.?|Way|Place|Pl\.?|Lane|Ln\.?))(?:,?\s+West Palm Beach(?:,?\s+FL(?:\s+\d{5})?)?)?/gi, (_value, match) => match[0].replace(/[.;,]+$/, "").trim());
+  if (addresses.length === 1) values.address = addresses[0];
+
+  const priceMatches = uniqueMatches(text, /\b(?:prices?|pricing)\s+(?:start(?:ing)?|begin(?:ning)?|from)\s+(?:at\s+)?(\$[0-9]+(?:\.[0-9]+)?\s*(?:m|million|k|thousand)?)\b/gi, (value) => `From ${String(value).replace(/\s+/g, "").toUpperCase()}`);
+  if (priceMatches.length === 1) values.priceDisplay = priceMatches[0];
+
+  if (/\b(?:completed|completion complete|move[- ]?ins? (?:are )?underway|residents? (?:are )?moving in)\b/i.test(text)) values.status = "Completed";
+  else if (/\b(?:broke ground|groundbreaking|construction (?:has )?(?:begun|started)|under construction)\b/i.test(text)) values.status = "Under Construction";
+  else if (/\b(?:sales (?:have )?launched|sales launch|now selling)\b/i.test(text)) values.status = "Active Sales";
+  else if (/\b(?:plans? (?:were )?filed|proposed plans?|approved the proposal|received approval)\b/i.test(text)) values.status = "Planning";
+  return values;
+}
+
+function semanticallyEqual(field, left, right) {
+  if (field === "residenceCount") return Number(left) === Number(right);
+  return String(left ?? "").trim().toLowerCase() === String(right ?? "").trim().toLowerCase();
+}
+
+function statusProgressRank(value) {
+  const text = String(value || "").toLowerCase().replace(/[_-]+/g, " ");
+  if (/completed|move.?ins? (?:are )?underway|residents? (?:are )?moving in/.test(text)) return 4;
+  if (/under construction|construction (?:has )?(?:begun|started)|groundbreak/.test(text)) return 3;
+  if (/active sales|sales office|now selling|sales (?:have )?launched/.test(text)) return 2;
+  if (/pre.?construction|planning|proposed|filed|approval/.test(text)) return 1;
+  return null;
+}
+
+function isSafeDerivedTransition(field, currentValue, proposedValue) {
+  if (field !== "status") return true;
+  const currentRank = statusProgressRank(currentValue);
+  const proposedRank = statusProgressRank(proposedValue);
+  return currentRank === null || proposedRank === null || proposedRank >= currentRank;
+}
+
+function supportedProjectId(result, indexes) {
+  const values = (result.claims || [])
+    .filter((claim) => claim.field === "project_identity" && claim.support === "supported")
+    .flatMap((claim) => String(claim.claim_value || "").split(","))
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const unique = [...new Set(values)];
+  if (unique.length !== 1 || !indexes?.reviewed_facts?.projects?.[unique[0]]) return null;
+  return unique[0];
+}
+
+function supportedEffectiveDate(result, sourceRefs) {
+  const eventDate = (result.claims || []).find((claim) => claim.field === "event_date" && claim.support === "supported" && isRealDateOnly(claim.claim_value));
+  if (eventDate) return String(eventDate.claim_value).slice(0, 10);
+  const dates = (result.verificationSources || [])
+    .filter((source) => sourceRefs.includes(source.source_ref_id) && isRealDateOnly(source.published_date))
+    .map((source) => String(source.published_date).slice(0, 10))
+    .sort();
+  return dates.at(-1) || null;
+}
+
+export function synthesizeFastFactProposals({ result, indexes } = {}) {
+  const projectId = supportedProjectId(result, indexes);
+  if (!projectId) return [];
+  const explicitFields = new Set([
+    ...(result.projectFactProposals || []).map((proposal) => proposal.field),
+    ...(result.heldProjectFactProposals || []).map((proposal) => proposal.field),
+  ]);
+  const credibleRefs = credibleSourceRefs(result);
+  const byField = new Map();
+  for (const claim of result.claims || []) {
+    if (claim.support !== "supported") continue;
+    const claimSourceRefs = (claim.supporting_source_ref_ids || []).filter((ref) => credibleRefs.has(ref));
+    if (!claimSourceRefs.length) continue;
+    for (const [field, value] of Object.entries(derivedValuesForClaim(claim))) {
+      if (explicitFields.has(field) || classifyFastFactField(field) === "human_required") continue;
+      const candidates = byField.get(field) || [];
+      candidates.push({ value, claim_id: claim.claim_id, source_refs: claimSourceRefs });
+      byField.set(field, candidates);
+    }
+  }
+
+  const proposals = [];
+  for (const [field, candidates] of byField) {
+    const uniqueValues = [...new Set(candidates.map((candidate) => String(candidate.value)))];
+    if (uniqueValues.length !== 1) continue;
+    const currentEntry = indexes.reviewed_facts.projects[projectId]?.[field];
+    if (!currentEntry || currentEntry.value === undefined || semanticallyEqual(field, currentEntry.value, uniqueValues[0])) continue;
+    if (!isSafeDerivedTransition(field, currentEntry.value, uniqueValues[0])) continue;
+    const matching = candidates.filter((candidate) => String(candidate.value) === uniqueValues[0]);
+    const claimIds = [...new Set(matching.map((candidate) => candidate.claim_id))].sort();
+    const sourceRefs = [...new Set(matching.flatMap((candidate) => candidate.source_refs))].sort();
+    const effectiveDate = supportedEffectiveDate(result, sourceRefs);
+    proposals.push({
+      proposal_id: `fast-derived-${sha256(stableJson({ projectId, field, value: uniqueValues[0], claimIds, sourceRefs })).slice(0, 16)}`,
+      project_id: projectId,
+      field,
+      old_value: currentEntry.value,
+      proposed_value: uniqueValues[0],
+      effective_date: effectiveDate,
+      event_key: result.report?.derived_event_key || "",
+      supporting_claim_ids: claimIds,
+      verification_source_ref_ids: sourceRefs,
+      rollback: { previous_value: currentEntry.value },
+      synthesized: true,
+      provenance: { method: "supported_claim_vs_reviewed_public_field", as_of: effectiveDate },
+    });
+  }
+  return proposals;
+}
+
+function decideFastFacts({ row, result, boundReview, indexes }) {
+  const synthesized = synthesizeFastFactProposals({ result, indexes });
+  const proposals = [...(result.projectFactProposals || []), ...synthesized];
   const held = result.heldProjectFactProposals || [];
   if (!proposals.length) {
-    if (held.length) return { decision: FACT_DECISION.HOLD, reasons: held.map((item) => `held:${item.field}:${item.hold_reason || item.review_requirement}`), mutations: [] };
-    return { decision: FACT_DECISION.NONE, reasons: ["no_fact_change_proposed"], mutations: [] };
+    if (held.length) return { decision: FACT_DECISION.HOLD, reasons: held.map((item) => `held:${item.field}:${item.hold_reason || item.review_requirement}`), mutations: [], synthesized };
+    return { decision: FACT_DECISION.NONE, reasons: ["no_fact_change_proposed"], mutations: [], synthesized };
   }
   const mutations = [];
   const human = [];
@@ -213,16 +320,15 @@ function decideFastFacts({ row, result, boundReview }) {
       blocked.push(`${proposal.field}:proposal_claim_not_supported`);
       continue;
     }
-    if (stableJson(proposal.old_value) === stableJson(proposal.proposed_value)) {
+    if (semanticallyEqual(proposal.field, proposal.old_value, proposal.proposed_value)) {
       blocked.push(`${proposal.field}:no_change`);
       continue;
     }
     const sources = proposalSources(result, proposal);
-    if (!sources.length || !acceptableFastSourceClass(sources)) {
+    if (!sources.length) {
       blocked.push(`${proposal.field}:source_class_unacceptable`);
       continue;
     }
-    const credibleSources = sources.filter((source) => source.source_tier === 1 || source.source_tier === 2);
     const asOf = String(proposal.effective_date || "").slice(0, 10);
     if (fieldClass === "auto_dynamic" && !isRealDateOnly(asOf)) {
       blocked.push(`${proposal.field}:dynamic_fact_requires_as_of`);
@@ -234,9 +340,9 @@ function decideFastFacts({ row, result, boundReview }) {
       previous_value: proposal.old_value,
       value: proposal.proposed_value,
       as_of: asOf || null,
-      source_url: credibleSources[0]?.url || null,
-      source_name: credibleSources[0]?.source_name || null,
-      sources: credibleSources.map((source) => ({
+      source_url: sources[0]?.url || null,
+      source_name: sources[0]?.source_name || null,
+      sources: sources.map((source) => ({
         source_ref_id: source.source_ref_id,
         url: source.url,
         name: source.source_name || null,
@@ -254,43 +360,51 @@ function decideFastFacts({ row, result, boundReview }) {
       policy_version: FAST_MODE_POLICY_VERSION,
       apply: true,
       rollback: proposal.rollback || { previous_value: proposal.old_value },
+      synthesized: proposal.synthesized === true,
+      provenance: proposal.provenance || null,
     });
   }
   const reasons = [
-    ...mutations.map((mutation) => `auto_apply:${mutation.field}`),
+    ...mutations.map((mutation) => `${mutation.synthesized ? "auto_apply_synthesized" : "auto_apply"}:${mutation.field}`),
     ...human,
     ...blocked,
     ...held.map((item) => `held:${item.field}`),
   ];
-  if (brookeDecisionRequired(row)) {
-    return { decision: FACT_DECISION.NEEDS_DECISION, reasons: ["requires_human_review", ...reasons], mutations: [] };
+  if (explicitBrookeDecisionRequired(row)) {
+    return { decision: FACT_DECISION.NEEDS_DECISION, reasons: ["brooke_decision_required_flag", ...reasons], mutations: [], synthesized };
   }
-  if (human.length) return { decision: FACT_DECISION.NEEDS_DECISION, reasons, mutations };
-  if (mutations.length) return { decision: FACT_DECISION.AUTO_APPLY, reasons, mutations };
-  return { decision: FACT_DECISION.HOLD, reasons: reasons.length ? reasons : ["no_auto_applicable_facts"], mutations };
+  if (human.length) return { decision: FACT_DECISION.NEEDS_DECISION, reasons, mutations, synthesized };
+  if (mutations.length) return { decision: FACT_DECISION.AUTO_APPLY, reasons, mutations, synthesized };
+  return { decision: FACT_DECISION.HOLD, reasons: reasons.length ? reasons : ["no_auto_applicable_facts"], mutations, synthesized };
 }
 
-export function decideFast({ row, result, boundReview }) {
-  const gate = hardGate({ row, result });
-  if (gate) {
+export function decideFast({ row, result, boundReview, indexes }) {
+  const errorCodes = (result.report?.errors || []).map((error) => error.code);
+  if (errorCodes.length) {
     return {
       policy_version: FAST_MODE_POLICY_VERSION,
-      article_decision: gate.article,
-      fact_change_decision: gate.fact,
-      reasons: { article: gate.articleReasons, fact_change: gate.factReasons },
+      processor_version: FAST_MODE_PROCESSOR_VERSION,
+      article_decision: ARTICLE_DECISION.HOLD,
+      fact_change_decision: FACT_DECISION.HOLD,
+      reasons: { article: errorCodes, fact_change: errorCodes },
       qualified_claims: [],
       fact_mutations: [],
+      synthesized_fact_proposals: [],
+      article_evidence: semanticArticleEvidence(result),
     };
   }
   const article = decideFastArticle({ row, result, boundReview });
-  const facts = decideFastFacts({ row, result, boundReview });
+  const facts = decideFastFacts({ row, result, boundReview, indexes });
   return {
     policy_version: FAST_MODE_POLICY_VERSION,
+    processor_version: FAST_MODE_PROCESSOR_VERSION,
     article_decision: article.decision,
     fact_change_decision: facts.decision,
     reasons: { article: article.reasons, fact_change: facts.reasons },
     qualified_claims: article.qualified_claims,
     fact_mutations: facts.mutations,
+    synthesized_fact_proposals: facts.synthesized,
+    article_evidence: article.evidence,
   };
 }
 

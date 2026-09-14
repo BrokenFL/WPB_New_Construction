@@ -1,10 +1,9 @@
 /**
  * WPB Incoming_Intel change scanner — Apps Script source (NOT DEPLOYED).
  *
- * Optional helper only. GitHub Actions `Intel Fast Cycle` is the sole primary
- * 15-minute scheduler. Run scanBothQueues() manually for diagnostics or wire
- * it to an explicitly configured private wake-up endpoint; do not install a
- * second time-driven trigger. onEdit alone is NOT sufficient for API writes.
+ * Manual diagnostic helper only. GitHub Actions `Intel Fast Cycle` remains the
+ * only processor. The separately installed `fast-cycle-wakeup.gs` dispatches
+ * the reliable 15-minute wake without reading Sheet rows.
  *
  * Change detection uses two per-record hashes stored in Script Properties:
  *   content_hash  — intake-authored fields only
@@ -537,16 +536,10 @@ function scanStoryQueueLocked() {
   throw new Error("story dispatch failed after " + maxAttempts + " attempts");
 }
 
-/**
- * Optional manual diagnostic/wake-up for both queues. GitHub Actions owns the
- * recurring schedule; do not install this as a time-driven trigger.
- */
+/** Optional manual diagnostic for both queues. Never install it as a trigger. */
 function scanBothQueues() {
   var intel = scanIncomingIntel();
   var story;
   try { story = scanStoryQueue(); } catch (e) { story = { error: String(e && e.message || e) }; }
   return { incoming_intel: intel, story_queue: story };
 }
-
-// No scheduled Apps Script installation is required. `ensureStoryQueueTab()`
-// remains available as an explicit schema helper.

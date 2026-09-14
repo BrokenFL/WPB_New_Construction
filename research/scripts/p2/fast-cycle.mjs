@@ -1,6 +1,6 @@
 import { processRow, sha256, stableJson } from "../intel/core.mjs";
 import { buildRepositoryIndexes } from "../intel/repo-index.mjs";
-import { decideFast, FAST_MODE_POLICY_VERSION } from "./fast-policy.mjs";
+import { decideFast, FAST_MODE_POLICY_VERSION, FAST_MODE_PROCESSOR_VERSION } from "./fast-policy.mjs";
 import { ingestFactCheckHandoff } from "./fact-check-handoff.mjs";
 import { buildFastFactCheckPacket, FAST_FACT_CHECK_HANDOFF_VERSION, ingestFastFactCheckHandoff } from "./fast-fact-check.mjs";
 import { toPhaseATrustedEvidence, DEFAULT_REVIEWER_VERSION } from "./evidence-review.mjs";
@@ -161,9 +161,9 @@ function ingestHandoff({ handoff, preliminary, row, reviewerVersion, now }) {
   return { ingest, boundReview: normalizeBoundReview(ingest) };
 }
 
-async function safeFetchSources(fetchSources, row) {
+async function safeFetchSources(fetchSources, row, indexes) {
   if (typeof fetchSources !== "function") return [];
-  try { return await fetchSources(row); } catch { return []; }
+  try { return await fetchSources(row, { indexes }); } catch { return []; }
 }
 
 function fetchedEvidenceCount(sources = []) {
@@ -295,7 +295,7 @@ export async function runFastCycle({
     if (!id) {
       results.push({ stage: "quarantined", quarantine_reason: "missing_id", row_numbers: [rowNumber] });
       cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
-        status: "quarantined", processed_at: startedAt, processor_version: FAST_MODE_POLICY_VERSION,
+        status: "quarantined", processed_at: startedAt, processor_version: FAST_MODE_PROCESSOR_VERSION,
         output_decision: "QUARANTINE:MISSING_ID",
       }, INCOMING_INTEL_SHEET));
       continue;
@@ -306,7 +306,7 @@ export async function runFastCycle({
         results.push({ intel_id: id, stage: "quarantined", quarantine_reason: "duplicate_id", row_numbers: duplicatePositions });
         for (const duplicateRowNumber of duplicatePositions) {
           cellUpdates.push(...writebackCells(intel.headers, duplicateRowNumber, {
-            status: "quarantined", processed_at: startedAt, processor_version: FAST_MODE_POLICY_VERSION,
+            status: "quarantined", processed_at: startedAt, processor_version: FAST_MODE_PROCESSOR_VERSION,
             output_decision: "QUARANTINE:DUPLICATE_ID",
           }, INCOMING_INTEL_SHEET));
         }
@@ -318,7 +318,7 @@ export async function runFastCycle({
     if (quarantine) {
       results.push({ intel_id: id, stage: "quarantined", quarantine_reason: quarantine, row_numbers: [rowNumber] });
       cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
-        status: "quarantined", processed_at: startedAt, processor_version: FAST_MODE_POLICY_VERSION,
+        status: "quarantined", processed_at: startedAt, processor_version: FAST_MODE_PROCESSOR_VERSION,
         output_decision: `QUARANTINE:${quarantine.toUpperCase()}`,
       }, INCOMING_INTEL_SHEET));
       continue;
@@ -333,7 +333,7 @@ export async function runFastCycle({
         results.push({ intel_id: id, stage: "awaiting_fact_check", event_key: String(row.p2_event_key || "") });
         continue;
       }
-      const sources = await safeFetchSources(fetchSources, row);
+      const sources = await safeFetchSources(fetchSources, row, indexesValue);
       const preliminary = processRow({ row: intakeSnapshotRow(row), verificationSources: sources, indexes: indexesValue });
       if (preliminary.report.errors.length) {
         const codes = preliminary.report.errors.map((error) => error.code);
@@ -341,7 +341,7 @@ export async function runFastCycle({
           status: "held",
           output_decision: `INTAKE_HOLD:${codes.join(",")}`,
           processed_at: startedAt,
-          processor_version: FAST_MODE_POLICY_VERSION,
+          processor_version: FAST_MODE_PROCESSOR_VERSION,
         }, INCOMING_INTEL_SHEET));
         results.push({ intel_id: id, stage: "held", reasons: codes });
         continue;
@@ -352,7 +352,7 @@ export async function runFastCycle({
           status: "source_retry",
           output_decision: "SOURCE_RETRY:NO_FETCHED_SOURCE",
           processed_at: startedAt,
-          processor_version: FAST_MODE_POLICY_VERSION,
+          processor_version: FAST_MODE_PROCESSOR_VERSION,
         }, INCOMING_INTEL_SHEET));
         results.push({ intel_id: id, stage: "source_retry" });
         continue;
@@ -364,7 +364,7 @@ export async function runFastCycle({
         p2_row_sha256: packet.intake_snapshot_sha256,
         p2_event_key: packet.event_key,
         p2_content_hash: content_hash,
-        processor_version: FAST_MODE_POLICY_VERSION,
+        processor_version: FAST_MODE_PROCESSOR_VERSION,
       }, INCOMING_INTEL_SHEET));
       results.push({
         intel_id: id,
@@ -377,32 +377,33 @@ export async function runFastCycle({
 
     const hashesMatch = String(row.p2_content_hash || "") === content_hash
       && String(row.p2_evidence_hash || "") === evidence_hash;
+    const processorCurrent = String(row.processor_version || "") === FAST_MODE_PROCESSOR_VERSION;
     if (hashesMatch
       && String(row.output_decision || "").includes(`FACT_STATE:${FACT_COMMIT_PENDING}`)
       && durableFactAlreadyPresent(indexesValue, row, id)) {
       cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
         output_decision: String(row.output_decision).replace(`FACT_STATE:${FACT_COMMIT_PENDING}`, `FACT_STATE:${FACT_COMMIT_COMPLETE}`),
         processed_at: startedAt,
-        processor_version: FAST_MODE_POLICY_VERSION,
+        processor_version: FAST_MODE_PROCESSOR_VERSION,
       }, INCOMING_INTEL_SHEET));
       results.push({ intel_id: id, stage: "fact_commit_reconciled" });
       continue;
     }
-    if (hashesMatch && !rowNeedsFactRetry(row)) continue;
+    if (hashesMatch && processorCurrent && !rowNeedsFactRetry(row)) continue;
 
     // ---- decision pass ----
     // The intake snapshot must not include the verifier's own handoff cell or
     // any writeback/workflow columns — the packet's row hash was computed over
     // the stripped intake view before they existed.
     const intakeRow = intakeSnapshotRow(row);
-    const sources = await safeFetchSources(fetchSources, row);
+    const sources = await safeFetchSources(fetchSources, row, indexesValue);
     const preliminary = processRow({ row: intakeRow, verificationSources: sources, indexes: indexesValue });
     if (!fetchedEvidenceCount(preliminary.verificationSources)) {
       cellUpdates.push(...writebackCells(intel.headers, rowNumber, {
         status: "source_retry",
         output_decision: "SOURCE_RETRY:NO_FETCHED_SOURCE",
         processed_at: startedAt,
-        processor_version: FAST_MODE_POLICY_VERSION,
+        processor_version: FAST_MODE_PROCESSOR_VERSION,
       }, INCOMING_INTEL_SHEET));
       results.push({ intel_id: id, stage: "source_retry" });
       continue;
@@ -418,7 +419,7 @@ export async function runFastCycle({
       : preliminary;
     if (handoff && !boundReview.bound) result.report.warnings.push({ code: boundReview.code, message: ingest?.errors?.join("; ") || "fact-check handoff rejected" });
 
-    const decision = decideFast({ row: intakeRow, result, boundReview });
+    const decision = decideFast({ row: intakeRow, result, boundReview, indexes: indexesValue });
     const outcome = {
       intel_id: id,
       stage: "decided",
@@ -568,7 +569,7 @@ export async function runFastCycle({
       status: outcome.review_retry ? "awaiting_fact_check" : STATUS_BY_ARTICLE_DECISION[decision.article_decision] || "processed",
       output_decision: outputDecision,
       processed_at: startedAt,
-      processor_version: FAST_MODE_POLICY_VERSION,
+      processor_version: FAST_MODE_PROCESSOR_VERSION,
       ...(pending.retryPacket ? {
         p2_packet_json: JSON.stringify(pending.retryPacket),
         p2_row_sha256: pending.retryPacket.intake_snapshot_sha256,
@@ -628,6 +629,7 @@ export async function runFastCycle({
     ok: publishActions.every((action) => action.ok),
     contract_version: FAST_CYCLE_CONTRACT_VERSION,
     policy_version: FAST_MODE_POLICY_VERSION,
+    processor_version: FAST_MODE_PROCESSOR_VERSION,
     results,
     storyActions,
     publishActions,

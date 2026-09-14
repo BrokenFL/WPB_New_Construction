@@ -97,13 +97,16 @@ slice; retirement is a later, explicitly authorized activation step.
 This table records the earlier shadow-only plan. It is not the Fast Mode
 activation plan. The active Fast Mode owner and retirement gate are below.
 
-### Fast Mode update (p2-fast-policy-v1)
+### Fast Mode V2 throughput update (`p2-fast-mode-v2-throughput`)
 
 The Fast Mode path supersedes the shadow-owner rationale: the Sheet itself is
 the durable workflow state, so dispatches are advisory pokes and a missed run
 self-heals on the next cycle. The selected Fast Mode processing owner is the
-15-minute GitHub Actions workflow `.github/workflows/intel-fast-cycle.yml`
-running `npm run p2:fast:cycle` — not the GCE VM. See `docs/P2_FAST_MODE.md`.
+GitHub Actions workflow `.github/workflows/intel-fast-cycle.yml` running
+`npm run p2:fast:cycle` — not the GCE VM. The checked-in `*/15` schedule stays
+as fallback; the reliable wake path is a 15-minute Apps Script trigger calling
+`wakeIntelFastCycle()`, which sends only repository dispatch event
+`wpb-intel-scan`. See `docs/P2_FAST_MODE.md`.
 
 `live-news-agent-task.yml` and `biweekly-content-agent-task.yml` remain
 disconnected issue producers. Retire their schedules only after Fast Mode has
@@ -119,9 +122,9 @@ met, remove only their `schedule:` triggers and retain `workflow_dispatch` for
 manual diagnostics if useful. Keep all historical GitHub issues. Do not use a
 vague soak period as a substitute for these four checks.
 
-Apps Script is not a scheduled owner in Fast Mode. Its checked-in helpers may
-be run manually for schema repair, diagnostics, or an immediate private wake-up;
-do not install a second 15-minute Apps Script trigger. No GCE owner is required.
+Apps Script is a scheduled wake layer, never a processor. Install only
+`wakeIntelFastCycle` as a 15-minute trigger. The row scanners remain manual
+diagnostics and must not be scheduled. No GCE owner is required.
 
 ## LaunchAgents Found
 
