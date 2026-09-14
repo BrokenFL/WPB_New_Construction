@@ -1215,10 +1215,12 @@ test("story publisher enforces policy/writer/source boundaries and enriches appr
       ok: false,
       code: 1,
       result: { ok: false, error: "Article publishing requires branch main; found detached HEAD.", reason: "wrong-branch" },
+      stdoutTail: "Project-specific QA detail: news image mapping failed.",
     }),
   });
   assert.equal(failed.ok, false);
-  assert.equal(failed.error, "Article publishing requires branch main; found detached HEAD.");
+  assert.match(failed.error, /Article publishing requires branch main/);
+  assert.match(failed.error, /Project-specific QA detail: news image mapping failed/);
   assert.equal(failed.publisherReason, "wrong-branch");
 });
 
