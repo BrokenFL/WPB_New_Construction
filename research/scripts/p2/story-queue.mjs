@@ -1,5 +1,6 @@
 import { parseSheetCsv } from "../intel/sheet-adapter.mjs";
 import { sha256, stableJson } from "../intel/core.mjs";
+import { semanticArticleEvidence } from "./fast-policy.mjs";
 
 // Story_Queue is the handoff tab between verified intelligence and article
 // publication in the primary private spreadsheet. One row per story event;
@@ -145,10 +146,6 @@ export const STORY_QUEUE_SEED_WRITEBACK_COLUMNS = Object.freeze([
   "policy_version", "article_decision", "publish_status", "published_url", "commit_sha", "error",
 ]);
 
-const CORE_STORY_CLAIM_FIELDS = new Set([
-  "headline", "project_identity", "corridor_identity", "event_identity",
-]);
-
 function supportedClaim(result, field) {
   return (result.claims || []).find((claim) => claim.field === field && claim.support === "supported");
 }
@@ -164,14 +161,28 @@ function textValue(value) {
   return String(value);
 }
 
+function editorialSeedTitle(result, articleEvidence) {
+  const occurrenceIds = new Set(articleEvidence.occurrence_claim_ids || []);
+  const occurrenceClaims = (result.claims || []).filter((claim) => occurrenceIds.has(claim.claim_id));
+  const preferred = occurrenceClaims.find((claim) => claim.field === "headline")
+    || occurrenceClaims.find((claim) => claim.field === "material_updates")
+    || occurrenceClaims.find((claim) => claim.field === "summary");
+  const text = textValue(preferred?.claim_value).replace(/\s+/g, " ").trim();
+  if (!text) return "Verified West Palm Beach development update";
+  const firstSentence = text.split(/(?<=[.!?])\s+/)[0].replace(/[.!?]+$/, "");
+  return firstSentence.length <= 160 ? firstSentence : `${firstSentence.slice(0, 157).trim()}…`;
+}
+
 /**
  * Build the Story_Queue seed fields for an AUTO_PUBLISH intel result. The
  * writer task fills headline/deck/article_body/seo/social/story_package_json;
  * the processor seeds the factual record it must not contradict.
  */
 export function storySeedFields({ row, result, boundReview, decision, now = new Date() }) {
+  const articleEvidence = decision.article_evidence || semanticArticleEvidence(result);
+  const occurrenceClaimIds = new Set(articleEvidence.occurrence_claim_ids || []);
   const verifiedFacts = (result.claims || [])
-    .filter((claim) => claim.support === "supported")
+    .filter((claim) => claim.support === "supported" && claim.field !== "event_identity")
     .map((claim) => ({
       claim_id: claim.claim_id,
       field: claim.field,
@@ -180,7 +191,7 @@ export function storySeedFields({ row, result, boundReview, decision, now = new 
     }));
   const boundSourceRefs = new Set(verifiedFacts.flatMap((fact) => fact.source_ref_ids));
   const credibleCoreSourceRefs = new Set(verifiedFacts
-    .filter((fact) => CORE_STORY_CLAIM_FIELDS.has(fact.field))
+    .filter((fact) => occurrenceClaimIds.has(fact.claim_id))
     .flatMap((fact) => fact.source_ref_ids));
   const sources = (result.verificationSources || [])
     .filter((source) => !source.error
@@ -201,8 +212,9 @@ export function storySeedFields({ row, result, boundReview, decision, now = new 
   const primarySource = sources.find((source) => credibleCoreSourceRefs.has(source.source_ref_id) && (source.tier === 1 || source.tier === 2)) || sources[0];
   const projectIds = stringList(supportedClaim(result, "project_identity")?.claim_value);
   const corridorIds = stringList(supportedClaim(result, "corridor_identity")?.claim_value);
-  const title = textValue(supportedClaim(result, "headline")?.claim_value || row.headline);
-  const summary = textValue(supportedClaim(result, "summary")?.claim_value);
+  const title = editorialSeedTitle(result, articleEvidence);
+  const summaryClaim = supportedClaim(result, "summary");
+  const summary = occurrenceClaimIds.has(summaryClaim?.claim_id) ? textValue(summaryClaim?.claim_value) : "";
   const deck = summary || title;
   const eventDate = textValue(supportedClaim(result, "event_date")?.claim_value);
   const category = textValue(supportedClaim(result, "category")?.claim_value);

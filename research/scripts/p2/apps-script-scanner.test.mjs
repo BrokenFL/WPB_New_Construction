@@ -5,7 +5,10 @@ import test from "node:test";
 import vm from "node:vm";
 import { bindSnapshotToDispatch, verifyDispatch } from "./dispatch.mjs";
 
-const source = fs.readFileSync("tools/apps-script/incoming-intel-scanner.gs", "utf8");
+const source = [
+  fs.readFileSync("tools/apps-script/incoming-intel-scanner.gs", "utf8"),
+  fs.readFileSync("tools/apps-script/fast-cycle-wakeup.gs", "utf8"),
+].join("\n");
 const SECRET = "scanner-test-secret-012345678901234567890";
 const HEADERS = ["id", "status", "headline", "record_type", "category", "source_url", "verification_status", "review_notes", "last_updated", "fact_check_handoff_json"];
 
@@ -25,6 +28,7 @@ function load(overrides = {}) {
       eventRow(),
     ],
     posts: 0,
+    triggers: [],
     ...overrides,
   };
   const lock = { tryLock: () => true, releaseLock() {} };
@@ -53,6 +57,21 @@ function load(overrides = {}) {
       setProperty: (key, value) => state.props.set(key, value),
     }) },
     SpreadsheetApp: { getActiveSpreadsheet: () => spreadsheet },
+    ScriptApp: {
+      getProjectTriggers: () => state.triggers,
+      deleteTrigger: (trigger) => { state.triggers = state.triggers.filter((item) => item !== trigger); },
+      newTrigger: (handler) => ({
+        timeBased: () => ({
+          everyMinutes: (minutes) => ({
+            create: () => {
+              const trigger = { getHandlerFunction: () => handler, getUniqueId: () => `trigger-${minutes}` };
+              state.triggers.push(trigger);
+              return trigger;
+            },
+          }),
+        }),
+      }),
+    },
     UrlFetchApp: { fetch: (...args) => {
       state.posts += 1;
       if (state.onFetch) state.onFetch(state, args);
@@ -251,4 +270,49 @@ test("policy version changes force a new dispatch instead of reusing an old ackn
   assert.equal(context.scanIncomingIntel().dispatched, 1);
   assert.equal(ids.length, 2);
   assert.notEqual(ids[0], ids[1]);
+});
+
+test("15-minute wake sends only a repository_dispatch to the Fast Cycle workflow", () => {
+  const { state, context } = load();
+  state.props.set("GITHUB_DISPATCH_TOKEN", "github-token-kept-in-script-properties");
+  context.UrlFetchApp.fetch = (url, options) => {
+    state.wake = { url, options };
+    return { getResponseCode: () => 204, getContentText: () => "" };
+  };
+  const result = context.wakeIntelFastCycle();
+  assert.equal(result.ok, true);
+  assert.equal(state.wake.url, "https://api.github.com/repos/BrokenFL/WPB_New_Construction/dispatches");
+  assert.deepEqual(JSON.parse(state.wake.options.payload), {
+    event_type: "wpb-intel-scan",
+    client_payload: {
+      source: "apps-script-15-minute-wake",
+      requested_at: JSON.parse(state.props.get("p2wake:health")).last_attempt_at,
+    },
+  });
+  assert.match(state.wake.options.headers.Authorization, /^Bearer /);
+  assert.equal(state.wake.options.payload.includes("github-token"), false);
+  assert.equal(context.getFastCycleWakeHealth().status, "ok");
+});
+
+test("wake trigger installation is idempotent and targets only the wake handler", () => {
+  const { state, context } = load();
+  state.props.set("GITHUB_DISPATCH_TOKEN", "github-token-kept-in-script-properties");
+  const first = context.installFastCycleWakeupTrigger();
+  const second = context.installFastCycleWakeupTrigger();
+  assert.equal(first.cadence_minutes, 15);
+  assert.equal(second.replaced, 1);
+  assert.equal(state.triggers.length, 1);
+  assert.equal(state.triggers[0].getHandlerFunction(), "wakeIntelFastCycle");
+});
+
+test("wake fails closed without a Script Property token or on a non-204 response", () => {
+  const missing = load();
+  assert.throws(() => missing.context.wakeIntelFastCycle(), /not configured/);
+  assert.equal(missing.state.posts, 0);
+
+  const rejected = load();
+  rejected.state.props.set("GITHUB_DISPATCH_TOKEN", "github-token-kept-in-script-properties");
+  rejected.context.UrlFetchApp.fetch = () => ({ getResponseCode: () => 403, getContentText: () => "forbidden" });
+  assert.throws(() => rejected.context.wakeIntelFastCycle(), /HTTP 403/);
+  assert.equal(rejected.context.getFastCycleWakeHealth().error_code, "github_dispatch_rejected");
 });

@@ -9,6 +9,7 @@ import { DEFAULT_REVIEWER_VERSION, toPhaseATrustedEvidence } from "./evidence-re
 import {
   ARTICLE_DECISION,
   FACT_DECISION,
+  FAST_MODE_PROCESSOR_VERSION,
   FAST_MODE_POLICY_VERSION,
   classifyFastFactField,
   decideFast,
@@ -107,6 +108,19 @@ function indexesFor(field = "status", value = "under_construction", events = [])
         "alba-palm-beach": {
           [field]: { value, source: "manual_review", reviewedBy: "Brooke" },
         },
+      },
+    },
+    source_revisions: [{ path: "fixture", present: true, sha256: "a".repeat(64) }],
+  };
+}
+
+function indexesForProject(projectId, fields = {}, events = []) {
+  return {
+    events,
+    public_corpus: "",
+    reviewed_facts: {
+      projects: {
+        [projectId]: Object.fromEntries(Object.entries(fields).map(([field, value]) => [field, { value, source: "canonical_model" }])),
       },
     },
     source_revisions: [{ path: "fixture", present: true, sha256: "a".repeat(64) }],
@@ -245,7 +259,7 @@ test("fast policy: article auto-publishes when core event is supported and a sec
   assert.equal(JSON.parse(seed.story_package_json).sourceUrl, "https://www.wpb.org/government/development-services");
 });
 
-test("fast policy: a reputable source must support the core event, not only a secondary detail", () => {
+test("fast policy: a reputable source must support the semantic occurrence, not only metadata", () => {
   const r = row("fast-core-source");
   const sources = [
     fetchedSource("https://example.com/unclassified", "lower-tier core evidence"),
@@ -253,19 +267,26 @@ test("fast policy: a reputable source must support the core event, not only a se
   ];
   const { result, boundReview } = prepareFast(r, {
     sources,
-    sourcePicker: (claim, sourceIds) => claim.field === "summary" ? [sourceIds[1]] : [sourceIds[0]],
+    sourcePicker: (claim, sourceIds) => claim.field === "corridor_identity" ? [sourceIds[1]] : [sourceIds[0]],
   });
   const decision = decideFast({ row: r, result, boundReview });
   assert.equal(decision.article_decision, ARTICLE_DECISION.HOLD);
-  assert.deepEqual(decision.reasons.article, ["no_credible_source_supports_core_event"]);
+  assert.deepEqual(decision.reasons.article, ["no_credible_source_supports_core_occurrence"]);
 });
 
-test("fast policy: requires_human_review=TRUE routes genuine problems to a decision", () => {
+test("fast policy: legacy requires_human_review=TRUE does not control Fast Mode", () => {
   const r = row("fast-flag", { requires_human_review: "TRUE", summary: "Pricing starts at $3.5M according to the report." });
   const { result, boundReview } = prepareFast(r);
   const decision = decideFast({ row: r, result, boundReview });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+});
+
+test("fast policy: only the explicit Fast Mode flag routes a row to Brooke", () => {
+  const r = row("fast-explicit-flag", { flags_json: JSON.stringify({ brooke_decision_required: true }) });
+  const { result, boundReview } = prepareFast(r);
+  const decision = decideFast({ row: r, result, boundReview });
   assert.equal(decision.article_decision, ARTICLE_DECISION.NEEDS_DECISION);
-  assert.equal(decision.fact_mutations.length, 0);
+  assert.deepEqual(decision.reasons.article, ["brooke_decision_required_flag"]);
 });
 
 test("fast policy: pricing/delivery flags alone do not block", () => {
@@ -275,13 +296,26 @@ test("fast policy: pricing/delivery flags alone do not block", () => {
   assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
 });
 
-test("fast policy: core event contradiction holds (conflicting core claim)", () => {
+test("fast policy: a conflicted editorial headline does not override a supported occurrence", () => {
   const r = row("fast-contra");
   const first = prepareFast(r);
   const headlineClaim = first.preliminary.claims.find((claim) => claim.field === "headline");
   const { result, boundReview } = prepareFast(r, { verdicts: { [headlineClaim.claim_id]: "conflicting" } });
   const decision = decideFast({ row: r, result, boundReview });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  assert.ok(decision.qualified_claims.some((claim) => claim.field === "headline"));
+});
+
+test("fast policy: no supported occurrence remains a genuine article hold", () => {
+  const r = row("fast-core-contra");
+  const first = prepareFast(r);
+  const verdicts = Object.fromEntries(first.preliminary.claims
+    .filter((claim) => ["headline", "summary", "material_updates"].includes(claim.field))
+    .map((claim) => [claim.claim_id, "conflicting"]));
+  const { result, boundReview } = prepareFast(r, { verdicts });
+  const decision = decideFast({ row: r, result, boundReview });
   assert.equal(decision.article_decision, ARTICLE_DECISION.HOLD);
+  assert.deepEqual(decision.reasons.article, ["no_credible_source_supports_core_occurrence"]);
 });
 
 test("fast policy: chronology-conflicting event holds (topped-out tower cannot top out again)", () => {
@@ -301,7 +335,7 @@ test("fast policy: chronology-conflicting event holds (topped-out tower cannot t
   assert.equal(decision.article_decision, ARTICLE_DECISION.HOLD);
 });
 
-test("fast policy: duplicate event classifies as DUPLICATE and produces no fact change", () => {
+test("fast policy: duplicate event classifies as DUPLICATE when no fact changed", () => {
   const r = row("fast-dup");
   const indexes = indexesFor();
   const preliminary = processRow({ row: r, verificationSources: [fetchedSource()], indexes });
@@ -310,6 +344,152 @@ test("fast policy: duplicate event classifies as DUPLICATE and produces no fact 
   const decision = decideFast({ row: r, result, boundReview });
   assert.equal(decision.article_decision, ARTICLE_DECISION.DUPLICATE);
   assert.equal(decision.fact_change_decision, FACT_DECISION.NONE);
+});
+
+test("Fast Mode V2: 534 Datura publishes while an uncertain secondary count is omitted", () => {
+  const r = row("fast-534-datura", {
+    project_name: "534 Datura",
+    headline: "534 Datura proposal includes exactly 124 workforce units",
+    summary: "A developer submitted a new mixed-use proposal for 534 Datura Street.",
+    material_updates: "The proposal was submitted to the city.; The exact workforce-unit count remains uncertain.",
+    requires_human_review: "TRUE",
+  });
+  const first = prepareFast(r);
+  const uncertain = first.preliminary.claims.filter((claim) => /workforce|124/.test(String(claim.claim_value)));
+  const verdicts = Object.fromEntries(uncertain.map((claim) => [claim.claim_id, "conflicting"]));
+  const prepared = prepareFast(r, { verdicts });
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  assert.ok(decision.qualified_claims.some((claim) => /workforce|124/.test(String(claim.value))));
+});
+
+test("Fast Mode V2: supported lease publishes without unsupported buyer-demand inference", () => {
+  const r = row("fast-a16z", {
+    project_name: "CityPlace Tower",
+    headline: "a16z signs CityPlace Tower office lease",
+    summary: "Andreessen Horowitz signed an office lease at CityPlace Tower.",
+    material_updates: "The company signed an office lease.",
+    buyer_angle: "The lease will cause new condominium demand.",
+  });
+  const first = prepareFast(r);
+  const inference = first.preliminary.claims.find((claim) => claim.field === "buyer_context");
+  const prepared = prepareFast(r, { verdicts: { [inference.claim_id]: "unsupported" } });
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  assert.ok(decision.qualified_claims.some((claim) => claim.field === "buyer_context" && claim.disposition === "omit"));
+  const seed = storySeedFields({ row: r, result: prepared.result, boundReview: prepared.boundReview, decision });
+  assert.equal(JSON.parse(seed.story_package_json).buyerContext, "");
+});
+
+test("Fast Mode V2: Shorecrest core milestone publishes with conflicting delivery detail qualified", () => {
+  const r = row("fast-shorecrest", {
+    project_name: "Shorecrest",
+    headline: "Shorecrest breaks ground with construction financing",
+    summary: "Shorecrest broke ground after closing construction financing.",
+    material_updates: "Groundbreaking and financing are supported.; Delivery is expected in late 2028.",
+  });
+  const first = prepareFast(r);
+  const delivery = first.preliminary.claims.find((claim) => /Delivery is expected/.test(String(claim.claim_value)));
+  const prepared = prepareFast(r, { verdicts: { [delivery.claim_id]: "conflicting" } });
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  assert.ok(decision.qualified_claims.some((claim) => /Delivery is expected/.test(String(claim.value))));
+});
+
+test("Fast Mode V2: Olara 2028 delivery publishes without an unsupported $6.9M headline detail", () => {
+  const r = row("fast-olara", {
+    project_name: "Olara",
+    headline: "Olara contracts reach $6.9M as 2028 delivery is confirmed",
+    summary: "Olara is now expected to deliver in 2028.",
+    material_updates: "Delivery is expected in 2028.",
+  });
+  const first = prepareFast(r);
+  const headline = first.preliminary.claims.find((claim) => claim.field === "headline");
+  const prepared = prepareFast(r, { verdicts: { [headline.claim_id]: "unsupported" } });
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  const seed = storySeedFields({ row: r, result: prepared.result, boundReview: prepared.boundReview, decision });
+  assert.equal(seed.headline.includes("$6.9M"), false);
+  assert.match(seed.headline, /Delivery is expected in 2028|Olara is now expected to deliver in 2028/);
+});
+
+test("Fast Mode V2: unsupported corridor and incorrect event-key date are removable metadata", () => {
+  const r = row("fast-removable-metadata", {
+    event_key: "project|alba-palm-beach|development|development-update|2025-01-01",
+    material_updates: "The project broke ground in September 2026.",
+  });
+  const first = prepareFast(r);
+  const corridor = first.preliminary.claims.find((claim) => claim.field === "corridor_identity");
+  const eventIdentity = first.preliminary.claims.find((claim) => claim.field === "event_identity");
+  const prepared = prepareFast(r, { verdicts: {
+    [corridor.claim_id]: "unsupported",
+    [eventIdentity.claim_id]: "unsupported",
+  } });
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  const seed = storySeedFields({ row: r, result: prepared.result, boundReview: prepared.boundReview, decision });
+  assert.equal(seed.corridor_ids, "");
+});
+
+test("Fast Mode V2: Banyan article flows and a supported 88-residence claim synthesizes a canonical proposal", () => {
+  const projectId = "banyan-tree";
+  const r = row("fast-banyan", {
+    project_name: "Banyan Tree Residences",
+    related_project_ids: projectId,
+    headline: "Banyan Tree proposal receives DAC approval",
+    summary: "The Downtown Action Committee approved the Banyan Tree proposal.",
+    material_updates: "The DAC approved the proposal.; The project will include 88 residences.",
+  });
+  const indexes = indexesForProject(projectId, { status: "Planning", residenceCount: 86 });
+  const prepared = prepareFast(r, { indexes });
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview, indexes });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  assert.equal(decision.fact_change_decision, FACT_DECISION.AUTO_APPLY);
+  assert.equal(decision.fact_mutations.find((mutation) => mutation.field === "residenceCount")?.value, "88");
+  assert.equal(decision.synthesized_fact_proposals.some((proposal) => proposal.field === "residenceCount"), true);
+});
+
+test("Fast Mode V2: synthesized status never regresses a later canonical milestone", () => {
+  const projectId = "alba-palm-beach";
+  const r = row("fast-status-regression", {
+    related_project_ids: projectId,
+    summary: "The developer filed plans for the project.",
+    material_updates: "The plans were filed with the city.",
+  });
+  const indexes = indexesForProject(projectId, { status: "Completed" });
+  const prepared = prepareFast(r, { indexes });
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview, indexes });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  assert.equal(decision.synthesized_fact_proposals.some((proposal) => proposal.field === "status"), false);
+});
+
+test("Fast Mode V2: duplicate 464 Fern article does not suppress supported canonical reconciliation", () => {
+  const projectId = "464-fern-street";
+  const r = row("fast-464-fern", {
+    project_name: "464 Fern",
+    related_project_ids: projectId,
+    headline: "Updated plans filed for 464 Fern",
+    summary: "The developer filed updated plans for 464 Fern Street.",
+    material_updates: "The updated plans call for 194 residences.",
+  });
+  const base = indexesForProject(projectId, { status: "Planning", residenceCount: 130 });
+  const preliminary = processRow({ row: r, verificationSources: [fetchedSource()], indexes: base });
+  const indexes = { ...base, events: [{ event_key: preliminary.report.derived_event_key }] };
+  const prepared = prepareFast(r, { indexes });
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview, indexes });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.DUPLICATE);
+  assert.equal(decision.fact_change_decision, FACT_DECISION.AUTO_APPLY);
+  assert.equal(decision.fact_mutations.find((mutation) => mutation.field === "residenceCount")?.value, "194");
+});
+
+test("Fast Mode V2: a genuine article contradiction can coexist with a safe fact auto-apply", () => {
+  const r = factRow("fast-independent-hold-fact", { current: "Planning", proposed: "Under Construction" });
+  const indexes = indexesFor("status", "Planning");
+  const prepared = prepareFast(r, { indexes });
+  prepared.result.report.dedupe_classification = "conflicting_event";
+  const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview, indexes });
+  assert.equal(decision.article_decision, ARTICLE_DECISION.HOLD);
+  assert.equal(decision.fact_change_decision, FACT_DECISION.AUTO_APPLY);
 });
 
 test("fast policy: dynamic delivery timing auto-applies with provenance while the story publishes", () => {
@@ -454,6 +634,26 @@ test("malformed discovery source JSON is ignored while legacy sources remain com
     "https://www.wpb.org/government/development-services",
     "https://therealdeal.com/miami/legacy",
   ]);
+});
+
+test("source retry falls back to reviewed canonical project URLs only after every intake URL fails", async () => {
+  const blocked = "https://therealdeal.com/miami/blocked-story";
+  const alternate = "https://www.wptv.com/news/accessible-corroboration";
+  const called = [];
+  const sources = await fetchSources(row("sources-fallback", {
+    source_url: blocked,
+    related_project_ids: "alba-palm-beach",
+  }), {
+    indexes: { project_sources: { "alba-palm-beach": [{ url: alternate, source_name: "WPTV" }] } },
+    verify: async (hint) => {
+      called.push(hint.url);
+      if (hint.url === blocked) return { ...fetchedSource(hint.url), reachable: false, retrieval_status: "unavailable", retrieval_attested: false };
+      return fetchedSource(hint.url);
+    },
+  });
+  assert.deepEqual(called, [blocked, alternate]);
+  assert.equal(sources.length, 1);
+  assert.equal(sources[0].url, alternate);
 });
 
 test("fact commits allow only the automated layer and generated output families", () => {
@@ -633,6 +833,32 @@ test("cycle retries unavailable sources instead of emitting an unusable fact-che
   assert.equal(second.results[0].stage, "awaiting_fact_check");
   sheetRow = (await sheets.readValues("Incoming_Intel"))[1];
   assert.ok(sheetRow[INTEL_HEADERS.indexOf("p2_packet_json")]);
+});
+
+test("cycle reprocesses previously decided rows once for the Fast Mode V2 processor revision", async (t) => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-fast-v2-reprocess-"));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const intake = row("v2-reprocess", { requires_human_review: "TRUE" });
+  const sources = [fetchedSource()];
+  const materialized = Object.fromEntries(INTEL_HEADERS.map((header) => [header, String(intake[header] ?? "")]));
+  const preliminary = processRow({ row: intakeSnapshotRow(materialized), verificationSources: sources, indexes: indexesFor() });
+  const handoff = handoffFor(materialized, preliminary);
+  const decided = {
+    ...intake,
+    status: "needs_decision",
+    fact_check_handoff_json: JSON.stringify(handoff),
+    output_decision: "ARTICLE:NEEDS_DECISION|FACT:NONE|FACT_STATE:NONE",
+    processor_version: FAST_MODE_POLICY_VERSION,
+  };
+  const hashes = intelRowHashes(decided);
+  decided.p2_content_hash = hashes.content_hash;
+  decided.p2_evidence_hash = hashes.evidence_hash;
+  const sheets = memorySheets({ Incoming_Intel: intelValues([decided]) });
+  const cycle = await runFastCycle({ root: dir, sheets, indexes: indexesFor(), fetchSources: async () => sources, now: NOW });
+  assert.equal(cycle.results[0].article_decision, ARTICLE_DECISION.AUTO_PUBLISH);
+  const stored = (await sheets.readValues("Incoming_Intel"))[1];
+  assert.equal(stored[INTEL_HEADERS.indexOf("processor_version")], FAST_MODE_PROCESSOR_VERSION);
+  assert.equal(storyRowsFromState(sheets).length, 1);
 });
 
 test("cycle: end-to-end packet -> handoff -> story queued -> publish -> published, with idempotent retry", async (t) => {

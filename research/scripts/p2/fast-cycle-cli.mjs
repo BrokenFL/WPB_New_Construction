@@ -33,7 +33,7 @@ function run(cmd, args, options = {}) {
   });
 }
 
-export function sourceHintsFromRow(row = {}) {
+export function sourceHintsFromRow(row = {}, { additionalSources = [] } = {}) {
   const hints = [];
   const indexByUrl = new Map();
   const push = (url, sourceName, publishedDate, sourceType) => {
@@ -86,16 +86,42 @@ export function sourceHintsFromRow(row = {}) {
   push(row.source_url, row.source_name, row.source_published_date);
   push(row.lead_source_url, row.source_name, row.source_published_date);
   push(row.primary_source_url, row.source_name, row.source_published_date);
+  for (const source of additionalSources) {
+    if (typeof source === "string") push(source, "", "");
+    else if (source && typeof source === "object") push(source.url, source.source_name || source.name, source.published_date, source.source_type);
+  }
   return hints;
 }
 
-export async function fetchSources(row, { verify = verifySourceHint } = {}) {
-  const settled = await Promise.allSettled(sourceHintsFromRow(row)
-    .map((hint) => verify({ ...hint, claims_supported: [] })));
+async function fetchHintBatch(hints, verify) {
+  const settled = await Promise.allSettled(hints.map((hint) => verify({ ...hint, claims_supported: [] })));
   return settled
     .filter((result) => result.status === "fulfilled")
     .map((result) => result.value)
-    .filter((source) => source && !source.error);
+    .filter((source) => source
+      && !source.error
+      && source.retrieval_status === "fetched"
+      && source.retrieval_attested === true
+      && source.reachable === true);
+}
+
+export async function fetchSources(row, { verify = verifySourceHint, indexes } = {}) {
+  const intakeHints = sourceHintsFromRow(row);
+  const intakeSources = await fetchHintBatch(intakeHints, verify);
+  if (intakeSources.length) return intakeSources;
+
+  // Legacy rows often preserve only a bot-blocked article URL. If every
+  // intake URL fails, retry against reviewed canonical project sources. These
+  // URLs are evidence candidates only: Fact Check must still bind a fetched
+  // source to the exact claim before article or fact throughput can resume.
+  const projectIds = String(row.related_project_ids || row.related_project_slug || "")
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const canonicalHints = projectIds.flatMap((projectId) => indexes?.project_sources?.[projectId] || []);
+  if (!canonicalHints.length) return [];
+  const supplemental = sourceHintsFromRow({}, { additionalSources: canonicalHints });
+  return fetchHintBatch(supplemental, verify);
 }
 
 async function publishWithSha({ story }) {
@@ -263,6 +289,7 @@ export async function main() {
     dry_run: dryRun,
     skip_publish: skipPublish,
     policy_version: cycle.policy_version,
+    processor_version: cycle.processor_version,
     digest: cycle.digest.summary,
     cycle_activity: summarizeCycleActivity(cycle),
     story_queue_row_count: cycle.story_queue_row_count,

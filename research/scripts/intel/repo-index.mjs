@@ -46,6 +46,7 @@ export async function buildRepositoryIndexes(root = process.cwd()) {
     mergedProjects[slug] = { ...(mergedProjects[slug] || {}), ...(fields || {}) };
   }
   const reviewedFacts = { ...(manualFacts || {}), projects: mergedProjects };
+  const projectSources = canonicalProjectSources(canonical, decisions);
   const facts = JSON.stringify(reviewedFacts);
   const publicCorpus = [JSON.stringify(approved), JSON.stringify(imported), facts, generatedNews].join("\n");
   const events = [];
@@ -57,7 +58,20 @@ export async function buildRepositoryIndexes(root = process.cwd()) {
     if (title.includes("464 fern") && /file|plan/.test(title)) events.push({ event_key: "project|464-fern-street|municipal|site-plan-filing|2026-08-20", source: "approved-development-news", id: item.id });
     if (projects.length === 1 && eventDate && item.category) events.push({ event_key: `project|${projects[0]}|${item.category}|development-update|${eventDate}`, source: "approved-development-news", id: item.id });
   }
-  return { approved, imported, reviewed_facts: reviewedFacts, facts_text: facts, generated_news_text: generatedNews, public_corpus: publicCorpus, events, open_prs: runtimeOpenPrIndex, source_revisions: inputs.map((input) => input.revision) };
+  return { approved, imported, reviewed_facts: reviewedFacts, project_sources: projectSources, facts_text: facts, generated_news_text: generatedNews, public_corpus: publicCorpus, events, open_prs: runtimeOpenPrIndex, source_revisions: inputs.map((input) => input.revision) };
+}
+
+function canonicalProjectSources(canonical, decisions) {
+  const sources = {};
+  const canonicalById = new Map((canonical?.projects || []).map((project) => [project.project_id, project]));
+  for (const decision of decisions?.projects || []) {
+    if (!decision?.publicSlug || decision.publicationState === "retired_merged") continue;
+    const project = canonicalById.get(decision.canonicalId);
+    const urls = Array.isArray(project?.source_urls) ? project.source_urls : [];
+    const unique = [...new Set(urls.map((url) => String(url || "").trim()).filter(Boolean))];
+    if (unique.length) sources[decision.publicSlug] = unique.map((url) => ({ url, source_name: `${decision.publicSlug} canonical source` }));
+  }
+  return sources;
 }
 
 function canonicalFactBaseline(canonical, decisions) {
