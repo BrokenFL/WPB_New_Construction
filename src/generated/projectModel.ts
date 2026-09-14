@@ -1041,7 +1041,8 @@ export const canonicalProjectModel = {
       "aliases": [
         "fern-and-gardenia-related-ross-fern-street",
         "/projects/fern-and-gardenia-related-ross-fern-street/",
-        "related-ross-fern-street"
+        "related-ross-fern-street",
+        "464-fern-street"
       ],
       "collapsedSourceCatalogIds": [],
       "mergedInto": "",

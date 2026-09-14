@@ -464,22 +464,26 @@ test("Fast Mode V2: synthesized status never regresses a later canonical milesto
 });
 
 test("Fast Mode V2: duplicate 464 Fern article does not suppress supported canonical reconciliation", () => {
-  const projectId = "464-fern-street";
+  const intakeProjectId = "464-fern-street";
+  const projectId = "fern-and-gardenia-related-ross-fern-street";
   const r = row("fast-464-fern", {
     project_name: "464 Fern",
-    related_project_ids: projectId,
+    related_project_ids: intakeProjectId,
     headline: "Updated plans filed for 464 Fern",
     summary: "The developer filed updated plans for 464 Fern Street.",
     material_updates: "The updated plans call for 194 residences.",
   });
   const base = indexesForProject(projectId, { status: "Planning", residenceCount: 130 });
+  base.project_aliases = { [intakeProjectId]: projectId };
   const preliminary = processRow({ row: r, verificationSources: [fetchedSource()], indexes: base });
   const indexes = { ...base, events: [{ event_key: preliminary.report.derived_event_key }] };
   const prepared = prepareFast(r, { indexes });
   const decision = decideFast({ row: r, result: prepared.result, boundReview: prepared.boundReview, indexes });
   assert.equal(decision.article_decision, ARTICLE_DECISION.DUPLICATE);
   assert.equal(decision.fact_change_decision, FACT_DECISION.AUTO_APPLY);
-  assert.equal(decision.fact_mutations.find((mutation) => mutation.field === "residenceCount")?.value, "194");
+  const residenceMutation = decision.fact_mutations.find((mutation) => mutation.field === "residenceCount");
+  assert.equal(residenceMutation?.project_id, projectId);
+  assert.equal(residenceMutation?.value, "194");
 });
 
 test("Fast Mode V2: a genuine article contradiction can coexist with a safe fact auto-apply", () => {
