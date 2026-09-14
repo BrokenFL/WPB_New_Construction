@@ -11,12 +11,13 @@ export const publicProjectModel = {
       "corridorKey": "north-flagler",
       "corridor": "North Flagler",
       "displayName": "Alba Palm Beach",
-      "projectType": "condo-active-sales",
-      "status": "Under Construction",
+      "projectType": "completed-comparable",
+      "status": "Completed",
       "delivery": "Spring 2026 estimated",
       "residences": "55",
       "price": "$2.5M–$7.8M",
       "reviewedFields": {
+        "status": "Completed",
         "delivery": "2Q 2026",
         "address": "4714 N. Flagler Drive, West Palm Beach, FL 33407"
       },
@@ -48,11 +49,11 @@ export const publicProjectModel = {
           "Private elevators and vestibules"
         ],
         "neighborhoodContext": "North Flagler waterfront",
-        "factEffectiveDate": "2026-09-01",
+        "factEffectiveDate": "2026-06-22",
         "lastVerifiedDate": "2026-09-01",
         "sourcePriority": {
           "displayName": "canonical",
-          "status": "canonical",
+          "status": "reviewed_override",
           "delivery": "canonical",
           "residences": "canonical",
           "price": "canonical",

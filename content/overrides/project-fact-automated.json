@@ -1,7 +1,7 @@
 {
   "version": 1,
   "policyVersion": "p2-fast-policy-v1",
-  "updatedAt": "2026-09-14T16:02:18.000Z",
+  "updatedAt": "2026-09-14T16:45:25.800Z",
   "projects": {
     "fern-and-gardenia-related-ross-fern-street": {
       "residenceCount": {
@@ -60,6 +60,36 @@
         "appliedBy": "p2-fast-cycle",
         "rollback": {
           "previous_value": "Active Sales / Under Construction"
+        }
+      }
+    },
+    "alba-palm-beach": {
+      "status": {
+        "value": "Completed",
+        "source": "automated_intel",
+        "asOf": "2026-06-22",
+        "effectiveDate": "2026-06-22",
+        "sourceUrl": "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html",
+        "sourceName": "Florida YIMBY",
+        "intelId": "wpb-intel-2026-09-10-001",
+        "evidenceBundleSha256": "cc0326397b79bae539a4e6d18a340579f9330f2a009cc32496a6f293cfc604bb",
+        "sources": [
+          {
+            "source_ref_id": "source-48e13c979429c630",
+            "url": "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html",
+            "name": "Florida YIMBY",
+            "tier": 2,
+            "type": "trade",
+            "published_date": "2026-06-22",
+            "content_sha256": "a8c3492591bb1cf96de054cf6107d68ca655f32f3fb4f51eac37cf1b13ab2f81",
+            "revision": "a8c3492591bb1cf96de054cf6107d68ca655f32f3fb4f51eac37cf1b13ab2f81"
+          }
+        ],
+        "policyVersion": "p2-fast-policy-v1",
+        "appliedAt": "2026-09-14T16:45:25.800Z",
+        "appliedBy": "p2-fast-cycle",
+        "rollback": {
+          "previous_value": "Under Construction"
         }
       }
     }

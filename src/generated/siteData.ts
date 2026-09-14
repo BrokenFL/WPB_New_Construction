@@ -4060,7 +4060,7 @@ export const projectFacts = [
     "projectId": "alba-palm-beach",
     "name": "Alba Palm Beach",
     "area": "North Flagler",
-    "projectType": "condo-active-sales",
+    "projectType": "completed-comparable",
     "summary": "A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
@@ -4068,7 +4068,7 @@ export const projectFacts = [
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Under Construction",
+      "status": "Completed",
       "residences": "55",
       "stories": "22",
       "completion": "Spring 2026 estimated",
@@ -4087,7 +4087,7 @@ export const projectFacts = [
         "Private elevators and vestibules"
       ],
       "neighborhoodContext": "North Flagler waterfront",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-06-22"
     },
     "sources": [
       {

@@ -17,7 +17,7 @@ export const canonicalProjectModel = {
       "corridor": "North Flagler",
       "publicationState": "published",
       "displayName": "Alba Palm Beach",
-      "status": "Under Construction",
+      "status": "Completed",
       "delivery": "Spring 2026 estimated",
       "residences": "55",
       "price": "$2.5M–$7.8M",
@@ -50,12 +50,13 @@ export const canonicalProjectModel = {
         "https://d3v3ow8236o554.cloudfront.net/alba-brochure.pdf"
       ],
       "reviewedFields": {
+        "status": "Completed",
         "delivery": "2Q 2026",
         "address": "4714 N. Flagler Drive, West Palm Beach, FL 33407"
       },
       "fieldSources": {
         "displayName": "canonical",
-        "status": "canonical",
+        "status": "reviewed_override",
         "delivery": "canonical",
         "residences": "canonical",
         "price": "canonical",
