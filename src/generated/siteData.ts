@@ -5085,6 +5085,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+    "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage | WPB Updates",
+    "description": "Terra and Frisbie Group have acquired another parcel of the former Palm Beach Kennel Club site for $20 million, expanding their master-planned West Palm Beach footprint.",
+    "ogImage": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg"
+  },
+  {
     "path": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
     "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler | WPB Updates",
     "description": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",

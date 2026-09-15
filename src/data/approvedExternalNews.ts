@@ -76,6 +76,77 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "intel-story-7e8443a31a1b3fbb",
+    "slug": "terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15",
+    "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+    "sourceName": "The Real Deal",
+    "sourceUrl": "https://therealdeal.com/miami/2026/09/09/terra-frisbie-buy-more-of-former-palm-beach-kennel-club/",
+    "canonicalUrl": "https://therealdeal.com/miami/2026/09/09/terra-frisbie-buy-more-of-former-palm-beach-kennel-club/",
+    "sourceTitle": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+    "publishedAt": "2026-09-15T04:50:01.037Z",
+    "sourcePublishedAt": "2026-09-09",
+    "sourcePublishedDate": "2026-09-09",
+    "eventDate": "2026-09-15",
+    "dateDiscovered": "2026-09-15",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-15T04:50:01.037Z",
+    "deck": "Terra and Frisbie Group have acquired another parcel of the former Palm Beach Kennel Club site for $20 million, expanding their master-planned West Palm Beach footprint.",
+    "description": "Terra and Frisbie Group have acquired another parcel of the former Palm Beach Kennel Club site for $20 million, expanding their master-planned West Palm Beach footprint.",
+    "summary": "A $20 million land acquisition expands the Terra-Frisbie assemblage at the former Palm Beach Kennel Club site, where large-scale mixed-use and residential development is planned.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "David Martin’s Terra and Palm Beach-based Frisbie Group have acquired an additional parcel of the former Palm Beach Kennel Club site in West Palm Beach for $20 million. The purchase expands the partners’ existing multi-acre assemblage and follows earlier parcel acquisitions tied to the same broader site.\n\nAccording to The Real Deal, the assembled property is planned for large-scale mixed-use and residential development. The key update is therefore not a new tower design or unit count, but another piece of land moving into the same development footprint.",
+        "image": "/assets/editorial/west-palm-move-downtown-mobility-hero.jpg"
+      },
+      {
+        "heading": "Why it matters for buyers",
+        "body": "Large assemblages tend to matter differently from single-building announcements. They can support a wider mix of residential, commercial and public-facing uses, and they usually unfold over a longer planning horizon. For buyers watching West Palm Beach’s next growth areas, the continued accumulation of land is a concrete sign that this site remains an active development play.\n\nThe verified record does not establish a final acreage, detailed building program, delivery schedule or specific residential product for this latest acquisition. Those are exactly the details worth waiting for rather than filling in from broader market expectations."
+      },
+      {
+        "heading": "What to watch",
+        "body": "The next important signals will come from attributable master-plan filings, site plans, infrastructure details and a clearer breakdown of the residential and commercial components. Those documents will show how the expanded assemblage is actually intended to function.\n\nFor now, the useful takeaway is straightforward: Terra and Frisbie have added another $20 million parcel to a growing West Palm Beach site planned for substantial mixed-use and residential development."
+      }
+    ],
+    "whyItMatters": "Another $20 million parcel expands an already significant assemblage planned for large-scale development.",
+    "buyerContext": "Use the acquisition and broad mixed-use/residential intent as the current facts; wait for filings before assuming exact acreage, unit counts or timing.",
+    "buyerTakeaway": "The acquisition expands a master-planned site intended for large-scale mixed-use and residential development; detailed project programming is still to come.",
+    "marketSignal": "A major development partnership continues assembling land for a large West Palm Beach project.",
+    "bestFor": "Buyers and owners tracking future inventory and district-scale development beyond single-building announcements.",
+    "watchPoints": "Master-plan filings, site plans, infrastructure details and a clearer residential/commercial program.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+    "newsletterBlurb": "Terra and Frisbie Group have acquired another parcel of the former Palm Beach Kennel Club site for $20 million, expanding their master-planned West Palm Beach footprint.",
+    "newsletterCta": "Read the article",
+    "query": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+    "category": "development",
+    "relatedProjectIds": [
+      "terra-frisbie-wpb-assemblage"
+    ],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [
+      "terra-frisbie-wpb-assemblage"
+    ],
+    "relatedCorridors": [],
+    "primaryProjectSlug": "terra-frisbie-wpb-assemblage",
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+    "sourceLinks": [
+      {
+        "label": "The Real Deal",
+        "url": "https://therealdeal.com/miami/2026/09/09/terra-frisbie-buy-more-of-former-palm-beach-kennel-club/",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "intel-story-26c1c72f59519b2e",
     "slug": "unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15",
     "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
