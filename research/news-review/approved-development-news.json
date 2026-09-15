@@ -1,5 +1,80 @@
 [
   {
+    "id": "intel-story-26c1c72f59519b2e",
+    "slug": "unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15",
+    "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+    "sourceName": "The Real Deal / Discover South Florida",
+    "sourceUrl": "https://therealdeal.com/miami/2026/07/09/chuck-whittall-buying-la-fontana-co-op-in-west-palm-beach/",
+    "canonicalUrl": "https://therealdeal.com/miami/2026/07/09/chuck-whittall-buying-la-fontana-co-op-in-west-palm-beach/",
+    "sourceTitle": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+    "publishedAt": "2026-09-15T04:49:30.941Z",
+    "sourcePublishedAt": "2026-07-18",
+    "sourcePublishedDate": "2026-07-18",
+    "eventDate": "2026-09-15",
+    "dateDiscovered": "2026-09-15",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-15T04:49:30.941Z",
+    "deck": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",
+    "description": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",
+    "summary": "Unicorp is under contract for the 140-unit La Fontana co-op on North Flagler at roughly $200 million, with a projected 2027 closing.",
+    "bodySections": [
+      {
+        "heading": "What happened",
+        "body": "Chuck Whittall’s Unicorp is under contract to acquire La Fontana, a 140-unit waterfront co-op on North Flagler, for roughly $200 million. The property dates to 1961, and the reported transaction works out to about $1.4 million per residence on average.\n\nThe Real Deal reports that closing is projected for 2027. Those are the dependable elements of the update: the buyer, the approximately $200 million contract price, the 140-unit scale of the existing co-op and the projected closing horizon.",
+        "image": "/assets/home/north-flagler-3-buildings-daytime-v01.jpg"
+      },
+      {
+        "heading": "Why it matters for buyers",
+        "body": "A transaction of this size matters on North Flagler because it involves an existing waterfront residential property rather than an undeveloped parcel. For buyers comparing the corridor, it is another sign that older waterfront sites are attracting major acquisition interest while new towers continue to reshape the area.\n\nThe important limit is what comes next. The verified record here does not establish a specific future residential brand, hospitality component or redevelopment program for the site. Until Unicorp or public planning records provide attributable details, buyers should treat the transaction as an acquisition story rather than a finished development announcement."
+      },
+      {
+        "heading": "What to watch",
+        "body": "The projected 2027 closing is the next major transaction milestone. After that, the useful questions will be whether a redevelopment application is filed, what uses are proposed and how any future plan fits into the broader North Flagler pipeline.\n\nFor now, La Fontana is a significant waterfront property under contract at roughly $200 million. That alone makes it worth watching — without racing ahead of what has actually been announced."
+      }
+    ],
+    "whyItMatters": "A roughly $200 million contract for a 140-unit waterfront co-op is a significant North Flagler land and ownership event.",
+    "buyerContext": "Follow the transaction now; wait for attributable filings before assuming what will replace the existing property.",
+    "buyerTakeaway": "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
+    "marketSignal": "Major acquisition interest continues to focus on existing waterfront properties along North Flagler.",
+    "bestFor": "Buyers tracking how older North Flagler waterfront properties may transition over time.",
+    "watchPoints": "The projected 2027 closing and any later attributable redevelopment filing or public plan.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+    "newsletterBlurb": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",
+    "newsletterCta": "Read the article",
+    "query": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+    "category": "development",
+    "relatedProjectIds": [
+      "la-fontana-north-flagler-buyout"
+    ],
+    "relatedCorridorIds": [
+      "north-flagler"
+    ],
+    "relatedProjectSlugs": [
+      "la-fontana-north-flagler-buyout"
+    ],
+    "relatedCorridors": [
+      "north-flagler"
+    ],
+    "primaryProjectSlug": "la-fontana-north-flagler-buyout",
+    "corridorLabel": "North Flagler",
+    "imagePath": "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg",
+    "sourceLinks": [
+      {
+        "label": "The Real Deal / Discover South Florida",
+        "url": "https://therealdeal.com/miami/2026/07/09/chuck-whittall-buying-la-fontana-co-op-in-west-palm-beach/",
+        "type": "news"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "intel-story-544ca384b5f936f2",
     "slug": "alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14",
     "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",

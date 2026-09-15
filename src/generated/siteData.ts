@@ -5085,6 +5085,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+    "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler | WPB Updates",
+    "description": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",
+    "ogImage": "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg"
+  },
+  {
     "path": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
     "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler | WPB Updates",
     "description": "The 22-story, 55-residence tower at 4714 N. Flagler Drive has completed construction, giving buyers a move-in-ready new-construction option on North Flagler.",
