@@ -120,7 +120,7 @@
     "test:deploy-preflight": "node --test research/scripts/production-map-preflight.test.mjs",
     "qa:maps-keyed": "node research/scripts/check-maps-keyed.mjs",
     "test:commercial": "node --experimental-strip-types --test research/scripts/commercial-growth.test.mjs",
-    "test:integration": "node --experimental-strip-types --test research/scripts/integration.test.mjs research/scripts/map-qa-mode.test.mjs",
+    "test:integration": "node --experimental-strip-types --test research/scripts/integration.test.mjs research/scripts/map-qa-mode.test.mjs research/scripts/image-repetition.test.mjs",
     "qa:commercial": "node --experimental-strip-types research/scripts/check-commercial-growth.mjs",
     "qa:integration": "node --experimental-strip-types research/scripts/check-integrated-journeys.mjs",
     "p2:fast:cycle": "node research/scripts/p2/fast-cycle-cli.mjs",

@@ -164,6 +164,11 @@ async function dismissBlockingOverlays(page) {
   if (await analyticsDismiss.count()) await analyticsDismiss.click();
 }
 
+async function waitForNavigationSettled(page) {
+  await page.waitForLoadState("networkidle", { timeout: 12000 });
+  await page.waitForTimeout(120);
+}
+
 async function assertNoHorizontalOverflow(page, label) {
   const dimensions = await page.evaluate(() => ({
     viewport: window.innerWidth,
@@ -399,6 +404,48 @@ async function checkFloorplanViewer(page, results, scope) {
     assert.equal(await viewer.evaluate((element) => element instanceof HTMLDialogElement && element.open), false, "Escape did not close floorplan viewer");
     assert.equal(await trigger.evaluate((element) => document.activeElement === element), true, "Floorplan close did not return focus to trigger");
     return { title: await trigger.getAttribute("data-floorplan-title") };
+  });
+}
+
+async function checkNewestArticleDirectLoads(page, expected, results, scope, runtimeErrors) {
+  await runCheck(results, scope, "newest published articles direct-load and reload body rendering", async () => {
+    const rendered = [];
+    await waitForNavigationSettled(page);
+    for (const item of expected) {
+      await waitForNavigationSettled(page);
+      const route = `/updates/${item.slug || item.id}/`;
+      const errorStart = runtimeErrors.pageErrors.length;
+      const consoleErrorStart = runtimeErrors.consoleErrors.length;
+      const assetFailureStart = runtimeErrors.assetFailures.length;
+      const readArticle = async (phase) => {
+        const article = page.locator('[data-route-view="news-detail"]:not([hidden])');
+        await article.waitFor({ state: "visible", timeout: 12000 });
+        const title = normalize(await article.locator("h1").innerText());
+        const body = normalize(await article.locator(".market-note-sections").innerText());
+        assert.equal(title, item.title, `${item.id} ${phase} title mismatch`);
+        assert.ok(body.length > 0, `${item.id} ${phase} body is empty`);
+        const firstSection = item.bodySections?.[0];
+        if (firstSection?.heading) assert.match(body, new RegExp(firstSection.heading.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), `${item.id} ${phase} section heading is missing`);
+        if (firstSection?.body) assert.ok(body.includes(normalize(firstSection.body).slice(0, 96)), `${item.id} ${phase} source body is missing`);
+        return { title, bodyLength: body.length };
+      };
+
+      const initialResponse = await visit(page, route);
+      await dismissBlockingOverlays(page);
+      await waitForNavigationSettled(page);
+      const initial = await readArticle("initial direct load");
+      await waitForNavigationSettled(page);
+      await page.reload({ waitUntil: "domcontentloaded" });
+      await page.locator(".site-shell").waitFor({ state: "attached", timeout: 12000 });
+      await dismissBlockingOverlays(page);
+      await waitForNavigationSettled(page);
+      const reloaded = await readArticle("reload");
+      assert.equal(runtimeErrors.pageErrors.length, errorStart, `${item.id} direct load/reload emitted page errors: ${runtimeErrors.pageErrors.slice(errorStart).join(" | ")}`);
+      assert.equal(runtimeErrors.consoleErrors.length, consoleErrorStart, `${item.id} direct load/reload emitted console errors: ${runtimeErrors.consoleErrors.slice(consoleErrorStart).join(" | ")}`);
+      assert.equal(runtimeErrors.assetFailures.length, assetFailureStart, `${item.id} direct load/reload failed local assets: ${runtimeErrors.assetFailures.slice(assetFailureStart).join(" | ")}`);
+      rendered.push({ id: item.id, route, status: initialResponse.status(), initial, reloaded });
+    }
+    return { rendered };
   });
 }
 
@@ -668,6 +715,16 @@ async function runBrowser(browserName, launcher, expected, canonicalProjects, re
     });
     const page = await context.newPage();
     const scope = { browser: browserName, width };
+    const runtimeErrors = { pageErrors: [], consoleErrors: [], assetFailures: [] };
+    page.on("pageerror", (error) => runtimeErrors.pageErrors.push(error.message));
+    page.on("console", (message) => {
+      if (message.type() === "error") runtimeErrors.consoleErrors.push(message.text());
+    });
+    page.on("requestfailed", (request) => {
+      if (!/\.(?:js|css)(?:\?|$)/i.test(request.url())) return;
+      const url = new URL(request.url());
+      runtimeErrors.assetFailures.push(`${url.pathname}${url.search} (${request.failure()?.errorText || "request failed"})`);
+    });
     page.on("request", (request) => {
       if (/google-analytics|googletagmanager|analytics\.google\.com|www\.googletagmanager\.com/i.test(request.url())) {
         analyticsState.requestUrls.push(request.url());
@@ -675,6 +732,7 @@ async function runBrowser(browserName, launcher, expected, canonicalProjects, re
     });
 
     try {
+      await checkNewestArticleDirectLoads(page, expected, results, scope, runtimeErrors);
       await checkHomepage(page, expected, canonicalProjects, results, scope, routeState);
       await checkGallery(page, results, scope);
       await checkFloorplanViewer(page, results, scope);

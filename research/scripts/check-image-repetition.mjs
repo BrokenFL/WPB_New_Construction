@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { ensureReportDir, qaReportMode, qaReportPath } from "./qa-report-utils.mjs";
+import { collectImageUsages, isAcceptableRepeat, isBlockingImageRepeat, nearbyContext } from "./image-repetition-utils.mjs";
 
 const workspace = process.cwd();
 const reportPath = qaReportPath(workspace, "research/source-material-review/image-repetition-audit.md");
@@ -12,12 +13,6 @@ const sourceFiles = [
   "content/overrides/homepage-card-overrides.json",
 ];
 
-const allowedRepeatedFragments = [
-  "/logo.",
-  "/logo.svg",
-  "brand-mark",
-  "wpb-geography-map-hero",
-];
 const routeChecks = [
   {
     label: "Rosewood render stays in Rosewood context",
@@ -56,7 +51,7 @@ const projectSpecificRules = [
 
 async function main() {
   const sourceText = await readSources();
-  const imageUsages = collectImageUsages(sourceText);
+  const { usages: imageUsages, provenance } = collectImageUsages(sourceText);
   const approvals = await intentionalRepetitionApprovals();
   const findings = [];
   const rows = [];
@@ -66,7 +61,7 @@ async function main() {
   for (const [imagePath, usages] of imageUsages) {
     const approval = approvals.get(imagePath);
     const acceptable = isAcceptableRepeat(imagePath, usages) || Boolean(approval);
-    if (usages.length > 3 && !acceptable) {
+    if (isBlockingImageRepeat(imagePath, usages, Boolean(approval))) {
       findings.push(`${imagePath} appears ${usages.length} times in source mappings.`);
     }
     rows.push({
@@ -95,14 +90,14 @@ async function main() {
     }
   }
 
-  await writeReport(rows, findings, renderedChecks, approvals);
+  await writeReport(rows, findings, renderedChecks, approvals, provenance);
 
   if (findings.length) {
     console.error(["Image repetition QA failed:", ...findings.map((finding) => `- ${finding}`)].join("\n"));
     process.exit(1);
   }
 
-  console.log(JSON.stringify({ imageRepetition: "pass", imagesChecked: imageUsages.size, reportPath: path.relative(workspace, reportPath), reportMode: qaReportMode() }, null, 2));
+  console.log(JSON.stringify({ imageRepetition: "pass", imagesChecked: imageUsages.size, deskSourcePathProvenance: provenance.length, reportPath: path.relative(workspace, reportPath), reportMode: qaReportMode() }, null, 2));
 }
 
 async function intentionalRepetitionApprovals() {
@@ -134,22 +129,6 @@ async function readSources() {
   return entries;
 }
 
-function collectImageUsages(sources) {
-  const usages = new Map();
-  for (const source of sources) {
-    const lines = source.text.split(/\n/);
-    lines.forEach((line, index) => {
-      for (const match of line.matchAll(/["'`]((?:\/assets|\/projects)[^"'`]+?\.(?:jpg|jpeg|png|webp|svg))["'`]/gi)) {
-        const imagePath = match[1];
-        const context = nearbyContext(lines, index);
-        if (!usages.has(imagePath)) usages.set(imagePath, []);
-        usages.get(imagePath).push({ file: source.relativePath, line: index + 1, context });
-      }
-    });
-  }
-  return usages;
-}
-
 function contextualUsages(sources, fragment) {
   const results = [];
   for (const source of sources) {
@@ -161,23 +140,6 @@ function contextualUsages(sources, fragment) {
     });
   }
   return results;
-}
-
-function nearbyContext(lines, index) {
-  const window = lines.slice(Math.max(0, index - 8), Math.min(lines.length, index + 9)).join(" ");
-  const project = window.match(/id:\s*"([^"]+)"/)?.[1] ?? window.match(/projectId:\s*"([^"]+)"/)?.[1];
-  const corridor = window.match(/corridorKey:\s*"([^"]+)"/)?.[1];
-  const slug = window.match(/slug:\s*"([^"]+)"/)?.[1];
-  const route = window.match(/routeUse:\s*\[([^\]]+)/)?.[1];
-  return [project, corridor].filter(Boolean).join(" ") || slug || route?.replaceAll('"', "").trim() || "shared source";
-}
-
-function isAcceptableRepeat(imagePath, usages) {
-  if (allowedRepeatedFragments.some((fragment) => imagePath.includes(fragment))) return true;
-  const contexts = new Set(usages.map((usage) => usage.context));
-  if (contexts.size === 1) return true;
-  if (imagePath.includes("/assets/editorial/") && usages.length <= 3) return true;
-  return false;
 }
 
 async function checkRenderedHomepage() {
@@ -221,7 +183,7 @@ function projectFromImage(src) {
   return src.match(/\/projects\/([^/]+)\//)?.[1] || "";
 }
 
-async function writeReport(rows, findings, renderedChecks, approvals) {
+async function writeReport(rows, findings, renderedChecks, approvals, provenance) {
   await ensureReportDir(reportPath);
   const lines = [
     "# Image Repetition Audit",
@@ -234,6 +196,7 @@ async function writeReport(rows, findings, renderedChecks, approvals) {
       ? `- Blocking findings: ${findings.length}`
       : "- Blocking findings: 0",
     `- Rendered homepage checked: ${renderedChecks.htmlChecked ? "yes" : "no dist/index.html found before build"}`,
+    `- Homepage Desk sourcePath provenance classified separately: ${provenance.length} entr${provenance.length === 1 ? "y" : "ies"}`,
     "- Logos and same-project reuse are treated as acceptable.",
     "- Project/corridor mismatch rules are checked for Rosewood, Olara, Shorecrest, NORA House, South Flagler, Kravis, and NORA district imagery.",
     "- Rendered homepage checks block back-to-back duplicate images, adjacent Olara imagery, and overuse of generic geography/corridor imagery.",
@@ -247,6 +210,12 @@ async function writeReport(rows, findings, renderedChecks, approvals) {
     "## Findings",
     "",
     ...(findings.length ? findings.map((finding) => `- ${finding}`) : ["- No blocking image repetition or context mismatch findings."]),
+    "",
+    "## Homepage Desk sourcePath Provenance",
+    "",
+    ...(provenance.length
+      ? provenance.map((entry) => `- ${entry.imagePath} — ${entry.file}:${entry.line} (${entry.context})`)
+      : ["- None detected."]),
     "",
     "## Intentional Repetition Approvals",
     "",

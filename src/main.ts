@@ -6433,7 +6433,9 @@ function publicText(value: unknown) {
   return escapeHtml(gatekeeperText(value));
 }
 
-const inlineImg = (path?: string) => path ? `<img src="${path}">` : "";
+function inlineImg(path?: string) {
+  return path ? `<img src="${path}">` : "";
+}
 
 function projectCopyFact(copyPackage: ProjectCopyPackage | undefined, labelPattern: RegExp) {
   return copyPackage?.quickFacts?.find((fact) => labelPattern.test(fact.label))?.value;
