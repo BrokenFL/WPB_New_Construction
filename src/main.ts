@@ -2402,7 +2402,7 @@ app.innerHTML = `
             </h1>
             <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || "Explore the city's most important new and upcoming condominium projects with clear details, local insight, floorplans, maps, and buyer-focused guidance before you inquire.")}</p>
             <div class="v2-hero-actions"><a class="button primary" href="/buildings/" data-hero-cta="projects">Explore buildings <span aria-hidden="true">↗</span></a><a class="v2-text-link" href="/compare/" data-hero-cta="compare">Compare your options <span aria-hidden="true">→</span></a></div>
-            <p class="v2-hero-note">The buildings. The neighborhoods. The details that matter.</p>
+            <a class="v2-hero-note v2-latest-link" href="#latest-developments">Catch up on the latest developments <span aria-hidden="true">↓</span></a>
           </div>
         </div>
       </section>
@@ -2419,6 +2419,8 @@ app.innerHTML = `
           <a href="/market-notes/" data-hero-cta="guides">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
         </nav>
       </div>
+
+      ${renderHomepageLatestDevelopments()}
 
       <section class="home-corridor-guide" id="corridors" aria-label="Choose a West Palm Beach new-construction corridor">
         <div class="section-heading corridor-heading">
@@ -2460,6 +2462,8 @@ app.innerHTML = `
           </div>
         </div>
       </section>
+
+      ${renderHomepageCompareLauncher()}
 
       <section class="home-future-module home-spotlight-module" aria-label="Downtown spotlight: NORA district">
         <img src="/assets/editorial/nora-district-aerial-evening-hero.jpg" alt="Aerial evening rendering of the NORA District in Downtown West Palm Beach" loading="lazy" decoding="async" fetchpriority="low" />
@@ -2507,7 +2511,6 @@ app.innerHTML = `
       </section>
 
       ${renderHomepageAdvisoryResources()}
-      ${renderHomepageCompareLauncher()}
       ${renderHomepageEndBridge()}
       </div>
 
@@ -2649,7 +2652,7 @@ app.innerHTML = `
           <div class="floorplan-viewer-actions">
             <button type="button" data-floorplan-prev>Previous</button>
             <button type="button" data-floorplan-next>Next</button>
-            <a href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", shortContactCtaLabel, { leadCaptureContext: "floorplan_viewer" })}>${shortContactCtaLabel}</a>
+            <a data-floorplan-inquire href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", shortContactCtaLabel, { leadCaptureContext: "floorplan_viewer" })}>${shortContactCtaLabel}</a>
           </div>
         </section>
       </dialog>
@@ -4137,6 +4140,20 @@ function syncInquiryContext() {
   const leadCaptureContext = params.get("lead_capture_context");
   const projectSelect = document.querySelector<HTMLSelectElement>('.inquiry-form select[name="project"]');
   const inquiryForm = document.querySelector<HTMLFormElement>(".inquiry-form");
+  const shortlistIds = [...new Set((params.get("projects") ?? "").split(",").filter(Boolean))];
+  const shortlist = shortlistIds.map((id) => featuredProjects.find((project) => project.id === id));
+  if (inquiryForm) {
+    const requestLocation = window.location.pathname + window.location.search;
+    if (getCurrentRoute().type === "inquire" && inquiryForm.dataset.requestLocation !== requestLocation) {
+      // A receipt belongs to the submitted request, never a newly selected plan or shortlist.
+      inquiryForm.querySelector<HTMLElement>(".form-status")?.replaceChildren();
+      inquiryForm.dataset.requestLocation = requestLocation;
+    }
+    delete inquiryForm.dataset.requestShortlist;
+    if (interest === "compare" && shortlist.length >= 2 && shortlist.length <= 3 && shortlist.every(Boolean)) {
+      inquiryForm.dataset.requestShortlist = shortlist.map((project) => project!.name).join(" · ");
+    }
+  }
   const interestSelect = document.querySelector<HTMLSelectElement>('.inquiry-form select[name="interest"]');
   const messageField = document.querySelector<HTMLTextAreaElement>('.inquiry-form textarea[name="message"]');
 
@@ -4217,9 +4234,15 @@ async function initCompareShortlist() {
     `;
 
     const names = selectedProjects.map((project) => project.name).join(", ");
-    const message = encodeURIComponent(`I want The Scott Gordon Group to compare these buildings: ${names}.`);
+    const params = new URLSearchParams({
+      project: selectedProjects[0].id,
+      projects: selectedProjects.map((project) => project.id).join(","),
+      interest: "compare",
+      lead_capture_context: "compare_shortlist",
+      message: `I want The Scott Gordon Group to compare these buildings: ${names}.`,
+    });
     if (inquireLink) {
-      inquireLink.href = `/inquire/?message=${message}`;
+      inquireLink.href = `/inquire/?${params.toString()}`;
     }
   };
 
@@ -4892,7 +4915,6 @@ function homeJumpIcon(name: "projects" | "corridors" | "map" | "compare" | "guid
 }
 
 function renderHomepageAdvisoryResources() {
-  const latestUpdate = [...publishedExternalNews].sort((a, b) => newsSortTimestamp(b) - newsSortTimestamp(a))[0];
   const featuredBuyerNote = marketNoteForSlug("are-branded-residences-worth-it-west-palm-beach");
 
   return `
@@ -4919,13 +4941,6 @@ function renderHomepageAdvisoryResources() {
             <a href="/market-notes/">View all guides <span aria-hidden="true">→</span></a>
           </div>
           ${featuredBuyerNote ? renderHomepageMarketNoteFeature(featuredBuyerNote) : ""}
-        </div>
-        <div class="home-resource-feature">
-          <div class="home-resource-heading">
-            <p class="eyebrow">Development Desk</p>
-            <a href="/updates/">View all updates <span aria-hidden="true">→</span></a>
-          </div>
-          ${latestUpdate ? renderHomepageUpdateFeature(latestUpdate) : ""}
         </div>
       </div>
     </section>
@@ -4993,17 +5008,41 @@ function renderHomepageMarketNoteFeature(note: MarketNote) {
   `;
 }
 
-function renderHomepageUpdateFeature(item: ExternalNewsItem) {
-  const resolvedImage = imageForContentItem(externalNewsImageContext(item));
-  const article = updateArticleContent(item);
+function renderHomepageLatestDevelopments() {
+  // Presentation only: retain the three newest approved publications until replaced.
+  // Freshness-lane labels do not override publication order or expire a card.
+  const latest = publishedExternalNews.slice(0, 3);
+  if (!latest.length) return "";
   return `
-    <a class="home-resource-card home-resource-card-featured" href="${updatePath(item)}">
-      ${renderResolvedContentImage(resolvedImage)}
-      <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
-      <strong>${publicText(item.title)}</strong>
-      <p>${publicText(article.excerpt)}</p>
-      <em>Read latest update <b aria-hidden="true">→</b></em>
-    </a>
+    <section class="v2-development-desk" id="latest-developments" aria-labelledby="latest-developments-title">
+      <header class="v2-desk-heading">
+        <div><p class="eyebrow">The Development Desk</p><h2 id="latest-developments-title">A city in the making.</h2>
+        <p>Latest developments, with context for your next move.</p></div>
+        <a href="/updates/">All development stories <span aria-hidden="true">↗</span></a>
+      </header>
+      <div class="v2-desk-grid">${latest.map((item, index) => {
+        const projects = relatedProjectsForArticle(item);
+        const corridor = corridorSections.find((section) => item.relatedCorridorIds.includes(section.key));
+        const implication = item.buyerTakeaway || item.whyItMatters || updateArticleContent(item).excerpt;
+        const published = newsDisplayDate(item);
+        const sourceDate = item.sourcePublishedDate || item.sourcePublishedAt;
+        const related = projects[0]
+          ? `<a href="${projectPath(projects[0])}" ${renderCtaTrackingAttrs("home_page", `Explore ${projects[0].name}`)} data-article-id="${escapeHtml(item.id)}">Explore ${escapeHtml(projects[0].name)} <span aria-hidden="true">→</span></a>`
+          : corridor
+            ? `<a href="${corridorPath(corridor.key)}">Explore ${escapeHtml(corridor.label)} <span aria-hidden="true">→</span></a>`
+            : '<a href="/buildings/">Explore the building directory <span aria-hidden="true">→</span></a>';
+        return `<article class="v2-desk-story${index === 0 ? " v2-desk-lead" : ""}" data-home-news-id="${escapeHtml(item.id)}">
+          <div class="v2-desk-copy">
+            <p class="v2-desk-date">Published <time datetime="${escapeHtml(published)}">${escapeHtml(formatNewsDate(published))}</time></p>
+            <h3><a href="${updatePath(item)}">${publicText(item.title)}</a></h3>
+            <p class="v2-desk-takeaway">${publicText(implication)}</p>
+            ${sourceDate ? `<p class="v2-desk-source">Source report: <time datetime="${escapeHtml(sourceDate)}">${escapeHtml(formatNewsDate(sourceDate))}</time></p>` : ""}
+            <div class="v2-desk-actions"><a href="${updatePath(item)}">Read the story <span aria-hidden="true">↗</span></a>${related}</div>
+          </div>
+        </article>`;
+      }).join("")}</div>
+      <p class="v2-desk-note">Our three latest publications. Publication dates reflect when a story appeared here; source reports may cover earlier events.</p>
+    </section>
   `;
 }
 
@@ -5051,6 +5090,8 @@ function renderHomepageEndBridge() {
         <img
           src="/assets/home/wpb-end-cap-bridge-v01.png"
           alt="Stylized West Palm Beach skyline and bridge illustration under a pale sky."
+          width="1915"
+          height="821"
           loading="lazy"
           decoding="async"
         />
@@ -5572,14 +5613,30 @@ function compareReviewedOverride(project: FeaturedProject, field: BuildingDataba
   return "";
 }
 
+function compareVisibleRows(section: CompareSection, projects: FeaturedProject[]) {
+  return section.rows.filter(([, field]) => compareFieldHasPublicValue(projects, field));
+}
+
+function compareSectionId(section: CompareSection) {
+  return `compare-section-${section.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+}
+
 function renderCompareSection(section: CompareSection, projects: FeaturedProject[]) {
-  const rows = section.rows.filter(([, field]) => compareFieldHasPublicValue(projects, field));
+  const rows = compareVisibleRows(section, projects);
   if (!rows.length) return "";
   return `<tbody><tr class="compare-section-row"><th colspan="${projects.length + 1}">${escapeHtml(section.title)}</th></tr>${rows.map(([label, field]) => `<tr><th>${escapeHtml(label)}</th>${projects.map((project) => `<td>${escapeHtml(compareBuildingValue(project, field))}</td>`).join("")}</tr>`).join("")}</tbody>`;
 }
 
+function renderCompareMobileSection(section: CompareSection, projects: FeaturedProject[]) {
+  const rows = compareVisibleRows(section, projects);
+  if (!rows.length) return "";
+  return `<section id="${compareSectionId(section)}" class="compare-mobile-section" aria-label="${escapeHtml(section.title)}"><h3>${escapeHtml(section.title)}</h3><div class="compare-mobile-criteria">${rows.map(([label, field]) => `<article class="compare-mobile-criterion"><h4>${escapeHtml(label)}</h4><div class="compare-mobile-values">${projects.map((project) => `<div class="compare-mobile-value"><a href="${projectPath(project)}">${escapeHtml(project.name)}</a><p>${escapeHtml(compareBuildingValue(project, field))}</p></div>`).join("")}</div></article>`).join("")}</div></section>`;
+}
+
 function renderCompareMatrix(projects: FeaturedProject[]) {
-  return `<div class="compare-matrix-wrap"><table><thead><tr><th>Comparison point</th>${projects.map((project) => `<th><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></th>`).join("")}</tr></thead>${(compareSections ?? []).map((section) => renderCompareSection(section, projects)).join("")}</table></div>`;
+  const visibleSections = (compareSections ?? []).filter((section) => compareVisibleRows(section, projects).length);
+  const jumps = visibleSections.map((section) => `<a href="#${compareSectionId(section)}">${escapeHtml(section.title)}</a>`).join("");
+  return `<div class="compare-matrix-wrap"><nav class="compare-section-jumps" aria-label="Jump to comparison sections">${jumps}</nav><div class="compare-matrix-desktop"><table><thead><tr><th>Comparison point</th>${projects.map((project) => `<th><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></th>`).join("")}</tr></thead>${visibleSections.map((section) => renderCompareSection(section, projects)).join("")}</table></div><div class="compare-matrix-mobile">${visibleSections.map((section) => renderCompareMobileSection(section, projects)).join("")}</div></div>`;
 }
 
 function renderAuthorityComparisonTable(projects: FeaturedProject[]) {
@@ -6276,10 +6333,7 @@ function renderFeaturedProject(project: FeaturedProject) {
     : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${displayName}</strong></div>`;
   const cardStatus = project.status;
   const salesOffice = salesOfficeLabel(project);
-  const completionYear =
-    Number.isFinite(project.deliveryYear) && project.deliveryYear >= 1900 && project.deliveryYear <= 2200
-      ? String(project.deliveryYear)
-      : "TBD";
+  const completionGuidance = projectDeliveryDisplay(project.delivery) || "Request current guidance";
   const cardCopy = project.summary;
 
   return `
@@ -6304,7 +6358,7 @@ function renderFeaturedProject(project: FeaturedProject) {
         </div>
         <div class="project-card-intel">
           <span><small>Sales Office</small><b data-pc-sales>${salesOffice}</b></span>
-          <span><small>Completion</small><b data-pc-year>${completionYear}</b></span>
+          <span><small>Delivery guidance</small><b data-pc-year>${escapeHtml(completionGuidance)}</b></span>
         </div>
         <p data-pc-copy>${escapeHtml(cardCopy)}</p>
         <div class="project-card-actions">
@@ -9543,7 +9597,19 @@ function initFloorplanViewer() {
     if (!button || !frame) return;
     activeIndex = index;
     const src = button.dataset.floorplanSrc || "";
-    title?.replaceChildren(document.createTextNode(button.dataset.floorplanTitle || "Floor plan"));
+    const planTitle = button.dataset.floorplanTitle || "Floor plan";
+    const projectId = button.dataset.floorplanProjectSlug || "";
+    const projectName = button.dataset.floorplanProject || "";
+    title?.replaceChildren(document.createTextNode(`${projectName} · ${planTitle}`));
+    const inquiryLink = viewer.querySelector<HTMLAnchorElement>("[data-floorplan-inquire]");
+    if (inquiryLink) {
+      const planSlug = planTitle.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      const context = `floorplan-request:library:${projectId}:${planSlug}`;
+      inquiryLink.href = `/inquire/?${new URLSearchParams({ project: projectId, interest: "floorplans", lead_capture_context: context, message: `Please send the current ${planTitle} packet for ${projectName}.` })}`;
+      inquiryLink.dataset.projectSlug = projectId;
+      inquiryLink.dataset.projectName = projectName;
+      inquiryLink.dataset.leadCaptureContext = context;
+    }
     const frameTitle = escapeHtml(button.dataset.floorplanTitle || "Floorplan preview");
     frame.innerHTML = src
       ? /\.(png|jpe?g|webp)(?:$|[?#])/i.test(src)
@@ -9552,7 +9618,8 @@ function initFloorplanViewer() {
       : `<div class="floorplan-viewer-request"><strong>Request current packet</strong></div>`;
     viewer.hidden = false;
     if (!viewer.open) {
-      returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      // WebKit does not focus buttons on pointer click; remember the actual trigger.
+      returnFocus = button;
       viewer.showModal();
       viewer.querySelector<HTMLButtonElement>("button[data-floorplan-close]")?.focus();
     }
@@ -9566,6 +9633,7 @@ function initFloorplanViewer() {
     returnFocus?.focus();
   };
   viewer.addEventListener("cancel", (event) => { event.preventDefault(); close(); });
+  viewer.addEventListener("close", () => returnFocus?.focus({ preventScroll: true }));
 
   document.addEventListener("click", (event) => {
     const button = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-floorplan-open]");
@@ -9574,7 +9642,7 @@ function initFloorplanViewer() {
       openAt(openButtons().indexOf(button));
       return;
     }
-    if ((event.target as HTMLElement).closest("[data-floorplan-close]")) close();
+    if ((event.target as HTMLElement).closest("[data-floorplan-close], [data-floorplan-inquire]")) close();
     if ((event.target as HTMLElement).closest("[data-floorplan-prev]")) {
       const buttons = openButtons();
       openAt((activeIndex - 1 + buttons.length) % buttons.length);

@@ -34,6 +34,8 @@ async function main() {
 
 async function inspectHomepage(browser, viewport) {
   const page = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
+  await page.route(/google-analytics|googletagmanager/, (route) => route.abort());
+  await page.route("**/api/leads", (route) => route.fulfill({ status: 200, body: '{"ok":true}' }));
   await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: "domcontentloaded", timeout: 30000 });
   await page.waitForSelector(".route-view-home:not([hidden])", { timeout: 30000 });
   await page.waitForTimeout(750);
@@ -61,6 +63,8 @@ async function inspectHomepage(browser, viewport) {
     const text = document.body.innerText;
     return {
       order: {
+        hero: sectionTop(".home-hero"),
+        news: sectionTop("#latest-developments"),
         corridors: sectionTop(".home-corridor-guide"),
         guide: sectionTop("[data-commercial-guide=home]"),
         atlas: sectionTop(".home-atlas-feature"),
@@ -68,7 +72,10 @@ async function inspectHomepage(browser, viewport) {
         spotlight: sectionTop(".home-spotlight-module"),
         resources: sectionTop(".home-advisory-resources"),
         compare: sectionTop(".home-compare-launcher"),
+        bridge: sectionTop(".home-end-bridge"),
       },
+      newsCount: scope?.querySelectorAll("[data-home-news-id]").length ?? 0,
+      bridgeVisible: (scope?.querySelector(".home-end-bridge")?.getBoundingClientRect().height ?? 0) > 0,
       visibleImages,
       jumpLinks: [...(scope?.querySelectorAll(".home-section-jump a") ?? [])].map((link) => link.getAttribute("href") ?? ""),
       hasCta: Boolean(scope?.querySelector(".home-compare-launcher a[href^='/inquire']")),
@@ -85,16 +92,13 @@ async function inspectHomepage(browser, viewport) {
 
   const findings = [];
   const checks = [];
-  const orderOk = data.order.corridors !== null && data.order.guide !== null && data.order.featured !== null
-    && data.order.spotlight !== null && data.order.atlas !== null && data.order.resources !== null && data.order.compare !== null
-    && data.order.corridors < data.order.featured
-    && data.order.featured < data.order.spotlight
-    && data.order.spotlight < data.order.atlas
-    && data.order.atlas < data.order.guide
-    && data.order.guide < data.order.resources
-    && data.order.resources < data.order.compare;
+  const expectedOrder = ["hero", "news", "corridors", "featured", "compare", "spotlight", "atlas", "guide", "resources", "bridge"];
+  const orderOk = expectedOrder.every((key, index) => data.order[key] !== null
+    && (index === 0 || data.order[expectedOrder[index - 1]] < data.order[key]));
   checks.push({ viewport: viewport.name, label: "homepage section order", ok: orderOk });
-  if (!orderOk) findings.push(`${viewport.name}: homepage order should be Hero -> Corridors -> Featured Developments -> Spotlight -> Atlas -> Buyer Guide -> Advisory Resources -> Compare Launcher.`);
+  if (!orderOk) findings.push(`${viewport.name}: homepage order should be ${expectedOrder.join(" -> ")}.`);
+  checks.push({ viewport: viewport.name, label: "three latest stories and original bridge visible", ok: data.newsCount === 3 && data.bridgeVisible });
+  if (data.newsCount !== 3 || !data.bridgeVisible) findings.push(`${viewport.name}: three latest stories and original bridge must remain visible.`);
   checks.push({ viewport: viewport.name, label: "CTA visible", ok: data.hasCta });
   if (!data.hasCta) findings.push(`${viewport.name}: homepage CTA block is not visible.`);
   checks.push({ viewport: viewport.name, label: "compare launcher available", ok: data.compareSelectCount === 2 && data.hasCompareSubmit });

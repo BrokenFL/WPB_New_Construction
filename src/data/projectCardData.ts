@@ -2,7 +2,7 @@ export type ProjectCardData = [string, string, string, string, string];
 
 export const projectCardDataById = Object.fromEntries([
   ["alba-palm-beach", ["Alba", "Under Construction", "Yes", "2026", "Boutique North Flagler waterfront living with just 55 residences, oversized terraces, private elevators, and a quieter luxury profile for buyers who want new construction without mega-tower scale."]],
-  ["olara", ["Olara", "Under Construction", "Yes", "2027", "A full-service North Flagler waterfront tower with 275 residences, deep amenities, guest suites, dockage, wellness, dining, valet, and the scale buyers expect from a true luxury address."]],
+  ["olara", ["Olara", "Under Construction", "Yes", "2027", "A full-service North Flagler waterfront tower with deep amenities, guest suites, dockage, wellness, dining, valet, and the scale buyers expect from a true luxury address."]],
   ["shorecrest", ["Shorecrest", "Under Construction", "Yes", "2027", "Modern North Flagler waterfront living with 98 residences, rooftop amenities, strong service, private terraces, and a sleek tower profile for buyers who want new construction with edge."]],
   ["ritz-carlton-wpb", ["Ritz-Carlton Residences", "Under Construction", "Yes", "2028", "Ritz-Carlton branded waterfront living on North Flagler with 138 residences, concierge service, beach club access, wellness amenities, and the confidence of a globally recognized luxury name."]],
   ["berkeley", ["The Berkeley", "Under Construction", "Yes", "2027", "Clear Lake luxury with 193 residences, large terraces, family-friendly amenities, downtown access, and practical elegance for buyers who want space without needing direct Intracoastal frontage."]],
@@ -33,9 +33,9 @@ export function hydrateProjectCards() {
     if (!data) return;
     card.querySelector<HTMLElement>("[data-pc-title]")?.replaceChildren(document.createTextNode(data[0]));
     card.querySelector<HTMLElement>("[data-pc-corridor]")?.replaceChildren(document.createTextNode(corridorLabels[card.dataset.c || card.dataset.corridor || ""] || ""));
-    card.querySelector<HTMLElement>("[data-pc-status]")?.replaceChildren(document.createTextNode(data[1]));
+    // Status and delivery are rendered through the canonical field resolver.
+    // Legacy card copy must not overwrite reviewed facts after hydration.
     card.querySelector<HTMLElement>("[data-pc-sales]")?.replaceChildren(document.createTextNode(data[2]));
-    card.querySelector<HTMLElement>("[data-pc-year]")?.replaceChildren(document.createTextNode(data[3]));
     card.querySelector<HTMLElement>("[data-pc-copy]")?.replaceChildren(document.createTextNode(data[4]));
   });
 }

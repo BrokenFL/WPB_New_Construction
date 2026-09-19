@@ -1265,3 +1265,233 @@ body .fp-page .fp-footer {
   .route-view-compare:not([hidden]) .compare-workspace-head > a { min-height: 44px; padding: 10px 16px; }
   .route-view-floorplans:not([hidden]) .floorplan-hub-hero h1 { font-size: clamp(3rem, 15vw, 4.7rem); }
 }
+
+/* Mobile comparison and inquiry finishing. Keep the desktop table as the
+ * semantic matrix while giving narrow screens a readable criterion-by-
+ * criterion view. */
+.route-view-compare:not([hidden]) .compare-matrix-desktop {
+  display: block;
+}
+
+.route-view-compare:not([hidden]) .compare-matrix-mobile,
+.route-view-compare:not([hidden]) .compare-section-jumps {
+  display: none;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-form label > span {
+  color: var(--v2-bronze);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.35;
+  text-transform: none;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-form input,
+.route-view-inquiry:not([hidden]) .inquiry-form select,
+.route-view-inquiry:not([hidden]) .inquiry-form textarea,
+.route-view-inquiry:not([hidden]) .inquiry-form > button.button.primary {
+  font-size: 1rem;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-form .consent-row > span,
+.route-view-inquiry:not([hidden]) .inquiry-form .lead-consent-row > span {
+  color: var(--v2-muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.site-shell .request-summary {
+  grid-column: 1 / -1;
+}
+
+.site-shell .brochure-inquiry-card h2 {
+  max-width: none;
+}
+
+@media (max-width: 760px) {
+  .route-view-compare:not([hidden]) .compare-page-intro {
+    padding: 18px 0 10px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-page-intro h1 {
+    max-width: 18ch;
+    font-size: clamp(2.35rem, 9.5vw, 3.3rem);
+  }
+
+  .route-view-compare:not([hidden]) .compare-workspace {
+    display: grid;
+    gap: 0;
+    padding-top: 10px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-route-selectors {
+    order: 1;
+    gap: 12px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-right: 108px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-route-selectors label {
+    font-size: 0.875rem;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+    text-transform: none;
+  }
+
+  .route-view-compare:not([hidden]) .compare-route-selectors select {
+    min-height: 52px;
+    font-size: 1rem;
+  }
+
+  .route-view-compare:not([hidden]) .compare-workspace-head {
+    order: 2;
+    gap: 10px;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .route-view-compare:not([hidden]) .compare-workspace-head h2 {
+    margin-top: 0;
+    font-size: 1.75rem;
+  }
+
+  .route-view-compare:not([hidden]) .compare-workspace-head p:not(.eyebrow) {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .route-view-compare:not([hidden]) .compare-results {
+    order: 3;
+    margin-top: 18px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-matrix-wrap {
+    margin-top: 18px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .route-view-compare:not([hidden]) .compare-matrix-desktop {
+    display: none;
+  }
+
+  .route-view-compare:not([hidden]) .compare-section-jumps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0 0 22px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-section-jumps a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(135, 103, 68, 0.32);
+    border-radius: 5px;
+    padding: 8px 10px;
+    color: var(--v2-ink);
+    background: var(--v2-card);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .route-view-compare:not([hidden]) .compare-matrix-mobile {
+    display: grid;
+    gap: 26px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-mobile-section {
+    scroll-margin-top: 92px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-mobile-section h3 {
+    margin: 0 0 12px;
+    color: var(--v2-ink);
+    font-size: 1.55rem;
+    line-height: 1.1;
+  }
+
+  .route-view-compare:not([hidden]) .compare-mobile-criteria {
+    display: grid;
+    gap: 12px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-mobile-criterion {
+    border: 1px solid rgba(23, 59, 66, 0.16);
+    border-radius: 10px;
+    padding: 14px;
+    background: var(--v2-card);
+    box-shadow: 0 10px 22px rgba(23, 59, 66, 0.05);
+  }
+
+  .route-view-compare:not([hidden]) .compare-mobile-criterion h4 {
+    margin: 0 0 12px;
+    color: var(--v2-bronze);
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+  }
+
+  .route-view-compare:not([hidden]) .compare-mobile-values {
+    display: grid;
+    gap: 12px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-mobile-value {
+    border-top: 1px solid rgba(23, 59, 66, 0.12);
+    padding-top: 10px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-mobile-value:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .route-view-compare:not([hidden]) .compare-mobile-value a {
+    color: var(--v2-ink);
+    font-size: 0.875rem;
+    font-weight: 800;
+    line-height: 1.35;
+    text-decoration: underline;
+    text-decoration-color: rgba(135, 103, 68, 0.55);
+    text-underline-offset: 0.2em;
+  }
+
+  .route-view-compare:not([hidden]) .compare-mobile-value p {
+    margin: 5px 0 0;
+    color: var(--v2-ink);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-section {
+    gap: 20px;
+    padding: 24px 0 44px;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-form {
+    gap: 14px;
+    padding: 18px 14px;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-form label > span {
+    font-size: 0.875rem;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-form .consent-row > span,
+  .route-view-inquiry:not([hidden]) .inquiry-form .lead-consent-row > span {
+    font-size: 0.875rem;
+  }
+}
