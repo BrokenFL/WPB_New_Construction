@@ -1,0 +1,666 @@
+{
+  "generatedAt": "2026-09-19T18:10:18.298Z",
+  "heroPattern": "shorecrest-hero-b-warm-mineral-v01",
+  "origins": [
+    {
+      "name": "dev5186",
+      "url": "http://127.0.0.1:5186/",
+      "dprRuns": [
+        {
+          "dpr": 1,
+          "snapshots": [
+            {
+              "phase": "390-initial",
+              "viewport": {
+                "width": 390,
+                "height": 844,
+                "devicePixelRatio": 1
+              },
+              "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                390,
+                807
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 111,
+                "height": 820,
+                "bottom": 931
+              },
+              "masthead": {
+                "y": 0,
+                "height": 111,
+                "bottom": 111
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            },
+            {
+              "phase": "1440-after-resize",
+              "viewport": {
+                "width": 1440,
+                "height": 1000,
+                "devicePixelRatio": 1
+              },
+              "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                1440,
+                810
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 92,
+                "height": 690,
+                "bottom": 782
+              },
+              "masthead": {
+                "y": 0,
+                "height": 92,
+                "bottom": 92
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            },
+            {
+              "phase": "390-after-resize-back",
+              "viewport": {
+                "width": 390,
+                "height": 844,
+                "devicePixelRatio": 1
+              },
+              "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                390,
+                807
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 111,
+                "height": 820,
+                "bottom": 931
+              },
+              "masthead": {
+                "y": 0,
+                "height": 111,
+                "bottom": 111
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            }
+          ],
+          "errors": [],
+          "heroRequests": [
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp"
+            },
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp"
+            },
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp"
+            }
+          ]
+        },
+        {
+          "dpr": 2,
+          "snapshots": [
+            {
+              "phase": "390-initial",
+              "viewport": {
+                "width": 390,
+                "height": 844,
+                "devicePixelRatio": 2
+              },
+              "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                390,
+                806
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 111,
+                "height": 820,
+                "bottom": 931
+              },
+              "masthead": {
+                "y": 0,
+                "height": 111,
+                "bottom": 111
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            },
+            {
+              "phase": "1440-after-resize",
+              "viewport": {
+                "width": 1440,
+                "height": 1000,
+                "devicePixelRatio": 2
+              },
+              "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                1440,
+                810
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 92,
+                "height": 690,
+                "bottom": 782
+              },
+              "masthead": {
+                "y": 0,
+                "height": 92,
+                "bottom": 92
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            },
+            {
+              "phase": "390-after-resize-back",
+              "viewport": {
+                "width": 390,
+                "height": 844,
+                "devicePixelRatio": 2
+              },
+              "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                390,
+                806
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 111,
+                "height": 820,
+                "bottom": 931
+              },
+              "masthead": {
+                "y": 0,
+                "height": 111,
+                "bottom": 111
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            }
+          ],
+          "errors": [],
+          "heroRequests": [
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp"
+            },
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp"
+            },
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp"
+            }
+          ]
+        }
+      ],
+      "openingCaptures": [
+        {
+          "width": 1440,
+          "output": ".runtime/hero-finish/after-correction2/opening-dev5186-1440.png",
+          "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+          "natural": [
+            1440,
+            810
+          ],
+          "hero": {
+            "y": 92,
+            "height": 690,
+            "bottom": 782
+          },
+          "masthead": {
+            "y": 0,
+            "height": 92,
+            "bottom": 92
+          },
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 782
+          },
+          "overflow": 0,
+          "loadedHeroError": false,
+          "errors": []
+        },
+        {
+          "width": 390,
+          "output": ".runtime/hero-finish/after-correction2/opening-dev5186-390.png",
+          "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+          "natural": [
+            390,
+            807
+          ],
+          "hero": {
+            "y": 111,
+            "height": 820,
+            "bottom": 931
+          },
+          "masthead": {
+            "y": 0,
+            "height": 111,
+            "bottom": 111
+          },
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 931
+          },
+          "overflow": 0,
+          "loadedHeroError": false,
+          "errors": []
+        },
+        {
+          "width": 320,
+          "output": ".runtime/hero-finish/after-correction2/opening-dev5186-320.png",
+          "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+          "natural": [
+            320,
+            662
+          ],
+          "hero": {
+            "y": 115,
+            "height": 820,
+            "bottom": 935
+          },
+          "masthead": {
+            "y": 0,
+            "height": 115,
+            "bottom": 115
+          },
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 935
+          },
+          "overflow": 0,
+          "loadedHeroError": false,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "name": "built5188",
+      "url": "http://127.0.0.1:5188/",
+      "dprRuns": [
+        {
+          "dpr": 1,
+          "snapshots": [
+            {
+              "phase": "390-initial",
+              "viewport": {
+                "width": 390,
+                "height": 844,
+                "devicePixelRatio": 1
+              },
+              "currentSrc": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                390,
+                807
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 111,
+                "height": 820,
+                "bottom": 931
+              },
+              "masthead": {
+                "y": 0,
+                "height": 111,
+                "bottom": 111
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            },
+            {
+              "phase": "1440-after-resize",
+              "viewport": {
+                "width": 1440,
+                "height": 1000,
+                "devicePixelRatio": 1
+              },
+              "currentSrc": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                1440,
+                810
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 92,
+                "height": 690,
+                "bottom": 782
+              },
+              "masthead": {
+                "y": 0,
+                "height": 92,
+                "bottom": 92
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            },
+            {
+              "phase": "390-after-resize-back",
+              "viewport": {
+                "width": 390,
+                "height": 844,
+                "devicePixelRatio": 1
+              },
+              "currentSrc": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                390,
+                807
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 111,
+                "height": 820,
+                "bottom": 931
+              },
+              "masthead": {
+                "y": 0,
+                "height": 111,
+                "bottom": 111
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            }
+          ],
+          "errors": [],
+          "heroRequests": [
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp"
+            },
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp"
+            },
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp"
+            }
+          ]
+        },
+        {
+          "dpr": 2,
+          "snapshots": [
+            {
+              "phase": "390-initial",
+              "viewport": {
+                "width": 390,
+                "height": 844,
+                "devicePixelRatio": 2
+              },
+              "currentSrc": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                390,
+                806
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 111,
+                "height": 820,
+                "bottom": 931
+              },
+              "masthead": {
+                "y": 0,
+                "height": 111,
+                "bottom": 111
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            },
+            {
+              "phase": "1440-after-resize",
+              "viewport": {
+                "width": 1440,
+                "height": 1000,
+                "devicePixelRatio": 2
+              },
+              "currentSrc": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                1440,
+                810
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 92,
+                "height": 690,
+                "bottom": 782
+              },
+              "masthead": {
+                "y": 0,
+                "height": 92,
+                "bottom": 92
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            },
+            {
+              "phase": "390-after-resize-back",
+              "viewport": {
+                "width": 390,
+                "height": 844,
+                "devicePixelRatio": 2
+              },
+              "currentSrc": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp",
+              "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+              "natural": [
+                390,
+                806
+              ],
+              "loadedHeroError": false,
+              "hero": {
+                "y": 111,
+                "height": 820,
+                "bottom": 931
+              },
+              "masthead": {
+                "y": 0,
+                "height": 111,
+                "bottom": 111
+              },
+              "overflow": 0,
+              "eager": 1,
+              "high": 1
+            }
+          ],
+          "errors": [],
+          "heroRequests": [
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp"
+            },
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp"
+            },
+            {
+              "phase": "request",
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp"
+            },
+            {
+              "phase": "response",
+              "status": 200,
+              "url": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp"
+            }
+          ]
+        }
+      ],
+      "openingCaptures": [
+        {
+          "width": 1440,
+          "output": ".runtime/hero-finish/after-correction2/opening-built5188-1440.png",
+          "currentSrc": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+          "natural": [
+            1440,
+            810
+          ],
+          "hero": {
+            "y": 92,
+            "height": 690,
+            "bottom": 782
+          },
+          "masthead": {
+            "y": 0,
+            "height": 92,
+            "bottom": 92
+          },
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 782
+          },
+          "overflow": 0,
+          "loadedHeroError": false,
+          "errors": []
+        },
+        {
+          "width": 390,
+          "output": ".runtime/hero-finish/after-correction2/opening-built5188-390.png",
+          "currentSrc": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+          "natural": [
+            390,
+            807
+          ],
+          "hero": {
+            "y": 111,
+            "height": 820,
+            "bottom": 931
+          },
+          "masthead": {
+            "y": 0,
+            "height": 111,
+            "bottom": 111
+          },
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 931
+          },
+          "overflow": 0,
+          "loadedHeroError": false,
+          "errors": []
+        },
+        {
+          "width": 320,
+          "output": ".runtime/hero-finish/after-correction2/opening-built5188-320.png",
+          "currentSrc": "http://127.0.0.1:5188/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+          "natural": [
+            320,
+            662
+          ],
+          "hero": {
+            "y": 115,
+            "height": 820,
+            "bottom": 935
+          },
+          "masthead": {
+            "y": 0,
+            "height": 115,
+            "bottom": 115
+          },
+          "clip": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 935
+          },
+          "overflow": 0,
+          "loadedHeroError": false,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

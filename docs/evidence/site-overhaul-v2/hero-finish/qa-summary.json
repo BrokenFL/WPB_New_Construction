@@ -1,0 +1,134 @@
+{
+  "generatedAt": "2026-09-19T18:08:27.188Z",
+  "testedHead": "e1b0becf89bb8e0e1c6c60e1c142376746d0ced9",
+  "source": {
+    "selectedBMaster": "docs/evidence/site-overhaul-v2/hero-finish/selected-b-master.png",
+    "sha256": "ee339fa8a9587e7e394cce1518be6c2b12dd25e82c5a964d957af46c0bf520bf",
+    "dimensions": {
+      "width": 1672,
+      "height": 941
+    },
+    "runtimeTwinSha256": "ee339fa8a9587e7e394cce1518be6c2b12dd25e82c5a964d957af46c0bf520bf"
+  },
+  "commands": [
+    {
+      "command": "npm run typecheck",
+      "status": "passed",
+      "log": ".runtime/hero-finish/qa/typecheck.log"
+    },
+    {
+      "command": "VITE_GA4_MEASUREMENT_ID=G-QATEST1234 npm run build",
+      "status": "passed",
+      "log": ".runtime/hero-finish/qa/build-synthetic-ga.log",
+      "notes": [
+        "Vite production build and postbuild prerender completed.",
+        "Existing large-chunk and plugin-timing warnings were emitted; no build failure occurred."
+      ]
+    },
+    {
+      "command": "npm test",
+      "status": "passed",
+      "log": ".runtime/hero-finish/qa/npm-test.log",
+      "unitTestSummary": {
+        "total": 102,
+        "passed": 102,
+        "failed": 0,
+        "suites": [
+          { "name": "integration", "tests": 26 },
+          { "name": "deploy-preflight", "tests": 11 },
+          { "name": "floorplan-entities", "tests": 20 },
+          { "name": "commercial", "tests": 6 },
+          { "name": "building-master", "tests": 6 },
+          { "name": "article-publisher", "tests": 15 },
+          { "name": "project-field-resolver", "tests": 18 }
+        ]
+      },
+      "includedChecks": {
+        "qaLaunchNoWrite": {
+          "status": "passed",
+          "checks": 37,
+          "findings": 0
+        },
+        "qaGatekeeper": {
+          "status": "passed",
+          "checkedFiles": 1155
+        }
+      }
+    },
+    {
+      "command": "npm run assets:audit",
+      "status": "passed-with-findings",
+      "log": ".runtime/hero-finish/qa/assets-audit.log",
+      "summary": {
+        "blockers": 0,
+        "strictBlockers": 0,
+        "warnings": 426,
+        "baselineWarnings": 426,
+        "sameWarningCountAsTrackedBaseline": true,
+        "brokenAssetReferences": 0,
+        "localPathLeaks": 0,
+        "newBlockers": 0
+      },
+      "capturedReports": [
+        ".runtime/hero-finish/qa/assets-audit-report.json",
+        ".runtime/hero-finish/qa/assets-audit-report.md"
+      ],
+      "trackedReportsRestoredToHead": true
+    },
+    {
+      "command": "node research/scripts/check-v2-milestone2.mjs",
+      "status": "passed",
+      "log": ".runtime/hero-finish/qa/milestone2-browser.log",
+      "browserReport": "browser-regression.json",
+      "origin": "http://127.0.0.1:5188",
+      "configuredModel": "gpt-5.6-luna/max",
+      "browsers": [
+        "chromium",
+        "webkit"
+      ],
+      "viewports": [
+        1440,
+        390,
+        320
+      ],
+      "total": 72,
+      "passed": 72,
+      "failed": 0
+    }
+  ],
+  "existingJsAdvisory": {
+    "command": "node research/scripts/check-hero-performance.mjs",
+    "status": "advisory-failure",
+    "log": ".runtime/hero-finish/qa/hero-performance.log",
+    "eagerCount": 1,
+    "highPriorityCount": 1,
+    "homepageHeroLazyMarkupCount": 26,
+    "expectedLegacyContractsMissing": [
+      "data-home-hero-layer=next lazy rotating layer",
+      "wpb-geography-map-hero rotation source"
+    ],
+    "baselineComparison": {
+      "baselineCommit": "ed370452c0cc3728d9723fba75010fc1b069acde",
+      "fixture": ".runtime/hero-finish/qa/hero-performance-baseline-ed370452",
+      "sameTwoFailures": true,
+      "currentLogSha256": "63f957396ecd9c5146d079effcd95bc95bfd9c32c2c0b5dd3b2bfe596c5b1a6f",
+      "baselineLogSha256": "63f957396ecd9c5146d079effcd95bc95bfd9c32c2c0b5dd3b2bfe596c5b1a6f"
+    },
+    "interpretation": "The eager/high-priority image limit remains at one. This focused legacy rotating-hero check has the same two failures at the pre-hero baseline commit; it is recorded as an advisory and was not changed during QA."
+  },
+  "writeBoundary": {
+    "qaNoWrite": true,
+    "externalLeadWrites": false,
+    "browserLeadPostsIntercepted": true,
+    "browserInterceptedSubmissions": 0,
+    "sourceHeadUnchanged": true,
+    "rootOwnedProgressDiffPreserved": true,
+    "trackedAuditReportsRestored": true,
+    "logsKeptUnder": ".runtime/hero-finish/qa"
+  },
+  "limitations": [
+    "The browser check validates rendered behavior and source contracts at the local preview; it is not a production transport or conversion measurement.",
+    "Final visual acceptance remains with root/Astra; these results do not certify production release, deployment, or installed-user behavior.",
+    "The audit warning count matches the tracked baseline; warnings are not silently treated as blockers."
+  ]
+}

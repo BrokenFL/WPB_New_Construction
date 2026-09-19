@@ -1,0 +1,562 @@
+{
+  "generatedAt": "2026-09-19T18:15:21.838Z",
+  "method": "Per-character DOM Range rects for non-whitespace glyphs. Modeled scrim contrast uses each glyph center; selectors whose modeled minimum is below their bounded text-size threshold also receive a text-hidden screenshot pixel probe at glyph rect centers. This is a numeric sanity check, not a WCAG certification.",
+  "thresholds": {
+    ".hero-kicker": 4.5,
+    ".home-hero h1": 3,
+    ".home-hero .hero-copy": 4.5,
+    ".v2-text-link": 4.5,
+    ".home-hero-caption": 4.5
+  },
+  "originalDiagnosticAssumptions": {
+    "method": "Computed foreground colors plus conservative white-underlay compositing through the configured hero scrim; numeric sanity check, not a WCAG certification.",
+    "minimumContrastByOrigin": {
+      "dev5186": {
+        "320": 5.8,
+        "390": 6.08,
+        "1440": 2.37
+      },
+      "built5188": {
+        "320": 5.8,
+        "390": 6.08,
+        "1440": 2.37
+      }
+    }
+  },
+  "origins": [
+    {
+      "name": "dev5186",
+      "url": "http://127.0.0.1:5186/",
+      "viewports": [
+        {
+          "width": 1440,
+          "heroHeight": 690,
+          "modeledMinimumBySelector": {
+            ".hero-kicker": {
+              "glyphCount": 40,
+              "threshold": 4.5,
+              "modeledMinimum": 4.64,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "e",
+                "relative": {
+                  "x": 410.7,
+                  "y": 112.67
+                },
+                "scrimAlpha": 0.7,
+                "contrast": 4.64
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero h1": {
+              "glyphCount": 30,
+              "threshold": 3,
+              "modeledMinimum": 5.98,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": ".",
+                "relative": {
+                  "x": 445.58,
+                  "y": 340.2
+                },
+                "scrimAlpha": 0.68,
+                "contrast": 5.98
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero .hero-copy": {
+              "glyphCount": 119,
+              "threshold": 4.5,
+              "modeledMinimum": 5.07,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "r",
+                "relative": {
+                  "x": 435.86,
+                  "y": 411.72
+                },
+                "scrimAlpha": 0.69,
+                "contrast": 5.07
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".v2-text-link": {
+              "glyphCount": 19,
+              "threshold": 4.5,
+              "modeledMinimum": 6.34,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "→",
+                "relative": {
+                  "x": 436.42,
+                  "y": 526
+                },
+                "scrimAlpha": 0.69,
+                "contrast": 6.34
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero-caption": {
+              "glyphCount": 44,
+              "threshold": 4.5,
+              "modeledMinimum": 5.17,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "S",
+                "relative": {
+                  "x": 1164.2,
+                  "y": 640.91
+                },
+                "scrimAlpha": 0,
+                "contrast": 5.17
+              },
+              "pixelProbeMinimumGlyph": null
+            }
+          },
+          "pixelProbe": null
+        },
+        {
+          "width": 390,
+          "heroHeight": 820,
+          "modeledMinimumBySelector": {
+            ".hero-kicker": {
+              "glyphCount": 40,
+              "threshold": 4.5,
+              "modeledMinimum": 6.08,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "N",
+                "relative": {
+                  "x": 26.05,
+                  "y": 308.27
+                },
+                "scrimAlpha": 0.7,
+                "contrast": 6.08
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero h1": {
+              "glyphCount": 30,
+              "threshold": 3,
+              "modeledMinimum": 7.79,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "W",
+                "relative": {
+                  "x": 43.31,
+                  "y": 357.16
+                },
+                "scrimAlpha": 0.74,
+                "contrast": 7.79
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero .hero-copy": {
+              "glyphCount": 119,
+              "threshold": 4.5,
+              "modeledMinimum": 7.31,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "E",
+                "relative": {
+                  "x": 26.74,
+                  "y": 504.81
+                },
+                "scrimAlpha": 0.75,
+                "contrast": 7.31
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".v2-text-link": {
+              "glyphCount": 19,
+              "threshold": 4.5,
+              "modeledMinimum": 8.2,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "C",
+                "relative": {
+                  "x": 26.61,
+                  "y": 692.75
+                },
+                "scrimAlpha": 0.75,
+                "contrast": 8.2
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero-caption": {
+              "glyphCount": 44,
+              "threshold": 4.5,
+              "modeledMinimum": 13.31,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "S",
+                "relative": {
+                  "x": 130.25,
+                  "y": 787.2
+                },
+                "scrimAlpha": 0.76,
+                "contrast": 13.31
+              },
+              "pixelProbeMinimumGlyph": null
+            }
+          },
+          "pixelProbe": null
+        },
+        {
+          "width": 320,
+          "heroHeight": 820,
+          "modeledMinimumBySelector": {
+            ".hero-kicker": {
+              "glyphCount": 40,
+              "threshold": 4.5,
+              "modeledMinimum": 5.3,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "N",
+                "relative": {
+                  "x": 26.05,
+                  "y": 289.84
+                },
+                "scrimAlpha": 0.66,
+                "contrast": 5.3
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero h1": {
+              "glyphCount": 30,
+              "threshold": 3,
+              "modeledMinimum": 7.78,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "W",
+                "relative": {
+                  "x": 40.22,
+                  "y": 349.63
+                },
+                "scrimAlpha": 0.74,
+                "contrast": 7.78
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero .hero-copy": {
+              "glyphCount": 119,
+              "threshold": 4.5,
+              "modeledMinimum": 7.28,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "E",
+                "relative": {
+                  "x": 26.74,
+                  "y": 480.02
+                },
+                "scrimAlpha": 0.75,
+                "contrast": 7.28
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".v2-text-link": {
+              "glyphCount": 19,
+              "threshold": 4.5,
+              "modeledMinimum": 8.2,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "C",
+                "relative": {
+                  "x": 26.61,
+                  "y": 692.75
+                },
+                "scrimAlpha": 0.75,
+                "contrast": 8.2
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero-caption": {
+              "glyphCount": 44,
+              "threshold": 4.5,
+              "modeledMinimum": 13.31,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "S",
+                "relative": {
+                  "x": 60.25,
+                  "y": 787.2
+                },
+                "scrimAlpha": 0.76,
+                "contrast": 13.31
+              },
+              "pixelProbeMinimumGlyph": null
+            }
+          },
+          "pixelProbe": null
+        }
+      ]
+    },
+    {
+      "name": "built5188",
+      "url": "http://127.0.0.1:5188/",
+      "viewports": [
+        {
+          "width": 1440,
+          "heroHeight": 690,
+          "modeledMinimumBySelector": {
+            ".hero-kicker": {
+              "glyphCount": 40,
+              "threshold": 4.5,
+              "modeledMinimum": 4.64,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "e",
+                "relative": {
+                  "x": 410.7,
+                  "y": 112.67
+                },
+                "scrimAlpha": 0.7,
+                "contrast": 4.64
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero h1": {
+              "glyphCount": 30,
+              "threshold": 3,
+              "modeledMinimum": 5.98,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": ".",
+                "relative": {
+                  "x": 445.58,
+                  "y": 340.2
+                },
+                "scrimAlpha": 0.68,
+                "contrast": 5.98
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero .hero-copy": {
+              "glyphCount": 119,
+              "threshold": 4.5,
+              "modeledMinimum": 5.07,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "r",
+                "relative": {
+                  "x": 435.86,
+                  "y": 411.72
+                },
+                "scrimAlpha": 0.69,
+                "contrast": 5.07
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".v2-text-link": {
+              "glyphCount": 19,
+              "threshold": 4.5,
+              "modeledMinimum": 6.34,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "→",
+                "relative": {
+                  "x": 436.42,
+                  "y": 526
+                },
+                "scrimAlpha": 0.69,
+                "contrast": 6.34
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero-caption": {
+              "glyphCount": 44,
+              "threshold": 4.5,
+              "modeledMinimum": 5.17,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "S",
+                "relative": {
+                  "x": 1164.2,
+                  "y": 640.91
+                },
+                "scrimAlpha": 0,
+                "contrast": 5.17
+              },
+              "pixelProbeMinimumGlyph": null
+            }
+          },
+          "pixelProbe": null
+        },
+        {
+          "width": 390,
+          "heroHeight": 820,
+          "modeledMinimumBySelector": {
+            ".hero-kicker": {
+              "glyphCount": 40,
+              "threshold": 4.5,
+              "modeledMinimum": 6.08,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "N",
+                "relative": {
+                  "x": 26.05,
+                  "y": 308.27
+                },
+                "scrimAlpha": 0.7,
+                "contrast": 6.08
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero h1": {
+              "glyphCount": 30,
+              "threshold": 3,
+              "modeledMinimum": 7.79,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "W",
+                "relative": {
+                  "x": 43.31,
+                  "y": 357.16
+                },
+                "scrimAlpha": 0.74,
+                "contrast": 7.79
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero .hero-copy": {
+              "glyphCount": 119,
+              "threshold": 4.5,
+              "modeledMinimum": 7.31,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "E",
+                "relative": {
+                  "x": 26.74,
+                  "y": 504.81
+                },
+                "scrimAlpha": 0.75,
+                "contrast": 7.31
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".v2-text-link": {
+              "glyphCount": 19,
+              "threshold": 4.5,
+              "modeledMinimum": 8.2,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "C",
+                "relative": {
+                  "x": 26.61,
+                  "y": 692.75
+                },
+                "scrimAlpha": 0.75,
+                "contrast": 8.2
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero-caption": {
+              "glyphCount": 44,
+              "threshold": 4.5,
+              "modeledMinimum": 13.31,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "S",
+                "relative": {
+                  "x": 130.25,
+                  "y": 787.2
+                },
+                "scrimAlpha": 0.76,
+                "contrast": 13.31
+              },
+              "pixelProbeMinimumGlyph": null
+            }
+          },
+          "pixelProbe": null
+        },
+        {
+          "width": 320,
+          "heroHeight": 820,
+          "modeledMinimumBySelector": {
+            ".hero-kicker": {
+              "glyphCount": 40,
+              "threshold": 4.5,
+              "modeledMinimum": 5.3,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "N",
+                "relative": {
+                  "x": 26.05,
+                  "y": 289.84
+                },
+                "scrimAlpha": 0.66,
+                "contrast": 5.3
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero h1": {
+              "glyphCount": 30,
+              "threshold": 3,
+              "modeledMinimum": 7.78,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "W",
+                "relative": {
+                  "x": 40.22,
+                  "y": 349.63
+                },
+                "scrimAlpha": 0.74,
+                "contrast": 7.78
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero .hero-copy": {
+              "glyphCount": 119,
+              "threshold": 4.5,
+              "modeledMinimum": 7.28,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "E",
+                "relative": {
+                  "x": 26.74,
+                  "y": 480.02
+                },
+                "scrimAlpha": 0.75,
+                "contrast": 7.28
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".v2-text-link": {
+              "glyphCount": 19,
+              "threshold": 4.5,
+              "modeledMinimum": 8.2,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "C",
+                "relative": {
+                  "x": 26.61,
+                  "y": 692.75
+                },
+                "scrimAlpha": 0.75,
+                "contrast": 8.2
+              },
+              "pixelProbeMinimumGlyph": null
+            },
+            ".home-hero-caption": {
+              "glyphCount": 44,
+              "threshold": 4.5,
+              "modeledMinimum": 13.31,
+              "pixelProbeMinimum": null,
+              "modeledMinimumGlyph": {
+                "char": "S",
+                "relative": {
+                  "x": 60.25,
+                  "y": 787.2
+                },
+                "scrimAlpha": 0.76,
+                "contrast": 13.31
+              },
+              "pixelProbeMinimumGlyph": null
+            }
+          },
+          "pixelProbe": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,16 @@
 # WPB V2 overhaul — review record
 
-## Current sprint — focused art direction
+## Current sprint — finish the Shorecrest hero
+
+Draft PR [#115](https://github.com/BrokenFL/WPB_New_Construction/pull/115) now carries a focused hero finish over sprint 3. The solid masthead, unified opening, commercial copy and other homepage sections remain established. [Hero evidence](evidence/site-overhaul-v2/hero-finish/README.md) includes actual A/B ImageGen production, the approved source inventory, provenance, responsive derivatives, before/after screenshots, two correction rounds and a fresh final graphic critique.
+
+The selected warm-mineral treatment is derived from the approved 1672 × 941 full-tower Shorecrest panorama. Larger approved entrance and terrace views were inspected and rejected for this composition, rather than confused with higher-resolution versions of the same view. The source already carries AI provenance. Desktop has three WebP sizes; mobile has two sizes of an independently composed portrait crop. No asset is upscaled. Localized contrast preserves a bright tower, and the caption explicitly identifies AI-assisted architectural rendering.
+
+Implementation source: `e1b0becf89bb8e0e1c6c60e1c142376746d0ced9`. Final QA and pushed-head identity are recorded in the hero evidence and PR handoff. The final visual pass approved 1440/1024/768/390/320 captures. Mobile trades part of the left panorama and a shorter first screen for an unobstructed crown and upper facade; the source resolution still limits high-density detail. No numeric contrast-certification or field-performance improvement claim is made.
+
+The closing bridge PNG is unchanged, as are canonical facts, buyer flows, news and automation. Existing floor-plan placeholders retain their previous image instead of inheriting the new hero binding. Generated derivatives are draft review assets; no warehouse approval promotion, merge or deployment occurred. Previews remain `http://127.0.0.1:5186/` (editable) and `http://127.0.0.1:5188/` (built, write requests refused).
+
+## Sprint 3 — historical focused art direction
 
 Sprint 3 continues draft PR [#115](https://github.com/BrokenFL/WPB_New_Construction/pull/115) on `codex/site-overhaul-v2`, from milestone-2 head `431b57dede3a23840f9c893d7c5ae2bedcbb27c8`. The [sprint evidence](evidence/site-overhaul-v2/sprint3/README.md) records the initial visual critique, improvement cycles, image provenance, before/after captures, independent reviewer findings and exact tested source identity. It supersedes earlier aesthetic grades for the current homepage; prior evidence remains historical.
 
