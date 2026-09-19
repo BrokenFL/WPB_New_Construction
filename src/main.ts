@@ -2398,9 +2398,6 @@ app.innerHTML = `
             <img class="home-hero-image is-active" data-home-hero-layer="active" src="${homepageHeroImageSrc}"${homepageHeroResponsiveAttrs} alt="${escapeHtml(homepageHeroAlt)}" loading="eager" decoding="async" fetchpriority="high"${homepageHeroImageStyle} />
           </picture>
           <figcaption class="home-hero-caption" data-home-hero-caption>${escapeHtml(homepageHeroCaption)}</figcaption>
-          <ul class="sr-only">
-            ${activeHomeHeroImages.map((image) => `<li>${escapeHtml(image.alt)}</li>`).join("")}
-          </ul>
         </figure>
         <div class="home-hero-scrim"></div>
         <div class="home-hero-layout">
@@ -2410,8 +2407,7 @@ app.innerHTML = `
               <span class="home-hero-title-desktop">${escapeHtml(approvedHeroCardOverride?.headline || commercialPages.home.heading)}</span>
             </h1>
             <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || commercialPages.home.intro)}</p>
-            <div class="v2-hero-actions"><a class="button primary" href="/buildings/" data-hero-cta="projects">Explore buildings <span aria-hidden="true">↗</span></a><a class="v2-text-link" href="/compare/" data-hero-cta="compare">Compare your options <span aria-hidden="true">→</span></a></div>
-            <a class="v2-hero-note v2-latest-link" href="#latest-developments">Catch up on the latest developments <span aria-hidden="true">↓</span></a>
+            <div class="v2-hero-actions"><a class="button primary" href="/buildings/" data-hero-cta="projects">Explore buildings <span aria-hidden="true">↗</span></a><a class="v2-text-link" href="/compare/" data-hero-cta="compare">Compare buildings <span aria-hidden="true">→</span></a><a class="v2-latest-link" href="#latest-developments" data-hero-cta="latest">Latest stories <span aria-hidden="true">↓</span></a></div>
           </div>
         </div>
       </section>
@@ -2420,12 +2416,12 @@ app.innerHTML = `
         ${renderHomeSectionJumpControls()}
         <nav class="home-section-jump" aria-label="Explore homepage sections">
           <a href="/corridors/" data-hero-cta="corridors">${homeJumpIcon("corridors")}<span>Corridors</span></a>
-          <a href="/buildings/" data-hero-cta="projects">${homeJumpIcon("projects")}<span>Projects</span></a>
+          <a href="/buildings/" data-hero-cta="projects">${homeJumpIcon("projects")}<span>Buildings</span></a>
           <a href="/compare/" data-hero-cta="compare">${homeJumpIcon("compare")}<span>Compare</span></a>
           <a href="/answers/" data-hero-cta="answers">${homeJumpIcon("answers")}<span>Q&A</span></a>
           <a href="/downtown-spotlight/" data-hero-cta="spotlight">${homeJumpIcon("spotlight")}<span>Downtown</span></a>
           <a href="/updates/" data-hero-cta="updates">${homeJumpIcon("updates")}<span>Updates</span></a>
-          <a href="/market-notes/" data-hero-cta="guides">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
+          <a href="/market-notes/" data-hero-cta="guides">${homeJumpIcon("guides")}<span>Buyer guides</span></a>
         </nav>
       </div>
 
@@ -2462,7 +2458,7 @@ app.innerHTML = `
       <section class="home-featured-section" id="featured-projects" aria-label="Featured buyer-ready projects">
         <div class="section-heading home-featured-heading">
           <div><p class="eyebrow">02 / The collection</p><h2>A closer look.</h2></div>
-          <a class="home-featured-heading-link" href="/buildings/">View All Projects <span aria-hidden="true">→</span></a>
+          <a class="home-featured-heading-link" href="/buildings/">View all buildings <span aria-hidden="true">→</span></a>
         </div>
         <div class="home-carousel-shell">
           ${renderHomeCarouselControls("featured developments")}
@@ -2482,7 +2478,7 @@ app.innerHTML = `
             <a class="home-spotlight-parent-link" href="/downtown-spotlight/">View all Downtown Spotlights <span aria-hidden="true">→</span></a>
           </div>
           <div class="home-spotlight-copy">
-            <h2><span>Why the NORA District</span><span>could reshape Downtown.</span></h2>
+            <h2>Why the NORA District could reshape Downtown.</h2>
             <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.</p>
           </div>
           <a href="/downtown-spotlight/nora-district-downtown-transformation/">Read Downtown Spotlight <span aria-hidden="true">→</span></a>
@@ -5203,7 +5199,7 @@ function renderHomepageLatestDevelopments() {
           </div>
         </article>`;
       }).join("")}</div>
-      <p class="v2-desk-note">Our three latest publications; source reports may cover earlier events.</p>
+      <p class="v2-desk-note">Our latest reporting; source reports may cover earlier events.</p>
     </section>
   `;
 }
@@ -5237,7 +5233,7 @@ function renderHomepageCompareLauncher() {
         </div>
         <p class="home-compare-error" data-home-compare-error hidden>Choose two different buildings to compare.</p>
         <div class="home-compare-actions">
-          <button type="submit">Compare These Buildings <span aria-hidden="true">→</span></button>
+          <button type="submit">Compare these buildings <span aria-hidden="true">→</span></button>
           <a href="/inquire/" ${renderCtaTrackingAttrs("home_page", shortContactCtaLabel)}>${shortContactCtaLabel} <span aria-hidden="true">↗</span></a>
         </div>
       </form>
@@ -6526,7 +6522,7 @@ function renderFeaturedProject(project: FeaturedProject) {
         </div>
         <p data-pc-copy>${escapeHtml(cardCopy)}</p>
         <div class="project-card-actions">
-          <a href="${projectPath(project)}">VIEW PROJECT →</a>
+          <a href="${projectPath(project)}">View building <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </article>
@@ -8893,6 +8889,11 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
     .replace(/\s*interior\s+sq\.?\s*ft\.?/i, " sq ft")
     .replace(/\s*sq\.\s*ft\.?/i, " sq ft")
     .trim();
+  const canonicalStatus = resolveProjectField({
+    identifier: project.id,
+    field: "status",
+    approvedFallback: copyFactValue(copyPackage, /^status$/i, project.status),
+  }).value;
   const defaultFacts = [
     { icon: "residence", value: copyFactValue(copyPackage, /residences/i, project.residences), label: "Residences" },
     { icon: "stories", value: showcaseFloors, label: "Stories" },
@@ -8900,7 +8901,10 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
     { icon: "bed", value: copyFactValue(copyPackage, /bedrooms/i, ""), label: "Bedrooms" },
     { icon: "price", value: copyFactValue(copyPackage, /price/i, project.price).replace(" to over ", " to "), label: "Pricing" },
   ];
-  const facts = (showcase?.factStrip?.length ? showcase.factStrip : defaultFacts).filter((fact) => isBuyerFacingValue(fact.value));
+  const factSource = showcase?.factStrip?.length ? showcase.factStrip : defaultFacts;
+  const facts = [
+    ...factSource.map((fact) => /^status$/i.test(fact.label) ? { ...fact, value: canonicalStatus } : fact),
+  ].filter((fact) => isBuyerFacingValue(fact.value));
   const heroBlurb = showcase?.heroBlurb ?? copyPackage?.heroSubheadline ?? project.summary;
   const gallery = showcase?.gallery ?? [];
   const galleryId = `project-gallery-${project.id}`;
@@ -8919,14 +8923,17 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
     : residenceSectionLinkHref;
   const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
   const intro = showcase?.intro ?? heroBlurb;
-  const heroTags = (
+  const heroTagSource = (
     showcase?.heroTags?.length
       ? showcase.heroTags
       : [
-          { label: "Status", value: copyFactValue(copyPackage, /^status$/i, project.status) },
+          { label: "Status", value: canonicalStatus },
           { label: "Corridor", value: showcase?.heroEyebrow ?? project.corridor },
         ]
-  ).filter((tag) => isBuyerFacingValue(tag.value));
+  );
+  const heroTags = heroTagSource
+    .map((tag) => /^status$/i.test(tag.label) ? { ...tag, value: canonicalStatus } : tag)
+    .filter((tag) => isBuyerFacingValue(tag.value));
 
   return `
     <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=mandarin-waterfront-crop-20260602" />
@@ -9029,7 +9036,8 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
 }
 
 function renderProjectInquiryForm(project: FeaturedProject, rules = projectPresentationRules(project, getFloorplanProject(project.id)?.count ?? 0)) {
-  return `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(rules.primaryCtaLabel)}">
+  const inquiryActionLabel = "Send inquiry";
+  return `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(inquiryActionLabel)}">
     <input type="hidden" name="form-name" value="wpb-project-inquiry" />
     <input type="hidden" name="form_type" value="project_inquiry" />
     <input type="hidden" name="submission_id" value="" />
@@ -9040,7 +9048,7 @@ function renderProjectInquiryForm(project: FeaturedProject, rules = projectPrese
     <input type="hidden" name="turnstile_token" value="" />
     <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
     <p class="eyebrow">Contact The Scott Gordon Group</p>
-    <h2>${rules.primaryCtaLabel}</h2>
+    <h2>${publicText(rules.inquiryInterest)}</h2>
     <p>${shortTeamCtaCopy}</p>
     <label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Full name" required /></label>
     <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="Email address" required /></label>
@@ -9049,7 +9057,7 @@ function renderProjectInquiryForm(project: FeaturedProject, rules = projectPrese
     <label class="lead-consent-row"><input type="checkbox" name="consent" required /><span>By submitting, I consent to be contacted about this real-estate inquiry. This is a request for a manual response, not consent to autodialed or prerecorded marketing calls or texts.</span></label>
     <div class="turnstile-slot" data-turnstile-slot aria-label="Spam protection"></div>
     <p class="form-security-note">Protected by Cloudflare Turnstile.</p>
-    <button type="submit">${rules.primaryCtaLabel}</button>
+    <button type="submit">${inquiryActionLabel}</button>
     <p class="form-status" role="status" aria-live="polite"></p>
   </form>`;
 }
