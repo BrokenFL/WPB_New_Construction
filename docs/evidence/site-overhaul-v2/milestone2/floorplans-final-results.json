@@ -1,0 +1,15 @@
+{
+  "testedCodeSha": "0c36a09375dbd1cbe8fa3187aeaefcb49c8873e6",
+  "results": [
+    {
+      "floorplanStaticQA": "pass",
+      "entities": 6
+    },
+    {
+      "floorplanBrowserQA": "pass",
+      "views": 24,
+      "interceptedSubmissions": 36,
+      "artifacts": ".runtime/phase-2-qa"
+    }
+  ]
+}

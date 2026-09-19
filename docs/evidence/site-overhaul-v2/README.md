@@ -1,4 +1,6 @@
-# V2 review evidence — September 19, 2026
+# V2 milestone 1 review evidence — September 19, 2026
+
+This record describes the first V2 milestone at `7e894c2b14f1d0613e4464c0a58aac9cbd0db7af`. The authorized research/mobile continuation is documented in [milestone 2 evidence](milestone2/README.md), which supersedes this milestone's current-state scores and handoff. Historical findings and limits below remain intact.
 
 ## Rubric and outcome
 Eight means coherent, professional and usable. Above eight requires demonstrable polish without a significant category-specific weakness. Scores are internal review judgments, not usability-study results or conversion claims. Desktop and mobile are assessed separately.

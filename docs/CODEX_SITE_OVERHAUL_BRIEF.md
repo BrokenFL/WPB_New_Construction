@@ -1,53 +1,60 @@
 # WPB New Construction | Codex V2 Overhaul Brief
 
-Version 1.0 | September 17, 2026 | Planning only
+Version 1.1 | September 19, 2026 | Planning document; not a release authorization
 
 **Repository:** `BrokenFL/WPB_New_Construction`  
 **Maintained file:** `docs/CODEX_SITE_OVERHAUL_BRIEF.md`  
-**Initial documentation branch:** `planning/codex-site-overhaul-brief-2026-09-17`
+**Documentation branch:** `planning/codex-site-overhaul-brief-2026-09-17`  
+**Implementation continuation:** draft PR #115, `codex/site-overhaul-v2`; verify current state before acting.
 
-> This is a task-specific brief, not a replacement for the project operating guides. Saving or opening it does not start the overhaul. Begin implementation only when Brooke explicitly starts the sprint. Update this same Markdown file for future revisions; Word copies are editable snapshots, not automatically synchronized.
+> Updating or opening this document does not start implementation. Brooke will supply the prompt to Codex when ready. This revision replaces the mobile-only finishing scope while preserving the original V2 safety rules. Read the document from its documentation branch without merging that branch just to access it. Word/Library copies are snapshots, not automatically synchronized. Update this same maintained file for future revisions.
 
-## Copy-paste task prompt
+## Copy-paste continuation prompt
 
-Act as lead designer and engineer for WPB New Construction. Deliver a cohesive, reviewable V2: the visual quality of a luxury architectural publication, with the usefulness of a buyer decision tool. Make the existing site substantially better, not substantially bigger.
+Continue draft PR #115 on codex/site-overhaul-v2. Read AGENTS.md, both project guides and the existing V2 evidence; verify current refs and protect unrelated work. This authorizes a new research-led homepage and mobile-finishing milestone beyond the previous cycle cap—not a restart or stack rewrite.
 
-### 1. ORIENT BEFORE EDITING
+MISSION
+Make WPB New Construction a distinctive resource buyers explore, trust and revisit—not just a polished directory. Preserve the useful V2 improvements. Keep approximately 50% visual/mobile polish, 30% buyer experience, and 20% SEO/performance/accessibility/reliability.
 
-Read AGENTS.md, both AI_PROJECT_GUIDE.md files, docs/WPB_CODEX_MASTER_HANDOFF.md, and relevant editorial-showcase guidance. Verify current origin/main, open work and dirty files; use an isolated branch/worktree without disturbing unrelated work. Current evidence outranks stale handoffs. Reuse completed work, Codebase Memory MCP, the Visual Editor and approved asset-library workflows. Inventory available frontend, browser and image-generation tools; report gaps instead of pretending access.
+MODEL WORKFLOW
+Use Astra extra-high for research synthesis, design strategy, architecture and difficult decisions. Use Luna max for bounded research collection, inventory, screenshots, implementation and tests. Verify supported routing and disclose substitutions. One lead owns coherence; avoid overlapping edits and duplicated audits. Reuse Codebase Memory, the Visual Editor, approved assets and available frontend/browser/image-generation tools. Quota is a ceiling, not a spending target.
 
-### 2. SPEND EFFORT WHERE BUYERS WILL FEEL IT
+1. RESEARCH BEFORE REDESIGNING
+Browse 5–7 relevant luxury/new-construction discovery sites, developer sites and property-editorial destinations. Deeply inspect the strongest 3 on desktop/mobile, including homepage-to-research-to-inquiry paths and reasons to return. Select direct category peers as well as useful editorial references.
 
-Prioritize approximately 50% visual design/mobile polish, 30% buyer experience, and 20% SEO, performance, accessibility and reliability. Focus on the homepage, building directory, project pages, comparisons, floor plans and inquiry flow; carry shared improvements across other page types. A visitor should understand the value, find suitable buildings, compare a shortlist, understand plans and inquire without losing context. Improve what exists; do not duplicate the concierge, comparison tools or data systems. Keep 3D experiments separate.
+Produce a compact benchmark with source URLs, access dates, screenshots where possible, patterns worth adapting and patterns to reject. Distinguish documented performance from estimated traffic/search visibility and your design judgment. Do not call attractive or popular sites “highest converting” without reliable evidence.
 
-### 3. DELEGATE INTELLIGENTLY
+Use our existing Search Console and working, consented analytics when available; search clicks are not conversions. Do not reactivate parked analytics work. Finish research with three prioritized homepage hypotheses and a post-release measurement plan, not an endless audit.
 
-Where available, use gpt-astra extra high for bounded design, architecture and difficult reasoning; use gpt-5.6-luna at max for bounded inventory, mechanical changes and test review. Verify supported model/settings routing; disclose substitutions. Keep one lead responsible for coherence and integration. Give helpers narrow scopes, relevant context and clear outputs; avoid overlapping edits and repeated whole-repository audits. Quota is a ceiling, not a spending target.
+2. RESTORE THE GRAPHIC BROOKE LIKED
+Identify the original bottom-of-homepage graphic using main/history and approved assets. V2's .home-end-bridge { display: none; } is a specific lead to investigate, not a confirmed identification of the graphic. Explain the actual change and any documented reason; do not invent a rationale.
 
-### 4. ESTABLISH A DIRECTION, THEN EXECUTE
+Restore and integrate the original graphic in the preview, preserving its character while optimizing responsive placement/loading. If multiple assets could match, show candidates rather than inventing a replacement. Do not remove valued brand elements under a generic “decluttering” rationale. Image generation may support concepts or original graphics, but must not fabricate project imagery, building features or views. Preserve originals and asset approvals.
 
-Capture desktop/mobile baselines. Establish one strong visual direction on the homepage and a representative building page before rolling it out. Report that checkpoint, then proceed with reversible decisions unless Brooke redirects. Improve hierarchy, typography, spacing, image selection/crops, galleries, navigation and restrained motion. Remove redundant buttons, repetitive sections and unnecessary steps without discarding useful content or working features. No wholesale stack rewrite.
+3. MAKE THE HOMEPAGE FEEL CURRENT AND WORTH EXPLORING
+Compare two lightweight homepage arrangements: discovery-led and a discovery/news hybrid with timely updates much more visible. Recommend one from evidence, explain the section order, then implement the strongest reversible direction. Do not blindly replace building discovery with a news feed or assume a prettier page converts better.
 
-Use available image generation for design concepts and useful original graphics. Preserve originals and follow existing asset approvals. Do not fabricate or alter real building geometry, views, amenities or floor-plan facts; clearly distinguish illustrative visuals from verified project imagery. Implement real responsive components, not a flattened screenshot of a website.
+Reuse the existing WPB Development Desk/news pipeline. Keep newest approved stories first and the three newest visible until replaced; label older context honestly. Test a prominent latest-developments section with compelling headlines, dates and useful buyer implications. Link stories to relevant buildings, corridors and research tools. Preserve source/fact approval and distinguish publication dates from underlying event dates. No fake freshness, random reshuffling, auto-rotating gimmicks, duplicate content system or new publishing automation.
 
-### 5. BUILD, INSPECT, CRITIQUE, IMPROVE
+Design both journeys: a first-time buyer finding and comparing suitable buildings, and a returning visitor quickly seeing what changed and exploring further. Dynamic CONTENT matters more than moving decoration. Keep clear next steps and carry selections into inquiry.
 
-Run distinct review passes for web/art direction, graphic design, UX/buyer journeys, and technical QA. Use separate reviewers where supported; otherwise label these as review perspectives, not independent agents. Review the rendered site and actual interactions, not merely code or implementation summaries.
+4. FINISH MOBILE AND REVIEW THE ACTUAL EXPERIENCE
+Resolve comparison-table/form density without shrinking text or hiding essential information. Retain the web/art-direction, graphic-design, buyer-UX and technical-QA review passes. Add explicit questions: Is the site's value obvious? Is current news easy to find? Do stories invite useful exploration? Is the bottom graphic preserved? Can buyers compare, inspect plans and inquire without losing context?
 
-Set a consistent rubric before building: 8/10 means coherent, professional and usable; above 8 requires demonstrable polish with no significant category-specific weakness. Target ABOVE 8/10 in every category on desktop AND mobile. Support each score with page/screenshot evidence, observed task outcomes and remaining defects. Do not inflate scores or average away weaknesses. Scores are internal heuristics, not proof of conversion gains.
+Use a fresh UX reviewer who did not implement the changes where supported; otherwise label the review honestly. Inspect rendered desktop/mobile pages and actual tasks. Target above 8/10 in each category, using the existing rubric, concrete evidence and remaining defects—not inflated scores or claimed conversion gains.
 
-Fix the highest-impact issues and re-review. Limit each milestone to three focused improvement rounds; when progress stalls, diagnose or document the shortfall instead of endlessly rescoring. Functional, privacy, accessibility and SEO blockers cannot be waived by a design score.
+Provide a compact research/design checkpoint, then up to three focused implementation/review cycles. Continue autonomously on reversible decisions unless Brooke redirects. Stop at the quality bar or document unresolved issues when progress stalls.
 
-### 6. FINISH CLEANLY
+5. VERIFY AND HAND OFF
+Reserve the final fifth of effort for integration and QA. Run targeted checks during work and full relevant gates at integration. Check narrow mobile, keyboard use, consent, shortlist/context, galleries, plans and inquiry success/error paths. Use WebKit when available; distinguish emulation from real iPhone/Safari testing. Intercept leads and analytics traffic.
 
-Use targeted checks while iterating and full relevant gates at integration. Test navigation, shortlist/context preservation, galleries, floor-plan access, inquiry success/error states, keyboard use and narrow mobile layouts. Intercept test submissions; never send real leads. Preserve factual sources, valuable URLs, consent behavior and canonical data boundaries.
+Update this brief's working-branch copy and existing progress/evidence with research, decisions, before/after and interaction screenshots, scorecards, measurement hypotheses, limitations, and exact tested/pushed SHAs. Verify final-head CI; never weaken tests to pass. Preserve valuable URLs, factual sources, canonical data and working integrations.
 
-Reserve roughly the final fifth of the available work budget for integration, regression testing and handoff. Maintain one short progress record with decisions, branch/SHA, completed work, evidence, blockers and the next action. Stop when the quality bar and checks are met, or document unmet criteria honestly when budget or meaningful progress runs out. Leave a functioning preview, before/after screenshots, scorecard, test results and a reviewable draft PR.
-
-No production merge/deploy, new paid services, account/security changes, major migrations or activation of parked automation without Brooke's explicit approval. A preview is not a release. Continue beyond the first implementation, but do not chase perfection or add features simply to consume quota.
+Keep a functioning preview and the PR draft. No production merge/deploy, new paid services, account/security changes, major migrations or activation of parked automation without Brooke's explicit approval. Keep 3D separate. Deliver implementation and evidence—not merely recommendations.
 
 ---
 
 ## Revision log
 
-- **v1.0 - September 17, 2026:** Initial agreed brief: 50/30/20 priorities, model-aware delegation, truthful asset generation, evidence-backed review cycles, bounded iteration and no-deploy delivery.
+- **v1.1 — September 19, 2026:** Expanded continuation beyond mobile cleanup: evidence-qualified competitor research, valued bottom-graphic restoration, news visibility and truthful freshness, first-time/returning-buyer journeys, research-led review, and post-release measurement hypotheses. Preserved Astra extra-high/Luna max delegation, 50/30/20 priorities and no-deploy boundaries. The hidden `.home-end-bridge` is recorded as an investigative lead, not an independently verified visual identification.
+- **v1.0 — September 17, 2026:** Initial agreed brief: 50/30/20 priorities, model-aware delegation, truthful asset generation, evidence-backed review cycles, bounded iteration and no-deploy delivery. Preserved in Git history.

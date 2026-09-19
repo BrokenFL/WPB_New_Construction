@@ -1,0 +1,121 @@
+{
+  "testedCodeSha": "0c36a09375dbd1cbe8fa3187aeaefcb49c8873e6",
+  "results": [
+    {
+      "combinedJourneys": "pass",
+      "interceptedSubmissions": 12,
+      "results": [
+        {
+          "width": 1440,
+          "journey": "floorplan:olara:residence-d",
+          "interceptedSubmission": "pass",
+          "project": "olara",
+          "piiExcluded": true
+        },
+        {
+          "width": 1440,
+          "journey": "commercial:home:availability",
+          "interceptedSubmission": "pass",
+          "project": "south-flagler-house",
+          "piiExcluded": true
+        },
+        {
+          "width": 1440,
+          "journey": "commercial:buildings:pricing-packet",
+          "interceptedSubmission": "pass",
+          "project": "south-flagler-house",
+          "piiExcluded": true
+        },
+        {
+          "width": 1440,
+          "journey": "floorplan:olara:residence-d",
+          "interceptedSubmission": "pass",
+          "project": "olara",
+          "piiExcluded": true
+        },
+        {
+          "width": 1440,
+          "journey": "commercial:home:pricing-packet",
+          "interceptedSubmission": "pass",
+          "project": "south-flagler-house",
+          "piiExcluded": true
+        },
+        {
+          "width": 1440,
+          "journey": "commercial:buildings:availability",
+          "interceptedSubmission": "pass",
+          "project": "south-flagler-house",
+          "piiExcluded": true
+        },
+        {
+          "width": 1440,
+          "combinedJourney": "pass",
+          "nativeAndModifiedNavigation": "pass",
+          "consent": "pass",
+          "duplicateTagsOrEvents": false,
+          "buildingsListingsFirst": true
+        },
+        {
+          "width": 390,
+          "journey": "floorplan:olara:residence-d",
+          "interceptedSubmission": "pass",
+          "project": "olara",
+          "piiExcluded": true
+        },
+        {
+          "width": 390,
+          "journey": "commercial:home:availability",
+          "interceptedSubmission": "pass",
+          "project": "south-flagler-house",
+          "piiExcluded": true
+        },
+        {
+          "width": 390,
+          "journey": "commercial:buildings:pricing-packet",
+          "interceptedSubmission": "pass",
+          "project": "south-flagler-house",
+          "piiExcluded": true
+        },
+        {
+          "width": 390,
+          "journey": "floorplan:olara:residence-d",
+          "interceptedSubmission": "pass",
+          "project": "olara",
+          "piiExcluded": true
+        },
+        {
+          "width": 390,
+          "journey": "commercial:home:pricing-packet",
+          "interceptedSubmission": "pass",
+          "project": "south-flagler-house",
+          "piiExcluded": true
+        },
+        {
+          "width": 390,
+          "journey": "commercial:buildings:availability",
+          "interceptedSubmission": "pass",
+          "project": "south-flagler-house",
+          "piiExcluded": true
+        },
+        {
+          "width": 390,
+          "combinedJourney": "pass",
+          "nativeAndModifiedNavigation": "pass",
+          "consent": "pass",
+          "duplicateTagsOrEvents": false,
+          "buildingsListingsFirst": true
+        },
+        {
+          "width": 1440,
+          "noJavaScriptNativeJourney": "pass",
+          "formSubmissionTested": false
+        },
+        {
+          "width": 390,
+          "noJavaScriptNativeJourney": "pass",
+          "formSubmissionTested": false
+        }
+      ]
+    }
+  ]
+}
