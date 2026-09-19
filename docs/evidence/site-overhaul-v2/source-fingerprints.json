@@ -1,0 +1,58 @@
+[
+  {
+    "path": "index.html",
+    "sha256": "ebb56388bcf4fa445e792dca99ee6e553532e803d0ee7a89df2a6622c181836d"
+  },
+  {
+    "path": "src/main.ts",
+    "sha256": "5cd4ee01b69ac6bde2c0001e3d3c8cb8b9c6e6afdd758063e10d2133ce582ccd"
+  },
+  {
+    "path": "src/bootstrap.ts",
+    "sha256": "bcc669e4df5064a40570ba733bf5199f43aa3919a668ae23853444384038b15d"
+  },
+  {
+    "path": "src/commercialGrowth.ts",
+    "sha256": "e50228b46be5e9184230c4e67673e7dca3f745ff2c2e1d5dd5a8718bc4ea8804"
+  },
+  {
+    "path": "src/conciergeLauncher.ts",
+    "sha256": "87747623b7f30947123131ff8bd7b5acd2b540d25b8b5c67c46e411c9a7d313e"
+  },
+  {
+    "path": "src/buyerConcierge.css",
+    "sha256": "90897b400936e6941e286edf230539041ec489d44aa4f3e585015a23accde213"
+  },
+  {
+    "path": "src/lib/commercialContent.ts",
+    "sha256": "b229db1d91ff1911880cb987f73ed275dc476e1d0bb22e7e4c3e7449348c3268"
+  },
+  {
+    "path": "src/v2Gallery.ts",
+    "sha256": "1f6e8b9d8a9acffb5408fb767f67e57b69cde2c615b93cd143da6ba9dcbb064e"
+  },
+  {
+    "path": "src/v2Gallery.css",
+    "sha256": "379068661f3f9917712238313e695344985a07d3e44e686269760762dcd84c1a"
+  },
+  {
+    "path": "public/assets/styles/v2-editorial.css",
+    "sha256": "b69cfa657ea5db8b9ac6d3e754f9a05b16ea3d89ad88f8ef5777beb80ea15b78"
+  },
+  {
+    "path": "public/assets/styles/v2-buyer-journeys.css",
+    "sha256": "438ccc71ea4f397e0cd348f49250c76ba14a0dda0bfea7ccc95523aa2dec427f"
+  },
+  {
+    "path": "research/scripts/preview-v2.mjs",
+    "sha256": "4238b012d791bdc84baca2773dcd2371682aa1f05193ecfb5ddcf1cebf66ba38"
+  },
+  {
+    "path": "research/scripts/check-v2-interactions.mjs",
+    "sha256": "56ec4c19ae6aa21d5b4f48a2a9fc42be9cd101f035a3cf0f8f41575d3ca9ead4"
+  },
+  {
+    "path": "research/scripts/capture-v2-review.mjs",
+    "sha256": "d6d2418c588f8cafcaaa09f8545b322ee4270ab92cb13d00b52e109a59bec86c"
+  }
+]

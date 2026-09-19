@@ -2353,24 +2353,24 @@ function trackLeadCaptureCta(element: HTMLElement) {
 }
 
 app.innerHTML = `
+  <a class="v2-skip-link" href="#main-content">Skip to content</a>
   <div class="site-shell">
     <header class="site-nav">
       <a class="brand" href="/" aria-label="WPB New Construction home">
         <span class="brand-mark" aria-hidden="true">WPB</span>
-        <span class="brand-copy">West Palm Beach New Construction</span>
+        <span class="brand-copy">New Construction<small>West Palm Beach</small></span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="/buildings/" data-nav-item="projects">Projects</a>
+        <a href="/buildings/" data-nav-item="projects">Buildings</a>
         <a href="/corridors/" data-nav-item="corridors">Corridors</a>
-        <a href="/market-notes/" data-nav-item="market-notes">Buyers</a>
-        <a href="/about/" data-nav-item="about">About Us</a>
-        <a href="/floorplans/" data-nav-item="floorplans">Floorplans</a>
+        <a href="/compare/" data-nav-item="compare">Compare</a>
+        <a href="/floorplans/" data-nav-item="floorplans">Floor plans</a>
       </nav>
       <a class="nav-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">Call</a>
       <a class="nav-cta" href="/inquire/" data-nav-item="inquire" ${renderCtaTrackingAttrs("header", shortContactCtaLabel)}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <div class="route-view route-view-home" data-route-view="home">
       ${renderHomepageScopedStyles()}
       <section class="home-hero" id="top">
@@ -2388,15 +2388,6 @@ app.innerHTML = `
               style="object-position: center center"
             />
           </picture>
-          <img
-            class="home-hero-image"
-            data-home-hero-layer="next"
-            alt=""
-            loading="lazy"
-            decoding="async"
-            fetchpriority="low"
-            aria-hidden="true"
-          />
           <figcaption class="home-hero-caption" data-home-hero-caption>West Palm Beach waterfront.</figcaption>
           <ul class="sr-only">
             ${activeHomeHeroImages.map((image) => `<li>${escapeHtml(image.alt)}</li>`).join("")}
@@ -2405,12 +2396,13 @@ app.innerHTML = `
         <div class="home-hero-scrim"></div>
         <div class="home-hero-layout">
           <div class="home-hero-content">
-            <p class="hero-kicker">West Palm Beach New Construction</p>
+            <p class="hero-kicker">New construction · Independent buyer guidance</p>
             <h1>
               <span class="home-hero-title-desktop">${escapeHtml(approvedHeroCardOverride?.headline || "West Palm Beach Luxury Condo Developments")}</span>
-              <span class="home-hero-title-mobile">West Palm Beach Luxury Condos</span>
             </h1>
             <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || "Explore the city's most important new and upcoming condominium projects with clear details, local insight, floorplans, maps, and buyer-focused guidance before you inquire.")}</p>
+            <div class="v2-hero-actions"><a class="button primary" href="/buildings/" data-hero-cta="projects">Explore buildings <span aria-hidden="true">↗</span></a><a class="v2-text-link" href="/compare/" data-hero-cta="compare">Compare your options <span aria-hidden="true">→</span></a></div>
+            <p class="v2-hero-note">The buildings. The neighborhoods. The details that matter.</p>
           </div>
         </div>
       </section>
@@ -2430,7 +2422,7 @@ app.innerHTML = `
 
       <section class="home-corridor-guide" id="corridors" aria-label="Choose a West Palm Beach new-construction corridor">
         <div class="section-heading corridor-heading">
-          <p class="eyebrow">Browse by Corridor</p>
+          <p class="eyebrow">01 / A sense of place</p><h2>Find your side of the city.</h2><p class="v2-section-deck">Waterfront calm or downtown energy. Start with the way you want to live.</p>
         </div>
         <div class="home-carousel-shell">
           ${renderHomeCarouselControls("corridor")}
@@ -2456,26 +2448,15 @@ app.innerHTML = `
         </div>
       </section>
 
-      <section class="home-status-image" aria-label="West Palm Beach construction skyline image">
-        <figure class="home-status-image-frame">
-          <img
-            src="/assets/home/wpb-construction-skyline-wide-v01.jpg"
-            alt="Wide aerial of West Palm Beach new construction projects and cranes under a bright blue sky."
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-      </section>
-
       <section class="home-featured-section" id="featured-projects" aria-label="Featured buyer-ready projects">
         <div class="section-heading home-featured-heading">
-          <p class="eyebrow">Featured Developments</p>
+          <div><p class="eyebrow">02 / The collection</p><h2>A closer look.</h2></div>
           <a class="home-featured-heading-link" href="/buildings/">View All Projects <span aria-hidden="true">→</span></a>
         </div>
         <div class="home-carousel-shell">
           ${renderHomeCarouselControls("featured developments")}
           <div class="home-featured-grid" role="region" aria-label="Scrollable featured developments" tabindex="0">
-            ${homepageFeaturedProjects.map(renderHomepageFeaturedProject).join("")}
+            ${homepageFeaturedProjects.slice(0, 3).map(renderHomepageFeaturedProject).join("")}
           </div>
         </div>
       </section>
@@ -2644,7 +2625,7 @@ app.innerHTML = `
           <div>
             <p class="eyebrow">Floorplan Library</p>
             <h1>Floorplans</h1>
-            <p>Explore floor plans designed to help you understand each residence before you step inside. From room flow and bedroom placement to outdoor space, views, and everyday livability, these plans offer a clear look at how each home lives—not just how it measures.</p>
+            <p>Explore released layouts by building. Review room sizes, outdoor space and circulation, then open the plans that fit your shortlist.</p>
             <div class="hero-actions">
               <a class="button primary" href="#floorplan-library">Browse by building <span aria-hidden="true">↓</span></a>
               <a class="button ghost" href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", "Request current packet", { leadCaptureContext: "floorplans_page" })}>Request current packet <span aria-hidden="true">↗</span></a>
@@ -2657,9 +2638,9 @@ app.innerHTML = `
         </section>
       </div>
 
-      <div class="floorplan-viewer" data-floorplan-viewer hidden aria-hidden="true">
+      <dialog class="floorplan-viewer" data-floorplan-viewer hidden aria-labelledby="floorplan-viewer-title">
         <div class="floorplan-viewer-backdrop" data-floorplan-close></div>
-        <section class="floorplan-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="floorplan-viewer-title">
+        <section class="floorplan-viewer-dialog">
           <button class="floorplan-viewer-close" type="button" data-floorplan-close aria-label="Close floorplan viewer">×</button>
           <div class="floorplan-viewer-header">
             <h2 id="floorplan-viewer-title" data-floorplan-title>Floor plan</h2>
@@ -2671,7 +2652,7 @@ app.innerHTML = `
             <a href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", shortContactCtaLabel, { leadCaptureContext: "floorplan_viewer" })}>${shortContactCtaLabel}</a>
           </div>
         </section>
-      </div>
+      </dialog>
 
       <div class="route-view route-view-answers" data-route-view="answers" hidden>
         <section class="section intelligence-hero answer-library-hero">
@@ -2915,8 +2896,8 @@ app.innerHTML = `
       <section class="section inquiry-section" id="inquire">
         <div class="inquiry-copy-panel">
           <p class="eyebrow">Contact The Scott Gordon Group</p>
-          <h1>${longContactCtaHeadline}</h1>
-          <p>${longContactCtaBody}</p>
+          <h1>Let’s find your fit.</h1>
+          <p>Tell us what matters. We’ll help you compare buildings, review floor plans, and confirm current availability.</p>
           <div class="inquiry-proof-strip" aria-label="What the team will review">
             <span>Availability</span>
             <span>Floor plans</span>
@@ -3128,6 +3109,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     if (status) {
       status.textContent = "Please name a building you are considering or add a short message.";
     }
+    target.dataset.submitting = "false";
     return;
   }
 
@@ -3172,6 +3154,11 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     }
     resetTurnstile(target);
     target.reset();
+    // Keep the requested building and intent visible after receipt; clear personal entries.
+    const projectControl = target.querySelector<HTMLSelectElement>('[name="project"]');
+    const interestControl = target.querySelector<HTMLSelectElement>('[name="interest"]');
+    if (projectControl) projectControl.value = project;
+    if (interestControl) interestControl.value = interest;
     target.dataset.submitting = "false";
     return;
   }
@@ -4116,6 +4103,7 @@ function routeSeoDetails(
 }
 
 function getActiveNavItem(route: Route) {
+  if (route.type === "home") return "home";
   if (route.type === "project") {
     return "projects";
   }
@@ -4136,9 +4124,6 @@ function getActiveNavItem(route: Route) {
   }
   if (route.type === "buildings" || route.type === "map" || route.type === "corridors" || route.type === "compare") {
     return route.type === "buildings" ? "projects" : route.type;
-  }
-  if (route.type === "home") {
-    return window.location.hash === "#atlas" ? "atlas" : window.location.hash === "#compare" ? "compare" : "projects";
   }
   return route.type;
 }
@@ -5104,7 +5089,8 @@ function renderBuildingsRouteView() {
           <div>
             <p class="eyebrow" data-directory-kicker>All Projects</p>
             <h2 data-directory-subtitle>${escapeHtml(approvedHomepageOverride("featured-buildings")?.headline || "All Projects")}</h2>
-            <p class="selected-filter-summary" data-filter-summary>${escapeHtml(approvedHomepageOverride("featured-buildings")?.subhead || "Filter by corridor, status, or sales office.")}</p>
+            <p class="selected-filter-summary" data-filter-summary role="status" aria-live="polite">${escapeHtml(approvedHomepageOverride("featured-buildings")?.subhead || "Filter by corridor, status, or sales office.")}</p>
+            <label class="v2-project-search"><span>Find a building</span><input type="search" data-project-search placeholder="Search by building name" autocomplete="off" /></label>
             <div class="project-filter-controls" aria-label="Project filters">
               ${renderProjectFilterSelect("corridor", "Corridor", projectCorridorFilters)}
               ${renderProjectFilterSelect("status", "Status", projectStatusFilters)}
@@ -5122,6 +5108,8 @@ function renderBuildingsRouteView() {
             </select>
           </label>
         </div>
+        <div class="v2-directory-toolbar"><button type="button" data-project-reset>Clear filters</button><a href="/compare/">Open comparison <span aria-hidden="true">→</span></a></div>
+        <p class="v2-directory-empty" data-project-empty hidden>No buildings match these filters. Try another name or clear the filters.</p>
         <div class="project-rail">
           <button class="project-rail-arrow project-rail-arrow-prev" type="button" data-project-scroll="prev" aria-label="Scroll projects left">&lsaquo;</button>
           <div class="front-project-grid" data-project-grid>
@@ -5623,7 +5611,7 @@ function corridorBestFit(key: CorridorKey) {
 function renderCompareRouteView() {
   const options = rankedFeaturedProjects.map((project) => `<option value="${project.id}">${escapeHtml(project.name)}</option>`).join("");
 
-  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare West Palm Beach New Construction</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Build a focused shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/" data-compare-inquire ${renderCtaTrackingAttrs("compare_page", "Ask The Scott Gordon Group to compare these buildings", { leadCaptureContext: "compare_shortlist" })}>Ask The Scott Gordon Group to compare these buildings <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section><section class="corridors-final-cta compare-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("compare_page", shortContactCtaLabel, { leadCaptureContext: "compare_shortlist" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a></section></div>`;
+  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare buildings.</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Your shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/" data-compare-inquire ${renderCtaTrackingAttrs("compare_page", "Ask The Scott Gordon Group to compare these buildings", { leadCaptureContext: "compare_shortlist" })}>Ask about this shortlist <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section><section class="corridors-final-cta compare-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("compare_page", shortContactCtaLabel, { leadCaptureContext: "compare_shortlist" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a></section></div>`;
 }
 
 function renderCorridorRouteView(section: CorridorSection) {
@@ -8728,14 +8716,13 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
           <span class="berkeley-brand-mark" aria-hidden="true">WPB</span>
-          <span class="berkeley-brand-copy"><strong>WPB</strong><em>New Construction</em></span>
+          <span class="berkeley-brand-copy"><strong>New Construction</strong><em>West Palm Beach</em></span>
         </a>
         <div>
-          <a href="/buildings/">Projects</a>
+          <a href="/buildings/">Buildings</a>
           <a href="/corridors/">Corridors</a>
-          <a href="/market-notes/">Buyers</a>
-          <a href="/about/">About Us</a>
-          ${rules.showFloorplans ? `<a href="${floorplanLibraryPath(project.id)}">Floorplans</a>` : ""}
+          <a href="/compare/">Compare</a>
+          ${rules.showFloorplans ? `<a href="${floorplanLibraryPath(project.id)}">Floor plans</a>` : ""}
         </div>
         <a class="berkeley-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">${berkeleyIcon("valet")}</a>
         <a class="berkeley-inquire" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel} <span aria-hidden="true">→</span></a>
@@ -8755,7 +8742,13 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         ${facts.map((fact) => `<article>${berkeleyIcon(fact.icon)}<span>${publicText(fact.label)}</span><strong>${publicText(fact.value)}</strong></article>`).join("")}
       </section>
 
-      <section class="berkeley-intro-section" data-project-section="overview" aria-label="Project introduction">
+      <nav class="v2-project-sections" aria-label="On this project page">
+        <a href="#overview-${project.id}">Overview</a>
+        ${residences.length ? `<a href="#berkeley-residences">Residences</a>` : ""}
+        ${gallery.length ? `<a href="#${galleryId}">Gallery</a>` : ""}
+        <a href="#berkeley-neighborhood">Location</a>
+      </nav>
+      <section class="berkeley-intro-section" id="overview-${project.id}" data-project-section="overview" aria-label="Project introduction">
         <p class="berkeley-kicker">Overview</p>
         <p>${publicText(intro)}</p>
         ${rules.showFloorplans ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
@@ -8812,7 +8805,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         ${renderProjectInquiryForm(project, rules)}
       </section>
 
-      <section class="berkeley-final-cta"><div><h2>${rules.resourceHeading}</h2><p>${rules.resourceCopy}</p></div><a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel} <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
+      <section class="berkeley-final-cta"><div><p class="eyebrow">Keep exploring</p><h2>Find the right perspective.</h2></div><a class="button primary" href="/buildings/">Browse all buildings <span aria-hidden="true">→</span></a><a class="button ghost" href="/compare/">Compare buildings</a></section>
     </div>
   `;
 }
@@ -9531,12 +9524,13 @@ export function renderNeededItem(item: string, index: number) {
 
 
 function initFloorplanViewer() {
-  const viewer = document.querySelector<HTMLElement>("[data-floorplan-viewer]");
+  const viewer = document.querySelector<HTMLDialogElement>("[data-floorplan-viewer]");
   if (!viewer || viewer.dataset.ready === "true") return;
   viewer.dataset.ready = "true";
   const title = viewer.querySelector<HTMLElement>("[data-floorplan-title]");
   const frame = viewer.querySelector<HTMLElement>("[data-floorplan-frame]");
   let activeIndex = 0;
+  let returnFocus: HTMLElement | null = null;
 
   const openButtons = () => {
     const activeFloorplanRoute = document.querySelector<HTMLElement>(".route-view-floorplans:not([hidden])");
@@ -9557,14 +9551,21 @@ function initFloorplanViewer() {
         : `<iframe src="${safeHref(src)}" title="${frameTitle}"></iframe>`
       : `<div class="floorplan-viewer-request"><strong>Request current packet</strong></div>`;
     viewer.hidden = false;
-    viewer.setAttribute("aria-hidden", "false");
+    if (!viewer.open) {
+      returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      viewer.showModal();
+      viewer.querySelector<HTMLButtonElement>("button[data-floorplan-close]")?.focus();
+    }
     document.body.classList.add("has-floorplan-viewer");
   };
   const close = () => {
+    viewer.close();
     viewer.hidden = true;
-    viewer.setAttribute("aria-hidden", "true");
+    if (frame) frame.replaceChildren();
     document.body.classList.remove("has-floorplan-viewer");
+    returnFocus?.focus();
   };
+  viewer.addEventListener("cancel", (event) => { event.preventDefault(); close(); });
 
   document.addEventListener("click", (event) => {
     const button = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-floorplan-open]");
@@ -9584,7 +9585,14 @@ function initFloorplanViewer() {
     }
   });
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !viewer.hidden) close();
+    if (viewer.hidden) return;
+    if (event.key === "Escape") { event.preventDefault(); close(); }
+    if (event.key === "Tab") {
+      const controls = Array.from(viewer.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], iframe, [tabindex="0"]')).filter(element => element.getClientRects().length);
+      const first = controls[0]; const last = controls.at(-1);
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    }
   });
 }
 
@@ -9592,6 +9600,9 @@ function initProjectBrowser() {
   const grid = document.querySelector<HTMLElement>("[data-project-grid]");
   const sortSelect = document.querySelector<HTMLSelectElement>("[data-project-sort]");
   const filterSelects = Array.from(document.querySelectorAll<HTMLSelectElement>("[data-project-filter-group]"));
+  const searchInput = document.querySelector<HTMLInputElement>("[data-project-search]");
+  const emptyState = document.querySelector<HTMLElement>("[data-project-empty]");
+  const resetButton = document.querySelector<HTMLButtonElement>("[data-project-reset]");
   const statusShortcuts = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-status-shortcut]"));
   const railButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-project-scroll]"));
   const visibleCount = document.querySelector<HTMLElement>("[data-visible-count]");
@@ -9610,6 +9621,7 @@ function initProjectBrowser() {
   const cards = Array.from(grid.querySelectorAll<HTMLElement>("[data-project-card]"));
   const pins = Array.from(document.querySelectorAll<HTMLElement>("[data-map-pin]"));
   const filterState = filterSelectionFromUrl(new URLSearchParams(window.location.search));
+  if (searchInput) searchInput.value = new URLSearchParams(location.search).get("q") ?? "";
 
   const applyProjectState = () => {
     const sortedCards = [...cards].sort((a, b) => compareProjectCards(a, b, sortSelect.value));
@@ -9620,7 +9632,7 @@ function initProjectBrowser() {
     mapPanel?.setAttribute("data-active-filter", primaryFilter);
 
     cards.forEach((card) => {
-      const matches = projectMatchesSelection(card, filterState);
+      const matches = projectMatchesSelection(card, filterState) && (card.dataset.pn ?? "").toLocaleLowerCase().includes((searchInput?.value ?? "").trim().toLocaleLowerCase());
       card.hidden = !matches;
       if (matches) {
         visibleProjects += 1;
@@ -9643,6 +9655,11 @@ function initProjectBrowser() {
 
     if (filterSummary) {
       filterSummary.textContent = filterSummaryText(filterState, visibleProjects);
+      if (searchInput?.value.trim()) filterSummary.textContent = `${visibleProjects} project${visibleProjects === 1 ? "" : "s"} matching “${searchInput.value.trim()}”.`;
+    }
+    if (emptyState) emptyState.hidden = visibleProjects !== 0;
+    if (resetButton) {
+      resetButton.disabled = !searchInput?.value && Object.values(filterState).every(value => value === "all");
     }
 
     const heading = directoryHeadingText(filterState, visibleProjects);
@@ -9670,6 +9687,23 @@ function initProjectBrowser() {
     });
   });
 
+  searchInput?.addEventListener("input", () => {
+    const url = new URL(location.href);
+    if (searchInput.value.trim()) url.searchParams.set("q", searchInput.value.trim());
+    else url.searchParams.delete("q");
+    history.replaceState(null, "", url.pathname + url.search + url.hash);
+    applyProjectState();
+  });
+  resetButton?.addEventListener("click", () => {
+    filterState.corridor = filterState.status = filterState.sales = "all";
+    if (searchInput) searchInput.value = "";
+    const url = new URL(location.href); url.searchParams.delete("q");
+    history.replaceState(null, "", url.pathname + url.search + url.hash);
+    syncProjectFilterControls(filterSelects, filterState);
+    syncProjectFilterUrl(filterState);
+    applyProjectState();
+    searchInput?.focus();
+  });
   sortSelect.addEventListener("change", applyProjectState);
   railButtons.forEach((button) => {
     button.addEventListener("click", () => {

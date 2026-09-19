@@ -62,7 +62,7 @@ async function inspectHomepage(browser, viewport) {
     return {
       order: {
         corridors: sectionTop(".home-corridor-guide"),
-        image: sectionTop(".home-status-image"),
+        guide: sectionTop("[data-commercial-guide=home]"),
         atlas: sectionTop(".home-atlas-feature"),
         featured: sectionTop(".home-featured-section"),
         spotlight: sectionTop(".home-spotlight-module"),
@@ -85,17 +85,16 @@ async function inspectHomepage(browser, viewport) {
 
   const findings = [];
   const checks = [];
-  const orderOk = data.order.corridors !== null && data.order.image !== null && data.order.featured !== null
+  const orderOk = data.order.corridors !== null && data.order.guide !== null && data.order.featured !== null
     && data.order.spotlight !== null && data.order.atlas !== null && data.order.resources !== null && data.order.compare !== null
     && data.order.corridors < data.order.featured
-    && data.order.corridors < data.order.image
-    && data.order.image < data.order.featured
     && data.order.featured < data.order.spotlight
     && data.order.spotlight < data.order.atlas
-    && data.order.atlas < data.order.resources
+    && data.order.atlas < data.order.guide
+    && data.order.guide < data.order.resources
     && data.order.resources < data.order.compare;
   checks.push({ viewport: viewport.name, label: "homepage section order", ok: orderOk });
-  if (!orderOk) findings.push(`${viewport.name}: homepage order should be Hero -> Corridors -> Construction Image -> Featured Developments -> Spotlight -> Atlas -> Advisory Resources -> Compare Launcher.`);
+  if (!orderOk) findings.push(`${viewport.name}: homepage order should be Hero -> Corridors -> Featured Developments -> Spotlight -> Atlas -> Buyer Guide -> Advisory Resources -> Compare Launcher.`);
   checks.push({ viewport: viewport.name, label: "CTA visible", ok: data.hasCta });
   if (!data.hasCta) findings.push(`${viewport.name}: homepage CTA block is not visible.`);
   checks.push({ viewport: viewport.name, label: "compare launcher available", ok: data.compareSelectCount === 2 && data.hasCompareSubmit });

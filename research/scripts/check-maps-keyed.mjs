@@ -5,10 +5,11 @@ import fs from 'node:fs/promises';
 import { chromium } from 'playwright';
 import { verifyProductionMapBundle } from './production-map-preflight.mjs';
 await verifyProductionMapBundle();
-const origin = 'http://127.0.0.1:4173';
+const origin = process.env.MAPS_QA_ORIGIN || 'http://127.0.0.1:4173';
+if (!['127.0.0.1', 'localhost'].includes(new URL(origin).hostname)) throw new Error('Maps QA requires a local preview origin.');
 const artifactDir = '.runtime/p2-keyed-maps';
 await fs.mkdir(artifactDir, { recursive: true });
-const server = spawn(process.execPath, ['node_modules/vite/bin/vite.js', 'preview', '--host', '127.0.0.1', '--port', '4173', '--strictPort'], { stdio: 'ignore' });
+const server = process.env.MAPS_QA_ORIGIN ? null : spawn(process.execPath, ['node_modules/vite/bin/vite.js', 'preview', '--host', '127.0.0.1', '--port', '4173', '--strictPort'], { stdio: 'ignore' });
 let browser;
 const results = [];
 const scenarios = [
@@ -135,7 +136,7 @@ async function assertMobileMapControls(page, card, route) {
 try {
   let ready = false;
   for (let attempt = 0; attempt < 120; attempt++) {
-    if (server.exitCode !== null) throw new Error('Dedicated review server failed to start on port 4173.');
+    if (server && server.exitCode !== null) throw new Error('Dedicated review server failed to start on port 4173.');
     try { if ((await fetch(origin)).ok) { ready = true; break; } } catch {}
     await new Promise((resolve) => setTimeout(resolve, 250));
   }
@@ -262,6 +263,8 @@ try {
       if (width < 500) {
         failurePhase = 'mobile-launcher-hit-test';
         const launcher = page.locator('.buyer-concierge-launcher');
+        // The homepage help row is intentionally in normal flow on mobile.
+        await launcher.scrollIntoViewIfNeeded();
         const launcherBox = await launcher.boundingBox();
         assert.ok(launcherBox, `${route} mobile concierge launcher must be visible`);
         await page.mouse.click(launcherBox.x + launcherBox.width / 2, launcherBox.y + launcherBox.height / 2);
@@ -302,5 +305,5 @@ try {
   if (results.some((r) => r.status !== 'pass')) process.exitCode = 1;
 } finally {
   await browser?.close();
-  server.kill('SIGTERM');
+  server?.kill('SIGTERM');
 }

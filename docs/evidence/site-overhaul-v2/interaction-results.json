@@ -1,0 +1,65 @@
+[
+  {
+    "width": 1440,
+    "check": "search, URL reload, no-results, reset, corridor filter and A–Z sort",
+    "result": "pass"
+  },
+  {
+    "width": 1440,
+    "check": "comparison selection persists and carries names into inquiry",
+    "result": "pass"
+  },
+  {
+    "width": 1440,
+    "check": "floor-plan viewer keyboard open, focus containment, Escape and focus restoration",
+    "result": "pass"
+  },
+  {
+    "width": 1440,
+    "check": "validation correction, intercepted server error/retry/success, request context retained and personal fields cleared",
+    "result": "pass",
+    "realLeadsSent": 0
+  },
+  {
+    "width": 390,
+    "check": "search, URL reload, no-results, reset, corridor filter and A–Z sort",
+    "result": "pass"
+  },
+  {
+    "width": 390,
+    "check": "comparison selection persists and carries names into inquiry",
+    "result": "pass"
+  },
+  {
+    "width": 390,
+    "check": "floor-plan viewer keyboard open, focus containment, Escape and focus restoration",
+    "result": "pass"
+  },
+  {
+    "width": 390,
+    "check": "validation correction, intercepted server error/retry/success, request context retained and personal fields cleared",
+    "result": "pass",
+    "realLeadsSent": 0
+  },
+  {
+    "width": 320,
+    "check": "search, URL reload, no-results, reset, corridor filter and A–Z sort",
+    "result": "pass"
+  },
+  {
+    "width": 320,
+    "check": "comparison selection persists and carries names into inquiry",
+    "result": "pass"
+  },
+  {
+    "width": 320,
+    "check": "floor-plan viewer keyboard open, focus containment, Escape and focus restoration",
+    "result": "pass"
+  },
+  {
+    "width": 320,
+    "check": "validation correction, intercepted server error/retry/success, request context retained and personal fields cleared",
+    "result": "pass",
+    "realLeadsSent": 0
+  }
+]

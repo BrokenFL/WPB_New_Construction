@@ -1,0 +1,754 @@
+[
+  {
+    "route": "/",
+    "width": 1366,
+    "direction": "in",
+    "firstVisit": false,
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 944.171875,
+      "canvasWidth": 944.171875
+    },
+    "fallbackAccepted": false
+  },
+  {
+    "route": "/map/",
+    "width": 1366,
+    "direction": "in",
+    "firstVisit": false,
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 925.9375,
+      "canvasWidth": 923.9375
+    },
+    "fallbackAccepted": false
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "direction": "in",
+    "firstVisit": false,
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 344,
+      "canvasWidth": 344
+    },
+    "mobileControlGeometry": {
+      "controls": {
+        "Zoom in": {
+          "rect": {
+            "left": 33,
+            "top": 381.125,
+            "right": 73,
+            "bottom": 421.125,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 53,
+            "y": 401.125
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom in"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        },
+        "Zoom out": {
+          "rect": {
+            "left": 33,
+            "top": 422.125,
+            "right": 73,
+            "bottom": 462.125,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 53,
+            "y": 442.125
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom out"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        }
+      },
+      "launcher": {
+        "rect": {
+          "left": 276,
+          "top": -3448.546875,
+          "right": 372,
+          "bottom": -3404.546875,
+          "width": 96,
+          "height": 44
+        },
+        "expanded": "false"
+      },
+      "count": null
+    },
+    "fallbackAccepted": false
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "direction": "out",
+    "firstVisit": false,
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 344,
+      "canvasWidth": 344
+    },
+    "mobileControlGeometry": {
+      "controls": {
+        "Zoom in": {
+          "rect": {
+            "left": 33,
+            "top": 381.125,
+            "right": 73,
+            "bottom": 421.125,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 53,
+            "y": 401.125
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom in"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        },
+        "Zoom out": {
+          "rect": {
+            "left": 33,
+            "top": 422.125,
+            "right": 73,
+            "bottom": 462.125,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 53,
+            "y": 442.125
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom out"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        }
+      },
+      "launcher": {
+        "rect": {
+          "left": 276,
+          "top": -3448.546875,
+          "right": 372,
+          "bottom": -3404.546875,
+          "width": 96,
+          "height": 44
+        },
+        "expanded": "false"
+      },
+      "count": null
+    },
+    "fallbackAccepted": false
+  },
+  {
+    "route": "/map/",
+    "width": 390,
+    "direction": "in",
+    "firstVisit": false,
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 362,
+      "canvasWidth": 360
+    },
+    "mobileControlGeometry": {
+      "controls": {
+        "Zoom in": {
+          "rect": {
+            "left": 25,
+            "top": 558.09375,
+            "right": 65,
+            "bottom": 598.09375,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 45,
+            "y": 578.09375
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom in"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        },
+        "Zoom out": {
+          "rect": {
+            "left": 25,
+            "top": 599.09375,
+            "right": 65,
+            "bottom": 639.09375,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 45,
+            "y": 619.09375
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom out"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        }
+      },
+      "launcher": {
+        "rect": {
+          "left": 282,
+          "top": 704,
+          "right": 378,
+          "bottom": 752,
+          "width": 96,
+          "height": 48
+        },
+        "expanded": "false"
+      },
+      "count": {
+        "rect": {
+          "left": 29,
+          "top": 769.375,
+          "right": 361,
+          "bottom": 825.609375,
+          "width": 332,
+          "height": 56.234375
+        },
+        "pointerEvents": "auto"
+      }
+    },
+    "fallbackAccepted": false
+  },
+  {
+    "route": "/map/",
+    "width": 390,
+    "direction": "out",
+    "firstVisit": false,
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 362,
+      "canvasWidth": 360
+    },
+    "mobileControlGeometry": {
+      "controls": {
+        "Zoom in": {
+          "rect": {
+            "left": 25,
+            "top": 558.09375,
+            "right": 65,
+            "bottom": 598.09375,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 45,
+            "y": 578.09375
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom in"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        },
+        "Zoom out": {
+          "rect": {
+            "left": 25,
+            "top": 599.09375,
+            "right": 65,
+            "bottom": 639.09375,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 45,
+            "y": 619.09375
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom out"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        }
+      },
+      "launcher": {
+        "rect": {
+          "left": 282,
+          "top": 704,
+          "right": 378,
+          "bottom": 752,
+          "width": 96,
+          "height": 48
+        },
+        "expanded": "false"
+      },
+      "count": {
+        "rect": {
+          "left": 29,
+          "top": 769.375,
+          "right": 361,
+          "bottom": 825.609375,
+          "width": 332,
+          "height": 56.234375
+        },
+        "pointerEvents": "auto"
+      }
+    },
+    "fallbackAccepted": false
+  },
+  {
+    "route": "/map/",
+    "width": 320,
+    "direction": "in",
+    "firstVisit": true,
+    "initialConsentGeometry": {
+      "consent": {
+        "left": 16,
+        "top": 0,
+        "right": 304,
+        "bottom": 307.859375,
+        "width": 288,
+        "height": 307.859375
+      },
+      "targets": [
+        {
+          "label": "Skip to content",
+          "rect": {
+            "left": 16,
+            "top": -100,
+            "right": 169.859375,
+            "bottom": -48,
+            "width": 153.859375,
+            "height": 52
+          },
+          "inViewport": false,
+          "ownsCenter": true,
+          "overlap": 0
+        },
+        {
+          "label": "Open Ask WPB buyer concierge",
+          "rect": {
+            "left": 212,
+            "top": 704,
+            "right": 308,
+            "bottom": 752,
+            "width": 96,
+            "height": 48
+          },
+          "inViewport": true,
+          "ownsCenter": true,
+          "overlap": 0
+        }
+      ],
+      "stored": null,
+      "beforeApp": true,
+      "inFlow": true,
+      "overflow": false
+    },
+    "scrolledConsentGeometry": {
+      "consent": {
+        "left": 16,
+        "top": -461,
+        "right": 304,
+        "bottom": -153.140625,
+        "width": 288,
+        "height": 307.859375
+      },
+      "targets": [
+        {
+          "label": "Skip to content",
+          "rect": {
+            "left": 16,
+            "top": -100,
+            "right": 169.859375,
+            "bottom": -48,
+            "width": 153.859375,
+            "height": 52
+          },
+          "inViewport": false,
+          "ownsCenter": true,
+          "overlap": 0
+        },
+        {
+          "label": "Zoom in",
+          "rect": {
+            "left": 25,
+            "top": 558.328125,
+            "right": 65,
+            "bottom": 598.328125,
+            "width": 40,
+            "height": 40
+          },
+          "inViewport": true,
+          "ownsCenter": true,
+          "overlap": 0
+        },
+        {
+          "label": "Zoom out",
+          "rect": {
+            "left": 25,
+            "top": 599.328125,
+            "right": 65,
+            "bottom": 639.328125,
+            "width": 40,
+            "height": 40
+          },
+          "inViewport": true,
+          "ownsCenter": true,
+          "overlap": 0
+        },
+        {
+          "label": "Open Ask WPB buyer concierge",
+          "rect": {
+            "left": 212,
+            "top": 704,
+            "right": 308,
+            "bottom": 752,
+            "width": 96,
+            "height": 48
+          },
+          "inViewport": true,
+          "ownsCenter": true,
+          "overlap": 0
+        }
+      ],
+      "stored": null,
+      "beforeApp": true,
+      "inFlow": true,
+      "overflow": false
+    },
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 292,
+      "canvasWidth": 290
+    },
+    "mobileControlGeometry": {
+      "controls": {
+        "Zoom in": {
+          "rect": {
+            "left": 25,
+            "top": 558.328125,
+            "right": 65,
+            "bottom": 598.328125,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 45,
+            "y": 578.328125
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom in"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        },
+        "Zoom out": {
+          "rect": {
+            "left": 25,
+            "top": 599.328125,
+            "right": 65,
+            "bottom": 639.328125,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 45,
+            "y": 619.328125
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom out"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        }
+      },
+      "launcher": {
+        "rect": {
+          "left": 212,
+          "top": 704,
+          "right": 308,
+          "bottom": 752,
+          "width": 96,
+          "height": 48
+        },
+        "expanded": "false"
+      },
+      "count": {
+        "rect": {
+          "left": 29,
+          "top": 761.5,
+          "right": 291,
+          "bottom": 825.84375,
+          "width": 262,
+          "height": 64.34375
+        },
+        "pointerEvents": "auto"
+      }
+    },
+    "fallbackAccepted": false
+  },
+  {
+    "route": "/map/",
+    "width": 390,
+    "direction": "out",
+    "firstVisit": true,
+    "initialConsentGeometry": {
+      "consent": {
+        "left": 16,
+        "top": 0,
+        "right": 374,
+        "bottom": 220.96875,
+        "width": 358,
+        "height": 220.96875
+      },
+      "targets": [
+        {
+          "label": "Skip to content",
+          "rect": {
+            "left": 16,
+            "top": -100,
+            "right": 169.859375,
+            "bottom": -48,
+            "width": 153.859375,
+            "height": 52
+          },
+          "inViewport": false,
+          "ownsCenter": true,
+          "overlap": 0
+        },
+        {
+          "label": "Open Ask WPB buyer concierge",
+          "rect": {
+            "left": 282,
+            "top": 704,
+            "right": 378,
+            "bottom": 752,
+            "width": 96,
+            "height": 48
+          },
+          "inViewport": true,
+          "ownsCenter": true,
+          "overlap": 0
+        }
+      ],
+      "stored": null,
+      "beforeApp": true,
+      "inFlow": true,
+      "overflow": false
+    },
+    "scrolledConsentGeometry": {
+      "consent": {
+        "left": 16,
+        "top": -324,
+        "right": 374,
+        "bottom": -103.03125,
+        "width": 358,
+        "height": 220.96875
+      },
+      "targets": [
+        {
+          "label": "Skip to content",
+          "rect": {
+            "left": 16,
+            "top": -100,
+            "right": 169.859375,
+            "bottom": -48,
+            "width": 153.859375,
+            "height": 52
+          },
+          "inViewport": false,
+          "ownsCenter": true,
+          "overlap": 0
+        },
+        {
+          "label": "Zoom in",
+          "rect": {
+            "left": 25,
+            "top": 558.0625,
+            "right": 65,
+            "bottom": 598.0625,
+            "width": 40,
+            "height": 40
+          },
+          "inViewport": true,
+          "ownsCenter": true,
+          "overlap": 0
+        },
+        {
+          "label": "Zoom out",
+          "rect": {
+            "left": 25,
+            "top": 599.0625,
+            "right": 65,
+            "bottom": 639.0625,
+            "width": 40,
+            "height": 40
+          },
+          "inViewport": true,
+          "ownsCenter": true,
+          "overlap": 0
+        },
+        {
+          "label": "Open Ask WPB buyer concierge",
+          "rect": {
+            "left": 282,
+            "top": 704,
+            "right": 378,
+            "bottom": 752,
+            "width": 96,
+            "height": 48
+          },
+          "inViewport": true,
+          "ownsCenter": true,
+          "overlap": 0
+        }
+      ],
+      "stored": null,
+      "beforeApp": true,
+      "inFlow": true,
+      "overflow": false
+    },
+    "status": "pass",
+    "realLoaderResponse": true,
+    "loadedMapTileImages": true,
+    "zoomChangedTiles": true,
+    "dimensions": {
+      "cardWidth": 362,
+      "canvasWidth": 360
+    },
+    "mobileControlGeometry": {
+      "controls": {
+        "Zoom in": {
+          "rect": {
+            "left": 25,
+            "top": 558.0625,
+            "right": 65,
+            "bottom": 598.0625,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 45,
+            "y": 578.0625
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom in"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        },
+        "Zoom out": {
+          "rect": {
+            "left": 25,
+            "top": 599.0625,
+            "right": 65,
+            "bottom": 639.0625,
+            "width": 40,
+            "height": 40
+          },
+          "center": {
+            "x": 45,
+            "y": 619.0625
+          },
+          "centerContainsHit": true,
+          "hit": {
+            "tag": "BUTTON",
+            "className": "gm-control-active",
+            "ariaLabel": "Zoom out"
+          },
+          "overlapAreaWithLauncher": 0,
+          "overlapAreaWithCount": 0
+        }
+      },
+      "launcher": {
+        "rect": {
+          "left": 282,
+          "top": 704,
+          "right": 378,
+          "bottom": 752,
+          "width": 96,
+          "height": 48
+        },
+        "expanded": "false"
+      },
+      "count": {
+        "rect": {
+          "left": 29,
+          "top": 769.34375,
+          "right": 361,
+          "bottom": 825.578125,
+          "width": 332,
+          "height": 56.234375
+        },
+        "pointerEvents": "auto"
+      }
+    },
+    "fallbackAccepted": false
+  }
+]

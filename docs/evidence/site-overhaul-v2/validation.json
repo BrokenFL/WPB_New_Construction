@@ -1,0 +1,37 @@
+{
+  "date": "2026-09-19",
+  "baseSha": "e0ff6b43faf9cec1b5450e6e830ca32466181b92",
+  "branch": "codex/site-overhaul-v2",
+  "testedState": "uncommitted implementation bound by source-fingerprints.json",
+  "results": {
+    "typecheck": "pass",
+    "build": "pass",
+    "npmTestUnitCount": 102,
+    "launch": "pass",
+    "gatekeeperFiles": 1150,
+    "phaseATests": 57,
+    "shadowTests": 122,
+    "integratedInterceptedSubmissions": 12,
+    "floorplanBrowserViews": 24,
+    "floorplanInterceptedSubmissions": 36,
+    "commercialBrowserViews": 8,
+    "commercialInterceptedSubmissions": 8,
+    "conciergeViews": 22,
+    "conciergeIntents": 5,
+    "v2InteractionSuites": 12,
+    "realMapsScenarios": 8,
+    "renderedViews": 24,
+    "freshBootChecks": 12,
+    "realLeadsSent": 0
+  },
+  "limits": {
+    "mobileUxScore": 8.0,
+    "strictAboveEightTargetMet": false,
+    "assetAdvisories": 426,
+    "intelligenceReviewItemsAlsoOnMain": 97,
+    "productionMerged": false,
+    "productionDeployed": false,
+    "fieldPerformanceMeasured": false,
+    "physicalDeviceSafariVerified": false
+  }
+}

@@ -1,0 +1,1267 @@
+/*
+ * Buyer-journey surface layer
+ *
+ * This file deliberately stays scoped to the comparison, floor-plan and
+ * inquiry surfaces. The site shell, navigation, project pages and lead
+ * behavior remain owned by their existing styles and controllers.
+ */
+
+/* Shared palette and type rhythm for the route-owned surfaces. */
+.route-view-compare:not([hidden]),
+.route-view-floorplans:not([hidden]),
+.route-view-inquiry:not([hidden]) {
+  --v2-ivory: #f7f5ef;
+  --v2-ink: #173b42;
+  --v2-bronze: #876744;
+  --v2-muted: #536669;
+  --v2-line: rgba(23, 59, 66, 0.16);
+  --v2-card: #fffdf8;
+  color: var(--v2-ink);
+  background: var(--v2-ivory);
+}
+
+.route-view-compare:not([hidden]) h1,
+.route-view-compare:not([hidden]) h2,
+.route-view-compare:not([hidden]) h3,
+.route-view-floorplans:not([hidden]) h1,
+.route-view-floorplans:not([hidden]) h2,
+.route-view-floorplans:not([hidden]) h3,
+.route-view-inquiry:not([hidden]) h1,
+.route-view-inquiry:not([hidden]) h2,
+.route-view-inquiry:not([hidden]) h3 {
+  color: var(--v2-ink);
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-weight: 400;
+}
+
+.route-view-compare:not([hidden]) a:focus-visible,
+.route-view-compare:not([hidden]) button:focus-visible,
+.route-view-compare:not([hidden]) select:focus-visible,
+.route-view-floorplans:not([hidden]) a:focus-visible,
+.route-view-floorplans:not([hidden]) button:focus-visible,
+.route-view-floorplans:not([hidden]) select:focus-visible,
+.route-view-inquiry:not([hidden]) a:focus-visible,
+.route-view-inquiry:not([hidden]) button:focus-visible,
+.route-view-inquiry:not([hidden]) input:focus-visible,
+.route-view-inquiry:not([hidden]) select:focus-visible,
+.route-view-inquiry:not([hidden]) textarea:focus-visible {
+  outline: 3px solid var(--v2-bronze);
+  outline-offset: 3px;
+}
+
+/* /compare/ workspace */
+.route-view-compare:not([hidden]) .compare-page-hero {
+  height: clamp(280px, 36vw, 520px);
+  background: var(--v2-ink);
+}
+
+.route-view-compare:not([hidden]) .compare-page-intro,
+.route-view-compare:not([hidden]) .compare-workspace {
+  width: min(1180px, calc(100% - 48px));
+}
+
+.route-view-compare:not([hidden]) .compare-page-intro {
+  padding-top: clamp(54px, 8vw, 108px);
+  padding-bottom: clamp(28px, 4vw, 48px);
+}
+
+.route-view-compare:not([hidden]) .compare-page-intro h1 {
+  max-width: 13ch;
+  margin-top: 10px;
+  color: var(--v2-ink);
+  font-size: clamp(3.4rem, 6.2vw, 6.4rem);
+  line-height: 0.91;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.route-view-compare:not([hidden]) .compare-page-intro p:not(.eyebrow) {
+  max-width: 60ch;
+  margin-top: 24px;
+  color: var(--v2-muted);
+  font-size: clamp(1.04rem, 1.25vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.route-view-compare:not([hidden]) .compare-workspace {
+  padding-top: clamp(28px, 4vw, 52px);
+  padding-bottom: clamp(48px, 7vw, 92px);
+}
+
+.route-view-compare:not([hidden]) .compare-workspace-head {
+  align-items: end;
+  gap: clamp(24px, 5vw, 80px);
+  border-bottom-color: var(--v2-bronze);
+  padding-bottom: 24px;
+}
+
+.route-view-compare:not([hidden]) .compare-workspace h2 {
+  max-width: 14ch;
+  margin-top: 10px;
+  font-size: clamp(2.35rem, 4vw, 4.35rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+}
+
+.route-view-compare:not([hidden]) .compare-workspace-head p:not(.eyebrow) {
+  max-width: 62ch;
+  color: var(--v2-muted);
+  line-height: 1.6;
+}
+
+.route-view-compare:not([hidden]) .compare-workspace-head > a,
+.route-view-compare:not([hidden]) .compare-final-cta a {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--v2-ink);
+  border-radius: 999px;
+  padding: 14px 20px;
+  color: var(--v2-ivory);
+  background: var(--v2-ink);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  text-wrap: balance;
+}
+
+.route-view-compare:not([hidden]) .compare-route-selectors {
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.route-view-compare:not([hidden]) .compare-route-selectors label {
+  gap: 9px;
+  color: var(--v2-bronze);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+
+.route-view-compare:not([hidden]) .compare-route-selectors select {
+  min-height: 52px;
+  border: 1px solid rgba(135, 103, 68, 0.46);
+  border-radius: 4px;
+  padding: 13px 14px;
+  color: var(--v2-ink);
+  background: var(--v2-card);
+  font-size: 0.96rem;
+}
+
+.route-view-compare:not([hidden]) .compare-results {
+  margin-top: 28px;
+}
+
+.route-view-compare:not([hidden]) .compare-route-empty {
+  border: 1px dashed rgba(135, 103, 68, 0.42);
+  border-radius: 10px;
+  padding: 22px;
+  color: var(--v2-muted);
+  background: rgba(255, 253, 248, 0.65);
+  font-size: 1rem;
+}
+
+.route-view-compare:not([hidden]) .compare-route-card-grid {
+  gap: 18px;
+}
+
+.route-view-compare:not([hidden]) .compare-route-card {
+  border: 1px solid var(--v2-line);
+  border-radius: 12px;
+  background: var(--v2-card);
+  box-shadow: 0 16px 34px rgba(23, 59, 66, 0.08);
+}
+
+.route-view-compare:not([hidden]) .compare-route-card img,
+.route-view-compare:not([hidden]) .compare-route-card > .image-placeholder {
+  height: 220px;
+}
+
+.route-view-compare:not([hidden]) .compare-route-card > div:last-child {
+  display: grid;
+  gap: 11px;
+  min-height: 208px;
+  padding: 22px;
+}
+
+.route-view-compare:not([hidden]) .compare-route-card span,
+.route-view-compare:not([hidden]) .compare-matrix-wrap tr > :first-child {
+  color: var(--v2-bronze);
+}
+
+.route-view-compare:not([hidden]) .compare-route-card h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 2.4vw, 2.45rem);
+  line-height: 0.98;
+}
+
+.route-view-compare:not([hidden]) .compare-route-card p,
+.route-view-compare:not([hidden]) .compare-route-card a {
+  color: var(--v2-muted);
+  line-height: 1.55;
+}
+
+.route-view-compare:not([hidden]) .compare-route-card a {
+  align-self: end;
+  color: var(--v2-ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(135, 103, 68, 0.55);
+  text-underline-offset: 0.24em;
+}
+
+.route-view-compare:not([hidden]) .compare-matrix-wrap {
+  margin-top: 24px;
+  border: 1px solid rgba(135, 103, 68, 0.32);
+  border-radius: 12px;
+  background: var(--v2-card);
+  box-shadow: 0 16px 34px rgba(23, 59, 66, 0.05);
+  scrollbar-color: var(--v2-bronze) rgba(23, 59, 66, 0.08);
+}
+
+.route-view-compare:not([hidden]) .compare-matrix-wrap table {
+  background: var(--v2-card);
+}
+
+.route-view-compare:not([hidden]) .compare-matrix-wrap th,
+.route-view-compare:not([hidden]) .compare-matrix-wrap td {
+  border-color: rgba(23, 59, 66, 0.12);
+  padding: 16px;
+  color: var(--v2-ink);
+  line-height: 1.5;
+}
+
+.route-view-compare:not([hidden]) .compare-matrix-wrap .compare-section-row th {
+  color: var(--v2-ink);
+  background: rgba(135, 103, 68, 0.12);
+}
+
+.route-view-compare:not([hidden]) .compare-cell-copy,
+.route-view-compare:not([hidden]) .compare-amenity-list li {
+  color: var(--v2-muted);
+}
+
+.route-view-compare:not([hidden]) .compare-final-cta {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto clamp(48px, 7vw, 96px);
+  border-radius: 14px;
+  padding: clamp(30px, 5vw, 56px);
+  color: var(--v2-ivory);
+  background: var(--v2-ink);
+}
+
+.route-view-compare:not([hidden]) .compare-final-cta h2 {
+  color: var(--v2-ivory);
+  font-size: clamp(2rem, 3.6vw, 3.8rem);
+}
+
+.route-view-compare:not([hidden]) .compare-final-cta p {
+  max-width: 60ch;
+  color: rgba(247, 245, 239, 0.78);
+  line-height: 1.6;
+}
+
+.route-view-compare:not([hidden]) .compare-final-cta a {
+  border-color: var(--v2-ivory);
+  color: var(--v2-ink);
+  background: var(--v2-ivory);
+}
+
+/* Source-backed answer comparison pages. */
+body .bc-page {
+  --v2-ivory: #f7f5ef;
+  --v2-ink: #173b42;
+  --v2-bronze: #876744;
+  --v2-muted: #536669;
+  --v2-line: rgba(23, 59, 66, 0.16);
+  --v2-card: #fffdf8;
+  color: var(--v2-ink);
+  background: var(--v2-ivory);
+  font-family: Avenir Next, Inter, Segoe UI, sans-serif;
+}
+
+body .bc-page .bc-header {
+  padding: 22px max(24px, calc((100vw - 1180px) / 2));
+  border-bottom: 3px solid var(--v2-bronze);
+  background: var(--v2-ink);
+}
+
+body .bc-page .bc-header nav {
+  gap: 18px;
+}
+
+body .bc-page .bc-header nav a {
+  min-height: 44px;
+  align-items: center;
+  color: rgba(247, 245, 239, 0.9);
+}
+
+body .bc-page .bc-main {
+  max-width: 1180px;
+  padding: clamp(28px, 5vw, 60px) clamp(20px, 3vw, 30px) 76px;
+}
+
+body .bc-page .bc-breadcrumb {
+  margin-bottom: clamp(28px, 4vw, 48px);
+  color: var(--v2-muted);
+  line-height: 1.5;
+}
+
+body .bc-page .bc-intro {
+  max-width: 950px;
+  margin-bottom: clamp(42px, 7vw, 78px);
+}
+
+body .bc-page .bc-eyebrow {
+  color: var(--v2-bronze);
+}
+
+body .bc-page .bc-intro h1 {
+  max-width: 16ch;
+  margin: 14px 0 24px;
+  color: var(--v2-ink);
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: clamp(3rem, 6.2vw, 6.4rem);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+body .bc-page .bc-deck {
+  max-width: 68ch;
+  color: var(--v2-muted);
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+  line-height: 1.68;
+}
+
+body .bc-page .bc-date {
+  margin-top: 16px;
+  color: var(--v2-muted);
+}
+
+body .bc-page .bc-button {
+  min-height: 52px;
+  border-color: var(--v2-ink);
+  border-radius: 4px;
+  padding: 14px 22px;
+  background: var(--v2-ink);
+}
+
+body .bc-page .bc-decisions {
+  gap: 24px;
+  border-color: var(--v2-line);
+  padding: 30px 0;
+}
+
+body .bc-page .bc-decisions > section {
+  padding: 8px 0;
+}
+
+body .bc-page .bc-decisions h2,
+body .bc-page .bc-section h2 {
+  color: var(--v2-ink);
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-weight: 400;
+}
+
+body .bc-page .bc-decisions p,
+body .bc-page .bc-section p {
+  color: var(--v2-muted);
+}
+
+body .bc-page .bc-section {
+  margin-top: clamp(42px, 6vw, 72px);
+}
+
+body .bc-page .bc-tradeoffs {
+  gap: 18px;
+}
+
+body .bc-page .bc-tradeoffs article,
+body .bc-page .bc-project {
+  border: 1px solid var(--v2-line);
+  border-top: 3px solid var(--v2-bronze);
+  border-radius: 12px;
+  background: var(--v2-card);
+  box-shadow: 0 14px 30px rgba(23, 59, 66, 0.05);
+}
+
+body .bc-page .bc-tradeoffs article {
+  padding: 24px;
+}
+
+body .bc-page .bc-project {
+  padding: 24px;
+}
+
+body .bc-page .bc-project .bc-fit {
+  color: var(--v2-ink);
+}
+
+body .bc-page .bc-project dd,
+body .bc-page .bc-sources {
+  color: var(--v2-muted);
+}
+
+body .bc-page .bc-project > a:last-child {
+  color: var(--v2-ink);
+  text-decoration-color: rgba(135, 103, 68, 0.58);
+  text-underline-offset: 0.24em;
+}
+
+body .bc-page .bc-plan {
+  border: 1px solid rgba(135, 103, 68, 0.2);
+  border-radius: 12px;
+  background: rgba(135, 103, 68, 0.1);
+}
+
+body .bc-page .bc-shortlist {
+  margin-top: clamp(42px, 6vw, 72px);
+  border: 1px solid rgba(23, 59, 66, 0.2);
+  border-top: 5px solid var(--v2-ink);
+  border-radius: 14px;
+  padding: clamp(24px, 4vw, 38px);
+  background: var(--v2-card);
+  box-shadow: 0 18px 40px rgba(23, 59, 66, 0.07);
+}
+
+body .bc-page .bc-shortlist p {
+  color: var(--v2-muted);
+}
+
+body .bc-page .bc-shortlist fieldset {
+  gap: 12px;
+  margin: 24px 0;
+}
+
+body .bc-page .bc-shortlist label {
+  min-height: 52px;
+  align-items: center;
+  border: 1px solid rgba(23, 59, 66, 0.18);
+  border-radius: 6px;
+  padding: 13px 14px;
+  color: var(--v2-ink);
+  background: #fffefa;
+}
+
+body .bc-page .bc-shortlist input {
+  width: 21px;
+  height: 21px;
+  accent-color: var(--v2-ink);
+}
+
+body .bc-page .bc-footer {
+  border-color: var(--v2-line);
+  color: var(--v2-muted);
+  background: rgba(255, 253, 248, 0.7);
+}
+
+/* /floorplans/ library */
+.route-view-floorplans:not([hidden]) {
+  --ivory: #f7f5ef;
+  --ink: #173b42;
+  --soft-ink: #536669;
+  --bronze: #876744;
+  --line: rgba(23, 59, 66, 0.16);
+  background: #f7f5ef;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-hub-hero {
+  min-height: clamp(500px, 66vh, 760px);
+  border-radius: 0 0 18px 18px;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-hub-hero h1 {
+  max-width: 10ch;
+  color: #fffaf1;
+  font-size: clamp(4.4rem, 9vw, 8.6rem);
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-hub-hero p:not(.eyebrow) {
+  max-width: 62ch;
+  color: rgba(255, 250, 241, 0.88);
+  line-height: 1.62;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-hub-hero .hero-actions {
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-hub-hero .button {
+  min-height: 52px;
+  padding: 14px 20px;
+  border-radius: 3px;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-hub-hero .button.ghost {
+  border-color: rgba(255, 250, 241, 0.58);
+  color: #fffaf1;
+  background: rgba(23, 59, 66, 0.28);
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-index-section {
+  padding-top: clamp(48px, 7vw, 96px);
+  padding-bottom: clamp(48px, 7vw, 96px);
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-project-card {
+  gap: clamp(20px, 3vw, 34px);
+  border-top-color: var(--line);
+  padding-block: clamp(34px, 5vw, 72px);
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-project-heading h2 {
+  color: var(--v2-ink);
+  font-size: clamp(2.25rem, 3.8vw, 4rem);
+  letter-spacing: -0.035em;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-project-heading > strong {
+  min-width: 76px;
+  min-height: 76px;
+  border-color: rgba(135, 103, 68, 0.34);
+  color: var(--v2-bronze);
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-project-media {
+  height: clamp(260px, 31vw, 440px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 16px 34px rgba(23, 59, 66, 0.06);
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-gallery-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 224px), 1fr));
+  gap: 16px;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-link {
+  min-height: 292px;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  color: var(--v2-ink);
+  background: var(--v2-card);
+  box-shadow: 0 12px 26px rgba(23, 59, 66, 0.04);
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-link:hover {
+  border-color: rgba(135, 103, 68, 0.64);
+  background: #fffefa;
+  box-shadow: 0 18px 34px rgba(23, 59, 66, 0.08);
+  transform: translateY(-2px);
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-link-preview {
+  min-height: 146px;
+  border: 1px solid rgba(23, 59, 66, 0.1);
+  border-radius: 8px;
+  background: #f1eee6;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-link-preview img {
+  height: 156px;
+  padding: 10px;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-link > span:not(.floorplan-link-preview) {
+  color: var(--v2-ink);
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.route-view-floorplans:not([hidden]) .floorplan-link small,
+.route-view-floorplans:not([hidden]) .floorplan-metrics,
+.route-view-floorplans:not([hidden]) .floorplan-gap {
+  color: var(--v2-muted);
+  line-height: 1.45;
+}
+
+.route-view-floorplans:not([hidden]) .home-answer-archive-link {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 26px;
+  border: 1px solid var(--v2-ink);
+  border-radius: 999px;
+  padding: 14px 20px;
+  color: var(--v2-ivory);
+  background: var(--v2-ink);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+/* Individual floor-plan entity pages. */
+body .fp-page {
+  --v2-ivory: #f7f5ef;
+  --v2-ink: #173b42;
+  --v2-bronze: #876744;
+  --v2-muted: #536669;
+  --v2-line: rgba(23, 59, 66, 0.16);
+  color: var(--v2-ink);
+  background: var(--v2-ivory);
+  font-family: Avenir Next, Inter, Segoe UI, sans-serif;
+}
+
+body .fp-page .fp-header {
+  gap: 28px;
+  padding: 20px max(24px, calc((100vw - 1180px) / 2));
+  border-bottom-color: var(--v2-line);
+  background: rgba(255, 253, 248, 0.94);
+}
+
+body .fp-page .fp-brand {
+  color: var(--v2-ink);
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+}
+
+body .fp-page .fp-brand span {
+  color: var(--v2-muted);
+}
+
+body .fp-page .fp-header nav {
+  gap: 10px 18px;
+}
+
+body .fp-page .fp-header nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--v2-ink);
+}
+
+body .fp-page .fp-main {
+  width: min(1180px, calc(100% - 48px));
+  padding: clamp(28px, 5vw, 60px) 0 88px;
+}
+
+body .fp-page .fp-breadcrumb {
+  margin-bottom: clamp(28px, 4vw, 48px);
+  color: var(--v2-muted);
+}
+
+body .fp-page h1 {
+  max-width: 15ch;
+  margin: 0.75rem 0 1.4rem;
+  color: var(--v2-ink);
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+}
+
+body .fp-page h1 span {
+  color: #58756f;
+}
+
+body .fp-page h2 {
+  color: var(--v2-ink);
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  line-height: 1;
+}
+
+body .fp-page .fp-intro {
+  max-width: 70ch;
+  color: var(--v2-ink);
+  font-size: clamp(1.08rem, 1.35vw, 1.25rem);
+  line-height: 1.7;
+}
+
+body .fp-page .fp-kicker {
+  color: var(--v2-bronze);
+}
+
+body .fp-page .fp-review,
+body .fp-page .fp-reading p,
+body .fp-page .fp-source p,
+body .fp-page .fp-small {
+  color: var(--v2-muted);
+}
+
+body .fp-page .fp-layout {
+  gap: clamp(24px, 4vw, 56px);
+}
+
+body .fp-page .fp-drawing {
+  border: 1px solid var(--v2-line);
+  border-radius: 14px;
+  padding: 14px;
+  background: #fffefa;
+  box-shadow: 0 18px 40px rgba(23, 59, 66, 0.07);
+}
+
+body .fp-page .fp-drawing img {
+  border-radius: 8px;
+}
+
+body .fp-page .fp-drawing figcaption {
+  color: var(--v2-muted);
+  line-height: 1.45;
+}
+
+body .fp-page .fp-actions {
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+body .fp-page .fp-button {
+  min-height: 52px;
+  align-items: center;
+  border: 1px solid var(--v2-ink);
+  border-radius: 4px;
+  padding: 14px 18px;
+  color: var(--v2-ivory);
+  background: var(--v2-ink);
+}
+
+body .fp-page .fp-button:hover {
+  background: #0f2e34;
+}
+
+body .fp-page .fp-facts {
+  border-top-color: var(--v2-bronze);
+  border-radius: 14px;
+  padding: clamp(20px, 3vw, 30px);
+  background: #e7eeea;
+}
+
+body .fp-page .fp-facts dl > div {
+  border-bottom-color: rgba(23, 59, 66, 0.14);
+}
+
+body .fp-page .fp-facts dt {
+  color: var(--v2-muted);
+}
+
+body .fp-page .fp-facts dd {
+  color: var(--v2-ink);
+}
+
+body .fp-page .fp-reading,
+body .fp-page .fp-source {
+  border-top-color: var(--v2-line);
+}
+
+body .fp-page .fp-discovery {
+  width: min(1180px, calc(100% - 48px));
+  border: 1px solid var(--v2-line);
+  border-radius: 14px;
+  padding: clamp(20px, 3vw, 30px);
+  color: var(--v2-ink);
+  background: rgba(231, 238, 234, 0.82);
+}
+
+body .fp-page .fp-discovery a {
+  color: var(--v2-ink);
+}
+
+body .fp-page .fp-footer {
+  border-top-color: var(--v2-line);
+  color: var(--v2-muted);
+  background: #e7eeea;
+}
+
+/* Inquiry form and context panel. */
+.route-view-inquiry:not([hidden]) {
+  background: var(--v2-ivory);
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-section {
+  width: min(1260px, calc(100% - 48px));
+  gap: clamp(32px, 5vw, 72px);
+  border-top: 0;
+  border: 1px solid rgba(23, 59, 66, 0.08);
+  border-radius: 18px;
+  padding: clamp(40px, 7vw, 96px) clamp(20px, 5vw, 72px);
+  background:
+    linear-gradient(135deg, rgba(231, 238, 234, 0.64), rgba(247, 245, 239, 0.12) 52%),
+    var(--v2-ivory);
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-copy-panel {
+  gap: 22px;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-copy-panel h1 {
+  max-width: 11ch;
+  color: var(--v2-ink);
+  font-size: clamp(3.25rem, 5.5vw, 6rem);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-copy-panel > p:not(.eyebrow) {
+  max-width: 54ch;
+  color: var(--v2-muted);
+  font-size: clamp(1.08rem, 1.35vw, 1.26rem);
+  line-height: 1.68;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-proof-strip {
+  gap: 8px;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-proof-strip span {
+  border-color: rgba(23, 59, 66, 0.18);
+  border-radius: 999px;
+  padding: 9px 12px;
+  color: var(--v2-ink);
+  background: rgba(231, 238, 234, 0.72);
+  font-size: 0.67rem;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-deliverables {
+  display: grid;
+  gap: 12px;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-deliverables article {
+  border-top-color: rgba(23, 59, 66, 0.16);
+  padding-top: 16px;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-deliverables span {
+  color: var(--v2-bronze);
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-deliverables strong {
+  color: var(--v2-ink);
+  font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
+  font-size: 1.18rem;
+  font-weight: 400;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-deliverables small {
+  color: var(--v2-muted);
+  line-height: 1.48;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-form {
+  gap: 16px;
+  border: 1px solid rgba(23, 59, 66, 0.14);
+  border-radius: 16px;
+  padding: clamp(22px, 3vw, 38px);
+  background: rgba(255, 253, 248, 0.96);
+  box-shadow: 0 22px 54px rgba(23, 59, 66, 0.1);
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-form label > span {
+  color: var(--v2-bronze);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-form input,
+.route-view-inquiry:not([hidden]) .inquiry-form select,
+.route-view-inquiry:not([hidden]) .inquiry-form textarea {
+  min-height: 52px;
+  border: 1px solid rgba(23, 59, 66, 0.2);
+  border-radius: 5px;
+  color: var(--v2-ink);
+  background: #fffefa;
+  font-size: 0.96rem;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-form textarea {
+  min-height: 132px;
+  padding: 14px;
+  line-height: 1.5;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-form input::placeholder,
+.route-view-inquiry:not([hidden]) .inquiry-form textarea::placeholder {
+  color: rgba(83, 102, 105, 0.7);
+}
+
+.route-view-inquiry:not([hidden]) .consent-row,
+.route-view-inquiry:not([hidden]) .lead-consent-row {
+  min-height: 44px;
+  color: var(--v2-muted);
+  font-size: 0.82rem;
+  line-height: 1.52;
+}
+
+.route-view-inquiry:not([hidden]) .consent-row input,
+.route-view-inquiry:not([hidden]) .lead-consent-row input {
+  width: 20px;
+  min-height: 20px;
+  accent-color: var(--v2-ink);
+}
+
+.route-view-inquiry:not([hidden]) .form-security-note {
+  color: var(--v2-muted);
+  font-size: 0.76rem;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-form > button.button.primary {
+  min-height: 54px;
+  border: 1px solid var(--v2-ink);
+  border-radius: 4px;
+  padding: 14px 20px;
+  color: var(--v2-ivory);
+  background: var(--v2-ink);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.route-view-inquiry:not([hidden]) .form-status {
+  min-height: 1.5em;
+  color: var(--v2-ink);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.route-view-inquiry:not([hidden]) .brooke-identity-block,
+.route-view-inquiry:not([hidden]) .inquiry-context-panel {
+  border-color: rgba(23, 59, 66, 0.16);
+  border-radius: 10px;
+  background: rgba(231, 238, 234, 0.58);
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-context-panel {
+  padding: 18px;
+}
+
+.route-view-inquiry:not([hidden]) .inquiry-section > .source-note {
+  width: min(1260px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 72px) clamp(44px, 6vw, 80px);
+  color: var(--v2-muted);
+  line-height: 1.5;
+}
+
+/* Responsive containment at the requested narrow widths. */
+@media (max-width: 760px) {
+  .route-view-compare:not([hidden]) .compare-page-intro,
+  .route-view-compare:not([hidden]) .compare-workspace,
+  .route-view-compare:not([hidden]) .compare-final-cta,
+  .route-view-inquiry:not([hidden]) .inquiry-section,
+  .route-view-inquiry:not([hidden]) .inquiry-section > .source-note {
+    width: min(100% - 32px, 680px);
+  }
+
+  .route-view-compare:not([hidden]) .compare-page-hero {
+    height: 230px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-page-intro {
+    padding-top: 52px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-page-intro h1 {
+    max-width: 12ch;
+    font-size: clamp(2.85rem, 12vw, 4.5rem);
+  }
+
+  .route-view-compare:not([hidden]) .compare-workspace-head {
+    display: grid;
+    align-items: start;
+  }
+
+  .route-view-compare:not([hidden]) .compare-workspace-head > a,
+  .route-view-compare:not([hidden]) .compare-final-cta a {
+    width: 100%;
+  }
+
+  .route-view-compare:not([hidden]) .compare-route-selectors,
+  .route-view-compare:not([hidden]) .compare-route-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .route-view-compare:not([hidden]) .compare-matrix-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .route-view-floorplans:not([hidden]) .floorplan-hub-hero {
+    height: 430px;
+    min-height: 0;
+    padding: 32px 20px;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .route-view-floorplans:not([hidden]) .floorplan-hub-hero p:not(.eyebrow) {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .route-view-floorplans:not([hidden]) .floorplan-hub-hero h1 {
+    font-size: clamp(3rem, 15vw, 4.7rem);
+  }
+
+  .route-view-floorplans:not([hidden]) .floorplan-hub-hero h1 {
+    max-width: 8ch;
+    font-size: clamp(3.8rem, 17vw, 5.7rem);
+  }
+
+  .route-view-floorplans:not([hidden]) .floorplan-hub-hero .hero-actions {
+    display: grid;
+  }
+
+  .route-view-floorplans:not([hidden]) .floorplan-hub-hero .button {
+    width: 100%;
+  }
+
+  .route-view-floorplans:not([hidden]) .floorplan-project-heading > strong {
+    min-width: 62px;
+    min-height: 62px;
+    font-size: 1.7rem;
+  }
+
+  body .fp-page .fp-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  body .fp-page .fp-main,
+  body .fp-page .fp-discovery {
+    width: min(100% - 32px, 680px);
+  }
+
+  body .fp-page .fp-main {
+    padding-top: 30px;
+  }
+
+  body .fp-page h1 {
+    max-width: none;
+    font-size: clamp(2.05rem, 8.8vw, 4.8rem);
+  }
+
+  body .fp-page .fp-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body .fp-page .fp-actions {
+    display: grid;
+  }
+
+  body .fp-page .fp-actions .fp-button {
+    width: 100%;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-section {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 40px 18px 52px;
+    border-radius: 12px;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-copy-panel h1 {
+    max-width: 12ch;
+    font-size: clamp(2.85rem, 12vw, 4.6rem);
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-form {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 20px;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-form > label,
+  .route-view-inquiry:not([hidden]) .inquiry-message,
+  .route-view-inquiry:not([hidden]) .consent-row,
+  .route-view-inquiry:not([hidden]) .turnstile-slot,
+  .route-view-inquiry:not([hidden]) .inquiry-form > button,
+  .route-view-inquiry:not([hidden]) .inquiry-form .brooke-identity-block,
+  .route-view-inquiry:not([hidden]) .form-status {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 380px) {
+  body .bc-page .bc-header {
+    padding-inline: 20px;
+  }
+
+  body .bc-page .bc-header nav {
+    gap: 8px 14px;
+  }
+
+  body .bc-page .bc-main {
+    padding-inline: 20px;
+  }
+
+  body .bc-page .bc-intro h1 {
+    font-size: clamp(2.65rem, 12.5vw, 3.8rem);
+  }
+
+  .route-view-compare:not([hidden]) .compare-page-intro,
+  .route-view-compare:not([hidden]) .compare-workspace,
+  .route-view-compare:not([hidden]) .compare-final-cta,
+  .route-view-inquiry:not([hidden]) .inquiry-section,
+  .route-view-inquiry:not([hidden]) .inquiry-section > .source-note,
+  body .fp-page .fp-main,
+  body .fp-page .fp-discovery {
+    width: min(100% - 24px, 680px);
+  }
+
+  .route-view-compare:not([hidden]) .compare-page-intro h1,
+  .route-view-inquiry:not([hidden]) .inquiry-copy-panel h1 {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+  }
+
+  .route-view-floorplans:not([hidden]) .floorplan-hub-hero {
+    height: 400px;
+    min-height: 0;
+    padding-inline: 18px;
+  }
+
+  .route-view-floorplans:not([hidden]) .floorplan-hub-hero h1 {
+    font-size: clamp(3.4rem, 17vw, 5.2rem);
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-section {
+    padding-inline: 14px;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-form {
+    padding-inline: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-view-floorplans:not([hidden]) .floorplan-link,
+  .route-view-floorplans:not([hidden]) .floorplan-link:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Round-two hierarchy pass: bring the decision controls into view sooner. */
+.route-view-compare:not([hidden]) .compare-page-hero {
+  height: clamp(180px, 17vw, 240px);
+}
+
+.route-view-compare:not([hidden]) .compare-page-intro {
+  padding-top: clamp(28px, 4vw, 48px);
+  padding-bottom: clamp(18px, 2.5vw, 30px);
+}
+
+.route-view-compare:not([hidden]) .compare-page-intro h1 {
+  max-width: 18ch;
+  font-size: clamp(3rem, 3.65vw, 4.4rem);
+  line-height: 0.96;
+}
+
+.route-view-compare:not([hidden]) .compare-page-intro p:not(.eyebrow) {
+  margin-top: 14px;
+  font-size: 1rem;
+  line-height: 1.52;
+}
+
+.route-view-compare:not([hidden]) .compare-workspace {
+  padding-top: clamp(18px, 2.5vw, 30px);
+}
+
+.route-view-compare:not([hidden]) .compare-route-selectors {
+  margin-top: 18px;
+}
+
+.route-view-compare:not([hidden]) .compare-workspace-head > a,
+.route-view-compare:not([hidden]) .compare-final-cta a {
+  border-radius: 3px;
+}
+
+@media (max-width: 760px) {
+  .route-view-compare:not([hidden]) .compare-page-hero {
+    height: 180px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-page-intro {
+    padding-top: 28px;
+    padding-bottom: 18px;
+  }
+
+  .route-view-compare:not([hidden]) .compare-page-intro h1 {
+    max-width: 16ch;
+    font-size: clamp(2.35rem, 9.5vw, 3.3rem);
+    line-height: 0.98;
+  }
+
+  .route-view-compare:not([hidden]) .compare-page-intro p:not(.eyebrow) {
+    margin-top: 12px;
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-section {
+    gap: 22px;
+    padding-top: 26px;
+    padding-bottom: 48px;
+  }
+
+  /* Keep every guidance block, but put the actionable form before the
+   * optional packet detail so a mobile buyer can start without scrolling past
+   * the full explanation. */
+  .route-view-inquiry:not([hidden]) .inquiry-copy-panel {
+    display: contents;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-copy-panel > .eyebrow {
+    order: 1;
+    margin-bottom: 0;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-copy-panel h1 {
+    order: 2;
+    max-width: 14ch;
+    font-size: clamp(2.45rem, 10vw, 3.75rem);
+    line-height: 0.96;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-copy-panel > p:not(.eyebrow) {
+    order: 3;
+    max-width: 58ch;
+    font-size: 1rem;
+    line-height: 1.54;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-proof-strip {
+    order: 4;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-proof-strip span {
+    border-radius: 2px;
+    padding: 8px 10px;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-form {
+    order: 5;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-deliverables {
+    order: 6;
+  }
+
+  .route-view-inquiry:not([hidden]) .inquiry-section > .source-note {
+    order: 7;
+  }
+}
+
+/* Final buyer-task pass: keep the selection controls ahead of the narrative. */
+.route-view-compare:not([hidden]) .compare-workspace-head h2 { font-size: 32px; line-height: 1.15; }
+.route-view-compare:not([hidden]) .compare-workspace-head p:not(.eyebrow) { max-width: 62ch; font-size: 15px; line-height: 1.5; }
+@media (max-width: 760px) {
+  .route-view-compare:not([hidden]) .compare-page-hero { height: 140px; }
+  .route-view-compare:not([hidden]) .compare-workspace-head { gap: 14px; }
+  .route-view-compare:not([hidden]) .compare-workspace-head h2 { font-size: 28px; }
+  .route-view-compare:not([hidden]) .compare-workspace-head > a { min-height: 44px; padding: 10px 16px; }
+  .route-view-floorplans:not([hidden]) .floorplan-hub-hero h1 { font-size: clamp(3rem, 15vw, 4.7rem); }
+}
