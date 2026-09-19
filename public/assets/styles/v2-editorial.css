@@ -119,7 +119,7 @@ body .lead-modal .lead-consent-row > span { color: var(--v2-muted); font-size: 1
 .site-shell .home-future-module p:not(.eyebrow) { max-width: 42ch; font-size: 15px; line-height: 1.7; color: #d9e1dc; }
 .site-shell .home-future-module .eyebrow { color: #c9b797; }
 .site-shell .home-spotlight-content { gap: 24px; }
-.site-shell .home-spotlight-module a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: rgba(255,250,241,.78); font-size: 13px; font-weight: 500; line-height: 1.4; letter-spacing: 0; text-transform: none; }
+.site-shell .home-future-module.home-spotlight-module a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: rgba(255,250,241,.78); font-size: 13px; font-weight: 500; line-height: 1.4; letter-spacing: 0; text-transform: none; }
 .site-shell .home-spotlight-module a.home-spotlight-parent-link { margin: 0; border: 0; padding: 0; background: transparent; color: rgba(255,250,241,.72); }
 .site-shell .home-spotlight-module .home-spotlight-content > a { width: fit-content; margin-top: 2px; border: 1px solid rgba(255,250,241,.5); padding: 10px 12px; color: var(--v2-paper); background: transparent; text-decoration: none; }
 .site-shell .home-compare-launcher { background: var(--v2-home-ink); }
