@@ -245,7 +245,7 @@ async function checkHomepage(page, expected, canonicalProjects, results, scope, 
       assert.equal(await card.isVisible(), true, `${item.id} is hidden or expired on the homepage`);
       assert.equal(await card.locator("h3 a").getAttribute("href"), `/updates/${item.slug || item.id}/`);
     }
-    assert.match(normalize(await page.locator(".v2-desk-note").innerText()), /Our three latest publications/i, "Homepage publication-order note is missing");
+    assert.match(normalize(await page.locator(".v2-desk-note").innerText()), /Our latest reporting; source reports may cover earlier events/i, "Homepage publication-order note is missing");
     return { ids: expected.map((item) => item.id), publicationLabels: expected.map((item) => formattedDate(item.publishedAt)) };
   });
 
