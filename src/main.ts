@@ -39,6 +39,7 @@ import { localIntelligence } from "./data/localIntelligence";
 import { homepageAssets, homepageProjectCardImage } from "./data/homepageAssets";
 import { publicProjectRecords } from "./generated/projectModelPublic";
 import { resolveProjectField, resolvePublicFactDisplay, type ProjectModelField } from "./lib/projectFieldAccessors";
+import { commercialPages } from "./lib/commercialContent";
 
 captureLeadLandingContext();
 
@@ -2382,6 +2383,8 @@ app.innerHTML = `
               data-home-hero-layer="active"
               src="${homepageAssets.hero.desktop}"
               alt="West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway."
+              width="1920"
+              height="1080"
               loading="eager"
               decoding="async"
               fetchpriority="high"
@@ -2398,9 +2401,9 @@ app.innerHTML = `
           <div class="home-hero-content">
             <p class="hero-kicker">New construction · Independent buyer guidance</p>
             <h1>
-              <span class="home-hero-title-desktop">${escapeHtml(approvedHeroCardOverride?.headline || "West Palm Beach Luxury Condo Developments")}</span>
+              <span class="home-hero-title-desktop">${escapeHtml(approvedHeroCardOverride?.headline || commercialPages.home.heading)}</span>
             </h1>
-            <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || "Explore the city's most important new and upcoming condominium projects with clear details, local insight, floorplans, maps, and buyer-focused guidance before you inquire.")}</p>
+            <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || commercialPages.home.intro)}</p>
             <div class="v2-hero-actions"><a class="button primary" href="/buildings/" data-hero-cta="projects">Explore buildings <span aria-hidden="true">↗</span></a><a class="v2-text-link" href="/compare/" data-hero-cta="compare">Compare your options <span aria-hidden="true">→</span></a></div>
             <a class="v2-hero-note v2-latest-link" href="#latest-developments">Catch up on the latest developments <span aria-hidden="true">↓</span></a>
           </div>
@@ -4999,7 +5002,7 @@ function renderHomepageMarketNoteFeature(note: MarketNote) {
   const resolvedImage = imageForContentItem(note);
   return `
     <a class="home-resource-card home-resource-card-featured" href="${marketNotePath(note)}">
-      ${renderResolvedContentImage(resolvedImage, "home-resource-card-image")}
+      ${renderResolvedContentImage(resolvedImage, "home-resource-card-image", { caption: false })}
       <span>${escapeHtml(note.category)}</span>
       <strong>${escapeHtml(note.title)}</strong>
       <p>${escapeHtml(note.excerpt)}</p>
