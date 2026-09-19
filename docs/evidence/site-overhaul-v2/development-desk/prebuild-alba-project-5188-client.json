@@ -1,0 +1,121 @@
+{
+  "capturedAtUtc": "2026-09-19T19:16:53.916Z",
+  "preview": "http://127.0.0.1:5188",
+  "gitHead": "5041bc179ac784300fa01fd32e399f2e8668c4d4",
+  "scope": "Client-hydration-only baseline: homepage Desk -> Alba article -> Related Buildings -> Alba project",
+  "sourceDateVerification": "approved-record-only; no external publisher-date claim",
+  "hydrationWaitMs": 20000,
+  "hydration": {
+    "homepageStatus": "complete",
+    "shellSelector": ".site-shell[data-active-route=\"home\"]",
+    "shellCount": 1,
+    "deskIds": [
+      "intel-story-7e8443a31a1b3fbb",
+      "intel-story-26c1c72f59519b2e",
+      "intel-story-544ca384b5f936f2"
+    ],
+    "deskCount": 3,
+    "staticPrerender": 0,
+    "httpStatus": 200,
+    "waitedMs": 290,
+    "ready": true
+  },
+  "journey": {
+    "storyHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+    "articleTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+    "relatedSelector": ".market-note-related-section[aria-label*=\"Alba Palm Beach\"]",
+    "relatedHref": "/projects/alba-palm-beach/",
+    "relatedText": "Related Buildings Compare the buildings tied to this update. North Flagler · Completed Alba Palm Beach A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale. View building →",
+    "projectUrl": "/projects/alba-palm-beach/",
+    "projectRouteSelector": "[data-route-view=\"project\"]:visible",
+    "projectTitle": "AlbaPalm Beach",
+    "heroSelector": "[data-project-section=hero]",
+    "heroText": "AlbaPalm Beach Boutique Waterfront Living on North Flagler StatusUnder ConstructionCorridorNorth FlaglerSalesActive Sales",
+    "heroStatusCandidates": [
+      {
+        "selectorHint": "p.berkeley-hero-copy",
+        "text": "Boutique Waterfront Living on North Flagler"
+      },
+      {
+        "selectorHint": "article",
+        "text": "StatusUnder Construction"
+      },
+      {
+        "selectorHint": "span",
+        "text": "Status"
+      },
+      {
+        "selectorHint": "strong",
+        "text": "Under Construction"
+      },
+      {
+        "selectorHint": "article",
+        "text": "CorridorNorth Flagler"
+      },
+      {
+        "selectorHint": "span",
+        "text": "Corridor"
+      },
+      {
+        "selectorHint": "strong",
+        "text": "North Flagler"
+      },
+      {
+        "selectorHint": "article",
+        "text": "SalesActive Sales"
+      },
+      {
+        "selectorHint": "span",
+        "text": "Sales"
+      },
+      {
+        "selectorHint": "strong",
+        "text": "Active Sales"
+      }
+    ],
+    "statusCandidates": [
+      {
+        "selectorHint": "span.berkeley-brand-copy",
+        "text": "New ConstructionWest Palm Beach"
+      },
+      {
+        "selectorHint": "strong",
+        "text": "New Construction"
+      },
+      {
+        "selectorHint": "article",
+        "text": "StatusUnder Construction"
+      },
+      {
+        "selectorHint": "span",
+        "text": "Status"
+      },
+      {
+        "selectorHint": "strong",
+        "text": "Under Construction"
+      },
+      {
+        "selectorHint": "span",
+        "text": "tracked West Palm Beach new-construction projects"
+      },
+      {
+        "selectorHint": "p",
+        "text": "This completed building is a market comparable, not developer inventory. Confirm current listings, condition, fees, assessments, and seller terms before relying on historical launch information."
+      },
+      {
+        "selectorHint": "p",
+        "text": "Need help comparing West Palm Beach new construction? Contact The Scott Gordon Group at Douglas Elliman Palm Beach."
+      }
+    ]
+  },
+  "screenshots": [
+    ".runtime/development-desk/prebuild-alba-project-5188-client.png"
+  ],
+  "blockedExternalHosts": [
+    "maps.googleapis.com"
+  ],
+  "blockedMutationCount": 0,
+  "pageErrors": 0,
+  "status": "CLIENT_ROUTE_CAPTURED",
+  "finishedAtUtc": "2026-09-19T19:16:54.891Z"
+}

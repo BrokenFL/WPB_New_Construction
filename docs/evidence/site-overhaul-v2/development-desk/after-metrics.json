@@ -1,0 +1,907 @@
+{
+  "implementationSha": "2ab98d65ec41eff5ba948e6bba15a5e35668b0be",
+  "capturedHead": "2ab98d65ec41eff5ba948e6bba15a5e35668b0be",
+  "origin": "http://127.0.0.1:5188",
+  "captures": [
+    {
+      "viewport": "1440x1000",
+      "sections": {
+        "masthead": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 92,
+          "right": 1440,
+          "bottom": 92
+        },
+        "hero": {
+          "x": 0,
+          "y": 92,
+          "width": 1440,
+          "height": 690,
+          "right": 1440,
+          "bottom": 782
+        },
+        "desk": {
+          "x": 0,
+          "y": 841,
+          "width": 1440,
+          "height": 855.11,
+          "right": 1440,
+          "bottom": 1696.11
+        },
+        "startBuildingDiscovery": {
+          "x": 0,
+          "y": 1696.11,
+          "width": 1440,
+          "height": 831.48,
+          "right": 1440,
+          "bottom": 2527.59
+        }
+      },
+      "overflow": 0,
+      "stories": [
+        {
+          "index": 0,
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "className": "v2-desk-story v2-desk-lead",
+          "rect": {
+            "x": 72,
+            "y": 1016.09,
+            "width": 689.05,
+            "height": 600.52,
+            "right": 761.05,
+            "bottom": 1616.61
+          },
+          "title": "Terra and Frisbie add a $20M West Palm Beach parcel",
+          "titleHref": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:50:01.037Z",
+          "sourceDate": "2026-09-09",
+          "takeaway": "The expanded site is planned for mixed-use and residential development; detailed project programming is still to come.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Terra and Frisbie add a $20M West Palm Beach parcel",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Browse buildings \u2192",
+              "href": "/buildings/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+              "alt": "Downtown bridge and waterfront context in West Palm Beach"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "id": "intel-story-26c1c72f59519b2e",
+          "className": "v2-desk-story v2-desk-secondary",
+          "rect": {
+            "x": 804.23,
+            "y": 1016.09,
+            "width": 563.77,
+            "height": 270.19,
+            "right": 1368,
+            "bottom": 1286.28
+          },
+          "title": "Unicorp under contract for $200M La Fontana buyout",
+          "titleHref": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:49:30.941Z",
+          "sourceDate": "2026-07-18",
+          "takeaway": "The contract points to a projected 2027 closing; a future redevelopment program has not yet been established.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Unicorp under contract for $200M La Fontana buyout",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore North Flagler \u2192",
+              "href": "/corridors/north-flagler/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+              "alt": "Aerial view of the West Palm Beach waterfront corridor"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "id": "intel-story-544ca384b5f936f2",
+          "className": "v2-desk-story v2-desk-secondary",
+          "rect": {
+            "x": 804.23,
+            "y": 1319.75,
+            "width": 563.77,
+            "height": 287.38,
+            "right": 1368,
+            "bottom": 1607.13
+          },
+          "title": "Alba Palm Beach is complete and move-in ready",
+          "titleHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+          "publicationDate": "2026-09-14T18:56:38.846Z",
+          "sourceDate": "2026-06-22",
+          "takeaway": "Alba offers a completed, move-in-ready option instead of a future-delivery commitment.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Alba Palm Beach is complete and move-in ready",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Explore Alba \u2192",
+              "href": "/projects/alba-palm-beach/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+              "alt": "Alba Palm Beach architectural rendering on the North Flagler waterfront"
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+          "alt": "Downtown bridge and waterfront context in West Palm Beach"
+        },
+        {
+          "src": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+          "alt": "Aerial view of the West Palm Beach waterfront corridor"
+        },
+        {
+          "src": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+          "alt": "Alba Palm Beach architectural rendering on the North Flagler waterfront"
+        }
+      ]
+    },
+    {
+      "viewport": "390x844",
+      "sections": {
+        "masthead": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 111,
+          "right": 390,
+          "bottom": 111
+        },
+        "hero": {
+          "x": 0,
+          "y": 111,
+          "width": 390,
+          "height": 820,
+          "right": 390,
+          "bottom": 931
+        },
+        "desk": {
+          "x": 0,
+          "y": 1064,
+          "width": 390,
+          "height": 1314.5,
+          "right": 390,
+          "bottom": 2378.5
+        },
+        "startBuildingDiscovery": {
+          "x": 0,
+          "y": 2378.5,
+          "width": 390,
+          "height": 1210.39,
+          "right": 390,
+          "bottom": 3588.89
+        }
+      },
+      "overflow": 0,
+      "stories": [
+        {
+          "index": 0,
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "className": "v2-desk-story v2-desk-lead",
+          "rect": {
+            "x": 22,
+            "y": 1285.72,
+            "width": 346,
+            "height": 456.23,
+            "right": 368,
+            "bottom": 1741.95
+          },
+          "title": "Terra and Frisbie add a $20M West Palm Beach parcel",
+          "titleHref": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:50:01.037Z",
+          "sourceDate": "2026-09-09",
+          "takeaway": "The expanded site is planned for mixed-use and residential development; detailed project programming is still to come.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Terra and Frisbie add a $20M West Palm Beach parcel",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Browse buildings \u2192",
+              "href": "/buildings/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+              "alt": "Downtown bridge and waterfront context in West Palm Beach"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "id": "intel-story-26c1c72f59519b2e",
+          "className": "v2-desk-story v2-desk-secondary",
+          "rect": {
+            "x": 22,
+            "y": 1755.95,
+            "width": 346,
+            "height": 273.39,
+            "right": 368,
+            "bottom": 2029.34
+          },
+          "title": "Unicorp under contract for $200M La Fontana buyout",
+          "titleHref": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:49:30.941Z",
+          "sourceDate": "2026-07-18",
+          "takeaway": "The contract points to a projected 2027 closing; a future redevelopment program has not yet been established.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Unicorp under contract for $200M La Fontana buyout",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore North Flagler \u2192",
+              "href": "/corridors/north-flagler/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+              "alt": "Aerial view of the West Palm Beach waterfront corridor"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "id": "intel-story-544ca384b5f936f2",
+          "className": "v2-desk-story v2-desk-secondary",
+          "rect": {
+            "x": 22,
+            "y": 2043.34,
+            "width": 346,
+            "height": 251.56,
+            "right": 368,
+            "bottom": 2294.91
+          },
+          "title": "Alba Palm Beach is complete and move-in ready",
+          "titleHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+          "publicationDate": "2026-09-14T18:56:38.846Z",
+          "sourceDate": "2026-06-22",
+          "takeaway": "Alba offers a completed, move-in-ready option instead of a future-delivery commitment.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Alba Palm Beach is complete and move-in ready",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Explore Alba \u2192",
+              "href": "/projects/alba-palm-beach/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+              "alt": "Alba Palm Beach architectural rendering on the North Flagler waterfront"
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+          "alt": "Downtown bridge and waterfront context in West Palm Beach"
+        },
+        {
+          "src": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+          "alt": "Aerial view of the West Palm Beach waterfront corridor"
+        },
+        {
+          "src": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+          "alt": "Alba Palm Beach architectural rendering on the North Flagler waterfront"
+        }
+      ]
+    },
+    {
+      "viewport": "320x812",
+      "sections": {
+        "masthead": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 115,
+          "right": 320,
+          "bottom": 115
+        },
+        "hero": {
+          "x": 0,
+          "y": 115,
+          "width": 320,
+          "height": 820,
+          "right": 320,
+          "bottom": 935
+        },
+        "desk": {
+          "x": 0,
+          "y": 1068,
+          "width": 320,
+          "height": 1369.75,
+          "right": 320,
+          "bottom": 2437.75
+        },
+        "startBuildingDiscovery": {
+          "x": 0,
+          "y": 2437.75,
+          "width": 320,
+          "height": 1954.59,
+          "right": 320,
+          "bottom": 4392.34
+        }
+      },
+      "overflow": 0,
+      "stories": [
+        {
+          "index": 0,
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "className": "v2-desk-story v2-desk-lead",
+          "rect": {
+            "x": 22,
+            "y": 1325.75,
+            "width": 276,
+            "height": 465.42,
+            "right": 298,
+            "bottom": 1791.17
+          },
+          "title": "Terra and Frisbie add a $20M West Palm Beach parcel",
+          "titleHref": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:50:01.037Z",
+          "sourceDate": "2026-09-09",
+          "takeaway": "The expanded site is planned for mixed-use and residential development; detailed project programming is still to come.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Terra and Frisbie add a $20M West Palm Beach parcel",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Browse buildings \u2192",
+              "href": "/buildings/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+              "alt": "Downtown bridge and waterfront context in West Palm Beach"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "id": "intel-story-26c1c72f59519b2e",
+          "className": "v2-desk-story v2-desk-secondary",
+          "rect": {
+            "x": 22,
+            "y": 1805.17,
+            "width": 276,
+            "height": 266.92,
+            "right": 298,
+            "bottom": 2072.09
+          },
+          "title": "Unicorp under contract for $200M La Fontana buyout",
+          "titleHref": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:49:30.941Z",
+          "sourceDate": "2026-07-18",
+          "takeaway": "The contract points to a projected 2027 closing; a future redevelopment program has not yet been established.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Unicorp under contract for $200M La Fontana buyout",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore North Flagler \u2192",
+              "href": "/corridors/north-flagler/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+              "alt": "Aerial view of the West Palm Beach waterfront corridor"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "id": "intel-story-544ca384b5f936f2",
+          "className": "v2-desk-story v2-desk-secondary",
+          "rect": {
+            "x": 22,
+            "y": 2086.09,
+            "width": 276,
+            "height": 268.06,
+            "right": 298,
+            "bottom": 2354.16
+          },
+          "title": "Alba Palm Beach is complete and move-in ready",
+          "titleHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+          "publicationDate": "2026-09-14T18:56:38.846Z",
+          "sourceDate": "2026-06-22",
+          "takeaway": "Alba offers a completed, move-in-ready option instead of a future-delivery commitment.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Alba Palm Beach is complete and move-in ready",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Explore Alba \u2192",
+              "href": "/projects/alba-palm-beach/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+              "alt": "Alba Palm Beach architectural rendering on the North Flagler waterfront"
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+          "alt": "Downtown bridge and waterfront context in West Palm Beach"
+        },
+        {
+          "src": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+          "alt": "Aerial view of the West Palm Beach waterfront corridor"
+        },
+        {
+          "src": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+          "alt": "Alba Palm Beach architectural rendering on the North Flagler waterfront"
+        }
+      ]
+    },
+    {
+      "viewport": "390x844",
+      "sections": {
+        "masthead": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 111,
+          "right": 390,
+          "bottom": 111
+        },
+        "hero": {
+          "x": 0,
+          "y": 111,
+          "width": 390,
+          "height": 820,
+          "right": 390,
+          "bottom": 931
+        },
+        "desk": {
+          "x": 0,
+          "y": 1064,
+          "width": 390,
+          "height": 1314.5,
+          "right": 390,
+          "bottom": 2378.5
+        },
+        "startBuildingDiscovery": {
+          "x": 0,
+          "y": 2378.5,
+          "width": 390,
+          "height": 1210.39,
+          "right": 390,
+          "bottom": 3588.89
+        }
+      },
+      "overflow": 0,
+      "stories": [
+        {
+          "index": 0,
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "className": "v2-desk-story v2-desk-lead",
+          "rect": {
+            "x": 22,
+            "y": 1285.72,
+            "width": 346,
+            "height": 456.23,
+            "right": 368,
+            "bottom": 1741.95
+          },
+          "title": "Terra and Frisbie add a $20M West Palm Beach parcel",
+          "titleHref": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:50:01.037Z",
+          "sourceDate": "2026-09-09",
+          "takeaway": "The expanded site is planned for mixed-use and residential development; detailed project programming is still to come.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Terra and Frisbie add a $20M West Palm Beach parcel",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Browse buildings \u2192",
+              "href": "/buildings/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+              "alt": "Downtown bridge and waterfront context in West Palm Beach"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "id": "intel-story-26c1c72f59519b2e",
+          "className": "v2-desk-story v2-desk-secondary",
+          "rect": {
+            "x": 22,
+            "y": 1755.95,
+            "width": 346,
+            "height": 273.39,
+            "right": 368,
+            "bottom": 2029.34
+          },
+          "title": "Unicorp under contract for $200M La Fontana buyout",
+          "titleHref": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:49:30.941Z",
+          "sourceDate": "2026-07-18",
+          "takeaway": "The contract points to a projected 2027 closing; a future redevelopment program has not yet been established.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Unicorp under contract for $200M La Fontana buyout",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore North Flagler \u2192",
+              "href": "/corridors/north-flagler/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+              "alt": "Aerial view of the West Palm Beach waterfront corridor"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "id": "intel-story-544ca384b5f936f2",
+          "className": "v2-desk-story v2-desk-secondary",
+          "rect": {
+            "x": 22,
+            "y": 2043.34,
+            "width": 346,
+            "height": 251.56,
+            "right": 368,
+            "bottom": 2294.91
+          },
+          "title": "Alba Palm Beach is complete and move-in ready",
+          "titleHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+          "publicationDate": "2026-09-14T18:56:38.846Z",
+          "sourceDate": "2026-06-22",
+          "takeaway": "Alba offers a completed, move-in-ready option instead of a future-delivery commitment.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Alba Palm Beach is complete and move-in ready",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Explore Alba \u2192",
+              "href": "/projects/alba-palm-beach/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+              "alt": "Alba Palm Beach architectural rendering on the North Flagler waterfront"
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+          "alt": "Downtown bridge and waterfront context in West Palm Beach"
+        },
+        {
+          "src": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+          "alt": "Aerial view of the West Palm Beach waterfront corridor"
+        },
+        {
+          "src": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+          "alt": "Alba Palm Beach architectural rendering on the North Flagler waterfront"
+        }
+      ]
+    },
+    {
+      "viewport": "375x812",
+      "sections": {
+        "masthead": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 111,
+          "right": 375,
+          "bottom": 111
+        },
+        "hero": {
+          "x": 0,
+          "y": 111,
+          "width": 375,
+          "height": 820,
+          "right": 375,
+          "bottom": 931
+        },
+        "desk": {
+          "x": 0,
+          "y": 1064,
+          "width": 375,
+          "height": 1307.69,
+          "right": 375,
+          "bottom": 2371.69
+        },
+        "startBuildingDiscovery": {
+          "x": 0,
+          "y": 2371.69,
+          "width": 375,
+          "height": 1210.39,
+          "right": 375,
+          "bottom": 3582.08
+        }
+      },
+      "overflow": 0,
+      "stories": [
+        {
+          "index": 0,
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "className": "v2-desk-story v2-desk-lead",
+          "rect": {
+            "x": 22,
+            "y": 1285.72,
+            "width": 331,
+            "height": 449.42,
+            "right": 353,
+            "bottom": 1735.14
+          },
+          "title": "Terra and Frisbie add a $20M West Palm Beach parcel",
+          "titleHref": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:50:01.037Z",
+          "sourceDate": "2026-09-09",
+          "takeaway": "The expanded site is planned for mixed-use and residential development; detailed project programming is still to come.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Terra and Frisbie add a $20M West Palm Beach parcel",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Browse buildings \u2192",
+              "href": "/buildings/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+              "alt": "Downtown bridge and waterfront context in West Palm Beach"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "id": "intel-story-26c1c72f59519b2e",
+          "className": "v2-desk-story v2-desk-secondary",
+          "rect": {
+            "x": 22,
+            "y": 1749.14,
+            "width": 331,
+            "height": 273.39,
+            "right": 353,
+            "bottom": 2022.53
+          },
+          "title": "Unicorp under contract for $200M La Fontana buyout",
+          "titleHref": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:49:30.941Z",
+          "sourceDate": "2026-07-18",
+          "takeaway": "The contract points to a projected 2027 closing; a future redevelopment program has not yet been established.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Unicorp under contract for $200M La Fontana buyout",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore North Flagler \u2192",
+              "href": "/corridors/north-flagler/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+              "alt": "Aerial view of the West Palm Beach waterfront corridor"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "id": "intel-story-544ca384b5f936f2",
+          "className": "v2-desk-story v2-desk-secondary",
+          "rect": {
+            "x": 22,
+            "y": 2036.53,
+            "width": 331,
+            "height": 251.56,
+            "right": 353,
+            "bottom": 2288.09
+          },
+          "title": "Alba Palm Beach is complete and move-in ready",
+          "titleHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+          "publicationDate": "2026-09-14T18:56:38.846Z",
+          "sourceDate": "2026-06-22",
+          "takeaway": "Alba offers a completed, move-in-ready option instead of a future-delivery commitment.",
+          "links": [
+            {
+              "text": "",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Alba Palm Beach is complete and move-in ready",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Read story \u2197",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Explore Alba \u2192",
+              "href": "/projects/alba-palm-beach/"
+            }
+          ],
+          "images": [
+            {
+              "src": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+              "alt": "Alba Palm Beach architectural rendering on the North Flagler waterfront"
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+          "alt": "Downtown bridge and waterfront context in West Palm Beach"
+        },
+        {
+          "src": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+          "alt": "Aerial view of the West Palm Beach waterfront corridor"
+        },
+        {
+          "src": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+          "alt": "Alba Palm Beach architectural rendering on the North Flagler waterfront"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "testSha": "b23a4db9e7adb9d5ed8b74e702bc0d08c56a5f36",
+  "sourceDateVerification": "approved-record-only; external publisher date was not independently verified",
+  "typecheck": {
+    "command": "npm run typecheck",
+    "status": "PASS",
+    "provenance": "Implementation agent ran typecheck on final source immediately before commit."
+  },
+  "build": {
+    "command": "npm run build",
+    "status": "PASS",
+    "provenance": "Plain build after inlineImg fix by implementation agent, confirmed from actual executed command; no synthetic GA4 override in this final build."
+  },
+  "milestone2": {
+    "command": "V2_ORIGIN=http://127.0.0.1:5188 node research/scripts/check-v2-milestone2.mjs",
+    "status": "PASS",
+    "checks": 84,
+    "output": "output/playwright/milestone2-qa.json",
+    "configuredModel": "gpt-5.6-luna/max",
+    "directArticleLoad": "initial direct load and reload body rendering passed for all three newest articles in Chromium and WebKit"
+  },
+  "finalQa": {
+    "command": "DEV_DESK_QA_CUE_SHA=b23a4db9e7adb9d5ed8b74e702bc0d08c56a5f36 node .runtime/development-desk/qa-final.mjs",
+    "status": "PASS",
+    "checks": 445,
+    "passed": 445,
+    "failed": 0,
+    "output": ".runtime/development-desk/final-qa-result.json",
+    "viewports": [
+      "1440x1000",
+      "1024x1000",
+      "768x1000",
+      "390x844",
+      "375x812",
+      "320x812",
+      "DPR2 desktop",
+      "DPR2 phone"
+    ],
+    "journeys": "hydrated Desk click to article and related corridor/project routes",
+    "maps": "maps.googleapis.com intercepted as existing map request; no analytics or mutation requests",
+    "directArticleLoad": "repaired; direct-load and reload coverage passed in milestone2"
+  },
+  "npmTest": {
+    "command": "npm test",
+    "status": "PASS",
+    "exitCode": 0,
+    "output": ".runtime/development-desk/npm-test-final.log",
+    "unitTests": 107,
+    "unitSuites": 7,
+    "launchChecks": 37,
+    "launchFindings": 0,
+    "gatekeeperFiles": 1159
+  },
+  "preservedReports": [
+    ".runtime/development-desk/final-qa-initial-assumption-failure.json",
+    ".runtime/development-desk/final-qa-harness-adjustment-failure.json"
+  ]
+}

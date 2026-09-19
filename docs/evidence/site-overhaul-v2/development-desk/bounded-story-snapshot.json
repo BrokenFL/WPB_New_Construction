@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-09-19T18:49:20Z",
+  "scope": "Development Desk bounded inventory: three newest approved/published stories only",
+  "sourceOfTruth": "research/news-review/approved-development-news.json",
+  "consumer": "src/data/approvedExternalNews.ts -> src/main.ts publishedExternalNews.slice(0, 3)",
+  "git": {
+    "worktree": "/Users/brookesnader/.codex/worktrees/wpb-v2-overhaul/WPB_NewConstruction",
+    "branch": "codex/site-overhaul-v2",
+    "head": "5041bc179ac784300fa01fd32e399f2e8668c4d4",
+    "statusAtInventory": "clean except pre-existing untracked docs/SITE_OVERHAUL_V2_FINAL_INTEGRATION.md; preserved"
+  },
+  "selectionRule": {
+    "approvedStatus": "published",
+    "sort": "publishedAt descending, then sourcePublishedDate/sourcePublishedAt/dateDiscovered/fetchedAt fallback as implemented by newsSortTimestamp; id ascending tiebreak",
+    "selectedCount": 3,
+    "pipelineOrderPreserved": true
+  },
+  "stories": [
+    {
+      "rank": 1,
+      "id": "intel-story-7e8443a31a1b3fbb",
+      "status": "published",
+      "category": "development",
+      "freshnessLane": "breaking_14d",
+      "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+      "slug": "terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15",
+      "articleUrl": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+      "dates": {
+        "publishedAt": "2026-09-15T04:50:01.037Z",
+        "sourcePublishedDate": "2026-09-09",
+        "sourcePublishedAt": "2026-09-09",
+        "dateDiscovered": "2026-09-15",
+        "fetchedAt": "2026-09-15T04:50:01.037Z",
+        "displayDistinction": "Published here Sep 15, 2026; The Real Deal source date Sep 9, 2026."
+      },
+      "source": {
+        "name": "The Real Deal",
+        "articleUrl": "https://therealdeal.com/miami/2026/09/09/terra-frisbie-buy-more-of-former-palm-beach-kennel-club/",
+        "sourceLinks": [
+          {
+            "label": "The Real Deal",
+            "url": "https://therealdeal.com/miami/2026/09/09/terra-frisbie-buy-more-of-former-palm-beach-kennel-club/",
+            "type": "news"
+          }
+        ]
+      },
+      "copy": {
+        "approvedDeck": "Terra and Frisbie Group have acquired another parcel of the former Palm Beach Kennel Club site for $20 million, expanding their master-planned West Palm Beach footprint.",
+        "approvedSummary": "A $20 million land acquisition expands the Terra-Frisbie assemblage at the former Palm Beach Kennel Club site, where large-scale mixed-use and residential development is planned.",
+        "approvedBuyerTakeaway": "The acquisition expands a master-planned site intended for large-scale mixed-use and residential development; detailed project programming is still to come.",
+        "whyItMatters": "Another $20 million parcel expands an already significant assemblage planned for large-scale development.",
+        "buyerContext": "Use the acquisition and broad mixed-use/residential intent as the current facts; wait for filings before assuming exact acreage, unit counts or timing.",
+        "shortTeaserCandidates": [
+          "Terra and Frisbie add another $20 million parcel to a growing West Palm Beach assemblage.",
+          "A new $20 million acquisition expands the planned mixed-use and residential footprint.",
+          "The assemblage grows, while detailed programming remains to come."
+        ]
+      },
+      "relationships": {
+        "primaryProjectSlug": "terra-frisbie-wpb-assemblage",
+        "relatedProjectSlugs": [
+          "terra-frisbie-wpb-assemblage"
+        ],
+        "relatedCorridorSlugs": [],
+        "corridorLabel": "West Palm Beach",
+        "relatedUrls": {
+          "project": [],
+          "corridor": [
+            {
+              "label": "West Palm Beach corridor hub (generic context)",
+              "url": "/corridors/"
+            }
+          ],
+          "research": [
+            "https://therealdeal.com/miami/2026/09/09/terra-frisbie-buy-more-of-former-palm-beach-kennel-club/"
+          ]
+        },
+        "routeNote": "No dedicated Terra/Frisbie project route was found in the current consumer; retain the approved article route and generic corridor context only."
+      },
+      "currentItemImagePath": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+      "bodyImagePathInApprovedArticle": "/assets/editorial/west-palm-move-downtown-mobility-hero.jpg"
+    },
+    {
+      "rank": 2,
+      "id": "intel-story-26c1c72f59519b2e",
+      "status": "published",
+      "category": "development",
+      "freshnessLane": "breaking_14d",
+      "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+      "slug": "unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15",
+      "articleUrl": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+      "dates": {
+        "publishedAt": "2026-09-15T04:49:30.941Z",
+        "sourcePublishedDate": "2026-07-18",
+        "sourcePublishedAt": "2026-07-18",
+        "dateDiscovered": "2026-09-15",
+        "fetchedAt": "2026-09-15T04:49:30.941Z",
+        "displayDistinction": "Published here Sep 15, 2026; source record date Jul 18, 2026.",
+        "sourceDateCaveat": "The approved record's sourcePublishedDate is 2026-07-18 while its sourceUrl path contains /2026/07/09/; preserve the approved record for UI date display and do not imply the mismatch is independently resolved."
+      },
+      "source": {
+        "name": "The Real Deal / Discover South Florida",
+        "articleUrl": "https://therealdeal.com/miami/2026/07/09/chuck-whittall-buying-la-fontana-co-op-in-west-palm-beach/",
+        "sourceLinks": [
+          {
+            "label": "The Real Deal / Discover South Florida",
+            "url": "https://therealdeal.com/miami/2026/07/09/chuck-whittall-buying-la-fontana-co-op-in-west-palm-beach/",
+            "type": "news"
+          }
+        ]
+      },
+      "copy": {
+        "approvedDeck": "Chuck Whittall’s Unicorp is under contract to acquire the 140-unit La Fontana waterfront co-op for roughly $200 million, with closing projected for 2027.",
+        "approvedSummary": "Unicorp is under contract for the 140-unit La Fontana co-op on North Flagler at roughly $200 million, with a projected 2027 closing.",
+        "approvedBuyerTakeaway": "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
+        "whyItMatters": "A roughly $200 million contract for a 140-unit waterfront co-op is a significant North Flagler land and ownership event.",
+        "buyerContext": "Follow the transaction now; wait for attributable filings before assuming what will replace the existing property.",
+        "shortTeaserCandidates": [
+          "Unicorp is under contract for La Fontana at roughly $200 million, with closing projected for 2027.",
+          "The North Flagler transaction is verified; a future redevelopment program is not yet established.",
+          "A 140-unit waterfront co-op becomes a major North Flagler transaction to watch."
+        ]
+      },
+      "relationships": {
+        "primaryProjectSlug": "la-fontana-north-flagler-buyout",
+        "relatedProjectSlugs": [
+          "la-fontana-north-flagler-buyout"
+        ],
+        "relatedCorridorSlugs": [
+          "north-flagler"
+        ],
+        "corridorLabel": "North Flagler",
+        "relatedUrls": {
+          "project": [],
+          "corridor": [
+            {
+              "label": "North Flagler corridor",
+              "url": "/corridors/north-flagler/"
+            }
+          ],
+          "research": [
+            "https://therealdeal.com/miami/2026/07/09/chuck-whittall-buying-la-fontana-co-op-in-west-palm-beach/"
+          ]
+        },
+        "routeNote": "The approved story carries a project slug but no current dedicated project route was found; use the article and North Flagler corridor routes."
+      },
+      "currentItemImagePath": "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg",
+      "bodyImagePathInApprovedArticle": "/assets/home/north-flagler-3-buildings-daytime-v01.jpg"
+    },
+    {
+      "rank": 3,
+      "id": "intel-story-544ca384b5f936f2",
+      "status": "published",
+      "category": "development",
+      "freshnessLane": "breaking_14d",
+      "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+      "slug": "alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14",
+      "articleUrl": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+      "dates": {
+        "publishedAt": "2026-09-14T18:56:38.846Z",
+        "sourcePublishedDate": "2026-06-22",
+        "sourcePublishedAt": "2026-06-22",
+        "dateDiscovered": "2026-09-14",
+        "fetchedAt": "2026-09-14T18:56:38.846Z",
+        "displayDistinction": "Published here Sep 14, 2026; Florida YIMBY source date Jun 22, 2026."
+      },
+      "source": {
+        "name": "Florida YIMBY",
+        "articleUrl": "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html",
+        "sourceLinks": [
+          {
+            "label": "Florida YIMBY",
+            "url": "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html",
+            "type": "news"
+          }
+        ]
+      },
+      "copy": {
+        "approvedDeck": "The 22-story, 55-residence tower at 4714 N. Flagler Drive has completed construction, giving buyers a move-in-ready new-construction option on North Flagler.",
+        "approvedSummary": "Alba Palm Beach is complete and move-in ready, with 55 residences across 22 stories at 4714 N. Flagler Drive on North Flagler.",
+        "approvedBuyerTakeaway": "Alba offers buyers a completed, move-in-ready new-construction option rather than a future-delivery commitment.",
+        "whyItMatters": "Completion removes construction-timing uncertainty and gives buyers a finished building to evaluate now.",
+        "buyerContext": "Use the verified completion, 22-story scale and 55-residence count as the current anchors; verify live inventory and pricing separately.",
+        "shortTeaserCandidates": [
+          "Alba is complete and move-in ready, with 55 residences across 22 stories on North Flagler.",
+          "Completion gives buyers a finished new-construction option instead of a future-delivery commitment.",
+          "The verified update is completion; check current inventory and pricing separately."
+        ]
+      },
+      "relationships": {
+        "primaryProjectSlug": "alba-palm-beach",
+        "relatedProjectSlugs": [
+          "alba-palm-beach"
+        ],
+        "relatedCorridorSlugs": [
+          "north-flagler"
+        ],
+        "corridorLabel": "North Flagler",
+        "relatedUrls": {
+          "project": [
+            {
+              "label": "Alba Palm Beach project",
+              "url": "/projects/alba-palm-beach/"
+            }
+          ],
+          "corridor": [
+            {
+              "label": "North Flagler corridor",
+              "url": "/corridors/north-flagler/"
+            }
+          ],
+          "research": [
+            "https://floridayimby.com/2026/06/new-photos-showcase-completed-alba-palm-beach-at-4714-n-flagler-drive-in-west-palm-beach.html"
+          ]
+        }
+      },
+      "currentItemImagePath": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+      "bodyImagePathInApprovedArticle": "/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp"
+    }
+  ],
+  "lockedBoundaries": [
+    "This snapshot records the existing approved pipeline; it does not alter approved news JSON, generated data, article content, or the asset pipeline.",
+    "Publication dates and source publication dates remain separate fields.",
+    "No new hero concept, masthead, closing image, or asset derivative was created."
+  ]
+}

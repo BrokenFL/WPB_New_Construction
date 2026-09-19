@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-09-19T18:54:39.875Z",
+  "variants": [
+    {
+      "source": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+      "sourceDimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "extract": null,
+      "output": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+      "outputDimensions": {
+        "width": 1400,
+        "height": 636
+      },
+      "bytes": 168496,
+      "sourceSha256": "b781657090ac7338b3c3f6dae12532adf40f7e84e47ce070ff2f30171bd66d10",
+      "outputSha256": "925a99cd15bc20c38907f27dddaa802070a0dd90aff3a2eab161c02d42cd10b8"
+    },
+    {
+      "source": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+      "sourceDimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "extract": null,
+      "output": "/assets/editorial/development-desk/terra-context-lead-780x355.webp",
+      "outputDimensions": {
+        "width": 780,
+        "height": 355
+      },
+      "bytes": 68406,
+      "sourceSha256": "b781657090ac7338b3c3f6dae12532adf40f7e84e47ce070ff2f30171bd66d10",
+      "outputSha256": "dc623548e5ed5ca18ad395123f53530287c207177854c604c79312917d1ce9ee"
+    },
+    {
+      "source": "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg",
+      "sourceDimensions": {
+        "width": 1280,
+        "height": 533
+      },
+      "extract": null,
+      "output": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+      "outputDimensions": {
+        "width": 288,
+        "height": 216
+      },
+      "bytes": 23202,
+      "sourceSha256": "245115ba40b082a98260f87af99f2adff4ae6d8e4db2575147ae7a9b346cdfe0",
+      "outputSha256": "4663301251c06246ca7e1a876950ad4b11903804fa2cacc79b446fab86be24e9"
+    },
+    {
+      "source": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+      "sourceDimensions": {
+        "width": 1316,
+        "height": 740
+      },
+      "extract": {
+        "left": 720,
+        "top": 290,
+        "width": 596,
+        "height": 447
+      },
+      "output": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+      "outputDimensions": {
+        "width": 288,
+        "height": 216
+      },
+      "bytes": 15784,
+      "sourceSha256": "eb99c2a2b0f586034825101e2d44e16527819d05ca24b2ad75168fc34a10d79f",
+      "outputSha256": "0b4308dc69be72a3589a7eb6ced2a96772694a910ed6829ec0638a95dde158cb"
+    }
+  ],
+  "implementationSha": "2ab98d65ec41eff5ba948e6bba15a5e35668b0be",
+  "method": "Deterministic crop/resize/WebP encoding; no new generated scene content; source originals preserved."
+}

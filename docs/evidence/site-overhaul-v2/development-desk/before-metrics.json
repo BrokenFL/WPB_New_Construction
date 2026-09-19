@@ -1,0 +1,700 @@
+{
+  "head": "5041bc179ac784300fa01fd32e399f2e8668c4d4",
+  "captures": [
+    {
+      "viewport": "1440x1000",
+      "sections": {
+        "masthead": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 92,
+          "right": 1440,
+          "bottom": 92
+        },
+        "hero": {
+          "x": 0,
+          "y": 92,
+          "width": 1440,
+          "height": 690,
+          "right": 1440,
+          "bottom": 782
+        },
+        "desk": {
+          "x": 0,
+          "y": 841,
+          "width": 1440,
+          "height": 874.41,
+          "right": 1440,
+          "bottom": 1715.41
+        },
+        "startBuildingDiscovery": {
+          "x": 0,
+          "y": 1715.41,
+          "width": 1440,
+          "height": 831.48,
+          "right": 1440,
+          "bottom": 2546.89
+        }
+      },
+      "overflow": 0,
+      "stories": [
+        {
+          "index": 0,
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "className": "v2-desk-story v2-desk-lead",
+          "rect": {
+            "x": 72,
+            "y": 1050.09,
+            "width": 660.95,
+            "height": 556.52,
+            "right": 732.95,
+            "bottom": 1606.61
+          },
+          "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+          "titleHref": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:50:01.037Z",
+          "sourceDate": "2026-09-09",
+          "takeaway": "The acquisition expands a master-planned site intended for large-scale mixed-use and residential development; detailed project programming is still to come.",
+          "links": [
+            {
+              "text": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore the building directory \u2192",
+              "href": "/buildings/"
+            }
+          ],
+          "images": []
+        },
+        {
+          "index": 1,
+          "id": "intel-story-26c1c72f59519b2e",
+          "className": "v2-desk-story",
+          "rect": {
+            "x": 804.95,
+            "y": 1050.09,
+            "width": 563.05,
+            "height": 282.77,
+            "right": 1368,
+            "bottom": 1332.86
+          },
+          "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+          "titleHref": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:49:30.941Z",
+          "sourceDate": "2026-07-18",
+          "takeaway": "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
+          "links": [
+            {
+              "text": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore North Flagler \u2192",
+              "href": "/corridors/north-flagler/"
+            }
+          ],
+          "images": []
+        },
+        {
+          "index": 2,
+          "id": "intel-story-544ca384b5f936f2",
+          "className": "v2-desk-story",
+          "rect": {
+            "x": 804.95,
+            "y": 1350.86,
+            "width": 563.05,
+            "height": 255.75,
+            "right": 1368,
+            "bottom": 1606.61
+          },
+          "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+          "titleHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+          "publicationDate": "2026-09-14T18:56:38.846Z",
+          "sourceDate": "2026-06-22",
+          "takeaway": "Alba offers buyers a completed, move-in-ready new-construction option rather than a future-delivery commitment.",
+          "links": [
+            {
+              "text": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Explore Alba Palm Beach \u2192",
+              "href": "/projects/alba-palm-beach/"
+            }
+          ],
+          "images": []
+        }
+      ]
+    },
+    {
+      "viewport": "390x844",
+      "sections": {
+        "masthead": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 111,
+          "right": 390,
+          "bottom": 111
+        },
+        "hero": {
+          "x": 0,
+          "y": 111,
+          "width": 390,
+          "height": 820,
+          "right": 390,
+          "bottom": 931
+        },
+        "desk": {
+          "x": 0,
+          "y": 1064,
+          "width": 390,
+          "height": 1468.05,
+          "right": 390,
+          "bottom": 2532.05
+        },
+        "startBuildingDiscovery": {
+          "x": 0,
+          "y": 2532.05,
+          "width": 390,
+          "height": 1210.39,
+          "right": 390,
+          "bottom": 3742.44
+        }
+      },
+      "overflow": 0,
+      "stories": [
+        {
+          "index": 0,
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "className": "v2-desk-story v2-desk-lead",
+          "rect": {
+            "x": 22,
+            "y": 1317.08,
+            "width": 346,
+            "height": 347.81,
+            "right": 368,
+            "bottom": 1664.89
+          },
+          "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+          "titleHref": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:50:01.037Z",
+          "sourceDate": "2026-09-09",
+          "takeaway": "The acquisition expands a master-planned site intended for large-scale mixed-use and residential development; detailed project programming is still to come.",
+          "links": [
+            {
+              "text": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore the building directory \u2192",
+              "href": "/buildings/"
+            }
+          ],
+          "images": []
+        },
+        {
+          "index": 1,
+          "id": "intel-story-26c1c72f59519b2e",
+          "className": "v2-desk-story",
+          "rect": {
+            "x": 22,
+            "y": 1688.89,
+            "width": 346,
+            "height": 351.58,
+            "right": 368,
+            "bottom": 2040.47
+          },
+          "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+          "titleHref": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:49:30.941Z",
+          "sourceDate": "2026-07-18",
+          "takeaway": "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
+          "links": [
+            {
+              "text": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore North Flagler \u2192",
+              "href": "/corridors/north-flagler/"
+            }
+          ],
+          "images": []
+        },
+        {
+          "index": 2,
+          "id": "intel-story-544ca384b5f936f2",
+          "className": "v2-desk-story",
+          "rect": {
+            "x": 22,
+            "y": 2064.47,
+            "width": 346,
+            "height": 325.19,
+            "right": 368,
+            "bottom": 2389.66
+          },
+          "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+          "titleHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+          "publicationDate": "2026-09-14T18:56:38.846Z",
+          "sourceDate": "2026-06-22",
+          "takeaway": "Alba offers buyers a completed, move-in-ready new-construction option rather than a future-delivery commitment.",
+          "links": [
+            {
+              "text": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Explore Alba Palm Beach \u2192",
+              "href": "/projects/alba-palm-beach/"
+            }
+          ],
+          "images": []
+        }
+      ]
+    },
+    {
+      "viewport": "320x812",
+      "sections": {
+        "masthead": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 115,
+          "right": 320,
+          "bottom": 115
+        },
+        "hero": {
+          "x": 0,
+          "y": 115,
+          "width": 320,
+          "height": 820,
+          "right": 320,
+          "bottom": 935
+        },
+        "desk": {
+          "x": 0,
+          "y": 1068,
+          "width": 320,
+          "height": 1754.36,
+          "right": 320,
+          "bottom": 2822.36
+        },
+        "startBuildingDiscovery": {
+          "x": 0,
+          "y": 2822.36,
+          "width": 320,
+          "height": 1954.59,
+          "right": 320,
+          "bottom": 4776.95
+        }
+      },
+      "overflow": 0,
+      "stories": [
+        {
+          "index": 0,
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "className": "v2-desk-story v2-desk-lead",
+          "rect": {
+            "x": 22,
+            "y": 1358.47,
+            "width": 276,
+            "height": 455.95,
+            "right": 298,
+            "bottom": 1814.42
+          },
+          "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+          "titleHref": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:50:01.037Z",
+          "sourceDate": "2026-09-09",
+          "takeaway": "The acquisition expands a master-planned site intended for large-scale mixed-use and residential development; detailed project programming is still to come.",
+          "links": [
+            {
+              "text": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore the building directory \u2192",
+              "href": "/buildings/"
+            }
+          ],
+          "images": []
+        },
+        {
+          "index": 1,
+          "id": "intel-story-26c1c72f59519b2e",
+          "className": "v2-desk-story",
+          "rect": {
+            "x": 22,
+            "y": 1838.42,
+            "width": 276,
+            "height": 421.97,
+            "right": 298,
+            "bottom": 2260.39
+          },
+          "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+          "titleHref": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:49:30.941Z",
+          "sourceDate": "2026-07-18",
+          "takeaway": "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
+          "links": [
+            {
+              "text": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore North Flagler \u2192",
+              "href": "/corridors/north-flagler/"
+            }
+          ],
+          "images": []
+        },
+        {
+          "index": 2,
+          "id": "intel-story-544ca384b5f936f2",
+          "className": "v2-desk-story",
+          "rect": {
+            "x": 22,
+            "y": 2284.39,
+            "width": 276,
+            "height": 395.58,
+            "right": 298,
+            "bottom": 2679.97
+          },
+          "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+          "titleHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+          "publicationDate": "2026-09-14T18:56:38.846Z",
+          "sourceDate": "2026-06-22",
+          "takeaway": "Alba offers buyers a completed, move-in-ready new-construction option rather than a future-delivery commitment.",
+          "links": [
+            {
+              "text": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Explore Alba Palm Beach \u2192",
+              "href": "/projects/alba-palm-beach/"
+            }
+          ],
+          "images": []
+        }
+      ]
+    },
+    {
+      "viewport": "390x844",
+      "sections": {
+        "masthead": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 111,
+          "right": 390,
+          "bottom": 111
+        },
+        "hero": {
+          "x": 0,
+          "y": 111,
+          "width": 390,
+          "height": 820,
+          "right": 390,
+          "bottom": 931
+        },
+        "desk": {
+          "x": 0,
+          "y": 1064,
+          "width": 390,
+          "height": 1468.05,
+          "right": 390,
+          "bottom": 2532.05
+        },
+        "startBuildingDiscovery": {
+          "x": 0,
+          "y": 2532.05,
+          "width": 390,
+          "height": 1210.39,
+          "right": 390,
+          "bottom": 3742.44
+        }
+      },
+      "overflow": 0,
+      "stories": [
+        {
+          "index": 0,
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "className": "v2-desk-story v2-desk-lead",
+          "rect": {
+            "x": 22,
+            "y": 1317.08,
+            "width": 346,
+            "height": 347.81,
+            "right": 368,
+            "bottom": 1664.89
+          },
+          "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+          "titleHref": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:50:01.037Z",
+          "sourceDate": "2026-09-09",
+          "takeaway": "The acquisition expands a master-planned site intended for large-scale mixed-use and residential development; detailed project programming is still to come.",
+          "links": [
+            {
+              "text": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore the building directory \u2192",
+              "href": "/buildings/"
+            }
+          ],
+          "images": []
+        },
+        {
+          "index": 1,
+          "id": "intel-story-26c1c72f59519b2e",
+          "className": "v2-desk-story",
+          "rect": {
+            "x": 22,
+            "y": 1688.89,
+            "width": 346,
+            "height": 351.58,
+            "right": 368,
+            "bottom": 2040.47
+          },
+          "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+          "titleHref": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:49:30.941Z",
+          "sourceDate": "2026-07-18",
+          "takeaway": "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
+          "links": [
+            {
+              "text": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore North Flagler \u2192",
+              "href": "/corridors/north-flagler/"
+            }
+          ],
+          "images": []
+        },
+        {
+          "index": 2,
+          "id": "intel-story-544ca384b5f936f2",
+          "className": "v2-desk-story",
+          "rect": {
+            "x": 22,
+            "y": 2064.47,
+            "width": 346,
+            "height": 325.19,
+            "right": 368,
+            "bottom": 2389.66
+          },
+          "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+          "titleHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+          "publicationDate": "2026-09-14T18:56:38.846Z",
+          "sourceDate": "2026-06-22",
+          "takeaway": "Alba offers buyers a completed, move-in-ready new-construction option rather than a future-delivery commitment.",
+          "links": [
+            {
+              "text": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Explore Alba Palm Beach \u2192",
+              "href": "/projects/alba-palm-beach/"
+            }
+          ],
+          "images": []
+        }
+      ]
+    },
+    {
+      "viewport": "375x812",
+      "sections": {
+        "masthead": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 111,
+          "right": 375,
+          "bottom": 111
+        },
+        "hero": {
+          "x": 0,
+          "y": 111,
+          "width": 375,
+          "height": 820,
+          "right": 375,
+          "bottom": 931
+        },
+        "desk": {
+          "x": 0,
+          "y": 1064,
+          "width": 375,
+          "height": 1512.05,
+          "right": 375,
+          "bottom": 2576.05
+        },
+        "startBuildingDiscovery": {
+          "x": 0,
+          "y": 2576.05,
+          "width": 375,
+          "height": 1210.39,
+          "right": 375,
+          "bottom": 3786.44
+        }
+      },
+      "overflow": 0,
+      "stories": [
+        {
+          "index": 0,
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "className": "v2-desk-story v2-desk-lead",
+          "rect": {
+            "x": 22,
+            "y": 1317.08,
+            "width": 331,
+            "height": 391.81,
+            "right": 353,
+            "bottom": 1708.89
+          },
+          "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+          "titleHref": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:50:01.037Z",
+          "sourceDate": "2026-09-09",
+          "takeaway": "The acquisition expands a master-planned site intended for large-scale mixed-use and residential development; detailed project programming is still to come.",
+          "links": [
+            {
+              "text": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore the building directory \u2192",
+              "href": "/buildings/"
+            }
+          ],
+          "images": []
+        },
+        {
+          "index": 1,
+          "id": "intel-story-26c1c72f59519b2e",
+          "className": "v2-desk-story",
+          "rect": {
+            "x": 22,
+            "y": 1732.89,
+            "width": 331,
+            "height": 351.58,
+            "right": 353,
+            "bottom": 2084.47
+          },
+          "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+          "titleHref": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+          "publicationDate": "2026-09-15T04:49:30.941Z",
+          "sourceDate": "2026-07-18",
+          "takeaway": "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
+          "links": [
+            {
+              "text": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/"
+            },
+            {
+              "text": "Explore North Flagler \u2192",
+              "href": "/corridors/north-flagler/"
+            }
+          ],
+          "images": []
+        },
+        {
+          "index": 2,
+          "id": "intel-story-544ca384b5f936f2",
+          "className": "v2-desk-story",
+          "rect": {
+            "x": 22,
+            "y": 2108.47,
+            "width": 331,
+            "height": 325.19,
+            "right": 353,
+            "bottom": 2433.66
+          },
+          "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+          "titleHref": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+          "publicationDate": "2026-09-14T18:56:38.846Z",
+          "sourceDate": "2026-06-22",
+          "takeaway": "Alba offers buyers a completed, move-in-ready new-construction option rather than a future-delivery commitment.",
+          "links": [
+            {
+              "text": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Read the story \u2197",
+              "href": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/"
+            },
+            {
+              "text": "Explore Alba Palm Beach \u2192",
+              "href": "/projects/alba-palm-beach/"
+            }
+          ],
+          "images": []
+        }
+      ]
+    }
+  ]
+}

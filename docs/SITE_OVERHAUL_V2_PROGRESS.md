@@ -1,6 +1,16 @@
 # WPB V2 overhaul — review record
 
-## Current sprint — finish the Shorecrest hero
+## Current sprint — image-led Development Desk
+
+This focused presentation sprint continues draft PR #115 from `5041bc179ac784300fa01fd32e399f2e8668c4d4`. The three newest approved publications and their genuine order remain controlled by the existing news pipeline. The selected warm hero, responsive derivatives, masthead and original closing artwork are locked.
+
+The initial rendered review found a stretched desktop lead with a large gap above its actions, and three equally dense mobile articles. The new direction is one image-led feature with two compact illustrated briefs, shorter homepage-only wording and natural image/text proportions. Publication and source-report dates retain distinct meanings; contextual city imagery must not be presented as an acquisition-site or construction photograph.
+
+The visual implementation and captures are based on `2ab98d65ec41eff5ba948e6bba15a5e35668b0be`; the final source with article-entry and QA repairs is `b23a4db9e7adb9d5ed8b74e702bc0d08c56a5f36`. [Development Desk evidence](evidence/site-overhaul-v2/development-desk/README.md) includes complete before/after desktop and mobile sections, source provenance, four optimized derivatives, responsive loading measurements and a fresh independent critique after two focused correction rounds. The built preview is `http://127.0.0.1:5188/#latest-developments`. No new generated scene or animation was introduced. Homepage visual sections and styles outside the Desk are byte-identical to the starting head. A bounded direct-article reliability fix hoists the existing inline image helper without changing its output; the evidence separates that repair and the source-aware repetition QA correction from the accepted visual composition.
+
+[Final-integration requirements](SITE_OVERHAUL_V2_FINAL_INTEGRATION.md) explicitly carry the unresolved independent architectural verification of the AI-assisted hero, the full mobile opening sequence and the legacy-carousel/static-hero test reconciliation. No release approval follows from this sprint.
+
+## Previous sprint — finish the Shorecrest hero
 
 Draft PR [#115](https://github.com/BrokenFL/WPB_New_Construction/pull/115) now carries a focused hero finish over sprint 3. The solid masthead, unified opening, commercial copy and other homepage sections remain established. [Hero evidence](evidence/site-overhaul-v2/hero-finish/README.md) includes actual A/B ImageGen production, the approved source inventory, provenance, responsive derivatives, before/after screenshots, two correction rounds and a fresh final graphic critique.
 

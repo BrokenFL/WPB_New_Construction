@@ -1,0 +1,1584 @@
+{
+  "generatedAt": "2026-09-19T19:58:21.183Z",
+  "configuredModel": "gpt-5.6-luna/max",
+  "origin": "http://127.0.0.1:5188",
+  "testedSha": "b23a4db9e7adb9d5ed8b74e702bc0d08c56a5f36",
+  "devOriginAllowed": false,
+  "browsers": [
+    "chromium",
+    "webkit"
+  ],
+  "viewports": [
+    1440,
+    390,
+    320
+  ],
+  "expectedHomepageNews": [
+    {
+      "id": "intel-story-7e8443a31a1b3fbb",
+      "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+      "publishedAt": "2026-09-15T04:50:01.037Z",
+      "sourcePublishedDate": "2026-09-09"
+    },
+    {
+      "id": "intel-story-26c1c72f59519b2e",
+      "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+      "publishedAt": "2026-09-15T04:49:30.941Z",
+      "sourcePublishedDate": "2026-07-18"
+    },
+    {
+      "id": "intel-story-544ca384b5f936f2",
+      "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+      "publishedAt": "2026-09-14T18:56:38.846Z",
+      "sourcePublishedDate": "2026-06-22"
+    }
+  ],
+  "limits": [
+    "Lead POSTs are intercepted in Playwright; no external lead is sent.",
+    "Analytics collection and tag-manager requests are aborted in Playwright; this is not a production transport or conversion measurement.",
+    "This script checks rendered behavior and source contracts; it does not run a build."
+  ],
+  "summary": {
+    "total": 84,
+    "passed": 84,
+    "failed": 0
+  },
+  "results": [
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "newest published articles direct-load and reload body rendering",
+      "status": "passed",
+      "durationMs": 6620,
+      "details": {
+        "rendered": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "route": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            },
+            "reloaded": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            }
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "route": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            },
+            "reloaded": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            }
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "route": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+            "status": 200,
+            "initial": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            },
+            "reloaded": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            }
+          }
+        ]
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 321,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "homepage Desk reviewed derivatives, captions, and research actions",
+      "status": "passed",
+      "durationMs": 111,
+      "details": {
+        "reviewed": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "derivative": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+            "caption": "West Palm Beach · editorial context",
+            "researchHref": "/buildings/"
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "derivative": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+            "caption": "Corridor context",
+            "researchHref": "/corridors/north-flagler/"
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "derivative": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+            "caption": "Alba · Architectural rendering",
+            "researchHref": "/projects/alba-palm-beach/"
+          }
+        ],
+        "fallbacks": []
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 8,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 52,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 144.203125,
+          "width": 1440,
+          "height": 617.34375
+        },
+        "dimensions": {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "bodyWidth": 1440
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 109,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "newest update route resolves",
+      "status": "passed",
+      "durationMs": 226,
+      "details": {
+        "route": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "Alba related project route resolves",
+      "status": "passed",
+      "durationMs": 229,
+      "details": {
+        "route": "/projects/alba-palm-beach/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "North Flagler related corridor route resolves",
+      "status": "passed",
+      "durationMs": 271,
+      "details": {
+        "route": "/corridors/north-flagler/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 486,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 363,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 338,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 247,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 438.15625,
+        "height": 147
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 379,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 128,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 225,
+      "details": {
+        "destination": "local-only",
+        "prompt": "disabled",
+        "blockedRequests": 0
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "newest published articles direct-load and reload body rendering",
+      "status": "passed",
+      "durationMs": 6573,
+      "details": {
+        "rendered": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "route": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            },
+            "reloaded": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            }
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "route": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            },
+            "reloaded": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            }
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "route": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+            "status": 200,
+            "initial": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            },
+            "reloaded": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            }
+          }
+        ]
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 303,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "homepage Desk reviewed derivatives, captions, and research actions",
+      "status": "passed",
+      "durationMs": 117,
+      "details": {
+        "reviewed": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "derivative": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+            "caption": "West Palm Beach · editorial context",
+            "researchHref": "/buildings/"
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "derivative": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+            "caption": "Corridor context",
+            "researchHref": "/corridors/north-flagler/"
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "derivative": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+            "caption": "Alba · Architectural rendering",
+            "researchHref": "/projects/alba-palm-beach/"
+          }
+        ],
+        "fallbacks": []
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 8,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 49,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 366.25,
+          "width": 390,
+          "height": 167.1875
+        },
+        "dimensions": {
+          "viewport": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 105,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 479,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 387,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 314,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 223,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 298,
+        "height": 210
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 374,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 150,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 228,
+      "details": {
+        "destination": "local-only",
+        "prompt": "disabled",
+        "blockedRequests": 0
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "newest published articles direct-load and reload body rendering",
+      "status": "passed",
+      "durationMs": 6547,
+      "details": {
+        "rendered": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "route": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            },
+            "reloaded": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            }
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "route": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            },
+            "reloaded": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            }
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "route": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+            "status": 200,
+            "initial": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            },
+            "reloaded": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            }
+          }
+        ]
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 319,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "homepage Desk reviewed derivatives, captions, and research actions",
+      "status": "passed",
+      "durationMs": 119,
+      "details": {
+        "reviewed": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "derivative": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+            "caption": "West Palm Beach · editorial context",
+            "researchHref": "/buildings/"
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "derivative": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+            "caption": "Corridor context",
+            "researchHref": "/corridors/north-flagler/"
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "derivative": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+            "caption": "Alba · Architectural rendering",
+            "researchHref": "/projects/alba-palm-beach/"
+          }
+        ],
+        "fallbacks": []
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 9,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 39,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 381.5,
+          "width": 320,
+          "height": 137.1875
+        },
+        "dimensions": {
+          "viewport": 320,
+          "documentWidth": 320,
+          "bodyWidth": 320
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 104,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 457,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 362,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 331,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 223,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 236,
+        "height": 273
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 385,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 115,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 225,
+      "details": {
+        "destination": "local-only",
+        "prompt": "disabled",
+        "blockedRequests": 0
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "newest published articles direct-load and reload body rendering",
+      "status": "passed",
+      "durationMs": 7159,
+      "details": {
+        "rendered": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "route": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            },
+            "reloaded": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            }
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "route": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            },
+            "reloaded": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            }
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "route": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+            "status": 200,
+            "initial": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            },
+            "reloaded": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            }
+          }
+        ]
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 397,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "homepage Desk reviewed derivatives, captions, and research actions",
+      "status": "passed",
+      "durationMs": 236,
+      "details": {
+        "reviewed": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "derivative": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+            "caption": "West Palm Beach · editorial context",
+            "researchHref": "/buildings/"
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "derivative": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+            "caption": "Corridor context",
+            "researchHref": "/corridors/north-flagler/"
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "derivative": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+            "caption": "Alba · Architectural rendering",
+            "researchHref": "/projects/alba-palm-beach/"
+          }
+        ],
+        "fallbacks": []
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 5,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 77,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 143.390625,
+          "width": 1440,
+          "height": 617.34375
+        },
+        "dimensions": {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "bodyWidth": 1440
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 103,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "newest update route resolves",
+      "status": "passed",
+      "durationMs": 256,
+      "details": {
+        "route": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "Alba related project route resolves",
+      "status": "passed",
+      "durationMs": 347,
+      "details": {
+        "route": "/projects/alba-palm-beach/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "North Flagler related corridor route resolves",
+      "status": "passed",
+      "durationMs": 282,
+      "details": {
+        "route": "/corridors/north-flagler/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 773,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 749,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 534,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 316,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 434.15625,
+        "height": 147
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 473,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 623,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 288,
+      "details": {
+        "destination": "local-only",
+        "prompt": "disabled",
+        "blockedRequests": 0
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "newest published articles direct-load and reload body rendering",
+      "status": "passed",
+      "durationMs": 7100,
+      "details": {
+        "rendered": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "route": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            },
+            "reloaded": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            }
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "route": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            },
+            "reloaded": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            }
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "route": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+            "status": 200,
+            "initial": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            },
+            "reloaded": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            }
+          }
+        ]
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 402,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "homepage Desk reviewed derivatives, captions, and research actions",
+      "status": "passed",
+      "durationMs": 169,
+      "details": {
+        "reviewed": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "derivative": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+            "caption": "West Palm Beach · editorial context",
+            "researchHref": "/buildings/"
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "derivative": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+            "caption": "Corridor context",
+            "researchHref": "/corridors/north-flagler/"
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "derivative": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+            "caption": "Alba · Architectural rendering",
+            "researchHref": "/projects/alba-palm-beach/"
+          }
+        ],
+        "fallbacks": []
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 6,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 129,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 365.96875,
+          "width": 390,
+          "height": 167.1875
+        },
+        "dimensions": {
+          "viewport": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 104,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 730,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 644,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 534,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 285,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 294,
+        "height": 210
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 455,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 691,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 273,
+      "details": {
+        "destination": "local-only",
+        "prompt": "disabled",
+        "blockedRequests": 0
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "newest published articles direct-load and reload body rendering",
+      "status": "passed",
+      "durationMs": 7173,
+      "details": {
+        "rendered": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "route": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            },
+            "reloaded": {
+              "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+              "bodyLength": 2704
+            }
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "route": "/updates/unicorp-200m-la-fontana-buyout-north-flagler-2026-2026-09-15/",
+            "status": 200,
+            "initial": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            },
+            "reloaded": {
+              "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+              "bodyLength": 2608
+            }
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "route": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+            "status": 200,
+            "initial": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            },
+            "reloaded": {
+              "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+              "bodyLength": 2551
+            }
+          }
+        ]
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 419,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "homepage Desk reviewed derivatives, captions, and research actions",
+      "status": "passed",
+      "durationMs": 140,
+      "details": {
+        "reviewed": [
+          {
+            "id": "intel-story-7e8443a31a1b3fbb",
+            "derivative": "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+            "caption": "West Palm Beach · editorial context",
+            "researchHref": "/buildings/"
+          },
+          {
+            "id": "intel-story-26c1c72f59519b2e",
+            "derivative": "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+            "caption": "Corridor context",
+            "researchHref": "/corridors/north-flagler/"
+          },
+          {
+            "id": "intel-story-544ca384b5f936f2",
+            "derivative": "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+            "caption": "Alba · Architectural rendering",
+            "researchHref": "/projects/alba-palm-beach/"
+          }
+        ],
+        "fallbacks": []
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 6,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 90,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 381.15625,
+          "width": 320,
+          "height": 137.1875
+        },
+        "dimensions": {
+          "viewport": 320,
+          "documentWidth": 320,
+          "bodyWidth": 320
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 102,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 684,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 646,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 535,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 282,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 232,
+        "height": 273
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 407,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 620,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 308,
+      "details": {
+        "destination": "local-only",
+        "prompt": "disabled",
+        "blockedRequests": 0
+      }
+    }
+  ]
+}

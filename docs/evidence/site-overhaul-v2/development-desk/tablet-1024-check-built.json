@@ -1,0 +1,65 @@
+{
+  "origin": "http://127.0.0.1:5188",
+  "errors": [],
+  "data": {
+    "viewport": {
+      "width": 1024,
+      "height": 900,
+      "dpr": 1
+    },
+    "section": {
+      "x": 0,
+      "y": 871,
+      "width": 1024,
+      "height": 1185.40625
+    },
+    "leadPicture": {
+      "x": 51.1875,
+      "y": 1069.078125,
+      "width": 921.625,
+      "height": 280,
+      "aspect": "2.2 / 1",
+      "maxHeight": "280px",
+      "widthRule": "921.625px"
+    },
+    "leadImage": {
+      "x": 51.1875,
+      "y": 1069.078125,
+      "width": 921.625,
+      "height": 280,
+      "naturalWidth": 921,
+      "naturalHeight": 418,
+      "currentSrc": "http://127.0.0.1:5188/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+      "objectPosition": "50% 23%"
+    },
+    "body": {
+      "scrollWidth": 1024,
+      "docWidth": 1024
+    },
+    "stories": [
+      {
+        "title": "Terra and Frisbie add a $20M West Palm Beach parcel",
+        "x": 51.1875,
+        "y": 1069.078125,
+        "width": 921.625,
+        "height": 466.78125
+      },
+      {
+        "title": "Unicorp under contract for $200M La Fontana buyout",
+        "x": 51.1875,
+        "y": 1549.859375,
+        "width": 921.625,
+        "height": 196.6875
+      },
+      {
+        "title": "Alba Palm Beach is complete and move-in ready",
+        "x": 51.1875,
+        "y": 1760.546875,
+        "width": 921.625,
+        "height": 229.0625
+      }
+    ],
+    "active": "BODY"
+  },
+  "gitHead": "2ab98d65ec41eff5ba948e6bba15a5e35668b0be"
+}
