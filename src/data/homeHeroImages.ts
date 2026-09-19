@@ -10,10 +10,10 @@ export type HomeHeroImage = {
 export const homeHeroImages: readonly HomeHeroImage[] = [
   {
     id: "shorecrest-waterfront-rendering",
-    src: "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg",
-    alt: "Architectural rendering of Shorecrest's waterfront tower on North Flagler Drive.",
-    caption: "Shorecrest · North Flagler · Architectural rendering",
-    credit: "Existing user-provided Shorecrest project-page rendering; unchanged source asset.",
+    src: "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+    alt: "Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.",
+    caption: "Shorecrest · AI-assisted architectural rendering",
+    credit: "AI-assisted tonal finish derived from the approved Shorecrest full-tower panorama; original source asset preserved.",
     corridorKey: "north-flagler",
   },
   {

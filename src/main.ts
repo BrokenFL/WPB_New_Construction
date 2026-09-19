@@ -466,6 +466,23 @@ const activeHomeHeroImages = (() => {
   ];
 })();
 const approvedHeroCardOverride = approvedHomepageCardOverride("hero", "hero");
+const approvedHeroImageOverride = approvedHeroCardOverride ?? approvedHomepageOverride("hero");
+const homepageHeroDesktopSrcSet = homepageAssets.hero.desktopSrcSet.map(({ src, width }) => `${src} ${width}w`).join(", ");
+const homepageHeroMobileSrcSet = homepageAssets.hero.mobileSrcSet.map(({ src, width }) => `${src} ${width}w`).join(", ");
+const homepageHeroSelection = activeHomeHeroImages[0] || homeHeroImages[0];
+const homepageHeroAlt = homepageHeroSelection.alt;
+const homepageHeroCaption = homepageHeroSelection.caption;
+const homepageHeroUsesOverride = Boolean(approvedHeroImageOverride?.imagePath);
+const homepageHeroSourceMarkup = homepageHeroUsesOverride
+  ? ""
+  : `<source media="(max-width: 720px)" type="image/webp" srcset="${homepageHeroMobileSrcSet}" sizes="100vw" />`;
+const homepageHeroImageSrc = homepageHeroUsesOverride
+  ? safeHref(approvedHeroImageOverride?.imagePath || "")
+  : homepageAssets.hero.desktop;
+const homepageHeroResponsiveAttrs = homepageHeroUsesOverride
+  ? ""
+  : ` srcset="${homepageHeroDesktopSrcSet}" sizes="100vw" width="${homepageAssets.hero.width}" height="${homepageAssets.hero.height}"`;
+const homepageHeroImageStyle = homepageHeroUsesOverride ? imageStyle(approvedHeroImageOverride) : "";
 
 const mediaBase = "/projects/olara/media/";
 const ritzMediaBase = "/projects/ritz-carlton-wpb/media/";
@@ -2377,21 +2394,10 @@ app.innerHTML = `
       <section class="home-hero" id="top">
         <figure class="home-hero-media" aria-label="Curated West Palm Beach new-construction editorial imagery">
           <picture>
-            <source media="(max-width: 720px)" srcset="${homepageAssets.hero.mobile}" />
-            <img
-              class="home-hero-image is-active"
-              data-home-hero-layer="active"
-              src="${homepageAssets.hero.desktop}"
-              alt="Architectural rendering of Shorecrest's waterfront tower on North Flagler Drive."
-              width="1280"
-              height="955"
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
-              style="object-position: 100% top"
-            />
+            ${homepageHeroSourceMarkup}
+            <img class="home-hero-image is-active" data-home-hero-layer="active" src="${homepageHeroImageSrc}"${homepageHeroResponsiveAttrs} alt="${escapeHtml(homepageHeroAlt)}" loading="eager" decoding="async" fetchpriority="high"${homepageHeroImageStyle} />
           </picture>
-          <figcaption class="home-hero-caption" data-home-hero-caption>Shorecrest · North Flagler · Architectural rendering</figcaption>
+          <figcaption class="home-hero-caption" data-home-hero-caption>${escapeHtml(homepageHeroCaption)}</figcaption>
           <ul class="sr-only">
             ${activeHomeHeroImages.map((image) => `<li>${escapeHtml(image.alt)}</li>`).join("")}
           </ul>
@@ -7334,7 +7340,7 @@ function preferredFloorplans(project: ApprovedFloorplanProject) {
 
 function floorplanProjectImage(projectId: string) {
   const imageId = projectImageLookupId(projectId);
-  return floorplanResidenceImage(imageId) || homepageProjectCardImage(imageId) || getProjectHeroAsset(imageId)?.src || homepageAssets.hero.desktop;
+  return floorplanResidenceImage(imageId) || homepageProjectCardImage(imageId) || getProjectHeroAsset(imageId)?.src || shorecrestUserHero;
 }
 
 function floorplanResidenceImage(projectId: string) {

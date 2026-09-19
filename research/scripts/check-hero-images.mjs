@@ -28,16 +28,34 @@ if (imageBlocks.length < 4 || imageBlocks.length > 6) {
 }
 
 const selectedHero = imageBlocks[0];
-const selectedHeroPath = "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg";
+const selectedHeroPath = "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp";
+const selectedMobileHeroPath = "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp";
+const selectedDesktopSrcSet = [
+  ["/assets/editorial/shorecrest-hero-b-warm-mineral-v01-960w.webp", 960],
+  ["/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1280w.webp", 1280],
+  [selectedHeroPath, 1672],
+];
+const selectedMobileSrcSet = [
+  ["/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp", 390],
+  [selectedMobileHeroPath, 455],
+];
 if (selectedHero?.id !== "shorecrest-waterfront-rendering" || selectedHero?.src !== selectedHeroPath) {
-  fail("Homepage hero must reuse the existing user-provided Shorecrest project-page rendering.");
+  fail("Homepage hero must use the selected versioned Shorecrest ImageGen treatment.");
 }
-if (!/architectural rendering/i.test(selectedHero?.alt ?? "") || !/architectural rendering/i.test(selectedHero?.caption ?? "")) {
-  fail("The selected project rendering must be explicitly identified in its alt text and visible caption.");
+if (!/architectural rendering/i.test(selectedHero?.alt ?? "") || !/AI-assisted/i.test(selectedHero?.alt ?? "") || !/architectural rendering/i.test(selectedHero?.caption ?? "") || !/AI-assisted/i.test(selectedHero?.caption ?? "")) {
+  fail("The selected hero must identify the Shorecrest architectural rendering and its AI-assisted finish in alt text and caption.");
 }
 const homepageAssetSource = read("src/data/homepageAssets.ts");
-if (!["desktop", "mobile"].every((variant) => homepageAssetSource.includes(`${variant}: "${selectedHeroPath}"`))) {
-  fail("Desktop and mobile hero assets must match the curated Shorecrest rendering.");
+if (!homepageAssetSource.includes(`desktop: "${selectedHeroPath}"`) || !homepageAssetSource.includes(`mobile: "${selectedMobileHeroPath}"`)) {
+  fail("Desktop and mobile homepage hero assets must use the selected responsive Shorecrest treatment.");
+}
+for (const [assetPath, width] of [...selectedDesktopSrcSet, ...selectedMobileSrcSet]) {
+  if (!homepageAssetSource.includes(`src: "${assetPath}"`) || !homepageAssetSource.includes(`width: ${width}`)) {
+    fail(`Responsive hero source is missing from homepageAssets: ${assetPath} (${width}w).`);
+  }
+  if (!existsSync(publicPath(assetPath))) {
+    fail(`Responsive hero image file is missing: ${assetPath}`);
+  }
 }
 
 for (const image of imageBlocks) {
@@ -57,6 +75,12 @@ const eagerCount = (heroMarkup.match(/loading="eager"/g) ?? []).length;
 const highPriorityCount = (heroMarkup.match(/fetchpriority="high"/g) ?? []).length;
 if (eagerCount !== 1 || highPriorityCount !== 1) {
   fail(`Homepage hero should eagerly load exactly one high-priority image; found eager=${eagerCount}, high=${highPriorityCount}.`);
+}
+if (!mainSource.includes("homepageHeroDesktopSrcSet") || !mainSource.includes("homepageHeroMobileSrcSet") || (mainSource.match(/sizes="100vw"/g) ?? []).length < 2) {
+  fail("Homepage hero should expose responsive desktop/mobile srcsets with 100vw sizing.");
+}
+if (!mainSource.includes('width="${homepageAssets.hero.width}"') || !mainSource.includes('height="${homepageAssets.hero.height}"')) {
+  fail("Homepage hero should publish intrinsic source dimensions on the eager image.");
 }
 
 if (!mainSource.includes("prefers-reduced-motion: reduce") && !mainSource.includes("matchMedia(\"(prefers-reduced-motion: reduce)\"")) {
