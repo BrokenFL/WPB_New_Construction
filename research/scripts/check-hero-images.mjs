@@ -27,8 +27,17 @@ if (imageBlocks.length < 4 || imageBlocks.length > 6) {
   fail(`Homepage hero should use 4-6 curated images; found ${imageBlocks.length}.`);
 }
 
-if (imageBlocks[0]?.id !== "wpb-waterfront-bridge") {
-  fail("Homepage hero first image should be the approved WPB waterfront bridge photograph.");
+const selectedHero = imageBlocks[0];
+const selectedHeroPath = "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg";
+if (selectedHero?.id !== "shorecrest-waterfront-rendering" || selectedHero?.src !== selectedHeroPath) {
+  fail("Homepage hero must reuse the existing user-provided Shorecrest project-page rendering.");
+}
+if (!/architectural rendering/i.test(selectedHero?.alt ?? "") || !/architectural rendering/i.test(selectedHero?.caption ?? "")) {
+  fail("The selected project rendering must be explicitly identified in its alt text and visible caption.");
+}
+const homepageAssetSource = read("src/data/homepageAssets.ts");
+if (!["desktop", "mobile"].every((variant) => homepageAssetSource.includes(`${variant}: "${selectedHeroPath}"`))) {
+  fail("Desktop and mobile hero assets must match the curated Shorecrest rendering.");
 }
 
 for (const image of imageBlocks) {

@@ -9,6 +9,14 @@ export type HomeHeroImage = {
 
 export const homeHeroImages: readonly HomeHeroImage[] = [
   {
+    id: "shorecrest-waterfront-rendering",
+    src: "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg",
+    alt: "Architectural rendering of Shorecrest's waterfront tower on North Flagler Drive.",
+    caption: "Shorecrest · North Flagler · Architectural rendering",
+    credit: "Existing user-provided Shorecrest project-page rendering; unchanged source asset.",
+    corridorKey: "north-flagler",
+  },
+  {
     id: "wpb-waterfront-bridge",
     src: "/assets/home/wpb-waterfront-bridge-hero-v01.jpg",
     alt: "West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.",

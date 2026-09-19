@@ -2382,16 +2382,16 @@ app.innerHTML = `
               class="home-hero-image is-active"
               data-home-hero-layer="active"
               src="${homepageAssets.hero.desktop}"
-              alt="West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway."
-              width="1920"
-              height="1080"
+              alt="Architectural rendering of Shorecrest's waterfront tower on North Flagler Drive."
+              width="1280"
+              height="955"
               loading="eager"
               decoding="async"
               fetchpriority="high"
-              style="object-position: center center"
+              style="object-position: 100% top"
             />
           </picture>
-          <figcaption class="home-hero-caption" data-home-hero-caption>West Palm Beach waterfront.</figcaption>
+          <figcaption class="home-hero-caption" data-home-hero-caption>Shorecrest · North Flagler · Architectural rendering</figcaption>
           <ul class="sr-only">
             ${activeHomeHeroImages.map((image) => `<li>${escapeHtml(image.alt)}</li>`).join("")}
           </ul>

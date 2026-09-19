@@ -1,7 +1,7 @@
 export const homepageAssets = {
   hero: {
-    desktop: "/assets/home/wpb-waterfront-bridge-hero-v01.jpg",
-    mobile: "/assets/home/wpb-waterfront-bridge-hero-v01.jpg",
+    desktop: "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg",
+    mobile: "/projects/shorecrest/media/user-provided-shorecrest-hero.jpg",
   },
   corridors: {
     "north-flagler": "/assets/home/north-flagler-corridor-skyline-square-v01.jpg",
