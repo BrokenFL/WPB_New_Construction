@@ -21,6 +21,50 @@ const browserLaunchers = [
   ["webkit", webkit],
 ];
 
+const homepageDeskDisplayVariants = [
+  {
+    sourcePath: "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+    sourceTitle: "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+    sourceBuyerTakeaway: "The acquisition expands a master-planned site intended for large-scale mixed-use and residential development; detailed project programming is still to come.",
+    displayTitle: "Terra and Frisbie add a $20M West Palm Beach parcel",
+    displayTakeaway: "The expanded site is planned for mixed-use and residential development; detailed project programming is still to come.",
+    imageSource: "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+    label: "West Palm Beach · editorial context",
+    researchHref: "/buildings/",
+    researchLabel: "Browse buildings",
+  },
+  {
+    sourcePath: "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg",
+    sourceTitle: "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+    sourceBuyerTakeaway: "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
+    displayTitle: "Unicorp under contract for $200M La Fontana buyout",
+    displayTakeaway: "The contract points to a projected 2027 closing; a future redevelopment program has not yet been established.",
+    imageSource: "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+    label: "Corridor context",
+    researchHref: "/corridors/north-flagler/",
+    researchLabel: "Explore North Flagler",
+  },
+  {
+    sourcePath: "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+    sourceTitle: "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+    sourceBuyerTakeaway: "Alba offers buyers a completed, move-in-ready new-construction option rather than a future-delivery commitment.",
+    displayTitle: "Alba Palm Beach is complete and move-in ready",
+    displayTakeaway: "Alba offers a completed, move-in-ready option instead of a future-delivery commitment.",
+    imageSource: "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+    label: "Alba · Architectural rendering",
+    researchHref: "/projects/alba-palm-beach/",
+    researchLabel: "Explore Alba",
+  },
+];
+
+function homepageDeskDisplayVariant(item) {
+  return homepageDeskDisplayVariants.find((variant) =>
+    variant.sourcePath === item.imagePath &&
+    variant.sourceTitle === item.title &&
+    variant.sourceBuyerTakeaway === item.buyerTakeaway,
+  );
+}
+
 function currentGitSha() {
   try {
     return execFileSync("git", ["rev-parse", "HEAD"], { cwd: repoRoot, encoding: "utf8" }).trim();
@@ -177,19 +221,68 @@ async function checkHomepage(page, expected, canonicalProjects, results, scope, 
     for (let index = 0; index < expected.length; index += 1) {
       const item = expected[index];
       const card = cards.nth(index);
+      const variant = homepageDeskDisplayVariant(item);
+      const displayTitle = variant?.displayTitle || item.title;
+      const displayTakeaway = variant?.displayTakeaway || item.buyerTakeaway || item.whyItMatters || item.summary;
       assert.equal(await card.getAttribute("data-home-news-id"), item.id, `Homepage update ${index + 1} is not in source publication order`);
-      assert.equal(normalize(await card.locator("h3").innerText()), item.title, `Homepage update ${index + 1} title mismatch`);
-      assert.equal(await card.locator(".v2-desk-date time").getAttribute("datetime"), item.publishedAt, `Homepage update ${index + 1} publication datetime mismatch`);
-      assert.equal(normalize(await card.locator(".v2-desk-date time").innerText()), formattedDate(item.publishedAt), `Homepage update ${index + 1} publication label mismatch`);
+      assert.equal(await card.getAttribute("data-home-news-original-title"), item.title, `Homepage update ${index + 1} canonical title guard mismatch`);
+      assert.equal(await card.getAttribute("data-home-news-original-takeaway"), item.buyerTakeaway || "", `Homepage update ${index + 1} canonical takeaway guard mismatch`);
+      assert.equal(normalize(await card.locator("h3").innerText()), displayTitle, `Homepage update ${index + 1} display title mismatch`);
+      assert.equal(normalize(await card.locator(".v2-desk-takeaway").innerText()), displayTakeaway, `Homepage update ${index + 1} buyer takeaway mismatch`);
+      const publicationTime = card.locator('time[data-news-date="publication"]');
+      assert.equal(await publicationTime.getAttribute("datetime"), item.publishedAt, `Homepage update ${index + 1} publication datetime mismatch`);
+      assert.equal(normalize(await publicationTime.innerText()), formattedDate(item.publishedAt), `Homepage update ${index + 1} publication label mismatch`);
       const sourceDate = item.sourcePublishedDate || item.sourcePublishedAt;
       assert.ok(sourceDate, `${item.id} has no source publication date`);
-      assert.equal(await card.locator(".v2-desk-source time").getAttribute("datetime"), sourceDate, `${item.id} source datetime mismatch`);
-      assert.equal(normalize(await card.locator(".v2-desk-source time").innerText()), formattedDate(sourceDate), `${item.id} source date label mismatch`);
+      const sourceTime = card.locator('time[data-news-date="source"]');
+      assert.equal(await sourceTime.getAttribute("datetime"), sourceDate, `${item.id} source datetime mismatch`);
+      assert.equal(normalize(await sourceTime.innerText()), formattedDate(sourceDate), `${item.id} source date label mismatch`);
       assert.equal(await card.isVisible(), true, `${item.id} is hidden or expired on the homepage`);
       assert.equal(await card.locator("h3 a").getAttribute("href"), `/updates/${item.slug || item.id}/`);
     }
     assert.match(normalize(await page.locator(".v2-desk-note").innerText()), /Our three latest publications/i, "Homepage publication-order note is missing");
     return { ids: expected.map((item) => item.id), publicationLabels: expected.map((item) => formattedDate(item.publishedAt)) };
+  });
+
+  await runCheck(results, scope, "homepage Desk reviewed derivatives, captions, and research actions", async () => {
+    const reviewed = [];
+    const fallbacks = [];
+    for (const item of expected) {
+      const variant = homepageDeskDisplayVariant(item);
+      const sourceVariant = homepageDeskDisplayVariants.find((candidate) => candidate.sourcePath === item.imagePath);
+      const card = page.locator(`[data-home-news-id="${item.id}"]`);
+      const figure = card.locator(".v2-desk-visual");
+      if (!item.imagePath) {
+        assert.equal(await figure.count(), 0, `${item.id} without an approved image path should not receive an unrelated Desk image`);
+        continue;
+      }
+      assert.equal(await figure.count(), 1, `${item.id} Desk image figure is missing`);
+      assert.equal(await figure.getAttribute("data-desk-source-path"), item.imagePath, `${item.id} image source guard mismatch`);
+      const expectedLabel = sourceVariant?.label || "Development context";
+      assert.equal(normalize(await figure.locator(".v2-desk-image-label").innerText()), expectedLabel, `${item.id} image caption label mismatch`);
+      assert.equal(await figure.locator("figcaption").isVisible(), true, `${item.id} image caption is not visible`);
+      const image = await waitForImage(page, figure.locator("img"), `${item.id} Desk derivative`);
+      const isLead = await card.evaluate((element) => element.classList.contains("v2-desk-lead"));
+      const expectedImageSource = sourceVariant
+        ? (isLead
+          ? sourceVariant.sourcePath === "/assets/home/downtown-corridor-bridge-daytime-v01.jpg" ? sourceVariant.imageSource : item.imagePath
+          : sourceVariant.sourcePath === "/assets/home/downtown-corridor-bridge-daytime-v01.jpg" ? item.imagePath : sourceVariant.imageSource)
+        : item.imagePath;
+      if (sourceVariant && isLead && sourceVariant.sourcePath === "/assets/home/downtown-corridor-bridge-daytime-v01.jpg" && scope.width <= 980) {
+        assert.equal(new URL(await figure.locator("img").evaluate((element) => element.currentSrc)).pathname, "/assets/editorial/development-desk/terra-context-lead-780x355.webp", `${item.id} responsive lead derivative mismatch at ${scope.width}px`);
+      }
+      assert.equal(image.source, expectedImageSource, `${item.id} Desk image source mismatch`);
+      if (variant) {
+        const research = card.locator(".v2-desk-actions a").nth(1);
+        assert.equal(await research.getAttribute("href"), variant.researchHref, `${item.id} research action destination mismatch`);
+        assert.match(normalize(await research.innerText()), new RegExp(variant.researchLabel.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), `${item.id} research action label mismatch`);
+        reviewed.push({ id: item.id, derivative: image.source, caption: variant.label, researchHref: variant.researchHref });
+      } else {
+        fallbacks.push({ id: item.id, source: image.source, caption: expectedLabel });
+      }
+    }
+    assert.equal(reviewed.length, expected.filter((item) => homepageDeskDisplayVariant(item)).length, "Reviewed Desk media count does not match the guarded latest source records");
+    return { reviewed, fallbacks };
   });
 
   await runCheck(results, scope, "canonical Alba news and featured cards retain reviewed facts", async () => {

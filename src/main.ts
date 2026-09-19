@@ -5017,6 +5017,146 @@ function renderHomepageMarketNoteFeature(note: MarketNote) {
   `;
 }
 
+function homepageDeskDisplayVariants() {
+  return [
+  {
+    sourcePath: "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+    sourceTitle: "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+    sourceBuyerTakeaway: "The acquisition expands a master-planned site intended for large-scale mixed-use and residential development; detailed project programming is still to come.",
+    displayTitle: "Terra and Frisbie add a $20M West Palm Beach parcel",
+    displayTakeaway: "The expanded site is planned for mixed-use and residential development; detailed project programming is still to come.",
+    leadDesktopSrc: "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+    leadMobileSrc: "/assets/editorial/development-desk/terra-context-lead-780x355.webp",
+    sourceDimensions: { width: 1920, height: 1080 },
+    label: "West Palm Beach · editorial context",
+    caption: "Downtown bridge and waterfront context for a West Palm Beach development story.",
+    credit: "Approved front-page asset, optimized for site use.",
+    alt: "Downtown bridge and waterfront context in West Palm Beach",
+    researchHref: "/buildings/",
+    researchLabel: "Browse buildings",
+  },
+  {
+    sourcePath: "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg",
+    sourceTitle: "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+    sourceBuyerTakeaway: "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
+    displayTitle: "Unicorp under contract for $200M La Fontana buyout",
+    displayTakeaway: "The contract points to a projected 2027 closing; a future redevelopment program has not yet been established.",
+    thumbnailSrc: "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+    sourceDimensions: { width: 1280, height: 533 },
+    label: "Corridor context",
+    caption: "West Palm Beach corridor orientation.",
+    credit: "User-provided editorial image, optimized for site use.",
+    alt: "Aerial view of the West Palm Beach waterfront corridor",
+    researchHref: "/corridors/north-flagler/",
+    researchLabel: "Explore North Flagler",
+  },
+  {
+    sourcePath: "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+    sourceTitle: "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+    sourceBuyerTakeaway: "Alba offers buyers a completed, move-in-ready new-construction option rather than a future-delivery commitment.",
+    displayTitle: "Alba Palm Beach is complete and move-in ready",
+    displayTakeaway: "Alba offers a completed, move-in-ready option instead of a future-delivery commitment.",
+    thumbnailSrc: "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+    sourceDimensions: { width: 1316, height: 740 },
+    label: "Alba · Architectural rendering",
+    caption: "Alba Palm Beach architectural rendering from approved project marketing materials.",
+    credit: "Alba Palm Beach project marketing materials.",
+    alt: "Alba Palm Beach architectural rendering on the North Flagler waterfront",
+    researchHref: "/projects/alba-palm-beach/",
+    researchLabel: "Explore Alba",
+  },
+  ] as const;
+}
+
+function homepageDeskDisplayVariant(item: ExternalNewsItem) {
+  return homepageDeskDisplayVariants().find((variant) =>
+    variant.sourcePath === item.imagePath &&
+    variant.sourceTitle === item.title &&
+    variant.sourceBuyerTakeaway === item.buyerTakeaway,
+  );
+}
+
+function homepageDeskCopy(item: ExternalNewsItem) {
+  const variant = homepageDeskDisplayVariant(item);
+  return {
+    title: variant?.displayTitle || item.title,
+    takeaway: variant?.displayTakeaway || item.buyerTakeaway || item.whyItMatters || updateArticleContent(item).excerpt,
+    variant,
+  };
+}
+
+function homepageDeskVisual(item: ExternalNewsItem, role: "lead" | "thumbnail") {
+  const sourcePath = item.imagePath || "";
+  if (!sourcePath) return null;
+  const variant = homepageDeskDisplayVariants().find((candidate) => candidate.sourcePath === sourcePath);
+  if (variant) {
+    const hasLeadVariant = role === "lead" && "leadDesktopSrc" in variant;
+    const hasThumbnailVariant = role === "thumbnail" && "thumbnailSrc" in variant;
+    const desktopSrc = hasLeadVariant
+      ? variant.leadDesktopSrc
+      : hasThumbnailVariant
+        ? variant.thumbnailSrc
+        : sourcePath;
+    const mobileSrc = hasLeadVariant ? variant.leadMobileSrc : desktopSrc;
+    const derivativeDimensions = hasLeadVariant
+      ? { width: 1400, height: 636, mobileWidth: 780, mobileHeight: 355 }
+      : hasThumbnailVariant
+        ? { width: 288, height: 216, mobileWidth: 288, mobileHeight: 216 }
+        : { width: variant.sourceDimensions.width, height: variant.sourceDimensions.height, mobileWidth: variant.sourceDimensions.width, mobileHeight: variant.sourceDimensions.height };
+    return {
+      sourcePath,
+      desktopSrc,
+      mobileSrc,
+      width: derivativeDimensions.width,
+      height: derivativeDimensions.height,
+      mobileWidth: derivativeDimensions.mobileWidth,
+      mobileHeight: derivativeDimensions.mobileHeight,
+      label: variant.label,
+      caption: variant.caption,
+      credit: variant.credit,
+      alt: variant.alt,
+    };
+  }
+  return {
+    sourcePath,
+    desktopSrc: sourcePath,
+    mobileSrc: sourcePath,
+    width: undefined,
+    height: undefined,
+    mobileWidth: undefined,
+    mobileHeight: undefined,
+    label: "Development context",
+    caption: "Context image from the approved article record.",
+    credit: "Approved article image.",
+    alt: "West Palm Beach development context",
+  };
+}
+
+function renderHomepageDeskFigure(item: ExternalNewsItem, copyTitle: string, role: "lead" | "thumbnail") {
+  const visual = homepageDeskVisual(item, role);
+  if (!visual) return "";
+  const loading = "lazy";
+  const mobileSource = visual.mobileSrc !== visual.desktopSrc
+    ? `<source media="(max-width: 980px)" srcset="${safeHref(visual.mobileSrc)} ${visual.mobileWidth}w" sizes="90vw" />`
+    : "";
+  const srcset = visual.width
+    ? role === "lead" && visual.mobileSrc !== visual.desktopSrc
+      ? ` srcset="${safeHref(visual.mobileSrc)} ${visual.mobileWidth}w, ${safeHref(visual.desktopSrc)} ${visual.width}w" sizes="(max-width: 1100px) 90vw, calc(49.5vw - 24px)"`
+      : ` srcset="${safeHref(visual.desktopSrc)} ${visual.width}w" sizes="(max-width: 360px) 88px, (max-width: 1100px) 96px, 144px"`
+    : "";
+  const intrinsicDimensions = visual.width && visual.height ? ` width="${visual.width}" height="${visual.height}"` : "";
+  return `
+    <figure class="v2-desk-visual v2-desk-visual-${role}" data-desk-source-path="${escapeHtml(visual.sourcePath)}" data-desk-image-caption="${escapeHtml(visual.caption)}" data-desk-image-credit="${escapeHtml(visual.credit)}">
+      <a class="v2-desk-visual-link" href="${updatePath(item)}" aria-label="Open ${escapeHtml(copyTitle)}">
+        <picture>${mobileSource}<img src="${safeHref(visual.desktopSrc)}"${srcset}${intrinsicDimensions} alt="${escapeHtml(visual.alt)}" loading="${loading}" decoding="async" /></picture>
+      </a>
+      <figcaption class="v2-desk-visual-caption">
+        <span class="v2-desk-image-label">${escapeHtml(visual.label)}</span>
+      </figcaption>
+    </figure>
+  `;
+}
+
 function renderHomepageLatestDevelopments() {
   // Presentation only: retain the three newest approved publications until replaced.
   // Freshness-lane labels do not override publication order or expire a card.
@@ -5030,27 +5170,40 @@ function renderHomepageLatestDevelopments() {
         <a href="/updates/">All development stories <span aria-hidden="true">↗</span></a>
       </header>
       <div class="v2-desk-grid">${latest.map((item, index) => {
+        const copy = homepageDeskCopy(item);
         const projects = relatedProjectsForArticle(item);
         const corridor = corridorSections.find((section) => item.relatedCorridorIds.includes(section.key));
-        const implication = item.buyerTakeaway || item.whyItMatters || updateArticleContent(item).excerpt;
         const published = newsDisplayDate(item);
         const sourceDate = item.sourcePublishedDate || item.sourcePublishedAt;
-        const related = projects[0]
+        const defaultResearchHref = projects[0]
+          ? projectPath(projects[0])
+          : corridor
+            ? corridorPath(corridor.key)
+            : "/buildings/";
+        const related = copy.variant && copy.variant.researchHref === defaultResearchHref
+          ? `<a href="${copy.variant.researchHref}" ${renderCtaTrackingAttrs("home_page", copy.variant.researchLabel)} data-article-id="${escapeHtml(item.id)}">${copy.variant.researchLabel} <span aria-hidden="true">→</span></a>`
+          : projects[0]
           ? `<a href="${projectPath(projects[0])}" ${renderCtaTrackingAttrs("home_page", `Explore ${projects[0].name}`)} data-article-id="${escapeHtml(item.id)}">Explore ${escapeHtml(projects[0].name)} <span aria-hidden="true">→</span></a>`
           : corridor
             ? `<a href="${corridorPath(corridor.key)}">Explore ${escapeHtml(corridor.label)} <span aria-hidden="true">→</span></a>`
-            : '<a href="/buildings/">Explore the building directory <span aria-hidden="true">→</span></a>';
-        return `<article class="v2-desk-story${index === 0 ? " v2-desk-lead" : ""}" data-home-news-id="${escapeHtml(item.id)}">
-          <div class="v2-desk-copy">
-            <p class="v2-desk-date">Published <time datetime="${escapeHtml(published)}">${escapeHtml(formatNewsDate(published))}</time></p>
-            <h3><a href="${updatePath(item)}">${publicText(item.title)}</a></h3>
-            <p class="v2-desk-takeaway">${publicText(implication)}</p>
-            ${sourceDate ? `<p class="v2-desk-source">Source report: <time datetime="${escapeHtml(sourceDate)}">${escapeHtml(formatNewsDate(sourceDate))}</time></p>` : ""}
-            <div class="v2-desk-actions"><a href="${updatePath(item)}">Read the story <span aria-hidden="true">↗</span></a>${related}</div>
+            : '<a href="/buildings/">Browse buildings <span aria-hidden="true">→</span></a>';
+        const lead = index === 0;
+        return `<article class="v2-desk-story${lead ? " v2-desk-lead" : " v2-desk-secondary"}" data-home-news-id="${escapeHtml(item.id)}" data-home-news-original-title="${escapeHtml(item.title)}" data-home-news-original-takeaway="${escapeHtml(item.buyerTakeaway || "")}" data-home-news-display-title="${escapeHtml(copy.title)}">
+          ${lead ? renderHomepageDeskFigure(item, copy.title, "lead") : ""}
+          <div class="v2-desk-story-head">
+            ${lead ? "" : renderHomepageDeskFigure(item, copy.title, "thumbnail")}
+            <div class="v2-desk-copy">
+              <p class="v2-desk-date">Published <time data-news-date="publication" datetime="${escapeHtml(published)}">${escapeHtml(formatNewsDate(published))}</time>${sourceDate ? ` <span aria-hidden="true">·</span> <span class="v2-desk-source">Source report <time data-news-date="source" datetime="${escapeHtml(sourceDate)}">${escapeHtml(formatNewsDate(sourceDate))}</time></span>` : ""}</p>
+              <h3><a href="${updatePath(item)}">${publicText(copy.title)}</a></h3>
+            </div>
+          </div>
+          <div class="v2-desk-story-detail">
+            <p class="v2-desk-takeaway">${publicText(copy.takeaway)}</p>
+            <div class="v2-desk-actions"><a href="${updatePath(item)}">Read story <span aria-hidden="true">↗</span></a>${related}</div>
           </div>
         </article>`;
       }).join("")}</div>
-      <p class="v2-desk-note">Our three latest publications. Publication dates reflect when a story appeared here; source reports may cover earlier events.</p>
+      <p class="v2-desk-note">Our three latest publications; source reports may cover earlier events.</p>
     </section>
   `;
 }
