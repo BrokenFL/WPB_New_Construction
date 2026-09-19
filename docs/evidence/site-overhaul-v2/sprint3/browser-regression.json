@@ -1,0 +1,1104 @@
+{
+  "generatedAt": "2026-09-19T16:03:57.509Z",
+  "configuredModel": "gpt-5.6-luna/max",
+  "origin": "http://127.0.0.1:5188",
+  "testedSha": "63608542c1d9be95138c2c7606d3fe9aec82d80a",
+  "devOriginAllowed": false,
+  "browsers": [
+    "chromium",
+    "webkit"
+  ],
+  "viewports": [
+    1440,
+    390,
+    320
+  ],
+  "expectedHomepageNews": [
+    {
+      "id": "intel-story-7e8443a31a1b3fbb",
+      "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+      "publishedAt": "2026-09-15T04:50:01.037Z",
+      "sourcePublishedDate": "2026-09-09"
+    },
+    {
+      "id": "intel-story-26c1c72f59519b2e",
+      "title": "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+      "publishedAt": "2026-09-15T04:49:30.941Z",
+      "sourcePublishedDate": "2026-07-18"
+    },
+    {
+      "id": "intel-story-544ca384b5f936f2",
+      "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+      "publishedAt": "2026-09-14T18:56:38.846Z",
+      "sourcePublishedDate": "2026-06-22"
+    }
+  ],
+  "limits": [
+    "Lead POSTs are intercepted in Playwright; no external lead is sent.",
+    "Analytics collection and tag-manager requests are aborted in Playwright; this is not a production transport or conversion measurement.",
+    "This script checks rendered behavior and source contracts; it does not run a build."
+  ],
+  "summary": {
+    "total": 72,
+    "passed": 72,
+    "failed": 0
+  },
+  "results": [
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 422,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 7,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 60,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 143.5,
+          "width": 1440,
+          "height": 617.34375
+        },
+        "dimensions": {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "bodyWidth": 1440
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 111,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "newest update route resolves",
+      "status": "passed",
+      "durationMs": 234,
+      "details": {
+        "route": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "Alba related project route resolves",
+      "status": "passed",
+      "durationMs": 261,
+      "details": {
+        "route": "/projects/alba-palm-beach/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "North Flagler related corridor route resolves",
+      "status": "passed",
+      "durationMs": 247,
+      "details": {
+        "route": "/corridors/north-flagler/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 530,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 410,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 316,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 250,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 438.15625,
+        "height": 147
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 555,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 154,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 277,
+      "details": {
+        "destination": "consent-required",
+        "prompt": "visible",
+        "blockedRequests": 0
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 324,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 6,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 58,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 366.765625,
+          "width": 390,
+          "height": 167.1875
+        },
+        "dimensions": {
+          "viewport": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 103,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 471,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 398,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 318,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 230,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 298,
+        "height": 210
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 412,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 145,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 250,
+      "details": {
+        "destination": "consent-required",
+        "prompt": "visible",
+        "blockedRequests": 0
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 322,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 8,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 61,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 380.96875,
+          "width": 320,
+          "height": 137.1875
+        },
+        "dimensions": {
+          "viewport": 320,
+          "documentWidth": 320,
+          "bodyWidth": 320
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 107,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 507,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 386,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 359,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 233,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 236,
+        "height": 273
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 387,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 143,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "chromium",
+      "width": 320,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 256,
+      "details": {
+        "destination": "consent-required",
+        "prompt": "visible",
+        "blockedRequests": 0
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 544,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 5,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 117,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 143.6875,
+          "width": 1440,
+          "height": 617.34375
+        },
+        "dimensions": {
+          "viewport": 1440,
+          "documentWidth": 1440,
+          "bodyWidth": 1440
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 104,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "newest update route resolves",
+      "status": "passed",
+      "durationMs": 245,
+      "details": {
+        "route": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "Alba related project route resolves",
+      "status": "passed",
+      "durationMs": 255,
+      "details": {
+        "route": "/projects/alba-palm-beach/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "North Flagler related corridor route resolves",
+      "status": "passed",
+      "durationMs": 310,
+      "details": {
+        "route": "/corridors/north-flagler/",
+        "status": 200
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 897,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 772,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 689,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 265,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 434.15625,
+        "height": 147
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 575,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 638,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 393,
+      "details": {
+        "destination": "consent-required",
+        "prompt": "visible",
+        "blockedRequests": 0
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 428,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 5,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 69,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 366.484375,
+          "width": 390,
+          "height": 167.1875
+        },
+        "dimensions": {
+          "viewport": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 101,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 786,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 691,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 570,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 293,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 294,
+        "height": 210
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 551,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 646,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 376,
+      "details": {
+        "destination": "consent-required",
+        "prompt": "visible",
+        "blockedRequests": 0
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "homepage newest three published updates",
+      "status": "passed",
+      "durationMs": 442,
+      "details": {
+        "ids": [
+          "intel-story-7e8443a31a1b3fbb",
+          "intel-story-26c1c72f59519b2e",
+          "intel-story-544ca384b5f936f2"
+        ],
+        "publicationLabels": [
+          "Sep 15, 2026",
+          "Sep 15, 2026",
+          "Sep 14, 2026"
+        ]
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "canonical Alba news and featured cards retain reviewed facts",
+      "status": "passed",
+      "durationMs": 8,
+      "details": {
+        "albaNewsId": "intel-story-544ca384b5f936f2",
+        "albaNewsTitle": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+        "albaStatus": {
+          "value": "Completed",
+          "source": "reviewed_override"
+        },
+        "olaraDelivery": {
+          "value": "2028",
+          "source": "reviewed_override"
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "original homepage graphic is visible, loaded, and contained",
+      "status": "passed",
+      "durationMs": 142,
+      "details": {
+        "source": "/assets/home/wpb-end-cap-bridge-v01.png",
+        "naturalWidth": 1915,
+        "naturalHeight": 821,
+        "box": {
+          "x": 0,
+          "y": 381.625,
+          "width": 320,
+          "height": 137.1875
+        },
+        "dimensions": {
+          "viewport": 320,
+          "documentWidth": 320,
+          "bodyWidth": 320
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "homepage anchor activates by keyboard",
+      "status": "passed",
+      "durationMs": 127,
+      "details": {
+        "hash": "#latest-developments"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "gallery opens, Escape closes, and returns focus",
+      "status": "passed",
+      "durationMs": 639,
+      "details": {
+        "triggerLabel": "Open Private Patio in the image viewer"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "floorplan viewer opens and closes on Escape",
+      "status": "passed",
+      "durationMs": 682,
+      "details": {
+        "title": "Residence A"
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "compare selections carry context into inquiry",
+      "status": "passed",
+      "durationMs": 545,
+      "details": {
+        "selected": [
+          "olara",
+          "shorecrest"
+        ],
+        "selectedNames": [
+          "Olara West Palm Beach",
+          "Shorecrest"
+        ],
+        "primaryProject": "olara",
+        "context": "compare_shortlist",
+        "requestSummary": "YOUR REQUEST Compare my shortlist For: Olara West Palm Beach · Shorecrest Brooke and the team will review the buildings you explicitly selected and respond.",
+        "mobileFacts": 50,
+        "desktopFacts": 50
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "inquiry consent is readable on narrow screens",
+      "status": "passed",
+      "durationMs": 283,
+      "details": {
+        "fontSize": 14,
+        "lineHeight": 21,
+        "width": 232,
+        "height": 273
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "inquiry lead flow handles intercepted 503 then 200",
+      "status": "passed",
+      "durationMs": 428,
+      "details": {
+        "interceptedStatuses": [
+          503,
+          200
+        ],
+        "requestCount": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "floorplan viewer inquiry preserves plan context without a second POST",
+      "status": "passed",
+      "durationMs": 620,
+      "details": {
+        "project": "alba-palm-beach",
+        "projectName": "Alba Palm Beach",
+        "plan": "Residence A",
+        "leadPosts": 2
+      }
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "name": "analytics remains blocked before consent",
+      "status": "passed",
+      "durationMs": 314,
+      "details": {
+        "destination": "consent-required",
+        "prompt": "visible",
+        "blockedRequests": 0
+      }
+    }
+  ]
+}

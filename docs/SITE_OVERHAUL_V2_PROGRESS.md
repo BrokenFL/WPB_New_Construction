@@ -1,6 +1,18 @@
 # WPB V2 overhaul — review record
 
-## Current milestone
+## Current sprint — focused art direction
+
+Sprint 3 continues draft PR [#115](https://github.com/BrokenFL/WPB_New_Construction/pull/115) on `codex/site-overhaul-v2`, from milestone-2 head `431b57dede3a23840f9c893d7c5ae2bedcbb27c8`. The [sprint evidence](evidence/site-overhaul-v2/sprint3/README.md) records the initial visual critique, improvement cycles, image provenance, before/after captures, independent reviewer findings and exact tested source identity. It supersedes earlier aesthetic grades for the current homepage; prior evidence remains historical.
+
+The first impression now combines a solid ink masthead, a single image-led hero, a clear serif headline and direct building/compare/latest-story paths. The hero reuses the existing user-provided Shorecrest project rendering with an explicit rendering caption. No image pixels or architecture were generated. The original closing bridge remains unchanged. Quieter utility links, an asymmetric Development Desk, taller building images with subject-aware crops, flatter metadata, coordinated compare/NORA controls and balanced advisory/guide panels improve the page's hierarchy and rhythm. Initial hero copy now matches the existing commercial content before hydration.
+
+Only restrained fine-pointer image hover and brief transitions remain; reduced motion disables them. No new motion library, parallax, autoplay, content pipeline or project facts were introduced. Existing shortlist, comparison, plan, inquiry-context, Maps and consent behavior is retained. This is a visual sprint over the functioning V2, not an architecture restart.
+
+Final implementation source: `63608542c1d9be95138c2c7606d3fe9aec82d80a`. The later evidence commit contains documentation/screenshots only. The pushed PR head and final-head CI are recorded in the PR handoff, separately from local validation. No merge or deployment was performed.
+
+Built preview: `http://127.0.0.1:5188/` (local, write requests refused); editable preview: `http://127.0.0.1:5186/`. Source-resolution limits in the reused hero, long mobile news/comparison sections, mixed inherited guidance components and unmeasured physical-device/field performance remain explicit limitations.
+
+## Milestone 2 — historical implementation record
 
 Milestone 2 continues draft PR [#115](https://github.com/BrokenFL/WPB_New_Construction/pull/115) on `codex/site-overhaul-v2`. It builds on the successful first V2 milestone; it is not a production release. Current evidence, scores, exact commit identities and validation are in [milestone 2 evidence](evidence/site-overhaul-v2/milestone2/README.md). The [first milestone record](evidence/site-overhaul-v2/README.md) remains historical evidence, including its below-target mobile score.
 

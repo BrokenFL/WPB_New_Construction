@@ -1,0 +1,305 @@
+{
+  "implementationSha": "63608542c1d9be95138c2c7606d3fe9aec82d80a",
+  "routeCaptureSha": "8b6d70a3c3e07b7794abd07b5b837a806386faef",
+  "routeCaptureCount": 24,
+  "routeCaptures": [
+    {
+      "route": "/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/buildings/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/projects/olara/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/projects/berkeley/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/compare/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/inquire/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/buildings/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/projects/olara/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/projects/berkeley/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/compare/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/inquire/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/buildings/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/projects/olara/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/projects/berkeley/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/compare/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "errors": []
+    },
+    {
+      "route": "/inquire/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "brokenImages": [],
+      "errors": []
+    }
+  ],
+  "homeViewportMatrix": [
+    {
+      "width": 1440,
+      "errors": [],
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "headerHeight": 92,
+      "heroHeight": 690,
+      "newsHeight": 874.40625,
+      "stories": 3,
+      "brokenImages": []
+    },
+    {
+      "width": 1024,
+      "errors": [],
+      "documentWidth": 1024,
+      "bodyWidth": 1024,
+      "headerHeight": 132,
+      "heroHeight": 680,
+      "newsHeight": 868.65625,
+      "stories": 3,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "errors": [],
+      "documentWidth": 768,
+      "bodyWidth": 768,
+      "headerHeight": 132,
+      "heroHeight": 680,
+      "newsHeight": 1228.359375,
+      "stories": 3,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "errors": [],
+      "documentWidth": 390,
+      "bodyWidth": 390,
+      "headerHeight": 111,
+      "heroHeight": 650,
+      "newsHeight": 1468.046875,
+      "stories": 3,
+      "brokenImages": []
+    },
+    {
+      "width": 320,
+      "errors": [],
+      "documentWidth": 320,
+      "bodyWidth": 320,
+      "headerHeight": 115,
+      "heroHeight": 650,
+      "newsHeight": 1754.359375,
+      "stories": 3,
+      "brokenImages": []
+    }
+  ],
+  "finalDelta": "a26faad strengthens NORA link CSS specificity; 6360854 contains native comparison-select label text with overflow/ellipsis/nowrap for WebKit320. Final browser QA verifies default long names, selection and strict body/document containment. Intermediate 059d44a container-minimum-width attempt was insufficient and removed.",
+  "noraComputedStyles": [
+    {
+      "width": 1440,
+      "links": [
+        {
+          "text": "View all Downtown Spotlights \u2192",
+          "fontSize": "13px",
+          "fontWeight": "500",
+          "textTransform": "none",
+          "height": 44
+        },
+        {
+          "text": "Read Downtown Spotlight \u2192",
+          "fontSize": "13px",
+          "fontWeight": "500",
+          "textTransform": "none",
+          "height": 44
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "links": [
+        {
+          "text": "View all Downtown Spotlights \u2192",
+          "fontSize": "13px",
+          "fontWeight": "500",
+          "textTransform": "none",
+          "height": 44
+        },
+        {
+          "text": "Read Downtown Spotlight \u2192",
+          "fontSize": "13px",
+          "fontWeight": "500",
+          "textTransform": "none",
+          "height": 44
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "public/assets/styles/v2-editorial.css": "22475be924dec96e202cb68f174c0f03e48e2eba7df9a5c40e6e7bf24039060d",
+    "research/scripts/check-hero-images.mjs": "b81bcebc50fbabc85d92e8ed3fafe2ffe53e80224a008d639d4cf2f30b1dd7a4",
+    "src/data/homeHeroImages.ts": "7afb71aa7cfb644668d370b4e341a614f3b9c6516a5a180ee15727806c639fca",
+    "src/data/homepageAssets.ts": "855f9a9cb3682254b6b6a0e56380db868613643d1292d61fdb484a666833d773",
+    "src/main.ts": "dbdaec52bffc779127a90f89600a22eaa24097a47877ab4f2bbd7c53b471d1a5"
+  },
+  "homeFullCaptureSha": "a26faad73518e8663bcc8177e3f1b63dfa90b12d"
+}
