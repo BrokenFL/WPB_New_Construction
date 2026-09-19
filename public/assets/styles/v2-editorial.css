@@ -124,6 +124,7 @@ body .lead-modal .lead-consent-row > span { color: var(--v2-muted); font-size: 1
 .site-shell .home-spotlight-module .home-spotlight-content > a { width: fit-content; margin-top: 2px; border: 1px solid rgba(255,250,241,.5); padding: 10px 12px; color: var(--v2-paper); background: transparent; text-decoration: none; }
 .site-shell .home-compare-launcher { background: var(--v2-home-ink); }
 .site-shell .home-compare-launcher .eyebrow { color: #c9b797; }
+.site-shell .home-compare-picker-grid { min-width: 0; }
 .site-shell .home-compare-picker-grid label { color: rgba(255,250,241,.76); font-size: 11px; font-weight: 500; line-height: 1.4; letter-spacing: .02em; text-transform: none; }
 .site-shell .home-compare-picker-grid select { min-width: 0; max-width: 100%; min-height: 44px; border: 1px solid rgba(255,250,241,.3); border-radius: 0; padding: 10px 12px; color: var(--v2-paper); background: rgba(255,250,241,.08); font-size: 14px; font-weight: 500; line-height: 1.4; }
 .site-shell .home-compare-preview { min-width: 0; border: 1px solid rgba(255,250,241,.24); border-radius: 0; background: rgba(255,250,241,.06); }
