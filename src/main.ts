@@ -472,6 +472,9 @@ const homepageHeroMobileSrcSet = homepageAssets.hero.mobileSrcSet.map(({ src, wi
 const homepageHeroSelection = activeHomeHeroImages[0] || homeHeroImages[0];
 const homepageHeroAlt = homepageHeroSelection.alt;
 const homepageHeroCaption = homepageHeroSelection.caption;
+const homepageHeroCaptionMarkup = homepageHeroCaption
+  ? `<figcaption class="home-hero-caption" data-home-hero-caption>${escapeHtml(homepageHeroCaption)}</figcaption>`
+  : "";
 const homepageHeroUsesOverride = Boolean(approvedHeroImageOverride?.imagePath);
 const homepageHeroSourceMarkup = homepageHeroUsesOverride
   ? ""
@@ -2398,7 +2401,7 @@ app.innerHTML = `
             ${homepageHeroSourceMarkup}
             <img class="home-hero-image is-active" data-home-hero-layer="active" src="${homepageHeroImageSrc}"${homepageHeroResponsiveAttrs} alt="${escapeHtml(homepageHeroAlt)}" loading="eager" decoding="async" fetchpriority="high"${homepageHeroImageStyle} />
           </picture>
-          <figcaption class="home-hero-caption" data-home-hero-caption>${escapeHtml(homepageHeroCaption)}</figcaption>
+          ${homepageHeroCaptionMarkup}
         </figure>
         <div class="home-hero-scrim"></div>
         <div class="home-hero-layout">

@@ -1,0 +1,16 @@
+{
+  "tool": "built-in imagegen",
+  "selectedTreatment": "restrained editorial finish",
+  "sourceRole": "user-supplied edit target and sole geometry reference",
+  "selectedPrompt": "Apply a very restrained luxury editorial finishing pass to this exact aerial. Reduce the slightly painterly/synthetic surface, gently improve natural color separation and clarity, soften harsh micro-texture, balance highlights and shadows, and retain a realistic polished photographic finish. Preserve the original landscape frame, time of day, light direction, sky, reflections, architecture, roads, bridge, shoreline, marina, boats, vegetation and geography exactly. Change color grade, noise, tonal balance and subtle clarity only. Do not add, remove, redesign, repair, outpaint or reinterpret any object. No text, labels, logos, borders, watermarks, badges or UI.",
+  "rejectedTreatments": [
+    {
+      "name": "strong golden-hour finish",
+      "reason": "Rejected because it added clouds and a stronger sun reflection and pushed the texture too far."
+    },
+    {
+      "name": "generated portrait crop",
+      "reason": "Rejected because it introduced sky detail. Mobile production assets use a deterministic crop from the selected landscape master."
+    }
+  ]
+}

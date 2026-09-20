@@ -9,12 +9,11 @@ export type HomeHeroImage = {
 
 export const homeHeroImages: readonly HomeHeroImage[] = [
   {
-    id: "shorecrest-waterfront-rendering",
-    src: "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
-    alt: "Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.",
-    caption: "Shorecrest · AI-assisted architectural rendering",
-    credit: "AI-assisted tonal finish derived from the approved Shorecrest full-tower panorama; original source asset preserved.",
-    corridorKey: "north-flagler",
+    id: "wpb-citywide-aerial-editorial",
+    src: "/assets/editorial/wpb-aerial-editorial-hero-v01-1672w.webp",
+    alt: "Illustrated aerial view across downtown West Palm Beach, the Intracoastal Waterway, and Palm Beach.",
+    caption: "",
+    credit: "User-supplied generated aerial with a restrained ImageGen editorial finish; source and selected master are preserved in the PR evidence.",
   },
   {
     id: "wpb-waterfront-bridge",

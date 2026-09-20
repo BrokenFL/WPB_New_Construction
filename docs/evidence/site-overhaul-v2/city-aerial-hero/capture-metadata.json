@@ -1,0 +1,31 @@
+{
+  "capturedAt": "2026-09-20T23:00:00-04:00",
+  "origin": "http://127.0.0.1:5188/",
+  "desktop": {
+    "viewport": [1440, 900],
+    "currentSrc": "/assets/editorial/wpb-aerial-editorial-hero-v01-1672w.webp",
+    "displaySize": [1440, 690],
+    "captionCount": 0,
+    "documentScrollWidth": 1440,
+    "documentClientWidth": 1440
+  },
+  "mobile": {
+    "viewport": [390, 844],
+    "currentSrc": "/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-390w.webp",
+    "naturalSize": [390, 807],
+    "displaySize": [390, 760],
+    "captionCount": 0,
+    "documentScrollWidth": 390,
+    "documentClientWidth": 390
+  },
+  "console": {
+    "errors": 0,
+    "warnings": 1,
+    "note": "Existing local Google Maps development warning; unrelated to the hero."
+  },
+  "captures": [
+    "after/home-hero-desktop-1440x900.png",
+    "after/home-hero-mobile-390x844.png",
+    "after/home-hero-to-desk-mobile-390x844.png"
+  ]
+}

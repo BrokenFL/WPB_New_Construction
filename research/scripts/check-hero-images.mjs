@@ -20,7 +20,7 @@ const heroSource = read("src/data/homeHeroImages.ts");
 const mainSource = read("src/main.ts");
 const styleSource = read("src/style.css");
 
-const imageBlocks = [...heroSource.matchAll(/\{[\s\S]*?id:\s*"([^"]+)"[\s\S]*?src:\s*"([^"]+)"[\s\S]*?alt:\s*"([^"]+)"[\s\S]*?caption:\s*"([^"]+)"[\s\S]*?\}/g)]
+const imageBlocks = [...heroSource.matchAll(/\{[\s\S]*?id:\s*"([^"]+)"[\s\S]*?src:\s*"([^"]+)"[\s\S]*?alt:\s*"([^"]+)"[\s\S]*?caption:\s*"([^"]*)"[\s\S]*?\}/g)]
   .map((match) => ({ id: match[1], src: match[2], alt: match[3], caption: match[4] }));
 
 if (imageBlocks.length < 4 || imageBlocks.length > 6) {
@@ -28,26 +28,26 @@ if (imageBlocks.length < 4 || imageBlocks.length > 6) {
 }
 
 const selectedHero = imageBlocks[0];
-const selectedHeroPath = "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp";
-const selectedMobileHeroPath = "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp";
+const selectedHeroPath = "/assets/editorial/wpb-aerial-editorial-hero-v01-1672w.webp";
+const selectedMobileHeroPath = "/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-455w.webp";
 const selectedDesktopSrcSet = [
-  ["/assets/editorial/shorecrest-hero-b-warm-mineral-v01-960w.webp", 960],
-  ["/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1280w.webp", 1280],
+  ["/assets/editorial/wpb-aerial-editorial-hero-v01-960w.webp", 960],
+  ["/assets/editorial/wpb-aerial-editorial-hero-v01-1280w.webp", 1280],
   [selectedHeroPath, 1672],
 ];
 const selectedMobileSrcSet = [
-  ["/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp", 390],
+  ["/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-390w.webp", 390],
   [selectedMobileHeroPath, 455],
 ];
-if (selectedHero?.id !== "shorecrest-waterfront-rendering" || selectedHero?.src !== selectedHeroPath) {
-  fail("Homepage hero must use the selected versioned Shorecrest ImageGen treatment.");
+if (selectedHero?.id !== "wpb-citywide-aerial-editorial" || selectedHero?.src !== selectedHeroPath) {
+  fail("Homepage hero must use the selected versioned citywide aerial treatment.");
 }
-if (!/architectural rendering/i.test(selectedHero?.alt ?? "") || !/AI-assisted/i.test(selectedHero?.alt ?? "") || !/architectural rendering/i.test(selectedHero?.caption ?? "") || !/AI-assisted/i.test(selectedHero?.caption ?? "")) {
-  fail("The selected hero must identify the Shorecrest architectural rendering and its AI-assisted finish in alt text and caption.");
+if (!/illustrated aerial view/i.test(selectedHero?.alt ?? "") || /AI-assisted/i.test(selectedHero?.alt ?? "") || selectedHero?.caption !== "") {
+  fail("The selected hero must use descriptive citywide alt text and no visible AI warning or caption.");
 }
 const homepageAssetSource = read("src/data/homepageAssets.ts");
 if (!homepageAssetSource.includes(`desktop: "${selectedHeroPath}"`) || !homepageAssetSource.includes(`mobile: "${selectedMobileHeroPath}"`)) {
-  fail("Desktop and mobile homepage hero assets must use the selected responsive Shorecrest treatment.");
+  fail("Desktop and mobile homepage hero assets must use the selected responsive citywide treatment.");
 }
 for (const [assetPath, width] of [...selectedDesktopSrcSet, ...selectedMobileSrcSet]) {
   if (!homepageAssetSource.includes(`src: "${assetPath}"`) || !homepageAssetSource.includes(`width: ${width}`)) {
@@ -65,9 +65,13 @@ for (const image of imageBlocks) {
   if (/^(image|project image|developer image|rendering|interior image|amenity image)$/i.test(image.alt.trim())) {
     fail(`Hero image has weak alt text: ${image.id}`);
   }
-  if (!image.caption.trim()) {
+  if (image.id !== "wpb-citywide-aerial-editorial" && !image.caption.trim()) {
     fail(`Hero image is missing a caption: ${image.id}`);
   }
+}
+
+if (!mainSource.includes("const homepageHeroCaptionMarkup = homepageHeroCaption")) {
+  fail("Homepage hero caption markup must be omitted when the selected editorial hero has no public caption.");
 }
 
 const heroMarkup = mainSource.slice(mainSource.indexOf("<section class=\"home-hero\""), mainSource.indexOf("<section class=\"hero-proof-strip\""));

@@ -1,15 +1,15 @@
 export const homepageAssets = {
   hero: {
-    desktop: "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+    desktop: "/assets/editorial/wpb-aerial-editorial-hero-v01-1672w.webp",
     desktopSrcSet: [
-      { src: "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-960w.webp", width: 960 },
-      { src: "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1280w.webp", width: 1280 },
-      { src: "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp", width: 1672 },
+      { src: "/assets/editorial/wpb-aerial-editorial-hero-v01-960w.webp", width: 960 },
+      { src: "/assets/editorial/wpb-aerial-editorial-hero-v01-1280w.webp", width: 1280 },
+      { src: "/assets/editorial/wpb-aerial-editorial-hero-v01-1672w.webp", width: 1672 },
     ],
-    mobile: "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp",
+    mobile: "/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-455w.webp",
     mobileSrcSet: [
-      { src: "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp", width: 390 },
-      { src: "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp", width: 455 },
+      { src: "/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-390w.webp", width: 390 },
+      { src: "/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-455w.webp", width: 455 },
     ],
     width: 1672,
     height: 941,
