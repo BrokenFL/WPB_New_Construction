@@ -1,5 +1,11 @@
 # WPB V2 overhaul — review record
 
+## Focused follow-up — four-area homepage collection
+
+This bounded continuation of draft PR #115 keeps the completed hero, masthead, Development Desk, closing artwork and buyer journeys intact while making the selected homepage preview more intentional. The collection now uses the exact order Olara / North Flagler, Nora House / Downtown, South Flagler House / South Flagler and OLIN Palm Beach / Palm Beach, with the copy `4 buildings, four different areas.` and `A curated preview across North Flagler, Downtown, South Flagler, and Palm Beach, drawn from 24 tracked buildings.` The existing selected-examples note and both complete-directory actions remain. Four-up desktop, two-by-two tablet and one-up mobile layouts use square media frames and aligned card actions.
+
+OLIN uses the existing approved side-exterior asset, published from the user-provided approved PNG through the asset publisher; no new or generated imagery was introduced. [Focused evidence](evidence/site-overhaul-v2/homepage-four-area/README.md) includes the prior three-card references, fresh full-section Chromium desktop/tablet/mobile captures, loaded image metadata and the visual checks. Typecheck, build/postbuild, `qa:discovery-coherence` (36/36 Chromium/WebKit checks) and diff hygiene passed. Implementation source: `e580c04e0bd7b456f119043b4b89e699a47cbb90`; the later evidence commit contains documentation and captures only. Sol extra-high owned the ordering and composition decision, Luna Max handled the bounded implementation and capture work, and the lead performed the closing integration check. No model substitution was needed. Merge and deployment remain withheld.
+
 ## Current milestone — discovery and site coherence
 
 This milestone continues draft PR #115 from `c2b2a00c01da5f46299d32092d0525e3b8fcd14c` and preserves the completed hero, Development Desk, bridge artwork, consent, Maps and buyer-flow contracts. It clarifies how visitors move from a representative homepage selection into all 24 buildings, all five areas, individual guides, comparison and relevant article research. It also replaces the active legacy-purple icon family with a reproducible WPB identity and keeps “WPB New Construction” as three words in site metadata.
