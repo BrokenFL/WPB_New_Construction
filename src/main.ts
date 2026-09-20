@@ -1616,7 +1616,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     documents: [
       { label: "Advisor Packet", title: "Request current Olara materials", note: "Pricing, availability, floorplans, fees, and contract guidance" },
-      { label: "Reviewed Materials", title: "Official project, architecture, brochure, amenity, and floorplan materials reviewed", note: "Verification details are kept internal." },
+      { label: "Reviewed Materials", title: "Official project, architecture, brochure, amenity, and floorplan materials reviewed", note: "Verification details are available during a buyer consultation." },
     ],
     needed: [
       "Current residence count from the latest fact sheet",
@@ -1656,7 +1656,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     documents: [
       { label: "Advisor Packet", title: "Request current Ritz-Carlton materials", note: "Availability, floorplans, service details, pricing, and buyer guidance" },
-      { label: "Reviewed Materials", title: "Official project, Related Group, and floorplan materials reviewed", note: "Verification details are kept internal." },
+      { label: "Reviewed Materials", title: "Official project, Related Group, and floorplan materials reviewed", note: "Verification details are available during a buyer consultation." },
     ],
     needed: [
       "Current design-team confirmation from the latest official materials",
@@ -1771,7 +1771,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     documents: [
       { label: "Advisor Packet", title: "Request current Shorecrest materials", note: "Availability, line details, pricing, fees, and buyer guidance" },
-      { label: "Reviewed Materials", title: "Official site, floorplan, fact sheet, brochure, and Related Ross materials reviewed", note: "Verification details are kept internal." },
+      { label: "Reviewed Materials", title: "Official site, floorplan, fact sheet, brochure, and Related Ross materials reviewed", note: "Verification details are available during a buyer consultation." },
     ],
     needed: [
       "Final legal address confirmation",
@@ -2048,7 +2048,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     documents: [
       { label: "Advisor Packet", title: "Request current South Flagler House materials", note: "Availability, line details, pricing, fees, and buyer guidance" },
-      { label: "Reviewed Materials", title: "Official site and fact sheet materials reviewed", note: "Verification details are kept internal." },
+      { label: "Reviewed Materials", title: "Official site and fact sheet materials reviewed", note: "Verification details are available during a buyer consultation." },
     ],
     needed: [
       "Project renderings and logo sequence",
@@ -3684,7 +3684,7 @@ function initWebMcpTools() {
       execute: () => ({
         routes: routeSummaries,
         guidance:
-          "Use internal WPB routes first. Pricing, availability, fees, incentives, square footage, delivery dates, and contract terms require current confirmation through /inquire/.",
+          "Use WPB New Construction routes first. Pricing, availability, fees, incentives, square footage, delivery dates, and contract terms require current confirmation through /inquire/.",
       }),
     },
     {
