@@ -1,0 +1,20 @@
+{
+  "origin": "http://127.0.0.1:5188",
+  "route": "/projects/alba-palm-beach/",
+  "results": {
+    "ssrNoJavaScript": {
+      "httpStatus": 200,
+      "status": "Completed",
+      "heroText": "",
+      "completedLeafVisible": true,
+      "rawStatusCount": 1
+    },
+    "client": {
+      "httpStatus": 200,
+      "status": "",
+      "heroText": "AlbaPalm Beach",
+      "completedLeafVisible": true,
+      "rawStatusCount": 0
+    }
+  }
+}

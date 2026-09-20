@@ -1,6 +1,18 @@
 # WPB V2 overhaul — review record
 
-## Current sprint — image-led Development Desk
+## Current milestone — final composition and integration
+
+This milestone continues draft PR #115 from `ca7893df1315fd484382a515b99c7ffb0fecd199`. It preserves the selected warm hero pixels, responsive derivatives, masthead, image-led Development Desk, newest-three publishing logic and original bridge artwork. The work resolves whole-page typography and actions, the phone opening, Alba's canonical-status presentation and the static hero's accessible/loading contract. It adds isolated future-news fixtures and targeted browser regressions without another content system or redesign.
+
+Implementation source: `1d0dc31e15d0ae1916ad187f2575317436f9ea68`. Later evidence commits contain documentation and screenshots only unless explicitly recorded otherwise in the final evidence.
+
+The [final integration evidence](evidence/site-overhaul-v2/final-integration/README.md) records the rendered critique, two focused visual correction rounds, source comparison, final captures and verification. The independent Astra extra-high reviewer judged the result 8.2/10 overall (desktop 8.4, phone 8.2, tablet 7.9). The tablet's inherited 2+1 featured grid remains less resolved; the score is not inflated to meet a target. Luna Max handled bounded implementation/capture work, Luna low ran the final bounded integration checks, and GPT-5.6 Sol extra-high performed the closing consequential review requested by Brooke. The lead retained integration ownership.
+
+The [integration checklist](SITE_OVERHAUL_V2_FINAL_INTEGRATION.md) separates completed repairs from two owner decisions: the AI-assisted hero's architectural differences and the La Fontana citation/date pairing. No approved editorial data, canonical facts or public image assets are changed in this milestone. This is readiness for Brooke's review, not release approval.
+
+Local verification at test HEAD `13d8f79cedfd062c5cc6c90c53456bde097a5d30` passed typecheck, plain build, the full repository test command, 54/54 final gap checks, 12/12 rendered static-hero checks, 84/84 milestone browser checks, synthetic-consent journeys and keyed Maps. The plain build was restored and is available at `http://127.0.0.1:5188/`; write requests are refused. [Full desktop/mobile, consecutive-phone and WebKit evidence](evidence/site-overhaul-v2/final-integration/visual-inspection.md) is tied to that source. Final pushed-head and CI identity belong to the later evidence commit and remain separate from this local result.
+
+## Previous sprint — image-led Development Desk
 
 This focused presentation sprint continues draft PR #115 from `5041bc179ac784300fa01fd32e399f2e8668c4d4`. The three newest approved publications and their genuine order remain controlled by the existing news pipeline. The selected warm hero, responsive derivatives, masthead and original closing artwork are locked.
 

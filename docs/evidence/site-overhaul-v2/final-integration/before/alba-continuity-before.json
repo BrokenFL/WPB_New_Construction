@@ -1,0 +1,604 @@
+{
+  "capturedAtUtc": "2026-09-19T21:30:12.120Z",
+  "origin": "http://127.0.0.1:5188",
+  "gitHead": "ca7893df1315fd484382a515b99c7ffb0fecd199",
+  "scope": "Alba canonical-status continuity baseline; static/direct/reload/SPA/back, directory/card/project/compare and raw JSON-LD omission",
+  "canonicalExpected": "Completed",
+  "states": [
+    {
+      "route": "buildings",
+      "phase": "directory-direct",
+      "url": "/buildings/",
+      "activeRoute": "buildings",
+      "card": {
+        "selector": "[data-project-card=\"alba-palm-beach\"]",
+        "status": "Completed",
+        "text": "Alba\n        \n          NORTH FLAGLER\n          Completed\n        \n        \n          Sales OfficeYes\n          Delivery guidance2Q 2026\n        \n        Boutique North Flagler waterfront living with just 55 residences, oversized terraces, private elevators, and a quieter luxury profile for buyers who want new construc",
+        "href": "/projects/alba-palm-beach/"
+      },
+      "hero": null,
+      "quickFacts": [],
+      "quickFactStatus": "",
+      "entityStatus": "",
+      "compareCards": [],
+      "compareAlbaCards": [],
+      "compareStatusRows": [],
+      "jsonLd": [
+        {
+          "index": 0,
+          "hasAlbaNode": true,
+          "albaNodeTypes": [
+            "ItemList"
+          ],
+          "albaKeys": [
+            "@type",
+            "@id",
+            "name",
+            "itemListElement"
+          ],
+          "albaStatusValues": [
+            null
+          ],
+          "rawContainsStatusField": false,
+          "rawContainsAlbaStatusText": false
+        }
+      ]
+    },
+    {
+      "route": "buildings",
+      "phase": "directory-reload",
+      "url": "/buildings/",
+      "activeRoute": "buildings",
+      "card": {
+        "selector": "[data-project-card=\"alba-palm-beach\"]",
+        "status": "Completed",
+        "text": "Alba\n        \n          NORTH FLAGLER\n          Completed\n        \n        \n          Sales OfficeYes\n          Delivery guidance2Q 2026\n        \n        Boutique North Flagler waterfront living with just 55 residences, oversized terraces, private elevators, and a quieter luxury profile for buyers who want new construc",
+        "href": "/projects/alba-palm-beach/"
+      },
+      "hero": null,
+      "quickFacts": [],
+      "quickFactStatus": "",
+      "entityStatus": "",
+      "compareCards": [],
+      "compareAlbaCards": [],
+      "compareStatusRows": [],
+      "jsonLd": [
+        {
+          "index": 0,
+          "hasAlbaNode": true,
+          "albaNodeTypes": [
+            "ItemList"
+          ],
+          "albaKeys": [
+            "@type",
+            "@id",
+            "name",
+            "itemListElement"
+          ],
+          "albaStatusValues": [
+            null
+          ],
+          "rawContainsStatusField": false,
+          "rawContainsAlbaStatusText": false
+        }
+      ]
+    },
+    {
+      "route": "project",
+      "phase": "spa-directory-card-to-project",
+      "url": "/projects/alba-palm-beach/",
+      "activeRoute": "project",
+      "card": null,
+      "hero": {
+        "status": "Under Construction",
+        "tags": [
+          {
+            "label": "Status",
+            "value": "Under Construction"
+          },
+          {
+            "label": "Corridor",
+            "value": "North Flagler"
+          },
+          {
+            "label": "Sales",
+            "value": "Active Sales"
+          }
+        ]
+      },
+      "quickFacts": [
+        {
+          "label": "Residences",
+          "value": "55"
+        },
+        {
+          "label": "Stories",
+          "value": "22"
+        },
+        {
+          "label": "Sq Ft",
+          "value": "1,778-4,500 sq ft"
+        },
+        {
+          "label": "Bedrooms",
+          "value": "2-4"
+        },
+        {
+          "label": "Pricing",
+          "value": "$2.5M-$7.8M"
+        }
+      ],
+      "quickFactStatus": "",
+      "entityStatus": "",
+      "compareCards": [],
+      "compareAlbaCards": [],
+      "compareStatusRows": [],
+      "jsonLd": [
+        {
+          "index": 0,
+          "hasAlbaNode": true,
+          "albaNodeTypes": [
+            "BreadcrumbList",
+            "ApartmentComplex"
+          ],
+          "albaKeys": [
+            "@type",
+            "itemListElement",
+            "@type",
+            "@id",
+            "name",
+            "latitude",
+            "longitude",
+            "description",
+            "url",
+            "image",
+            "areaServed",
+            "containedInPlace",
+            "numberOfAccommodationUnits",
+            "dateModified",
+            "subjectOf",
+            "hasPart",
+            "reviewedBy",
+            "amenityFeature"
+          ],
+          "albaStatusValues": [
+            null,
+            null
+          ],
+          "rawContainsStatusField": false,
+          "rawContainsAlbaStatusText": false
+        }
+      ]
+    },
+    {
+      "route": "project",
+      "phase": "project-reload",
+      "url": "/projects/alba-palm-beach/",
+      "activeRoute": "project",
+      "card": null,
+      "hero": {
+        "status": "Under Construction",
+        "tags": [
+          {
+            "label": "Status",
+            "value": "Under Construction"
+          },
+          {
+            "label": "Corridor",
+            "value": "North Flagler"
+          },
+          {
+            "label": "Sales",
+            "value": "Active Sales"
+          }
+        ]
+      },
+      "quickFacts": [
+        {
+          "label": "Residences",
+          "value": "55"
+        },
+        {
+          "label": "Stories",
+          "value": "22"
+        },
+        {
+          "label": "Sq Ft",
+          "value": "1,778-4,500 sq ft"
+        },
+        {
+          "label": "Bedrooms",
+          "value": "2-4"
+        },
+        {
+          "label": "Pricing",
+          "value": "$2.5M-$7.8M"
+        }
+      ],
+      "quickFactStatus": "",
+      "entityStatus": "",
+      "compareCards": [],
+      "compareAlbaCards": [],
+      "compareStatusRows": [],
+      "jsonLd": [
+        {
+          "index": 0,
+          "hasAlbaNode": true,
+          "albaNodeTypes": [
+            "WebPage",
+            "BreadcrumbList",
+            "ApartmentComplex"
+          ],
+          "albaKeys": [
+            "@type",
+            "@id",
+            "name",
+            "url",
+            "description",
+            "isPartOf",
+            "reviewedBy",
+            "@type",
+            "itemListElement",
+            "@type",
+            "@id",
+            "name",
+            "url",
+            "description",
+            "latitude",
+            "longitude",
+            "image",
+            "areaServed",
+            "containedInPlace",
+            "numberOfAccommodationUnits",
+            "subjectOf",
+            "reviewedBy"
+          ],
+          "albaStatusValues": [
+            null,
+            null,
+            null
+          ],
+          "rawContainsStatusField": false,
+          "rawContainsAlbaStatusText": false
+        }
+      ]
+    },
+    {
+      "route": "buildings",
+      "phase": "back-project-to-directory",
+      "url": "/buildings/",
+      "activeRoute": "buildings",
+      "card": {
+        "selector": "[data-project-card=\"alba-palm-beach\"]",
+        "status": "Completed",
+        "text": "Alba\n        \n          NORTH FLAGLER\n          Completed\n        \n        \n          Sales OfficeYes\n          Delivery guidance2Q 2026\n        \n        Boutique North Flagler waterfront living with just 55 residences, oversized terraces, private elevators, and a quieter luxury profile for buyers who want new construc",
+        "href": "/projects/alba-palm-beach/"
+      },
+      "hero": null,
+      "quickFacts": [],
+      "quickFactStatus": "",
+      "entityStatus": "",
+      "compareCards": [],
+      "compareAlbaCards": [],
+      "compareStatusRows": [],
+      "jsonLd": [
+        {
+          "index": 0,
+          "hasAlbaNode": true,
+          "albaNodeTypes": [
+            "ItemList"
+          ],
+          "albaKeys": [
+            "@type",
+            "@id",
+            "name",
+            "itemListElement"
+          ],
+          "albaStatusValues": [
+            null
+          ],
+          "rawContainsStatusField": false,
+          "rawContainsAlbaStatusText": false
+        }
+      ]
+    },
+    {
+      "route": "compare",
+      "phase": "compare-alba-selected",
+      "url": "/compare/",
+      "activeRoute": "compare",
+      "card": null,
+      "hero": null,
+      "quickFacts": [],
+      "quickFactStatus": "",
+      "entityStatus": "",
+      "compareCards": [
+        {
+          "text": "North Flagler · CompletedAlba Palm BeachBoutique waterfront scale and direct Intracoastal orientation.View building guide →",
+          "alba": true,
+          "status": "North Flagler · Completed"
+        },
+        {
+          "text": "North Flagler · Under ConstructionOlara West Palm BeachMarina access, wellness, dining, and social energy.View building guide →",
+          "alba": false,
+          "status": "North Flagler · Under Construction"
+        }
+      ],
+      "compareAlbaCards": [
+        {
+          "text": "North Flagler · CompletedAlba Palm BeachBoutique waterfront scale and direct Intracoastal orientation.View building guide →",
+          "alba": true,
+          "status": "North Flagler · Completed"
+        }
+      ],
+      "compareStatusRows": [
+        {
+          "cells": [
+            "Status",
+            "Completed",
+            "Under Construction / sales active"
+          ],
+          "label": "Status"
+        },
+        {
+          "cells": [
+            "Construction",
+            "Completed",
+            "Under Construction / sales active"
+          ],
+          "label": "Construction"
+        }
+      ],
+      "jsonLd": [
+        {
+          "index": 0,
+          "hasAlbaNode": true,
+          "albaNodeTypes": [
+            "ItemList"
+          ],
+          "albaKeys": [
+            "@type",
+            "@id",
+            "name",
+            "itemListElement"
+          ],
+          "albaStatusValues": [
+            null
+          ],
+          "rawContainsStatusField": false,
+          "rawContainsAlbaStatusText": false
+        }
+      ]
+    },
+    {
+      "route": "project",
+      "phase": "project-direct",
+      "url": "/projects/alba-palm-beach/",
+      "activeRoute": "project",
+      "card": null,
+      "hero": {
+        "status": "Under Construction",
+        "tags": [
+          {
+            "label": "Status",
+            "value": "Under Construction"
+          },
+          {
+            "label": "Corridor",
+            "value": "North Flagler"
+          },
+          {
+            "label": "Sales",
+            "value": "Active Sales"
+          }
+        ]
+      },
+      "quickFacts": [
+        {
+          "label": "Residences",
+          "value": "55"
+        },
+        {
+          "label": "Stories",
+          "value": "22"
+        },
+        {
+          "label": "Sq Ft",
+          "value": "1,778-4,500 sq ft"
+        },
+        {
+          "label": "Bedrooms",
+          "value": "2-4"
+        },
+        {
+          "label": "Pricing",
+          "value": "$2.5M-$7.8M"
+        }
+      ],
+      "quickFactStatus": "",
+      "entityStatus": "",
+      "compareCards": [],
+      "compareAlbaCards": [],
+      "compareStatusRows": [],
+      "jsonLd": [
+        {
+          "index": 0,
+          "hasAlbaNode": true,
+          "albaNodeTypes": [
+            "WebPage",
+            "BreadcrumbList",
+            "ApartmentComplex"
+          ],
+          "albaKeys": [
+            "@type",
+            "@id",
+            "name",
+            "url",
+            "description",
+            "isPartOf",
+            "reviewedBy",
+            "@type",
+            "itemListElement",
+            "@type",
+            "@id",
+            "name",
+            "url",
+            "description",
+            "latitude",
+            "longitude",
+            "image",
+            "areaServed",
+            "containedInPlace",
+            "numberOfAccommodationUnits",
+            "subjectOf",
+            "reviewedBy"
+          ],
+          "albaStatusValues": [
+            null,
+            null,
+            null
+          ],
+          "rawContainsStatusField": false,
+          "rawContainsAlbaStatusText": false
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    "output/playwright/final-integration/before/alba-directory-direct.png",
+    "output/playwright/final-integration/before/alba-directory-reload.png",
+    "output/playwright/final-integration/before/alba-project-spa.png",
+    "output/playwright/final-integration/before/alba-project-reload.png",
+    "output/playwright/final-integration/before/alba-directory-back.png",
+    "output/playwright/final-integration/before/alba-compare-selected.png",
+    "output/playwright/final-integration/before/alba-project-direct.png"
+  ],
+  "blockedExternalHosts": [
+    "maps.googleapis.com"
+  ],
+  "blockedMutations": [],
+  "pageErrors": [],
+  "staticBeforeHydration": {
+    "url": "/projects/alba-palm-beach/",
+    "staticPrerenderCount": 0,
+    "staticStatusText": [],
+    "jsonLd": [
+      {
+        "index": 0,
+        "hasAlbaNode": true,
+        "albaNodeTypes": [
+          "WebPage",
+          "BreadcrumbList",
+          "ApartmentComplex"
+        ],
+        "albaKeys": [
+          "@type",
+          "@id",
+          "name",
+          "url",
+          "description",
+          "isPartOf",
+          "reviewedBy",
+          "@type",
+          "itemListElement",
+          "@type",
+          "@id",
+          "name",
+          "url",
+          "description",
+          "latitude",
+          "longitude",
+          "image",
+          "areaServed",
+          "containedInPlace",
+          "numberOfAccommodationUnits",
+          "subjectOf",
+          "reviewedBy"
+        ],
+        "albaStatusValues": [
+          null,
+          null,
+          null
+        ],
+        "rawContainsStatusField": false,
+        "rawContainsAlbaStatusText": false
+      }
+    ]
+  },
+  "summary": {
+    "stateCount": 7,
+    "statuses": [
+      {
+        "phase": "directory-direct",
+        "route": "buildings",
+        "card": "Completed",
+        "hero": "",
+        "quickFact": "",
+        "entity": "",
+        "albaCompare": []
+      },
+      {
+        "phase": "directory-reload",
+        "route": "buildings",
+        "card": "Completed",
+        "hero": "",
+        "quickFact": "",
+        "entity": "",
+        "albaCompare": []
+      },
+      {
+        "phase": "spa-directory-card-to-project",
+        "route": "project",
+        "card": "",
+        "hero": "Under Construction",
+        "quickFact": "",
+        "entity": "",
+        "albaCompare": []
+      },
+      {
+        "phase": "project-reload",
+        "route": "project",
+        "card": "",
+        "hero": "Under Construction",
+        "quickFact": "",
+        "entity": "",
+        "albaCompare": []
+      },
+      {
+        "phase": "back-project-to-directory",
+        "route": "buildings",
+        "card": "Completed",
+        "hero": "",
+        "quickFact": "",
+        "entity": "",
+        "albaCompare": []
+      },
+      {
+        "phase": "compare-alba-selected",
+        "route": "compare",
+        "card": "",
+        "hero": "",
+        "quickFact": "",
+        "entity": "",
+        "albaCompare": [
+          "North Flagler · Completed"
+        ]
+      },
+      {
+        "phase": "project-direct",
+        "route": "project",
+        "card": "",
+        "hero": "Under Construction",
+        "quickFact": "",
+        "entity": "",
+        "albaCompare": []
+      }
+    ],
+    "rawJsonLdAlbaStatusValues": [
+      null
+    ],
+    "rawJsonLdContainsStatusField": false,
+    "pageErrors": 0,
+    "blockedMutations": 0
+  }
+}
