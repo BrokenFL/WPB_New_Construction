@@ -1,5 +1,15 @@
 # WPB V2 overhaul — review record
 
+## Current milestone — discovery and site coherence
+
+This milestone continues draft PR #115 from `c2b2a00c01da5f46299d32092d0525e3b8fcd14c` and preserves the completed hero, Development Desk, bridge artwork, consent, Maps and buyer-flow contracts. It clarifies how visitors move from a representative homepage selection into all 24 buildings, all five areas, individual guides, comparison and relevant article research. It also replaces the active legacy-purple icon family with a reproducible WPB identity and keeps “WPB New Construction” as three words in site metadata.
+
+Implementation source: `f826ceb3a6dece8bb5424d02995c15069119177a`. The later evidence commit contains screenshots and documentation only. The [discovery and site-coherence evidence](evidence/site-overhaul-v2/discovery-coherence/README.md) records the 24-building reconciliation, before/after desktop and mobile captures, two focused correction rounds, the independent final critique and verification results.
+
+Sol extra-high owned the consequential discovery/art-direction review and returned a bounded GO after the final corrections, scoring discovery clarity 9.3/10, buyer UX 9.1/10 and art direction 9.0/10. Luna Max handled bounded inventory, implementation support, screenshots and regression verification. No model substitution was needed. No canonical facts, publishing order, paid service, parked automation, merge or deployment is included.
+
+Local verification passed the production build, 36/36 Chromium/WebKit discovery checks, 54/54 final integration checks, search-identity checks, six Development Desk fixtures and diff hygiene. The exact final pushed head and CI result are recorded in the draft PR handoff.
+
 ## Current milestone — final composition and integration
 
 This milestone continues draft PR #115 from `ca7893df1315fd484382a515b99c7ffb0fecd199`. It preserves the selected warm hero pixels, responsive derivatives, masthead, image-led Development Desk, newest-three publishing logic and original bridge artwork. The work resolves whole-page typography and actions, the phone opening, Alba's canonical-status presentation and the static hero's accessible/loading contract. It adds isolated future-news fixtures and targeted browser regressions without another content system or redesign.
