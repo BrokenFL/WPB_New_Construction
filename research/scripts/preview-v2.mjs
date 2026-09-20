@@ -7,7 +7,7 @@ const root = path.resolve('dist');
 const port = Number(process.env.V2_PREVIEW_PORT || 5188);
 if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new Error('Invalid local preview port');
 await access(path.join(root, 'index.html'));
-const mime = { '.html':'text/html; charset=utf-8', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.avif':'image/avif', '.svg':'image/svg+xml', '.pdf':'application/pdf', '.woff':'font/woff', '.woff2':'font/woff2', '.xml':'application/xml', '.txt':'text/plain', '.webm':'video/webm', '.mp4':'video/mp4' };
+const mime = { '.html':'text/html; charset=utf-8', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.webmanifest':'application/manifest+json', '.ico':'image/x-icon', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.avif':'image/avif', '.svg':'image/svg+xml', '.pdf':'application/pdf', '.woff':'font/woff', '.woff2':'font/woff2', '.xml':'application/xml', '.txt':'text/plain', '.webm':'video/webm', '.mp4':'video/mp4' };
 const server = http.createServer(async (req, res) => {
   if (!['GET', 'HEAD'].includes(req.method)) {
     res.writeHead(405, { 'Content-Type':'application/json' });

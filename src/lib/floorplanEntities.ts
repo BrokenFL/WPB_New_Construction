@@ -124,7 +124,7 @@ export function floorplanSchema(plan: FloorplanEntity) {
     "@context": "https://schema.org", "@graph": [
       { "@type": "WebPage", "@id": canonical, url: canonical, name: floorplanTitle(plan), description: floorplanDescription(plan),
         dateModified: plan.updatedOn, lastReviewed: plan.reviewedOn,
-        isPartOf: { "@type": "WebSite", "@id": `${floorplanSiteUrl}/#website`, url: `${floorplanSiteUrl}/`, name: "WPB New Construction" },
+        isPartOf: { "@type": "WebSite", "@id": `${floorplanSiteUrl}/#website`, url: `${floorplanSiteUrl}/`, name: "WPB New Construction", alternateName: "West Palm Beach New Construction" },
         breadcrumb: { "@id": `${canonical}#breadcrumb` },
         mainEntity: { "@type": "CreativeWork", "@id": `${canonical}#plan`, name: `${fullName(plan)} floor plan`, version: plan.version,
           description: plan.summary, image: `${floorplanSiteUrl}${plan.preview}`, isBasedOn: plan.sourceUrl,

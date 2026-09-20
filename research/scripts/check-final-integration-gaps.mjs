@@ -310,7 +310,8 @@ for (const [browserName, launcher] of browsers) {
         await visit(page, "/projects/alba-palm-beach/");
         const snapshot = await activeProjectSnapshot(page);
         assert.equal(snapshot.heroStatus, "Completed");
-        assert.doesNotMatch(snapshot.visibleText, /Under Construction/);
+        assert.doesNotMatch(`${snapshot.heroStatus} ${snapshot.factStatus}`, /Under Construction/);
+        assert.match(snapshot.visibleText, /Other North Flagler Buildings/, "The page should retain its corridor alternatives");
         assert.equal(snapshot.rawJsonLdContainsStatusField, false, "JSON-LD status omission is the existing safety boundary");
         return snapshot;
       });
