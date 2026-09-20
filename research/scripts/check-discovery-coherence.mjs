@@ -43,6 +43,12 @@ const expectedCorridorCounts = {
   "Palm Beach": 2,
   "South End / South Dixie": 1,
 };
+const expectedHomepagePreview = [
+  { id: "olara", corridor: "NORTH FLAGLER" },
+  { id: "nora-house", corridor: "DOWNTOWN" },
+  { id: "south-flagler-house", corridor: "SOUTH FLAGLER" },
+  { id: "olin-palm-beach", corridor: "PALM BEACH" },
+];
 function parseGeneratedArray(source, exportName) {
   const expression = new RegExp(`export const ${exportName} = ([\\s\\S]*?) as const;`);
   const match = source.match(expression);
@@ -186,13 +192,16 @@ async function assertHomepage(page, articlePathRef) {
   const root = activeRoute(page);
   assert.equal(await root.getAttribute("data-route-view"), "home");
   const previewCards = root.locator(".home-featured-grid [data-project-card]");
-  assert.equal(await previewCards.count(), 3, "Homepage should show three representative building cards");
-  const previewCorridors = new Set(await previewCards.locator("[data-pc-corridor]").allTextContents());
-  assert.deepEqual(previewCorridors, new Set(["NORTH FLAGLER", "SOUTH FLAGLER", "DOWNTOWN"]), "Homepage preview should represent three major corridors");
+  assert.equal(await previewCards.count(), expectedHomepagePreview.length, "Homepage should show four representative building cards");
+  const preview = await previewCards.evaluateAll((cards) => cards.map((card) => ({
+    id: card.getAttribute("data-project-card"),
+    corridor: card.querySelector("[data-pc-corridor]")?.textContent?.trim(),
+  })));
+  assert.deepEqual(preview, expectedHomepagePreview, "Homepage preview should use the approved four-area order");
   const heading = await root.locator(".home-featured-section h2").innerText();
-  assert.match(heading, /3 buildings, three different areas/i);
+  assert.equal(heading, "4 buildings, four different areas.");
   const previewDeck = await root.locator(".home-featured-section .v2-section-deck").innerText();
-  assert.match(previewDeck, /24 tracked buildings/i);
+  assert.equal(previewDeck, "A curated preview across North Flagler, Downtown, South Flagler, and Palm Beach, drawn from 24 tracked buildings.");
   const exploreLinks = root.getByRole("link", { name: /Explore all 24/i });
   assert.ok(await exploreLinks.count() >= 2, "Homepage should expose the complete 24-building directory near and after the preview");
   assert.ok(await root.locator('.home-section-jump a[href="/map/"]').count(), "Homepage section jump should expose the building map");
@@ -201,7 +210,7 @@ async function assertHomepage(page, articlePathRef) {
   assert.equal(new Set(await root.locator("#latest-developments [data-home-news-id]").evaluateAll((cards) => cards.map((card) => card.getAttribute("data-home-news-id")))).size, 3);
   if (!articlePathRef.value) articlePathRef.value = await articleLinks.first().getAttribute("href");
   assert.ok(articlePathRef.value?.startsWith("/updates/"), "Development Desk should link into a full article");
-  return { previewCorridors: [...previewCorridors], articlePath: articlePathRef.value };
+  return { preview, articlePath: articlePathRef.value };
 }
 
 async function assertNorthFlagler(page) {

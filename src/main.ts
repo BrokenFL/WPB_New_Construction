@@ -606,16 +606,11 @@ const floorplanHubProjects: ApprovedFloorplanProject[] = [
     })),
 ];
 const rankedFeaturedProjects = [...featuredProjects].sort((a, b) => a.rank - b.rank);
-const homepageCorridorPriority: CorridorKey[] = ["north-flagler", "south-flagler", "downtown", "palm-beach", "south-end"];
-const homepageCorridorCounts = new Map<CorridorKey, number>();
-for (const project of rankedFeaturedProjects) {
-  homepageCorridorCounts.set(project.corridorKey, (homepageCorridorCounts.get(project.corridorKey) ?? 0) + 1);
-}
-const homepageFeaturedProjects = [...homepageCorridorPriority]
-  .sort((left, right) => (homepageCorridorCounts.get(right) ?? 0) - (homepageCorridorCounts.get(left) ?? 0) || homepageCorridorPriority.indexOf(left) - homepageCorridorPriority.indexOf(right))
-  .map((corridorKey) => rankedFeaturedProjects.find((project) => project.corridorKey === corridorKey && Boolean(homepageProjectCardImage(project.id) || project.image)))
+const homepageFeaturedProjectIds = ["olara", "nora-house", "south-flagler-house", "olin-palm-beach"] as const;
+const homepageFeaturedProjects = homepageFeaturedProjectIds
+  .map((projectId) => rankedFeaturedProjects.find((project) => project.id === projectId && Boolean(homepageProjectCardImage(project.id) || project.image)))
   .filter((project): project is FeaturedProject => Boolean(project))
-  .slice(0, 3);
+  .slice(0, homepageFeaturedProjectIds.length);
 const homepageCorridorKeys: CorridorKey[] = ["north-flagler", "south-flagler", "downtown", "palm-beach", "south-end"];
 const importedProjectImages = approvedImportedProjectImagesRaw as ImportedProjectImage[];
 
@@ -2465,7 +2460,7 @@ app.innerHTML = `
 
       <section class="home-featured-section" id="featured-projects" aria-label="Selected building preview">
         <div class="section-heading home-featured-heading">
-          <div><p class="eyebrow">02 / A selected look</p><h2>${homepageFeaturedProjects.length} buildings, three different areas.</h2><p class="v2-section-deck">A curated preview of ${featuredProjects.length} tracked buildings across West Palm Beach and Palm Beach.</p></div>
+          <div><p class="eyebrow">02 / A selected look</p><h2>4 buildings, four different areas.</h2><p class="v2-section-deck">A curated preview across North Flagler, Downtown, South Flagler, and Palm Beach, drawn from 24 tracked buildings.</p></div>
           <a class="home-featured-heading-link" href="/buildings/">Explore all ${featuredProjects.length} buildings <span aria-hidden="true">→</span></a>
         </div>
         <div class="home-carousel-shell">

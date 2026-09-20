@@ -39,6 +39,7 @@ export const homepageAssets = {
     "mandarin-oriental": "/assets/home/mandarin-oriental-project-card-main-v01.jpg",
     "mr-c": "/assets/home/mr-c-project-card-main-v01.jpg",
     "nora-house": "/assets/home/nora-house-project-card-main-v01.jpg",
+    "olin-palm-beach": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",
     olara: "/assets/home/olara-project-card-main-v01.jpg",
     "ritz-carlton-wpb": "/assets/home/ritz-carlton-project-card-main-v01.jpg",
     "rosewood-residences-west-palm-beach": "/assets/home/rosewood-project-card-main-v01.jpg",
