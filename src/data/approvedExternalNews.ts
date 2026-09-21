@@ -119,7 +119,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     ],
     "whyItMatters": "Fort Partners now controls the luxury oceanfront resort immediately beside its Four Seasons Resort Palm Beach, materially expanding its strategic footprint on South Ocean Boulevard.",
     "brookeTake": "There is no announced Four Seasons residential plan for Tideline. But Fort Partners’ record with Four Seasons-branded residences makes a future residential or integrated-resort concept a possibility worth watching — not a fact to price into a decision today.",
-    "buyerContext": "Treat the $150 million sale, the properties’ adjacency and Fort Partners’ Four Seasons development record as established context. Treat any Four Seasons residential component as a watch item until public filings or an announcement confirm it.",
+    "buyerContext": "Treat the $150 million sale, the properties’ adjacency and Fort Partners’ Four Seasons development record as established context. Treat any Four Seasons residential component as an unconfirmed possibility until public filings or an announcement confirm it.",
     "buyerTakeaway": "The acquisition matters because common control of adjoining oceanfront properties creates strategic options that did not exist when Tideline and the Four Seasons were separately owned.",
     "marketSignal": "Fort Partners is expanding its Palm Beach oceanfront footprint immediately beside an established Four Seasons resort.",
     "bestFor": "Palm Beach buyers and owners tracking South Ocean Boulevard, branded residences and long-term luxury redevelopment.",
