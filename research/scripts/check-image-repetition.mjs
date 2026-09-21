@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { ensureReportDir, qaReportMode, qaReportPath } from "./qa-report-utils.mjs";
 
 const workspace = process.cwd();
@@ -163,13 +164,41 @@ function contextualUsages(sources, fragment) {
   return results;
 }
 
-function nearbyContext(lines, index) {
+export function nearbyContext(lines, index) {
   const window = lines.slice(Math.max(0, index - 8), Math.min(lines.length, index + 9)).join(" ");
-  const project = window.match(/id:\s*"([^"]+)"/)?.[1] ?? window.match(/projectId:\s*"([^"]+)"/)?.[1];
-  const corridor = window.match(/corridorKey:\s*"([^"]+)"/)?.[1];
-  const slug = window.match(/slug:\s*"([^"]+)"/)?.[1];
+  const fieldValue = (field) => {
+    const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const match = window.match(new RegExp(`(?:"${escapedField}"|\\b${escapedField})\\s*:\\s*["']([^"']+)["']`));
+    return match?.[1]?.trim() || "";
+  };
+  const fieldValues = (field) => {
+    const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const match = window.match(new RegExp(`(?:"${escapedField}"|\\b${escapedField})\\s*:\\s*\\[([^\\]]*)\\]`));
+    if (!match) return [];
+    return [...match[1].matchAll(/["']([^"']+)["']/g)]
+      .map((item) => item[1].trim())
+      .filter(Boolean);
+  };
+
+  const project = fieldValue("id") || fieldValue("projectId");
+  const primaryProjectSlug = fieldValue("primaryProjectSlug");
+  const projectSlugs = fieldValues("relatedProjectIds").concat(fieldValues("relatedProjectSlugs"));
+  const corridor = fieldValue("corridorKey");
+  const corridorIds = fieldValues("relatedCorridorIds").concat(fieldValues("relatedCorridors"));
+  const corridorLabel = fieldValue("corridorLabel");
+  const slug = fieldValue("slug");
   const route = window.match(/routeUse:\s*\[([^\]]+)/)?.[1];
-  return [project, corridor].filter(Boolean).join(" ") || slug || route?.replaceAll('"', "").trim() || "shared source";
+  const context = [
+    project,
+    primaryProjectSlug,
+    ...projectSlugs,
+    corridor,
+    ...corridorIds,
+    corridorLabel,
+    slug,
+    route?.replaceAll('"', "").trim(),
+  ].filter(Boolean);
+  return [...new Set(context)].join(" ") || "shared source";
 }
 
 function isAcceptableRepeat(imagePath, usages) {
@@ -264,7 +293,9 @@ async function writeReport(rows, findings, renderedChecks, approvals) {
   await fs.writeFile(reportPath, `${lines.join("\n")}\n`);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

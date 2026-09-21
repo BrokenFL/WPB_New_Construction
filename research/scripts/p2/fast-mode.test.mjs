@@ -6,6 +6,7 @@ import path from "node:path";
 import test from "node:test";
 import { processRow, sha256, stableJson } from "../intel/core.mjs";
 import { classifySource } from "../intel/source-verifier.mjs";
+import { nearbyContext } from "../check-image-repetition.mjs";
 import { DEFAULT_REVIEWER_VERSION, toPhaseATrustedEvidence } from "./evidence-review.mjs";
 import {
   ARTICLE_DECISION,
@@ -764,6 +765,24 @@ test("story queue: idempotent enqueue, error retry reuses the row, event_key ded
   assert.equal(storyIdFor({ eventKey: "e", intelIds: ["a"] }), storyIdFor({ eventKey: "e", intelIds: ["a"] }));
 });
 
+test("image repetition context parses generated JSON project and corridor fields", () => {
+  const lines = [
+    "{",
+    '  \"id\": \"south-flagler-fallback\",',
+    '  \"slug\": \"south-flagler-fallback-story\",',
+    '  \"relatedCorridorIds\": [\"south-flagler\"],',
+    '  \"primaryProjectSlug\": \"south-flagler-house\",',
+    '  \"corridorLabel\": \"West Palm Beach\",',
+    '  \"imagePath\": \"/assets/editorial/fallback.jpg\"',
+    "}",
+  ];
+  const context = nearbyContext(lines, 6);
+  assert.match(context, /south-flagler-house/);
+  assert.match(context, /south-flagler/);
+  assert.match(context, /south-flagler-fallback/);
+  assert.doesNotMatch(context, /shared source/);
+});
+
 test("automated facts: apply once, manual override wins, provenance recorded", () => {
   const automated = emptyAutomatedFacts(FAST_MODE_POLICY_VERSION);
   const manual = { projects: { "alba-palm-beach": { deliveryTiming: { value: "2Q 2026", source: "manual_review", reviewedBy: "Brooke", reviewedAt: "2026-06-18" } } } };
@@ -1149,6 +1168,59 @@ test("cycle: failed publish marks error in place and retries without duplicating
   await runFastCycle({ root: dir, sheets, indexes: indexesFor(), now: NOW, publish: async () => { attempts += 1; return { ok: false, error: "still failing" }; } });
   assert.equal(attempts, 2);
   assert.equal(storyRowsFromState(sheets).length, 1);
+});
+
+test("cycle: max publish attempts preserves the prior concrete error", async (t) => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-fast-max-attempts-"));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const story = {
+    story_id: "story-max-attempts", status: STORY_STATUS.ERROR, created_at: NOW_ISO, updated_at: NOW_ISO,
+    intel_ids: "i-max", event_key: "project|alba|development|development-update|2026-09-10",
+    project_ids: "alba-palm-beach", corridor_ids: "", headline: "H", deck: "D", summary: "S",
+    story_package_json: JSON.stringify({ title: "T", deck: "D", sections: [{ heading: "h", body: "b" }] }),
+    publish_attempts: "5", error: "publisher QA failed: image repetition", publish_status: "error", published_url: "", commit_sha: "",
+  };
+  const sheets = memorySheets({
+    Incoming_Intel: intelValues([]),
+    [STORY_QUEUE_SHEET]: [[...STORY_QUEUE_COLUMNS], storyRowToCells(story)],
+  });
+  let attempts = 0;
+  await runFastCycle({
+    root: dir,
+    sheets,
+    indexes: indexesFor(),
+    now: NOW,
+    publish: async () => { attempts += 1; return { ok: true }; },
+  });
+  assert.equal(attempts, 0);
+  const rowsAfter = storyRowsFromState(sheets);
+  assert.equal(rowsAfter[0].status, STORY_STATUS.HELD);
+  assert.equal(rowsAfter[0].publish_status, "held_max_attempts");
+  assert.equal(rowsAfter[0].error, "maximum publish attempts reached (5): publisher QA failed: image repetition");
+});
+
+test("cycle: only exact manual terminal output markers skip source fetching", async (t) => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "wpb-fast-terminal-marker-"));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const terminalRows = [
+    row("manual-duplicate", { output_decision: "MANUAL_TERMINAL:DUPLICATE|reviewed by Brooke", status: "new" }),
+    row("manual-hold", { output_decision: "MANUAL_TERMINAL:HOLD|reviewed by Brooke", status: "new" }),
+    row("status-only", { output_decision: "", status: "held" }),
+  ];
+  const sheets = memorySheets({ Incoming_Intel: intelValues(terminalRows) });
+  let fetchCalls = 0;
+  const cycle = await runFastCycle({
+    root: dir,
+    sheets,
+    indexes: indexesFor(),
+    fetchSources: async () => { fetchCalls += 1; return [fetchedSource()]; },
+    now: NOW,
+  });
+  assert.equal(fetchCalls, 1);
+  assert.deepEqual(cycle.results.slice(0, 2).map((result) => result.stage), ["manual_terminal", "manual_terminal"]);
+  assert.equal(cycle.results[0].terminal_marker, "MANUAL_TERMINAL:DUPLICATE");
+  assert.equal(cycle.results[1].terminal_marker, "MANUAL_TERMINAL:HOLD");
+  assert.equal(cycle.results[2].stage, "awaiting_fact_check");
 });
 
 test("article input mapping prefers package fields and requires title/deck/body", () => {
