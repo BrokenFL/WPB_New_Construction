@@ -5086,6 +5086,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/fort-partners-buys-tideline-four-seasons-residences-2026-09-20/",
+    "title": "Fort Partners Buys Tideline for $150M. Could Four Seasons Residences Be Next? | WPB Updates",
+    "description": "Fort Partners has acquired the Tideline Palm Beach Ocean Resort for $150 million next to its Four Seasons Resort Palm Beach, creating a larger South Ocean Boulevard footprint with intriguing long-term possibilities.",
+    "ogImage": "/assets/editorial/tideline-fort-partners-hero.jpg"
+  },
+  {
     "path": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
     "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage | WPB Updates",
     "description": "Terra and Frisbie Group have acquired another parcel of the former Palm Beach Kennel Club site for $20 million, expanding their master-planned West Palm Beach footprint.",
