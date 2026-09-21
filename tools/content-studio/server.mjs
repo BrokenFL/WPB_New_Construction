@@ -5,8 +5,9 @@ import { spawn } from "node:child_process";
 import sharp from "sharp";
 import { syncEditorOverrides } from "../../research/scripts/sync-editor-overrides.mjs";
 import { newsletterDraftsPath, readDraftStore, readJsonFile as readNewsJsonFile, writeDraftStore } from "../../research/scripts/news-draft-utils.mjs";
-import { buildProjectIntelligenceReviewQueue, getProjectIntelligence } from "../../src/lib/projectIntelligence.ts";
+import { buildProjectIntelligenceReviewQueue, getProjectIntelligence, getSchemaSafeProjectFacts } from "../../src/lib/projectIntelligence.ts";
 import { projectIntelligenceRegistryEntries } from "../../src/lib/projectIntelligenceRegistry.ts";
+import { publicProjectRecords } from "../../src/generated/projectModelPublic.ts";
 
 const workspace = process.cwd();
 const studioRoot = path.join(workspace, "tools/content-studio");
@@ -1521,10 +1522,8 @@ async function syncLegacyProjectOverrides(overrides) {
 }
 
 async function readProjects() {
-  const source = await fs.readFile(path.join(workspace, "src/main.ts"), "utf8");
-  return [...source.matchAll(/id:\s*"([^"]+)"[\s\S]{0,320}?name:\s*"([^"]+)"/g)]
-    .map((match) => ({ id: match[1], name: match[2] }))
-    .filter((project, index, all) => all.findIndex((item) => item.id === project.id) === index)
+  return publicProjectRecords
+    .map((project) => ({ id: project.publicSlug, name: project.displayName }))
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
@@ -2202,7 +2201,7 @@ async function projectIntelligenceReview() {
       reviewSummary: intelligence.reviewSummary,
       missingDataFlags: intelligence.missingDataFlags,
       schemaEmittedFields,
-      schemaOmittedFields: intelligence.schemaSafety.omittedFields,
+      schemaOmittedFields: getSchemaSafeProjectFacts(entry.publicSlug).omittedFields,
       fieldReviews: intelligence.fieldReviews,
       conflicts: intelligence.conflicts,
     });

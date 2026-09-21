@@ -1,0 +1,87 @@
+{
+  "testedCodeSha": "0c36a09375dbd1cbe8fa3187aeaefcb49c8873e6",
+  "date": "2026-09-19",
+  "build": {
+    "status": "pass",
+    "htmlFiles": 117,
+    "mainJsKb": 534.95,
+    "mainJsGzipKb": 118.25,
+    "mainCssKb": 189.43,
+    "mainCssGzipKb": 35.07,
+    "thresholdsRaised": false
+  },
+  "checks": [
+    {
+      "command": "npm run typecheck",
+      "status": "pass"
+    },
+    {
+      "command": "VITE_GA4_MEASUREMENT_ID=G-QATEST1234 npm run build",
+      "status": "pass"
+    },
+    {
+      "command": "npm test",
+      "status": "pass",
+      "unitTests": 102,
+      "includes": "full qa:launch:no-write and 1150-file gatekeeper"
+    },
+    {
+      "command": "node research/scripts/check-v2-milestone2.mjs",
+      "status": "pass",
+      "checks": 72,
+      "browsers": [
+        "Chromium",
+        "WebKit"
+      ],
+      "widths": [
+        1440,
+        390,
+        320
+      ]
+    },
+    {
+      "command": "npm run qa:integration",
+      "status": "pass",
+      "interceptedSubmissions": 12
+    },
+    {
+      "command": "node research/scripts/check-comparisons.mjs",
+      "status": "pass",
+      "interceptedSubmissions": 12
+    },
+    {
+      "command": "npm run qa:floorplan-entities -- --browser",
+      "status": "pass",
+      "views": 24,
+      "interceptedSubmissions": 36
+    },
+    {
+      "command": "MAPS_QA_ORIGIN=http://127.0.0.1:5188 npm run qa:maps-keyed",
+      "status": "pass",
+      "realMapScenarios": 8
+    },
+    {
+      "command": "V2_ORIGIN=http://127.0.0.1:5188 V2_PHASE=milestone2-final node research/scripts/capture-v2-review.mjs",
+      "status": "pass",
+      "views": 24,
+      "brokenVisibleImages": 0,
+      "pageErrors": 0,
+      "documentOverflow": 0
+    }
+  ],
+  "preFreezeAdditionalChecks": {
+    "status": "pass",
+    "commands": [
+      "npm run qa:commercial -- --browser",
+      "node research/scripts/check-batch6-concierge.mjs",
+      "node research/scripts/check-v2-interactions.mjs"
+    ],
+    "note": "These ran on the earlier milestone working tree before final receipt/plan/card/grid regression fixes. Final affected paths were rechecked by the suites above."
+  },
+  "limits": [
+    "Local intercepted lead transport; no real lead sent",
+    "Synthetic GA4 ID; analytics transports intercepted",
+    "No physical iPhone/Safari or field-performance evidence",
+    "No merge or deployment"
+  ]
+}

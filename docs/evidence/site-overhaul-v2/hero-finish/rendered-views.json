@@ -1,0 +1,957 @@
+[
+  {
+    "width": 1440,
+    "origin": "http://127.0.0.1:5186",
+    "errors": [],
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "devicePixelRatio": 1
+    },
+    "scrollY": 0,
+    "documentWidth": 1440,
+    "bodyWidth": 1440,
+    "overflow": 0,
+    "heroImage": [
+      {
+        "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+        "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+        "sourceSrcset": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp 390w, /assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp 455w",
+        "naturalWidth": 1440,
+        "naturalHeight": 810,
+        "complete": true,
+        "loading": "eager",
+        "fetchPriority": "high",
+        "resource": {
+          "name": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+          "initiatorType": "img",
+          "transferSize": 226996,
+          "encodedBodySize": 226696,
+          "decodedBodySize": 226696
+        }
+      }
+    ],
+    "positions": [
+      {
+        "selector": ".site-nav",
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 92,
+        "right": 1440,
+        "bottom": 92,
+        "text": "WPB\n        New ConstructionWest Palm Beach\n      \n      \n        Buildings\n        Corridors\n        Compare\n        Floor plans\n      \n      Call\n      Contact the Team →"
+      },
+      {
+        "selector": ".home-hero",
+        "x": 0,
+        "y": 92,
+        "width": 1440,
+        "height": 690,
+        "right": 1440,
+        "bottom": 782,
+        "text": "Shorecrest · AI-assisted architectural rendering\n          \n            Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.Editorial image of the South Flagler waterfront corridor with Intracoastal and Palm Beach context.Downtown West Palm Beach skyline illuminated along the Intracoastal at night.Editorial image of the NORA and North Downtown West Palm Beach growth district.\n          \n        \n        \n        \n          \n            New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".home-hero-media",
+        "x": 0,
+        "y": 92,
+        "width": 1440,
+        "height": 690,
+        "right": 1440,
+        "bottom": 782,
+        "text": "Shorecrest · AI-assisted architectural rendering\n          \n            Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.Editorial image of the South Flagler waterfront corridor with Intracoastal and Palm Beach context.Downtown West Palm Beach skyline illuminated along the Intracoastal at night.Editorial image of the NORA and North Downtown West Palm Beach growth district."
+      },
+      {
+        "selector": ".home-hero-image",
+        "x": 0,
+        "y": 92,
+        "width": 1440,
+        "height": 690,
+        "right": 1440,
+        "bottom": 782,
+        "text": ""
+      },
+      {
+        "selector": ".home-hero-caption",
+        "x": 1151.09,
+        "y": 721.41,
+        "width": 216.91,
+        "height": 38.59,
+        "right": 1368,
+        "bottom": 760,
+        "text": "Shorecrest · AI-assisted architectural rendering"
+      },
+      {
+        "selector": ".home-hero-layout",
+        "x": 0,
+        "y": 92,
+        "width": 1440,
+        "height": 690,
+        "right": 1440,
+        "bottom": 782,
+        "text": "New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".home-hero-content",
+        "x": 72,
+        "y": 196.67,
+        "width": 760,
+        "height": 513.33,
+        "right": 832,
+        "bottom": 710,
+        "text": "New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".hero-kicker",
+        "x": 72,
+        "y": 196.67,
+        "width": 342.5,
+        "height": 16,
+        "right": 414.5,
+        "bottom": 212.67,
+        "text": "New construction · Independent buyer guidance"
+      },
+      {
+        "selector": ".home-hero h1",
+        "x": 72,
+        "y": 234.67,
+        "width": 538.17,
+        "height": 237.05,
+        "right": 610.17,
+        "bottom": 471.72,
+        "text": "West Palm Beach, with perspective."
+      },
+      {
+        "selector": ".home-hero .hero-copy",
+        "x": 72,
+        "y": 491.72,
+        "width": 426.88,
+        "height": 76.78,
+        "right": 498.88,
+        "bottom": 568.5,
+        "text": "Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits."
+      },
+      {
+        "selector": ".v2-hero-actions",
+        "x": 72,
+        "y": 594.5,
+        "width": 370.92,
+        "height": 49.5,
+        "right": 442.92,
+        "bottom": 644,
+        "text": "Explore buildings ↗Compare your options →"
+      },
+      {
+        "selector": ".v2-hero-actions .button",
+        "x": 72,
+        "y": 594.5,
+        "width": 190.36,
+        "height": 49.5,
+        "right": 262.36,
+        "bottom": 644,
+        "text": "Explore buildings ↗"
+      },
+      {
+        "selector": ".v2-hero-actions .v2-text-link",
+        "x": 284.36,
+        "y": 597.25,
+        "width": 158.56,
+        "height": 44,
+        "right": 442.92,
+        "bottom": 641.25,
+        "text": "Compare your options →"
+      },
+      {
+        "selector": ".v2-hero-note",
+        "x": 72,
+        "y": 666,
+        "width": 223.17,
+        "height": 44,
+        "right": 295.17,
+        "bottom": 710,
+        "text": "Catch up on the latest developments ↓"
+      }
+    ],
+    "text": {
+      "kicker": "New construction · Independent buyer guidance",
+      "heading": "West Palm Beach, with perspective.",
+      "copy": "Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.",
+      "caption": "Shorecrest · AI-assisted architectural rendering"
+    },
+    "heroResponses": [
+      {
+        "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "contentLength": "226696",
+        "transferSize": 226996,
+        "encodedBodySize": 226696
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "origin": "http://127.0.0.1:5186",
+    "errors": [],
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "devicePixelRatio": 1
+    },
+    "scrollY": 0,
+    "documentWidth": 390,
+    "bodyWidth": 390,
+    "overflow": 0,
+    "heroImage": [
+      {
+        "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+        "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+        "sourceSrcset": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp 390w, /assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp 455w",
+        "naturalWidth": 390,
+        "naturalHeight": 807,
+        "complete": true,
+        "loading": "eager",
+        "fetchPriority": "high",
+        "resource": {
+          "name": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+          "initiatorType": "img",
+          "transferSize": 66556,
+          "encodedBodySize": 66256,
+          "decodedBodySize": 66256
+        }
+      }
+    ],
+    "positions": [
+      {
+        "selector": ".site-nav",
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 111,
+        "right": 390,
+        "bottom": 111,
+        "text": "WPB\n        New ConstructionWest Palm Beach\n      \n      \n        Buildings\n        Corridors\n        Compare\n        Floor plans\n      \n      Call\n      Contact the Team →"
+      },
+      {
+        "selector": ".home-hero",
+        "x": 0,
+        "y": 111,
+        "width": 390,
+        "height": 820,
+        "right": 390,
+        "bottom": 931,
+        "text": "Shorecrest · AI-assisted architectural rendering\n          \n            Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.Editorial image of the South Flagler waterfront corridor with Intracoastal and Palm Beach context.Downtown West Palm Beach skyline illuminated along the Intracoastal at night.Editorial image of the NORA and North Downtown West Palm Beach growth district.\n          \n        \n        \n        \n          \n            New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".home-hero-media",
+        "x": 0,
+        "y": 111,
+        "width": 390,
+        "height": 820,
+        "right": 390,
+        "bottom": 931,
+        "text": "Shorecrest · AI-assisted architectural rendering\n          \n            Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.Editorial image of the South Flagler waterfront corridor with Intracoastal and Palm Beach context.Downtown West Palm Beach skyline illuminated along the Intracoastal at night.Editorial image of the NORA and North Downtown West Palm Beach growth district."
+      },
+      {
+        "selector": ".home-hero-image",
+        "x": 0,
+        "y": 111,
+        "width": 390,
+        "height": 820,
+        "right": 390,
+        "bottom": 931,
+        "text": ""
+      },
+      {
+        "selector": ".home-hero-caption",
+        "x": 117.14,
+        "y": 886.7,
+        "width": 250.86,
+        "height": 24.3,
+        "right": 368,
+        "bottom": 911,
+        "text": "Shorecrest · AI-assisted architectural rendering"
+      },
+      {
+        "selector": ".home-hero-layout",
+        "x": 0,
+        "y": 111,
+        "width": 390,
+        "height": 820,
+        "right": 390,
+        "bottom": 931,
+        "text": "New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".home-hero-content",
+        "x": 22,
+        "y": 412.27,
+        "width": 346,
+        "height": 476.73,
+        "right": 368,
+        "bottom": 889,
+        "text": "New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".hero-kicker",
+        "x": 22,
+        "y": 412.27,
+        "width": 296.11,
+        "height": 14.39,
+        "right": 318.11,
+        "bottom": 426.66,
+        "text": "New construction · Independent buyer guidance"
+      },
+      {
+        "selector": ".home-hero h1",
+        "x": 22,
+        "y": 444.66,
+        "width": 312.33,
+        "height": 143.16,
+        "right": 334.33,
+        "bottom": 587.81,
+        "text": "West Palm Beach, with perspective."
+      },
+      {
+        "selector": ".home-hero .hero-copy",
+        "x": 22,
+        "y": 603.81,
+        "width": 346,
+        "height": 99.19,
+        "right": 368,
+        "bottom": 703,
+        "text": "Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits."
+      },
+      {
+        "selector": ".v2-hero-actions",
+        "x": 22,
+        "y": 727,
+        "width": 346,
+        "height": 100,
+        "right": 368,
+        "bottom": 827,
+        "text": "Explore buildings ↗Compare your options →"
+      },
+      {
+        "selector": ".v2-hero-actions .button",
+        "x": 22,
+        "y": 727,
+        "width": 182.36,
+        "height": 46,
+        "right": 204.36,
+        "bottom": 773,
+        "text": "Explore buildings ↗"
+      },
+      {
+        "selector": ".v2-hero-actions .v2-text-link",
+        "x": 22,
+        "y": 783,
+        "width": 158.56,
+        "height": 44,
+        "right": 180.56,
+        "bottom": 827,
+        "text": "Compare your options →"
+      },
+      {
+        "selector": ".v2-hero-note",
+        "x": 22,
+        "y": 845,
+        "width": 223.17,
+        "height": 44,
+        "right": 245.17,
+        "bottom": 889,
+        "text": "Catch up on the latest developments ↓"
+      }
+    ],
+    "text": {
+      "kicker": "New construction · Independent buyer guidance",
+      "heading": "West Palm Beach, with perspective.",
+      "copy": "Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.",
+      "caption": "Shorecrest · AI-assisted architectural rendering"
+    },
+    "heroResponses": [
+      {
+        "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "contentLength": "66256",
+        "transferSize": 66556,
+        "encodedBodySize": 66256
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "origin": "http://127.0.0.1:5186",
+    "errors": [],
+    "viewport": {
+      "width": 320,
+      "height": 844,
+      "devicePixelRatio": 1
+    },
+    "scrollY": 0,
+    "documentWidth": 320,
+    "bodyWidth": 320,
+    "overflow": 0,
+    "heroImage": [
+      {
+        "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+        "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+        "sourceSrcset": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp 390w, /assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp 455w",
+        "naturalWidth": 320,
+        "naturalHeight": 662,
+        "complete": true,
+        "loading": "eager",
+        "fetchPriority": "high",
+        "resource": {
+          "name": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+          "initiatorType": "img",
+          "transferSize": 66556,
+          "encodedBodySize": 66256,
+          "decodedBodySize": 66256
+        }
+      }
+    ],
+    "positions": [
+      {
+        "selector": ".site-nav",
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 115,
+        "right": 320,
+        "bottom": 115,
+        "text": "WPB\n        New ConstructionWest Palm Beach\n      \n      \n        Buildings\n        Corridors\n        Compare\n        Floor plans\n      \n      Call\n      Contact the Team →"
+      },
+      {
+        "selector": ".home-hero",
+        "x": 0,
+        "y": 115,
+        "width": 320,
+        "height": 820,
+        "right": 320,
+        "bottom": 935,
+        "text": "Shorecrest · AI-assisted architectural rendering\n          \n            Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.Editorial image of the South Flagler waterfront corridor with Intracoastal and Palm Beach context.Downtown West Palm Beach skyline illuminated along the Intracoastal at night.Editorial image of the NORA and North Downtown West Palm Beach growth district.\n          \n        \n        \n        \n          \n            New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".home-hero-media",
+        "x": 0,
+        "y": 115,
+        "width": 320,
+        "height": 820,
+        "right": 320,
+        "bottom": 935,
+        "text": "Shorecrest · AI-assisted architectural rendering\n          \n            Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.Editorial image of the South Flagler waterfront corridor with Intracoastal and Palm Beach context.Downtown West Palm Beach skyline illuminated along the Intracoastal at night.Editorial image of the NORA and North Downtown West Palm Beach growth district."
+      },
+      {
+        "selector": ".home-hero-image",
+        "x": 0,
+        "y": 115,
+        "width": 320,
+        "height": 820,
+        "right": 320,
+        "bottom": 935,
+        "text": ""
+      },
+      {
+        "selector": ".home-hero-caption",
+        "x": 47.14,
+        "y": 890.7,
+        "width": 250.86,
+        "height": 24.3,
+        "right": 298,
+        "bottom": 915,
+        "text": "Shorecrest · AI-assisted architectural rendering"
+      },
+      {
+        "selector": ".home-hero-layout",
+        "x": 0,
+        "y": 115,
+        "width": 320,
+        "height": 820,
+        "right": 320,
+        "bottom": 935,
+        "text": "New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".home-hero-content",
+        "x": 22,
+        "y": 397.84,
+        "width": 276,
+        "height": 495.16,
+        "right": 298,
+        "bottom": 893,
+        "text": "New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".hero-kicker",
+        "x": 22,
+        "y": 397.84,
+        "width": 276,
+        "height": 28.78,
+        "right": 298,
+        "bottom": 426.63,
+        "text": "New construction · Independent buyer guidance"
+      },
+      {
+        "selector": ".home-hero h1",
+        "x": 22,
+        "y": 444.63,
+        "width": 266.95,
+        "height": 122.39,
+        "right": 288.95,
+        "bottom": 567.02,
+        "text": "West Palm Beach, with perspective."
+      },
+      {
+        "selector": ".home-hero .hero-copy",
+        "x": 22,
+        "y": 583.02,
+        "width": 276,
+        "height": 123.98,
+        "right": 298,
+        "bottom": 707,
+        "text": "Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits."
+      },
+      {
+        "selector": ".v2-hero-actions",
+        "x": 22,
+        "y": 731,
+        "width": 276,
+        "height": 100,
+        "right": 298,
+        "bottom": 831,
+        "text": "Explore buildings ↗Compare your options →"
+      },
+      {
+        "selector": ".v2-hero-actions .button",
+        "x": 22,
+        "y": 731,
+        "width": 182.36,
+        "height": 46,
+        "right": 204.36,
+        "bottom": 777,
+        "text": "Explore buildings ↗"
+      },
+      {
+        "selector": ".v2-hero-actions .v2-text-link",
+        "x": 22,
+        "y": 787,
+        "width": 158.56,
+        "height": 44,
+        "right": 180.56,
+        "bottom": 831,
+        "text": "Compare your options →"
+      },
+      {
+        "selector": ".v2-hero-note",
+        "x": 22,
+        "y": 849,
+        "width": 223.17,
+        "height": 44,
+        "right": 245.17,
+        "bottom": 893,
+        "text": "Catch up on the latest developments ↓"
+      }
+    ],
+    "text": {
+      "kicker": "New construction · Independent buyer guidance",
+      "heading": "West Palm Beach, with perspective.",
+      "copy": "Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.",
+      "caption": "Shorecrest · AI-assisted architectural rendering"
+    },
+    "heroResponses": [
+      {
+        "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "contentLength": "66256",
+        "transferSize": 66556,
+        "encodedBodySize": 66256
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "origin": "http://127.0.0.1:5186",
+    "errors": [],
+    "viewport": {
+      "width": 768,
+      "height": 844,
+      "devicePixelRatio": 1
+    },
+    "scrollY": 0,
+    "documentWidth": 768,
+    "bodyWidth": 768,
+    "overflow": 0,
+    "heroImage": [
+      {
+        "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+        "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-960w.webp",
+        "sourceSrcset": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp 390w, /assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp 455w",
+        "naturalWidth": 768,
+        "naturalHeight": 432,
+        "complete": true,
+        "loading": "eager",
+        "fetchPriority": "high",
+        "resource": {
+          "name": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-960w.webp",
+          "initiatorType": "img",
+          "transferSize": 95358,
+          "encodedBodySize": 95058,
+          "decodedBodySize": 95058
+        }
+      }
+    ],
+    "positions": [
+      {
+        "selector": ".site-nav",
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 132,
+        "right": 768,
+        "bottom": 132,
+        "text": "WPB\n        New ConstructionWest Palm Beach\n      \n      \n        Buildings\n        Corridors\n        Compare\n        Floor plans\n      \n      Call\n      Contact the Team →"
+      },
+      {
+        "selector": ".home-hero",
+        "x": 0,
+        "y": 132,
+        "width": 768,
+        "height": 680,
+        "right": 768,
+        "bottom": 812,
+        "text": "Shorecrest · AI-assisted architectural rendering\n          \n            Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.Editorial image of the South Flagler waterfront corridor with Intracoastal and Palm Beach context.Downtown West Palm Beach skyline illuminated along the Intracoastal at night.Editorial image of the NORA and North Downtown West Palm Beach growth district.\n          \n        \n        \n        \n          \n            New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".home-hero-media",
+        "x": 0,
+        "y": 132,
+        "width": 768,
+        "height": 680,
+        "right": 768,
+        "bottom": 812,
+        "text": "Shorecrest · AI-assisted architectural rendering\n          \n            Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.Editorial image of the South Flagler waterfront corridor with Intracoastal and Palm Beach context.Downtown West Palm Beach skyline illuminated along the Intracoastal at night.Editorial image of the NORA and North Downtown West Palm Beach growth district."
+      },
+      {
+        "selector": ".home-hero-image",
+        "x": 0,
+        "y": 132,
+        "width": 768,
+        "height": 680,
+        "right": 768,
+        "bottom": 812,
+        "text": ""
+      },
+      {
+        "selector": ".home-hero-caption",
+        "x": 411.09,
+        "y": 751.41,
+        "width": 216.91,
+        "height": 38.59,
+        "right": 628,
+        "bottom": 790,
+        "text": "Shorecrest · AI-assisted architectural rendering"
+      },
+      {
+        "selector": ".home-hero-layout",
+        "x": 0,
+        "y": 132,
+        "width": 768,
+        "height": 680,
+        "right": 768,
+        "bottom": 812,
+        "text": "New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".home-hero-content",
+        "x": 38.39,
+        "y": 340.86,
+        "width": 691.22,
+        "height": 429.14,
+        "right": 729.61,
+        "bottom": 770,
+        "text": "New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".hero-kicker",
+        "x": 38.39,
+        "y": 340.86,
+        "width": 342.5,
+        "height": 16,
+        "right": 380.89,
+        "bottom": 356.86,
+        "text": "New construction · Independent buyer guidance"
+      },
+      {
+        "selector": ".home-hero h1",
+        "x": 38.39,
+        "y": 378.86,
+        "width": 347.03,
+        "height": 152.86,
+        "right": 385.42,
+        "bottom": 531.72,
+        "text": "West Palm Beach, with perspective."
+      },
+      {
+        "selector": ".home-hero .hero-copy",
+        "x": 38.39,
+        "y": 551.72,
+        "width": 426.88,
+        "height": 76.78,
+        "right": 465.27,
+        "bottom": 628.5,
+        "text": "Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits."
+      },
+      {
+        "selector": ".v2-hero-actions",
+        "x": 38.39,
+        "y": 654.5,
+        "width": 370.92,
+        "height": 49.5,
+        "right": 409.31,
+        "bottom": 704,
+        "text": "Explore buildings ↗Compare your options →"
+      },
+      {
+        "selector": ".v2-hero-actions .button",
+        "x": 38.39,
+        "y": 654.5,
+        "width": 190.36,
+        "height": 49.5,
+        "right": 228.75,
+        "bottom": 704,
+        "text": "Explore buildings ↗"
+      },
+      {
+        "selector": ".v2-hero-actions .v2-text-link",
+        "x": 250.75,
+        "y": 657.25,
+        "width": 158.56,
+        "height": 44,
+        "right": 409.31,
+        "bottom": 701.25,
+        "text": "Compare your options →"
+      },
+      {
+        "selector": ".v2-hero-note",
+        "x": 38.39,
+        "y": 726,
+        "width": 223.17,
+        "height": 44,
+        "right": 261.56,
+        "bottom": 770,
+        "text": "Catch up on the latest developments ↓"
+      }
+    ],
+    "text": {
+      "kicker": "New construction · Independent buyer guidance",
+      "heading": "West Palm Beach, with perspective.",
+      "copy": "Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.",
+      "caption": "Shorecrest · AI-assisted architectural rendering"
+    },
+    "heroResponses": [
+      {
+        "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-960w.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "contentLength": "95058",
+        "transferSize": 95358,
+        "encodedBodySize": 95058
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "origin": "http://127.0.0.1:5186",
+    "errors": [],
+    "viewport": {
+      "width": 1024,
+      "height": 1000,
+      "devicePixelRatio": 1
+    },
+    "scrollY": 0,
+    "documentWidth": 1024,
+    "bodyWidth": 1024,
+    "overflow": 0,
+    "heroImage": [
+      {
+        "src": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+        "currentSrc": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1280w.webp",
+        "sourceSrcset": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp 390w, /assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp 455w",
+        "naturalWidth": 1024,
+        "naturalHeight": 576,
+        "complete": true,
+        "loading": "eager",
+        "fetchPriority": "high",
+        "resource": {
+          "name": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1280w.webp",
+          "initiatorType": "img",
+          "transferSize": 152274,
+          "encodedBodySize": 151974,
+          "decodedBodySize": 151974
+        }
+      }
+    ],
+    "positions": [
+      {
+        "selector": ".site-nav",
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 132,
+        "right": 1024,
+        "bottom": 132,
+        "text": "WPB\n        New ConstructionWest Palm Beach\n      \n      \n        Buildings\n        Corridors\n        Compare\n        Floor plans\n      \n      Call\n      Contact the Team →"
+      },
+      {
+        "selector": ".home-hero",
+        "x": 0,
+        "y": 132,
+        "width": 1024,
+        "height": 680,
+        "right": 1024,
+        "bottom": 812,
+        "text": "Shorecrest · AI-assisted architectural rendering\n          \n            Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.Editorial image of the South Flagler waterfront corridor with Intracoastal and Palm Beach context.Downtown West Palm Beach skyline illuminated along the Intracoastal at night.Editorial image of the NORA and North Downtown West Palm Beach growth district.\n          \n        \n        \n        \n          \n            New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".home-hero-media",
+        "x": 0,
+        "y": 132,
+        "width": 1024,
+        "height": 680,
+        "right": 1024,
+        "bottom": 812,
+        "text": "Shorecrest · AI-assisted architectural rendering\n          \n            Shorecrest North Flagler architectural rendering with an AI-assisted tonal finish.West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.Editorial image of the South Flagler waterfront corridor with Intracoastal and Palm Beach context.Downtown West Palm Beach skyline illuminated along the Intracoastal at night.Editorial image of the NORA and North Downtown West Palm Beach growth district."
+      },
+      {
+        "selector": ".home-hero-image",
+        "x": 0,
+        "y": 132,
+        "width": 1024,
+        "height": 680,
+        "right": 1024,
+        "bottom": 812,
+        "text": ""
+      },
+      {
+        "selector": ".home-hero-caption",
+        "x": 667.09,
+        "y": 751.41,
+        "width": 216.91,
+        "height": 38.59,
+        "right": 884,
+        "bottom": 790,
+        "text": "Shorecrest · AI-assisted architectural rendering"
+      },
+      {
+        "selector": ".home-hero-layout",
+        "x": 0,
+        "y": 132,
+        "width": 1024,
+        "height": 680,
+        "right": 1024,
+        "bottom": 812,
+        "text": "New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".home-hero-content",
+        "x": 51.19,
+        "y": 315.97,
+        "width": 760,
+        "height": 444.84,
+        "right": 811.19,
+        "bottom": 760.81,
+        "text": "New construction · Independent buyer guidance\n            \n              West Palm Beach, with perspective.\n            \n            Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.\n            Explore buildings ↗Compare your options →\n            Catch up on the latest developments ↓"
+      },
+      {
+        "selector": ".hero-kicker",
+        "x": 51.19,
+        "y": 315.97,
+        "width": 342.5,
+        "height": 16,
+        "right": 393.69,
+        "bottom": 331.97,
+        "text": "New construction · Independent buyer guidance"
+      },
+      {
+        "selector": ".home-hero h1",
+        "x": 51.19,
+        "y": 353.97,
+        "width": 382.67,
+        "height": 168.56,
+        "right": 433.86,
+        "bottom": 522.53,
+        "text": "West Palm Beach, with perspective."
+      },
+      {
+        "selector": ".home-hero .hero-copy",
+        "x": 51.19,
+        "y": 542.53,
+        "width": 426.88,
+        "height": 76.78,
+        "right": 478.06,
+        "bottom": 619.31,
+        "text": "Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits."
+      },
+      {
+        "selector": ".v2-hero-actions",
+        "x": 51.19,
+        "y": 645.31,
+        "width": 370.92,
+        "height": 49.5,
+        "right": 422.11,
+        "bottom": 694.81,
+        "text": "Explore buildings ↗Compare your options →"
+      },
+      {
+        "selector": ".v2-hero-actions .button",
+        "x": 51.19,
+        "y": 645.31,
+        "width": 190.36,
+        "height": 49.5,
+        "right": 241.55,
+        "bottom": 694.81,
+        "text": "Explore buildings ↗"
+      },
+      {
+        "selector": ".v2-hero-actions .v2-text-link",
+        "x": 263.55,
+        "y": 648.06,
+        "width": 158.56,
+        "height": 44,
+        "right": 422.11,
+        "bottom": 692.06,
+        "text": "Compare your options →"
+      },
+      {
+        "selector": ".v2-hero-note",
+        "x": 51.19,
+        "y": 716.81,
+        "width": 223.17,
+        "height": 44,
+        "right": 274.36,
+        "bottom": 760.81,
+        "text": "Catch up on the latest developments ↓"
+      }
+    ],
+    "text": {
+      "kicker": "New construction · Independent buyer guidance",
+      "heading": "West Palm Beach, with perspective.",
+      "copy": "Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.",
+      "caption": "Shorecrest · AI-assisted architectural rendering"
+    },
+    "heroResponses": [
+      {
+        "url": "http://127.0.0.1:5186/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1280w.webp",
+        "status": 200,
+        "contentType": "image/webp",
+        "contentLength": "151974",
+        "transferSize": 152274,
+        "encodedBodySize": 151974
+      }
+    ]
+  }
+]

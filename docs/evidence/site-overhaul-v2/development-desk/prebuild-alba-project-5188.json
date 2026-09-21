@@ -1,0 +1,113 @@
+{
+  "capturedAtUtc": "2026-09-19T19:13:56.009Z",
+  "preview": "http://127.0.0.1:5188",
+  "gitHead": "5041bc179ac784300fa01fd32e399f2e8668c4d4",
+  "scope": "Prebuild baseline only: Alba article -> Related Buildings -> Alba project hero",
+  "sourceDateVerification": "approved-record-only; no external publisher-date claim",
+  "articlePath": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+  "projectPath": "/projects/alba-palm-beach/",
+  "homepageDeskCard": 0,
+  "article": {
+    "status": 200,
+    "routeSelector": "[data-static-prerender^=\"update-\"]",
+    "titleSelector": "[data-static-prerender^=\"update-\"] h1",
+    "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+    "relatedBuildingsSelector": "[data-static-prerender^=\"update-\"] a[href=\"/projects/alba-palm-beach/\"]",
+    "relatedBuildingsText": "WPB New Construction Alba Palm Beach Is Complete and Move-In Ready on North Flagler The 22-story, 55-residence tower at 4714 N. Flagler Drive has completed construction, giving buyers a move-in-ready new-construction option on North Flagler. Published 2026-09-14T18:56:38.846Z from Florida YIMBY. The 22-story, 55-residence tower at 4714 N. Flagler Drive has completed construction, giving buyers a move-in-ready new-construction option on North Flagler. What happenedAlba Palm Beach has completed construction at 4714 N. Flagler Drive and is now move-in ready. Florida YIMBY reports the project as a completed 22-story residential tower with 55 residences, designed by Spina O'Rourke. That makes Alba materially different from many of the new-construction options buyers are comparing elsewhere in West Palm Beach: this is no longer a future-delivery story. The building has reached completion, and the current project status can be evaluated from the standpoint of occupancy rather than construction timing.Why it matters for buyersFor buyers who want new construction without waiting through a multi-year build, completion changes the conversation. A move-in-ready building removes one of the biggest variables in pre-construction purchasing: when the residence will actually be available. Alba's 55-residence scale also gives buyers a relatively compact building to compare with the larger towers rising elsewhere along the waterfront. The useful facts here are straightforward — 22 stories, 55 residences and completed construction — without relying on unverified amenity or availability claims.What to watchThe next meaningful updates are current inventory, pricing and any resale activity as the building moves from construction into normal occupancy. Those details can change quickly and should be checked against current listings and official sales information rather than assumed from the completion announcement. For now, Alba has crossed the most important threshold: it is a completed, move-in-ready new-construction option on North Flagler. Why it mattersCompletion removes construction-timing uncertainty and gives buyers a finished building to evaluate now. Buyer contextUse the verified completion, 22-story scale and 55-residence count as the current anchors; verify live inventory and pricing separately. Related project guideAlba Palm Beach SourceFlorida YIMBY. Verify current project details before making a purchase decision.",
+    "relatedProjectLinks": [
+      {
+        "text": "Alba Palm Beach",
+        "href": "/projects/alba-palm-beach/"
+      }
+    ]
+  },
+  "project": {
+    "status": 200,
+    "routeSelector": "[data-static-prerender=\"project-alba-palm-beach\"]",
+    "projectTitle": "Alba Palm Beach",
+    "heroSelector": "[data-project-section=hero]",
+    "heroText": "North Flagler completed condominium guide Alba Palm Beach A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale.",
+    "heroStatusCandidates": [
+      {
+        "selectorHint": "p",
+        "text": "North Flagler completed condominium guide"
+      },
+      {
+        "selectorHint": "p",
+        "text": "A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale."
+      }
+    ],
+    "statusCandidates": [
+      {
+        "index": 0,
+        "selectorHint": "p",
+        "text": "WPB New Construction"
+      },
+      {
+        "index": 1,
+        "selectorHint": "p",
+        "text": "Explore Alba Palm Beach, a boutique North Flagler waterfront condo with 55 residences, private terraces, amenities, and Spring 2026 delivery."
+      },
+      {
+        "index": 2,
+        "selectorHint": "p",
+        "text": "North Flagler completed condominium guide"
+      },
+      {
+        "index": 3,
+        "selectorHint": "p",
+        "text": "A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale."
+      },
+      {
+        "index": 4,
+        "selectorHint": "p",
+        "text": "Alba Palm Beach is a completed North Flagler condominium used as a resale comparable, not current project sponsor inventory. Confirm active listings, condition, fees, assessments, and seller terms."
+      },
+      {
+        "index": 6,
+        "selectorHint": "p",
+        "text": "Alba Palm Beach is tracked in the North Flagler lane. Compare this location by daily drive pattern, Palm Beach access, waterfront or downtown orientation, view exposure, parking, and what nearby construction may mean before touring."
+      },
+      {
+        "index": 7,
+        "selectorHint": "p",
+        "text": "Use the corridor guide to compare nearby West Palm Beach projects by buyer fit, current status, released floorplans, and what still needs verification before touring."
+      },
+      {
+        "index": 14,
+        "selectorHint": "article",
+        "text": "What is the bottom line on Alba Palm Beach?Alba Palm Beach is a North Flagler completed comparable profile. Verify current pricing, availability, incentives, fees, square footage, delivery timing, and contract terms before relying on public summaries."
+      },
+      {
+        "index": 15,
+        "selectorHint": "p",
+        "text": "Alba Palm Beach is a North Flagler completed comparable profile. Verify current pricing, availability, incentives, fees, square footage, delivery timing, and contract terms before relying on public summaries."
+      },
+      {
+        "index": 18,
+        "selectorHint": "article",
+        "text": "What should buyers verify before relying on Alba Palm Beach information?Confirm current pricing or rent, availability, fees, floor-plan release status, delivery timing, and the terms that apply to the specific residence or space."
+      },
+      {
+        "index": 19,
+        "selectorHint": "p",
+        "text": "Confirm current pricing or rent, availability, fees, floor-plan release status, delivery timing, and the terms that apply to the specific residence or space."
+      }
+    ],
+    "visibleStatusText": "Completed",
+    "staticStatusSelector": "[data-project-section=\"facts\"] dt + dd (following Status)",
+    "staticStatus": "Completed",
+    "projectTextExcerpt": "WPB New Construction Alba Palm Beach Explore Alba Palm Beach, a boutique North Flagler waterfront condo with 55 residences, private terraces, amenities, and Spring 2026 delivery. North Flagler completed condominium guide Alba Palm Beach A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale. Bottom line Alba Palm Beach is a completed North Flagler condominium used as a resale comparable, not current project sponsor inventory. Confirm active listings, condition, fees, assessments, and seller terms. Key facts to verify Project address4714 N. Flagler Drive, West Palm Beach, FL 33407 StatusCompleted Residences55 Stories22 Delivery2Q 2026 Pricing$2.5M–$7.8M Project teamBGI Companies; Blue Road Group; Spina O’Rourke + Partners Floorplans7 canonical plans tracked How to use this guide Use this stable Alba Palm Beach profile for orientation, comparison, and the current details worth confirming before acting. Location and corridor context Alba Palm Beach is tracked in the North Flagler lane. Compare this location by daily drive pattern, Palm Beach access, waterfront or downtown orientation, view exposure, parking, and what nearby construction may mean before touring. Compare Alba Palm Beach within North Flagler Use the corridor guide to compare nearby West Palm Beach projects by buyer fit, current status, released floorplans, and what still needs verifica"
+  },
+  "screenshots": [
+    ".runtime/development-desk/prebuild-alba-project-5188.png",
+    ".runtime/development-desk/prebuild-alba-project-5188-facts.png"
+  ],
+  "blockedExternalHosts": [],
+  "blockedMutationCount": 0,
+  "pageErrors": 0,
+  "homepage": {
+    "status": 200
+  },
+  "status": "CAPTURED"
+}

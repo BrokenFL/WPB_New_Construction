@@ -140,6 +140,9 @@ async function start() {
   // Complete the initial enhancement pass before subscribing to mutations. This
   // prevents initial normalization from seeding an observer-feedback loop.
   refresh();
+  // Keep the optional image viewer off the request-context initialization path.
+  void import("./v2Gallery.ts").then(({ installV2Gallery }) => installV2Gallery(app))
+    .catch((error: unknown) => console.warn("Project image viewer was not loaded", error));
   observer.observe(app, observerOptions);
   window.addEventListener("popstate", refresh);
 }

@@ -13,17 +13,18 @@ function ensureIntentField(form: HTMLFormElement, id: string) {
 }
 
 function subjectFor(form: HTMLFormElement) {
+  if (form.dataset.requestShortlist) return form.dataset.requestShortlist;
   const shortlist = form.querySelector<HTMLElement>("[data-shortlist-review] p");
   if (shortlist?.textContent?.trim()) return shortlist.textContent.trim();
   const projectSelect = form.querySelector<HTMLSelectElement>('select[name="project"]');
-  if (projectSelect?.value) return projectSelect.selectedOptions[0]?.textContent?.trim() || projectSelect.value;
   const projectName = form.querySelector<HTMLInputElement>('input[name="project_name"]')?.value.trim();
   const context = form.querySelector<HTMLInputElement>('input[name="lead_capture_context"]')?.value.trim() || "";
   const plan = context.match(/(?:floorplan|floorplan-request:[^:]+):([^:]+):([^:]+)$/);
   if (plan) {
     const planLabel = plan[2].split("-").map((part) => part ? part[0].toUpperCase() + part.slice(1) : part).join(" ");
-    return `${projectName || plan[1]} · ${planLabel}`;
+    if (!projectSelect?.value || projectSelect.value === plan[1]) return `${projectSelect?.selectedOptions[0]?.textContent?.trim() || projectName || plan[1]} · ${planLabel}`;
   }
+  if (projectSelect?.value) return projectSelect.selectedOptions[0]?.textContent?.trim() || projectSelect.value;
   if (projectName) return projectName;
   const corridor = form.dataset.leadCorridor;
   if (corridor) return corridor.split("-").map((part) => part ? part[0].toUpperCase() + part.slice(1) : part).join(" ");
@@ -48,8 +49,10 @@ function updateSummary(form: HTMLFormElement) {
     summary = document.createElement("section");
     summary.className = "request-summary";
     summary.dataset.requestSummary = "";
-    const firstLabel = form.querySelector("label");
-    form.insertBefore(summary, firstLabel ?? form.firstChild);
+    const firstRenderableChild = Array.from(form.children).find((child) =>
+      !(child instanceof HTMLInputElement && (child.type === "hidden" || child.classList.contains("lead-honeypot"))),
+    );
+    form.insertBefore(summary, firstRenderableChild ?? null);
   }
   summary.replaceChildren();
   const eyebrow = document.createElement("p");

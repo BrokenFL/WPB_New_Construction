@@ -21,6 +21,7 @@ const marketNotesPath = path.join(workspace, "src/data/marketNotes.ts");
 const productionBaseUrl = "https://www.wpbnewconstruction.com";
 const generatedDate = new Date().toISOString().slice(0, 10);
 const cloudflarePagesSingleFileLimitBytes = 25 * 1024 * 1024;
+const siteMetaOnly = process.argv.includes("--site-meta-only");
 const marketNoteRoutes = [
   {
     slug: "olara-special-pricing-keeps-north-flagler-in-play",
@@ -237,6 +238,7 @@ const priorityProjects = new Set([
 
 const siteMeta = {
   siteName: "WPB New Construction",
+  alternateName: "West Palm Beach New Construction",
   baseUrl: productionBaseUrl,
   title: "West Palm Beach New Construction Condos | Buyer Guide",
   description:
@@ -1375,6 +1377,20 @@ const answerBlocks = [
 ];
 
 async function main() {
+  if (siteMetaOnly) {
+    const publicSiteMetaPath = path.join(publicDataRoot, "site-meta.json");
+    const siteDataPath = path.join(generatedRoot, "siteData.ts");
+    const currentSiteData = await fs.readFile(siteDataPath, "utf8");
+    const nextSiteData = currentSiteData.replace(
+      /^export const siteMeta = \{[\s\S]*?\} as const;\n/,
+      `export const siteMeta = ${JSON.stringify(siteMeta, null, 2)} as const;\n`,
+    );
+    if (nextSiteData === currentSiteData) throw new Error("Could not update generated siteMeta export");
+    await fs.writeFile(publicSiteMetaPath, `${JSON.stringify(siteMeta, null, 2)}\n`);
+    await fs.writeFile(siteDataPath, nextSiteData);
+    console.log(JSON.stringify({ mode: "site-meta-only", outputs: [path.relative(workspace, publicSiteMetaPath), path.relative(workspace, siteDataPath)] }, null, 2));
+    return;
+  }
   await fs.mkdir(publicDataRoot, { recursive: true });
   await fs.mkdir(generatedRoot, { recursive: true });
   await fs.mkdir(reviewRoot, { recursive: true });

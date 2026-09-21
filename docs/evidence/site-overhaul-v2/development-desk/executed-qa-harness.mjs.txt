@@ -1,0 +1,604 @@
+#!/usr/bin/env node
+/*
+ * Focused, no-write Development Desk QA.
+ *
+ * This is intentionally gated. Root must provide the exact stable implementation
+ * SHA after the final preview/build is ready:
+ *
+ *   DEV_DESK_QA_CUE_SHA=<stable-sha> \
+ *   DEV_DESK_QA_BASE_URL=http://127.0.0.1:5188 \
+ *   node .runtime/development-desk/qa-final.mjs
+ *
+ * The script writes only .runtime/development-desk/final-qa-result.json. It never
+ * submits a form, follows an external research URL, sends analytics, or prints
+ * browser console/secret URLs.
+ */
+
+import crypto from "node:crypto";
+import { execFileSync } from "node:child_process";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { chromium } from "playwright";
+import sharp from "sharp";
+
+const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(SCRIPT_DIR, "../..");
+const RUNTIME = path.join(ROOT, ".runtime", "development-desk");
+const BASE_SHA = "5041bc179ac784300fa01fd32e399f2e8668c4d4";
+const BASE_URL = process.env.DEV_DESK_QA_BASE_URL || process.env.BASE_URL || "http://127.0.0.1:5188";
+const CUE_SHA = process.env.DEV_DESK_QA_CUE_SHA || "";
+const VIEWPORTS = [
+  { width: 1440, height: 1000 },
+  { width: 1024, height: 1000 },
+  { width: 768, height: 1000 },
+  { width: 390, height: 844 },
+  { width: 375, height: 812 },
+  { width: 320, height: 812 },
+];
+
+const EXPECTED_DISPLAY = {
+  "intel-story-7e8443a31a1b3fbb": {
+    title: "Terra and Frisbie add a $20M West Palm Beach parcel",
+    takeaway: "The expanded site is planned for mixed-use and residential development; detailed project programming is still to come.",
+    label: /^West Palm Beach · editorial context$/,
+    caption: "Downtown bridge and waterfront context for a West Palm Beach development story.",
+    related: "/buildings/",
+  },
+  "intel-story-26c1c72f59519b2e": {
+    title: "Unicorp under contract for $200M La Fontana buyout",
+    takeaway: "The contract points to a projected 2027 closing; a future redevelopment program has not yet been established.",
+    label: /^Corridor context$/,
+    caption: "West Palm Beach corridor orientation.",
+    related: "/corridors/north-flagler/",
+  },
+  "intel-story-544ca384b5f936f2": {
+    title: "Alba Palm Beach is complete and move-in ready",
+    takeaway: "Alba offers a completed, move-in-ready option instead of a future-delivery commitment.",
+    label: /Alba · Architectural rendering/,
+    caption: "Alba Palm Beach architectural rendering from approved project marketing materials.",
+    related: "/projects/alba-palm-beach/",
+  },
+};
+
+const SELECTED_RESPONSIVE = {
+  "intel-story-7e8443a31a1b3fbb": {
+    desktop: "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+    mobile: "/assets/editorial/development-desk/terra-context-lead-780x355.webp",
+  },
+  "intel-story-26c1c72f59519b2e": {
+    desktop: "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+    mobile: "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+  },
+  "intel-story-544ca384b5f936f2": {
+    desktop: "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+    mobile: "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+  },
+};
+
+const ALLOWED_BLOCKED_EXTERNAL_HOSTS = new Set(["maps.googleapis.com"]);
+
+function expectedResponsiveSource(story, viewportWidth, devicePixelRatio = 1) {
+  if (story.rank !== 1 || viewportWidth <= 980) return SELECTED_RESPONSIVE[story.id].mobile;
+  const slotWidth = viewportWidth <= 1100 ? viewportWidth * 0.9 : (viewportWidth * 0.495) - 24;
+  return slotWidth * devicePixelRatio >= 780
+    ? SELECTED_RESPONSIVE[story.id].desktop
+    : SELECTED_RESPONSIVE[story.id].mobile;
+}
+
+function normalizeText(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function sha256(value) {
+  return crypto.createHash("sha256").update(value).digest("hex");
+}
+
+function currentSha() {
+  return execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, encoding: "utf8" }).trim();
+}
+
+function gitShow(ref, file) {
+  return execFileSync("git", ["show", `${ref}:${file}`], { cwd: ROOT, encoding: "utf8" });
+}
+
+function gitChangedPaths(ref, paths) {
+  const output = execFileSync("git", ["diff", "--name-only", ref, "--", ...paths], { cwd: ROOT, encoding: "utf8" });
+  return output.split("\n").map((line) => line.trim()).filter(Boolean);
+}
+
+function sourceSlice(source, startMarker, endMarker) {
+  const start = source.indexOf(startMarker);
+  if (start < 0) return null;
+  const end = source.indexOf(endMarker, start + startMarker.length);
+  if (end < 0) return null;
+  return source.slice(start, end + endMarker.length);
+}
+
+async function readJson(file) {
+  return JSON.parse(await fs.readFile(path.join(ROOT, file), "utf8"));
+}
+
+function newsSortTimestamp(item) {
+  const value = item.publishedAt || item.sourcePublishedDate || item.sourcePublishedAt || item.dateDiscovered || item.fetchedAt;
+  const timestamp = Date.parse(value);
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
+function getLatestThree(news) {
+  const items = Array.isArray(news) ? news : news.items;
+  return items
+    .filter((item) => item.status === "published")
+    .sort((a, b) => newsSortTimestamp(b) - newsSortTimestamp(a) || a.id.localeCompare(b.id))
+    .slice(0, 3)
+    .map((item, index) => ({ ...item, rank: index + 1 }));
+}
+
+function localUrl(href) {
+  const url = new URL(href, BASE_URL);
+  if (url.origin !== new URL(BASE_URL).origin) throw new Error(`non-local link: ${url.origin}`);
+  return url;
+}
+
+function recordCheck(result, name, ok, details = undefined) {
+  result.checkCount += 1;
+  if (ok) {
+    result.passCount += 1;
+    return;
+  }
+  result.failures.push({ name, ...(details ? { details } : {}) });
+}
+
+function unexpectedExternalHosts(hosts) {
+  return hosts.filter((host) => !ALLOWED_BLOCKED_EXTERNAL_HOSTS.has(host));
+}
+
+function trimUrlForOutput(url) {
+  try {
+    const parsed = new URL(url);
+    return `${parsed.origin}${parsed.pathname}`;
+  } catch {
+    return "invalid-url";
+  }
+}
+
+async function checkHttp(context, result, href, name) {
+  try {
+    const url = localUrl(href);
+    const response = await context.request.get(url.href, { maxRedirects: 3, timeout: 15000 });
+    recordCheck(result, `${name}:HTTP ${response.status()}`, response.ok(), { path: url.pathname, status: response.status() });
+    return response;
+  } catch (error) {
+    recordCheck(result, `${name}:HTTP`, false, { path: href, error: String(error).slice(0, 180) });
+    return null;
+  }
+}
+
+async function checkSelectedImage(context, result, card, story, viewport) {
+  const expectedSource = expectedResponsiveSource(story, viewport.width, viewport.devicePixelRatio || 1);
+  const actual = card.image;
+  recordCheck(result, `${story.id}:source path bound`, actual.sourcePath === story.imagePath, { expected: story.imagePath, actual: actual.sourcePath });
+  recordCheck(result, `${story.id}:responsive source`, actual.currentSrc.endsWith(expectedSource), { expected: expectedSource, actual: trimUrlForOutput(actual.currentSrc) });
+  recordCheck(result, `${story.id}:image loaded`, actual.complete && actual.naturalWidth > 0 && actual.naturalHeight > 0, { complete: actual.complete, naturalWidth: actual.naturalWidth, naturalHeight: actual.naturalHeight });
+
+  const manifest = await readJson(".runtime/development-desk/derivative-manifest.json");
+  const variant = manifest.variants.find((item) => item.output === expectedSource);
+  recordCheck(result, `${story.id}:derivative manifest`, Boolean(variant), { source: expectedSource });
+  if (!variant) return;
+  try {
+    const metadata = await sharp(path.join(ROOT, "public", expectedSource.replace(/^\/+/, ""))).metadata();
+    recordCheck(result, `${story.id}:native dimensions`, metadata.width === variant.outputDimensions.width && metadata.height === variant.outputDimensions.height, { expected: variant.outputDimensions, actual: { width: metadata.width, height: metadata.height } });
+    recordCheck(result, `${story.id}:browser aspect ratio`, Math.abs((actual.naturalWidth / actual.naturalHeight) - (variant.outputDimensions.width / variant.outputDimensions.height)) < 0.02, { expected: variant.outputDimensions, actual: { width: actual.naturalWidth, height: actual.naturalHeight } });
+  } catch (error) {
+    recordCheck(result, `${story.id}:native dimensions`, false, { error: String(error).slice(0, 180) });
+  }
+  try {
+    const response = await context.request.get(new URL(expectedSource, BASE_URL).href, { timeout: 15000 });
+    const bytes = (await response.body()).byteLength;
+    recordCheck(result, `${story.id}:served bytes`, response.ok() && bytes === variant.bytes, { expected: variant.bytes, actual: bytes, status: response.status() });
+  } catch (error) {
+    recordCheck(result, `${story.id}:served bytes`, false, { error: String(error).slice(0, 180) });
+  }
+}
+
+async function waitForClientHome(page, expected) {
+  const ids = expected.map((story) => story.id);
+  await page.waitForFunction((expectedIds) => {
+    const shell = document.querySelector('.site-shell[data-active-route="home"]');
+    const cards = Array.from(document.querySelectorAll('#latest-developments [data-home-news-id]'));
+    const actualIds = cards.map((card) => card.getAttribute('data-home-news-id'));
+    return Boolean(shell) && actualIds.length === expectedIds.length && expectedIds.every((id, index) => actualIds[index] === id);
+  }, ids, { timeout: 20000, polling: 250 });
+}
+
+async function inspectDesk(page, context, result, expected, viewport) {
+  await page.waitForSelector("#latest-developments", { state: "visible", timeout: 15000 });
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.waitForTimeout(250);
+
+  const state = await page.evaluate(() => {
+    const desk = document.querySelector("#latest-developments");
+    const cards = Array.from(document.querySelectorAll("#latest-developments [data-home-news-id]"));
+    const imageData = (card) => {
+      const figure = card.querySelector("[data-desk-source-path]");
+      const image = figure?.querySelector("img");
+      return {
+        sourcePath: figure?.getAttribute("data-desk-source-path") || "",
+        caption: figure?.getAttribute("data-desk-image-caption") || "",
+        credit: figure?.getAttribute("data-desk-image-credit") || "",
+        currentSrc: image?.currentSrc || image?.src || "",
+        complete: Boolean(image?.complete),
+        naturalWidth: image?.naturalWidth || 0,
+        naturalHeight: image?.naturalHeight || 0,
+      };
+    };
+    const visible = (element) => {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
+    };
+    const overflow = Array.from(document.querySelectorAll("body *"))
+      .filter(visible)
+      .filter((element) => !element.closest(".home-section-jump"))
+      .map((element) => ({
+        tag: element.tagName.toLowerCase(),
+        className: String(element.className || "").split(/\s+/).slice(0, 2).join("."),
+        left: Math.round(element.getBoundingClientRect().left),
+        right: Math.round(element.getBoundingClientRect().right),
+      }))
+      .filter((item) => item.left < -1 || item.right > window.innerWidth + 1)
+      .slice(0, 8);
+    return {
+      consent: window.wpbAnalyticsConsent,
+      destination: window.wpbAnalyticsDestination,
+      gaScripts: document.querySelectorAll("script[data-wpb-ga4], script[src*='googletagmanager'], script[src*='google-analytics']").length,
+      htmlScrollWidth: document.documentElement.scrollWidth,
+      bodyScrollWidth: document.body.scrollWidth,
+      viewportWidth: window.innerWidth,
+      devicePixelRatio: window.devicePixelRatio,
+      overflow,
+      hero: (() => {
+        const image = document.querySelector(".home-hero img[data-home-hero-layer='active']");
+        return { src: image?.currentSrc || image?.src || "", alt: image?.getAttribute("alt") || "" };
+      })(),
+      closing: (() => {
+        const image = document.querySelector(".home-end-bridge img");
+        return { src: image?.getAttribute("src") || "", alt: image?.getAttribute("alt") || "" };
+      })(),
+      nav: Array.from(document.querySelectorAll("header.site-nav a")).map((link) => ({ text: link.textContent?.trim(), href: link.getAttribute("href") })),
+      cards: cards.map((card) => {
+        const image = imageData(card);
+        return {
+        id: card.getAttribute("data-home-news-id"),
+        originalTitle: card.getAttribute("data-home-news-original-title"),
+        originalTakeaway: card.getAttribute("data-home-news-original-takeaway"),
+        displayTitle: card.getAttribute("data-home-news-display-title"),
+        heading: card.querySelector("h3")?.textContent?.trim() || "",
+        takeaway: card.querySelector(".v2-desk-takeaway")?.textContent?.trim() || "",
+        publishedDate: card.querySelector(".v2-desk-date > time")?.getAttribute("datetime") || "",
+        sourceDate: card.querySelector(".v2-desk-source time")?.getAttribute("datetime") || "",
+        label: card.querySelector(".v2-desk-image-label")?.textContent?.trim() || "",
+        caption: image.caption,
+        credit: image.credit,
+        links: Array.from(card.querySelectorAll("a")).map((link) => ({ text: link.textContent?.trim(), href: link.getAttribute("href") })),
+        image,
+      }; }),
+      allImagesLoaded: Array.from(document.querySelectorAll("#latest-developments img")).every((image) => image.complete && image.naturalWidth > 0),
+      sectionHeight: Math.round(desk?.getBoundingClientRect().height || 0),
+    };
+  });
+
+  recordCheck(result, `viewport ${viewport.width}:no document overflow`, state.htmlScrollWidth <= state.viewportWidth + 1 && state.bodyScrollWidth <= state.viewportWidth + 1, { htmlScrollWidth: state.htmlScrollWidth, bodyScrollWidth: state.bodyScrollWidth, viewportWidth: state.viewportWidth });
+  recordCheck(result, `viewport ${viewport.width}:no visible overflow`, state.overflow.length === 0, { overflow: state.overflow });
+  recordCheck(result, `viewport ${viewport.width}:all Desk images loaded`, state.allImagesLoaded, { allImagesLoaded: state.allImagesLoaded });
+  recordCheck(result, `viewport ${viewport.width}:three story cards`, state.cards.length === 3, { count: state.cards.length });
+
+  const actualIds = state.cards.map((card) => card.id);
+  recordCheck(result, `viewport ${viewport.width}:approved order`, JSON.stringify(actualIds) === JSON.stringify(expected.map((story) => story.id)), { expected: expected.map((story) => story.id), actual: actualIds });
+
+  const expectedHeroPrefix = "/assets/editorial/shorecrest-hero-b-warm-mineral-v01";
+  recordCheck(result, `viewport ${viewport.width}:locked homepage hero`, state.hero.src.includes(expectedHeroPrefix) && state.hero.alt.length > 0, { src: trimUrlForOutput(state.hero.src), altPresent: Boolean(state.hero.alt) });
+  recordCheck(result, `viewport ${viewport.width}:locked closing image`, state.closing.src === "/assets/home/wpb-end-cap-bridge-v01.png" && state.closing.alt.length > 0, { src: state.closing.src, altPresent: Boolean(state.closing.alt) });
+  recordCheck(result, `viewport ${viewport.width}:site masthead links`, state.nav.some((link) => link.href === "/buildings/") && state.nav.some((link) => link.href === "/inquire/"), { nav: state.nav.map((link) => link.href) });
+  recordCheck(result, `viewport ${viewport.width}:consent denied`, state.consent === "denied" && state.destination === "local-only" && state.gaScripts === 0, { consent: state.consent, destination: state.destination, gaScripts: state.gaScripts });
+
+  for (const story of expected) {
+    const card = state.cards.find((item) => item.id === story.id);
+    const accepted = EXPECTED_DISPLAY[story.id];
+    if (!card) {
+      recordCheck(result, `${story.id}:card present`, false);
+      continue;
+    }
+    // The homepage may omit duplicated original-title/takeaway data attributes.
+    // Exact original article title/body preservation is checked on the article journey below.
+    recordCheck(result, `${story.id}:accepted display title`, card.heading === accepted.title, { expected: accepted.title, actual: card.heading });
+    recordCheck(result, `${story.id}:accepted compact takeaway`, card.takeaway === accepted.takeaway, { expected: accepted.takeaway, actual: card.takeaway });
+    recordCheck(result, `${story.id}:published date`, card.publishedDate === story.publishedAt, { expected: story.publishedAt, actual: card.publishedDate });
+    recordCheck(result, `${story.id}:source report date`, card.sourceDate === (story.sourcePublishedDate || story.sourcePublishedAt), { expected: story.sourcePublishedDate || story.sourcePublishedAt, actual: card.sourceDate });
+    recordCheck(result, `${story.id}:truthful label`, accepted.label.test(card.label), { expected: String(accepted.label), actual: card.label });
+    recordCheck(result, `${story.id}:truthful caption`, card.caption === accepted.caption, { expected: accepted.caption, actual: card.caption });
+    recordCheck(result, `${story.id}:credit present`, card.credit.length > 0, { credit: card.credit });
+    if (story.rank < 3) recordCheck(result, `${story.id}:context credit avoids false rendering/photo claim`, !/(photo|photograph|rendering|architectural)/i.test(`${card.label} ${card.caption} ${card.credit}`), { label: card.label, credit: card.credit });
+    if (story.rank === 3) recordCheck(result, `${story.id}:rendering label`, /architectural rendering/i.test(`${card.label} ${card.caption}`), { label: card.label, caption: card.caption });
+    recordCheck(result, `${story.id}:story link`, card.links.some((link) => link.href === `/updates/${story.slug}/`), { links: card.links.map((link) => link.href) });
+    recordCheck(result, `${story.id}:related journey link`, card.links.some((link) => link.href === accepted.related), { expected: accepted.related, links: card.links.map((link) => link.href) });
+    await checkSelectedImage(context, result, card, story, { ...viewport, devicePixelRatio: state.devicePixelRatio });
+  }
+
+  return {
+    width: viewport.width,
+    height: viewport.height,
+    sectionHeight: state.sectionHeight,
+    overflow: state.overflow,
+    imagesLoaded: state.allImagesLoaded,
+    currentSources: state.cards.map((card) => ({ id: card.id, src: trimUrlForOutput(card.image.currentSrc) })),
+  };
+}
+
+async function checkJourneys(page, context, result, expected) {
+  for (const story of expected) {
+    await page.goto(new URL("/", BASE_URL).href, { waitUntil: "domcontentloaded" });
+    await waitForClientHome(page, expected);
+    const card = page.locator(`#latest-developments [data-home-news-id="${story.id}"]`);
+    await card.waitFor({ state: "visible", timeout: 15000 });
+    const links = await card.locator("a").evaluateAll((items) => items.map((link) => ({ text: link.textContent?.trim() || "", href: link.getAttribute("href") || "" })));
+    const storyHref = `/updates/${story.slug}/`;
+    const relatedHref = EXPECTED_DISPLAY[story.id].related;
+    recordCheck(result, `${story.id}:story link HTTP`, links.some((link) => link.href === storyHref));
+    recordCheck(result, `${story.id}:related link HTTP`, links.some((link) => link.href === relatedHref));
+    await checkHttp(context, result, storyHref, `${story.id}:story`);
+    await checkHttp(context, result, relatedHref, `${story.id}:related`);
+
+    await card.locator(`a[href="${storyHref}"]`).first().click();
+    await page.locator('[data-route-view="news-detail"]:visible').waitFor({ state: "visible", timeout: 15000 });
+    const articleText = normalizeText(await page.locator('[data-route-view="news-detail"]:visible').innerText());
+    recordCheck(result, `${story.id}:article client route`, new URL(page.url()).pathname === storyHref, { expected: storyHref, actual: new URL(page.url()).pathname });
+    recordCheck(result, `${story.id}:original article title`, normalizeText(await page.locator('[data-route-view="news-detail"]:visible h1').first().textContent()) === story.title, { expected: story.title });
+    recordCheck(result, `${story.id}:approved deck unchanged`, articleText.includes(normalizeText(story.deck)), { expected: story.deck });
+    recordCheck(result, `${story.id}:approved buyer takeaway unchanged`, articleText.includes(normalizeText(story.buyerTakeaway)), { buyerTakeaway: story.buyerTakeaway });
+    for (const section of story.bodySections || []) {
+      recordCheck(result, `${story.id}:body section unchanged:${section.heading}`, articleText.includes(normalizeText(section.body)), { heading: section.heading });
+    }
+
+    const expectedView = relatedHref === "/buildings/"
+      ? "buildings"
+      : relatedHref.startsWith("/projects/")
+        ? "project"
+        : "corridor";
+    const articleRoute = page.locator('[data-route-view="news-detail"]:visible');
+    const articleRelatedLink = articleRoute.locator(`a[href="${relatedHref}"]`).first();
+    if (await articleRelatedLink.count()) {
+      await articleRelatedLink.click();
+    } else {
+      // Terra and La Fontana expose their approved building/corridor journey on
+      // the Desk card; Alba exposes its project link in the hydrated article.
+      await page.goto(new URL("/", BASE_URL).href, { waitUntil: "domcontentloaded" });
+      await waitForClientHome(page, expected);
+      const homeRelatedLink = page.locator(`#latest-developments [data-home-news-id="${story.id}"] a[href="${relatedHref}"]`).first();
+      recordCheck(result, `${story.id}:related client link present`, await homeRelatedLink.count() > 0, { relatedHref });
+      if (await homeRelatedLink.count()) await homeRelatedLink.click();
+    }
+    await page.locator(`[data-route-view="${expectedView}"]:visible`).waitFor({ state: "visible", timeout: 15000 });
+    recordCheck(result, `${story.id}:related client route`, new URL(page.url()).pathname === relatedHref, { expected: relatedHref, actual: new URL(page.url()).pathname });
+    recordCheck(result, `${story.id}:related route view`, await page.locator(`[data-route-view="${expectedView}"]:visible`).count() > 0, { expectedView });
+  }
+}
+
+async function checkDpr2ResponsiveSources(browser, result, expected) {
+  const cases = [
+    { width: 1440, height: 1000, label: "desktop" },
+    { width: 390, height: 844, label: "phone" },
+  ];
+  for (const viewport of cases) {
+    const context = await browser.newContext({ viewport, deviceScaleFactor: 2 });
+    const blockedExternalHosts = new Set();
+    const blockedMutations = [];
+    let pageErrors = 0;
+    await context.addInitScript(() => {
+      try {
+        window.localStorage.setItem("wpbAnalyticsConsentV1", "denied");
+        window.sessionStorage.clear();
+      } catch {
+        // Storage is optional for this read-only check.
+      }
+    });
+    await context.route("**/*", async (route) => {
+      const request = route.request();
+      const url = new URL(request.url());
+      if (url.origin !== new URL(BASE_URL).origin) {
+        blockedExternalHosts.add(url.hostname);
+        await route.abort();
+        return;
+      }
+      if (["POST", "PUT", "PATCH", "DELETE"].includes(request.method())) {
+        blockedMutations.push({ method: request.method(), path: url.pathname });
+        await route.abort();
+        return;
+      }
+      await route.continue();
+    });
+    const page = await context.newPage();
+    page.on("pageerror", () => { pageErrors += 1; });
+    try {
+      const response = await page.goto(new URL("/", BASE_URL).href, { waitUntil: "domcontentloaded", timeout: 20000 });
+      recordCheck(result, `DPR2 ${viewport.label}:homepage HTTP ${response?.status() || 0}`, Boolean(response?.ok()));
+      await waitForClientHome(page, expected);
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      await page.waitForFunction(() => Array.from(document.querySelectorAll("#latest-developments img")).every((image) => image.complete && image.naturalWidth > 0), null, { timeout: 15000, polling: 250 });
+      const sources = await page.evaluate(() => Array.from(document.querySelectorAll("#latest-developments [data-home-news-id]")).map((card) => ({
+        id: card.getAttribute("data-home-news-id"),
+        currentSrc: card.querySelector("img")?.currentSrc || card.querySelector("img")?.src || "",
+      })));
+      for (const story of expected) {
+        const actual = sources.find((item) => item.id === story.id);
+        const expectedSource = expectedResponsiveSource(story, viewport.width, 2);
+        recordCheck(result, `DPR2 ${viewport.label}:${story.id}:responsive source`, Boolean(actual && actual.currentSrc.endsWith(expectedSource)), { expected: expectedSource, actual: actual ? trimUrlForOutput(actual.currentSrc) : null });
+      }
+      const unexpectedHosts = unexpectedExternalHosts([...blockedExternalHosts]);
+      recordCheck(result, `DPR2 ${viewport.label}:no analytics requests`, unexpectedHosts.length === 0, { blockedMaps: [...blockedExternalHosts].filter((host) => ALLOWED_BLOCKED_EXTERNAL_HOSTS.has(host)), unexpectedHosts });
+      recordCheck(result, `DPR2 ${viewport.label}:no mutation requests`, blockedMutations.length === 0, { count: blockedMutations.length });
+      recordCheck(result, `DPR2 ${viewport.label}:no page errors`, pageErrors === 0, { pageErrors });
+    } catch (error) {
+      recordCheck(result, `DPR2 ${viewport.label}:browser run`, false, { error: String(error).slice(0, 240) });
+    } finally {
+      await context.close();
+    }
+  }
+}
+
+function checkLockedSourceInvariant(result) {
+  const current = fs.readFile(path.join(ROOT, "src", "main.ts"), "utf8");
+  return current.then((currentSource) => {
+    const baselineSource = gitShow(BASE_SHA, "src/main.ts");
+    const blocks = [
+      ["masthead source", "    <header class=\"site-nav\">", "    </header>\n\n    <main"],
+      ["homepage hero source", "      <section class=\"home-hero\" id=\"top\">", "      </section>\n\n      <div class=\"home-section-jump-shell\">"],
+      ["closing source", "function renderHomepageEndBridge() {", "function renderHomepageComparePreview"],
+    ];
+    for (const [name, start, end] of blocks) {
+      const expected = sourceSlice(baselineSource, start, end);
+      const actual = sourceSlice(currentSource, start, end);
+      recordCheck(result, `${name} unchanged from ${BASE_SHA.slice(0, 8)}`, Boolean(expected && actual && sha256(actual) === sha256(expected)), { expectedHash: expected ? sha256(expected) : null, actualHash: actual ? sha256(actual) : null });
+    }
+    const lockedPaths = [
+      "src/data/homeHeroImages.ts",
+      "src/data/homepageAssets.ts",
+      "public/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+      "public/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp",
+      "public/assets/home/wpb-end-cap-bridge-v01.png",
+    ];
+    const changed = gitChangedPaths(BASE_SHA, lockedPaths);
+    recordCheck(result, `locked asset/data paths unchanged from ${BASE_SHA.slice(0, 8)}`, changed.length === 0, { changed });
+  });
+}
+
+async function main() {
+  const result = {
+    status: "WAITING",
+    baseSha: BASE_SHA,
+    testSha: null,
+    baseUrl: BASE_URL,
+    sourceDateVerification: "approved-record-only; external publisher date was not independently verified",
+    checkCount: 0,
+    passCount: 0,
+    failures: [],
+    warnings: [],
+    viewports: [],
+    journeys: "pending",
+  };
+
+  if (!CUE_SHA) {
+    result.reason = "Waiting for root to provide DEV_DESK_QA_CUE_SHA after stable implementation/build cue.";
+    await fs.writeFile(path.join(RUNTIME, "final-qa-result.json"), `${JSON.stringify(result, null, 2)}\n`);
+    console.log(JSON.stringify(result));
+    process.exitCode = 2;
+    return;
+  }
+
+  result.testSha = currentSha();
+  if (CUE_SHA !== result.testSha) {
+    result.reason = `Cue SHA ${CUE_SHA} does not match current HEAD ${result.testSha}; no browser checks executed.`;
+    await fs.writeFile(path.join(RUNTIME, "final-qa-result.json"), `${JSON.stringify(result, null, 2)}\n`);
+    console.log(JSON.stringify(result));
+    process.exitCode = 2;
+    return;
+  }
+
+  const news = await readJson("research/news-review/approved-development-news.json");
+  const expected = getLatestThree(news);
+  recordCheck(result, "authoritative newest-three count", expected.length === 3, { ids: expected.map((item) => item.id) });
+  recordCheck(result, "authoritative newest-three IDs", JSON.stringify(expected.map((item) => item.id)) === JSON.stringify(["intel-story-7e8443a31a1b3fbb", "intel-story-26c1c72f59519b2e", "intel-story-544ca384b5f936f2"]), { ids: expected.map((item) => item.id) });
+  await checkLockedSourceInvariant(result);
+
+  const browser = await chromium.launch({ headless: true });
+  try {
+    for (const viewport of VIEWPORTS) {
+      const context = await browser.newContext({ viewport });
+      const blockedExternalHosts = new Set();
+      const blockedMutations = [];
+      let consoleErrors = 0;
+      let pageErrors = 0;
+      await context.addInitScript(() => {
+        try {
+          window.localStorage.setItem("wpbAnalyticsConsentV1", "denied");
+          window.sessionStorage.clear();
+        } catch {
+          // Storage is optional for this read-only check.
+        }
+      });
+      await context.route("**/*", async (route) => {
+        const request = route.request();
+        const url = new URL(request.url());
+        if (url.origin !== new URL(BASE_URL).origin) {
+          blockedExternalHosts.add(url.hostname);
+          await route.abort();
+          return;
+        }
+        if (["POST", "PUT", "PATCH", "DELETE"].includes(request.method())) {
+          blockedMutations.push({ method: request.method(), path: url.pathname });
+          await route.abort();
+          return;
+        }
+        await route.continue();
+      });
+      const page = await context.newPage();
+      page.on("console", (message) => { if (message.type() === "error") consoleErrors += 1; });
+      page.on("pageerror", () => { pageErrors += 1; });
+      try {
+        const response = await page.goto(new URL("/", BASE_URL).href, { waitUntil: "domcontentloaded", timeout: 20000 });
+        recordCheck(result, `viewport ${viewport.width}:homepage HTTP ${response?.status() || 0}`, Boolean(response?.ok()));
+        await waitForClientHome(page, expected);
+        const viewportResult = await inspectDesk(page, context, result, expected, viewport);
+        viewportResult.blockedExternalHosts = [...blockedExternalHosts];
+        viewportResult.blockedMutations = blockedMutations.length;
+        viewportResult.consoleErrors = consoleErrors;
+        viewportResult.pageErrors = pageErrors;
+        result.viewports.push(viewportResult);
+        const unexpectedHosts = unexpectedExternalHosts([...blockedExternalHosts]);
+        recordCheck(result, `viewport ${viewport.width}:no analytics requests`, unexpectedHosts.length === 0, { blockedMaps: [...blockedExternalHosts].filter((host) => ALLOWED_BLOCKED_EXTERNAL_HOSTS.has(host)), unexpectedHosts });
+        recordCheck(result, `viewport ${viewport.width}:no mutation requests`, blockedMutations.length === 0, { count: blockedMutations.length });
+        recordCheck(result, `viewport ${viewport.width}:no page errors`, pageErrors === 0, { pageErrors });
+      } catch (error) {
+        recordCheck(result, `viewport ${viewport.width}:browser run`, false, { error: String(error).slice(0, 240) });
+      } finally {
+        await context.close();
+      }
+    }
+
+    await checkDpr2ResponsiveSources(browser, result, expected);
+
+    const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+    await context.addInitScript(() => {
+      try { window.localStorage.setItem("wpbAnalyticsConsentV1", "denied"); } catch { /* optional */ }
+    });
+    await context.route("**/*", async (route) => {
+      const request = route.request();
+      const url = new URL(request.url());
+      if (url.origin !== new URL(BASE_URL).origin || ["POST", "PUT", "PATCH", "DELETE"].includes(request.method())) {
+        await route.abort();
+        return;
+      }
+      await route.continue();
+    });
+    const journeyPage = await context.newPage();
+    result.journeys = "executing";
+    await checkJourneys(journeyPage, context, result, expected);
+    result.journeys = "complete";
+    await context.close();
+  } finally {
+    await browser.close();
+  }
+
+  result.status = result.failures.length === 0 ? "PASS" : "FAIL";
+  result.finishedAtUtc = new Date().toISOString();
+  await fs.writeFile(path.join(RUNTIME, "final-qa-result.json"), `${JSON.stringify(result, null, 2)}\n`);
+  console.log(JSON.stringify({ status: result.status, testSha: result.testSha, checks: result.checkCount, passed: result.passCount, failed: result.failures.length, viewports: VIEWPORTS.map((item) => `${item.width}x${item.height}`), journeys: result.journeys }));
+  if (result.status !== "PASS") process.exitCode = 1;
+}
+
+main().catch(async (error) => {
+  const result = { status: "ERROR", baseSha: BASE_SHA, testSha: CUE_SHA || null, baseUrl: BASE_URL, error: String(error).slice(0, 400) };
+  await fs.writeFile(path.join(RUNTIME, "final-qa-result.json"), `${JSON.stringify(result, null, 2)}\n`);
+  console.log(JSON.stringify(result));
+  process.exitCode = 1;
+});

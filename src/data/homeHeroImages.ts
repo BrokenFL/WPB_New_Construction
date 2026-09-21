@@ -9,6 +9,13 @@ export type HomeHeroImage = {
 
 export const homeHeroImages: readonly HomeHeroImage[] = [
   {
+    id: "wpb-citywide-aerial-editorial",
+    src: "/assets/editorial/wpb-aerial-editorial-hero-v01-1672w.webp",
+    alt: "Illustrated aerial view across downtown West Palm Beach, the Intracoastal Waterway, and Palm Beach.",
+    caption: "",
+    credit: "User-supplied generated aerial with a restrained ImageGen editorial finish; source and selected master are preserved in the PR evidence.",
+  },
+  {
     id: "wpb-waterfront-bridge",
     src: "/assets/home/wpb-waterfront-bridge-hero-v01.jpg",
     alt: "West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway.",

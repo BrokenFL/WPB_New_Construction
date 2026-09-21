@@ -1,5 +1,6 @@
 export const siteMeta = {
   "siteName": "WPB New Construction",
+  "alternateName": "West Palm Beach New Construction",
   "baseUrl": "https://www.wpbnewconstruction.com",
   "title": "West Palm Beach New Construction Condos | Buyer Guide",
   "description": "Compare West Palm Beach new-construction condos across North Flagler, Downtown, and South Flagler with source-backed facts, released floorplans, and buyer advisory context.",

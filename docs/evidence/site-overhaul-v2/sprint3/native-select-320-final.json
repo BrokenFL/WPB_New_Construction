@@ -1,0 +1,98 @@
+{
+  "origin": "http://127.0.0.1:5188",
+  "testedSha": "63608542c1d9be95138c2c7606d3fe9aec82d80a",
+  "reports": [
+    {
+      "browser": "chromium",
+      "httpStatus": 200,
+      "before": {
+        "viewport": 320,
+        "documentWidth": 320,
+        "bodyWidth": 320,
+        "gridScrollWidth": 284,
+        "formScrollWidth": 284,
+        "selectStyles": [
+          {
+            "value": "olara",
+            "overflow": "visible",
+            "textOverflow": "ellipsis",
+            "whiteSpace": "nowrap",
+            "scrollWidth": 282,
+            "clientWidth": 282
+          },
+          {
+            "value": "ritz-carlton-wpb",
+            "overflow": "visible",
+            "textOverflow": "ellipsis",
+            "whiteSpace": "nowrap",
+            "scrollWidth": 282,
+            "clientWidth": 282
+          }
+        ]
+      },
+      "after": {
+        "viewport": 320,
+        "documentWidth": 320,
+        "bodyWidth": 320,
+        "gridScrollWidth": 284,
+        "formScrollWidth": 284,
+        "previewCount": 2,
+        "previewText": [
+          "North Flagler Olara West Palm Beach Under Construction",
+          "North Flagler Shorecrest Under Construction"
+        ],
+        "selection": [
+          "olara",
+          "shorecrest"
+        ]
+      },
+      "errors": []
+    },
+    {
+      "browser": "webkit",
+      "httpStatus": 200,
+      "before": {
+        "viewport": 320,
+        "documentWidth": 320,
+        "bodyWidth": 320,
+        "gridScrollWidth": 284,
+        "formScrollWidth": 284,
+        "selectStyles": [
+          {
+            "value": "olara",
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "whiteSpace": "nowrap",
+            "scrollWidth": 282,
+            "clientWidth": 282
+          },
+          {
+            "value": "ritz-carlton-wpb",
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "whiteSpace": "nowrap",
+            "scrollWidth": 282,
+            "clientWidth": 282
+          }
+        ]
+      },
+      "after": {
+        "viewport": 320,
+        "documentWidth": 320,
+        "bodyWidth": 320,
+        "gridScrollWidth": 284,
+        "formScrollWidth": 284,
+        "previewCount": 2,
+        "previewText": [
+          "North Flagler Olara West Palm Beach Under Construction",
+          "North Flagler Shorecrest Under Construction"
+        ],
+        "selection": [
+          "olara",
+          "shorecrest"
+        ]
+      },
+      "errors": []
+    }
+  ]
+}

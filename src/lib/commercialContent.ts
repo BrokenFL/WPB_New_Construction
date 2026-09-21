@@ -6,16 +6,16 @@ export const commercialPages = {
   home: {
     path: '/',
     title: 'West Palm Beach New Construction Condos | Buildings & Plans',
-    heading: 'West Palm Beach New Construction Condos',
+    heading: 'West Palm Beach, with perspective.',
     description: 'Explore West Palm Beach new construction condos by waterfront or downtown location. Compare buildings and floor plans, then request current availability.',
-    intro: 'Explore West Palm Beach new construction condos, from Flagler Drive waterfront towers to downtown residences. Compare locations, project stages and released floor plans, then request current availability for your shortlist.',
+    intro: 'Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.',
   },
   buildings: {
     path: '/buildings/',
     title: 'West Palm Beach Condo Buildings | New Development Directory',
-    heading: 'West Palm Beach Condo Building Directory',
+    heading: 'The building collection.',
     description: 'Browse West Palm Beach condo developments by corridor and project stage. Review building guides, compare layouts and request a current pricing and floor-plan packet.',
-    intro: 'Browse condo developments by corridor and project stage. Separate active-sales projects from announced plans, completed comparables and rental developments before comparing layouts or requesting a current pricing packet.',
+    intro: 'A closer look at West Palm Beach new construction. Filter by location and project stage, then compare the details that matter to you.',
   },
 } as const;
 export const commercialLabels: Record<CommercialIntent, string> = {

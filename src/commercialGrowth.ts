@@ -26,13 +26,13 @@ export function installCommercialGrowth() {
       setText(hero.querySelector('[data-directory-title]'), copy.heading);
       setText(hero.querySelector('[data-directory-deck]'), copy.intro);
     }
-    if (!hero.querySelector('[data-commercial-actions]')) {
-      const after = hero.querySelector(page === 'home' ? '.hero-copy' : '[data-directory-deck]');
-      after?.insertAdjacentHTML('afterend', renderCommercialActions(page));
-    }
     if (!view.querySelector('[data-commercial-guide]')) {
-      const before = view.querySelector(page === 'home' ? '.home-corridor-guide' : '.buildings-directory');
+      const before = view.querySelector(page === 'home' ? '.home-advisory-resources' : '.buildings-directory');
       before?.insertAdjacentHTML(page === 'home' ? 'beforebegin' : 'afterend', renderCommercialGuide(page));
+    }
+    if (!view.querySelector('[data-commercial-actions]')) {
+      const note = view.querySelector('[data-commercial-guide] .cg-note');
+      note?.insertAdjacentHTML('beforebegin', renderCommercialActions(page));
     }
     if (document.title !== copy.title) document.title = copy.title;
     for (const [selector, text] of [

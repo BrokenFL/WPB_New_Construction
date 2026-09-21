@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-09-20T22:56:04.787Z",
+  "selectedSource": {
+    "filename": "selected-editorial-master.png",
+    "width": 1672,
+    "height": 941,
+    "bytes": 2944158,
+    "sha256": "8f12b5b6b2398d7b212dd9d9d720bcdf5f8bd01bc4e169ecff247f8723380fd2"
+  },
+  "webpQuality": 84,
+  "mobileCrop": {
+    "left": 480,
+    "top": 0,
+    "width": 455,
+    "height": 941
+  },
+  "outputs": [
+    {
+      "kind": "desktop",
+      "width": 960,
+      "height": 540,
+      "filename": "wpb-aerial-editorial-hero-v01-960w.webp",
+      "publicPath": "/assets/editorial/wpb-aerial-editorial-hero-v01-960w.webp",
+      "bytes": 166774,
+      "sha256": "310c465d09bbb38601b6ce16c4c3f40d55e2637eaa7afeb4396c02609125e788"
+    },
+    {
+      "kind": "desktop",
+      "width": 1280,
+      "height": 720,
+      "filename": "wpb-aerial-editorial-hero-v01-1280w.webp",
+      "publicPath": "/assets/editorial/wpb-aerial-editorial-hero-v01-1280w.webp",
+      "bytes": 268972,
+      "sha256": "ed26d7fc2c7077645ed1269e26cc131e8cf9f2ef08eab92b40f5d1c25c45eeef"
+    },
+    {
+      "kind": "desktop",
+      "width": 1672,
+      "height": 941,
+      "filename": "wpb-aerial-editorial-hero-v01-1672w.webp",
+      "publicPath": "/assets/editorial/wpb-aerial-editorial-hero-v01-1672w.webp",
+      "bytes": 390350,
+      "sha256": "0955473f7b21a67db2f044a065b5b037cff9d54619cd168412113b77c9f1575d"
+    },
+    {
+      "kind": "mobile",
+      "width": 390,
+      "height": 807,
+      "filename": "wpb-aerial-editorial-hero-v01-mobile-390w.webp",
+      "publicPath": "/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-390w.webp",
+      "bytes": 93048,
+      "sha256": "4eee1795facf9c6b59a74995f8dec34456d88666e857771803636ee0e4a77a51"
+    },
+    {
+      "kind": "mobile",
+      "width": 455,
+      "height": 941,
+      "filename": "wpb-aerial-editorial-hero-v01-mobile-455w.webp",
+      "publicPath": "/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-455w.webp",
+      "bytes": 113944,
+      "sha256": "831a1cc510d0b5fa720e0f5a8337cf1cd9d44c5a5ace74dd18c5fc2ef2acaa29"
+    }
+  ]
+}

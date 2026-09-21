@@ -1,0 +1,165 @@
+{
+  "generatedAt": "2026-09-20T19:41:07.333Z",
+  "results": [
+    {
+      "viewport": "desktop",
+      "section": {
+        "x": 0,
+        "y": 2509.3125,
+        "width": 1440,
+        "height": 1231.9375
+      },
+      "cards": [
+        {
+          "id": "olara",
+          "corridor": "NORTH FLAGLER",
+          "box": {
+            "x": 72,
+            "y": 2794,
+            "width": 303,
+            "height": 675
+          },
+          "image": {
+            "src": "/assets/home/olara-project-card-main-v01.jpg",
+            "width": 960,
+            "height": 1200
+          }
+        },
+        {
+          "id": "nora-house",
+          "corridor": "DOWNTOWN",
+          "box": {
+            "x": 403,
+            "y": 2794,
+            "width": 303,
+            "height": 675
+          },
+          "image": {
+            "src": "/assets/home/nora-house-project-card-main-v01.jpg",
+            "width": 1920,
+            "height": 1306
+          }
+        },
+        {
+          "id": "south-flagler-house",
+          "corridor": "SOUTH FLAGLER",
+          "box": {
+            "x": 734,
+            "y": 2794,
+            "width": 303,
+            "height": 675
+          },
+          "image": {
+            "src": "/assets/home/south-flagler-house-project-card-main-v01.jpg",
+            "width": 1200,
+            "height": 800
+          }
+        },
+        {
+          "id": "olin-palm-beach",
+          "corridor": "PALM BEACH",
+          "box": {
+            "x": 1065,
+            "y": 2794,
+            "width": 303,
+            "height": 675
+          },
+          "image": {
+            "src": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",
+            "width": 1535,
+            "height": 1024
+          }
+        }
+      ],
+      "dimensions": {
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "viewport": "mobile",
+      "section": {
+        "x": 0,
+        "y": 3968.40625,
+        "width": 390,
+        "height": 2799.265625
+      },
+      "cards": [
+        {
+          "id": "olara",
+          "corridor": "NORTH FLAGLER",
+          "box": {
+            "x": 22,
+            "y": 4316,
+            "width": 346,
+            "height": 514
+          },
+          "image": {
+            "src": "/assets/home/olara-project-card-main-v01.jpg",
+            "width": 960,
+            "height": 1200
+          }
+        },
+        {
+          "id": "nora-house",
+          "corridor": "DOWNTOWN",
+          "box": {
+            "x": 22,
+            "y": 4865,
+            "width": 346,
+            "height": 514
+          },
+          "image": {
+            "src": "/assets/home/nora-house-project-card-main-v01.jpg",
+            "width": 1920,
+            "height": 1306
+          }
+        },
+        {
+          "id": "south-flagler-house",
+          "corridor": "SOUTH FLAGLER",
+          "box": {
+            "x": 22,
+            "y": 5415,
+            "width": 346,
+            "height": 514
+          },
+          "image": {
+            "src": "/assets/home/south-flagler-house-project-card-main-v01.jpg",
+            "width": 1200,
+            "height": 800
+          }
+        },
+        {
+          "id": "olin-palm-beach",
+          "corridor": "PALM BEACH",
+          "box": {
+            "x": 22,
+            "y": 5964,
+            "width": 346,
+            "height": 514
+          },
+          "image": {
+            "src": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",
+            "width": 1535,
+            "height": 1024
+          }
+        }
+      ],
+      "dimensions": {
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    }
+  ]
+}

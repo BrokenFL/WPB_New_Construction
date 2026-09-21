@@ -7,7 +7,7 @@ const mainPath = path.join(workspace, "src/main.ts");
 const siteDataPath = path.join(workspace, "src/generated/siteData.ts");
 const findings = [];
 const ignoredPrefixes = ["/assets/", "/data/", "/maps/", "/projects/", "/hero/", "/team-logos/", "/favicon"];
-const staticFileHrefPattern = /\.(css|json|xml|txt|pdf|svg|jpg|jpeg|png|webp)(?:$|[?#])/i;
+const staticFileHrefPattern = /\.(css|json|webmanifest|xml|txt|pdf|svg|jpg|jpeg|png|webp)(?:$|[?#])/i;
 
 async function walk(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true }).catch(() => []);

@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-09-19T18:49:20Z",
+  "scope": "Existing approved story-bound image inventory for the three newest approved/published Development Desk stories",
+  "organizerInterface": {
+    "name": "SSD asset warehouse and repository manifests (read-only)",
+    "interfaceUsed": [
+      "/Volumes/ExternalSSD/WPB_NewConstruction_Assets/README.md",
+      "/Volumes/ExternalSSD/WPB_NewConstruction_Assets/asset-manifest.json",
+      "data/generated_homepage_asset_publish_manifest.json",
+      "data/project_assets.json",
+      "src/data/editorialImagery.ts"
+    ],
+    "mcpStatus": "No callable asset-organizer MCP/tool was available by name or description.",
+    "writesPerformed": false,
+    "organizerRuleApplied": "Only existing public files and manifest records were inspected; no intake, publisher, resize, copy, or service command was run."
+  },
+  "assets": [
+    {
+      "rank": 1,
+      "storyId": "intel-story-7e8443a31a1b3fbb",
+      "role": "lead",
+      "publicPath": "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+      "absolutePublicFile": "/Users/brookesnader/.codex/worktrees/wpb-v2-overhaul/WPB_NewConstruction/public/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+      "native": {
+        "width": 1920,
+        "height": 1080,
+        "aspectRatio": 1.7777777778,
+        "format": "JPEG",
+        "sizeBytes": 743505,
+        "sha256": "b781657090ac7338b3c3f6dae12532adf40f7e84e47ce070ff2f30171bd66d10"
+      },
+      "provenance": {
+        "assetRepoPath": "/Volumes/ExternalSSD/WPB_NewConstruction_Assets/public-front-page-assets/approved-for-website/images/downtown-corrdior-bridge-daytime-v01.png",
+        "sourcePath": "/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB New Construction Asset Library/11_FRONT_PAGE_ASSETS/approved-for-website /downtown-corrdior-bridge-daytime-v01.png",
+        "sourceHash": "eb0f23247959c7441b751643fc62085469ba15070be112e86924b04753a8458a",
+        "sourceSizeBytes": 2564802,
+        "sourceDimensions": "1672x941",
+        "publishManifest": "data/generated_homepage_asset_publish_manifest.json",
+        "publishManifestAction": "skipped-existing",
+        "publishedAt": "2026-09-02T17:08:07.054Z",
+        "approval": "Approved front-page asset with approved-folder provenance; placement approval does not certify whether the visual is a photograph, rendering, or AI-generated image."
+      },
+      "visualEvidence": {
+        "observed": "Wide downtown waterfront/bridge skyline with blue sky, boats, bridge, and multiple buildings.",
+        "visualType": "unknown",
+        "originConfidence": "unverified",
+        "aiInference": "Do not infer AI, photograph, or rendering status from pixels alone.",
+        "truthfulVisibleLabel": "West Palm Beach · editorial context",
+        "truthfulCaption": "Downtown bridge and waterfront context for a West Palm Beach development story.",
+        "credit": "Approved front-page asset; visual origin not certified in manifest.",
+        "identityConstraint": "Do not imply this depicts the Terra/Frisbie parcel, a site plan, or a project rendering."
+      },
+      "composition": {
+        "recommendedDeskTreatment": "Lead image; wide crop around the 2.2:1 editorial frame while retaining the bridge and skyline context.",
+        "cropConstraint": "Keep the bridge/waterfront context legible; do not crop into a project-specific building claim."
+      }
+    },
+    {
+      "rank": 2,
+      "storyId": "intel-story-26c1c72f59519b2e",
+      "role": "compact-secondary",
+      "publicPath": "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg",
+      "absolutePublicFile": "/Users/brookesnader/.codex/worktrees/wpb-v2-overhaul/WPB_NewConstruction/public/assets/editorial/wpb-corridors-aerial-hero-v01.jpg",
+      "native": {
+        "width": 1280,
+        "height": 533,
+        "aspectRatio": 2.4015009381,
+        "format": "JPEG",
+        "sizeBytes": 313612,
+        "sha256": "245115ba40b082a98260f87af99f2adff4ae6d8e4db2575147ae7a9b346cdfe0"
+      },
+      "provenance": {
+        "assetRepoPath": null,
+        "sourcePath": null,
+        "publishManifest": null,
+        "approval": "Existing editorial asset marked available in src/data/editorialImagery.ts; no approved-folder or asset-manifest entry was found for this file.",
+        "record": "src/data/editorialImagery.ts record id wpb-corridors-aerial-hero",
+        "recordedCaption": "West Palm Beach corridor orientation",
+        "recordedCredit": "User-provided editorial image, optimized for site use."
+      },
+      "visualEvidence": {
+        "observed": "Wide aerial-like West Palm Beach waterfront/corridor view with downtown towers and surrounding geography.",
+        "visualType": "unknown",
+        "originConfidence": "unverified",
+        "aiInference": "Do not infer AI, photograph, or rendering status from pixels alone.",
+        "truthfulVisibleLabel": "Corridor context",
+        "truthfulCaption": "West Palm Beach corridor orientation.",
+        "credit": "User-provided editorial image, optimized for site use; visual origin not certified.",
+        "identityConstraint": "Use only as corridor context. Do not imply the image depicts La Fontana, its existing building, a future replacement, a site plan, or a redevelopment rendering."
+      },
+      "composition": {
+        "recommendedDeskTreatment": "Compact secondary; center crop to a 4:3 frame for corridor context.",
+        "cropConstraint": "Keep the crop generic and geographic; no La Fontana callout or property-specific label."
+      },
+      "approvedContextFallback": {
+        "publicPath": "/assets/home/north-flagler-3-buildings-daytime-v01.jpg",
+        "native": {
+          "width": 1920,
+          "height": 822,
+          "aspectRatio": 2.3357664234,
+          "format": "JPEG",
+          "sizeBytes": 724234,
+          "sha256": "86fabf9f32d2ccca865ad314aacda10f33c18c4297186347f9e0382b7e97cd22"
+        },
+        "approval": "Approved front-page asset with asset-manifest and generated homepage publish-manifest provenance.",
+        "truthfulVisibleLabel": "North Flagler · corridor context",
+        "truthfulCaption": "North Flagler corridor context for a transaction update.",
+        "identityConstraint": "Still do not imply that the buildings shown are La Fontana or a proposed replacement."
+      }
+    },
+    {
+      "rank": 3,
+      "storyId": "intel-story-544ca384b5f936f2",
+      "role": "compact-secondary",
+      "publicPath": "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+      "absolutePublicFile": "/Users/brookesnader/.codex/worktrees/wpb-v2-overhaul/WPB_NewConstruction/public/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+      "native": {
+        "width": 1316,
+        "height": 740,
+        "aspectRatio": 1.7783783784,
+        "format": "WebP",
+        "sizeBytes": 139328,
+        "sha256": "eb99c2a2b0f586034825101e2d44e16527819d05ca24b2ad75168fc34a10d79f"
+      },
+      "provenance": {
+        "assetRepoPath": "/Volumes/ExternalSSD/WPB_NewConstruction_Assets/public-projects/alba-palm-beach/approved-for-website/images/alba-hero-wide-aerial-v01.webp",
+        "sourcePath": "/Users/brookesnader/Library/Mobile Documents/com~apple~CloudDocs/WPB New Construction Asset Library/01_PROJECTS/alba-palm-beach/approved-for-website/alba-hero-wide-aerial-v01.webp",
+        "sourceHash": "eb99c2a2b0f586034825101e2d44e16527819d05ca24b2ad75168fc34a10d79f",
+        "sourceSizeBytes": 139328,
+        "publishManifest": "data/project_assets.json plus SSD asset-manifest.json",
+        "approval": "Project registry status approved; source is approved-asset-publisher and Alba project marketing materials."
+      },
+      "visualEvidence": {
+        "observed": "Wide Alba Palm Beach aerial marketing visual with the North Flagler waterfront and Intracoastal context.",
+        "visualType": "approved architectural rendering",
+        "originConfidence": "registry-certified",
+        "truthfulVisibleLabel": "Alba · Architectural rendering",
+        "truthfulCaption": "Alba Palm Beach architectural rendering from approved project marketing materials.",
+        "credit": "Alba Palm Beach project marketing materials.",
+        "identityConstraint": "The rendering supports Alba/project identity only; the article’s completion claim comes from the approved story record, not from the image."
+      },
+      "composition": {
+        "recommendedDeskTreatment": "Compact secondary; crop to a 4:3 frame with object-position approximately 100% 65–75% to retain the right-side Alba tower.",
+        "cropConstraint": "Preserve the tower and waterfront context; do not use crop position as evidence of current construction or occupancy."
+      },
+      "alternateApprovedProjectImage": {
+        "publicPath": "/assets/projects/alba-palm-beach/hero/alba-hero-aerial-waterfront-rendering-v01.webp",
+        "native": {
+          "width": 1800,
+          "height": 1645,
+          "aspectRatio": 1.094224924,
+          "format": "WebP",
+          "sizeBytes": 536688,
+          "sha256": "c8ead0ec2c5ab35320762868d83ed50c6277e096f62bd53d40339d0d4dd42949"
+        },
+        "approval": "Approved project registry variant and approved-folder source record; not selected for the bounded Desk composition."
+      }
+    }
+  ],
+  "lockedBoundaries": [
+    "Use only these existing story-bound or explicitly recorded approved/context assets.",
+    "The first two visual origins remain unknown; no AI/photograph/rendering claim is made for them.",
+    "Do not introduce a new hero, derivative, masthead, closing image, unrelated building image, event image, or fabricated site depiction.",
+    "No asset repository, intake, publisher, generated file, article, or pipeline write was performed."
+  ]
+}

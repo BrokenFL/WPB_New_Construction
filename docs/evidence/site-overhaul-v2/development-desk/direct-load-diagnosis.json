@@ -1,0 +1,45 @@
+{
+  "testSha": "2ab98d65ec41eff5ba948e6bba15a5e35668b0be",
+  "preview": "http://127.0.0.1:5188",
+  "url": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
+  "previewServer": {
+    "script": "research/scripts/preview-v2.mjs",
+    "behavior": "static dist file server; no SPA fallback",
+    "baselineUnchanged": true
+  },
+  "staticDirectLoad": {
+    "javaScriptEnabled": false,
+    "httpStatus": 200,
+    "readyState": "complete",
+    "title": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage | WPB Updates",
+    "prerenderMarker": "update-terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15",
+    "h1": "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+    "bodyPrefix": "Published 2026-09-15T04:50:01.037Z from The Real Deal. Terra and Frisbie Group have acquired another parcel of the former Palm Beach Kennel Club site for $20 million, expanding their master-planned West Palm Beach footprint.",
+    "browserVisibleOutcome": "Correct prerendered article title and body are readable on direct load before JavaScript runs."
+  },
+  "hydratedDirectLoad": {
+    "javaScriptEnabled": true,
+    "httpStatus": 200,
+    "readyState": "complete",
+    "activeRoute": "news-detail",
+    "staticPrerenderCount": 0,
+    "articleTextPresent": false,
+    "browserVisibleOutcome": "Client shell is visible but the article route is empty after bootstrap failure.",
+    "initializationError": "TypeError: ia is not a function",
+    "builtLocation": "assets/main-C7iqPTk6.js:497:639",
+    "failedRequests": 0,
+    "pageErrors": 0
+  },
+  "cause": {
+    "currentApplyRouteSourceLine": 3832,
+    "baselineApplyRouteSourceLine": 3832,
+    "currentInlineImgSourceLine": 6436,
+    "baselineInlineImgSourceLine": 6283,
+    "inlineImgSource": "const inlineImg = (path?: string) => path ? `<img src=\"${path}\">` : \"\";",
+    "renderNewsArticleBodySourceLine": 433,
+    "explanation": "renderNewsArticleBody is a hoisted function declaration, but it calls inlineImg, a const binding that is still uninitialized when applyRoute renders a direct news route. The bootstrap catches the resulting TypeError. Homepage click journeys occur after module initialization and succeed.",
+    "sourceOrderingMatchesBaseline": true,
+    "baselineRuntimeDirectLoadIndependentlyReproduced": false,
+    "sourceEdited": false
+  }
+}

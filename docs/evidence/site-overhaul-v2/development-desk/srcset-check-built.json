@@ -1,0 +1,129 @@
+{
+  "gitHead": "2ab98d65ec41eff5ba948e6bba15a5e35668b0be",
+  "origin": "http://127.0.0.1:5188",
+  "results": [
+    {
+      "label": "1440-dpr1",
+      "errors": [],
+      "data": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000,
+          "dpr": 1
+        },
+        "currentSrc": "http://127.0.0.1:5188/assets/editorial/development-desk/terra-context-lead-780x355.webp",
+        "natural": {
+          "width": 688,
+          "height": 313
+        },
+        "srcset": "/assets/editorial/development-desk/terra-context-lead-780x355.webp 780w, /assets/editorial/development-desk/terra-context-lead-1400x636.webp 1400w",
+        "sizes": "(max-width: 1100px) 90vw, calc(49.5vw - 24px)",
+        "mobileSource": "/assets/editorial/development-desk/terra-context-lead-780x355.webp 780w",
+        "imageRect": {
+          "x": 72,
+          "y": 916.09375,
+          "width": 689.046875,
+          "height": 313.203125,
+          "top": 916.09375,
+          "right": 761.046875,
+          "bottom": 1229.296875,
+          "left": 72
+        },
+        "deskHeight": 855.109375,
+        "overflow": 0,
+        "links": [
+          {
+            "text": "Explore North Flagler \u2192",
+            "href": "/corridors/north-flagler/"
+          },
+          {
+            "text": "Explore Alba \u2192",
+            "href": "/projects/alba-palm-beach/"
+          }
+        ]
+      }
+    },
+    {
+      "label": "1440-dpr2",
+      "errors": [],
+      "data": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000,
+          "dpr": 2
+        },
+        "currentSrc": "http://127.0.0.1:5188/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+        "natural": {
+          "width": 688,
+          "height": 312
+        },
+        "srcset": "/assets/editorial/development-desk/terra-context-lead-780x355.webp 780w, /assets/editorial/development-desk/terra-context-lead-1400x636.webp 1400w",
+        "sizes": "(max-width: 1100px) 90vw, calc(49.5vw - 24px)",
+        "mobileSource": "/assets/editorial/development-desk/terra-context-lead-780x355.webp 780w",
+        "imageRect": {
+          "x": 72,
+          "y": 929.09375,
+          "width": 689.046875,
+          "height": 313.203125,
+          "top": 929.09375,
+          "right": 761.046875,
+          "bottom": 1242.296875,
+          "left": 72
+        },
+        "deskHeight": 855.109375,
+        "overflow": 0,
+        "links": [
+          {
+            "text": "Explore North Flagler \u2192",
+            "href": "/corridors/north-flagler/"
+          },
+          {
+            "text": "Explore Alba \u2192",
+            "href": "/projects/alba-palm-beach/"
+          }
+        ]
+      }
+    },
+    {
+      "label": "390-dpr1",
+      "errors": [],
+      "data": {
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "currentSrc": "http://127.0.0.1:5188/assets/editorial/development-desk/terra-context-lead-780x355.webp",
+        "natural": {
+          "width": 351,
+          "height": 159
+        },
+        "srcset": "/assets/editorial/development-desk/terra-context-lead-780x355.webp 780w, /assets/editorial/development-desk/terra-context-lead-1400x636.webp 1400w",
+        "sizes": "(max-width: 1100px) 90vw, calc(49.5vw - 24px)",
+        "mobileSource": "/assets/editorial/development-desk/terra-context-lead-780x355.webp 780w",
+        "imageRect": {
+          "x": 22,
+          "y": 1152.71875,
+          "width": 346,
+          "height": 157.265625,
+          "top": 1152.71875,
+          "right": 368,
+          "bottom": 1309.984375,
+          "left": 22
+        },
+        "deskHeight": 1314.5,
+        "overflow": 0,
+        "links": [
+          {
+            "text": "Explore North Flagler \u2192",
+            "href": "/corridors/north-flagler/"
+          },
+          {
+            "text": "Explore Alba \u2192",
+            "href": "/projects/alba-palm-beach/"
+          }
+        ]
+      }
+    }
+  ]
+}

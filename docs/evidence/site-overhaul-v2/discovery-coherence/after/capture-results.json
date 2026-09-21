@@ -1,0 +1,1041 @@
+{
+  "generatedAt": "2026-09-20T05:18:14.678Z",
+  "origin": "http://127.0.0.1:5188",
+  "cases": [
+    {
+      "engine": "chromium",
+      "viewport": "desktop",
+      "case": "home-collection",
+      "path": "/",
+      "selector": ".home-featured-section",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/home-collection-desktop-chromium.png",
+      "dimensions": {
+        "x": 0,
+        "y": -199.6875,
+        "width": 1440,
+        "height": 1299.453125
+      },
+      "page": {
+        "title": "West Palm Beach New Construction Condos | Buildings & Plans",
+        "url": "http://127.0.0.1:5188/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "desktop",
+      "case": "north-flagler-hero-directory",
+      "path": "/corridors/north-flagler/",
+      "selector": ".corridor-discovery-shell",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/north-flagler-hero-directory-desktop-chromium.png",
+      "dimensions": {
+        "x": 18,
+        "y": 0,
+        "width": 1404,
+        "height": 1444.359375
+      },
+      "page": {
+        "title": "North Flagler Condos | West Palm Beach Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/north-flagler/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "desktop",
+      "case": "north-flagler-full-inventory",
+      "path": "/corridors/north-flagler/",
+      "selector": ".corridor-discovery-shell",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/north-flagler-full-inventory-desktop-chromium.png",
+      "dimensions": {
+        "x": 18,
+        "y": 109.921875,
+        "width": 1404,
+        "height": 3737.4375
+      },
+      "page": {
+        "title": "North Flagler Condos | West Palm Beach Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/north-flagler/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "desktop",
+      "case": "corridor-hub",
+      "path": "/corridors/",
+      "selector": ".corridors-card-section",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/corridor-hub-desktop-chromium.png",
+      "dimensions": {
+        "x": 18,
+        "y": -1030.515625,
+        "width": 1404,
+        "height": 2961.125
+      },
+      "page": {
+        "title": "West Palm Beach Luxury Condo Corridors | Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "desktop",
+      "case": "olara-alternatives",
+      "path": "/projects/olara/",
+      "selector": ".project-corridor-cta",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/olara-alternatives-desktop-chromium.png",
+      "dimensions": {
+        "x": 18,
+        "y": -70.171875,
+        "width": 1404,
+        "height": 1039.84375
+      },
+      "page": {
+        "title": "Olara West Palm Beach | Buyer Guide",
+        "url": "http://127.0.0.1:5188/projects/olara/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "desktop",
+      "case": "article-discovery",
+      "path": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+      "selector": ".article-discovery-bridge",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/article-discovery-desktop-chromium.png",
+      "dimensions": {
+        "x": 18,
+        "y": -104.125,
+        "width": 1404,
+        "height": 1107.34375
+      },
+      "page": {
+        "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler | WPB Updates",
+        "url": "http://127.0.0.1:5188/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "desktop",
+      "case": "map-selected",
+      "path": "/map/",
+      "selector": ".map-route-page",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/map-selected-desktop-chromium.png",
+      "dimensions": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1190.296875
+      },
+      "page": {
+        "title": "West Palm Beach Condo Map | New Construction Corridors",
+        "url": "http://127.0.0.1:5188/map/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "mobile",
+      "case": "home-collection",
+      "path": "/",
+      "selector": ".home-featured-section",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/home-collection-mobile-chromium.png",
+      "dimensions": {
+        "x": 0,
+        "y": -653.59375,
+        "width": 390,
+        "height": 2151.125
+      },
+      "page": {
+        "title": "West Palm Beach New Construction Condos | Buildings & Plans",
+        "url": "http://127.0.0.1:5188/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "mobile",
+      "case": "north-flagler-hero-directory",
+      "path": "/corridors/north-flagler/",
+      "selector": ".corridor-discovery-shell",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/north-flagler-hero-directory-mobile-chromium.png",
+      "dimensions": {
+        "x": 18,
+        "y": 0,
+        "width": 354,
+        "height": 2911.25
+      },
+      "page": {
+        "title": "North Flagler Condos | West Palm Beach Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/north-flagler/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "mobile",
+      "case": "north-flagler-full-inventory",
+      "path": "/corridors/north-flagler/",
+      "selector": ".corridor-discovery-shell",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/north-flagler-full-inventory-mobile-chromium.png",
+      "dimensions": {
+        "x": 18,
+        "y": -3522.890625,
+        "width": 354,
+        "height": 8000.140625
+      },
+      "page": {
+        "title": "North Flagler Condos | West Palm Beach Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/north-flagler/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "mobile",
+      "case": "corridor-hub",
+      "path": "/corridors/",
+      "selector": ".corridors-card-section",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/corridor-hub-mobile-chromium.png",
+      "dimensions": {
+        "x": 18,
+        "y": -1251.796875,
+        "width": 354,
+        "height": 3348.4375
+      },
+      "page": {
+        "title": "West Palm Beach Luxury Condo Corridors | Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "mobile",
+      "case": "olara-alternatives",
+      "path": "/projects/olara/",
+      "selector": ".project-corridor-cta",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/olara-alternatives-mobile-chromium.png",
+      "dimensions": {
+        "x": 18,
+        "y": 1.046875,
+        "width": 354,
+        "height": 1897.90625
+      },
+      "page": {
+        "title": "Olara West Palm Beach | Buyer Guide",
+        "url": "http://127.0.0.1:5188/projects/olara/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "mobile",
+      "case": "article-discovery",
+      "path": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+      "selector": ".article-discovery-bridge",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/article-discovery-mobile-chromium.png",
+      "dimensions": {
+        "x": 18,
+        "y": -306.171875,
+        "width": 354,
+        "height": 1456.484375
+      },
+      "page": {
+        "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler | WPB Updates",
+        "url": "http://127.0.0.1:5188/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "chromium",
+      "viewport": "mobile",
+      "case": "map-selected",
+      "path": "/map/",
+      "selector": ".map-route-page",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/map-selected-mobile-chromium.png",
+      "dimensions": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 1515.21875
+      },
+      "page": {
+        "title": "West Palm Beach Condo Map | New Construction Corridors",
+        "url": "http://127.0.0.1:5188/map/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+          "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+          "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+        ]
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "desktop",
+      "case": "home-collection",
+      "path": "/",
+      "selector": ".home-featured-section",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/home-collection-desktop-webkit.png",
+      "dimensions": {
+        "x": 0,
+        "y": -199.6875,
+        "width": 1440,
+        "height": 1299.453125
+      },
+      "page": {
+        "title": "West Palm Beach New Construction Condos | Buildings & Plans",
+        "url": "http://127.0.0.1:5188/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "desktop",
+      "case": "north-flagler-hero-directory",
+      "path": "/corridors/north-flagler/",
+      "selector": ".corridor-discovery-shell",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/north-flagler-hero-directory-desktop-webkit.png",
+      "dimensions": {
+        "x": 18,
+        "y": 0,
+        "width": 1404,
+        "height": 1096.359375
+      },
+      "page": {
+        "title": "North Flagler Condos | West Palm Beach Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/north-flagler/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "desktop",
+      "case": "north-flagler-full-inventory",
+      "path": "/corridors/north-flagler/",
+      "selector": ".corridor-discovery-shell",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/north-flagler-full-inventory-desktop-webkit.png",
+      "dimensions": {
+        "x": 18,
+        "y": 0.921875,
+        "width": 1404,
+        "height": 3737.4375
+      },
+      "page": {
+        "title": "North Flagler Condos | West Palm Beach Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/north-flagler/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "desktop",
+      "case": "corridor-hub",
+      "path": "/corridors/",
+      "selector": ".corridors-card-section",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/corridor-hub-desktop-webkit.png",
+      "dimensions": {
+        "x": 18,
+        "y": -1030.65625,
+        "width": 1404,
+        "height": 2960.921875
+      },
+      "page": {
+        "title": "West Palm Beach Luxury Condo Corridors | Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "desktop",
+      "case": "olara-alternatives",
+      "path": "/projects/olara/",
+      "selector": ".project-corridor-cta",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/olara-alternatives-desktop-webkit.png",
+      "dimensions": {
+        "x": 18,
+        "y": -70.375,
+        "width": 1404,
+        "height": 1039.71875
+      },
+      "page": {
+        "title": "Olara West Palm Beach | Buyer Guide",
+        "url": "http://127.0.0.1:5188/projects/olara/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "desktop",
+      "case": "article-discovery",
+      "path": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+      "selector": ".article-discovery-bridge",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/article-discovery-desktop-webkit.png",
+      "dimensions": {
+        "x": 18,
+        "y": -103.421875,
+        "width": 1404,
+        "height": 1107.25
+      },
+      "page": {
+        "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler | WPB Updates",
+        "url": "http://127.0.0.1:5188/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "desktop",
+      "case": "map-selected",
+      "path": "/map/",
+      "selector": ".map-route-page",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/map-selected-desktop-webkit.png",
+      "dimensions": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1190.078125
+      },
+      "page": {
+        "title": "West Palm Beach Condo Map | New Construction Corridors",
+        "url": "http://127.0.0.1:5188/map/",
+        "bodyScrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "mobile",
+      "case": "home-collection",
+      "path": "/",
+      "selector": ".home-featured-section",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/home-collection-mobile-webkit.png",
+      "dimensions": {
+        "x": 0,
+        "y": -653.59375,
+        "width": 390,
+        "height": 2151.03125
+      },
+      "page": {
+        "title": "West Palm Beach New Construction Condos | Buildings & Plans",
+        "url": "http://127.0.0.1:5188/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": []
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "mobile",
+      "case": "north-flagler-hero-directory",
+      "path": "/corridors/north-flagler/",
+      "selector": ".corridor-discovery-shell",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/north-flagler-hero-directory-mobile-webkit.png",
+      "dimensions": {
+        "x": 18,
+        "y": 0,
+        "width": 354,
+        "height": 1165.21875
+      },
+      "page": {
+        "title": "North Flagler Condos | West Palm Beach Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/north-flagler/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+          "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+        ]
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "mobile",
+      "case": "north-flagler-full-inventory",
+      "path": "/corridors/north-flagler/",
+      "selector": ".corridor-discovery-shell",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/north-flagler-full-inventory-mobile-webkit.png",
+      "dimensions": {
+        "x": 18,
+        "y": -3578.921875,
+        "width": 354,
+        "height": 8000.140625
+      },
+      "page": {
+        "title": "North Flagler Condos | West Palm Beach Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/north-flagler/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+          "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+        ]
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "mobile",
+      "case": "corridor-hub",
+      "path": "/corridors/",
+      "selector": ".corridors-card-section",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/corridor-hub-mobile-webkit.png",
+      "dimensions": {
+        "x": 18,
+        "y": -1252.09375,
+        "width": 354,
+        "height": 3348.28125
+      },
+      "page": {
+        "title": "West Palm Beach Luxury Condo Corridors | Buyer Guide",
+        "url": "http://127.0.0.1:5188/corridors/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+          "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+        ]
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "mobile",
+      "case": "olara-alternatives",
+      "path": "/projects/olara/",
+      "selector": ".project-corridor-cta",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/olara-alternatives-mobile-webkit.png",
+      "dimensions": {
+        "x": 18,
+        "y": -527.375,
+        "width": 354,
+        "height": 1897.4375
+      },
+      "page": {
+        "title": "Olara West Palm Beach | Buyer Guide",
+        "url": "http://127.0.0.1:5188/projects/olara/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+          "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+        ]
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "mobile",
+      "case": "article-discovery",
+      "path": "/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+      "selector": ".article-discovery-bridge",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/article-discovery-mobile-webkit.png",
+      "dimensions": {
+        "x": 18,
+        "y": -306.375,
+        "width": 354,
+        "height": 1456.140625
+      },
+      "page": {
+        "title": "Alba Palm Beach Is Complete and Move-In Ready on North Flagler | WPB Updates",
+        "url": "http://127.0.0.1:5188/updates/alba-palm-beach-complete-move-in-ready-north-flagler-2026-09-14/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+          "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+        ]
+      }
+    },
+    {
+      "engine": "webkit",
+      "viewport": "mobile",
+      "case": "map-selected",
+      "path": "/map/",
+      "selector": ".map-route-page",
+      "visible": true,
+      "output": "docs/evidence/site-overhaul-v2/discovery-coherence/after/map-selected-mobile-webkit.png",
+      "dimensions": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 1515.03125
+      },
+      "page": {
+        "title": "West Palm Beach Condo Map | New Construction Corridors",
+        "url": "http://127.0.0.1:5188/map/",
+        "bodyScrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "errors": {
+        "console": [],
+        "page": [],
+        "requests": [
+          "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+          "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+        ]
+      }
+    }
+  ],
+  "checks": {
+    "screenshotCount": 28,
+    "missingTargets": [],
+    "overflow": [],
+    "errors": [
+      {
+        "engine": "chromium",
+        "viewport": "desktop",
+        "case": "north-flagler-hero-directory",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "desktop",
+        "case": "north-flagler-full-inventory",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "desktop",
+        "case": "corridor-hub",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "desktop",
+        "case": "olara-alternatives",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "desktop",
+        "case": "article-discovery",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "desktop",
+        "case": "map-selected",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2 net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "mobile",
+        "case": "north-flagler-hero-directory",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "mobile",
+        "case": "north-flagler-full-inventory",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "mobile",
+        "case": "corridor-hub",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "mobile",
+        "case": "olara-alternatives",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "mobile",
+        "case": "article-discovery",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "chromium",
+        "viewport": "mobile",
+        "case": "map-selected",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/log.js net::ERR_ABORTED",
+            "GET https://maps.googleapis.com/maps-api-v3/api/js/66/4d/onion.js net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/transparent.png net::ERR_ABORTED",
+            "GET https://maps.gstatic.com/mapfiles/openhand_8_8.cur net::ERR_ABORTED"
+          ]
+        }
+      },
+      {
+        "engine": "webkit",
+        "viewport": "mobile",
+        "case": "north-flagler-hero-directory",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+            "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+          ]
+        }
+      },
+      {
+        "engine": "webkit",
+        "viewport": "mobile",
+        "case": "north-flagler-full-inventory",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+            "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+          ]
+        }
+      },
+      {
+        "engine": "webkit",
+        "viewport": "mobile",
+        "case": "corridor-hub",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+            "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+          ]
+        }
+      },
+      {
+        "engine": "webkit",
+        "viewport": "mobile",
+        "case": "olara-alternatives",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+            "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+          ]
+        }
+      },
+      {
+        "engine": "webkit",
+        "viewport": "mobile",
+        "case": "article-discovery",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+            "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+          ]
+        }
+      },
+      {
+        "engine": "webkit",
+        "viewport": "mobile",
+        "case": "map-selected",
+        "errors": {
+          "console": [],
+          "page": [],
+          "requests": [
+            "GET https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&lang=en cancelled",
+            "GET https://fonts.googleapis.com/css?family=Google+Sans+Text:400&text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&lang=en cancelled"
+          ]
+        }
+      }
+    ]
+  }
+}

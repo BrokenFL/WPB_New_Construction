@@ -1357,6 +1357,7 @@ function buildRouteSchema(route, payload, canonical) {
       "@type": "WebSite",
       "@id": `${baseUrl}/#website`,
       name: payload.siteMeta.siteName || "WPB New Construction",
+      alternateName: payload.siteMeta.alternateName || "West Palm Beach New Construction",
       url: baseUrl,
       publisher: { "@id": `${baseUrl}/#advisor` },
     },

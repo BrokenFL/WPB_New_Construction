@@ -40,17 +40,13 @@ export function renderHomepageScopedStyles() {
       }
 
       .home-future-module h2 {
-        max-width: 16ch;
+        max-width: none;
         margin: 0;
         font-family: Iowan Old Style, Palatino Linotype, Georgia, serif;
         font-size: clamp(1.45rem, 2.05vw, 2.2rem);
         font-weight: 400;
         line-height: 0.98;
-      }
-
-      .home-future-module h2 span {
-        display: block;
-        white-space: nowrap;
+        text-wrap: balance;
       }
 
       .home-future-module p:not(.eyebrow) {
@@ -415,7 +411,7 @@ export function renderHomepageScopedStyles() {
         }
 
         .home-future-module h2 {
-          max-width: 12ch;
+          max-width: none;
         }
 
         .home-team-band {

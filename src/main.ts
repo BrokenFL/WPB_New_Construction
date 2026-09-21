@@ -39,6 +39,7 @@ import { localIntelligence } from "./data/localIntelligence";
 import { homepageAssets, homepageProjectCardImage } from "./data/homepageAssets";
 import { publicProjectRecords } from "./generated/projectModelPublic";
 import { resolveProjectField, resolvePublicFactDisplay, type ProjectModelField } from "./lib/projectFieldAccessors";
+import { commercialPages } from "./lib/commercialContent";
 
 captureLeadLandingContext();
 
@@ -465,6 +466,26 @@ const activeHomeHeroImages = (() => {
   ];
 })();
 const approvedHeroCardOverride = approvedHomepageCardOverride("hero", "hero");
+const approvedHeroImageOverride = approvedHeroCardOverride ?? approvedHomepageOverride("hero");
+const homepageHeroDesktopSrcSet = homepageAssets.hero.desktopSrcSet.map(({ src, width }) => `${src} ${width}w`).join(", ");
+const homepageHeroMobileSrcSet = homepageAssets.hero.mobileSrcSet.map(({ src, width }) => `${src} ${width}w`).join(", ");
+const homepageHeroSelection = activeHomeHeroImages[0] || homeHeroImages[0];
+const homepageHeroAlt = homepageHeroSelection.alt;
+const homepageHeroCaption = homepageHeroSelection.caption;
+const homepageHeroCaptionMarkup = homepageHeroCaption
+  ? `<figcaption class="home-hero-caption" data-home-hero-caption>${escapeHtml(homepageHeroCaption)}</figcaption>`
+  : "";
+const homepageHeroUsesOverride = Boolean(approvedHeroImageOverride?.imagePath);
+const homepageHeroSourceMarkup = homepageHeroUsesOverride
+  ? ""
+  : `<source media="(max-width: 720px)" type="image/webp" srcset="${homepageHeroMobileSrcSet}" sizes="100vw" />`;
+const homepageHeroImageSrc = homepageHeroUsesOverride
+  ? safeHref(approvedHeroImageOverride?.imagePath || "")
+  : homepageAssets.hero.desktop;
+const homepageHeroResponsiveAttrs = homepageHeroUsesOverride
+  ? ""
+  : ` srcset="${homepageHeroDesktopSrcSet}" sizes="100vw" width="${homepageAssets.hero.width}" height="${homepageAssets.hero.height}"`;
+const homepageHeroImageStyle = homepageHeroUsesOverride ? imageStyle(approvedHeroImageOverride) : "";
 
 const mediaBase = "/projects/olara/media/";
 const ritzMediaBase = "/projects/ritz-carlton-wpb/media/";
@@ -493,7 +514,7 @@ const heroMapScriptId = "wpb-google-map-script";
 const heroMapCallbackName = "__wpbGoogleMapsReady";
 const mapFallbackTitle = "Map temporarily unavailable";
 const mapFallbackBody =
-  "The project map could not load. You can still compare buildings by corridor below, or contact The Scott Gordon Group for current project guidance.";
+  "The building map could not load. You can still compare buildings by area below, or contact The Scott Gordon Group for current building guidance.";
 const buyerFriendlyMapFallback = `${mapFallbackTitle}. ${mapFallbackBody}`;
 const HERO_ROTATION_INTERVAL_MS = 16000;
 const HERO_FADE_DURATION_MS = 1800;
@@ -588,11 +609,12 @@ const floorplanHubProjects: ApprovedFloorplanProject[] = [
     })),
 ];
 const rankedFeaturedProjects = [...featuredProjects].sort((a, b) => a.rank - b.rank);
-const homepageFeaturedProjectIds = ["alba-palm-beach", "olara", "shorecrest", "ritz-carlton-wpb", "south-flagler-house", "banyan-tree"] as const;
+const homepageFeaturedProjectIds = ["olara", "nora-house", "south-flagler-house", "olin-palm-beach"] as const;
 const homepageFeaturedProjects = homepageFeaturedProjectIds
-  .map((projectId) => rankedFeaturedProjects.find((project) => project.id === projectId))
-  .filter((project): project is FeaturedProject => Boolean(project));
-const homepageCorridorKeys: CorridorKey[] = ["north-flagler", "south-flagler", "downtown", "palm-beach"];
+  .map((projectId) => rankedFeaturedProjects.find((project) => project.id === projectId && Boolean(homepageProjectCardImage(project.id) || project.image)))
+  .filter((project): project is FeaturedProject => Boolean(project))
+  .slice(0, homepageFeaturedProjectIds.length);
+const homepageCorridorKeys: CorridorKey[] = ["north-flagler", "south-flagler", "downtown", "palm-beach", "south-end"];
 const importedProjectImages = approvedImportedProjectImagesRaw as ImportedProjectImage[];
 
 type BuildingDatabaseHelpers = typeof import("./lib/buildingDatabase");
@@ -743,7 +765,7 @@ const corridorSections: CorridorSection[] = [
   {
     key: "north-flagler",
     label: "North Flagler",
-    detail: "Alba, Olara, Shorecrest, Ritz-Carlton",
+    detail: "Including Alba, Olara, Shorecrest and Ritz-Carlton",
     reviewNote: "Waterfront comparison corridor with the deepest active plan and image inventory.",
     description:
       "North Flagler is one of West Palm Beach's most active new-construction corridors, with waterfront sites, marina-oriented amenities, and several projects reshaping the area north of downtown. Buyers should compare building scale, view orientation, water access, walkability, and the surrounding redevelopment timeline.",
@@ -751,7 +773,7 @@ const corridorSections: CorridorSection[] = [
   {
     key: "downtown",
     label: "Downtown",
-    detail: "NORA House, Mr. C",
+    detail: "Including NORA House and Mr. C",
     reviewNote: "Urban lifestyle corridor where hotel-branded and district projects need current availability checks.",
     description:
       "Downtown is the most walkable new-construction setting in West Palm Beach, appealing to buyers who want restaurants, retail, arts venues, Brightline access, and everyday convenience close by. Buyers should compare privacy, parking, noise, views, and access to the city's cultural and commercial anchors.",
@@ -759,7 +781,7 @@ const corridorSections: CorridorSection[] = [
   {
     key: "south-flagler",
     label: "South Flagler",
-    detail: "South Flagler House",
+    detail: "Including South Flagler House",
     reviewNote: "Southern waterfront benchmark for buyers comparing scale, privacy, and Palm Beach proximity.",
     description:
       "South Flagler is an established luxury waterfront corridor known for its proximity to Palm Beach Island and broad Intracoastal views. Buyers typically compare architecture, residence size, privacy, service, and whether a completed building or new launch better fits the ownership plan.",
@@ -1592,7 +1614,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     documents: [
       { label: "Advisor Packet", title: "Request current Olara materials", note: "Pricing, availability, floorplans, fees, and contract guidance" },
-      { label: "Reviewed Materials", title: "Official project, architecture, brochure, amenity, and floorplan materials reviewed", note: "Verification details are kept internal." },
+      { label: "Reviewed Materials", title: "Official project, architecture, brochure, amenity, and floorplan materials reviewed", note: "Verification details are available during a buyer consultation." },
     ],
     needed: [
       "Current residence count from the latest fact sheet",
@@ -1632,7 +1654,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     documents: [
       { label: "Advisor Packet", title: "Request current Ritz-Carlton materials", note: "Availability, floorplans, service details, pricing, and buyer guidance" },
-      { label: "Reviewed Materials", title: "Official project, Related Group, and floorplan materials reviewed", note: "Verification details are kept internal." },
+      { label: "Reviewed Materials", title: "Official project, Related Group, and floorplan materials reviewed", note: "Verification details are available during a buyer consultation." },
     ],
     needed: [
       "Current design-team confirmation from the latest official materials",
@@ -1747,7 +1769,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     documents: [
       { label: "Advisor Packet", title: "Request current Shorecrest materials", note: "Availability, line details, pricing, fees, and buyer guidance" },
-      { label: "Reviewed Materials", title: "Official site, floorplan, fact sheet, brochure, and Related Ross materials reviewed", note: "Verification details are kept internal." },
+      { label: "Reviewed Materials", title: "Official site, floorplan, fact sheet, brochure, and Related Ross materials reviewed", note: "Verification details are available during a buyer consultation." },
     ],
     needed: [
       "Final legal address confirmation",
@@ -2024,7 +2046,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
     ],
     documents: [
       { label: "Advisor Packet", title: "Request current South Flagler House materials", note: "Availability, line details, pricing, fees, and buyer guidance" },
-      { label: "Reviewed Materials", title: "Official site and fact sheet materials reviewed", note: "Verification details are kept internal." },
+      { label: "Reviewed Materials", title: "Official site and fact sheet materials reviewed", note: "Verification details are available during a buyer consultation." },
     ],
     needed: [
       "Project renderings and logo sequence",
@@ -2353,64 +2375,43 @@ function trackLeadCaptureCta(element: HTMLElement) {
 }
 
 app.innerHTML = `
+  <a class="v2-skip-link" href="#main-content">Skip to content</a>
   <div class="site-shell">
     <header class="site-nav">
       <a class="brand" href="/" aria-label="WPB New Construction home">
         <span class="brand-mark" aria-hidden="true">WPB</span>
-        <span class="brand-copy">West Palm Beach New Construction</span>
+        <span class="brand-copy">New Construction<small>West Palm Beach</small></span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="/buildings/" data-nav-item="projects">Projects</a>
+        <a href="/buildings/" data-nav-item="projects">Buildings</a>
         <a href="/corridors/" data-nav-item="corridors">Corridors</a>
-        <a href="/market-notes/" data-nav-item="market-notes">Buyers</a>
-        <a href="/about/" data-nav-item="about">About Us</a>
-        <a href="/floorplans/" data-nav-item="floorplans">Floorplans</a>
+        <a href="/compare/" data-nav-item="compare">Compare</a>
+        <a href="/floorplans/" data-nav-item="floorplans">Floor plans</a>
       </nav>
       <a class="nav-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">Call</a>
       <a class="nav-cta" href="/inquire/" data-nav-item="inquire" ${renderCtaTrackingAttrs("header", shortContactCtaLabel)}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <div class="route-view route-view-home" data-route-view="home">
       ${renderHomepageScopedStyles()}
       <section class="home-hero" id="top">
         <figure class="home-hero-media" aria-label="Curated West Palm Beach new-construction editorial imagery">
           <picture>
-            <source media="(max-width: 720px)" srcset="${homepageAssets.hero.mobile}" />
-            <img
-              class="home-hero-image is-active"
-              data-home-hero-layer="active"
-              src="${homepageAssets.hero.desktop}"
-              alt="West Palm Beach waterfront skyline and bridge viewed across the Intracoastal Waterway."
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
-              style="object-position: center center"
-            />
+            ${homepageHeroSourceMarkup}
+            <img class="home-hero-image is-active" data-home-hero-layer="active" src="${homepageHeroImageSrc}"${homepageHeroResponsiveAttrs} alt="${escapeHtml(homepageHeroAlt)}" loading="eager" decoding="async" fetchpriority="high"${homepageHeroImageStyle} />
           </picture>
-          <img
-            class="home-hero-image"
-            data-home-hero-layer="next"
-            alt=""
-            loading="lazy"
-            decoding="async"
-            fetchpriority="low"
-            aria-hidden="true"
-          />
-          <figcaption class="home-hero-caption" data-home-hero-caption>West Palm Beach waterfront.</figcaption>
-          <ul class="sr-only">
-            ${activeHomeHeroImages.map((image) => `<li>${escapeHtml(image.alt)}</li>`).join("")}
-          </ul>
+          ${homepageHeroCaptionMarkup}
         </figure>
         <div class="home-hero-scrim"></div>
         <div class="home-hero-layout">
           <div class="home-hero-content">
-            <p class="hero-kicker">West Palm Beach New Construction</p>
+            <p class="hero-kicker">New construction · Independent buyer guidance</p>
             <h1>
-              <span class="home-hero-title-desktop">${escapeHtml(approvedHeroCardOverride?.headline || "West Palm Beach Luxury Condo Developments")}</span>
-              <span class="home-hero-title-mobile">West Palm Beach Luxury Condos</span>
+              <span class="home-hero-title-desktop">${escapeHtml(approvedHeroCardOverride?.headline || commercialPages.home.heading)}</span>
             </h1>
-            <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || "Explore the city's most important new and upcoming condominium projects with clear details, local insight, floorplans, maps, and buyer-focused guidance before you inquire.")}</p>
+            <p class="hero-copy">${escapeHtml(approvedHeroCardOverride?.deck || approvedHeroCardOverride?.subhead || commercialPages.home.intro)}</p>
+            <div class="v2-hero-actions"><a class="button primary" href="/buildings/" data-hero-cta="projects">Explore buildings <span aria-hidden="true">↗</span></a><a class="v2-text-link" href="/compare/" data-hero-cta="compare">Compare buildings <span aria-hidden="true">→</span></a><a class="v2-latest-link" href="#latest-developments" data-hero-cta="latest">Latest stories <span aria-hidden="true">↓</span></a></div>
           </div>
         </div>
       </section>
@@ -2419,18 +2420,22 @@ app.innerHTML = `
         ${renderHomeSectionJumpControls()}
         <nav class="home-section-jump" aria-label="Explore homepage sections">
           <a href="/corridors/" data-hero-cta="corridors">${homeJumpIcon("corridors")}<span>Corridors</span></a>
-          <a href="/buildings/" data-hero-cta="projects">${homeJumpIcon("projects")}<span>Projects</span></a>
+          <a href="/buildings/" data-hero-cta="projects">${homeJumpIcon("projects")}<span>Buildings</span></a>
+          <a href="/map/" data-hero-cta="map">${homeJumpIcon("map")}<span>Map</span></a>
           <a href="/compare/" data-hero-cta="compare">${homeJumpIcon("compare")}<span>Compare</span></a>
           <a href="/answers/" data-hero-cta="answers">${homeJumpIcon("answers")}<span>Q&A</span></a>
           <a href="/downtown-spotlight/" data-hero-cta="spotlight">${homeJumpIcon("spotlight")}<span>Downtown</span></a>
           <a href="/updates/" data-hero-cta="updates">${homeJumpIcon("updates")}<span>Updates</span></a>
-          <a href="/market-notes/" data-hero-cta="guides">${homeJumpIcon("guides")}<span>Buyer Guides</span></a>
+          <a href="/market-notes/" data-hero-cta="guides">${homeJumpIcon("guides")}<span>Buyer guides</span></a>
         </nav>
       </div>
 
+      ${renderHomepageLatestDevelopments()}
+
       <section class="home-corridor-guide" id="corridors" aria-label="Choose a West Palm Beach new-construction corridor">
         <div class="section-heading corridor-heading">
-          <p class="eyebrow">Browse by Corridor</p>
+          <div><p class="eyebrow">01 / A sense of place</p><h2>Find your side of the city.</h2><p class="v2-section-deck">Five distinct areas, from waterfront calm to downtown energy. Start with the way you want to live.</p></div>
+          <a class="home-featured-heading-link" href="/corridors/">Explore all ${corridorSections.length} areas <span aria-hidden="true">→</span></a>
         </div>
         <div class="home-carousel-shell">
           ${renderHomeCarouselControls("corridor")}
@@ -2456,29 +2461,21 @@ app.innerHTML = `
         </div>
       </section>
 
-      <section class="home-status-image" aria-label="West Palm Beach construction skyline image">
-        <figure class="home-status-image-frame">
-          <img
-            src="/assets/home/wpb-construction-skyline-wide-v01.jpg"
-            alt="Wide aerial of West Palm Beach new construction projects and cranes under a bright blue sky."
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-      </section>
-
-      <section class="home-featured-section" id="featured-projects" aria-label="Featured buyer-ready projects">
+      <section class="home-featured-section" id="featured-projects" aria-label="Selected building preview">
         <div class="section-heading home-featured-heading">
-          <p class="eyebrow">Featured Developments</p>
-          <a class="home-featured-heading-link" href="/buildings/">View All Projects <span aria-hidden="true">→</span></a>
+          <div><p class="eyebrow">02 / A selected look</p><h2>4 buildings, four different areas.</h2><p class="v2-section-deck">A curated preview across North Flagler, Downtown, South Flagler, and Palm Beach, drawn from 24 tracked buildings.</p></div>
+          <a class="home-featured-heading-link" href="/buildings/">Explore all ${featuredProjects.length} buildings <span aria-hidden="true">→</span></a>
         </div>
         <div class="home-carousel-shell">
-          ${renderHomeCarouselControls("featured developments")}
-          <div class="home-featured-grid" role="region" aria-label="Scrollable featured developments" tabindex="0">
+          ${renderHomeCarouselControls("selected buildings")}
+          <div class="home-featured-grid" role="region" aria-label="Scrollable selected buildings" tabindex="0">
             ${homepageFeaturedProjects.map(renderHomepageFeaturedProject).join("")}
           </div>
         </div>
+        <div class="home-featured-complete"><p>These are selected examples. The complete directory includes active sales, construction, completed comparables, pipeline projects, mixed-use development, and one rental community.</p><a class="button primary" href="/buildings/">Explore all ${featuredProjects.length} tracked buildings <span aria-hidden="true">→</span></a></div>
       </section>
+
+      ${renderHomepageCompareLauncher()}
 
       <section class="home-future-module home-spotlight-module" aria-label="Downtown spotlight: NORA district">
         <img src="/assets/editorial/nora-district-aerial-evening-hero.jpg" alt="Aerial evening rendering of the NORA District in Downtown West Palm Beach" loading="lazy" decoding="async" fetchpriority="low" />
@@ -2488,7 +2485,7 @@ app.innerHTML = `
             <a class="home-spotlight-parent-link" href="/downtown-spotlight/">View all Downtown Spotlights <span aria-hidden="true">→</span></a>
           </div>
           <div class="home-spotlight-copy">
-            <h2><span>Why the NORA District</span><span>could reshape Downtown.</span></h2>
+            <h2>Why the NORA District could reshape Downtown.</h2>
             <p>NORA is more than a restaurant district. Its walkable streets, adaptive reuse, hospitality plans, and housing pipeline could extend Downtown West Palm Beach's center of gravity northward.</p>
           </div>
           <a href="/downtown-spotlight/nora-district-downtown-transformation/">Read Downtown Spotlight <span aria-hidden="true">→</span></a>
@@ -2499,11 +2496,12 @@ app.innerHTML = `
         <div class="home-atlas-compact-heading">
           <div>
             <p class="eyebrow">Explore the Map</p>
-            <p>Click the map to open a larger project view.</p>
+            <p>Open the building map, then filter by area or development stage.</p>
           </div>
+          <a href="/map/">Open the full building map <span aria-hidden="true">→</span></a>
         </div>
         <div class="home-atlas-frame">
-          <aside class="home-hero-map-card home-atlas-map-card home-atlas-map-only" aria-label="Featured West Palm Beach project map">
+          <aside class="home-hero-map-card home-atlas-map-card home-atlas-map-only" aria-label="Featured West Palm Beach building map">
             <figure class="hero-map-preview">
               <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
               <button class="hero-map-expand" type="button" data-map-expand>Open larger map</button>
@@ -2511,14 +2509,14 @@ app.innerHTML = `
                 ${renderProjectMapFallback()}
               </div>
             </figure>
-            <div class="home-map-count" aria-label="Map project count">
+            <div class="home-map-count" aria-label="Map building count">
               <strong>${featuredProjects.length}</strong>
-              <span>tracked West Palm Beach new-construction projects</span>
+              <span>tracked buildings and developments</span>
             </div>
           </aside>
           <div class="home-atlas-projects">
-            <p>Projects shown on map</p>
-            <div class="home-atlas-project-strip" role="region" aria-label="Projects shown on the homepage map" tabindex="0">
+            <p>Buildings shown on map</p>
+            <div class="home-atlas-project-strip" role="region" aria-label="Buildings shown on the homepage map" tabindex="0">
               ${validMapProjects(rankedFeaturedProjects.slice(0, 7)).map(renderHomepageAtlasProject).join("")}
             </div>
           </div>
@@ -2526,7 +2524,6 @@ app.innerHTML = `
       </section>
 
       ${renderHomepageAdvisoryResources()}
-      ${renderHomepageCompareLauncher()}
       ${renderHomepageEndBridge()}
       </div>
 
@@ -2644,7 +2641,7 @@ app.innerHTML = `
           <div>
             <p class="eyebrow">Floorplan Library</p>
             <h1>Floorplans</h1>
-            <p>Explore floor plans designed to help you understand each residence before you step inside. From room flow and bedroom placement to outdoor space, views, and everyday livability, these plans offer a clear look at how each home lives—not just how it measures.</p>
+            <p>Explore released layouts by building. Review room sizes, outdoor space and circulation, then open the plans that fit your shortlist.</p>
             <div class="hero-actions">
               <a class="button primary" href="#floorplan-library">Browse by building <span aria-hidden="true">↓</span></a>
               <a class="button ghost" href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", "Request current packet", { leadCaptureContext: "floorplans_page" })}>Request current packet <span aria-hidden="true">↗</span></a>
@@ -2657,9 +2654,9 @@ app.innerHTML = `
         </section>
       </div>
 
-      <div class="floorplan-viewer" data-floorplan-viewer hidden aria-hidden="true">
+      <dialog class="floorplan-viewer" data-floorplan-viewer hidden aria-labelledby="floorplan-viewer-title">
         <div class="floorplan-viewer-backdrop" data-floorplan-close></div>
-        <section class="floorplan-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="floorplan-viewer-title">
+        <section class="floorplan-viewer-dialog">
           <button class="floorplan-viewer-close" type="button" data-floorplan-close aria-label="Close floorplan viewer">×</button>
           <div class="floorplan-viewer-header">
             <h2 id="floorplan-viewer-title" data-floorplan-title>Floor plan</h2>
@@ -2668,10 +2665,10 @@ app.innerHTML = `
           <div class="floorplan-viewer-actions">
             <button type="button" data-floorplan-prev>Previous</button>
             <button type="button" data-floorplan-next>Next</button>
-            <a href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", shortContactCtaLabel, { leadCaptureContext: "floorplan_viewer" })}>${shortContactCtaLabel}</a>
+            <a data-floorplan-inquire href="/inquire/?interest=floorplans" ${renderCtaTrackingAttrs("floorplans_page", shortContactCtaLabel, { leadCaptureContext: "floorplan_viewer" })}>${shortContactCtaLabel}</a>
           </div>
         </section>
-      </div>
+      </dialog>
 
       <div class="route-view route-view-answers" data-route-view="answers" hidden>
         <section class="section intelligence-hero answer-library-hero">
@@ -2915,8 +2912,8 @@ app.innerHTML = `
       <section class="section inquiry-section" id="inquire">
         <div class="inquiry-copy-panel">
           <p class="eyebrow">Contact The Scott Gordon Group</p>
-          <h1>${longContactCtaHeadline}</h1>
-          <p>${longContactCtaBody}</p>
+          <h1>Let’s find your fit.</h1>
+          <p>Tell us what matters. We’ll help you compare buildings, review floor plans, and confirm current availability.</p>
           <div class="inquiry-proof-strip" aria-label="What the team will review">
             <span>Availability</span>
             <span>Floor plans</span>
@@ -3128,6 +3125,7 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     if (status) {
       status.textContent = "Please name a building you are considering or add a short message.";
     }
+    target.dataset.submitting = "false";
     return;
   }
 
@@ -3172,6 +3170,11 @@ document.querySelector<HTMLFormElement>(".inquiry-form")?.addEventListener("subm
     }
     resetTurnstile(target);
     target.reset();
+    // Keep the requested building and intent visible after receipt; clear personal entries.
+    const projectControl = target.querySelector<HTMLSelectElement>('[name="project"]');
+    const interestControl = target.querySelector<HTMLSelectElement>('[name="interest"]');
+    if (projectControl) projectControl.value = project;
+    if (interestControl) interestControl.value = interest;
     target.dataset.submitting = "false";
     return;
   }
@@ -3679,7 +3682,7 @@ function initWebMcpTools() {
       execute: () => ({
         routes: routeSummaries,
         guidance:
-          "Use internal WPB routes first. Pricing, availability, fees, incentives, square footage, delivery dates, and contract terms require current confirmation through /inquire/.",
+          "Use WPB New Construction routes first. Pricing, availability, fees, incentives, square footage, delivery dates, and contract terms require current confirmation through /inquire/.",
       }),
     },
     {
@@ -4116,6 +4119,7 @@ function routeSeoDetails(
 }
 
 function getActiveNavItem(route: Route) {
+  if (route.type === "home") return "home";
   if (route.type === "project") {
     return "projects";
   }
@@ -4137,9 +4141,6 @@ function getActiveNavItem(route: Route) {
   if (route.type === "buildings" || route.type === "map" || route.type === "corridors" || route.type === "compare") {
     return route.type === "buildings" ? "projects" : route.type;
   }
-  if (route.type === "home") {
-    return window.location.hash === "#atlas" ? "atlas" : window.location.hash === "#compare" ? "compare" : "projects";
-  }
   return route.type;
 }
 
@@ -4152,6 +4153,20 @@ function syncInquiryContext() {
   const leadCaptureContext = params.get("lead_capture_context");
   const projectSelect = document.querySelector<HTMLSelectElement>('.inquiry-form select[name="project"]');
   const inquiryForm = document.querySelector<HTMLFormElement>(".inquiry-form");
+  const shortlistIds = [...new Set((params.get("projects") ?? "").split(",").filter(Boolean))];
+  const shortlist = shortlistIds.map((id) => featuredProjects.find((project) => project.id === id));
+  if (inquiryForm) {
+    const requestLocation = window.location.pathname + window.location.search;
+    if (getCurrentRoute().type === "inquire" && inquiryForm.dataset.requestLocation !== requestLocation) {
+      // A receipt belongs to the submitted request, never a newly selected plan or shortlist.
+      inquiryForm.querySelector<HTMLElement>(".form-status")?.replaceChildren();
+      inquiryForm.dataset.requestLocation = requestLocation;
+    }
+    delete inquiryForm.dataset.requestShortlist;
+    if (interest === "compare" && shortlist.length >= 2 && shortlist.length <= 3 && shortlist.every(Boolean)) {
+      inquiryForm.dataset.requestShortlist = shortlist.map((project) => project!.name).join(" · ");
+    }
+  }
   const interestSelect = document.querySelector<HTMLSelectElement>('.inquiry-form select[name="interest"]');
   const messageField = document.querySelector<HTMLTextAreaElement>('.inquiry-form textarea[name="message"]');
 
@@ -4207,8 +4222,17 @@ async function initCompareShortlist() {
     }
   };
   const writeSelection = (ids: string[]) => sessionStorage.setItem(storageKey, JSON.stringify(ids.slice(0, 3)));
-  let selectedIds = readSelection().filter((id) => featuredProjects.some((project) => project.id === id)).slice(0, 3);
+  const querySelection = (new URLSearchParams(window.location.search).get("projects") ?? "")
+    .split(",")
+    .map((id) => id.trim())
+    .filter((id) => featuredProjects.some((project) => project.id === id))
+    .filter((id, index, ids) => ids.indexOf(id) === index)
+    .slice(0, 3);
+  let selectedIds = (querySelection.length >= 2 ? querySelection : readSelection())
+    .filter((id) => featuredProjects.some((project) => project.id === id))
+    .slice(0, 3);
   if (selectedIds.length < 2) selectedIds = rankedFeaturedProjects.slice(0, 2).map((project) => project.id);
+  if (querySelection.length >= 2) writeSelection(selectedIds);
   selects.forEach((select, index) => {
     select.value = selectedIds[index] ?? "";
   });
@@ -4232,9 +4256,15 @@ async function initCompareShortlist() {
     `;
 
     const names = selectedProjects.map((project) => project.name).join(", ");
-    const message = encodeURIComponent(`I want The Scott Gordon Group to compare these buildings: ${names}.`);
+    const params = new URLSearchParams({
+      project: selectedProjects[0].id,
+      projects: selectedProjects.map((project) => project.id).join(","),
+      interest: "compare",
+      lead_capture_context: "compare_shortlist",
+      message: `I want The Scott Gordon Group to compare these buildings: ${names}.`,
+    });
     if (inquireLink) {
-      inquireLink.href = `/inquire/?message=${message}`;
+      inquireLink.href = `/inquire/?${params.toString()}`;
     }
   };
 
@@ -4517,6 +4547,7 @@ function updateStructuredData(routeType: string, activeProject?: FeaturedProject
       "@type": "WebSite",
       "@id": `${siteMeta.baseUrl}/#website`,
       name: siteMeta.siteName,
+      alternateName: siteMeta.alternateName,
       url: siteMeta.baseUrl,
       publisher: { "@id": `${siteMeta.baseUrl}/#advisor` },
     },
@@ -4907,7 +4938,6 @@ function homeJumpIcon(name: "projects" | "corridors" | "map" | "compare" | "guid
 }
 
 function renderHomepageAdvisoryResources() {
-  const latestUpdate = [...publishedExternalNews].sort((a, b) => newsSortTimestamp(b) - newsSortTimestamp(a))[0];
   const featuredBuyerNote = marketNoteForSlug("are-branded-residences-worth-it-west-palm-beach");
 
   return `
@@ -4934,13 +4964,6 @@ function renderHomepageAdvisoryResources() {
             <a href="/market-notes/">View all guides <span aria-hidden="true">→</span></a>
           </div>
           ${featuredBuyerNote ? renderHomepageMarketNoteFeature(featuredBuyerNote) : ""}
-        </div>
-        <div class="home-resource-feature">
-          <div class="home-resource-heading">
-            <p class="eyebrow">Development Desk</p>
-            <a href="/updates/">View all updates <span aria-hidden="true">→</span></a>
-          </div>
-          ${latestUpdate ? renderHomepageUpdateFeature(latestUpdate) : ""}
         </div>
       </div>
     </section>
@@ -4999,7 +5022,7 @@ function renderHomepageMarketNoteFeature(note: MarketNote) {
   const resolvedImage = imageForContentItem(note);
   return `
     <a class="home-resource-card home-resource-card-featured" href="${marketNotePath(note)}">
-      ${renderResolvedContentImage(resolvedImage, "home-resource-card-image")}
+      ${renderResolvedContentImage(resolvedImage, "home-resource-card-image", { caption: false })}
       <span>${escapeHtml(note.category)}</span>
       <strong>${escapeHtml(note.title)}</strong>
       <p>${escapeHtml(note.excerpt)}</p>
@@ -5008,17 +5031,194 @@ function renderHomepageMarketNoteFeature(note: MarketNote) {
   `;
 }
 
-function renderHomepageUpdateFeature(item: ExternalNewsItem) {
-  const resolvedImage = imageForContentItem(externalNewsImageContext(item));
-  const article = updateArticleContent(item);
+function homepageDeskDisplayVariants() {
+  return [
+  {
+    sourcePath: "/assets/home/downtown-corridor-bridge-daytime-v01.jpg",
+    sourceTitle: "Terra and Frisbie Add $20M Parcel to West Palm Beach Assemblage",
+    sourceBuyerTakeaway: "The acquisition expands a master-planned site intended for large-scale mixed-use and residential development; detailed project programming is still to come.",
+    displayTitle: "Terra and Frisbie add a $20M West Palm Beach parcel",
+    displayTakeaway: "The expanded site is planned for mixed-use and residential development; detailed project programming is still to come.",
+    leadDesktopSrc: "/assets/editorial/development-desk/terra-context-lead-1400x636.webp",
+    leadMobileSrc: "/assets/editorial/development-desk/terra-context-lead-780x355.webp",
+    sourceDimensions: { width: 1920, height: 1080 },
+    label: "West Palm Beach · editorial context",
+    caption: "Downtown bridge and waterfront context for a West Palm Beach development story.",
+    credit: "Approved front-page asset, optimized for site use.",
+    alt: "Downtown bridge and waterfront context in West Palm Beach",
+    researchHref: "/buildings/",
+    researchLabel: "Browse buildings",
+  },
+  {
+    sourcePath: "/assets/editorial/wpb-corridors-aerial-hero-v01.jpg",
+    sourceTitle: "Unicorp Under Contract for $200M La Fontana Buyout on North Flagler",
+    sourceBuyerTakeaway: "The verified update is the roughly $200 million acquisition contract and projected 2027 closing; a future redevelopment program has not yet been established.",
+    displayTitle: "Unicorp under contract for $200M La Fontana buyout",
+    displayTakeaway: "The contract points to a projected 2027 closing; a future redevelopment program has not yet been established.",
+    thumbnailSrc: "/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp",
+    sourceDimensions: { width: 1280, height: 533 },
+    label: "Corridor context",
+    caption: "West Palm Beach corridor orientation.",
+    credit: "User-provided editorial image, optimized for site use.",
+    alt: "Aerial view of the West Palm Beach waterfront corridor",
+    researchHref: "/corridors/north-flagler/",
+    researchLabel: "Explore North Flagler",
+  },
+  {
+    sourcePath: "/assets/projects/alba-palm-beach/hero/alba-palm-beach-hero-wide-aerial-v01.webp",
+    sourceTitle: "Alba Palm Beach Is Complete and Move-In Ready on North Flagler",
+    sourceBuyerTakeaway: "Alba offers buyers a completed, move-in-ready new-construction option rather than a future-delivery commitment.",
+    displayTitle: "Alba Palm Beach is complete and move-in ready",
+    displayTakeaway: "Alba offers a completed, move-in-ready option instead of a future-delivery commitment.",
+    thumbnailSrc: "/assets/editorial/development-desk/alba-context-thumb-288x216.webp",
+    sourceDimensions: { width: 1316, height: 740 },
+    label: "Alba · Architectural rendering",
+    caption: "Alba Palm Beach architectural rendering from approved project marketing materials.",
+    credit: "Alba Palm Beach project marketing materials.",
+    alt: "Alba Palm Beach architectural rendering on the North Flagler waterfront",
+    researchHref: "/projects/alba-palm-beach/",
+    researchLabel: "Explore Alba",
+  },
+  ] as const;
+}
+
+function homepageDeskDisplayVariant(item: ExternalNewsItem) {
+  return homepageDeskDisplayVariants().find((variant) =>
+    variant.sourcePath === item.imagePath &&
+    variant.sourceTitle === item.title &&
+    variant.sourceBuyerTakeaway === item.buyerTakeaway,
+  );
+}
+
+function homepageDeskCopy(item: ExternalNewsItem) {
+  const variant = homepageDeskDisplayVariant(item);
+  return {
+    title: variant?.displayTitle || item.title,
+    takeaway: variant?.displayTakeaway || item.buyerTakeaway || item.whyItMatters || updateArticleContent(item).excerpt,
+    variant,
+  };
+}
+
+function homepageDeskVisual(item: ExternalNewsItem, role: "lead" | "thumbnail") {
+  const sourcePath = item.imagePath || "";
+  if (!sourcePath) return null;
+  const variant = homepageDeskDisplayVariants().find((candidate) => candidate.sourcePath === sourcePath);
+  if (variant) {
+    const hasLeadVariant = role === "lead" && "leadDesktopSrc" in variant;
+    const hasThumbnailVariant = role === "thumbnail" && "thumbnailSrc" in variant;
+    const desktopSrc = hasLeadVariant
+      ? variant.leadDesktopSrc
+      : hasThumbnailVariant
+        ? variant.thumbnailSrc
+        : sourcePath;
+    const mobileSrc = hasLeadVariant ? variant.leadMobileSrc : desktopSrc;
+    const derivativeDimensions = hasLeadVariant
+      ? { width: 1400, height: 636, mobileWidth: 780, mobileHeight: 355 }
+      : hasThumbnailVariant
+        ? { width: 288, height: 216, mobileWidth: 288, mobileHeight: 216 }
+        : { width: variant.sourceDimensions.width, height: variant.sourceDimensions.height, mobileWidth: variant.sourceDimensions.width, mobileHeight: variant.sourceDimensions.height };
+    return {
+      sourcePath,
+      desktopSrc,
+      mobileSrc,
+      width: derivativeDimensions.width,
+      height: derivativeDimensions.height,
+      mobileWidth: derivativeDimensions.mobileWidth,
+      mobileHeight: derivativeDimensions.mobileHeight,
+      label: variant.label,
+      caption: variant.caption,
+      credit: variant.credit,
+      alt: variant.alt,
+    };
+  }
+  return {
+    sourcePath,
+    desktopSrc: sourcePath,
+    mobileSrc: sourcePath,
+    width: undefined,
+    height: undefined,
+    mobileWidth: undefined,
+    mobileHeight: undefined,
+    label: "Development context",
+    caption: "Context image from the approved article record.",
+    credit: "Approved article image.",
+    alt: "West Palm Beach development context",
+  };
+}
+
+function renderHomepageDeskFigure(item: ExternalNewsItem, copyTitle: string, role: "lead" | "thumbnail") {
+  const visual = homepageDeskVisual(item, role);
+  if (!visual) return "";
+  const loading = "lazy";
+  const mobileSource = visual.mobileSrc !== visual.desktopSrc
+    ? `<source media="(max-width: 980px)" srcset="${safeHref(visual.mobileSrc)} ${visual.mobileWidth}w" sizes="90vw" />`
+    : "";
+  const srcset = visual.width
+    ? role === "lead" && visual.mobileSrc !== visual.desktopSrc
+      ? ` srcset="${safeHref(visual.mobileSrc)} ${visual.mobileWidth}w, ${safeHref(visual.desktopSrc)} ${visual.width}w" sizes="(max-width: 1100px) 90vw, calc(49.5vw - 24px)"`
+      : ` srcset="${safeHref(visual.desktopSrc)} ${visual.width}w" sizes="(max-width: 360px) 88px, (max-width: 1100px) 96px, 144px"`
+    : "";
+  const intrinsicDimensions = visual.width && visual.height ? ` width="${visual.width}" height="${visual.height}"` : "";
   return `
-    <a class="home-resource-card home-resource-card-featured" href="${updatePath(item)}">
-      ${renderResolvedContentImage(resolvedImage)}
-      <span>${publicText(item.category)} · ${publicText(formatNewsDate(newsDisplayDate(item)))}</span>
-      <strong>${publicText(item.title)}</strong>
-      <p>${publicText(article.excerpt)}</p>
-      <em>Read latest update <b aria-hidden="true">→</b></em>
-    </a>
+    <figure class="v2-desk-visual v2-desk-visual-${role}" data-desk-source-path="${escapeHtml(visual.sourcePath)}" data-desk-image-caption="${escapeHtml(visual.caption)}" data-desk-image-credit="${escapeHtml(visual.credit)}">
+      <a class="v2-desk-visual-link" href="${updatePath(item)}" aria-label="Open ${escapeHtml(copyTitle)}">
+        <picture>${mobileSource}<img src="${safeHref(visual.desktopSrc)}"${srcset}${intrinsicDimensions} alt="${escapeHtml(visual.alt)}" loading="${loading}" decoding="async" /></picture>
+      </a>
+      <figcaption class="v2-desk-visual-caption">
+        <span class="v2-desk-image-label">${escapeHtml(visual.label)}</span>
+      </figcaption>
+    </figure>
+  `;
+}
+
+function renderHomepageLatestDevelopments() {
+  // Presentation only: retain the three newest approved publications until replaced.
+  // Freshness-lane labels do not override publication order or expire a card.
+  const latest = publishedExternalNews.slice(0, 3);
+  if (!latest.length) return "";
+  return `
+    <section class="v2-development-desk" id="latest-developments" aria-labelledby="latest-developments-title">
+      <header class="v2-desk-heading">
+        <div><p class="eyebrow">The Development Desk</p><h2 id="latest-developments-title">A city in the making.</h2>
+        <p>Latest developments, with context for your next move.</p></div>
+        <a href="/updates/">All development stories <span aria-hidden="true">↗</span></a>
+      </header>
+      <div class="v2-desk-grid">${latest.map((item, index) => {
+        const copy = homepageDeskCopy(item);
+        const projects = relatedProjectsForArticle(item);
+        const corridor = corridorSections.find((section) => item.relatedCorridorIds.includes(section.key));
+        const published = newsDisplayDate(item);
+        const sourceDate = item.sourcePublishedDate || item.sourcePublishedAt;
+        const defaultResearchHref = projects[0]
+          ? projectPath(projects[0])
+          : corridor
+            ? corridorPath(corridor.key)
+            : "/buildings/";
+        const related = copy.variant && copy.variant.researchHref === defaultResearchHref
+          ? `<a href="${copy.variant.researchHref}" ${renderCtaTrackingAttrs("home_page", copy.variant.researchLabel)} data-article-id="${escapeHtml(item.id)}">${copy.variant.researchLabel} <span aria-hidden="true">→</span></a>`
+          : projects[0]
+          ? `<a href="${projectPath(projects[0])}" ${renderCtaTrackingAttrs("home_page", `Explore ${projects[0].name}`)} data-article-id="${escapeHtml(item.id)}">Explore ${escapeHtml(projects[0].name)} <span aria-hidden="true">→</span></a>`
+          : corridor
+            ? `<a href="${corridorPath(corridor.key)}">Explore ${escapeHtml(corridor.label)} <span aria-hidden="true">→</span></a>`
+            : '<a href="/buildings/">Browse buildings <span aria-hidden="true">→</span></a>';
+        const lead = index === 0;
+        return `<article class="v2-desk-story${lead ? " v2-desk-lead" : " v2-desk-secondary"}" data-home-news-id="${escapeHtml(item.id)}" data-home-news-original-title="${escapeHtml(item.title)}" data-home-news-original-takeaway="${escapeHtml(item.buyerTakeaway || "")}" data-home-news-display-title="${escapeHtml(copy.title)}">
+          ${lead ? renderHomepageDeskFigure(item, copy.title, "lead") : ""}
+          <div class="v2-desk-story-head">
+            ${lead ? "" : renderHomepageDeskFigure(item, copy.title, "thumbnail")}
+            <div class="v2-desk-copy">
+              <p class="v2-desk-date">Published <time data-news-date="publication" datetime="${escapeHtml(published)}">${escapeHtml(formatNewsDate(published))}</time>${sourceDate ? ` <span aria-hidden="true">·</span> <span class="v2-desk-source">Source report <time data-news-date="source" datetime="${escapeHtml(sourceDate)}">${escapeHtml(formatNewsDate(sourceDate))}</time></span>` : ""}</p>
+              <h3><a href="${updatePath(item)}">${publicText(copy.title)}</a></h3>
+            </div>
+          </div>
+          <div class="v2-desk-story-detail">
+            <p class="v2-desk-takeaway">${publicText(copy.takeaway)}</p>
+            <div class="v2-desk-actions"><a href="${updatePath(item)}">Read story <span aria-hidden="true">↗</span></a>${related}</div>
+          </div>
+        </article>`;
+      }).join("")}</div>
+      <p class="v2-desk-note">Our latest reporting; source reports may cover earlier events.</p>
+    </section>
   `;
 }
 
@@ -5051,7 +5251,7 @@ function renderHomepageCompareLauncher() {
         </div>
         <p class="home-compare-error" data-home-compare-error hidden>Choose two different buildings to compare.</p>
         <div class="home-compare-actions">
-          <button type="submit">Compare These Buildings <span aria-hidden="true">→</span></button>
+          <button type="submit">Compare these buildings <span aria-hidden="true">→</span></button>
           <a href="/inquire/" ${renderCtaTrackingAttrs("home_page", shortContactCtaLabel)}>${shortContactCtaLabel} <span aria-hidden="true">↗</span></a>
         </div>
       </form>
@@ -5066,6 +5266,8 @@ function renderHomepageEndBridge() {
         <img
           src="/assets/home/wpb-end-cap-bridge-v01.png"
           alt="Stylized West Palm Beach skyline and bridge illustration under a pale sky."
+          width="1915"
+          height="821"
           loading="lazy"
           decoding="async"
         />
@@ -5096,15 +5298,16 @@ function renderBuildingsRouteView() {
     <div class="route-view route-view-buildings" data-route-view="buildings" hidden>
       <section class="buildings-route-hero">
         <p class="eyebrow">West Palm Beach New Construction</p>
-        <h1 data-directory-title>Project Directory</h1>
-        <p data-directory-deck>Developments organized by corridor, status, and sales office.</p>
+        <h1 data-directory-title>Building Directory</h1>
+        <p data-directory-deck>${featuredProjects.length} tracked buildings and developments organized by corridor, status, and sales office.</p>
       </section>
       <section class="project-sort-shell buildings-directory" id="projects">
         <div class="project-sort-header">
           <div>
-            <p class="eyebrow" data-directory-kicker>All Projects</p>
-            <h2 data-directory-subtitle>${escapeHtml(approvedHomepageOverride("featured-buildings")?.headline || "All Projects")}</h2>
-            <p class="selected-filter-summary" data-filter-summary>${escapeHtml(approvedHomepageOverride("featured-buildings")?.subhead || "Filter by corridor, status, or sales office.")}</p>
+            <p class="eyebrow" data-directory-kicker>All Buildings</p>
+            <h2 data-directory-subtitle>All ${featuredProjects.length} Buildings</h2>
+            <p class="selected-filter-summary" data-filter-summary role="status" aria-live="polite">${featuredProjects.length} tracked buildings. Filter by corridor, status, or sales office.</p>
+            <label class="v2-project-search"><span>Find a building</span><input type="search" data-project-search placeholder="Search by building name" autocomplete="off" /></label>
             <div class="project-filter-controls" aria-label="Project filters">
               ${renderProjectFilterSelect("corridor", "Corridor", projectCorridorFilters)}
               ${renderProjectFilterSelect("status", "Status", projectStatusFilters)}
@@ -5113,7 +5316,7 @@ function renderBuildingsRouteView() {
           </div>
           <label class="sort-control">
             <span>Sort:</span>
-            <select data-project-sort aria-label="Sort projects">
+            <select data-project-sort aria-label="Sort buildings">
               <option value="featured">Featured</option>
               <option value="az">A-Z</option>
               <option value="delivery">Delivery</option>
@@ -5122,12 +5325,14 @@ function renderBuildingsRouteView() {
             </select>
           </label>
         </div>
+        <div class="v2-directory-toolbar"><button type="button" data-project-reset>Clear filters</button><a href="/compare/">Open comparison <span aria-hidden="true">→</span></a></div>
+        <p class="v2-directory-empty" data-project-empty hidden>No buildings match these filters. Try another name or clear the filters.</p>
         <div class="project-rail">
-          <button class="project-rail-arrow project-rail-arrow-prev" type="button" data-project-scroll="prev" aria-label="Scroll projects left">&lsaquo;</button>
+          <button class="project-rail-arrow project-rail-arrow-prev" type="button" data-project-scroll="prev" aria-label="Scroll buildings left">&lsaquo;</button>
           <div class="front-project-grid" data-project-grid>
             ${featuredProjects.map(renderFeaturedProject).join("")}
           </div>
-          <button class="project-rail-arrow project-rail-arrow-next" type="button" data-project-scroll="next" aria-label="Scroll projects right">&rsaquo;</button>
+          <button class="project-rail-arrow project-rail-arrow-next" type="button" data-project-scroll="next" aria-label="Scroll buildings right">&rsaquo;</button>
         </div>
       </section>
     </div>
@@ -5316,7 +5521,7 @@ function renderProjectMapFallback() {
       <p>${mapFallbackBody}</p>
       <div class="map-fallback-actions">
         <a href="/buildings/">View Buildings</a>
-        <a href="/compare/">Compare Projects</a>
+        <a href="/compare/">Compare Buildings</a>
         <a href="/inquire/" ${renderCtaTrackingAttrs("map_page", "Request Current Availability", { leadCaptureContext: "map_fallback" })}>Request Current Availability</a>
       </div>
     </div>
@@ -5326,27 +5531,27 @@ function renderProjectMapFallback() {
 function renderMapRouteView() {
   return `
     <div class="route-view route-view-map" data-route-view="map" hidden>
-      <section class="map-route-page" aria-label="Interactive West Palm Beach project map">
+      <section class="map-route-page" aria-label="Interactive West Palm Beach building map">
         <div class="map-route-intro">
-          <p class="eyebrow">Project Map</p>
-          <h1>West Palm Beach project map.</h1>
-          <p>Use the filters to narrow the map, then click a project pin for the building summary and guide link.</p>
+          <p class="eyebrow">Building Map</p>
+          <h1>West Palm Beach building map.</h1>
+          <p>Use the filters to narrow the map, then click a building pin for its summary, guide, and corridor.</p>
         </div>
         <div class="map-route-workspace">
-          <aside class="map-route-sidebar" aria-label="Map filters and selected project">
+          <aside class="map-route-sidebar" aria-label="Map filters and selected building">
             ${renderMapControls()}
           </aside>
-          <aside class="home-hero-map-card map-route-map-card" aria-label="West Palm Beach project map">
+          <aside class="home-hero-map-card map-route-map-card" aria-label="West Palm Beach building map">
             <figure class="hero-map-preview">
-              <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
+              <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction building locations"></div>
               <button class="hero-map-expand" type="button" data-map-expand>Showing all locations</button>
               <div class="hero-map-fallback">
                 ${renderProjectMapFallback()}
               </div>
             </figure>
-            <div class="home-map-count" aria-label="Map project count">
+            <div class="home-map-count" aria-label="Map building count">
               <strong>${featuredProjects.length}</strong>
-              <span>tracked West Palm Beach new-construction projects</span>
+              <span>tracked buildings and developments</span>
             </div>
           </aside>
         </div>
@@ -5397,6 +5602,16 @@ function corridorHubCards() {
       image: "/assets/home/palm-beach-corridor-clock-tower-v01.jpg",
       alt: "Palm Beach clock tower, oceanfront promenade, and palms at sunset",
     },
+    {
+      key: "south-end" as CorridorKey,
+      corridorKey: "south-end",
+      kicker: "South Dixie Context",
+      headline: "Neighborhood Retail, Rental Living, and South End Access",
+      body:
+        "South End is a separate rental and mixed-use lane centered on South Dixie convenience. The Sound Apartments is the one public building currently tracked here; it is rental housing, not a for-sale condominium.",
+      image: "/assets/editorial/wpb-geography-map-hero.jpg",
+      alt: "Map context for West Palm Beach corridors including the South End and South Dixie area",
+    },
   ];
 }
 
@@ -5417,17 +5632,17 @@ function renderCorridorsRouteView() {
           <p class="eyebrow">Choose Your West Palm Beach Corridor</p>
           <h2>West Palm Beach new construction is not one market.</h2>
         </div>
-        <p>South Flagler, North Flagler, Downtown, and Palm Beach each offer a different lifestyle, price point, and long-term value story. Start with where you want to live, then compare the buildings that fit that daily routine.</p>
+          <p>South Flagler, North Flagler, Downtown, Palm Beach, and the South End each offer a different lifestyle and development context. Start with where you want to live, then compare the buildings that fit that daily routine.</p>
       </section>
 
-      <section class="home-atlas-feature home-atlas-feature-editorial home-atlas-compact corridors-atlas-feature" aria-label="West Palm Beach project map">
+      <section class="home-atlas-feature home-atlas-feature-editorial home-atlas-compact corridors-atlas-feature" aria-label="West Palm Beach building map">
         <div class="home-atlas-compact-heading corridors-atlas-heading">
           <div>
-            <p class="eyebrow">Project Map</p>
+            <p class="eyebrow">Building Map</p>
           </div>
         </div>
         <div class="home-atlas-frame">
-          <aside class="home-hero-map-card home-atlas-map-card home-atlas-map-only" aria-label="West Palm Beach project map">
+          <aside class="home-hero-map-card home-atlas-map-card home-atlas-map-only" aria-label="West Palm Beach building map">
             <figure class="hero-map-preview">
               <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
               <button class="hero-map-expand" type="button" data-map-expand>Show all locations</button>
@@ -5435,14 +5650,14 @@ function renderCorridorsRouteView() {
                 ${renderProjectMapFallback()}
               </div>
             </figure>
-            <div class="home-map-count" aria-label="Map project count">
+            <div class="home-map-count" aria-label="Map building count">
               <strong>${featuredProjects.length}</strong>
-              <span>tracked West Palm Beach new-construction projects</span>
+              <span>tracked buildings and developments</span>
             </div>
           </aside>
           <div class="home-atlas-projects">
-            <p>Projects shown on map</p>
-            <div class="home-atlas-project-strip" role="region" aria-label="Projects shown on the corridor map" tabindex="0">
+            <p>Buildings shown on map</p>
+            <div class="home-atlas-project-strip" role="region" aria-label="Buildings shown on the corridor map" tabindex="0">
               ${validMapProjects(rankedFeaturedProjects.slice(0, 7)).map(renderHomepageAtlasProject).join("")}
             </div>
           </div>
@@ -5464,7 +5679,7 @@ function renderCorridorsRouteView() {
           <p>${longContactCtaBody}</p>
         </div>
         <a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("corridor_page", shortContactCtaLabel, { leadCaptureContext: "corridors" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
-        <a class="button ghost" href="/buildings/">View Projects</a>
+        <a class="button ghost" href="/buildings/">Explore all ${featuredProjects.length} buildings</a>
       </section>
     </div>
   `;
@@ -5472,16 +5687,17 @@ function renderCorridorsRouteView() {
 
 function renderCorridorsFeatureCard(card: ReturnType<typeof corridorHubCards>[number]) {
   const directoryPath = corridorDirectoryPath(card.key);
+  const buildingCount = rankedFeaturedProjects.filter((project) => project.corridorKey === card.key).length;
   return `
     <article class="corridors-feature-card">
-      <a class="corridors-feature-image" href="${directoryPath}" aria-label="Explore ${corridorDisplayLabel(card.key)} projects">
+      <a class="corridors-feature-image" href="${directoryPath}" aria-label="Explore ${corridorDisplayLabel(card.key)} buildings">
         <img src="${safeHref(card.image)}" alt="${escapeHtml(card.alt)}" loading="lazy" decoding="async" />
       </a>
       <div>
-        <span>${escapeHtml(card.kicker)}</span>
+        <span>${escapeHtml(card.kicker)} · ${buildingCount} ${buildingCount === 1 ? "building" : "buildings"}</span>
         <h2>${escapeHtml(card.headline)}</h2>
         <p>${escapeHtml(card.body)}</p>
-        <a href="${directoryPath}">View ${corridorDisplayLabel(card.key)} Projects <span aria-hidden="true">→</span></a>
+        <a href="${directoryPath}">View all ${buildingCount} ${corridorDisplayLabel(card.key)} ${buildingCount === 1 ? "building" : "buildings"} <span aria-hidden="true">→</span></a>
       </div>
     </article>
   `;
@@ -5584,19 +5800,35 @@ function compareReviewedOverride(project: FeaturedProject, field: BuildingDataba
   return "";
 }
 
+function compareVisibleRows(section: CompareSection, projects: FeaturedProject[]) {
+  return section.rows.filter(([, field]) => compareFieldHasPublicValue(projects, field));
+}
+
+function compareSectionId(section: CompareSection) {
+  return `compare-section-${section.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+}
+
 function renderCompareSection(section: CompareSection, projects: FeaturedProject[]) {
-  const rows = section.rows.filter(([, field]) => compareFieldHasPublicValue(projects, field));
+  const rows = compareVisibleRows(section, projects);
   if (!rows.length) return "";
   return `<tbody><tr class="compare-section-row"><th colspan="${projects.length + 1}">${escapeHtml(section.title)}</th></tr>${rows.map(([label, field]) => `<tr><th>${escapeHtml(label)}</th>${projects.map((project) => `<td>${escapeHtml(compareBuildingValue(project, field))}</td>`).join("")}</tr>`).join("")}</tbody>`;
 }
 
+function renderCompareMobileSection(section: CompareSection, projects: FeaturedProject[]) {
+  const rows = compareVisibleRows(section, projects);
+  if (!rows.length) return "";
+  return `<section id="${compareSectionId(section)}" class="compare-mobile-section" aria-label="${escapeHtml(section.title)}"><h3>${escapeHtml(section.title)}</h3><div class="compare-mobile-criteria">${rows.map(([label, field]) => `<article class="compare-mobile-criterion"><h4>${escapeHtml(label)}</h4><div class="compare-mobile-values">${projects.map((project) => `<div class="compare-mobile-value"><a href="${projectPath(project)}">${escapeHtml(project.name)}</a><p>${escapeHtml(compareBuildingValue(project, field))}</p></div>`).join("")}</div></article>`).join("")}</div></section>`;
+}
+
 function renderCompareMatrix(projects: FeaturedProject[]) {
-  return `<div class="compare-matrix-wrap"><table><thead><tr><th>Comparison point</th>${projects.map((project) => `<th><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></th>`).join("")}</tr></thead>${(compareSections ?? []).map((section) => renderCompareSection(section, projects)).join("")}</table></div>`;
+  const visibleSections = (compareSections ?? []).filter((section) => compareVisibleRows(section, projects).length);
+  const jumps = visibleSections.map((section) => `<a href="#${compareSectionId(section)}">${escapeHtml(section.title)}</a>`).join("");
+  return `<div class="compare-matrix-wrap"><nav class="compare-section-jumps" aria-label="Jump to comparison sections">${jumps}</nav><div class="compare-matrix-desktop"><table><thead><tr><th>Comparison point</th>${projects.map((project) => `<th><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></th>`).join("")}</tr></thead>${visibleSections.map((section) => renderCompareSection(section, projects)).join("")}</table></div><div class="compare-matrix-mobile">${visibleSections.map((section) => renderCompareMobileSection(section, projects)).join("")}</div></div>`;
 }
 
 function renderAuthorityComparisonTable(projects: FeaturedProject[]) {
   return `
-    <div class="comparison-table-wrap">
+    <div class="comparison-table-wrap" role="region" aria-label="Scrollable building comparison table" tabindex="0">
       <table>
         <thead><tr><th>Building</th><th>Status</th><th>Delivery</th><th>Pricing guidance</th><th>Floorplans</th><th>Best fit</th><th>Buyer verification</th></tr></thead>
         <tbody>${projects.map((project) => {
@@ -5621,9 +5853,9 @@ function corridorBestFit(key: CorridorKey) {
 }
 
 function renderCompareRouteView() {
-  const options = rankedFeaturedProjects.map((project) => `<option value="${project.id}">${escapeHtml(project.name)}</option>`).join("");
+  const options = rankedFeaturedProjects.map((project) => `<option value="${project.id}">${escapeHtml(project.name)} — ${escapeHtml(project.corridor)}</option>`).join("");
 
-  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare West Palm Beach New Construction</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Build a focused shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/" data-compare-inquire ${renderCtaTrackingAttrs("compare_page", "Ask The Scott Gordon Group to compare these buildings", { leadCaptureContext: "compare_shortlist" })}>Ask The Scott Gordon Group to compare these buildings <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section><section class="corridors-final-cta compare-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("compare_page", shortContactCtaLabel, { leadCaptureContext: "compare_shortlist" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a></section></div>`;
+  return `<div class="route-view route-view-compare" data-route-view="compare" hidden><figure class="compare-page-hero"><img src="/assets/home/north-flagler-corridor-skyline-ultra-wide-v01.jpg" alt="West Palm Beach waterfront condominium skyline" decoding="async" /></figure><section class="section compare-page-intro"><div><p class="eyebrow">Compare</p><h1>Compare buildings.</h1><p>Choose two buildings, add a third if useful, and review the practical differences before requesting current availability.</p></div></section><section class="section compare-workspace"><div class="compare-workspace-head"><div><p class="eyebrow">Build Your Comparison</p><h2>Your shortlist.</h2><p>Compare tracked facts, then verify pricing, availability, fees, and line-specific details before relying on public information.</p></div><a href="/inquire/" data-compare-inquire ${renderCtaTrackingAttrs("compare_page", "Ask The Scott Gordon Group to compare these buildings", { leadCaptureContext: "compare_shortlist" })}>Ask about this shortlist <span aria-hidden="true">↗</span></a></div><div class="compare-route-selectors">${["Building 1", "Building 2", "Optional third building"].map((label, index) => `<label><span>${label}</span><select data-compare-route-select="${index}"><option value="">${index === 2 ? "No third building" : "Choose a building"}</option>${options}</select></label>`).join("")}</div><div class="compare-results" data-compare-results><p class="compare-route-empty">Choose at least two different buildings to build a comparison.</p></div></section><section class="corridors-final-cta compare-final-cta"><div><h2>${longContactCtaHeadline}</h2><p>${longContactCtaBody}</p></div><a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("compare_page", shortContactCtaLabel, { leadCaptureContext: "compare_shortlist" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a></section></div>`;
 }
 
 function renderCorridorRouteView(section: CorridorSection) {
@@ -5635,12 +5867,17 @@ function renderCorridorRouteView(section: CorridorSection) {
           <p class="eyebrow">Corridor Guide</p>
           <h1>${corridorPageHeadline(section.key)}</h1>
           <p>${section.description}</p>
+          <div class="corridor-hero-actions">
+            <a class="button primary" href="#corridor-buildings-${section.key}">View all ${projects.length} ${section.label} ${projects.length === 1 ? "building" : "buildings"}</a>
+            <a class="button ghost" href="/buildings/">Explore all ${featuredProjects.length} buildings</a>
+          </div>
         </div>
         ${renderEditorialImagePanel(corridorImageId(section.key), { compact: true, className: "corridor-route-image" })}
       </section>
+      ${renderCorridorProjectDirectory(section, projects)}
       <section class="section corridor-questions-section">
         <aside class="answer-meta-panel">
-          <span>${projects.length} tracked project${projects.length === 1 ? "" : "s"}</span>
+          <span>${projects.length} tracked building${projects.length === 1 ? "" : "s"}</span>
           <strong>${section.detail}</strong>
           <small>Use this page to compare only the ${section.label} set, then request current availability before touring.</small>
         </aside>
@@ -5666,29 +5903,37 @@ function renderCorridorRouteView(section: CorridorSection) {
         </div>
         <a class="button primary" href="/inquire/" ${renderCtaTrackingAttrs("corridor_page", shortContactCtaLabel, { corridor: section.label, leadCaptureContext: "corridor" })}>${shortContactCtaLabel} <span aria-hidden="true">→</span></a>
       </section>
-      ${renderCorridorProjectDirectory(section, projects)}
     </div>
   `;
 }
 
 function renderCorridorProjectDirectory(section: CorridorSection, projects: FeaturedProject[]) {
-  const heading = (label: string, description: string, items: FeaturedProject[]) => `
-    <section class="project-sort-shell corridor-project-shell" aria-label="${escapeHtml(label)}">
-      <div class="project-sort-header">
-        <div><p class="eyebrow">Corridor Projects</p><h2>${escapeHtml(label)}</h2><p class="selected-filter-summary">${escapeHtml(description)}</p></div>
-        <a class="corridor-back-link" href="/buildings/">All projects <span aria-hidden="true">→</span></a>
-      </div>
+  const group = (label: string, description: string, items: FeaturedProject[]) => items.length ? `
+    <div class="corridor-building-group" aria-label="${escapeHtml(label)}">
+      <div class="corridor-building-group-heading"><h3>${escapeHtml(label)}</h3><p>${escapeHtml(description)}</p></div>
       <div class="front-project-grid front-project-grid-static">${items.map(renderFeaturedProject).join("")}</div>
-    </section>`;
-  if (section.key !== "north-flagler") {
-    return heading(`${section.label} buildings currently tracked.`, `These are the buildings assigned to ${section.label}. Return to all buildings when you want a citywide comparison.`, projects);
-  }
-  const active = projects.filter((project) => project.projectType === "condo-active-sales");
+    </div>` : "";
+  const active = projects.filter((project) => project.projectType === "condo-active-sales" || project.projectType === "hotel-residences" || project.projectType === "rental" || project.projectType === "office");
+  const completed = projects.filter((project) => project.projectType === "completed-comparable");
   const pipeline = projects.filter((project) => project.projectType === "condo-pipeline" || project.projectType === "mixed-use");
-  return [
-    heading("North Flagler active sales and construction.", "Compare currently active buildings by waterfront position, service model, pricing guidance, floorplan depth, and delivery timing.", active),
-    heading("North Flagler pipeline and planning watch.", "Track future supply separately from active inventory; verify approvals, launch status, program, and whether buyer materials have been released.", pipeline),
-  ].join("");
+  const accountedFor = new Set([...active, ...completed, ...pipeline].map((project) => project.id));
+  const other = projects.filter((project) => !accountedFor.has(project.id));
+  const groups = section.key === "north-flagler"
+    ? [
+        group("Active sales and construction", "Buildings with current sales or construction activity; verify live inventory and delivery details.", active),
+        group("Completed building", "A completed comparable for buyers weighing current resale opportunities against future delivery.", completed),
+        group("Pipeline and planning watch", "Future supply and mixed-use plans tracked separately from active inventory.", pipeline),
+        group("Other tracked buildings", "Public corridor records that do not fit the primary status groups.", other),
+      ].join("")
+    : group(`All ${section.label} buildings`, `The complete public set currently assigned to ${section.label}. Status and availability still require current verification.`, projects);
+  return `
+    <section id="corridor-buildings-${section.key}" class="section corridor-discovery-shell" aria-label="All ${escapeHtml(section.label)} buildings">
+      <div class="corridor-discovery-heading">
+        <div><p class="eyebrow">Buildings First</p><h2>All ${projects.length} ${escapeHtml(section.label)} ${projects.length === 1 ? "building" : "buildings"} we track.</h2><p>Every eligible building in the public corridor inventory appears below exactly once.</p></div>
+        <nav aria-label="${escapeHtml(section.label)} building actions"><a href="/compare/">Compare buildings <span aria-hidden="true">→</span></a><a href="/buildings/">Explore all ${featuredProjects.length} buildings <span aria-hidden="true">→</span></a></nav>
+      </div>
+      <div class="corridor-discovery-groups">${groups}</div>
+    </section>`;
 }
 
 function renderCorridorLatestUpdates(section: CorridorSection, projects: FeaturedProject[]) {
@@ -5705,7 +5950,7 @@ function renderCorridorLatestUpdates(section: CorridorSection, projects: Feature
   if (!items.length) return "";
   return `
     <section class="section corridor-latest-updates" aria-label="Latest ${escapeHtml(section.label)} updates">
-      <div class="section-heading"><p class="eyebrow">Latest Corridor Updates</p><h2>Recent signals affecting ${publicText(section.label)}.</h2><p>Use these dated updates with the stable project guides; current sales, pricing, and availability still require direct confirmation.</p></div>
+      <div class="section-heading"><p class="eyebrow">Latest Corridor Updates</p><h2>Recent signals affecting ${publicText(section.label)}.</h2><p>Use these dated updates with the stable building guides; current sales, pricing, and availability still require direct confirmation.</p></div>
       <div class="project-note-list">
         ${items.map((item) => {
           const article = updateArticleContent(item);
@@ -6226,7 +6471,9 @@ function publicText(value: unknown) {
   return escapeHtml(gatekeeperText(value));
 }
 
-const inlineImg = (path?: string) => path ? `<img src="${path}">` : "";
+function inlineImg(path?: string) {
+  return path ? `<img src="${path}">` : "";
+}
 
 function projectCopyFact(copyPackage: ProjectCopyPackage | undefined, labelPattern: RegExp) {
   return copyPackage?.quickFacts?.find((fact) => labelPattern.test(fact.label))?.value;
@@ -6288,10 +6535,7 @@ function renderFeaturedProject(project: FeaturedProject) {
     : `<div class="project-card-placeholder image-placeholder"><span>${project.corridor}</span><strong>${displayName}</strong></div>`;
   const cardStatus = project.status;
   const salesOffice = salesOfficeLabel(project);
-  const completionYear =
-    Number.isFinite(project.deliveryYear) && project.deliveryYear >= 1900 && project.deliveryYear <= 2200
-      ? String(project.deliveryYear)
-      : "TBD";
+  const completionGuidance = projectDeliveryDisplay(project.delivery) || "Request current guidance";
   const cardCopy = project.summary;
 
   return `
@@ -6316,11 +6560,11 @@ function renderFeaturedProject(project: FeaturedProject) {
         </div>
         <div class="project-card-intel">
           <span><small>Sales Office</small><b data-pc-sales>${salesOffice}</b></span>
-          <span><small>Completion</small><b data-pc-year>${completionYear}</b></span>
+          <span><small>Delivery guidance</small><b data-pc-year>${escapeHtml(completionGuidance)}</b></span>
         </div>
         <p data-pc-copy>${escapeHtml(cardCopy)}</p>
         <div class="project-card-actions">
-          <a href="${projectPath(project)}">VIEW PROJECT →</a>
+          <a href="${projectPath(project)}">View building <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </article>
@@ -6567,12 +6811,17 @@ function renderMapFilterButton(group: "corridor" | "status", value: string, labe
 }
 
 function renderMapProjectDetail(project: FeaturedProject) {
+  const corridorCount = rankedFeaturedProjects.filter((item) => item.corridorKey === project.corridorKey).length;
   return `
-    <p class="eyebrow">Selected Project</p>
+    <p class="eyebrow">Selected Building</p>
     <strong>${escapeHtml(project.name)}</strong>
     <span>${escapeHtml(project.corridor)} · ${escapeHtml(project.status)}</span>
     <p>${escapeHtml(project.summary)}</p>
-    <a href="${projectPath(project)}">View project guide <span aria-hidden="true">→</span></a>
+    <nav aria-label="Continue from ${escapeHtml(project.name)}">
+      <a href="${projectPath(project)}">View building guide <span aria-hidden="true">→</span></a>
+      <a href="${corridorPath(project.corridorKey)}">See all ${corridorCount} ${escapeHtml(project.corridor)} ${corridorCount === 1 ? "building" : "buildings"}</a>
+      <a href="/compare/">Compare buildings</a>
+    </nav>
   `;
 }
 
@@ -6597,14 +6846,14 @@ function renderMapControls() {
           ${renderMapFilterButton("status", "completed", "Completed")}
         </div>
       </div>
-      <p class="map-filter-result" data-map-filter-result>${validMapProjects(rankedFeaturedProjects).length} mapped projects</p>
+      <p class="map-filter-result" data-map-filter-result>${validMapProjects(rankedFeaturedProjects).length} mapped buildings</p>
     </div>
     <article class="map-project-detail" data-map-project-detail aria-live="polite">
-      ${initialProject ? renderMapProjectDetail(initialProject) : "<p>No mapped projects are currently available.</p>"}
+      ${initialProject ? renderMapProjectDetail(initialProject) : "<p>No mapped buildings are currently available.</p>"}
     </article>
     ${
       skipped.length
-        ? `<p class="map-coordinate-note">${skipped.length} tracked ${skipped.length === 1 ? "project is" : "projects are"} listed below but omitted from the map until coordinates are confirmed.</p>`
+        ? `<p class="map-coordinate-note">${skipped.length} tracked ${skipped.length === 1 ? "building is" : "buildings are"} listed below but omitted from the map until coordinates are confirmed.</p>`
         : ""
     }
   `;
@@ -6717,9 +6966,9 @@ function initHeroGoogleMap() {
           focusProject && !expanded ? [focusProject] : isMapRoute || expanded ? filteredProjects : rankedFeaturedProjects.slice(0, 7),
         );
         const result = card.parentElement?.querySelector<HTMLElement>("[data-map-filter-result]");
-        if (result) result.textContent = `${projects.length} mapped ${projects.length === 1 ? "project" : "projects"}`;
+        if (result) result.textContent = `${projects.length} mapped ${projects.length === 1 ? "building" : "buildings"}`;
         if (!projects.length) {
-          canvas.setAttribute("aria-label", "No mapped projects match the selected filters");
+          canvas.setAttribute("aria-label", "No mapped buildings match the selected filters");
           return;
         }
         const detail = card.parentElement?.querySelector<HTMLElement>("[data-map-project-detail]");
@@ -7105,6 +7354,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
   const content = updateArticleContent(item);
   const relatedProjects = relatedProjectsForArticle(item);
   const relatedLabel = relatedNewsLabel(item);
+  const relatedCount = relatedProjects.length || item.relatedCorridorIds.length;
   return `
     <article class="market-note-article update-article">
       <header class="section market-note-hero">
@@ -7121,7 +7371,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
         <div><span>Category</span><strong>${publicText(item.category)}</strong></div>
         <div><span>Published</span><strong>${publicText(formatNewsDate(newsDisplayDate(item)))}</strong></div>
         <div><span>Updated</span><strong>${publicText(item.fetchedAt)}</strong></div>
-        <div><span>Related</span><strong>${relatedProjects.length || item.relatedCorridorIds.length}</strong></div>
+        <div><span>${relatedCount ? "Related" : "Research path"}</span><strong>${relatedCount || "All areas"}</strong></div>
       </section>
       <section class="section market-note-body">
         <aside class="market-note-thesis">
@@ -7179,6 +7429,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
             </section>`
           : ""
       }
+      ${renderArticleDiscoveryBridge(item, relatedProjects)}
       ${renderRelatedArticleLinks(item.relatedArticleIds)}
       <footer class="section update-source-footer">
         <span>Sources used${item.sourcePublishedAt ? ` · Primary story ${publicText(formatNewsDate(item.sourcePublishedAt))}` : ""}</span>
@@ -7229,6 +7480,58 @@ function relatedProjectsForArticle(item: ExternalNewsItem) {
     item.primaryProjectSlug,
   ].filter(Boolean));
   return featuredProjects.filter((project) => slugs.has(project.id) || projectCopySlugs(project.id).some((slug) => slugs.has(slug)));
+}
+
+function corridorKeyFromArticleValue(value: string) {
+  const normalized = value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const aliases: Record<CorridorKey, string[]> = {
+    "north-flagler": ["north-flagler", "north-flagler-waterfront"],
+    "south-flagler": ["south-flagler", "south-flagler-waterfront"],
+    downtown: ["downtown", "downtown-west-palm-beach", "downtown-rosemary", "downtown-rosemary-square", "nora", "nora-district"],
+    "palm-beach": ["palm-beach", "palm-beach-island"],
+    "south-end": ["south-end", "south-dixie", "south-end-south-dixie"],
+  };
+  return (Object.entries(aliases) as Array<[CorridorKey, string[]]>).find(([, values]) => values.includes(normalized))?.[0];
+}
+
+function articleCorridorKeys(item: ExternalNewsItem, relatedProjects: FeaturedProject[]) {
+  const keys = new Set<CorridorKey>(relatedProjects.map((project) => project.corridorKey));
+  const values = [
+    ...(item.relatedCorridorIds ?? []),
+    ...(item.relatedCorridors ?? []),
+    item.relatedCorridor ?? "",
+    item.corridorLabel ?? "",
+  ];
+  for (const value of values) {
+    const key = corridorKeyFromArticleValue(value);
+    if (key) keys.add(key);
+  }
+  return [...keys];
+}
+
+function renderArticleDiscoveryBridge(item: ExternalNewsItem, relatedProjects: FeaturedProject[]) {
+  const corridorKeys = articleCorridorKeys(item, relatedProjects);
+  const primaryCorridorKey = corridorKeys[0];
+  const section = primaryCorridorKey ? corridorSections.find((candidate) => candidate.key === primaryCorridorKey) : undefined;
+  const relatedIds = new Set(relatedProjects.map((project) => project.id));
+  const alternatives = section
+    ? rankedFeaturedProjects.filter((project) => project.corridorKey === section.key && !relatedIds.has(project.id)).slice(0, 2)
+    : [];
+  return `
+    <section class="section article-discovery-bridge" aria-label="Continue building research">
+      <div class="section-heading">
+        <p class="eyebrow">Continue Your Research</p>
+        <h2>${section ? `Explore more in ${publicText(section.label)}.` : "Move from the story to the buildings."}</h2>
+        <p>${section ? `Use the ${publicText(section.label)} guide to see the complete corridor set, then compare the buildings that fit your timing and daily life.` : "This update is broader market context. Use the complete directory to choose an area and begin a building shortlist."}</p>
+      </div>
+      ${alternatives.length ? `<div class="front-project-grid front-project-grid-static article-discovery-preview">${alternatives.map(renderRelatedBuildingCard).join("")}</div>` : ""}
+      <nav class="article-discovery-actions" aria-label="Building research links">
+        ${section ? `<a href="${corridorPath(section.key)}">View all ${rankedFeaturedProjects.filter((project) => project.corridorKey === section.key).length} ${publicText(section.label)} buildings <span aria-hidden="true">→</span></a>` : ""}
+        ${section ? "" : `<a href="/corridors/">Explore all ${corridorSections.length} areas <span aria-hidden="true">→</span></a><a href="/map/">Open the building map <span aria-hidden="true">→</span></a>`}
+        <a href="/buildings/">Explore all ${featuredProjects.length} buildings <span aria-hidden="true">→</span></a>
+        <a href="/compare/">Compare buildings <span aria-hidden="true">→</span></a>
+      </nav>
+    </section>`;
 }
 
 function renderMissingUpdateArticle() {
@@ -7289,7 +7592,7 @@ function preferredFloorplans(project: ApprovedFloorplanProject) {
 
 function floorplanProjectImage(projectId: string) {
   const imageId = projectImageLookupId(projectId);
-  return floorplanResidenceImage(imageId) || homepageProjectCardImage(imageId) || getProjectHeroAsset(imageId)?.src || homepageAssets.hero.desktop;
+  return floorplanResidenceImage(imageId) || homepageProjectCardImage(imageId) || getProjectHeroAsset(imageId)?.src || shorecrestUserHero;
 }
 
 function floorplanResidenceImage(projectId: string) {
@@ -7693,21 +7996,28 @@ function linkLabelForAnswer(href: string) {
 function renderProjectCorridorCta(project: FeaturedProject) {
   const section = corridorSections.find((item) => item.key === project.corridorKey);
   if (!section) return "";
-  const corridorProjects = featuredProjects
+  const corridorProjects = rankedFeaturedProjects
     .filter((item) => item.corridorKey === section.key && item.id !== project.id)
     .slice(0, 3);
+  const corridorCount = rankedFeaturedProjects.filter((item) => item.corridorKey === section.key).length;
+  const crossCorridorProject = rankedFeaturedProjects.find((item) => item.corridorKey !== section.key && item.projectType === "condo-active-sales")
+    ?? rankedFeaturedProjects.find((item) => item.corridorKey !== section.key);
+  const crossCorridorCompareHref = crossCorridorProject
+    ? `/compare/?projects=${encodeURIComponent(project.id)},${encodeURIComponent(crossCorridorProject.id)}`
+    : "/compare/";
   return `
     <section class="section project-corridor-cta" aria-label="${escapeHtml(project.name)} corridor comparison">
       <div class="section-heading">
-        <p class="eyebrow">Corridor Context</p>
-        <h2>Compare ${publicText(project.name)} within ${publicText(section.label)}.</h2>
-        <p>Use the corridor guide to compare nearby West Palm Beach projects by buyer fit, current status, released floorplans, and what still needs verification before touring.</p>
+        <p class="eyebrow">Other ${publicText(section.label)} Buildings</p>
+        <h2>Keep exploring beyond ${publicText(project.name)}.</h2>
+        <p>This is a three-building preview. The ${publicText(section.label)} guide includes all ${corridorCount} tracked ${corridorCount === 1 ? "building" : "buildings"}, with status and buyer-verification context.</p>
       </div>
-      <div class="market-note-actions">
-        <a href="${corridorPath(section.key)}">Review ${publicText(section.label)} corridor <span aria-hidden="true">→</span></a>
-        <a href="/compare/">Compare all buildings <span aria-hidden="true">→</span></a>
-        ${corridorProjects.map((item) => `<a href="${projectPath(item)}">${publicText(item.name)} <span aria-hidden="true">→</span></a>`).join("")}
-      </div>
+      ${corridorProjects.length ? `<div class="front-project-grid front-project-grid-static project-corridor-preview">${corridorProjects.map(renderRelatedBuildingCard).join("")}</div>` : ""}
+      <nav class="project-corridor-actions" aria-label="Continue exploring ${escapeHtml(section.label)}">
+        <a href="${corridorPath(section.key)}">View all ${corridorCount} ${publicText(section.label)} ${corridorCount === 1 ? "building" : "buildings"} <span aria-hidden="true">→</span></a>
+        <a href="${crossCorridorCompareHref}">Compare across areas <span aria-hidden="true">→</span></a>
+        <a href="/buildings/">Explore all ${featuredProjects.length} buildings <span aria-hidden="true">→</span></a>
+      </nav>
     </section>
   `;
 }
@@ -7915,7 +8225,7 @@ function renderProjectIdentityHeader(project: FeaturedProject, rules: ProjectPre
       <div class="project-identity-copy">
         <p class="eyebrow">${publicText(rules.identityLabel)}</p>
         <h1>${publicText(project.name)}</h1>
-        <p>${publicText(project.corridor)} · ${publicText(project.status)} · ${publicText(project.address)}</p>
+        <p><a class="project-identity-corridor-link" href="${corridorPath(project.corridorKey)}">${publicText(project.corridor)}</a> · ${publicText(project.status)} · ${publicText(project.address)}</p>
       </div>
       <a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel}</a>
     </header>
@@ -8080,36 +8390,6 @@ function projectArticlePriority(project: FeaturedProject, item: ExternalNewsItem
   return 3;
 }
 
-function relatedProjectComparisonIds(projectId: string) {
-  const related: Record<string, string[]> = {
-    olara: ["shorecrest", "ritz-carlton-wpb"],
-    shorecrest: ["olara", "ritz-carlton-wpb"],
-    "ritz-carlton-wpb": ["olara", "shorecrest", "mandarin-oriental"],
-    "south-flagler-house": ["edgeworth", "maison-dor", "forte-on-flagler"],
-    edgeworth: ["south-flagler-house", "maison-dor", "la-clara"],
-  };
-  return related[projectId] ?? [];
-}
-
-function renderProjectInternalComparison(project: FeaturedProject) {
-  const relatedProjects = relatedProjectComparisonIds(project.id)
-    .map((projectId) => featuredProjects.find((item) => item.id === projectId))
-    .filter((item): item is FeaturedProject => Boolean(item));
-  if (!relatedProjects.length) return "";
-  return `
-    <section class="section market-note-related-section project-internal-comparison" aria-label="${project.name} related project comparisons">
-      <div class="section-heading">
-        <p class="eyebrow">Compare Nearby</p>
-        <h2>Keep the shortlist inside West Palm Beach.</h2>
-        <p>Use these West Palm Beach profiles to compare scale, service model, timing, and corridor fit before relying on any outside sales material.</p>
-      </div>
-      <div class="front-project-grid front-project-grid-static">
-        ${relatedProjects.map(renderRelatedBuildingCard).join("")}
-      </div>
-    </section>
-  `;
-}
-
 function renderProjectUpdateNote(item: ExternalNewsItem, project: FeaturedProject) {
   const article = updateArticleContent(item);
   return `
@@ -8176,9 +8456,6 @@ function renderProjectEntityBrief(
   const sourceFact = sourceFactForProject(project.id);
   const source = sourceFact?.facts;
   const sourceLinks: string[] = projectSourceNoteLinks(sourceFact).slice(0, 6);
-  const relatedProjects = relatedProjectComparisonIds(project.id)
-    .map((projectId) => featuredProjects.find((item) => item.id === projectId))
-    .filter((item): item is FeaturedProject => Boolean(item));
   const sourceTeam = source?.team ? teamCreditsFromSource(source.team) : [];
   const hasSourcedAmenities = Boolean(copyPackage?.amenityNarrative) || sourceLinks.some((href) => /amenit/i.test(href));
   const floorplanCount = floorplanProject?.count ?? 0;
@@ -8239,16 +8516,6 @@ function renderProjectEntityBrief(
         ${sourceLinks.length ? sourceLinks.map((href) => renderProjectSourceLink(href, floorplanProject?.projectId ?? project.id)).join("") : `<article class="document-card is-placeholder"><span>Source Review</span><strong>Needs current source refresh</strong><small>No public source link is attached to this brief.</small></article>`}
       </div>
     </section>
-
-    ${relatedProjects.length ? `<section class="section project-entity-comparisons" aria-label="${project.name} comparison links">
-      <div class="section-heading">
-        <p class="eyebrow">Compare Against</p>
-        <h2>Nearby pages to keep the shortlist grounded.</h2>
-      </div>
-      <div class="front-project-grid front-project-grid-static">
-        ${relatedProjects.map(renderRelatedBuildingCard).join("")}
-      </div>
-    </section>` : ""}
 
     <section class="section project-entity-faq" aria-label="${project.name} frequently asked questions">
       <div class="section-heading">
@@ -8687,6 +8954,11 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
     .replace(/\s*interior\s+sq\.?\s*ft\.?/i, " sq ft")
     .replace(/\s*sq\.\s*ft\.?/i, " sq ft")
     .trim();
+  const canonicalStatus = resolveProjectField({
+    identifier: project.id,
+    field: "status",
+    approvedFallback: copyFactValue(copyPackage, /^status$/i, project.status),
+  }).value;
   const defaultFacts = [
     { icon: "residence", value: copyFactValue(copyPackage, /residences/i, project.residences), label: "Residences" },
     { icon: "stories", value: showcaseFloors, label: "Stories" },
@@ -8694,7 +8966,10 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
     { icon: "bed", value: copyFactValue(copyPackage, /bedrooms/i, ""), label: "Bedrooms" },
     { icon: "price", value: copyFactValue(copyPackage, /price/i, project.price).replace(" to over ", " to "), label: "Pricing" },
   ];
-  const facts = (showcase?.factStrip?.length ? showcase.factStrip : defaultFacts).filter((fact) => isBuyerFacingValue(fact.value));
+  const factSource = showcase?.factStrip?.length ? showcase.factStrip : defaultFacts;
+  const facts = [
+    ...factSource.map((fact) => /^status$/i.test(fact.label) ? { ...fact, value: canonicalStatus } : fact),
+  ].filter((fact) => isBuyerFacingValue(fact.value));
   const heroBlurb = showcase?.heroBlurb ?? copyPackage?.heroSubheadline ?? project.summary;
   const gallery = showcase?.gallery ?? [];
   const galleryId = `project-gallery-${project.id}`;
@@ -8713,14 +8988,17 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
     : residenceSectionLinkHref;
   const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
   const intro = showcase?.intro ?? heroBlurb;
-  const heroTags = (
+  const heroTagSource = (
     showcase?.heroTags?.length
       ? showcase.heroTags
       : [
-          { label: "Status", value: copyFactValue(copyPackage, /^status$/i, project.status) },
+          { label: "Status", value: canonicalStatus },
           { label: "Corridor", value: showcase?.heroEyebrow ?? project.corridor },
         ]
-  ).filter((tag) => isBuyerFacingValue(tag.value));
+  );
+  const heroTags = heroTagSource
+    .map((tag) => /^status$/i.test(tag.label) ? { ...tag, value: canonicalStatus } : tag)
+    .filter((tag) => isBuyerFacingValue(tag.value));
 
   return `
     <link rel="stylesheet" href="/assets/styles/editorial-showcase.css?v=mandarin-waterfront-crop-20260602" />
@@ -8728,14 +9006,13 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       <nav class="berkeley-topbar" aria-label="Project navigation">
         <a class="berkeley-brand" href="/" aria-label="WPB New Construction home">
           <span class="berkeley-brand-mark" aria-hidden="true">WPB</span>
-          <span class="berkeley-brand-copy"><strong>WPB</strong><em>New Construction</em></span>
+          <span class="berkeley-brand-copy"><strong>New Construction</strong><em>West Palm Beach</em></span>
         </a>
         <div>
-          <a href="/buildings/">Projects</a>
+          <a href="/buildings/">Buildings</a>
           <a href="/corridors/">Corridors</a>
-          <a href="/market-notes/">Buyers</a>
-          <a href="/about/">About Us</a>
-          ${rules.showFloorplans ? `<a href="${floorplanLibraryPath(project.id)}">Floorplans</a>` : ""}
+          <a href="/compare/">Compare</a>
+          ${rules.showFloorplans ? `<a href="${floorplanLibraryPath(project.id)}">Floor plans</a>` : ""}
         </div>
         <a class="berkeley-phone" href="${advisorProfile.mobileHref}" aria-label="Call The Scott Gordon Group">${berkeleyIcon("valet")}</a>
         <a class="berkeley-inquire" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel} <span aria-hidden="true">→</span></a>
@@ -8755,7 +9032,13 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         ${facts.map((fact) => `<article>${berkeleyIcon(fact.icon)}<span>${publicText(fact.label)}</span><strong>${publicText(fact.value)}</strong></article>`).join("")}
       </section>
 
-      <section class="berkeley-intro-section" data-project-section="overview" aria-label="Project introduction">
+      <nav class="v2-project-sections" aria-label="On this project page">
+        <a href="#overview-${project.id}">Overview</a>
+        ${residences.length ? `<a href="#berkeley-residences">Residences</a>` : ""}
+        ${gallery.length ? `<a href="#${galleryId}">Gallery</a>` : ""}
+        <a href="#berkeley-neighborhood">Location</a>
+      </nav>
+      <section class="berkeley-intro-section" id="overview-${project.id}" data-project-section="overview" aria-label="Project introduction">
         <p class="berkeley-kicker">Overview</p>
         <p>${publicText(intro)}</p>
         ${rules.showFloorplans ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
@@ -8783,25 +9066,27 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       ${neighborhoodImage ? `<figure class="berkeley-image-break"><img src="${safeHref(neighborhoodImage.src)}" alt="${publicText(neighborhoodImage.alt ?? `${project.name} ${neighborhoodImage.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
       <section class="berkeley-neighborhood-section" id="berkeley-neighborhood" data-project-section="neighborhood">
-        <div><p class="berkeley-kicker">The Neighborhood</p><h2>${publicText(neighborhoodHeadline)}</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="${corridorDirectoryPath(project.corridorKey)}">View nearby projects <span aria-hidden="true">→</span></a></div>
+        <div><p class="berkeley-kicker">The Neighborhood</p><h2>${publicText(neighborhoodHeadline)}</h2><p>${publicText(copyPackage?.location ?? project.address)}</p><a class="button ghost" href="${corridorDirectoryPath(project.corridorKey)}">View nearby buildings <span aria-hidden="true">→</span></a></div>
         <div class="berkeley-google-map berkeley-project-map">
           <aside class="home-hero-map-card berkeley-map-card" data-focus-project-id="${project.id}" aria-label="West Palm Beach development map centered on ${publicText(project.name)}">
             <figure class="hero-map-preview">
               <div class="hero-google-map" data-hero-google-map aria-label="Google map of West Palm Beach new-construction project locations"></div>
-              <button class="hero-map-expand" type="button" data-map-expand>Show all developments</button>
+              <button class="hero-map-expand" type="button" data-map-expand>Show all buildings</button>
               <div class="hero-map-fallback">
                 ${renderProjectMapFallback()}
               </div>
             </figure>
-            <div class="home-map-count" aria-label="Map project count">
+            <div class="home-map-count" aria-label="Map building count">
               <strong>${featuredProjects.length}</strong>
-              <span>tracked West Palm Beach new-construction projects</span>
+              <span>tracked buildings and developments</span>
             </div>
           </aside>
           <p class="berkeley-map-address">${publicText(copyFactValue(copyPackage, /^address$/i, project.address))}</p>
-          <a href="${corridorDirectoryPath(project.corridorKey)}">View corridor projects <span aria-hidden="true">→</span></a>
+          <a href="${corridorDirectoryPath(project.corridorKey)}">View corridor buildings <span aria-hidden="true">→</span></a>
         </div>
       </section>
+
+      ${renderProjectCorridorCta(project)}
 
       ${teamFacts.length ? `<section class="berkeley-team-section" data-project-section="team" aria-label="Project team"><p>${teamFacts.map((fact) => `<span><small>${escapeHtml(fact.label)}:</small> ${publicText(fact.value)}</span>`).join("")}</p></section>` : ""}
 
@@ -8812,13 +9097,14 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         ${renderProjectInquiryForm(project, rules)}
       </section>
 
-      <section class="berkeley-final-cta"><div><h2>${rules.resourceHeading}</h2><p>${rules.resourceCopy}</p></div><a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor })}>${rules.primaryCtaLabel} <span aria-hidden="true">→</span></a><a class="button ghost" href="${advisorProfile.mobileHref}">Call ${advisorProfile.mobile}</a></section>
+      <section class="berkeley-final-cta"><div><p class="eyebrow">Keep exploring</p><h2>Find the right perspective.</h2></div><a class="button primary" href="/buildings/">Browse all buildings <span aria-hidden="true">→</span></a><a class="button ghost" href="/compare/">Compare buildings</a></section>
     </div>
   `;
 }
 
 function renderProjectInquiryForm(project: FeaturedProject, rules = projectPresentationRules(project, getFloorplanProject(project.id)?.count ?? 0)) {
-  return `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(rules.primaryCtaLabel)}">
+  const inquiryActionLabel = "Send inquiry";
+  return `<form class="brochure-inquiry-card" name="wpb-project-inquiry" method="POST" data-lead-form="project_inquiry" data-lead-form-type="project_inquiry" data-lead-project-slug="${escapeHtml(project.id)}" data-lead-project-name="${escapeHtml(project.name)}" data-lead-corridor="${escapeHtml(project.corridor)}" data-lead-cta-location="project_page" data-lead-cta-label="${escapeHtml(inquiryActionLabel)}">
     <input type="hidden" name="form-name" value="wpb-project-inquiry" />
     <input type="hidden" name="form_type" value="project_inquiry" />
     <input type="hidden" name="submission_id" value="" />
@@ -8829,7 +9115,7 @@ function renderProjectInquiryForm(project: FeaturedProject, rules = projectPrese
     <input type="hidden" name="turnstile_token" value="" />
     <input class="lead-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
     <p class="eyebrow">Contact The Scott Gordon Group</p>
-    <h2>${rules.primaryCtaLabel}</h2>
+    <h2>${publicText(rules.inquiryInterest)}</h2>
     <p>${shortTeamCtaCopy}</p>
     <label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Full name" required /></label>
     <label><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="Email address" required /></label>
@@ -8838,7 +9124,7 @@ function renderProjectInquiryForm(project: FeaturedProject, rules = projectPrese
     <label class="lead-consent-row"><input type="checkbox" name="consent" required /><span>By submitting, I consent to be contacted about this real-estate inquiry. This is a request for a manual response, not consent to autodialed or prerecorded marketing calls or texts.</span></label>
     <div class="turnstile-slot" data-turnstile-slot aria-label="Spam protection"></div>
     <p class="form-security-note">Protected by Cloudflare Turnstile.</p>
-    <button type="submit">${rules.primaryCtaLabel}</button>
+    <button type="submit">${inquiryActionLabel}</button>
     <p class="form-status" role="status" aria-live="polite"></p>
   </form>`;
 }
@@ -8971,7 +9257,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
           <p class="eyebrow">The Neighborhood</p>
           <h2>${locationSectionTitle(project)}</h2>
           <p>${publicText(copyPackage?.locationNarrative ?? draft.locationCopy)}</p>
-          <a href="/buildings/">Browse all projects <span aria-hidden="true">→</span></a>
+          <a href="/buildings/">Browse all buildings <span aria-hidden="true">→</span></a>
         </div>
         <div class="brochure-location-panel-wrapper" style="width: 100%;">
           ${locationImageForProject(project) ? `
@@ -8998,7 +9284,6 @@ function renderDraftProjectPage(project: FeaturedProject) {
 
       ${renderProjectTeamSection(project, draft)}
 
-      ${renderProjectInternalComparison(project)}
       ${renderProjectRelatedNews(project)}
 
       <section class="brochure-research-contact" id="project-resources-${project.id}" data-project-section="inquiry">
@@ -9531,12 +9816,13 @@ export function renderNeededItem(item: string, index: number) {
 
 
 function initFloorplanViewer() {
-  const viewer = document.querySelector<HTMLElement>("[data-floorplan-viewer]");
+  const viewer = document.querySelector<HTMLDialogElement>("[data-floorplan-viewer]");
   if (!viewer || viewer.dataset.ready === "true") return;
   viewer.dataset.ready = "true";
   const title = viewer.querySelector<HTMLElement>("[data-floorplan-title]");
   const frame = viewer.querySelector<HTMLElement>("[data-floorplan-frame]");
   let activeIndex = 0;
+  let returnFocus: HTMLElement | null = null;
 
   const openButtons = () => {
     const activeFloorplanRoute = document.querySelector<HTMLElement>(".route-view-floorplans:not([hidden])");
@@ -9549,7 +9835,19 @@ function initFloorplanViewer() {
     if (!button || !frame) return;
     activeIndex = index;
     const src = button.dataset.floorplanSrc || "";
-    title?.replaceChildren(document.createTextNode(button.dataset.floorplanTitle || "Floor plan"));
+    const planTitle = button.dataset.floorplanTitle || "Floor plan";
+    const projectId = button.dataset.floorplanProjectSlug || "";
+    const projectName = button.dataset.floorplanProject || "";
+    title?.replaceChildren(document.createTextNode(`${projectName} · ${planTitle}`));
+    const inquiryLink = viewer.querySelector<HTMLAnchorElement>("[data-floorplan-inquire]");
+    if (inquiryLink) {
+      const planSlug = planTitle.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      const context = `floorplan-request:library:${projectId}:${planSlug}`;
+      inquiryLink.href = `/inquire/?${new URLSearchParams({ project: projectId, interest: "floorplans", lead_capture_context: context, message: `Please send the current ${planTitle} packet for ${projectName}.` })}`;
+      inquiryLink.dataset.projectSlug = projectId;
+      inquiryLink.dataset.projectName = projectName;
+      inquiryLink.dataset.leadCaptureContext = context;
+    }
     const frameTitle = escapeHtml(button.dataset.floorplanTitle || "Floorplan preview");
     frame.innerHTML = src
       ? /\.(png|jpe?g|webp)(?:$|[?#])/i.test(src)
@@ -9557,14 +9855,23 @@ function initFloorplanViewer() {
         : `<iframe src="${safeHref(src)}" title="${frameTitle}"></iframe>`
       : `<div class="floorplan-viewer-request"><strong>Request current packet</strong></div>`;
     viewer.hidden = false;
-    viewer.setAttribute("aria-hidden", "false");
+    if (!viewer.open) {
+      // WebKit does not focus buttons on pointer click; remember the actual trigger.
+      returnFocus = button;
+      viewer.showModal();
+      viewer.querySelector<HTMLButtonElement>("button[data-floorplan-close]")?.focus();
+    }
     document.body.classList.add("has-floorplan-viewer");
   };
   const close = () => {
+    viewer.close();
     viewer.hidden = true;
-    viewer.setAttribute("aria-hidden", "true");
+    if (frame) frame.replaceChildren();
     document.body.classList.remove("has-floorplan-viewer");
+    returnFocus?.focus();
   };
+  viewer.addEventListener("cancel", (event) => { event.preventDefault(); close(); });
+  viewer.addEventListener("close", () => returnFocus?.focus({ preventScroll: true }));
 
   document.addEventListener("click", (event) => {
     const button = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-floorplan-open]");
@@ -9573,7 +9880,7 @@ function initFloorplanViewer() {
       openAt(openButtons().indexOf(button));
       return;
     }
-    if ((event.target as HTMLElement).closest("[data-floorplan-close]")) close();
+    if ((event.target as HTMLElement).closest("[data-floorplan-close], [data-floorplan-inquire]")) close();
     if ((event.target as HTMLElement).closest("[data-floorplan-prev]")) {
       const buttons = openButtons();
       openAt((activeIndex - 1 + buttons.length) % buttons.length);
@@ -9584,7 +9891,14 @@ function initFloorplanViewer() {
     }
   });
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !viewer.hidden) close();
+    if (viewer.hidden) return;
+    if (event.key === "Escape") { event.preventDefault(); close(); }
+    if (event.key === "Tab") {
+      const controls = Array.from(viewer.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], iframe, [tabindex="0"]')).filter(element => element.getClientRects().length);
+      const first = controls[0]; const last = controls.at(-1);
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    }
   });
 }
 
@@ -9592,6 +9906,9 @@ function initProjectBrowser() {
   const grid = document.querySelector<HTMLElement>("[data-project-grid]");
   const sortSelect = document.querySelector<HTMLSelectElement>("[data-project-sort]");
   const filterSelects = Array.from(document.querySelectorAll<HTMLSelectElement>("[data-project-filter-group]"));
+  const searchInput = document.querySelector<HTMLInputElement>("[data-project-search]");
+  const emptyState = document.querySelector<HTMLElement>("[data-project-empty]");
+  const resetButton = document.querySelector<HTMLButtonElement>("[data-project-reset]");
   const statusShortcuts = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-status-shortcut]"));
   const railButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-project-scroll]"));
   const visibleCount = document.querySelector<HTMLElement>("[data-visible-count]");
@@ -9610,6 +9927,7 @@ function initProjectBrowser() {
   const cards = Array.from(grid.querySelectorAll<HTMLElement>("[data-project-card]"));
   const pins = Array.from(document.querySelectorAll<HTMLElement>("[data-map-pin]"));
   const filterState = filterSelectionFromUrl(new URLSearchParams(window.location.search));
+  if (searchInput) searchInput.value = new URLSearchParams(location.search).get("q") ?? "";
 
   const applyProjectState = () => {
     const sortedCards = [...cards].sort((a, b) => compareProjectCards(a, b, sortSelect.value));
@@ -9620,7 +9938,7 @@ function initProjectBrowser() {
     mapPanel?.setAttribute("data-active-filter", primaryFilter);
 
     cards.forEach((card) => {
-      const matches = projectMatchesSelection(card, filterState);
+      const matches = projectMatchesSelection(card, filterState) && (card.dataset.pn ?? "").toLocaleLowerCase().includes((searchInput?.value ?? "").trim().toLocaleLowerCase());
       card.hidden = !matches;
       if (matches) {
         visibleProjects += 1;
@@ -9634,7 +9952,7 @@ function initProjectBrowser() {
     });
 
     if (visibleCount) {
-      visibleCount.textContent = `${visibleProjects} project${visibleProjects === 1 ? "" : "s"} visible`;
+      visibleCount.textContent = `${visibleProjects} building${visibleProjects === 1 ? "" : "s"} visible`;
     }
 
     if (coordinateDrawer) {
@@ -9643,6 +9961,11 @@ function initProjectBrowser() {
 
     if (filterSummary) {
       filterSummary.textContent = filterSummaryText(filterState, visibleProjects);
+      if (searchInput?.value.trim()) filterSummary.textContent = `${visibleProjects} building${visibleProjects === 1 ? "" : "s"} matching “${searchInput.value.trim()}”.`;
+    }
+    if (emptyState) emptyState.hidden = visibleProjects !== 0;
+    if (resetButton) {
+      resetButton.disabled = !searchInput?.value && Object.values(filterState).every(value => value === "all");
     }
 
     const heading = directoryHeadingText(filterState, visibleProjects);
@@ -9670,6 +9993,23 @@ function initProjectBrowser() {
     });
   });
 
+  searchInput?.addEventListener("input", () => {
+    const url = new URL(location.href);
+    if (searchInput.value.trim()) url.searchParams.set("q", searchInput.value.trim());
+    else url.searchParams.delete("q");
+    history.replaceState(null, "", url.pathname + url.search + url.hash);
+    applyProjectState();
+  });
+  resetButton?.addEventListener("click", () => {
+    filterState.corridor = filterState.status = filterState.sales = "all";
+    if (searchInput) searchInput.value = "";
+    const url = new URL(location.href); url.searchParams.delete("q");
+    history.replaceState(null, "", url.pathname + url.search + url.hash);
+    syncProjectFilterControls(filterSelects, filterState);
+    syncProjectFilterUrl(filterState);
+    applyProjectState();
+    searchInput?.focus();
+  });
   sortSelect.addEventListener("change", applyProjectState);
   railButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -9713,7 +10053,7 @@ function renderCorridorSummary(activeFilter: string) {
 
   const visibleProjects = featuredProjects.filter((project) => projectDataMatchesFilter(project, activeFilter));
   const section = corridorSections.find((item) => item.key === activeFilter);
-  const heading = `${getFilterLabel(activeFilter)} · ${visibleProjects.length} tracked project${visibleProjects.length === 1 ? "" : "s"}`;
+  const heading = `${getFilterLabel(activeFilter)} · ${visibleProjects.length} tracked building${visibleProjects.length === 1 ? "" : "s"}`;
 
   return `
     <span>${heading}</span>
@@ -9738,7 +10078,7 @@ function renderCorridorDrawerRow(section: CorridorSection) {
   return `
     <p>
       <strong>${section.label}</strong>
-      <small>${count} mapped project${count === 1 ? "" : "s"} · ${section.reviewNote}</small>
+      <small>${count} mapped building${count === 1 ? "" : "s"} · ${section.reviewNote}</small>
     </p>
   `;
 }
@@ -9856,10 +10196,10 @@ function projectMatchesSelection(element: HTMLElement, selection: ProjectFilterS
 function filterSummaryText(selection: ProjectFilterSelection, visibleProjects: number) {
   const activeLabels = activeProjectFilterLabels(selection);
   if (!activeLabels.length) {
-    return `${visibleProjects} tracked projects. Filter by corridor, status, or sales office.`;
+    return `${visibleProjects} tracked buildings. Filter by corridor, status, or sales office.`;
   }
   const section = corridorSections.find((item) => item.key === selection.corridor);
-  return `${visibleProjects} project${visibleProjects === 1 ? "" : "s"} shown for ${activeLabels.join(" + ")}${section ? ` · ${section.detail}` : ""}.`;
+  return `${visibleProjects} building${visibleProjects === 1 ? "" : "s"} shown for ${activeLabels.join(" + ")}${section ? ` · ${section.detail}` : ""}.`;
 }
 
 function activeProjectFilterLabels(selection: ProjectFilterSelection) {
@@ -9873,8 +10213,8 @@ function directoryHeadingText(selection: ProjectFilterSelection, visibleProjects
   if (selection.corridor !== "all") {
     const label = getFilterLabel(selection.corridor);
     return {
-      kicker: "Corridor Projects",
-      title: `${label} New Construction Projects`,
+      kicker: "Corridor Buildings",
+      title: `${label} Buildings`,
       subtitle: `${label} buildings currently tracked.`,
       deck: corridorDirectoryDeck(selection.corridor as CorridorKey),
     };
@@ -9882,9 +10222,9 @@ function directoryHeadingText(selection: ProjectFilterSelection, visibleProjects
   if (selection.status !== "all") {
     const label = getFilterLabel(selection.status);
     return {
-      kicker: "Project Readiness",
-      title: `${label} New Construction Projects`,
-      subtitle: `${label} projects currently tracked.`,
+      kicker: "Building Readiness",
+      title: `${label} Buildings`,
+      subtitle: `${label} buildings currently tracked.`,
       deck: "Compare buildings by timing, information depth, current availability signals, and how close each opportunity is to occupancy.",
     };
   }
@@ -9892,16 +10232,16 @@ function directoryHeadingText(selection: ProjectFilterSelection, visibleProjects
     const label = getFilterLabel(selection.sales);
     return {
       kicker: "Sales Office",
-      title: `${label} Projects`,
-      subtitle: `${label} projects currently tracked.`,
+      title: `${label} Buildings`,
+      subtitle: `${label} buildings currently tracked.`,
       deck: "Filter by sales-office posture.",
     };
   }
   return {
-    kicker: "All Projects",
-    title: "Project Directory",
-    subtitle: "All Projects",
-    deck: `${visibleProjects} tracked developments organized by corridor, status, and sales office.`,
+    kicker: "All Buildings",
+    title: "Building Directory",
+    subtitle: `All ${visibleProjects} Buildings`,
+    deck: `${visibleProjects} tracked buildings and developments organized by corridor, status, and sales office.`,
   };
 }
 
@@ -9933,14 +10273,17 @@ function getFilterLabel(filter: string) {
 
 function getProjectFilterValues(project: FeaturedProject) {
   const status = project.status.toLowerCase();
+  const isActiveSales = project.projectType === "condo-active-sales" || project.projectType === "hotel-residences";
+  const isPipeline = project.projectType === "condo-pipeline" || project.projectType === "mixed-use";
+  const isCompleted = project.projectType === "completed-comparable";
   return [
     "all",
     project.corridorKey,
     project.corridorKey === "north-flagler" || project.corridorKey === "south-flagler" ? "waterfront" : "",
-    /sales|buyer appointment/.test(status) && !/pipeline|planning|announced/.test(status) ? "active-sales" : "",
+    isActiveSales ? "active-sales" : "",
     /under construction|topped out/.test(status) ? "under-construction" : "",
-    /pipeline|planning|proposed|announced|watchlist|emerging/.test(status) ? "announced-planned" : "",
-    /completed|delivered|closings underway|resale/.test(status) ? "completed-opportunities" : "",
+    isPipeline || /pipeline|planning|proposed|announced|watchlist|emerging/.test(status) ? "announced-planned" : "",
+    isCompleted || /completed|delivered|closings underway|resale/.test(status) ? "completed-opportunities" : "",
     salesOfficeFilterValue(project),
   ]
     .filter(Boolean)

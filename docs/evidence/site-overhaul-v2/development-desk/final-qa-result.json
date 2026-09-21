@@ -1,0 +1,177 @@
+{
+  "status": "PASS",
+  "baseSha": "5041bc179ac784300fa01fd32e399f2e8668c4d4",
+  "testSha": "b23a4db9e7adb9d5ed8b74e702bc0d08c56a5f36",
+  "baseUrl": "http://127.0.0.1:5188",
+  "sourceDateVerification": "approved-record-only; external publisher date was not independently verified",
+  "checkCount": 445,
+  "passCount": 445,
+  "failures": [],
+  "warnings": [],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "sectionHeight": 855,
+      "overflow": [],
+      "imagesLoaded": true,
+      "currentSources": [
+        {
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/terra-context-lead-780x355.webp"
+        },
+        {
+          "id": "intel-story-26c1c72f59519b2e",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp"
+        },
+        {
+          "id": "intel-story-544ca384b5f936f2",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/alba-context-thumb-288x216.webp"
+        }
+      ],
+      "blockedExternalHosts": [
+        "maps.googleapis.com"
+      ],
+      "blockedMutations": 0,
+      "consoleErrors": 1,
+      "pageErrors": 0
+    },
+    {
+      "width": 1024,
+      "height": 1000,
+      "sectionHeight": 1185,
+      "overflow": [],
+      "imagesLoaded": true,
+      "currentSources": [
+        {
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/terra-context-lead-1400x636.webp"
+        },
+        {
+          "id": "intel-story-26c1c72f59519b2e",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp"
+        },
+        {
+          "id": "intel-story-544ca384b5f936f2",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/alba-context-thumb-288x216.webp"
+        }
+      ],
+      "blockedExternalHosts": [
+        "maps.googleapis.com"
+      ],
+      "blockedMutations": 0,
+      "consoleErrors": 1,
+      "pageErrors": 0
+    },
+    {
+      "width": 768,
+      "height": 1000,
+      "sectionHeight": 1228,
+      "overflow": [],
+      "imagesLoaded": true,
+      "currentSources": [
+        {
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/terra-context-lead-780x355.webp"
+        },
+        {
+          "id": "intel-story-26c1c72f59519b2e",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp"
+        },
+        {
+          "id": "intel-story-544ca384b5f936f2",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/alba-context-thumb-288x216.webp"
+        }
+      ],
+      "blockedExternalHosts": [
+        "maps.googleapis.com"
+      ],
+      "blockedMutations": 0,
+      "consoleErrors": 1,
+      "pageErrors": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "sectionHeight": 1315,
+      "overflow": [],
+      "imagesLoaded": true,
+      "currentSources": [
+        {
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/terra-context-lead-780x355.webp"
+        },
+        {
+          "id": "intel-story-26c1c72f59519b2e",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp"
+        },
+        {
+          "id": "intel-story-544ca384b5f936f2",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/alba-context-thumb-288x216.webp"
+        }
+      ],
+      "blockedExternalHosts": [
+        "maps.googleapis.com"
+      ],
+      "blockedMutations": 0,
+      "consoleErrors": 1,
+      "pageErrors": 0
+    },
+    {
+      "width": 375,
+      "height": 812,
+      "sectionHeight": 1308,
+      "overflow": [],
+      "imagesLoaded": true,
+      "currentSources": [
+        {
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/terra-context-lead-780x355.webp"
+        },
+        {
+          "id": "intel-story-26c1c72f59519b2e",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp"
+        },
+        {
+          "id": "intel-story-544ca384b5f936f2",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/alba-context-thumb-288x216.webp"
+        }
+      ],
+      "blockedExternalHosts": [
+        "maps.googleapis.com"
+      ],
+      "blockedMutations": 0,
+      "consoleErrors": 1,
+      "pageErrors": 0
+    },
+    {
+      "width": 320,
+      "height": 812,
+      "sectionHeight": 1370,
+      "overflow": [],
+      "imagesLoaded": true,
+      "currentSources": [
+        {
+          "id": "intel-story-7e8443a31a1b3fbb",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/terra-context-lead-780x355.webp"
+        },
+        {
+          "id": "intel-story-26c1c72f59519b2e",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/la-fontana-context-thumb-288x216.webp"
+        },
+        {
+          "id": "intel-story-544ca384b5f936f2",
+          "src": "http://127.0.0.1:5188/assets/editorial/development-desk/alba-context-thumb-288x216.webp"
+        }
+      ],
+      "blockedExternalHosts": [
+        "maps.googleapis.com"
+      ],
+      "blockedMutations": 0,
+      "consoleErrors": 1,
+      "pageErrors": 0
+    }
+  ],
+  "journeys": "complete",
+  "finishedAtUtc": "2026-09-19T19:57:05.293Z"
+}

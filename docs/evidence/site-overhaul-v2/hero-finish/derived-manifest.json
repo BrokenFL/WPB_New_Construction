@@ -1,0 +1,63 @@
+{
+  "treatment": "B warm mineral",
+  "source": {
+    "path": "/Users/brookesnader/.codex/worktrees/wpb-v2-overhaul/WPB_NewConstruction/.runtime/hero-finish/treatments/b-warm-mineral.png",
+    "sha256": "ee339fa8a9587e7e394cce1518be6c2b12dd25e82c5a964d957af46c0bf520bf",
+    "width": 1672,
+    "height": 941
+  },
+  "mobileCrop": {
+    "left": 1120,
+    "top": 0,
+    "width": 455,
+    "height": 941
+  },
+  "quality": 84,
+  "assets": [
+    {
+      "kind": "desktop",
+      "width": 960,
+      "height": 540,
+      "filename": "shorecrest-hero-b-warm-mineral-v01-960w.webp",
+      "publicPath": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-960w.webp",
+      "bytes": 95058,
+      "sha256": "f44adf0a92df51e077f576648af1d739f2ec54c6c56119e1691536d5e8928c64"
+    },
+    {
+      "kind": "desktop",
+      "width": 1280,
+      "height": 720,
+      "filename": "shorecrest-hero-b-warm-mineral-v01-1280w.webp",
+      "publicPath": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1280w.webp",
+      "bytes": 151974,
+      "sha256": "20c19fd0f1b2cac4cb7152d0d3930243050bdd8be81458db30a5bf22fae7c959"
+    },
+    {
+      "kind": "desktop",
+      "width": 1672,
+      "height": 941,
+      "filename": "shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+      "publicPath": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-1672w.webp",
+      "bytes": 226696,
+      "sha256": "644c00d9e86834a11db4c6a92b967231f300269123f3c812c858e820cda971a1"
+    },
+    {
+      "kind": "mobile",
+      "width": 390,
+      "height": 807,
+      "filename": "shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+      "publicPath": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-390w.webp",
+      "bytes": 66256,
+      "sha256": "789464b212559a11187678fb76f71cc3ed54be9dbe5f4acf0fe775772a7a5364"
+    },
+    {
+      "kind": "mobile",
+      "width": 455,
+      "height": 941,
+      "filename": "shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp",
+      "publicPath": "/assets/editorial/shorecrest-hero-b-warm-mineral-v01-mobile-455w.webp",
+      "bytes": 80628,
+      "sha256": "e5d3eb3813b1e7ccfd2dd2fe223112cddd07d76e8934d9812f9db9b3d3a5519e"
+    }
+  ]
+}

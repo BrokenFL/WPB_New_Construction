@@ -1,0 +1,407 @@
+{
+  "testedCodeSha": "0c36a09375dbd1cbe8fa3187aeaefcb49c8873e6",
+  "note": "Overflow descendants can be intentionally clipped inside rails or image frames; document widths and dedicated body-width regression assertions pass.",
+  "views": [
+    {
+      "route": "/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": [
+        "West Palm Beach, with perspective."
+      ],
+      "brokenImages": [],
+      "overflow": [
+        "home-hero-media",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "errors": []
+    },
+    {
+      "route": "/buildings/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": [
+        "The building collection."
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/projects/olara/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": [
+        "Olara"
+      ],
+      "brokenImages": [],
+      "overflow": [
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        ""
+      ],
+      "errors": []
+    },
+    {
+      "route": "/projects/berkeley/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": [
+        "The Berkeley\nPalm Beach"
+      ],
+      "brokenImages": [],
+      "overflow": [
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        ""
+      ],
+      "errors": []
+    },
+    {
+      "route": "/compare/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": [
+        "Compare buildings."
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": [
+        "Floorplans"
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": [
+        "Olara Residence D\nFloor plan"
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/inquire/",
+      "device": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1": [
+        "Let\u2019s find your fit."
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": [
+        "West Palm Beach, with perspective."
+      ],
+      "brokenImages": [],
+      "overflow": [
+        "",
+        "",
+        "",
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        "",
+        ""
+      ],
+      "errors": []
+    },
+    {
+      "route": "/buildings/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": [
+        "The building collection."
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/projects/olara/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": [
+        "Olara"
+      ],
+      "brokenImages": [],
+      "overflow": [
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        ""
+      ],
+      "errors": []
+    },
+    {
+      "route": "/projects/berkeley/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": [
+        "The Berkeley\nPalm Beach"
+      ],
+      "brokenImages": [],
+      "overflow": [
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        ""
+      ],
+      "errors": []
+    },
+    {
+      "route": "/compare/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": [
+        "Compare buildings."
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": [
+        "Floorplans"
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": [
+        "Olara Residence D\nFloor plan"
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/inquire/",
+      "device": "mobile",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1": [
+        "Let\u2019s find your fit."
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": [
+        "West Palm Beach, with perspective."
+      ],
+      "brokenImages": [],
+      "overflow": [
+        "",
+        "",
+        "",
+        {},
+        {},
+        {},
+        {},
+        "",
+        "",
+        {},
+        {},
+        {}
+      ],
+      "errors": []
+    },
+    {
+      "route": "/buildings/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": [
+        "The building collection."
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/projects/olara/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": [
+        "Olara"
+      ],
+      "brokenImages": [],
+      "overflow": [
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        ""
+      ],
+      "errors": []
+    },
+    {
+      "route": "/projects/berkeley/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": [
+        "The Berkeley\nPalm Beach"
+      ],
+      "brokenImages": [],
+      "overflow": [
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        "",
+        "",
+        "v2-gallery-trigger",
+        ""
+      ],
+      "errors": []
+    },
+    {
+      "route": "/compare/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": [
+        "Compare buildings."
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": [
+        "Floorplans"
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/floorplans/olara/residence-d/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": [
+        "Olara Residence D\nFloor plan"
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    },
+    {
+      "route": "/inquire/",
+      "device": "narrow",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": [
+        "Let\u2019s find your fit."
+      ],
+      "brokenImages": [],
+      "overflow": [],
+      "errors": []
+    }
+  ]
+}

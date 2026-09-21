@@ -1,7 +1,18 @@
 export const homepageAssets = {
   hero: {
-    desktop: "/assets/home/wpb-waterfront-bridge-hero-v01.jpg",
-    mobile: "/assets/home/wpb-waterfront-bridge-hero-v01.jpg",
+    desktop: "/assets/editorial/wpb-aerial-editorial-hero-v01-1672w.webp",
+    desktopSrcSet: [
+      { src: "/assets/editorial/wpb-aerial-editorial-hero-v01-960w.webp", width: 960 },
+      { src: "/assets/editorial/wpb-aerial-editorial-hero-v01-1280w.webp", width: 1280 },
+      { src: "/assets/editorial/wpb-aerial-editorial-hero-v01-1672w.webp", width: 1672 },
+    ],
+    mobile: "/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-455w.webp",
+    mobileSrcSet: [
+      { src: "/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-390w.webp", width: 390 },
+      { src: "/assets/editorial/wpb-aerial-editorial-hero-v01-mobile-455w.webp", width: 455 },
+    ],
+    width: 1672,
+    height: 941,
   },
   corridors: {
     "north-flagler": "/assets/home/north-flagler-corridor-skyline-square-v01.jpg",
@@ -28,6 +39,7 @@ export const homepageAssets = {
     "mandarin-oriental": "/assets/home/mandarin-oriental-project-card-main-v01.jpg",
     "mr-c": "/assets/home/mr-c-project-card-main-v01.jpg",
     "nora-house": "/assets/home/nora-house-project-card-main-v01.jpg",
+    "olin-palm-beach": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",
     olara: "/assets/home/olara-project-card-main-v01.jpg",
     "ritz-carlton-wpb": "/assets/home/ritz-carlton-project-card-main-v01.jpg",
     "rosewood-residences-west-palm-beach": "/assets/home/rosewood-project-card-main-v01.jpg",

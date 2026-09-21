@@ -1,0 +1,50 @@
+{
+  "testedCodeSha": "0c36a09375dbd1cbe8fa3187aeaefcb49c8873e6",
+  "generatedAt": "2026-09-19T14:31:58.498Z",
+  "files": [
+    {
+      "path": "src/main.ts",
+      "sha256": "90328fbcea2cacbc3377346140e0939df93eea093d96730109a6a3ae4103f199"
+    },
+    {
+      "path": "src/data/projectCardData.ts",
+      "sha256": "2090ecff2402e658aea5984ba128624812ab70e09e1ac69c2778c946e652568c"
+    },
+    {
+      "path": "src/requestPresentation.ts",
+      "sha256": "2e45bff0d5ac900071317a413200c1ab1a0a2b573d9ce439201cb1da3e1d518b"
+    },
+    {
+      "path": "public/assets/styles/v2-editorial.css",
+      "sha256": "6f14fdf0454498ef890ae345552597edc392f7c2fa67b512465ab082af6774ce"
+    },
+    {
+      "path": "public/assets/styles/v2-buyer-journeys.css",
+      "sha256": "d04d40931ed4a5389f099a0573009170e0136b8db867006c52deb84f2c14a261"
+    },
+    {
+      "path": "tools/content-studio/server.mjs",
+      "sha256": "dafef22684593e4bc53c4f0e8a590691b44ca1e254bb2292135c0863d90314fd"
+    },
+    {
+      "path": "research/scripts/check-v2-milestone2.mjs",
+      "sha256": "5098373aceefdeac7f772fa5872a6b937a69f8d3eaf0d22c4889ab206794f13e"
+    },
+    {
+      "path": "research/scripts/check-homepage-visual-flow.mjs",
+      "sha256": "09a4afd5b2f3b95f5d7917f4a8c82b9f344d2804f0b8d9f5bb34409da558d06e"
+    }
+  ],
+  "styles": [
+    {
+      "path": "public/assets/styles/v2-editorial.css",
+      "bytes": 37457,
+      "gzipBytes": 6851
+    },
+    {
+      "path": "public/assets/styles/v2-buyer-journeys.css",
+      "bytes": 37126,
+      "gzipBytes": 5863
+    }
+  ]
+}

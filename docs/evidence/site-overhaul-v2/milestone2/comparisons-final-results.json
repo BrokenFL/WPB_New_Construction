@@ -1,0 +1,184 @@
+{
+  "testedCodeSha": "0c36a09375dbd1cbe8fa3187aeaefcb49c8873e6",
+  "results": [
+    {
+      "testedSha": "0c36a09375dbd1cbe8fa3187aeaefcb49c8873e6",
+      "status": "pass",
+      "checkedAt": "2026-09-19T14:32:49.135Z",
+      "results": [
+        {
+          "check": "static",
+          "key": "flagler",
+          "status": "pass"
+        },
+        {
+          "check": "static",
+          "key": "trio",
+          "status": "pass"
+        },
+        {
+          "check": "browser",
+          "key": "flagler",
+          "width": 1440,
+          "js": false,
+          "status": "pass"
+        },
+        {
+          "check": "browser",
+          "key": "trio",
+          "width": 1440,
+          "js": false,
+          "status": "pass"
+        },
+        {
+          "check": "browser",
+          "key": "flagler",
+          "width": 390,
+          "js": false,
+          "status": "pass"
+        },
+        {
+          "check": "browser",
+          "key": "trio",
+          "width": 390,
+          "js": false,
+          "status": "pass"
+        },
+        {
+          "check": "browser",
+          "key": "flagler",
+          "width": 1440,
+          "js": true,
+          "status": "pass"
+        },
+        {
+          "check": "browser",
+          "key": "trio",
+          "width": 1440,
+          "js": true,
+          "status": "pass"
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 1440,
+          "context": "shortlist:trio:olara,shorecrest",
+          "primary": "shorecrest",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 1440,
+          "context": "shortlist:trio:olara,ritz-carlton-wpb,shorecrest",
+          "primary": "olara",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 1440,
+          "context": "shortlist:flagler:olara,south-flagler-house",
+          "primary": "south-flagler-house",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 1440,
+          "context": "floorplan:olara:residence-d",
+          "primary": "olara",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 1440,
+          "context": "corridor:south-flagler:pricing-packet",
+          "primary": "south-flagler-house",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 1440,
+          "context": "commercial:buildings:availability",
+          "primary": "olara",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "discovery-navigation",
+          "width": 1440,
+          "status": "pass"
+        },
+        {
+          "check": "browser",
+          "key": "flagler",
+          "width": 390,
+          "js": true,
+          "status": "pass"
+        },
+        {
+          "check": "browser",
+          "key": "trio",
+          "width": 390,
+          "js": true,
+          "status": "pass"
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 390,
+          "context": "shortlist:trio:olara,shorecrest",
+          "primary": "shorecrest",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 390,
+          "context": "shortlist:trio:olara,ritz-carlton-wpb,shorecrest",
+          "primary": "olara",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 390,
+          "context": "shortlist:flagler:olara,south-flagler-house",
+          "primary": "south-flagler-house",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 390,
+          "context": "floorplan:olara:residence-d",
+          "primary": "olara",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 390,
+          "context": "corridor:south-flagler:pricing-packet",
+          "primary": "south-flagler-house",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "intercepted-inquiry",
+          "width": 390,
+          "context": "commercial:buildings:availability",
+          "primary": "olara",
+          "status": "pass",
+          "normalizedSelectionPreserved": true
+        },
+        {
+          "check": "discovery-navigation",
+          "width": 390,
+          "status": "pass"
+        }
+      ]
+    }
+  ]
+}

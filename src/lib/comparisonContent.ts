@@ -93,7 +93,7 @@ export function comparisonJson(value: unknown) { return JSON.stringify(value).re
 export function comparisonSchema(key: ComparisonKey) {
   const c = comparisonPages[key], url = commercialOrigin + c.path;
   return { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'WebSite', '@id': commercialOrigin+'/#website', url: commercialOrigin+'/', name: 'WPB New Construction' },
+    { '@type': 'WebSite', '@id': commercialOrigin+'/#website', url: commercialOrigin+'/', name: 'WPB New Construction', alternateName: 'West Palm Beach New Construction' },
     { '@type': 'WebPage', '@id': url+'#webpage', url, name:c.title, description:c.description, dateModified:comparisonReviewed, isPartOf:{'@id':commercialOrigin+'/#website'}, breadcrumb:{'@id':url+'#breadcrumbs'}, mainEntity:{'@id':url+'#projects'}, citation:[...new Set(comparisonProjectIds[key].flatMap(id=>projects[id].sourceIds))].map(id=>sources[id].url) },
     { '@type':'BreadcrumbList','@id':url+'#breadcrumbs',itemListElement:[['Home','/'],['Buyer answers','/answers/'],[c.heading,c.path]].map(([name,p],i)=>({'@type':'ListItem',position:i+1,name,item:commercialOrigin+p})) },
     { '@type':'ItemList','@id':url+'#projects',name:'Projects in this buyer comparison',numberOfItems:comparisonProjectIds[key].length,itemListElement:comparisonProjectIds[key].map((id,i)=>({'@type':'ListItem',position:i+1,name:shortlistProjects[id].name,url:commercialOrigin+'/projects/'+id+'/'})) },

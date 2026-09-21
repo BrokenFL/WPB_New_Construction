@@ -1,0 +1,40 @@
+{
+  "testedAt": "2026-09-19T14:32:40.412Z",
+  "reportedAndGitVerifiedCodeSHA": "0c36a09375dbd1cbe8fa3187aeaefcb49c8873e6",
+  "origin": "http://127.0.0.1:5188",
+  "browser": "Chromium",
+  "viewports": [
+    1440,
+    390,
+    320
+  ],
+  "results": {
+    "homeCollectionStatusAndDelivery": true,
+    "staleOlaraNumberRemoved": true,
+    "compareInquiryDisplayContext": true,
+    "planViewerBuildingAndResidenceTitle": true,
+    "planInquiryNamesAndMessage": true,
+    "dialogClosesBeforeInquiry": true,
+    "interceptedErrorThenRetryStatuses": [
+      503,
+      200
+    ],
+    "failedRequestFieldsRetained": true,
+    "successClearsPersonalFields": true,
+    "newResidenceBRequestClearsOldReceipt": true,
+    "newResidenceBRequestAddedPOSTs": 0,
+    "homepageWidthAt390": {
+      "document": 390,
+      "body": 390
+    },
+    "homepageWidthAt320": {
+      "document": 320,
+      "body": 320
+    }
+  },
+  "score": {
+    "desktop": 8.5,
+    "mobile": 8.2
+  },
+  "realLeadsSent": 0
+}
