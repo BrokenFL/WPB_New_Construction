@@ -453,7 +453,7 @@ function renderNewsParagraph(paragraph: string, imagePath?: string, imageMeta?: 
 function renderNewsInlineFigure(path: string, metadata: { alt?: string; caption?: string; credit?: string } = {}) {
   const alt = metadata.alt?.trim() || "Article image";
   const caption = [metadata.caption?.trim(), metadata.credit?.trim() ? `Credit: ${metadata.credit.trim()}` : ""].filter(Boolean).join(" · ");
-  return `<figure class="update-inline-image"><img src="${safeHref(path)}" alt="${publicText(alt)}" loading="lazy" decoding="async" />${caption ? `<figcaption>${publicText(caption)}</figcaption>` : ""}</figure>`;
+  return `<figure class="content-image-panel"><img src="${safeHref(path)}" alt="${publicText(alt)}" loading="lazy" decoding="async" />${caption ? `<figcaption>${publicText(caption)}</figcaption>` : ""}</figure>`;
 }
 
 function imageStyle(override?: HomepageCardOverride) {

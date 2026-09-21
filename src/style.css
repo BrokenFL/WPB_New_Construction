@@ -4167,22 +4167,6 @@ body.has-floorplan-viewer {
   gap: clamp(28px, 4vw, 54px);
 }
 
-.update-inline-image {
-  margin: 22px 0 0;
-}
-
-.update-inline-image img {
-  width: 100%;
-  border-radius: 6px;
-}
-
-.update-inline-image figcaption {
-  margin-top: 8px;
-  color: var(--soft-ink);
-  font-size: 0.76rem;
-  line-height: 1.45;
-}
-
 .buyer-takeaway-box,
 .verify-box {
   border: 1px solid rgba(143, 185, 173, 0.42);
