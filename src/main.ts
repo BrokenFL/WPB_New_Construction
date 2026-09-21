@@ -411,7 +411,7 @@ function renderHomepageOverrideImage(override: HomepageCardOverride, fallbackTit
 }
 
 function articleBodySections(item: ExternalNewsItem) {
-  const sourceSections = (item.bodySections ?? []) as Array<{ heading?: string; body?: string; bullets?: string[]; image?: string; imageId?: string; imageKey?: string }>;
+  const sourceSections = (item.bodySections ?? []) as Array<{ heading?: string; body?: string; bullets?: string[]; image?: string; imageId?: string; imageKey?: string; imageAlt?: string; imageCaption?: string; imageCredit?: string }>;
   return sourceSections.map((section, index) => ({
     heading: section.heading || `Section ${index + 1}`,
     body: section.body || "",
@@ -419,26 +419,41 @@ function articleBodySections(item: ExternalNewsItem) {
     image: section.image || "",
     imageId: section.imageId || "",
     imageKey: section.imageKey || "",
+    imageAlt: section.imageAlt || "",
+    imageCaption: section.imageCaption || "",
+    imageCredit: section.imageCredit || "",
   }));
 }
 
-function renderNewsArticleSection(section: { heading: string; body: string; bullets?: string[]; image?: string; imageId?: string; imageKey?: string }) {
-  const bodyHtml = renderNewsArticleBody(section.body, section.image || section.imageId || section.imageKey);
+function renderNewsArticleSection(section: { heading: string; body: string; bullets?: string[]; image?: string; imageId?: string; imageKey?: string; imageAlt?: string; imageCaption?: string; imageCredit?: string }) {
+  const imagePath = section.image || section.imageId || section.imageKey;
+  const imageMeta = {
+    alt: section.imageAlt || `${section.heading} image`,
+    caption: section.imageCaption || "",
+    credit: section.imageCredit || "",
+  };
+  const bodyHtml = renderNewsArticleBody(section.body, imagePath, imageMeta);
   const bulletsHtml = Array.isArray(section.bullets) && section.bullets.length
     ? `<ul>${section.bullets.map((bullet) => `<li>${publicText(bullet)}</li>`).join("")}</ul>`
     : "";
   return `<section><h3>${publicText(section.heading)}</h3>${bodyHtml}${bulletsHtml}</section>`;
 }
 
-function renderNewsArticleBody(body: string, imagePath?: string) {
+function renderNewsArticleBody(body: string, imagePath?: string, imageMeta?: { alt?: string; caption?: string; credit?: string }) {
   const paragraphs = String(body ?? "").split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
   const hasImageToken = /\[\[image:[a-zA-Z0-9_-]+\]\]/.test(body);
-  const html = paragraphs.map((paragraph) => `<p>${renderNewsParagraph(paragraph, imagePath)}</p>`).join("");
-  return imagePath && !hasImageToken ? html + inlineImg(imagePath) : html;
+  const html = paragraphs.map((paragraph) => `<p>${renderNewsParagraph(paragraph, imagePath, imageMeta)}</p>`).join("");
+  return imagePath && !hasImageToken ? html + renderNewsInlineFigure(imagePath, imageMeta) : html;
 }
 
-function renderNewsParagraph(paragraph: string, imagePath?: string) {
-  return escapeHtml(paragraph).replace(/\[\[image:([a-zA-Z0-9_-]+)\]\]/g, () => imagePath ? inlineImg(imagePath) : "");
+function renderNewsParagraph(paragraph: string, imagePath?: string, imageMeta?: { alt?: string; caption?: string; credit?: string }) {
+  return escapeHtml(paragraph).replace(/\[\[image:([a-zA-Z0-9_-]+)\]\]/g, () => imagePath ? renderNewsInlineFigure(imagePath, imageMeta) : "");
+}
+
+function renderNewsInlineFigure(path: string, metadata: { alt?: string; caption?: string; credit?: string } = {}) {
+  const alt = metadata.alt?.trim() || "Article image";
+  const caption = [metadata.caption?.trim(), metadata.credit?.trim() ? `Credit: ${metadata.credit.trim()}` : ""].filter(Boolean).join(" · ");
+  return `<figure class="content-image-panel"><img src="${safeHref(path)}" alt="${publicText(alt)}" loading="lazy" decoding="async" />${caption ? `<figcaption>${publicText(caption)}</figcaption>` : ""}</figure>`;
 }
 
 function imageStyle(override?: HomepageCardOverride) {

@@ -36,6 +36,7 @@ textarea { min-height: 86px; resize: vertical; }
 .section-tabs { display: none; }
 .tabs strong { margin-top: 12px; color: var(--muted); font-size: 12px; text-transform: uppercase; }
 .tabs button, .section-tabs button { text-align: left; }
+.tabs .quick-publish-nav { display: block; text-align: left; }
 .tabs button.active, .section-tabs button.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); color: var(--accent-dark); }
 .panel, .section { display: none; }
 .panel.active, .section.active { display: block; }

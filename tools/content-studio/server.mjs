@@ -82,6 +82,9 @@ async function main() {
       if (request.method === "GET" && url.pathname === "/") return sendFile(response, "index.html", "text/html; charset=utf-8");
       if (request.method === "GET" && url.pathname === "/app.js") return sendFile(response, "app.js", "text/javascript; charset=utf-8");
       if (request.method === "GET" && url.pathname === "/style.css") return sendFile(response, "style.css", "text/css; charset=utf-8");
+      if (request.method === "GET" && url.pathname === "/quick-publish.html") return sendFile(response, "quick-publish.html", "text/html; charset=utf-8");
+      if (request.method === "GET" && url.pathname === "/quick-publish.js") return sendFile(response, "quick-publish.js", "text/javascript; charset=utf-8");
+      if (request.method === "GET" && url.pathname === "/quick-publish.css") return sendFile(response, "quick-publish.css", "text/css; charset=utf-8");
       if (request.method === "GET" && url.pathname === "/favicon.ico") return sendText(response, "", 204);
       if (request.method === "GET" && await maybeSendPublicAsset(url.pathname, response)) return;
       if (request.method === "GET" && url.pathname === "/api/state") return sendJson(response, await state(request));
@@ -1063,13 +1066,18 @@ async function createSitePreview(request, response) {
   const bodyAssetMap = await writePreviewBodyAssets(body, previewId);
   if (bodyAssetMap && Array.isArray(body.bodySections)) {
     for (const section of body.bodySections) {
+      const matched = section.imageKey
+        ? (body.bodyImages || []).find((image) => image.key === section.imageKey)
+        : null;
       if (section.imageKey && bodyAssetMap[section.imageKey]) {
         section.image = bodyAssetMap[section.imageKey];
       }
       // Also support direct imageKey matching on bodyImages key
-      if (section.imageKey && !section.image) {
-        const matched = (body.bodyImages || []).find((img) => img.key === section.imageKey);
-        if (matched?.path) section.image = matched.path;
+      if (matched) {
+        if (!section.image && matched.path) section.image = matched.path;
+        section.imageAlt = clean(matched.alt || section.imageAlt || "");
+        section.imageCaption = clean(matched.caption || section.imageCaption || "");
+        section.imageCredit = clean(matched.credit || section.imageCredit || "");
       }
     }
   }
@@ -1078,7 +1086,7 @@ async function createSitePreview(request, response) {
   await fs.mkdir(articleSitePreviewsRoot, { recursive: true });
   const previewPath = path.join(articleSitePreviewsRoot, `${previewId}.json`);
   await fs.writeFile(previewPath, `${JSON.stringify({ previewId, createdAt: new Date().toISOString(), destination: previewDestination, item }, null, 2)}\n`);
-  const previewUrl = `http://localhost:5173/updates/__preview__/?previewId=${encodeURIComponent(previewId)}`;
+  const previewUrl = `${viteDevUrl}/updates/__preview__/?previewId=${encodeURIComponent(previewId)}`;
   return sendJson(response, { ok: true, previewId, previewUrl, destination: previewDestination, destinationNote: "All destinations currently render through the Updates/article renderer. True route previews are aliased for now." });
 }
 
@@ -1099,8 +1107,8 @@ async function getSitePreview(request, response, url) {
 
 function allowedPreviewOrigin(request) {
   const origin = String(request.headers["origin"] || "").trim();
-  const allowed = new Set(["http://localhost:5173", "http://127.0.0.1:5173"]);
-  return allowed.has(origin) ? origin : "http://localhost:5173";
+  const allowed = new Set([viteDevUrl, `http://127.0.0.1:${viteDevPort}`]);
+  return allowed.has(origin) ? origin : viteDevUrl;
 }
 
 function normalizeArticlePreview(body) {
@@ -2340,7 +2348,7 @@ function sendJson(response, payload, status = 200) {
   response.end(`${JSON.stringify(payload, null, 2)}\n`);
 }
 
-function sendJsonCors(response, payload, status = 200, origin = "http://localhost:5173") {
+function sendJsonCors(response, payload, status = 200, origin = viteDevUrl) {
   response.writeHead(status, {
     "content-type": "application/json; charset=utf-8",
     "cache-control": "no-store",

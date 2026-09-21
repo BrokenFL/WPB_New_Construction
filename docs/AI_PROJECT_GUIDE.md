@@ -499,6 +499,18 @@ Then open `http://127.0.0.1:8787/` and click **Project Intelligence** in the sid
 
 ### Article Manager Workflows
 
+#### Quick Publish workflow
+
+Open `http://127.0.0.1:8787/quick-publish.html` after starting Content Studio. This local-only, noindex page is the shortest supported path for a finished article with one homepage/hero image and two inline images.
+
+1. Paste the headline, deck, full body, and source details. Use `## Heading` lines to define article sections.
+2. Drop the homepage/hero image and two distinct supporting images into their labeled slots.
+3. Add truthful alt text, caption, and credit for every image, then choose a different article section for each supporting image.
+4. Run the editorial check and **Preview in Site** before release.
+5. Save a draft to `.runtime/`, or check both release confirmations and choose **Publish Live**.
+
+Quick Publish calls the existing Article Manager endpoints and `article-publish-workflow.mjs`; it is not a second publishing pipeline. The publisher optimizes image derivatives, enforces the editorial image budget, and preserves inline image metadata in the published article record.
+
 #### Standard manual article workflow
 
 1. Open Article Manager → New Article (or Edit an existing draft).

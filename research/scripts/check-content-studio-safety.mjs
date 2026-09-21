@@ -7,6 +7,8 @@ const failures = [];
 async function main() {
   const serverPath = path.join(workspace, "tools/content-studio/server.mjs");
   const server = await fs.readFile(serverPath, "utf8");
+  const quickPublisher = await fs.readFile(path.join(workspace, "tools/content-studio/quick-publish.html"), "utf8").catch(() => "");
+  const quickPublisherScript = await fs.readFile(path.join(workspace, "tools/content-studio/quick-publish.js"), "utf8").catch(() => "");
   const packageJson = JSON.parse(await fs.readFile(path.join(workspace, "package.json"), "utf8"));
 
   assert(server.includes('server.listen(port, "127.0.0.1"'), "Content Studio server must bind to 127.0.0.1.");
@@ -17,6 +19,11 @@ async function main() {
   assert(!await pathExists(path.join(workspace, "public/brooke-builder")), "Brooke Builder must not exist under public/.");
   assert(!await pathExists(path.join(workspace, "dist/content-studio")), "Content Studio must not be copied into dist/.");
   assert(!await pathExists(path.join(workspace, "dist/brooke-builder")), "Brooke Builder must not be copied into dist/.");
+  assert(server.includes('url.pathname === "/quick-publish.html"') && server.includes('url.pathname === "/quick-publish.js"'), "Quick Article Publisher must be served only by the local Content Studio server.");
+  assert(quickPublisher.includes('name="robots" content="noindex,nofollow"') && quickPublisher.includes('id="publishButton"'), "Quick Article Publisher must remain noindex and keep an explicit publish action.");
+  for (const endpoint of ["/api/article/site-preview", "/api/article/preview", "/api/article/save-draft", "/api/article/publish"]) {
+    assert(quickPublisherScript.includes(endpoint), `Quick Article Publisher is missing the existing ${endpoint} workflow path.`);
+  }
 
   const mainSource = await fs.readFile(path.join(workspace, "src/main.ts"), "utf8");
   assert(mainSource.includes('"/brooke-builder/"') && mainSource.includes('"/content-studio/"') && mainSource.includes('return "/"'), "Production builder routes must redirect away from the local editor.");
