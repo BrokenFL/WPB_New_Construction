@@ -41,6 +41,10 @@ if (!main.includes("publishedExternalNews.map(renderExternalNewsItem)")) {
   findings.push("Updates route is not rendering the approved external news feed.");
 }
 
+if (!main.includes("function renderNewsInlineFigure") || !main.includes("imageAlt") || !main.includes("imageCaption") || !main.includes("imageCredit")) {
+  findings.push("Published article body images must preserve metadata and render a non-empty accessible figure.");
+}
+
 if (/status:\s*"published"[\s\S]{0,260}paywallStatus:\s*"likely-paywalled"/.test(source)) {
   findings.push("Published news includes likely-paywalled items; mark clearly and deprioritize or exclude.");
 }

@@ -633,7 +633,17 @@ function normalizeSection(section, index, bodyImages, warnings, hasExplicitImage
       : bodyImages.values[index] || null;
   if (imageRef && !image) warnings.push(`Body image placeholder '${imageRef}' could not be resolved.`);
   const bullets = Array.isArray(section.bullets) ? section.bullets.map((bullet) => clean(bullet)).filter(Boolean) : [];
-  return { heading, body, ...(bullets.length ? { bullets } : {}), ...(image ? { image: image.path } : {}) };
+  return {
+    heading,
+    body,
+    ...(bullets.length ? { bullets } : {}),
+    ...(image ? {
+      image: image.path,
+      imageAlt: image.alt,
+      imageCaption: image.caption,
+      imageCredit: image.credit,
+    } : {}),
+  };
 }
 
 function parseSectionInput({ input, existing, bodySectionsInput, bodyText, warnings }) {

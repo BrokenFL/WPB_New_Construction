@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Quick Publish · Brooke Builder</title>
+    <link rel="stylesheet" href="/quick-publish.css?v=1" />
+  </head>
+  <body>
+    <header class="quick-header">
+      <a class="brand" href="/" aria-label="Back to Brooke Builder">Brooke Builder <span>/ Quick Publish</span></a>
+      <div class="header-note"><span class="status-dot" aria-hidden="true"></span> Local editorial workspace</div>
+    </header>
+
+    <main class="quick-shell">
+      <section class="intro-block">
+        <p class="eyebrow">A cleaner publishing handoff</p>
+        <h1>Put the story and its images in one place.</h1>
+        <p class="intro-copy">Add the article, drop in the hero and two supporting images, then preview the real page before you publish. Image metadata travels with the story and the existing WPB article workflow still performs the final checks.</p>
+        <div class="workflow-steps" aria-label="Publishing steps">
+          <span><b>01</b> Write</span><span><b>02</b> Place imagery</span><span><b>03</b> Preview</span><span><b>04</b> Publish</span>
+        </div>
+      </section>
+
+      <form id="quickPublishForm" novalidate>
+        <div class="form-layout">
+          <div class="form-main">
+            <section class="quick-card">
+              <div class="card-heading"><span class="step-number">01</span><div><p class="eyebrow">The story</p><h2>Article details</h2></div></div>
+              <div class="field-grid two-up">
+                <label>Destination
+                  <select id="destination" name="destination">
+                    <option value="news">News Updates</option>
+                    <option value="buyer">Buyer Intelligence</option>
+                    <option value="downtown">Downtown Spotlight</option>
+                  </select>
+                </label>
+                <label>Category
+                  <select id="category" name="category">
+                    <option value="development">Development</option>
+                    <option value="construction">Construction</option>
+                    <option value="planning">Planning</option>
+                    <option value="sales">Sales</option>
+                    <option value="financing">Financing</option>
+                    <option value="city">City / Lifestyle</option>
+                    <option value="general">General</option>
+                  </select>
+                </label>
+              </div>
+              <label>Headline <span class="required">Required</span>
+                <input id="title" name="title" required maxlength="180" placeholder="What changed, in plain English" />
+              </label>
+              <label>Deck <span class="required">Required</span>
+                <textarea id="deck" name="deck" required maxlength="500" rows="3" placeholder="A concise explanation of why this matters to buyers."></textarea>
+              </label>
+              <label>Full article body <span class="required">Required</span>
+                <textarea id="body" name="body" required rows="16" placeholder="Start with the opening paragraph. Use ## headings to create sections.&#10;&#10;## What happened&#10;Explain the verified event in full.&#10;&#10;## Why it matters&#10;Give readers the buyer context and what to watch next."></textarea>
+              </label>
+              <p class="field-help">Use <code>## Heading</code> on its own line when you want a new section. The placement controls below attach each supporting image to a specific section.</p>
+              <div id="sectionMap" class="section-map" aria-live="polite"></div>
+            </section>
+
+            <section class="quick-card">
+              <div class="card-heading"><span class="step-number">02</span><div><p class="eyebrow">The record</p><h2>Source and buyer context</h2></div></div>
+              <div class="field-grid two-up">
+                <label>Source name <span class="required">Required</span>
+                  <input id="sourceName" name="sourceName" required placeholder="Palm Beach Post, city agenda, developer release" />
+                </label>
+                <label>Source date
+                  <input id="sourcePublishedDate" name="sourcePublishedDate" type="date" />
+                </label>
+              </div>
+              <label>Source URL <span class="required">Required</span>
+                <input id="sourceUrl" name="sourceUrl" type="url" required placeholder="https://..." />
+              </label>
+              <div class="field-grid two-up">
+                <label>Related buildings <span class="optional">Optional</span>
+                  <input id="relatedBuildings" name="relatedBuildings" placeholder="tideline, the-perigon" />
+                </label>
+                <label>Related corridors <span class="optional">Optional</span>
+                  <input id="relatedCorridorIds" name="relatedCorridorIds" placeholder="south-flagler, downtown" />
+                </label>
+              </div>
+              <label>Why it matters to a buyer <span class="optional">Optional</span>
+                <textarea id="buyerContext" name="buyerContext" rows="4" placeholder="Timing, pricing power, inventory, walkability, risk, or another practical implication."></textarea>
+              </label>
+            </section>
+          </div>
+
+          <aside class="form-side">
+            <section class="quick-card media-card">
+              <div class="card-heading"><span class="step-number">03</span><div><p class="eyebrow">The visual package</p><h2>Images</h2></div></div>
+              <p class="card-lede">The hero image is used on the homepage and at the top of the article. Add two distinct supporting images for the article body.</p>
+              <div class="image-slot" data-image-slot="hero">
+                <div class="slot-label"><strong>Hero / homepage</strong><span class="required">Required</span></div>
+                <div class="drop-zone" data-drop-zone="hero" tabindex="0" role="button" aria-label="Choose hero image">
+                  <input id="heroFile" type="file" accept="image/*" hidden />
+                  <div class="drop-icon" aria-hidden="true">＋</div><strong>Drop the hero image here</strong><span>or choose a file</span>
+                </div>
+                <div id="heroPreview" class="image-preview" hidden></div>
+                <div class="image-fields">
+                  <label>Alt text <span class="required">Required</span><input id="heroAlt" placeholder="Describe what the image shows" /></label>
+                  <label>Caption <span class="required">Required</span><input id="heroCaption" placeholder="Truthful caption or editorial status" /></label>
+                  <label>Credit <span class="required">Required</span><input id="heroCredit" placeholder="Photographer, developer, or AI source" /></label>
+                </div>
+              </div>
+
+              <div class="image-slot" data-image-slot="body-1">
+                <div class="slot-label"><strong>Article image 1</strong><span class="required">Required</span></div>
+                <div class="drop-zone" data-drop-zone="body-1" tabindex="0" role="button" aria-label="Choose article image 1">
+                  <input id="body1File" type="file" accept="image/*" hidden />
+                  <div class="drop-icon" aria-hidden="true">＋</div><strong>Drop supporting image 1</strong><span>or choose a file</span>
+                </div>
+                <div id="body1Preview" class="image-preview" hidden></div>
+                <div class="image-fields">
+                  <label>Alt text <span class="required">Required</span><input id="body1Alt" placeholder="Describe what the image shows" /></label>
+                  <label>Caption <span class="required">Required</span><input id="body1Caption" placeholder="Truthful caption" /></label>
+                  <label>Credit <span class="required">Required</span><input id="body1Credit" placeholder="Photographer, developer, or AI source" /></label>
+                </div>
+              </div>
+
+              <div class="image-slot" data-image-slot="body-2">
+                <div class="slot-label"><strong>Article image 2</strong><span class="required">Required</span></div>
+                <div class="drop-zone" data-drop-zone="body-2" tabindex="0" role="button" aria-label="Choose article image 2">
+                  <input id="body2File" type="file" accept="image/*" hidden />
+                  <div class="drop-icon" aria-hidden="true">＋</div><strong>Drop supporting image 2</strong><span>or choose a file</span>
+                </div>
+                <div id="body2Preview" class="image-preview" hidden></div>
+                <div class="image-fields">
+                  <label>Alt text <span class="required">Required</span><input id="body2Alt" placeholder="Describe what the image shows" /></label>
+                  <label>Caption <span class="required">Required</span><input id="body2Caption" placeholder="Truthful caption" /></label>
+                  <label>Credit <span class="required">Required</span><input id="body2Credit" placeholder="Photographer, developer, or AI source" /></label>
+                </div>
+              </div>
+              <p class="field-help">Images are optimized by the existing publisher and kept within the site’s editorial size budget. Keep the source and caption truthful.</p>
+            </section>
+
+            <section class="quick-card action-card">
+              <div class="card-heading"><span class="step-number">04</span><div><p class="eyebrow">Review and release</p><h2>Actions</h2></div></div>
+              <p class="card-lede">Run the check first. Preview opens the real local article renderer. Publishing remains a separate, confirmed action.</p>
+              <div class="action-stack">
+                <button id="checkButton" type="button">Run editorial check</button>
+                <button id="previewButton" type="button">Preview in Site</button>
+                <button id="saveButton" type="button">Save Draft</button>
+                <label class="confirm-line"><input id="confirmPublish" type="checkbox" /> I reviewed the article and want to publish it.</label>
+                <label class="confirm-line"><input id="confirmDeploy" type="checkbox" /> I want this publish to trigger the live deploy.</label>
+                <button id="publishButton" class="primary publish-button" type="button">Publish Live</button>
+              </div>
+              <p class="publish-note">Publish Live runs the existing clean-state article workflow, QA, push, and deploy trigger. It will refuse to run from a dirty or unsynchronized checkout.</p>
+            </section>
+          </aside>
+        </div>
+      </form>
+
+      <section id="statusPanel" class="status-panel" aria-live="polite" hidden>
+        <div class="status-heading"><strong id="statusTitle">Ready</strong><button id="clearStatus" type="button" aria-label="Clear status">×</button></div>
+        <p id="statusMessage"></p>
+        <pre id="statusOutput"></pre>
+      </section>
+    </main>
+    <script type="module" src="/quick-publish.js?v=1"></script>
+  </body>
+</html>
