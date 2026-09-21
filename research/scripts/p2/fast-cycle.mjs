@@ -190,6 +190,10 @@ const STATUS_BY_ARTICLE_DECISION = Object.freeze({
 
 const FACT_COMMIT_PENDING = "PENDING_COMMIT";
 const FACT_COMMIT_COMPLETE = "COMMITTED";
+const MANUAL_TERMINAL_OUTPUT_PREFIXES = Object.freeze([
+  "MANUAL_TERMINAL:DUPLICATE",
+  "MANUAL_TERMINAL:HOLD",
+]);
 
 function outputDecisionValue(decision, factState) {
   return `ARTICLE:${decision.article_decision}|FACT:${decision.fact_change_decision}|FACT_STATE:${factState}`;
@@ -199,6 +203,11 @@ function rowNeedsFactRetry(row) {
   const decision = String(row.output_decision || "");
   return decision.includes(`FACT_STATE:${FACT_COMMIT_PENDING}`)
     || decision.includes("PROCESS_STATE:REVIEW_RETRY");
+}
+
+function manualTerminalMarker(row) {
+  const decision = String(row.output_decision || "").trim();
+  return MANUAL_TERMINAL_OUTPUT_PREFIXES.find((prefix) => decision.startsWith(prefix)) || "";
 }
 
 function cellsForColumns(row, columns) {
@@ -321,6 +330,12 @@ export async function runFastCycle({
         status: "quarantined", processed_at: startedAt, processor_version: FAST_MODE_PROCESSOR_VERSION,
         output_decision: `QUARANTINE:${quarantine.toUpperCase()}`,
       }, INCOMING_INTEL_SHEET));
+      continue;
+    }
+
+    const terminalMarker = manualTerminalMarker(row);
+    if (terminalMarker) {
+      results.push({ intel_id: id, stage: "manual_terminal", terminal_marker: terminalMarker });
       continue;
     }
 
@@ -487,7 +502,8 @@ export async function runFastCycle({
     if (attempts >= maxPublishAttempts) {
       story.status = STORY_STATUS.HELD;
       story.publish_status = "held_max_attempts";
-      story.error = `maximum publish attempts reached (${maxPublishAttempts})`;
+      const previousError = String(story.error || "").trim();
+      story.error = `maximum publish attempts reached (${maxPublishAttempts})${previousError ? `: ${previousError}` : ""}`;
       story.updated_at = new Date(now).toISOString();
       publishDirtyStories.add(story);
       publishActions.push({ story_id: story.story_id, ok: true, outcome: "held", reason: "max_attempts" });
