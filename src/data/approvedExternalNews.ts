@@ -89,7 +89,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "eventDate": "2026-09-15",
     "dateDiscovered": "2026-09-20",
     "freshnessLane": "breaking_14d",
-    "fetchedAt": "2026-09-21T03:00:00.000Z",
+    "fetchedAt": "2026-09-21T03:21:21.960Z",
     "deck": "The $150 million acquisition puts the nearly three-acre Tideline Palm Beach Ocean Resort directly beside Fort Partners’ Four Seasons Resort Palm Beach. No redevelopment plan has been announced, but the buyer’s record with Four Seasons-branded residences makes the newly assembled oceanfront footprint one to watch.",
     "description": "Fort Partners has acquired the Tideline Palm Beach Ocean Resort for $150 million next to its Four Seasons Resort Palm Beach, creating a larger South Ocean Boulevard footprint with intriguing long-term possibilities.",
     "summary": "The Real Deal reported that an affiliate of Fort Partners bought the 134-room Tideline Palm Beach Ocean Resort & Spa for $150 million, giving the owner of the adjacent Four Seasons Resort Palm Beach control of another nearly three-acre oceanfront property.",
@@ -101,7 +101,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
       {
         "heading": "The property next door changes the story",
         "body": "Immediately north of Tideline is the Four Seasons Resort Palm Beach at 2800 South Ocean Boulevard, which is also controlled by Fort Partners. That adjacency is what turns this from a straightforward hotel sale into a development story worth watching. Fort Partners now has control of neighboring luxury oceanfront resort properties along the same stretch of Palm Beach’s South End. The timing is notable as well: in July, Fort Partners secured a $341 million refinancing of the Four Seasons Resort Palm Beach, according to The Real Deal. No plan for combining, redeveloping or repositioning the properties has been announced. Editorial image note: the accompanying image is an AI-generated editorial illustration based on reference imagery, not an official development rendering.",
-        "image": "/assets/editorial/tideline-oceanfront-context.jpg"
+        "image": "/assets/editorial/fort-partners-buys-tideline-four-seasons-residences-2026-09-20-body-1.jpg"
       },
       {
         "heading": "Could Four Seasons Residences eventually be part of the plan?",
@@ -110,7 +110,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
       {
         "heading": "Why the site is so interesting",
         "body": "The long-term value of the acquisition goes beyond 134 existing hotel rooms. Fort Partners now controls adjoining oceanfront properties in one of South Florida’s most supply-constrained luxury markets, adding beach frontage, hospitality inventory, amenities and land immediately beside an established Four Seasons resort. A future plan could take many forms: continued operation of Tideline as a separate hotel, shared or integrated amenities, a more substantial repositioning, or eventually some form of residential component. Any meaningful redevelopment would be subject to Palm Beach’s zoning, planning and approval process. Editorial image note: the accompanying image is an AI-generated editorial illustration based on the existing resort, not an official redevelopment rendering.",
-        "image": "/assets/editorial/tideline-resort-pool.jpg"
+        "image": "/assets/editorial/fort-partners-buys-tideline-four-seasons-residences-2026-09-20-body-2.jpg"
       },
       {
         "heading": "What we’re watching next",
@@ -141,7 +141,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "relatedProjectSlugs": [],
     "relatedCorridors": [],
     "corridorLabel": "Palm Beach South End",
-    "imagePath": "/assets/editorial/tideline-fort-partners-hero.jpg",
+    "imagePath": "/assets/editorial/fort-partners-buys-tideline-four-seasons-residences-2026-09-20-hero.jpg",
     "sourceLinks": [
       {
         "label": "The Real Deal",

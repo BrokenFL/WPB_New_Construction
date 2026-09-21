@@ -3877,9 +3877,9 @@ export const researchNewsFeed = [
     ],
     "rewrittenSummary": "Mandarin Oriental is still a long-horizon North Flagler option, but interior imagery gives buyers a better read on service tone, finish direction, and whether the brand premium belongs in the same shortlist as Olara, Ritz-Carlton, and Shorecrest.",
     "image": {
-      "path": "/maps/wpb-atlas-map-editorial.svg",
-      "sourceUrl": "/maps/wpb-atlas-map-editorial.svg",
-      "credit": "Source: WPB New Construction map"
+      "path": "",
+      "sourceUrl": "https://storage.googleapis.com/gpt-engineer-file-uploads/HGURIFHGR0MvvJpctSqkT1sGZTv1/social-images/social-1773159211638-M04.SI-816c7ec0.webp",
+      "credit": "Source: Mandarin Oriental Residences, West Palm Beach original project materials"
     },
     "citations": [
       "Florida YIMBY reported on May 18, 2026 that the first interior renderings were revealed for Mandarin Oriental Residences, West Palm Beach.",
@@ -5089,7 +5089,7 @@ export const prerenderRoutes = [
     "path": "/updates/fort-partners-buys-tideline-four-seasons-residences-2026-09-20/",
     "title": "Fort Partners Buys Tideline for $150M. Could Four Seasons Residences Be Next? | WPB Updates",
     "description": "Fort Partners has acquired the Tideline Palm Beach Ocean Resort for $150 million next to its Four Seasons Resort Palm Beach, creating a larger South Ocean Boulevard footprint with intriguing long-term possibilities.",
-    "ogImage": "/assets/editorial/tideline-fort-partners-hero.jpg"
+    "ogImage": "/assets/editorial/fort-partners-buys-tideline-four-seasons-residences-2026-09-20-hero.jpg"
   },
   {
     "path": "/updates/terra-frisbie-20m-west-palm-beach-assemblage-2026-2026-09-15/",
