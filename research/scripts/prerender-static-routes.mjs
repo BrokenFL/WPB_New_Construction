@@ -252,6 +252,9 @@ function renderStaticRouteContent(route, payload) {
   if (route.path === "/buildings/") return renderBuildingsRoute(route, payload);
   if (route.path === "/corridors/") return renderCorridorsIndexRoute(route, payload);
   if (route.path === "/compare/") return renderCompareRoute(route, payload);
+  if (route.path === "/map/") return renderMapRoute(route, payload);
+  if (route.path === "/inquire/") return renderInquiryRoute(route);
+  if (route.path === "/methodology/") return renderMethodologyRoute(route);
   if (route.path === "/about/") return renderAboutRoute(route);
   if (route.path === "/privacy/") return renderPrivacyRoute(route);
   if (route.path === "/floorplans/") return renderFloorplansRoute(route, payload);
@@ -310,7 +313,7 @@ function renderHomeRoute(route, payload) {
     `
       <section>
         <h2>Buyer-ready project directory</h2>
-        <p>Use this site to compare West Palm Beach new-construction condo buildings by corridor, status, floor-plan availability, source confidence, and current buyer verification needs.</p>
+        <p>Explore the buildings, released floor plans, corridors, and current development reporting in one place. Compare the options, then check changing residence details through buyer-side review.</p>
         ${projectCards(projects)}
       </section>
       <section>
@@ -325,6 +328,49 @@ function renderHomeRoute(route, payload) {
       ${renderLatestUpdates(payload)}
     `,
   );
+}
+
+function mapIndexGroups(payload) {
+  const corridors = [
+    ["north-flagler", "North Flagler"],
+    ["downtown", "Downtown"],
+    ["south-flagler", "South Flagler"],
+    ["south-end", "South End"],
+    ["palm-beach", "Palm Beach island"],
+  ];
+  return corridors.map(([key, label]) => ({
+    key,
+    label,
+    projects: payload.projectFacts.filter((project) => corridorKeyForProject(project) === key).sort((a, b) => a.name.localeCompare(b.name)),
+  })).filter((group) => group.projects.length);
+}
+
+function renderMapRoute(route, payload) {
+  const groups = mapIndexGroups(payload);
+  const count = groups.reduce((total, group) => total + group.projects.length, 0);
+  return pageShell("map", "West Palm Beach New Construction Map", route.description, `
+    <section><h2>Location changes the comparison.</h2><p>North Flagler's waterfront towers, South Flagler's quieter residential edge, and Downtown's walkable districts answer different daily priorities. Palm Beach island is a separate, lower-density market. Use the map to narrow the setting, then compare the building and the residence line.</p><nav aria-label="Explore development corridors"><a href="/corridors/north-flagler/">North Flagler</a> · <a href="/corridors/south-flagler/">South Flagler</a> · <a href="/corridors/downtown-west-palm-beach/">Downtown</a> · <a href="/corridors/south-end/">South End</a> · <a href="/corridors/palm-beach/">Palm Beach island</a></nav></section>
+    <section><h2>All ${count} tracked projects.</h2><details class="map-route-index"><summary>Browse by corridor</summary><div class="map-route-index-groups">${groups.map((group) => `<section><h3><a href="${corridorPathForKey(group.key)}">${publicText(group.label)}</a></h3><ul>${group.projects.map((project) => `<li><a href="${projectPath(project)}">${publicText(project.name)}</a></li>`).join("")}</ul></section>`).join("")}</div></details><p><a href="/buildings/">Browse all ${count} tracked buildings</a>.</p></section>
+  `);
+}
+
+function renderInquiryRoute(route) {
+  return pageShell("inquire", "West Palm Beach Condo Buyer Research Desk", route.description, `
+    <section><h2>Start with a better brief.</h2><p>Tell us which buildings or residence lines you are considering. We can check current availability and pricing, compare plans and carrying costs, clarify delivery questions, and plan tours around your priorities.</p><ul><li>Availability</li><li>Residence lines</li><li>Building comparisons</li><li>Tour strategy</li></ul></section>
+    <section><h2>What the advisory packet includes</h2><dl><dt>Current packet</dt><dd>Residence-specific availability, pricing, incentives, delivery, and fees to check against current materials.</dd><dt>Private comparison</dt><dd>Building-by-building notes based on location, views, floor plans, timing, and fit.</dd><dt>Next step</dt><dd>A clean shortlist for packet requests, sales-gallery visits, or deeper negotiation review.</dd></dl><p><a href="/floorplans/">Explore floor plans</a>, <a href="/compare/">compare buildings</a>, or read <a href="/methodology/">how we verify project information</a>.</p></section>
+  `);
+}
+
+function renderMethodologyRoute(route) {
+  return pageShell("methodology", "How We Verify Project Information", route.description, `
+    <section><h2>What counts as reliable before a buyer relies on it.</h2><p>Project pages separate official releases, reported details, and items that require current confirmation. The goal is simple: make the market easier to read before an offer, reservation, or private tour.</p></section>
+    <section><h2>Official</h2><p>Developer, sales, brand, city, lender, or project documents. Used for addresses, residence counts, released floorplans, construction status, and named teams whenever available.</p></section>
+    <section><h2>Reported</h2><p>Trusted local, real-estate, and construction reporting. Useful for momentum, financing, early plans, and context, but not treated as final sales guidance.</p></section>
+    <section><h2>Confirm Before Offer</h2><p>Pricing, incentives, availability, delivery timing, fees, and contract terms. These change quickly and should be confirmed through current buyer-side review before relying on them.</p></section>
+    <section><h2>Refresh Cadence</h2><p>Public facts are refreshed before buyer guidance changes. When project facts change, the page should show what changed, where it came from, and what still needs current confirmation.</p></section>
+    <section><h2>Limits</h2><p>We do not verify legal, tax, lending, engineering, zoning, or investment conclusions. Those decisions should be reviewed with the buyer's attorney, lender, architect, accountant, or other appropriate professional.</p></section>
+    <section><h2>Continue the research</h2><p><a href="/answers/">Read buyer answers</a>, <a href="/projects/olara/">view a project example</a>, or <a href="/inquire/">request current availability</a>.</p></section>
+  `);
 }
 
 function renderBuildingsRoute(route, payload) {
@@ -380,7 +426,6 @@ function renderCorridorsIndexRoute(route, payload) {
 
 function renderCompareRoute(route, payload) {
   const rows = priorityProjectFacts(payload).slice(0, 16);
-  const priorityRows = comparisonAuthorityProjects(payload);
   return pageShell(
     "compare",
     "Compare West Palm Beach New Construction Condos",
@@ -388,7 +433,7 @@ function renderCompareRoute(route, payload) {
     `
       <section>
         <h2>Bottom line</h2>
-        <p>Start with corridor fit, then compare sourced status, delivery language, released floorplan depth, and open verification notes. North Flagler is the main waterfront comparison set, Downtown is the walkability lane, and South Flagler is the quieter waterfront lane. Pricing, incentives, fees, and exact availability should be confirmed from the current buyer packet.</p>
+        <p>Start with corridor fit, then compare project stage, released floor plans, building scale, and the residence itself. The table provides the broad view; the project guides explain where the meaningful differences begin.</p>
       </section>
       <section>
         <h2>Comparison snapshot</h2>
@@ -405,8 +450,12 @@ function renderCompareRoute(route, payload) {
         </ul>
       </section>
       <section>
-        <h2>Priority building comparison</h2>
-        ${renderStaticComparisonTable(payload, priorityRows)}
+        <h2>Focused shortlists</h2>
+        <ul>
+          <li>North Flagler: compare <a href="/projects/olara/">Olara's amenity scale</a>, <a href="/projects/ritz-carlton-wpb/">Ritz-Carlton's service model</a>, and <a href="/projects/shorecrest/">Shorecrest's smaller format</a>.</li>
+          <li>South Flagler: use <a href="/projects/forte-on-flagler/">Forté's delivered residences</a> as a benchmark for <a href="/projects/south-flagler-house/">South Flagler House</a>.</li>
+          <li>Downtown: compare <a href="/projects/mr-c/">Mr. C's hospitality setting</a>, <a href="/projects/nora-house/">Nora House's district position</a>, and <a href="/projects/berkeley/">The Berkeley's practical layouts</a>.</li>
+        </ul>
       </section>
       <section>
         <h2>Buyer verification FAQ</h2>
@@ -430,7 +479,7 @@ function renderAboutRoute(route) {
       <section>
         <h2>Recognized performance with boutique attention</h2>
         <p>Team-supplied RealTrends 2024 materials report a $1.99 million average home price and $32.89 million in annual volume for the team, including an 8th-place Palm Beach volume ranking. Team-supplied 2026 materials report more than $100 million in sales and pending contracts and four Douglas Elliman Ellie Awards distinctions.</p>
-        <p>Public project summaries are starting points only. Pricing, incentives, fees, and exact availability should be confirmed from the current buyer packet before relying on any public listing or development summary.</p>
+        <p>The site's <a href="/methodology/">source methodology</a> explains how published facts, reporting, and changing buyer details are handled.</p>
       </section>
       <section>
         <h2>Work with us</h2>
@@ -569,6 +618,7 @@ function renderProjectRoute(route, payload, slug) {
   const relatedUpdates = payload.approvedNews.filter((item) => relatedProjectIds(item).includes(project.projectId)).slice(0, 4);
   const hasSourcedAmenities = sources.some((href) => /amenit/i.test(href));
   const cleanStatus = facts.status && !facts.status.toLowerCase().includes("candidate") ? facts.status : "Tracked project page";
+  const editorial = payload.projectCopyPackage.find((item) => item.repoProjectId === project.projectId && item.pageTemplate === "editorial-showcase");
 
   return pageShell(
     `project-${slug}`,
@@ -581,13 +631,14 @@ function renderProjectRoute(route, payload, slug) {
         <p>${publicText(project.summary || route.description)}</p>
       </section>
       <section data-project-section="overview">
-        <h2>Bottom line</h2>
-        <p>${publicText(presentation.bottomLine)}</p>
+        <h2>${editorial?.localTake ? "The buyer's read" : "Project context"}</h2>
+        <p>${publicText(editorial?.localTake || presentation.bottomLine)}</p>
+        ${editorial?.bestFor?.length ? `<h3>Best suited to</h3><ul>${editorial.bestFor.slice(0, 3).map((item) => `<li>${publicText(item)}</li>`).join("")}</ul>` : ""}
       </section>
       ${renderPipelineWatchlistStaticNote(project)}
       ${renderProjectTypeContextStatic(project)}
       <section data-project-section="facts">
-        <h2>Key facts to verify</h2>
+        <h2>Published project facts</h2>
         <dl>
           ${factRow("Project address", facts.projectAddress)}
           ${factRow("Sales gallery address", facts.salesGalleryAddress)}
@@ -600,13 +651,10 @@ function renderProjectRoute(route, payload, slug) {
           ${presentation.showFloorplans ? factRow("Floorplans", `${floorplans.count} canonical plans tracked`) : ""}
         </dl>
       </section>
-      <section>
-        <h2>How to use this guide</h2>
-        <p>${publicText(presentation.guideCopy)}</p>
-      </section>
       <section data-project-section="neighborhood">
         <h2>Location and corridor context</h2>
-        <p>${publicText(project.name)} is tracked in the ${publicText(project.area || "West Palm Beach")} lane. Compare this location by daily drive pattern, Palm Beach access, waterfront or downtown orientation, view exposure, parking, and what nearby construction may mean before touring.</p>
+        <p>${publicText(project.name)} is in the ${publicText(project.area || "West Palm Beach")} area. The corridor guide places it alongside nearby alternatives; the map helps compare the setting and access.</p>
+        <p><a href="/map/">Open the building map</a></p>
       </section>
       ${renderProjectCorridorCta(project, payload)}
       <section data-project-section="offering">
@@ -620,7 +668,7 @@ function renderProjectRoute(route, payload, slug) {
       </section>` : ""}
       ${facts.team ? `<section data-project-section="team">
         <h2>Project team</h2>
-        <p>${publicText(facts.team)}. Team credits are included for buyer orientation and should be confirmed against the latest project packet or offering material.</p>
+        <p>${publicText(facts.team)}</p>
       </section>` : ""}
       ${comparisons.length ? `<section data-project-section="local-take">
         <h2>Compare against</h2>
@@ -633,9 +681,15 @@ function renderProjectRoute(route, payload, slug) {
         <p><a href="/inquire/?project=${encodeURIComponent(project.projectId)}&interest=${encodeURIComponent(presentation.interest)}">${publicText(presentation.ctaLabel)}</a></p>
       </section>
 
+      <section data-project-section="verification">
+        <h2>Current availability and buyer verification</h2>
+        <p>${publicText(buyerVerificationForStatic(project))}</p>
+        <p><a href="/methodology/">Read the source methodology</a></p>
+      </section>
+
       <section data-project-section="sources">
         <h2>Sources and review date</h2>
-        <p>Facts on this page were last reviewed ${publicText(project.lastReviewedDate || "recently")}. ${project.projectType === "rental" ? "Rents, concessions, availability, lease terms, and resident policies can change." : "Pricing, availability, incentives, fees, and contract terms can change."}</p>
+        <p>Public facts last reviewed ${publicText(project.lastReviewedDate || "recently")}.</p>
         ${sources.length ? `<p>${sources.map((href) => renderStaticSourceLink(href, project.projectId)).join(" · ")}</p>` : ""}
       </section>
 
@@ -651,6 +705,14 @@ function renderProjectRoute(route, payload, slug) {
       </div>
     `,
   );
+}
+
+function buyerVerificationForStatic(project) {
+  if (project.projectType === "rental") return "Public development materials are the baseline. We check current rents, concessions, availability, policies, and move-in terms against the latest leasing materials.";
+  if (project.projectType === "office") return "Public plans describe the project. Available space, asking terms, parking, and tenant improvements require current leasing materials.";
+  if (project.projectType === "completed-comparable") return "This building is a resale comparison. We check the specific listing, condition, fees, assessments, and seller terms before advising a buyer.";
+  if (project.projectType === "condo-pipeline" || project.projectType === "mixed-use") return "The public concept is the baseline. Approval, sales launch, residence plans, pricing, and delivery need current official confirmation before they can guide a purchase.";
+  return "Published project details set the baseline. We check residence-specific pricing, availability, incentives, fees, plan release, and timing against current materials when advising a buyer.";
 }
 
 function renderProjectTypeContextStatic(project) {
@@ -726,9 +788,9 @@ function staticProjectPresentation(project, floorplans) {
   return {
     ...common,
     identityLabel: project.projectType === "hotel-residences" ? "hotel and residences guide" : "condominium buyer guide",
-    bottomLine: `${project.name} is tracked as a ${location} ${String(project.projectType || "project").replace(/-/g, " ")} profile. Verify current pricing, availability, incentives, fees, floor-plan release status, delivery timing, and contract terms.`,
+    bottomLine: `${project.name} is a ${location} ${String(project.projectType || "project").replace(/-/g, " ")} profile. Compare its setting, project stage, published plans, and nearby alternatives.`,
     offeringHeading: project.projectType === "hotel-residences" ? "Hotel services and private residences" : "Residences and floorplans",
-    offeringCopy: hasFloorplans ? `${floorplans.count} canonical floorplans are tracked for buyer orientation. Confirm current line, stack, exposure, square footage, fees, pricing, and availability.` : "No complete public floorplan packet is confirmed in the current catalog. Request current offering materials before comparing residences.",
+    offeringCopy: hasFloorplans ? `${floorplans.count} public floorplan records are tracked. Open the floorplan library to review the released layouts by building.` : "No complete public floorplan packet is confirmed in the current catalog. Request current offering materials before comparing residences.",
     inquiryHeading: "Buyer inquiry",
     inquiryCopy: "Request the current buyer packet, availability, pricing, fees, floorplans, and project-specific verification notes.",
     ctaLabel: `Ask The Scott Gordon Group about ${project.name}`,
@@ -862,6 +924,7 @@ function renderUpdateRoute(route, payload, slug) {
   const relatedProjects = relatedProjectIds(item)
     .map((projectId) => payload.projectFacts.find((project) => project.projectId === projectId))
     .filter(Boolean);
+  const corridorKeys = [...new Set(relatedProjects.map(corridorKeyForProject))];
   return pageShell(
     `update-${slug}`,
     item.title,
@@ -874,7 +937,8 @@ function renderUpdateRoute(route, payload, slug) {
         ${item.whyItMatters && !isDeckEcho(item.whyItMatters) ? `<section><h2>Why it matters</h2><p>${publicText(stripImageTokens(item.whyItMatters))}</p></section>` : ""}
         ${item.buyerContext && !isDeckEcho(item.buyerContext) ? `<section><h2>Buyer context</h2><p>${publicText(stripImageTokens(item.buyerContext))}</p></section>` : ""}
         ${relatedProjects.length ? `<section><h2>Related project guide</h2><p>${relatedProjects.map((project) => `<a href="${projectPath(project)}">${publicText(project.name)}</a>`).join(" · ")}</p></section>` : ""}
-        <section><h2>Source</h2><p><a href="${safeHref(item.canonicalUrl || item.sourceUrl || "#")}">${publicText(item.sourceName || "Original source")}</a>. Verify current project details before making a purchase decision.</p></section>
+        <section><h2>Continue the research</h2><p>${corridorKeys.length ? corridorKeys.map((key) => `<a href="${corridorPathForKey(key)}">${publicText(corridorLabelForKey(key))} corridor</a>`).join(" · ") : `<a href="/corridors/">Explore the development corridors</a>`} · <a href="/compare/">Compare buildings</a> · <a href="/inquire/">Ask the buyer research desk</a></p></section>
+        <section><h2>Source</h2><p><a href="${safeHref(item.canonicalUrl || item.sourceUrl || "#")}">${publicText(item.sourceName || "Original source")}</a></p></section>
       </article>
     `,
   );
@@ -921,12 +985,11 @@ function renderMarketNoteRoute(route, payload, slug) {
       <article>
         ${hero?.path ? `<figure class="market-note-hero-image"><img src="${safeHref(hero.path)}" alt="${publicText(hero.alt || note?.title || route.title)}" loading="eager" decoding="async" />${hero.caption ? `<figcaption>${publicText(hero.caption)}</figcaption>` : ""}</figure>` : ""}
         <h2>Bottom line</h2>
-        <p>${publicText(note?.excerpt || route.description)} This guide is buyer education, not a substitute for current building-specific pricing, availability, fee, or contract verification.</p>
+        <p>${publicText(note?.excerpt || route.description)}</p>
         <h2>How to use this guidance</h2>
         <p>Use the guidance to frame questions before comparing West Palm Beach buildings. Then check project pages, current floor-plan packets, source-linked updates, and The Scott Gordon Group at Douglas Elliman for the details that can change.</p>
         ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(stripImageTokens(section.body))}</p>${section.image ? `<figure class="market-note-inline-image"><img src="${safeHref(section.image)}" alt="${publicText(`${note?.title || route.title}: ${section.heading}`)}" loading="lazy" decoding="async" /></figure>` : ""}</section>`).join("")}
-        <h2>Verification note</h2>
-        <p>Before touring or relying on a public summary, verify current availability, incentives, carrying costs, square footage, delivery timing, and whether a building's public packet has changed.</p>
+        <p><a href="/methodology/">How changing project information is checked</a></p>
       </article>
     `,
   );
@@ -1290,18 +1353,14 @@ function projectFaqForStatic(project, floorplans) {
   }
   return [
     {
-      question: `What is the bottom line on ${project.name}?`,
-      answer: `${project.name} is a ${project.area || "West Palm Beach"} ${String(project.projectType || "project").replace(/-/g, " ")} profile. Verify current pricing, availability, incentives, fees, square footage, delivery timing, and contract terms before relying on public summaries.`,
+      question: `Where does ${project.name} fit in the market?`,
+      answer: `${project.name} is a ${project.area || "West Palm Beach"} ${String(project.projectType || "project").replace(/-/g, " ")} profile. Compare its corridor, scale, published plans, and project stage with nearby alternatives.`,
     },
     {
       question: `Are floorplans available for ${project.name}?`,
       answer: floorplans?.count
-        ? `${floorplans.count} floorplan records are tracked, but the current buyer packet should control availability, stack, exposure, and pricing.`
+        ? `${floorplans.count} public floorplan records are tracked for ${project.name}. See the floorplan library for the released layouts; ask for the current packet when comparing a specific line.`
         : "No complete public floorplan packet is confirmed in the current catalog. Request the current buyer packet before comparing lines or stacks.",
-    },
-    {
-      question: `What should buyers verify before relying on ${project.name} information?`,
-      answer: "Confirm current pricing or rent, availability, fees, floor-plan release status, delivery timing, and the terms that apply to the specific residence or space.",
     },
   ];
 }
@@ -1382,6 +1441,8 @@ function buildRouteSchema(route, payload, canonical) {
     if (project) routeGraph.push(projectSchema(project, payload));
   } else if (routeKind.type === "corridor") {
     routeGraph.push(itemListSchema(canonical, "Tracked corridor projects", payload.projectFacts.filter((project) => normalize(project.area).includes(normalize(corridorDetails[routeKind.slug]?.label || ""))).map((project) => ({ name: project.name, url: `${baseUrl}${projectPath(project)}` }))));
+  } else if (route.path === "/map/") {
+    routeGraph.push(itemListSchema(canonical, "Buildings in the map guide", mapIndexGroups(payload).flatMap((group) => group.projects).map((project) => ({ name: project.name, url: `${baseUrl}${projectPath(project)}` }))));
   } else if (route.path === "/" || route.path === "/buildings/" || route.path === "/compare/") {
     routeGraph.push(itemListSchema(canonical, "West Palm Beach New Construction Projects", priorityProjectFacts(payload).map((project) => ({ name: project.name, url: `${baseUrl}${projectPath(project)}` }))));
   } else if (route.path === "/floorplans/") {

@@ -7,8 +7,8 @@ export const commercialPages = {
     path: '/',
     title: 'West Palm Beach New Construction Condos | Buildings & Plans',
     heading: 'West Palm Beach, with perspective.',
-    description: 'Explore West Palm Beach new construction condos by waterfront or downtown location. Compare buildings and floor plans, then request current availability.',
-    intro: 'Explore new construction condos, from the Flagler waterfront to downtown. Compare the buildings, understand the plans, and find what fits.',
+    description: 'Research West Palm Beach new construction condos across the market. Compare buildings, floor plans, corridors, and development updates with independent buyer guidance.',
+    intro: 'A citywide view of the buildings, floor plans, corridors, and development news—organized for buyers who want to compare before they commit.',
   },
   buildings: {
     path: '/buildings/',
@@ -56,7 +56,7 @@ export function renderCommercialGuide(page: CommercialPage): string {
       <article><h3>Completed / rental / mixed-use</h3><p>Completed buildings can provide useful comparisons. Rental and mixed-use projects add neighborhood context; they are not automatically new condos for sale.</p><a href="/answers/preconstruction-vs-completed-new-construction-condos-west-palm-beach/">Compare completed and pre-construction options</a></article>`}</div>
     <div class="cg-next"><p>${home ? 'Start with the existing guides for <a href="/projects/olara/">Olara</a> and <a href="/projects/south-flagler-house/">South Flagler House</a>, or browse the full directory.' : 'For buyer fit, compare location, layout, building scale, service expectations and timing. Confirm fees, parking and the latest plan before requesting a residence-specific comparison.'}</p><a class="cg-text-link" href="${home ? '/buildings/' : '/compare/'}">${home ? 'Browse the building directory' : 'Compare buildings side by side'}</a> · <a href="${home ? '/compare/' : '/floorplans/'}">${home ? 'Compare buildings' : 'Browse released floor plans'}</a></div>
     ${home ? '' : '</details>'}
-    <p class="cg-note">Independent buyer research from The Scott Gordon Group. Pricing, availability and offering terms require current confirmation; the research and released plans remain open to browse.</p>
+    <p class="cg-note">Independent buyer research from The Scott Gordon Group. <a href="/methodology/">How we check changing project information</a>.</p>
   </section>`;
 }
 /** Preserve existing graph identities and change only the matching page description. */

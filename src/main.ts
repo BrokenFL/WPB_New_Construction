@@ -2421,7 +2421,7 @@ app.innerHTML = `
         <div class="home-hero-scrim"></div>
         <div class="home-hero-layout">
           <div class="home-hero-content">
-            <p class="hero-kicker">New construction · Independent buyer guidance</p>
+            <p class="hero-kicker">West Palm Beach new construction condos · Independent buyer research</p>
             <h1>
               <span class="home-hero-title-desktop">${escapeHtml(approvedHeroCardOverride?.headline || commercialPages.home.heading)}</span>
             </h1>
@@ -2926,20 +2926,20 @@ app.innerHTML = `
       <div class="route-view route-view-inquiry" data-route-view="inquire" hidden>
       <section class="section inquiry-section" id="inquire">
         <div class="inquiry-copy-panel">
-          <p class="eyebrow">Contact The Scott Gordon Group</p>
-          <h1>Let’s find your fit.</h1>
-          <p>Tell us what matters. We’ll help you compare buildings, review floor plans, and confirm current availability.</p>
+          <p class="eyebrow">The Buyer Research Desk</p>
+          <h1>Start with a better brief.</h1>
+          <p>Tell us which buildings or residence lines you are considering. We can check current availability and pricing, compare plans and carrying costs, clarify delivery questions, and plan tours around your priorities.</p>
           <div class="inquiry-proof-strip" aria-label="What the team will review">
             <span>Availability</span>
-            <span>Floor plans</span>
-            <span>Pricing guidance</span>
-            <span>Fees and parking</span>
+            <span>Residence lines</span>
+            <span>Building comparisons</span>
+            <span>Tour strategy</span>
           </div>
           <div class="inquiry-deliverables" aria-label="What the advisory packet includes">
             <article>
               <span>01</span>
               <strong>Current packet</strong>
-              <small>Availability, pricing guidance, incentives, delivery, and fees to confirm in writing.</small>
+              <small>Residence-specific availability, pricing, incentives, delivery, and fees to check against current materials.</small>
             </article>
             <article>
               <span>02</span>
@@ -3019,7 +3019,7 @@ app.innerHTML = `
           </label>
           <label class="consent-row">
             <input type="checkbox" name="consent" required />
-            <span>By submitting, I consent to be contacted by ${teamProfile.displayName} at ${advisorProfile.brokerage} at the email address or phone number I provided about this real-estate inquiry. This request is for a manual response and is not consent to autodialed, prerecorded, or automated marketing calls or texts. Pricing, availability, incentives, square footage, fees, and delivery dates require current written confirmation.</span>
+            <span>By submitting, I consent to be contacted by ${teamProfile.displayName} at ${advisorProfile.brokerage} at the email address or phone number I provided about this real-estate inquiry. This request is for a manual response and is not consent to autodialed, prerecorded, or automated marketing calls or texts.</span>
           </label>
           <div class="turnstile-slot" data-turnstile-slot aria-label="Spam protection"></div>
           <p class="form-security-note">Protected by Cloudflare Turnstile.</p>
@@ -3034,7 +3034,7 @@ app.innerHTML = `
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
         <p class="source-note">
-          ${advisorProfile.name}, ${advisorProfile.title} (${advisorProfile.license}) · ${advisorProfile.brokerage} (Florida license ${advisorProfile.brokerageLicense}). Pricing, availability, square footage, and delivery timing change frequently and must be confirmed through current buyer-side review before reliance.
+          ${advisorProfile.name}, ${advisorProfile.title} (${advisorProfile.license}) · ${advisorProfile.brokerage} (Florida license ${advisorProfile.brokerageLicense}). <a href="/methodology/">How we verify project information</a>.
         </p>
       </section>
       </div>
@@ -3089,14 +3089,14 @@ app.innerHTML = `
       <div>
         <span>Review Method</span>
         <p>Project facts are separated as official, reported, or confirm-before-offer when sources conflict. <a href="/methodology/">See how we verify.</a></p>
-        <p class="media-disclaimer">Some project images and renderings are sourced from developer or project marketing materials and are shown for buyer reference. Availability, finishes, views, amenities, and project details should be verified before reliance.</p>
+        <p class="media-disclaimer">Project imagery may be illustrative; confirm residence-specific finishes and views against current plans.</p>
       </div>
       <div>
         <span>Contact</span>
         <p>${teamProfile.displayName}<br />${advisorProfile.brokerage} (Florida license ${advisorProfile.brokerageLicense})<br /><a href="${advisorProfile.mobileHref}">${advisorProfile.mobile}</a><br /><a href="mailto:${advisorProfile.email}">${advisorProfile.email}</a></p>
         <p class="footer-links"><a href="/fair-housing/">Fair Housing</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
       </div>
-      <small>Equal Housing Opportunity. Independent buyer advisory context. All pricing, availability, incentives, and delivery dates require current confirmation.</small>
+      <small>Equal Housing Opportunity. Independent buyer research. <a href="/methodology/">How we verify project information</a>.</small>
     </footer>
   </div>
 `;
@@ -4106,7 +4106,7 @@ function routeSeoDetails(
     privacy: "Privacy | WPB New Construction",
     terms: "Terms | WPB New Construction",
     "fair-housing": "Fair Housing | WPB New Construction",
-    inquire: "Contact the Scott Gordon Group | West Palm Beach Luxury New Construction",
+    inquire: "West Palm Beach Condo Buyer Research Desk | Inquiry",
   };
   const projectSchemaFacts = activeProject ? getSchemaSafeProjectFacts(activeProject.id) : undefined;
   const projectMarketSuffix = activeProject?.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
@@ -4476,9 +4476,9 @@ function updateMetaDescription(routeType: string, activeProject?: FeaturedProjec
 
 function metaDescriptionForRoute(routeType: string) {
   const descriptions: Record<string, string> = {
-    home: "Browse West Palm Beach luxury new-construction condos across Palm Beach, West Palm Beach, and Wellington with corridor guides, floor plans, and buyer comparison notes.",
+    home: "Research West Palm Beach new-construction condos by building, released floor plan, corridor, and development update with independent buyer guidance.",
     buildings: "Compare West Palm Beach luxury new-construction condos by corridor, pricing checks, floor plans, delivery timing, amenities, and waterfront position.",
-    map: "Map West Palm Beach new-construction condo projects by North Flagler, Downtown, and South Flagler corridor context.",
+    map: "Explore West Palm Beach new-construction buildings by map, corridor, and project guide, from North and South Flagler to Downtown and Palm Beach island.",
     corridors: "Choose between South Flagler, North Flagler, and Downtown West Palm Beach luxury new-construction condo corridors by lifestyle, waterfront position, and buyer fit.",
     compare: "Compare West Palm Beach luxury new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
     about: aboutPageDescription,
@@ -4493,7 +4493,7 @@ function metaDescriptionForRoute(routeType: string) {
     privacy: "Privacy information for WPB New Construction inquiry forms, Douglas Elliman policy references, and buyer lead handling.",
     terms: "Terms and limitations for WPB New Construction buyer guidance, project information, and advisory content.",
     "fair-housing": "Equal Housing Opportunity and fair housing disclosure for WPB New Construction buyer advisory content.",
-    inquire: "Contact The Scott Gordon Group for current West Palm Beach luxury new-construction availability, floor plans, pricing guidance, and private buyer comparison notes.",
+    inquire: "Ask the buyer research desk for current availability, pricing checks, residence-line comparisons, delivery context, and tour strategy in West Palm Beach.",
     project: "West Palm Beach luxury new-construction project profile with facts, floor plans, source links, and buyer guidance.",
   };
   return descriptions[routeType] ?? siteMeta.description;
@@ -4679,7 +4679,7 @@ function pageSchemaName(routeType: string) {
     privacy: "Privacy",
     terms: "Terms",
     "fair-housing": "Fair Housing",
-    inquire: "Contact The Scott Gordon Group",
+    inquire: "West Palm Beach Condo Buyer Research Desk",
   };
   return labels[routeType] ?? "WPB New Construction";
 }
@@ -5551,6 +5551,10 @@ function renderProjectMapFallback() {
 }
 
 function renderMapRouteView() {
+  const mapIndexGroups = corridorSections.map((section) => ({
+    ...section,
+    projects: featuredProjects.filter((project) => project.corridorKey === section.key).sort((a, b) => a.name.localeCompare(b.name)),
+  })).filter((group) => group.projects.length);
   return `
     <div class="route-view route-view-map" data-route-view="map" hidden>
       <section class="map-route-page" aria-label="Interactive West Palm Beach building map">
@@ -5576,6 +5580,29 @@ function renderMapRouteView() {
               <span>tracked buildings and developments</span>
             </div>
           </aside>
+        </div>
+        <div class="map-route-research" aria-label="Map reading guide">
+          <div>
+            <p class="eyebrow">Read the city</p>
+            <h2>Location changes the comparison.</h2>
+            <p>North Flagler's waterfront towers, South Flagler's quieter residential edge, and Downtown's walkable districts answer different daily priorities. Palm Beach island is a separate, lower-density market. Use the map to narrow the setting, then compare the building and the residence line.</p>
+            <nav aria-label="Explore development corridors">
+              <a href="/corridors/north-flagler/">North Flagler</a>
+              <a href="/corridors/south-flagler/">South Flagler</a>
+              <a href="/corridors/downtown-west-palm-beach/">Downtown</a>
+              <a href="/corridors/south-end/">South End</a>
+              <a href="/corridors/palm-beach/">Palm Beach island</a>
+            </nav>
+          </div>
+          <div>
+            <p class="eyebrow">Project index</p>
+            <h2>All ${featuredProjects.length} tracked projects.</h2>
+            <details class="map-route-index">
+              <summary>Browse by corridor</summary>
+              <div class="map-route-index-groups">${mapIndexGroups.map((group) => `<section><h3><a href="${corridorPath(group.key)}">${escapeHtml(group.label)}</a></h3><ul>${group.projects.map((project) => `<li><a href="${projectPath(project)}">${escapeHtml(project.name)}</a></li>`).join("")}</ul></section>`).join("")}</div>
+            </details>
+            <a class="map-route-all-link" href="/buildings/">Browse all ${featuredProjects.length} tracked buildings <span aria-hidden="true">→</span></a>
+          </div>
         </div>
       </section>
     </div>
@@ -6853,14 +6880,14 @@ function renderMapControls() {
   const skipped = skippedMapProjects(rankedFeaturedProjects);
   return `
     <div class="map-route-controls" data-map-controls>
-      <div class="map-filter-group" aria-label="Filter map by corridor">
+      <div class="map-filter-group" role="group" aria-label="Filter map by corridor">
         <span>Corridor</span>
         <div>
           ${renderMapFilterButton("corridor", "all", "All corridors", true)}
           ${corridorSections.map((section) => renderMapFilterButton("corridor", section.key, corridorDisplayLabel(section.key))).join("")}
         </div>
       </div>
-      <div class="map-filter-group" aria-label="Filter map by project status">
+      <div class="map-filter-group" role="group" aria-label="Filter map by project status">
         <span>Status</span>
         <div>
           ${renderMapFilterButton("status", "all", "All stages", true)}
@@ -8273,7 +8300,14 @@ export function renderProjectMissingInfoPanel(project: FeaturedProject) {
   `;
 }
 
-function renderProjectBuyerLens(copy: ProjectCopyPackage) {
+function buyerVerificationCopy(project: FeaturedProject) {
+  if (project.projectType === "rental") return "Public development materials are the baseline. We check current rents, concessions, availability, policies, and move-in terms against the latest leasing materials.";
+  if (project.projectType === "completed-comparable") return "This building is a resale comparison. We check the specific listing, condition, fees, assessments, and seller terms before advising a buyer.";
+  if (project.projectType === "condo-pipeline" || project.projectType === "mixed-use") return "The public concept is the baseline. Approval, sales launch, residence plans, pricing, and delivery need current official confirmation before they can guide a purchase.";
+  return "Published project details set the baseline. We check residence-specific pricing, availability, incentives, fees, plan release, and timing against current materials when advising a buyer.";
+}
+
+function renderProjectBuyerLens(project: FeaturedProject, copy: ProjectCopyPackage) {
   return `
     <section class="section project-buyer-lens" aria-label="Scott Gordon Group buyer lens">
       <div class="section-heading">
@@ -8295,9 +8329,9 @@ function renderProjectBuyerLens(copy: ProjectCopyPackage) {
           <p>Compare corridor, project type, delivery timing, residence scale, floor-plan depth, service model, and carrying costs against the buyer's actual shortlist.</p>
         </article>
         <article>
-          <span>Information status</span>
-          <p>Pricing, availability, incentives, fees, delivery timing, and contract terms should be confirmed from the current buyer packet.</p>
-          <small>Project details continue to be monitored.</small>
+          <span>Current availability</span>
+          <p>${publicText(buyerVerificationCopy(project))}</p>
+          <small><a href="/methodology/">How this research is checked</a></small>
         </article>
       </div>
     </section>
@@ -8686,7 +8720,7 @@ function renderTechnicalDisclosuresSection(project: FeaturedProject, draft: Proj
           </svg>
         </summary>
         <div class="disclosures-content">
-          <p class="disclosures-intro">This profile uses public project information reviewed ${publicText(sourceFact?.lastReviewedDate || "recently")}. Confirm live inventory and transaction terms before making a decision.</p>
+          <p class="disclosures-intro">Public project information last reviewed ${publicText(sourceFact?.lastReviewedDate || "recently")}. The source links and open project-specific questions are below.</p>
           <div class="disclosures-grid">
             ${needed.length > 0 ? `
               <div>
@@ -8965,6 +8999,25 @@ function berkeleyIcon(name: string) {
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name] ?? paths.residence}</svg>`;
 }
 
+function renderShowcaseBuyerRead(project: FeaturedProject, copyPackage?: ProjectCopyPackage) {
+  if (!copyPackage?.localTake) return "";
+  const bestFor = (copyPackage.bestFor ?? []).slice(0, 3);
+  return `
+    <section class="berkeley-buyer-read" data-project-section="local-take" aria-label="Buyer read for ${escapeHtml(project.name)}">
+      <div>
+        <p class="berkeley-kicker">The buyer's read</p>
+        <h2>What to weigh at ${publicText(project.name)}.</h2>
+        <p>${publicText(copyPackage.localTake)}</p>
+      </div>
+      <aside>
+        ${bestFor.length ? `<p class="berkeley-kicker">Best suited to</p><ul>${bestFor.map((item) => `<li>${publicText(item)}</li>`).join("")}</ul>` : ""}
+        <p class="berkeley-verification-copy">${publicText(buyerVerificationCopy(project))}</p>
+        <a href="/methodology/">How we verify <span aria-hidden="true">→</span></a>
+      </aside>
+    </section>
+  `;
+}
+
 function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackage?: ProjectCopyPackage) {
   const showcase = copyPackage?.showcase;
   const floorplanProject = getFloorplanProject(project.id);
@@ -9069,6 +9122,8 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
         ${rules.showFloorplans ? renderProjectFloorplanHubLink(project, floorplanProject) : ""}
       </section>
 
+      ${renderShowcaseBuyerRead(project, copyPackage)}
+
       ${visualBreak ? `<figure class="berkeley-patio-break"><img src="${safeHref(visualBreak.src)}" alt="${publicText(visualBreak.alt ?? `${project.name} ${visualBreak.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 
       ${residences.length ? `<section class="berkeley-residence-section" id="berkeley-residences" data-project-section="residences">
@@ -9114,8 +9169,6 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       ${renderProjectCorridorCta(project)}
 
       ${teamFacts.length ? `<section class="berkeley-team-section" data-project-section="team" aria-label="Project team"><p>${teamFacts.map((fact) => `<span><small>${escapeHtml(fact.label)}:</small> ${publicText(fact.value)}</span>`).join("")}</p></section>` : ""}
-
-      <section class="berkeley-brooke-card" data-project-section="local-take" aria-label="Local take"><div><p class="berkeley-kicker">Local Take</p><p>${publicText(copyPackage?.localTake ?? copyPackage?.brookeTake ?? project.summary)}</p></div><div class="berkeley-brooke-profile"><div><h3>The Scott Gordon Group</h3><p>Douglas Elliman</p></div></div><ul><li>${advisorProfile.mobile}</li><li>${advisorProfile.email}</li><li>wpbnewconstruction.com</li></ul></section>
 
       <section class="brochure-research-contact" id="project-contact-${project.id}" data-project-section="inquiry">
         <div class="brochure-research-panel"><p class="berkeley-kicker">${rules.resourceLabel}</p><h2>${rules.resourceHeading}</h2><p>${rules.resourceCopy}</p></div>
@@ -9254,7 +9307,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
       ${renderProjectEntityBrief(project, floorplanProject, copyPackage)}
       ${renderProjectTypeContext(project)}
       ${renderProjectCorridorCta(project)}
-      ${copyPackage ? renderProjectBuyerLens(copyPackage) : ""}
+      ${copyPackage ? renderProjectBuyerLens(project, copyPackage) : ""}
 
       <section class="brochure-module brochure-residences-module ${!residencesImage ? 'no-feature-image' : ''}" id="overview-${project.id}" data-project-section="residences">
         <div class="brochure-module-copy">
@@ -9730,7 +9783,7 @@ function renderDeveloperImageDisclaimer(project?: FeaturedProject) {
     return `<p class="media-disclaimer">Illustrative views of the proposed 464 Fern design. The project remains in municipal review; final architecture, amenities, and surroundings may change.</p>`;
   }
   return `
-    <p class="media-disclaimer">Some project images and renderings are sourced from developer or project marketing materials and are shown for buyer reference. Availability, finishes, views, amenities, and project details should be verified before reliance.</p>
+    <p class="media-disclaimer">Some project images and renderings are sourced from developer or project marketing materials. Finishes and views may differ by residence; confirm against current plans.</p>
   `;
 }
 
