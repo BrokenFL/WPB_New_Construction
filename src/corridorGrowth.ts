@@ -52,8 +52,8 @@ export function installCorridorGrowth() {
     const parsed = parseCorridorContext(context);
     if (!parsed || corridorGrowthForPath(location.pathname) !== parsed.key || link.pathname !== '/inquire/' || link.origin !== location.origin) return;
     const label = corridorActionLabels[parsed.intent];
-    rememberLeadAttribution({ cta_context: context, cta_label: label, cta_location: `corridor-${parsed.key}-intro`, corridor: parsed.key }, { replaceRequest: true });
-    track('cta_click', { path: corridorGrowthPages[parsed.key].path, pageType: 'corridor', corridor: parsed.key, ctaText: label, location: `corridor-${parsed.key}-intro`, leadCaptureContext: context });
+    rememberLeadAttribution({ cta_context: context, cta_label: label, cta_location: `corridor-${parsed.key}-shortlist`, corridor: parsed.key }, { replaceRequest: true });
+    track('cta_click', { path: corridorGrowthPages[parsed.key].path, pageType: 'corridor', corridor: parsed.key, ctaText: label, location: `corridor-${parsed.key}-shortlist`, leadCaptureContext: context });
     // A native clean inquiry navigation must not be overwritten by generic CTA attribution.
     event.stopImmediatePropagation();
   }, true);
