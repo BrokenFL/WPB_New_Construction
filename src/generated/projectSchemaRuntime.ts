@@ -239,15 +239,19 @@ export const generatedProjectSchemaFacts = [
     "identity": {
       "slug": "fern-and-gardenia-related-ross-fern-street",
       "route": "/projects/fern-and-gardenia-related-ross-fern-street/",
-      "displayName": "Fern & Gardenia / Related Ross Fern Street Project",
+      "displayName": "Residences at 464 Fern Street",
       "corridor": "Downtown",
       "url": "https://www.wpbnewconstruction.com/projects/fern-and-gardenia-related-ross-fern-street/"
     },
     "safeFields": {
-      "name": "Fern & Gardenia / Related Ross Fern Street Project",
+      "name": "Residences at 464 Fern Street",
       "route": "/projects/fern-and-gardenia-related-ross-fern-street/",
       "url": "https://www.wpbnewconstruction.com/projects/fern-and-gardenia-related-ross-fern-street/",
-      "corridor": "Downtown"
+      "corridor": "Downtown",
+      "status": "Proposed / Municipal Review",
+      "delivery": "Not announced",
+      "residenceCount": "194",
+      "address": "464 Fern Street, West Palm Beach, FL 33401"
     }
   },
   {

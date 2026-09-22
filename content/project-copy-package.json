@@ -3431,111 +3431,183 @@
     "copyConfidence": "low-medium"
   },
   {
-    "slug": "fern-gardenia-related-ross-fern-street-project",
-    "repoProjectId": "fern-gardenia",
-    "heroHeadline": "A Downtown Pipeline Project Worth Watching",
-    "heroSubheadline": "The Fern & Gardenia / Related Ross Fern Street project is a downtown West Palm Beach pipeline project note tied to a possible condo-tower repositioning from an earlier mixed-use apartment plan.",
-    "overview": "This project belongs in the pipeline / announced / watchlist group. It should be described cautiously because the public notes include an evolution from a prior apartment-oriented mixed-use plan toward a possible 100-130 unit condominium tower.",
+    "slug": "fern-and-gardenia-related-ross-fern-street",
+    "repoProjectId": "fern-and-gardenia-related-ross-fern-street",
+    "heroHeadline": "A New Downtown Proposal at 464 Fern",
+    "heroSubheadline": "A 25-story Related Ross proposal brings 194 residences to one of downtown West Palm Beach’s large remaining development sites.",
+    "overview": "Residences at 464 Fern Street is a proposed 25-story residential tower designed by Roger Ferris + Partners. The approximately 316-foot plan for the 2.64-acre site includes 194 residences, ground-floor commercial space, and a multi-level parking podium. It remains in municipal review.",
     "quickFacts": [
       {
         "label": "Address",
-        "value": "401 S Dixie Highway / 418 & 464 Fern Street, West Palm Beach, FL"
+        "value": "464 Fern Street, West Palm Beach, FL 33401"
       },
       {
         "label": "Status",
-        "value": "Pipeline / Announced"
+        "value": "Proposed / Municipal Review"
       },
       {
         "label": "Developer",
-        "value": "Related Ross; Wexford; 13th Floor Investments; L&L Holding"
+        "value": "Related Ross"
       },
       {
-        "label": "Design",
-        "value": "Not yet publicly confirmed."
+        "label": "Architect",
+        "value": "Roger Ferris + Partners"
       },
       {
         "label": "Residences",
-        "value": "100-130 condominium units proposed in later repositioning; prior plan referenced 340 apartments"
+        "value": "194 proposed"
       },
       {
-        "label": "Floors",
+        "label": "Stories",
         "value": "25"
       },
       {
-        "label": "Price Range",
-        "value": "Not yet publicly confirmed."
+        "label": "Approximate height",
+        "value": "316 feet"
       },
       {
-        "label": "Delivery",
-        "value": "Not yet publicly confirmed."
-      },
-      {
-        "label": "Size Range",
-        "value": "Not yet publicly confirmed."
+        "label": "Site",
+        "value": "2.64 acres"
       },
       {
         "label": "Bedrooms",
-        "value": "Not yet publicly confirmed."
+        "value": "2–4 proposed"
+      },
+      {
+        "label": "Commercial space",
+        "value": "4,343 sq ft proposed"
+      },
+      {
+        "label": "Parking",
+        "value": "486 proposed spaces; some mechanical"
+      },
+      {
+        "label": "Pricing",
+        "value": "Not released"
+      },
+      {
+        "label": "Delivery",
+        "value": "Not announced"
       }
     ],
-    "residences": "Residence details are not yet publicly confirmed. Available materials support a later reported 100-130 unit condominium concept, but layouts, sizes, bedrooms, terrace details, finishes, and penthouse information remain unavailable.",
-    "amenities": "The prior plan referenced a mixed-use program with apartments and commercial space. Current condo-specific amenities and services are not yet public.",
-    "location": "The site is in the downtown West Palm Beach / Fern Street corridor, near the broader CityPlace and South Dixie activity zone. This is a more urban, walkable lifestyle than the Flagler waterfront projects.",
-    "localTake": "This is a watch the repositioning project. If it becomes a true luxury condo tower, it could be very relevant for downtown buyers. Until then, handle it cautiously.",
+    "residences": "The filed plan calls for 194 residences with two- to four-bedroom layouts. Unit sizes, finish specifications, floorplans, pricing, and sales timing have not been released.",
+    "amenities": "The proposal groups a lap pool, outdoor bar, landscaped areas, fitness center, and game room on the fifth floor. The landscaped deck caps a rounded, perforated-screen parking podium.",
+    "location": "The 2.64-acre site is in downtown West Palm Beach at Fern Street and South Dixie Highway. The plan shows a landscaped garden plaza and public art along South Dixie.",
+    "localTake": "This is a meaningful new proposal for a large downtown block. Roger Ferris + Partners also designs nearby Shorecrest, but 464 Fern remains its own municipal-review plan. Watch the approvals and street-level design before treating the 194-residence program or amenities as final.",
     "tradeoffs": [
-      "Early-stage / repositioning details may change.",
-      "Prior plan referenced 340 apartments, not condos.",
-      "Current condo count is reported as 100-130 units.",
-      "Final amenities, pricing, timing, and approvals remain unclear.",
-      "Human review is required."
+      "Municipal approvals remain outstanding.",
+      "Pricing, sales timing, delivery, and final residence specifications have not been announced.",
+      "The earlier Fern & Gardenia / Arquitectonica proposal is superseded by this plan."
     ],
-    "confidenceNote": "Confidence is medium. Include as pipeline / watchlist with cautious language and preserve the apartment-to-condo repositioning history.",
-    "seoTitle": "Fern & Gardenia West Palm Beach | Downtown Pipeline Project",
-    "metaDescription": "Fern & Gardenia / Related Ross Fern Street is a downtown pipeline project reportedly repositioned from apartments toward a condo tower.",
-    "badge": "Pipeline / Announced",
+    "confidenceNote": "Current June 2026 plan is supported by Brooke-provided project details and August 2026 reporting; final approval and offering details remain unconfirmed.",
+    "seoTitle": "Residences at 464 Fern Street | Downtown West Palm Beach",
+    "metaDescription": "Explore the proposed 25-story, 194-residence Related Ross tower at 464 Fern Street, its Roger Ferris + Partners design, amenities, and municipal-review status.",
+    "badge": "Proposed / Municipal Review",
     "tags": [
       "downtown",
       "fern-street",
-      "pipeline",
-      "watchlist",
       "related-ross",
-      "condo-repositioning",
-      "mixed-use",
-      "cityplace",
-      "human-review-required"
+      "roger-ferris",
+      "proposed",
+      "municipal-review"
     ],
-    "introHeadline": "A Downtown Pipeline Project Worth Watching",
-    "introDek": "The Fern & Gardenia / Related Ross Fern Street project is a downtown West Palm Beach pipeline project note tied to a possible condo-tower repositioning from an earlier mixed-use apartment plan.",
-    "brookeTake": "This is a watch the repositioning project. If it becomes a true luxury condo tower, it could be very relevant for downtown buyers. Until then, handle it cautiously.",
+    "introHeadline": "A new chapter for Fern Street",
+    "introDek": "Related Ross proposes 194 residences, ground-floor commercial space, and a landscaped fifth-floor amenity deck at 464 Fern Street. The plan remains under city review.",
+    "brookeTake": "Track the approval process, final residence plans, and how the ground floor meets South Dixie before making a buying decision.",
     "bestFor": [
-      "Downtown pipeline tracking",
-      "Buyers monitoring future condo inventory near CityPlace and Fern Street",
-      "Buyers interested in walkable urban West Palm Beach",
-      "Investors tracking future downtown luxury supply"
+      "Downtown buyers tracking future supply",
+      "Readers following Related Ross projects",
+      "Buyers comparing walkable urban locations"
     ],
     "signatureFeatures": [
-      "Residences: 100-130 condominium units proposed in later repositioning; prior plan referenced 340 apartments",
-      "Floors: 25",
-      "Price Range: Not yet publicly confirmed.",
-      "Delivery: Not yet publicly confirmed.",
-      "Bedrooms: Not yet publicly confirmed."
+      "25 stories and approximately 316 feet proposed",
+      "194 residences in two- to four-bedroom layouts",
+      "4,343 sq ft of ground-floor commercial space",
+      "486 podium parking spaces, including mechanical systems",
+      "Fifth-floor lap pool, outdoor bar, fitness center, and game room"
     ],
-    "amenityNarrative": "The prior plan referenced a mixed-use program with apartments and commercial space. Current condo-specific amenities and services are not yet public.",
-    "residenceNarrative": "Residence details are not yet publicly confirmed. Available materials support a later reported 100-130 unit condominium concept, but layouts, sizes, bedrooms, terrace details, finishes, and penthouse information remain unavailable.",
-    "locationNarrative": "The site is in the downtown West Palm Beach / Fern Street corridor, near the broader CityPlace and South Dixie activity zone. This is a more urban, walkable lifestyle than the Flagler waterfront projects.",
-    "buyerComparisonNotes": "Downtown pipeline tracking Buyers monitoring future condo inventory near CityPlace and Fern Street Buyers interested in walkable urban West Palm Beach Investors tracking future downtown luxury supply Early-stage / repositioning details may change. Prior plan referenced 340 apartments, not condos. Current condo count is reported as 100-130 units. Final amenities, pricing, timing, and approvals remain unclear. Human review is required.",
-    "projectTeamNarrative": "Developer: Related Ross; Wexford; 13th Floor Investments; L&L Holding Design: Not yet publicly confirmed.",
+    "amenityNarrative": "The proposed fifth floor concentrates a lap pool, outdoor bar, landscaped areas, fitness center, and game room above the perforated parking podium. These amenities are plans, not completed facilities.",
+    "residenceNarrative": "The June 2026 submission proposes 194 two- to four-bedroom residences in an approximately 316-foot, 25-story tower. Predominantly glass elevations are framed by white horizontal floor plates and vertical bands; rounded corners lead to stacked curved terraces. The rounded, perforated-screen parking podium holds 486 proposed spaces, some mechanical, and supports a landscaped fifth-floor deck with a lap pool, outdoor bar, fitness center, and game room. Floorplans, finishes, prices, and sales timing are not yet available.",
+    "locationNarrative": "Related Ross acquired the 2.64-acre downtown site for $55 million in May 2026. At Fern Street and South Dixie Highway, the current ground-floor plan combines a residential lobby and drop-off with 4,343 square feet of commercial space, a landscaped garden plaza, and public art facing South Dixie. The unbuilt 2022 Arquitectonica proposal under the previous ownership group is superseded by this plan.",
+    "buyerComparisonNotes": "Compare this municipal-review proposal with current downtown buildings by timing, floorplans, walkability, and the eventual street-level design. Do not use the older 2022 rental plan as the current program.",
+    "projectTeamNarrative": "Related Ross is the current developer and Roger Ferris + Partners is the architect. The prior unbuilt 2022 proposal was designed by Arquitectonica under earlier ownership.",
     "sourceNotes": [
-      "Confidence is medium. Include as pipeline / watchlist with cautious language and preserve the apartment-to-condo repositioning history.",
-      "Early-stage / repositioning details may change.",
-      "Prior plan referenced 340 apartments, not condos.",
-      "Current condo count is reported as 100-130 units.",
-      "Final amenities, pricing, timing, and approvals remain unclear.",
-      "Human review is required."
+      "June 2026 plan remains in municipal review.",
+      "The unbuilt 2022 Fern & Gardenia-era proposal is superseded.",
+      "Images supplied by Brooke are AI-generated editorial illustrations based on the proposed design, not official Related Ross renderings."
     ],
-    "sourceUrls": [],
-    "lastCopyResearchDate": "2026-05-28",
-    "copyConfidence": "medium"
+    "sourceUrls": [
+      "https://floridayimby.com/2026/08/plans-filed-for-25-story-residences-at-464-fern-street-in-downtown-west-palm-beach.html",
+      "https://floridiandevelopment.com/related-ross-unveils-plans-for-residences-at-464-fern-street-featuring-194-units/"
+    ],
+    "lastCopyResearchDate": "2026-09-22",
+    "copyConfidence": "medium-high",
+    "structuredDetails": [
+      {
+        "name": "Proposed height",
+        "value": "Approximately 316 feet"
+      },
+      {
+        "name": "Site area",
+        "value": "2.64 acres"
+      },
+      {
+        "name": "Proposed floor count",
+        "value": "25 stories"
+      },
+      {
+        "name": "Proposed layouts",
+        "value": "194 residences with two- to four-bedroom plans"
+      },
+      {
+        "name": "Proposed commercial area",
+        "value": "4,343 square feet at ground level"
+      },
+      {
+        "name": "Proposed parking",
+        "value": "486 spaces in a multi-level podium, including mechanical parking systems"
+      },
+      {
+        "name": "Proposed fifth-floor amenities",
+        "value": "Lap pool, outdoor bar, landscaped areas, fitness center, and game room"
+      },
+      {
+        "name": "Proposed ground floor",
+        "value": "Residential lobby and drop-off, commercial space, landscaped garden plaza, and public art along South Dixie Highway"
+      },
+      {
+        "name": "Exterior design",
+        "value": "Glass facade with white horizontal floor plates and vertical bands, rounded corners, and stacked curved terraces"
+      },
+      {
+        "name": "Parking podium design",
+        "value": "Rounded perforated-screen volume capped by a landscaped amenity deck"
+      },
+      {
+        "name": "Current developer",
+        "value": "Related Ross"
+      },
+      {
+        "name": "Architect",
+        "value": "Roger Ferris + Partners"
+      },
+      {
+        "name": "Site acquisition",
+        "value": "Related Ross acquired the site for $55 million in May 2026"
+      },
+      {
+        "name": "Municipal filing",
+        "value": "Submitted to the West Palm Beach Plans and Plats Review Committee in June 2026; still under review"
+      },
+      {
+        "name": "Prior proposal",
+        "value": "An unbuilt 2022 Arquitectonica scheme under 13th Floor Investments, Wexford Real Estate Investors, and L&L Holding Company was superseded"
+      },
+      {
+        "name": "Related design work",
+        "value": "Roger Ferris + Partners is also designing Shorecrest for Related Ross nearby"
+      }
+    ]
   },
   {
     "slug": "rybovich-marina-redevelopment",
@@ -4888,15 +4960,42 @@
     "heroSubheadline": "Approved and announced, with sales, pricing, delivery, and final offering details still unreleased.",
     "overview": "Apogee Residences is an approved North Flagler waterfront proposal at 4906 North Flagler Drive. The current reviewed record describes 39 residences across 21 floors by Related Group with Sieger Suarez Architects, while earlier reporting described a different 46-residence, 25-story plan. That earlier plan remains visible as a review item rather than being silently discarded.",
     "quickFacts": [
-      { "label": "Address", "value": "4906 North Flagler Drive, West Palm Beach, FL 33407" },
-      { "label": "Status", "value": "Approved / Announced" },
-      { "label": "Residences", "value": "39 in the current reviewed plan; earlier reporting cited 46" },
-      { "label": "Floors", "value": "21 in the current reviewed plan; earlier reporting cited 25" },
-      { "label": "Buildings", "value": "1" },
-      { "label": "Parking", "value": "99 spaces in the approved plan" },
-      { "label": "Waterfront", "value": "Direct Intracoastal frontage" },
-      { "label": "Delivery", "value": "Timing not released" },
-      { "label": "Pricing", "value": "Not publicly released" }
+      {
+        "label": "Address",
+        "value": "4906 North Flagler Drive, West Palm Beach, FL 33407"
+      },
+      {
+        "label": "Status",
+        "value": "Approved / Announced"
+      },
+      {
+        "label": "Residences",
+        "value": "39 in the current reviewed plan; earlier reporting cited 46"
+      },
+      {
+        "label": "Floors",
+        "value": "21 in the current reviewed plan; earlier reporting cited 25"
+      },
+      {
+        "label": "Buildings",
+        "value": "1"
+      },
+      {
+        "label": "Parking",
+        "value": "99 spaces in the approved plan"
+      },
+      {
+        "label": "Waterfront",
+        "value": "Direct Intracoastal frontage"
+      },
+      {
+        "label": "Delivery",
+        "value": "Timing not released"
+      },
+      {
+        "label": "Pricing",
+        "value": "Not publicly released"
+      }
     ],
     "residences": "The current reviewed proposal calls for 39 waterfront residences in a single 21-floor building. Unit mix, bedroom counts, sizes, floor plans, finish specifications, parking allocations, storage, and residence-specific outdoor space have not been publicly released.",
     "amenities": "Planning coverage has referenced a waterfront pool and private-elevator concept. The final amenity, wellness, service, and common-area program requires current project materials.",
@@ -4911,7 +5010,14 @@
     "seoTitle": "Apogee Residences West Palm Beach | North Flagler Watch",
     "metaDescription": "Track Apogee Residences, an approved 39-residence North Flagler waterfront proposal at 4906 North Flagler Drive in West Palm Beach.",
     "badge": "Approved / Announced",
-    "tags": ["north-flagler", "waterfront", "intracoastal", "low-density", "approved", "pipeline"],
+    "tags": [
+      "north-flagler",
+      "waterfront",
+      "intracoastal",
+      "low-density",
+      "approved",
+      "pipeline"
+    ],
     "introHeadline": "Low density on the North Flagler waterfront.",
     "introDek": "An approved 39-residence proposal with its sales program and final offering details still ahead.",
     "brookeTake": "This is a scale story first: a 39-residence plan on direct Intracoastal frontage. Buyers should track it beside Alba, Mandarin Oriental, and future Rybovich inventory, while treating the earlier 46-residence version as an unresolved planning-history issue.",
@@ -4954,18 +5060,46 @@
       },
       "intro": "Apogee Residences brings a lower-density proposition to North Flagler: 39 planned homes in the current reviewed 21-floor concept by Related Group. The project is approved and announced, but buyers are still waiting for public sales materials, detailed residence plans, pricing, delivery timing, and the final operating program.",
       "heroTags": [
-        { "label": "Status", "value": "Approved / Announced" },
-        { "label": "Corridor", "value": "North Flagler" },
-        { "label": "Stage", "value": "Watch Page" }
+        {
+          "label": "Status",
+          "value": "Approved / Announced"
+        },
+        {
+          "label": "Corridor",
+          "value": "North Flagler"
+        },
+        {
+          "label": "Stage",
+          "value": "Watch Page"
+        }
       ],
       "factStrip": [
-        { "icon": "residence", "label": "Residences", "value": "39 Current Plan" },
-        { "icon": "stories", "label": "Floors", "value": "21 Current Plan" },
-        { "icon": "waterfront", "label": "Waterfront", "value": "Intracoastal" },
-        { "icon": "status", "label": "Sales", "value": "Not Launched" }
+        {
+          "icon": "residence",
+          "label": "Residences",
+          "value": "39 Current Plan"
+        },
+        {
+          "icon": "stories",
+          "label": "Floors",
+          "value": "21 Current Plan"
+        },
+        {
+          "icon": "waterfront",
+          "label": "Waterfront",
+          "value": "Intracoastal"
+        },
+        {
+          "icon": "status",
+          "label": "Sales",
+          "value": "Not Launched"
+        }
       ],
       "monogram": "A",
-      "titleLines": ["Apogee", "Residences"],
+      "titleLines": [
+        "Apogee",
+        "Residences"
+      ],
       "visualBreak": {
         "src": "/assets/projects/apogee-residences-wpb/amenities/apogee-residences-wpb-amenities-landscaped-arrival-v01.webp",
         "label": "Landscaped Arrival",
@@ -4991,8 +5125,14 @@
       },
       "neighborhoodHeadline": "Direct Intracoastal frontage in the evolving North Flagler corridor.",
       "projectTeam": [
-        { "label": "Developer", "value": "Related Group" },
-        { "label": "Architecture", "value": "Sieger Suarez Architects — current reviewed record" }
+        {
+          "label": "Developer",
+          "value": "Related Group"
+        },
+        {
+          "label": "Architecture",
+          "value": "Sieger Suarez Architects — current reviewed record"
+        }
       ]
     }
   },
@@ -5003,14 +5143,38 @@
     "heroSubheadline": "A proposed 16-residence condominium and private cultural-club concept in West Palm Beach's cultural quarter.",
     "overview": "201 Arkona Court is an early planning-stage proposal for approximately 16 full-floor residences beside the Norton Museum. Easton Street Capital and 1789 Capital are associated with the project, with SCB named as architect. Current reporting describes a 26-story proposal, while one aggregation displays 16 floors; the discrepancy remains open for review.",
     "quickFacts": [
-      { "label": "Address", "value": "201 & 203 Arkona Court, West Palm Beach, FL 33401" },
-      { "label": "Status", "value": "Announced / Planning" },
-      { "label": "Residences", "value": "16 planned" },
-      { "label": "Floors", "value": "26 proposed; review open" },
-      { "label": "Residence Format", "value": "Full-floor concept" },
-      { "label": "Club", "value": "Private cultural club planned" },
-      { "label": "Delivery", "value": "2029 estimate; not confirmed" },
-      { "label": "Pricing", "value": "Not publicly released" }
+      {
+        "label": "Address",
+        "value": "201 & 203 Arkona Court, West Palm Beach, FL 33401"
+      },
+      {
+        "label": "Status",
+        "value": "Announced / Planning"
+      },
+      {
+        "label": "Residences",
+        "value": "16 planned"
+      },
+      {
+        "label": "Floors",
+        "value": "26 proposed; review open"
+      },
+      {
+        "label": "Residence Format",
+        "value": "Full-floor concept"
+      },
+      {
+        "label": "Club",
+        "value": "Private cultural club planned"
+      },
+      {
+        "label": "Delivery",
+        "value": "2029 estimate; not confirmed"
+      },
+      {
+        "label": "Pricing",
+        "value": "Not publicly released"
+      }
     ],
     "residences": "The reported concept centers on approximately 16 full-floor residences, with sizes around 5,000 to more than 6,000 square feet. Final approvals, layouts, bedroom counts, finishes, terraces, elevator configuration, parking, storage, and policies remain unconfirmed.",
     "amenities": "Reporting describes a private art and cultural club of roughly 7,000 square feet and a public market or cafe concept. Club access, dues, operating structure, service model, and the final public-private program require confirmation.",
@@ -5025,7 +5189,14 @@
     "seoTitle": "201 Arkona Court West Palm Beach | Planning Watch",
     "metaDescription": "Track 201 Arkona Court, a proposed 16-residence full-floor condominium and private cultural-club concept beside the Norton Museum.",
     "badge": "Announced / Planning",
-    "tags": ["south-flagler", "cultural-quarter", "norton-museum", "full-floor", "boutique", "pipeline"],
+    "tags": [
+      "south-flagler",
+      "cultural-quarter",
+      "norton-museum",
+      "full-floor",
+      "boutique",
+      "pipeline"
+    ],
     "introHeadline": "Sixteen full-floor residences in the cultural quarter.",
     "introDek": "An early proposal pairing residential privacy with an art-oriented private club beside the Norton Museum.",
     "brookeTake": "The full-floor format and Norton location make Arkona a genuinely different comparison. Buyers should benchmark it against La Clara, Forte, South Flagler House, and Edgeworth, while recognizing that the project is not yet far enough along for reliable operating-cost or delivery comparisons.",
@@ -5068,18 +5239,45 @@
       },
       "intro": "201 Arkona Court proposes a rare full-floor residential format beside the Norton Museum, pairing approximately 16 homes with a private art and cultural-club concept. It is still a planning-stage watch, so final approvals, height, layouts, pricing, timing, and operating terms remain ahead.",
       "heroTags": [
-        { "label": "Status", "value": "Announced / Planning" },
-        { "label": "Corridor", "value": "South Flagler" },
-        { "label": "Stage", "value": "Watch Page" }
+        {
+          "label": "Status",
+          "value": "Announced / Planning"
+        },
+        {
+          "label": "Corridor",
+          "value": "South Flagler"
+        },
+        {
+          "label": "Stage",
+          "value": "Watch Page"
+        }
       ],
       "factStrip": [
-        { "icon": "residence", "label": "Residences", "value": "16 Planned" },
-        { "icon": "stories", "label": "Height", "value": "Review Open" },
-        { "icon": "planResidence", "label": "Format", "value": "Full-Floor" },
-        { "icon": "status", "label": "Sales", "value": "Not Launched" }
+        {
+          "icon": "residence",
+          "label": "Residences",
+          "value": "16 Planned"
+        },
+        {
+          "icon": "stories",
+          "label": "Height",
+          "value": "Review Open"
+        },
+        {
+          "icon": "planResidence",
+          "label": "Format",
+          "value": "Full-Floor"
+        },
+        {
+          "icon": "status",
+          "label": "Sales",
+          "value": "Not Launched"
+        }
       ],
       "monogram": "201",
-      "titleLines": ["201 Arkona Court"],
+      "titleLines": [
+        "201 Arkona Court"
+      ],
       "visualBreak": {
         "src": "/assets/projects/201-arkona-court/hero/201-arkona-court-hero-architectural-arrival-v01.webp",
         "label": "Proposed Architecture",
@@ -5095,8 +5293,14 @@
       ],
       "neighborhoodHeadline": "Beside the Norton Museum in West Palm Beach's cultural quarter.",
       "projectTeam": [
-        { "label": "Developers", "value": "Easton Street Capital + 1789 Capital" },
-        { "label": "Architecture", "value": "SCB" }
+        {
+          "label": "Developers",
+          "value": "Easton Street Capital + 1789 Capital"
+        },
+        {
+          "label": "Architecture",
+          "value": "SCB"
+        }
       ]
     }
   },
@@ -5107,15 +5311,42 @@
     "heroSubheadline": "Terra and BH Group's early waterfront proposal at 2085 North Flagler remains a planning-stage watch with no public sales program.",
     "overview": "2085 North Flagler tracks an early Terra and BH Group proposal for 281 condominiums in two 31-floor waterfront towers with 362 planned parking spaces and a small retail component. The former Currie Park Towers record is retired and merged into this address-based entry; the current figures belong to the 2085 proposal, not a separate live Currie Park project.",
     "quickFacts": [
-      { "label": "Address", "value": "2085 North Flagler Drive, West Palm Beach, FL 33407" },
-      { "label": "Status", "value": "Announced / Planning" },
-      { "label": "Residences", "value": "281 planned" },
-      { "label": "Towers", "value": "2" },
-      { "label": "Floors", "value": "31 planned in each tower" },
-      { "label": "Parking", "value": "362 spaces planned" },
-      { "label": "Retail", "value": "Approximately 4,385 square feet planned" },
-      { "label": "Delivery", "value": "Timing not released" },
-      { "label": "Pricing", "value": "Not publicly released" }
+      {
+        "label": "Address",
+        "value": "2085 North Flagler Drive, West Palm Beach, FL 33407"
+      },
+      {
+        "label": "Status",
+        "value": "Announced / Planning"
+      },
+      {
+        "label": "Residences",
+        "value": "281 planned"
+      },
+      {
+        "label": "Towers",
+        "value": "2"
+      },
+      {
+        "label": "Floors",
+        "value": "31 planned in each tower"
+      },
+      {
+        "label": "Parking",
+        "value": "362 spaces planned"
+      },
+      {
+        "label": "Retail",
+        "value": "Approximately 4,385 square feet planned"
+      },
+      {
+        "label": "Delivery",
+        "value": "Timing not released"
+      },
+      {
+        "label": "Pricing",
+        "value": "Not publicly released"
+      }
     ],
     "residences": "Planning reporting describes 281 condominiums across two towers, with residences of approximately 1,065 to 4,510 square feet and an average around 1,762 square feet. Final unit mix, floor plans, bedroom counts, finishes, parking allocations, storage, and policies have not been released.",
     "amenities": "Third- and ninth-floor amenity areas, a pool deck, rooftop amenities, and a shared waterfront platform have been reported. The complete amenity, service, wellness, marina, and association program requires confirmation.",
@@ -5130,7 +5361,14 @@
     "seoTitle": "2085 North Flagler West Palm Beach | Project Watch",
     "metaDescription": "Track the early Terra and BH Group proposal for two 31-floor waterfront condominium towers at 2085 North Flagler across from Currie Park.",
     "badge": "Announced / Planning",
-    "tags": ["north-flagler", "currie-park", "waterfront", "intracoastal", "two-tower", "pipeline"],
+    "tags": [
+      "north-flagler",
+      "currie-park",
+      "waterfront",
+      "intracoastal",
+      "two-tower",
+      "pipeline"
+    ],
     "introHeadline": "Two planned towers at the Currie Park waterfront.",
     "introDek": "An early 281-residence proposal at 2085 North Flagler, tracked separately from active sales inventory.",
     "brookeTake": "The site sits at one of North Flagler's most visible waterfront positions. For now, the right buyer use is monitoring: track approvals, the final development team, residence mix, construction timing, and how the project relates to Rosewood and Currie Park improvements.",
@@ -5173,18 +5411,45 @@
       },
       "intro": "2085 North Flagler is an early Terra and BH Group watch for 281 planned condominiums across two waterfront towers. The former Currie Park Towers identity is retired and merged into this address-based record, while approvals, design-team confirmation, sales timing, pricing, and delivery remain ahead.",
       "heroTags": [
-        { "label": "Status", "value": "Announced / Planning" },
-        { "label": "Corridor", "value": "North Flagler" },
-        { "label": "Stage", "value": "Watch Page" }
+        {
+          "label": "Status",
+          "value": "Announced / Planning"
+        },
+        {
+          "label": "Corridor",
+          "value": "North Flagler"
+        },
+        {
+          "label": "Stage",
+          "value": "Watch Page"
+        }
       ],
       "factStrip": [
-        { "icon": "residence", "label": "Residences", "value": "281 Planned" },
-        { "icon": "stories", "label": "Towers", "value": "2 Planned" },
-        { "icon": "waterfront", "label": "Waterfront", "value": "Intracoastal" },
-        { "icon": "status", "label": "Sales", "value": "Not Launched" }
+        {
+          "icon": "residence",
+          "label": "Residences",
+          "value": "281 Planned"
+        },
+        {
+          "icon": "stories",
+          "label": "Towers",
+          "value": "2 Planned"
+        },
+        {
+          "icon": "waterfront",
+          "label": "Waterfront",
+          "value": "Intracoastal"
+        },
+        {
+          "icon": "status",
+          "label": "Sales",
+          "value": "Not Launched"
+        }
       ],
       "monogram": "2085",
-      "titleLines": ["2085 North Flagler"],
+      "titleLines": [
+        "2085 North Flagler"
+      ],
       "visualBreak": {
         "src": "/assets/projects/2085-north-flagler/hero/2085-north-flagler-hero-site-aerial-v01.webp",
         "label": "Currie Park Context",
@@ -5200,8 +5465,14 @@
       ],
       "neighborhoodHeadline": "Directly on the Intracoastal, across from Currie Park.",
       "projectTeam": [
-        { "label": "Developers", "value": "Terra + BH Group" },
-        { "label": "Architecture", "value": "Not publicly confirmed" }
+        {
+          "label": "Developers",
+          "value": "Terra + BH Group"
+        },
+        {
+          "label": "Architecture",
+          "value": "Not publicly confirmed"
+        }
       ]
     }
   }

@@ -1,0 +1,25 @@
+/* Page-specific framing for the user-supplied editorial illustrations. */
+.route-view-project[data-project-id="fern-and-gardenia-related-ross-fern-street"] .project-identity-header {
+  margin-top: 28px;
+}
+
+@media (max-width: 620px) {
+  .route-view-project[data-project-id="fern-and-gardenia-related-ross-fern-street"] .project-identity-header {
+    margin-top: 24px;
+    gap: 14px;
+  }
+
+  .route-view-project[data-project-id="fern-and-gardenia-related-ross-fern-street"] .project-identity-mark {
+    display: none;
+  }
+
+  .route-view-project[data-project-id="fern-and-gardenia-related-ross-fern-street"] .brochure-hero figure {
+    order: 1 !important;
+    height: clamp(320px, 48vh, 430px) !important;
+  }
+
+  .route-view-project[data-project-id="fern-and-gardenia-related-ross-fern-street"] .brochure-hero-copy {
+    order: 2 !important;
+    padding-top: 36px !important;
+  }
+}

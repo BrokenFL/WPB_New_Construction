@@ -161,7 +161,8 @@
       "corridorKey": "downtown",
       "publicationState": "published",
       "sourceCatalogIds": ["related-ross-fern-street"],
-      "aliases": ["related-ross-fern-street", "464-fern-street"]
+      "aliases": ["related-ross-fern-street", "464-fern-street", "464-fern", "residences-at-464-fern-street"],
+      "lastVerifiedDate": "2026-09-22"
     },
     {
       "canonicalId": "rybovich-marina-redevelopment",

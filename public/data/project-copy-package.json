@@ -3239,93 +3239,170 @@
     "lastCopyResearchDate": "2026-05-28"
   },
   {
-    "slug": "fern-gardenia-related-ross-fern-street-project",
-    "repoProjectId": "fern-gardenia",
-    "heroHeadline": "A Downtown Pipeline Project Worth Watching",
-    "heroSubheadline": "The Fern & Gardenia / Related Ross Fern Street project is a downtown West Palm Beach pipeline project note tied to a possible condo-tower repositioning from an earlier mixed-use apartment plan.",
-    "overview": "This project belongs in the pipeline / announced / watchlist group. It should be described cautiously because the public notes include an evolution from a prior apartment-oriented mixed-use plan toward a possible 100-130 unit condominium tower.",
+    "slug": "fern-and-gardenia-related-ross-fern-street",
+    "repoProjectId": "fern-and-gardenia-related-ross-fern-street",
+    "structuredDetails": [
+      {
+        "name": "Proposed height",
+        "value": "Approximately 316 feet"
+      },
+      {
+        "name": "Site area",
+        "value": "2.64 acres"
+      },
+      {
+        "name": "Proposed floor count",
+        "value": "25 stories"
+      },
+      {
+        "name": "Proposed layouts",
+        "value": "194 residences with two- to four-bedroom plans"
+      },
+      {
+        "name": "Proposed commercial area",
+        "value": "4,343 square feet at ground level"
+      },
+      {
+        "name": "Proposed parking",
+        "value": "486 spaces in a multi-level podium, including mechanical parking systems"
+      },
+      {
+        "name": "Proposed fifth-floor amenities",
+        "value": "Lap pool, outdoor bar, landscaped areas, fitness center, and game room"
+      },
+      {
+        "name": "Proposed ground floor",
+        "value": "Residential lobby and drop-off, commercial space, landscaped garden plaza, and public art along South Dixie Highway"
+      },
+      {
+        "name": "Exterior design",
+        "value": "Glass facade with white horizontal floor plates and vertical bands, rounded corners, and stacked curved terraces"
+      },
+      {
+        "name": "Parking podium design",
+        "value": "Rounded perforated-screen volume capped by a landscaped amenity deck"
+      },
+      {
+        "name": "Current developer",
+        "value": "Related Ross"
+      },
+      {
+        "name": "Architect",
+        "value": "Roger Ferris + Partners"
+      },
+      {
+        "name": "Site acquisition",
+        "value": "Related Ross acquired the site for $55 million in May 2026"
+      },
+      {
+        "name": "Municipal filing",
+        "value": "Submitted to the West Palm Beach Plans and Plats Review Committee in June 2026; still under review"
+      },
+      {
+        "name": "Prior proposal",
+        "value": "An unbuilt 2022 Arquitectonica scheme under 13th Floor Investments, Wexford Real Estate Investors, and L&L Holding Company was superseded"
+      },
+      {
+        "name": "Related design work",
+        "value": "Roger Ferris + Partners is also designing Shorecrest for Related Ross nearby"
+      }
+    ],
+    "heroHeadline": "A New Downtown Proposal at 464 Fern",
+    "heroSubheadline": "A 25-story Related Ross proposal brings 194 residences to one of downtown West Palm Beach’s large remaining development sites.",
+    "overview": "Residences at 464 Fern Street is a proposed 25-story residential tower designed by Roger Ferris + Partners. The approximately 316-foot plan for the 2.64-acre site includes 194 residences, ground-floor commercial space, and a multi-level parking podium. It remains in municipal review.",
     "quickFacts": [
       {
         "label": "Address",
-        "value": "401 S Dixie Highway / 418 & 464 Fern Street, West Palm Beach, FL"
+        "value": "464 Fern Street, West Palm Beach, FL 33401"
       },
       {
         "label": "Status",
-        "value": "Pipeline / Announced"
+        "value": "Proposed / Municipal Review"
       },
       {
         "label": "Developer",
-        "value": "Related Ross; Wexford; 13th Floor Investments; L&L Holding"
+        "value": "Related Ross"
       },
       {
-        "label": "Design",
-        "value": "Not yet publicly confirmed."
+        "label": "Architect",
+        "value": "Roger Ferris + Partners"
       },
       {
         "label": "Residences",
-        "value": "100-130 condominium units proposed in later repositioning; prior plan referenced 340 apartments"
+        "value": "194 proposed"
       },
       {
-        "label": "Floors",
+        "label": "Stories",
         "value": "25"
       },
       {
-        "label": "Price Range",
-        "value": "Not yet publicly confirmed."
+        "label": "Approximate height",
+        "value": "316 feet"
       },
       {
-        "label": "Delivery",
-        "value": "Not yet publicly confirmed."
-      },
-      {
-        "label": "Size Range",
-        "value": "Not yet publicly confirmed."
+        "label": "Site",
+        "value": "2.64 acres"
       },
       {
         "label": "Bedrooms",
-        "value": "Not yet publicly confirmed."
+        "value": "2–4 proposed"
+      },
+      {
+        "label": "Commercial space",
+        "value": "4,343 sq ft proposed"
+      },
+      {
+        "label": "Parking",
+        "value": "486 proposed spaces; some mechanical"
+      },
+      {
+        "label": "Pricing",
+        "value": "Not released"
+      },
+      {
+        "label": "Delivery",
+        "value": "Not announced"
       }
     ],
-    "residences": "Residence details are not yet publicly confirmed. Available materials support a later reported 100-130 unit condominium concept, but layouts, sizes, bedrooms, terrace details, finishes, and penthouse information remain unavailable.",
-    "amenities": "The prior plan referenced a mixed-use program with apartments and commercial space. Current condo-specific amenities and services are not yet public.",
-    "location": "The site is in the downtown West Palm Beach / Fern Street corridor, near the broader CityPlace and South Dixie activity zone. This is a more urban, walkable lifestyle than the Flagler waterfront projects.",
-    "localTake": "This is a watch the repositioning project. If it becomes a true luxury condo tower, it could be very relevant for downtown buyers. Until then, handle it cautiously.",
-    "seoTitle": "Fern & Gardenia West Palm Beach | Downtown Pipeline Project",
-    "metaDescription": "Fern & Gardenia / Related Ross Fern Street is a downtown pipeline project reportedly repositioned from apartments toward a condo tower.",
-    "badge": "Pipeline / Announced",
+    "residences": "The filed plan calls for 194 residences with two- to four-bedroom layouts. Unit sizes, finish specifications, floorplans, pricing, and sales timing have not been released.",
+    "amenities": "The proposal groups a lap pool, outdoor bar, landscaped areas, fitness center, and game room on the fifth floor. The landscaped deck caps a rounded, perforated-screen parking podium.",
+    "location": "The 2.64-acre site is in downtown West Palm Beach at Fern Street and South Dixie Highway. The plan shows a landscaped garden plaza and public art along South Dixie.",
+    "localTake": "This is a meaningful new proposal for a large downtown block. Roger Ferris + Partners also designs nearby Shorecrest, but 464 Fern remains its own municipal-review plan. Watch the approvals and street-level design before treating the 194-residence program or amenities as final.",
+    "seoTitle": "Residences at 464 Fern Street | Downtown West Palm Beach",
+    "metaDescription": "Explore the proposed 25-story, 194-residence Related Ross tower at 464 Fern Street, its Roger Ferris + Partners design, amenities, and municipal-review status.",
+    "badge": "Proposed / Municipal Review",
     "tags": [
       "downtown",
       "fern-street",
-      "pipeline",
-      "watchlist",
       "related-ross",
-      "condo-repositioning",
-      "mixed-use",
-      "cityplace",
-      "human-review-required"
+      "roger-ferris",
+      "proposed",
+      "municipal-review"
     ],
-    "introHeadline": "A Downtown Pipeline Project Worth Watching",
-    "introDek": "The Fern & Gardenia / Related Ross Fern Street project is a downtown West Palm Beach pipeline project note tied to a possible condo-tower repositioning from an earlier mixed-use apartment plan.",
-    "brookeTake": "This is a watch the repositioning project. If it becomes a true luxury condo tower, it could be very relevant for downtown buyers. Until then, handle it cautiously.",
+    "introHeadline": "A new chapter for Fern Street",
+    "introDek": "Related Ross proposes 194 residences, ground-floor commercial space, and a landscaped fifth-floor amenity deck at 464 Fern Street. The plan remains under city review.",
+    "brookeTake": "Track the approval process, final residence plans, and how the ground floor meets South Dixie before making a buying decision.",
     "bestFor": [
-      "Downtown pipeline tracking",
-      "Buyers monitoring future condo inventory near CityPlace and Fern Street",
-      "Buyers interested in walkable urban West Palm Beach",
-      "Investors tracking future downtown luxury supply"
+      "Downtown buyers tracking future supply",
+      "Readers following Related Ross projects",
+      "Buyers comparing walkable urban locations"
     ],
     "signatureFeatures": [
-      "Residences: 100-130 condominium units proposed in later repositioning; prior plan referenced 340 apartments",
-      "Floors: 25",
-      "Price Range: Not yet publicly confirmed.",
-      "Delivery: Not yet publicly confirmed.",
-      "Bedrooms: Not yet publicly confirmed."
+      "25 stories and approximately 316 feet proposed",
+      "194 residences in two- to four-bedroom layouts",
+      "4,343 sq ft of ground-floor commercial space",
+      "486 podium parking spaces, including mechanical systems",
+      "Fifth-floor lap pool, outdoor bar, fitness center, and game room"
     ],
-    "amenityNarrative": "The prior plan referenced a mixed-use program with apartments and commercial space. Current condo-specific amenities and services are not yet public.",
-    "residenceNarrative": "Residence details are not yet publicly confirmed. Available materials support a later reported 100-130 unit condominium concept, but layouts, sizes, bedrooms, terrace details, finishes, and penthouse information remain unavailable.",
-    "locationNarrative": "The site is in the downtown West Palm Beach / Fern Street corridor, near the broader CityPlace and South Dixie activity zone. This is a more urban, walkable lifestyle than the Flagler waterfront projects.",
-    "projectTeamNarrative": "Developer: Related Ross; Wexford; 13th Floor Investments; L&L Holding Design: Not yet publicly confirmed.",
-    "sourceUrls": [],
-    "lastCopyResearchDate": "2026-05-28"
+    "amenityNarrative": "The proposed fifth floor concentrates a lap pool, outdoor bar, landscaped areas, fitness center, and game room above the perforated parking podium. These amenities are plans, not completed facilities.",
+    "residenceNarrative": "The June 2026 submission proposes 194 two- to four-bedroom residences in an approximately 316-foot, 25-story tower. Predominantly glass elevations are framed by white horizontal floor plates and vertical bands; rounded corners lead to stacked curved terraces. The rounded, perforated-screen parking podium holds 486 proposed spaces, some mechanical, and supports a landscaped fifth-floor deck with a lap pool, outdoor bar, fitness center, and game room. Floorplans, finishes, prices, and sales timing are not yet available.",
+    "locationNarrative": "Related Ross acquired the 2.64-acre downtown site for $55 million in May 2026. At Fern Street and South Dixie Highway, the current ground-floor plan combines a residential lobby and drop-off with 4,343 square feet of commercial space, a landscaped garden plaza, and public art facing South Dixie. The unbuilt 2022 Arquitectonica proposal under the previous ownership group is superseded by this plan.",
+    "projectTeamNarrative": "Related Ross is the current developer and Roger Ferris + Partners is the architect. The prior unbuilt 2022 proposal was designed by Arquitectonica under earlier ownership.",
+    "sourceUrls": [
+      "https://floridayimby.com/2026/08/plans-filed-for-25-story-residences-at-464-fern-street-in-downtown-west-palm-beach.html",
+      "https://floridiandevelopment.com/related-ross-unveils-plans-for-residences-at-464-fern-street-featuring-194-units/"
+    ],
+    "lastCopyResearchDate": "2026-09-22"
   },
   {
     "slug": "rybovich-marina-redevelopment",

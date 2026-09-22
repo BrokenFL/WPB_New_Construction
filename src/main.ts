@@ -3844,6 +3844,9 @@ const projectRouteAliases: Record<string, string> = {
   "edgeworth-north": "edgeworth",
   "edgeworth-south": "edgeworth",
   "related-ross-fern-street": "fern-and-gardenia-related-ross-fern-street",
+  "464-fern-street": "fern-and-gardenia-related-ross-fern-street",
+  "464-fern": "fern-and-gardenia-related-ross-fern-street",
+  "residences-at-464-fern-street": "fern-and-gardenia-related-ross-fern-street",
   "rybovich-marina": "rybovich-marina-redevelopment",
   "rosewood": "rosewood-residences-west-palm-beach",
 };
@@ -4821,6 +4824,7 @@ function buildMarketNoteSchema(note: MarketNote) {
 
 function buildProjectSchema(project: FeaturedProject) {
   const schemaFacts = getSchemaSafeProjectFacts(project.id);
+  const structuredDetails = batch1ProjectCopyByProjectId.get(project.id)?.structuredDetails ?? [];
   const unitCount = Number(schemaFacts.safeFields.residenceCount?.match(/\d+/)?.[0] ?? 0) || undefined;
   const projectLocality = project.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   return {
@@ -4840,7 +4844,7 @@ function buildProjectSchema(project: FeaturedProject) {
       : {}),
     latitude: project.latitude,
     longitude: project.longitude,
-    description: project.projectType === "rental"
+    description: structuredDetails.length ? project.summary : project.projectType === "rental"
       ? `${schemaFacts.safeFields.name} rental community guide with source-backed development, amenity, neighborhood, and leasing-verification context.`
       : `${schemaFacts.safeFields.name} buyer guide with source-backed project context and verification notes.`,
     url: schemaFacts.safeFields.url,
@@ -4851,6 +4855,9 @@ function buildProjectSchema(project: FeaturedProject) {
       name: projectLocality,
     },
     numberOfAccommodationUnits: unitCount,
+    ...(structuredDetails.length ? {
+      additionalProperty: structuredDetails.map((detail) => ({ "@type": "PropertyValue", name: detail.name, value: detail.value })),
+    } : {}),
     dateModified: floorplanLibrary[0]?.updatedAt ?? researchNewsFeed[0]?.dateModified,
     ...(schemaFacts.safeFields.status ? { status: schemaFacts.safeFields.status } : {}),
     subjectOf: [
@@ -6415,6 +6422,7 @@ function renderResolvedContentImage(image: ResolvedContentImage, className = "",
 }
 
 function imageSourceName(src: string) {
+  if (src.includes("/related-ross-fern-street/media/464-fern-")) return "Brooke-supplied editorial illustration";
   if (src.includes("user-provided-")) return "Project gallery";
   if (src.includes("/team-logos/related-ross")) return "Related Ross";
   if (src.includes("/team-logos/arquitectonica")) return "Arquitectonica";
@@ -8233,7 +8241,9 @@ function projectPresentationRules(project: FeaturedProject, floorplanCount = 0):
 function renderProjectIdentityHeader(project: FeaturedProject, rules: ProjectPresentationRules) {
   const logo = project.logoImage && canShowImage(project.logoImage)
     ? `<img src="${safeHref(project.logoImage)}" alt="${escapeHtml(project.logoAlt ?? `${project.name} logo`)}" loading="lazy" decoding="async" />`
-    : `<strong>${publicText(project.name)}</strong>`;
+    : project.id === "fern-and-gardenia-related-ross-fern-street"
+      ? `<strong aria-hidden="true">464<br />FERN</strong>`
+      : `<strong>${publicText(project.name)}</strong>`;
   return `
     <header class="project-identity-header">
       <div class="project-identity-mark">${logo}</div>
@@ -8731,7 +8741,7 @@ function renderProjectHeroSlideshow(
           kicker: "Project Rendering",
           title: asset.title || project.name
         }, "hero")}
-        ${asset.title ? `<div class="hero-slide-caption"><span class="caption-kicker">${escapeHtml(asset.placement)}</span>: ${escapeHtml(asset.title)}</div>` : ""}
+        ${asset.title ? `<div class="hero-slide-caption">${project.id === "fern-and-gardenia-related-ross-fern-street" ? "Illustrative view · proposed design" : `<span class="caption-kicker">${escapeHtml(asset.placement)}</span>: ${escapeHtml(asset.title)}`}</div>` : ""}
       </div>
     `;
   }).join("");
@@ -9179,7 +9189,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
   `;
 
   const heroChipsHtml = brochureStats
-    .filter((stat) => stat.value && !/not released|confirm|verify|request/i.test(stat.value))
+    .filter((stat) => stat.value && !/not released|not announced|confirm|verify|request/i.test(stat.value))
     .map((stat) => `
       <div class="hero-stat-chip">
         <span class="chip-label">${escapeHtml(stat.label)}</span>
@@ -9197,13 +9207,14 @@ function renderDraftProjectPage(project: FeaturedProject) {
     : "";
 
   return `
+    ${project.id === "fern-and-gardenia-related-ross-fern-street" ? `<link rel="stylesheet" href="/assets/styles/464-fern.css" />` : ""}
     <div class="route-view route-view-project route-view-draft-project route-view-brochure-project project-page-${pageType} project-type-${project.projectType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="${pageType}" data-project-type="${project.projectType}" hidden>
       ${renderProjectIdentityHeader(project, rules)}
       <section class="brochure-hero" id="${project.id}" data-project-section="hero">
         ${renderProjectHeroSlideshow(project, draft, heroImage, heroMobileImage, approvedHeroAsset)}
         <div class="brochure-hero-copy">
           <p class="eyebrow">${project.corridor} · West Palm Beach</p>
-          <h1 class="hero-building-name">${escapeHtml(project.name)}</h1>
+          ${project.id === "fern-and-gardenia-related-ross-fern-street" ? "" : `<h1 class="hero-building-name">${escapeHtml(project.name)}</h1>`}
           <h2 class="hero-headline">${copyPackage ? publicText(copyPackage.introHeadline) : brochureHeadline(project)}</h2>
           <p class="hero-intro-text">${publicText(copyPackage?.introDek ?? project.editorialIntro ?? draft.intro)}</p>
 
@@ -9233,7 +9244,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
         <a href="${sectionNavPrimaryCtaHref}" ${sectionNavPrimaryCtaTracking}>${primaryCta}</a>
       </nav>
 
-      ${renderDeveloperImageDisclaimer()}
+      ${renderDeveloperImageDisclaimer(project)}
 
       ${renderProjectSnapshotCard(project, draft)}
       ${renderProjectGalleryStrip(project)}
@@ -9410,6 +9421,10 @@ function teamCreditsFromSource(team: string | undefined): TeamCredit[] {
 
       const verifiedRole = lowerName.includes("woodfield development")
         ? "Developer"
+        : lowerName === "related ross"
+          ? "Developer"
+          : lowerName.includes("roger ferris")
+            ? "Architect"
         : lowerName.includes("flagler realty")
           ? "Development Partner"
           : lowerName.includes("spina o’rourke") || lowerName.includes("spina o'rourke")
@@ -9471,11 +9486,12 @@ function brochureHeadline(project: FeaturedProject) {
 
 function projectBrochureStats(project: FeaturedProject, draft: ProjectPageDraft, floorplanCount: number) {
   const isRental = project.projectType === "rental";
+  const copyPackage = batch1ProjectCopyByProjectId.get(project.id);
   const stories = draft.facts.find((fact) => /stor/i.test(fact.label))?.value ?? "Verify";
   const residences = draft.facts.find((fact) => /residence/i.test(fact.label))?.value ?? project.residences;
   const delivery = draft.facts.find((fact) => /delivery/i.test(fact.label))?.value ?? project.delivery;
   const pricing = draft.facts.find((fact) => /pricing/i.test(fact.label))?.value ?? project.price;
-  const bedrooms = draft.facts.find((fact) => /bed/i.test(fact.label))?.value ?? "1-4";
+  const bedrooms = draft.facts.find((fact) => /bed/i.test(fact.label))?.value ?? copyFactValue(copyPackage, /bedrooms/i, "1-4");
   const sqFt = draft.facts.find((fact) => /sq|size|foot/i.test(fact.label))?.value ?? "Request";
   return [
     { label: "Stories", value: stories },
@@ -9709,7 +9725,10 @@ function renderBrochureTeamTile(item: { credit: TeamCredit; asset?: MediaAsset }
 
 
 
-function renderDeveloperImageDisclaimer() {
+function renderDeveloperImageDisclaimer(project?: FeaturedProject) {
+  if (project?.id === "fern-and-gardenia-related-ross-fern-street") {
+    return `<p class="media-disclaimer">Illustrative views of the proposed 464 Fern design. The project remains in municipal review; final architecture, amenities, and surroundings may change.</p>`;
+  }
   return `
     <p class="media-disclaimer">Some project images and renderings are sourced from developer or project marketing materials and are shown for buyer reference. Availability, finishes, views, amenities, and project details should be verified before reliance.</p>
   `;
@@ -10355,7 +10374,17 @@ function getProjectGalleryCategorized(projectId: string) {
       alt: asset.alt,
       publicPath: asset.src,
     }));
-  const importedAssets: GalleryCategorizedImage[] = approvedAssets.length ? [] : approvedImportedImagesForProject(projectId).map((img) => ({
+  const editorialAssets: GalleryCategorizedImage[] = projectId === "fern-and-gardenia-related-ross-fern-street"
+    ? (featuredProjects.find((project) => project.id === projectId)?.galleryImages ?? []).map((img, index) => ({
+        id: `464-fern-illustration-${index + 1}`,
+        imageType: "Illustrative rendering",
+        placement: "hero",
+        caption: img.title,
+        alt: img.alt,
+        publicPath: img.src,
+      }))
+    : [];
+  const importedAssets: GalleryCategorizedImage[] = approvedAssets.length || editorialAssets.length ? [] : approvedImportedImagesForProject(projectId).map((img) => ({
     id: img.id,
     imageType: img.imageType,
     placement: img.placement,
@@ -10363,7 +10392,7 @@ function getProjectGalleryCategorized(projectId: string) {
     alt: img.alt,
     publicPath: importedImagePublicPath(img),
   }));
-  const images = uniqueGalleryCategorizedImages([...approvedAssets, ...importedAssets]);
+  const images = uniqueGalleryCategorizedImages([...approvedAssets, ...editorialAssets, ...importedAssets]);
   const categories: Record<string, typeof images> = {
     exterior: [],
     interiors: [],
@@ -10404,6 +10433,7 @@ function getProjectGalleryCategorized(projectId: string) {
 
 function renderProjectGallerySection(projectId: string) {
   const categorized = getProjectGalleryCategorized(projectId);
+  const isFernProposal = projectId === "fern-and-gardenia-related-ross-fern-street";
   const activeCategories = Object.entries(categorized).filter(([_, list]) => list.length > 0);
 
   if (activeCategories.length === 0) return "";
@@ -10452,8 +10482,8 @@ function renderProjectGallerySection(projectId: string) {
     <section class="section brochure-gallery-section" id="gallery-${projectId}" data-project-section="gallery">
       <div class="section-heading">
         <p class="eyebrow">Project Media</p>
-        <h2>Curated residence & amenity gallery.</h2>
-        <p>Verified rendering representations and architectural photography organized by details.</p>
+        <h2>${isFernProposal ? "The proposed tower, from street to skyline." : "Curated residence & amenity gallery."}</h2>
+        <p>${isFernProposal ? "Editorial illustrations of the proposed design; final details remain subject to city review." : "Verified rendering representations and architectural photography organized by details."}</p>
       </div>
       <div class="gallery-wrapper">
         <div class="gallery-filter-bar">
@@ -10478,6 +10508,8 @@ function uniqueGalleryCategorizedImages<T extends { publicPath: string }>(images
 
 function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageDraft) {
   const isRental = project.projectType === "rental";
+  const isFernProposal = project.id === "fern-and-gardenia-related-ross-fern-street";
+  const copyPackage = batch1ProjectCopyByProjectId.get(project.id);
   const rules = projectPresentationRules(project, getFloorplanProject(project.id)?.count ?? 0);
   const lastReviewedDate = sourceFactForProject(project.id)?.lastReviewedDate ?? "recently";
   const findFactValue = (regex: RegExp, fallback = "") => {
@@ -10498,7 +10530,7 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
   const sizingResidences = [
     { label: isRental ? "Rental Homes" : "Number of Units", value: project.residences },
     { label: "Number of Floors", value: findFactValue(/stor(y|ies)|floor/i) },
-    { label: isRental ? "Home Types" : "Residence Types", value: findFactValue(/bed/i) },
+    { label: isRental ? "Home Types" : "Residence Types", value: findFactValue(/bed/i, copyFactValue(copyPackage, /bedrooms/i)) },
     { label: "Square Footage Range", value: findFactValue(/sq|size|foot/i) }
   ];
 
@@ -10514,7 +10546,7 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
     { label: "Estimated Completion", value: project.delivery },
     { label: isRental ? "Recurring Fees" : "Maintenance Estimate", value: findFactValue(/maintenance|carrying|fee/i) },
     { label: "Deposit Structure", value: findFactValue(/deposit|structure|payment/i) },
-    { label: "Parking Allocation", value: findFactValue(/parking/i) },
+    { label: isFernProposal ? "Proposed Parking" : "Parking Allocation", value: findFactValue(/parking/i, isFernProposal ? copyFactValue(copyPackage, /^parking$/i) : "") },
     { label: "Pet Policy", value: findFactValue(/pet/i) },
     { label: "Storage", value: findFactValue(/storage|locker/i) },
     { label: isRental ? "Leasing Status" : "Sales Status", value: project.status }
@@ -10589,7 +10621,7 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
         <div class="snapshot-card-header">
           <p class="eyebrow">At a Glance</p>
           <h2>${isRental ? "Community Specifications" : "Building Specifications"}</h2>
-          <p>Verified project facts compiled from municipal filings and official developer disclosures.</p>
+          <p>${isFernProposal ? "Current proposal details supplied by Brooke and corroborated by published reporting; city review continues." : "Verified project facts compiled from municipal filings and official developer disclosures."}</p>
         </div>
         <div class="snapshot-columns">
           ${renderColHtml(isRental ? "Sizing & Rental Homes" : "Sizing & Residences", col1)}
@@ -10597,7 +10629,7 @@ function renderProjectSnapshotCard(project: FeaturedProject, draft: ProjectPageD
           ${renderColHtml(isRental ? "Leasing & Timing" : "Pricing & Timing", col3)}
         </div>
         <div class="snapshot-card-footer">
-          <p class="source-attribution">Information last reviewed ${escapeHtml(lastReviewedDate)}. ${isRental ? "Rents, concessions, lease terms, and unit availability can change." : "Price ranges and residence availability are subject to daily change."}</p>
+          <p class="source-attribution">Information last reviewed ${escapeHtml(lastReviewedDate)}. ${isFernProposal ? "The plan may change during municipal review; pricing and delivery are not announced." : isRental ? "Rents, concessions, lease terms, and unit availability can change." : "Price ranges and residence availability are subject to daily change."}</p>
           <a class="button primary" href="${rules.primaryCtaHref}" ${renderCtaTrackingAttrs("project_page", rules.primaryCtaLabel, { projectSlug: project.id, projectName: project.name, corridor: project.corridor, leadCaptureContext: "project_snapshot" })}>${rules.primaryCtaLabel}</a>
         </div>
       </div>
