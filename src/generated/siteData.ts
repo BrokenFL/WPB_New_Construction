@@ -3,7 +3,7 @@ export const siteMeta = {
   "alternateName": "West Palm Beach New Construction",
   "baseUrl": "https://www.wpbnewconstruction.com",
   "title": "West Palm Beach New Construction Condos | Buyer Guide",
-  "description": "Compare West Palm Beach new-construction condos across North Flagler, Downtown, and South Flagler with source-backed facts, released floorplans, and buyer advisory context.",
+  "description": "Research West Palm Beach new-construction condos across the market. Compare buildings, released floor plans, corridors, and development updates with independent buyer guidance.",
   "publisher": {
     "name": "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
     "type": "RealEstateAgent",
@@ -4997,7 +4997,7 @@ export const prerenderRoutes = [
   {
     "path": "/",
     "title": "West Palm Beach New Construction Condos | Buyer Guide",
-    "description": "Compare West Palm Beach new-construction condos across North Flagler, Downtown, and South Flagler with source-backed facts, released floorplans, and buyer advisory context.",
+    "description": "Research West Palm Beach new-construction condos across the market. Compare buildings, released floor plans, corridors, and development updates with independent buyer guidance.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
@@ -5015,7 +5015,7 @@ export const prerenderRoutes = [
   {
     "path": "/map/",
     "title": "West Palm Beach Condo Map | New Construction Corridors",
-    "description": "Map West Palm Beach new-construction condo projects by North Flagler, Downtown, and South Flagler corridor context.",
+    "description": "Explore West Palm Beach new-construction buildings by map, corridor, and project guide, from North and South Flagler to Downtown and Palm Beach island.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
@@ -5506,14 +5506,14 @@ export const prerenderRoutes = [
   },
   {
     "path": "/inquire/",
-    "title": "Request West Palm Beach Condo Availability",
-    "description": "Request current West Palm Beach new-construction condo availability, floor plans, pricing guidance, and private buyer comparison notes.",
+    "title": "West Palm Beach Condo Buyer Research Desk | Inquiry",
+    "description": "Ask for current condo availability, pricing checks, floor-plan and residence-line comparisons, delivery context, and tour strategy in West Palm Beach.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
     "path": "/projects/alba-palm-beach/",
     "title": "Alba Palm Beach | North Flagler New Construction Condos",
-    "description": "Explore Alba Palm Beach, a boutique North Flagler waterfront condo with 55 residences, private terraces, amenities, and Spring 2026 delivery.",
+    "description": "Explore Alba Palm Beach, a 55-residence North Flagler waterfront condominium with private day docks, generous terraces, and a smaller-scale amenity program.",
     "ogImage": "/projects/alba-palm-beach/media/showcase/alba-hero-aerial-waterfront-rendering-v01.jpg?v=approved-hq-20260530"
   },
   {
@@ -5531,7 +5531,7 @@ export const prerenderRoutes = [
   {
     "path": "/projects/ritz-carlton-wpb/",
     "title": "Ritz-Carlton Residences West Palm Beach | Waterfront Condos",
-    "description": "The Ritz-Carlton Residences, West Palm Beach is a branded North Flagler waterfront condominium with 138 residences and 2028 delivery.",
+    "description": "Explore The Ritz-Carlton Residences, West Palm Beach: 138 North Flagler waterfront residences shaped by branded service, terraces, and east-facing water orientation.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg"
   },
   {
@@ -5543,13 +5543,13 @@ export const prerenderRoutes = [
   {
     "path": "/projects/nora-house/",
     "title": "Nora House West Palm Beach | Nora District Luxury Condos",
-    "description": "Explore Nora House, a 117-residence luxury condominium in West Palm Beach's walkable Nora District with rooftop amenities and 2029 delivery.",
+    "description": "Explore Nora House, a 117-residence condominium in West Palm Beach's Nora District with ground-floor retail, rooftop amenities, and a walkable downtown setting.",
     "ogImage": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.jpg"
   },
   {
     "path": "/projects/south-flagler-house/",
     "title": "South Flagler House | Flagship Waterfront Condos",
-    "description": "Explore South Flagler House, Related Ross’s flagship South Flagler waterfront condominium with two towers, 108 residences, private-club amenities, and 2027 delivery.",
+    "description": "Explore South Flagler House, two South Flagler waterfront towers with Robert A.M. Stern Architects design, expansive residences, and a private-club program.",
     "ogImage": "/projects/south-flagler-house/media/showcase/south-flagler-house-hero-night-web.jpg"
   },
   {

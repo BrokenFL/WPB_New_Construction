@@ -242,7 +242,7 @@ const siteMeta = {
   baseUrl: productionBaseUrl,
   title: "West Palm Beach New Construction Condos | Buyer Guide",
   description:
-    "Compare West Palm Beach new-construction condos across North Flagler, Downtown, and South Flagler with source-backed facts, released floorplans, and buyer advisory context.",
+    "Research West Palm Beach new-construction condos across the market. Compare buildings, released floor plans, corridors, and development updates with independent buyer guidance.",
   publisher: {
     name: "Douglas Elliman Florida, LLC d/b/a Douglas Elliman",
     type: "RealEstateAgent",
@@ -2732,7 +2732,7 @@ function buildPrerenderRoutes() {
     {
       path: "/map/",
       title: "West Palm Beach Condo Map | New Construction Corridors",
-      description: "Map West Palm Beach new-construction condo projects by North Flagler, Downtown, and South Flagler corridor context.",
+      description: "Explore West Palm Beach new-construction buildings by map, corridor, and project guide, from North and South Flagler to Downtown and Palm Beach island.",
       ogImage: siteMeta.defaultImage,
     },
     {
@@ -2859,8 +2859,8 @@ function buildPrerenderRoutes() {
     },
     {
       path: "/inquire/",
-      title: "Request West Palm Beach Condo Availability",
-      description: "Request current West Palm Beach new-construction condo availability, floor plans, pricing guidance, and private buyer comparison notes.",
+      title: "West Palm Beach Condo Buyer Research Desk | Inquiry",
+      description: "Ask for current condo availability, pricing checks, floor-plan and residence-line comparisons, delivery context, and tour strategy in West Palm Beach.",
       ogImage: siteMeta.defaultImage,
     },
     ...projectRoutes.map(

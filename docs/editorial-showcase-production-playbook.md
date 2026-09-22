@@ -18,11 +18,13 @@ The schema types are:
 src/data/projectCopyPackage.ts
 ```
 
-The project records are:
+The editable project records are:
 
 ```text
-public/data/project-copy-package.json
+content/project-copy-package.json
 ```
+
+`public/data/project-copy-package.json` is generated. After editing the source, run `node research/scripts/build-site-intelligence.mjs`; the static project pages are then rebuilt by `npm run build`. Do not hand-edit either generated output.
 
 Enable the template per project:
 
@@ -61,7 +63,7 @@ Prefer efficient JPG or WebP derivatives for photographic images. Preserve PNG o
 
 Before touching the schema:
 
-1. Read the existing project record in `public/data/project-copy-package.json`.
+1. Read the existing project record in `content/project-copy-package.json`.
 2. List every approved project image and floor-plan file.
 3. Generate a contact sheet with filenames and dimensions.
 4. Inspect the official project website for current buyer-facing facts.
@@ -75,13 +77,15 @@ Each page should receive:
 
 - A concise hero tagline.
 - An authoritative overview paragraph.
-- A compact local take.
+- A compact buyer's read in `localTake`, grounded in the published facts and positioned after the overview.
 - Public-facing quick facts.
 - Location copy.
 - Project-team fields.
 - SEO title and description.
 
 Use the user-approved buyer-facing facts. Keep internal conflict notes in research layers when needed, but do not clutter the public page with passive caveat language when the user has approved a display value.
+
+Use `bestFor` for a short buyer-fit list where it adds a real distinction. Keep changing purchase details in the shared verification note; it varies for active sales, proposed projects, rentals, and completed comparables. Do not repeat it in the overview, buyer's read, and source section. The static project page uses the same `localTake` and links to the methodology page.
 
 Use `heroTags` for the three compact buyer-filterable hero facts:
 

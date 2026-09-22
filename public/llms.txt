@@ -155,7 +155,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Fair Housing | WPB New Construction: /fair-housing/
 - Privacy | WPB New Construction: /privacy/
 - Terms | WPB New Construction: /terms/
-- Request West Palm Beach Condo Availability: /inquire/
+- West Palm Beach Condo Buyer Research Desk | Inquiry: /inquire/
 - Alba Palm Beach | North Flagler New Construction Condos: /projects/alba-palm-beach/
 - Olara West Palm Beach | Waterfront Resort Condos: /projects/olara/
 - Shorecrest West Palm Beach | Related Ross Waterfront Condos: /projects/shorecrest/
