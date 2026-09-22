@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-18T19:25:08.173Z",
+  "updatedAt": "2026-09-22T04:21:49.481Z",
   "projects": {
     "alba-palm-beach": {
       "address": {
@@ -20,6 +20,35 @@
         "reviewedAt": "2026-06-18T19:25:08.173Z",
         "note": "",
         "schemaSafe": false
+      }
+    },
+    "fern-and-gardenia-related-ross-fern-street": {
+      "status": {
+        "value": "Proposed / Municipal Review",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Brooke",
+        "reviewedAt": "2026-09-22T04:21:49.481Z",
+        "note": "Brooke supplied the current June 2026 proposal; August 2026 reporting confirms municipal review, not approval or construction.",
+        "schemaSafe": true
+      },
+      "residenceCount": {
+        "value": "194",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Brooke",
+        "reviewedAt": "2026-09-22T04:21:49.481Z",
+        "note": "Brooke supplied the current Related Ross plan; corroborated by Florida YIMBY and Floridian Development reporting.",
+        "schemaSafe": true
+      },
+      "address": {
+        "value": "464 Fern Street, West Palm Beach, FL 33401",
+        "source": "manual_review",
+        "preferredFrom": "custom",
+        "reviewedBy": "Brooke",
+        "reviewedAt": "2026-09-22T04:21:49.481Z",
+        "note": "Current project address provided by Brooke; former multi-parcel address remains historical source context.",
+        "schemaSafe": true
       }
     }
   }

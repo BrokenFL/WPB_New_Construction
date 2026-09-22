@@ -64,6 +64,7 @@ export type ProjectShowcaseConfig = {
 export type ProjectCopyPackage = {
   slug: string;
   repoProjectId: string;
+  structuredDetails?: Array<{ name: string; value: string }>;
   pageTemplate?: "editorial-showcase";
   showcase?: ProjectShowcaseConfig;
   heroHeadline?: string;

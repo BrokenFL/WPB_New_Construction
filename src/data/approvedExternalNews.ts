@@ -985,9 +985,13 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "newsletterCta": "Read the article",
     "query": "West Palm Beach 464 Fern Street Related Ross August 2026 development plan",
     "category": "development",
-    "relatedProjectIds": [],
+    "relatedProjectIds": [
+      "fern-and-gardenia-related-ross-fern-street"
+    ],
     "relatedCorridorIds": [],
-    "relatedProjectSlugs": [],
+    "relatedProjectSlugs": [
+      "fern-and-gardenia-related-ross-fern-street"
+    ],
     "relatedCorridors": [
       "downtown"
     ],
@@ -1022,7 +1026,8 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     ],
     "paywallStatus": "free",
     "status": "published",
-    "riskLevel": "medium"
+    "riskLevel": "medium",
+    "primaryProjectSlug": "fern-and-gardenia-related-ross-fern-street"
   },
   {
     "id": "banyan-tree-400-hibiscus-approval",

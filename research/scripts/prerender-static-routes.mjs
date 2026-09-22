@@ -11,6 +11,7 @@ const approvedNewsPath = path.join(workspace, "research/news-review/approved-dev
 const marketNotesPath = path.join(workspace, "src/data/marketNotes.ts");
 const projectModelPath = path.join(workspace, "src/generated/projectModelPublic.json");
 const projectSchemaSafePath = path.join(workspace, "src/generated/projectSchemaSafe.json");
+const projectCopyPackagePath = path.join(workspace, "public/data/project-copy-package.json");
 const baseUrl = "https://www.wpbnewconstruction.com";
 
 const projectAliases = new Map([
@@ -75,6 +76,7 @@ async function loadStaticPayload(siteData) {
   const marketNotesSource = await fs.readFile(marketNotesPath, "utf8").catch(() => "");
   const projectModel = await readJson(projectModelPath, { projects: [], retiredProjects: [] });
   const projectSchemaSafe = await readJson(projectSchemaSafePath, { projects: [] });
+  const projectCopyPackage = await readJson(projectCopyPackagePath, []);
   const appSource = await fs.readFile(appSourcePath, "utf8").catch(() => "");
   const projectModelProjects = Array.isArray(projectModel.projects) ? projectModel.projects : [];
   return {
@@ -89,6 +91,7 @@ async function loadStaticPayload(siteData) {
     marketNotes: readTsArray(marketNotesSource, "marketNotes").filter((item) => item?.status === "published"),
     projectModel: projectModelProjects,
     projectSchemaSafe: Array.isArray(projectSchemaSafe.projects) ? projectSchemaSafe.projects : [],
+    projectCopyPackage: Array.isArray(projectCopyPackage) ? projectCopyPackage : [],
   };
 }
 
@@ -1421,6 +1424,7 @@ function projectSchema(project, payload) {
   const schemaFacts = payload.projectSchemaSafe.find((item) => item.identity?.slug === project.projectId);
   const safeFields = schemaFacts?.safeFields || { name: project.name, url: `${baseUrl}${projectPath(project)}` };
   const publicProject = payload.projectModel.find((item) => item.publicSlug === project.projectId);
+  const structuredDetails = payload.projectCopyPackage.find((item) => item.repoProjectId === project.projectId)?.structuredDetails || [];
   const presentation = publicProject?.presentation;
   const unitCount = Number(String(safeFields.residenceCount || "").match(/\d+/)?.[0] || 0) || undefined;
   const projectLocality = normalize(project.area) === "palm-beach" ? "Palm Beach" : "West Palm Beach";
@@ -1429,7 +1433,7 @@ function projectSchema(project, payload) {
     "@id": `${baseUrl}${projectPath(project)}#project`,
     name: safeFields.name,
     url: safeFields.url,
-    description: project.projectType === "rental"
+    description: structuredDetails.length ? publicProject?.presentation?.summary : project.projectType === "rental"
       ? `${safeFields.name} rental community guide with source-backed development, amenity, neighborhood, and leasing-verification context.`
       : `${safeFields.name} buyer guide with source-backed project context and verification notes.`,
     address: safeFields.address ? {
@@ -1445,6 +1449,9 @@ function projectSchema(project, payload) {
     areaServed: `${projectLocality}, Florida`,
     containedInPlace: { "@type": "City", name: projectLocality },
     numberOfAccommodationUnits: unitCount,
+    ...(structuredDetails.length ? {
+      additionalProperty: structuredDetails.map((detail) => ({ "@type": "PropertyValue", name: detail.name, value: detail.value })),
+    } : {}),
     ...(safeFields.status ? { status: safeFields.status } : {}),
     subjectOf: { "@id": `${baseUrl}${projectPath(project)}#webpage` },
     reviewedBy: { "@id": `${baseUrl}/#brooke-snader` },

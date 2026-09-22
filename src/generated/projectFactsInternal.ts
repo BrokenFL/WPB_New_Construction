@@ -396,27 +396,30 @@ export const internalProjectFacts = [
     "projectId": "related-ross-fern-street",
     "name": "Related Ross Fern Street / South Dixie Condo",
     "area": "Downtown",
-    "pageStatus": "Pipeline/watch-list",
-    "dataConfidence": "Working",
+    "pageStatus": "Proposed / municipal review",
+    "dataConfidence": "Brooke-supplied current plan; corroborated by August 2026 reporting",
     "facts": {
-      "address": "430-464 Fern St, 419-435 Gardenia St, and 415-421 S Dixie Hwy, West Palm Beach, FL 33401",
-      "status": "Planning / not yet named",
-      "residences": "Reported at roughly 100 to 130 residences",
-      "stories": "",
-      "completion": "Planning-stage timing not publicly confirmed.",
-      "pricing": "Not publicly confirmed",
-      "team": "Related Ross with Wexford Real Estate Investors, 13th Floor Investments, and L&L Holding Company partnership context; Not publicly confirmed; Not publicly confirmed; Not publicly confirmed"
+      "address": "464 Fern Street, West Palm Beach, FL 33401",
+      "status": "Proposed / Municipal Review",
+      "residences": "194 proposed residences",
+      "stories": "25",
+      "completion": "Not announced",
+      "pricing": "Not released",
+      "team": "Related Ross; Roger Ferris + Partners"
     },
-    "conflicts": [],
+    "conflicts": [
+      "Earlier 2022 Arquitectonica proposal and reported 100–130-condo repositioning are superseded by the June 2026 Related Ross submission."
+    ],
     "gaps": [
-      "No official website captured."
+      "Current municipal approval, sales timing, pricing, and delivery are not announced.",
+      "No developer-hosted current rendering or official website captured."
     ],
     "highValueSources": [],
     "sourceCounts": {
       "official": 0,
-      "reporting": 1,
+      "reporting": 2,
       "other": 0,
-      "sourcePages": 1
+      "sourcePages": 2
     }
   },
   {

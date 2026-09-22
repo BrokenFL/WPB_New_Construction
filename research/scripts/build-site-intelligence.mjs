@@ -2996,6 +2996,7 @@ function buildPublicProjectCopyPackage(records) {
   return records.map((record) => ({
     slug: record.slug,
     repoProjectId: record.repoProjectId,
+    structuredDetails: record.structuredDetails,
     pageTemplate: record.pageTemplate,
     showcase: record.showcase,
     heroHeadline: record.heroHeadline,

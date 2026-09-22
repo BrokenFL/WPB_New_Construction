@@ -1026,60 +1026,80 @@
       "corridorKey": "downtown",
       "corridor": "Downtown",
       "publicationState": "published",
-      "displayName": "Fern & Gardenia / Related Ross Fern Street Project",
-      "status": "Pipeline / Announced",
-      "delivery": "Pipeline watch",
-      "residences": "194",
+      "displayName": "Residences at 464 Fern Street",
+      "status": "Proposed / Municipal Review",
+      "delivery": "Not announced",
+      "residences": "194 proposed residences",
       "price": "Not released",
-      "address": "401 S Dixie Highway / 418 & 464 Fern Street, West Palm Beach, FL",
-      "developmentStage": "planning_repositioned_to_condo_watchlist",
-      "pageType": "pipeline_building_page",
+      "address": "464 Fern Street, West Palm Beach, FL 33401",
+      "developmentStage": "municipal_review",
+      "pageType": "mixed_use_pipeline_page",
       "siteGroup": "pipeline_watchlist",
       "sourceCatalogIds": [
         "related-ross-fern-street"
       ],
       "compareDatabaseId": "",
       "compareDatabaseSlug": "",
-      "lastVerifiedDate": "2026-09-01",
+      "lastVerifiedDate": "2026-09-22",
       "aliases": [
         "fern-and-gardenia-related-ross-fern-street",
         "/projects/fern-and-gardenia-related-ross-fern-street/",
         "related-ross-fern-street",
-        "464-fern-street"
+        "464-fern-street",
+        "464-fern",
+        "residences-at-464-fern-street"
       ],
       "collapsedSourceCatalogIds": [],
       "mergedInto": "",
       "humanReviewRequired": true,
       "confidenceLevel": "medium",
       "conflicts": [
-        "Prior plan: 340 apartments and approximately 19,474 sq. ft. commercial space; later report: 100–130 unit condo tower through Related Ross joint venture."
+        "The unbuilt 2022 Arquitectonica proposal under 13th Floor Investments, Wexford Real Estate Investors, and L&L Holding Company is superseded by the current Related Ross / Roger Ferris + Partners submission."
       ],
       "schemaBlockedFields": [],
       "gaps": [],
-      "sourceUrls": [],
+      "sourceUrls": [
+        "https://floridayimby.com/2026/08/plans-filed-for-25-story-residences-at-464-fern-street-in-downtown-west-palm-beach.html",
+        "https://floridiandevelopment.com/related-ross-unveils-plans-for-residences-at-464-fern-street-featuring-194-units/"
+      ],
       "reviewedFields": {
-        "residences": "194"
+        "status": "Proposed / Municipal Review",
+        "residences": "194",
+        "address": "464 Fern Street, West Palm Beach, FL 33401"
       },
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
         "delivery": "approved_fallback",
-        "residences": "reviewed_override",
+        "residences": "canonical",
         "price": "approved_fallback",
         "address": "canonical"
       },
       "presentation": {
         "rank": 17,
-        "deliveryYear": 2029,
+        "deliveryYear": 0,
         "longitude": -80.0555,
         "latitude": 26.7112,
-        "summary": "Fern & Gardenia / Related Ross Fern Street is a Downtown pipeline entry for the reported condo repositioning at 401 S Dixie Highway and Fern Street parcels.",
+        "summary": "Residences at 464 Fern Street is a proposed 25-story, 194-residence Related Ross tower in downtown West Palm Beach. The June 2026 plan remains in municipal review.",
         "floorplans": false,
-        "pageState": "Pipeline / Announced / Watchlist",
-        "image": "/projects/related-ross-fern-street/media/card.jpg",
-        "heroImage": "",
-        "mobileImage": "",
-        "galleryImages": []
+        "pageState": "Proposed / Municipal Review",
+        "image": "/projects/related-ross-fern-street/media/464-fern-overall-1600.webp",
+        "heroImage": "/projects/related-ross-fern-street/media/464-fern-overall-1600.webp",
+        "mobileImage": "/projects/related-ross-fern-street/media/464-fern-overall-mobile-780.webp",
+        "galleryImages": [
+          {
+            "src": "/projects/related-ross-fern-street/media/464-fern-street-corner-1600.webp",
+            "kicker": "Illustrative view",
+            "title": "Fern Street corner and parking podium",
+            "alt": "Illustrative view of the proposed perforated parking podium and Fern Street corner at 464 Fern Street"
+          },
+          {
+            "src": "/projects/related-ross-fern-street/media/464-fern-south-dixie-1600.webp",
+            "kicker": "Illustrative view",
+            "title": "South Dixie lobby frontage",
+            "alt": "Illustrative view of the proposed tower facade and ground-floor arrival along South Dixie Highway"
+          }
+        ]
       }
     },
     {

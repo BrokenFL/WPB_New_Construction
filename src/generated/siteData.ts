@@ -4673,28 +4673,39 @@ export const projectFacts = [
   },
   {
     "projectId": "fern-and-gardenia-related-ross-fern-street",
-    "name": "Fern & Gardenia / Related Ross Fern Street Project",
+    "name": "Residences at 464 Fern Street",
     "area": "Downtown",
-    "projectType": "condo-pipeline",
-    "summary": "Fern & Gardenia / Related Ross Fern Street is a Downtown pipeline entry for the reported condo repositioning at 401 S Dixie Highway and Fern Street parcels.",
-    "lastReviewedDate": "2026-09-01",
+    "projectType": "mixed-use",
+    "summary": "Residences at 464 Fern Street is a proposed 25-story, 194-residence Related Ross tower in downtown West Palm Beach. The June 2026 plan remains in municipal review.",
+    "lastReviewedDate": "2026-09-22",
     "facts": {
-      "projectAddress": "401 S Dixie Highway / 418 & 464 Fern Street, West Palm Beach, FL",
+      "projectAddress": "464 Fern Street, West Palm Beach, FL 33401",
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Pipeline / Announced",
-      "residences": "194",
+      "status": "Proposed / Municipal Review",
+      "residences": "194 proposed residences",
       "stories": "25",
-      "completion": "Pipeline watch",
+      "completion": "Not announced",
       "pricing": "Not released",
-      "team": "Related Ross; Wexford; 13th Floor Investments; L&L Holding",
-      "amenities": "Formerly planned as a 25-story mixed-use project with apartments and commercial space; later reported as being repositioned as a 100–130 unit condominium tower.",
-      "residenceFeatures": [],
-      "neighborhoodContext": "Downtown West Palm Beach / Fern Street corridor",
-      "effectiveDate": "2026-09-08"
+      "team": "Related Ross; Roger Ferris + Partners",
+      "amenities": "Proposed fifth-floor lap pool, outdoor bar, landscaped areas, fitness center, and game room.",
+      "residenceFeatures": [
+        "Two- to four-bedroom layouts proposed",
+        "Predominantly glass exterior with white horizontal floor plates and vertical bands",
+        "Rounded corners and stacked curved terraces at the tower ends"
+      ],
+      "neighborhoodContext": "Downtown West Palm Beach / Fern Street",
+      "effectiveDate": "2026-09-22"
     },
-    "sources": []
+    "sources": [
+      {
+        "url": "https://floridayimby.com/2026/08/plans-filed-for-25-story-residences-at-464-fern-street-in-downtown-west-palm-beach.html"
+      },
+      {
+        "url": "https://floridiandevelopment.com/related-ross-unveils-plans-for-residences-at-464-fern-street-featuring-194-units/"
+      }
+    ]
   },
   {
     "projectId": "rybovich-marina-redevelopment",
@@ -5591,9 +5602,9 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/fern-and-gardenia-related-ross-fern-street/",
-    "title": "Fern & Gardenia / Related Ross Fern Street Project | WPB New Construction",
-    "description": "Fern & Gardenia / Related Ross Fern Street is a Downtown pipeline entry for the reported condo repositioning at 401 S Dixie Highway and Fern Street parcels.",
-    "ogImage": "/projects/related-ross-fern-street/media/card.jpg"
+    "title": "Residences at 464 Fern Street | Downtown West Palm Beach",
+    "description": "Explore the proposed 25-story, 194-residence Related Ross tower at 464 Fern Street, its Roger Ferris + Partners design, amenities, and municipal-review status.",
+    "ogImage": "/projects/related-ross-fern-street/media/464-fern-overall-1600.webp"
   },
   {
     "path": "/projects/rybovich-marina-redevelopment/",
