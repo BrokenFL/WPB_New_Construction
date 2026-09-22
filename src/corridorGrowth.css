@@ -219,3 +219,6 @@
   .cr-page .cg-button { min-height: 50px; padding-inline: 12px; }
   .cr-project-media { height: 235px; }
 }
+@media (prefers-reduced-motion: reduce) {
+  .cr-project-media img { transition: none; transform: none !important; }
+}
