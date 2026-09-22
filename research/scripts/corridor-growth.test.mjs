@@ -32,7 +32,20 @@ test('useful shared markup has early actions, project source citations and open 
     const html=renderGrowthCorridor(key);
     assert.equal((html.match(/<h1>/g)||[]).length,1);
     assert.equal((html.match(/data-corridor-intent=/g)||[]).length,2);
-    assert.ok(html.indexOf('data-corridor-intent=')<html.indexOf('<figure>'));
+    const heroFigure=html.indexOf('<figure>',html.indexOf('<section class="cr-hero"'));
+    const exploreActions=html.indexOf('cr-explore-actions');
+    assert.ok(exploreActions>=0&&exploreActions<heroFigure);
+    assert.ok(html.indexOf(`href="#cr-project-heading-${key}"`)<heroFigure);
+    assert.ok(html.indexOf('href="/buildings/"')<heroFigure);
+    const shortlistStart=html.indexOf('<section class="cr-projects"');
+    const shortlistEnd=html.indexOf('</section>',shortlistStart);
+    const contactStart=html.indexOf('<section class="cr-contact"');
+    const contactEnd=html.indexOf('</section>',contactStart);
+    assert.ok(shortlistStart>=0&&shortlistEnd<contactStart);
+    for(const intent of ['availability','pricing-packet']){
+      const intentPosition=html.indexOf(`data-corridor-intent="${intent}"`);
+      assert.ok(intentPosition>shortlistEnd&&intentPosition>contactStart&&intentPosition<contactEnd);
+    }
     assert.doesNotMatch(html,/href="\/inquire\/\?|data-commercial-intent|data-fp-action|\$\d|guaranteed delivery/);
     assert.ok(html.includes('2026-09-07'));
     for(const project of c.projects){assert.ok(html.includes(`/projects/${project.slug}/`));assert.equal(new URL(project.source.href).protocol,'https:');assert.ok(project.verify.length>40);}
