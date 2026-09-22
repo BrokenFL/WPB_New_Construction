@@ -9207,7 +9207,7 @@ function renderDraftProjectPage(project: FeaturedProject) {
     : "";
 
   return `
-    ${project.id === "fern-and-gardenia-related-ross-fern-street" ? `<link rel="stylesheet" href="/assets/styles/464-fern.css" />` : ""}
+    ${project.id === "fern-and-gardenia-related-ross-fern-street" ? `<link rel="stylesheet" href="/styles/464-fern.css" />` : ""}
     <div class="route-view route-view-project route-view-draft-project route-view-brochure-project project-page-${pageType} project-type-${project.projectType}" data-route-view="project" data-project-id="${project.id}" data-project-page-type="${pageType}" data-project-type="${project.projectType}" hidden>
       ${renderProjectIdentityHeader(project, rules)}
       <section class="brochure-hero" id="${project.id}" data-project-section="hero">
