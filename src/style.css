@@ -10856,10 +10856,6 @@ body:has(.route-view-inquiry:not([hidden])) .mobile-cta-bar {
 }
 
 @media (max-width: 980px) {
-  .corridor-guide-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .corridors-intro-section,
   .corridors-feature-card,
   .corridors-feature-card:nth-child(even),
