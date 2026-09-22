@@ -629,7 +629,7 @@ const homepageFeaturedProjects = homepageFeaturedProjectIds
   .map((projectId) => rankedFeaturedProjects.find((project) => project.id === projectId && Boolean(homepageProjectCardImage(project.id) || project.image)))
   .filter((project): project is FeaturedProject => Boolean(project))
   .slice(0, homepageFeaturedProjectIds.length);
-const homepageCorridorKeys: CorridorKey[] = ["north-flagler", "south-flagler", "downtown", "palm-beach", "south-end"];
+const homepageCorridorKeys: CorridorKey[] = ["north-flagler", "south-flagler", "downtown", "palm-beach"];
 const importedProjectImages = approvedImportedProjectImagesRaw as ImportedProjectImage[];
 
 type BuildingDatabaseHelpers = typeof import("./lib/buildingDatabase");
@@ -2449,8 +2449,8 @@ app.innerHTML = `
 
       <section class="home-corridor-guide" id="corridors" aria-label="Choose a West Palm Beach new-construction corridor">
         <div class="section-heading corridor-heading">
-          <div><p class="eyebrow">01 / A sense of place</p><h2>Find your side of the city.</h2><p class="v2-section-deck">Five distinct areas, from waterfront calm to downtown energy. Start with the way you want to live.</p></div>
-          <a class="home-featured-heading-link" href="/corridors/">Explore all ${corridorSections.length} areas <span aria-hidden="true">→</span></a>
+          <div><p class="eyebrow">01 / A sense of place</p><h2>Find your side of the city.</h2><p class="v2-section-deck">Four distinct areas, from waterfront calm to downtown energy. Start with the way you want to live.</p></div>
+          <a class="home-featured-heading-link" href="/corridors/">Explore all areas <span aria-hidden="true">→</span></a>
         </div>
         <div class="home-carousel-shell">
           ${renderHomeCarouselControls("corridor")}
