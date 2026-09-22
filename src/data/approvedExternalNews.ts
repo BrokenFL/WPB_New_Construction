@@ -76,6 +76,126 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "related-ross-fort-partners-south-flagler-property-swap-2026-09-22",
+    "slug": "related-ross-fort-partners-south-flagler-property-swap-2026-09-22",
+    "title": "$40M Property Swap Redraws the South Flagler Waterfront Development Map",
+    "sourceName": "The Real Deal",
+    "sourceUrl": "https://therealdeal.com/miami/2026/09/21/related-ross-fort-partners-swap-west-palm-beach-properties/",
+    "canonicalUrl": "https://therealdeal.com/miami/2026/09/21/related-ross-fort-partners-swap-west-palm-beach-properties/",
+    "sourceTitle": "$40M Property Swap Redraws the South Flagler Waterfront Development Map",
+    "publishedAt": "2026-09-22T23:31:18.069Z",
+    "sourcePublishedAt": "2026-09-21",
+    "sourcePublishedDate": "2026-09-21",
+    "eventDate": "2026-09-21",
+    "dateDiscovered": "2026-09-22",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-22T23:31:18.069Z",
+    "deck": "After more than a year of competing condo buyouts and litigation, Related Ross and Fort Partners traded neighboring West Palm Beach properties for $20 million each, dividing control of one of South Flagler Drive's most valuable remaining redevelopment zones.",
+    "description": "Related Ross and Fort Partners completed two $20 million South Flagler property transactions, clarifying control around Harbor Towers and Southbridge.",
+    "summary": "A matched pair of $20 million transactions gives Fort Partners near-total control of Harbor Towers and expands Related Ross' position beside Southbridge.",
+    "bodySections": [
+      {
+        "heading": "The deal",
+        "body": "A complicated battle for West Palm Beach waterfront land is finally sorting itself out. Related Ross and Fort Partners completed a pair of $20 million transactions involving neighboring properties near the southern end of South Flagler Drive, reshuffling parcels both developers had pursued since 2024.\n\nRelated Ross transferred 21 condominium units at Harbor Towers & Marina, 3901 South Flagler Drive, to an affiliate of Fort Partners. The acquisition brings Fort Partners' ownership to 60 of the 61 units in the two-building waterfront complex. At the same time, Related Ross acquired from Fort Partners the 25-unit apartment properties at 3906 Washington Road and 3907 South Flagler Drive, which Fort bought for $20 million in late 2024.\n\nOn paper, it is a pair of equal-value transactions. On the map, the exchange is more significant: each company now has a much clearer development position."
+      },
+      {
+        "heading": "How the waterfront chessboard changed",
+        "body": "Fort Partners entered this stretch in late 2024 with its purchase of the Washington Road and South Flagler apartment properties. Attention then shifted to Harbor Towers, a 61-unit condominium on roughly two waterfront acres at 3901 South Flagler Drive. Fort Partners and Related Ross both began acquiring units there, and the competition eventually moved into court over changes to the condominium's governing documents.\n\nThe developers settled their dispute outside court in October 2025 on undisclosed terms. Fort Partners continued assembling Harbor Towers. Related Ross concentrated on Southbridge, the low-rise condominium immediately south at 3915 South Flagler Drive.\n\nThe new transactions remove the biggest overlap between those strategies. Fort takes Related's Harbor Towers position. Related takes the former Fort apartment property beside Southbridge.",
+        "image": "/assets/editorial/related-ross-fort-partners-south-flagler-property-swap-2026-09-22-body-1.jpg",
+        "imageAlt": "Aerial location illustration identifying Harbor Towers at 3901 South Flagler Drive and Southbridge at 3915 South Flagler Drive",
+        "imageCaption": "Harbor Towers and Southbridge sit within the same closely watched stretch of the South Flagler waterfront.",
+        "imageCredit": "AI-generated editorial illustration"
+      },
+      {
+        "heading": "Related Ross strengthens its Southbridge position",
+        "body": "Related Ross had already assembled a substantial position at Southbridge after prevailing in a competing bid for the condominium. The developer paid $25.4 million for a 27-unit bulk purchase in January, following earlier acquisitions of 18 units, according to property reporting.\n\nAdding 3906 Washington Road and 3907 South Flagler Drive turns what looked like separate purchases into a more meaningful assemblage. The parcels now sit under the control of the same developer, although no combined redevelopment plan has been publicly announced.\n\nRelated Ross has demonstrated its appetite for luxury residential development along the corridor through South Flagler House and Edgeworth. The latest acquisition gives it another strategically placed property farther south, but architecture, unit count, height, timing and branding remain unknown.",
+        "image": "/assets/editorial/related-ross-fort-partners-south-flagler-property-swap-2026-09-22-body-2.jpg",
+        "imageAlt": "Editorial illustration of the existing Southbridge condominium property at 3915 South Flagler Drive",
+        "imageCaption": "Related Ross has assembled a substantial position at Southbridge and now owns the neighboring former Fort Partners apartment property.",
+        "imageCredit": "AI-generated editorial illustration"
+      },
+      {
+        "heading": "Fort Partners nears total control of Harbor Towers",
+        "body": "For Fort Partners, the exchange nearly completes the Harbor Towers assemblage. The company now controls 60 of the condominium's 61 units after acquiring Related Ross' remaining 21-unit position. Since April 2025, Fort has spent approximately $79.7 million on those 60 units, according to property data cited by The Real Deal. The remaining unit is reportedly owned by the condominium association itself.\n\nFort Partners plans to demolish and redevelop the two-building property, but it has not publicly unveiled detailed plans for a replacement. The developer is known for Four Seasons-branded resorts and residences, including The Surf Club in Surfside, yet no Four Seasons project has been announced for Harbor Towers.\n\nThat distinction matters. The confirmed story is near-total site control and a redevelopment intention. Any brand, building design or sales program remains speculation.",
+        "image": "/assets/editorial/related-ross-fort-partners-south-flagler-property-swap-2026-09-22-body-3.jpg",
+        "imageAlt": "Editorial illustration of the existing Harbor Towers waterfront condominium at 3901 South Flagler Drive",
+        "imageCaption": "Fort Partners now owns 60 of Harbor Towers' 61 units after acquiring Related Ross' 21-unit position.",
+        "imageCredit": "AI-generated editorial illustration"
+      },
+      {
+        "heading": "The bigger South Flagler picture",
+        "body": "Harbor Towers, the Washington Road and South Flagler apartment properties, and Southbridge form a roughly 4.3-acre collection of waterfront land that became the focus of competing acquisition campaigns by two major South Florida developers. A year ago, ownership across those properties was tangled.\n\nFort owned the apartment parcel and was assembling Harbor Towers. Related was buying Harbor Towers units while assembling Southbridge. Both companies were maneuvering around one another.\n\nThe latest exchange largely removes that overlap. Fort Partners emerges with near-total control of Harbor Towers. Related Ross emerges with the former Fort apartment property beside its Southbridge position. Instead of one contested assemblage, this stretch now contains two distinct potential redevelopment sites controlled by two developers."
+      },
+      {
+        "heading": "What to watch next",
+        "body": "Ownership is becoming clearer, but the development picture is not settled. West Palm Beach has been reconsidering planning standards as growth accelerates along its waterfront, and the city has already examined a temporary pause on new planned-development applications in part of the South Flagler corridor.\n\nThe next decisive event may be a condominium termination filing, demolition application, zoning request or full site plan rather than another acquisition. Those documents would begin to answer the questions the transactions cannot: what each developer wants to build, how much density the city will allow, and how the new projects would meet the street and waterfront.\n\nFor buyers watching West Palm Beach new construction, this is the stage that matters long before a sales gallery opens. There are no announced residences, floor plans or prices here yet. But two complicated land positions just became easier to understand, putting Fort Partners at Harbor Towers and Related Ross around Southbridge firmly on the development watchlist."
+      }
+    ],
+    "whyItMatters": "Two competing waterfront assemblages now have much clearer ownership. Fort Partners is one unit short of complete ownership at Harbor Towers, while Related Ross has added the former Fort apartment property beside its Southbridge position.",
+    "buyerContext": "Treat the recorded transactions and unit ownership as established. Treat future building form, density, branding, timing and pricing as unconfirmed until public filings or developer announcements appear.",
+    "buyerTakeaway": "",
+    "marketSignal": "Control of two South Flagler waterfront redevelopment positions has consolidated around Fort Partners and Related Ross.",
+    "bestFor": "",
+    "watchPoints": "Condominium termination filings, demolition applications, city planning submissions, zoning changes, architectural plans and formal developer announcements.",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "South Flagler"
+    ],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "west-palm-beach-waterfront-development-freeze-2026-07-19"
+    ],
+    "newsletterHeadline": "$40M swap redraws South Flagler's waterfront map",
+    "newsletterBlurb": "Fort Partners now owns 60 of 61 Harbor Towers units, while Related Ross has added the former Fort apartment parcel beside Southbridge.",
+    "newsletterCta": "Read the article",
+    "query": "Related Ross Fort Partners South Flagler property swap Harbor Towers Southbridge September 2026",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "south-flagler"
+    ],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/related-ross-fort-partners-south-flagler-property-swap-2026-09-22-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "The Real Deal: Related Ross, Fort Partners swap West Palm Beach waterfront properties",
+        "url": "https://therealdeal.com/miami/2026/09/21/related-ross-fort-partners-swap-west-palm-beach-properties/",
+        "type": "primary transaction reporting"
+      },
+      {
+        "label": "Realty Today: Fort Partners owns 60 of 61 Harbor Towers units",
+        "url": "https://www.realtytoday.com/articles/114880/20260922/fort-partners-owns-60-61-units-this-condo-last-one-isnt-owned-person.htm",
+        "type": "independent current coverage"
+      },
+      {
+        "label": "Commercial Observer: Fort Partners' original South Flagler apartment acquisition",
+        "url": "https://commercialobserver.com/2024/12/four-seasons-fort-partners-donald-trump-mar-a-lago/",
+        "type": "independent historical coverage"
+      },
+      {
+        "label": "The Real Deal: Related Ross Southbridge acquisition activity",
+        "url": "https://therealdeal.com/miami/2026/01/23/related-ross-pays-premium-for-aging-west-palm-beach-condos/",
+        "type": "independent property reporting"
+      },
+      {
+        "label": "LegalClarity: Harbor Towers lawsuit and settlement history",
+        "url": "https://legalclarity.org/harbor-towers-west-palm-beach-lawsuit-and-buyout-settlement/",
+        "type": "legal history summary with linked records and reporting"
+      },
+      {
+        "label": "City of West Palm Beach: Downtown Master Plan update",
+        "url": "https://www.wpb.org/Departments/Development-Services/Planning-Division/Downtown-Master-Plan",
+        "type": "official planning context"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "tideline-fort-partners-150m-2026-09-20",
     "slug": "fort-partners-buys-tideline-four-seasons-residences-2026-09-20",
     "title": "Fort Partners Buys Tideline for $150M. Could Four Seasons Residences Be Next?",

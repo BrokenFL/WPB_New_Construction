@@ -5097,6 +5097,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/related-ross-fort-partners-south-flagler-property-swap-2026-09-22/",
+    "title": "$40M Property Swap Redraws the South Flagler Waterfront Development Map | WPB Updates",
+    "description": "Related Ross and Fort Partners completed two $20 million South Flagler property transactions, clarifying control around Harbor Towers and Southbridge.",
+    "ogImage": "/assets/editorial/related-ross-fort-partners-south-flagler-property-swap-2026-09-22-hero.jpg"
+  },
+  {
     "path": "/updates/fort-partners-buys-tideline-four-seasons-residences-2026-09-20/",
     "title": "Fort Partners Buys Tideline for $150M. Could Four Seasons Residences Be Next? | WPB Updates",
     "description": "Fort Partners has acquired the Tideline Palm Beach Ocean Resort for $150 million next to its Four Seasons Resort Palm Beach, creating a larger South Ocean Boulevard footprint with intriguing long-term possibilities.",
