@@ -3,6 +3,12 @@
   margin-top: 28px;
 }
 
+@media (min-width: 861px) {
+  .route-view-project[data-project-id="fern-and-gardenia-related-ross-fern-street"] .gallery-grid-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
 @media (max-width: 620px) {
   .route-view-project[data-project-id="fern-and-gardenia-related-ross-fern-street"] .project-identity-header {
     margin-top: 24px;
