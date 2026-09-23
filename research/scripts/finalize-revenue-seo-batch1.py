@@ -60,5 +60,13 @@ new=old+'\n  publicFloorplans.projects = approvedRevenueFloorplanProjects(public
 if new not in s:
  if s.count(old)!=1:raise ValueError('Unexpected full-generation floor-plan boundary')
  s=s.replace(old,new,1)
+# Refresh existing LLM discovery from the same snapshots; do not refresh news.
+old='    console.log("Buyer content regenerated; floor-plan, image and news inventories preserved.");'
+new='''    const buyerNewsFeedSnapshot = JSON.parse(await fs.readFile(path.join(publicDataRoot, "news-feed.json"), "utf8"));
+    await fs.writeFile(path.join(workspace, "public/llms.txt"), renderLlmsTxt(currentPlans, buyerNewsFeedSnapshot));
+    console.log("Buyer discovery regenerated; approved plans aligned; source assets and news unchanged.");'''
+if new not in s:
+ if s.count(old)!=1:raise ValueError('Unexpected buyer discovery output boundary')
+ s=s.replace(old,new,1)
 p.write_text(s)
 print('Source consistency finalized; run normal generators. Approved plan assets and 3D code untouched.')

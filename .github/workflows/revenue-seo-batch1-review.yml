@@ -76,7 +76,7 @@ jobs:
           node --experimental-strip-types research/scripts/revenue-seo-triage.mjs after
       - name: Source and prerender revenue checks
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        run: node --experimental-strip-types --test research/scripts/revenue-seo-batch1.test.mjs 2>&1 | tee .runtime/revenue-seo-review/revenue-tests.log
+        run: node --experimental-strip-types --test research/scripts/revenue-seo-batch1.test.mjs research/scripts/revenue-discovery-parity.test.mjs 2>&1 | tee .runtime/revenue-seo-review/revenue-tests.log
       - name: Chromium and WebKit desktop tablet mobile journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: node research/scripts/check-revenue-seo-batch1-browser.mjs 2>&1 | tee .runtime/revenue-seo-review/browser.log
@@ -105,7 +105,7 @@ jobs:
           python3 - <<'PY'
           import subprocess
           source='''content/project-copy-package.json content/project-page-overlays.json content/wpb_new_construction_building_database_cleaned.csv research/source-material-review/wpb-projects-canonical-v3-planning-update.json research/scripts/generate-project-model.mjs research/scripts/build-site-intelligence.mjs research/scripts/prerender-static-routes.mjs research/scripts/check-revenue-seo-batch1-browser.mjs src/data/projectCardData.ts src/lib/corridorGrowthContent.ts src/main.ts src/style.css'''.split()
-          generated='''src/generated/projectModel.json src/generated/projectModel.ts src/generated/projectModelPublic.json src/generated/projectModelPublic.ts src/generated/buildingDatabase.ts src/generated/buildingDatabasePublic.ts src/generated/projectSchemaSafe.json src/generated/projectSchemaRuntime.ts src/generated/siteData.ts public/data/site-meta.json public/data/project-copy-package.json public/data/floorplans.json'''.split()
+          generated='''src/generated/projectModel.json src/generated/projectModel.ts src/generated/projectModelPublic.json src/generated/projectModelPublic.ts src/generated/buildingDatabase.ts src/generated/buildingDatabasePublic.ts src/generated/projectSchemaSafe.json src/generated/projectSchemaRuntime.ts src/generated/siteData.ts public/data/site-meta.json public/data/project-copy-package.json public/data/floorplans.json public/llms.txt'''.split()
           changed=set(filter(None,subprocess.check_output(['git','diff','--name-only','-z']).decode().split('\0')))
           untracked=subprocess.check_output(['git','ls-files','--others','--exclude-standard']).decode().strip()
           if untracked:raise SystemExit(f'Unexpected untracked files: {untracked}')
