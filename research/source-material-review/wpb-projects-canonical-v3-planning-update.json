@@ -193,9 +193,9 @@
       "include_on_site": true,
       "city": "West Palm Beach",
       "municipal_or_legal_note": "Planning and municipal records also reference 1901 N Flagler Drive; municipal approval/reference count is 100 units with 204 parking spaces.",
-      "public_residence_count": 98,
+      "public_residence_count": "98 in earlier sources; 100 on Related Ross",
       "municipal_residence_count": 100,
-      "floor_count_display": 27,
+      "floor_count_display": "27–28 reported; confirm current plans",
       "municipal_floor_count": 27,
       "tower_count": 1,
       "developer": [
@@ -215,17 +215,17 @@
         "Corcoran Sunshine Marketing Group"
       ],
       "construction_team": [],
-      "price_display": "$3.69M–$5.445M for reviewed available residences",
-      "maintenance_display": "",
-      "delivery_display": "",
+      "price_display": "Request current pricing",
+      "maintenance_display": "Request current association budget",
+      "delivery_display": "Request current delivery guidance",
       "size_range_display": "2,015–2,835 interior sq. ft.",
       "bedroom_range_display": "2–3 bedrooms",
       "parking_summary": "Municipal/planning reporting references a five-story podium with 204 parking spaces; consumer-facing parking details need verification",
       "ev_summary": "",
       "storage_summary": "Tenant climate-controlled storage",
       "pet_summary": "Pet care listed among services; formal pet policy not verified",
-      "amenity_summary": "Rooftop pool, fitness/yoga/Pilates studios, men’s and women’s spas, steam, sauna, cold plunge, hot tub, private dining, cocktail lounge, card/game lounge, coworking, executive meeting space, golf simulator, package room with refrigerated storage.",
-      "service_summary": "24-hour concierge, doorman, valet, housekeeping, butler service, laundry/dry cleaning, personal chef service, transportation assistance.",
+      "amenity_summary": "The official amenity program includes a rooftop pool, fitness, yoga and Pilates spaces, spa facilities, a golf simulator, private dining and work spaces. Related Life and concierge services are described separately; confirm which services are included and which are charged individually.",
+      "service_summary": "Concierge and resident services are marketed; verify included services and separate charges in the current offering.",
       "residence_features": [
         "Private terraces",
         "Reviewed floorplans show 2- and 3-bedroom homes",
@@ -237,32 +237,58 @@
         "Buyers wanting service without a mega-tower feel"
       ],
       "tradeoffs": [
-        "Address and unit count conflicts require internal notes",
-        "Completion/delivery, fees, and full pet policy need verification"
+        "Current pricing, availability, schedule and recurring costs require the current offering documents.",
+        "Published residence counts differ; check the current declaration and specific plan."
       ],
       "key_conflicts": [
         "Public-facing/marketing address 1865 N Flagler vs municipal/project address 1901 N Flagler.",
         "Marketing/financing sources support 98 residences; municipal records support 100 units.",
-        "Some sources describe 27–28 stories; display 27 with note if needed."
+        "Some sources describe 27–28 stories; display 27 with note if needed.",
+        "The current official site lists 1901 N Flagler Drive; 616 Hibiscus Street is the sales gallery. Earlier 1865 N Flagler references are retained as historical context, not the current public address.",
+        "Related Ross lists 100 residences; earlier marketing/financing references report 98. Current offering count and conflicting 27–28-story references require confirmation. No new numeric schema approval is made.",
+        "No current numeric starting price or occupancy date was verified on the checked official pages. Request current written pricing and delivery guidance."
       ],
       "source_urls": [
-        "https://www.shorecrestwpb.com/",
+        "https://www.shorecrestwpb.com/inquire",
+        "https://www.shorecrestwpb.com/residences",
         "https://www.shorecrestwpb.com/amenities",
+        "https://www.relatedross.com/our-company/properties/shorecrest",
+        "https://www.shorecrestwpb.com/",
         "https://www.shorecrestwpb.com/team",
         "https://www.shorecrestwpb.com/floorplans"
       ],
       "human_review_required": true,
       "confidence_level": "medium",
-      "import_recommendation": "Import with conflict notes; public page should use 1865 N Flagler and 98 residences per Agent 2.",
+      "import_recommendation": "Use the September 23, 2026 scoped commercial review; preserve historical disagreements and existing schema-approval boundaries.",
       "project_id": "shorecrest",
       "slug": "shorecrest",
       "display_name": "Shorecrest",
       "site_group": "active_under_construction",
       "page_type": "main_building_page",
-      "status_badge": "Active Sales / Under Construction",
+      "status_badge": "Under Construction",
       "development_stage": "active_sales_under_construction",
-      "public_address": "1865 N Flagler Drive, West Palm Beach, FL 33407",
-      "neighborhood": "North Flagler waterfront"
+      "public_address": "1901 N Flagler Drive, West Palm Beach, FL 33407",
+      "neighborhood": "North Flagler waterfront",
+      "sales_gallery_address": "616 Hibiscus Street, West Palm Beach, FL 33401",
+      "scoped_commercial_review": {
+        "checkedAt": "2026-09-23",
+        "fields": [
+          "address",
+          "salesGallery",
+          "pricingGuidance",
+          "deliveryQualification",
+          "residenceCountConflict",
+          "amenities"
+        ],
+        "notes": [
+          "Sales path, address, amenities and commercial guidance checked September 23, 2026 against official project and Related Ross pages; this is not a re-verification of every building policy.",
+          "The current official site lists 1901 N Flagler Drive; 616 Hibiscus Street is the sales gallery. Earlier 1865 N Flagler references are retained as historical context, not the current public address.",
+          "Related Ross lists 100 residences; earlier marketing/financing references report 98. Current offering count and conflicting 27–28-story references require confirmation. No new numeric schema approval is made.",
+          "No current numeric starting price or occupancy date was verified on the checked official pages. Request current written pricing and delivery guidance.",
+          "The former official /floorplans URL returned 404 during this review. Existing approved local layout references remain available; no new plan is approved or altered.",
+          "HOA budget, deposits, parking allocation, pet/rental restrictions and optional service charges require the current offering documents."
+        ]
+      }
     },
     {
       "include_on_site": true,
@@ -519,9 +545,9 @@
       "include_on_site": true,
       "city": "West Palm Beach",
       "municipal_or_legal_note": "City documents list 1315 S Flagler Drive and 109 units; public/marketing sources use 1355 S Flagler and 108 residences.",
-      "public_residence_count": 108,
+      "public_residence_count": "105 on project site; 108 on Related Ross",
       "municipal_residence_count": 109,
-      "floor_count_display": 28,
+      "floor_count_display": "28",
       "municipal_floor_count": 28,
       "tower_count": 2,
       "developer": [
@@ -546,17 +572,17 @@
         "Rogers by Related Ross",
         "Rogers General Contracting"
       ],
-      "price_display": "$7.98M to $70M on current official tier pages",
-      "maintenance_display": "",
-      "delivery_display": "2027",
-      "size_range_display": "854–14,053 sq. ft.",
-      "bedroom_range_display": "1–5 bedrooms including guest-suite inventory",
+      "price_display": "From $7.98M advertised; request current pricing",
+      "maintenance_display": "Request current association budget",
+      "delivery_display": "Request current delivery guidance",
+      "size_range_display": "Varies by residence tier; guest suites are separate owner-only offerings",
+      "bedroom_range_display": "2–5-bedroom residences; guest suites restricted to owners",
       "parking_summary": "Porte-cochère and valet",
       "ev_summary": "",
       "storage_summary": "",
       "pet_summary": "",
-      "amenity_summary": "50,000 sq. ft. private-club amenities, lakefront pool/cabanas, private marina, vanishing-edge pool, 25-meter lap pool, spa, treatment rooms, beauty salon, hydrotherapy, fitness/Pilates/yoga, pickleball, restaurant, private dining, wine lounge, private bar, executive conference rooms, children’s facilities, golf simulator, Related Life programming.",
-      "service_summary": "Concierge, valet, private-club-style hospitality, Related Life programming.",
+      "amenity_summary": "The official program includes lakefront and lap pools, wellness and fitness spaces, pickleball, a golf simulator, private dining, a residents-only indoor/outdoor restaurant and business and social rooms. Guest suites are reserved for residence owners. Confirm operating arrangements, included services and any additional charges.",
+      "service_summary": "Concierge and resident services are marketed; verify included services and separate charges in the current offering.",
       "residence_features": [
         "Estate-scale residences",
         "Large all-season loggias",
@@ -570,22 +596,28 @@
         "Buyers wanting club-level amenity depth"
       ],
       "tradeoffs": [
-        "Ultra-luxury pricing",
-        "Fees/deposit/pet/EV details still need verification"
+        "Current pricing, availability, schedule and recurring costs require the current offering documents.",
+        "Published residence counts differ; check the current declaration and specific plan."
       ],
       "key_conflicts": [
         "Public address 1355 S Flagler vs city 1315 S Flagler.",
-        "Marketing 108 residences vs municipal 109 units."
+        "Marketing 108 residences vs municipal 109 units.",
+        "The project site currently says 105 residences and Related Ross says 108. Earlier municipal and architect material reports 109. Preserve the disagreement and omit an unapproved numeric count from structured data.",
+        "The official residence page advertises Signature Residences from $7.98M and separate penthouse tiers. Published tier prices are not a live inventory feed, a guaranteed minimum or a quotation for a specific residence.",
+        "RAMSA reported topping out on November 25, 2025. That historic milestone does not confirm occupancy or closing. Older 2027/first-quarter estimates are not retained as current delivery commitments."
       ],
       "source_urls": [
-        "https://www.southflaglerhouse.com/",
+        "https://www.southflaglerhouse.com/contact",
         "https://www.southflaglerhouse.com/residences",
         "https://www.southflaglerhouse.com/amenities",
+        "https://www.relatedross.com/our-company/properties/south-flagler-house",
+        "https://www.ramsa.com/news/article/south-flagler-house-tops-out-west-palm-beach",
+        "https://www.southflaglerhouse.com/",
         "https://www.southflaglerhouse.com/team"
       ],
       "human_review_required": true,
       "confidence_level": "high",
-      "import_recommendation": "Import public values and preserve municipal conflict notes.",
+      "import_recommendation": "Use the September 23, 2026 scoped commercial review; preserve historical disagreements and existing schema-approval boundaries.",
       "project_id": "south-flagler-house",
       "slug": "south-flagler-house",
       "display_name": "South Flagler House",
@@ -594,7 +626,28 @@
       "status_badge": "Under Construction",
       "development_stage": "under_construction",
       "public_address": "1355 S Flagler Drive, West Palm Beach, FL 33401",
-      "neighborhood": "South Flagler waterfront"
+      "neighborhood": "South Flagler waterfront",
+      "sales_gallery_address": "615 S Rosemary Avenue, West Palm Beach, FL 33401; by appointment",
+      "scoped_commercial_review": {
+        "checkedAt": "2026-09-23",
+        "fields": [
+          "address",
+          "salesGallery",
+          "pricingGuidance",
+          "deliveryQualification",
+          "residenceCountConflict",
+          "amenities"
+        ],
+        "notes": [
+          "Sales path, advertised pricing tiers, address and amenities checked September 23, 2026 against official project, developer and architect pages; unchanged building policies are not newly verified.",
+          "The project site currently says 105 residences and Related Ross says 108. Earlier municipal and architect material reports 109. Preserve the disagreement and omit an unapproved numeric count from structured data.",
+          "The official residence page advertises Signature Residences from $7.98M and separate penthouse tiers. Published tier prices are not a live inventory feed, a guaranteed minimum or a quotation for a specific residence.",
+          "RAMSA reported topping out on November 25, 2025. That historic milestone does not confirm occupancy or closing. Older 2027/first-quarter estimates are not retained as current delivery commitments.",
+          "The residence address is 1355 S Flagler Drive; the appointment-only sales gallery is 615 S Rosemary Avenue. Historical 1315/1333 address references remain contextual.",
+          "Guest suites are restricted to residence owners. The current official amenity page includes a residents-only restaurant; a private-marina entitlement was not verified and is not promised.",
+          "Current HOA budget, deposits, parking, lease/pet restrictions, service charges and final residence drawings require written confirmation."
+        ]
+      }
     },
     {
       "include_on_site": true,

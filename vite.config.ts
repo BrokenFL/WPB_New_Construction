@@ -86,7 +86,7 @@ async function pruneUnreferencedProjectAssets() {
   await Promise.all(unusedFiles.map((file) => rm(file, { force: true })));
   // Fail the build rather than silently break an old search/bookmark URL.
   await Promise.all([...preservedFloorplanDocuments].map(async (url) => {
-    if (!/^\/projects\/(?:nora-house|olara|ritz-carlton-wpb)\/docs\/floorplans\/[^/]+\.(?:pdf|png|jpe?g|webp)$/i.test(url) || url.includes("..")) {
+    if (!/^\/projects\/(?:nora-house|olara|ritz-carlton-wpb|shorecrest|south-flagler-house)\/docs\/floorplans\/(?:shared\/)?[^/]+\.(?:pdf|png|jpe?g|webp)$/i.test(url) || url.includes("..")) {
       throw new Error(`Invalid preserved floor-plan document URL: ${url}`);
     }
     const [source, built] = await Promise.all([

@@ -84,7 +84,7 @@
         "residenceCount",
         "address"
       ],
-      "conflictCount": 4,
+      "conflictCount": 5,
       "reviewFields": [
         "status",
         "deliveryTiming",

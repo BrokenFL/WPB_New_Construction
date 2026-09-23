@@ -48,30 +48,30 @@
     {
       "publicSlug": "shorecrest",
       "rank": 3,
-      "deliveryYear": 2027,
+      "deliveryYear": 0,
       "longitude": -80.05012,
       "latitude": 26.72985,
-      "summary": "A Related Ross waterfront tower at 1865 N Flagler Drive for buyers comparing boutique floor plates, wellness, and North Flagler construction momentum.",
+      "summary": "Shorecrest is a Related Ross waterfront condominium on North Flagler, with two- and three-bedroom residences, private terraces and a rooftop amenity program. Roger Ferris + Partners designed the architecture and Rottet Studio the interiors. Start with the released layouts, then compare the specific outlook, terrace and service terms with Olara and Ritz-Carlton.",
       "floorplans": true,
       "pageState": "Active / Sales / Under Construction",
       "image": "/projects/shorecrest/media/user-provided-shorecrest-card.jpg",
       "approvedFallback": {
         "displayName": "Shorecrest",
         "corridor": "North Flagler",
-        "status": "Active Sales / Under Construction",
-        "delivery": "Confirm with sales team",
-        "residences": "98",
-        "price": "$3.69M-$5.445M for reviewed available residences",
-        "address": "1865 N Flagler Drive, West Palm Beach, FL 33407"
+        "status": "Under Construction",
+        "delivery": "Request current delivery guidance",
+        "residences": "98 in earlier sources; 100 on Related Ross",
+        "price": "Request current pricing",
+        "address": "1901 N Flagler Drive, West Palm Beach, FL 33407"
       }
     },
     {
       "publicSlug": "south-flagler-house",
       "rank": 4,
-      "deliveryYear": 2027,
+      "deliveryYear": 0,
       "longitude": -80.0511,
       "latitude": 26.7011,
-      "summary": "RAMSA-designed waterfront residences at 1355 S Flagler Drive, positioned for buyers who want South Flagler privacy, scale, and Palm Beach-facing orientation.",
+      "summary": "South Flagler House pairs RAMSA architecture with Pembrooke & Ives interiors in two waterfront towers facing Palm Beach. Its residence tiers and loggias make the individual floor plan central to the decision. The official site advertises Signature Residences from $7.98M; that is published tier guidance checked September 23, 2026, not confirmation that a particular home is available.",
       "floorplans": true,
       "pageState": "Active / Sales / Under Construction",
       "image": "/projects/south-flagler-house/media/user-provided-south-flagler-house-card.jpg",
@@ -79,9 +79,9 @@
         "displayName": "South Flagler House",
         "corridor": "South Flagler",
         "status": "Under Construction",
-        "delivery": "2027",
-        "residences": "108",
-        "price": "$7.98M-$70M",
+        "delivery": "Request current delivery guidance",
+        "residences": "105 on project site; 108 on Related Ross",
+        "price": "From $7.98M advertised; request current pricing",
         "address": "1355 S Flagler Drive, West Palm Beach, FL 33401"
       }
     },
