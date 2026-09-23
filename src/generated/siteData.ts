@@ -801,7 +801,7 @@ export const floorplanLibrary = [
     "projectId": "banyan-tree",
     "name": "Banyan Tree Residences West Palm Beach",
     "area": "Downtown",
-    "projectType": "condo-pipeline",
+    "projectType": "condo-active-sales",
     "updatedAt": "2026-09-01",
     "count": 0,
     "plans": [],
@@ -1365,7 +1365,7 @@ export const floorplanLibrary = [
     "projectId": "nora-house",
     "name": "Nora House",
     "area": "Downtown",
-    "projectType": "condo-pipeline",
+    "projectType": "condo-active-sales",
     "updatedAt": "2026-09-01",
     "count": 65,
     "plans": [
@@ -4107,18 +4107,18 @@ export const projectFacts = [
     "name": "Olara West Palm Beach",
     "area": "North Flagler",
     "projectType": "condo-active-sales",
-    "summary": "North Flagler waterfront residences at 1919 N Flagler Drive with marina access, deep amenities, Jose Andres dining, and one of the most complete released floorplan packets in the market.",
+    "summary": "Olara combines a North Flagler waterfront setting with marina access and a broad amenity program. The project sponsor publishes starting pricing of $1.7M and a buyer appointment at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "1919 N Flagler Drive, West Palm Beach, FL 33407",
-      "salesGalleryAddress": "",
+      "salesGalleryAddress": "300 Butler Street, West Palm Beach, FL 33407",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Under Construction",
       "residences": "275",
       "stories": "26",
       "completion": "2028",
-      "pricing": "$2M–$7.5M",
+      "pricing": "From $1.7M (project sponsor-published; verify current availability)",
       "team": "Savanna; Arquitectonica; Gabellini Sheppard",
       "amenities": "Nearly 80,000 sq. ft. sixth-floor amenity deck, restaurant/epicurean marketplace, 12 guest suites, private five-slip dock, leisure and lap pools, fitness by The Wright Fit, recovery spa, onsen, plunge/vitality pools, meditation, sauna/steam, private dining, game room, library/veranda, simulator, private offices/coworking.",
       "residenceFeatures": [
@@ -4142,6 +4142,9 @@ export const projectFacts = [
       "effectiveDate": "2026-07-07"
     },
     "sources": [
+      {
+        "url": "https://www.olarawestpalmbeach.com/residences/"
+      },
       {
         "url": "https://www.miamiresidence.com/preconstruction/olara-west-palm-beach.htm"
       },
@@ -4200,18 +4203,18 @@ export const projectFacts = [
     "name": "The Ritz-Carlton Residences, West Palm Beach",
     "area": "North Flagler",
     "projectType": "condo-active-sales",
-    "summary": "A Ritz-Carlton branded North Flagler address with public-facing address at 1745 N Flagler Drive and legal parcel references preserved for review.",
+    "summary": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the buyer appointment is separately located at 340 Royal Poinciana Way, M302, on Palm Beach.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "1745 N Flagler Drive, West Palm Beach, FL 33407",
-      "salesGalleryAddress": "",
+      "salesGalleryAddress": "340 Royal Poinciana Way, M302, Palm Beach, FL 33480",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Under Construction",
       "residences": "138",
       "stories": "27",
-      "completion": "2028",
-      "pricing": "From $3M",
+      "completion": "2028 estimate; confirm current schedule",
+      "pricing": "Request current pricing",
       "team": "1717 N Flagler Drive Venture, LLC; Related Group; BH Group; Arquitectonica; Rockwell Group",
       "amenities": "Pool deck, fitness and wellness center, spa, indoor/outdoor lounges, branded service positioning, exclusive beach club membership.",
       "residenceFeatures": [
@@ -4224,6 +4227,9 @@ export const projectFacts = [
       "effectiveDate": "2026-09-01"
     },
     "sources": [
+      {
+        "url": "https://theresidenceswestpalmbeach.com/residences/"
+      },
       {
         "url": "https://theresidenceswestpalmbeach.com/"
       },
@@ -4291,19 +4297,19 @@ export const projectFacts = [
     "projectId": "nora-house",
     "name": "Nora House",
     "area": "Downtown",
-    "projectType": "condo-pipeline",
-    "summary": "Design-driven condominium living in the walkable Nora District, with rooftop wellness, social amenities, and ground-floor retail.",
+    "projectType": "condo-active-sales",
+    "summary": "NORA House is a for-sale condominium offering in the NORA District, with released floor plans and a buyer appointment at 955 N Railroad Avenue, Suite B. The project sponsor advertises residences from the low $2Ms. Start with the layout and terrace area, then compare the district setting with waterfront alternatives before arranging a gallery visit.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
-      "projectAddress": "1105 N Dixie Highway, West Palm Beach, FL 33401",
-      "salesGalleryAddress": "",
+      "projectAddress": "NORA District, West Palm Beach, FL 33401; confirm building address",
+      "salesGalleryAddress": "955 N Railroad Avenue, Suite B, West Palm Beach, FL 33401",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Sales Launched / Pipeline",
+      "status": "Sales Open / Preconstruction",
       "residences": "117",
       "stories": "11",
-      "completion": "2029 estimated; construction expected to begin 2027 per reporting",
-      "pricing": "Low $2Ms to $6.5M",
+      "completion": "Request current delivery guidance",
+      "pricing": "From the low $2Ms (project sponsor-published; verify current availability)",
       "team": "The Ronto Group; Wheelock Street Capital; Swedroe Architecture; Lillian Wu Studio; Connor & Gaskins",
       "amenities": "Rooftop resort pool, level 4 lap pool, Technogym wellness center, yoga lawn, hot/cold plunges, steam, sauna, spa treatment room, lounges, outdoor bar, hosting room, boardroom, coworking, pet grooming, bicycle storage, six guest suites, pickleball, bowling, golf simulator, games lounge, bocce.",
       "residenceFeatures": [
@@ -4538,19 +4544,19 @@ export const projectFacts = [
     "projectId": "banyan-tree",
     "name": "Banyan Tree Residences West Palm Beach",
     "area": "Downtown",
-    "projectType": "condo-pipeline",
-    "summary": "Banyan Group's first U.S. residential project brings a private, wellness-led hospitality experience to Downtown West Palm Beach, one block from CityPlace.",
+    "projectType": "condo-active-sales",
+    "summary": "Banyan Tree Residences West Palm Beach is a marketed downtown condominium with a buyer appointment open by appointment at 400 Hibiscus Street. The project sponsor presents 88 corner residences, OMA architecture and Yabu Pushelberg interiors. Compare the corner layouts, wellness program and city setting, then request the current price sheet and delivery guidance.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
-      "projectAddress": "Downtown West Palm Beach — exact street address TBD",
-      "salesGalleryAddress": "",
+      "projectAddress": "400 Hibiscus Street, West Palm Beach, FL 33401",
+      "salesGalleryAddress": "400 Hibiscus Street, West Palm Beach, FL 33401 (by appointment)",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Announced",
+      "status": "Sales Open / Preconstruction",
       "residences": "88",
       "stories": "25",
-      "completion": "Projected 2028",
-      "pricing": "From $1.9M",
+      "completion": "Request current delivery guidance",
+      "pricing": "Request current pricing",
       "team": "Mast Capital; Curated JCZM Development; OMA; Yabu Pushelberg",
       "amenities": "Private porte cochère, fully serviced resort-style pool, curated social and recreation spaces, wellness center and spa with treatment rooms, cryotherapy, hammam, and meditation spaces.",
       "residenceFeatures": [],
@@ -4558,6 +4564,9 @@ export const projectFacts = [
       "effectiveDate": "2026-09-01"
     },
     "sources": [
+      {
+        "url": "https://www.banyantreeresidenceswpb.com/"
+      },
       {
         "url": "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/"
       },
@@ -5458,8 +5467,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/corridors/north-flagler/",
-    "title": "North Flagler Condos | West Palm Beach Buyer Guide",
-    "description": "Compare North Flagler new-construction condos by waterfront position, Palm Beach proximity, floor plans, status, and current availability questions.",
+    "title": "North Flagler New Construction Condos | Compare & Floor Plans",
+    "description": "Compare North Flagler condos including Olara and Ritz-Carlton: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
@@ -5524,8 +5533,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/olara/",
-    "title": "Olara West Palm Beach | Waterfront Resort Condos",
-    "description": "Explore Olara West Palm Beach, a North Flagler waterfront condominium with 275 residences, a private marina, José Andrés dining, and 80,000 square feet of amenities.",
+    "title": "Olara West Palm Beach | Prices, Floor Plans & Condos",
+    "description": "Compare Olara West Palm Beach floor plans, published starting pricing, marina amenities and North Flagler alternatives before requesting current availability.",
     "ogImage": "/projects/olara/media/olara-hero-exterior-1536x1024.jpg"
   },
   {
@@ -5536,8 +5545,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/ritz-carlton-wpb/",
-    "title": "Ritz-Carlton Residences West Palm Beach | Waterfront Condos",
-    "description": "Explore The Ritz-Carlton Residences, West Palm Beach: 138 North Flagler waterfront residences shaped by branded service, terraces, and east-facing water orientation.",
+    "title": "Ritz-Carlton Residences West Palm Beach | Floor Plans",
+    "description": "Review Ritz-Carlton Residences West Palm Beach floor plans, branded services, North Flagler location and buyer questions before a private sales appointment.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg"
   },
   {
@@ -5548,8 +5557,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/nora-house/",
-    "title": "Nora House West Palm Beach | Nora District Luxury Condos",
-    "description": "Explore Nora House, a 117-residence condominium in West Palm Beach's Nora District with ground-floor retail, rooftop amenities, and a walkable downtown setting.",
+    "title": "NORA House West Palm Beach | Prices & Floor Plans",
+    "description": "Explore NORA House condos in West Palm Beach: published starting prices, released floor plans, rooftop amenities and buyer guidance before a sales-gallery visit.",
     "ogImage": "/assets/projects/nora-house/hero/nora-house-hero-daytime-v01.jpg"
   },
   {
@@ -5584,8 +5593,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/banyan-tree/",
-    "title": "Banyan Tree Residences West Palm Beach | Downtown Condos",
-    "description": "Explore Banyan Tree Residences West Palm Beach, a downtown wellness-led branded condominium with 88 residences one block from CityPlace.",
+    "title": "Banyan Tree Residences West Palm Beach | Buyer Guide",
+    "description": "Research Banyan Tree Residences West Palm Beach: corner layouts, OMA design, wellness amenities and an appointment-only sales gallery. Request current pricing.",
     "ogImage": "/projects/banyan-tree/media/showcase/banyan-tree-hero-front-v01-web.jpg"
   },
   {

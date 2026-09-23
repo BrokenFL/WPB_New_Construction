@@ -1377,6 +1377,31 @@ const answerBlocks = [
 ];
 
 async function main() {
+  if (process.argv.includes("--buyer-content-only")) {
+    const catalog = JSON.parse(await fs.readFile(reviewPath, "utf8"));
+    const siteDataPath = path.join(generatedRoot, "siteData.ts");
+    let text = await fs.readFile(siteDataPath, "utf8");
+    const currentPlans = JSON.parse(await fs.readFile(path.join(publicDataRoot, "floorplans.json"), "utf8"));
+    const modelBySlug = new Map(readPublicProjectModel().projects.map((p) => [p.publicSlug, p]));
+    currentPlans.projects = currentPlans.projects.map((p) => ({ ...p, projectType: modelBySlug.get(p.projectId)?.projectType ?? p.projectType }));
+    const exports = {
+      siteMeta,
+      floorplanLibrary: currentPlans.projects,
+      projectFacts: sanitizePublicPayload(buildProjectFacts(catalog.projects)),
+      prerenderRoutes: buildPrerenderRoutes(),
+    };
+    for (const [name, value] of Object.entries(exports)) {
+      const pattern = new RegExp(`^export const ${name} = [^]*? as const;`, "m");
+      if (!pattern.test(text)) throw new Error(`Missing generated export: ${name}`);
+      text = text.replace(pattern, () => `export const ${name} = ${JSON.stringify(value, null, 2)} as const;`);
+    }
+    await fs.writeFile(siteDataPath, text);
+    await fs.writeFile(path.join(publicDataRoot, "floorplans.json"), JSON.stringify(currentPlans, null, 2) + String.fromCharCode(10));
+    await fs.writeFile(path.join(publicDataRoot, "site-meta.json"), JSON.stringify(siteMeta, null, 2) + String.fromCharCode(10));
+    await fs.writeFile(publicProjectCopyPackagePath, JSON.stringify(buildPublicProjectCopyPackage(readProjectCopyPackage()), null, 2) + String.fromCharCode(10));
+    console.log("Buyer content regenerated; floor-plan, image and news inventories preserved.");
+    return;
+  }
   if (siteMetaOnly) {
     const publicSiteMetaPath = path.join(publicDataRoot, "site-meta.json");
     const siteDataPath = path.join(generatedRoot, "siteData.ts");
@@ -2805,8 +2830,8 @@ function buildPrerenderRoutes() {
     )),
     {
       path: "/corridors/north-flagler/",
-      title: "North Flagler Condos | West Palm Beach Buyer Guide",
-      description: "Compare North Flagler new-construction condos by waterfront position, Palm Beach proximity, floor plans, status, and current availability questions.",
+      title: "North Flagler New Construction Condos | Compare & Floor Plans",
+      description: "Compare North Flagler condos including Olara and Ritz-Carlton: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
       ogImage: siteMeta.defaultImage,
     },
     {

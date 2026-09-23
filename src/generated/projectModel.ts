@@ -87,7 +87,7 @@ export const canonicalProjectModel = {
       "status": "Under Construction",
       "delivery": "2028",
       "residences": "275",
-      "price": "$2M–$7.5M",
+      "price": "From $1.7M (developer-published; verify current availability)",
       "address": "1919 N Flagler Drive, West Palm Beach, FL 33407",
       "developmentStage": "under_construction",
       "pageType": "main_building_page",
@@ -106,7 +106,7 @@ export const canonicalProjectModel = {
       ],
       "collapsedSourceCatalogIds": [],
       "mergedInto": "",
-      "humanReviewRequired": false,
+      "humanReviewRequired": true,
       "confidenceLevel": "high",
       "conflicts": [
         "MiamiResidence text said construction began early 2023 with completion within three years; project card and master recommendation use 2027."
@@ -114,6 +114,7 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [
+        "https://www.olarawestpalmbeach.com/residences/",
         "https://www.miamiresidence.com/preconstruction/olara-west-palm-beach.htm",
         "https://olarawpb.com/wp-content/uploads/2026/03/Olara-Fact-Sheet-March-2026.pdf",
         "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf"
@@ -131,10 +132,10 @@ export const canonicalProjectModel = {
       },
       "presentation": {
         "rank": 1,
-        "deliveryYear": 2027,
+        "deliveryYear": 2028,
         "longitude": -80.0501,
         "latitude": 26.7307,
-        "summary": "North Flagler waterfront residences at 1919 N Flagler Drive with marina access, deep amenities, Jose Andres dining, and one of the most complete released floorplan packets in the market.",
+        "summary": "Olara combines a North Flagler waterfront setting with marina access and a broad amenity program. The developer publishes starting pricing of $1.7M and a sales gallery at 300 Butler Street. Review the released floor plans and compare interior area, terrace depth and orientation before requesting residence-specific availability.",
         "floorplans": true,
         "pageState": "Active / Sales / Under Construction",
         "image": "/projects/olara/media/olara-hero-exterior-1536x1024.jpg",
@@ -222,9 +223,9 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "The Ritz-Carlton Residences, West Palm Beach",
       "status": "Under Construction",
-      "delivery": "2028",
+      "delivery": "2028 estimate; confirm current schedule",
       "residences": "138",
-      "price": "From $3M",
+      "price": "Request current pricing",
       "address": "1745 N Flagler Drive, West Palm Beach, FL 33407",
       "developmentStage": "under_construction",
       "pageType": "main_building_page",
@@ -251,6 +252,7 @@ export const canonicalProjectModel = {
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [
+        "https://theresidenceswestpalmbeach.com/residences/",
         "https://theresidenceswestpalmbeach.com/",
         "https://theresidenceswestpalmbeach.com/team/",
         "https://theresidenceswestpalmbeach.com/floorplans/",
@@ -270,7 +272,7 @@ export const canonicalProjectModel = {
         "deliveryYear": 2028,
         "longitude": -80.05057,
         "latitude": 26.72848,
-        "summary": "A Ritz-Carlton branded North Flagler address with public-facing address at 1745 N Flagler Drive and legal parcel references preserved for review.",
+        "summary": "The Ritz-Carlton Residences, West Palm Beach pairs North Flagler living with branded services and Rockwell Group interiors. Released floor plans and private sales appointments give buyers a practical starting point. The residences are marketed at 1745 N Flagler Drive; the sales gallery is separately located at 340 Royal Poinciana Way, M302, on Palm Beach.",
         "floorplans": true,
         "pageState": "Active / Sales / Under Construction",
         "image": "/projects/ritz-carlton-wpb/media/ritz-hero-waterfront-building-2200x1375.jpg",
@@ -356,14 +358,14 @@ export const canonicalProjectModel = {
       "corridor": "Downtown",
       "publicationState": "published",
       "displayName": "Nora House",
-      "status": "Sales Launched / Pipeline",
-      "delivery": "2029 estimated; construction expected to begin 2027 per reporting",
+      "status": "Sales Open / Preconstruction",
+      "delivery": "Request current delivery guidance",
       "residences": "117",
-      "price": "Low $2Ms to $6.5M",
-      "address": "1105 N Dixie Highway, West Palm Beach, FL 33401",
-      "developmentStage": "sales_launched_pipeline",
+      "price": "From the low $2Ms (developer-published; verify current availability)",
+      "address": "NORA District, West Palm Beach, FL 33401; confirm building address",
+      "developmentStage": "active_sales_preconstruction",
       "pageType": "main_building_page",
-      "siteGroup": "active_under_construction",
+      "siteGroup": "active_sales",
       "sourceCatalogIds": [
         "nora-house"
       ],
@@ -381,8 +383,8 @@ export const canonicalProjectModel = {
       "humanReviewRequired": true,
       "confidenceLevel": "high",
       "conflicts": [
-        "Sales gallery address vs building site address.",
-        "2029 timing from reporting; official confirmation needed."
+        "955 N Railroad Avenue, Suite B is explicitly a sales gallery, not proof of the residence address. Earlier site references differ; confirm building address.",
+        "Older 2029 delivery reporting is historical guidance; request a current construction schedule."
       ],
       "schemaBlockedFields": [],
       "gaps": [],
@@ -403,12 +405,12 @@ export const canonicalProjectModel = {
       },
       "presentation": {
         "rank": 5,
-        "deliveryYear": 2029,
+        "deliveryYear": 0,
         "longitude": -80.0581,
         "latitude": 26.7178,
-        "summary": "Design-driven condominium living in the walkable Nora District, with rooftop wellness, social amenities, and ground-floor retail.",
-        "floorplans": false,
-        "pageState": "Active / Sales / Under Construction",
+        "summary": "NORA House is a for-sale condominium offering in the NORA District, with released floor plans and a sales gallery at 955 N Railroad Avenue, Suite B. The developer advertises residences from the low $2Ms. Start with the layout and terrace area, then compare the district setting with waterfront alternatives before arranging a gallery visit.",
+        "floorplans": true,
+        "pageState": "Active Sales / Preconstruction",
         "image": "/projects/nora-house/media/user-provided-nora-house-card.jpg",
         "heroImage": "",
         "mobileImage": "",
@@ -760,14 +762,14 @@ export const canonicalProjectModel = {
       "corridor": "Downtown",
       "publicationState": "published",
       "displayName": "Banyan Tree Residences West Palm Beach",
-      "status": "Announced",
-      "delivery": "Projected 2028",
+      "status": "Sales Open / Preconstruction",
+      "delivery": "Request current delivery guidance",
       "residences": "88",
-      "price": "From $1.9M",
-      "address": "Downtown West Palm Beach — exact street address TBD",
-      "developmentStage": "announced_sales_launched",
-      "pageType": "pipeline_page",
-      "siteGroup": "pipeline_watchlist",
+      "price": "Request current pricing",
+      "address": "400 Hibiscus Street, West Palm Beach, FL 33401",
+      "developmentStage": "active_sales_preconstruction",
+      "pageType": "main_building_page",
+      "siteGroup": "active_sales",
       "sourceCatalogIds": [
         "banyan-tree"
       ],
@@ -785,11 +787,13 @@ export const canonicalProjectModel = {
       "humanReviewRequired": true,
       "confidenceLevel": "high for announcement and team; medium for page-readiness",
       "conflicts": [
-        "No conflict yet; primary issue is missing street address and municipal confirmation."
+        "Developer markets 88 residences; earlier municipal material records 86. Offering documents should control.",
+        "Older pricing and delivery estimates are not confirmed by the current official homepage."
       ],
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [
+        "https://www.banyantreeresidenceswpb.com/",
         "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/",
         "https://www.banyantreeresidenceswpb.com"
       ],
@@ -797,17 +801,17 @@ export const canonicalProjectModel = {
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
-        "delivery": "approved_fallback",
+        "delivery": "canonical",
         "residences": "canonical",
-        "price": "approved_fallback",
+        "price": "canonical",
         "address": "canonical"
       },
       "presentation": {
         "rank": 6,
-        "deliveryYear": 2028,
+        "deliveryYear": 0,
         "longitude": -80.0553,
         "latitude": 26.7069,
-        "summary": "Banyan Group's first U.S. residential project brings a private, wellness-led hospitality experience to Downtown West Palm Beach, one block from CityPlace.",
+        "summary": "Banyan Tree Residences West Palm Beach is a marketed downtown condominium with a sales gallery open by appointment at 400 Hibiscus Street. The developer presents 88 corner residences, OMA architecture and Yabu Pushelberg interiors. Compare the corner layouts, wellness program and city setting, then request the current price sheet and delivery guidance.",
         "floorplans": true,
         "pageState": "Active Sales / Preconstruction",
         "image": "/projects/banyan-tree/media/user-provided-banyan-tree-card.jpg",

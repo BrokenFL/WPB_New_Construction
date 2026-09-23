@@ -38,8 +38,9 @@ try{
     await page.locator('[data-revenue-buyer-research="nora-house"] a[href^="/inquire/"]').click();await page.waitForURL(/\/inquire\//);
     assert.equal(await page.locator('.inquiry-form select[name="project"]').inputValue(),'nora-house');results.push({engine:engineName,viewport:size,inquiryContext:'nora-house preserved; no form submitted'});
     await page.goto('http://127.0.0.1:4198/compare/?projects=nora-house,banyan-tree',{waitUntil:'domcontentloaded'});
-    await page.locator('[data-compare-results]').getByText('Request current pricing',{exact:false}).first().waitFor();
-    const comparison=await page.locator('[data-compare-results]').innerText();assert.match(comparison,/low \$2Ms/);assert.doesNotMatch(comparison,/\$1\.9M|1Q 2029|4Q 2029/);
+    const visibleMatrix=page.locator('[data-compare-results] .compare-matrix-desktop:visible, [data-compare-results] .compare-matrix-mobile:visible');
+    await visibleMatrix.getByText('Request current pricing',{exact:false}).first().waitFor();
+    const comparison=await visibleMatrix.innerText();assert.match(comparison,/low \$2Ms/);assert.doesNotMatch(comparison,/\$1\.9M|1Q 2029|4Q 2029/);
     results.push({engine:engineName,viewport:size,comparison:'current NORA/Banyan commercial fields'});await context.close();
    }
   }finally{await browser.close();}

@@ -782,7 +782,7 @@
       "projectId": "banyan-tree",
       "name": "Banyan Tree Residences West Palm Beach",
       "area": "Downtown",
-      "projectType": "condo-pipeline",
+      "projectType": "condo-active-sales",
       "updatedAt": "2026-09-01",
       "count": 0,
       "plans": [],
@@ -1346,7 +1346,7 @@
       "projectId": "nora-house",
       "name": "Nora House",
       "area": "Downtown",
-      "projectType": "condo-pipeline",
+      "projectType": "condo-active-sales",
       "updatedAt": "2026-09-01",
       "count": 65,
       "plans": [

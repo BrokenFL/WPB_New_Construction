@@ -1,3 +1,4 @@
+import { renderRevenueBuyerResearch } from "../shared/revenue-buyer-research.mjs";
 import "./style.css";
 import {
   answerEngineFaq,
@@ -1120,7 +1121,7 @@ function editorialIntroForProject(project: FeaturedProject) {
     return `${project.name} is tracked as a ${project.corridor} rental community. Use this page for source-backed development, amenity, neighborhood, and leasing context, then confirm current rents, concessions, availability, lease terms, policies, parking, and move-in timing directly.`;
   }
   if (project.id === "nora-house") {
-    return "NORA House matters less as an immediately comparable sales option and more as a signal of where Downtown West Palm Beach is heading. Its value in the buyer map is tied to NORA's restaurant, retail, and walkability story, with final offering details still requiring confirmation.";
+    return "NORA House is a marketed condominium with released plans and an active sales gallery. Compare the district setting, residence layout and current offering before arranging a visit.";
   }
   if (type === "planning-watch" || type === "source-watch" || type === "market-marker") {
     return `${project.name} is tracked as a ${project.corridor} ${project.pageState.toLowerCase()} item. Use it to understand future supply, location, sponsor signals, and what still needs confirmation before treating it like a current purchase option.`;
@@ -3962,6 +3963,9 @@ function applyRoute() {
   document.title = routeSeo.title;
 
   updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
+  if ((activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb"].includes(activeProject.id)) || activeCorridor?.key === "north-flagler") {
+    document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", routeSeo.description);
+  }
   updateCanonical(route, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
   updateSocialMetadata(routeSeo);
   updateStructuredData(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
@@ -4077,14 +4081,14 @@ function routeSeoDetails(
       inquire: "/inquire/",
     } as Record<string, string>)[route.type] ?? "/";
   const corridorTitles: Record<CorridorKey, string> = {
-    "north-flagler": "North Flagler Condos | West Palm Beach Buyer Guide",
+    "north-flagler": "North Flagler New Construction Condos | Compare & Floor Plans",
     downtown: "Downtown West Palm Beach Condos | Buyer Guide",
     "south-flagler": "South Flagler Condos | West Palm Beach Buyer Guide",
     "south-end": "South End West Palm Beach Developments | Area Guide",
     "palm-beach": "Palm Beach New Construction Condos | Buyer Guide",
   };
   const corridorDescriptions: Record<CorridorKey, string> = {
-    "north-flagler": "Compare North Flagler new-construction condos by waterfront position, Palm Beach proximity, floor plans, status, and current availability questions.",
+    "north-flagler": "Compare North Flagler condos including Olara and Ritz-Carlton: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
     downtown: "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
     "south-flagler": "Compare South Flagler waterfront condo projects by privacy, boutique scale, Palm Beach views, floor plans, and current availability checks.",
     "south-end": "Track South End West Palm Beach rental and mixed-use development by leasing status, neighborhood retail, delivery, and resident fit.",
@@ -4108,6 +4112,7 @@ function routeSeoDetails(
     "fair-housing": "Fair Housing | WPB New Construction",
     inquire: "West Palm Beach Condo Buyer Research Desk | Inquiry",
   };
+  const buyerSeo = activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb"].includes(activeProject.id) ? batch1ProjectCopyByProjectId.get(activeProject.id) : undefined;
   const projectSchemaFacts = activeProject ? getSchemaSafeProjectFacts(activeProject.id) : undefined;
   const projectMarketSuffix = activeProject?.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   const projectTitleSuffix = activeProject?.projectType === "rental"
@@ -4129,8 +4134,8 @@ function routeSeoDetails(
   const description = activeAnswer?.description ?? (activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? (activeProject?.projectType === "rental" ? `Track ${activeProject.name} at ${activeProject.address}: rental status, ${activeProject.residences}, amenities, neighborhood context, and current leasing details to verify.` : activeProject?.summary) ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
   const image = route.type === "about" ? teamProfile.photo : activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : activeNewsItem ? imageForContentItem(externalNewsImageContext(activeNewsItem)).src : siteMeta.defaultImage);
   return {
-    title,
-    description,
+    title: buyerSeo?.seoTitle || title,
+    description: buyerSeo?.metaDescription || description,
     image: image.startsWith("http") ? image : `${productionOrigin}${image}`,
     url: `${productionOrigin}${path}`,
   };
@@ -5943,6 +5948,7 @@ function renderCorridorRouteView(section: CorridorSection) {
         </div>
       </section>
       ${renderCorridorAuthoritySections(section, projects)}
+      ${renderRevenueBuyerResearch(section.key)}
       ${renderCorridorLatestUpdates(section, projects)}
       ${renderCorridorConversionActions(section)}
       <section class="corridors-final-cta corridor-final-cta">
@@ -6167,6 +6173,7 @@ function renderMarketNoteArticle(note: MarketNote) {
             relatedNeighborhoods: note.relatedNeighborhoods,
             relatedCorridor: note.relatedCorridor,
           })}
+          ${renderRevenueBuyerResearch(note.slug)}
           ${note.sections
             .map(
               (section) => `
@@ -9119,6 +9126,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
       </section>
 
       ${renderShowcaseBuyerRead(project, copyPackage)}
+      ${renderRevenueBuyerResearch(project.id)}
 
       ${visualBreak ? `<figure class="berkeley-patio-break"><img src="${safeHref(visualBreak.src)}" alt="${publicText(visualBreak.alt ?? `${project.name} ${visualBreak.label}`)}" loading="lazy" decoding="async" /></figure>` : ""}
 

@@ -30,7 +30,8 @@ export const generatedProjectSchemaFacts = [
       "name": "Olara West Palm Beach",
       "route": "/projects/olara/",
       "url": "https://www.wpbnewconstruction.com/projects/olara/",
-      "corridor": "North Flagler"
+      "corridor": "North Flagler",
+      "residenceCount": "275"
     }
   },
   {
