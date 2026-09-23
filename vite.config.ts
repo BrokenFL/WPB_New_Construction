@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import preservedFloorplanDocumentUrls from "./config/preserved-floorplan-document-urls.json";
 import { readdir, readFile, rm, mkdir, rename } from "node:fs/promises";
 import { join, relative, resolve, sep } from "node:path";
 
@@ -10,6 +11,10 @@ const internalPublicDataFiles = [
 ];
 const distRoot = resolve("dist");
 const privateBuildManifest = resolve(".runtime/build/manifest.json");
+// Preserve previously published document URLs while the approved discovery
+// catalog changes. Exact URLs from the pre-Batch-1 public catalog, not a
+// directory wildcard: no new documents or mirrored HTML are approved here.
+const preservedFloorplanDocuments = new Set<string>(preservedFloorplanDocumentUrls);
 
 async function listFiles(dir: string): Promise<string[]> {
   let entries;
@@ -75,10 +80,22 @@ async function pruneUnreferencedProjectAssets() {
   const references = await collectReferencedProjectAssets();
   const unusedFiles = files.filter((file) => {
     const publicPath = normalizeDistPath(file);
-    return !references.paths.has(publicPath) && !references.basenames.has(publicPath.split("/").at(-1) ?? "");
+    return !preservedFloorplanDocuments.has(publicPath) && !references.paths.has(publicPath) && !references.basenames.has(publicPath.split("/").at(-1) ?? "");
   });
 
   await Promise.all(unusedFiles.map((file) => rm(file, { force: true })));
+  // Fail the build rather than silently break an old search/bookmark URL.
+  await Promise.all([...preservedFloorplanDocuments].map(async (url) => {
+    if (!/^\/projects\/(?:nora-house|olara|ritz-carlton-wpb)\/docs\/floorplans\/[^/]+\.(?:pdf|png|jpe?g|webp)$/i.test(url) || url.includes("..")) {
+      throw new Error(`Invalid preserved floor-plan document URL: ${url}`);
+    }
+    const [source, built] = await Promise.all([
+      readFile(resolve("public", url.slice(1))),
+      readFile(resolve(distRoot, url.slice(1))),
+    ]);
+    if (!source.length || !source.equals(built)) throw new Error(`Changed or missing preserved document: ${url}`);
+  }));
+  console.log(`Preserved ${preservedFloorplanDocuments.size} existing floor-plan document URLs byte-for-byte.`);
   await removeEmptyDirs(projectRoot);
 
   if (unusedFiles.length) {
