@@ -5103,7 +5103,7 @@ export const prerenderRoutes = [
   {
     "path": "/corridors/north-flagler/",
     "title": "North Flagler New Construction Condos | Compare & Floor Plans",
-    "description": "Compare North Flagler condos including Olara and Ritz-Carlton: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
+    "description": "Compare North Flagler condos including Olara, Ritz-Carlton and Alba: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {

@@ -147,6 +147,17 @@ try{
      results.push({engine:engineName,viewport:size,route:route.path,metadata:'static and hydrated match',responsive:'no horizontal overflow'});
     }
 
+    // Alba's active developer-sales status also changes North Flagler buyer
+    // discovery. Require that corridor's raw and hydrated copy to agree.
+    const northPath='/corridors/north-flagler/';
+    const northResponse=await page.goto(base+northPath,{waitUntil:'domcontentloaded'});
+    assert.equal(northResponse.status(),200,'North Flagler route response');
+    const northMeta=metadata(await northResponse.text());
+    assert.match(northMeta.description,/Olara, Ritz-Carlton and Alba/,'North Flagler static description includes Alba');
+    await page.locator('[data-route-view="corridor"][data-corridor-route="north-flagler"]:visible').waitFor({state:'visible'});
+    await assertHydratedMetadata(page,northMeta,'North Flagler after Alba update');
+    results.push({engine:engineName,viewport:size,route:northPath,metadata:'static and hydrated match'});
+
     await page.goto(base+'/',{waitUntil:'domcontentloaded'});
     const olinCards=page.locator('[data-project-card="olin-palm-beach"]:visible');
     await olinCards.first().waitFor({state:'visible'});
