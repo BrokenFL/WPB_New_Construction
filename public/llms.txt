@@ -50,7 +50,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 
 - Alba Palm Beach: 7 floorplan records
 - Olara West Palm Beach: 26 floorplan records
-- Shorecrest: 5 floorplan records
+- Shorecrest: 4 floorplan records
 - The Ritz-Carlton Residences, West Palm Beach: 12 floorplan records
 - Banyan Tree Residences West Palm Beach: 7 floorplan records
 - Mr. C Residences West Palm Beach: 32 floorplan records
@@ -58,8 +58,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Nora House: 32 floorplan records
 - Forté on Flagler: 3 floorplan records
 - Maison d’Or: 1 floorplan records
-- South Flagler House North Tower: 3 floorplan records
-- South Flagler House South Tower: 3 floorplan records
+- South Flagler House: 8 floorplan records
 
 ## Current Updates
 
@@ -160,11 +159,11 @@ The site is built to help buyers understand which West Palm Beach condo building
 - West Palm Beach Condo Buyer Research Desk | Inquiry: /inquire/
 - Alba Palm Beach | North Flagler New Construction Condos: /projects/alba-palm-beach/
 - Olara West Palm Beach | Prices, Floor Plans & Condos: /projects/olara/
-- Shorecrest West Palm Beach | Related Ross Waterfront Condos: /projects/shorecrest/
+- Shorecrest West Palm Beach | Condos & Floor Plans: /projects/shorecrest/
 - Ritz-Carlton Residences West Palm Beach | Floor Plans: /projects/ritz-carlton-wpb/
 - The Berkeley Palm Beach | Clear Lake New Construction Condos: /projects/berkeley/
 - NORA House West Palm Beach | Prices & Floor Plans: /projects/nora-house/
-- South Flagler House | Flagship Waterfront Condos: /projects/south-flagler-house/
+- South Flagler House West Palm Beach | Prices & Floor Plans: /projects/south-flagler-house/
 - Mr. C Residences West Palm Beach | Downtown Branded Condos: /projects/mr-c/
 - Maison d Or West Palm Beach | South Flagler Condo Watch: /projects/maison-dor/
 - Edgeworth West Palm Beach | Related Ross South Flagler Condos: /projects/edgeworth/

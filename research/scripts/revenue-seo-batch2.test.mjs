@@ -25,10 +25,12 @@ for(const id of IDS){
   const row=rows.find(r=>r.project_id===d.compareDatabaseId),fact=label=>c.quickFacts.find(f=>f.label===label)?.value;
   assert.equal(p.projectType,'condo-active-sales');
   for(const [label,key,rowKey] of [['Address','address','public_address'],['Residences','residences','residence_count'],['Delivery','delivery','completion_or_delivery'],['Price Range','price','price_display'],['Status','status','status_badge']]){
-   assert.equal(fact(label),p[key],`${id} ${label} copy`);assert.equal(row[rowKey],p[key],`${id} ${label} compare`);
+   const value=key==='address'?p.facts.projectAddress:p[key];
+   assert.equal(fact(label),value,`${id} ${label} copy`);assert.equal(row[rowKey],value,`${id} ${label} compare`);
   }
   assert.equal(p.presentation.deliveryYear,0);assert.equal(fact('Sales Gallery'),p.facts.salesGalleryAddress);
-  assert.notEqual(p.address,p.facts.salesGalleryAddress);assert.equal(row.price_range_max,'');
+  assert.notEqual(p.facts.projectAddress,p.facts.salesGalleryAddress);assert.equal(row.price_range_max,'');
+  assert.equal(String(p.facts.stories),row.floor_count);assert.equal(fact('Floors'),row.floor_count);
   assert.doesNotMatch(row.maintenance_per_sqft,/\$\d/);assert.doesNotMatch(row.deposit_structure,/\d+%/);
   assert.match(p.residences,/Related Ross/);assert.match(p.delivery,/Request current/);
  });

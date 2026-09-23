@@ -177,28 +177,28 @@
       "displayName": "Shorecrest",
       "projectType": "condo-active-sales",
       "status": "Under Construction",
-      "delivery": "Confirm with sales team",
-      "residences": "98",
-      "price": "$3.69M–$5.445M for reviewed available residences",
+      "delivery": "Request current delivery guidance",
+      "residences": "98 in earlier sources; 100 on Related Ross",
+      "price": "Request current pricing",
       "reviewedFields": {
         "status": "Under Construction"
       },
       "facts": {
-        "projectAddress": "1865 N Flagler Drive, West Palm Beach, FL 33407",
-        "salesGalleryAddress": "",
+        "projectAddress": "1901 N Flagler Drive, West Palm Beach, FL 33407",
+        "salesGalleryAddress": "616 Hibiscus Street, West Palm Beach, FL 33401",
         "mailingAddress": "",
         "planningParcelAddress": "",
-        "canonicalResidenceCount": "98",
+        "canonicalResidenceCount": "98 in earlier sources; 100 on Related Ross",
         "historicalResidenceCounts": [],
-        "expectedDeliveryCurrent": "Confirm with sales team",
+        "expectedDeliveryCurrent": "Request current delivery guidance",
         "priorDeliveryGuidance": [],
-        "stories": "27",
+        "stories": "27–28 reported; confirm current plans",
         "projectTeam": [
           "Related Ross",
           "Roger Ferris + Partners",
           "Rottet Studio"
         ],
-        "amenitySummary": "Rooftop pool, fitness/yoga/Pilates studios, men’s and women’s spas, steam, sauna, cold plunge, hot tub, private dining, cocktail lounge, card/game lounge, coworking, executive meeting space, golf simulator, package room with refrigerated storage.",
+        "amenitySummary": "The official amenity program includes a rooftop pool, fitness, yoga and Pilates spaces, spa facilities, a golf simulator, private dining and work spaces. Related Life and concierge services are described separately; confirm which services are included and which are charged individually.",
         "residenceFeatures": [
           "Private terraces",
           "Reviewed floorplans show 2- and 3-bedroom homes",
@@ -210,15 +210,18 @@
         "sourcePriority": {
           "displayName": "canonical",
           "status": "reviewed_override",
-          "delivery": "approved_fallback",
+          "delivery": "canonical",
           "residences": "canonical",
           "price": "canonical",
           "address": "canonical"
         }
       },
       "sourceUrls": [
-        "https://www.shorecrestwpb.com/",
+        "https://www.shorecrestwpb.com/inquire",
+        "https://www.shorecrestwpb.com/residences",
         "https://www.shorecrestwpb.com/amenities",
+        "https://www.relatedross.com/our-company/properties/shorecrest",
+        "https://www.shorecrestwpb.com/",
         "https://www.shorecrestwpb.com/team",
         "https://www.shorecrestwpb.com/floorplans"
       ],
@@ -232,10 +235,10 @@
       "compareDatabaseSlug": "shorecrest-west-palm-beach",
       "presentation": {
         "rank": 3,
-        "deliveryYear": 2027,
+        "deliveryYear": 0,
         "longitude": -80.05012,
         "latitude": 26.72985,
-        "summary": "A Related Ross waterfront tower at 1865 N Flagler Drive for buyers comparing boutique floor plates, wellness, and North Flagler construction momentum.",
+        "summary": "Shorecrest is a Related Ross waterfront condominium on North Flagler, with two- and three-bedroom residences, private terraces and a rooftop amenity program. Roger Ferris + Partners designed the architecture and Rottet Studio the interiors. Start with the released layouts, then compare the specific outlook, terrace and service terms with Olara and Ritz-Carlton.",
         "floorplans": true,
         "pageState": "Active / Sales / Under Construction",
         "image": "/projects/shorecrest/media/user-provided-shorecrest-card.jpg",
@@ -494,18 +497,18 @@
       "displayName": "South Flagler House",
       "projectType": "condo-active-sales",
       "status": "Under Construction",
-      "delivery": "2027",
-      "residences": "108",
-      "price": "$7.98M to $70M on current official tier pages",
+      "delivery": "Request current delivery guidance",
+      "residences": "105 on project site; 108 on Related Ross",
+      "price": "From $7.98M advertised; request current pricing",
       "reviewedFields": {},
       "facts": {
         "projectAddress": "1355 S Flagler Drive, West Palm Beach, FL 33401",
-        "salesGalleryAddress": "",
+        "salesGalleryAddress": "615 S Rosemary Avenue, West Palm Beach, FL 33401; by appointment",
         "mailingAddress": "",
         "planningParcelAddress": "",
-        "canonicalResidenceCount": "108",
+        "canonicalResidenceCount": "105 on project site; 108 on Related Ross",
         "historicalResidenceCounts": [],
-        "expectedDeliveryCurrent": "2027",
+        "expectedDeliveryCurrent": "Request current delivery guidance",
         "priorDeliveryGuidance": [],
         "stories": "28",
         "projectTeam": [
@@ -515,7 +518,7 @@
           "Rogers by Related Ross",
           "Rogers General Contracting"
         ],
-        "amenitySummary": "50,000 sq. ft. private-club amenities, lakefront pool/cabanas, private marina, vanishing-edge pool, 25-meter lap pool, spa, treatment rooms, beauty salon, hydrotherapy, fitness/Pilates/yoga, pickleball, restaurant, private dining, wine lounge, private bar, executive conference rooms, children’s facilities, golf simulator, Related Life programming.",
+        "amenitySummary": "The official program includes lakefront and lap pools, wellness and fitness spaces, pickleball, a golf simulator, private dining, a residents-only indoor/outdoor restaurant and business and social rooms. Guest suites are reserved for residence owners. Confirm operating arrangements, included services and any additional charges.",
         "residenceFeatures": [
           "Estate-scale residences",
           "Large all-season loggias",
@@ -536,9 +539,12 @@
         }
       },
       "sourceUrls": [
-        "https://www.southflaglerhouse.com/",
+        "https://www.southflaglerhouse.com/contact",
         "https://www.southflaglerhouse.com/residences",
         "https://www.southflaglerhouse.com/amenities",
+        "https://www.relatedross.com/our-company/properties/south-flagler-house",
+        "https://www.ramsa.com/news/article/south-flagler-house-tops-out-west-palm-beach",
+        "https://www.southflaglerhouse.com/",
         "https://www.southflaglerhouse.com/team"
       ],
       "lookupAliases": [
@@ -549,10 +555,10 @@
       "compareDatabaseSlug": "south-flagler-house",
       "presentation": {
         "rank": 4,
-        "deliveryYear": 2027,
+        "deliveryYear": 0,
         "longitude": -80.0511,
         "latitude": 26.7011,
-        "summary": "RAMSA-designed waterfront residences at 1355 S Flagler Drive, positioned for buyers who want South Flagler privacy, scale, and Palm Beach-facing orientation.",
+        "summary": "South Flagler House pairs RAMSA architecture with Pembrooke & Ives interiors in two waterfront towers facing Palm Beach. Its residence tiers and loggias make the individual floor plan central to the decision. The official site advertises Signature Residences from $7.98M; that is published tier guidance checked September 23, 2026, not confirmation that a particular home is available.",
         "floorplans": true,
         "pageState": "Active / Sales / Under Construction",
         "image": "/projects/south-flagler-house/media/user-provided-south-flagler-house-card.jpg",

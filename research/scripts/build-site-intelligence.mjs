@@ -1377,7 +1377,7 @@ const answerBlocks = [
 ];
 
 function approvedRevenueFloorplanProjects(projects) {
-  const scope = new Set(["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb"]);
+  const scope = new Set(["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"]);
   const source = fsSync.readFileSync(path.join(workspace, "src/data/floorplanApprovedLibrary.ts"), "utf8");
   const approved = readTsArray(source, "approvedFloorplanLibrary");
   const byId = new Map(approved.map((project) => [project.projectId, project]));
@@ -1387,7 +1387,15 @@ function approvedRevenueFloorplanProjects(projects) {
       throw new Error(`Approved floor-plan source review required: ${id}`);
     }
   }
-  return projects.map((project) => {
+  const canonicalProjects = [];
+  let foundSouthFlagler = false;
+  for (const project of projects) {
+    if (["south-flagler-house", "south-flagler-house-north", "south-flagler-house-south"].includes(project.projectId)) {
+      if (!foundSouthFlagler) canonicalProjects.push({ ...project, projectId: "south-flagler-house", name: "South Flagler House", projectType: "condo-active-sales" });
+      foundSouthFlagler = true;
+    } else canonicalProjects.push(project);
+  }
+  return canonicalProjects.map((project) => {
     if (!scope.has(project.projectId)) return project;
     const review = byId.get(project.projectId);
     const plans = canonicalizePublicPlans(project.projectId, review.plans);

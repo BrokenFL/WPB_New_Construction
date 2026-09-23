@@ -489,74 +489,62 @@ export const floorplanLibrary = [
     "area": "North Flagler",
     "projectType": "condo-active-sales",
     "updatedAt": "2026-09-01",
-    "count": 5,
+    "count": 4,
     "plans": [
       {
-        "planId": "shorecrest-individual-1153-0303-floorplan",
+        "planId": "shorecrest-individual-residence-301",
         "projectId": "shorecrest",
-        "normalizedName": "1153 0303 floorplan",
-        "displayName": "1153 0303 Floorplan",
-        "title": "1153 0303 Floorplan",
+        "normalizedName": "residence 301",
+        "displayName": "Residence 301",
+        "title": "Residence 301",
         "planType": "individual",
-        "href": "/projects/shorecrest/docs/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
-        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-07/1153_0303_floorplan.pdf",
-        "publicAssetUrl": "/projects/shorecrest/docs/floorplans/1153-0303-floorplan--7aa02b9e.pdf",
+        "href": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-residence-301-floor-plan-927fc847-v01.pdf",
+        "sourceUrl": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-residence-301-floor-plan-927fc847-v01.pdf",
+        "publicAssetUrl": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-residence-301-floor-plan-927fc847-v01.pdf",
         "effectiveDate": "",
         "isCanonicalPublicPlan": true
       },
       {
-        "planId": "shorecrest-individual-1153-0704-floorplan",
+        "planId": "shorecrest-individual-residence-1602",
         "projectId": "shorecrest",
-        "normalizedName": "1153 0704 floorplan",
-        "displayName": "1153 0704 Floorplan",
-        "title": "1153 0704 Floorplan",
+        "normalizedName": "residence 1602",
+        "displayName": "Residence 1602",
+        "title": "Residence 1602",
         "planType": "individual",
-        "href": "/projects/shorecrest/docs/floorplans/1153-0704-floorplan--f2969c6b.pdf",
-        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0704_floorplan.pdf",
-        "publicAssetUrl": "/projects/shorecrest/docs/floorplans/1153-0704-floorplan--f2969c6b.pdf",
+        "href": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-residence-1602-floor-plan-4891242d-v01.pdf",
+        "sourceUrl": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-residence-1602-floor-plan-4891242d-v01.pdf",
+        "publicAssetUrl": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-residence-1602-floor-plan-4891242d-v01.pdf",
         "effectiveDate": "",
         "isCanonicalPublicPlan": true
       },
       {
-        "planId": "shorecrest-index-floorplan-index",
+        "planId": "shorecrest-individual-shorecrest-1153-0303",
         "projectId": "shorecrest",
-        "normalizedName": "floorplan index",
-        "displayName": "Floorplan Index",
-        "title": "Floorplan Index",
-        "planType": "index",
-        "href": "https://www.shorecrestwpb.com/floorplans",
-        "sourceUrl": "https://www.shorecrestwpb.com/floorplans",
+        "normalizedName": "shorecrest 1153 0303",
+        "displayName": "Shorecrest 1153 0303",
+        "title": "Shorecrest 1153 0303",
+        "planType": "individual",
+        "href": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-shorecrest-floorplan-1153-0303-floorplan-v01.pdf",
+        "sourceUrl": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-shorecrest-floorplan-1153-0303-floorplan-v01.pdf",
+        "publicAssetUrl": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-shorecrest-floorplan-1153-0303-floorplan-v01.pdf",
         "effectiveDate": "",
         "isCanonicalPublicPlan": true
       },
       {
-        "planId": "shorecrest-individual-residence-301-floorplan",
+        "planId": "shorecrest-individual-shorecrest-1153-0704",
         "projectId": "shorecrest",
-        "normalizedName": "residence 301 floorplan",
-        "displayName": "Residence 301 Floor Plan",
-        "title": "Residence 301 Floor Plan",
+        "normalizedName": "shorecrest 1153 0704",
+        "displayName": "Shorecrest 1153 0704",
+        "title": "Shorecrest 1153 0704",
         "planType": "individual",
-        "href": "/projects/shorecrest/docs/floorplans/residence-301-floor-plan--927fc847.pdf",
-        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2025-12/1153_0301_floorplan.pdf",
-        "publicAssetUrl": "/projects/shorecrest/docs/floorplans/residence-301-floor-plan--927fc847.pdf",
-        "effectiveDate": "",
-        "isCanonicalPublicPlan": true
-      },
-      {
-        "planId": "shorecrest-individual-residence-1602-floorplan",
-        "projectId": "shorecrest",
-        "normalizedName": "residence 1602 floorplan",
-        "displayName": "Residence 1602 Floor Plan",
-        "title": "Residence 1602 Floor Plan",
-        "planType": "individual",
-        "href": "/projects/shorecrest/docs/floorplans/residence-1602-floor-plan--4891242d.pdf",
-        "sourceUrl": "https://www.shorecrestwpb.com/sites/default/files/2026-03/1153_%201602_floorplan.pdf",
-        "publicAssetUrl": "/projects/shorecrest/docs/floorplans/residence-1602-floor-plan--4891242d.pdf",
+        "href": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-shorecrest-floorplan-1153-0704-floorplan-v01.pdf",
+        "sourceUrl": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-shorecrest-floorplan-1153-0704-floorplan-v01.pdf",
+        "publicAssetUrl": "/assets/projects/shorecrest/floorplans/shorecrest-floorplans-shorecrest-floorplan-1153-0704-floorplan-v01.pdf",
         "effectiveDate": "",
         "isCanonicalPublicPlan": true
       }
     ],
-    "missingNote": ""
+    "missingNote": "Released layout references; confirm the current drawing and residence availability before relying on a plan."
   },
   {
     "projectId": "ritz-carlton-wpb",
@@ -1893,104 +1881,119 @@ export const floorplanLibrary = [
     "missingNote": ""
   },
   {
-    "projectId": "south-flagler-house-north",
-    "name": "South Flagler House North Tower",
+    "projectId": "south-flagler-house",
+    "name": "South Flagler House",
     "area": "South Flagler",
     "projectType": "condo-active-sales",
     "updatedAt": "2026-09-04",
-    "count": 3,
+    "count": 8,
     "plans": [
       {
-        "planId": "south-flagler-house-north-individual-site-plan-floors-5-9",
-        "projectId": "south-flagler-house-north",
-        "normalizedName": "site plan floors 5 9",
-        "displayName": "Site Plan Floors 5 9",
-        "title": "Site Plan Floors 5 9",
+        "planId": "south-flagler-house-individual-tier-1-n-residence",
+        "projectId": "south-flagler-house",
+        "normalizedName": "tier 1 n residence",
+        "displayName": "Tier 1 N Residence",
+        "title": "Tier 1 N Residence",
         "planType": "individual",
-        "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-        "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
+        "href": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-1-n-residence-v01.png",
+        "sourceUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-1-n-residence-v01.png",
+        "publicAssetUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-1-n-residence-v01.png",
         "effectiveDate": "",
         "isCanonicalPublicPlan": true
       },
       {
-        "planId": "south-flagler-house-north-individual-site-plan-floors-10-18",
-        "projectId": "south-flagler-house-north",
-        "normalizedName": "site plan floors 10 18",
-        "displayName": "Site Plan Floors 10 18",
-        "title": "Site Plan Floors 10 18",
+        "planId": "south-flagler-house-individual-tier-1-s-residence",
+        "projectId": "south-flagler-house",
+        "normalizedName": "tier 1 s residence",
+        "displayName": "Tier 1 S Residence",
+        "title": "Tier 1 S Residence",
         "planType": "individual",
-        "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-        "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
+        "href": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-1-s-residence-v01.png",
+        "sourceUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-1-s-residence-v01.png",
+        "publicAssetUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-1-s-residence-v01.png",
         "effectiveDate": "",
         "isCanonicalPublicPlan": true
       },
       {
-        "planId": "south-flagler-house-north-individual-site-plan-floors-19-20",
-        "projectId": "south-flagler-house-north",
-        "normalizedName": "site plan floors 19 20",
-        "displayName": "Site Plan Floors 19 20",
-        "title": "Site Plan Floors 19 20",
+        "planId": "south-flagler-house-individual-tier-1-w-residence",
+        "projectId": "south-flagler-house",
+        "normalizedName": "tier 1 w residence",
+        "displayName": "Tier 1 W Residence",
+        "title": "Tier 1 W Residence",
         "planType": "individual",
-        "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-        "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
+        "href": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-1-w-residence-v01.png",
+        "sourceUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-1-w-residence-v01.png",
+        "publicAssetUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-1-w-residence-v01.png",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
+      },
+      {
+        "planId": "south-flagler-house-individual-tier-2-n-residence",
+        "projectId": "south-flagler-house",
+        "normalizedName": "tier 2 n residence",
+        "displayName": "Tier 2 N Residence",
+        "title": "Tier 2 N Residence",
+        "planType": "individual",
+        "href": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-2-n-residence-v01.png",
+        "sourceUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-2-n-residence-v01.png",
+        "publicAssetUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-2-n-residence-v01.png",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
+      },
+      {
+        "planId": "south-flagler-house-individual-tier-2-s-residence",
+        "projectId": "south-flagler-house",
+        "normalizedName": "tier 2 s residence",
+        "displayName": "Tier 2 S Residence",
+        "title": "Tier 2 S Residence",
+        "planType": "individual",
+        "href": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-2-s-residence-v01.png",
+        "sourceUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-2-s-residence-v01.png",
+        "publicAssetUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-2-s-residence-v01.png",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
+      },
+      {
+        "planId": "south-flagler-house-individual-tier-2-w-residence",
+        "projectId": "south-flagler-house",
+        "normalizedName": "tier 2 w residence",
+        "displayName": "Tier 2 W Residence",
+        "title": "Tier 2 W Residence",
+        "planType": "individual",
+        "href": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-2-w-residence-v01.png",
+        "sourceUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-2-w-residence-v01.png",
+        "publicAssetUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-2-w-residence-v01.png",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
+      },
+      {
+        "planId": "south-flagler-house-individual-tier-3-n-residence",
+        "projectId": "south-flagler-house",
+        "normalizedName": "tier 3 n residence",
+        "displayName": "Tier 3 N Residence",
+        "title": "Tier 3 N Residence",
+        "planType": "individual",
+        "href": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-3-n-residence-v01.png",
+        "sourceUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-3-n-residence-v01.png",
+        "publicAssetUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-3-n-residence-v01.png",
+        "effectiveDate": "",
+        "isCanonicalPublicPlan": true
+      },
+      {
+        "planId": "south-flagler-house-individual-tier-3-s-residence",
+        "projectId": "south-flagler-house",
+        "normalizedName": "tier 3 s residence",
+        "displayName": "Tier 3 S Residence",
+        "title": "Tier 3 S Residence",
+        "planType": "individual",
+        "href": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-3-s-residence-v01.png",
+        "sourceUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-3-s-residence-v01.png",
+        "publicAssetUrl": "/assets/projects/south-flagler-house/floorplans/south-flagler-floorplans-tier-3-s-residence-v01.png",
         "effectiveDate": "",
         "isCanonicalPublicPlan": true
       }
     ],
-    "missingNote": ""
-  },
-  {
-    "projectId": "south-flagler-house-south",
-    "name": "South Flagler House South Tower",
-    "area": "South Flagler",
-    "projectType": "condo-active-sales",
-    "updatedAt": "2026-09-04",
-    "count": 3,
-    "plans": [
-      {
-        "planId": "south-flagler-house-south-individual-site-plan-floors-5-9",
-        "projectId": "south-flagler-house-south",
-        "normalizedName": "site plan floors 5 9",
-        "displayName": "Site Plan Floors 5 9",
-        "title": "Site Plan Floors 5 9",
-        "planType": "individual",
-        "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-        "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-5-9--7e6bd746.jpg",
-        "effectiveDate": "",
-        "isCanonicalPublicPlan": true
-      },
-      {
-        "planId": "south-flagler-house-south-individual-site-plan-floors-10-18",
-        "projectId": "south-flagler-house-south",
-        "normalizedName": "site plan floors 10 18",
-        "displayName": "Site Plan Floors 10 18",
-        "title": "Site Plan Floors 10 18",
-        "planType": "individual",
-        "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-        "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-10-18--29f041ee.jpg",
-        "effectiveDate": "",
-        "isCanonicalPublicPlan": true
-      },
-      {
-        "planId": "south-flagler-house-south-individual-site-plan-floors-19-20",
-        "projectId": "south-flagler-house-south",
-        "normalizedName": "site plan floors 19 20",
-        "displayName": "Site Plan Floors 19 20",
-        "title": "Site Plan Floors 19 20",
-        "planType": "individual",
-        "href": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-        "sourceUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-        "publicAssetUrl": "/projects/south-flagler-house/docs/floorplans/shared/site-plan-floors-19-20--113324cb.jpg",
-        "effectiveDate": "",
-        "isCanonicalPublicPlan": true
-      }
-    ],
-    "missingNote": ""
+    "missingNote": "Released layout references; confirm the current drawing and residence availability before relying on a plan."
   }
 ] as const;
 
@@ -3753,20 +3756,20 @@ export const projectFacts = [
     "name": "Shorecrest",
     "area": "North Flagler",
     "projectType": "condo-active-sales",
-    "summary": "A Related Ross waterfront tower at 1865 N Flagler Drive for buyers comparing boutique floor plates, wellness, and North Flagler construction momentum.",
+    "summary": "Shorecrest is a Related Ross waterfront condominium on North Flagler, with two- and three-bedroom residences, private terraces and a rooftop amenity program. Roger Ferris + Partners designed the architecture and Rottet Studio the interiors. Start with the released layouts, then compare the specific outlook, terrace and service terms with Olara and Ritz-Carlton.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
-      "projectAddress": "1865 N Flagler Drive, West Palm Beach, FL 33407",
-      "salesGalleryAddress": "",
+      "projectAddress": "1901 N Flagler Drive, West Palm Beach, FL 33407",
+      "salesGalleryAddress": "616 Hibiscus Street, West Palm Beach, FL 33401",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Under Construction",
-      "residences": "98",
-      "stories": "27",
-      "completion": "Confirm with sales team",
-      "pricing": "$3.69M–$5.445M for reviewed available residences",
+      "residences": "98 in earlier sources; 100 on Related Ross",
+      "stories": "27–28 reported; confirm current plans",
+      "completion": "Request current delivery guidance",
+      "pricing": "Request current pricing",
       "team": "Related Ross; Roger Ferris + Partners; Rottet Studio",
-      "amenities": "Rooftop pool, fitness/yoga/Pilates studios, men’s and women’s spas, steam, sauna, cold plunge, hot tub, private dining, cocktail lounge, card/game lounge, coworking, executive meeting space, golf simulator, package room with refrigerated storage.",
+      "amenities": "The official amenity program includes a rooftop pool, fitness, yoga and Pilates spaces, spa facilities, a golf simulator, private dining and work spaces. Related Life and concierge services are described separately; confirm which services are included and which are charged individually.",
       "residenceFeatures": [
         "Private terraces",
         "Reviewed floorplans show 2- and 3-bedroom homes",
@@ -3777,10 +3780,19 @@ export const projectFacts = [
     },
     "sources": [
       {
-        "url": "https://www.shorecrestwpb.com/"
+        "url": "https://www.shorecrestwpb.com/inquire"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/residences"
       },
       {
         "url": "https://www.shorecrestwpb.com/amenities"
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/properties/shorecrest"
+      },
+      {
+        "url": "https://www.shorecrestwpb.com/"
       },
       {
         "url": "https://www.shorecrestwpb.com/team"
@@ -3941,20 +3953,20 @@ export const projectFacts = [
     "name": "South Flagler House",
     "area": "South Flagler",
     "projectType": "condo-active-sales",
-    "summary": "RAMSA-designed waterfront residences at 1355 S Flagler Drive, positioned for buyers who want South Flagler privacy, scale, and Palm Beach-facing orientation.",
+    "summary": "South Flagler House pairs RAMSA architecture with Pembrooke & Ives interiors in two waterfront towers facing Palm Beach. Its residence tiers and loggias make the individual floor plan central to the decision. The official site advertises Signature Residences from $7.98M; that is published tier guidance checked September 23, 2026, not confirmation that a particular home is available.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "1355 S Flagler Drive, West Palm Beach, FL 33401",
-      "salesGalleryAddress": "",
+      "salesGalleryAddress": "615 S Rosemary Avenue, West Palm Beach, FL 33401; by appointment",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Under Construction",
-      "residences": "108",
+      "residences": "105 on project site; 108 on Related Ross",
       "stories": "28",
-      "completion": "2027",
-      "pricing": "$7.98M to $70M on current official tier pages",
+      "completion": "Request current delivery guidance",
+      "pricing": "From $7.98M advertised; request current pricing",
       "team": "Related Ross; Robert A.M. Stern Architects; Pembrooke & Ives; Rogers by Related Ross; Rogers General Contracting",
-      "amenities": "50,000 sq. ft. private-club amenities, lakefront pool/cabanas, private marina, vanishing-edge pool, 25-meter lap pool, spa, treatment rooms, beauty salon, hydrotherapy, fitness/Pilates/yoga, pickleball, restaurant, private dining, wine lounge, private bar, executive conference rooms, children’s facilities, golf simulator, Related Life programming.",
+      "amenities": "The official program includes lakefront and lap pools, wellness and fitness spaces, pickleball, a golf simulator, private dining, a residents-only indoor/outdoor restaurant and business and social rooms. Guest suites are reserved for residence owners. Confirm operating arrangements, included services and any additional charges.",
       "residenceFeatures": [
         "Estate-scale residences",
         "Large all-season loggias",
@@ -3967,13 +3979,22 @@ export const projectFacts = [
     },
     "sources": [
       {
-        "url": "https://www.southflaglerhouse.com/"
+        "url": "https://www.southflaglerhouse.com/contact"
       },
       {
         "url": "https://www.southflaglerhouse.com/residences"
       },
       {
         "url": "https://www.southflaglerhouse.com/amenities"
+      },
+      {
+        "url": "https://www.relatedross.com/our-company/properties/south-flagler-house"
+      },
+      {
+        "url": "https://www.ramsa.com/news/article/south-flagler-house-tops-out-west-palm-beach"
+      },
+      {
+        "url": "https://www.southflaglerhouse.com/"
       },
       {
         "url": "https://www.southflaglerhouse.com/team"
@@ -5131,8 +5152,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/shorecrest/",
-    "title": "Shorecrest West Palm Beach | Related Ross Waterfront Condos",
-    "description": "Explore Shorecrest West Palm Beach, a boutique North Flagler waterfront condominium by Related Ross with 98 residences, rooftop amenities, and panoramic views.",
+    "title": "Shorecrest West Palm Beach | Condos & Floor Plans",
+    "description": "Explore Shorecrest West Palm Beach condos, released floor plans, rooftop amenities and North Flagler comparisons. Request current pricing before a sales-gallery visit.",
     "ogImage": "/projects/shorecrest/media/showcase/shorecrest-hero-aerial-v01-web.jpg"
   },
   {
@@ -5155,8 +5176,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/south-flagler-house/",
-    "title": "South Flagler House | Flagship Waterfront Condos",
-    "description": "Explore South Flagler House, two South Flagler waterfront towers with Robert A.M. Stern Architects design, expansive residences, and a private-club program.",
+    "title": "South Flagler House West Palm Beach | Prices & Floor Plans",
+    "description": "Research South Flagler House prices, released floor plans, loggias and private-club amenities. Compare the waterfront residences before a sales-gallery appointment.",
     "ogImage": "/projects/south-flagler-house/media/showcase/south-flagler-house-hero-night-web.jpg"
   },
   {

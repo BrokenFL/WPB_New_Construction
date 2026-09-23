@@ -3963,7 +3963,7 @@ function applyRoute() {
   document.title = routeSeo.title;
 
   updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
-  if ((activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb"].includes(activeProject.id)) || activeCorridor?.key === "north-flagler") {
+  if ((activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"].includes(activeProject.id)) || ["north-flagler", "south-flagler"].includes(activeCorridor?.key ?? "")) {
     document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", routeSeo.description);
   }
   updateCanonical(route, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
@@ -4083,14 +4083,14 @@ function routeSeoDetails(
   const corridorTitles: Record<CorridorKey, string> = {
     "north-flagler": "North Flagler New Construction Condos | Compare & Floor Plans",
     downtown: "Downtown West Palm Beach Condos | Buyer Guide",
-    "south-flagler": "South Flagler Condos | West Palm Beach Buyer Guide",
+    "south-flagler": "South Flagler New Construction Condos | Plans & Buyer Guide",
     "south-end": "South End West Palm Beach Developments | Area Guide",
     "palm-beach": "Palm Beach New Construction Condos | Buyer Guide",
   };
   const corridorDescriptions: Record<CorridorKey, string> = {
     "north-flagler": "Compare North Flagler condos including Olara and Ritz-Carlton: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
     downtown: "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
-    "south-flagler": "Compare South Flagler waterfront condo projects by privacy, boutique scale, Palm Beach views, floor plans, and current availability checks.",
+    "south-flagler": "Compare South Flagler new construction condos, South Flagler House floor plans and completed waterfront alternatives. Build a buyer shortlist before a sales-gallery visit.",
     "south-end": "Track South End West Palm Beach rental and mixed-use development by leasing status, neighborhood retail, delivery, and resident fit.",
     "palm-beach": "Track Palm Beach island condo projects by coastal setting, low-density scale, approval status, and current buyer-verification needs.",
   };
@@ -4112,7 +4112,7 @@ function routeSeoDetails(
     "fair-housing": "Fair Housing | WPB New Construction",
     inquire: "West Palm Beach Condo Buyer Research Desk | Inquiry",
   };
-  const buyerSeo = activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb"].includes(activeProject.id) ? batch1ProjectCopyByProjectId.get(activeProject.id) : undefined;
+  const buyerSeo = activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"].includes(activeProject.id) ? batch1ProjectCopyByProjectId.get(activeProject.id) : undefined;
   const projectSchemaFacts = activeProject ? getSchemaSafeProjectFacts(activeProject.id) : undefined;
   const projectMarketSuffix = activeProject?.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   const projectTitleSuffix = activeProject?.projectType === "rental"
