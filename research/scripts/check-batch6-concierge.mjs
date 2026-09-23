@@ -147,8 +147,9 @@ try {
 
         const launcher = page.getByRole("button", { name: "Open Ask WPB buyer concierge" });
         await step(label, "launcher.exists", async () => {
+          await launcher.first().waitFor({ state: "attached", timeout: 10000 });
           assert.equal(await launcher.count(), 1, `${label}: launcher attached exactly once`);
-        }, 5000);
+        }, 12000);
         await step(label, "launcher.visible", () => launcher.waitFor({ state: "visible", timeout: 10000 }), 12000);
 
         assert.equal(requested.includes(conciergePath), false, `${route}:${width}:body must be lazy`);
