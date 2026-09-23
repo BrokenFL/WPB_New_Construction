@@ -39,11 +39,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium webkit
-      - name: Baseline audit and scoped source migration
+      - name: Baseline audit and bounded consistency finalizer
         run: |
           npm run qa:project-intelligence 2>&1 | tee .runtime/revenue-seo-review/baseline-audit.log
           node --experimental-strip-types research/scripts/revenue-seo-triage.mjs before
-          python3 research/scripts/apply-revenue-seo-batch1.py
           python3 research/scripts/finalize-revenue-seo-batch1.py
       - name: Generate current buyer content without an asset refresh
         run: |
@@ -52,10 +51,9 @@ jobs:
           node --experimental-strip-types research/scripts/generate-project-schema-safe.ts
           node research/scripts/build-site-intelligence.mjs --buyer-content-only
           git diff --check
-      - name: Verify deterministic source migration and scoped generation
+      - name: Verify deterministic finalizer and scoped generation
         run: |
           git diff --binary > .runtime/revenue-seo-review/first-generation.patch
-          python3 research/scripts/apply-revenue-seo-batch1.py
           python3 research/scripts/finalize-revenue-seo-batch1.py
           node research/scripts/generate-project-model.mjs
           node research/scripts/parse-building-database.mjs

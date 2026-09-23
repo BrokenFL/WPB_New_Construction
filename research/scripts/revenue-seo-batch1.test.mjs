@@ -4,6 +4,7 @@ import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {test} from 'node:test';
 import {parse} from 'csv-parse/sync';
+import {readTsArray} from './article-market-note-utils.mjs';
 import {renderRevenueBuyerResearch} from '../../shared/revenue-buyer-research.mjs';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const ids=['nora-house','banyan-tree','olara','ritz-carlton-wpb'];
@@ -61,7 +62,25 @@ test('Unrelated compare rows, approvals, article snapshots and floor-plan code a
 test('Unsupported and prototype-like keys do not create a buyer block',()=>{
  for(const key of ['the-sound-west-palm-beach','<script>','__proto__'])assert.equal(renderRevenueBuyerResearch(key),'');
 });
-test('Plan assets/counts remain unchanged while stale project classifications refresh',()=>{
- const file='public/data/floorplans.json',before=JSON.parse(original(file)),after=read(file);assert.equal(after.projects.length,before.projects.length);
- for(const p of after.projects){const old=before.projects.find(x=>x.projectId===p.projectId);assert.deepEqual(p.plans,old.plans,'no 2D/3D/source-asset changes');assert.equal(p.count,old.count);if(ids.includes(p.projectId))assert.equal(p.projectType,'condo-active-sales');}
+test('Approved plan assets are unchanged and public counts match the published UI',()=>{
+ const sourceFile='src/data/floorplanApprovedLibrary.ts';
+ assert.equal(fs.readFileSync(sourceFile,'utf8'),original(sourceFile),'approved asset library is unchanged');
+ const approved=readTsArray(fs.readFileSync(sourceFile,'utf8'),'approvedFloorplanLibrary');
+ const file='public/data/floorplans.json',before=JSON.parse(original(file)),after=read(file);
+ assert.equal(after.projects.length,before.projects.length);
+ for(const p of after.projects){
+  const old=before.projects.find(x=>x.projectId===p.projectId);
+  if(ids.includes(p.projectId)){
+   const expected=approved.find(x=>x.projectId===p.projectId);
+   assert.equal(p.projectType,'condo-active-sales');assert.equal(p.count,expected.count);
+   assert.deepEqual(p.plans.map(x=>x.href).sort(),expected.plans.map(x=>x.href).sort());
+   assert.ok(html(`/projects/${p.projectId}/`).includes(`${expected.count} canonical plans tracked`));
+  }else{assert.deepEqual(p.plans,old.plans);assert.equal(p.count,old.count);}
+ }
+});
+test('Banyan directs buyers to the seven approved layouts instead of a nonexistent-plan claim',()=>{
+ const h=html('/projects/banyan-tree/');
+ assert.ok(h.includes('/floorplans/#floorplans-banyan-tree'));
+ assert.doesNotMatch(h,/No complete public floorplan packet is confirmed/);
+ const hub=html('/floorplans/');assert.ok(hub.includes('id="floorplans-banyan-tree"'));
 });

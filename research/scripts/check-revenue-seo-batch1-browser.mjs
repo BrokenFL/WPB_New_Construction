@@ -18,7 +18,7 @@ try{
  for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]){
   const browser=await engine.launch({headless:true});
   try{
-   for(const [size,viewport] of [['desktop',{width:1440,height:1000}],['tablet',{width:834,height:1112}],['mobile',{width:390,height:844}]]){
+   for(const [size,viewport] of [['desktop',{width:1440,height:1000}],['tablet',{width:834,height:1112}],['mobile',{width:390,height:844}]] ){
     const context=await browser.newContext({viewport});
     // No external analytics, production Maps, or real lead submissions.
     await context.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
@@ -37,6 +37,14 @@ try{
     await page.goto('http://127.0.0.1:4198/projects/nora-house/',{waitUntil:'domcontentloaded'});
     await page.locator('[data-revenue-buyer-research="nora-house"] a[href^="/inquire/"]').click();await page.waitForURL(/\/inquire\//);
     assert.equal(await page.locator('.inquiry-form select[name="project"]').inputValue(),'nora-house');results.push({engine:engineName,viewport:size,inquiryContext:'nora-house preserved; no form submitted'});
+    await page.goto('http://127.0.0.1:4198/projects/banyan-tree/',{waitUntil:'domcontentloaded'});
+    const dismiss=page.locator('[data-lead-modal]:visible [data-lead-modal-dismiss]').first();
+    if(await dismiss.isVisible())await dismiss.click();
+    await page.locator('[data-revenue-buyer-research="banyan-tree"] a[href="/floorplans/#floorplans-banyan-tree"]').click();
+    await page.waitForURL(/\/floorplans\/#floorplans-banyan-tree$/);
+    const banyanPlans=page.locator('#floorplans-banyan-tree .floorplan-gallery-grid button');
+    await banyanPlans.first().waitFor({state:'visible'});assert.equal(await banyanPlans.count(),7);
+    results.push({engine:engineName,viewport:size,floorplans:'Banyan buyer link opens seven approved layouts; no assets changed'});
     await page.goto('http://127.0.0.1:4198/compare/?projects=nora-house,banyan-tree',{waitUntil:'domcontentloaded'});
     const visibleMatrix=page.locator('[data-compare-results] .compare-matrix-desktop:visible, [data-compare-results] .compare-matrix-mobile:visible');
     await visibleMatrix.getByText('Request current pricing',{exact:false}).first().waitFor();
