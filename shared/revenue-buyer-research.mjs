@@ -15,5 +15,5 @@ export function renderRevenueBuyerResearch(key){
  const entry=Object.hasOwn(guides,key)?guides[key]:undefined;
  if(!entry)return '';
  const intro=key==='banyan-tree'?'Ask for the current residence packet, then compare layouts and services. We can help confirm availability and arrange an introduction before your visit.':'Use the published plans to narrow the choices. Ask us to confirm current residence availability and arrange an introduction before your visit.';
- return `<section class="section revenue-buyer-research" data-revenue-buyer-research="${escape(key)}"><h2>${escape(entry[0])}</h2><p>${escape(intro)}</p><nav aria-label="Related buyer research"><ul>${entry[1].map(([label,href])=>`<li><a href="${escape(href)}">${escape(label)}</a></li>`).join('')}</ul></nav></section>`;
+ return `<link rel="stylesheet" href="/assets/styles/revenue-buyer-research.css"><section class="section revenue-buyer-research" data-revenue-buyer-research="${escape(key)}"><h2>${escape(entry[0])}</h2><p>${escape(intro)}</p><nav aria-label="Related buyer research"><ul>${entry[1].map(([label,href])=>`<li><a href="${escape(href)}">${escape(label)}</a></li>`).join('')}</ul></nav></section>`;
 }
