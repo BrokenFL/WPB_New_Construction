@@ -72,7 +72,7 @@ test('mandarin-oriental: disputed residence ZIP omitted; lounge stays separate a
  assert.ok(JSON.stringify(c.sourceNotes).includes('ZIP OMITTED'),'ZIP omission and evidence recorded in source notes');
  assert.ok(JSON.stringify(c.sourceNotes).includes('Starting from $3,500,000'),'pricing attribution recorded in source notes');
  assert.doesNotMatch(decode(h.match(/<title>(.*?)<\/title>/s)[1]),/2031/);
- assert.doesNotMatch(JSON.stringify([c.metaDescription,c.overview,c.localTake,c.tradeoffs,c.signatureFeatures]),/2031/,'no 2031 in buyer copy');
+ assert.doesNotMatch(JSON.stringify([c.metaDescription,c.overview,c.localTake,c.tradeoffs,c.signatureFeatures,c.buyerComparisonNotes,c.showcase?.heroTags]),/2031/,'no unresolved 2031 claim in buyer copy');
 });
 test('mr-c: address corrected, no stale price/deposit or sellout urgency',()=>{
  const h=html('/projects/mr-c/');

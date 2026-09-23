@@ -1944,7 +1944,7 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       { label: "Stories", value: "31" },
       { label: "Residences", value: "87" },
       { label: "Bedrooms", value: "2-4" },
-      { label: "Opening", value: "Anticipated 2031" },
+      { label: "Opening", value: "To confirm" },
       { label: "Pricing", value: "From $3.5M", note: "Request current release details before scheduling." },
       { label: "Profile", value: "Branded North Flagler" },
     ],
@@ -4112,7 +4112,7 @@ function routeSeoDetails(
     "fair-housing": "Fair Housing | WPB New Construction",
     inquire: "West Palm Beach Condo Buyer Research Desk | Inquiry",
   };
-  const buyerSeo = activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"].includes(activeProject.id) ? batch1ProjectCopyByProjectId.get(activeProject.id) : undefined;
+  const buyerSeo = activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "berkeley", "mandarin-oriental", "mr-c"].includes(activeProject.id) ? batch1ProjectCopyByProjectId.get(activeProject.id) : undefined;
   const projectSchemaFacts = activeProject ? getSchemaSafeProjectFacts(activeProject.id) : undefined;
   const projectMarketSuffix = activeProject?.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   const projectTitleSuffix = activeProject?.projectType === "rental"

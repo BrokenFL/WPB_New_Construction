@@ -46,7 +46,8 @@ try{
      assert.equal(await page.locator('.inquiry-form select[name="project"]').inputValue(),id);
      results.push({engine:engineName,viewport:size,inquiry:id+' context preserved; no submission'});
     }
-    for(const [id,count] of [['berkeley',9],['mr-c',32]]){
+    // Berkeley has eight approved gallery layouts; its ninth catalog record is an external Residence F page.
+    for(const [id,count] of [['berkeley',8],['mr-c',32]]){
      await page.goto(base+`/projects/${id}/`,{waitUntil:'domcontentloaded'});await dismiss(page);
      await page.locator(`[data-revenue-buyer-research="${id}"] a[href="/floorplans/#floorplans-${id}"]`).click();
      await page.waitForURL(base+`/floorplans/#floorplans-${id}`);
