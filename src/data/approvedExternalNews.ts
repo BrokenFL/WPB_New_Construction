@@ -76,6 +76,151 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23",
+    "slug": "west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23",
+    "title": "West Palm’s Waterfront Towers Are Gone. Six Million Square Feet of Growth Is Not.",
+    "sourceName": "City of West Palm Beach",
+    "sourceUrl": "https://www.wpb.org/Departments/Development-Services/Planning-Division/Downtown-Master-Plan",
+    "canonicalUrl": "https://www.wpb.org/Events-Folder/2026/091526-PB",
+    "sourceTitle": "Downtown Master Plan Update and September 15 Planning Board hearing",
+    "publishedAt": "2026-09-23T23:52:57.183Z",
+    "sourcePublishedAt": "2026-09-15",
+    "sourcePublishedDate": "2026-09-15",
+    "eventDate": "2026-09-15",
+    "dateDiscovered": "2026-09-23",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-23T23:52:57.183Z",
+    "deck": "The Planning Board backed a revised downtown plan that keeps new 25-story incentives off most of Flagler Drive while shifting major growth capacity inland. The next fight is whether the city’s roads, services and public-benefit rules can carry it.",
+    "description": "West Palm Beach’s Planning Board advanced a revised Downtown Master Plan with roughly 6 million square feet of added potential growth and a taller inland development spine.",
+    "summary": "West Palm Beach removed the most controversial waterfront height proposal, then advanced a plan that could add roughly 6 million square feet of development capacity in other parts of downtown.",
+    "bodySections": [
+      {
+        "heading": "The plan moved forward, but it is not finished",
+        "body": "West Palm Beach’s Planning Board unanimously recommended approval of comprehensive-plan amendments tied to the Downtown Master Plan update on September 15. The board also separately backed bringing the Jaguar dealership property at Okeechobee Boulevard and South Dixie Highway into the downtown plan and recommended a proposed rooftop helipad at CityPlace.\n\nThose votes were milestones, not final approvals. A community meeting is scheduled for October 6, and another Planning Board discussion is listed for October 20. The anticipated schedule then calls for City Commission review on October 26, followed by state-agency review and a possible final adoption hearing in January 2027. Later dates remain subject to change until they appear on final agendas.\n\nThat procedural line matters. West Palm Beach has decided to keep the rewrite moving, but the rules that will govern the next generation of downtown development are still being shaped.",
+        "image": "/assets/editorial/west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23-body-1.jpg",
+        "imageAlt": "Editorial illustration of a municipal planning board hearing in a wood-paneled chamber",
+        "imageCaption": "The September 15 Planning Board action was a recommendation. City Commission hearings and state review still stand between the draft and final adoption.",
+        "imageCredit": "Provided editorial illustration"
+      },
+      {
+        "heading": "The waterfront fight changed the map",
+        "body": "The spring version drew its sharpest opposition from a proposal that could have allowed buildings as tall as 25 stories on portions of Flagler Drive. That incentive is gone. A separate proposal for 12-story buildings on another waterfront segment was also withdrawn, leaving most of the affected waterfront under its lower existing framework.\n\nThe height did not disappear from the plan. It moved inland. The current draft allows incentive height as high as 25 stories in parts of the transit-oriented and Quadrille business districts, with other interior areas eligible for increases up to 15 stories. The likely result is a different skyline: a lower civic edge along much of Flagler and a taller spine around rail, CityPlace, Quadrille and Okeechobee Boulevard.\n\nThat shift may be the plan’s most durable idea. Surface lots and low-intensity sites near the stations become more valuable redevelopment candidates, while waterfront owners gain more certainty about the proposal immediately across Flagler.",
+        "image": "/assets/editorial/west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23-body-2.jpg",
+        "imageAlt": "Editorial district diagram of downtown West Palm Beach showing the waterfront, business core, CityPlace and inland districts",
+        "imageCaption": "Editorial district diagram for geographic context. It is not the adopted zoning map and should not be used to determine a parcel’s development rights.",
+        "imageCredit": "Provided editorial illustration"
+      },
+      {
+        "heading": "Six million square feet is the number to watch",
+        "body": "Height dominates the public conversation because it is easy to picture. Development capacity is the quieter number with the larger consequence.\n\nCity staff told the Downtown Action Committee that the update could add a maximum of about 6 million square feet of potential development beyond roughly 13.2 million square feet still available under the current plan. That is an increase of about 45% in remaining potential capacity. It is theoretical capacity, not a construction forecast, and individual sites would still face design, access, market and approval constraints.\n\nThe scale is substantial beside the downtown that already exists. The city reports nearly 9,000 residential units and more than 10.4 million square feet of nonresidential development inside the approximately 767-acre planning area. The important question is therefore larger than whether one stretch of Flagler gets taller. It is where the next several million square feet can go and what West Palm Beach requires in return."
+      },
+      {
+        "heading": "More value comes with more conditions",
+        "body": "The proposed regulations treat added height and floor area as bargaining tools. Projects seeking incentives in designated districts would have to use development-rights programs or provide public benefits that can include housing, open space and improvements to the public realm. The draft also places more growth near Brightline and Tri-Rail, where the city argues transportation choices are strongest.\n\nParking is part of the economic equation. The proposal would allow required parking to fall by roughly 25% in some transit-oriented areas. A smaller garage can free space and capital for other uses, making difficult sites more feasible. It also makes the city’s transportation strategy inseparable from the zoning strategy: less parking works only if walking, transit, street operations and construction management work better than they do today.\n\nThe plan is therefore more than permission for larger buildings. It attempts to redirect private development value toward housing, open space and mobility while concentrating the largest increases away from most of the waterfront."
+      },
+      {
+        "heading": "The Jaguar site shows what the new framework can unlock",
+        "body": "The 2.5-acre Jaguar dealership property sits at one of downtown’s most visible gateways, where Okeechobee Boulevard meets South Dixie Highway. The Planning Board recommended adding it to the Downtown Master Plan, a change that could make a future mixed-use or residential redevelopment eligible for the Okeechobee district’s incentive framework and potential height of about 25 stories.\n\nNo tower was approved on September 15, and the owner has not presented a final development plan. The recommendation changes the rulebook that a later proposal could use. That distinction matters because the site is now automobile-oriented commercial property at the seam between CityPlace, the convention-center district and the route toward Palm Beach.\n\nIt also previews the next argument. Supporters see an infill site that could be held to downtown design and public-space standards. Opponents see a parcel-by-parcel expansion of capacity while the citywide infrastructure question remains open."
+      },
+      {
+        "heading": "The infrastructure debate now crosses the bridges",
+        "body": "Traffic is the hardest limit for the zoning plan to solve. City data presented during the September review showed Okeechobee Boulevard operating at roughly 98% to 99% of planning capacity between Australian and Rosemary avenues. West Palm Beach can require transportation-demand plans, improve signals and sidewalks, and make transit more useful. It cannot readily create another east-west boulevard or another bridge to Palm Beach.\n\nThat is why the debate has become regional. Palm Beach officials reviewed mapping this summer showing more than 100 West Palm Beach projects that were planned, approved, under construction or recently completed, including thousands of homes, hotels and more than 2 million square feet of commercial development. Town leaders emphasized that they cannot veto projects across the Intracoastal, but one council member described the two cities as part of a growing regional superstructure. Palm Beach’s own comprehensive plan says development in downtown West Palm Beach has affected the town’s roadways.\n\nThe revised plan answers the waterfront-height question more clearly than it did in spring. It does not yet settle how much growth the street network, utilities and emergency services can carry at once. That is the bigger development fight now beginning—and the test that will determine whether six million additional square feet becomes a well-managed urban center or simply more pressure on the same constrained routes.",
+        "image": "/assets/editorial/west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23-body-3.jpg",
+        "imageAlt": "Editorial illustration of a crowded public meeting about downtown development and infrastructure",
+        "imageCaption": "Resident groups have shifted the argument toward cumulative traffic, utilities, emergency services and the timing of public review.",
+        "imageCredit": "Provided editorial illustration"
+      }
+    ],
+    "whyItMatters": "The newest milestone shifts the debate from one waterfront height provision to the scale, location and infrastructure cost of downtown’s next growth cycle.",
+    "buyerContext": "",
+    "buyerTakeaway": "",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "",
+    "buyerQuestions": "",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [],
+    "relatedCorridor": "",
+    "relatedArticleIds": [
+      "downtown-plan-advances-without-waterfront-height-incentive-2026-09-14"
+    ],
+    "newsletterHeadline": "The waterfront towers are gone. Six million square feet of growth is not.",
+    "newsletterBlurb": "The Planning Board moved West Palm’s downtown rewrite forward. The new center of gravity is inland, and the unresolved question is whether the region’s infrastructure can keep pace.",
+    "newsletterCta": "Read the development analysis",
+    "query": "project-development: West Palm Beach Downtown Master Plan September 15 Planning Board 6 million square feet; narrow follow-ups for Jaguar site, Okeechobee capacity, and Palm Beach regional traffic",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [
+      "downtown"
+    ],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [
+      "downtown"
+    ],
+    "corridorLabel": "Downtown",
+    "imagePath": "/assets/editorial/west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "City of West Palm Beach: Downtown Master Plan Update",
+        "url": "https://www.wpb.org/Departments/Development-Services/Planning-Division/Downtown-Master-Plan",
+        "type": "official primary source"
+      },
+      {
+        "label": "City of West Palm Beach: September 15 Planning Board meeting",
+        "url": "https://www.wpb.org/Events-Folder/2026/091526-PB",
+        "type": "official public hearing"
+      },
+      {
+        "label": "City planning staff report and draft regulations",
+        "url": "https://www.wpb.org/files/assets/city/v/1/development-services/documents/downtown-master-plan/10.9-dmpu-staff-report.pdf",
+        "type": "official planning document"
+      },
+      {
+        "label": "WFLX: Planning Board recommendation and current plan debate",
+        "url": "https://www.wflx.com/2026/09/23/west-palm-beach-advances-downtown-master-plan-residents-seek-balance-between-growth-livability/",
+        "type": "independent local reporting"
+      },
+      {
+        "label": "Stet News: added capacity, Jaguar site and September 9 hearing",
+        "url": "https://stetnews.org/2026/09/10/west-palm-beach-residents-promise-the-fight-isnt-over/",
+        "type": "independent local reporting"
+      },
+      {
+        "label": "Stet News: Jaguar site background and city planning analysis",
+        "url": "https://stetnews.org/2026/07/12/luxury-car-dealer-zooms-into-downtown-development-race/",
+        "type": "independent local reporting"
+      },
+      {
+        "label": "WFLX: Palm Beach regional traffic concerns",
+        "url": "https://www.wflx.com/2026/08/04/palm-beach-leaders-sound-alarm-over-west-palm-beach-development-boom-traffic-concerns/?outputType=amp",
+        "type": "independent regional reporting"
+      },
+      {
+        "label": "Town of Palm Beach Comprehensive Plan",
+        "url": "https://townofpalmbeach.com/DocumentCenter/View/222/Town-of-Palm-Beach-Comprehensive-Plan",
+        "type": "official regional planning source"
+      },
+      {
+        "label": "Downtown Neighborhood Association: anticipated review schedule",
+        "url": "https://www.wpbdna.com/newsletter",
+        "type": "community organization source"
+      },
+      {
+        "label": "Save West Palm Beach: infrastructure concerns and October 6 meeting",
+        "url": "https://www.savewestpalmbeach.org/",
+        "type": "direct advocacy source"
+      },
+      {
+        "label": "Hoodline: Jaguar, helipad and Planning Board actions",
+        "url": "https://hoodline.com/2026/09/west-palm-beach-planning-board-backs-rooftop-helipad-recommends-jaguar-site-inclusion/",
+        "type": "secondary local coverage"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "related-ross-fort-partners-south-flagler-property-swap-2026-09-22",
     "slug": "related-ross-fort-partners-south-flagler-property-swap-2026-09-22",
     "title": "$40M Property Swap Redraws the South Flagler Waterfront Development Map",

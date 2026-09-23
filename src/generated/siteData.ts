@@ -4741,6 +4741,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23/",
+    "title": "West Palm’s Waterfront Towers Are Gone. Six Million Square Feet of Growth Is Not. | WPB Updates",
+    "description": "West Palm Beach’s Planning Board advanced a revised Downtown Master Plan with roughly 6 million square feet of added potential growth and a taller inland development spine.",
+    "ogImage": "/assets/editorial/west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23-hero.jpg"
+  },
+  {
     "path": "/updates/related-ross-fort-partners-south-flagler-property-swap-2026-09-22/",
     "title": "$40M Property Swap Redraws the South Flagler Waterfront Development Map | WPB Updates",
     "description": "Related Ross and Fort Partners completed two $20 million South Flagler property transactions, clarifying control around Harbor Towers and Southbridge.",
