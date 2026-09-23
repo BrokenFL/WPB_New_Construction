@@ -1376,6 +1376,27 @@ const answerBlocks = [
   },
 ];
 
+function approvedRevenueFloorplanProjects(projects) {
+  const scope = new Set(["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb"]);
+  const source = fsSync.readFileSync(path.join(workspace, "src/data/floorplanApprovedLibrary.ts"), "utf8");
+  const approved = readTsArray(source, "approvedFloorplanLibrary");
+  const byId = new Map(approved.map((project) => [project.projectId, project]));
+  for (const id of scope) {
+    const project = byId.get(id);
+    if (!project || project.count !== project.plans.length || !project.count) {
+      throw new Error(`Approved floor-plan source review required: ${id}`);
+    }
+  }
+  return projects.map((project) => {
+    if (!scope.has(project.projectId)) return project;
+    const review = byId.get(project.projectId);
+    const plans = canonicalizePublicPlans(project.projectId, review.plans);
+    if (plans.length !== review.count) throw new Error(`Approved plan identity collision: ${project.projectId}`);
+    return { ...project, count: plans.length, plans,
+      missingNote: "Released layout references; confirm the current drawing and residence availability before relying on a plan." };
+  });
+}
+
 async function main() {
   if (process.argv.includes("--buyer-content-only")) {
     const catalog = JSON.parse(await fs.readFile(reviewPath, "utf8"));
@@ -1384,6 +1405,7 @@ async function main() {
     const currentPlans = JSON.parse(await fs.readFile(path.join(publicDataRoot, "floorplans.json"), "utf8"));
     const modelBySlug = new Map(readPublicProjectModel().projects.map((p) => [p.publicSlug, p]));
     currentPlans.projects = currentPlans.projects.map((p) => ({ ...p, projectType: modelBySlug.get(p.projectId)?.projectType ?? p.projectType }));
+    currentPlans.projects = approvedRevenueFloorplanProjects(currentPlans.projects);
     const exports = {
       siteMeta,
       floorplanLibrary: currentPlans.projects,
@@ -1428,6 +1450,7 @@ async function main() {
   let publishedFloorplans = await publishFloorplanAssets();
   const floorplans = await buildFloorplanLibrary(catalog.projects);
   let publicFloorplans = stripInternalFloorplanPaths(floorplans);
+  publicFloorplans.projects = approvedRevenueFloorplanProjects(publicFloorplans.projects);
   const images = await buildImageCatalog(catalog.projects, assetTracker);
   const newsFeed = buildNewsFeed(catalog.projects, floorplans, images);
   const internalProjectFacts = buildInternalProjectFacts(catalog.projects);
