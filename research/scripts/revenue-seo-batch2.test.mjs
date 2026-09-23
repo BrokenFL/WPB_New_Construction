@@ -78,12 +78,14 @@ test('All prior document URLs remain byte-identical, including seven target lega
  for(const url of registered)assert.ok(fs.readFileSync(path.join('public',url.slice(1))).equals(fs.readFileSync(path.join('dist',url.slice(1)))),url);
 });
 test('Non-target project facts and Compare rows remain exactly as Batch 1 left them',()=>{
+ const BATCH3=['berkeley','mandarin-oriental','mr-c']; // batch 3 intentionally updated these; covered by revenue-seo-batch3.test.mjs
+ const skip=p=>IDS.includes(p)||BATCH3.includes(p);
  const before=JSON.parse(original('src/generated/projectModelPublic.json')).projects;
- for(const p of before.filter(p=>!IDS.includes(p.publicSlug)))assert.deepEqual(models.find(x=>x.publicSlug===p.publicSlug),p,p.publicSlug);
- const targetRows=new Set(decisions.filter(d=>IDS.includes(d.publicSlug)).map(d=>d.compareDatabaseId));
+ for(const p of before.filter(p=>!skip(p.publicSlug)))assert.deepEqual(models.find(x=>x.publicSlug===p.publicSlug),p,p.publicSlug);
+ const targetRows=new Set(decisions.filter(d=>skip(d.publicSlug)).map(d=>d.compareDatabaseId));
  for(const row of parse(original(CSV),{columns:true,skip_empty_lines:true}).filter(r=>!targetRows.has(r.project_id)))assert.deepEqual(rows.find(r=>r.project_id===row.project_id),row,row.project_id);
  const oldCopy=JSON.parse(original('content/project-copy-package.json'));
- for(const c of oldCopy.filter(c=>!IDS.includes(c.repoProjectId)))assert.deepEqual(copies.find(x=>x.repoProjectId===c.repoProjectId),c);
+ for(const c of oldCopy.filter(c=>!skip(c.repoProjectId)))assert.deepEqual(copies.find(x=>x.repoProjectId===c.repoProjectId),c);
  assert.equal(models.length,24);
 });
 test('Unchanged approved plans, article facts, approvals, identity and 3D files',()=>{

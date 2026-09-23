@@ -128,7 +128,7 @@
     {
       "publicSlug": "mr-c",
       "rank": 7,
-      "deliveryYear": 2027,
+      "deliveryYear": 0,
       "longitude": -80.0578,
       "latitude": 26.706,
       "summary": "A downtown Cipriani-branded hotel-residence tower at 327 Okeechobee Boulevard, with municipal address caveats kept out of primary display copy.",
@@ -168,11 +168,11 @@
     {
       "publicSlug": "berkeley",
       "rank": 9,
-      "deliveryYear": 2027,
+      "deliveryYear": 0,
       "longitude": -80.0642,
       "latitude": 26.7087,
       "summary": "A Clear Lake/downtown luxury project at 601-621 Clearwater Park Road for buyers comparing newer ownership near The Square, the convention-center edge, and the office core.",
-      "floorplans": false,
+      "floorplans": true,
       "pageState": "Active / Sales / Under Construction",
       "image": "/projects/berkeley/media/card.jpg",
       "approvedFallback": {
@@ -181,7 +181,7 @@
         "status": "Under Construction",
         "delivery": "Confirm with sales team",
         "residences": "193",
-        "price": "$2M-$10M+",
+        "price": "$2M-$10M+ reported",
         "address": "601-621 Clearwater Park Road, West Palm Beach, FL 33401"
       }
     },
@@ -228,21 +228,21 @@
     {
       "publicSlug": "mandarin-oriental",
       "rank": 12,
-      "deliveryYear": 2031,
+      "deliveryYear": 0,
       "longitude": -80.0516,
       "latitude": 26.759,
-      "summary": "An 87-residence Mandarin Oriental waterfront tower on North Flagler with Safdie architecture, private terraces, and a 2031 delivery horizon.",
-      "floorplans": true,
+      "summary": "An 87-residence Mandarin Oriental waterfront tower on North Flagler with Safdie architecture and private terraces. Confirm current pricing and delivery guidance with the sales team.",
+      "floorplans": false,
       "pageState": "Pipeline / Announced / Watchlist",
       "image": "/projects/mandarin-oriental/media/showcase/mandarin-oriental-hero-waterfront-web.jpg",
       "approvedFallback": {
         "displayName": "Mandarin Oriental Residences West Palm Beach",
         "corridor": "North Flagler",
         "status": "Sales Open",
-        "delivery": "Anticipated 2031",
+        "delivery": "Confirm with sales team",
         "residences": "87",
-        "price": "From $3.5M",
-        "address": "5400 N Flagler Drive, West Palm Beach, FL 33407"
+        "price": "From $3.5M reported",
+        "address": "5400 N Flagler Drive, West Palm Beach, FL 33480"
       }
     },
     {

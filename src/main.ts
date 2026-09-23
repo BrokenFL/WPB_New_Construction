@@ -781,7 +781,7 @@ const corridorSections: CorridorSection[] = [
   {
     key: "north-flagler",
     label: "North Flagler",
-    detail: "Including Alba, Olara, Shorecrest and Ritz-Carlton",
+    detail: "Including Alba, Olara, Shorecrest, Ritz-Carlton and Mandarin Oriental",
     reviewNote: "Waterfront comparison corridor with the deepest active plan and image inventory.",
     description:
       "North Flagler is one of West Palm Beach's most active new-construction corridors, with waterfront sites, marina-oriented amenities, and several projects reshaping the area north of downtown. Buyers should compare building scale, view orientation, water access, walkability, and the surrounding redevelopment timeline.",
@@ -789,7 +789,7 @@ const corridorSections: CorridorSection[] = [
   {
     key: "downtown",
     label: "Downtown",
-    detail: "Including NORA House and Mr. C",
+    detail: "Including NORA House, Mr. C and The Berkeley",
     reviewNote: "Urban lifestyle corridor where hotel-branded and district projects need current availability checks.",
     description:
       "Downtown is the most walkable new-construction setting in West Palm Beach, appealing to buyers who want restaurants, retail, arts venues, Brightline access, and everyday convenience close by. Buyers should compare privacy, parking, noise, views, and access to the city's cultural and commercial anchors.",
@@ -3963,7 +3963,7 @@ function applyRoute() {
   document.title = routeSeo.title;
 
   updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
-  if ((activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house"].includes(activeProject.id)) || ["north-flagler", "south-flagler"].includes(activeCorridor?.key ?? "")) {
+  if ((activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "berkeley", "mandarin-oriental", "mr-c"].includes(activeProject.id)) || ["north-flagler", "south-flagler"].includes(activeCorridor?.key ?? "")) {
     document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", routeSeo.description);
   }
   updateCanonical(route, activeProject, activeMarketNote, activeNewsItem, activeAnswer);

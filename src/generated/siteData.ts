@@ -3857,14 +3857,14 @@ export const projectFacts = [
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "601–621 Clearwater Park Road, West Palm Beach, FL 33401",
-      "salesGalleryAddress": "",
+      "salesGalleryAddress": "500 S. Australian Ave Suite 910, West Palm Beach, FL 33401",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Under Construction",
       "residences": "193",
       "stories": "25",
       "completion": "Confirm with sales team",
-      "pricing": "$2M to over $10M",
+      "pricing": "$2M to over $10M (reported; request current pricing)",
       "team": "Australian Properties Group; Al Adelson; Sympatico Real Estate; Bernardo Fort-Brescia / Arquitectonica; Arquitectonica Interiors",
       "amenities": "Rooftop adult pool, family pool, private cabanas, fitness/yoga, spas, sauna, treatment rooms, private dining, chef’s kitchen, lounges, rooftop party room, board room, coworking, splash pad, dog run, golf simulator, outdoor theatre/event lawn, UPLIN Health concierge medical care.",
       "residenceFeatures": [
@@ -4016,7 +4016,7 @@ export const projectFacts = [
       "status": "Under Construction",
       "residences": "146",
       "stories": "27",
-      "completion": "2027 recommended; conflicts remain",
+      "completion": "Timing to confirm — completion estimates vary (2026 vs 2027 across sources)",
       "pricing": "Request current pricing",
       "team": "Lakeview Hospitality Investments, LLC; Terra; Sympatico Real Estate; Arquitectonica; Meyer Davis",
       "amenities": "Garden-level lap pool, cabanas, pool bar/lounge, hotel rooftop pool/bar, fitness, yoga, Pilates, Peloton, spa, sauna, steam, Bellini Café/Restaurant/Rooftop lounge, billiards, outdoor cinema, library/business lounge, Little C’s playground, bocce.",
@@ -4122,18 +4122,18 @@ export const projectFacts = [
     "name": "Mandarin Oriental Residences West Palm Beach",
     "area": "North Flagler",
     "projectType": "condo-pipeline",
-    "summary": "An 87-residence Mandarin Oriental waterfront tower on North Flagler with Safdie architecture, private terraces, and a 2031 delivery horizon.",
+    "summary": "An 87-residence Mandarin Oriental waterfront tower on North Flagler with Safdie architecture and private terraces. Confirm current pricing and delivery guidance with the sales team.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
-      "projectAddress": "5400 N Flagler Drive, West Palm Beach, FL 33407",
+      "projectAddress": "5400 N Flagler Drive, West Palm Beach, FL 33480",
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Announced / Branded Pipeline",
       "residences": "87",
       "stories": "31",
-      "completion": "2031 anticipated",
-      "pricing": "From $3.5M reported",
+      "completion": "Timing to confirm — reports vary",
+      "pricing": "From $3.5M reported; request current pricing",
       "team": "Great Gulf Group; Safdie Architects / Moshe Safdie",
       "amenities": "Official high-level materials reference serene rooftop retreat, private waterfront pool, restorative wellness experiences, and Mandarin Oriental service.",
       "residenceFeatures": [
@@ -5164,8 +5164,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/berkeley/",
-    "title": "The Berkeley Palm Beach | Clear Lake New Construction Condos",
-    "description": "The Berkeley Palm Beach is a Clear Lake / downtown-adjacent luxury condo with 193 residences, large terraces, amenities, and practical WPB access.",
+    "title": "The Berkeley Palm Beach | Clear Lake Condos & Floor Plans",
+    "description": "The Berkeley Palm Beach: 193 Clear Lake / downtown-adjacent condos with large terraces and family amenities. Compare layouts; request current pricing.",
     "ogImage": "/projects/berkeley/media/card.jpg"
   },
   {
@@ -5182,8 +5182,8 @@ export const prerenderRoutes = [
   },
   {
     "path": "/projects/mr-c/",
-    "title": "Mr. C Residences West Palm Beach | Downtown Branded Condos",
-    "description": "Mr. C Residences West Palm Beach is a downtown branded condominium with hospitality-driven services, dining, amenities, and 146 residences.",
+    "title": "Mr. C Residences West Palm Beach | Downtown Branded Condos & Floor Plans",
+    "description": "Mr. C Residences West Palm Beach: 146 downtown branded condos with Cipriani hospitality and hotel services. Compare plans; request current pricing.",
     "ogImage": "/assets/projects/mr-c/hero/mr-c-hero-exterior-entrance-v01.webp"
   },
   {
@@ -5201,7 +5201,7 @@ export const prerenderRoutes = [
   {
     "path": "/projects/mandarin-oriental/",
     "title": "Mandarin Oriental Residences West Palm Beach | North Flagler Waterfront",
-    "description": "Explore Mandarin Oriental Residences West Palm Beach, an 87-residence branded waterfront tower on North Flagler with Safdie architecture and 2031 delivery.",
+    "description": "Mandarin Oriental Residences West Palm Beach: 87 branded waterfront residences on North Flagler by Safdie Architects. Request current pricing and delivery guidance.",
     "ogImage": "/projects/mandarin-oriental/media/showcase/mandarin-oriental-hero-waterfront-web.jpg"
   },
   {
