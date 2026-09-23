@@ -161,10 +161,10 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Olara West Palm Beach | Prices, Floor Plans & Condos: /projects/olara/
 - Shorecrest West Palm Beach | Condos & Floor Plans: /projects/shorecrest/
 - Ritz-Carlton Residences West Palm Beach | Floor Plans: /projects/ritz-carlton-wpb/
-- The Berkeley Palm Beach | Clear Lake New Construction Condos: /projects/berkeley/
+- The Berkeley Palm Beach | Clear Lake Condos & Floor Plans: /projects/berkeley/
 - NORA House West Palm Beach | Prices & Floor Plans: /projects/nora-house/
 - South Flagler House West Palm Beach | Prices & Floor Plans: /projects/south-flagler-house/
-- Mr. C Residences West Palm Beach | Downtown Branded Condos: /projects/mr-c/
+- Mr. C Residences West Palm Beach | Downtown Branded Condos & Floor Plans: /projects/mr-c/
 - Maison d Or West Palm Beach | South Flagler Condo Watch: /projects/maison-dor/
 - Edgeworth West Palm Beach | Related Ross South Flagler Condos: /projects/edgeworth/
 - Mandarin Oriental Residences West Palm Beach | North Flagler Waterfront: /projects/mandarin-oriental/

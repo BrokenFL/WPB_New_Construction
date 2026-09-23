@@ -146,7 +146,7 @@
         "delivery",
         "address"
       ],
-      "conflictCount": 4,
+      "conflictCount": 3,
       "reviewFields": [
         "status",
         "deliveryTiming",
