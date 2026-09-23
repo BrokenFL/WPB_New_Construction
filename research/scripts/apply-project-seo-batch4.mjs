@@ -58,9 +58,9 @@ function patchGraph(html, record) {
 }
 
 for (const record of records) {
-  // Revenue SEO editorial copy is the shared source for static and hydrated
-  // metadata when both pipelines cover a project (currently Maison d'Or).
-  const authored = copyByProjectId.get(record.projectId);
+  // Maison d'Or has new reviewed Revenue SEO copy. Keep the other Phase 2
+  // records on their existing metadata until they receive a scoped review.
+  const authored = record.projectId === "maison-dor" ? copyByProjectId.get(record.projectId) : undefined;
   const pageRecord = {
     ...record,
     title: authored?.seoTitle || record.title,
