@@ -49,11 +49,13 @@
         "Schmidt Nichols"
       ],
       "brand_partner": [],
-      "sales_team": [],
+      "sales_team": [
+        "ONE Sotheby's International Realty"
+      ],
       "construction_team": [],
-      "price_display": "$2.5M–$7.8M",
+      "price_display": "From just under $3M (developer guidance, Sep 2026)",
       "maintenance_display": "$1.80/sf",
-      "delivery_display": "Spring 2026 estimated",
+      "delivery_display": "Developer offering immediate occupancy (Sep 2026); confirm specific residence",
       "size_range_display": "1,778–4,500 sq. ft.",
       "bedroom_range_display": "2–4 bedrooms",
       "parking_summary": "Covered parking with EV-charging capability",
@@ -84,12 +86,15 @@
         "Current pricing and delivery should be rechecked before publication"
       ],
       "key_conflicts": [
-        "MiamiResidence listed 2025 delivery; official-source update supports Spring 2026 estimated delivery."
+        "The developer advertised immediate occupancy on 2026-09-23; no occupancy certificate was independently reviewed.",
+        "Unit 1003 sold on 2026-06-01, but that sale does not establish availability or readiness of other residences."
       ],
       "source_urls": [
         "https://www.miamiresidence.com/preconstruction/alba-palm-beach.htm",
         "https://www.albapalmbeach.com/vision",
-        "https://d3v3ow8236o554.cloudfront.net/alba-brochure.pdf"
+        "https://d3v3ow8236o554.cloudfront.net/alba-brochure.pdf",
+        "https://www.albapalmbeach.com/",
+        "https://www.compass.com/homedetails/4714-N-Flagler-Dr-Unit-1003-West-Palm-Beach-FL-33407/1CCKSL_pid/"
       ],
       "human_review_required": false,
       "confidence_level": "high",
@@ -97,12 +102,14 @@
       "project_id": "alba-palm-beach",
       "slug": "alba-palm-beach",
       "display_name": "Alba Palm Beach",
-      "site_group": "active_under_construction",
+      "site_group": "active_sales",
       "page_type": "main_building_page",
-      "status_badge": "Under Construction",
-      "development_stage": "under_construction",
+      "status_badge": "Completed / Developer Sales Active",
+      "development_stage": "completed",
       "public_address": "4714 N. Flagler Drive, West Palm Beach, FL 33407",
-      "neighborhood": "North Flagler waterfront"
+      "neighborhood": "North Flagler waterfront",
+      "sales_gallery_address": "250 North Olive Avenue, West Palm Beach, FL 33401",
+      "fact_revision_date": "2026-09-23"
     },
     {
       "include_on_site": true,
@@ -764,12 +771,12 @@
       ],
       "brand_partner": [],
       "sales_team": [
-        "Maison d’Or Realty, LLC"
+        "Maison d'Or Realty Sales, LLC"
       ],
       "construction_team": [],
-      "price_display": "Starting at $5.7M",
+      "price_display": "From $5.7M (published guidance, Jan–Sep 2026); request current pricing",
       "maintenance_display": "",
-      "delivery_display": "",
+      "delivery_display": "Late 2028 (targeted; reported)",
       "size_range_display": "",
       "bedroom_range_display": "",
       "parking_summary": "",
@@ -789,24 +796,27 @@
         "Exact address, floor count, unit program, amenities, services, and delivery need verification"
       ],
       "key_conflicts": [
-        "Maison d’Or likely corresponds to municipal Flagler House, but exact address/floor details remain unverified."
+        "Building street number 3705 versus 3773 remains unresolved; public building address intentionally omits the number.",
+        "Late 2028 is a reported target, not a confirmed delivery date."
       ],
       "source_urls": [
         "https://livemaisondor.com/",
-        "https://livemaisondor.com/the-team/"
+        "https://livemaisondor.com/the-team/",
+        "https://www.livemaisondor.com/"
       ],
       "human_review_required": true,
-      "confidence_level": "medium-low",
-      "import_recommendation": "Import with cautious emerging-details language only.",
+      "confidence_level": "medium-high",
+      "import_recommendation": "Active pre-construction sales; retain human review for unresolved building street number.",
       "project_id": "maison-dor",
       "slug": "maison-dor",
       "display_name": "Maison d’Or",
       "site_group": "active_under_construction",
       "page_type": "main_building_page_with_caveat",
-      "status_badge": "Preconstruction / Details Emerging",
-      "development_stage": "early_preconstruction",
+      "status_badge": "Pre-Construction Sales",
+      "development_stage": "pre_construction_sales",
       "public_address": "South Flagler Drive, West Palm Beach, FL",
-      "neighborhood": "South Flagler waterfront"
+      "neighborhood": "South Flagler waterfront",
+      "sales_gallery_address": "3014 S Dixie Highway, West Palm Beach, FL 33405"
     },
     {
       "include_on_site": true,
@@ -1424,7 +1434,7 @@
         "Corcoran Sunshine Marketing Group"
       ],
       "construction_team": [],
-      "price_display": "Inquiry pricing bands reported up to and above $40M; residence-specific pricing requires sales verification",
+      "price_display": "Request current pricing",
       "maintenance_display": "Not publicly confirmed",
       "delivery_display": "Timing not released",
       "size_range_display": "Estate-scaled and full-floor residences; exact public range not released",
@@ -1434,7 +1444,7 @@
       "storage_summary": "Not publicly confirmed",
       "pet_summary": "Not publicly confirmed",
       "amenity_summary": "Oceanfront and lagoon setting within a landscaped low-rise campus; the full amenity program is not yet public.",
-      "service_summary": "Sales program active; final service model requires offering documents.",
+      "service_summary": "Pre-construction sales listed by OKO Group on 2026-09-23; current inquiry mechanism not publicly verified in the reviewed sources.",
       "residence_features": [
         "32 graciously scaled residences",
         "Architecture by OMA",
@@ -1453,7 +1463,8 @@
       ],
       "source_urls": [
         "https://olinpalmbeach.com/",
-        "https://www.oftmw.com/projects/olin-palm-beach/"
+        "https://www.oftmw.com/projects/olin-palm-beach/",
+        "https://www.okogroup.com/portfolio/olin"
       ],
       "human_review_required": true,
       "confidence_level": "high",
@@ -1463,9 +1474,9 @@
       "display_name": "OLIN Palm Beach",
       "site_group": "pipeline_watchlist",
       "page_type": "public_watchlist_page",
-      "status_badge": "Breaking Ground / Sales Launched",
-      "development_stage": "breaking_ground",
-      "public_address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
+      "status_badge": "Pre-Construction Sales",
+      "development_stage": "pre_construction_sales",
+      "public_address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL",
       "neighborhood": "Palm Beach South End / Condominium Row",
       "missing_or_unconfirmed": "Delivery, final pricing, floor plans, maintenance, parking, policies, and the complete amenity program"
     },

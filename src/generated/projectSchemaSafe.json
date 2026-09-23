@@ -24,7 +24,7 @@
         "delivery",
         "address"
       ],
-      "conflictCount": 1,
+      "conflictCount": 2,
       "reviewFields": [
         "status",
         "deliveryTiming",
@@ -550,20 +550,21 @@
         "route": "/projects/olin-palm-beach/",
         "url": "https://www.wpbnewconstruction.com/projects/olin-palm-beach/",
         "corridor": "Palm Beach",
-        "status": "Breaking Ground / Sales Launched",
-        "address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
+        "delivery": "Timing not released",
         "compareDatabaseId": "olin-palm-beach",
         "compareDatabaseSlug": "olin-palm-beach",
         "sourceCatalogId": "olin-palm-beach"
       },
       "omittedFields": [
-        "delivery",
-        "residenceCount"
+        "status",
+        "residenceCount",
+        "address"
       ],
-      "conflictCount": 3,
+      "conflictCount": 4,
       "reviewFields": [
-        "deliveryTiming",
-        "residenceCount"
+        "status",
+        "residenceCount",
+        "address"
       ]
     },
     {

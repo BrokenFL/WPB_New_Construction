@@ -79,7 +79,8 @@ test('All prior document URLs remain byte-identical, including seven target lega
 });
 test('Non-target project facts and Compare rows remain exactly as Batch 1 left them',()=>{
  const BATCH3=['berkeley','mandarin-oriental','mr-c']; // batch 3 intentionally updated these; covered by revenue-seo-batch3.test.mjs
- const skip=p=>IDS.includes(p)||BATCH3.includes(p);
+ const BATCH4=['maison-dor','alba-palm-beach','olin-palm-beach'];
+ const skip=p=>IDS.includes(p)||BATCH3.includes(p)||BATCH4.includes(p);
  const before=JSON.parse(original('src/generated/projectModelPublic.json')).projects;
  for(const p of before.filter(p=>!skip(p.publicSlug)))assert.deepEqual(models.find(x=>x.publicSlug===p.publicSlug),p,p.publicSlug);
  const targetRows=new Set(decisions.filter(d=>skip(d.publicSlug)).map(d=>d.compareDatabaseId));
@@ -89,7 +90,11 @@ test('Non-target project facts and Compare rows remain exactly as Batch 1 left t
  assert.equal(models.length,24);
 });
 test('Unchanged approved plans, article facts, approvals, identity and 3D files',()=>{
- for(const file of ['content/overrides/project-fact-overrides.json','content/overrides/project-fact-automated.json','content/project-identity-decisions.json','src/data/marketNotes.ts','src/data/floorplanApprovedLibrary.ts','src/lib/floorplanEntities.ts','research/news-review/approved-development-news.json'])assert.equal(fs.readFileSync(file,'utf8'),original(file),file);
+ const beforeOverrides=JSON.parse(original('content/overrides/project-fact-overrides.json')).projects,afterOverrides=read('content/overrides/project-fact-overrides.json').projects;
+ for(const [slug,fields] of Object.entries(beforeOverrides).filter(([slug])=>slug!=='alba-palm-beach'))assert.deepEqual(afterOverrides[slug],fields,slug);
+ const beforeIdentity=JSON.parse(original('content/project-identity-decisions.json')).projects;
+ for(const decision of beforeIdentity.filter(d=>!['maison-dor','alba-palm-beach','olin-palm-beach'].includes(d.publicSlug)))assert.deepEqual(decisions.find(d=>d.publicSlug===decision.publicSlug),decision);
+ for(const file of ['content/overrides/project-fact-automated.json','src/data/marketNotes.ts','src/data/floorplanApprovedLibrary.ts','src/lib/floorplanEntities.ts','research/news-review/approved-development-news.json'])assert.equal(fs.readFileSync(file,'utf8'),original(file),file);
  const changes=execFileSync('git',['diff','--name-only',BASE],{encoding:'utf8'}).trim().split('\n');
  assert.equal(changes.some(p=>/\.(?:blend|glb|gltf|fbx|pdf|jpe?g|png|webp)$/i.test(p)),false,'source/binary plan or model asset changed');
 });

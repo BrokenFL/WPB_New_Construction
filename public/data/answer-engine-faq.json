@@ -3,7 +3,7 @@
     "id": "when-will-projects-be-ready",
     "shortLabel": "Ready dates",
     "question": "When will the main West Palm Beach new-construction condos be ready?",
-    "answer": "The nearest dated completion in the current source set is Alba Palm Beach, with official material pointing to closings beginning around June 2026. Shorecrest and South Flagler House are both positioned around 2027. Ritz-Carlton Residences West Palm Beach is expected in 2028. Olara's current official/download material points to 2028, though some third-party coverage has used earlier timing. NORA House is more of a 2027 construction-start and 2029 finish story in recent reporting. Mandarin Oriental is a long-horizon play, with anticipated opening in 2031. Treat every date as a planning window until the sales team confirms it in writing.",
+    "answer": "Alba Palm Beach's project sponsor reported construction completion in June 2026 and advertised immediate occupancy in September 2026; confirm readiness and availability for a particular residence. Shorecrest and South Flagler House are positioned around 2027. Ritz-Carlton Residences West Palm Beach is expected in 2028. Olara's current official/download material points to 2028, though some third-party coverage has used earlier timing. NORA House is more of a 2027 construction-start and 2029 finish story in recent reporting. Mandarin Oriental's delivery guidance conflicts across published sources, so its opening date needs direct confirmation. Treat every future date as a planning window until the sales team confirms it in writing.",
     "concept": "Delivery timing",
     "relatedProjectIds": [
       "alba-palm-beach",
@@ -21,12 +21,22 @@
     "sourceCitations": [
       {
         "label": "Alba official site",
-        "href": "https://www.albapalmbeach.com/",
-        "note": "Official/current Alba source used for near-term closing timing.",
+        "href": "https://www.albapalmbeach.com/press/bgi-capital-and-blue-road-reach-completion-of-alba-palm-beach-in-west-palm-beach",
+        "note": "project sponsor reported construction completion; current materials advertise immediate occupancy, subject to residence-specific confirmation.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-08-12",
-        "supportsClaim": "Alba near-term delivery timing",
-        "claimText": "Alba is the closest dated completion in the current catalog.",
+        "dateAccessed": "2026-09-23",
+        "supportsClaim": "Alba project sponsor construction and occupancy guidance",
+        "claimText": "Alba's project sponsor reported completion and advertised immediate occupancy; individual availability requires confirmation.",
+        "confidence": "high"
+      },
+      {
+        "label": "ONE Sotheby's Alba development page",
+        "href": "https://www.onesothebysrealty.com/our-developments/alba-palm-beach/",
+        "note": "Sales brokerage advertises immediate occupancy; this does not certify a particular residence.",
+        "sourceType": "project sponsor sales brokerage",
+        "dateAccessed": "2026-09-23",
+        "supportsClaim": "Alba immediate-occupancy offer",
+        "claimText": "Immediate occupancy is advertised by the sales brokerage, subject to residence-specific confirmation.",
         "confidence": "high"
       },
       {
@@ -170,15 +180,15 @@
     "id": "which-are-actually-under-construction",
     "shortLabel": "Under construction",
     "question": "Which projects are actually under construction now?",
-    "answer": "The most relevant under-construction set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Mr. C, Alba Palm Beach, and South Flagler House. Those are different from sales-launched or planning-stage projects such as NORA House, Banyan Tree, Mandarin Oriental, Maison d'Or, Edgeworth, and other pipeline items. Construction status can move quickly, so confirm the current jobsite milestone before treating timing as reliable.",
+    "answer": "The current under-construction comparison set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Mr. C, and South Flagler House. Alba's project sponsor reported its building complete while project sponsor sales remain active. NORA House, Banyan Tree, Mandarin Oriental, Maison d'Or and Edgeworth are at different sales or planning stages. Confirm the current jobsite milestone for any project before treating timing as reliable.",
     "concept": "Construction status",
     "relatedProjectIds": [
       "olara",
       "ritz-carlton-wpb",
       "shorecrest",
       "mr-c",
-      "alba-palm-beach",
-      "south-flagler-house"
+      "south-flagler-house",
+      "alba-palm-beach"
     ],
     "sources": [
       "official project sites",

@@ -52,15 +52,15 @@
     "slug": "maison-dor",
     "path": "/projects/maison-dor/",
     "canonical": "https://www.wpbnewconstruction.com/projects/maison-dor/",
-    "title": "Maison d’Or West Palm Beach | South Flagler Buyer Guide",
-    "description": "Buyer guide to Maison d’Or West Palm Beach: 39 South Flagler waterfront residences, released layouts, amenities, buyer fit, and current availability checks.",
+    "title": "Maison d Or West Palm Beach | South Flagler Condo Watch",
+    "description": "Maison d Or is a 39-residence South Flagler condominium with published pricing from $5.7M, released plans and a separate Dixie Highway sales gallery.",
     "h1": "Maison d’Or West Palm Beach Buyer Guide",
     "eyebrow": "South Flagler · Official sales materials available",
     "opening": "Maison d’Or is a 39-residence boutique waterfront condominium marketed on South Flagler Drive. Its official materials now provide enough residence and amenity detail for a substantive buyer comparison: two- to four-bedroom layouts, expansive terraces, private elevator access and a broad waterfront amenity program. The released drawings and starting-price language are useful orientation, not proof that a particular residence is currently available.",
     "buyerFit": "Best suited to buyers prioritizing a small residence count, large flow-through layouts, east-and-west outdoor space and a quieter South Flagler setting over the scale and social energy of larger waterfront towers.",
     "location": "Maison d’Or is marketed on the South Flagler waterfront, with Intracoastal and Palm Beach orientation. Because address references have differed across public materials and records, this guide does not turn an unverified street number into a buyer fact; confirm the legal project address in current offering documents.",
     "status": {
-      "marketing": "The official project site is actively marketing a limited collection of 39 residences and currently advertises starting pricing from $5.7 million.",
+      "marketing": "The official project site marketed 39 residences with published starting guidance from $5.7 million when reviewed in September 2026; request current residence-specific terms.",
       "construction": "The reviewed official pages do not establish a construction milestone or guaranteed completion date, so this guide does not publish one.",
       "availability": "Official marketing describes the offered collection, but residence-specific availability and current pricing require a current buyer packet."
     },
@@ -89,7 +89,7 @@
     ],
     "availabilityHref": "/inquire/?project=maison-dor&interest=Request%20current%20availability",
     "packetHref": "/inquire/?project=maison-dor&interest=Pricing%20%2B%20floor-plan%20packet",
-    "reviewedOn": "2026-09-08",
+    "reviewedOn": "2026-09-23",
     "sources": [
       {"label":"Maison d’Or official site — building overview","url":"https://livemaisondor.com/","kind":"official"},
       {"label":"Maison d’Or official residence and floor-plan page","url":"https://livemaisondor.com/the-residences/","kind":"official"}

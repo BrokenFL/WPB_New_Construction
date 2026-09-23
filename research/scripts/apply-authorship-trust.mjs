@@ -94,7 +94,12 @@ function mergeSchema(html, route, family, assignment) {
   else delete page.author;
   if (reviewer) page.reviewedBy = { "@id": reviewer.schemaId };
   else delete page.reviewedBy;
-  if (assignment.reviewedOn || assignment.updatedOn) page.dateModified = assignment.reviewedOn || assignment.updatedOn;
+  // Editorial responsibility dates describe the review, but a later scoped
+  // content update must remain the page's modification date in schema.
+  const responsibilityDate = assignment.reviewedOn || assignment.updatedOn;
+  if (responsibilityDate && (!page.dateModified || page.dateModified < responsibilityDate)) {
+    page.dateModified = responsibilityDate;
+  }
 
   const requiredPeople = family === "about"
     ? registry.contributors

@@ -54,9 +54,15 @@ test('Dated NORA article and distinct 2085 project keep their own canonical iden
  assert.ok(html('/projects/2085-north-flagler/').includes('rel="canonical" href="https://www.wpbnewconstruction.com/projects/2085-north-flagler/"'));
 });
 test('Unrelated compare rows, approvals, article snapshots and floor-plan code are unchanged',()=>{
- const before=parse(original(csvPath),{columns:true,skip_empty_lines:true}),allowed=new Set(decisions.filter(x=>ids.includes(x.publicSlug)).map(x=>x.compareDatabaseId));
+ const later=new Set([...ids,'shorecrest','south-flagler-house','berkeley','mandarin-oriental','mr-c','maison-dor','alba-palm-beach','olin-palm-beach']);
+ const before=parse(original(csvPath),{columns:true,skip_empty_lines:true}),allowed=new Set(decisions.filter(x=>later.has(x.publicSlug)).map(x=>x.compareDatabaseId));
  for(const row of before.filter(x=>!allowed.has(x.project_id)))assert.deepEqual(csv.find(x=>x.project_id===row.project_id),row);
- for(const file of ['content/overrides/project-fact-overrides.json','content/overrides/project-fact-automated.json','content/project-identity-decisions.json','src/data/marketNotes.ts','src/lib/floorplanEntities.ts'])assert.equal(fs.readFileSync(file,'utf8'),original(file),file);
+ const priorIdentity=JSON.parse(original('content/project-identity-decisions.json')).projects;
+ for(const d of priorIdentity.filter(x=>!later.has(x.publicSlug)))assert.deepEqual(decisions.find(x=>x.publicSlug===d.publicSlug),d);
+ const oldOverrides=JSON.parse(original('content/overrides/project-fact-overrides.json')).projects;
+ const newOverrides=read('content/overrides/project-fact-overrides.json').projects;
+ for(const [slug,fields] of Object.entries(oldOverrides).filter(([slug])=>slug!=='alba-palm-beach'))assert.deepEqual(newOverrides[slug],fields,slug);
+ for(const file of ['content/overrides/project-fact-automated.json','src/data/marketNotes.ts','src/lib/floorplanEntities.ts'])assert.equal(fs.readFileSync(file,'utf8'),original(file),file);
  assert.equal(model.length,24);
 });
 test('Unsupported and prototype-like keys do not create a buyer block',()=>{
@@ -67,7 +73,7 @@ test('Approved plan assets are unchanged and public counts match the published U
  assert.equal(fs.readFileSync(sourceFile,'utf8'),original(sourceFile),'approved asset library is unchanged');
  const approved=readTsArray(fs.readFileSync(sourceFile,'utf8'),'approvedFloorplanLibrary');
  const file='public/data/floorplans.json',before=JSON.parse(original(file)),after=read(file);
- assert.equal(after.projects.length,before.projects.length);
+ assert.equal(after.projects.length,before.projects.length-1,'Batch 2 combined two South Flagler House tower records into one');
  for(const p of after.projects){
   const old=before.projects.find(x=>x.projectId===p.projectId);
   if(ids.includes(p.projectId)){
@@ -75,7 +81,9 @@ test('Approved plan assets are unchanged and public counts match the published U
    assert.equal(p.projectType,'condo-active-sales');assert.equal(p.count,expected.count);
    assert.deepEqual(p.plans.map(x=>x.href).sort(),expected.plans.map(x=>x.href).sort());
    assert.ok(html(`/projects/${p.projectId}/`).includes(`${expected.count} canonical plans tracked`));
-  }else{assert.deepEqual(p.plans,old.plans);assert.equal(p.count,old.count);}
+  }else if(p.projectId==='shorecrest'){assert.ok(p.count>0,'Batch 2 verifies Shorecrest approved plans in detail');}
+  else if(old){assert.deepEqual(p.plans,old.plans);assert.equal(p.count,old.count);}
+  else assert.equal(p.projectId,'south-flagler-house','only the reviewed Batch 2 plan identity may be new');
  }
 });
 test('Banyan directs buyers to the seven approved layouts instead of a nonexistent-plan claim',()=>{

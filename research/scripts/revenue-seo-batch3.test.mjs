@@ -128,12 +128,13 @@ test('Batch 3 floorplan records untouched and document registry intact',()=>{
  for(const url of registered)assert.ok(fs.readFileSync(path.join('public',url.slice(1))).equals(fs.readFileSync(path.join('dist',url.slice(1)))),url);
 });
 test('Non-target project facts, copy and Compare rows remain exactly as baseline',()=>{
+ const batch4=new Set(['maison-dor','alba-palm-beach','olin-palm-beach']);
  const before=JSON.parse(original('src/generated/projectModelPublic.json')).projects;
- for(const p of before.filter(p=>!IDS.includes(p.publicSlug)))assert.deepEqual(models.find(x=>x.publicSlug===p.publicSlug),p,p.publicSlug);
- const targetRows=new Set(decisions.filter(d=>IDS.includes(d.publicSlug)).map(d=>d.compareDatabaseId));
+ for(const p of before.filter(p=>!IDS.includes(p.publicSlug)&&!batch4.has(p.publicSlug)))assert.deepEqual(models.find(x=>x.publicSlug===p.publicSlug),p,p.publicSlug);
+ const targetRows=new Set(decisions.filter(d=>IDS.includes(d.publicSlug)||batch4.has(d.publicSlug)).map(d=>d.compareDatabaseId));
  for(const row of parse(original(CSV),{columns:true,skip_empty_lines:true}).filter(r=>!targetRows.has(r.project_id)))assert.deepEqual(rows.find(r=>r.project_id===row.project_id),row,row.project_id);
  const oldCopy=JSON.parse(original('content/project-copy-package.json'));
- for(const c of oldCopy.filter(c=>!IDS.includes(c.repoProjectId)))assert.deepEqual(copies.find(x=>x.repoProjectId===c.repoProjectId),c);
+ for(const c of oldCopy.filter(c=>!IDS.includes(c.repoProjectId)&&!batch4.has(c.repoProjectId)))assert.deepEqual(copies.find(x=>x.repoProjectId===c.repoProjectId),c);
  assert.equal(models.length,24);
 });
 test('Batch 1-2 buyer journeys and metadata unchanged',()=>{
@@ -149,7 +150,11 @@ test('Batch 1-2 buyer journeys and metadata unchanged',()=>{
  assert.ok(html('/corridors/downtown-west-palm-beach/').includes('/projects/berkeley/'));
 });
 test('Unchanged approvals, articles, identity, plans and 3D files',()=>{
- for(const file of ['content/overrides/project-fact-overrides.json','content/overrides/project-fact-automated.json','content/project-identity-decisions.json','src/data/marketNotes.ts','src/data/floorplanApprovedLibrary.ts','src/lib/floorplanEntities.ts','research/news-review/approved-development-news.json'])assert.equal(fs.readFileSync(file,'utf8'),original(file),file);
+ const beforeOverrides=JSON.parse(original('content/overrides/project-fact-overrides.json')).projects,afterOverrides=read('content/overrides/project-fact-overrides.json').projects;
+ for(const [slug,fields] of Object.entries(beforeOverrides).filter(([slug])=>slug!=='alba-palm-beach'))assert.deepEqual(afterOverrides[slug],fields,slug);
+ const beforeIdentity=JSON.parse(original('content/project-identity-decisions.json')).projects;
+ for(const decision of beforeIdentity.filter(d=>!['maison-dor','alba-palm-beach','olin-palm-beach'].includes(d.publicSlug)))assert.deepEqual(decisions.find(d=>d.publicSlug===decision.publicSlug),decision);
+ for(const file of ['content/overrides/project-fact-automated.json','src/data/marketNotes.ts','src/data/floorplanApprovedLibrary.ts','src/lib/floorplanEntities.ts','research/news-review/approved-development-news.json'])assert.equal(fs.readFileSync(file,'utf8'),original(file),file);
  const changes=execFileSync('git',['diff','--name-only',BASE],{encoding:'utf8'}).trim().split('\n');
  assert.equal(changes.some(p=>/\.(?:blend|glb|gltf|fbx|pdf|jpe?g|png|webp)$/i.test(p)),false,'source/binary plan or model asset changed');
 });

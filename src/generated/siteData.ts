@@ -2002,7 +2002,7 @@ export const answerEngineFaq = [
     "id": "when-will-projects-be-ready",
     "shortLabel": "Ready dates",
     "question": "When will the main West Palm Beach new-construction condos be ready?",
-    "answer": "The nearest dated completion in the current source set is Alba Palm Beach, with official material pointing to closings beginning around June 2026. Shorecrest and South Flagler House are both positioned around 2027. Ritz-Carlton Residences West Palm Beach is expected in 2028. Olara's current official/download material points to 2028, though some third-party coverage has used earlier timing. NORA House is more of a 2027 construction-start and 2029 finish story in recent reporting. Mandarin Oriental is a long-horizon play, with anticipated opening in 2031. Treat every date as a planning window until the sales team confirms it in writing.",
+    "answer": "Alba Palm Beach's project sponsor reported construction completion in June 2026 and advertised immediate occupancy in September 2026; confirm readiness and availability for a particular residence. Shorecrest and South Flagler House are positioned around 2027. Ritz-Carlton Residences West Palm Beach is expected in 2028. Olara's current official/download material points to 2028, though some third-party coverage has used earlier timing. NORA House is more of a 2027 construction-start and 2029 finish story in recent reporting. Mandarin Oriental's delivery guidance conflicts across published sources, so its opening date needs direct confirmation. Treat every future date as a planning window until the sales team confirms it in writing.",
     "concept": "Delivery timing",
     "relatedProjectIds": [
       "alba-palm-beach",
@@ -2020,12 +2020,22 @@ export const answerEngineFaq = [
     "sourceCitations": [
       {
         "label": "Alba official site",
-        "href": "https://www.albapalmbeach.com/",
-        "note": "Official/current Alba source used for near-term closing timing.",
+        "href": "https://www.albapalmbeach.com/press/bgi-capital-and-blue-road-reach-completion-of-alba-palm-beach-in-west-palm-beach",
+        "note": "project sponsor reported construction completion; current materials advertise immediate occupancy, subject to residence-specific confirmation.",
         "sourceType": "official project site",
-        "dateAccessed": "2026-08-12",
-        "supportsClaim": "Alba near-term delivery timing",
-        "claimText": "Alba is the closest dated completion in the current catalog.",
+        "dateAccessed": "2026-09-23",
+        "supportsClaim": "Alba project sponsor construction and occupancy guidance",
+        "claimText": "Alba's project sponsor reported completion and advertised immediate occupancy; individual availability requires confirmation.",
+        "confidence": "high"
+      },
+      {
+        "label": "ONE Sotheby's Alba development page",
+        "href": "https://www.onesothebysrealty.com/our-developments/alba-palm-beach/",
+        "note": "Sales brokerage advertises immediate occupancy; this does not certify a particular residence.",
+        "sourceType": "project sponsor sales brokerage",
+        "dateAccessed": "2026-09-23",
+        "supportsClaim": "Alba immediate-occupancy offer",
+        "claimText": "Immediate occupancy is advertised by the sales brokerage, subject to residence-specific confirmation.",
         "confidence": "high"
       },
       {
@@ -2169,15 +2179,15 @@ export const answerEngineFaq = [
     "id": "which-are-actually-under-construction",
     "shortLabel": "Under construction",
     "question": "Which projects are actually under construction now?",
-    "answer": "The most relevant under-construction set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Mr. C, Alba Palm Beach, and South Flagler House. Those are different from sales-launched or planning-stage projects such as NORA House, Banyan Tree, Mandarin Oriental, Maison d'Or, Edgeworth, and other pipeline items. Construction status can move quickly, so confirm the current jobsite milestone before treating timing as reliable.",
+    "answer": "The current under-construction comparison set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Mr. C, and South Flagler House. Alba's project sponsor reported its building complete while project sponsor sales remain active. NORA House, Banyan Tree, Mandarin Oriental, Maison d'Or and Edgeworth are at different sales or planning stages. Confirm the current jobsite milestone for any project before treating timing as reliable.",
     "concept": "Construction status",
     "relatedProjectIds": [
       "olara",
       "ritz-carlton-wpb",
       "shorecrest",
       "mr-c",
-      "alba-palm-beach",
-      "south-flagler-house"
+      "south-flagler-house",
+      "alba-palm-beach"
     ],
     "sources": [
       "official project sites",
@@ -3657,18 +3667,18 @@ export const projectFacts = [
     "name": "Alba Palm Beach",
     "area": "North Flagler",
     "projectType": "completed-comparable",
-    "summary": "A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale.",
-    "lastReviewedDate": "2026-09-01",
+    "summary": "A 55-residence North Flagler waterfront condominium with project sponsor sales active. The project sponsor advertised immediate occupancy in September 2026; confirm residence-specific availability.",
+    "lastReviewedDate": "2026-09-23",
     "facts": {
       "projectAddress": "4714 N. Flagler Drive, West Palm Beach, FL 33407",
-      "salesGalleryAddress": "",
+      "salesGalleryAddress": "250 North Olive Avenue, West Palm Beach, FL 33401",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Completed",
       "residences": "55",
       "stories": "22",
-      "completion": "Spring 2026 estimated",
-      "pricing": "$2.5M–$7.8M",
+      "completion": "project sponsor offering immediate occupancy (Sep 2026); confirm specific residence",
+      "pricing": "From just under $3M (project sponsor guidance, Sep 2026)",
       "team": "BGI Companies; Blue Road Group; Spina O’Rourke + Partners",
       "amenities": "Staffed lobby, private dining with wine storage, conference/business center, sunrise and sunset pools, TechnoGym fitness/yoga/Pilates, bocce, lawn chess, pet spa, valet, lounge/library, catering kitchen, simulator, screening room, spa, package room with cold storage.",
       "residenceFeatures": [
@@ -3683,7 +3693,7 @@ export const projectFacts = [
         "Private elevators and vestibules"
       ],
       "neighborhoodContext": "North Flagler waterfront",
-      "effectiveDate": "2026-06-22"
+      "effectiveDate": "2026-09-23"
     },
     "sources": [
       {
@@ -3694,6 +3704,12 @@ export const projectFacts = [
       },
       {
         "url": "https://d3v3ow8236o554.cloudfront.net/alba-brochure.pdf"
+      },
+      {
+        "url": "https://www.albapalmbeach.com/"
+      },
+      {
+        "url": "https://www.compass.com/homedetails/4714-N-Flagler-Dr-Unit-1003-West-Palm-Beach-FL-33407/1CCKSL_pid/"
       }
     ]
   },
@@ -4058,23 +4074,23 @@ export const projectFacts = [
     "name": "Maison d’Or",
     "area": "South Flagler",
     "projectType": "condo-active-sales",
-    "summary": "A 39-residence South Flagler boutique project with emerging details; exact street number, floor count, and service program remain review items.",
-    "lastReviewedDate": "2026-09-01",
+    "summary": "A 39-residence South Flagler condominium in pre-construction sales, with released plans and published pricing guidance from $5.7M. Confirm current terms and the reported late-2028 target.",
+    "lastReviewedDate": "2026-09-23",
     "facts": {
       "projectAddress": "South Flagler Drive, West Palm Beach, FL",
-      "salesGalleryAddress": "",
+      "salesGalleryAddress": "3014 S Dixie Highway, West Palm Beach, FL 33405",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Preconstruction / Details Emerging",
+      "status": "Pre-Construction Sales",
       "residences": "39",
       "stories": "19",
-      "completion": "2028 reported",
-      "pricing": "Starting at $5.7M",
+      "completion": "Late 2028 (targeted; reported)",
+      "pricing": "From $5.7M (published guidance, Jan–Sep 2026); request current pricing",
       "team": "Kolter Urban; Perko Development; SB Architects / 10 Design; Hirsch Bedner Associates (HBA)",
       "amenities": "Detailed amenity program not yet verified from official public materials.",
       "residenceFeatures": [],
       "neighborhoodContext": "South Flagler waterfront",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-09-23"
     },
     "sources": [
       {
@@ -4082,6 +4098,9 @@ export const projectFacts = [
       },
       {
         "url": "https://livemaisondor.com/the-team/"
+      },
+      {
+        "url": "https://www.livemaisondor.com/"
       }
     ]
   },
@@ -4384,18 +4403,18 @@ export const projectFacts = [
     "name": "OLIN Palm Beach",
     "area": "Palm Beach",
     "projectType": "condo-pipeline",
-    "summary": "OLIN Palm Beach is a 32-residence, three-building ocean-to-lagoon development on Palm Beach Island, designed by OMA with interiors by GACHOT and sales now launched.",
-    "lastReviewedDate": "2026-09-01",
+    "summary": "A 32-residence ocean-to-lagoon Palm Beach project listed by OKO Group in pre-construction sales in September 2026. Request current pricing and project information.",
+    "lastReviewedDate": "2026-09-23",
     "facts": {
-      "projectAddress": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
+      "projectAddress": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL",
       "salesGalleryAddress": "",
       "mailingAddress": "",
       "planningParcelAddress": "",
-      "status": "Breaking Ground / Sales Launched",
+      "status": "Pre-Construction Sales",
       "residences": "32",
       "stories": "5",
       "completion": "Timing not released",
-      "pricing": "Inquiry pricing bands reported up to and above $40M; residence-specific pricing requires sales verification",
+      "pricing": "Request current pricing",
       "team": "OKO Group; Cain International; OMA; Spina O'Rourke + Partners; GACHOT",
       "amenities": "Oceanfront and lagoon setting within a landscaped low-rise campus; the full amenity program is not yet public.",
       "residenceFeatures": [
@@ -4405,7 +4424,7 @@ export const projectFacts = [
         "Private terraces and landscaped oceanfront grounds"
       ],
       "neighborhoodContext": "Palm Beach South End / Condominium Row",
-      "effectiveDate": "2026-09-01"
+      "effectiveDate": "2026-09-23"
     },
     "sources": [
       {
@@ -4413,6 +4432,9 @@ export const projectFacts = [
       },
       {
         "url": "https://www.oftmw.com/projects/olin-palm-beach/"
+      },
+      {
+        "url": "https://www.okogroup.com/portfolio/olin"
       }
     ]
   },
@@ -5141,7 +5163,7 @@ export const prerenderRoutes = [
   {
     "path": "/projects/alba-palm-beach/",
     "title": "Alba Palm Beach | North Flagler New Construction Condos",
-    "description": "Explore Alba Palm Beach, a 55-residence North Flagler waterfront condominium with private day docks, generous terraces, and a smaller-scale amenity program.",
+    "description": "Alba Palm Beach is a 55-residence North Flagler condominium with developer sales active. The developer advertised immediate occupancy in September 2026; confirm specific availability.",
     "ogImage": "/projects/alba-palm-beach/media/showcase/alba-hero-aerial-waterfront-rendering-v01.jpg?v=approved-hq-20260530"
   },
   {
@@ -5189,7 +5211,7 @@ export const prerenderRoutes = [
   {
     "path": "/projects/maison-dor/",
     "title": "Maison d Or West Palm Beach | South Flagler Condo Watch",
-    "description": "Maison d Or is an early South Flagler luxury condominium with 39 residences, starting prices from $5.7M, and details still emerging.",
+    "description": "Maison d Or is a 39-residence South Flagler condominium with published pricing from $5.7M, released plans and a separate Dixie Highway sales gallery.",
     "ogImage": "/assets/projects/maison-dor/hero/maison-dor-hero-exterior-v01.webp"
   },
   {
@@ -5249,7 +5271,7 @@ export const prerenderRoutes = [
   {
     "path": "/projects/olin-palm-beach/",
     "title": "OLIN Palm Beach | Ocean-to-Lagoon New Construction",
-    "description": "OLIN Palm Beach is a 32-residence, three-building ocean-to-lagoon condominium on Palm Beach Island by OKO Group and Cain International.",
+    "description": "OLIN Palm Beach is a 32-residence ocean-to-lagoon condominium by OKO Group and Cain International. OKO listed pre-construction sales in September 2026.",
     "ogImage": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp"
   },
   {

@@ -4,6 +4,8 @@ import path from "node:path";
 const root = process.cwd();
 const dist = path.join(root, "dist");
 const records = JSON.parse(await fs.readFile(path.join(root, "public/data/project-seo-batch4.json"), "utf8"));
+const projectCopy = JSON.parse(await fs.readFile(path.join(root, "public/data/project-copy-package.json"), "utf8"));
+const copyByProjectId = new Map(projectCopy.map((copy) => [copy.repoProjectId, copy]));
 
 const esc = (value) => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
 const jsonForHtml = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
@@ -56,20 +58,28 @@ function patchGraph(html, record) {
 }
 
 for (const record of records) {
+  // Maison d'Or has new reviewed Revenue SEO copy. Keep the other Phase 2
+  // records on their existing metadata until they receive a scoped review.
+  const authored = record.projectId === "maison-dor" ? copyByProjectId.get(record.projectId) : undefined;
+  const pageRecord = {
+    ...record,
+    title: authored?.seoTitle || record.title,
+    description: authored?.metaDescription || record.description,
+  };
   const file = path.join(dist, record.path.replace(/^\/|\/$/g, ""), "index.html");
   let html = await fs.readFile(file, "utf8");
   html = html
-    .replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(record.title)}</title>`)
-    .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${esc(record.description)}" />`)
-    .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${esc(record.title)}" />`)
-    .replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${esc(record.description)}" />`)
+    .replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(pageRecord.title)}</title>`)
+    .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${esc(pageRecord.description)}" />`)
+    .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${esc(pageRecord.title)}" />`)
+    .replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${esc(pageRecord.description)}" />`)
     .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${esc(record.canonical)}" />`)
-    .replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${esc(record.title)}" />`)
-    .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${esc(record.description)}" />`)
+    .replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${esc(pageRecord.title)}" />`)
+    .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${esc(pageRecord.description)}" />`)
     .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${esc(record.canonical)}" />`)
     .replace(/<h1(?:\s[^>]*)?>[\s\S]*?<\/h1>/, `<h1>${esc(record.h1)}</h1>`);
   if (!html.includes('data-project-seo-batch4-style="true"')) html = html.replace("</head>", `  ${styleLink}\n</head>`);
-  html = patchGraph(html, record);
+  html = patchGraph(html, pageRecord);
   if (!html.includes('id="wpb-project-seo-batch4"')) html = html.replace("</main>", `${guide(record)}</main>`);
   await fs.writeFile(file, html);
 }

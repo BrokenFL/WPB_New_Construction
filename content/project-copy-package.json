@@ -11,8 +11,12 @@
         "value": "4714 N. Flagler Drive, West Palm Beach, FL 33407"
       },
       {
+        "label": "Sales Gallery",
+        "value": "250 North Olive Avenue, West Palm Beach, FL 33401"
+      },
+      {
         "label": "Status",
-        "value": "Under Construction"
+        "value": "Completed building / developer sales active"
       },
       {
         "label": "Developer",
@@ -32,11 +36,11 @@
       },
       {
         "label": "Price Range",
-        "value": "$2.5M-$7.8M"
+        "value": "From just under $3M (developer guidance, Sep 2026); request current pricing"
       },
       {
         "label": "Delivery",
-        "value": "Spring 2026 estimated"
+        "value": "Developer offering immediate occupancy (Sep 2026); confirm specific residence"
       },
       {
         "label": "Size Range",
@@ -50,17 +54,17 @@
     "residences": "Residences include 2- to 4-bedroom layouts with oversized glass-framed terraces, impact glass, Italkraft kitchens, Sub-Zero and Wolf appliances, smart-home prewiring, summer kitchens, spa-style baths, and private elevators or vestibules. Select townhomes include private plunge pool / hot tub features.",
     "amenities": "Amenities include staffed lobby, valet, private dining with wine storage, conference / business center, sunrise and sunset pools, TechnoGym fitness / yoga / Pilates, bocce, lawn chess, pet spa, lounge / library, catering kitchen, simulator, screening room, spa, cold-storage package room, and climate-controlled storage.",
     "location": "Alba sits on the North Flagler waterfront, north of downtown West Palm Beach. The location fits buyers who want water access without being in the center of downtown.",
-    "localTake": "Alba brings a smaller 55-residence format to North Flagler, with day docks and generous terraces as its clearest distinctions. Buyers who value a quieter building should compare that scale with the deeper resort programs at nearby towers. Check how dock access applies to a particular residence and confirm current closing status before treating timing as settled.",
+    "localTake": "Alba offers a smaller North Flagler waterfront format with seven released plan references. The developer advertised immediate occupancy in September 2026, but buyers should confirm the exact residence, closing readiness and dock rights. One recorded Unit 1003 sale does not establish availability across the building.",
     "tradeoffs": [
-      "Smaller inventory may mean limited availability.",
-      "Pricing should be refreshed before publication.",
-      "Delivery timing should be verified close to launch.",
+      "Confirm current developer inventory and residence-specific closing readiness.",
+      "Ask how dock access applies to the selected residence.",
+      "The developer's immediate-occupancy statement is dated guidance; no occupancy certificate was independently reviewed.",
       "Formal pet policy is not fully verified."
     ],
-    "confidenceNote": "Confidence is high. Main caveat is timing: one source referenced 2025 delivery, while the recommended value is Spring 2026 estimated.",
+    "confidenceNote": "The developer advertised immediate occupancy on 2026-09-23; no occupancy certificate was inspected. A separately recorded Unit 1003 sale on 2026-06-01 does not establish other residences' availability. Developer sales remain active.",
     "seoTitle": "Alba Palm Beach | North Flagler New Construction Condos",
-    "metaDescription": "Explore Alba Palm Beach, a 55-residence North Flagler waterfront condominium with private day docks, generous terraces, and a smaller-scale amenity program.",
-    "badge": "Under Construction",
+    "metaDescription": "Alba Palm Beach is a 55-residence North Flagler condominium with developer sales active. The developer advertised immediate occupancy in September 2026; confirm specific availability.",
+    "badge": "Developer Sales Active",
     "tags": [
       "north-flagler",
       "waterfront",
@@ -85,7 +89,7 @@
       "heroTags": [
         {
           "label": "Status",
-          "value": "Under Construction"
+          "value": "Developer Sales Active"
         },
         {
           "label": "Corridor",
@@ -106,7 +110,7 @@
           "title": "Residences",
           "beds": "2-4 bedrooms",
           "size": "1,778-4,500 sq ft",
-          "price": "From $2.5M",
+          "price": "Developer guidance: just under $3M (Sep 2026)",
           "thumbnail": "/projects/alba-palm-beach/media/showcase/floorplans/alba-residence.png"
         },
         {
@@ -251,7 +255,7 @@
     },
     "introHeadline": "Boutique Waterfront Living on North Flagler",
     "introDek": "Alba Palm Beach brings boutique waterfront living to North Flagler with just 55 luxury residences, sweeping Intracoastal views, oversized terraces, private day docks, and more than 25,000 square feet of resort-style amenities. Residents enjoy sunrise and sunset pools, wellness spaces, private dining, curated culinary access through Chèvre, and a refined lock-and-leave lifestyle minutes from Palm Beach, downtown West Palm Beach, and the marina scene.",
-    "brookeTake": "Alba brings a smaller 55-residence format to North Flagler, with day docks and generous terraces as its clearest distinctions. Buyers who value a quieter building should compare that scale with the deeper resort programs at nearby towers. Check how dock access applies to a particular residence and confirm current closing status before treating timing as settled.",
+    "brookeTake": "Alba offers a smaller North Flagler waterfront format with seven released plan references. The developer advertised immediate occupancy in September 2026, but buyers should confirm the exact residence, closing readiness and dock rights. One recorded Unit 1003 sale does not establish availability across the building.",
     "bestFor": [
       "Boutique waterfront buyers",
       "North Flagler buyers",
@@ -261,8 +265,8 @@
     "signatureFeatures": [
       "Residences: 55",
       "Floors: 22",
-      "Price Range: $2.5M-$7.8M",
-      "Delivery: Spring 2026 estimated",
+      "Price Range: From just under $3M (developer guidance, Sep 2026)",
+      "Delivery: Developer offering immediate occupancy (Sep 2026); confirm specific residence",
       "Bedrooms: 2-4"
     ],
     "amenityNarrative": "Amenities include staffed lobby, valet, private dining with wine storage, conference / business center, sunrise and sunset pools, TechnoGym fitness / yoga / Pilates, bocce, lawn chess, pet spa, lounge / library, catering kitchen, simulator, screening room, spa, cold-storage package room, and climate-controlled storage.",
@@ -271,16 +275,14 @@
     "buyerComparisonNotes": "Boutique waterfront buyers North Flagler buyers Buyers who value dock / water access Buyers wanting newer construction with fewer residences Smaller inventory may mean limited availability. Pricing should be refreshed before publication. Delivery timing should be verified close to launch. Formal pet policy is not fully verified.",
     "projectTeamNarrative": "Developer: BGI Companies; Blue Road Group Design: Spina O Rourke + Partners; Schmidt Nichols landscape",
     "sourceNotes": [
-      "Confidence is high. Main caveat is timing: one source referenced 2025 delivery, while the recommended value is Spring 2026 estimated.",
-      "Smaller inventory may mean limited availability.",
-      "Pricing should be refreshed before publication.",
-      "Delivery timing should be verified close to launch.",
-      "Formal pet policy is not fully verified."
+      "The developer homepage advertised immediate occupancy and starting guidance just under $3M on 2026-09-23; no CO/TCO was inspected.",
+      "Compass property history shows Unit 1003 sold on 2026-06-01 for $2,450,000, Beaches MLS R11070220. This individual sale does not establish broader closing or availability status.",
+      "ONE Sotheby's International Realty was announced as the exclusive in-house sales and marketing brokerage. The sales gallery is at 250 North Olive Avenue, separate from the building."
     ],
     "sourceUrls": [
       "https://www.albapalmbeach.com/"
     ],
-    "lastCopyResearchDate": "2026-05-28",
+    "lastCopyResearchDate": "2026-09-23",
     "copyConfidence": "high"
   },
   {
@@ -2348,8 +2350,12 @@
         "value": "South Flagler Drive, West Palm Beach, FL"
       },
       {
+        "label": "Sales Gallery",
+        "value": "3014 S Dixie Highway, West Palm Beach, FL 33405"
+      },
+      {
         "label": "Status",
-        "value": "Preconstruction"
+        "value": "Pre-Construction Sales"
       },
       {
         "label": "Developer",
@@ -2361,7 +2367,7 @@
       },
       {
         "label": "Sales",
-        "value": "Maison d Or Realty, LLC"
+        "value": "Maison d'Or Realty Sales, LLC"
       },
       {
         "label": "Residences",
@@ -2373,11 +2379,11 @@
       },
       {
         "label": "Price Range",
-        "value": "Starting at $5.7M"
+        "value": "From $5.7M (published guidance, Jan–Sep 2026); request current pricing"
       },
       {
         "label": "Delivery",
-        "value": "2028 projected"
+        "value": "Late 2028 (targeted; reported)"
       },
       {
         "label": "Size Range",
@@ -2391,17 +2397,16 @@
     "residences": "Maison d Or offers flow-through residences with east and west terraces, floor-to-ceiling glass, private elevator lobbies, 10-foot ceilings in typical residences, chef-inspired kitchens with Sub-Zero and Wolf appliances, and waterfront views spanning Palm Beach, the Atlantic Ocean, the Intracoastal, and the West Palm Beach skyline.",
     "amenities": "Amenities include a waterfront pool and spa, club room, formal dining with catering kitchen, waterfront fitness center, movement studio, private training room, wellness center with treatment room, cold plunges, sauna and steam rooms, swing suite with sports simulator, screening theater, salon, wine storage and tasting lounge, pet grooming, waterfront cafe, boardroom, two guest suites, and a new-construction boat dock for four vessels.",
     "location": "Maison d Or sits directly on the Intracoastal Waterway in the South Flagler neighborhood, with sweeping views of Palm Beach, the Atlantic Ocean, the Intracoastal, and the West Palm Beach skyline.",
-    "localTake": "Maison d Or is aimed at buyers who want Palm Beach-style polish without older Palm Beach inventory. The draw is privacy, larger floor plans, South Flagler views, and a boutique 39-residence scale. It is still early-stage, with delivery projected for 2028, so buyers should weigh timing against the upside of newer construction.",
+    "localTake": "Maison d Or pairs a 39-residence South Flagler scale with released layouts and published starting guidance from $5.7M. The late-2028 target is reported, not guaranteed; compare the actual plan, view, carrying costs and current inventory with us before relying on a date or price.",
     "tradeoffs": [
-      "Least complete active / early detail set in the current group.",
-      "Exact address is not fully verified.",
-      "Floor count, unit program, amenities, services, and delivery need verification.",
-      "Likely connected to municipal Flagler House 39-unit approval, but details remain unverified."
+      "The building street number remains unresolved; confirm the legal address in offering documents.",
+      "Late 2028 is a reported target, not a guaranteed completion date.",
+      "Published starting pricing is dated guidance; request current residence-specific terms."
     ],
-    "confidenceNote": "Confidence is medium-low. Include only with details-emerging language and human review before treating as a mature active sales page.",
+    "confidenceNote": "Sales gallery and released plans are verified. The building street number remains unresolved between 3705 and 3773; public building address omits the number. The late-2028 target and published pricing are dated guidance.",
     "seoTitle": "Maison d Or West Palm Beach | South Flagler Condo Watch",
-    "metaDescription": "Maison d Or is an early South Flagler luxury condominium with 39 residences, starting prices from $5.7M, and details still emerging.",
-    "badge": "Preconstruction",
+    "metaDescription": "Maison d Or is a 39-residence South Flagler condominium with published pricing from $5.7M, released plans and a separate Dixie Highway sales gallery.",
+    "badge": "Pre-Construction Sales",
     "tags": [
       "south-flagler",
       "waterfront",
@@ -2426,7 +2431,7 @@
       "heroTags": [
         {
           "label": "Status",
-          "value": "Preconstruction"
+          "value": "Pre-Construction Sales"
         },
         {
           "label": "Corridor",
@@ -2572,7 +2577,7 @@
     },
     "introHeadline": "Boutique South Flagler Living with Palm Beach Glamour",
     "introDek": "Maison d Or brings boutique South Flagler luxury to West Palm Beach with just 39 residences, expansive floor plans, east and west terraces, and sweeping views from the Atlantic Ocean to the Intracoastal.",
-    "brookeTake": "Maison d Or is aimed at buyers who want Palm Beach-style polish without older Palm Beach inventory. The draw is privacy, larger floor plans, South Flagler views, and a boutique 39-residence scale. It is still early-stage, with delivery projected for 2028, so buyers should weigh timing against the upside of newer construction.",
+    "brookeTake": "Maison d Or pairs a 39-residence South Flagler scale with released layouts and published starting guidance from $5.7M. The late-2028 target is reported, not guaranteed; compare the actual plan, view, carrying costs and current inventory with us before relying on a date or price.",
     "bestFor": [
       "Boutique South Flagler buyers",
       "Palm Beach buyers seeking new construction",
@@ -2582,8 +2587,8 @@
     "signatureFeatures": [
       "Residences: 39",
       "Floors: 19",
-      "Price Range: Starting at $5.7M",
-      "Delivery: 2028 projected",
+      "Price Range: From $5.7M (published guidance, Jan–Sep 2026); request current pricing",
+      "Delivery: Late 2028 (targeted; reported)",
       "Bedrooms: 2-4"
     ],
     "amenityNarrative": "Amenities include a waterfront pool and spa, club room, formal dining with catering kitchen, waterfront fitness center, movement studio, private training room, wellness center with treatment room, cold plunges, sauna and steam rooms, swing suite with sports simulator, screening theater, salon, wine storage and tasting lounge, pet grooming, waterfront cafe, boardroom, two guest suites, and a new-construction boat dock for four vessels.",
@@ -2592,15 +2597,15 @@
     "buyerComparisonNotes": "Boutique South Flagler luxury with 39 residences, expansive floor plans, Intracoastal frontage, Palm Beach views, private terraces, waterfront amenities, guest suites, and a four-vessel dock.",
     "projectTeamNarrative": "Developer: Kolter Urban; Perko Development Architect: 10 Design Interior Design: HBA Landscape: EDSA",
     "sourceNotes": [
-      "January 2026 official fact sheet supports the 19-story, 39-residence waterfront positioning, residence range, and amenity program.",
-      "Approved floorplans support 2- to 4-bedroom residences with interior areas ranging from 2,991 to 10,190 square feet.",
-      "Delivery is projected for 2028."
+      "The official sales-gallery materials list 3014 S Dixie Highway, West Palm Beach, FL 33405; this is not the building address.",
+      "Released official plans support the buyer layout comparison.",
+      "January–September 2026 published materials advertised pricing from $5.7M. Late 2028 is a reported target. Building street numbers conflict in reviewed sources."
     ],
     "sourceUrls": [
       "https://livemaisondor.com/"
     ],
-    "lastCopyResearchDate": "2026-05-30",
-    "copyConfidence": "high"
+    "lastCopyResearchDate": "2026-09-23",
+    "copyConfidence": "medium-high"
   },
   {
     "slug": "edgeworth",
@@ -4587,15 +4592,15 @@
     "repoProjectId": "olin-palm-beach",
     "heroHeadline": "Ocean to Lagoon on Palm Beach Island",
     "heroSubheadline": "A 32-residence, three-building address spanning the Atlantic Ocean and Lake Worth Lagoon on Palm Beach's South End.",
-    "overview": "OLIN Palm Beach is a low-rise ocean-to-lagoon condominium developed by OKO Group and Cain International. The current official project identifies 32 residences, architecture by OMA, interiors by GACHOT, and an active sales program. Public delivery timing, detailed floor plans, pricing by residence, fees, and operating rules remain limited.",
+    "overview": "OLIN Palm Beach is a low-rise ocean-to-lagoon condominium by OKO Group and Cain International. OKO's portfolio listed the project in pre-construction sales on 2026-09-23. Residence pricing, delivery timing, floor plans, gallery arrangements and tour availability were not publicly verified in the reviewed sources; request current project information with The Scott Gordon Group.",
     "quickFacts": [
       {
         "label": "Address",
-        "value": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480"
+        "value": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL"
       },
       {
         "label": "Status",
-        "value": "Breaking Ground / Sales Launched"
+        "value": "Pre-Construction Sales (OKO Group, Sep 2026)"
       },
       {
         "label": "Residences",
@@ -4635,22 +4640,22 @@
       },
       {
         "label": "Pricing",
-        "value": "Request current residence-specific availability"
+        "value": "Request current pricing"
       }
     ],
     "residences": "The official project describes 32 graciously scaled residences across three interconnected five-story buildings. Estate-scaled and full-floor formats have been reported, while exact bedroom ranges, size ranges, and floor plans require current sales materials.",
-    "amenities": "The public identity centers on a landscaped low-rise campus with direct Atlantic Ocean and Lake Worth Lagoon frontage. The complete amenity and service program has not yet been released publicly.",
+    "amenities": "The public identity centers on a landscaped low-rise campus with Atlantic Ocean and Lake Worth Lagoon frontage. The complete amenity and service program was not publicly verified in the reviewed sources.",
     "location": "OLIN occupies the former Ambassador and Edgewater sites at 2720 and 2730 South Ocean Boulevard in Palm Beach's South End, spanning settings on both the Atlantic Ocean and Lake Worth Lagoon sides of the island.",
     "localTake": "OLIN's strongest distinction is scarcity: 32 residences, a low-rise Palm Beach Island format, and an ocean-to-lagoon site. It belongs in a separate Palm Beach comparison set rather than being treated as another West Palm Beach high-rise.",
     "tradeoffs": [
-      "The project remains early, with public delivery timing not released.",
-      "Residence-specific pricing, floor plans, maintenance, deposits, parking, policies, and the final amenity program require current sales materials.",
-      "The current official project identifies 32 residences; older planning and reporting referenced 41, so the conflict remains open for schema review."
+      "Delivery timing and residence-specific pricing were not publicly verified in the reviewed sources.",
+      "Floor plans, gallery arrangements, tours, deposits, parking, policies and final amenities require confirmation.",
+      "OKO currently lists 32 residences; older reporting referenced 41, so the conflict remains open for schema review."
     ],
-    "confidenceNote": "High confidence in current identity, status, location, residence count, building scale, and named project team; human review remains required for the open 32-versus-41 conflict and unreleased buyer details.",
+    "confidenceNote": "OKO Group listed pre-construction sales on 2026-09-23. The current developer inquiry form, gallery, tour availability, residence pricing, delivery and released plans were not publicly verified in the reviewed sources. The older 41-versus-current-32 count conflict remains schema-blocked.",
     "seoTitle": "OLIN Palm Beach | Ocean-to-Lagoon New Construction",
-    "metaDescription": "OLIN Palm Beach is a 32-residence, three-building ocean-to-lagoon condominium on Palm Beach Island by OKO Group and Cain International.",
-    "badge": "Breaking Ground / Sales Launched",
+    "metaDescription": "OLIN Palm Beach is a 32-residence ocean-to-lagoon condominium by OKO Group and Cain International. OKO listed pre-construction sales in September 2026.",
+    "badge": "Pre-Construction Sales",
     "tags": [
       "palm-beach",
       "oceanfront",
@@ -4677,21 +4682,21 @@
       "Direct ocean-to-lagoon site",
       "OMA architecture and GACHOT interiors"
     ],
-    "amenityNarrative": "The public identity centers on a landscaped low-rise campus with direct Atlantic Ocean and Lake Worth Lagoon frontage. The complete amenity and service program has not yet been released publicly.",
+    "amenityNarrative": "The public identity centers on a landscaped low-rise campus with Atlantic Ocean and Lake Worth Lagoon frontage. The complete amenity and service program was not publicly verified in the reviewed sources.",
     "residenceNarrative": "The official project describes 32 graciously scaled residences across three interconnected five-story buildings. Exact floor plans, bedroom ranges, and residence sizes require current sales materials.",
     "locationNarrative": "OLIN is positioned on Palm Beach's South End at 2720 and 2730 South Ocean Boulevard, with the project spanning the island between the Atlantic Ocean and Lake Worth Lagoon.",
     "buyerComparisonNotes": "Compare OLIN within the Palm Beach Island set first. Its scarce land, low-rise entitlement context, and ocean-to-lagoon site make direct price or amenity comparisons with West Palm Beach towers incomplete.",
     "projectTeamNarrative": "Developers: OKO Group and Cain International. Architecture: OMA and Spina O'Rourke + Partners. Interiors: GACHOT. Sales: Corcoran Sunshine Marketing Group.",
     "sourceNotes": [
-      "The official OLIN site confirms 32 residences, OMA, GACHOT, OKO Group and Cain International, and Corcoran Sunshine Marketing Group.",
-      "Markets of Tomorrow identifies three interconnected five-story buildings and breaking-ground status.",
-      "Older planning and reporting referenced 41 residences; the current official project confirms 32, and the conflict remains review-visible."
+      "OKO Group portfolio listed OLIN as Pre-Construction Sales on 2026-09-23; its current project count is 32 residences.",
+      "The official developer teaser and reviewed coverage did not reconfirm a current inquiry form, released floor plans, gallery or tour availability.",
+      "Inquiry-form budget bands reported in July 2026 are research-only, not residence pricing."
     ],
     "sourceUrls": [
       "https://olinpalmbeach.com/",
       "https://www.oftmw.com/projects/olin-palm-beach/"
     ],
-    "lastCopyResearchDate": "2026-09-01",
+    "lastCopyResearchDate": "2026-09-23",
     "copyConfidence": "high",
     "pageTemplate": "editorial-showcase",
     "showcase": {
@@ -4707,7 +4712,7 @@
       "heroTags": [
         {
           "label": "Status",
-          "value": "Breaking Ground"
+          "value": "Pre-Construction Sales"
         },
         {
           "label": "Corridor",
@@ -4715,7 +4720,7 @@
         },
         {
           "label": "Sales",
-          "value": "Launched"
+          "value": "Pre-Construction"
         }
       ],
       "factStrip": [

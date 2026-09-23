@@ -1880,22 +1880,22 @@ const projectPageDrafts: Record<string, ProjectPageDraft> = {
       "Alba Palm Beach is the boutique North Flagler waterfront alternative: 55 residences, direct Intracoastal orientation, and a quieter residential scale for buyers who do not want the mega-tower feel.",
     image: `${albaMediaBase}alba-hero.jpg`,
     imageAlt: "Alba Palm Beach aerial rendering",
-    stage: "Under construction",
+    stage: "Completed building / developer sales active",
     locationCopy:
       "At 4714 N Flagler Drive, Alba extends the waterfront comparison north of the Olara/Shorecrest/Ritz cluster. Compare it on scale, direct water orientation, townhome-style options, and the calmer Northwood feel.",
     facts: [
       { label: "Address", value: "4714 N Flagler Dr" },
       { label: "Stories", value: "22" },
       { label: "Residences", value: "55" },
-      { label: "Delivery", value: "Spring 2026 reported" },
-      { label: "Pricing", value: "Request current pricing", note: "Lower penthouse reporting starts around $6.95M." },
+      { label: "Occupancy", value: "Developer offering immediate occupancy (Sep 2026); confirm specific residence" },
+      { label: "Pricing", value: "From just under $3M (developer guidance, Sep 2026)", note: "Confirm current residence-specific pricing and availability." },
       { label: "Profile", value: "Boutique North Flagler" },
     ],
     team: albaTeam,
     highlights: [
       { label: "Scale", value: "55 residences", note: "The appeal is proportion and privacy, not the longest possible amenity inventory." },
       { label: "Residence Mix", value: "Condos + townhomes", note: "Townhome-style options make Alba relevant for buyers who want a more grounded residential feel." },
-      { label: "Status", value: "Topped-out / nearing delivery", note: "Request the latest construction, closing, incentive, and inventory update." },
+      { label: "Status", value: "Developer sales active", note: "The developer advertised immediate occupancy in September 2026; confirm readiness and availability for the selected residence." },
     ],
     gallery: [
       {
@@ -3963,7 +3963,7 @@ function applyRoute() {
   document.title = routeSeo.title;
 
   updateMetaDescription(route.type, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
-  if ((activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "berkeley", "mandarin-oriental", "mr-c"].includes(activeProject.id)) || ["north-flagler", "south-flagler"].includes(activeCorridor?.key ?? "")) {
+  if ((activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "berkeley", "mandarin-oriental", "mr-c", "maison-dor", "alba-palm-beach", "olin-palm-beach"].includes(activeProject.id)) || ["north-flagler", "south-flagler"].includes(activeCorridor?.key ?? "")) {
     document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute("content", routeSeo.description);
   }
   updateCanonical(route, activeProject, activeMarketNote, activeNewsItem, activeAnswer);
@@ -4088,7 +4088,7 @@ function routeSeoDetails(
     "palm-beach": "Palm Beach New Construction Condos | Buyer Guide",
   };
   const corridorDescriptions: Record<CorridorKey, string> = {
-    "north-flagler": "Compare North Flagler condos including Olara and Ritz-Carlton: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
+    "north-flagler": "Compare North Flagler condos including Olara, Ritz-Carlton and Alba: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
     downtown: "Compare Downtown West Palm Beach condo projects by walkability, NORA and The Square access, floor plans, timing, and buyer-fit tradeoffs.",
     "south-flagler": "Compare South Flagler new construction condos, South Flagler House floor plans and completed waterfront alternatives. Build a buyer shortlist before a sales-gallery visit.",
     "south-end": "Track South End West Palm Beach rental and mixed-use development by leasing status, neighborhood retail, delivery, and resident fit.",
@@ -4101,7 +4101,7 @@ function routeSeoDetails(
     buildings: "West Palm Beach Luxury New Construction Buildings | Buyer Guide",
     map: "West Palm Beach Condo Map | New Construction Corridors",
     corridors: "West Palm Beach Luxury Condo Corridors | Buyer Guide",
-    compare: "Compare West Palm Beach Luxury New Construction Condos",
+    compare: "Compare West Palm Beach New Construction Condos",
     about: "About The Scott Gordon Group | Douglas Elliman Palm Beach",
     "market-notes": "West Palm Beach Luxury Condo Guidance | Buyer Intelligence",
     floorplans: "West Palm Beach Luxury Condo Floor Plans | New Construction Guide",
@@ -4112,7 +4112,7 @@ function routeSeoDetails(
     "fair-housing": "Fair Housing | WPB New Construction",
     inquire: "West Palm Beach Condo Buyer Research Desk | Inquiry",
   };
-  const buyerSeo = activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "berkeley", "mandarin-oriental", "mr-c"].includes(activeProject.id) ? batch1ProjectCopyByProjectId.get(activeProject.id) : undefined;
+  const buyerSeo = activeProject && ["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb", "shorecrest", "south-flagler-house", "berkeley", "mandarin-oriental", "mr-c", "maison-dor", "alba-palm-beach", "olin-palm-beach"].includes(activeProject.id) ? batch1ProjectCopyByProjectId.get(activeProject.id) : undefined;
   const projectSchemaFacts = activeProject ? getSchemaSafeProjectFacts(activeProject.id) : undefined;
   const projectMarketSuffix = activeProject?.corridorKey === "palm-beach" ? "Palm Beach" : "West Palm Beach";
   const projectTitleSuffix = activeProject?.projectType === "rental"
@@ -4485,7 +4485,7 @@ function metaDescriptionForRoute(routeType: string) {
     buildings: "Compare West Palm Beach luxury new-construction condos by corridor, pricing checks, floor plans, delivery timing, amenities, and waterfront position.",
     map: "Explore West Palm Beach new-construction buildings by map, corridor, and project guide, from North and South Flagler to Downtown and Palm Beach island.",
     corridors: "Choose between South Flagler, North Flagler, and Downtown West Palm Beach luxury new-construction condo corridors by lifestyle, waterfront position, and buyer fit.",
-    compare: "Compare West Palm Beach luxury new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
+    compare: "Compare West Palm Beach new-construction condos by corridor, timing, floor plans, water views, amenities, and buyer-fit questions.",
     about: aboutPageDescription,
     news: "Track West Palm Beach luxury condo construction, sales, financing, and planning updates with on-site articles, source links, and buyer next steps.",
     "downtown-spotlight": "Read Downtown West Palm Beach district spotlights, beginning with NORA, and follow the locations shaping condo buyer decisions.",
@@ -8660,6 +8660,22 @@ function projectEntityFaq(
   floorplanProject: ReturnType<typeof getFloorplanProject>,
 ) {
   const facts = sourceFact?.facts;
+  if (project.id === "olin-palm-beach") {
+    return [
+      {
+        question: `What is the bottom line on ${project.name}?`,
+        answer: "OKO Group listed OLIN Palm Beach in pre-construction sales in September 2026. Request current project information before relying on residence pricing, availability or delivery timing.",
+      },
+      {
+        question: `Are floorplans available for ${project.name}?`,
+        answer: "Released OLIN floor plans were not publicly verified in the reviewed sources. Ask for current materials before comparing specific residences.",
+      },
+      {
+        question: `What should buyers verify before relying on ${project.name} public information?`,
+        answer: "Confirm current pricing, availability, residence plans, delivery guidance, fees and contract terms for the home under consideration.",
+      },
+    ];
+  }
   return [
     {
       question: `What is the bottom line on ${project.name}?`,
@@ -9069,6 +9085,9 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
     : residenceSectionLinkHref;
   const titleLines = showcase?.titleLines?.length ? showcase.titleLines : [project.name];
   const intro = showcase?.intro ?? heroBlurb;
+  const salesGalleryAddress = ["maison-dor", "alba-palm-beach"].includes(project.id)
+    ? copyFactValue(copyPackage, /^sales gallery$/i)
+    : "";
   const heroTagSource = (
     showcase?.heroTags?.length
       ? showcase.heroTags
@@ -9166,6 +9185,7 @@ function renderEditorialShowcaseProjectPage(project: FeaturedProject, copyPackag
             </div>
           </aside>
           <p class="berkeley-map-address">${publicText(copyFactValue(copyPackage, /^address$/i, project.address))}</p>
+          ${salesGalleryAddress ? `<p class="berkeley-map-address">Sales gallery: ${publicText(salesGalleryAddress)}</p>` : ""}
           <a href="${corridorDirectoryPath(project.corridorKey)}">View corridor buildings <span aria-hidden="true">→</span></a>
         </div>
       </section>
