@@ -7423,11 +7423,7 @@ function renderUpdateArticle(item: ExternalNewsItem) {
         <div><span>Updated</span><strong>${publicText(item.fetchedAt)}</strong></div>
         <div><span>${relatedCount ? "Related" : "Research path"}</span><strong>${relatedCount || "All areas"}</strong></div>
       </section>
-      <section class="section market-note-body">
-        <aside class="market-note-thesis">
-          <span>Deck</span>
-          <strong>${publicText(content.deck)}</strong>
-        </aside>
+      <section class="section market-note-body" style="grid-template-columns:minmax(0,1fr);max-width:940px">
         ${renderBuyerIntelligenceBox({
           buyerTakeaway: content.buyerTakeaway,
           marketSignal: content.marketSignal,
