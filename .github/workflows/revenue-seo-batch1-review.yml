@@ -1,0 +1,69 @@
+name: Revenue SEO Batch 1 review (no deploy)
+on:
+  push:
+    branches: [codex/revenue-seo-batch1-review-2026-09-23]
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+concurrency:
+  group: revenue-seo-batch1-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      QA_NO_WRITE: '1'
+      WPB_MAP_QA_MODE: no-key
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Record exact source and package text-only review snapshot
+        run: |
+          mkdir -p .runtime/revenue-seo-review
+          git rev-parse HEAD > .runtime/revenue-seo-review/tested-sha.txt
+          git diff --check
+          python3 - <<'PY'
+          import pathlib, subprocess, tarfile
+          paths = subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0')
+          allowed = {'.ts','.tsx','.js','.mjs','.cjs','.json','.csv','.md','.yml','.yaml','.html','.css','.txt','.toml','.xml','.svg','.lock'}
+          with tarfile.open('.runtime/revenue-seo-review/source.tar.gz', 'w:gz') as archive:
+              for value in paths:
+                  p = pathlib.Path(value)
+                  if value and p.is_file() and (p.suffix in allowed or p.name in {'.gitignore','_redirects','_headers'}) and not p.name.startswith('.env'):
+                      archive.add(p, arcname=value, recursive=False)
+          PY
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Source typecheck
+        run: npm run typecheck
+      - name: Production build and postbuild, without production credentials
+        id: build
+        run: npm run build | tee .runtime/revenue-seo-review/build.log
+      - name: Full no-key test suite
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm test | tee .runtime/revenue-seo-review/tests.log
+      - name: Advisory project intelligence audit
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm run qa:project-intelligence | tee .runtime/revenue-seo-review/intelligence-audit.log
+      - name: Revenue-specific consistency tests when present
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          if test -f research/scripts/revenue-seo-batch1.test.mjs; then
+            node --experimental-strip-types --test research/scripts/revenue-seo-batch1.test.mjs | tee .runtime/revenue-seo-review/revenue-tests.log
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: revenue-seo-review-${{ github.sha }}
+          path: .runtime/revenue-seo-review/
+          include-hidden-files: true
+          retention-days: 7
