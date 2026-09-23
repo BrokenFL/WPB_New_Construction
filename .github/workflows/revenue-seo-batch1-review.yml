@@ -1,0 +1,152 @@
+name: Revenue SEO Batch 1 review (no deploy)
+on:
+  push:
+    branches: [codex/revenue-seo-batch1-review-2026-09-23]
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+concurrency:
+  group: revenue-seo-batch1-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    env:
+      QA_NO_WRITE: '1'
+      WPB_MAP_QA_MODE: no-key
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Guard isolated branch and record input
+        run: |
+          test "$GITHUB_REPOSITORY" = BrokenFL/WPB_New_Construction
+          test "$GITHUB_REF" = refs/heads/codex/revenue-seo-batch1-review-2026-09-23
+          git merge-base --is-ancestor 572f109282bc63f2e012185efa14abf0dae9bfc2 HEAD
+          test -z "$(git status --porcelain)"
+          mkdir -p .runtime/revenue-seo-review
+          git rev-parse HEAD > .runtime/revenue-seo-review/input-sha.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Baseline audit and bounded consistency finalizer
+        run: |
+          npm run qa:project-intelligence 2>&1 | tee .runtime/revenue-seo-review/baseline-audit.log
+          node --experimental-strip-types research/scripts/revenue-seo-triage.mjs before
+          python3 research/scripts/finalize-revenue-seo-batch1.py
+      - name: Generate current buyer content without an asset refresh
+        run: |
+          node research/scripts/generate-project-model.mjs
+          node research/scripts/parse-building-database.mjs
+          node --experimental-strip-types research/scripts/generate-project-schema-safe.ts
+          node research/scripts/build-site-intelligence.mjs --buyer-content-only
+          git diff --check
+      - name: Verify deterministic finalizer and scoped generation
+        run: |
+          git diff --binary > .runtime/revenue-seo-review/first-generation.patch
+          python3 research/scripts/finalize-revenue-seo-batch1.py
+          node research/scripts/generate-project-model.mjs
+          node research/scripts/parse-building-database.mjs
+          node --experimental-strip-types research/scripts/generate-project-schema-safe.ts
+          node research/scripts/build-site-intelligence.mjs --buyer-content-only
+          git diff --binary > .runtime/revenue-seo-review/second-generation.patch
+          cmp .runtime/revenue-seo-review/first-generation.patch .runtime/revenue-seo-review/second-generation.patch
+      - name: Typecheck
+        run: npm run typecheck 2>&1 | tee .runtime/revenue-seo-review/typecheck.log
+      - name: Build and postbuild without production credentials
+        id: build
+        run: npm run build 2>&1 | tee .runtime/revenue-seo-review/build.log
+      - name: Full no-key suite
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: npm test 2>&1 | tee .runtime/revenue-seo-review/tests.log
+      - name: Advisory audit and release-impact triage
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          npm run qa:project-intelligence 2>&1 | tee .runtime/revenue-seo-review/intelligence-audit.log
+          node --experimental-strip-types research/scripts/revenue-seo-triage.mjs after
+      - name: Source and prerender revenue checks
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: node --experimental-strip-types --test research/scripts/revenue-seo-batch1.test.mjs research/scripts/revenue-discovery-parity.test.mjs 2>&1 | tee .runtime/revenue-seo-review/revenue-tests.log
+      - name: Chromium and WebKit desktop tablet mobile journeys
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: node research/scripts/check-revenue-seo-batch1-browser.mjs 2>&1 | tee .runtime/revenue-seo-review/browser.log
+      - name: Strict asset audit with evidence-only reports
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          python3 - <<'PY'
+          import pathlib,subprocess,shutil
+          files=[pathlib.Path('docs/reports/asset-pipeline-audit-report.'+ext) for ext in ['json','md']]
+          before={p:p.read_bytes() if p.exists() else None for p in files}
+          try:
+              result=subprocess.run(['npm','run','assets:audit:strict'])
+              for p in files:
+                  if p.exists():shutil.copy2(p,pathlib.Path('.runtime/revenue-seo-review')/p.name)
+          finally:
+              for p,data in before.items():
+                  if data is None:p.unlink(missing_ok=True)
+                  else:p.write_bytes(data)
+          raise SystemExit(result.returncode)
+          PY
+      - name: Commit verified outputs only to this review branch
+        env:
+          REVIEW_TOKEN: ${{ github.token }}
+        run: |
+          git diff --check
+          python3 - <<'PY'
+          import subprocess
+          source='''content/project-copy-package.json content/project-page-overlays.json content/wpb_new_construction_building_database_cleaned.csv research/source-material-review/wpb-projects-canonical-v3-planning-update.json research/scripts/generate-project-model.mjs research/scripts/build-site-intelligence.mjs research/scripts/prerender-static-routes.mjs research/scripts/check-revenue-seo-batch1-browser.mjs src/data/projectCardData.ts src/lib/corridorGrowthContent.ts src/main.ts src/style.css'''.split()
+          generated='''src/generated/projectModel.json src/generated/projectModel.ts src/generated/projectModelPublic.json src/generated/projectModelPublic.ts src/generated/buildingDatabase.ts src/generated/buildingDatabasePublic.ts src/generated/projectSchemaSafe.json src/generated/projectSchemaRuntime.ts src/generated/siteData.ts public/data/site-meta.json public/data/project-copy-package.json public/data/floorplans.json public/llms.txt'''.split()
+          changed=set(filter(None,subprocess.check_output(['git','diff','--name-only','-z']).decode().split('\0')))
+          untracked=subprocess.check_output(['git','ls-files','--others','--exclude-standard']).decode().strip()
+          if untracked:raise SystemExit(f'Unexpected untracked files: {untracked}')
+          unexpected=changed-set(source+generated)
+          if unexpected:raise SystemExit(f'Unexpected tracked paths: {sorted(unexpected)}')
+          if changed:subprocess.check_call(['git','add','--',*sorted(changed)])
+          PY
+          git diff --cached --stat > .runtime/revenue-seo-review/verified-diff-stat.txt
+          git write-tree > .runtime/revenue-seo-review/tested-tree.txt
+          if ! git diff --cached --quiet; then
+            test "$(git ls-remote origin "$GITHUB_REF" | cut -f1)" = "$GITHUB_SHA"
+            git -c user.name='WPB SEO Review' -c user.email='128734086+BrokenFL@users.noreply.github.com' commit -m 'Implement verified revenue SEO Batch 1 and current-data consistency'
+            auth=$(printf 'x-access-token:%s' "$REVIEW_TOKEN" | base64 -w0)
+            git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $auth" push origin HEAD:"$GITHUB_REF"
+            unset auth
+          fi
+          git rev-parse HEAD > .runtime/revenue-seo-review/verified-commit.txt
+          test "$(git rev-parse HEAD^{tree})" = "$(cat .runtime/revenue-seo-review/tested-tree.txt)"
+          test -z "$(git status --porcelain)"
+      - name: Capture source evidence after success or failure
+        if: always()
+        run: |
+          git diff 572f109282bc63f2e012185efa14abf0dae9bfc2 -- . ':!.github/workflows/revenue-seo-batch1-review.yml' > .runtime/revenue-seo-review/review.patch
+          python3 - <<'PY'
+          import pathlib,subprocess,tarfile,shutil
+          suffixes={'.ts','.tsx','.js','.mjs','.cjs','.json','.csv','.md','.yml','.yaml','.html','.css','.txt','.toml','.xml','.svg','.lock','.py','.mts'}
+          paths=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          with tarfile.open('.runtime/revenue-seo-review/source.tar.gz','w:gz') as a:
+              for value in paths:
+                  p=pathlib.Path(value)
+                  if value and p.is_file() and (p.suffix in suffixes or p.name in {'.gitignore','_headers','_redirects'}) and not p.name.startswith('.env'):
+                      a.add(p,arcname=value,recursive=False)
+          out=pathlib.Path('.runtime/revenue-seo-review/built-html');out.mkdir(exist_ok=True)
+          for slug in ['nora-house','banyan-tree','olara','ritz-carlton-wpb']:
+              p=pathlib.Path('dist/projects')/slug/'index.html'
+              if p.exists():shutil.copy2(p,out/(slug+'.html'))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: revenue-seo-review-${{ github.sha }}
+          path: .runtime/revenue-seo-review/
+          include-hidden-files: true
+          retention-days: 7

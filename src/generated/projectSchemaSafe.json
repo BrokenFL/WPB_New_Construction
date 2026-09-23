@@ -44,6 +44,7 @@
         "route": "/projects/olara/",
         "url": "https://www.wpbnewconstruction.com/projects/olara/",
         "corridor": "North Flagler",
+        "residenceCount": "275",
         "compareDatabaseId": "olara-wpb",
         "compareDatabaseSlug": "olara-west-palm-beach",
         "sourceCatalogId": "olara"
@@ -51,14 +52,12 @@
       "omittedFields": [
         "status",
         "delivery",
-        "residenceCount",
         "address"
       ],
-      "conflictCount": 4,
+      "conflictCount": 3,
       "reviewFields": [
         "status",
         "deliveryTiming",
-        "residenceCount",
         "address"
       ]
     },

@@ -1376,7 +1376,56 @@ const answerBlocks = [
   },
 ];
 
+function approvedRevenueFloorplanProjects(projects) {
+  const scope = new Set(["nora-house", "banyan-tree", "olara", "ritz-carlton-wpb"]);
+  const source = fsSync.readFileSync(path.join(workspace, "src/data/floorplanApprovedLibrary.ts"), "utf8");
+  const approved = readTsArray(source, "approvedFloorplanLibrary");
+  const byId = new Map(approved.map((project) => [project.projectId, project]));
+  for (const id of scope) {
+    const project = byId.get(id);
+    if (!project || project.count !== project.plans.length || !project.count) {
+      throw new Error(`Approved floor-plan source review required: ${id}`);
+    }
+  }
+  return projects.map((project) => {
+    if (!scope.has(project.projectId)) return project;
+    const review = byId.get(project.projectId);
+    const plans = canonicalizePublicPlans(project.projectId, review.plans);
+    if (plans.length !== review.count) throw new Error(`Approved plan identity collision: ${project.projectId}`);
+    return { ...project, count: plans.length, plans,
+      missingNote: "Released layout references; confirm the current drawing and residence availability before relying on a plan." };
+  });
+}
+
 async function main() {
+  if (process.argv.includes("--buyer-content-only")) {
+    const catalog = JSON.parse(await fs.readFile(reviewPath, "utf8"));
+    const siteDataPath = path.join(generatedRoot, "siteData.ts");
+    let text = await fs.readFile(siteDataPath, "utf8");
+    const currentPlans = JSON.parse(await fs.readFile(path.join(publicDataRoot, "floorplans.json"), "utf8"));
+    const modelBySlug = new Map(readPublicProjectModel().projects.map((p) => [p.publicSlug, p]));
+    currentPlans.projects = currentPlans.projects.map((p) => ({ ...p, projectType: modelBySlug.get(p.projectId)?.projectType ?? p.projectType }));
+    currentPlans.projects = approvedRevenueFloorplanProjects(currentPlans.projects);
+    const exports = {
+      siteMeta,
+      floorplanLibrary: currentPlans.projects,
+      projectFacts: sanitizePublicPayload(buildProjectFacts(catalog.projects)),
+      prerenderRoutes: buildPrerenderRoutes(),
+    };
+    for (const [name, value] of Object.entries(exports)) {
+      const pattern = new RegExp(`^export const ${name} = [^]*? as const;`, "m");
+      if (!pattern.test(text)) throw new Error(`Missing generated export: ${name}`);
+      text = text.replace(pattern, () => `export const ${name} = ${JSON.stringify(value, null, 2)} as const;`);
+    }
+    await fs.writeFile(siteDataPath, text);
+    await fs.writeFile(path.join(publicDataRoot, "floorplans.json"), JSON.stringify(currentPlans, null, 2) + String.fromCharCode(10));
+    await fs.writeFile(path.join(publicDataRoot, "site-meta.json"), JSON.stringify(siteMeta, null, 2) + String.fromCharCode(10));
+    await fs.writeFile(publicProjectCopyPackagePath, JSON.stringify(buildPublicProjectCopyPackage(readProjectCopyPackage()), null, 2) + String.fromCharCode(10));
+    const buyerNewsFeedSnapshot = JSON.parse(await fs.readFile(path.join(publicDataRoot, "news-feed.json"), "utf8"));
+    await fs.writeFile(path.join(workspace, "public/llms.txt"), renderLlmsTxt(currentPlans, buyerNewsFeedSnapshot));
+    console.log("Buyer discovery regenerated; approved plans aligned; source assets and news unchanged.");
+    return;
+  }
   if (siteMetaOnly) {
     const publicSiteMetaPath = path.join(publicDataRoot, "site-meta.json");
     const siteDataPath = path.join(generatedRoot, "siteData.ts");
@@ -1403,6 +1452,7 @@ async function main() {
   let publishedFloorplans = await publishFloorplanAssets();
   const floorplans = await buildFloorplanLibrary(catalog.projects);
   let publicFloorplans = stripInternalFloorplanPaths(floorplans);
+  publicFloorplans.projects = approvedRevenueFloorplanProjects(publicFloorplans.projects);
   const images = await buildImageCatalog(catalog.projects, assetTracker);
   const newsFeed = buildNewsFeed(catalog.projects, floorplans, images);
   const internalProjectFacts = buildInternalProjectFacts(catalog.projects);
@@ -2805,8 +2855,8 @@ function buildPrerenderRoutes() {
     )),
     {
       path: "/corridors/north-flagler/",
-      title: "North Flagler Condos | West Palm Beach Buyer Guide",
-      description: "Compare North Flagler new-construction condos by waterfront position, Palm Beach proximity, floor plans, status, and current availability questions.",
+      title: "North Flagler New Construction Condos | Compare & Floor Plans",
+      description: "Compare North Flagler condos including Olara and Ritz-Carlton: released floor plans, waterfront settings, active sales and buyer guidance before a gallery visit.",
       ogImage: siteMeta.defaultImage,
     },
     {

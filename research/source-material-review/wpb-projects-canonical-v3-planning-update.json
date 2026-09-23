@@ -128,9 +128,9 @@
       "brand_partner": [],
       "sales_team": [],
       "construction_team": [],
-      "price_display": "$2M–$7.5M",
+      "price_display": "From $1.7M (developer-published; verify current availability)",
       "maintenance_display": "$1.75/sf",
-      "delivery_display": "2027",
+      "delivery_display": "2028",
       "size_range_display": "1,477–4,097 sq. ft.",
       "bedroom_range_display": "2–4 bedrooms",
       "parking_summary": "Two side-by-side parking spaces per residence",
@@ -170,11 +170,12 @@
         "MiamiResidence text said construction began early 2023 with completion within three years; project card and master recommendation use 2027."
       ],
       "source_urls": [
+        "https://www.olarawestpalmbeach.com/residences/",
         "https://www.miamiresidence.com/preconstruction/olara-west-palm-beach.htm",
         "https://olarawpb.com/wp-content/uploads/2026/03/Olara-Fact-Sheet-March-2026.pdf",
         "https://olarawpb.com/wp-content/uploads/2026/03/RackBrochure_Digital_032026.pdf"
       ],
-      "human_review_required": false,
+      "human_review_required": true,
       "confidence_level": "high",
       "import_recommendation": "Safe to import/update; verify availability/pricing and active official domain before launch.",
       "project_id": "olara-west-palm-beach",
@@ -185,7 +186,8 @@
       "status_badge": "Under Construction",
       "development_stage": "under_construction",
       "public_address": "1919 N Flagler Drive, West Palm Beach, FL 33407",
-      "neighborhood": "North Flagler waterfront"
+      "neighborhood": "North Flagler waterfront",
+      "sales_gallery_address": "300 Butler Street, West Palm Beach, FL 33407"
     },
     {
       "include_on_site": true,
@@ -290,9 +292,9 @@
       ],
       "sales_team": [],
       "construction_team": [],
-      "price_display": "From $3M",
+      "price_display": "Request current pricing",
       "maintenance_display": "",
-      "delivery_display": "2028",
+      "delivery_display": "2028 estimate; confirm current schedule",
       "size_range_display": "Approx. 1,532–3,331 interior sq. ft.",
       "bedroom_range_display": "2–4 bedrooms",
       "parking_summary": "",
@@ -321,6 +323,7 @@
         "Marketing height 27 stories vs planning approval 26 stories."
       ],
       "source_urls": [
+        "https://theresidenceswestpalmbeach.com/residences/",
         "https://theresidenceswestpalmbeach.com/",
         "https://theresidenceswestpalmbeach.com/team/",
         "https://theresidenceswestpalmbeach.com/floorplans/",
@@ -337,7 +340,8 @@
       "status_badge": "Under Construction",
       "development_stage": "under_construction",
       "public_address": "1745 N Flagler Drive, West Palm Beach, FL 33407",
-      "neighborhood": "North Flagler waterfront"
+      "neighborhood": "North Flagler waterfront",
+      "sales_gallery_address": "340 Royal Poinciana Way, M302, Palm Beach, FL 33480"
     },
     {
       "include_on_site": true,
@@ -452,9 +456,9 @@
       "construction_team": [
         "Connor & Gaskins"
       ],
-      "price_display": "Low $2Ms to $6.5M",
+      "price_display": "From the low $2Ms (developer-published; verify current availability)",
       "maintenance_display": "",
-      "delivery_display": "2029 estimated; construction expected to begin 2027 per reporting",
+      "delivery_display": "Request current delivery guidance",
       "size_range_display": "1,460–6,700 total living sq. ft.",
       "bedroom_range_display": "2–4 bedrooms",
       "parking_summary": "Two parking spaces per residence",
@@ -488,8 +492,8 @@
         "Maintenance/deposit and full service details missing"
       ],
       "key_conflicts": [
-        "Sales gallery address vs building site address.",
-        "2029 timing from reporting; official confirmation needed."
+        "955 N Railroad Avenue, Suite B is explicitly a sales gallery, not proof of the residence address. Earlier site references differ; confirm building address.",
+        "Older 2029 delivery reporting is historical guidance; request a current construction schedule."
       ],
       "source_urls": [
         "https://norahouse.com/",
@@ -503,12 +507,13 @@
       "project_id": "nora-house",
       "slug": "nora-house",
       "display_name": "Nora House",
-      "site_group": "active_under_construction",
+      "site_group": "active_sales",
       "page_type": "main_building_page",
-      "status_badge": "Sales Launched / Pipeline",
-      "development_stage": "sales_launched_pipeline",
-      "public_address": "1105 N Dixie Highway, West Palm Beach, FL 33401",
-      "neighborhood": "Nora District"
+      "status_badge": "Sales Open / Preconstruction",
+      "development_stage": "active_sales_preconstruction",
+      "public_address": "NORA District, West Palm Beach, FL 33401; confirm building address",
+      "neighborhood": "Nora District",
+      "sales_gallery_address": "955 N Railroad Avenue, Suite B, West Palm Beach, FL 33401"
     },
     {
       "include_on_site": true,
@@ -909,9 +914,9 @@
       ],
       "sales_team": [],
       "construction_team": [],
-      "price_display": "",
+      "price_display": "Request current pricing",
       "maintenance_display": "",
-      "delivery_display": "",
+      "delivery_display": "Request current delivery guidance",
       "size_range_display": "",
       "bedroom_range_display": "1–4 bedrooms plus penthouses",
       "parking_summary": "",
@@ -932,9 +937,11 @@
         "Keep language cautious until sales/construction details are clearer"
       ],
       "key_conflicts": [
-        "No conflict yet; primary issue is missing street address and municipal confirmation."
+        "Developer markets 88 residences; earlier municipal material records 86. Offering documents should control.",
+        "Older pricing and delivery estimates are not confirmed by the current official homepage."
       ],
       "source_urls": [
+        "https://www.banyantreeresidenceswpb.com/",
         "https://news.groupbanyan.com/263640-banyan-group-enters-the-united-states-with-banyan-tree-residences-west-palm-beach/",
         "https://www.banyantreeresidenceswpb.com"
       ],
@@ -944,12 +951,13 @@
       "project_id": "banyan-tree-residences-west-palm-beach",
       "slug": "banyan-tree-residences-west-palm-beach",
       "display_name": "Banyan Tree Residences West Palm Beach",
-      "site_group": "pipeline_watchlist",
-      "page_type": "pipeline_page",
-      "status_badge": "Announced",
-      "development_stage": "announced_sales_launched",
-      "public_address": "Downtown West Palm Beach — exact street address TBD",
-      "neighborhood": "Downtown West Palm Beach"
+      "site_group": "active_sales",
+      "page_type": "main_building_page",
+      "status_badge": "Sales Open / Preconstruction",
+      "development_stage": "active_sales_preconstruction",
+      "public_address": "400 Hibiscus Street, West Palm Beach, FL 33401",
+      "neighborhood": "Downtown West Palm Beach",
+      "sales_gallery_address": "400 Hibiscus Street, West Palm Beach, FL 33401 (by appointment)"
     },
     {
       "include_on_site": true,

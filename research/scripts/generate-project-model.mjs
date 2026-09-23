@@ -198,7 +198,7 @@ const publicProjects = publishedProjects.map((project) => ({
   reviewedFields: project.reviewedFields,
   facts: {
     projectAddress: project.address,
-    salesGalleryAddress: "",
+    salesGalleryAddress: String(canonicalById.get(project.canonicalId)?.sales_gallery_address ?? ""),
     mailingAddress: "",
     planningParcelAddress: "",
     canonicalResidenceCount: project.residences,

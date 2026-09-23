@@ -1,3 +1,4 @@
+import { renderRevenueBuyerResearch } from "../../shared/revenue-buyer-research.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { readTsArray } from "./article-market-note-utils.mjs";
@@ -635,6 +636,7 @@ function renderProjectRoute(route, payload, slug) {
         <p>${publicText(editorial?.localTake || presentation.bottomLine)}</p>
         ${editorial?.bestFor?.length ? `<h3>Best suited to</h3><ul>${editorial.bestFor.slice(0, 3).map((item) => `<li>${publicText(item)}</li>`).join("")}</ul>` : ""}
       </section>
+      ${renderRevenueBuyerResearch(project.projectId)}
       ${renderPipelineWatchlistStaticNote(project)}
       ${renderProjectTypeContextStatic(project)}
       <section data-project-section="facts">
@@ -839,6 +841,7 @@ function renderCorridorRoute(route, payload, slug) {
         <h2>Buyer fit and verification notes</h2>
         <p>${publicText(corridorBestFit(slug))} Confirm current pricing, availability, incentives, fees, floor-plan release status, stack, exposure, delivery timing, and contract terms before making a purchase decision.</p>
       </section>
+      ${renderRevenueBuyerResearch(slug)}
       ${renderCorridorUpdatesForStatic(latestUpdates, corridor)}
       ${slug === "north-flagler" ? `
         <section>
@@ -986,6 +989,7 @@ function renderMarketNoteRoute(route, payload, slug) {
         ${hero?.path ? `<figure class="market-note-hero-image"><img src="${safeHref(hero.path)}" alt="${publicText(hero.alt || note?.title || route.title)}" loading="eager" decoding="async" />${hero.caption ? `<figcaption>${publicText(hero.caption)}</figcaption>` : ""}</figure>` : ""}
         <h2>Bottom line</h2>
         <p>${publicText(note?.excerpt || route.description)}</p>
+        ${renderRevenueBuyerResearch(slug)}
         <h2>How to use this guidance</h2>
         <p>Use the guidance to frame questions before comparing West Palm Beach buildings. Then check project pages, current floor-plan packets, source-linked updates, and The Scott Gordon Group at Douglas Elliman for the details that can change.</p>
         ${sections.map((section) => `<section><h2>${publicText(section.heading)}</h2><p>${publicText(stripImageTokens(section.body))}</p>${section.image ? `<figure class="market-note-inline-image"><img src="${safeHref(section.image)}" alt="${publicText(`${note?.title || route.title}: ${section.heading}`)}" loading="lazy" decoding="async" /></figure>` : ""}</section>`).join("")}
@@ -1627,7 +1631,6 @@ function gatekeeperText(value) {
   return String(value ?? "")
     .replace(/\bdevelopers?\b/gi, "project sponsor")
     .replace(/\bsales team\b/gi, "buyer-side review")
-    .replace(/\bsales gallery\b/gi, "buyer packet")
     .replace(/\bofficial project sites?\b/gi, "reviewed project materials")
     .replace(/\bofficial source\b/gi, "reviewed source")
     .replace(/\bdeveloper material\b/gi, "reviewed material")

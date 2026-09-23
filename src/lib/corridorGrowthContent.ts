@@ -29,7 +29,7 @@ export const corridorGrowthPages: Record<GrowthCorridor, CorridorCopy> = {
       {heading:'For buyers comfortable with a changing district',text:'NORA and announced downtown developments need a neighborhood timeline as well as a building timeline. Distinguish what is open, under construction and still proposed.'},
     ],
     further: [{label:'Fern & Gardenia / Fern Street',href:'/projects/fern-and-gardenia-related-ross-fern-street/'},{label:'Banyan Tree project guide',href:'/projects/banyan-tree/'},{label:'Downtown reporting',href:'/downtown-spotlight/'}],
-    furtherNote: 'Use these guides as additional development context, not confirmation of a current condominium offering. A mixed-use proposal may include rental, office or retail space; those uses are not for-sale residences.',
+    furtherNote: 'Banyan Tree is a marketed condominium with an appointment-only sales gallery; use its project guide for current buyer research. Review the Fern Street mixed-use proposal separately: rental, office and retail components are not automatically condos for sale.',
     resources: [{label:'Downtown vs waterfront: the practical trade-offs',href:'/answers/downtown-vs-waterfront-new-construction-condos/'},{label:'Compare buildings side by side',href:'/compare/'},{label:'Browse released floor plans',href:'/floorplans/'},{label:'Compare layouts beyond square footage',href:'/answers/compare-floor-plans-west-palm-beach-new-construction-condos/'}],
   },
   'south-flagler': {
