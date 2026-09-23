@@ -18,19 +18,19 @@ export const canonicalProjectModel = {
       "publicationState": "published",
       "displayName": "Alba Palm Beach",
       "status": "Completed",
-      "delivery": "Spring 2026 estimated",
+      "delivery": "Developer offering immediate occupancy (Sep 2026); confirm specific residence",
       "residences": "55",
-      "price": "$2.5M–$7.8M",
+      "price": "From just under $3M (developer guidance, Sep 2026)",
       "address": "4714 N. Flagler Drive, West Palm Beach, FL 33407",
-      "developmentStage": "under_construction",
+      "developmentStage": "completed",
       "pageType": "main_building_page",
-      "siteGroup": "active_under_construction",
+      "siteGroup": "active_sales",
       "sourceCatalogIds": [
         "alba-palm-beach"
       ],
       "compareDatabaseId": "alba-palm-beach",
       "compareDatabaseSlug": "alba-palm-beach",
-      "lastVerifiedDate": "2026-09-01",
+      "lastVerifiedDate": "2026-09-23",
       "aliases": [
         "alba-palm-beach",
         "/projects/alba-palm-beach/"
@@ -40,18 +40,20 @@ export const canonicalProjectModel = {
       "humanReviewRequired": false,
       "confidenceLevel": "high",
       "conflicts": [
-        "MiamiResidence listed 2025 delivery; official-source update supports Spring 2026 estimated delivery."
+        "The developer advertised immediate occupancy on 2026-09-23; no occupancy certificate was independently reviewed.",
+        "Unit 1003 sold on 2026-06-01, but that sale does not establish availability or readiness of other residences."
       ],
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [
         "https://www.miamiresidence.com/preconstruction/alba-palm-beach.htm",
         "https://www.albapalmbeach.com/vision",
-        "https://d3v3ow8236o554.cloudfront.net/alba-brochure.pdf"
+        "https://d3v3ow8236o554.cloudfront.net/alba-brochure.pdf",
+        "https://www.albapalmbeach.com/",
+        "https://www.compass.com/homedetails/4714-N-Flagler-Dr-Unit-1003-West-Palm-Beach-FL-33407/1CCKSL_pid/"
       ],
       "reviewedFields": {
         "status": "Completed",
-        "delivery": "2Q 2026",
         "address": "4714 N. Flagler Drive, West Palm Beach, FL 33407"
       },
       "fieldSources": {
@@ -67,9 +69,9 @@ export const canonicalProjectModel = {
         "deliveryYear": 2026,
         "longitude": -80.051,
         "latitude": 26.7526,
-        "summary": "A boutique 55-residence North Flagler waterfront building at 4714 N Flagler Drive for buyers who want new construction at a more intimate scale.",
+        "summary": "A 55-residence North Flagler waterfront condominium with developer sales active. The developer advertised immediate occupancy in September 2026; confirm residence-specific availability.",
         "floorplans": true,
-        "pageState": "Active / Sales / Under Construction",
+        "pageState": "Active / Developer Sales / Completed",
         "image": "/projects/alba-palm-beach/media/card.jpg",
         "heroImage": "",
         "mobileImage": "",
@@ -577,12 +579,12 @@ export const canonicalProjectModel = {
       "corridor": "South Flagler",
       "publicationState": "published",
       "displayName": "Maison d’Or",
-      "status": "Preconstruction / Details Emerging",
-      "delivery": "2028 reported",
+      "status": "Pre-Construction Sales",
+      "delivery": "Late 2028 (targeted; reported)",
       "residences": "39",
-      "price": "Starting at $5.7M",
+      "price": "From $5.7M (published guidance, Jan–Sep 2026); request current pricing",
       "address": "South Flagler Drive, West Palm Beach, FL",
-      "developmentStage": "early_preconstruction",
+      "developmentStage": "pre_construction_sales",
       "pageType": "main_building_page_with_caveat",
       "siteGroup": "active_under_construction",
       "sourceCatalogIds": [
@@ -590,7 +592,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "maison-dor-south-flagler",
       "compareDatabaseSlug": "maison-dor-south-flagler",
-      "lastVerifiedDate": "2026-09-01",
+      "lastVerifiedDate": "2026-09-23",
       "aliases": [
         "maison-dor",
         "/projects/maison-dor/",
@@ -599,21 +601,23 @@ export const canonicalProjectModel = {
       "collapsedSourceCatalogIds": [],
       "mergedInto": "",
       "humanReviewRequired": true,
-      "confidenceLevel": "medium-low",
+      "confidenceLevel": "medium-high",
       "conflicts": [
-        "Maison d’Or likely corresponds to municipal Flagler House, but exact address/floor details remain unverified."
+        "Building street number 3705 versus 3773 remains unresolved; public building address intentionally omits the number.",
+        "Late 2028 is a reported target, not a confirmed delivery date."
       ],
       "schemaBlockedFields": [],
       "gaps": [],
       "sourceUrls": [
         "https://livemaisondor.com/",
-        "https://livemaisondor.com/the-team/"
+        "https://livemaisondor.com/the-team/",
+        "https://www.livemaisondor.com/"
       ],
       "reviewedFields": {},
       "fieldSources": {
         "displayName": "canonical",
         "status": "canonical",
-        "delivery": "approved_fallback",
+        "delivery": "canonical",
         "residences": "canonical",
         "price": "canonical",
         "address": "canonical"
@@ -623,9 +627,9 @@ export const canonicalProjectModel = {
         "deliveryYear": 2028,
         "longitude": -80.04927,
         "latitude": 26.67787,
-        "summary": "A 39-residence South Flagler boutique project with emerging details; exact street number, floor count, and service program remain review items.",
-        "floorplans": false,
-        "pageState": "Active / Sales / Under Construction",
+        "summary": "A 39-residence South Flagler condominium in pre-construction sales, with released plans and published pricing guidance from $5.7M. Confirm current terms and the reported late-2028 target.",
+        "floorplans": true,
+        "pageState": "Active / Pre-Construction Sales",
         "image": "/projects/maison-dor/media/card.jpg",
         "heroImage": "",
         "mobileImage": "",
@@ -1246,12 +1250,12 @@ export const canonicalProjectModel = {
       "corridor": "Palm Beach",
       "publicationState": "published",
       "displayName": "OLIN Palm Beach",
-      "status": "Breaking Ground / Sales Launched",
+      "status": "Pre-Construction Sales",
       "delivery": "Timing not released",
       "residences": "32",
-      "price": "Inquiry pricing bands reported up to and above $40M; residence-specific pricing requires sales verification",
-      "address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL 33480",
-      "developmentStage": "breaking_ground",
+      "price": "Request current pricing",
+      "address": "2720 & 2730 South Ocean Boulevard, Palm Beach, FL",
+      "developmentStage": "pre_construction_sales",
       "pageType": "public_watchlist_page",
       "siteGroup": "pipeline_watchlist",
       "sourceCatalogIds": [
@@ -1259,7 +1263,7 @@ export const canonicalProjectModel = {
       ],
       "compareDatabaseId": "olin-palm-beach",
       "compareDatabaseSlug": "olin-palm-beach",
-      "lastVerifiedDate": "2026-09-01",
+      "lastVerifiedDate": "2026-09-23",
       "aliases": [
         "olin-palm-beach",
         "/projects/olin-palm-beach/"
@@ -1279,7 +1283,8 @@ export const canonicalProjectModel = {
       ],
       "sourceUrls": [
         "https://olinpalmbeach.com/",
-        "https://www.oftmw.com/projects/olin-palm-beach/"
+        "https://www.oftmw.com/projects/olin-palm-beach/",
+        "https://www.okogroup.com/portfolio/olin"
       ],
       "reviewedFields": {},
       "fieldSources": {
@@ -1295,9 +1300,9 @@ export const canonicalProjectModel = {
         "deliveryYear": 9999,
         "longitude": -80.0376,
         "latitude": 26.6229,
-        "summary": "OLIN Palm Beach is a 32-residence, three-building ocean-to-lagoon development on Palm Beach Island, designed by OMA with interiors by GACHOT and sales now launched.",
+        "summary": "A 32-residence ocean-to-lagoon Palm Beach project listed by OKO Group in pre-construction sales in September 2026. Request current pricing and project information.",
         "floorplans": false,
-        "pageState": "Breaking Ground / Sales Launched",
+        "pageState": "Pre-Construction Sales",
         "image": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",
         "heroImage": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-three-building-waterfront-v01.webp",
         "mobileImage": "/assets/projects/olin-palm-beach/hero/olin-palm-beach-hero-side-exterior-v01.webp",

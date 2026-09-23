@@ -11,6 +11,7 @@
     {
       "canonicalId": "alba-palm-beach",
       "publicSlug": "alba-palm-beach",
+      "lastVerifiedDate": "2026-09-23",
       "corridorKey": "north-flagler",
       "publicationState": "published",
       "sourceCatalogIds": ["alba-palm-beach"],
@@ -91,6 +92,7 @@
     {
       "canonicalId": "maison-dor",
       "publicSlug": "maison-dor",
+      "lastVerifiedDate": "2026-09-23",
       "corridorKey": "south-flagler",
       "publicationState": "published",
       "sourceCatalogIds": ["maison-dor"],
@@ -185,6 +187,7 @@
     {
       "canonicalId": "olin-palm-beach",
       "publicSlug": "olin-palm-beach",
+      "lastVerifiedDate": "2026-09-23",
       "corridorKey": "palm-beach",
       "publicationState": "published",
       "sourceCatalogIds": ["olin-palm-beach"],

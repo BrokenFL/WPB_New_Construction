@@ -266,19 +266,29 @@ const answerBlocks = [
     shortLabel: "Ready dates",
     question: "When will the main West Palm Beach new-construction condos be ready?",
     answer:
-      "The nearest dated completion in the current source set is Alba Palm Beach, with official material pointing to closings beginning around June 2026. Shorecrest and South Flagler House are both positioned around 2027. Ritz-Carlton Residences West Palm Beach is expected in 2028. Olara's current official/download material points to 2028, though some third-party coverage has used earlier timing. NORA House is more of a 2027 construction-start and 2029 finish story in recent reporting. Mandarin Oriental is a long-horizon play, with anticipated opening in 2031. Treat every date as a planning window until the sales team confirms it in writing.",
+      "Alba Palm Beach's developer reported construction completion in June 2026 and advertised immediate occupancy in September 2026; confirm readiness and availability for a particular residence. Shorecrest and South Flagler House are positioned around 2027. Ritz-Carlton Residences West Palm Beach is expected in 2028. Olara's current official/download material points to 2028, though some third-party coverage has used earlier timing. NORA House is more of a 2027 construction-start and 2029 finish story in recent reporting. Mandarin Oriental's delivery guidance conflicts across published sources, so its opening date needs direct confirmation. Treat every future date as a planning window until the sales team confirms it in writing.",
     concept: "Delivery timing",
     relatedProjectIds: ["alba-palm-beach", "shorecrest", "south-flagler-house", "ritz-carlton-wpb", "olara"],
     sources: ["official project sites", "Florida YIMBY", "World Red Eye", "project-source-catalog"],
     sourceCitations: [
       {
         label: "Alba official site",
-        href: "https://www.albapalmbeach.com/",
-        note: "Official/current Alba source used for near-term closing timing.",
+        href: "https://www.albapalmbeach.com/press/bgi-capital-and-blue-road-reach-completion-of-alba-palm-beach-in-west-palm-beach",
+        note: "Developer reported construction completion; current materials advertise immediate occupancy, subject to residence-specific confirmation.",
         sourceType: "official project site",
         dateAccessed: generatedDate,
-        supportsClaim: "Alba near-term delivery timing",
-        claimText: "Alba is the closest dated completion in the current catalog.",
+        supportsClaim: "Alba developer construction and occupancy guidance",
+        claimText: "Alba's developer reported completion and advertised immediate occupancy; individual availability requires confirmation.",
+        confidence: "high",
+      },
+      {
+        label: "ONE Sotheby's Alba development page",
+        href: "https://www.onesothebysrealty.com/our-developments/alba-palm-beach/",
+        note: "Sales brokerage advertises immediate occupancy; this does not certify a particular residence.",
+        sourceType: "developer sales brokerage",
+        dateAccessed: generatedDate,
+        supportsClaim: "Alba immediate-occupancy offer",
+        claimText: "Immediate occupancy is advertised by the sales brokerage, subject to residence-specific confirmation.",
         confidence: "high",
       },
       {
@@ -394,9 +404,9 @@ const answerBlocks = [
     shortLabel: "Under construction",
     question: "Which projects are actually under construction now?",
     answer:
-      "The most relevant under-construction set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Mr. C, Alba Palm Beach, and South Flagler House. Those are different from sales-launched or planning-stage projects such as NORA House, Banyan Tree, Mandarin Oriental, Maison d'Or, Edgeworth, and other pipeline items. Construction status can move quickly, so confirm the current jobsite milestone before treating timing as reliable.",
+      "The current under-construction comparison set includes Olara, Ritz-Carlton Residences West Palm Beach, Shorecrest, Mr. C, and South Flagler House. Alba's developer reported its building complete while developer sales remain active. NORA House, Banyan Tree, Mandarin Oriental, Maison d'Or and Edgeworth are at different sales or planning stages. Confirm the current jobsite milestone for any project before treating timing as reliable.",
     concept: "Construction status",
-    relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "mr-c", "alba-palm-beach", "south-flagler-house"],
+    relatedProjectIds: ["olara", "ritz-carlton-wpb", "shorecrest", "mr-c", "south-flagler-house", "alba-palm-beach"],
     sources: ["official project sites", "Florida YIMBY", "The Real Deal", "project-source-catalog"],
     sourceCitations: [
       {
@@ -1406,6 +1416,18 @@ function approvedRevenueFloorplanProjects(projects) {
 }
 
 async function main() {
+  if (process.argv.includes("--answer-blocks-only")) {
+    const answerPath = path.join(publicDataRoot, "answer-engine-faq.json");
+    const nextBlocks = await preserveExistingVolatileMetadata(answerPath, sanitizePublicPayload(answerBlocks));
+    const siteDataPath = path.join(generatedRoot, "siteData.ts");
+    const currentSiteData = await fs.readFile(siteDataPath, "utf8");
+    const pattern = /^export const answerEngineFaq = [^]*? as const;/m;
+    if (!pattern.test(currentSiteData)) throw new Error("Missing generated answerEngineFaq export");
+    await fs.writeFile(answerPath, `${JSON.stringify(nextBlocks, null, 2)}\n`);
+    await fs.writeFile(siteDataPath, currentSiteData.replace(pattern, () => `export const answerEngineFaq = ${JSON.stringify(nextBlocks, null, 2)} as const;`));
+    console.log("Answer-engine FAQ regenerated without refreshing assets or news.");
+    return;
+  }
   if (process.argv.includes("--buyer-content-only")) {
     const catalog = JSON.parse(await fs.readFile(reviewPath, "utf8"));
     const siteDataPath = path.join(generatedRoot, "siteData.ts");

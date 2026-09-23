@@ -215,7 +215,7 @@ const publicProjects = publishedProjects.map((project) => ({
     amenitySummary: canonicalById.get(project.canonicalId)?.amenity_summary ?? "",
     residenceFeatures: canonicalById.get(project.canonicalId)?.residence_features ?? [],
     neighborhoodContext: canonicalById.get(project.canonicalId)?.neighborhood ?? "",
-    factEffectiveDate: automatedFactAsOfBySlug[project.publicSlug] || project.lastVerifiedDate,
+    factEffectiveDate: String(canonicalById.get(project.canonicalId)?.fact_revision_date || automatedFactAsOfBySlug[project.publicSlug] || project.lastVerifiedDate),
     lastVerifiedDate: project.lastVerifiedDate,
     sourcePriority: project.fieldSources,
   },

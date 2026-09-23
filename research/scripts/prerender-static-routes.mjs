@@ -710,6 +710,7 @@ function renderProjectRoute(route, payload, slug) {
 }
 
 function buyerVerificationForStatic(project) {
+  if (project.projectId === "olin-palm-beach") return "OKO Group listed pre-construction sales in September 2026. Verify current residence pricing, availability, plans, delivery and contract terms before relying on a buyer comparison.";
   if (project.projectType === "rental") return "Public development materials are the baseline. We check current rents, concessions, availability, policies, and move-in terms against the latest leasing materials.";
   if (project.projectType === "office") return "Public plans describe the project. Available space, asking terms, parking, and tenant improvements require current leasing materials.";
   if (project.projectType === "completed-comparable") return "This building is a resale comparison. We check the specific listing, condition, fees, assessments, and seller terms before advising a buyer.";
@@ -742,6 +743,17 @@ function staticProjectPresentation(project, floorplans) {
   const common = {
     showFloorplans: hasFloorplans,
     guideCopy: `Use this stable ${project.name} profile for orientation, comparison, and the current details worth confirming before acting.`,
+  };
+  if (project.projectId === "olin-palm-beach") return {
+    ...common,
+    identityLabel: "Palm Beach condominium buyer guide",
+    bottomLine: "OKO Group listed OLIN Palm Beach in pre-construction sales in September 2026. Residence-specific pricing, availability, plans and delivery require current confirmation.",
+    offeringHeading: "Residence information to verify",
+    offeringCopy: "Released OLIN floor plans were not publicly verified in the reviewed sources. Request current project materials before comparing specific residences.",
+    inquiryHeading: "OLIN project inquiry",
+    inquiryCopy: "Ask for current OLIN pricing, availability, plans, fees and timing for the residence under consideration.",
+    ctaLabel: "Request OLIN project information",
+    interest: "project-information",
   };
   if (project.projectType === "rental") return {
     ...common,
@@ -887,6 +899,14 @@ function renderCorridorUpdatesForStatic(items, corridor) {
 function renderPipelineWatchlistStaticNote(project) {
   const isWatchlist = /pipeline|planning|mixed-use/.test(project.projectType || "") || /pipeline|watch|proposed/i.test(project.facts?.status || "");
   if (!isWatchlist) return "";
+  if (project.projectId === "olin-palm-beach") {
+    return `
+      <section>
+        <h2>OLIN sales context</h2>
+        <p>OKO Group listed OLIN Palm Beach in pre-construction sales in September 2026. The ocean-to-lagoon site is on Palm Beach Island. Current residence pricing, availability, released plans, delivery and contract terms require direct confirmation before comparing a specific home.</p>
+      </section>
+    `;
+  }
   if (project.projectId === "rosewood-residences-west-palm-beach") {
     return `
       <section>
@@ -1176,7 +1196,9 @@ function renderProjectCorridorCta(project, payload) {
   return `
     <section>
       <h2>Compare ${publicText(project.name)} within ${publicText(corridorLabelForKey(corridorKey))}</h2>
-      <p>Use the corridor guide to compare nearby West Palm Beach projects by buyer fit, current status, released floorplans, and what still needs verification before touring.</p>
+      <p>${project.projectId === "olin-palm-beach"
+        ? "Use the Palm Beach corridor guide to compare location, project stage and verified buyer details. Request current OLIN plans and residence terms before comparing a specific home."
+        : "Use the corridor guide to compare nearby West Palm Beach projects by buyer fit, current status, released floorplans, and what still needs verification before touring."}</p>
       <ul>
         <li><a href="${corridorPathForKey(corridorKey)}">Review ${publicText(corridorLabelForKey(corridorKey))} corridor</a></li>
         <li><a href="/compare/">Compare all buildings</a></li>
@@ -1356,6 +1378,16 @@ function projectFaqForStatic(project, floorplans) {
     ];
   }
   return [
+    ...(project.projectId === "olin-palm-beach" ? [
+      {
+        question: `Where does ${project.name} fit in the market?`,
+        answer: "OLIN is a low-rise, ocean-to-lagoon Palm Beach Island project that OKO Group listed in pre-construction sales in September 2026. Compare its location and verified project stage with Palm Beach alternatives; request current residence details before comparing layouts.",
+      },
+      {
+        question: `Are floorplans available for ${project.name}?`,
+        answer: "Released OLIN floor plans were not publicly verified in the reviewed sources. Request current project information before comparing specific residences.",
+      },
+    ] : [
     {
       question: `Where does ${project.name} fit in the market?`,
       answer: `${project.name} is a ${project.area || "West Palm Beach"} ${String(project.projectType || "project").replace(/-/g, " ")} profile. Compare its corridor, scale, published plans, and project stage with nearby alternatives.`,
@@ -1366,6 +1398,7 @@ function projectFaqForStatic(project, floorplans) {
         ? `${floorplans.count} public floorplan records are tracked for ${project.name}. See the floorplan library for the released layouts; ask for the current packet when comparing a specific line.`
         : "No complete public floorplan packet is confirmed in the current catalog. Request the current buyer packet before comparing lines or stacks.",
     },
+    ]),
   ];
 }
 
