@@ -2057,11 +2057,15 @@
     "repoProjectId": "mr-c",
     "heroHeadline": "Cipriani-Style Living in the Heart of Downtown West Palm Beach",
     "heroSubheadline": "Mr. C Residences West Palm Beach brings Cipriani hospitality to the heart of downtown, pairing private residences with hotel-caliber service, Bellini dining, rooftop amenities, wellness spaces, and walkable access to CityPlace, Clematis, the Kravis Center, Flagler waterfront, and Palm Beach.",
-    "overview": "Mr. C Residences West Palm Beach is a 27-story downtown tower pairing 146 branded residences with a 110-suite hotel, Bellini dining and Cipriani service from Ignazio and Maggio Cipriani. Construction is underway; completion estimates have varied across reports, so confirm current timing, pricing and availability with us in writing.",
+    "overview": "Mr. C Residences West Palm Beach is a 27-story downtown tower pairing 146 branded residences with a 110-suite hotel, Bellini dining and Cipriani service from Ignazio and Maggio Cipriani. The sales gallery is separately located at 401 S. Olive Avenue in downtown West Palm Beach; construction is underway; completion estimates have varied across reports, so confirm current timing, pricing and availability with us in writing.",
     "quickFacts": [
       {
         "label": "Address",
         "value": "327 Okeechobee Boulevard, West Palm Beach, FL 33401"
+      },
+      {
+        "label": "Sales Gallery",
+        "value": "401 S. Olive Avenue, West Palm Beach, FL 33401"
       },
       {
         "label": "Status",
@@ -2323,7 +2327,8 @@
       "Official project materials support the 27-story, 146-residence downtown positioning and hospitality amenity program.",
       "Approved floorplans support 1- to 3-bedroom layouts ranging from 830 to 2,195 square feet.",
       "Current pricing and final delivery timing should be confirmed with the sales team.",
-      "2026-09-23 verification: official site live at mrcresidenceswpb.com with interest form; Terra developer page confirms 146 residences, 27-story tower, 110 hotel suites, Arquitectonica / Meyer Davis / Landscape Design Workshop, developer Lakeview Hospitality Investment LLC; official fact sheet lists exclusive sales by Douglas Elliman Development Marketing. Completion estimates conflict (2026 vs 2027) — omitted from metadata. Pricing, inventory and sell-through not currently verified."
+      "2026-09-23 verification: official site live at mrcresidenceswpb.com with interest form; Terra developer page confirms 146 residences, 27-story tower, 110 hotel suites, Arquitectonica / Meyer Davis / Landscape Design Workshop, developer Lakeview Hospitality Investment LLC; official fact sheet lists exclusive sales by Douglas Elliman Development Marketing. Completion estimates conflict (2026 vs 2027) — omitted from metadata. Pricing, inventory and sell-through not currently verified.",
+      "2026-09-23 follow-up verification: sales gallery at 401 S. Olive Avenue, West Palm Beach, FL 33401 per the official site contact page (mrcresidenceswpb.com/contact-us/, 'Visit the Sales Gallery'), checked 2026-09-23; place data corroborates. Project/building address remains 327 Okeechobee Boulevard. Primary inquiry CTAs stay with The Scott Gordon Group via /inquire/?project=mr-c."
     ],
     "sourceUrls": [
       "https://www.mrcresidenceswpb.com/"
@@ -2852,7 +2857,7 @@
     "quickFacts": [
       {
         "label": "Address",
-        "value": "5400 N Flagler Drive, West Palm Beach, FL 33480"
+        "value": "5400 N Flagler Drive, West Palm Beach, FL"
       },
       {
         "label": "Sales Lounge",
@@ -2888,7 +2893,7 @@
       },
       {
         "label": "Price Range",
-        "value": "From $3.5M (reported; request current pricing)"
+        "value": "From $3.5M (Cervera published starting guidance; request current pricing and availability)"
       },
       {
         "label": "Delivery",
@@ -2901,7 +2906,7 @@
     ],
     "residences": "Residences range from two to four bedrooms, with villas and a penthouse completing the collection. Private elevator access, expansive wraparound terraces, and Intracoastal water views shape the residential experience.",
     "amenities": "Amenities include Mandarin Oriental service, a rooftop pool and lounge, a private waterfront pool, spa and wellness spaces, a fitness center, pickleball, and waterfront lounge settings.",
-    "location": "The residences are planned at 5400 N. Flagler Drive, West Palm Beach, FL 33480 on the Intracoastal waterfront, north of downtown. The sales lounge is separately located at 205 Worth Avenue, #321, Palm Beach. Compare the waterfront setting — not the Worth Avenue lounge — with Olara, Ritz-Carlton and Shorecrest.",
+    "location": "The residences are planned at 5400 N. Flagler Drive, West Palm Beach, FL on the Intracoastal waterfront, north of downtown. The sales lounge is separately located at 205 Worth Avenue, #321, Palm Beach. Compare the waterfront setting — not the Worth Avenue lounge — with Olara, Ritz-Carlton and Shorecrest.",
     "localTake": "Mandarin Oriental is the long-game branded waterfront play on North Flagler: a global hospitality name, Safdie design, 87 residences, wraparound terraces and Intracoastal views. The tradeoff is timing — completion estimates have varied across reports, so confirm current delivery guidance, pricing, deposit structure and service fees with us before treating any date as firm.",
     "tradeoffs": [
       "Completion timing is unresolved — reports vary; confirm current guidance in writing.",
@@ -2934,18 +2939,20 @@
       "Brand: Mandarin Oriental",
       "Residences: 87",
       "Floors: 31",
-      "Price Range: From $3.5M (reported; request current pricing)",
+      "Price Range: From $3.5M (Cervera published starting guidance; request current pricing and availability)",
       "Delivery: To confirm — estimates vary",
       "Bedrooms: 2–4 plus villas and penthouse"
     ],
     "amenityNarrative": "Amenities include Mandarin Oriental service, a rooftop pool and lounge, a private waterfront pool, spa and wellness spaces, a fitness center, pickleball, and waterfront lounge settings.",
     "residenceNarrative": "Residences range from two to four bedrooms, with villas and a penthouse completing the collection. Private elevator access, expansive wraparound terraces, and Intracoastal water views shape the residential experience.",
-    "locationNarrative": "The residences are planned at 5400 N. Flagler Drive, West Palm Beach, FL 33480 on the Intracoastal waterfront, north of downtown. The sales lounge is separately located at 205 Worth Avenue, #321, Palm Beach. Compare the waterfront setting — not the Worth Avenue lounge — with Olara, Ritz-Carlton and Shorecrest.",
+    "locationNarrative": "The residences are planned at 5400 N. Flagler Drive, West Palm Beach, FL on the Intracoastal waterfront, north of downtown. The sales lounge is separately located at 205 Worth Avenue, #321, Palm Beach. Compare the waterfront setting — not the Worth Avenue lounge — with Olara, Ritz-Carlton and Shorecrest.",
     "buyerComparisonNotes": "Mandarin Oriental is the long-game branded waterfront play on North Flagler. The draw is global hospitality service, Safdie architecture, private elevator access, expansive terraces, and a 2031 completion horizon.",
     "projectTeamNarrative": "Developer: Great Gulf Group. Brand: Mandarin Oriental. Architect: Safdie Architects. Interiors: Studio Munge. Landscape: ENEA.",
     "sourceNotes": [
       "Current display values reflect official project, brand, and developer launch materials.",
-      "2026-09-23 verification: official site live at mo-residenceswestpalmbeach.com; 87 residences, 31-story tower, Safdie Architects; residence address 5400 N. Flagler Drive, West Palm Beach, FL 33480 (ZIP corrected from 33407); sales lounge 205 Worth Avenue, #321, Palm Beach, FL 33480; 561.515.5222; live interest form. Delivery estimates conflict across reports — omitted from metadata. Pricing not currently verified."
+      "2026-09-23 verification: official site live at mo-residenceswestpalmbeach.com; 87 residences, 31-story tower, Safdie Architects; residence address initially recorded as 5400 N. Flagler Drive, West Palm Beach, FL 33480 (claim superseded by same-day follow-up: ZIP not authoritatively resolved; omitted from public address - see follow-up ZIP note); sales lounge 205 Worth Avenue, #321, Palm Beach, FL 33480; 561.515.5222; live interest form. Delivery estimates conflict across reports — omitted from metadata. Pricing: see follow-up pricing note.",
+      "2026-09-23 follow-up verification: residence address is 5400 N. Flagler Drive, West Palm Beach, FL (ZIP OMITTED - disputed, not authoritatively resolved). Evidence supporting 33407: Cervera project page, MLS B26074726, full-address geocode match (33407-2748), LoopNet property-record presentation for parcel 74-43-43-04-06-037-0010, Florida YIMBY (Mar 2026). Direct Palm Beach County PAPA record opened 2026-09-23: situs '5440 N FLAGLER DR', parcel 74-43-43-04-06-037-0010 confirmed, owner 5400 N FLAGLER LIMITED PARTNERSHIP - PAPA shows NO situs ZIP, so the ZIP is not authoritatively resolved. Per editorial standard, retain the verified street/city and omit the disputed ZIP from public output/schema rather than asserting 33407. The 33480 appeared only in the mo-residenceswestpalmbeach.com footer, which also correctly uses 33480 for the Palm Beach sales lounge (footer conflation). Keep 33480 only for the lounge (205 Worth Avenue, #321, Palm Beach, FL 33480). The c4bb769 'ZIP corrected from 33407' claim was premature and is corrected here.",
+      "2026-09-23 follow-up verification: Cervera project page advertises 'Starting from $3,500,000' (checked 2026-09-23); Florida YIMBY (Mar 2026) corroborates starting at $3.5M. This is published starting guidance from the official listing, not a live availability feed or guaranteed available-unit quote. Retain 'request current pricing and availability'."
     ],
     "sourceUrls": [
       "https://mo-residenceswestpalmbeach.com/",

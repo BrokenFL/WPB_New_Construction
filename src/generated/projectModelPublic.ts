@@ -584,7 +584,7 @@ export const publicProjectModel = {
       "reviewedFields": {},
       "facts": {
         "projectAddress": "327 Okeechobee Boulevard, West Palm Beach, FL 33401",
-        "salesGalleryAddress": "",
+        "salesGalleryAddress": "401 S. Olive Avenue, West Palm Beach, FL 33401",
         "mailingAddress": "",
         "planningParcelAddress": "",
         "canonicalResidenceCount": "146",
@@ -799,11 +799,11 @@ export const publicProjectModel = {
       "status": "Announced / Branded Pipeline",
       "delivery": "Timing to confirm — reports vary",
       "residences": "87",
-      "price": "From $3.5M reported; request current pricing",
+      "price": "From $3.5M published starting guidance (Cervera); request current pricing and availability",
       "reviewedFields": {},
       "facts": {
-        "projectAddress": "5400 N Flagler Drive, West Palm Beach, FL 33480",
-        "salesGalleryAddress": "",
+        "projectAddress": "5400 N Flagler Drive, West Palm Beach, FL",
+        "salesGalleryAddress": "205 Worth Avenue, #321, Palm Beach, FL 33480",
         "mailingAddress": "",
         "planningParcelAddress": "",
         "canonicalResidenceCount": "87",

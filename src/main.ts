@@ -6602,7 +6602,7 @@ function renderFeaturedProject(project: FeaturedProject) {
       data-pn="${project.name}"
       data-fv="${getProjectFilterValues(project)}"
       data-c="${project.corridorKey}"
-      data-d="${project.deliveryYear}"
+      data-d="${project.deliveryYear || 9999}"
       data-r="${getResidenceSortValue(project)}"
       data-rank="${project.rank}"
     >
@@ -10112,13 +10112,20 @@ function initProjectBrowser() {
   applyProjectState();
 }
 
+function deliverySortValue(el: HTMLElement): number {
+  // 0 is the repo's "delivery not publicly confirmed" sentinel. Never let it
+  // sort as "earliest": unknown timing always sorts last.
+  const value = getNumericDataset(el, "d");
+  return value === 0 ? Number.MAX_SAFE_INTEGER : value;
+}
+
 function compareProjectCards(a: HTMLElement, b: HTMLElement, sortValue: string) {
   if (sortValue === "az") {
     return String(a.dataset.pn ?? "").localeCompare(String(b.dataset.pn ?? ""));
   }
 
   if (sortValue === "delivery") {
-    return getNumericDataset(a, "d") - getNumericDataset(b, "d");
+    return deliverySortValue(a) - deliverySortValue(b);
   }
 
   if (sortValue === "residences") {

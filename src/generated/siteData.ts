@@ -4010,7 +4010,7 @@ export const projectFacts = [
     "lastReviewedDate": "2026-09-01",
     "facts": {
       "projectAddress": "327 Okeechobee Boulevard, West Palm Beach, FL 33401",
-      "salesGalleryAddress": "",
+      "salesGalleryAddress": "401 S. Olive Avenue, West Palm Beach, FL 33401",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Under Construction",
@@ -4125,15 +4125,15 @@ export const projectFacts = [
     "summary": "An 87-residence Mandarin Oriental waterfront tower on North Flagler with Safdie architecture and private terraces. Confirm current pricing and delivery guidance with the sales team.",
     "lastReviewedDate": "2026-09-01",
     "facts": {
-      "projectAddress": "5400 N Flagler Drive, West Palm Beach, FL 33480",
-      "salesGalleryAddress": "",
+      "projectAddress": "5400 N Flagler Drive, West Palm Beach, FL",
+      "salesGalleryAddress": "205 Worth Avenue, #321, Palm Beach, FL 33480",
       "mailingAddress": "",
       "planningParcelAddress": "",
       "status": "Announced / Branded Pipeline",
       "residences": "87",
       "stories": "31",
       "completion": "Timing to confirm — reports vary",
-      "pricing": "From $3.5M reported; request current pricing",
+      "pricing": "From $3.5M published starting guidance (Cervera); request current pricing and availability",
       "team": "Great Gulf Group; Safdie Architects / Moshe Safdie",
       "amenities": "Official high-level materials reference serene rooftop retreat, private waterfront pool, restorative wellness experiences, and Mandarin Oriental service.",
       "residenceFeatures": [
