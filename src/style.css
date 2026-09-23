@@ -4126,6 +4126,22 @@ body.has-floorplan-viewer {
   align-items: start;
 }
 
+/* Update articles already show the deck in the hero. Keep their story flow
+   linear so the shared market-note rail cannot stick over article content. */
+.update-article .market-note-body {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 940px;
+}
+
+.update-article .market-note-thesis {
+  display: none;
+}
+
+.update-article .buyer-intelligence-box,
+.update-article .market-note-sections {
+  grid-column: 1;
+}
+
 .market-note-thesis {
   position: sticky;
   top: 110px;
