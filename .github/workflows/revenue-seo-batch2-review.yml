@@ -43,6 +43,7 @@ jobs:
         run: |
           node --experimental-strip-types research/scripts/revenue-seo-batch2-triage.mjs before
           python3 research/scripts/apply-revenue-seo-batch2.py
+          python3 research/scripts/finalize-revenue-seo-batch2.py
       - name: Generate from existing sources only
         run: |
           node research/scripts/generate-project-model.mjs
@@ -105,7 +106,7 @@ jobs:
           git diff --check
           python3 - <<'PY'
           import subprocess
-          source='''content/project-copy-package.json content/project-page-overlays.json content/wpb_new_construction_building_database_cleaned.csv research/source-material-review/wpb-projects-canonical-v3-planning-update.json src/data/projectCardData.ts src/lib/corridorGrowthContent.ts shared/revenue-buyer-research.mjs research/scripts/build-site-intelligence.mjs config/preserved-floorplan-document-urls.json config/revenue-seo-batch2-applied.json vite.config.ts'''.split()
+          source='''content/project-copy-package.json content/project-page-overlays.json content/wpb_new_construction_building_database_cleaned.csv research/source-material-review/wpb-projects-canonical-v3-planning-update.json src/data/projectCardData.ts src/main.ts research/scripts/revenue-seo-batch2.test.mjs src/lib/corridorGrowthContent.ts shared/revenue-buyer-research.mjs research/scripts/build-site-intelligence.mjs config/preserved-floorplan-document-urls.json config/revenue-seo-batch2-applied.json vite.config.ts'''.split()
           generated='''src/generated/projectModel.json src/generated/projectModel.ts src/generated/projectModelPublic.json src/generated/projectModelPublic.ts src/generated/buildingDatabase.ts src/generated/buildingDatabasePublic.ts src/generated/projectSchemaSafe.json src/generated/projectSchemaRuntime.ts src/generated/siteData.ts public/data/site-meta.json public/data/project-copy-package.json public/data/floorplans.json public/llms.txt'''.split()
           changed=set(filter(None,subprocess.check_output(['git','diff','--name-only','-z']).decode().split('\0')))
           untracked=set(filter(None,subprocess.check_output(['git','ls-files','--others','--exclude-standard','-z']).decode().split('\0')))
