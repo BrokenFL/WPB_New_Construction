@@ -1421,7 +1421,9 @@ async function main() {
     await fs.writeFile(path.join(publicDataRoot, "floorplans.json"), JSON.stringify(currentPlans, null, 2) + String.fromCharCode(10));
     await fs.writeFile(path.join(publicDataRoot, "site-meta.json"), JSON.stringify(siteMeta, null, 2) + String.fromCharCode(10));
     await fs.writeFile(publicProjectCopyPackagePath, JSON.stringify(buildPublicProjectCopyPackage(readProjectCopyPackage()), null, 2) + String.fromCharCode(10));
-    console.log("Buyer content regenerated; floor-plan, image and news inventories preserved.");
+    const buyerNewsFeedSnapshot = JSON.parse(await fs.readFile(path.join(publicDataRoot, "news-feed.json"), "utf8"));
+    await fs.writeFile(path.join(workspace, "public/llms.txt"), renderLlmsTxt(currentPlans, buyerNewsFeedSnapshot));
+    console.log("Buyer discovery regenerated; approved plans aligned; source assets and news unchanged.");
     return;
   }
   if (siteMetaOnly) {

@@ -49,12 +49,13 @@ The site is built to help buyers understand which West Palm Beach condo building
 ## Floorplan Coverage
 
 - Alba Palm Beach: 7 floorplan records
-- Olara West Palm Beach: 28 floorplan records
+- Olara West Palm Beach: 26 floorplan records
 - Shorecrest: 5 floorplan records
-- The Ritz-Carlton Residences, West Palm Beach: 16 floorplan records
+- The Ritz-Carlton Residences, West Palm Beach: 12 floorplan records
+- Banyan Tree Residences West Palm Beach: 7 floorplan records
 - Mr. C Residences West Palm Beach: 32 floorplan records
 - The Berkeley Palm Beach: 9 floorplan records
-- Nora House: 65 floorplan records
+- Nora House: 32 floorplan records
 - Forté on Flagler: 3 floorplan records
 - Maison d’Or: 1 floorplan records
 - South Flagler House North Tower: 3 floorplan records
@@ -147,7 +148,7 @@ The site is built to help buyers understand which West Palm Beach condo building
 - NORA House turns the district into a buyer decision | Buyer Intelligence: /market-notes/nora-house-turns-the-district-into-a-buyer-decision/
 - Alba's finish changes the North Flagler buyer test | Buyer Intelligence: /market-notes/alba-s-finish-changes-the-north-flagler-buyer-test/
 - Mr. C shows downtown branded condos still move | Buyer Intelligence: /market-notes/mr-c-shows-downtown-branded-condos-still-move/
-- North Flagler Condos | West Palm Beach Buyer Guide: /corridors/north-flagler/
+- North Flagler New Construction Condos | Compare & Floor Plans: /corridors/north-flagler/
 - Downtown West Palm Beach Condos | Buyer Guide: /corridors/downtown-west-palm-beach/
 - South Flagler Condos | West Palm Beach Buyer Guide: /corridors/south-flagler/
 - South End West Palm Beach Developments | Area Guide: /corridors/south-end/
@@ -158,17 +159,17 @@ The site is built to help buyers understand which West Palm Beach condo building
 - Terms | WPB New Construction: /terms/
 - West Palm Beach Condo Buyer Research Desk | Inquiry: /inquire/
 - Alba Palm Beach | North Flagler New Construction Condos: /projects/alba-palm-beach/
-- Olara West Palm Beach | Waterfront Resort Condos: /projects/olara/
+- Olara West Palm Beach | Prices, Floor Plans & Condos: /projects/olara/
 - Shorecrest West Palm Beach | Related Ross Waterfront Condos: /projects/shorecrest/
-- Ritz-Carlton Residences West Palm Beach | Waterfront Condos: /projects/ritz-carlton-wpb/
+- Ritz-Carlton Residences West Palm Beach | Floor Plans: /projects/ritz-carlton-wpb/
 - The Berkeley Palm Beach | Clear Lake New Construction Condos: /projects/berkeley/
-- Nora House West Palm Beach | Nora District Luxury Condos: /projects/nora-house/
+- NORA House West Palm Beach | Prices & Floor Plans: /projects/nora-house/
 - South Flagler House | Flagship Waterfront Condos: /projects/south-flagler-house/
 - Mr. C Residences West Palm Beach | Downtown Branded Condos: /projects/mr-c/
 - Maison d Or West Palm Beach | South Flagler Condo Watch: /projects/maison-dor/
 - Edgeworth West Palm Beach | Related Ross South Flagler Condos: /projects/edgeworth/
 - Mandarin Oriental Residences West Palm Beach | North Flagler Waterfront: /projects/mandarin-oriental/
-- Banyan Tree Residences West Palm Beach | Downtown Condos: /projects/banyan-tree/
+- Banyan Tree Residences West Palm Beach | Buyer Guide: /projects/banyan-tree/
 - Alba Reserve West Palm Beach | North Flagler Watchlist: /projects/alba-reserve/
 - Forte on Flagler | Completed South Flagler Luxury Comp: /projects/forte-on-flagler/
 - La Clara West Palm Beach | Completed South Flagler Condos: /projects/la-clara/
