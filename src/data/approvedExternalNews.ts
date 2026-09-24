@@ -76,6 +76,123 @@ export function isHomepageContextLane(item: ExternalNewsItem): boolean {
 
 export const approvedExternalNews: readonly ExternalNewsItem[] = [
   {
+    "id": "palm-beach-county-data-center-moratorium-project-tango-2026-09-24",
+    "slug": "palm-beach-county-data-center-moratorium-project-tango-2026-09-24",
+    "title": "Palm Beach County Pauses Large Data Centers After Project Tango Rejection",
+    "sourceName": "WPTV via WFLX",
+    "sourceUrl": "https://www.wflx.com/2026/09/24/palm-beach-county-commissioners-unanimously-approve-moratorium-new-hyperscale-ai-data-centers/",
+    "canonicalUrl": "https://www.wflx.com/2026/09/24/palm-beach-county-commissioners-unanimously-approve-moratorium-new-hyperscale-ai-data-centers/",
+    "sourceTitle": "Palm Beach County Pauses Large Data Centers After Project Tango Rejection",
+    "publishedAt": "2026-09-24T22:23:00.790Z",
+    "sourcePublishedAt": "2026-09-24",
+    "sourcePublishedDate": "2026-09-24",
+    "eventDate": "2026-09-24",
+    "dateDiscovered": "2026-09-24",
+    "freshnessLane": "breaking_14d",
+    "fetchedAt": "2026-09-24T22:23:00.790Z",
+    "deck": "A yearlong moratorium gives the county time to develop rules for noise, utilities and neighborhood compatibility. But it does not erase development rights already approved.",
+    "description": "Palm Beach County’s data center pause follows Project Tango’s rejection. Learn what it covers, what remains approved and what nearby homebuyers should watch.",
+    "summary": "Palm Beach County’s data center pause follows Project Tango’s rejection. Learn what it covers, what remains approved and what nearby homebuyers should watch.",
+    "bodySections": [
+      {
+        "heading": "Introduction",
+        "body": "Palm Beach County commissioners unanimously approved a moratorium on September 24, 2026, temporarily blocking certain new large data-center applications in the unincorporated county. The measure follows the county’s July rejection of Project Tango’s requested expansion near the Arden community—but existing approvals on the property remain an important part of the story. The lead image is illustrative; it does not show Central Park Commerce Center or indicate that the site is closed."
+      },
+      {
+        "heading": "What the county’s pause actually covers",
+        "body": "The moratorium applies to new zoning requests and related comprehensive-plan amendments for data centers with anticipated peak electrical demand of 50 megawatts or more in unincorporated Palm Beach County. During the pause, the county will not accept, process or approve qualifying applications. It may end earlier if permanent regulations are adopted.\n\nThe threshold is based on power demand, rather than building size. WLRN reported during the August first reading that county staff would evaluate electrical demand across an entire property, so an operator could not avoid the threshold by dividing a large operation into smaller parcels.\n\nThis is a targeted land-use measure. It is not a general construction moratorium and does not suspend West Palm Beach’s residential condominium pipeline. Its stated scope is qualifying data-center applications in unincorporated county areas.\n\nThe process began before Tango’s rejection. Commissioners directed staff to pursue a moratorium in July, with the measure moving through subsequent hearings before September’s final adoption."
+      },
+      {
+        "heading": "Why Project Tango became the flashpoint",
+        "body": "Project Tango is associated with Central Park Commerce Center, an approximately 202.7-acre property along Southern Boulevard next to Florida Power & Light’s West County Energy Center. The developer says the site has industrial and employment-use approvals dating to 2016 and points to its existing electrical infrastructure.\n\nThe proposed expansion put a broader question before commissioners: whether a hyperscale computing operation belonged near established homes and a school. WLRN reported that Tango requested 600 megawatts of power, illustrating the scale of the proposal relative to the county’s 50-megawatt threshold.\n\nOn July 15, commissioners rejected the proposal by a 5–1 vote after a public hearing that lasted more than 12 hours. Residents and teachers raised concerns about noise, vibration, water use and the project’s proximity to Arden and Saddle View Elementary School. Commissioners concluded that the applicant had not adequately addressed concerns about nearby impacts.",
+        "image": "/assets/editorial/palm-beach-county-data-center-moratorium-project-tango-2026-09-24-body-1.jpg",
+        "imageAlt": "Illustration of residents attending a county commission hearing as officials review data-center plans.",
+        "imageCaption": "Illustrative county-hearing scene; not a photograph of the September 24 vote or the Project Tango review.",
+        "imageCredit": "Image provided by Brooke Snader."
+      },
+      {
+        "heading": "The developer’s case—and the questions that remain",
+        "body": "The development team argues that the property’s industrial history and proximity to electrical infrastructure make it suitable for a data center. Its published materials describe enclosed equipment, setbacks and landscaped buffers intended to reduce off-site sound.\n\nWater use has also been contested. The developer says the proposed design would use closed-loop cooling, recirculating water rather than continuously replacing it. It projects about 5,000 gallons of daily potable-water demand at full buildout, primarily for ordinary employee uses after the cooling system’s initial fill. Those are the developer’s projections, not measurements from an operating facility.\n\nThe central planning question is how those claims would be evaluated and enforced. The county has not yet adopted permanent rules governing the location and operation of large data centers. Noise, water and utility demands, and compatibility with nearby homes and schools remain part of that policy debate."
+      },
+      {
+        "heading": "What can still happen at the site",
+        "body": "An existing county-approved site plan includes two 100,000-square-foot data-center buildings, a 1.2-million-square-foot warehouse and a 6,000-square-foot office, for a combined 1.406 million square feet. Separately, county records describe a broader master plan of about 2.02 million square feet across multiple uses. That figure should not be mistaken for 2 million square feet of data centers.\n\nThe July denial was without prejudice, leaving the developer able to revise and reapply through the applicable approval process. A revised application would still be subject to the rules in effect when it is filed, including the temporary moratorium where applicable.\n\nThe practical takeaway is straightforward: the county stopped the requested expansion, but it did not return the property to land without development rights.",
+        "image": "/assets/editorial/palm-beach-county-data-center-moratorium-project-tango-2026-09-24-body-2.jpg",
+        "imageAlt": "Illustration of a data center beside a residential neighborhood at sunset.",
+        "imageCaption": "Conceptual aerial-style illustration of a data center near homes; not an aerial photograph, site plan or rendering of Project Tango.",
+        "imageCredit": "Image provided by Brooke Snader."
+      },
+      {
+        "heading": "What buyers should watch next",
+        "body": "The next significant decision is what replaces the temporary pause. Officials have discussed possible restrictions addressing location, proximity to homes and schools, noise, water use and other operating impacts. Those discussions are not a finished set of permanent regulations.\n\nOn September 24, commissioners chose to have staff return with a consultant contract to help develop rules. The scope and recommendations of that work will shape what standards apply to future proposals.\n\nFor buyers, Tango offers a practical due-diligence lesson: examine both what is proposed nearby and what has already been approved. Check the permitted uses on neighboring parcels, which approvals remain active, which buffers and operating conditions are enforceable, and which assurances appear only in a presentation rather than an approval document.\n\nThe moratorium creates time to write new rules. It does not make the surrounding land-use questions disappear."
+      }
+    ],
+    "whyItMatters": "For nearby homebuyers, a rejected expansion does not necessarily erase existing development approvals. Check the approved site plan, permitted uses and enforceable operating conditions alongside any proposed changes.",
+    "buyerContext": "For nearby homebuyers, a rejected expansion does not necessarily erase existing development approvals. Check the approved site plan, permitted uses and enforceable operating conditions alongside any proposed changes.",
+    "buyerTakeaway": "A rejected expansion does not necessarily erase existing development approvals. Check the approved site plan, permitted uses and enforceable operating conditions alongside any proposed changes.",
+    "marketSignal": "",
+    "bestFor": "",
+    "watchPoints": "Follow the county’s permanent data-center regulations and any revised Project Tango application.",
+    "buyerQuestions": "Which neighboring uses and site-plan approvals remain active? Which operating conditions are enforceable?",
+    "relatedBuildings": [],
+    "relatedNeighborhoods": [
+      "Arden"
+    ],
+    "relatedCorridor": "",
+    "relatedArticleIds": [],
+    "newsletterHeadline": "Palm Beach County Pauses Large Data Centers After Project Tango Rejection",
+    "newsletterBlurb": "What Palm Beach County’s new data-center moratorium covers, what Project Tango approvals remain and what nearby buyers should watch.",
+    "newsletterCta": "Read the article",
+    "query": "Palm Beach County Pauses Large Data Centers After Project Tango Rejection",
+    "category": "development",
+    "relatedProjectIds": [],
+    "relatedCorridorIds": [],
+    "relatedProjectSlugs": [],
+    "relatedCorridors": [],
+    "corridorLabel": "West Palm Beach",
+    "imagePath": "/assets/editorial/palm-beach-county-data-center-moratorium-project-tango-2026-09-24-hero.jpg",
+    "sourceLinks": [
+      {
+        "label": "Palm Beach County commissioners approve one-year data-center moratorium",
+        "url": "https://www.wflx.com/2026/09/24/palm-beach-county-commissioners-unanimously-approve-moratorium-new-hyperscale-ai-data-centers/",
+        "type": "local news coverage"
+      },
+      {
+        "label": "Palm Beach County weighs new rules for large data centers",
+        "url": "https://www.wlrn.org/government-politics/2026-08-27/palm-beach-county-artificial-intelligence-data-centers",
+        "type": "local news coverage"
+      },
+      {
+        "label": "Project Tango zoning and site-plan documents",
+        "url": "https://discover.pbcgov.org/pzb/zoning/Pages/Project_Tango.aspx",
+        "type": "county planning records"
+      },
+      {
+        "label": "Palm Beach County rejects Project Tango expansion; approved site plan remains",
+        "url": "https://www.wflx.com/2026/07/17/palm-beach-county-commissioners-reject-project-tango-data-center-development-still-approved-site/",
+        "type": "local news coverage"
+      },
+      {
+        "label": "Palm Beach County rejects Project Tango data-center expansion",
+        "url": "https://www.wlrn.org/government-politics/2026-07-16/project-tango-ai-data-center-palm-beach-rejected",
+        "type": "local news coverage"
+      },
+      {
+        "label": "Central Park Commerce Center project information",
+        "url": "https://www.centralparkcommercecenter.com/",
+        "type": "developer information"
+      },
+      {
+        "label": "County commission approves moratorium and plans consultant-led rules",
+        "url": "https://wjno.iheart.com/featured/florida-news/content-2026-09-24-palm-beach-county-commission-gives-final-approval-to-one-year-moratorium-on-data-centers/",
+        "type": "local news coverage"
+      }
+    ],
+    "paywallStatus": "free",
+    "status": "published",
+    "riskLevel": "medium"
+  },
+  {
     "id": "west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23",
     "slug": "west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23",
     "title": "West Palm’s Waterfront Towers Are Gone. Six Million Square Feet of Growth Is Not.",

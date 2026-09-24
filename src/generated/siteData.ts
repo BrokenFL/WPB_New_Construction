@@ -4741,6 +4741,12 @@ export const prerenderRoutes = [
     "ogImage": "/projects/ritz-carlton-wpb/media/ritz-evening-aerial-road-motion-2400x1600.png"
   },
   {
+    "path": "/updates/palm-beach-county-data-center-moratorium-project-tango-2026-09-24/",
+    "title": "Palm Beach County Pauses Large Data Centers After Project Tango Rejection | WPB Updates",
+    "description": "Palm Beach County’s data center pause follows Project Tango’s rejection. Learn what it covers, what remains approved and what nearby homebuyers should watch.",
+    "ogImage": "/assets/editorial/palm-beach-county-data-center-moratorium-project-tango-2026-09-24-hero.jpg"
+  },
+  {
     "path": "/updates/west-palm-downtown-plan-six-million-square-feet-growth-2026-09-23/",
     "title": "West Palm’s Waterfront Towers Are Gone. Six Million Square Feet of Growth Is Not. | WPB Updates",
     "description": "West Palm Beach’s Planning Board advanced a revised Downtown Master Plan with roughly 6 million square feet of added potential growth and a taller inland development spine.",
