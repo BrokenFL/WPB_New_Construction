@@ -181,8 +181,8 @@ function approvedUpdateRoutes() {
       .map((item) => ({
         id: item.id,
         slug: item.slug,
-        title: `${item.title} | WPB Updates`,
-        description: item.description || "West Palm Beach new-construction update with buyer context and original source attribution.",
+        title: item.titleTag || `${item.title} | WPB Updates`,
+        description: item.metaDescription || item.description || "West Palm Beach new-construction update with buyer context and original source attribution.",
         ogImage: updateRouteOgImage(item),
         lastmod: normalizedDate(item.dateModified || item.publishedAt || item.datePublished || item.dateDiscovered),
       }));
