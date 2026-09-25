@@ -4742,7 +4742,7 @@ export const prerenderRoutes = [
   },
   {
     "path": "/updates/west-palm-point-tent-site-delay-2029-2026-09-25/",
-    "title": "West Palm Point Faces Another Delay — But a $350M Investment Could Finally Move the ‘Tent Site’ Forward | WPB Updates",
+    "title": "West Palm Point Seeks 2029 Deadline as $350M Investment Emerges",
     "description": "West Palm Point's developer is seeking until January 2029 to complete the long-delayed Tent Site tower as West Palm Beach weighs a proposed $350 million investment and new financial protections.",
     "ogImage": "/assets/editorial/west-palm-point-tent-site-delay-2029-2026-09-25-hero.jpg"
   },

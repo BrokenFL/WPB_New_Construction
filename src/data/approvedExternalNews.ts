@@ -94,7 +94,7 @@ export const approvedExternalNews: readonly ExternalNewsItem[] = [
     "eventDate": "2026-09-25",
     "dateDiscovered": "2026-09-25",
     "freshnessLane": "breaking_14d",
-    "fetchedAt": "2026-09-25T20:39:33.644Z",
+    "fetchedAt": "2026-09-25T20:50:25.902Z",
     "deck": "The long-delayed gateway tower is seeking a new January 2029 completion deadline as West Palm Beach officials weigh frustration with the developer against a proposed $350 million investment that could finally put the project on firmer footing.",
     "description": "West Palm Point's developer is seeking until January 2029 to complete the long-delayed Tent Site tower as West Palm Beach weighs a proposed $350 million investment and new financial protections.",
     "summary": "The long-delayed gateway tower is seeking a new January 2029 completion deadline as West Palm Beach officials weigh frustration with the developer against a proposed $350 million investment that could finally put the project on firmer footing.",
