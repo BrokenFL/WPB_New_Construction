@@ -214,6 +214,8 @@ type CorridorSection = {
 type ContentImageContext = {
   image?: {
     path?: string;
+    alt?: string;
+    caption?: string;
     credit?: string;
   };
   imageId?: string;
@@ -4127,11 +4129,11 @@ function routeSeoDetails(
       : activeMarketNote
         ? activeMarketNote.seo.titleTag
       : activeNewsItem
-        ? `${activeNewsItem.title} | WPB Updates`
+        ? activeNewsItem.titleTag || `${activeNewsItem.title} | WPB Updates`
       : activeAnswer
         ? `${activeAnswer.title} | WPB Answers`
       : routeTitles[route.type] ?? siteMeta.title;
-  const description = activeAnswer?.description ?? (activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? (activeProject?.projectType === "rental" ? `Track ${activeProject.name} at ${activeProject.address}: rental status, ${activeProject.residences}, amenities, neighborhood context, and current leasing details to verify.` : activeProject?.summary) ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
+  const description = activeAnswer?.description ?? (activeNewsItem ? activeNewsItem.metaDescription || updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? (activeProject?.projectType === "rental" ? `Track ${activeProject.name} at ${activeProject.address}: rental status, ${activeProject.residences}, amenities, neighborhood context, and current leasing details to verify.` : activeProject?.summary) ?? (activeCorridor ? corridorDescriptions[activeCorridor.key] : metaDescriptionForRoute(route.type)));
   const image = route.type === "about" ? teamProfile.photo : activeProject?.image ?? (activeMarketNote ? imageForContentItem(activeMarketNote).src : activeNewsItem ? imageForContentItem(externalNewsImageContext(activeNewsItem)).src : siteMeta.defaultImage);
   return {
     title: buyerSeo?.seoTitle || title,
@@ -4476,7 +4478,7 @@ function updateMetaDescription(routeType: string, activeProject?: FeaturedProjec
     meta.name = "description";
     document.head.append(meta);
   }
-  meta.content = activeAnswer?.description ?? (activeNewsItem ? updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? metaDescriptionForRoute(routeType));
+  meta.content = activeAnswer?.description ?? (activeNewsItem ? activeNewsItem.metaDescription || updateArticleContent(activeNewsItem).excerpt : activeMarketNote?.seo.metaDescription ?? activeProject?.summary ?? metaDescriptionForRoute(routeType));
 }
 
 function metaDescriptionForRoute(routeType: string) {
@@ -6398,9 +6400,9 @@ function imageForContentItem(item: ContentImageContext): ResolvedContentImage {
   if (explicitImage && canShowImage(explicitImage)) {
     return {
       src: explicitImage,
-      alt: `${item.title ?? "West Palm Beach new-construction update"} image`,
+      alt: item.image?.alt ?? `${item.title ?? "West Palm Beach new-construction update"} image`,
       credit: item.image?.credit ?? imageCreditShort(explicitImage),
-      caption: item.image?.credit ?? imageCreditShort(explicitImage),
+      caption: item.image?.caption ?? item.image?.credit ?? imageCreditShort(explicitImage),
       relatedProject: projectLabelForImage(explicitImage)
         ? featuredProjects.find((project) => explicitImage.includes(`/projects/${project.id}/`))
         : undefined,
@@ -7168,7 +7170,12 @@ function externalNewsImageContext(item: ExternalNewsItem): ContentImageContext {
     projectIds: item.relatedProjectIds,
     relatedProjectIds: item.relatedProjectIds,
     relatedCorridorIds: item.relatedCorridorIds,
-    image: item.imagePath || item.imageUrl ? { path: item.imagePath || item.imageUrl, credit: item.sourceName } : undefined,
+    image: item.imagePath || item.imageUrl ? {
+      path: item.imagePath || item.imageUrl,
+      alt: item.imageAlt,
+      caption: item.imageCaption,
+      credit: item.imageCredit || item.sourceName,
+    } : undefined,
     imageId: item.resolvedLocalImageId,
     resolvedLocalImageId: item.resolvedLocalImageId,
     canonicalUrl: item.canonicalUrl,

@@ -64,6 +64,8 @@ Template: `research/article-uploads/templates/article-template.json`.
   "relatedProjectIds": ["nora-house"],
   "relatedCorridorIds": ["downtown"],
   "heroImage": { "file": "hero.jpg", "path": "/assets/editorial/hero.jpg", "alt": "", "caption": "", "credit": "" },
+  "titleTag": "Search and browser title",
+  "metaDescription": "Search and social description",
   "bodyImages": [
     { "key": "image1", "file": "body.jpg", "alt": "", "caption": "", "credit": "" }
   ],

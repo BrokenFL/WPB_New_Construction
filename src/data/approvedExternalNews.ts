@@ -13,6 +13,8 @@ export type ExternalNewsItem = {
   dateDiscovered: string;
   freshnessLane: "breaking_14d" | "recent_30d" | "evergreen_context" | "evergreen_analysis" | "background_context" | "archive_only";
   fetchedAt: string;
+  titleTag?: string;
+  metaDescription?: string;
   deck?: string;
   description?: string;
   summary?: string;
@@ -43,6 +45,9 @@ export type ExternalNewsItem = {
   corridorLabel?: string;
   imageUrl?: string;
   imagePath?: string;
+  imageAlt?: string;
+  imageCaption?: string;
+  imageCredit?: string;
   resolvedLocalImageId?: string;
   sourceLinks?: { label: string; url: string; type?: string }[];
   paywallStatus: "free" | "unknown" | "likely-paywalled";
